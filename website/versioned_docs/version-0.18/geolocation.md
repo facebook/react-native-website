@@ -1,0 +1,86 @@
+---
+id: version-0.18-geolocation
+title: Geolocation
+original_id: geolocation
+---
+
+The Geolocation API follows the web spec:
+https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
+
+### iOS
+You need to include the `NSLocationWhenInUseUsageDescription` key
+in Info.plist to enable geolocation. Geolocation is enabled by default
+when you create a project with `react-native init`.
+
+### Android
+To request access to location, you need to add the following line to your
+app's `AndroidManifest.xml`:
+
+`<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
+
+
+
+### Methods
+
+- [`getCurrentPosition`](geolocation.md#getcurrentposition)
+- [`watchPosition`](geolocation.md#watchposition)
+- [`clearWatch`](geolocation.md#clearwatch)
+- [`stopObserving`](geolocation.md#stopobserving)
+
+
+
+
+---
+
+# Reference
+
+## Methods
+
+### `getCurrentPosition()`
+
+```javascript
+static getCurrentPosition(geo_success, geo_error?, geo_options?)
+```
+
+
+Invokes the success callback once with the latest location info.  Supported
+options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
+
+
+
+
+---
+
+### `watchPosition()`
+
+```javascript
+static watchPosition(success, error?, options?)
+```
+
+
+Invokes the success callback whenever the location changes.  Supported
+options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
+
+
+
+
+---
+
+### `clearWatch()`
+
+```javascript
+static clearWatch(watchID)
+```
+
+
+
+---
+
+### `stopObserving()`
+
+```javascript
+static stopObserving()
+```
+
+
+

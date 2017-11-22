@@ -1,0 +1,28 @@
+{
+  "name": "react-native-website",
+  "description": "React Native website",
+  "version": "0.0.1",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/facebook/react-native-website"
+  },
+  "license": "CC",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facebook/react-native-website.git"
+  },
+  "scripts": {
+    "start": "docusaurus-start",
+    "build": "docusaurus-build",
+    "publish-gh-pages": "docusaurus-publish",
+    "version": "docusaurus-version",
+    "rename-version": "docusaurus-rename-version",
+    "test": "yarn build"
+  },
+  "dependencies": {
+    "docusaurus": "^1.0.0-beta.13",
+    "highlight.js": "^9.12.0",
+    "remarkable": "^1.7.1"
+  }
+}
