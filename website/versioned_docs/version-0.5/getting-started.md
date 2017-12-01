@@ -791,7 +791,6 @@ If you're curious to learn more about React Native, continue on to the
     var container = document.getElementsByTagName('block')[0].parentNode;
     container.className = 'display-' + type + '-' + value + ' ' +
       container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
-    event && event.preventDefault();
   }
   function convertBlocks() {
     // Convert <div>...<span><block /></span>...</div>
