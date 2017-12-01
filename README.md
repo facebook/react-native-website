@@ -19,11 +19,11 @@ This repo contains the website configuration and documentation powering the
 
 1. `cd react-native-website` to go into the project root
 1. `cd website` to go into the website portion of the project
-1. `yarn` to install the website's npm dependencies
+1. `yarn` to install the website's npm dependencies (or `npm install`, if not using Yarn)
 
 ### Running locally
 
-1. `yarn start` to start the development server (powered by Docusaurus)
+1. `yarn start` to start the development server (powered by Docusaurus) (or `npm start`, if not using Yarn)
 1. `open http://localhost:3000/` to open the site in your favorite browser
 
 # Overview
