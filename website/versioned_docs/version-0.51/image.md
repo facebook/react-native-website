@@ -25,7 +25,7 @@ export default class DisplayAnImage extends Component {
         />
         <Image
           style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/assets/favicon.png'}}
+          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
         />
         <Image
           style={{width: 66, height: 58}}

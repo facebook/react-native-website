@@ -140,7 +140,7 @@ automatically once you save your changes.
 Congratulations! You've successfully run and modified your first React Native
 app.
 
-<center><img src="/react-native/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ## Now what?
 
@@ -359,7 +359,7 @@ choose "Preferences..." from the Xcode menu. Go to the Locations panel and
 install the tools by selecting the most recent version in the Command Line Tools
 dropdown.
 
-![Xcode Command Line Tools](/react-native/assets/GettingStartedXcodeCommandLineTools.png)
+![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 <block class="native mac linux android" />
 
@@ -421,11 +421,11 @@ Click on "Configure", then select "SDK Manager".
 
 <block class="native mac android" />
 
-![Android Studio Welcome](/react-native/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
+![Android Studio Welcome](/react-native/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
 
 <block class="native windows android" />
 
-![Android Studio Welcome](/react-native/assets/GettingStartedAndroidStudioWelcomeWindows.png)
+![Android Studio Welcome](/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
 
 <block class="native mac windows linux android" />
 
@@ -445,11 +445,11 @@ all checked:
 
 <block class="native mac android" />
 
-![Android SDK Manager](/react-native/assets/GettingStartedAndroidSDKManagerMacOS.png)
+![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager](/react-native/assets/GettingStartedAndroidSDKManagerWindows.png)
+![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerWindows.png)
 
 <block class="native windows mac linux android" />
 
@@ -459,11 +459,11 @@ then make sure that `23.0.1` is selected.
 
 <block class="native mac android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
+![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
+![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
 
 <block class="native windows mac linux android" />
 
@@ -472,11 +472,11 @@ tools.
 
 <block class="native mac android" />
 
-![Android SDK Manager - Installs](/react-native/assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
+![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager - Installs](/react-native/assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
+![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
 
 <block class="native mac windows linux android" />
 
@@ -524,7 +524,7 @@ click on **Change settings...**. Open the **Advanced** tab and click on
 **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME`
 user variable that points to the path to your Android SDK:
 
-![ANDROID_HOME Environment Variable](/react-native/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
+![ANDROID_HOME Environment Variable](/react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
 The SDK is installed, by default, at the following location:
 
@@ -605,7 +605,7 @@ instructions [here](running-on-device.md).
 You can see the list of available Android Virtual Devices (AVDs) by opening the
 "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
-![Android Studio AVD Manager](/react-native/assets/GettingStartedAndroidStudioAVD.png)
+![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
 If you have just installed Android Studio, you will likely need to
 [create a new AVD](https://developer.android.com/studio/run/managing-avds.html).
@@ -614,11 +614,11 @@ Select "Create Virtual Device...", then pick any Phone from the list and click
 
 <block class="native windows android" />
 
-![Android Studio AVD Manager](/react-native/assets/GettingStartedCreateAVDWindows.png)
+![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDWindows.png)
 
 <block class="native mac android" />
 
-![Android Studio AVD Manager](/react-native/assets/GettingStartedCreateAVDMacOS.png)
+![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDMacOS.png)
 
 <block class="native mac windows linux android" />
 
@@ -634,23 +634,23 @@ x86_64 ABI image with a Android 6.0 (Google APIs) target.
 
 <block class="native windows android" />
 
-![Install HAXM](/react-native/assets/GettingStartedCreateAVDx86Windows.png)
+![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
 
 > If you don't have HAXM installed, click on "Install HAXM" or follow
 > [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows)
 > to set it up, then go back to the AVD Manager.
 
-![AVD List](/react-native/assets/GettingStartedAVDManagerWindows.png)
+![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
 <block class="native mac android" />
 
-![Install HAXM](/react-native/assets/GettingStartedCreateAVDx86MacOS.png)
+![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
 
 > If you don't have HAXM installed, follow
 > [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x)
 > to set it up, then go back to the AVD Manager.
 
-![AVD List](/react-native/assets/GettingStartedAVDManagerMacOS.png)
+![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 
@@ -671,7 +671,7 @@ react-native run-ios
 
 You should see your new app running in the iOS Simulator shortly.
 
-![AwesomeProject on iOS](/react-native/assets/GettingStartediOSSuccess.png)
+![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
 
 `react-native run-ios` is just one way to run your app. You can also run it
 directly from within Xcode or [Nuclide](https://nuclide.io/).
@@ -701,11 +701,11 @@ Android emulator shortly.
 
 <block class="native mac android" />
 
-![AwesomeProject on Android](/react-native/assets/GettingStartedAndroidSuccessMacOS.png)
+![AwesomeProject on Android](/react-native/docs/assets/GettingStartedAndroidSuccessMacOS.png)
 
 <block class="native windows android" />
 
-![AwesomeProject on Android](/react-native/assets/GettingStartedAndroidSuccessWindows.png)
+![AwesomeProject on Android](/react-native/docs/assets/GettingStartedAndroidSuccessWindows.png)
 
 <block class="native mac windows linux android" />
 
@@ -749,7 +749,7 @@ Now that you have successfully run the app, let's modify it.
 Congratulations! You've successfully run and modified your first React Native
 app.
 
-<center><img src="/react-native/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
@@ -758,7 +758,7 @@ app.
 Congratulations! You've successfully run and modified your first React Native
 app.
 
-<center><img src="/react-native/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native mac ios" />
 

@@ -6,7 +6,7 @@ title: Button
 A basic button component that should render nicely on any platform. Supports a
 minimal level of customization.
 
-<center><img src="/react-native/assets/buttonExample.png"></img></center>
+<center><img src="/react-native/docs/assets/buttonExample.png"></img></center>
 
 If this button doesn't look right for your app, you can build your own button
 using [TouchableOpacity](touchableopacity.md) or

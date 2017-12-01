@@ -12,7 +12,7 @@ React Native supports a few keyboard shortcuts in the iOS Simulator. They are de
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
 
-![](/react-native/assets/DeveloperMenu.png)
+![](/react-native/docs/assets/DeveloperMenu.png)
 
 > The Developer Menu is disabled in release (production) builds.
 
@@ -83,7 +83,7 @@ Now run `react-devtools` from the terminal to launch the standalone DevTools app
 react-devtools
 ```
 
-![React DevTools](/react-native/assets/ReactDevTools.png)
+![React DevTools](/react-native/docs/assets/ReactDevTools.png)
 
 It should connect to your simulator within a few seconds.
 
@@ -93,11 +93,11 @@ It should connect to your simulator within a few seconds.
 
 Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
-![React Native Inspector](/react-native/assets/Inspector.png)
+![React Native Inspector](/react-native/docs/assets/Inspector.png)
 
 However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
-![React DevTools Inspector Integration](/react-native/assets/ReactDevToolsInspector.png)
+![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.png)
 
 You can choose "Hide Inspector" in the same menu to exit this mode.
 
@@ -111,7 +111,7 @@ Make sure that the dropdown in the top left corner of the Chrome console says `d
 
 Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
 
-![React DevTools Chrome Console Integration](/react-native/assets/ReactDevToolsDollarR.png)
+![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.png)
 
 ## Performance Monitor
 

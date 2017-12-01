@@ -24,7 +24,7 @@ If you are unable to do the work necessary to generate that frame within the all
 Now to confuse the matter a little bit, open up the developer menu in your app and toggle `Show Perf Monitor`.
 You will notice that there are two different frame rates.
 
-![](/react-native/assets/PerfUtil.png)
+![](/react-native/docs/assets/PerfUtil.png)
 
 ### JS frame rate (JavaScript thread)
 
@@ -209,14 +209,14 @@ Once the trace starts collecting, perform the animation or interaction you care 
 
 After opening the trace in your browser (preferably Chrome), you should see something like this:
 
-![Example](/react-native/assets/SystraceExample.png)
+![Example](/react-native/docs/assets/SystraceExample.png)
 
 > **HINT**:
 > Use the WASD keys to strafe and zoom
 
 If your trace .html file isn't opening correctly, check your browser console for the following:
 
-![ObjectObserveError](/react-native/assets/ObjectObserveError.png)
+![ObjectObserveError](/react-native/docs/assets/ObjectObserveError.png)
 
 Since `Object.observe` was deprecated in recent browsers, you may have to open the file from the Google Chrome Tracing tool. You can do so by:
 
@@ -228,7 +228,7 @@ Since `Object.observe` was deprecated in recent browsers, you may have to open t
 >
 > Check this checkbox at the top right of the screen to highlight the 16ms frame boundaries:
 >
-> ![Enable VSync Highlighting](/react-native/assets/SystraceHighlightVSync.png)
+> ![Enable VSync Highlighting](/react-native/docs/assets/SystraceHighlightVSync.png)
 >
 > You should see zebra stripes as in the screenshot above.
 > If you don't, try profiling on a different device: Samsung has been known to have issues displaying vsyncs while the Nexus series is generally pretty reliable.
@@ -249,21 +249,21 @@ If you're running on Android 5+, we also care about the Render Thread.
   The thread name on the right will be your package name (in my case book.adsmanager) or UI Thread.
   The events that you see on this thread should look something like this and have to do with `Choreographer`, `traversals`, and `DispatchUI`:
 
-  ![UI Thread Example](/react-native/assets/SystraceUIThreadExample.png)
+  ![UI Thread Example](/react-native/docs/assets/SystraceUIThreadExample.png)
 
 - **JS Thread.**
   This is where JavaScript is executed.
   The thread name will be either `mqt_js` or `<...>` depending on how cooperative the kernel on your device is being.
   To identify it if it doesn't have a name, look for things like `JSCall`, `Bridge.executeJSCall`, etc:
 
-  ![JS Thread Example](/react-native/assets/SystraceJSThreadExample.png)
+  ![JS Thread Example](/react-native/docs/assets/SystraceJSThreadExample.png)
 
 - **Native Modules Thread.**
   This is where native module calls (e.g. the `UIManager`) are executed.
   The thread name will be either `mqt_native_modules` or `<...>`.
   To identify it in the latter case, look for things like `NativeCall`, `callJavaModuleMethod`, and `onBatchComplete`:
 
-  ![Native Modules Thread Example](/react-native/assets/SystraceNativeModulesThreadExample.png)
+  ![Native Modules Thread Example](/react-native/docs/assets/SystraceNativeModulesThreadExample.png)
 
 - **Bonus: Render Thread.**
   If you're using Android L (5.0) and up, you will also have a render thread in your application.
@@ -271,13 +271,13 @@ If you're running on Android 5+, we also care about the Render Thread.
   The thread name will be either `RenderThread` or `<...>`.
   To identify it in the latter case, look for things like `DrawFrame` and `queueBuffer`:
 
-  ![Render Thread Example](/react-native/assets/SystraceRenderThreadExample.png)
+  ![Render Thread Example](/react-native/docs/assets/SystraceRenderThreadExample.png)
 
 #### Identifying a culprit
 
 A smooth animation should look something like the following:
 
-![Smooth Animation](/react-native/assets/SystraceWellBehaved.png)
+![Smooth Animation](/react-native/docs/assets/SystraceWellBehaved.png)
 
 Each change in color is a frame -- remember that in order to display a frame,
 all our UI work needs to be done by the end of that 16ms period.
@@ -286,7 +286,7 @@ An application rendering like this is rendering at 60 FPS.
 
 If you noticed chop, however, you might see something like this:
 
-![Choppy Animation from JS](/react-native/assets/SystraceBadJS.png)
+![Choppy Animation from JS](/react-native/docs/assets/SystraceBadJS.png)
 
 Notice that the JS thread is executing basically all the time, and across frame boundaries!
 This app is not rendering at 60 FPS.
@@ -294,7 +294,7 @@ In this case, **the problem lies in JS**.
 
 You might also see something like this:
 
-![Choppy Animation from UI](/react-native/assets/SystraceBadUI.png)
+![Choppy Animation from UI](/react-native/docs/assets/SystraceBadUI.png)
 
 In this case, the UI and render threads are the ones that have work crossing frame boundaries.
 The UI that we're trying to render on each frame is requiring too much work to be done.
@@ -328,7 +328,7 @@ If you identified a native UI problem, there are usually two scenarios:
 
 In the first scenario, you'll see a trace that has the UI thread and/or Render Thread looking like this:
 
-![Overloaded GPU](/react-native/assets/SystraceBadUI.png)
+![Overloaded GPU](/react-native/docs/assets/SystraceBadUI.png)
 
 Notice the long amount of time spent in `DrawFrame` that crosses frame boundaries. This is time spent waiting for the GPU to drain its command buffer from the previous frame.
 
@@ -343,7 +343,7 @@ If these don't help and you want to dig deeper into what the GPU is actually doi
 
 In the second scenario, you'll see something more like this:
 
-![Creating Views](/react-native/assets/SystraceBadCreateUI.png)
+![Creating Views](/react-native/docs/assets/SystraceBadCreateUI.png)
 
 Notice that first the JS thread thinks for a bit, then you see some work done on the native modules thread, followed by an expensive traversal on the UI thread.
 

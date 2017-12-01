@@ -30,7 +30,7 @@ text on Android. Pressing the button will call the "onPress" function, which in
 this case displays an alert popup. If you like, you can specify a "color" prop
 to change the color of your button.
 
-![](/react-native/assets/Button.png)
+![](/react-native/docs/assets/Button.png)
 
 Go ahead and play around with the `Button` component using the example below.
 You can select which platform your app is previewed in by clicking on the toggle
