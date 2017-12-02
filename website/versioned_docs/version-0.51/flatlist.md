@@ -112,9 +112,9 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Props
 
+- [`data`](flatlist.md#data)
+- [`renderItem`](flatlist.md#renderItem)
 - [`numColumns`](flatlist.md#numcolumns)
-
-
 
 
 ### Methods
@@ -149,10 +149,26 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 | - | - |
 |  | No |
 
+### `data`
 
 
 
+| Type | Required |
+| - | - |
+|  | No |
 
+
+### `renderItem`
+
+
+
+| Type | Required |
+| - | - |
+|  | Yes |
+
+
+
+---
 
 ## Methods
 
