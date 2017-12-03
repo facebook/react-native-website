@@ -434,7 +434,7 @@ class CalendarManager: NSObject {
     // Date is ready to use!
   }
   
-  func constantsToExport() -> [String: Any]! {
+  func constantsToExport() -> [AnyHashable: Any]! {
     return ["someKey": "someValue"]
   }
 
