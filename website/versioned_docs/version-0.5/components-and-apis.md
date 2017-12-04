@@ -4,20 +4,29 @@ title: Components and APIs
 original_id: components-and-apis
 ---
 
-React Native provides a number of built-in components. You will find a full list of components and APIs on the sidebar to the left. If you're not sure where to get started, take a look at the following categories:
+React Native provides a number of built-in components. You will find a full list
+of components and APIs on the sidebar to the left. If you're not sure where to
+get started, take a look at the following categories:
 
-- [Basic Components](components-and-apis.md#basic-components)
-- [User Interface](components-and-apis.md#user-interface)
-- [Lists Views](components-and-apis.md#list-views)
-- [iOS-specific](components-and-apis.md#ios-components-and-apis)
-- [Android-specific](components-and-apis.md#android-components-and-apis)
-- [Others](components-and-apis.md#others)
+* [Basic Components](components-and-apis.md#basic-components)
+* [User Interface](components-and-apis.md#user-interface)
+* [List Views](components-and-apis.md#list-views)
+* [iOS-specific](components-and-apis.md#ios-components-and-apis)
+* [Android-specific](components-and-apis.md#android-components-and-apis)
+* [Others](components-and-apis.md#others)
 
-You're not limited to the components and APIs bundled with React Native. React Native is a community of thousands of developers. If you're looking for a library that does something specific, search the npm registry for packages mentioning [react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal), or check out [Awesome React Native](http://www.awesome-react-native.com/) for a curated list.
+You're not limited to the components and APIs bundled with React Native. React
+Native is a community of thousands of developers. If you're looking for a
+library that does something specific, search the npm registry for packages
+mentioning
+[react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal),
+or check out [Awesome React Native](http://www.awesome-react-native.com/) for a
+curated list.
 
 ## Basic Components
 
-Most apps will end up using one of these basic components. You'll want to get yourself familiarized with all of these if you're new to React Native.
+Most apps will end up using one of these basic components. You'll want to get
+yourself familiarized with all of these if you're new to React Native.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -48,7 +57,8 @@ Most apps will end up using one of these basic components. You'll want to get yo
 
 ## User Interface
 
-Render common user interface controls on any platform using the following components. For platform specific components, keep reading.
+Render common user interface controls on any platform using the following
+components. For platform specific components, keep reading.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -71,7 +81,9 @@ Render common user interface controls on any platform using the following compon
 
 ## List Views
 
-Unlike the more generic `ScrollView`, the following list view components only render elements that are currently showing on the screen. This makes them a great choice for displaying long lists of data.
+Unlike the more generic `ScrollView`, the following list view components only
+render elements that are currently showing on the screen. This makes them a
+great choice for displaying long lists of data.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -86,7 +98,8 @@ Unlike the more generic `ScrollView`, the following list view components only re
 
 ## iOS Components and APIs
 
-Many of the following components provide wrappers for commonly used UIKit classes.
+Many of the following components provide wrappers for commonly used UIKit
+classes.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -129,7 +142,8 @@ Many of the following components provide wrappers for commonly used UIKit classe
 
 ## Android Components and APIs
 
-Many of the following components provide wrappers for commonly used Android classes.
+Many of the following components provide wrappers for commonly used Android
+classes.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -170,10 +184,10 @@ Many of the following components provide wrappers for commonly used Android clas
   </div>
 </div>
 
-
 ## Others
 
-These components may come in handy for certain applications. For an exhaustive list of components and APIs, check out the sidebar to the left.
+These components may come in handy for certain applications. For an exhaustive
+list of components and APIs, check out the sidebar to the left.
 
 <div class="component-grid">
   <div class="component">
