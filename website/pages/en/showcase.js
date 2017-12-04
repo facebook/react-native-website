@@ -132,11 +132,11 @@ class Showcase extends React.Component {
             </div>
             <p>Some of these are hybrid native/React Native apps.</p>
             <p>
-              A curated list of
+              <span>A curated list of </span>
               <a href="https://github.com/ReactNativeNews/React-Native-Apps">
                 open source React Native apps
               </a>
-              is also being kept by React Native News.
+              <span> is also being kept by React Native News.</span>
             </p>
           </div>
         </Container>
