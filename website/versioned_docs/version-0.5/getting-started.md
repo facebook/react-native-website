@@ -543,10 +543,10 @@ loaded before proceeding to the next step.
 ### Watchman (optional)
 
 Follow the
-[Watchman installation guide](https://facebook.github.io/watchman/install.md#build-install)
+[Watchman installation guide](https://facebook.github.io/watchman/install.html#buildinstall)
 to compile and install Watchman from source.
 
-> [Watchman](https://facebook.github.io/watchman/install.md) is a tool by
+> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by
 > Facebook for watching changes in the filesystem. It is highly recommended you
 > install it for better performance, but it's alright to skip this if you find
 > the process to be tedious.
