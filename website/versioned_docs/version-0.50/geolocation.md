@@ -24,42 +24,40 @@ global - you do not need to `import` it.
 </div>
 
 #### iOS
-You need to include the `NSLocationWhenInUseUsageDescription` key
-in Info.plist to enable geolocation when using the app. Geolocation is
-enabled by default when you create a project with `react-native init`.
+
+You need to include the `NSLocationWhenInUseUsageDescription` key in Info.plist
+to enable geolocation when using the app. Geolocation is enabled by default when
+you create a project with `react-native init`.
 
 In order to enable geolocation in the background, you need to include the
-'NSLocationAlwaysUsageDescription' key in Info.plist and add location as
-a background mode in the 'Capabilities' tab in Xcode.
+'NSLocationAlwaysUsageDescription' key in Info.plist and add location as a
+background mode in the 'Capabilities' tab in Xcode.
 
 #### Android
-To request access to location, you need to add the following line to your
-app's `AndroidManifest.xml`:
+
+To request access to location, you need to add the following line to your app's
+`AndroidManifest.xml`:
 
 `<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
 
-Android API >= 18 Positions will also contain a `mocked` boolean to indicate if position
-was created from a mock provider.
+Android API >= 18 Positions will also contain a `mocked` boolean to indicate if
+position was created from a mock provider.
 
 <p>
   Android API >= 23 Requires an additional step to check for, and request
   the ACCESS_FINE_LOCATION permission using
-  the <a href="https://facebook.github.io/react-native/permissionsandroid.md" target="_blank">PermissionsAndroid API</a>.
+  the <a href="https://facebook.github.io/react-native/docs/permissionsandroid.html" target="_blank">PermissionsAndroid API</a>.
   Failure to do so may result in a hard crash.
 </p>
 
-
 ### Methods
 
-- [`setRNConfiguration`](geolocation.md#setrnconfiguration)
-- [`requestAuthorization`](geolocation.md#requestauthorization)
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
-
-
-
+* [`setRNConfiguration`](geolocation.md#setrnconfiguration)
+* [`requestAuthorization`](geolocation.md#requestauthorization)
+* [`getCurrentPosition`](geolocation.md#getcurrentposition)
+* [`watchPosition`](geolocation.md#watchposition)
+* [`clearWatch`](geolocation.md#clearwatch)
+* [`stopObserving`](geolocation.md#stopobserving)
 
 ---
 
@@ -73,19 +71,14 @@ was created from a mock provider.
 static setRNConfiguration(config)
 ```
 
-
 Sets configuration options that will be used in all location requests.
 
 ### Options
 
 #### iOS
 
-- `skipPermissionRequests` - defaults to `false`, if `true` you must request permissions
-before using Geolocation APIs.
-
-
-
-
+* `skipPermissionRequests` - defaults to `false`, if `true` you must request
+  permissions before using Geolocation APIs.
 
 ---
 
@@ -95,14 +88,10 @@ before using Geolocation APIs.
 static requestAuthorization()
 ```
 
-
-Request suitable Location permission based on the key configured on pList.
-If NSLocationAlwaysUsageDescription is set, it will request Always authorization,
+Request suitable Location permission based on the key configured on pList. If
+NSLocationAlwaysUsageDescription is set, it will request Always authorization,
 although if NSLocationWhenInUseUsageDescription is set, it will request InUse
 authorization.
-
-
-
 
 ---
 
@@ -112,14 +101,10 @@ authorization.
 static getCurrentPosition(geo_success, geo_error?, geo_options?)
 ```
 
-
-Invokes the success callback once with the latest location info.  Supported
-options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
-On Android, if the location is cached this can return almost immediately,
-or it will request an update which might take a while.
-
-
-
+Invokes the success callback once with the latest location info. Supported
+options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool) On Android, if
+the location is cached this can return almost immediately, or it will request an
+update which might take a while.
 
 ---
 
@@ -129,12 +114,9 @@ or it will request an update which might take a while.
 static watchPosition(success, error?, options?)
 ```
 
-
-Invokes the success callback whenever the location changes.  Supported
-options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilter(m), useSignificantChanges (bool)
-
-
-
+Invokes the success callback whenever the location changes. Supported options:
+timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilter(m),
+useSignificantChanges (bool)
 
 ---
 
@@ -144,8 +126,6 @@ options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilte
 static clearWatch(watchID)
 ```
 
-
-
 ---
 
 ### `stopObserving()`
@@ -153,6 +133,3 @@ static clearWatch(watchID)
 ```javascript
 static stopObserving()
 ```
-
-
-
