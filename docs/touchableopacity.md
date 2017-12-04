@@ -2,11 +2,12 @@
 id: touchableopacity
 title: TouchableOpacity
 ---
-A wrapper for making views respond properly to touches.
-On press down, the opacity of the wrapped view is decreased, dimming it.
+
+A wrapper for making views respond properly to touches. On press down, the
+opacity of the wrapped view is decreased, dimming it.
 
 Opacity is controlled by wrapping the children in an Animated.View, which is
-added to the view hiearchy.  Be aware that this can affect layout.
+added to the view hierarchy. Be aware that this can affect layout.
 
 Example:
 
@@ -22,6 +23,7 @@ renderButton: function() {
   );
 },
 ```
+
 ### Example
 
 ```ReactNativeWebPlayer
@@ -91,19 +93,14 @@ AppRegistry.registerComponent('App', () => App)
 ### Props
 
 * [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+
 - [`activeOpacity`](touchableopacity.md#activeopacity)
 - [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
 - [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
 
-
-
-
 ### Methods
 
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
-
-
-
+* [`setOpacityTo`](touchableopacity.md#setopacityto)
 
 ---
 
@@ -113,15 +110,12 @@ AppRegistry.registerComponent('App', () => App)
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is
-active. Defaults to 0.2.
+Determines what the opacity of the wrapped view should be when touch is active.
+Defaults to 0.2.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -129,39 +123,26 @@ active. Defaults to 0.2.
 
 Apple TV parallax effects
 
-| Type | Required |
-| - | - |
-| object | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| object | No       |
 
 ---
 
 ### `hasTVPreferredFocus`
 
-*(Apple TV only)* TV preferred focus (see documentation for the View component).
-
-
+_(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ## Methods
 
 ### `setOpacityTo()`
 
 ```javascript
-setOpacityTo(value: number, duration: number)
+setOpacityTo((value: number), (duration: number));
 ```
 
 Animate the touchable to a new opacity.
-
-
-
