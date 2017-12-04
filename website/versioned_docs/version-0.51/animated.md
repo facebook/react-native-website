@@ -489,9 +489,9 @@ then calls `setValue` on the mapped outputs.  e.g.
  ...
  onPanResponderMove: Animated.event([
    null,                // raw event arg ignored
-   {dx: this._panX},    // gestureState arg
+   {dx: this._panX}],   // gestureState arg
 {listener: (event, gestureState) => console.log(event, gestureState)}, // Optional async listener
- ]),
+ ),
 ```
 
 Config is an object that may have the following options:
