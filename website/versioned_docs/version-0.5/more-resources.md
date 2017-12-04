@@ -28,7 +28,7 @@ If you're looking for a library that does a specific thing, check out
 components that also has demos, articles, and other stuff.
 You can also find a curated list of React Native libraries at 
 [Native Directory](http://native.directory/), together with quality assessment, 
-recommendations, a lot of pertinent gitHub informations and some code examples.
+recommendations, a lot of pertinent GitHub information, and code examples.
 
 ## Examples
 
