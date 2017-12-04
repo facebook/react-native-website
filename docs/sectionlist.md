@@ -16,7 +16,7 @@ A performant interface for rendering sectioned lists, supporting the most handy 
  - Scroll loading.
 
 If you don't need section support and want a simpler interface, use
-[`<FlatList>`](/react-native/flatlist.md).
+[`<FlatList>`](flatlist.md).
 
 Simple Examples:
 
@@ -39,7 +39,7 @@ Simple Examples:
     />
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md),
-and thus inherits its props (as well as those of `ScrollView`) that aren't explicitly listed
+and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed
 here, along with the following caveats:
 
 - Internal state is not preserved when content scrolls out of the render window. Make sure all
