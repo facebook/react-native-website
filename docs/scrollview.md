@@ -17,7 +17,7 @@ Doesn't yet support other contained responders from blocking this scroll
 view from becoming the responder.
 
 
-`<ScrollView>` vs [`<FlatList>`](/react-native/flatlist.md) - which one to use?
+`<ScrollView>` vs [`<FlatList>`](flatlist.md) - which one to use?
 
 `ScrollView` simply renders all its react child components at once. That
 makes it very easy to understand and use.
