@@ -34,15 +34,14 @@ Native is capable of! There are also some
 You can run the apps on a simulator or device, and you can see the source code
 for these apps, which is neat.
 
-The folks who built the app for Facebook's F8 conference in 2016 also
+The folks who built the app for Facebook's F8 conference also
 [open-sourced the code](https://github.com/fbsamples/f8app) and wrote up a
-[detailed series of tutorials](http://makeitopen.com/tutorials/building-the-f8-app/planning/).
+[detailed series of tutorials](http://makeitopen.com/).
 This is useful if you want a more in-depth example that's more realistic than
 most sample apps out there.
 
 ## Extending React Native
 
-* Looking for a component? [JS.coach](https://js.coach/react-native)
 * Fellow developers write and publish React Native modules to npm and open
   source them on GitHub.
 * Making modules helps grow the React Native ecosystem and community. We
@@ -54,6 +53,7 @@ most sample apps out there.
   ([iOS](https://facebook.github.io/react-native/native-components-ios.md),
   [Android](https://facebook.github.io/react-native/native-components-android.md))
   if you are interested in extending native functionality.
+* Looking for a pre-built component? Check [JS.coach](https://js.coach/react-native).
 
 ## Development Tools
 

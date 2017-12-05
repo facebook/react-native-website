@@ -577,7 +577,7 @@ Note that not all Text styles are supported,
 see [Issue#7070](https://github.com/facebook/react-native/issues/7070)
 for more detail.
 
-[Styles](/react-native/style.md)
+[Styles](style.md)
 
 | Type | Required |
 | - | - |

@@ -17,7 +17,7 @@ A performant interface for rendering sectioned lists, supporting the most handy 
  - Scroll loading.
 
 If you don't need section support and want a simpler interface, use
-[`<FlatList>`](/react-native/flatlist.md).
+[`<FlatList>`](flatlist.md).
 
 If you need _sticky_ section header support, use `ListView` for now.
 
@@ -41,7 +41,7 @@ Simple Examples:
       ]}
     />
 
-This is a convenience wrapper around [`<VirtualizedList>`](/react-native/virtualizedlist.md),
+This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md),
 and thus inherits the following caveats:
 
 - Internal state is not preserved when content scrolls out of the render window. Make sure all

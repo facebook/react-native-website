@@ -17,7 +17,7 @@ A performant interface for rendering sectioned lists, supporting the most handy 
  - Scroll loading.
 
 If you don't need section support and want a simpler interface, use
-[`<FlatList>`](/react-native/flatlist.md).
+[`<FlatList>`](flatlist.md).
 
 Simple Examples:
 
@@ -150,7 +150,7 @@ Default renderer for every item in every section. Can be over-ridden on a per-se
 
 ### `sections`
 
-The actual data to render, akin to the `data` prop in [`<FlatList>`](/react-native/flatlist.md).
+The actual data to render, akin to the `data` prop in [`<FlatList>`](flatlist.md).
 
 General shape:
 

@@ -568,7 +568,7 @@ The highlight (and cursor on iOS) color of the text input.
 
 ### `style`
 
-[Styles](/react-native/style.md)
+[Styles](style.md)
 
 | Type | Required |
 | - | - |

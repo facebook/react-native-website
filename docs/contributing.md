@@ -98,11 +98,11 @@ Please make sure the following is done when submitting a pull request:
 
 1. Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
 2. Add the copyright notice to the top of any new files you've added.
-3. Describe your [**test plan**](/react-native/contributing.md#test-plan) in your pull request description. Make sure to [test your changes](/react-native/testing.md)!
+3. Describe your [**test plan**](contributing.md#test-plan) in your pull request description. Make sure to [test your changes](testing.md)!
 4. Make sure your code lints (`npm run lint`).
 5. If you haven't already, [sign the CLA](https://code.facebook.com/cla).
 
-All pull requests should be opened against the `master` branch. After opening your pull request, ensure [**all tests pass**](/react-native/contributing.md#contrinuous-integration-tests) on Circle CI. If a test fails and you believe it is unrelated to your change, leave a comment on the pull request explaining why.
+All pull requests should be opened against the `master` branch. After opening your pull request, ensure [**all tests pass**](contributing.md#contrinuous-integration-tests) on Circle CI. If a test fails and you believe it is unrelated to your change, leave a comment on the pull request explaining why.
 
 > **Note:** It is not necessary to keep clicking `Merge master to your branch` on the PR page. You would want to merge master if there are conflicts or tests are failing. The Facebook-GitHub-Bot ultimately squashes all commits to a single one before merging your PR.
 
@@ -118,7 +118,7 @@ See [What is a Test Plan?](https://medium.com/@martinkonicek/what-is-a-test-plan
 
 #### Continuous integration tests
 
-Make sure all **tests pass** on [Circle CI][circle]. PRs that break tests are unlikely to be merged. Learn more about [testing your changes here](/react-native/testing.md).
+Make sure all **tests pass** on [Circle CI][circle]. PRs that break tests are unlikely to be merged. Learn more about [testing your changes here](testing.md).
 
 [circle]: http://circleci.com/gh/facebook/react-native
 
@@ -160,7 +160,7 @@ In order to accept your pull request, we need you to submit a CLA. You only need
 
 ### What happens next?
 
-The core team will be monitoring for pull requests. Read [what to expect from maintainers](/react-native/maintainers.md#handling-pull-requests) to understand what may happen after you open a pull request.
+The core team will be monitoring for pull requests. Read [what to expect from maintainers](maintainers.md#handling-pull-requests) to understand what may happen after you open a pull request.
 
 ## Style Guide
 

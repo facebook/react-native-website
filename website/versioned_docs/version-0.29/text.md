@@ -98,7 +98,7 @@ When set to `true`, indicates that the view is an accessibility element. The def
 for a `Text` element is `true`.
 
 See the
-[Accessibility guide](/react-native/accessibility.md#accessible-ios-android)
+[Accessibility guide](accessibility.md#accessible-ios-android)
 for more information.
 
 | Type | Required |
