@@ -8,6 +8,49 @@ and update the `date` prop in order for the component to update, otherwise
 the user's change will be reverted immediately to reflect `props.date` as the
 source of truth.
 
+### Example
+```
+import React, { Component } from 'react'
+import {
+  DatePickerIOS,
+  View,
+  StyleSheet,
+} from 'react-native'
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { chosenDate: new Date() };
+
+    this.setDate = this.setDate.bind(this);
+  }
+
+  setDate(newDate) {
+    this.setState({chosenDate: newDate})
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <DatePickerIOS
+          date={this.state.chosenDate}
+          onDateChange={this.setDate}
+        />
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+})
+```
+
+![](/react-native/docs/assets/DatePickerIOS/example.gif)
+
 ### Props
 
 * [View props...](view.md#props)
@@ -70,6 +113,8 @@ Restricts the range of possible date/time values.
 | - | - |
 | Date | No |
 
+Example with `maximumDate` set to December 31, 2017:
+![](/react-native/docs/assets/DatePickerIOS/maximumDate.gif)
 
 
 
@@ -85,6 +130,7 @@ Restricts the range of possible date/time values.
 | - | - |
 | Date | No |
 
+See [`maximumDate`](datepickerios.md#maximumdate) for an example image.
 
 
 
@@ -98,6 +144,8 @@ The interval at which minutes can be selected.
 | - | - |
 | enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30) | No |
 
+Example with `minuteInterval` set to `10`:
+![](/react-native/docs/assets/DatePickerIOS/minuteInterval.png)
 
 
 
@@ -110,6 +158,9 @@ The date picker mode.
 | Type | Required |
 | - | - |
 | enum('date', 'time', 'datetime') | No |
+
+Example with `mode` set to `date`, `time`, and `datetime`:
+![](/react-native/docs/assets/DatePickerIOS/mode.png)
 
 
 

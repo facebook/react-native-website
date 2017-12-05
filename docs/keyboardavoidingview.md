@@ -5,6 +5,10 @@ title: KeyboardAvoidingView
 It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard.
 It can automatically adjust either its position or bottom padding based on the position of the keyboard.
 
+### Example
+
+![](/react-native/docs/assets/KeyboardAvoidingView/example.gif)
+
 ### Props
 
 * [View props...](view.md#props)
@@ -46,7 +50,8 @@ may be non-zero in some use cases.
 
 ### `behavior`
 
-
+*Note: Android and iOS both interact with this prop differently.*
+*Android may behave better when given no behavior prop at all, whereas iOS is the opposite.*
 
 | Type | Required |
 | - | - |
@@ -75,7 +80,7 @@ The style of the content container(View) when behavior is 'position'.
 ### `relativeKeyboardHeight()`
 
 ```javascript
-relativeKeyboardHeight(keyboardFrame: object): 
+relativeKeyboardHeight(keyboardFrame: object):
 ```
 
 
