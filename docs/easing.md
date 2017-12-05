@@ -4,7 +4,7 @@ title: Easing
 ---
 
 The `Easing` module implements common easing functions. This module is used
-by [Animate.timing()](animate.md#timing) to convey physically
+by [Animated.timing()](animated.md#timing) to convey physically
 believable motion in animations.
 
 You can find a visualization of some common easing functions at
