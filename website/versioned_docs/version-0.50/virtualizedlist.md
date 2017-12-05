@@ -3,8 +3,8 @@ id: version-0.50-virtualizedlist
 title: VirtualizedList
 original_id: virtualizedlist
 ---
-Base implementation for the more convenient [`<FlatList>`](/react-native/flatlist.md)
-and [`<SectionList>`](/react-native/sectionlist.md) components, which are also better
+Base implementation for the more convenient [`<FlatList>`](flatlist.md)
+and [`<SectionList>`](sectionlist.md) components, which are also better
 documented. In general, this should only really be used if you need more flexibility than
 `FlatList` provides, e.g. for use with immutable data instead of plain arrays.
 
