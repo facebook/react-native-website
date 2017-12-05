@@ -443,7 +443,7 @@ Does not work for static image resources.
 | Name    | Type     | Required | Description                                                                                         |
 | ------- | -------- | -------- | --------------------------------------------------------------------------------------------------- |
 | uri     | string   | Yes      | The location of the image.                                                                          |
-| success | function | Yes      | The function that will be called if the image was successfully found and widthand height retrieved. |
+| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
 | failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.    |
 
 ---
