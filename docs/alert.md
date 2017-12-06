@@ -15,9 +15,20 @@ see `AlertIOS`; entering text in an alert is common on iOS only.
 
 ## Example
 
-| iOS | Android |
-| - | - |
-| ![](/react-native/docs/assets/Alert/exampleios.gif)
+<table>
+  <tr>
+    <th style="width: 50%;">iOS</th>
+    <th style="width: 50%;">Android</th>
+  </tr>
+  <tr>
+    <td style="width: 50%;">
+      <center><img src="/react-native/docs/assets/Alert/exampleios.gif"></img></center>
+    </td>
+    <td style="width: 50%;">
+      <center><img src="/react-native/docs/assets/Alert/exampleandroid.gif"></img></center>
+    </td>
+  </tr>
+</table>
 
 ## iOS
 
