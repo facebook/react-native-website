@@ -11,6 +11,8 @@ selectedIndex prop to a state variable, then changing that variable.
 Note that the state variable would need to be updated as the user
 selects a value and changes the index, as shown in the example below.
 
+## Example
+
 ````
 <SegmentedControlIOS
   values={['One', 'Two']}
@@ -20,6 +22,8 @@ selects a value and changes the index, as shown in the example below.
   }}
 />
 ````
+
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
 
 ### Props
 
@@ -52,6 +56,8 @@ Default value is true.
 | - | - |
 | bool | No |
 
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
+
 
 
 
@@ -65,6 +71,8 @@ The `onValueChange` callback will still work as expected.
 | Type | Required |
 | - | - |
 | bool | No |
+
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
 
 
 
@@ -119,6 +127,8 @@ Accent color of the control.
 | Type | Required |
 | - | - |
 | string | No |
+
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
 
 
 
