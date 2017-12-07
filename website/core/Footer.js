@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-const React = require("react");
+const React = require('react');
 
 class Footer extends React.Component {
   render() {
@@ -25,42 +25,41 @@ class Footer extends React.Component {
           </a>
           <div>
             <h5>
-              <a href={this.props.config.baseUrl + "docs/getting-started.html"}>
+              <a href={this.props.config.baseUrl + 'docs/getting-started.html'}>
                 Docs
               </a>
             </h5>
-            <a href={this.props.config.baseUrl + "docs/getting-started.html"}>
+            <a href={this.props.config.baseUrl + 'docs/getting-started.html'}>
               Getting Started
             </a>
-            <a href={this.props.config.baseUrl + "docs/tutorial.html"}>
+            <a href={this.props.config.baseUrl + 'docs/tutorial.html'}>
               Learn the Basics
             </a>
             <a
-              href={this.props.config.baseUrl + "docs/components-and-apis.html"}
-            >
+              href={
+                this.props.config.baseUrl + 'docs/components-and-apis.html'
+              }>
               Components and APIs
             </a>
-            <a href={this.props.config.baseUrl + "docs/more-resources.html"}>
+            <a href={this.props.config.baseUrl + 'docs/more-resources.html'}>
               More Resources
             </a>
           </div>
           <div>
             <h5>
-              <a href={this.props.config.baseUrl + "help.html"}>Community</a>
+              <a href={this.props.config.baseUrl + 'help.html'}>Community</a>
             </h5>
-            <a href={this.props.config.baseUrl + "showcase.html"}>
+            <a href={this.props.config.baseUrl + 'showcase.html'}>
               Who's using React Native?
             </a>
             <a
               href="http://www.meetup.com/topics/react-native/"
-              target="_blank"
-            >
+              target="_blank">
               Meetups
             </a>
             <a
               href="https://www.facebook.com/groups/react.native.community"
-              target="_blank"
-            >
+              target="_blank">
               Facebook Group
             </a>
             <a href="https://twitter.com/reactnative" target="_blank">
@@ -69,31 +68,28 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>
-              <a href={this.props.config.baseUrl + "help.html"}>Help</a>
+              <a href={this.props.config.baseUrl + 'help.html'}>Help</a>
             </h5>
             <a
               href="http://stackoverflow.com/questions/tagged/react-native"
-              target="_blank"
-            >
+              target="_blank">
               Stack Overflow
             </a>
             <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Chat</a>
             <a
-              href={this.props.config.baseUrl + "versions.html"}
-              target="_blank"
-            >
+              href={this.props.config.baseUrl + 'versions.html'}
+              target="_blank">
               Latest Releases
             </a>
             <a
               href="https://react-native.canny.io/feature-requests"
-              target="_blank"
-            >
+              target="_blank">
               Feature Requests
             </a>
           </div>
           <div>
             <h5>More</h5>
-            <a href={this.props.config.baseUrl + "blog"}>Blog</a>
+            <a href={this.props.config.baseUrl + 'blog'}>Blog</a>
             <a href="http://reactjs.org" target="_blank">
               React
             </a>
@@ -109,8 +105,7 @@ class Footer extends React.Component {
                 data-count-href="/facebook/react-native/stargazers"
                 data-count-api="/repos/facebook/react-native#stargazers_count"
                 data-count-aria-label="# stargazers on GitHub"
-                aria-label="Star facebook/react-native on GitHub"
-              >
+                aria-label="Star facebook/react-native on GitHub">
                 Star
               </a>
             </div>
@@ -120,10 +115,9 @@ class Footer extends React.Component {
         <a
           href="https://code.facebook.com/projects/"
           target="_blank"
-          className="fbOpenSource"
-        >
+          className="fbOpenSource">
           <img
-            src={this.props.config.baseUrl + "img/oss_logo.png"}
+            src={this.props.config.baseUrl + 'img/oss_logo.png'}
             alt="Facebook Open Source"
             width="170"
             height="45"

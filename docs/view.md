@@ -379,7 +379,7 @@ hidden`, as should the containing view (or one of its superviews).
 
 | Type                         | Required |
 | ---------------------------- | -------- |
-| [style](view-style-props.md) | No       |
+| [view styles](view-style-props.md) | No       |
 
 ---
 

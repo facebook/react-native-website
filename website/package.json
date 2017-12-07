@@ -18,6 +18,13 @@
     "publish-gh-pages": "docusaurus-publish",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
+    "ci-check": "yarn prettier:diff",
+    "format":
+      "prettier --config .prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
+    "nit":
+      "prettier --config .prettierrc --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+    "prettier": "yarn format",
+    "prettier:diff": "yarn nit",
     "test": "yarn build"
   },
   "dependencies": {

@@ -26,7 +26,7 @@ title: PickerIOS
 
 | Type | Required |
 | - | - |
-| itemStylePropType | No |
+| [text styles](text-style-props.md) | No |
 
 
 

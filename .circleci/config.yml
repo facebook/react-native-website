@@ -1,14 +1,15 @@
 aliases:
-  - &restore-cache
+  - &restore-yarn-cache
     keys:
-      - v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "website/package.json" }}
+      - v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
       # Fallback in case checksum fails
-      - v1-dependencies-{{ arch }}-{{ .Branch }}-
+      - v1-yarn-{{ .Branch }}-
 
-  - &save-cache
+  - &save-yarn-cache
     paths:
       - website/node_modules
-    key: v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "website/package.json" }}
+      - ~/.cache/yarn
+    key: v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
 
   - &filter-only-master
     branches:
@@ -35,7 +36,12 @@ jobs:
           name: Install Dependencies
           command: |
             cd website
-            yarn --no-progress
+            yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
+      - run:
+          name: Check Prettier
+          command: |
+            cd website
+            yarn ci-check
       - run:
           name: Test Website
           command: |

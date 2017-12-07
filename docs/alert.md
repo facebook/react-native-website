@@ -13,6 +13,23 @@ This is an API that works both on iOS and Android and can show static
 alerts. To show an alert that prompts the user to enter some information,
 see `AlertIOS`; entering text in an alert is common on iOS only.
 
+## Example
+
+<table>
+  <tr>
+    <th style="width: 50%;">iOS</th>
+    <th style="width: 50%;">Android</th>
+  </tr>
+  <tr>
+    <td style="width: 50%;">
+      <center><img src="/react-native/docs/assets/Alert/exampleios.gif"></img></center>
+    </td>
+    <td style="width: 50%;">
+      <center><img src="/react-native/docs/assets/Alert/exampleandroid.gif"></img></center>
+    </td>
+  </tr>
+</table>
+
 ## iOS
 
 On iOS you can specify any number of buttons. Each button can optionally

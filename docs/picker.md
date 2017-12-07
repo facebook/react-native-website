@@ -142,7 +142,7 @@ Style to apply to each of the item labels.
 
 | Type | Required | Platform |
 | - | - | - |
-| itemStylePropType | No | iOS  |
+| [text styles](text-style-props.md) | No | iOS  |
 
 
 

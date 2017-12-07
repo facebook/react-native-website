@@ -7,14 +7,14 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-const React = require("react");
+const React = require('react');
 
-const CompLibrary = require("../../core/CompLibrary.js");
+const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 
 const CWD = process.cwd();
-const siteConfig = require(CWD + "/siteConfig.js");
-const versions = require(CWD + "/versions.json");
+const siteConfig = require(CWD + '/siteConfig.js');
+const versions = require(CWD + '/versions.json');
 
 class Versions extends React.Component {
   render() {
@@ -33,8 +33,8 @@ class Versions extends React.Component {
           </p>
           <p>
             If you have an existing project that uses React Native, read the
-            release notes to learn about new features and fixes. You can follow{" "}
-            <a href={siteConfig.baseUrl + "docs/upgrading.html"}>
+            release notes to learn about new features and fixes. You can follow{' '}
+            <a href={siteConfig.baseUrl + 'docs/upgrading.html'}>
               our guide to upgrade your app to the latest version
             </a>.
           </p>
@@ -59,8 +59,9 @@ class Versions extends React.Component {
                 <th>Master</th>
                 <td>
                   <a
-                    href={siteConfig.baseUrl + "docs/next/getting-started.html"}
-                  >
+                    href={
+                      siteConfig.baseUrl + 'docs/next/getting-started.html'
+                    }>
                     Documentation
                   </a>
                 </td>
@@ -69,25 +70,17 @@ class Versions extends React.Component {
               <tr>
                 <th>{releaseCandidateVersion}-RC</th>
                 <td>
-                  <a
-                    href={
-                      siteConfig.baseUrl +
-                      "docs/" +
-                      releaseCandidateVersion +
-                      "/getting-started.html"
-                    }
-                  >
+                  <a href={siteConfig.baseUrl + 'docs/getting-started.html'}>
                     Documentation
                   </a>
                 </td>
                 <td>
                   <a
                     href={
-                      "https://github.com/facebook/react-native/releases/tag/v" +
+                      'https://github.com/facebook/react-native/releases/tag/v' +
                       releaseCandidateVersion +
-                      ".0-rc.0"
-                    }
-                  >
+                      '.0-rc.0'
+                    }>
                     Release Notes
                   </a>
                 </td>
@@ -109,22 +102,20 @@ class Versions extends React.Component {
                   <a
                     href={
                       siteConfig.baseUrl +
-                      "docs/" +
+                      'docs/' +
                       stableVersion +
-                      "/getting-started.html"
-                    }
-                  >
+                      '/getting-started.html'
+                    }>
                     Documentation
                   </a>
                 </td>
                 <td>
                   <a
                     href={
-                      "https://github.com/facebook/react-native/releases/tag/v" +
+                      'https://github.com/facebook/react-native/releases/tag/v' +
                       stableVersion +
-                      ".0"
-                    }
-                  >
+                      '.0'
+                    }>
                     Release Notes
                   </a>
                 </td>
@@ -141,28 +132,26 @@ class Versions extends React.Component {
             <tbody>
               {versions.slice(1).map(function(version) {
                 return (
-                  <tr key={"version_" + version}>
+                  <tr key={'version_' + version}>
                     <th>{version}</th>
                     <td>
                       <a
                         href={
                           siteConfig.baseUrl +
-                          "docs/" +
+                          'docs/' +
                           version +
-                          "/getting-started.html"
-                        }
-                      >
+                          '/getting-started.html'
+                        }>
                         Documentation
                       </a>
                     </td>
                     <td>
                       <a
                         href={
-                          "https://github.com/facebook/react-native/releases/tag/v" +
+                          'https://github.com/facebook/react-native/releases/tag/v' +
                           version +
-                          ".0"
-                        }
-                      >
+                          '.0'
+                        }>
                         Release Notes
                       </a>
                     </td>
@@ -178,7 +167,7 @@ class Versions extends React.Component {
 }
 
 Versions.defaultProps = {
-  language: "en"
+  language: 'en',
 };
 
 module.exports = Versions;
