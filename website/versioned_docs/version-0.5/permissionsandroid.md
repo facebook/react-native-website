@@ -15,8 +15,7 @@ original_id: permissionsandroid
   </p>
 </div>
 
-`PermissionsAndroid` provides access to Android M's new permissions model. Some permissions are granted by default when the application is installed so long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those
-permissions.
+`PermissionsAndroid` provides access to Android M's new permissions model. Some permissions are granted by default when the application is installed so long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
 
 On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` and `request` should always be true.
 
@@ -25,41 +24,38 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 ### Example
 
 ```javascript
-import { PermissionsAndroid } from 'react-native';
+import {PermissionsAndroid} from 'react-native';
 
 async function requestCameraPermission() {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
-        'title': 'Cool Photo App Camera Permission',
-        'message': 'Cool Photo App needs access to your camera ' +
-                   'so you can take awesome pictures.'
+        title: 'Cool Photo App Camera Permission',
+        message:
+          'Cool Photo App needs access to your camera ' +
+          'so you can take awesome pictures.',
       }
-    )
+    );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera")
+      console.log('You can use the camera');
     } else {
-      console.log("Camera permission denied")
+      console.log('Camera permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
 }
 ```
 
-
 ### Methods
 
-- [`constructor`](permissionsandroid.md#constructor)
-- [`check`](permissionsandroid.md#check)
-- [`request`](permissionsandroid.md#request)
-- [`requestMultiple`](permissionsandroid.md#requestmultiple)
-- [`requestPermission`](permissionsandroid.md#requestpermission)
-- [`checkPermission`](permissionsandroid.md#checkpermission)
-
-
-
+* [`constructor`](permissionsandroid.md#constructor)
+* [`check`](permissionsandroid.md#check)
+* [`request`](permissionsandroid.md#request)
+* [`requestMultiple`](permissionsandroid.md#requestmultiple)
+* [`requestPermission`](permissionsandroid.md#requestpermission)
+* [`checkPermission`](permissionsandroid.md#checkpermission)
 
 ---
 
@@ -70,22 +66,18 @@ async function requestCameraPermission() {
 ### `constructor()`
 
 ```javascript
-constructor()
+constructor();
 ```
-
-
 
 ---
 
 ### `check()`
 
 ```javascript
-check(permission)
+check(permission);
 ```
 
-
 Returns a promise resolving to a boolean value as to whether the specified permissions has been granted
-
 
 ---
 
@@ -95,40 +87,31 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 request(permission, rationale?)
 ```
 
-
 Prompts the user to enable a permission and returns a promise resolving to a string value indicating whether the user allowed or denied the request.
 
 If the optional rationale argument is included (which is an object with a `title` and `message`), this function checks with the OS whether it is necessary to show a dialog [explaining why the permission is needed](https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog
-
-
-
 
 ---
 
 ### `requestMultiple()`
 
 ```javascript
-requestMultiple(permissions)
+requestMultiple(permissions);
 ```
 
-
 Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values indicating whether the user allowed or denied the request
-
 
 ---
 
 ### `checkPermission()`
 
 ```javascript
-checkPermission(permission)
+checkPermission(permission);
 ```
-
 
 **DEPRECATED** - use [check](permissionsandroid.md#check)
 
 Returns a promise resolving to a boolean value as to whether the specified permissions has been granted
-
-
 
 ---
 
@@ -138,10 +121,8 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 requestPermission(permission, rationale?)
 ```
 
-
 **DEPRECATED** - use [request](permissionsandroid.md#request)
 
 Prompts the user to enable a permission and returns a promise resolving to a boolean value indicating whether the user allowed or denied the request.
 
 If the optional rationale argument is included (which is an object with a `title` and `message`), this function checks with the OS whether it is necessary to show a dialog [explaining why the permission is needed](https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog
-

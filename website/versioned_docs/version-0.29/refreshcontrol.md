@@ -3,13 +3,12 @@ id: version-0.29-refreshcontrol
 title: RefreshControl
 original_id: refreshcontrol
 ---
-This component is used inside a ScrollView or ListView to add pull to refresh
-functionality. When the ScrollView is at `scrollY: 0`, swiping down
-triggers an `onRefresh` event.
+
+This component is used inside a ScrollView or ListView to add pull to refresh functionality. When the ScrollView is at `scrollY: 0`, swiping down triggers an `onRefresh` event.
 
 ### Usage example
 
-``` js
+```js
 class RefreshableList extends Component {
   constructor(props) {
     super(props);
@@ -44,12 +43,12 @@ class RefreshableList extends Component {
 }
 ```
 
-__Note:__ `refreshing` is a controlled prop, this is why it needs to be set to true
-in the `onRefresh` function otherwise the refresh indicator will stop immediately.
+**Note:** `refreshing` is a controlled prop, this is why it needs to be set to true in the `onRefresh` function otherwise the refresh indicator will stop immediately.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`refreshing`](refreshcontrol.md#refreshing)
 - [`onRefresh`](refreshcontrol.md#onrefresh)
 - [`colors`](refreshcontrol.md#colors)
@@ -60,11 +59,6 @@ in the `onRefresh` function otherwise the refresh indicator will stop immediatel
 - [`tintColor`](refreshcontrol.md#tintcolor)
 - [`title`](refreshcontrol.md#title)
 - [`titleColor`](refreshcontrol.md#titlecolor)
-
-
-
-
-
 
 ---
 
@@ -77,11 +71,8 @@ in the `onRefresh` function otherwise the refresh indicator will stop immediatel
 Whether the view should be indicating an active refresh.
 
 | Type | Required |
-| - | - |
-| bool | Yes |
-
-
-
+| ---- | -------- |
+| bool | Yes      |
 
 ---
 
@@ -89,12 +80,9 @@ Whether the view should be indicating an active refresh.
 
 Called when the view starts refreshing.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -102,13 +90,9 @@ Called when the view starts refreshing.
 
 The colors (at least one) that will be used to draw the refresh indicator.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| array of [color](colors.md) | No | Android  |
-
-
-
+| Type                        | Required | Platform |
+| --------------------------- | -------- | -------- |
+| array of [color](colors.md) | No       | Android  |
 
 ---
 
@@ -116,13 +100,9 @@ The colors (at least one) that will be used to draw the refresh indicator.
 
 Whether the pull to refresh functionality is enabled.
 
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | Android  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
@@ -130,13 +110,9 @@ Whether the pull to refresh functionality is enabled.
 
 The background color of the refresh indicator.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | Android  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | Android  |
 
 ---
 
@@ -144,13 +120,9 @@ The background color of the refresh indicator.
 
 Progress view top offset
 
-
-| Type | Required | Platform |
-| - | - | - |
-| number | No | Android  |
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -158,13 +130,9 @@ Progress view top offset
 
 Size of the refresh indicator, see RefreshControl.SIZE.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | No | Android  |
-
-
-
+| Type                                                                   | Required | Platform |
+| ---------------------------------------------------------------------- | -------- | -------- |
+| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | No       | Android  |
 
 ---
 
@@ -172,13 +140,9 @@ Size of the refresh indicator, see RefreshControl.SIZE.
 
 The color of the refresh indicator.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | iOS  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | iOS      |
 
 ---
 
@@ -186,13 +150,9 @@ The color of the refresh indicator.
 
 The title displayed under the refresh indicator.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| string | No | iOS  |
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
 
 ---
 
@@ -200,13 +160,6 @@ The title displayed under the refresh indicator.
 
 Title color.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | iOS  |
-
-
-
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | iOS      |

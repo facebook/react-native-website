@@ -21,14 +21,14 @@
     "ci-check": "yarn prettier:diff",
     "format:source":
       "prettier --config .prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "format:markdown":
+    "format:docs":
       "prettier --config .prettierrc --write \"{../docs/**/*.md,versioned_docs/**/*.md}\"",
     "nit:source":
       "prettier --config .prettierrc --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown":
+    "nit:docs":
       "prettier --config .prettierrc --list-different \"{../docs/**/*.md,versioned_docs/**/*.md}\"",
-    "prettier": "yarn format",
-    "prettier:diff": "yarn nit",
+    "prettier": "yarn format:source && yarn format:docs",
+    "prettier:diff": "yarn nit:source && yarn nit:docs",
     "test": "yarn build"
   },
   "dependencies": {

@@ -41,7 +41,6 @@ public class MainActivity extends ReactActivity {
 ```
 
 ```
-
 import React from 'react';
 import {
   AppRegistry,
@@ -70,7 +69,7 @@ AppRegistry.registerComponent('AwesomeProject', () => ImageBrowserApp);
 `ReactRootView` provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
 
 ```
-Bundle updatedProps = mReactRootView.getAppProperties(); 
+Bundle updatedProps = mReactRootView.getAppProperties();
 ArrayList<String> imageList = new ArrayList<String>(Arrays.asList(
         "http://foo.com/bar3.png",
         "http://foo.com/bar4.png"
@@ -84,10 +83,10 @@ It is fine to update properties anytime. However, updates have to be performed o
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
 
-> ***Note:***
-> Currently, JS functions `componentWillReceiveProps` and `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentWillMount` function.
+> **_Note:_** Currently, JS functions `componentWillReceiveProps` and `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentWillMount` function.
 
 ### Passing properties from React Native to native
+
 The problem exposing properties of native components is covered in detail in [this article](native-components-android.md#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation). In short, properties that are to be reflected in JavaScript needs to be exposed as setter method annotated with `@ReactProp`, then just use them in React Native as if the component was an ordinary React Native component.
 
 ### Limits of properties
@@ -116,5 +115,4 @@ Events are powerful, because they allow us to change React Native components wit
 
 Native modules are Java classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android.md).
 
-> ***Warning***:
-> All native modules share the same namespace. Watch out for name collisions when creating new ones.
+> **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.

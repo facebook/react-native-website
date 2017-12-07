@@ -8,33 +8,30 @@ A component used to select a single value from a range of values.
 
 ### Usage
 
-The example below shows how to use `Slider` to change a value used by `Text`.
-The value is stored using the state of the root component (`App`). The same
-component subscribes to the `onValueChange` of `Slider` and changes the value
-using `setState`.
+The example below shows how to use `Slider` to change a value used by `Text`. The value is stored using the state of the root component (`App`). The same component subscribes to the `onValueChange` of `Slider` and changes the value using `setState`.
 
 ```javascript
-import React from "react";
-import { StyleSheet, Text, View, Slider } from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View, Slider} from 'react-native';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 50
+      value: 50,
     };
   }
 
   change(value) {
     this.setState(() => {
       return {
-        value: parseFloat(value)
+        value: parseFloat(value),
       };
     });
   }
 
   render() {
-    const { value } = this.state;
+    const {value} = this.state;
     return (
       <View style={styles.container}>
         <Text style={styles.text}>{String(value)}</Text>
@@ -52,13 +49,13 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
-    justifyContent: "center"
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 50,
-    textAlign: "center"
-  }
+    textAlign: 'center',
+  },
 });
 ```
 
@@ -90,11 +87,10 @@ const styles = StyleSheet.create({
 
 ### `style`
 
-Used to style and layout the `Slider`. See `StyleSheet.js` and
-`ViewStylePropTypes.js` for more info.
+Used to style and layout the `Slider`. See `StyleSheet.js` and `ViewStylePropTypes.js` for more info.
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
+| Type                        | Required |
+| --------------------------- | -------- |
 | [View.style](view.md#style) | No       |
 
 ---
@@ -121,8 +117,7 @@ Initial maximum value of the slider. Default value is 1.
 
 ### `minimumTrackTintColor`
 
-The color used for the track to the left of the button. Overrides the default
-blue gradient image on iOS.
+The color used for the track to the left of the button. Overrides the default blue gradient image on iOS.
 
 | Type               | Required |
 | ------------------ | -------- |
@@ -142,9 +137,7 @@ Initial minimum value of the slider. Default value is 0.
 
 ### `onSlidingComplete`
 
-Callback that is called when the user releases the slider, regardless if the
-value has changed. The current value is passed as an argument to the callback
-handler.
+Callback that is called when the user releases the slider, regardless if the value has changed. The current value is passed as an argument to the callback handler.
 
 | Type     | Required |
 | -------- | -------- |
@@ -164,8 +157,7 @@ Callback continuously called while the user is dragging the slider.
 
 ### `step`
 
-Step value of the slider. The value should be between 0 and (maximumValue -
-minimumValue). Default value is 0.
+Step value of the slider. The value should be between 0 and (maximumValue - minimumValue). Default value is 0.
 
 | Type   | Required |
 | ------ | -------- |
@@ -175,8 +167,7 @@ minimumValue). Default value is 0.
 
 ### `maximumTrackTintColor`
 
-The color used for the track to the right of the button. Overrides the default
-blue gradient image on iOS.
+The color used for the track to the right of the button. Overrides the default blue gradient image on iOS.
 
 | Type               | Required |
 | ------------------ | -------- |
@@ -196,11 +187,9 @@ Used to locate this view in UI automation tests.
 
 ### `value`
 
-Initial value of the slider. The value should be between minimumValue and
-maximumValue, which default to 0 and 1 respectively. Default value is 0.
+Initial value of the slider. The value should be between minimumValue and maximumValue, which default to 0 and 1 respectively. Default value is 0.
 
-_This is not a controlled component_, you don't need to update the value during
-dragging.
+_This is not a controlled component_, you don't need to update the value during dragging.
 
 | Type   | Required |
 | ------ | -------- |
@@ -220,8 +209,7 @@ Color of the foreground switch grip.
 
 ### `maximumTrackImage`
 
-Assigns a maximum track image. Only static images are supported. The leftmost
-pixel of the image will be stretched to fill the track.
+Assigns a maximum track image. Only static images are supported. The leftmost pixel of the image will be stretched to fill the track.
 
 | Type                                      | Required | Platform |
 | ----------------------------------------- | -------- | -------- |
@@ -231,8 +219,7 @@ pixel of the image will be stretched to fill the track.
 
 ### `minimumTrackImage`
 
-Assigns a minimum track image. Only static images are supported. The rightmost
-pixel of the image will be stretched to fill the track.
+Assigns a minimum track image. Only static images are supported. The rightmost pixel of the image will be stretched to fill the track.
 
 | Type                                      | Required | Platform |
 | ----------------------------------------- | -------- | -------- |
@@ -252,8 +239,7 @@ Sets an image for the thumb. Only static images are supported.
 
 ### `trackImage`
 
-Assigns a single image for the track. Only static images are supported. The
-center pixel of the image will be stretched to fill the track.
+Assigns a single image for the track. Only static images are supported. The center pixel of the image will be stretched to fill the track.
 
 | Type                                      | Required | Platform |
 | ----------------------------------------- | -------- | -------- |

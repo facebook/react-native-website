@@ -3,11 +3,13 @@ id: version-0.16-segmentedcontrolios
 title: SegmentedControlIOS
 original_id: segmentedcontrolios
 ---
+
 Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`enabled`](segmentedcontrolios.md#enabled)
 - [`momentary`](segmentedcontrolios.md#momentary)
 - [`onChange`](segmentedcontrolios.md#onchange)
@@ -15,11 +17,6 @@ Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
 - [`selectedIndex`](segmentedcontrolios.md#selectedindex)
 - [`tintColor`](segmentedcontrolios.md#tintcolor)
 - [`values`](segmentedcontrolios.md#values)
-
-
-
-
-
 
 ---
 
@@ -29,57 +26,41 @@ Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 ### `enabled`
 
-If false the user won't be able to interact with the control.
-Default value is true.
+If false the user won't be able to interact with the control. Default value is true.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `momentary`
 
-If true, then selecting a segment won't persist visually.
-The `onValueChange` callback will still work as expected.
+If true, then selecting a segment won't persist visually. The `onValueChange` callback will still work as expected.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `onChange`
 
-Callback that is called when the user taps a segment;
-passes the event as an argument
+Callback that is called when the user taps a segment; passes the event as an argument
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onValueChange`
 
-Callback that is called when the user taps a segment;
-passes the segment's value as an argument
+Callback that is called when the user taps a segment; passes the segment's value as an argument
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -87,12 +68,9 @@ passes the segment's value as an argument
 
 The index in `props.values` of the segment to be pre-selected
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -100,12 +78,9 @@ The index in `props.values` of the segment to be pre-selected
 
 Accent color of the control.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -113,12 +88,6 @@ Accent color of the control.
 
 The labels for the control's segment buttons, in order.
 
-| Type | Required |
-| - | - |
-| array of string | No |
-
-
-
-
-
-
+| Type            | Required |
+| --------------- | -------- |
+| array of string | No       |

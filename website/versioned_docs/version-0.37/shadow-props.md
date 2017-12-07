@@ -3,17 +3,13 @@ id: version-0.37-shadow-props
 title: Shadow Props
 original_id: shadow-props
 ---
+
 ### Props
 
-- [`shadowColor`](shadow-props.md#shadowcolor)
-- [`shadowOffset`](shadow-props.md#shadowoffset)
-- [`shadowOpacity`](shadow-props.md#shadowopacity)
-- [`shadowRadius`](shadow-props.md#shadowradius)
-
-
-
-
-
+* [`shadowColor`](shadow-props.md#shadowcolor)
+* [`shadowOffset`](shadow-props.md#shadowoffset)
+* [`shadowOpacity`](shadow-props.md#shadowopacity)
+* [`shadowRadius`](shadow-props.md#shadowradius)
 
 ---
 
@@ -25,13 +21,9 @@ original_id: shadow-props
 
 Sets the drop shadow color
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | iOS  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | iOS      |
 
 ---
 
@@ -39,13 +31,9 @@ Sets the drop shadow color
 
 Sets the drop shadow offset
 
-
-| Type | Required | Platform |
-| - | - | - |
-| object: {width: number,height: number} | No | iOS  |
-
-
-
+| Type                                   | Required | Platform |
+| -------------------------------------- | -------- | -------- |
+| object: {width: number,height: number} | No       | iOS      |
 
 ---
 
@@ -53,13 +41,9 @@ Sets the drop shadow offset
 
 Sets the drop shadow opacity (multiplied by the color's alpha component)
 
-
-| Type | Required | Platform |
-| - | - | - |
-| number | No | iOS  |
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
 
 ---
 
@@ -67,13 +51,6 @@ Sets the drop shadow opacity (multiplied by the color's alpha component)
 
 Sets the drop shadow blur radius
 
-
-| Type | Required | Platform |
-| - | - | - |
-| number | No | iOS  |
-
-
-
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |

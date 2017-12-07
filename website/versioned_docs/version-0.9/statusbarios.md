@@ -4,16 +4,11 @@ title: StatusBarIOS
 original_id: statusbarios
 ---
 
-
-
 ### Methods
 
-- [`setStyle`](statusbarios.md#setstyle)
-- [`setHidden`](statusbarios.md#sethidden)
-- [`setNetworkActivityIndicatorVisible`](statusbarios.md#setnetworkactivityindicatorvisible)
-
-
-
+* [`setStyle`](statusbarios.md#setstyle)
+* [`setHidden`](statusbarios.md#sethidden)
+* [`setNetworkActivityIndicatorVisible`](statusbarios.md#setnetworkactivityindicatorvisible)
 
 ---
 
@@ -27,8 +22,6 @@ original_id: statusbarios
 static setStyle(style, animated?)
 ```
 
-
-
 ---
 
 ### `setHidden()`
@@ -37,8 +30,6 @@ static setStyle(style, animated?)
 static setHidden(hidden, animation?)
 ```
 
-
-
 ---
 
 ### `setNetworkActivityIndicatorVisible()`
@@ -46,6 +37,3 @@ static setHidden(hidden, animation?)
 ```javascript
 static setNetworkActivityIndicatorVisible(visible)
 ```
-
-
-

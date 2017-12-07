@@ -3,10 +3,8 @@ id: version-0.6-touchableopacity
 title: TouchableOpacity
 original_id: touchableopacity
 ---
-A wrapper for making views respond properly to touches.
-On press down, the opacity of the wrapped view is decreased, dimming it.
-This is done without actually changing the view hierarchy, and in general is
-easy to add to an app without weird side-effects.
+
+A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it. This is done without actually changing the view hierarchy, and in general is easy to add to an app without weird side-effects.
 
 Example:
 
@@ -22,6 +20,7 @@ renderButton: function() {
   );
 },
 ```
+
 > **NOTE**: TouchableOpacity supports only one child
 >
 > If you wish to have to have several child components, wrap them in a View.
@@ -29,17 +28,12 @@ renderButton: function() {
 ### Props
 
 * [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+
 - [`activeOpacity`](touchableopacity.md#activeopacity)
-
-
-
 
 ### Methods
 
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
-
-
-
+* [`setOpacityTo`](touchableopacity.md#setopacityto)
 
 ---
 
@@ -49,25 +43,16 @@ renderButton: function() {
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is
-active.
+Determines what the opacity of the wrapped view should be when touch is active.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ## Methods
 
 ### `setOpacityTo()`
 
 ```javascript
-setOpacityTo(value)
+setOpacityTo(value);
 ```
-
-
-

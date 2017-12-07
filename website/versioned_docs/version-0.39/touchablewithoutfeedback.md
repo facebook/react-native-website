@@ -3,9 +3,8 @@ id: version-0.39-touchablewithoutfeedback
 title: TouchableWithoutFeedback
 original_id: touchablewithoutfeedback
 ---
-Do not use unless you have a very good reason. All the elements that
-respond to press should have a visual feedback when touched. This is
-one of the primary reasons a "web" app doesn't feel "native".
+
+Do not use unless you have a very good reason. All the elements that respond to press should have a visual feedback when touched. This is one of the primary reasons a "web" app doesn't feel "native".
 
 > **NOTE**: TouchableWithoutFeedback supports only one child
 >
@@ -13,25 +12,20 @@ one of the primary reasons a "web" app doesn't feel "native".
 
 ### Props
 
-- [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-- [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-- [`accessible`](touchablewithoutfeedback.md#accessible)
-- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-- [`disabled`](touchablewithoutfeedback.md#disabled)
-- [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-- [`onLayout`](touchablewithoutfeedback.md#onlayout)
-- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-- [`onPress`](touchablewithoutfeedback.md#onpress)
-- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
-
-
-
-
-
+* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
+* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+* [`accessible`](touchablewithoutfeedback.md#accessible)
+* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+* [`disabled`](touchablewithoutfeedback.md#disabled)
+* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
+* [`onLayout`](touchablewithoutfeedback.md#onlayout)
+* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+* [`onPress`](touchablewithoutfeedback.md#onpress)
+* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
 
 ---
 
@@ -41,45 +35,27 @@ one of the primary reasons a "web" app doesn't feel "native".
 
 ### `hitSlop`
 
-This defines how far your touch can start away from the button. This is
-added to `pressRetentionOffset` when moving off of the button.
-** NOTE **
-The touch area never extends past the parent view bounds and the Z-index
-of sibling views always takes precedence if a touch hits two overlapping
-views.
+This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type | Required |
-| - | - |
-| object: {top: number, left: number, bottom: number, right: number} | No |
-
-
-
+| Type                                                               | Required |
+| ------------------------------------------------------------------ | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       |
 
 ---
 
 ### `accessibilityComponentType`
 
-
-
-| Type | Required |
-| - | - |
-| View.AccessibilityComponentType | No |
-
-
-
+| Type                            | Required |
+| ------------------------------- | -------- |
+| View.AccessibilityComponentType | No       |
 
 ---
 
 ### `accessible`
 
-
-
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -87,12 +63,9 @@ views.
 
 Delay in ms, from onPressIn, before onLongPress is called.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -100,12 +73,9 @@ Delay in ms, from onPressIn, before onLongPress is called.
 
 Delay in ms, from the start of the touch, before onPressIn is called.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -113,12 +83,9 @@ Delay in ms, from the start of the touch, before onPressIn is called.
 
 Delay in ms, from the release of the touch, before onPressOut is called.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -127,24 +94,16 @@ Delay in ms, from the release of the touch, before onPressOut is called.
 If true, disable all interactions for this component.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `accessibilityTraits`
 
-
-
-| Type | Required |
-| - | - |
-| View.AccessibilityTraits, ,array of View.AccessibilityTraits | No |
-
-
-
+| Type                                                         | Required |
+| ------------------------------------------------------------ | -------- |
+| View.AccessibilityTraits, ,array of View.AccessibilityTraits | No       |
 
 ---
 
@@ -152,84 +111,52 @@ If true, disable all interactions for this component.
 
 Invoked on mount and layout changes with
 
-  `{nativeEvent: {layout: {x, y, width, height}}}`
+`{nativeEvent: {layout: {x, y, width, height}}}`
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onLongPress`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onPress`
 
-Called when the touch is released, but not if cancelled (e.g. by a scroll
-that steals the responder lock).
+Called when the touch is released, but not if cancelled (e.g. by a scroll that steals the responder lock).
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onPressIn`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onPressOut`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `pressRetentionOffset`
 
-When the scroll view is disabled, this defines how far your touch may
-move off of the button, before deactivating the button. Once deactivated,
-try moving it back and you'll see that the button is once again
-reactivated! Move it back and forth several times while the scroll view
-is disabled. Ensure you pass in a constant to reduce memory allocations.
+When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type | Required |
-| - | - |
-| object: {top: number, left: number, bottom: number, right: number} | No |
-
-
-
-
-
-
+| Type                                                               | Required |
+| ------------------------------------------------------------------ | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       |

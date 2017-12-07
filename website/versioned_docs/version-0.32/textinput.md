@@ -3,15 +3,10 @@ id: version-0.32-textinput
 title: TextInput
 original_id: textinput
 ---
-A foundational component for inputting text into the app via a
-keyboard. Props provide configurability for several features, such as
-auto-correction, auto-capitalization, placeholder text, and different keyboard
-types, such as a numeric keypad.
 
-The simplest use case is to plop down a `TextInput` and subscribe to the
-`onChangeText` events to read the user input. There are also other events,
-such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple
-example:
+A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
+
+The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -38,11 +33,7 @@ class UselessTextInput extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => UselessTextInput);
 ```
 
-Note that some props are only available with `multiline={true/false}`.
-Additionally, border styles that apply to only one side of the element
-(e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if
-`multiline=false`. To achieve the same effect, you can wrap your `TextInput`
-in a `View`:
+Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -95,16 +86,12 @@ AppRegistry.registerComponent(
 );
 ```
 
-`TextInput` has by default a border at the bottom of its view. This border
-has its padding set by the background image provided by the system, and it
-cannot be changed. Solutions to avoid this is to either not set height
-explicitly, case in which the system will take care of displaying the border
-in the correct position, or to not display the border by setting
-`underlineColorAndroid` to transparent.
+`TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this is to either not set height explicitly, case in which the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`autoCapitalize`](textinput.md#autocapitalize)
 - [`autoFocus`](textinput.md#autofocus)
@@ -144,16 +131,10 @@ in the correct position, or to not display the border by setting
 - [`onKeyPress`](textinput.md#onkeypress)
 - [`selectionState`](textinput.md#selectionstate)
 
-
-
-
 ### Methods
 
-- [`isFocused`](textinput.md#isfocused)
-- [`clear`](textinput.md#clear)
-
-
-
+* [`isFocused`](textinput.md#isfocused)
+* [`clear`](textinput.md#clear)
 
 ---
 
@@ -165,12 +146,9 @@ in the correct position, or to not display the border by setting
 
 The text color of the placeholder string.
 
-| Type | Required |
-| - | - |
-| [color](colors.md) | No |
-
-
-
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
@@ -178,68 +156,46 @@ The text color of the placeholder string.
 
 Can tell `TextInput` to automatically capitalize certain characters.
 
-- `characters`: all characters.
-- `words`: first letter of each word.
-- `sentences`: first letter of each sentence (*default*).
-- `none`: don't auto capitalize anything.
+* `characters`: all characters.
+* `words`: first letter of each word.
+* `sentences`: first letter of each sentence (_default_).
+* `none`: don't auto capitalize anything.
 
 | Type | Required |
-| - | - |
-| PropTypes.oneOf([
-  'none',
-  'sentences',
-  'words',
-  'characters',
-]) | No |
+| ---- | -------- |
 
 
-
+| PropTypes.oneOf([ 'none', 'sentences', 'words', 'characters', ]) | No |
 
 ---
 
 ### `autoFocus`
 
-If `true`, focuses the input on `componentDidMount`.
-The default value is `false`.
+If `true`, focuses the input on `componentDidMount`. The default value is `false`.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
 ### `blurOnSubmit`
 
-If `true`, the text field will blur when submitted.
-The default value is true for single-line fields and false for
-multiline fields. Note that for multiline fields, setting `blurOnSubmit`
-to `true` means that pressing return will blur the field and trigger the
-`onSubmitEditing` event instead of inserting a newline into the field.
+If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
 ### `defaultValue`
 
-Provides an initial value that will change when the user starts typing.
-Useful for simple use-cases where you do not want to deal with listening
-to events and updating the value prop to keep the controlled state in sync.
+Provides an initial value that will change when the user starts typing. Useful for simple use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
 
-| Type | Required |
-| - | - |
-| PropTypes.string | No |
-
-
-
+| Type             | Required |
+| ---------------- | -------- |
+| PropTypes.string | No       |
 
 ---
 
@@ -247,12 +203,9 @@ to events and updating the value prop to keep the controlled state in sync.
 
 If `false`, text is not editable. The default value is `true`.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
@@ -262,60 +215,36 @@ Determines which keyboard to open, e.g.`numeric`.
 
 The following values work across platforms:
 
-- `default`
-- `numeric`
-- `email-address`
-- `phone-pad`
+* `default`
+* `numeric`
+* `email-address`
+* `phone-pad`
 
 | Type | Required |
-| - | - |
-| PropTypes.oneOf([
-  // Cross-platform
-  'default',
-  'email-address',
-  'numeric',
-  'phone-pad',
-  // iOS-only
-  'ascii-capable',
-  'numbers-and-punctuation',
-  'url',
-  'number-pad',
-  'name-phone-pad',
-  'decimal-pad',
-  'twitter',
-  'web-search',
-]) | No |
+| ---- | -------- |
 
 
-
+| PropTypes.oneOf([ // Cross-platform 'default', 'email-address', 'numeric', 'phone-pad', // iOS-only 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', ]) | No |
 
 ---
 
 ### `maxLength`
 
-Limits the maximum number of characters that can be entered. Use this
-instead of implementing the logic in JS to avoid flicker.
+Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
 
-| Type | Required |
-| - | - |
-| PropTypes.number | No |
-
-
-
+| Type             | Required |
+| ---------------- | -------- |
+| PropTypes.number | No       |
 
 ---
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines.
-The default value is `false`.
+If `true`, the text input can be multiple lines. The default value is `false`.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
@@ -323,12 +252,9 @@ The default value is `false`.
 
 Callback that is called when the text input is blurred.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -336,43 +262,31 @@ Callback that is called when the text input is blurred.
 
 Callback that is called when the text input's text changes.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
 ### `onChangeText`
 
-Callback that is called when the text input's text changes.
-Changed text is passed as an argument to the callback handler.
+Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
 ### `onContentSizeChange`
 
-Callback that is called when the text input's content size changes.
-This will be called with
-`{ nativeEvent: { contentSize: { width, height } } }`.
+Callback that is called when the text input's content size changes. This will be called with `{ nativeEvent: { contentSize: { width, height } } }`.
 
 Only called for multiline text inputs.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -380,12 +294,9 @@ Only called for multiline text inputs.
 
 Callback that is called when text input ends.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -393,12 +304,9 @@ Callback that is called when text input ends.
 
 Callback that is called when the text input is focused.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -406,12 +314,9 @@ Callback that is called when the text input is focused.
 
 Invoked on mount and layout changes with `{x, y, width, height}`.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -419,26 +324,19 @@ Invoked on mount and layout changes with `{x, y, width, height}`.
 
 Callback that is called when the text input selection is changed.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
 ### `onSubmitEditing`
 
-Callback that is called when the text input's submit button is pressed.
-Invalid if `multiline={true}` is specified.
+Callback that is called when the text input's submit button is pressed. Invalid if `multiline={true}` is specified.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -446,12 +344,9 @@ Invalid if `multiline={true}` is specified.
 
 The string that will be rendered before text input has been entered.
 
-| Type | Required |
-| - | - |
-| PropTypes.string | No |
-
-
-
+| Type             | Required |
+| ---------------- | -------- |
+| PropTypes.string | No       |
 
 ---
 
@@ -459,85 +354,59 @@ The string that will be rendered before text input has been entered.
 
 If `false`, disables auto-correct. The default value is `true`.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
 ### `returnKeyType`
 
-Determines how the return key should look. On Android you can also use
-`returnKeyLabel`.
+Determines how the return key should look. On Android you can also use `returnKeyLabel`.
 
-*Cross platform*
+_Cross platform_
 
 The following values work across platforms:
 
-- `done`
-- `go`
-- `next`
-- `search`
-- `send`
+* `done`
+* `go`
+* `next`
+* `search`
+* `send`
 
-*Android Only*
+_Android Only_
 
 The following values work on Android only:
 
-- `none`
-- `previous`
+* `none`
+* `previous`
 
-*iOS Only*
+_iOS Only_
 
 The following values work on iOS only:
 
-- `default`
-- `emergency-call`
-- `google`
-- `join`
-- `route`
-- `yahoo`
+* `default`
+* `emergency-call`
+* `google`
+* `join`
+* `route`
+* `yahoo`
 
 | Type | Required |
-| - | - |
-| PropTypes.oneOf([
-  // Cross-platform
-  'done',
-  'go',
-  'next',
-  'search',
-  'send',
-  // Android-only
-  'none',
-  'previous',
-  // iOS-only
-  'default',
-  'emergency-call',
-  'google',
-  'join',
-  'route',
-  'yahoo',
-]) | No |
+| ---- | -------- |
 
 
-
+| PropTypes.oneOf([ // Cross-platform 'done', 'go', 'next', 'search', 'send', // Android-only 'none', 'previous', // iOS-only 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo', ]) | No |
 
 ---
 
 ### `secureTextEntry`
 
-If `true`, the text input obscures the text entered so that sensitive text
-like passwords stay secure. The default value is `false`.
+If `true`, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is `false`.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
@@ -545,12 +414,9 @@ like passwords stay secure. The default value is `false`.
 
 If `true`, all text will automatically be selected on focus.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
@@ -558,12 +424,9 @@ If `true`, all text will automatically be selected on focus.
 
 The highlight (and cursor on iOS) color of the text input.
 
-| Type | Required |
-| - | - |
-| [color](colors.md) | No |
-
-
-
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
@@ -571,31 +434,19 @@ The highlight (and cursor on iOS) color of the text input.
 
 [Styles](style.md)
 
-| Type | Required |
-| - | - |
-| [Text](text.md#style) | No |
-
-
-
+| Type                  | Required |
+| --------------------- | -------- |
+| [Text](text.md#style) | No       |
 
 ---
 
 ### `value`
 
-The value to show for the text input. `TextInput` is a controlled
-component, which means the native value will be forced to match this
-value prop if provided. For most uses, this works great, but in some
-cases this may cause flickering - one common cause is preventing edits
-by keeping value the same. In addition to simply setting the same value,
-either set `editable={false}`, or set/update `maxLength` to prevent
-unwanted edits without flicker.
+The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
-| Type | Required |
-| - | - |
-| PropTypes.string | No |
-
-
-
+| Type             | Required |
+| ---------------- | -------- |
+| PropTypes.string | No       |
 
 ---
 
@@ -603,13 +454,9 @@ unwanted edits without flicker.
 
 If defined, the provided image resource will be rendered on the left.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.string | No | Android  |
-
-
-
+| Type             | Required | Platform |
+| ---------------- | -------- | -------- |
+| PropTypes.string | No       | Android  |
 
 ---
 
@@ -617,28 +464,19 @@ If defined, the provided image resource will be rendered on the left.
 
 Padding between the inline image, if any, and the text input itself.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.number | No | Android  |
-
-
-
+| Type             | Required | Platform |
+| ---------------- | -------- | -------- |
+| PropTypes.number | No       | Android  |
 
 ---
 
 ### `numberOfLines`
 
-Sets the number of lines for a `TextInput`. Use it with multiline set to
-`true` to be able to fill the lines.
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.number | No | Android  |
-
-
-
+| Type             | Required | Platform |
+| ---------------- | -------- | -------- |
+| PropTypes.number | No       | Android  |
 
 ---
 
@@ -646,13 +484,9 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.string | No | Android  |
-
-
-
+| Type             | Required | Platform |
+| ---------------- | -------- | -------- |
+| PropTypes.string | No       | Android  |
 
 ---
 
@@ -660,13 +494,9 @@ Sets the return key to the label. Use it instead of `returnKeyType`.
 
 The color of the `TextInput` underline.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | Android  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | Android  |
 
 ---
 
@@ -674,18 +504,11 @@ The color of the `TextInput` underline.
 
 When the clear button should appear on the right side of the text view.
 
-
 | Type | Required | Platform |
-| - | - | - |
-| PropTypes.oneOf([
-  'never',
-  'while-editing',
-  'unless-editing',
-  'always',
-]) | No | iOS  |
+| ---- | -------- | -------- |
 
 
-
+| PropTypes.oneOf([ 'never', 'while-editing', 'unless-editing', 'always', ]) | No | iOS |
 
 ---
 
@@ -693,59 +516,42 @@ When the clear button should appear on the right side of the text view.
 
 If `true`, clears the text field automatically when editing begins.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.bool | No | iOS  |
-
-
-
+| Type           | Required | Platform |
+| -------------- | -------- | -------- |
+| PropTypes.bool | No       | iOS      |
 
 ---
 
 ### `dataDetectorTypes`
 
-Determines the types of data converted to clickable URLs in the text input.
-Only valid if `multiline={true}` and `editable={false}`.
-By default no data types are detected.
+Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
 
 You can provide one type or an array of many types.
 
 Possible values for `dataDetectorTypes` are:
 
-- `'phoneNumber'`
-- `'link'`
-- `'address'`
-- `'calendarEvent'`
-- `'none'`
-- `'all'`
-
-
+* `'phoneNumber'`
+* `'link'`
+* `'address'`
+* `'calendarEvent'`
+* `'none'`
+* `'all'`
 
 | Type | Required | Platform |
-| - | - | - |
-| PropTypes.oneOfType([
-  PropTypes.oneOf(DataDetectorTypes),
-  PropTypes.arrayOf(PropTypes.oneOf(DataDetectorTypes)),
-]) | No | iOS  |
+| ---- | -------- | -------- |
 
 
-
+| PropTypes.oneOfType([ PropTypes.oneOf(DataDetectorTypes), PropTypes.arrayOf(PropTypes.oneOf(DataDetectorTypes)), ]) | No | iOS |
 
 ---
 
 ### `enablesReturnKeyAutomatically`
 
-If `true`, the keyboard disables the return key when there is no text and
-automatically enables it when there is text. The default value is `false`.
+If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.bool | No | iOS  |
-
-
-
+| Type           | Required | Platform |
+| -------------- | -------- | -------- |
+| PropTypes.bool | No       | iOS      |
 
 ---
 
@@ -753,82 +559,56 @@ automatically enables it when there is text. The default value is `false`.
 
 Determines the color of the keyboard.
 
-
 | Type | Required | Platform |
-| - | - | - |
-| PropTypes.oneOf([
-  'default',
-  'light',
-  'dark',
-]) | No | iOS  |
+| ---- | -------- | -------- |
 
 
-
+| PropTypes.oneOf([ 'default', 'light', 'dark', ]) | No | iOS |
 
 ---
 
 ### `onKeyPress`
 
-Callback that is called when a key is pressed.
-Pressed key value is passed as an argument to the callback handler.
-Fires before `onChange` callbacks.
+Callback that is called when a key is pressed. Pressed key value is passed as an argument to the callback handler. Fires before `onChange` callbacks.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.func | No | iOS  |
-
-
-
+| Type           | Required | Platform |
+| -------------- | -------- | -------- |
+| PropTypes.func | No       | iOS      |
 
 ---
 
 ### `selectionState`
 
-An instance of `DocumentSelectionState`, this is some state that is responsible for
-maintaining selection information for a document.
+An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
 
 Some functionality that can be performed with this instance is:
 
-- `blur()`
-- `focus()`
-- `update()`
+* `blur()`
+* `focus()`
+* `update()`
 
-> You can reference `DocumentSelectionState` in
-> [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
+> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
 
-
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.instanceOf(DocumentSelectionState) | No | iOS  |
-
-
-
-
-
+| Type                                         | Required | Platform |
+| -------------------------------------------- | -------- | -------- |
+| PropTypes.instanceOf(DocumentSelectionState) | No       | iOS      |
 
 ## Methods
 
 ### `isFocused()`
 
 ```javascript
-isFocused(): 
+isFocused():
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.
-
-
 
 ---
 
 ### `clear()`
 
 ```javascript
-clear()
+clear();
 ```
 
 Removes all text from the `TextInput`.
-
-
-

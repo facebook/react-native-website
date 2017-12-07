@@ -3,14 +3,10 @@ id: version-0.5-tabbarios
 title: TabBarIOS
 original_id: tabbarios
 ---
+
 ### Props
 
-- [`style`](tabbarios.md#style)
-
-
-
-
-
+* [`style`](tabbarios.md#style)
 
 ---
 
@@ -20,14 +16,6 @@ original_id: tabbarios
 
 ### `style`
 
-
-
-| Type | Required |
-| - | - |
-| [View](view.md#style) | No |
-
-
-
-
-
-
+| Type                  | Required |
+| --------------------- | -------- |
+| [View](view.md#style) | No       |

@@ -38,7 +38,7 @@ jobs:
             cd website
             yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
       - run:
-          name: Check Prettier
+          name: Check Formatting with Prettier
           command: |
             cd website
             yarn ci-check

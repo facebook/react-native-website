@@ -4,23 +4,16 @@ title: Geolocation
 original_id: geolocation
 ---
 
-You need to include the `NSLocationWhenInUseUsageDescription` key
-in Info.plist to enable geolocation. Geolocation is enabled by default
-when you create a project with `react-native init`.
+You need to include the `NSLocationWhenInUseUsageDescription` key in Info.plist to enable geolocation. Geolocation is enabled by default when you create a project with `react-native init`.
 
-Geolocation follows the MDN specification:
-https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
-
+Geolocation follows the MDN specification: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
 
 ### Methods
 
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
-
-
-
+* [`getCurrentPosition`](geolocation.md#getcurrentposition)
+* [`watchPosition`](geolocation.md#watchposition)
+* [`clearWatch`](geolocation.md#clearwatch)
+* [`stopObserving`](geolocation.md#stopobserving)
 
 ---
 
@@ -34,12 +27,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
 static getCurrentPosition(geo_success, geo_error?, geo_options?)
 ```
 
-
-Invokes the success callback once with the latest location info.  Supported
-options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
-
-
-
+Invokes the success callback once with the latest location info. Supported options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
 
 ---
 
@@ -49,12 +37,7 @@ options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
 static watchPosition(success, error?, options?)
 ```
 
-
-Invokes the success callback whenever the location changes.  Supported
-options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
-
-
-
+Invokes the success callback whenever the location changes. Supported options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
 
 ---
 
@@ -64,8 +47,6 @@ options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
 static clearWatch(watchID)
 ```
 
-
-
 ---
 
 ### `stopObserving()`
@@ -73,6 +54,3 @@ static clearWatch(watchID)
 ```javascript
 static stopObserving()
 ```
-
-
-

@@ -3,22 +3,15 @@ id: flexbox
 title: Layout with Flexbox
 ---
 
-A component can specify the layout of its children using the flexbox algorithm.
-Flexbox is designed to provide a consistent layout on different screen sizes.
+A component can specify the layout of its children using the flexbox algorithm. Flexbox is designed to provide a consistent layout on different screen sizes.
 
-You will normally use a combination of `flexDirection`, `alignItems`, and
-`justifyContent` to achieve the right layout.
+You will normally use a combination of `flexDirection`, `alignItems`, and `justifyContent` to achieve the right layout.
 
-> Flexbox works the same way in React Native as it does in CSS on the web, with
-> a few exceptions. The defaults are different, with `flexDirection` defaulting
-> to `column` instead of `row`, and the `flex` parameter only supporting a
-> single number.
+> Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, and the `flex` parameter only supporting a single number.
 
 #### Flex Direction
 
-Adding `flexDirection` to a component's `style` determines the **primary axis**
-of its layout. Should the children be organized horizontally (`row`) or
-vertically (`column`)? The default is `column`.
+Adding `flexDirection` to a component's `style` determines the **primary axis** of its layout. Should the children be organized horizontally (`row`) or vertically (`column`)? The default is `column`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -43,10 +36,7 @@ AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 
 #### Justify Content
 
-Adding `justifyContent` to a component's style determines the **distribution**
-of children along the **primary axis**. Should children be distributed at the
-start, the center, the end, or spaced evenly? Available options are
-`flex-start`, `center`, `flex-end`, `space-around`, and `space-between`.
+Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, and `space-between`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -76,15 +66,9 @@ AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 
 #### Align Items
 
-Adding `alignItems` to a component's style determines the **alignment** of
-children along the **secondary axis** (if the primary axis is `row`, then the
-secondary is `column`, and vice versa). Should children be aligned at the start,
-the center, the end, or stretched to fill? Available options are `flex-start`,
-`center`, `flex-end`, and `stretch`.
+Adding `alignItems` to a component's style determines the **alignment** of children along the **secondary axis** (if the primary axis is `row`, then the secondary is `column`, and vice versa). Should children be aligned at the start, the center, the end, or stretched to fill? Available options are `flex-start`, `center`, `flex-end`, and `stretch`.
 
-> For `stretch` to have an effect, children must not have a fixed dimension
-> along the secondary axis. In the following example, setting `alignItems:
-> stretch` does nothing until the `width: 50` is removed from the children.
+> For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -116,10 +100,6 @@ AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 
 #### Going Deeper
 
-We've covered the basics, but there are many other styles you may need for
-layouts. The full list of props that control layout is documented
-[here](./layout-props.md).
+We've covered the basics, but there are many other styles you may need for layouts. The full list of props that control layout is documented [here](./layout-props.md).
 
-We're getting close to being able to build a real application. One thing we are
-still missing is a way to take user input, so let's move on to
-[learn how to handle text input with the TextInput component](handling-text-input.md).
+We're getting close to being able to build a real application. One thing we are still missing is a way to take user input, so let's move on to [learn how to handle text input with the TextInput component](handling-text-input.md).

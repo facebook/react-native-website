@@ -2,6 +2,7 @@
 id: maskedviewios
 title: MaskedViewIOS
 ---
+
 Renders the child view with a mask specified in the `maskElement` prop.
 
 ## Example
@@ -44,27 +45,17 @@ class MyMaskedView extends React.Component {
 }
 ```
 
-The following image demonstrates that you can put almost anything behind the mask.
-The three examples shown are masked `<View>`, `<Text>`, and `<Image>`.
+The following image demonstrates that you can put almost anything behind the mask. The three examples shown are masked `<View>`, `<Text>`, and `<Image>`.
 
 <center><img src="/react-native/docs/assets/MaskedViewIOS/example.png" width="200"></img></center>
 
-
-
-**The alpha channel of the view rendered by the `maskElement` prop determines how
-much of the view's content and background shows through.** Fully or partially
-opaque pixels allow the underlying content to show through but fully
-transparent pixels block that content.
+**The alpha channel of the view rendered by the `maskElement` prop determines how much of the view's content and background shows through.** Fully or partially opaque pixels allow the underlying content to show through but fully transparent pixels block that content.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`maskElement`](maskedviewios.md#maskelement)
-
-
-
-
-
 
 ---
 
@@ -74,14 +65,6 @@ transparent pixels block that content.
 
 ### `maskElement`
 
-
-
-| Type | Required |
-| - | - |
-| element | Yes |
-
-
-
-
-
-
+| Type    | Required |
+| ------- | -------- |
+| element | Yes      |

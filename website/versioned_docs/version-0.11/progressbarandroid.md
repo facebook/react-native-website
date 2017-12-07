@@ -3,8 +3,8 @@ id: version-0.11-progressbarandroid
 title: ProgressBarAndroid
 original_id: progressbarandroid
 ---
-React component that wraps the Android-only `ProgressBar`. This component is used to indicate
-that the app is loading or there is some activity in the app.
+
+React component that wraps the Android-only `ProgressBar`. This component is used to indicate that the app is loading or there is some activity in the app.
 
 Example:
 
@@ -27,13 +27,8 @@ render: function() {
 
 ### Props
 
-- [`styleAttr`](progressbarandroid.md#styleattr)
-- [`testID`](progressbarandroid.md#testid)
-
-
-
-
-
+* [`styleAttr`](progressbarandroid.md#styleattr)
+* [`testID`](progressbarandroid.md#testid)
 
 ---
 
@@ -45,19 +40,16 @@ render: function() {
 
 Style of the ProgressBar. One of:
 
-- Horizontal
-- Small
-- Large
-- Inverse
-- SmallInverse
-- LargeInverse
+* Horizontal
+* Small
+* Large
+* Inverse
+* SmallInverse
+* LargeInverse
 
-| Type | Required |
-| - | - |
-| enum('Horizontal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | No |
-
-
-
+| Type                                                                            | Required |
+| ------------------------------------------------------------------------------- | -------- |
+| enum('Horizontal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | No       |
 
 ---
 
@@ -65,12 +57,6 @@ Style of the ProgressBar. One of:
 
 Used to locate this view in end-to-end tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |

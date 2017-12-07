@@ -3,21 +3,17 @@ id: version-0.48-transforms
 title: Transforms
 original_id: transforms
 ---
+
 ### Props
 
-- [`decomposedMatrix`](transforms.md#decomposedmatrix)
-- [`rotation`](transforms.md#rotation)
-- [`scaleX`](transforms.md#scalex)
-- [`scaleY`](transforms.md#scaley)
-- [`transform`](transforms.md#transform)
-- [`transformMatrix`](transforms.md#transformmatrix)
-- [`translateX`](transforms.md#translatex)
-- [`translateY`](transforms.md#translatey)
-
-
-
-
-
+* [`decomposedMatrix`](transforms.md#decomposedmatrix)
+* [`rotation`](transforms.md#rotation)
+* [`scaleX`](transforms.md#scalex)
+* [`scaleY`](transforms.md#scaley)
+* [`transform`](transforms.md#transform)
+* [`transformMatrix`](transforms.md#transformmatrix)
+* [`translateX`](transforms.md#translatex)
+* [`translateY`](transforms.md#translatey)
 
 ---
 
@@ -29,77 +25,51 @@ original_id: transforms
 
 Deprecated. Use the transform prop instead.
 
-| Type | Required |
-| - | - |
-| DecomposedMatrixPropType | No |
-
-
-
+| Type                     | Required |
+| ------------------------ | -------- |
+| DecomposedMatrixPropType | No       |
 
 ---
 
 ### `rotation`
 
-
-
-| Type | Required |
-| - | - |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No |
-
-
-
+| Type                                                                         | Required |
+| ---------------------------------------------------------------------------- | -------- |
+| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
 
 ---
 
 ### `scaleX`
 
-
-
-| Type | Required |
-| - | - |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No |
-
-
-
+| Type                                                                         | Required |
+| ---------------------------------------------------------------------------- | -------- |
+| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
 
 ---
 
 ### `scaleY`
 
-
-
-| Type | Required |
-| - | - |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No |
-
-
-
+| Type                                                                         | Required |
+| ---------------------------------------------------------------------------- | -------- |
+| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
 
 ---
 
 ### `transform`
 
-`transform` accepts an array of transformation objects. Each object specifies
-the property that will be transformed as the key, and the value to use in the
-transformation. Objects should not be combined. Use a single key/value pair
-per object.
+`transform` accepts an array of transformation objects. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
 
-The rotate transformations require a string so that the transform may be
-expressed in degrees (deg) or radians (rad). For example:
+The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
 
 `transform([{ rotateX: '45deg' }, { rotateZ: '0.785398rad' }])`
 
-The skew transformations require a string so that the transform may be
-expressed in degrees (deg). For example:
+The skew transformations require a string so that the transform may be expressed in degrees (deg). For example:
 
 `transform([{ skewX: '45deg' }])`
 
-| Type | Required |
-| - | - |
-| array of object: {perspective: number}, ,object: {rotate: string}, ,object: {rotateX: string}, ,object: {rotateY: string}, ,object: {rotateZ: string}, ,object: {scale: number}, ,object: {scaleX: number}, ,object: {scaleY: number}, ,object: {translateX: number}, ,object: {translateY: number}, ,object: {skewX: string}, ,object: {skewY: string} | No |
-
-
-
+| Type                                                                                                                                                                                                                                                                                                                                                    | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of object: {perspective: number}, ,object: {rotate: string}, ,object: {rotateX: string}, ,object: {rotateY: string}, ,object: {rotateZ: string}, ,object: {scale: number}, ,object: {scaleX: number}, ,object: {scaleY: number}, ,object: {translateX: number}, ,object: {translateY: number}, ,object: {skewX: string}, ,object: {skewY: string} | No       |
 
 ---
 
@@ -107,38 +77,22 @@ expressed in degrees (deg). For example:
 
 Deprecated. Use the transform prop instead.
 
-| Type | Required |
-| - | - |
-| TransformMatrixPropType | No |
-
-
-
+| Type                    | Required |
+| ----------------------- | -------- |
+| TransformMatrixPropType | No       |
 
 ---
 
 ### `translateX`
 
-
-
-| Type | Required |
-| - | - |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No |
-
-
-
+| Type                                                                         | Required |
+| ---------------------------------------------------------------------------- | -------- |
+| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
 
 ---
 
 ### `translateY`
 
-
-
-| Type | Required |
-| - | - |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No |
-
-
-
-
-
-
+| Type                                                                         | Required |
+| ---------------------------------------------------------------------------- | -------- |
+| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |

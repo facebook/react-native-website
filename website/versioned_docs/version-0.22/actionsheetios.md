@@ -4,15 +4,10 @@ title: ActionSheetIOS
 original_id: actionsheetios
 ---
 
-
-
 ### Methods
 
-- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
-
-
-
+* [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
+* [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
 
 ---
 
@@ -26,8 +21,6 @@ original_id: actionsheetios
 static showActionSheetWithOptions(options, callback)
 ```
 
-
-
 ---
 
 ### `showShareActionSheetWithOptions()`
@@ -36,17 +29,9 @@ static showActionSheetWithOptions(options, callback)
 static showShareActionSheetWithOptions(options, failureCallback, successCallback)
 ```
 
+Display the iOS share sheet. The `options` object should contain one or both of:
 
-Display the iOS share sheet. The `options` object should contain
-one or both of:
+* `message` (string) - a message to share
+* `url` (string) - a URL to share
 
-- `message` (string) - a message to share
-- `url` (string) - a URL to share
-
-NOTE: if `url` points to a local file, or is a base64-encoded
-uri, the file it points to will be loaded and shared directly.
-In this way, you can share images, videos, PDF files, etc.
-
-
-
-
+NOTE: if `url` points to a local file, or is a base64-encoded uri, the file it points to will be loaded and shared directly. In this way, you can share images, videos, PDF files, etc.
