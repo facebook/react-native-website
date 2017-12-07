@@ -520,51 +520,102 @@ type and further documentation.
 ### `scrollToEnd()`
 
 ```javascript
-scrollToEnd(([params]: object));
+scrollToEnd([params]);
 ```
 
 Scrolls to the end of the content. May be janky without `getItemLayout` prop.
+
+**Parameters:**
+
+| Name   | Type   | Required | Description |
+| ------ | ------ | -------- | ----------- |
+| params | object | No       | See below.  |
+
+Valid `params` keys are:
+
+* 'animated' (boolean) - Whether the list should do an animation while
+  scrolling. Defaults to `true`.
 
 ---
 
 ### `scrollToIndex()`
 
 ```javascript
-scrollToIndex((params: object));
+scrollToIndex(params);
 ```
 
 Scrolls to the item at the specified index such that it is positioned in the
 viewable area such that `viewPosition` 0 places it at the top, 1 at the bottom,
-and 0.5 centered in the middle. `viewOffset` is a fixed number of pixels to
-offset the final target position.
+and 0.5 centered in the middle.
 
-Note: cannot scroll to locations outside the render window without specifying
-the `getItemLayout` prop.
+> Note: Cannot scroll to locations outside the render window without specifying
+> the `getItemLayout` prop.
+
+**Parameters:**
+
+| Name   | Type   | Required | Description |
+| ------ | ------ | -------- | ----------- |
+| params | object | Yes      | See below.  |
+
+Valid `params` keys are:
+
+* 'animated' (boolean) - Whether the list should do an animation while
+  scrolling. Defaults to `true`.
+* 'index' (number) - The index to scroll to. Required.
+* 'viewOffset' (number) - A fixed number of pixels to offset the final target
+  position. Required.
+* 'viewPosition' (number) - A value of `0` places the item specified by index at
+  the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---
 
 ### `scrollToItem()`
 
 ```javascript
-scrollToItem((params: object));
+scrollToItem(params);
 ```
 
 Requires linear scan through data - use `scrollToIndex` instead if possible.
 
-Note: cannot scroll to locations outside the render window without specifying
-the `getItemLayout` prop.
+> Note: Cannot scroll to locations outside the render window without specifying
+> the `getItemLayout` prop.
+
+**Parameters:**
+
+| Name   | Type   | Required | Description |
+| ------ | ------ | -------- | ----------- |
+| params | object | Yes      | See below.  |
+
+Valid `params` keys are:
+
+* 'animated' (boolean) - Whether the list should do an animation while
+  scrolling. Defaults to `true`.
+* 'item' (object) - The item to scroll to. Required.
+* 'viewPosition' (number)
 
 ---
 
 ### `scrollToOffset()`
 
 ```javascript
-scrollToOffset((params: object));
+scrollToOffset(params);
 ```
 
 Scroll to a specific content pixel offset in the list.
 
-Check out [scrollToOffset](virtualizedlist.md#scrolltooffset) of VirtualizedList
+**Parameters:**
+
+| Name   | Type   | Required | Description |
+| ------ | ------ | -------- | ----------- |
+| params | object | Yes      | See below.  |
+
+Valid `params` keys are:
+
+* 'offset' (number) - The offset to scroll to. In case of `horizontal` being
+  true, the offset is the x-value, in any other case the offset is the y-value.
+  Required.
+* 'animated' (boolean) - Whether the list should do an animation while
+  scrolling. Defaults to `true`.
 
 ---
 
