@@ -4,34 +4,28 @@ title: PushNotificationIOS
 original_id: pushnotificationios
 ---
 
-Handle push notifications for your app, including permission handling and
-icon badge number.
+Handle push notifications for your app, including permission handling and icon badge number.
 
-To get up and running, [configure your notifications with Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html)
-and your server-side system. To get an idea, [this is the Parse guide](https://parse.com/tutorials/ios-push-notifications).
-
+To get up and running, [configure your notifications with Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/ConfiguringPushNotifications/ConfiguringPushNotifications.html) and your server-side system. To get an idea, [this is the Parse guide](https://parse.com/tutorials/ios-push-notifications).
 
 ### Methods
 
-- [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
-- [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
-- [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-- [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-- [`addEventListener`](pushnotificationios.md#addeventlistener)
-- [`requestPermissions`](pushnotificationios.md#requestpermissions)
-- [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
-- [`checkPermissions`](pushnotificationios.md#checkpermissions)
-- [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-- [`popInitialNotification`](pushnotificationios.md#popinitialnotification)
-- [`constructor`](pushnotificationios.md#constructor)
-- [`getMessage`](pushnotificationios.md#getmessage)
-- [`getSound`](pushnotificationios.md#getsound)
-- [`getAlert`](pushnotificationios.md#getalert)
-- [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-- [`getData`](pushnotificationios.md#getdata)
-
-
-
+* [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
+* [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
+* [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
+* [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
+* [`addEventListener`](pushnotificationios.md#addeventlistener)
+* [`requestPermissions`](pushnotificationios.md#requestpermissions)
+* [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
+* [`checkPermissions`](pushnotificationios.md#checkpermissions)
+* [`removeEventListener`](pushnotificationios.md#removeeventlistener)
+* [`popInitialNotification`](pushnotificationios.md#popinitialnotification)
+* [`constructor`](pushnotificationios.md#constructor)
+* [`getMessage`](pushnotificationios.md#getmessage)
+* [`getSound`](pushnotificationios.md#getsound)
+* [`getAlert`](pushnotificationios.md#getalert)
+* [`getBadgeCount`](pushnotificationios.md#getbadgecount)
+* [`getData`](pushnotificationios.md#getdata)
 
 ---
 
@@ -45,16 +39,11 @@ and your server-side system. To get an idea, [this is the Parse guide](https://p
 static presentLocalNotification(details)
 ```
 
-
 Schedules the localNotification for immediate presentation.
 
 details is an object containing:
 
-- `alertBody` : The message displayed in the notification alert.
-
-
-
-
+* `alertBody` : The message displayed in the notification alert.
 
 ---
 
@@ -64,17 +53,12 @@ details is an object containing:
 static scheduleLocalNotification(details)
 ```
 
-
 Schedules the localNotification for future presentation.
 
 details is an object containing:
 
-- `fireDate` : The date and time when the system should deliver the notification.
-- `alertBody` : The message displayed in the notification alert.
-
-
-
-
+* `fireDate` : The date and time when the system should deliver the notification.
+* `alertBody` : The message displayed in the notification alert.
 
 ---
 
@@ -84,11 +68,7 @@ details is an object containing:
 static setApplicationIconBadgeNumber(number)
 ```
 
-
 Sets the badge number for the app icon on the home screen
-
-
-
 
 ---
 
@@ -98,11 +78,7 @@ Sets the badge number for the app icon on the home screen
 static getApplicationIconBadgeNumber(callback)
 ```
 
-
 Gets the current badge number for the app icon on the home screen
-
-
-
 
 ---
 
@@ -112,19 +88,12 @@ Gets the current badge number for the app icon on the home screen
 static addEventListener(type, handler)
 ```
 
-
-Attaches a listener to remote notification events while the app is running
-in the foreground or the background.
+Attaches a listener to remote notification events while the app is running in the foreground or the background.
 
 Valid events are:
 
-- `notification` : Fired when a remote notification is received. The
-  handler will be invoked with an instance of `PushNotificationIOS`.
-- `register`: Fired when the user registers for remote notifications. The
-  handler will be invoked with a hex string representing the deviceToken.
-
-
-
+* `notification` : Fired when a remote notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
+* `register`: Fired when the user registers for remote notifications. The handler will be invoked with a hex string representing the deviceToken.
 
 ---
 
@@ -134,22 +103,13 @@ Valid events are:
 static requestPermissions(permissions?)
 ```
 
+Requests notification permissions from iOS, prompting the user's dialog box. By default, it will request all notification permissions, but a subset of these can be requested by passing a map of requested permissions. The following permissions are supported:
 
-Requests notification permissions from iOS, prompting the user's
-dialog box. By default, it will request all notification permissions, but
-a subset of these can be requested by passing a map of requested
-permissions.
-The following permissions are supported:
+* `alert`
+* `badge`
+* `sound`
 
-  - `alert`
-  - `badge`
-  - `sound`
-
-If a map is provided to the method, only the permissions with truthy values
-will be requested.
-
-
-
+If a map is provided to the method, only the permissions with truthy values will be requested.
 
 ---
 
@@ -159,16 +119,9 @@ will be requested.
 static abandonPermissions()
 ```
 
-
 Unregister for all remote notifications received via Apple Push Notification service.
 
-You should call this method in rare circumstances only, such as when a new version of
-the app removes support for all types of remote notifications. Users can temporarily
-prevent apps from receiving remote notifications through the Notifications section of
-the Settings app. Apps unregistered through this method can always re-register.
-
-
-
+You should call this method in rare circumstances only, such as when a new version of the app removes support for all types of remote notifications. Users can temporarily prevent apps from receiving remote notifications through the Notifications section of the Settings app. Apps unregistered through this method can always re-register.
 
 ---
 
@@ -178,16 +131,11 @@ the Settings app. Apps unregistered through this method can always re-register.
 static checkPermissions(callback)
 ```
 
+See what push permissions are currently enabled. `callback` will be invoked with a `permissions` object:
 
-See what push permissions are currently enabled. `callback` will be
-invoked with a `permissions` object:
-
- - `alert` :boolean
- - `badge` :boolean
- - `sound` :boolean
-
-
-
+* `alert` :boolean
+* `badge` :boolean
+* `sound` :boolean
 
 ---
 
@@ -197,12 +145,7 @@ invoked with a `permissions` object:
 static removeEventListener(type, handler)
 ```
 
-
-Removes the event listener. Do this in `componentWillUnmount` to prevent
-memory leaks
-
-
-
+Removes the event listener. Do this in `componentWillUnmount` to prevent memory leaks
 
 ---
 
@@ -212,99 +155,66 @@ memory leaks
 static popInitialNotification()
 ```
 
+An initial notification will be available if the app was cold-launched from a notification.
 
-An initial notification will be available if the app was cold-launched
-from a notification.
-
-The first caller of `popInitialNotification` will get the initial
-notification object, or `null`. Subsequent invocations will return null.
-
-
-
+The first caller of `popInitialNotification` will get the initial notification object, or `null`. Subsequent invocations will return null.
 
 ---
 
 ### `constructor()`
 
 ```javascript
-constructor(nativeNotif)
+constructor(nativeNotif);
 ```
 
-
-You will never need to instansiate `PushNotificationIOS` yourself.
-Listening to the `notification` event and invoking
-`popInitialNotification` is sufficient
-
-
-
+You will never need to instansiate `PushNotificationIOS` yourself. Listening to the `notification` event and invoking `popInitialNotification` is sufficient
 
 ---
 
 ### `getMessage()`
 
 ```javascript
-getMessage()
+getMessage();
 ```
 
-
 An alias for `getAlert` to get the notification's main message string
-
-
-
 
 ---
 
 ### `getSound()`
 
 ```javascript
-getSound()
+getSound();
 ```
 
-
 Gets the sound string from the `aps` object
-
-
-
 
 ---
 
 ### `getAlert()`
 
 ```javascript
-getAlert()
+getAlert();
 ```
 
-
 Gets the notification's main message from the `aps` object
-
-
-
 
 ---
 
 ### `getBadgeCount()`
 
 ```javascript
-getBadgeCount()
+getBadgeCount();
 ```
 
-
 Gets the badge count number from the `aps` object
-
-
-
 
 ---
 
 ### `getData()`
 
 ```javascript
-getData()
+getData();
 ```
 
-
 Gets the data object on the notif
-
-
-
-

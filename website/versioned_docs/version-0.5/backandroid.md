@@ -6,15 +6,11 @@ original_id: backandroid
 
 **Deprecated.** Use [BackHandler](backhandler.md) instead.
 
-
 ### Methods
 
-- [`exitApp`](backandroid.md#exitapp)
-- [`addEventListener`](backandroid.md#addeventlistener)
-- [`removeEventListener`](backandroid.md#removeeventlistener)
-
-
-
+* [`exitApp`](backandroid.md#exitapp)
+* [`addEventListener`](backandroid.md#addeventlistener)
+* [`removeEventListener`](backandroid.md#removeeventlistener)
 
 ---
 
@@ -25,28 +21,21 @@ original_id: backandroid
 ### `exitApp()`
 
 ```javascript
-BackAndroid.exitApp()
+BackAndroid.exitApp();
 ```
-
-
 
 ---
 
 ### `addEventListener()`
 
 ```javascript
-BackAndroid.addEventListener(eventName, handler)
+BackAndroid.addEventListener(eventName, handler);
 ```
-
-
 
 ---
 
 ### `removeEventListener()`
 
 ```javascript
-BackAndroid.removeEventListener(eventName, handler)
+BackAndroid.removeEventListener(eventName, handler);
 ```
-
-
-

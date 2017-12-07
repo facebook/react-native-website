@@ -170,9 +170,7 @@ function ReactNativeWebPlayer(md) {
       htmlForCodeBlock(sampleCode) +
       `<iframe style="margin-top: 4" width="880" height="${
         parseParams(paramsString).platform === 'android' ? '425' : '420'
-      }" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${
-        WEB_PLAYER_VERSION
-      }/index.html${hash}" frame-border="0"></iframe>` +
+      }" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html${hash}" frame-border="0"></iframe>` +
       `</div>` +
       '\n\n'
     );

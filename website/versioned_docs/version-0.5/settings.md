@@ -4,21 +4,14 @@ title: Settings
 original_id: settings
 ---
 
-
-
 ### Methods
 
-- [`get`](settings.md#get)
-- [`set`](settings.md#set)
-- [`watchKeys`](settings.md#watchkeys)
-- [`clearWatch`](settings.md#clearwatch)
-
+* [`get`](settings.md#get)
+* [`set`](settings.md#set)
+* [`watchKeys`](settings.md#watchkeys)
+* [`clearWatch`](settings.md#clearwatch)
 
 ### Properties
-
-
-
-
 
 ---
 
@@ -32,8 +25,6 @@ original_id: settings
 static get(key)
 ```
 
-
-
 ---
 
 ### `set()`
@@ -41,8 +32,6 @@ static get(key)
 ```javascript
 static set(settings)
 ```
-
-
 
 ---
 
@@ -52,8 +41,6 @@ static set(settings)
 static watchKeys(keys, callback)
 ```
 
-
-
 ---
 
 ### `clearWatch()`
@@ -62,9 +49,4 @@ static watchKeys(keys, callback)
 static clearWatch(watchId)
 ```
 
-
-
 ## Properties
-
-
-

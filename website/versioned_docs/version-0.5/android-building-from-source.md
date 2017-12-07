@@ -19,13 +19,13 @@ Make sure you have the following installed:
 
 ### Point Gradle to your Android SDK:
 
-**Step 1:**  Set environment variables through your local shell.
+**Step 1:** Set environment variables through your local shell.
 
 Note: Files may vary based on shell flavor. See below for examples from common shells.
 
-- bash: `.bash_profile` or `.bashrc`
-- zsh: `.zprofile` or `.zshrc`
-- ksh: `.profile` or `$ENV`
+* bash: `.bash_profile` or `.bashrc`
+* zsh: `.zprofile` or `.zshrc`
+* ksh: `.profile` or `$ENV`
 
 Example:
 
@@ -128,7 +128,7 @@ You should be able to use the _Run_ button to run your app on a device. Android 
 
 ## Additional notes
 
-Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle ` file:
+Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle` file:
 
 ```gradle
 gradle.projectsLoaded {

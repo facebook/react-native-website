@@ -4,15 +4,10 @@ title: StatusBarIOS
 original_id: statusbarios
 ---
 
-
-
 ### Methods
 
-- [`setStyle`](statusbarios.md#setstyle)
-- [`setHidden`](statusbarios.md#sethidden)
-
-
-
+* [`setStyle`](statusbarios.md#setstyle)
+* [`setHidden`](statusbarios.md#sethidden)
 
 ---
 
@@ -26,8 +21,6 @@ original_id: statusbarios
 static setStyle(style, animated?)
 ```
 
-
-
 ---
 
 ### `setHidden()`
@@ -35,6 +28,3 @@ static setStyle(style, animated?)
 ```javascript
 static setHidden(hidden, animation?)
 ```
-
-
-

@@ -4,9 +4,7 @@ title: AccessibilityInfo
 original_id: accessibilityinfo
 ---
 
-Sometimes it's useful to know whether or not the device has a screen reader that is currently active. The
-`AccessibilityInfo` API is designed for this purpose. You can use it to query the current state of the
-screen reader as well as to register to be notified when the state of the screen reader changes.
+Sometimes it's useful to know whether or not the device has a screen reader that is currently active. The `AccessibilityInfo` API is designed for this purpose. You can use it to query the current state of the screen reader as well as to register to be notified when the state of the screen reader changes.
 
 Here's a small example illustrating how to use `AccessibilityInfo`:
 
@@ -14,16 +12,16 @@ Here's a small example illustrating how to use `AccessibilityInfo`:
 class ScreenReaderStatusExample extends React.Component {
   state = {
     screenReaderEnabled: false,
-  }
+  };
 
   componentDidMount() {
     AccessibilityInfo.addEventListener(
       'change',
       this._handleScreenReaderToggled
     );
-    AccessibilityInfo.fetch().done((isEnabled) => {
+    AccessibilityInfo.fetch().done(isEnabled => {
       this.setState({
-        screenReaderEnabled: isEnabled
+        screenReaderEnabled: isEnabled,
       });
     });
   }
@@ -35,17 +33,18 @@ class ScreenReaderStatusExample extends React.Component {
     );
   }
 
-  _handleScreenReaderToggled = (isEnabled) => {
+  _handleScreenReaderToggled = isEnabled => {
     this.setState({
       screenReaderEnabled: isEnabled,
     });
-  }
+  };
 
   render() {
     return (
       <View>
         <Text>
-          The screen reader is {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
+          The screen reader is{' '}
+          {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
         </Text>
       </View>
     );
@@ -53,15 +52,11 @@ class ScreenReaderStatusExample extends React.Component {
 }
 ```
 
-
 ### Methods
 
-- [`fetch`](accessibilityinfo.md#fetch)
-- [`addEventListener`](accessibilityinfo.md#addeventlistener)
-- [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
-
-
-
+* [`fetch`](accessibilityinfo.md#fetch)
+* [`addEventListener`](accessibilityinfo.md#addeventlistener)
+* [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
 
 ---
 
@@ -75,13 +70,7 @@ class ScreenReaderStatusExample extends React.Component {
 static fetch()
 ```
 
-
-Query whether a screen reader is currently enabled. Returns a promise which
-resolves to a boolean. The result is `true` when a screen reader is enabled
-and `false` otherwise.
-
-
-
+Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
 
 ---
 
@@ -91,15 +80,9 @@ and `false` otherwise.
 static addEventListener(eventName, handler)
 ```
 
-
 Add an event handler. Supported events:
 
-- `change`: Fires when the state of the screen reader changes. The argument
-  to the event handler is a boolean. The boolean is `true` when a screen
-  reader is enabled and `false` otherwise.
-
-
-
+* `change`: Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.
 
 ---
 
@@ -109,9 +92,4 @@ Add an event handler. Supported events:
 static removeEventListener(eventName, handler)
 ```
 
-
 Remove an event handler.
-
-
-
-

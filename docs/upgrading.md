@@ -101,6 +101,7 @@ npm WARN peerDependencies The peer dependency react@~R included from react-nativ
 ```
 
 If you saw a warning about the peerDependency, also upgrade `react` by running:
+
 ```sh
 $ npm install --save react@R
 # where R is the new version of react from the peerDependency warning you saw
@@ -108,11 +109,9 @@ $ npm install --save react@R
 
 #### 2. Upgrade your project templates
 
-The new npm package may contain updates to the files that are normally generated when you
-run `react-native init`, like the iOS and the Android sub-projects.
+The new npm package may contain updates to the files that are normally generated when you run `react-native init`, like the iOS and the Android sub-projects.
 
-You may consult [rn-diff](https://github.com/ncuillery/rn-diff) to see if there were changes in the project template files.
-In case there weren't any, simply rebuild the project and continue developing. In case of minor changes, you may update your project manually and rebuild.
+You may consult [rn-diff](https://github.com/ncuillery/rn-diff) to see if there were changes in the project template files. In case there weren't any, simply rebuild the project and continue developing. In case of minor changes, you may update your project manually and rebuild.
 
 If there were major changes, run this in a terminal to get these:
 
@@ -126,6 +125,6 @@ This will check your files against the latest template and perform the following
 * If a file in the template is identical to your file, it is skipped.
 * If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
 
-##  Manual Upgrades
+## Manual Upgrades
 
 Some upgrades require manual steps, e.g. 0.13 to 0.14, or 0.28 to 0.29. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.

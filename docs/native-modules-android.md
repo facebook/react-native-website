@@ -29,7 +29,7 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
 import java.util.Map;
-import java.util.HashMap; 
+import java.util.HashMap;
 
 public class ToastModule extends ReactContextBaseJavaModule {
 
@@ -146,7 +146,7 @@ To make it simpler to access your new functionality from JavaScript, it is commo
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import { NativeModules } from 'react-native';
+import {NativeModules} from 'react-native';
 module.exports = NativeModules.ToastExample;
 ```
 
@@ -198,7 +198,7 @@ This method would be accessed in JavaScript using:
 UIManager.measureLayout(
   100,
   100,
-  (msg) => {
+  msg => {
     console.log(msg);
   },
   (x, y, width, height) => {
@@ -253,12 +253,10 @@ The JavaScript counterpart of this method returns a Promise. This means you can 
 ```js
 async function measureLayout() {
   try {
-    var {
-      relativeX,
-      relativeY,
-      width,
-      height,
-    } = await UIManager.measureLayout(100, 100);
+    var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
+      100,
+      100
+    );
 
     console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);
   } catch (e) {

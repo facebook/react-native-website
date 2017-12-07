@@ -6,15 +6,11 @@ original_id: statusbarios
 
 Deprecated. Use `StatusBar` instead.
 
-
 ### Methods
 
-- [`setStyle`](statusbarios.md#setstyle)
-- [`setHidden`](statusbarios.md#sethidden)
-- [`setNetworkActivityIndicatorVisible`](statusbarios.md#setnetworkactivityindicatorvisible)
-
-
-
+* [`setStyle`](statusbarios.md#setstyle)
+* [`setHidden`](statusbarios.md#sethidden)
+* [`setNetworkActivityIndicatorVisible`](statusbarios.md#setnetworkactivityindicatorvisible)
 
 ---
 
@@ -28,8 +24,6 @@ Deprecated. Use `StatusBar` instead.
 setStyle(style, animated?)
 ```
 
-
-
 ---
 
 ### `setHidden()`
@@ -38,15 +32,10 @@ setStyle(style, animated?)
 setHidden(hidden, animation?)
 ```
 
-
-
 ---
 
 ### `setNetworkActivityIndicatorVisible()`
 
 ```javascript
-setNetworkActivityIndicatorVisible(visible)
+setNetworkActivityIndicatorVisible(visible);
 ```
-
-
-

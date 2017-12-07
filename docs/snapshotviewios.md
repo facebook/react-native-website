@@ -2,16 +2,13 @@
 id: snapshotviewios
 title: SnapshotViewIOS
 ---
+
 ### Props
 
 * [View props...](view.md#props)
+
 - [`onSnapshotReady`](snapshotviewios.md#onsnapshotready)
 - [`testIdentifier`](snapshotviewios.md#testidentifier)
-
-
-
-
-
 
 ---
 
@@ -21,27 +18,14 @@ title: SnapshotViewIOS
 
 ### `onSnapshotReady`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `testIdentifier`
 
-
-
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |

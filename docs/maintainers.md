@@ -20,28 +20,27 @@ Issues that do not meet the above criteria can be closed immediately, with a lin
 
 You have gathered all the information required to open a new issue, and you are confident it meets the [contributor guidelines](contributing.md). Once you post an issue, this is what our maintainers will consider when deciding how to move forward:
 
-* **Is this issue a feature request?** 
+* **Is this issue a feature request?**
 
-  Some features may not be a good fit for the core React Native library. This is usually the case for **new modules* that Facebook does not use in production. In this case, a maintainer will explain that this should be released to npm as a separate module, allowing users to easily pull in the module in their projects.
+  Some features may not be a good fit for the core React Native library. This is usually the case for \*_new modules_ that Facebook does not use in production. In this case, a maintainer will explain that this should be released to npm as a separate module, allowing users to easily pull in the module in their projects.
 
   Even if the feature does belong in the core library, adding it means maintaining it. A maintainer will encourage you to submit a pull request or otherwise post your request to [Canny](https://react-native.canny.io/feature-requests) by issuing the `@facebook-github-bot feature` command, closing the issue.
 
   An exception can be made for proposals and long-running discussions, though these should be rare. If you have been contributing to the project long enough, you will probably already have access to the [React Native Core Contributors](https://www.facebook.com/groups/reactnativeoss/) Facebook Group, where this sort of discussion is usually held.
 
-* **Is this issue a request for help?** 
+* **Is this issue a request for help?**
 
-  Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers may encourage you to ask on Stack Overflow by issuing the `@facebook-github-bot stack-overflow` command, closing the issue.
-  Feel free to also answer some [questions on Stack Overflow](stackoverflow.com/questions/tagged/react-native), you'll get rep!
+  Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers may encourage you to ask on Stack Overflow by issuing the `@facebook-github-bot stack-overflow` command, closing the issue. Feel free to also answer some [questions on Stack Overflow](stackoverflow.com/questions/tagged/react-native), you'll get rep!
 
-* **Was the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md) used to fill out the issue? Did the author answer Yes to both questions at the top?** 
+* **Was the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md) used to fill out the issue? Did the author answer Yes to both questions at the top?**
 
   If not, the maintainer will ask you to provide more information by issuing the `@facebook-github-bot no-template` command, closing the issue.
 
 * **Is the issue a duplicate of an existing, open issue?**
 
   A maintainer will use the `@facebook-github-bot duplicate #123` command to mark the issue as a duplicate of issue #123, closing it.
-  
-* **Does the issue include a Snack or list of steps to reproduce the issue?** 
+
+* **Does the issue include a Snack or list of steps to reproduce the issue?**
 
   Issues should be relatively easy to reproduce. Sometimes the issue affects a particular app but a minimal repro is not provided, perhaps a crash is seen in the logs and the author is not sure where its coming from, maybe the issue is sporadic.
 
@@ -49,17 +48,17 @@ You have gathered all the information required to open a new issue, and you are 
 
   Exceptions can be made if multiple people appear to be affected by the issue, especially right after a new React Native release is cut.
 
-* **Is the issue for an old release of React Native?** 
+* **Is the issue for an old release of React Native?**
 
   If so, expect to be asked if the issue can be reproduced in the latest release candidate.
 
-* **Can the issue be reliably reproduced?** 
+* **Can the issue be reliably reproduced?**
 
   If not, a maintainer may issue the `@facebook-github-bot cannot-repro` command, closing the issue.
 
 * **Does the issue need more information?**
 
-  Some issues need additional information in order to reproduce them. Maintainers should explain what additional information is needed, using the `@facebook-github-bot label Needs more information` command to label the issue as such. 
+  Some issues need additional information in order to reproduce them. Maintainers should explain what additional information is needed, using the `@facebook-github-bot label Needs more information` command to label the issue as such.
 
   Issues with the 'Needs more information' label that have been open for more than a week without a response from the author can be closed using `@facebook-github-bot no-reply`.
 
@@ -83,7 +82,7 @@ You can generally figure out who may be relevant for a given issue by looking at
 
 #### What are all the available commands for the bot?
 
-You can find the full command reference in the [Facebook GitHub Bot](/maintainers.md#facebook-github-bot) section below. 
+You can find the full command reference in the [Facebook GitHub Bot](/maintainers.md#facebook-github-bot) section below.
 
 ### Stale issues
 
@@ -115,8 +114,7 @@ Once you open a pull request, this is how you can expect maintainers to review i
 
   A test plan is required! Add the labels 'Needs revision' and 'Needs response from author'. You can then follow up with a response like:
 
-  > Hey @author, thanks for sending the pull request.
-  > Can you please add all the info specified in the [template](https://github.com/facebook/react-native/blob/master/.github/PULL_REQUEST_TEMPLATE.md)? This is necessary for people to be able to understand and review your pull request.
+  > Hey @author, thanks for sending the pull request. Can you please add all the info specified in the [template](https://github.com/facebook/react-native/blob/master/.github/PULL_REQUEST_TEMPLATE.md)? This is necessary for people to be able to understand and review your pull request.
 
 * **Does the code style match the [Style guide](contributing.md#style-guide)?**
 
@@ -161,8 +159,7 @@ If a contributor becomes hostile or disrespectful, they will be referred to the 
 
 ## Facebook GitHub Bot
 
-The Facebook GitHub Bot allows members of the community to perform administrative actions such as labeling and closing issues. 
-To have access to the bot, please add your GitHub username to the first line of [IssueCommands.txt](https://github.com/facebook/react-native/blob/master/bots/IssueCommands.txt), in alphabetical order, by submitting a Pull Request.
+The Facebook GitHub Bot allows members of the community to perform administrative actions such as labeling and closing issues. To have access to the bot, please add your GitHub username to the first line of [IssueCommands.txt](https://github.com/facebook/react-native/blob/master/bots/IssueCommands.txt), in alphabetical order, by submitting a Pull Request.
 
 ### Using the Facebook GitHub Bot
 

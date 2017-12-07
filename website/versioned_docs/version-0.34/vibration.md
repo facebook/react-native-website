@@ -4,15 +4,10 @@ title: Vibration
 original_id: vibration
 ---
 
-
-
 ### Methods
 
-- [`vibrate`](vibration.md#vibrate)
-- [`cancel`](vibration.md#cancel)
-
-
-
+* [`vibrate`](vibration.md#vibrate)
+* [`cancel`](vibration.md#cancel)
 
 ---
 
@@ -26,8 +21,6 @@ original_id: vibration
 static vibrate(pattern, repeat)
 ```
 
-
-
 ---
 
 ### `cancel()`
@@ -36,9 +29,4 @@ static vibrate(pattern, repeat)
 static cancel()
 ```
 
-
 Stop vibration
-
-
-
-

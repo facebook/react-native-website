@@ -3,13 +3,12 @@ id: version-0.39-text
 title: Text
 original_id: text
 ---
+
 A React component for displaying text.
 
 `Text` supports nesting, styling, and touch handling.
 
-In the following example, the nested title and body text will inherit the `fontFamily` from
-`styles.baseText`, but the title provides its own additional styles.  The title and body will
-stack on top of each other on account of the literal newlines:
+In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -54,24 +53,19 @@ AppRegistry.registerComponent('TextInANest', () => TextInANest);
 
 ### Props
 
-- [`selectable`](text.md#selectable)
-- [`accessible`](text.md#accessible)
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onLongPress`](text.md#onlongpress)
-- [`onPress`](text.md#onpress)
-- [`ellipsizeMode`](text.md#ellipsizemode)
-- [`style`](text.md#style)
-- [`testID`](text.md#testid)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`minimumFontScale`](text.md#minimumfontscale)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-
-
-
-
-
+* [`selectable`](text.md#selectable)
+* [`accessible`](text.md#accessible)
+* [`numberOfLines`](text.md#numberoflines)
+* [`onLayout`](text.md#onlayout)
+* [`onLongPress`](text.md#onlongpress)
+* [`onPress`](text.md#onpress)
+* [`ellipsizeMode`](text.md#ellipsizemode)
+* [`style`](text.md#style)
+* [`testID`](text.md#testid)
+* [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
+* [`allowFontScaling`](text.md#allowfontscaling)
+* [`minimumFontScale`](text.md#minimumfontscale)
+* [`suppressHighlighting`](text.md#suppresshighlighting)
 
 ---
 
@@ -84,46 +78,32 @@ AppRegistry.registerComponent('TextInANest', () => TextInANest);
 Lets the user select text, to use the native copy and paste functionality.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `accessible`
 
-When set to `true`, indicates that the view is an accessibility element. The default value
-for a `Text` element is `true`.
+When set to `true`, indicates that the view is an accessibility element. The default value for a `Text` element is `true`.
 
-See the
-[Accessibility guide](/react-native/accessibility.md#accessible-ios-android)
-for more information.
+See the [Accessibility guide](/react-native/accessibility.md#accessible-ios-android) for more information.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `numberOfLines`
 
-Used to truncate the text with an ellipsis after computing the text
-layout, including line wrapping, such that the total number of lines
-does not exceed this number.
+Used to truncate the text with an ellipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number.
 
 This prop is commonly used with `ellipsizeMode`.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -131,14 +111,11 @@ This prop is commonly used with `ellipsizeMode`.
 
 Invoked on mount and layout changes with
 
-  `{nativeEvent: {layout: {x, y, width, height}}}`
+`{nativeEvent: {layout: {x, y, width, height}}}`
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -148,12 +125,9 @@ This function is called on long press.
 
 e.g., `onLongPress={this.increaseSize}>``
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -163,12 +137,9 @@ This function is called on press.
 
 e.g., `onPress={() => console.log('1st')}``
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -176,13 +147,10 @@ e.g., `onPress={() => console.log('1st')}``
 
 This can be one of the following values:
 
-- `head` - The line is displayed so that the end fits in the container and the missing text
-at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
-- `middle` - The line is displayed so that the beginning and end fit in the container and the
-missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
-- `tail` - The line is displayed so that the beginning fits in the container and the
-missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
-- `clip` - Lines are not drawn past the edge of the text container.
+* `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
+* `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
+* `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
+* `clip` - Lines are not drawn past the edge of the text container.
 
 The default is `tail`.
 
@@ -190,68 +158,57 @@ The default is `tail`.
 
 > `clip` is working only for iOS
 
-| Type | Required |
-| - | - |
-| enum('head', 'middle', 'tail', 'clip') | No |
-
-
-
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('head', 'middle', 'tail', 'clip') | No       |
 
 ---
 
 ### `style`
 
+| Type  | Required |
+| ----- | -------- |
+| style | No       |
 
+* [View Style Props...](view-style-props.md#style)
 
-| Type | Required |
-| - | - |
-| style | No |
+* **`textShadowColor`**: [color](colors.md)
 
+* **`color`**: [color](colors.md)
 
-  - [View Style Props...](view-style-props.md#style)
+* **`fontSize`**: number
 
-  - **`textShadowColor`**: [color](colors.md)
+* **`fontStyle`**: enum('normal', 'italic')
 
-  - **`color`**: [color](colors.md)
+* **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
-  - **`fontSize`**: number
+  Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-  - **`fontStyle`**: enum('normal', 'italic')
+* **`lineHeight`**: number
 
-  - **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
+* **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-    Specifies font weight. The values 'normal' and 'bold' are supported for
-    most fonts. Not all fonts have a variant for each of the numeric values,
-    in that case the closest one is chosen.
+  Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
 
-  - **`lineHeight`**: number
+* **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 
-  - **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
+* **`fontFamily`**: string
 
-    Specifies text alignment. The value 'justify' is only supported on iOS and
-    fallbacks to `left` on Android.
+* **`textShadowOffset`**: object: {width: number,height: number}
 
-  - **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
+* **`textShadowRadius`**: number
 
-  - **`fontFamily`**: string
+* **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
 
-  - **`textShadowOffset`**: object: {width: number,height: number}
+* **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
 
-  - **`textShadowRadius`**: number
+* **`letterSpacing`**: number (_iOS_)
 
-  - **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
+* **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
-  - **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
+* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
 
-  - **`letterSpacing`**: number (_iOS_)
-
-  - **`textDecorationColor`**: [color](colors.md) (_iOS_)
-
-  - **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
-
-  - **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
-
-
+* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 
 ---
 
@@ -259,12 +216,9 @@ The default is `tail`.
 
 Used to locate this view in end-to-end tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -272,29 +226,19 @@ Used to locate this view in end-to-end tests.
 
 Specifies whether font should be scaled down automatically to fit given style constraints.
 
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
 ### `allowFontScaling`
 
-Specifies whether fonts should scale to respect Text Size accessibility setting on iOS. The
-default is `true`.
-
-
+Specifies whether fonts should scale to respect Text Size accessibility setting on iOS. The default is `true`.
 
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
@@ -302,29 +246,16 @@ default is `true`.
 
 Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
 
-
-| Type | Required | Platform |
-| - | - | - |
-| number | No | iOS  |
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
 
 ---
 
 ### `suppressHighlighting`
 
-When `true`, no visual change is made when text is pressed down. By
-default, a gray oval highlights the text on press down.
-
-
+When `true`, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
 
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
