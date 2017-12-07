@@ -264,7 +264,7 @@ $ nslookup 10.0.1.123.xip.io
 
 If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it. 
 
-To still use xip.io behind your rooter:
+To still use xip.io behind your router:
 
 - configure your phone to use Google DNS (8.8.8.8)
 - disable the appropriate security feature in your router
