@@ -111,9 +111,33 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Props
 
+- [`ScrollView` props...](scrollview.md#props)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
+- [`renderItem`](flatlist.md#renderitem)
 - [`data`](flatlist.md#data)
-- [`renderItem`](flatlist.md#renderItem)
+- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
+- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
+- [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
+- [`columnwrapperstyle`](flatlist.md#columnwrapperstyle)
+- [`extraData`](flatlist.md#extradata)
+- [`getItemLayout`](flatlist.md#getitemlayout)
+- [`horizontal`](flatlist.md#horizontal)
+- [`initialNumToRender`](flatlist.md#initialnumtorender)
+- [`initialScrollIndex`](flatlist.md#initialscrollindex)
+- [`inverted`](flatlist.md#inverted)
+- [`keyExtractor`](flatlist.md#keyextractor)
 - [`numColumns`](flatlist.md#numcolumns)
+- [`onEndReached`](flatlist.md#onendreached)
+- [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
+- [`onRefresh`](flatlist.md#onrefresh)
+- [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
+- [`progressViewOffset`](flatlist.md#progressviewoffset)
+- [`legacyImplementation`](flatlist.md#legacyimplementation)
+- [`refreshing`](flatlist.md#refreshing)
+- [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
+- [`viewabilityConfig`](flatlist.md#viewabilityconfig)
+- [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
 
 
 
@@ -127,48 +151,395 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 - [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
 
 
-### Type Definitions
-
-- [`Props`](flatlist.md#props)
-- [`DefaultProps`](flatlist.md#defaultprops)
-
-
-
-
 ---
 
 # Reference
 
 ## Props
 
-### `data`
-
-
-
-| Type | Required |
-| - | - |
-|  | No |
-
-
 ### `renderItem`
 
+```javascript
+renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
+```
 
+Takes an item from `data` and renders it into the list.
+
+Provides additional metadata like `index` if you need it, as well as a more generic `separators.updateProps` function which let you set whatever props you want to change the rendering of either the leading separator or trailing separator in case the more common `highlight` and `unhighlight` (which set the `highlighted: boolean` prop) are insufficient for your use case.
 
 | Type | Required |
 | - | - |
-|  | Yes |
+| function | Yes |
+
+
+Example usage:
+
+```javascript
+<FlatList
+  ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
+    <View style={[style.separator, highlighted && {marginLeft: 0}]} />
+  )}
+  data={[{title: 'Title Text', key: 'item1'}]}
+  renderItem={({item, separators}) => (
+    <TouchableHighlight
+      onPress={() => this._onPress(item)}
+      onShowUnderlay={separators.highlight}
+      onHideUnderlay={separators.unhighlight}>
+      <View style={{backgroundColor: 'white'}}>
+        <Text>{item.title}</Text>
+      </View>
+    </TouchableHighlight>
+  )}
+/>
+```
+
+
+---
+
+
+### `data`
+
+For simplicity, data is just a plain array. If you want to use something else, like an immutable list, use the underlying [`VirtualizedList`](virtualizedlist.md) directly.
+
+| Type | Required |
+| - | - |
+| array | Yes |
+
+
+
+---
+
+
+### `ItemSeparatorComponent`
+
+Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
+
+| Type | Required |
+| - | - |
+| component | No |
+
+
+
+---
+
+
+### `ListEmptyComponent`
+
+Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+
+| Type | Required |
+| - | - |
+| component, function, element | No |
+
+
+
+---
+
+
+### `ListFooterComponent`
+
+Rendered at the bottom of all the items. Can be a React Component Class, a render function, or a rendered element.
+
+| Type | Required |
+| - | - |
+| component, function, element | No |
+
+
+
+---
+
+
+### `ListHeaderComponent`
+
+Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
+
+| Type | Required |
+| - | - |
+| component, function, element | No |
+
+
+
+---
+
+
+### `columnWrapperStyle`
+
+Optional custom style for multi-item rows generated when `numColumns > 1`.
+
+| Type | Required |
+| - | - |
+| style object | No |
+
+
+
+---
+
+
+### `extraData`
+
+A marker property for telling the list to re-render (since it implements `PureComponent`). If any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the `data` prop, stick it here and treat it immutably.
+
+| Type | Required |
+| - | - |
+| any | No |
+
+
+
+
+---
+
+
+### `getItemLayout`
+
+```javascript
+(data, index) => {length: number, offset: number, index: number}
+```
+
+`getItemLayout` is an optional optimization that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient, and is easy to use if you have fixed height items, for example:
+
+```javascript
+  getItemLayout={(data, index) => (
+    {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
+  )}
+```
+
+Adding `getItemLayout` can be a great performance boost for lists of several hundred items. Remember to include separator length (height or width) in your offset calculation if you specify `ItemSeparatorComponent`.
+
+| Type | Required |
+| - | - |
+| function  | No |
+
+
+
+---
+
+
+### `horizontal`
+
+If true, renders items next to each other horizontally instead of stacked vertically.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+
+---
+
+
+### `initialNumToRender`
+
+How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
+
+| Type | Required |
+| - | - |
+| number | No |
+
+
+
+---
+
+
+### `initialScrollIndex`
+
+Instead of starting at the top with the first item, start at `initialScrollIndex`. This disables the "scroll to top" optimization that keeps the first `initialNumToRender` items always rendered and immediately renders the items starting at this initial index. Requires `getItemLayout` to be implemented.
+
+| Type | Required |
+| - | - |
+| number | No |
+
+
+
+---
+
+
+### `inverted`
+
+Reverses the direction of scroll. Uses scale transforms of `-1`.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+
+---
+
+
+### `keyExtractor`
+
+```javascript
+(item: object, index: number) => string
+```
+
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does.
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+
+
+---
+
 
 ### `numColumns`
 
-
+Multiple columns can only be rendered with `horizontal={false}` and will zig-zag like a `flexWrap` layout. Items should all be the same height - masonry layouts are not supported.
 
 | Type | Required |
 | - | - |
-|  | No |
+| number | No |
 
 
 
 
+---
+
+
+### `onEndReached`
+
+```javascript
+(info: {distanceFromEnd: number}) => void
+```
+
+Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
+
+| Type | Required |
+| - | - |
+| function  | No |
+
+
+
+---
+
+
+### `onEndReachedThreshold`
+
+ How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
+
+| Type | Required |
+| - | - |
+| number | No |
+
+
+
+---
+
+
+### `onRefresh`
+
+```javascript
+() => void
+```
+
+If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
+
+| Type | Required |
+| - | - |
+| function  | No |
+
+
+
+---
+
+
+### `onViewableItemsChanged`
+
+```javascript
+(info: {
+    viewableItems: array,
+    changed: array,
+  }) => void
+```
+
+Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+
+---
+
+
+### `progressViewOffset`
+
+Set this when offset is needed for the loading indicator to show correctly.
+
+| Type | Required | Platform |
+| - | - | - |
+| number | No | Android |
+
+
+
+---
+
+
+### `legacyImplementation`
+
+May not have full feature parity and is meant for debugging and performance comparison.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+
+---
+
+
+### `refreshing`
+
+Set this true while waiting for new data from a refresh.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+
+---
+
+
+### `removeClippedSubviews`
+
+This may improve scroll performance for large lists.
+
+> Note:
+> May have bugs (missing content) in some circumstances - use at your own risk.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+
+---
+
+
+### `viewabilityConfig`
+
+See `ViewabilityHelper.js` for flow type and further documentation.
+
+| Type | Required |
+| - | - |
+| ViewabilityConfig | No |
+
+
+
+---
+
+
+### `viewabilityConfigCallbackPairs`
+
+List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewableItemsChanged` will be called when its corresponding `ViewabilityConfig`'s conditions are met. See `ViewabilityHelper.js` for flow type and further documentation.
+
+| Type | Required |
+| - | - |
+| array of ViewabilityConfigCallbackPair | No |
 
 
 ## Methods
@@ -252,28 +623,3 @@ flashScrollIndicators()
 ```
 
 Displays the scroll indicators momentarily.
-
-
-
-## Type Definitions
-
-### Props
-
-| Type |
-| - |
-| IntersectionTypeAnnotation |
-
-
-
-
----
-
-### DefaultProps
-
-| Type |
-| - |
-| TypeofTypeAnnotation |
-
-
-
-
