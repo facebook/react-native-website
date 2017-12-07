@@ -808,9 +808,9 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-docusaurus@^1.0.0-beta.13:
-  version "1.0.0-beta.13"
-  resolved "https://registry.yarnpkg.com/docusaurus/-/docusaurus-1.0.0-beta.13.tgz#8ad019033fc9df5cc6315cb5f26a89ffaeca7a94"
+docusaurus@^1.0.0-beta.14:
+  version "1.0.0-beta.14"
+  resolved "https://registry.yarnpkg.com/docusaurus/-/docusaurus-1.0.0-beta.14.tgz#dbafb96d80734f8f9667a4cd1295de7e2c750135"
   dependencies:
     babel-preset-env "^1.6.0"
     babel-preset-react "^6.24.1"
@@ -827,7 +827,7 @@ docusaurus@^1.0.0-beta.13:
     fs-extra "^3.0.1"
     glob "^7.1.2"
     highlight.js "^9.12.0"
-    prettier "^1.5.3"
+    prettier "1.8.2"
     react "^15.5.4"
     react-dom "^15.5.4"
     react-dom-factories "^1.0.1"
@@ -1303,7 +1303,7 @@ performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
 
-prettier@^1.5.3:
+prettier@1.8.2:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.8.2.tgz#bff83e7fd573933c607875e5ba3abbdffb96aeb8"
 
