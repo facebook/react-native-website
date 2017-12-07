@@ -4,7 +4,7 @@ title: Testing your Changes
 original_id: testing
 ---
 
-This document is about testing your changes to React Native as a [contributor](contributing.md). If you're interested in testing a React Native app, check out the [React Native Tutorial](http://facebook.github.io/jest/tutorial-react-native.md) on the Jest website.
+This document is about testing your changes to React Native as a [contributor](contributing.md). If you're interested in testing a React Native app, check out the [React Native Tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html) on the Jest website.
 
 The React Native repo has several tests you can run to verify you haven't caused a regression with your PR. These tests are run using [Circle](https://circleci.com/gh/facebook/react-native), a continuous integration system. Circle will automatically annotate pull requests with the test results.
 
