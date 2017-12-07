@@ -1307,6 +1307,10 @@ prettier@1.8.2:
   version "1.8.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.8.2.tgz#bff83e7fd573933c607875e5ba3abbdffb96aeb8"
 
+prettier@1.9.1:
+  version "1.9.1"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.9.1.tgz#41638a0d47c1efbd1b7d5a742aaa5548eab86d70"
+
 private@^0.1.6, private@^0.1.7:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
