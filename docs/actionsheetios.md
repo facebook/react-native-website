@@ -47,7 +47,7 @@ ActionSheetIOS.showActionSheetWithOptions({
   cancelButtonIndex: 0,
 },
 (buttonIndex) => {
-  if (buttonIndex === 1) { // destructive action }
+  if (buttonIndex === 1) { /* destructive action */ }
 });
 ```
 
