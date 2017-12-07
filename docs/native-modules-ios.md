@@ -212,7 +212,7 @@ RCT_REMAP_METHOD(findEvents,
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```js
+```javascript
 async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();

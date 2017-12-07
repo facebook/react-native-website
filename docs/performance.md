@@ -39,7 +39,7 @@ JavaScript thread performance suffers greatly when running in dev mode. This is 
 
 When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save`, and then edit the `.babelrc` file under your project directory like this:
 
-```json
+```javascripton
 {
   "env": {
     "production": {
@@ -89,7 +89,7 @@ On iOS, each time you adjust the width or height of an Image component it is re-
 
 Sometimes, if we do an action in the same frame that we are adjusting the opacity or highlight of a component that is responding to a touch, we won't see that effect until after the `onPress` function has returned. If `onPress` does a `setState` that results in a lot of work and a few frames dropped, this may occur. A solution to this is to wrap any action inside of your `onPress` handler in `requestAnimationFrame`:
 
-```js
+```javascript
 handleOnPress() {
   // Always use TimerMixin with requestAnimationFrame, setTimeout and
   // setInterval

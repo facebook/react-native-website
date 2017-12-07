@@ -29,10 +29,9 @@ available in Arabic and Hebrew with RTL layouts for both
 [Android](https://play.google.com/store/apps/details?id=com.facebook.adsmanager).
 Here is how it looks like in those RTL languages:
 
-<p align="center">
-  <img src="/react-native/blog/assets/rtl-ama-ios-arabic.png" width="280" style="margin:10px">
-  <img src="/react-native/blog/assets/rtl-ama-android-hebrew.png" width="280" style="margin:10px">
-</p>
+<img src="/react-native/blog/assets/rtl-ama-ios-arabic.png" width="280" style="margin:10px">
+
+<img src="/react-native/blog/assets/rtl-ama-android-hebrew.png" width="280" style="margin:10px">
 
 ## Overview Changes in RN for RTL support
 
@@ -109,17 +108,11 @@ In general, most components are already RTL-ready, for example:
 
 * Left-to-Right Layout
 
-      <p align="left">
-
-    <img src="/react-native/blog/assets/rtl-demo-listitem-ltr.png" width="300">
-</p>
+<img src="/react-native/blog/assets/rtl-demo-listitem-ltr.png" width="300">
 
 * Right-to-Left Layout
 
-      <p align="left">
-
-    <img src="/react-native/blog/assets/rtl-demo-listitem-rtl.png" width="300">
-</p>
+<img src="/react-native/blog/assets/rtl-demo-listitem-rtl.png" width="300">
 
 However, there are several cases to be aware of, for which you will need the
 [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js).
@@ -136,23 +129,17 @@ should flip them according to the layout style.
 
 * Left-to-Right Layout
 
-      <p align="left">
-
-    <img src="/react-native/blog/assets/rtl-demo-icon-ltr.png" width="300">
-</p>
+<img src="/react-native/blog/assets/rtl-demo-icon-ltr.png" width="300">
 
 * Right-to-Left Layout
 
-      <p align="left">
-
-    <img src="/react-native/blog/assets/rtl-demo-icon-rtl.png" width="300">
-</p>
+<img src="/react-native/blog/assets/rtl-demo-icon-rtl.png" width="300">
 
 Here are two ways to flip the icon according to the direction:
 
 * Adding a `transform` style to the image component:
 
-  ```js
+  ```javascript
   <Image
     source={...}
     style={{transform: [{scaleX: I18nManager.isRTL ? -1 : 1}]}}
@@ -160,7 +147,8 @@ Here are two ways to flip the icon according to the direction:
   ```
 
 * Or, changing the image source according to the direction:
-  ```js
+
+  ```javascript
   let imageSource = require("./back.png");
   if (I18nManager.isRTL) {
     imageSource = require("./forward.png");

@@ -178,7 +178,7 @@ To use your custom web view, you'll need to create a class for it. Your class mu
 
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 
-```js
+```javascript
 import React, {Component, PropTypes} from 'react';
 import {WebView, requireNativeComponent} from 'react-native';
 
@@ -243,7 +243,7 @@ Just like for regular native components, you must provide all your prop types in
 
 For example, if you wanted to add an internal event handler called `onScrollToBottom`, you would use,
 
-```js
+```javascript
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,

@@ -137,7 +137,7 @@ protected List<ReactPackage> getPackages() {
 
 To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
 
-```js
+```javascript
 /**
  * This exposes the native ToastExample module as a JS module. This has a
  * function 'show' which takes the following parameters:
@@ -152,7 +152,7 @@ module.exports = NativeModules.ToastExample;
 
 Now, from your other JavaScript file you can call the method like this:
 
-```js
+```javascript
 import ToastExample from './ToastExample';
 
 ToastExample.show('Awesome', ToastExample.SHORT);
@@ -194,7 +194,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 This method would be accessed in JavaScript using:
 
-```js
+```javascript
 UIManager.measureLayout(
   100,
   100,
@@ -250,7 +250,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```js
+```javascript
 async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
@@ -292,7 +292,7 @@ sendEvent(reactContext, "keyboardWillShow", params);
 
 JavaScript modules can then register to receive events by `addListenerOn` using the `Subscribable` mixin.
 
-```js
+```javascript
 import { DeviceEventEmitter } from 'react-native';
 ...
 
@@ -315,7 +315,7 @@ var ScrollResponderMixin = {
 
 You can also directly use the `DeviceEventEmitter` module to listen for events.
 
-```js
+```javascript
 ...
 componentWillMount: function() {
   DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
