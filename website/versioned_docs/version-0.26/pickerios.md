@@ -3,17 +3,14 @@ id: version-0.26-pickerios
 title: PickerIOS
 original_id: pickerios
 ---
+
 ### Props
 
 * [View props...](view.md#props)
+
 - [`itemStyle`](pickerios.md#itemstyle)
 - [`onValueChange`](pickerios.md#onvaluechange)
 - [`selectedValue`](pickerios.md#selectedvalue)
-
-
-
-
-
 
 ---
 
@@ -23,40 +20,22 @@ original_id: pickerios
 
 ### `itemStyle`
 
-
-
-| Type | Required |
-| - | - |
-| itemStylePropType | No |
-
-
-
+| Type                               | Required |
+| ---------------------------------- | -------- |
+| [text styles](text-style-props.md) | No       |
 
 ---
 
 ### `onValueChange`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `selectedValue`
 
-
-
 | Type | Required |
-| - | - |
-| any | No |
-
-
-
-
-
-
+| ---- | -------- |
+| any  | No       |
