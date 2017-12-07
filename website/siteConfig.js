@@ -21,8 +21,7 @@ const siteConfig = {
   projectName: 'react-native',
   repoUrl,
   users,
-  editUrl:
-    'https://github.com/facebook/react-native-website/blob/master/website/versioned_docs/', // TODO: We point to the versioned file here to ensure the Edit button points to the right location for the source of a given file. We actually want people to modify the master source at docs/ instead, so we will need to update Docusaurus to ensure edit buttons are handed properly in versioned sites.
+  editUrl: "https://github.com/facebook/react-native-website/blob/master/docs/",
   headerLinks: [
     {doc: 'getting-started', label: 'Docs'},
     {page: 'help', label: 'Community'},
