@@ -109,14 +109,16 @@ In general, most components are already RTL-ready, for example:
 
 * Left-to-Right Layout
 
-    <p align="left">
-  <img src="/react-native/blog/assets/rtl-demo-listitem-ltr.png" width="300">
+      <p align="left">
+
+    <img src="/react-native/blog/assets/rtl-demo-listitem-ltr.png" width="300">
 </p>
 
 * Right-to-Left Layout
 
-    <p align="left">
-  <img src="/react-native/blog/assets/rtl-demo-listitem-rtl.png" width="300">
+      <p align="left">
+
+    <img src="/react-native/blog/assets/rtl-demo-listitem-rtl.png" width="300">
 </p>
 
 However, there are several cases to be aware of, for which you will need the
@@ -134,14 +136,16 @@ should flip them according to the layout style.
 
 * Left-to-Right Layout
 
-    <p align="left">
-  <img src="/react-native/blog/assets/rtl-demo-icon-ltr.png" width="300">
+      <p align="left">
+
+    <img src="/react-native/blog/assets/rtl-demo-icon-ltr.png" width="300">
 </p>
 
 * Right-to-Left Layout
 
-    <p align="left">
-  <img src="/react-native/blog/assets/rtl-demo-icon-rtl.png" width="300">
+      <p align="left">
+
+    <img src="/react-native/blog/assets/rtl-demo-icon-rtl.png" width="300">
 </p>
 
 Here are two ways to flip the icon according to the direction:

@@ -23,12 +23,15 @@
       "prettier --config .prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:docs":
       "prettier --config .prettierrc --write \"{../docs/**/*.md,versioned_docs/**/*.md}\"",
+    "format:blog": "prettier --config .prettierrc --write \"blog/**/*.md\"",
     "nit:source":
       "prettier --config .prettierrc --list-different \"{core/**/*.js,static/js/**/*.js}\"",
     "nit:docs":
       "prettier --config .prettierrc --list-different \"{../docs/**/*.md,versioned_docs/**/*.md}\"",
-    "prettier": "yarn format:source && yarn format:docs",
-    "prettier:diff": "yarn nit:source && yarn nit:docs",
+    "nit:blog":
+      "prettier --config .prettierrc --list-different \"blog/**/*.md\"",
+    "prettier": "yarn format:source && yarn format:docs && yarn format:blog",
+    "prettier:diff": "yarn nit:source && yarn nit:docs && yarn nit:blog",
     "test": "yarn build"
   },
   "dependencies": {
