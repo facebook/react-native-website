@@ -3,24 +3,21 @@ id: version-0.49-vibration
 title: Vibration
 original_id: vibration
 ---
-The Vibration API is exposed at `Vibration.vibrate()`.
-The vibration is asynchronous so this method will return immediately.
+
+The Vibration API is exposed at `Vibration.vibrate()`. The vibration is asynchronous so this method will return immediately.
 
 There will be no effect on devices that do not support Vibration, eg. the simulator.
 
-**Note for Android:**
-add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
+**Note for Android:** add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
 
-Since the **vibration duration in iOS is not configurable**, so there are some differences with Android.
-In Android, if `pattern` is a number, it specified the vibration duration in ms. If `pattern`
-is an array, those odd indices is the vibration duration, while the even one are the separation time.
+Since the **vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specified the vibration duration in ms. If `pattern` is an array, those odd indices is the vibration duration, while the even one are the separation time.
 
-In iOS, invoking `vibrate(duration)` will just ignore the duration and vibrate for a fixed time. While the
-`pattern` array is used to define the duration between each vibration. See below example for more.
+In iOS, invoking `vibrate(duration)` will just ignore the duration and vibrate for a fixed time. While the `pattern` array is used to define the duration between each vibration. See below example for more.
 
 Repeatable vibration is also supported, the vibration will repeat with defined pattern until `cancel()` is called.
 
 Example:
+
 ```
 const DURATION = 10000
 const PATTERN = [1000, 2000, 3000]
@@ -44,11 +41,8 @@ Vibration.cancel()
 
 ### Methods
 
-- [`vibrate`](vibration.md#vibrate)
-- [`cancel`](vibration.md#cancel)
-
-
-
+* [`vibrate`](vibration.md#vibrate)
+* [`cancel`](vibration.md#cancel)
 
 ---
 
@@ -66,13 +60,10 @@ Trigger a vibration with specified `pattern`.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| pattern | number,Array<number> | Yes | Vibration pattern, accept a number or an array of number. Default to 400ms. |
-| repeat | boolean | Yes | Optional. Repeat vibration pattern until cancel(), default to false. |
-
-
-
+| Name    | Type                 | Required | Description                                                                 |
+| ------- | -------------------- | -------- | --------------------------------------------------------------------------- |
+| pattern | number,Array<number> | Yes      | Vibration pattern, accept a number or an array of number. Default to 400ms. |
+| repeat  | boolean              | Yes      | Optional. Repeat vibration pattern until cancel(), default to false.        |
 
 ---
 
@@ -83,9 +74,7 @@ static cancel()
 ```
 
 Stop vibration
+
 ```
 Vibration.cancel()
 ```
-
-
-

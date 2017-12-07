@@ -4,11 +4,9 @@ title: TouchableOpacity
 original_id: touchableopacity
 ---
 
-A wrapper for making views respond properly to touches. On press down, the
-opacity of the wrapped view is decreased, dimming it.
+A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
 
-Opacity is controlled by wrapping the children in an Animated.View, which is
-added to the view hierarchy. Be aware that this can affect layout.
+Opacity is controlled by wrapping the children in an Animated.View, which is added to the view hierarchy. Be aware that this can affect layout.
 
 Example:
 
@@ -110,8 +108,7 @@ AppRegistry.registerComponent('App', () => App)
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is active.
-Defaults to 0.2.
+Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
 
 | Type   | Required |
 | ------ | -------- |

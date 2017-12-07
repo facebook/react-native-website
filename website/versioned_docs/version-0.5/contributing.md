@@ -197,9 +197,9 @@ However, there are still some styles that the linter cannot pick up.
 #### Objective-C
 
 * Space after `@property` declarations
-* Brackets on *every* `if`, on the *same* line
+* Brackets on _every_ `if`, on the _same_ line
 * `- method`, `@interface`, and `@implementation` brackets on the following line
-* *Try* to keep it around 80 characters line length (sometimes it's just not possible...)
+* _Try_ to keep it around 80 characters line length (sometimes it's just not possible...)
 * `*` operator goes with the variable name (e.g. `NSObject *variableName;`)
 
 #### Java

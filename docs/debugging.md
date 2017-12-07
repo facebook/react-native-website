@@ -172,40 +172,40 @@ Follow this guide to enable Stetho for Debug mode:
 > The above will configure Stetho v1.5.0. You can check at http://facebook.github.io/stetho/ if a newer version is available.
 
 2. Create the following Java classes to wrap the Stetho call, one for release and one for debug:
-   
-    ```java
-    // android/app/src/release/java/com/{yourAppName}/StethoWrapper.java
-    
-    public class StethoWrapper {
 
-        public static void initialize(Context context) {
-            // NO_OP
-        }
+   ```java
+   // android/app/src/release/java/com/{yourAppName}/StethoWrapper.java
 
-        public static void addInterceptor() {
-            // NO_OP
-        }
-    }
-    ```
+   public class StethoWrapper {
 
-    ```java
-    // android/app/src/debug/java/com/{yourAppName}/StethoWrapper.java
+       public static void initialize(Context context) {
+           // NO_OP
+       }
 
-    public class StethoWrapper {
-        public static void initialize(Context context) {
-          Stetho.initializeWithDefaults(context);
-        }
+       public static void addInterceptor() {
+           // NO_OP
+       }
+   }
+   ```
 
-        public static void addInterceptor() {
-          OkHttpClient client = OkHttpClientProvider.getOkHttpClient()
-                 .newBuilder()
-                 .addNetworkInterceptor(new StethoInterceptor())
-                 .build();
-          
-          OkHttpClientProvider.replaceOkHttpClient(client);
-        }
-    }
-    ```
+   ```java
+   // android/app/src/debug/java/com/{yourAppName}/StethoWrapper.java
+
+   public class StethoWrapper {
+       public static void initialize(Context context) {
+         Stetho.initializeWithDefaults(context);
+       }
+
+       public static void addInterceptor() {
+         OkHttpClient client = OkHttpClientProvider.getOkHttpClient()
+                .newBuilder()
+                .addNetworkInterceptor(new StethoInterceptor())
+                .build();
+
+         OkHttpClientProvider.replaceOkHttpClient(client);
+       }
+   }
+   ```
 
 3. Open `android/app/src/main/java/com/{yourAppName}/MainApplication.java` and replace the original `onCreate` function:
 
@@ -213,7 +213,7 @@ Follow this guide to enable Stetho for Debug mode:
   public void onCreate() {
       super.onCreate();
 
-      if (BuildConfig.DEBUG) {      
+      if (BuildConfig.DEBUG) {
           StethoWrapper.initialize(this);
           StethoWrapper.addInterceptor();
       }

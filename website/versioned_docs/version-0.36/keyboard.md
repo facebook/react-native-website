@@ -8,8 +8,7 @@ original_id: keyboard
 
 ### Usage
 
-The Keyboard module allows you to listen for native events and react to them, as
-well as make changes to the keyboard, like dismissing it.
+The Keyboard module allows you to listen for native events and react to them, as well as make changes to the keyboard, like dismissing it.
 
 ```
 import React, { Component } from 'react';
@@ -44,16 +43,12 @@ class Example extends Component {
 }
 ```
 
-
 ### Methods
 
-- [`addListener`](keyboard.md#addlistener)
-- [`removeListener`](keyboard.md#removelistener)
-- [`removeAllListeners`](keyboard.md#removealllisteners)
-- [`dismiss`](keyboard.md#dismiss)
-
-
-
+* [`addListener`](keyboard.md#addlistener)
+* [`removeListener`](keyboard.md#removelistener)
+* [`removeAllListeners`](keyboard.md#removealllisteners)
+* [`dismiss`](keyboard.md#dismiss)
 
 ---
 
@@ -67,26 +62,20 @@ class Example extends Component {
 static addListener(eventName, callback)
 ```
 
-
-The `addListener` function connects a JavaScript function to an identified native
-keyboard notification event.
+The `addListener` function connects a JavaScript function to an identified native keyboard notification event.
 
 This function then returns the reference to the listener.
 
-@param {string} eventName The `nativeEvent` is the string that identifies the event you're listening for.  This
-can be any of the following:
+@param {string} eventName The `nativeEvent` is the string that identifies the event you're listening for. This can be any of the following:
 
-- `keyboardWillShow`
-- `keyboardDidShow`
-- `keyboardWillHide`
-- `keyboardDidHide`
-- `keyboardWillChangeFrame`
-- `keyboardDidChangeFrame`
+* `keyboardWillShow`
+* `keyboardDidShow`
+* `keyboardWillHide`
+* `keyboardDidHide`
+* `keyboardWillChangeFrame`
+* `keyboardDidChangeFrame`
 
 @param {function} callback function to be called when the event fires.
-
-
-
 
 ---
 
@@ -96,14 +85,9 @@ can be any of the following:
 static removeListener(eventName, callback)
 ```
 
-
 Removes a specific listener.
 
-@param {string} eventName The `nativeEvent` is the string that identifies the event you're listening for.
-@param {function} callback function to be called when the event fires.
-
-
-
+@param {string} eventName The `nativeEvent` is the string that identifies the event you're listening for. @param {function} callback function to be called when the event fires.
 
 ---
 
@@ -113,13 +97,9 @@ Removes a specific listener.
 static removeAllListeners(eventName)
 ```
 
-
 Removes all listeners for a specific event type.
 
 @param {string} eventType The native event string listeners are watching which will be removed.
-
-
-
 
 ---
 
@@ -129,9 +109,4 @@ Removes all listeners for a specific event type.
 static dismiss()
 ```
 
-
 Dismisses the active keyboard and removes focus.
-
-
-
-

@@ -3,22 +3,18 @@ id: version-0.5-progressviewios
 title: ProgressViewIOS
 original_id: progressviewios
 ---
+
 Use `ProgressViewIOS` to render a UIProgressView on iOS.
 
 ### Props
 
-- [View props...](view.md#props)
-- [`progress`](progressviewios.md#progress)
-- [`progressImage`](progressviewios.md#progressimage)
-- [`progressTintColor`](progressviewios.md#progresstintcolor)
-- [`progressViewStyle`](progressviewios.md#progressviewstyle)
-- [`trackImage`](progressviewios.md#trackimage)
-- [`trackTintColor`](progressviewios.md#tracktintcolor)
-
-
-
-
-
+* [View props...](view.md#props)
+* [`progress`](progressviewios.md#progress)
+* [`progressImage`](progressviewios.md#progressimage)
+* [`progressTintColor`](progressviewios.md#progresstintcolor)
+* [`progressViewStyle`](progressviewios.md#progressviewstyle)
+* [`trackImage`](progressviewios.md#trackimage)
+* [`trackTintColor`](progressviewios.md#tracktintcolor)
 
 ---
 
@@ -30,12 +26,9 @@ Use `ProgressViewIOS` to render a UIProgressView on iOS.
 
 The progress value (between 0 and 1).
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -43,12 +36,9 @@ The progress value (between 0 and 1).
 
 A stretchable image to display as the progress bar.
 
-| Type | Required |
-| - | - |
-| Image.propTypes.source | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| Image.propTypes.source | No       |
 
 ---
 
@@ -56,12 +46,9 @@ A stretchable image to display as the progress bar.
 
 The tint color of the progress bar itself.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -69,12 +56,9 @@ The tint color of the progress bar itself.
 
 The progress bar style.
 
-| Type | Required |
-| - | - |
-| enum('default', 'bar') | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| enum('default', 'bar') | No       |
 
 ---
 
@@ -82,12 +66,9 @@ The progress bar style.
 
 A stretchable image to display behind the progress bar.
 
-| Type | Required |
-| - | - |
-| Image.propTypes.source | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| Image.propTypes.source | No       |
 
 ---
 
@@ -95,12 +76,6 @@ A stretchable image to display behind the progress bar.
 
 The tint color of the progress bar track.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |

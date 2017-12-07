@@ -2,6 +2,7 @@
 id: activityindicator
 title: ActivityIndicator
 ---
+
 Displays a circular loading indicator.
 
 ### Example
@@ -47,15 +48,11 @@ AppRegistry.registerComponent('App', () => App)
 ### Props
 
 * [View props...](view.md#props)
+
 - [`animating`](activityindicator.md#animating)
 - [`color`](activityindicator.md#color)
 - [`size`](activityindicator.md#size)
 - [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
-
-
-
-
-
 
 ---
 
@@ -68,11 +65,8 @@ AppRegistry.registerComponent('App', () => App)
 Whether to show the indicator (true, the default) or hide it (false).
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -80,26 +74,19 @@ Whether to show the indicator (true, the default) or hide it (false).
 
 The foreground color of the spinner (default is gray).
 
-| Type | Required |
-| - | - |
-| [color](colors.md) | No |
-
-
-
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
 ### `size`
 
-Size of the indicator (default is 'small').
-Passing a number to the size prop is only supported on Android.
+Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
 
-| Type | Required |
-| - | - |
-| enum('small', 'large'), ,number | No |
-
-
-
+| Type                            | Required |
+| ------------------------------- | -------- |
+| enum('small', 'large'), ,number | No       |
 
 ---
 
@@ -107,14 +94,6 @@ Passing a number to the size prop is only supported on Android.
 
 Whether the indicator should hide when not animating (true by default).
 
-
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |

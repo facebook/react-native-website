@@ -3,26 +3,18 @@ id: version-0.5-datepickerios
 title: DatePickerIOS
 original_id: datepickerios
 ---
-Use `DatePickerIOS` to render a date/time picker (selector) on iOS.  This is
-a controlled component, so you must hook in to the `onDateChange` callback
-and update the `date` prop in order for the component to update, otherwise
-the user's change will be reverted immediately to reflect `props.date` as the
-source of truth.
+
+Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a controlled component, so you must hook in to the `onDateChange` callback and update the `date` prop in order for the component to update, otherwise the user's change will be reverted immediately to reflect `props.date` as the source of truth.
 
 ### Props
 
-- [`date`](datepickerios.md#date)
-- [`onDateChange`](datepickerios.md#ondatechange)
-- [`maximumDate`](datepickerios.md#maximumdate)
-- [`minimumDate`](datepickerios.md#minimumdate)
-- [`minuteInterval`](datepickerios.md#minuteinterval)
-- [`mode`](datepickerios.md#mode)
-- [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
-
-
-
-
-
+* [`date`](datepickerios.md#date)
+* [`onDateChange`](datepickerios.md#ondatechange)
+* [`maximumDate`](datepickerios.md#maximumdate)
+* [`minimumDate`](datepickerios.md#minimumdate)
+* [`minuteInterval`](datepickerios.md#minuteinterval)
+* [`mode`](datepickerios.md#mode)
+* [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
 ---
 
@@ -35,11 +27,8 @@ source of truth.
 The currently selected date.
 
 | Type | Required |
-| - | - |
-| Date | Yes |
-
-
-
+| ---- | -------- |
+| Date | Yes      |
 
 ---
 
@@ -47,16 +36,11 @@ The currently selected date.
 
 Date change handler.
 
-This is called when the user changes the date or time in the UI.
-The first and only argument is a Date object representing the new
-date and time.
+This is called when the user changes the date or time in the UI. The first and only argument is a Date object representing the new date and time.
 
-| Type | Required |
-| - | - |
-| function | Yes |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | Yes      |
 
 ---
 
@@ -67,11 +51,8 @@ Maximum date.
 Restricts the range of possible date/time values.
 
 | Type | Required |
-| - | - |
-| Date | No |
-
-
-
+| ---- | -------- |
+| Date | No       |
 
 ---
 
@@ -82,11 +63,8 @@ Minimum date.
 Restricts the range of possible date/time values.
 
 | Type | Required |
-| - | - |
-| Date | No |
-
-
-
+| ---- | -------- |
+| Date | No       |
 
 ---
 
@@ -94,12 +72,9 @@ Restricts the range of possible date/time values.
 
 The interval at which minutes can be selected.
 
-| Type | Required |
-| - | - |
-| enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30) | No |
-
-
-
+| Type                                       | Required |
+| ------------------------------------------ | -------- |
+| enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30) | No       |
 
 ---
 
@@ -107,12 +82,9 @@ The interval at which minutes can be selected.
 
 The date picker mode.
 
-| Type | Required |
-| - | - |
-| enum('date', 'time', 'datetime') | No |
-
-
-
+| Type                             | Required |
+| -------------------------------- | -------- |
+| enum('date', 'time', 'datetime') | No       |
 
 ---
 
@@ -120,16 +92,8 @@ The date picker mode.
 
 Timezone offset in minutes.
 
-By default, the date picker will use the device's timezone. With this
-parameter, it is possible to force a certain timezone offset. For
-instance, to show times in Pacific Standard Time, pass -7 * 60.
+By default, the date picker will use the device's timezone. With this parameter, it is possible to force a certain timezone offset. For instance, to show times in Pacific Standard Time, pass -7 \* 60.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |

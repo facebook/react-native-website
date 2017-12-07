@@ -9,12 +9,13 @@ The `Animated` library is designed to make animations fluid, powerful, and easy 
 The simplest workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
 
 ```javascript
-Animated.timing(                            // Animate value over time
-  this.state.fadeAnim,                      // The value to drive
+Animated.timing(
+  // Animate value over time
+  this.state.fadeAnim, // The value to drive
   {
-    toValue: 1,                             // Animate to final value of 1
+    toValue: 1, // Animate to final value of 1
   }
-).start();                                  // Start the animation
+).start(); // Start the animation
 ```
 
 Refer to the [Animations](animations.md#animated-api) guide to see additional examples of `Animated` in action.
@@ -23,8 +24,8 @@ Refer to the [Animations](animations.md#animated-api) guide to see additional ex
 
 There are two value types you can use with `Animated`:
 
-- [`Animated.Value()`](animatedvalue.md) for single values
-- [`Animated.ValueXY()`](animatedvaluexy.md) for vectors
+* [`Animated.Value()`](animatedvalue.md) for single values
+* [`Animated.ValueXY()`](animatedvaluexy.md) for vectors
 
 `Animated.Value` can bind to style properties or other props, and can be interpolated as well. A single `Animated.Value` can drive any number of properties.
 
@@ -32,9 +33,9 @@ There are two value types you can use with `Animated`:
 
 `Animated` provides three types of animation types. Each animation type provides a particular animation curve that controls how your values animate from their initial value to the final value:
 
-- [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
-- [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
-- [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
+* [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
+* [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
+* [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
 
 In most cases, you will be using `timing()`. By default, it uses a symmetric easeInOut curve that conveys the gradual acceleration of an object to full speed and concludes by gradually decelerating to a stop.
 
@@ -45,11 +46,11 @@ Animations are started by calling `start()` on your animation. `start()` takes a
 ```javascript
 this.animateValue.spring({}).start(({finished}) => {
   if (finished) {
-    console.log('Animation was completed')
+    console.log('Animation was completed');
   } else {
-    console.log('Animation was aborted')
+    console.log('Animation was aborted');
   }
-})
+});
 ```
 
 ### Using the native driver
@@ -62,23 +63,23 @@ You can use the native driver by specifying `useNativeDriver: true` in your anim
 
 Only animatable components can be animated. These special components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
 
-- [`createAnimatedComponent()`](animated.md#createanimatedcomponent) can be used to make a component animatable.
+* [`createAnimatedComponent()`](animated.md#createanimatedcomponent) can be used to make a component animatable.
 
 `Animated` exports the following animatable components using the above wrapper:
 
-- `Animated.Image`
-- `Animated.ScrollView`
-- `Animated.Text`
-- `Animated.View`
+* `Animated.Image`
+* `Animated.ScrollView`
+* `Animated.Text`
+* `Animated.View`
 
 ### Composing animations
 
 Animations can also be combined in complex ways using composition functions:
 
-- [`Animated.delay()`](animated.md#delay) starts an animation after a given delay.
-- [`Animated.parallel()`](animated.md#parallel) starts a number of animations at the same time.
-- [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
-- [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
+* [`Animated.delay()`](animated.md#delay) starts an animation after a given delay.
+* [`Animated.parallel()`](animated.md#parallel) starts a number of animations at the same time.
+* [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
+* [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
 
 Animations can also be chained together simply by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](animations.md#tracking-dynamic-values) in the Animations guide.
 
@@ -88,16 +89,16 @@ By default, if one animation is stopped or interrupted, then all other animation
 
 You can combine two animated values via addition, multiplication, division, or modulo to make a new animated value:
 
-- [`Animated.add()`](animated.md#add)
-- [`Animated.divide()`](animated.md#divide)
-- [`Animated.modulo()`](animated.md#modulo)
-- [`Animated.multiply()`](animated.md#multiply)
+* [`Animated.add()`](animated.md#add)
+* [`Animated.divide()`](animated.md#divide)
+* [`Animated.modulo()`](animated.md#modulo)
+* [`Animated.multiply()`](animated.md#multiply)
 
 ### Interpolation
 
 The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses lineal interpolation by default but also supports easing functions.
 
-- [`interpolate()`](animatedvalue.md#interpolate)
+* [`interpolate()`](animatedvalue.md#interpolate)
 
 Read more about interpolation in the [Animation](animations.md#interpolation) guide.
 
@@ -105,7 +106,7 @@ Read more about interpolation in the [Animation](animations.md#interpolation) gu
 
 Gestures, like panning or scrolling, and other events can map directly to animated values using `Animated.event()`. This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
 
-- [`Animated.event()`](animated.md#event)
+* [`Animated.event()`](animated.md#event)
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
@@ -125,44 +126,43 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 #### Configuring animations
 
-- [`decay()`](animated.md#decay)
-- [`timing()`](animated.md#timing)
-- [`spring()`](animated.md#spring)
+* [`decay()`](animated.md#decay)
+* [`timing()`](animated.md#timing)
+* [`spring()`](animated.md#spring)
 
 #### Combining animated values
 
-- [`add`](animated.md#add)
-- [`divide`](animated.md#divide)
-- [`multiply`](animated.md#multiply)
-- [`modulo`](animated.md#modulo)
-- [`diffClamp`](animated.md#diffclamp)
+* [`add`](animated.md#add)
+* [`divide`](animated.md#divide)
+* [`multiply`](animated.md#multiply)
+* [`modulo`](animated.md#modulo)
+* [`diffClamp`](animated.md#diffclamp)
 
 #### Composing animations
 
-- [`delay`](animated.md#delay)
-- [`sequence`](animated.md#sequence)
-- [`parallel`](animated.md#parallel)
-- [`stagger`](animated.md#stagger)
+* [`delay`](animated.md#delay)
+* [`sequence`](animated.md#sequence)
+* [`parallel`](animated.md#parallel)
+* [`stagger`](animated.md#stagger)
 
 #### Handling gestures and other events
 
-- [`event`](animated.md#event)
-- [`attachNativeEvent`](animated.md#attachnativeevent)
-- [`forkEvent`](animated.md#forkevent)
-- [`unforkEvent`](animated.md#unforkevent)
+* [`event`](animated.md#event)
+* [`attachNativeEvent`](animated.md#attachnativeevent)
+* [`forkEvent`](animated.md#forkevent)
+* [`unforkEvent`](animated.md#unforkevent)
 
 #### Others
 
-- [`loop`](animated.md#loop)
-- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
+* [`loop`](animated.md#loop)
+* [`createAnimatedComponent`](animated.md#createanimatedcomponent)
 
 ### Properties
 
-- [`Value`](animated.md#value)
-- [`ValueXY`](animated.md#valuexy)
-- [`Interpolation`](animated.md#interpolation)
-- [`Node`](animated.md#node)
-
+* [`Value`](animated.md#value)
+* [`ValueXY`](animated.md#valuexy)
+* [`Interpolation`](animated.md#interpolation)
+* [`Node`](animated.md#node)
 
 ---
 
@@ -173,72 +173,66 @@ For example, when working with horizontal scrolling gestures, you would do the f
 ### `decay()`
 
 ```javascript
-Animated.decay(value, config)
+Animated.decay(value, config);
 ```
 
 Animates a value from an initial velocity to zero based on a decay coefficient.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| value | AnimatedValue or AnimatedValueXY | Yes | Value to animate. |
-| config | object | Yes | See below. |
+| Name   | Type                             | Required | Description       |
+| ------ | -------------------------------- | -------- | ----------------- |
+| value  | AnimatedValue or AnimatedValueXY | Yes      | Value to animate. |
+| config | object                           | Yes      | See below.        |
 
 Config is an object that may have the following options:
 
-- `velocity`: Initial velocity. Required.
-- `deceleration`: Rate of decay. Default 0.997.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the
-  `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+* `velocity`: Initial velocity. Required.
+* `deceleration`: Rate of decay. Default 0.997.
+* `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+* `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
 ### `timing()`
 
 ```javascript
-Animated.timing(value, config)
+Animated.timing(value, config);
 ```
 
 Animates a value along a timed easing curve. The [`Easing`](easing.md) module has tons of predefined curves, or you can use your own function.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| value | AnimatedValue or AnimatedValueXY | Yes | Value to animate. |
-| config | object | Yes | See below. |
+| Name   | Type                             | Required | Description       |
+| ------ | -------------------------------- | -------- | ----------------- |
+| value  | AnimatedValue or AnimatedValueXY | Yes      | Value to animate. |
+| config | object                           | Yes      | See below.        |
 
 Config is an object that may have the following options:
 
-  - `duration`: Length of animation (milliseconds).  Default 500.
-  - `easing`: Easing function to define curve.
-    Default is `Easing.inOut(Easing.ease)`.
-  - `delay`: Start the animation after delay (milliseconds).  Default 0.
-  - `isInteraction`: Whether or not this animation creates an "interaction handle" on the
-    `InteractionManager`. Default true.
-  - `useNativeDriver`: Uses the native driver when true. Default false.
-
-
-
+* `duration`: Length of animation (milliseconds). Default 500.
+* `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
+* `delay`: Start the animation after delay (milliseconds). Default 0.
+* `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+* `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
 ### `spring()`
 
 ```javascript
-Animated.spring(value, config)
+Animated.spring(value, config);
 ```
 
 Animates a value according to an analytical spring model based on [damped harmonic oscillation](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| value | AnimatedValue or AnimatedValueXY | Yes | Value to animate. |
-| config | object | Yes | See below. |
+| Name   | Type                             | Required | Description       |
+| ------ | -------------------------------- | -------- | ----------------- |
+| value  | AnimatedValue or AnimatedValueXY | Yes      | Value to animate. |
+| config | object                           | Yes      | See below.        |
 
 `config` is an object that may have the following options.
 
@@ -246,109 +240,101 @@ Note that you can only define one of bounciness/speed, tension/friction, or stif
 
 The friction/tension or bounciness/speed options match the spring model in [Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
 
-- `friction`: Controls "bounciness"/overshoot.  Default 7.
-- `tension`: Controls speed.  Default 40.
-- `speed`: Controls speed of the animation. Default 12.
-- `bounciness`: Controls bounciness. Default 8.
+* `friction`: Controls "bounciness"/overshoot. Default 7.
+* `tension`: Controls speed. Default 40.
+* `speed`: Controls speed of the animation. Default 12.
+* `bounciness`: Controls bounciness. Default 8.
 
 Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation primitive.
 
-- `stiffness`: The spring stiffness coefficient. Default 100.
-- `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
-- `mass`: The mass of the object attached to the end of the spring. Default 1.
+* `stiffness`: The spring stiffness coefficient. Default 100.
+* `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
+* `mass`: The mass of the object attached to the end of the spring. Default 1.
 
 Other configuration options are as follows:
 
-- `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
-- `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
-- `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
-- `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
-- `delay`: Start the animation after delay (milliseconds).  Default 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+* `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
+* `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
+* `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
+* `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
+* `delay`: Start the animation after delay (milliseconds). Default 0.
+* `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+* `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
 ### `add()`
 
 ```javascript
-Animated.add(a, b)
+Animated.add(a, b);
 ```
 
 Creates a new Animated value composed from two Animated values added together.
 
-
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| a | AnimatedValue | Yes | Operand. |
-| b | AnimatedValue | Yes | Operand. |
-
-
+| Name | Type          | Required | Description |
+| ---- | ------------- | -------- | ----------- |
+| a    | AnimatedValue | Yes      | Operand.    |
+| b    | AnimatedValue | Yes      | Operand.    |
 
 ---
 
 ### `divide()`
 
 ```javascript
-Animated.divide(a, b)
+Animated.divide(a, b);
 ```
-
 
 Creates a new Animated value composed by dividing the first Animated value by the second Animated value.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| a | AnimatedValue | Yes | Operand. |
-| b | AnimatedValue | Yes | Operand. |
-
+| Name | Type          | Required | Description |
+| ---- | ------------- | -------- | ----------- |
+| a    | AnimatedValue | Yes      | Operand.    |
+| b    | AnimatedValue | Yes      | Operand.    |
 
 ---
 
 ### `multiply()`
 
 ```javascript
-Animated.multiply(a, b)
+Animated.multiply(a, b);
 ```
 
 Creates a new Animated value composed from two Animated values multiplied together.
 
-
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| a | AnimatedValue | Yes | Operand. |
-| b | AnimatedValue | Yes | Operand. |
+| Name | Type          | Required | Description |
+| ---- | ------------- | -------- | ----------- |
+| a    | AnimatedValue | Yes      | Operand.    |
+| b    | AnimatedValue | Yes      | Operand.    |
 
 ---
 
 ### `modulo()`
 
 ```javascript
-Animated.modulo(a, modulus)
+Animated.modulo(a, modulus);
 ```
-
 
 Creates a new Animated value that is the (non-negative) modulo of the provided Animated value.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| a | AnimatedValue | Yes | Operand. |
-| modulus | AnimatedValue | Yes | Operand. |
-
+| Name    | Type          | Required | Description |
+| ------- | ------------- | -------- | ----------- |
+| a       | AnimatedValue | Yes      | Operand.    |
+| modulus | AnimatedValue | Yes      | Operand.    |
 
 ---
 
 ### `diffClamp()`
 
 ```javascript
-Animated.diffClamp(a, min, max)
+Animated.diffClamp(a, min, max);
 ```
 
 Create a new Animated value that is limited between 2 values. It uses the difference between the last value so even if the value is far from the bounds it will start changing when the value starts getting closer again. (`value = clamp(value + diff, min, max)`).
@@ -357,107 +343,100 @@ This is useful with scroll events, for example, to show the navbar when scrollin
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| a | AnimatedValue | Yes | Operand. |
-| min | number | Yes | Minimum value. |
-| max | number | Yes | Maximum value. |
+| Name | Type          | Required | Description    |
+| ---- | ------------- | -------- | -------------- |
+| a    | AnimatedValue | Yes      | Operand.       |
+| min  | number        | Yes      | Minimum value. |
+| max  | number        | Yes      | Maximum value. |
 
 ---
 
 ### `delay()`
 
 ```javascript
-Animated.delay(time)
+Animated.delay(time);
 ```
 
 Starts an animation after the given delay.
 
-
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| time | number | Yes | Delay in milliseconds. |
+| Name | Type   | Required | Description            |
+| ---- | ------ | -------- | ---------------------- |
+| time | number | Yes      | Delay in milliseconds. |
 
 ---
 
 ### `sequence()`
 
 ```javascript
-Animated.sequence(animations)
+Animated.sequence(animations);
 ```
 
-Starts an array of animations in order, waiting for each to complete before starting the next.  If the current running animation is stopped, no following animations will be started.
+Starts an array of animations in order, waiting for each to complete before starting the next. If the current running animation is stopped, no following animations will be started.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| animations | array | Yes | Array of animations. |
-
-
+| Name       | Type  | Required | Description          |
+| ---------- | ----- | -------- | -------------------- |
+| animations | array | Yes      | Array of animations. |
 
 ---
 
 ### `parallel()`
 
 ```javascript
-Animated.parallel(animations, [config])
+Animated.parallel(animations, [config]);
 ```
 
-Starts an array of animations all at the same time. By default, if one
-of the animations is stopped, they will all be stopped. You can override
-this with the `stopTogether` flag through `config`.
+Starts an array of animations all at the same time. By default, if one of the animations is stopped, they will all be stopped. You can override this with the `stopTogether` flag through `config`.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| animations | array | Yes | Array of animations. |
-| config | object | No | An object with a `stopTogether` key (boolean). |
-
+| Name       | Type   | Required | Description                                    |
+| ---------- | ------ | -------- | ---------------------------------------------- |
+| animations | array  | Yes      | Array of animations.                           |
+| config     | object | No       | An object with a `stopTogether` key (boolean). |
 
 ---
 
 ### `stagger()`
 
 ```javascript
-Animated.stagger(time, animations)
+Animated.stagger(time, animations);
 ```
 
-Array of animations may run in parallel (overlap), but are started in
-sequence with successive delays.  Nice for doing trailing effects.
+Array of animations may run in parallel (overlap), but are started in sequence with successive delays. Nice for doing trailing effects.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| time | number | Yes | Delay in milliseconds. |
-| animations | array | Yes | Array of animations. |
+| Name       | Type   | Required | Description            |
+| ---------- | ------ | -------- | ---------------------- |
+| time       | number | Yes      | Delay in milliseconds. |
+| animations | array  | Yes      | Array of animations.   |
 
 ---
 
 ### `loop()`
 
 ```javascript
-Animated.loop(animation)
+Animated.loop(animation);
 ```
 
 Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Can specify number of times to loop using the key `iterations` in the config. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| animation | animation | Yes | Animation to loop. |
+| Name      | Type      | Required | Description        |
+| --------- | --------- | -------- | ------------------ |
+| animation | animation | Yes      | Animation to loop. |
 
 ---
 
 ### `event()`
 
 ```javascript
-Animated.event(argMapping, [config])
+Animated.event(argMapping, [config]);
 ```
 
 Takes an array of mappings and extracts values from each arg accordingly, then calls `setValue` on the mapped outputs. e.g.
@@ -477,85 +456,83 @@ onPanResponderMove: Animated.event([
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| argMapping | array | Yes | Array of mappings. |
-| config | object | No | See below. |
-
+| Name       | Type   | Required | Description        |
+| ---------- | ------ | -------- | ------------------ |
+| argMapping | array  | Yes      | Array of mappings. |
+| config     | object | No       | See below.         |
 
 Config is an object that may have the following options:
 
-- `listener`: Optional async listener.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+* `listener`: Optional async listener.
+* `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
 ### `createAnimatedComponent()`
 
 ```javascript
-createAnimatedComponent(component)
+createAnimatedComponent(component);
 ```
 
 Make any React component Animatable. Used to create `Animated.View`, etc.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| component | component | Yes | React component |
+| Name      | Type      | Required | Description     |
+| --------- | --------- | -------- | --------------- |
+| component | component | Yes      | React component |
 
 ---
 
 ### `attachNativeEvent()`
 
 ```javascript
-attachNativeEvent(viewRef, eventName, argMapping)
+attachNativeEvent(viewRef, eventName, argMapping);
 ```
 
 Imperative API to attach an animated value to an event on a view. Prefer using `Animated.event` with `useNativeDrive: true` if possible.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| viewRef | any | Yes | View reference. |
-| eventName | string | Yes | Event name. |
-| argMapping | array | Yes | Array of mappings. |
+| Name       | Type   | Required | Description        |
+| ---------- | ------ | -------- | ------------------ |
+| viewRef    | any    | Yes      | View reference.    |
+| eventName  | string | Yes      | Event name.        |
+| argMapping | array  | Yes      | Array of mappings. |
 
 ---
 
 ### `forkEvent()`
 
 ```javascript
-Animated.forkEvent(event, listener)
+Animated.forkEvent(event, listener);
 ```
 
 Advanced imperative API for snooping on animated events that are passed in through props. Use values directly where possible.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| event | event or function | Yes | Event. |
-| listener | function | Yes | Handler. |
+| Name     | Type              | Required | Description |
+| -------- | ----------------- | -------- | ----------- |
+| event    | event or function | Yes      | Event.      |
+| listener | function          | Yes      | Handler.    |
 
 ---
 
 ### `unforkEvent()`
 
 ```javascript
-Animated.unforkEvent(event, listener)
+Animated.unforkEvent(event, listener);
 ```
 
 Advanced imperative API for snooping on animated events that are passed in through props. Use values directly where possible.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| event | event or function | Yes | Event. |
-| listener | function | Yes | Handler. |
-
+| Name     | Type              | Required | Description |
+| -------- | ----------------- | -------- | ----------- |
+| event    | event or function | Yes      | Event.      |
+| listener | function          | Yes      | Handler.    |
 
 ## Properties
 
@@ -563,8 +540,8 @@ Advanced imperative API for snooping on animated events that are passed in throu
 
 Standard value for driving animations.
 
-| Type |
-| - |
+| Type                                |
+| ----------------------------------- |
 | [`AnimatedValue`](animatedvalue.md) |
 
 ---
@@ -573,8 +550,8 @@ Standard value for driving animations.
 
 2D value class for driving 2D animations, such as pan gestures.
 
-| Type |
-| - |
+| Type                                    |
+| --------------------------------------- |
 | [`AnimatedValueXY`](animatedvaluexy.md) |
 
 ---
@@ -583,8 +560,8 @@ Standard value for driving animations.
 
 Exported to use the Interpolation type in flow.
 
-| Type |
-| - |
+| Type                  |
+| --------------------- |
 | AnimatedInterpolation |
 
 ---
@@ -593,7 +570,6 @@ Exported to use the Interpolation type in flow.
 
 Exported for ease of type checking. All animated values derive from this class. See `AnimatedNode.js`.
 
-| Type |
-| - |
+| Type         |
+| ------------ |
 | AnimatedNode |
-

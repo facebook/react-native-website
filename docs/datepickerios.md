@@ -2,13 +2,11 @@
 id: datepickerios
 title: DatePickerIOS
 ---
-Use `DatePickerIOS` to render a date/time picker (selector) on iOS.  This is
-a controlled component, so you must hook in to the `onDateChange` callback
-and update the `date` prop in order for the component to update, otherwise
-the user's change will be reverted immediately to reflect `props.date` as the
-source of truth.
+
+Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a controlled component, so you must hook in to the `onDateChange` callback and update the `date` prop in order for the component to update, otherwise the user's change will be reverted immediately to reflect `props.date` as the source of truth.
 
 ### Example
+
 ```
 import React, { Component } from 'react'
 import {
@@ -54,6 +52,7 @@ const styles = StyleSheet.create({
 ### Props
 
 * [View props...](view.md#props)
+
 - [`date`](datepickerios.md#date)
 - [`onDateChange`](datepickerios.md#ondatechange)
 - [`maximumDate`](datepickerios.md#maximumdate)
@@ -61,11 +60,6 @@ const styles = StyleSheet.create({
 - [`minuteInterval`](datepickerios.md#minuteinterval)
 - [`mode`](datepickerios.md#mode)
 - [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
-
-
-
-
-
 
 ---
 
@@ -78,11 +72,8 @@ const styles = StyleSheet.create({
 The currently selected date.
 
 | Type | Required |
-| - | - |
-| Date | Yes |
-
-
-
+| ---- | -------- |
+| Date | Yes      |
 
 ---
 
@@ -90,16 +81,11 @@ The currently selected date.
 
 Date change handler.
 
-This is called when the user changes the date or time in the UI.
-The first and only argument is a Date object representing the new
-date and time.
+This is called when the user changes the date or time in the UI. The first and only argument is a Date object representing the new date and time.
 
-| Type | Required |
-| - | - |
-| function | Yes |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | Yes      |
 
 ---
 
@@ -110,14 +96,12 @@ Maximum date.
 Restricts the range of possible date/time values.
 
 | Type | Required |
-| - | - |
-| Date | No |
+| ---- | -------- |
+| Date | No       |
 
 Example with `maximumDate` set to December 31, 2017:
 
 <center><img src="/react-native/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
-
-
 
 ---
 
@@ -128,12 +112,10 @@ Minimum date.
 Restricts the range of possible date/time values.
 
 | Type | Required |
-| - | - |
-| Date | No |
+| ---- | -------- |
+| Date | No       |
 
 See [`maximumDate`](datepickerios.md#maximumdate) for an example image.
-
-
 
 ---
 
@@ -141,15 +123,13 @@ See [`maximumDate`](datepickerios.md#maximumdate) for an example image.
 
 The interval at which minutes can be selected.
 
-| Type | Required |
-| - | - |
-| enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30) | No |
+| Type                                       | Required |
+| ------------------------------------------ | -------- |
+| enum(1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30) | No       |
 
 Example with `minuteInterval` set to `10`:
 
 <center><img src="/react-native/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
-
-
 
 ---
 
@@ -157,15 +137,11 @@ Example with `minuteInterval` set to `10`:
 
 The date picker mode.
 
-| Type | Required |
-| - | - |
-| enum('date', 'time', 'datetime') | No |
+| Type                             | Required |
+| -------------------------------- | -------- |
+| enum('date', 'time', 'datetime') | No       |
 
-Example with `mode` set to `date`, `time`, and `datetime`:
-![](/react-native/docs/assets/DatePickerIOS/mode.png)
-
-
-
+Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/docs/assets/DatePickerIOS/mode.png)
 
 ---
 
@@ -173,16 +149,8 @@ Example with `mode` set to `date`, `time`, and `datetime`:
 
 Timezone offset in minutes.
 
-By default, the date picker will use the device's timezone. With this
-parameter, it is possible to force a certain timezone offset. For
-instance, to show times in Pacific Standard Time, pass -7 * 60.
+By default, the date picker will use the device's timezone. With this parameter, it is possible to force a certain timezone offset. For instance, to show times in Pacific Standard Time, pass -7 \* 60.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |

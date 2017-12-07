@@ -3,12 +3,8 @@ id: version-0.13-drawerlayoutandroid
 title: DrawerLayoutAndroid
 original_id: drawerlayoutandroid
 ---
-React component that wraps the platform `DrawerLayout` (Android only). The
-Drawer (typically used for navigation) is rendered with `renderNavigationView`
-and direct children are the main view (where your content goes). The navigation
-view is initially not visible on the screen, but can be pulled in from the
-side of the window specified by the `drawerPosition` prop and its width can
-be set by the `drawerWidth` prop.
+
+React component that wraps the platform `DrawerLayout` (Android only). The Drawer (typically used for navigation) is rendered with `renderNavigationView` and direct children are the main view (where your content goes). The navigation view is initially not visible on the screen, but can be pulled in from the side of the window specified by the `drawerPosition` prop and its width can be set by the `drawerWidth` prop.
 
 Example:
 
@@ -35,25 +31,19 @@ render: function() {
 
 ### Props
 
-- [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
-- [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
-- [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
-- [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
-- [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
-- [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
-- [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
-- [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
-
-
-
+* [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
+* [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
+* [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
+* [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
+* [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
+* [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
+* [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
+* [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
 
 ### Methods
 
-- [`openDrawer`](drawerlayoutandroid.md#opendrawer)
-- [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
-
-
-
+* [`openDrawer`](drawerlayoutandroid.md#opendrawer)
+* [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
 
 ---
 
@@ -65,12 +55,9 @@ render: function() {
 
 The navigation view that will be rendered to the side of the screen and can be pulled in.
 
-| Type | Required |
-| - | - |
-| function | Yes |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | Yes      |
 
 ---
 
@@ -78,41 +65,32 @@ The navigation view that will be rendered to the side of the screen and can be p
 
 Specifies the side of the screen from which the drawer will slide in.
 
-| Type | Required |
-| - | - |
-| enum(DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right) | No |
-
-
-
+| Type                                                                      | Required |
+| ------------------------------------------------------------------------- | -------- |
+| enum(DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right) | No       |
 
 ---
 
 ### `drawerWidth`
 
-Specifies the width of the drawer, more precisely the width of the view that be pulled in
-from the edge of the window.
+Specifies the width of the drawer, more precisely the width of the view that be pulled in from the edge of the window.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `keyboardDismissMode`
 
 Determines whether the keyboard gets dismissed in response to a drag.
-  - 'none' (the default), drags do not dismiss the keyboard.
-  - 'on-drag', the keyboard is dismissed when a drag begins.
 
-| Type | Required |
-| - | - |
-| enum('none', 'on-drag') | No |
+* 'none' (the default), drags do not dismiss the keyboard.
+* 'on-drag', the keyboard is dismissed when a drag begins.
 
-
-
+| Type                    | Required |
+| ----------------------- | -------- |
+| enum('none', 'on-drag') | No       |
 
 ---
 
@@ -120,12 +98,9 @@ Determines whether the keyboard gets dismissed in response to a drag.
 
 Function called whenever the navigation view has been closed.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -133,12 +108,9 @@ Function called whenever the navigation view has been closed.
 
 Function called whenever the navigation view has been opened.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -146,49 +118,36 @@ Function called whenever the navigation view has been opened.
 
 Function called whenever there is an interaction with the navigation view.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onDrawerStateChanged`
 
 Function called when the drawer state has changed. The drawer can be in 3 states:
-- idle, meaning there is no interaction with the navigation view happening at the time
-- dragging, meaning there is currently an interation with the navigation view
-- settling, meaning that there was an interaction with the navigation view, and the
-navigation view is now finishing it's closing or opening animation
 
-| Type | Required |
-| - | - |
-| function | No |
+* idle, meaning there is no interaction with the navigation view happening at the time
+* dragging, meaning there is currently an interation with the navigation view
+* settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing it's closing or opening animation
 
-
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ## Methods
 
 ### `openDrawer()`
 
 ```javascript
-openDrawer()
+openDrawer();
 ```
-
-
 
 ---
 
 ### `closeDrawer()`
 
 ```javascript
-closeDrawer()
+closeDrawer();
 ```
-
-
-

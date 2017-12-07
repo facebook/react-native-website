@@ -10,10 +10,10 @@ NetInfo exposes info about online/offline status
 
 Asynchronously determine if the device is online and on a cellular network.
 
-- `none` - device is offline
-- `wifi` - device is online and connected via wifi, or is the iOS simulator
-- `cell` - device is connected via Edge, 3G, WiMax, or LTE
-- `unknown` - error case and the network status is unknown
+* `none` - device is offline
+* `wifi` - device is online and connected via wifi, or is the iOS simulator
+* `cell` - device is connected via Edge, 3G, WiMax, or LTE
+* `unknown` - error case and the network status is unknown
 
 ```
 NetInfo.reachabilityIOS.fetch().done((reach) => {
@@ -34,8 +34,7 @@ NetInfo.reachabilityIOS.addEventListener(
 
 ### isConnected
 
-Available on all platforms. Asynchronously fetch a boolean to determine
-internet connectivity.
+Available on all platforms. Asynchronously fetch a boolean to determine internet connectivity.
 
 ```
 NetInfo.isConnected.fetch().done((isConnected) => {
@@ -54,10 +53,6 @@ NetInfo.isConnected.addEventListener(
 );
 ```
 
-
-
-
 ---
 
 # Reference
-

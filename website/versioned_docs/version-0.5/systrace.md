@@ -4,25 +4,20 @@ title: Systrace
 original_id: systrace
 ---
 
-
-
 ### Methods
 
-- [`installReactHook`](systrace.md#installreacthook)
-- [`setEnabled`](systrace.md#setenabled)
-- [`isEnabled`](systrace.md#isenabled)
-- [`beginEvent`](systrace.md#beginevent)
-- [`endEvent`](systrace.md#endevent)
-- [`beginAsyncEvent`](systrace.md#beginasyncevent)
-- [`endAsyncEvent`](systrace.md#endasyncevent)
-- [`counterEvent`](systrace.md#counterevent)
-- [`attachToRelayProfiler`](systrace.md#attachtorelayprofiler)
-- [`swizzleJSON`](systrace.md#swizzlejson)
-- [`measureMethods`](systrace.md#measuremethods)
-- [`measure`](systrace.md#measure)
-
-
-
+* [`installReactHook`](systrace.md#installreacthook)
+* [`setEnabled`](systrace.md#setenabled)
+* [`isEnabled`](systrace.md#isenabled)
+* [`beginEvent`](systrace.md#beginevent)
+* [`endEvent`](systrace.md#endevent)
+* [`beginAsyncEvent`](systrace.md#beginasyncevent)
+* [`endAsyncEvent`](systrace.md#endasyncevent)
+* [`counterEvent`](systrace.md#counterevent)
+* [`attachToRelayProfiler`](systrace.md#attachtorelayprofiler)
+* [`swizzleJSON`](systrace.md#swizzlejson)
+* [`measureMethods`](systrace.md#measuremethods)
+* [`measure`](systrace.md#measure)
 
 ---
 
@@ -36,8 +31,6 @@ original_id: systrace
 static installReactHook(useFiber)
 ```
 
-
-
 ---
 
 ### `setEnabled()`
@@ -45,8 +38,6 @@ static installReactHook(useFiber)
 ```javascript
 static setEnabled(enabled)
 ```
-
-
 
 ---
 
@@ -56,8 +47,6 @@ static setEnabled(enabled)
 static isEnabled()
 ```
 
-
-
 ---
 
 ### `beginEvent()`
@@ -66,11 +55,7 @@ static isEnabled()
 static beginEvent(profileName?, args?)
 ```
 
-
 beginEvent/endEvent for starting and then ending a profile within the same call stack frame
-
-
-
 
 ---
 
@@ -80,8 +65,6 @@ beginEvent/endEvent for starting and then ending a profile within the same call 
 static endEvent()
 ```
 
-
-
 ---
 
 ### `beginAsyncEvent()`
@@ -90,13 +73,7 @@ static endEvent()
 static beginAsyncEvent(profileName?)
 ```
 
-
-beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either
-occur on another thread or out of the current stack frame, eg await
-the returned cookie variable should be used as input into the endAsyncEvent call to end the profile
-
-
-
+beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either occur on another thread or out of the current stack frame, eg await the returned cookie variable should be used as input into the endAsyncEvent call to end the profile
 
 ---
 
@@ -106,8 +83,6 @@ the returned cookie variable should be used as input into the endAsyncEvent call
 static endAsyncEvent(profileName?, cookie?)
 ```
 
-
-
 ---
 
 ### `counterEvent()`
@@ -116,11 +91,7 @@ static endAsyncEvent(profileName?, cookie?)
 static counterEvent(profileName?, value?)
 ```
 
-
 counterEvent registers the value to the profileName on the systrace timeline
-
-
-
 
 ---
 
@@ -130,12 +101,7 @@ counterEvent registers the value to the profileName on the systrace timeline
 static attachToRelayProfiler(relayProfiler)
 ```
 
-
-Relay profiles use await calls, so likely occur out of current stack frame
-therefore async variant of profiling is used
-
-
-
+Relay profiles use await calls, so likely occur out of current stack frame therefore async variant of profiling is used
 
 ---
 
@@ -145,10 +111,7 @@ therefore async variant of profiling is used
 static swizzleJSON()
 ```
 
-This is not called by default due to perf overhead but it's useful
-if you want to find traces which spend too much time in JSON.
-
-
+This is not called by default due to perf overhead but it's useful if you want to find traces which spend too much time in JSON.
 
 ---
 
@@ -158,7 +121,6 @@ if you want to find traces which spend too much time in JSON.
 static measureMethods(object, objectName, methodNames)
 ```
 
-
 Measures multiple methods of a class. For example, you can do:
 
 ```javascript
@@ -167,13 +129,11 @@ Systrace.measureMethods(JSON, 'JSON', ['parse', 'stringify']);
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| object | any | Yes | | 
-| objectName | string | Yes | |
-| methodNames | array | Yes| Map from method names to method display names. |
-
-
+| Name        | Type   | Required | Description                                    |
+| ----------- | ------ | -------- | ---------------------------------------------- |
+| object      | any    | Yes      |                                                |
+| objectName  | string | Yes      |                                                |
+| methodNames | array  | Yes      | Map from method names to method display names. |
 
 ---
 
@@ -183,7 +143,6 @@ Systrace.measureMethods(JSON, 'JSON', ['parse', 'stringify']);
 static measure(objName, fnName, func)
 ```
 
-
 Returns an profiled version of the input function. For example, you can:
 
 ```javascript
@@ -192,13 +151,8 @@ JSON.parse = Systrace.measure('JSON', 'parse', JSON.parse);
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| - | - | - | - |
-| objName | string | Yes | | 
-| fnName | string | Yes | |
-| func | function | Yes | |
-
-
-
-
-
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| objName | string   | Yes      |             |
+| fnName  | string   | Yes      |             |
+| func    | function | Yes      |             |

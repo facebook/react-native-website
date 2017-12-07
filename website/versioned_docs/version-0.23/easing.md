@@ -4,33 +4,27 @@ title: Easing
 original_id: easing
 ---
 
-This class implements common easing functions. The math is pretty obscure,
-but this cool website has nice visual illustrations of what they represent:
-http://xaedes.de/dev/transitions/
-
+This class implements common easing functions. The math is pretty obscure, but this cool website has nice visual illustrations of what they represent: http://xaedes.de/dev/transitions/
 
 ### Methods
 
-- [`step0`](easing.md#step0)
-- [`step1`](easing.md#step1)
-- [`linear`](easing.md#linear)
-- [`ease`](easing.md#ease)
-- [`quad`](easing.md#quad)
-- [`cubic`](easing.md#cubic)
-- [`poly`](easing.md#poly)
-- [`sin`](easing.md#sin)
-- [`circle`](easing.md#circle)
-- [`exp`](easing.md#exp)
-- [`elastic`](easing.md#elastic)
-- [`back`](easing.md#back)
-- [`bounce`](easing.md#bounce)
-- [`bezier`](easing.md#bezier)
-- [`in`](easing.md#in)
-- [`out`](easing.md#out)
-- [`inOut`](easing.md#inout)
-
-
-
+* [`step0`](easing.md#step0)
+* [`step1`](easing.md#step1)
+* [`linear`](easing.md#linear)
+* [`ease`](easing.md#ease)
+* [`quad`](easing.md#quad)
+* [`cubic`](easing.md#cubic)
+* [`poly`](easing.md#poly)
+* [`sin`](easing.md#sin)
+* [`circle`](easing.md#circle)
+* [`exp`](easing.md#exp)
+* [`elastic`](easing.md#elastic)
+* [`back`](easing.md#back)
+* [`bounce`](easing.md#bounce)
+* [`bezier`](easing.md#bezier)
+* [`in`](easing.md#in)
+* [`out`](easing.md#out)
+* [`inOut`](easing.md#inout)
 
 ---
 
@@ -44,8 +38,6 @@ http://xaedes.de/dev/transitions/
 static step0(n)
 ```
 
-
-
 ---
 
 ### `step1()`
@@ -53,8 +45,6 @@ static step0(n)
 ```javascript
 static step1(n)
 ```
-
-
 
 ---
 
@@ -64,8 +54,6 @@ static step1(n)
 static linear(t)
 ```
 
-
-
 ---
 
 ### `ease()`
@@ -73,8 +61,6 @@ static linear(t)
 ```javascript
 static ease(t)
 ```
-
-
 
 ---
 
@@ -84,8 +70,6 @@ static ease(t)
 static quad(t)
 ```
 
-
-
 ---
 
 ### `cubic()`
@@ -93,8 +77,6 @@ static quad(t)
 ```javascript
 static cubic(t)
 ```
-
-
 
 ---
 
@@ -104,8 +86,6 @@ static cubic(t)
 static poly(n)
 ```
 
-
-
 ---
 
 ### `sin()`
@@ -113,8 +93,6 @@ static poly(n)
 ```javascript
 static sin(t)
 ```
-
-
 
 ---
 
@@ -124,8 +102,6 @@ static sin(t)
 static circle(t)
 ```
 
-
-
 ---
 
 ### `exp()`
@@ -133,8 +109,6 @@ static circle(t)
 ```javascript
 static exp(t)
 ```
-
-
 
 ---
 
@@ -144,18 +118,11 @@ static exp(t)
 static elastic(bounciness)
 ```
 
-
-A simple elastic interaction, similar to a spring.  Default bounciness
-is 1, which overshoots a little bit once.  0 bounciness doesn't overshoot
-at all, and bounciness of N > 1 will overshoot about N times.
+A simple elastic interaction, similar to a spring. Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
 
 Wolfram Plots:
 
-  http://tiny.cc/elastic_b_1 (default bounciness = 1)
-  http://tiny.cc/elastic_b_3 (bounciness = 3)
-
-
-
+http://tiny.cc/elastic_b_1 (default bounciness = 1) http://tiny.cc/elastic_b_3 (bounciness = 3)
 
 ---
 
@@ -165,8 +132,6 @@ Wolfram Plots:
 static back(s)
 ```
 
-
-
 ---
 
 ### `bounce()`
@@ -174,8 +139,6 @@ static back(s)
 ```javascript
 static bounce(t)
 ```
-
-
 
 ---
 
@@ -185,17 +148,13 @@ static bounce(t)
 static bezier(x1, y1, x2, y2)
 ```
 
-
-
 ---
 
 ### `in()`
 
 ```javascript
-static in(easing)
+static in easing;
 ```
-
-
 
 ---
 
@@ -205,11 +164,7 @@ static in(easing)
 static out(easing)
 ```
 
-
 Runs an easing function backwards.
-
-
-
 
 ---
 
@@ -219,9 +174,4 @@ Runs an easing function backwards.
 static inOut(easing)
 ```
 
-
 Makes any easing function symmetrical.
-
-
-
-

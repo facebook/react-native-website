@@ -3,12 +3,8 @@ id: version-0.5-touchablehighlight
 title: TouchableHighlight
 original_id: touchablehighlight
 ---
-A wrapper for making views respond properly to touches.
-On press down, the opacity of the wrapped view is decreased, which allows
-the underlay color to show through, darkening or tinting the view.  The
-underlay comes from adding a view to the view hierarchy, which can sometimes
-cause unwanted visual artifacts if not used correctly, for example if the
-backgroundColor of the wrapped view isn't explicitly set to an opaque color.
+
+A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view. The underlay comes from adding a view to the view hierarchy, which can sometimes cause unwanted visual artifacts if not used correctly, for example if the backgroundColor of the wrapped view isn't explicitly set to an opaque color.
 
 Example:
 
@@ -28,19 +24,14 @@ renderButton: function() {
 ### Props
 
 * [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+
 - [`activeOpacity`](touchablehighlight.md#activeopacity)
 - [`style`](touchablehighlight.md#style)
 - [`underlayColor`](touchablehighlight.md#underlaycolor)
 
-
-
-
 ### Methods
 
-- [`computeSyntheticState`](touchablehighlight.md#computesyntheticstate)
-
-
-
+* [`computeSyntheticState`](touchablehighlight.md#computesyntheticstate)
 
 ---
 
@@ -50,52 +41,34 @@ renderButton: function() {
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is
-active.
+Determines what the opacity of the wrapped view should be when touch is active.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `style`
 
-
-
-| Type | Required |
-| - | - |
-| [View](view.md#style) | No |
-
-
-
+| Type                  | Required |
+| --------------------- | -------- |
+| [View](view.md#style) | No       |
 
 ---
 
 ### `underlayColor`
 
-The color of the underlay that will show through when the touch is
-active.
+The color of the underlay that will show through when the touch is active.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ## Methods
 
 ### `computeSyntheticState()`
 
 ```javascript
-computeSyntheticState(props)
+computeSyntheticState(props);
 ```
-
-
-

@@ -3,19 +3,17 @@ id: version-0.24-switch
 title: Switch
 original_id: switch
 ---
+
 Renders a boolean input.
 
-This is a controlled component that requires an `onValueChange` callback that
-updates the `value` prop in order for the component to reflect user actions.
-If the `value` prop is not updated, the component will continue to render
-the supplied `value` prop instead of the expected result of any user actions.
+This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
 
-@keyword checkbox
-@keyword toggle
+@keyword checkbox @keyword toggle
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`disabled`](switch.md#disabled)
 - [`onValueChange`](switch.md#onvaluechange)
 - [`testID`](switch.md#testid)
@@ -23,11 +21,6 @@ the supplied `value` prop instead of the expected result of any user actions.
 - [`onTintColor`](switch.md#ontintcolor)
 - [`thumbTintColor`](switch.md#thumbtintcolor)
 - [`tintColor`](switch.md#tintcolor)
-
-
-
-
-
 
 ---
 
@@ -37,15 +30,11 @@ the supplied `value` prop instead of the expected result of any user actions.
 
 ### `disabled`
 
-If true the user won't be able to toggle the switch.
-Default value is false.
+If true the user won't be able to toggle the switch. Default value is false.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -53,12 +42,9 @@ Default value is false.
 
 Invoked with the new value when the value changes.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -66,26 +52,19 @@ Invoked with the new value when the value changes.
 
 Used to locate this view in end-to-end tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `value`
 
-The value of the switch.  If true the switch will be turned on.
-Default value is false.
+The value of the switch. If true the switch will be turned on. Default value is false.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -93,13 +72,9 @@ Default value is false.
 
 Background color when the switch is turned on.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | iOS  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | iOS      |
 
 ---
 
@@ -107,13 +82,9 @@ Background color when the switch is turned on.
 
 Color of the foreground switch grip.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | iOS  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | iOS      |
 
 ---
 
@@ -121,13 +92,6 @@ Color of the foreground switch grip.
 
 Background color when the switch is turned off.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | iOS  |
-
-
-
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | iOS      |

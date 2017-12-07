@@ -3,11 +3,13 @@ id: version-0.44-slider
 title: Slider
 original_id: slider
 ---
+
 A component used to select a single value from a range of values.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`style`](slider.md#style)
 - [`disabled`](slider.md#disabled)
 - [`maximumValue`](slider.md#maximumvalue)
@@ -25,11 +27,6 @@ A component used to select a single value from a range of values.
 - [`thumbImage`](slider.md#thumbimage)
 - [`trackImage`](slider.md#trackimage)
 
-
-
-
-
-
 ---
 
 # Reference
@@ -38,29 +35,21 @@ A component used to select a single value from a range of values.
 
 ### `style`
 
-Used to style and layout the `Slider`.  See `StyleSheet.js` and
-`ViewStylePropTypes.js` for more info.
+Used to style and layout the `Slider`. See `StyleSheet.js` and `ViewStylePropTypes.js` for more info.
 
-| Type | Required |
-| - | - |
-| View.style | No |
-
-
-
+| Type       | Required |
+| ---------- | -------- |
+| View.style | No       |
 
 ---
 
 ### `disabled`
 
-If true the user won't be able to move the slider.
-Default value is false.
+If true the user won't be able to move the slider. Default value is false.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -68,26 +57,19 @@ Default value is false.
 
 Initial maximum value of the slider. Default value is 1.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `minimumTrackTintColor`
 
-The color used for the track to the left of the button.
-Overrides the default blue gradient image on iOS.
+The color used for the track to the left of the button. Overrides the default blue gradient image on iOS.
 
-| Type | Required |
-| - | - |
-| [color](colors.md) | No |
-
-
-
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
@@ -95,26 +77,19 @@ Overrides the default blue gradient image on iOS.
 
 Initial minimum value of the slider. Default value is 0.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `onSlidingComplete`
 
-Callback called when the user finishes changing the value (e.g. when
-the slider is released).
+Callback called when the user finishes changing the value (e.g. when the slider is released).
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -122,41 +97,29 @@ the slider is released).
 
 Callback continuously called while the user is dragging the slider.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `step`
 
-Step value of the slider. The value should be
-between 0 and (maximumValue - minimumValue).
-Default value is 0.
+Step value of the slider. The value should be between 0 and (maximumValue - minimumValue). Default value is 0.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
 ### `maximumTrackTintColor`
 
-The color used for the track to the right of the button.
-Overrides the default blue gradient image on iOS.
+The color used for the track to the right of the button. Overrides the default blue gradient image on iOS.
 
-| Type | Required |
-| - | - |
-| [color](colors.md) | No |
-
-
-
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
@@ -164,30 +127,21 @@ Overrides the default blue gradient image on iOS.
 
 Used to locate this view in UI automation tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `value`
 
-Initial value of the slider. The value should be between minimumValue
-and maximumValue, which default to 0 and 1 respectively.
-Default value is 0.
+Initial value of the slider. The value should be between minimumValue and maximumValue, which default to 0 and 1 respectively. Default value is 0.
 
-*This is not a controlled component*, you don't need to update the
-value during dragging.
+_This is not a controlled component_, you don't need to update the value during dragging.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -195,43 +149,29 @@ value during dragging.
 
 Color of the foreground switch grip.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | Android  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | Android  |
 
 ---
 
 ### `maximumTrackImage`
 
-Assigns a maximum track image. Only static images are supported. The
-leftmost pixel of the image will be stretched to fill the track.
+Assigns a maximum track image. Only static images are supported. The leftmost pixel of the image will be stretched to fill the track.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| Image.propTypes.source | No | iOS  |
-
-
-
+| Type                   | Required | Platform |
+| ---------------------- | -------- | -------- |
+| Image.propTypes.source | No       | iOS      |
 
 ---
 
 ### `minimumTrackImage`
 
-Assigns a minimum track image. Only static images are supported. The
-rightmost pixel of the image will be stretched to fill the track.
+Assigns a minimum track image. Only static images are supported. The rightmost pixel of the image will be stretched to fill the track.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| Image.propTypes.source | No | iOS  |
-
-
-
+| Type                   | Required | Platform |
+| ---------------------- | -------- | -------- |
+| Image.propTypes.source | No       | iOS      |
 
 ---
 
@@ -239,28 +179,16 @@ rightmost pixel of the image will be stretched to fill the track.
 
 Sets an image for the thumb. Only static images are supported.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| Image.propTypes.source | No | iOS  |
-
-
-
+| Type                   | Required | Platform |
+| ---------------------- | -------- | -------- |
+| Image.propTypes.source | No       | iOS      |
 
 ---
 
 ### `trackImage`
 
-Assigns a single image for the track. Only static images are supported.
-The center pixel of the image will be stretched to fill the track.
+Assigns a single image for the track. Only static images are supported. The center pixel of the image will be stretched to fill the track.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| Image.propTypes.source | No | iOS  |
-
-
-
-
-
-
+| Type                   | Required | Platform |
+| ---------------------- | -------- | -------- |
+| Image.propTypes.source | No       | iOS      |

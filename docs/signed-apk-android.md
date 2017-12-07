@@ -31,12 +31,11 @@ MYAPP_RELEASE_KEY_PASSWORD=*****
 
 These are going to be global gradle variables, which we can later use in our gradle config to sign our app.
 
-> __Note about saving the keystore:__
+> **Note about saving the keystore:**
 
 > Once you publish the app on the Play Store, you will need to republish your app under a different package name (losing all downloads and ratings) if you want to change the signing key at any point. So backup your keystore and don't forget the passwords.
 
 _Note about security: If you are not keen on storing your passwords in plaintext and you are running OSX, you can also [store your credentials in the Keychain Access app](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/). Then you can skip the two last rows in `~/.gradle/gradle.properties`._
-
 
 ### Adding signing config to your app's gradle config
 
@@ -96,14 +95,15 @@ You can kill any running packager instances, all your framework and JavaScript c
 By default, the generated APK has the native code for both x86 and ARMv7a CPU architectures. This makes it easier to share APKs that run on almost all Android devices. However, this has the downside that there will be some unused native code on any device, leading to unnecessarily bigger APKs.
 
 You can create an APK for each CPU by changing the following line in android/app/build.gradle:
-``` diff
+
+```diff
 - def enableSeparateBuildPerCPUArchitecture = false
 + def enableSeparateBuildPerCPUArchitecture = true
 ```
 
 Upload both these files to markets which support device targetting, such as [Google Play](https://developer.android.com/google/play/publishing/multiple-apks.html) and [Amazon AppStore](https://developer.amazon.com/docs/app-submission/getting-started-with-device-targeting.html) and the users will automatically get the appropriate APK. If you want to upload to other markets such as [APKFiles](https://www.apkfiles.com/), which do not support multiple APKs for a single app, change the following line as well to create the default universal APK with binaries for both CPUs.
 
-``` diff
+```diff
 - universalApk false  // If true, also generate a universal APK
 + universalApk true  // If true, also generate a universal APK
 ```

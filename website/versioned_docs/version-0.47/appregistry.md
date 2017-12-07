@@ -15,41 +15,29 @@ original_id: appregistry
   </p>
 </div>
 
-`AppRegistry` is the JS entry point to running all React Native apps.  App
-root components should register themselves with
-`AppRegistry.registerComponent`, then the native system can load the bundle
-for the app and then actually run the app when it's ready by invoking
-`AppRegistry.runApplication`.
+`AppRegistry` is the JS entry point to running all React Native apps. App root components should register themselves with `AppRegistry.registerComponent`, then the native system can load the bundle for the app and then actually run the app when it's ready by invoking `AppRegistry.runApplication`.
 
-To "stop" an application when a view should be destroyed, call
-`AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was
-passed into `runApplication`. These should always be used as a pair.
+To "stop" an application when a view should be destroyed, call `AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was passed into `runApplication`. These should always be used as a pair.
 
-`AppRegistry` should be `require`d early in the `require` sequence to make
-sure the JS execution environment is setup before other modules are
-`require`d.
-
+`AppRegistry` should be `require`d early in the `require` sequence to make sure the JS execution environment is setup before other modules are `require`d.
 
 ### Methods
 
-- [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
-- [`registerConfig`](appregistry.md#registerconfig)
-- [`registerComponent`](appregistry.md#registercomponent)
-- [`registerRunnable`](appregistry.md#registerrunnable)
-- [`registerSection`](appregistry.md#registersection)
-- [`getAppKeys`](appregistry.md#getappkeys)
-- [`getSectionKeys`](appregistry.md#getsectionkeys)
-- [`getSections`](appregistry.md#getsections)
-- [`getRunnable`](appregistry.md#getrunnable)
-- [`getRegistry`](appregistry.md#getregistry)
-- [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
-- [`runApplication`](appregistry.md#runapplication)
-- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-- [`startHeadlessTask`](appregistry.md#startheadlesstask)
-
-
-
+* [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
+* [`registerConfig`](appregistry.md#registerconfig)
+* [`registerComponent`](appregistry.md#registercomponent)
+* [`registerRunnable`](appregistry.md#registerrunnable)
+* [`registerSection`](appregistry.md#registersection)
+* [`getAppKeys`](appregistry.md#getappkeys)
+* [`getSectionKeys`](appregistry.md#getsectionkeys)
+* [`getSections`](appregistry.md#getsections)
+* [`getRunnable`](appregistry.md#getrunnable)
+* [`getRegistry`](appregistry.md#getregistry)
+* [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
+* [`runApplication`](appregistry.md#runapplication)
+* [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
+* [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
+* [`startHeadlessTask`](appregistry.md#startheadlesstask)
 
 ---
 
@@ -63,8 +51,6 @@ sure the JS execution environment is setup before other modules are
 static setWrapperComponentProvider(provider)
 ```
 
-
-
 ---
 
 ### `registerConfig()`
@@ -72,8 +58,6 @@ static setWrapperComponentProvider(provider)
 ```javascript
 static registerConfig(config)
 ```
-
-
 
 ---
 
@@ -83,8 +67,6 @@ static registerConfig(config)
 static registerComponent(appKey, componentProvider, section?)
 ```
 
-
-
 ---
 
 ### `registerRunnable()`
@@ -92,8 +74,6 @@ static registerComponent(appKey, componentProvider, section?)
 ```javascript
 static registerRunnable(appKey, run)
 ```
-
-
 
 ---
 
@@ -103,8 +83,6 @@ static registerRunnable(appKey, run)
 static registerSection(appKey, component)
 ```
 
-
-
 ---
 
 ### `getAppKeys()`
@@ -112,8 +90,6 @@ static registerSection(appKey, component)
 ```javascript
 static getAppKeys()
 ```
-
-
 
 ---
 
@@ -123,8 +99,6 @@ static getAppKeys()
 static getSectionKeys()
 ```
 
-
-
 ---
 
 ### `getSections()`
@@ -132,8 +106,6 @@ static getSectionKeys()
 ```javascript
 static getSections()
 ```
-
-
 
 ---
 
@@ -143,8 +115,6 @@ static getSections()
 static getRunnable(appKey)
 ```
 
-
-
 ---
 
 ### `getRegistry()`
@@ -152,8 +122,6 @@ static getRunnable(appKey)
 ```javascript
 static getRegistry()
 ```
-
-
 
 ---
 
@@ -163,8 +131,6 @@ static getRegistry()
 static setComponentProviderInstrumentationHook(hook)
 ```
 
-
-
 ---
 
 ### `runApplication()`
@@ -172,8 +138,6 @@ static setComponentProviderInstrumentationHook(hook)
 ```javascript
 static runApplication(appKey, appParameters)
 ```
-
-
 
 ---
 
@@ -183,8 +147,6 @@ static runApplication(appKey, appParameters)
 static unmountApplicationComponentAtRootTag(rootTag)
 ```
 
-
-
 ---
 
 ### `registerHeadlessTask()`
@@ -193,15 +155,7 @@ static unmountApplicationComponentAtRootTag(rootTag)
 static registerHeadlessTask(taskKey, task)
 ```
 
-
-Register a headless task. A headless task is a bit of code that runs without a UI.
-@param taskKey the key associated with this task
-@param task    a promise returning function that takes some data passed from the native side as
-               the only argument; when the promise is resolved or rejected the native side is
-               notified of this event and it may decide to destroy the JS context.
-
-
-
+Register a headless task. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param task a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context.
 
 ---
 
@@ -211,13 +165,6 @@ Register a headless task. A headless task is a bit of code that runs without a U
 static startHeadlessTask(taskId, taskKey, data)
 ```
 
-
 Only called from native code. Starts a headless task.
 
-@param taskId the native id for this task instance to keep track of its execution
-@param taskKey the key for the task to start
-@param data the data to pass to the task
-
-
-
-
+@param taskId the native id for this task instance to keep track of its execution @param taskKey the key for the task to start @param data the data to pass to the task

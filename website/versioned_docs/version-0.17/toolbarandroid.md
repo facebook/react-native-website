@@ -3,18 +3,12 @@ id: version-0.17-toolbarandroid
 title: ToolbarAndroid
 original_id: toolbarandroid
 ---
-React component that wraps the Android-only [`Toolbar` widget][0]. A Toolbar can display a logo,
-navigation icon (e.g. hamburger menu), a title & subtitle and a list of actions. The title and
-subtitle are expanded so the logo and navigation icons are displayed on the left, title and
-subtitle in the middle and the actions on the right.
+
+React component that wraps the Android-only [`Toolbar` widget][0]. A Toolbar can display a logo, navigation icon (e.g. hamburger menu), a title & subtitle and a list of actions. The title and subtitle are expanded so the logo and navigation icons are displayed on the left, title and subtitle in the middle and the actions on the right.
 
 If the toolbar has an only child, it will be displayed between the title and actions.
 
-Although the Toolbar supports remote images for the logo, navigation and action icons, this
-should only be used in DEV mode where `require('./some_icon.png')` translates into a packager
-URL. In release mode you should always use a drawable resource for these icons. Using
-`require('./some_icon.png')` will do this automatically for you, so as long as you don't
-explicitly use e.g. `{uri: 'http://...'}`, you will be good.
+Although the Toolbar supports remote images for the logo, navigation and action icons, this should only be used in DEV mode where `require('./some_icon.png')` translates into a packager URL. In release mode you should always use a drawable resource for these icons. Using `require('./some_icon.png')` will do this automatically for you, so as long as you don't explicitly use e.g. `{uri: 'http://...'}`, you will be good.
 
 Example:
 
@@ -40,6 +34,7 @@ onActionSelected: function(position) {
 ### Props
 
 * [View props...](view.md#props)
+
 - [`rtl`](toolbarandroid.md#rtl)
 - [`actions`](toolbarandroid.md#actions)
 - [`navIcon`](toolbarandroid.md#navicon)
@@ -53,11 +48,6 @@ onActionSelected: function(position) {
 - [`title`](toolbarandroid.md#title)
 - [`titleColor`](toolbarandroid.md#titlecolor)
 
-
-
-
-
-
 ---
 
 # Reference
@@ -66,44 +56,32 @@ onActionSelected: function(position) {
 
 ### `rtl`
 
-Used to set the toolbar direction to RTL.
-In addition to this property you need to add
+Used to set the toolbar direction to RTL. In addition to this property you need to add
 
-  android:supportsRtl="true"
+android:supportsRtl="true"
 
-to your application AndroidManifest.xml and then call
-`setLayoutDirection(LayoutDirection.RTL)` in your MainActivity
-`onCreate` method.
+to your application AndroidManifest.xml and then call `setLayoutDirection(LayoutDirection.RTL)` in your MainActivity `onCreate` method.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `actions`
 
-Sets possible actions on the toolbar as part of the action menu. These are displayed as icons
-or text on the right side of the widget. If they don't fit they are placed in an 'overflow'
-menu.
+Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu.
 
 This property takes an array of objects, where each object has the following keys:
 
 * `title`: **required**, the title of this action
 * `icon`: the icon for this action, e.g. `require('image!some_icon')`
-* `show`: when to show this action as an icon or hide it in the overflow menu: `always`,
-`ifRoom` or `never`
+* `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
 * `showWithText`: boolean, whether to show text alongside the icon or not
 
-| Type | Required |
-| - | - |
-| array of object: {title: string,icon: optionalImageSource,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No |
-
-
-
+| Type                                                                                                                  | Required |
+| --------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of object: {title: string,icon: optionalImageSource,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No       |
 
 ---
 
@@ -111,26 +89,19 @@ This property takes an array of objects, where each object has the following key
 
 Sets the navigation icon.
 
-| Type | Required |
-| - | - |
-| optionalImageSource | No |
-
-
-
+| Type                | Required |
+| ------------------- | -------- |
+| optionalImageSource | No       |
 
 ---
 
 ### `onActionSelected`
 
-Callback that is called when an action is selected. The only argument that is passeed to the
-callback is the position of the action in the actions array.
+Callback that is called when an action is selected. The only argument that is passeed to the callback is the position of the action in the actions array.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -138,12 +109,9 @@ callback is the position of the action in the actions array.
 
 Callback called when the icon is selected.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -151,12 +119,9 @@ Callback called when the icon is selected.
 
 Sets the overflow icon.
 
-| Type | Required |
-| - | - |
-| optionalImageSource | No |
-
-
-
+| Type                | Required |
+| ------------------- | -------- |
+| optionalImageSource | No       |
 
 ---
 
@@ -164,12 +129,9 @@ Sets the overflow icon.
 
 Sets the toolbar logo.
 
-| Type | Required |
-| - | - |
-| optionalImageSource | No |
-
-
-
+| Type                | Required |
+| ------------------- | -------- |
+| optionalImageSource | No       |
 
 ---
 
@@ -177,12 +139,9 @@ Sets the toolbar logo.
 
 Sets the toolbar subtitle.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -190,12 +149,9 @@ Sets the toolbar subtitle.
 
 Sets the toolbar subtitle color.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -203,12 +159,9 @@ Sets the toolbar subtitle color.
 
 Used to locate this view in end-to-end tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -216,12 +169,9 @@ Used to locate this view in end-to-end tests.
 
 Sets the toolbar title.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -229,12 +179,6 @@ Sets the toolbar title.
 
 Sets the toolbar title color.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
