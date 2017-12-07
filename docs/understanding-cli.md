@@ -13,7 +13,7 @@ React Native has a [`local-cli`](https://github.com/facebook/react-native/tree/m
 
 At the end of each command entry is an export. The export is an object with a function to perform, description of the command, and the command name. The object structure for the `link` command looks like so:
 
-```js
+```javascript
 module.exports = {
   func: link,
   description: 'links all native dependencies',

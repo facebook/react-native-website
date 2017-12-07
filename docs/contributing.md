@@ -141,7 +141,7 @@ If your pull request is merged, a core contributor will update the [list of brea
 
 Copy and paste this to the top of your new file(s):
 
-```JS
+```javascript
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
  * All rights reserved.
