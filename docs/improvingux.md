@@ -57,6 +57,10 @@ Android API 21+ uses the material design ripple to provide user with feedback wh
 
 [Try it on your phone](https://snack.expo.io/SJywqe3rZ)
 
+## Screen orientation lock
+
+Unless supporting both, it is considered good practice to lock the screen orientation to either portrait or landscape. On iOS, in the General tab and Deployment Info section of Xcode enable the Device Orientation you want to support (ensure you have selected iPhone from the Devices menu when making the changes). For Android, open the AndroidManifest.xml file and within the activity element add 'android:screenOrientation=”portrait”' to lock to portrait or 'android:screenOrientation=”landscape”' to lock to landscape.
+
 # Learn more
 
 [Material Design](https://material.io/) and [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) are great resources for learning more about designing for mobile platforms.

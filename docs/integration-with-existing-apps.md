@@ -548,16 +548,16 @@ dependencies {
 
 > If you want to ensure that you are always using a specific React Native version in your native build, replace `+` with an actual React Native version you've downloaded from `npm`.
 
-Add an entry for the local React Native maven directory to `build.gradle`. Be sure to add it to the "allprojects" block:
+Add an entry for the local React Native maven directory to `build.gradle`. Be sure to add it to the "allprojects" block, above other maven repositories:
 
 ```
 allprojects {
     repositories {
-        ...
         maven {
             // All of React Native (JS, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        ...
     }
     ...
 }
