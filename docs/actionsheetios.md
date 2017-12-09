@@ -34,6 +34,7 @@ of:
 - `destructiveButtonIndex` (int) - index of destructive button in `options`
 - `title` (string) - a title to show above the action sheet
 - `message` (string) - a message to show below the title
+- `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
 
 The 'callback' function takes one parameter, the zero-based index
 of the selected item.
