@@ -1,7 +1,6 @@
 ---
-id: version-0.50-virtualizedlist
+id: virtualizedlist
 title: VirtualizedList
-original_id: virtualizedlist
 ---
 
 Base implementation for the more convenient [`<FlatList>`](flatlist.md) and [`<SectionList>`](sectionlist.md) components, which are also better documented. In general, this should only really be used if you need more flexibility than `FlatList` provides, e.g. for use with immutable data instead of plain arrays.
@@ -63,6 +62,8 @@ Some caveats:
 ---
 
 # Reference
+
+## Props
 
 ### `renderItem`
 
