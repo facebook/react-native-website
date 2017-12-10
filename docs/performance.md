@@ -115,9 +115,9 @@ Use the built-in profiler to get detailed information about work done in the Jav
 
 For iOS, Instruments is an invaluable tool, and on Android you should learn to use [`systrace`](performance.md#profiling-android-ui-performance-with-systrace).
 
-Another way to profile JavaScript is to use the Chrome profiler while debugging. This won't give you accurate results as the code is running in Chrome but will give you a general idea of where bottlenecks might be.
-
 But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-dev-true) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+
+Another way to profile JavaScript is to use the Chrome profiler while debugging. This won't give you accurate results as the code is running in Chrome but will give you a general idea of where bottlenecks might be. Make sure that the `debuggerWorker.js` thread is selected under Chrome's `Sources` tab and then run the profiler under the `Performance` tab.
 
 ### Profiling Android UI Performance with `systrace`
 
