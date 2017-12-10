@@ -1,6 +1,7 @@
 ---
-id: virtualizedlist
+id: version-0.50-virtualizedlist
 title: VirtualizedList
+original_id: virtualizedlist
 ---
 
 Base implementation for the more convenient [`<FlatList>`](flatlist.md) and [`<SectionList>`](sectionlist.md) components, which are also better documented. In general, this should only really be used if you need more flexibility than `FlatList` provides, e.g. for use with immutable data instead of plain arrays.
@@ -16,17 +17,40 @@ Some caveats:
 
 ### Props
 
-* [`last`](virtualizedlist.md#last)
-* [`first`](virtualizedlist.md#first)
+* [`ScrollView` props...](scrollview.md#props)
+* [`renderItem`](virtualizedlist.md#renderitem)
+* [`data`](virtualizedlist.md#data)
+* [`getItem`](virtualizedlist.md#getitem)
+* [`getItemCount`](virtualizedlist.md#getitemcount)
+* [`debug`](virtualizedlist.md#debug)
+* [`extraData`](virtualizedlist.md#extradata)
+* [`getItemLayout`](virtualizedlist.md#getitemlayout)
+* [`initialScrollIndex`](virtualizedlist.md#initialscrollindex)
+* [`inverted`](virtualizedlist.md#inverted)
+* [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
+* [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
+* [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
+* [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
+* [`onEndReached`](virtualizedlist.md#onendreached)
+* [`onLayout`](virtualizedlist.md#onlayout)
+* [`onRefresh`](virtualizedlist.md#onrefresh)
+* [`onScrollToIndexFailed`](virtualizedlist.md#onscrolltoindexfailed)
+* [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
+* [`refreshing`](virtualizedlist.md#refreshing)
+* [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
+* [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
+* [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
+* [`viewabilityConfigCallbackPairs`](virtualizedlist.md#viewabilityconfigcallbackpairs)
 * [`horizontal`](virtualizedlist.md#horizontal)
 * [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
 * [`keyExtractor`](virtualizedlist.md#keyextractor)
-* [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
 * [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
 * [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
-* [`scrollEventThrottle`](virtualizedlist.md#scrolleventthrottle)
 * [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
 * [`windowSize`](virtualizedlist.md#windowsize)
+* [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
+* [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
+
 
 ### Methods
 
@@ -37,187 +61,484 @@ Some caveats:
 * [`recordInteraction`](virtualizedlist.md#recordinteraction)
 * [`flashScrollIndicators`](virtualizedlist.md#flashscrollindicators)
 
-### Type Definitions
-
-* [`renderItemType`](virtualizedlist.md#renderitemtype)
 
 ---
 
 # Reference
 
-## Props
+### `renderItem`
 
-### `last`
+```javascript
+(info: any) => ?React.Element<any>
+```
 
-| Type   | Required |
-| ------ | -------- |
-| number | Yes      |
+Takes an item from `data` and renders it into the list
+
+| Type | Required |
+| - | - |
+| function  | Yes |
+
+
+---
+
+
+### `data`
+
+The default accessor functions assume this is an array of objects with shape `{key: string}` but you can override `getItem`, `getItemCount`, and `keyExtractor` to handle any type of index-based data.
+
+| Type | Required |
+| - | - |
+| any | Yes |
+
 
 ---
 
-### `first`
 
-| Type   | Required |
-| ------ | -------- |
-| number | Yes      |
+### `getItem`
+
+```javascript
+(data: any, index: number) => object
+```
+
+A generic accessor for extracting an item from any sort of data blob.
+
+| Type | Required |
+| - | - |
+| function | Yes |
+
 
 ---
+
+
+### `getItemCount`
+
+```javascript
+(data: any) => number
+```
+
+Determines how many items are in the data blob.
+
+| Type | Required |
+| - | - |
+| function | Yes |
+
+
+---
+
+
+
+### `debug`
+
+`debug` will turn on extra logging and visual overlays to aid with debugging both usage and implementation, but with a significant perf hit.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+---
+
+
+### `extraData`
+
+A marker property for telling the list to re-render (since it implements `PureComponent`). If any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the `data` prop, stick it here and treat it immutably.
+
+| Type | Required |
+| - | - |
+| any | No |
+
+
+---
+
+
+### `getItemLayout`
+
+```javascript
+(
+    data: any,
+    index: number,
+  ) => {length: number, offset: number, index: number}
+```
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+---
+
+
+### `initialScrollIndex`
+
+Instead of starting at the top with the first item, start at `initialScrollIndex`. This disables the "scroll to top" optimization that keeps the first `initialNumToRender` items always rendered and immediately renders the items starting at this initial index. Requires `getItemLayout` to be implemented.
+
+| Type | Required |
+| - | - |
+| number | No |
+
+
+---
+
+
+### `inverted`
+
+Reverses the direction of scroll. Uses scale transforms of -1.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+---
+
+
+### `CellRendererComponent`
+
+Each cell is rendered using this element. Can be a React Component Class,or a render function. Defaults to using [`View`](view.md).
+
+| Type | Required |
+| - | - |
+| component, function | No |
+
+
+---
+
+
+### `ListEmptyComponent`
+
+Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+
+| Type | Required |
+| - | - |
+| component, function, element | No |
+
+
+---
+
+
+### `ListFooterComponent`
+
+Rendered at the bottom of all the items. Can be a React Component Class, a render function, or a rendered element.
+
+| Type | Required |
+| - | - |
+| component, function, element | No |
+
+
+---
+
+
+### `ListHeaderComponent`
+
+Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
+
+| Type | Required |
+| - | - |
+| component, function, element | No |
+
+
+---
+
+
+### `onLayout`
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+---
+
+
+### `onRefresh`
+
+```javascript
+() => void
+```
+
+If provided, a standard `RefreshControl` will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+---
+
+
+### `onScrollToIndexFailed`
+
+```javascript
+(info: {
+    index: number,
+    highestMeasuredFrameIndex: number,
+    averageItemLength: number,
+  }) => void
+```  
+
+Used to handle failures when scrolling to an index that has not been measured yet. Recommended action is to either compute your own offset and `scrollTo` it, or scroll as far as possible and then try again after more items have been rendered.
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+---
+
+
+### `onViewableItemsChanged`
+
+```javascript
+(info: {
+    viewableItems: array,
+    changed: array,
+  }) => void
+```
+
+Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+
+---
+
+
+### `refreshing`
+
+Set this true while waiting for new data from a refresh.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+---
+
+
+### `removeClippedSubviews`
+
+This may improve scroll performance for large lists.
+
+> Note:
+> May have bugs (missing content) in some circumstances - use at your own risk.
+
+| Type | Required |
+| - | - |
+| boolean | No |
+
+
+---
+
+
+### `renderScrollComponent`
+
+```javascript
+(props: object) => element
+```
+
+Render a custom scroll component, e.g. with a differently styled `RefreshControl`.
+
+| Type | Required |
+| - | - |
+| function | No |
+
+
+---
+
+
+### `viewabilityConfig`
+
+See `ViewabilityHelper.js` for flow type and further documentation.
+
+| Type | Required |
+| - | - |
+| ViewabilityConfig | No |
+
+
+
+---
+
+
+### `viewabilityConfigCallbackPairs`
+
+List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewableItemsChanged` will be called when its corresponding `ViewabilityConfig`'s conditions are met. See `ViewabilityHelper.js` for flow type and further documentation.
+
+| Type | Required |
+| - | - |
+| array of ViewabilityConfigCallbackPair | No |
+
+
+---
+
+
 
 ### `horizontal`
 
+
+
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| boolean | No |
+
+
+
 
 ---
 
 ### `initialNumToRender`
 
+How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
+
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| number | No |
+
+
+
 
 ---
 
 ### `keyExtractor`
 
-| Type | Required |
-| ---- | -------- |
-|      | No       |
+```javascript
+(item: object, index: number) => string
+```
 
----
-
-### `disableVirtualization`
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does.
 
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| function | No |
+
+
 
 ---
 
 ### `maxToRenderPerBatch`
 
+The maximum number of items to render in each incremental render batch. The more rendered at once, the better the fill rate, but responsiveness my suffer because rendering content may interfere with responding to button taps or other interactions.
+
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| number | No |
+
+
+---
+
+### `onEndReached`
+
+```javascript
+(info: {distanceFromEnd: number}) => void
+```
+
+Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
+
+| Type | Required |
+| - | - |
+| function  | No |
 
 ---
 
 ### `onEndReachedThreshold`
 
-| Type | Required |
-| ---- | -------- |
-|      | No       |
-
----
-
-### `scrollEventThrottle`
+ How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
 
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| number | No |
+
+
+
+
 
 ---
 
 ### `updateCellsBatchingPeriod`
 
+Amount of time between low-pri item render batches, e.g. for rendering items quite a ways off screen. Similar fill rate/responsiveness tradeoff as `maxToRenderPerBatch`.
+
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| number | No |
+
+
+
 
 ---
 
 ### `windowSize`
 
+Determines the maximum number of items rendered outside of the visible area, in units of visible lengths. So if your list fills the screen, then `windowSize={21}` (the default) will render the visible screen area plus up to 10 screens above and 10 below the viewport. Reducing this number will reduce memory consumption and may improve performance, but will increase the chance that fast scrolling may reveal momentary blank areas of unrendered content.
+
+
 | Type | Required |
-| ---- | -------- |
-|      | No       |
+| - | - |
+| number | No |
+
+
+
+---
+
+### `disableVirtualization`
+
+**DEPRECATED.** Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+
+| Type | Required |
+| - | - |
+|  | No |
+
+---
+
+
+### `progressViewOffset`
+
+Set this when offset is needed for the loading indicator to show correctly.
+
+| Type | Required | Platform |
+| - | - | - |
+| number | No | Android |
+
 
 ## Methods
 
 ### `scrollToEnd()`
 
 ```javascript
-scrollToEnd([params]);
+scrollToEnd(([params]: object));
 ```
-
-Scrolls to the end of the content. May be janky without `getItemLayout` prop.
-
-**Parameters:**
-
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| params | object | No       | See below.  |
-
-Valid `params` keys are:
-
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 
 ### `scrollToIndex()`
 
 ```javascript
-scrollToIndex(params);
+scrollToIndex((params: object));
 ```
-
-**Parameters:**
-
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| params | object | Yes      | See below.  |
-
-Valid `params` keys are:
-
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'index' (number) - The index to scroll to. Required.
-* 'viewOffset' (number) - A fixed number of pixels to offset the final target position. Required.
-* 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---
 
 ### `scrollToItem()`
 
 ```javascript
-scrollToItem(params);
+scrollToItem((params: object));
 ```
-
-Requires linear scan through data - use `scrollToIndex` instead if possible.
-
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
-
-**Parameters:**
-
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| params | object | Yes      | See below.  |
-
-Valid `params` keys are:
-
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'item' (object) - The item to scroll to. Required.
-* 'viewPosition' (number)
 
 ---
 
 ### `scrollToOffset()`
 
 ```javascript
-scrollToOffset(params);
+scrollToOffset((params: object));
 ```
 
 Scroll to a specific content pixel offset in the list.
 
-**Parameters:**
+Param `offset` expects the offset to scroll to. In case of `horizontal` is true, the offset is the x-value, in any other case the offset is the y-value.
 
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| params | object | Yes      | See below.  |
-
-Valid `params` keys are:
-
-* 'offset' (number) - The offset to scroll to. In case of `horizontal` being true, the offset is the x-value, in any other case the offset is the y-value. Required.
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+Param `animated` (`true` by default) defines whether the list should do an animation while scrolling.
 
 ---
 
@@ -234,13 +555,3 @@ recordInteraction();
 ```javascript
 flashScrollIndicators();
 ```
-
-## Type Definitions
-
-### renderItemType
-
-A `renderItem` function that takes an object and returns a React element.
-
-| Type     |
-| -------- |
-| function |
