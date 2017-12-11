@@ -3,13 +3,12 @@ id: version-0.25-statusbar
 title: StatusBar
 original_id: statusbar
 ---
+
 Component to control the app status bar.
 
 ### Usage with Navigator
 
-It is possible to have multiple `StatusBar` components mounted at the same
-time. The props will be merged in the order the `StatusBar` components were
-mounted. One use case is to specify status bar styles per route using `Navigator`.
+It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted. One use case is to specify status bar styles per route using `Navigator`.
 
 ```
  <View>
@@ -31,41 +30,30 @@ mounted. One use case is to specify status bar styles per route using `Navigator
 
 ### Imperative API
 
-For cases where using a component is not ideal, there is also an imperative
-API exposed as static functions on the component. It is however not recommended
-to use the static API and the component for the same prop because any value
-set by the static API will get overriden by the one set by the component in
-the next render.
+For cases where using a component is not ideal, there is also an imperative API exposed as static functions on the component. It is however not recommended to use the static API and the component for the same prop because any value set by the static API will get overriden by the one set by the component in the next render.
 
 ### Props
 
-- [`animated`](statusbar.md#animated)
-- [`hidden`](statusbar.md#hidden)
-- [`backgroundColor`](statusbar.md#backgroundcolor)
-- [`translucent`](statusbar.md#translucent)
-- [`barStyle`](statusbar.md#barstyle)
-- [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
-- [`showHideTransition`](statusbar.md#showhidetransition)
-
-
-
+* [`animated`](statusbar.md#animated)
+* [`hidden`](statusbar.md#hidden)
+* [`backgroundColor`](statusbar.md#backgroundcolor)
+* [`translucent`](statusbar.md#translucent)
+* [`barStyle`](statusbar.md#barstyle)
+* [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
+* [`showHideTransition`](statusbar.md#showhidetransition)
 
 ### Methods
 
-- [`setHidden`](statusbar.md#sethidden)
-- [`setBarStyle`](statusbar.md#setbarstyle)
-- [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
-- [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
-- [`setTranslucent`](statusbar.md#settranslucent)
-
+* [`setHidden`](statusbar.md#sethidden)
+* [`setBarStyle`](statusbar.md#setbarstyle)
+* [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
+* [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
+* [`setTranslucent`](statusbar.md#settranslucent)
 
 ### Type Definitions
 
-- [`StatusBarStyle`](statusbar.md#statusbarstyle)
-- [`StatusBarAnimation`](statusbar.md#statusbaranimation)
-
-
-
+* [`StatusBarStyle`](statusbar.md#statusbarstyle)
+* [`StatusBarAnimation`](statusbar.md#statusbaranimation)
 
 ---
 
@@ -75,15 +63,11 @@ the next render.
 
 ### `animated`
 
-If the transition between status bar property changes should be animated.
-Supported for backgroundColor, barStyle and hidden.
+If the transition between status bar property changes should be animated. Supported for backgroundColor, barStyle and hidden.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -92,11 +76,8 @@ Supported for backgroundColor, barStyle and hidden.
 If the status bar is hidden.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -104,30 +85,19 @@ If the status bar is hidden.
 
 The background color of the status bar.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| [color](colors.md) | No | Android  |
-
-
-
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | Android  |
 
 ---
 
 ### `translucent`
 
-If the status bar is translucent.
-When translucent is set to true, the app will draw under the status bar.
-This is useful when using a semi transparent status bar color.
-
-
+If the status bar is translucent. When translucent is set to true, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
 
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | Android  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
@@ -135,14 +105,9 @@ This is useful when using a semi transparent status bar color.
 
 Sets the color of the status bar text.
 
-
-
-| Type | Required | Platform |
-| - | - | - |
-| enum('default', 'light-content') | No | iOS  |
-
-
-
+| Type                             | Required | Platform |
+| -------------------------------- | -------- | -------- |
+| enum('default', 'light-content') | No       | iOS      |
 
 ---
 
@@ -150,32 +115,19 @@ Sets the color of the status bar text.
 
 If the network activity indicator should be visible.
 
-
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
 ### `showHideTransition`
 
-The transition effect when showing and hiding the status bar using the `hidden`
-prop. Defaults to 'fade'.
+The transition effect when showing and hiding the status bar using the `hidden` prop. Defaults to 'fade'.
 
-
-
-| Type | Required | Platform |
-| - | - | - |
-| enum('fade', 'slide') | No | iOS  |
-
-
-
-
-
+| Type                  | Required | Platform |
+| --------------------- | -------- | -------- |
+| enum('fade', 'slide') | No       | iOS      |
 
 ## Methods
 
@@ -185,8 +137,6 @@ prop. Defaults to 'fade'.
 static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 ```
 
-
-
 ---
 
 ### `setBarStyle()`
@@ -194,8 +144,6 @@ static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 ```javascript
 static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 ```
-
-
 
 ---
 
@@ -205,8 +153,6 @@ static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
-
-
 ---
 
 ### `setBackgroundColor()`
@@ -214,8 +160,6 @@ static setNetworkActivityIndicatorVisible(visible: boolean)
 ```javascript
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
-
-
 
 ---
 
@@ -225,44 +169,33 @@ static setBackgroundColor(color: string, [animated]: boolean)
 static setTranslucent(translucent: boolean)
 ```
 
-
-
 ## Type Definitions
 
 ### StatusBarStyle
 
-| Type |
-| - |
+| Type  |
+| ----- |
 | $Enum |
-
 
 **Constants:**
 
-| Value | Description |
-| - | - |
-| default |  |
-| light-content |  |
-
-
-
+| Value         | Description |
+| ------------- | ----------- |
+| default       |             |
+| light-content |             |
 
 ---
 
 ### StatusBarAnimation
 
-| Type |
-| - |
+| Type  |
+| ----- |
 | $Enum |
-
 
 **Constants:**
 
 | Value | Description |
-| - | - |
-| none |  |
-| fade |  |
-| slide |  |
-
-
-
-
+| ----- | ----------- |
+| none  |             |
+| fade  |             |
+| slide |             |

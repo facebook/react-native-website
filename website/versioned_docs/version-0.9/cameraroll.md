@@ -6,14 +6,10 @@ original_id: cameraroll
 
 `CameraRoll` provides access to the local camera roll / gallery.
 
-
 ### Methods
 
-- [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
-- [`getPhotos`](cameraroll.md#getphotos)
-
-
-
+* [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
+* [`getPhotos`](cameraroll.md#getphotos)
 
 ---
 
@@ -27,24 +23,17 @@ original_id: cameraroll
 static saveImageWithTag(tag, successCallback, errorCallback)
 ```
 
-
 Saves the image to the camera roll / gallery.
 
-@param {string} tag On Android, this is a local URI, such
-as `"file:///sdcard/img.png"`.
+@param {string} tag On Android, this is a local URI, such as `"file:///sdcard/img.png"`.
 
 On iOS, the tag can be one of the following:
 
-  - local URI
-  - assets-library tag
-  - a tag not maching any of the above, which means the image data will
-be stored in memory (and consume memory as long as the process is alive)
+* local URI
+* assets-library tag
+* a tag not maching any of the above, which means the image data will be stored in memory (and consume memory as long as the process is alive)
 
-@param successCallback Invoked with the value of `tag` on success.
-@param errorCallback Invoked with error message on error.
-
-
-
+@param successCallback Invoked with the value of `tag` on success. @param errorCallback Invoked with error message on error.
 
 ---
 
@@ -54,15 +43,6 @@ be stored in memory (and consume memory as long as the process is alive)
 static getPhotos(params, callback, errorCallback)
 ```
 
+Invokes `callback` with photo identifier objects from the local camera roll of the device matching shape defined by `getPhotosReturnChecker`.
 
- Invokes `callback` with photo identifier objects from the local camera
- roll of the device matching shape defined by `getPhotosReturnChecker`.
-
- @param {object} params See `getPhotosParamChecker`.
- @param {function} callback Invoked with arg of shape defined by
- `getPhotosReturnChecker` on success.
- @param {function} errorCallback Invoked with error message on error.
-
-
-
-
+@param {object} params See `getPhotosParamChecker`. @param {function} callback Invoked with arg of shape defined by `getPhotosReturnChecker` on success. @param {function} errorCallback Invoked with error message on error.

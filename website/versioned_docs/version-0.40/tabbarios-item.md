@@ -3,9 +3,11 @@ id: version-0.40-tabbarios-item
 title: TabBarIOS.Item
 original_id: tabbarios-item
 ---
+
 ### Props
 
 * [View props...](view.md#props)
+
 - [`badge`](tabbarios-item.md#badge)
 - [`badgeColor`](tabbarios-item.md#badgecolor)
 - [`icon`](tabbarios-item.md#icon)
@@ -17,11 +19,6 @@ original_id: tabbarios-item
 - [`systemIcon`](tabbarios-item.md#systemicon)
 - [`title`](tabbarios-item.md#title)
 
-
-
-
-
-
 ---
 
 # Reference
@@ -32,12 +29,9 @@ original_id: tabbarios-item
 
 Little red bubble that sits at the top right of the icon.
 
-| Type | Required |
-| - | - |
-| string, ,number | No |
-
-
-
+| Type            | Required |
+| --------------- | -------- |
+| string, ,number | No       |
 
 ---
 
@@ -45,12 +39,9 @@ Little red bubble that sits at the top right of the icon.
 
 Background color for the badge. Available since iOS 10.
 
-| Type | Required |
-| - | - |
-| [color](colors.md) | No |
-
-
-
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
@@ -58,68 +49,49 @@ Background color for the badge. Available since iOS 10.
 
 A custom icon for the tab. It is ignored when a system icon is defined.
 
-| Type | Required |
-| - | - |
-| Image.propTypes.source | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| Image.propTypes.source | No       |
 
 ---
 
 ### `onPress`
 
-Callback when this tab is being selected, you should change the state of your
-component to set selected={true}.
+Callback when this tab is being selected, you should change the state of your component to set selected={true}.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `renderAsOriginal`
 
-If set to true it renders the image as original,
-it defaults to being displayed as a template
+If set to true it renders the image as original, it defaults to being displayed as a template
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `selected`
 
-It specifies whether the children are visible or not. If you see a
-blank content, you probably forgot to add a selected one.
+It specifies whether the children are visible or not. If you see a blank content, you probably forgot to add a selected one.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `selectedIcon`
 
-A custom icon when the tab is selected. It is ignored when a system
-icon is defined. If left empty, the icon will be tinted in blue.
+A custom icon when the tab is selected. It is ignored when a system icon is defined. If left empty, the icon will be tinted in blue.
 
-| Type | Required |
-| - | - |
-| Image.propTypes.source | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| Image.propTypes.source | No       |
 
 ---
 
@@ -127,41 +99,26 @@ icon is defined. If left empty, the icon will be tinted in blue.
 
 React style object.
 
-| Type | Required |
-| - | - |
-| [View](view.md#style) | No |
-
-
-
+| Type                  | Required |
+| --------------------- | -------- |
+| [View](view.md#style) | No       |
 
 ---
 
 ### `systemIcon`
 
-Items comes with a few predefined system icons. Note that if you are
-using them, the title and selectedIcon will be overridden with the
-system ones.
+Items comes with a few predefined system icons. Note that if you are using them, the title and selectedIcon will be overridden with the system ones.
 
-| Type | Required |
-| - | - |
-| enum('bookmarks', 'contacts', 'downloads', 'favorites', 'featured', 'history', 'more', 'most-recent', 'most-viewed', 'recents', 'search', 'top-rated') | No |
-
-
-
+| Type                                                                                                                                                   | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| enum('bookmarks', 'contacts', 'downloads', 'favorites', 'featured', 'history', 'more', 'most-recent', 'most-viewed', 'recents', 'search', 'top-rated') | No       |
 
 ---
 
 ### `title`
 
-Text that appears under the icon. It is ignored when a system icon
-is defined.
+Text that appears under the icon. It is ignored when a system icon is defined.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |

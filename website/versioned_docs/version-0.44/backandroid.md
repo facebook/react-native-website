@@ -4,17 +4,13 @@ title: BackAndroid
 original_id: backandroid
 ---
 
-Deprecated.  Use BackHandler instead.
-
+Deprecated. Use BackHandler instead.
 
 ### Methods
 
-- [`exitApp`](backandroid.md#exitapp)
-- [`addEventListener`](backandroid.md#addeventlistener)
-- [`removeEventListener`](backandroid.md#removeeventlistener)
-
-
-
+* [`exitApp`](backandroid.md#exitapp)
+* [`addEventListener`](backandroid.md#addeventlistener)
+* [`removeEventListener`](backandroid.md#removeeventlistener)
 
 ---
 
@@ -28,8 +24,6 @@ Deprecated.  Use BackHandler instead.
 static exitApp()
 ```
 
-
-
 ---
 
 ### `addEventListener()`
@@ -38,8 +32,6 @@ static exitApp()
 static addEventListener(eventName, handler)
 ```
 
-
-
 ---
 
 ### `removeEventListener()`
@@ -47,6 +39,3 @@ static addEventListener(eventName, handler)
 ```javascript
 static removeEventListener(eventName, handler)
 ```
-
-
-

@@ -3,10 +3,8 @@ id: version-0.11-toolbarandroid
 title: ToolbarAndroid
 original_id: toolbarandroid
 ---
-React component that wraps the Android-only [`Toolbar` widget][0]. A Toolbar can display a logo,
-navigation icon (e.g. hamburger menu), a title & subtitle and a list of actions. The title and
-subtitle are expanded so the logo and navigation icons are displayed on the left, title and
-subtitle in the middle and the actions on the right.
+
+React component that wraps the Android-only [`Toolbar` widget][0]. A Toolbar can display a logo, navigation icon (e.g. hamburger menu), a title & subtitle and a list of actions. The title and subtitle are expanded so the logo and navigation icons are displayed on the left, title and subtitle in the middle and the actions on the right.
 
 If the toolbar has an only child, it will be displayed between the title and actions.
 
@@ -33,21 +31,16 @@ onActionSelected: function(position) {
 
 ### Props
 
-- [`actions`](toolbarandroid.md#actions)
-- [`logo`](toolbarandroid.md#logo)
-- [`navIcon`](toolbarandroid.md#navicon)
-- [`onActionSelected`](toolbarandroid.md#onactionselected)
-- [`onIconClicked`](toolbarandroid.md#oniconclicked)
-- [`subtitle`](toolbarandroid.md#subtitle)
-- [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-- [`testID`](toolbarandroid.md#testid)
-- [`title`](toolbarandroid.md#title)
-- [`titleColor`](toolbarandroid.md#titlecolor)
-
-
-
-
-
+* [`actions`](toolbarandroid.md#actions)
+* [`logo`](toolbarandroid.md#logo)
+* [`navIcon`](toolbarandroid.md#navicon)
+* [`onActionSelected`](toolbarandroid.md#onactionselected)
+* [`onIconClicked`](toolbarandroid.md#oniconclicked)
+* [`subtitle`](toolbarandroid.md#subtitle)
+* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
+* [`testID`](toolbarandroid.md#testid)
+* [`title`](toolbarandroid.md#title)
+* [`titleColor`](toolbarandroid.md#titlecolor)
 
 ---
 
@@ -57,24 +50,18 @@ onActionSelected: function(position) {
 
 ### `actions`
 
-Sets possible actions on the toolbar as part of the action menu. These are displayed as icons
-or text on the right side of the widget. If they don't fit they are placed in an 'overflow'
-menu.
+Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu.
 
 This property takes an array of objects, where each object has the following keys:
 
 * `title`: **required**, the title of this action
 * `icon`: the icon for this action, e.g. `require('image!some_icon')`
-* `show`: when to show this action as an icon or hide it in the overflow menu: `always`,
-`ifRoom` or `never`
+* `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
 * `showWithText`: boolean, whether to show text alongside the icon or not
 
-| Type | Required |
-| - | - |
-| array of object: {title: string,icon: Image.propTypes.source,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No |
-
-
-
+| Type                                                                                                                     | Required |
+| ------------------------------------------------------------------------------------------------------------------------ | -------- |
+| array of object: {title: string,icon: Image.propTypes.source,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No       |
 
 ---
 
@@ -82,12 +69,9 @@ This property takes an array of objects, where each object has the following key
 
 Sets the toolbar logo.
 
-| Type | Required |
-| - | - |
-| Image.propTypes.source | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| Image.propTypes.source | No       |
 
 ---
 
@@ -95,26 +79,19 @@ Sets the toolbar logo.
 
 Sets the navigation icon.
 
-| Type | Required |
-| - | - |
-| Image.propTypes.source | No |
-
-
-
+| Type                   | Required |
+| ---------------------- | -------- |
+| Image.propTypes.source | No       |
 
 ---
 
 ### `onActionSelected`
 
-Callback that is called when an action is selected. The only argument that is passeed to the
-callback is the position of the action in the actions array.
+Callback that is called when an action is selected. The only argument that is passeed to the callback is the position of the action in the actions array.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -122,12 +99,9 @@ callback is the position of the action in the actions array.
 
 Callback called when the icon is selected.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -135,12 +109,9 @@ Callback called when the icon is selected.
 
 Sets the toolbar subtitle.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -148,12 +119,9 @@ Sets the toolbar subtitle.
 
 Sets the toolbar subtitle color.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -161,12 +129,9 @@ Sets the toolbar subtitle color.
 
 Used to locate this view in end-to-end tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -174,12 +139,9 @@ Used to locate this view in end-to-end tests.
 
 Sets the toolbar title.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -187,12 +149,6 @@ Sets the toolbar title.
 
 Sets the toolbar title color.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |

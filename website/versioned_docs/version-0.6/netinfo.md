@@ -4,22 +4,16 @@ title: NetInfo
 original_id: netinfo
 ---
 
-
-
 ### Methods
 
-- [`addEventListener`](netinfo.md#addeventlistener)
-- [`removeEventListener`](netinfo.md#removeeventlistener)
-- [`fetch`](netinfo.md#fetch)
-
+* [`addEventListener`](netinfo.md#addeventlistener)
+* [`removeEventListener`](netinfo.md#removeeventlistener)
+* [`fetch`](netinfo.md#fetch)
 
 ### Properties
 
-- [`isConnected`](netinfo.md#isconnected)
-- [`isConnectionMetered`](netinfo.md#isconnectionmetered)
-
-
-
+* [`isConnected`](netinfo.md#isconnected)
+* [`isConnectionMetered`](netinfo.md#isconnectionmetered)
 
 ---
 
@@ -33,8 +27,6 @@ original_id: netinfo
 static addEventListener(eventName, handler)
 ```
 
-
-
 ---
 
 ### `removeEventListener()`
@@ -42,8 +34,6 @@ static addEventListener(eventName, handler)
 ```javascript
 static removeEventListener(eventName, handler)
 ```
-
-
 
 ---
 
@@ -53,13 +43,6 @@ static removeEventListener(eventName, handler)
 static fetch()
 ```
 
-
-
 ## Properties
 
-
-
 ---
-
-
-

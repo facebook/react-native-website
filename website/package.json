@@ -19,17 +19,27 @@
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff",
-    "format":
+    "format:source":
       "prettier --config .prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit":
+    "format:docs":
+      "prettier --config .prettierrc --write \"{../docs/**/*.md,versioned_docs/**/*.md}\"",
+    "format:blog": "prettier --config .prettierrc --write \"blog/**/*.md\"",
+    "nit:source":
       "prettier --config .prettierrc --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "prettier": "yarn format",
-    "prettier:diff": "yarn nit",
+    "nit:docs":
+      "prettier --config .prettierrc --list-different \"{../docs/**/*.md,versioned_docs/**/*.md}\"",
+    "nit:blog":
+      "prettier --config .prettierrc --list-different \"blog/**/*.md\"",
+    "prettier": "yarn format:source && yarn format:docs && yarn format:blog",
+    "prettier:diff": "yarn nit:source && yarn nit:docs && yarn nit:blog",
     "test": "yarn build"
   },
   "dependencies": {
-    "docusaurus": "^1.0.0-beta.14",
+    "docusaurus": "^1.0.0-beta.15",
     "highlight.js": "^9.12.0",
     "remarkable": "^1.7.1"
+  },
+  "devDependencies": {
+    "prettier": "1.9.1"
   }
 }

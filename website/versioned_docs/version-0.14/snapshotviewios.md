@@ -3,20 +3,15 @@ id: version-0.14-snapshotviewios
 title: SnapshotViewIOS
 original_id: snapshotviewios
 ---
+
 ### Props
 
-- [`onSnapshotReady`](snapshotviewios.md#onsnapshotready)
-- [`testIdentifier`](snapshotviewios.md#testidentifier)
-
-
-
+* [`onSnapshotReady`](snapshotviewios.md#onsnapshotready)
+* [`testIdentifier`](snapshotviewios.md#testidentifier)
 
 ### Methods
 
-- [`onDefaultAction`](snapshotviewios.md#ondefaultaction)
-
-
-
+* [`onDefaultAction`](snapshotviewios.md#ondefaultaction)
 
 ---
 
@@ -26,37 +21,22 @@ original_id: snapshotviewios
 
 ### `onSnapshotReady`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `testIdentifier`
 
-
-
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ## Methods
 
 ### `onDefaultAction()`
 
 ```javascript
-onDefaultAction(event: Object)
+onDefaultAction((event: Object));
 ```
-
-
-

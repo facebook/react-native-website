@@ -4,7 +4,6 @@ title: Troubleshooting
 original_id: troubleshooting
 ---
 
-
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
 
 ### Port already in use
@@ -98,9 +97,11 @@ react-native init --verbose
 ```
 
 ## Unable to start react-native package manager (on Linux)
+
 ### Case 1: Error "code":"ENOSPC","errno":"ENOSPC"
 
 Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, just run this command in your terminal window
+
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```

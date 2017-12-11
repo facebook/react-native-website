@@ -3,11 +3,8 @@ id: version-0.7-text
 title: Text
 original_id: text
 ---
-A React component for displaying text which supports nesting,
-styling, and touch handling.  In the following example, the nested title and
-body text will inherit the `fontFamily` from `styles.baseText`, but the title
-provides its own additional styles.  The title and body will stack on top of
-each other on account of the literal newlines:
+
+A React component for displaying text which supports nesting, styling, and touch handling. In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
 ```
 renderText: function() {
@@ -36,27 +33,21 @@ var styles = StyleSheet.create({
 
 ### Props
 
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onPress`](text.md#onpress)
-- [`style`](text.md#style)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`testID`](text.md#testid)
-
-
-
+* [`numberOfLines`](text.md#numberoflines)
+* [`onLayout`](text.md#onlayout)
+* [`onPress`](text.md#onpress)
+* [`style`](text.md#style)
+* [`suppressHighlighting`](text.md#suppresshighlighting)
+* [`testID`](text.md#testid)
 
 ### Methods
 
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-- [`handleResponderTerminationRequest`](text.md#handleresponderterminationrequest)
-- [`handleResponderGrant`](text.md#handlerespondergrant)
-- [`handleResponderMove`](text.md#handlerespondermove)
-- [`handleResponderRelease`](text.md#handleresponderrelease)
-- [`handleResponderTerminate`](text.md#handleresponderterminate)
-
-
-
+* [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
+* [`handleResponderTerminationRequest`](text.md#handleresponderterminationrequest)
+* [`handleResponderGrant`](text.md#handlerespondergrant)
+* [`handleResponderMove`](text.md#handlerespondermove)
+* [`handleResponderRelease`](text.md#handleresponderrelease)
+* [`handleResponderTerminate`](text.md#handleresponderterminate)
 
 ---
 
@@ -66,16 +57,11 @@ var styles = StyleSheet.create({
 
 ### `numberOfLines`
 
-Used to truncate the text with an elipsis after computing the text
-layout, including line wrapping, such that the total number of lines does
-not exceed this number.
+Used to truncate the text with an elipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -83,76 +69,59 @@ not exceed this number.
 
 Invoked on mount and layout changes with
 
-  {nativeEvent: {layout: {x, y, width, height}}}.
+{nativeEvent: {layout: {x, y, width, height}}}.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onPress`
 
-This function is called on press.  Text intrinsically supports press
-handling with a default highlight state (which can be disabled with
-`suppressHighlighting`).
+This function is called on press. Text intrinsically supports press handling with a default highlight state (which can be disabled with `suppressHighlighting`).
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `style`
 
+| Type  | Required |
+| ----- | -------- |
+| style | No       |
 
+* [View Style Props...](view-style-props.md#style)
 
-| Type | Required |
-| - | - |
-| style | No |
+* **`color`**: string
 
+* **`fontFamily`**: string
 
-  - [View Style Props...](view-style-props.md#style)
+* **`fontSize`**: number
 
-  - **`color`**: string
+* **`fontStyle`**: enum('normal', 'italic')
 
-  - **`fontFamily`**: string
+* **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
-  - **`fontSize`**: number
+* **`letterSpacing`**: number
 
-  - **`fontStyle`**: enum('normal', 'italic')
+* **`lineHeight`**: number
 
-  - **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
+* **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  - **`letterSpacing`**: number
-
-  - **`lineHeight`**: number
-
-  - **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
-
-  - **`writingDirection`**: enum('auto', 'ltr', 'rtl')
-
-
+* **`writingDirection`**: enum('auto', 'ltr', 'rtl')
 
 ---
 
 ### `suppressHighlighting`
 
-When true, no visual change is made when text is pressed down.  By
-default, a gray oval highlights the text on press down.
+When true, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -160,72 +129,54 @@ default, a gray oval highlights the text on press down.
 
 Used to locate this view in end-to-end tests.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ## Methods
 
 ### `onStartShouldSetResponder()`
 
 ```javascript
-onStartShouldSetResponder(): 
+onStartShouldSetResponder():
 ```
-
-
 
 ---
 
 ### `handleResponderTerminationRequest()`
 
 ```javascript
-handleResponderTerminationRequest(): 
+handleResponderTerminationRequest():
 ```
-
-
 
 ---
 
 ### `handleResponderGrant()`
 
 ```javascript
-handleResponderGrant(e: SyntheticEvent, dispatchID: string)
+handleResponderGrant((e: SyntheticEvent), (dispatchID: string));
 ```
-
-
 
 ---
 
 ### `handleResponderMove()`
 
 ```javascript
-handleResponderMove(e: SyntheticEvent)
+handleResponderMove((e: SyntheticEvent));
 ```
-
-
 
 ---
 
 ### `handleResponderRelease()`
 
 ```javascript
-handleResponderRelease(e: SyntheticEvent)
+handleResponderRelease((e: SyntheticEvent));
 ```
-
-
 
 ---
 
 ### `handleResponderTerminate()`
 
 ```javascript
-handleResponderTerminate(e: SyntheticEvent)
+handleResponderTerminate((e: SyntheticEvent));
 ```
-
-
-

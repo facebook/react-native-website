@@ -4,34 +4,22 @@ title: AppRegistry
 original_id: appregistry
 ---
 
-`AppRegistry` is the JS entry point to running all React Native apps.  App
-root components should register themselves with
-`AppRegistry.registerComponent`, then the native system can load the bundle
-for the app and then actually run the app when it's ready by invoking
-`AppRegistry.runApplication`.
+`AppRegistry` is the JS entry point to running all React Native apps. App root components should register themselves with `AppRegistry.registerComponent`, then the native system can load the bundle for the app and then actually run the app when it's ready by invoking `AppRegistry.runApplication`.
 
-To "stop" an application when a view should be destroyed, call
-`AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was
-pass into `runApplication`. These should always be used as a pair.
+To "stop" an application when a view should be destroyed, call `AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was pass into `runApplication`. These should always be used as a pair.
 
-`AppRegistry` should be `require`d early in the `require` sequence to make
-sure the JS execution environment is setup before other modules are
-`require`d.
-
+`AppRegistry` should be `require`d early in the `require` sequence to make sure the JS execution environment is setup before other modules are `require`d.
 
 ### Methods
 
-- [`registerConfig`](appregistry.md#registerconfig)
-- [`registerComponent`](appregistry.md#registercomponent)
-- [`registerRunnable`](appregistry.md#registerrunnable)
-- [`getAppKeys`](appregistry.md#getappkeys)
-- [`runApplication`](appregistry.md#runapplication)
-- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-- [`startHeadlessTask`](appregistry.md#startheadlesstask)
-
-
-
+* [`registerConfig`](appregistry.md#registerconfig)
+* [`registerComponent`](appregistry.md#registercomponent)
+* [`registerRunnable`](appregistry.md#registerrunnable)
+* [`getAppKeys`](appregistry.md#getappkeys)
+* [`runApplication`](appregistry.md#runapplication)
+* [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
+* [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
+* [`startHeadlessTask`](appregistry.md#startheadlesstask)
 
 ---
 
@@ -45,8 +33,6 @@ sure the JS execution environment is setup before other modules are
 static registerConfig(config)
 ```
 
-
-
 ---
 
 ### `registerComponent()`
@@ -54,8 +40,6 @@ static registerConfig(config)
 ```javascript
 static registerComponent(appKey, getComponentFunc)
 ```
-
-
 
 ---
 
@@ -65,8 +49,6 @@ static registerComponent(appKey, getComponentFunc)
 static registerRunnable(appKey, func)
 ```
 
-
-
 ---
 
 ### `getAppKeys()`
@@ -74,8 +56,6 @@ static registerRunnable(appKey, func)
 ```javascript
 static getAppKeys()
 ```
-
-
 
 ---
 
@@ -85,8 +65,6 @@ static getAppKeys()
 static runApplication(appKey, appParameters)
 ```
 
-
-
 ---
 
 ### `unmountApplicationComponentAtRootTag()`
@@ -94,8 +72,6 @@ static runApplication(appKey, appParameters)
 ```javascript
 static unmountApplicationComponentAtRootTag(rootTag)
 ```
-
-
 
 ---
 
@@ -105,15 +81,7 @@ static unmountApplicationComponentAtRootTag(rootTag)
 static registerHeadlessTask(taskKey, task)
 ```
 
-
-Register a headless task. A headless task is a bit of code that runs without a UI.
-@param taskKey the key associated with this task
-@param task    a promise returning function that takes some data passed from the native side as
-               the only argument; when the promise is resolved or rejected the native side is
-               notified of this event and it may decide to destroy the JS context.
-
-
-
+Register a headless task. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param task a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context.
 
 ---
 
@@ -123,13 +91,6 @@ Register a headless task. A headless task is a bit of code that runs without a U
 static startHeadlessTask(taskId, taskKey, data)
 ```
 
-
 Only called from native code. Starts a headless task.
 
-@param taskId the native id for this task instance to keep track of its execution
-@param taskKey the key for the task to start
-@param data the data to pass to the task
-
-
-
-
+@param taskId the native id for this task instance to keep track of its execution @param taskKey the key for the task to start @param data the data to pass to the task

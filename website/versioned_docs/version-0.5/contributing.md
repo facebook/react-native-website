@@ -52,7 +52,7 @@ To see what changes are coming and provide better feedback to React Native contr
 
 We use [GitHub Issues](https://github.com/facebook/react-native/issues) for our public bugs. If you would like to report a problem, take a look around and see if someone already opened an issue about it. If you a are certain this is a new, unreported bug, you can submit a [bug report](http://facebook.github.io/react-native/docs/contributing.html#reporting-new-issues).
 
-If you have questions about using React Native, the [Community page](http://facebook.github.io/react-native/support.html) list various resources that should help you get started.
+If you have questions about using React Native, the [Community page](http://facebook.github.io/react-native/help.html) list various resources that should help you get started.
 
 We also have a [place where you can request features or enhancements](https://react-native.canny.io/feature-requests). If you see anything you'd like to be implemented, vote it up and explain your use case.
 
@@ -65,7 +65,7 @@ When [opening a new issue](https://github.com/facebook/react-native/issues/new),
 * **Provide reproduction steps:** List all the steps necessary to reproduce the issue. Provide a Snack or upload a sample project to GitHub. The person reading your bug report should be able to follow these steps to reproduce your issue with minimal effort.
 * **Try out the latest version:** Verify that the issue can be reproduced locally by updating your project to use [React Native from `master`](http://facebook.github.io/react-native/versions.html). The bug may have already been fixed!
 
-We're not able to provide support through GitHub Issues. If you're looking for help with your code, consider asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-native) or reaching out to the community through [other channels](https://facebook.github.io/react-native/support.html).
+We're not able to provide support through GitHub Issues. If you're looking for help with your code, consider asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-native) or reaching out to the community through [other channels](https://facebook.github.io/react-native/help.html).
 
 ### Security bugs
 
@@ -197,9 +197,9 @@ However, there are still some styles that the linter cannot pick up.
 #### Objective-C
 
 * Space after `@property` declarations
-* Brackets on *every* `if`, on the *same* line
+* Brackets on _every_ `if`, on the _same_ line
 * `- method`, `@interface`, and `@implementation` brackets on the following line
-* *Try* to keep it around 80 characters line length (sometimes it's just not possible...)
+* _Try_ to keep it around 80 characters line length (sometimes it's just not possible...)
 * `*` operator goes with the variable name (e.g. `NSObject *variableName;`)
 
 #### Java

@@ -12,7 +12,7 @@ Part of having a great developer experience is having great documentation. A lot
 
 ## Inline Examples
 
-When you learn a new library, a new programming language, or a new framework, there's a beautiful moment when you first write a bit of code, try it out, see if it works... and it *does* work. You created something real. We wanted to put that visceral experience right into our docs. Like this:
+When you learn a new library, a new programming language, or a new framework, there's a beautiful moment when you first write a bit of code, try it out, see if it works... and it _does_ work. You created something real. We wanted to put that visceral experience right into our docs. Like this:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';

@@ -3,6 +3,7 @@ id: version-0.48-maskedviewios
 title: MaskedViewIOS
 original_id: maskedviewios
 ---
+
 Renders the child view with a mask specified in the `maskElement` prop.
 
 ```
@@ -29,24 +30,16 @@ class MyMaskedView extends React.Component {
 }
 ```
 
-The above example will render a view with a blue background that fills its
-parent, and then mask that view with text that says "Basic Mask".
+The above example will render a view with a blue background that fills its parent, and then mask that view with text that says "Basic Mask".
 
-The alpha channel of the view rendered by the `maskElement` prop determines how
-much of the view's content and background shows through. Fully or partially
-opaque pixels allow the underlying content to show through but fully
-transparent pixels block that content.
+The alpha channel of the view rendered by the `maskElement` prop determines how much of the view's content and background shows through. Fully or partially opaque pixels allow the underlying content to show through but fully transparent pixels block that content.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`children`](maskedviewios.md#children)
 - [`maskElement`](maskedviewios.md#maskelement)
-
-
-
-
-
 
 ---
 
@@ -56,28 +49,16 @@ transparent pixels block that content.
 
 ### `children`
 
-
-
 | Type | Required |
-| - | - |
-| any | Yes |
-
-
-
+| ---- | -------- |
+| any  | Yes      |
 
 ---
 
 ### `maskElement`
 
-Should be a React element to be rendered and applied as the
-mask for the child element.
+Should be a React element to be rendered and applied as the mask for the child element.
 
-| Type | Required |
-| - | - |
-| React.Element<*> | Yes |
-
-
-
-
-
-
+| Type              | Required |
+| ----------------- | -------- |
+| React.Element<\*> | Yes      |

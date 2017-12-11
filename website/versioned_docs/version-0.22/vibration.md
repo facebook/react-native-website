@@ -4,23 +4,17 @@ title: Vibration
 original_id: vibration
 ---
 
-The Vibration API is exposed at `Vibration.vibrate()`.
-The vibration is asynchronous so this method will return immediately.
+The Vibration API is exposed at `Vibration.vibrate()`. The vibration is asynchronous so this method will return immediately.
 
 There will be no effect on devices that do not support Vibration, eg. the simulator.
 
-Note for android
-add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
+Note for android add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
 
 Vibration patterns are currently unsupported.
 
-
 ### Methods
 
-- [`vibrate`](vibration.md#vibrate)
-
-
-
+* [`vibrate`](vibration.md#vibrate)
 
 ---
 
@@ -33,6 +27,3 @@ Vibration patterns are currently unsupported.
 ```javascript
 static vibrate(duration)
 ```
-
-
-
