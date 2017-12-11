@@ -20,15 +20,14 @@ title: ActionSheetIOS
 static showActionSheetWithOptions(options, callback)
 ```
 
-Display an iOS action sheet. The `options` object must contain one or more
-of:
+Display an iOS action sheet. The `options` object must contain one or more of:
 
-- `options` (array of strings) - a list of button titles (required)
-- `cancelButtonIndex` (int) - index of cancel button in `options`
-- `destructiveButtonIndex` (int) - index of destructive button in `options`
-- `title` (string) - a title to show above the action sheet
-- `message` (string) - a message to show below the title
-- `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
+* `options` (array of strings) - a list of button titles (required)
+* `cancelButtonIndex` (int) - index of cancel button in `options`
+* `destructiveButtonIndex` (int) - index of destructive button in `options`
+* `title` (string) - a title to show above the action sheet
+* `message` (string) - a message to show below the title
+* `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
 
 The 'callback' function takes one parameter, the zero-based index of the selected item.
 
