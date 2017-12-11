@@ -70,7 +70,7 @@ If you're targeting iOS 8.x or older, you can use the following code instead:
 }
 ```
 
-// If your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html), you'll need to add the following code as well:
+If your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html), you'll need to add the following code as well:
 
 ```
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
