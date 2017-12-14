@@ -20,19 +20,22 @@
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff",
     "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "format:markdown":
-      "prettier --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
-    "nit:source":
-      "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown":
-      "prettier --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "format:markdown": "prettier --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:source": "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+    "nit:markdown": "prettier --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "precommit": "lint-staged",
     "test": "yarn build"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.md": [
+      "node image-check.js"
+    ]
   },
   "prettier": {
     "overrides": [
@@ -43,7 +46,10 @@
         }
       },
       {
-        "files": ["core/**/*.js", "static/js/**/*.js"],
+        "files": [
+          "core/**/*.js",
+          "static/js/**/*.js"
+        ],
         "options": {
           "bracketSpacing": false,
           "jsxBracketSameLine": true,
@@ -53,7 +59,11 @@
         }
       },
       {
-        "files": ["../docs/**/*.md", "versioned_docs/**/*.md", "blog/**/*.md"],
+        "files": [
+          "../docs/**/*.md",
+          "versioned_docs/**/*.md",
+          "blog/**/*.md"
+        ],
         "options": {
           "bracketSpacing": false,
           "jsxBracketSameLine": true,
@@ -71,8 +81,13 @@
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
+    "bluebird": "^3.5.1",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "glob-promise": "^3.3.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
+    "path": "^0.12.7",
     "prettier": "1.9.1"
   }
 }
