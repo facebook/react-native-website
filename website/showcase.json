@@ -270,5 +270,14 @@
     "infoLink": "https://www.youtube.com/watch?v=abSNo2P9mMM",
     "infoTitle": "Building a React Native App for 80 Million Users",
     "pinned": false
+  },
+  {
+    "name": "adidas GLITCH",
+    "icon": "glitch.png",
+    "linkAppStore": "https://itunes.apple.com/gb/app/adidas-glitch-interchangeable/id1166181522?mt=8&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-IPHONE",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.adidas.glitch&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-ANDROID",
+    "infoLink": "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
+    "infoTitle": "Building Adidas GLITCH app with React Native",
+    "pinned": false
   }
 ]
