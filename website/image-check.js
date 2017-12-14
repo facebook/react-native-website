@@ -54,16 +54,6 @@ glob("../docs/**/*.md")
               markdownPath +
               ". Did you forget to add the asset to '/docs/assets'?"
           );
-          // console.error(
-          //   markdownPath.replace("../docs/", "") +
-          //     ": " +
-          //     imagePath.replace("../docs/assets/", "")
-          // );
-          // console.error(
-          //   "mv static/img/" +
-          //     imagePath.replace("../docs/assets/", "") +
-          //     " ../docs/assets/."
-          // );
         });
     });
     return queue;
