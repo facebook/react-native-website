@@ -27,7 +27,7 @@
     "nit:markdown":
       "prettier --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
-    "prettier:diff": "yarn nit:source && yarn nit:markdown",
+    "prettier:diff": "yarn nit:source",
     "precommit": "lint-staged",
     "test": "yarn build"
   },
