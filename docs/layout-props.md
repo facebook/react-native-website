@@ -17,6 +17,7 @@ title: Layout Props
 * [`borderTopWidth`](layout-props.md#bordertopwidth)
 * [`borderWidth`](layout-props.md#borderwidth)
 * [`bottom`](layout-props.md#bottom)
+* [`direction`](layout-props.md#direction)
 * [`display`](layout-props.md#display)
 * [`end`](layout-props.md#end)
 * [`flex`](layout-props.md#flex)
@@ -57,7 +58,6 @@ title: Layout Props
 * [`top`](layout-props.md#top)
 * [`width`](layout-props.md#width)
 * [`zIndex`](layout-props.md#zindex)
-* [`direction`](layout-props.md#direction)
 
 ---
 
@@ -192,6 +192,16 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 | Type            | Required |
 | --------------- | -------- |
 | number, ,string | No       |
+
+---
+
+### `direction`
+
+`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://facebook.github.io/yoga/docs/rtl/ for more details.
+
+| Type                          | Required | Platform |
+| ----------------------------- | -------- | -------- |
+| enum('inherit', 'ltr', 'rtl') | No       | iOS      |
 
 ---
 
@@ -643,10 +653,3 @@ It works like the CSS `z-index` property - components with a larger `zIndex` wil
 
 ---
 
-### `direction`
-
-`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://facebook.github.io/yoga/docs/rtl/ for more details.
-
-| Type                          | Required | Platform |
-| ----------------------------- | -------- | -------- |
-| enum('inherit', 'ltr', 'rtl') | No       | iOS      |
