@@ -19,51 +19,21 @@
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
-    "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
+    "format:source":
+      "prettier --config .prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:markdown":
-      "prettier --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+      "prettier --config .prettierrc  --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "nit:source":
-      "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+      "prettier --config .prettierrc  --list-different \"{core/**/*.js,static/js/**/*.js}\"",
     "nit:markdown":
-      "prettier --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+      "prettier --config .prettierrc  --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "precommit": "lint-staged",
     "test": "yarn build"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": ["prettier --write", "git add"]
-  },
-  "prettier": {
-    "overrides": [
-      {
-        "files": ".prettierrc",
-        "options": {
-          "parser": "json"
-        }
-      },
-      {
-        "files": ["core/**/*.js", "static/js/**/*.js"],
-        "options": {
-          "bracketSpacing": false,
-          "jsxBracketSameLine": true,
-          "printWidth": 80,
-          "singleQuote": true,
-          "trailingComma": "es5"
-        }
-      },
-      {
-        "files": ["../docs/**/*.md", "versioned_docs/**/*.md", "blog/**/*.md"],
-        "options": {
-          "bracketSpacing": false,
-          "jsxBracketSameLine": true,
-          "printWidth": 80,
-          "proseWrap": "never",
-          "singleQuote": true,
-          "trailingComma": "es5"
-        }
-      }
-    ]
+    "*.{js,json,css,md}": ["prettier --config .prettierrc --write", "git add"]
   },
   "dependencies": {
     "docusaurus": "^1.0.3",

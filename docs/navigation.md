@@ -71,8 +71,8 @@ For a complete intro to React Navigation, follow the [React Navigation Getting S
 <NavigatorIOS
   initialRoute={{
     component: MyScene,
-    title: "My Initial Scene",
-    passProps: { myProp: "foo" }
+    title: 'My Initial Scene',
+    passProps: {myProp: 'foo'},
   }}
 />
 ```
@@ -82,9 +82,9 @@ Like other navigation systems, `NavigatorIOS` uses routes to represent screens, 
 As `NavigatorIOS` leverages native UIKit navigation, it will automatically render a navigation bar with a back button and title.
 
 ```javascript
-import React from "react";
-import PropTypes from "prop-types";
-import { Button, NavigatorIOS, Text, View } from "react-native";
+import React from 'react';
+import PropTypes from 'prop-types';
+import {Button, NavigatorIOS, Text, View} from 'react-native';
 
 export default class NavigatorIOSApp extends React.Component {
   render() {
@@ -92,10 +92,10 @@ export default class NavigatorIOSApp extends React.Component {
       <NavigatorIOS
         initialRoute={{
           component: MyScene,
-          title: "My Initial Scene",
-          passProps: { index: 1 }
+          title: 'My Initial Scene',
+          passProps: {index: 1},
         }}
-        style={{ flex: 1 }}
+        style={{flex: 1}}
       />
     );
   }
@@ -104,9 +104,9 @@ export default class NavigatorIOSApp extends React.Component {
 class MyScene extends React.Component {
   static propTypes = {
     route: PropTypes.shape({
-      title: PropTypes.string.isRequired
+      title: PropTypes.string.isRequired,
     }),
-    navigator: PropTypes.object.isRequired
+    navigator: PropTypes.object.isRequired,
   };
 
   constructor(props, context) {
@@ -118,8 +118,8 @@ class MyScene extends React.Component {
     let nextIndex = ++this.props.index;
     this.props.navigator.push({
       component: MyScene,
-      title: "Scene " + nextIndex,
-      passProps: { index: nextIndex }
+      title: 'Scene ' + nextIndex,
+      passProps: {index: nextIndex},
     });
   }
 
