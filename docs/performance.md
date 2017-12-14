@@ -217,7 +217,7 @@ At this point, you'll have some very helpful information to inform your next ste
 
 If you identified a JS problem, look for clues in the specific JS that you're executing. In the scenario above, we see `RCTEventEmitter` being called multiple times per frame. Here's a zoom-in of the JS thread from the trace above:
 
-![Too much JS](img/SystraceBadJS2.png)
+![Too much JS](/react-native/docs/assets/SystraceBadJS2.png)
 
 This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://facebook.github.io/react/component-specs.md#updating-shouldcomponentupdate).
 

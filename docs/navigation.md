@@ -65,7 +65,7 @@ For a complete intro to React Navigation, follow the [React Navigation Getting S
 
 `NavigatorIOS` looks and feels just like [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/), because it is actually built on top of it.
 
-![](/react-native/docs/assets/NavigationStack-NavigatorIOS.png)
+![](/react-native/docs/assets/NavigationStack-NavigatorIOS.gif)
 
 ```javascript
 <NavigatorIOS

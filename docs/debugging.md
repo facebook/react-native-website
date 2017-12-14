@@ -92,11 +92,11 @@ It should connect to your simulator within a few seconds.
 
 Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
-![React Native Inspector](/react-native/docs/assets/Inspector.png)
+![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
 However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
-![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.png)
+![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
 You can choose "Hide Inspector" in the same menu to exit this mode.
 
@@ -110,7 +110,7 @@ Make sure that the dropdown in the top left corner of the Chrome console says `d
 
 Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
 
-![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.png)
+![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.gif)
 
 ## Performance Monitor
 
