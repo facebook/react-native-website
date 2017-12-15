@@ -24,7 +24,7 @@ export default class HelloWorldApp extends Component {
 }
 
 // skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => HelloWorldApp);
+export default App;
 ```
 
 If you are feeling curious, you can play around with sample code directly in the web simulators. You can also paste it into your `App.js` file to create a real app on your local machine.
