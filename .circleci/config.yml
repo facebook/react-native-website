@@ -58,6 +58,7 @@ jobs:
           command: |
             cd website
             yarn --no-progress
+            sudo apt install rsync
       - run:
           name: Build and Deploy Static Website
           command: |
