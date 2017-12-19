@@ -89,8 +89,8 @@ var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
     borderBottomWidth: StyleSheet.hairlineWidth,
-  }
-})
+  },
+});
 ```
 
 This constant will always be a round number of pixels (so a line defined by it look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
@@ -98,11 +98,13 @@ This constant will always be a round number of pixels (so a line defined by it l
 A line with hairline width may not be visible if your simulator is downscaled.
 
 ---
+
 ### `absoluteFill`
 
 A very common pattern is to create overlays with position absolute and zero positioning, so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles.
 
 ---
+
 ### `absoluteFillObject`
 
 Sometimes you may want absoluteFill but with a couple tweaks - absoluteFillObject can be used to create a customized entry in a StyleSheet, e.g.:
@@ -118,12 +120,12 @@ const styles = StyleSheet.create({
 ```
 
 ---
+
 ### `flatten`
 
 Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
 
-> *NOTE*: Exercise caution as abusing this can tax you in terms of optimizations.
-IDs enable optimizations through the bridge and memory in general. Refering to style objects directly will deprive you of these optimizations.
+> _NOTE_: Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Refering to style objects directly will deprive you of these optimizations.
 
 Example:
 
@@ -132,14 +134,14 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white'
+    color: 'white',
   },
   selectedListItem: {
-    color: 'green'
-  }
+    color: 'green',
+  },
 });
 
-StyleSheet.flatten([styles.listItem, styles.selectedListItem])
+StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 // returns { flex: 1, fontSize: 16, color: 'green' }
 ```
 
@@ -150,11 +152,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white'
+    color: 'white',
   },
   selectedListItem: {
-    color: 'green'
-  }
+    color: 'green',
+  },
 });
 
 StyleSheet.flatten(styles.listItem);

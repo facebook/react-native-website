@@ -92,7 +92,7 @@ The RNTester app supports Apple TV; use the `RNTester-tvOS` build target to buil
 * _JavaScript layer_: Support for Apple TV has been added to `Platform.ios.js`. You can check whether code is running on AppleTV by doing
 
 ```javascript
-var Platform = require("Platform");
+var Platform = require('Platform');
 var running_on_tv = Platform.isTV;
 
 // If you want to be more specific and only detect devices running tvOS
@@ -125,7 +125,7 @@ var running_on_apple_tv = Platform.isTVOS;
 * _JavaScript layer_: Support for Android TV has been added to `Platform.android.js`. You can check whether code is running on Android TV by doing
 
 ```js
-var Platform = require("Platform");
+var Platform = require('Platform');
 var running_on_android_tv = Platform.isTV;
 ```
 
