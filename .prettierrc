@@ -1,0 +1,35 @@
+{
+  "overrides": [
+    {
+      "files": ".prettierrc",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": ["website/core/**/*.js", "website/static/js/**/*.js"],
+      "options": {
+        "bracketSpacing": false,
+        "jsxBracketSameLine": true,
+        "printWidth": 80,
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    },
+    {
+      "files": [
+        "docs/**/*.md",
+        "website/versioned_docs/**/*.md",
+        "website/blog/**/*.md"
+      ],
+      "options": {
+        "bracketSpacing": false,
+        "jsxBracketSameLine": true,
+        "printWidth": 80,
+        "proseWrap": "never",
+        "singleQuote": true,
+        "trailingComma": "es5"
+      }
+    }
+  ]
+}
