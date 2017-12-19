@@ -1,6 +1,7 @@
 ---
-id: building-for-apple-tv
+id: version-0.52-RC-building-for-apple-tv
 title: Building For TV Devices
+original_id: building-for-apple-tv
 ---
 
 <style>
