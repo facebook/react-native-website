@@ -19,7 +19,7 @@ class ScreenReaderStatusExample extends React.Component {
       'change',
       this._handleScreenReaderToggled
     );
-    AccessibilityInfo.fetch().done(isEnabled => {
+    AccessibilityInfo.fetch().done((isEnabled) => {
       this.setState({
         screenReaderEnabled: isEnabled,
       });
@@ -33,7 +33,7 @@ class ScreenReaderStatusExample extends React.Component {
     );
   }
 
-  _handleScreenReaderToggled = isEnabled => {
+  _handleScreenReaderToggled = (isEnabled) => {
     this.setState({
       screenReaderEnabled: isEnabled,
     });

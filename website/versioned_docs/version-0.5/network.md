@@ -45,11 +45,11 @@ Networking is an inherently asynchronous operation. Fetch methods will return a 
 ```js
 function getMoviesFromApiAsync() {
   return fetch('https://facebook.github.io/react-native/movies.json')
-    .then(response => response.json())
-    .then(responseJson => {
+    .then((response) => response.json())
+    .then((responseJson) => {
       return responseJson.movies;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 }
@@ -131,7 +131,7 @@ The [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHtt
 
 ```js
 var request = new XMLHttpRequest();
-request.onreadystatechange = e => {
+request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
     return;
   }
@@ -161,17 +161,17 @@ ws.onopen = () => {
   ws.send('something'); // send a message
 };
 
-ws.onmessage = e => {
+ws.onmessage = (e) => {
   // a message was received
   console.log(e.data);
 };
 
-ws.onerror = e => {
+ws.onerror = (e) => {
   // an error occurred
   console.log(e.message);
 };
 
-ws.onclose = e => {
+ws.onclose = (e) => {
   // connection closed
   console.log(e.code, e.reason);
 };

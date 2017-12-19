@@ -217,7 +217,7 @@ export default class CustomWebView extends Component {
     finalUrl: 'about:blank',
   };
 
-  _onNavigationCompleted = event => {
+  _onNavigationCompleted = (event) => {
     const {onNavigationCompleted} = this.props;
     onNavigationCompleted && onNavigationCompleted(event);
   };
