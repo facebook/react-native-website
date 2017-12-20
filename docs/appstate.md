@@ -10,7 +10,10 @@ AppState is frequently used to determine the intent and proper behavior when han
 ### App States
 
 * `active` - The app is running in the foreground
-* `background` - The app is running in the background. The user is either in another app or on the home screen
+* `background` - The app is running in the background. The user is either:
+  * in another app
+  * on the home screen
+  * [Android] on another `Activity` (even if it was launched by your app)
 * `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the Multitasking view or in the event of an incoming call
 
 For more information, see [Apple's documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)
