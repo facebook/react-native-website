@@ -227,11 +227,11 @@ Status bar style
 
 **Constants:**
 
-| Value         | Description                                                         |
-| ------------- | ------------------------------------------------------------------- |
-| default       | Default status bar style (dark for iOS, light for Android)          |
-| light-content | Dark background, white texts and icons                              |
-| dark-content  | Light background, dark texts and icons (requires API>=23 on Android)|
+| Value         | Description                                                          |
+| ------------- | -------------------------------------------------------------------- |
+| default       | Default status bar style (dark for iOS, light for Android)           |
+| light-content | Dark background, white texts and icons                               |
+| dark-content  | Light background, dark texts and icons (requires API>=23 on Android) |
 
 ---
 
