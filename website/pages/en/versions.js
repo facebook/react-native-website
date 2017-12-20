@@ -41,7 +41,7 @@ class VersionItem extends React.Component {
       <a
         href={
           "https://github.com/facebook/react-native/releases/tag/v" +
-          version +
+          version.replace("-RC", "") +
           ".0" +
           (isRC ? "-rc.0" : "")
         }
