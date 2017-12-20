@@ -88,7 +88,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 static getCurrentPosition(geo_success, geo_error?, geo_options?)
 ```
 
-Invokes the success callback once with the latest location info. Supported options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool) On Android, if the location is cached this can return almost immediately, or it will request an update which might take a while.
+Invokes the success callback once with the latest location info. Supported options: timeout (ms), maximumAge (ms, default - INFINITY), enableHighAccuracy (bool) On Android, if the location is cached this can return almost immediately, or it will request an update which might take a while.
 
 ---
 
@@ -98,7 +98,7 @@ Invokes the success callback once with the latest location info. Supported optio
 static watchPosition(success, error?, options?)
 ```
 
-Invokes the success callback whenever the location changes. Supported options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilter(m), useSignificantChanges (bool)
+Invokes the success callback whenever the location changes. Supported options: timeout (ms), maximumAge (ms, default - INFINITY), enableHighAccuracy (bool), distanceFilter(m), useSignificantChanges (bool)
 
 ---
 
