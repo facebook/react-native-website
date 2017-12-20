@@ -43,9 +43,7 @@ class VersionItem extends React.Component {
           "https://github.com/facebook/react-native/releases/tag/v" +
           version +
           ".0" +
-          isRC
-            ? "-rc.0"
-            : ""
+          (isRC ? "-rc.0" : "")
         }
       >
         Release Notes
