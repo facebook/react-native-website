@@ -51,7 +51,7 @@ class VersionItem extends React.Component {
     );
 
     return (
-      <tr key={"version_" + version}>
+      <tr>
         <th>{versionName}</th>
         <td>{documentationLink}</td>
         <td>{releaseNotesLink}</td>
@@ -100,6 +100,7 @@ class Versions extends React.Component {
               {latestVersions.map(function(version) {
                 return (
                   <VersionItem
+                    key={"version_" + version}
                     version={version}
                     baseUrl={siteConfig.baseUrl}
                     currentVersion={currentVersion}
@@ -119,6 +120,7 @@ class Versions extends React.Component {
               {stableVersions.map(function(version) {
                 return (
                   <VersionItem
+                    key={"version_" + version}
                     version={version}
                     baseUrl={siteConfig.baseUrl}
                     currentVersion={currentVersion}
