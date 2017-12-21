@@ -197,7 +197,7 @@ This method would be accessed in JavaScript using:
 UIManager.measureLayout(
   100,
   100,
-  msg => {
+  (msg) => {
     console.log(msg);
   },
   (x, y, width, height) => {

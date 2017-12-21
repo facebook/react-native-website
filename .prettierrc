@@ -9,6 +9,7 @@
     {
       "files": ["website/core/**/*.js", "website/static/js/**/*.js"],
       "options": {
+        "arrowParens": "avoid",
         "bracketSpacing": false,
         "jsxBracketSameLine": true,
         "printWidth": 80,
@@ -23,6 +24,7 @@
         "website/blog/**/*.md"
       ],
       "options": {
+        "arrowParens": "always",
         "bracketSpacing": false,
         "jsxBracketSameLine": true,
         "printWidth": 80,

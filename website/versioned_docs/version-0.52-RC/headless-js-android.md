@@ -17,7 +17,7 @@ AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
 Then, in `SomeTaskName.js`:
 
 ```javascript
-module.exports = async taskData => {
+module.exports = async (taskData) => {
   // do stuff
 };
 ```

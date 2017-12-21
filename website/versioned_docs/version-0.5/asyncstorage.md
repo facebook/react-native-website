@@ -101,8 +101,8 @@ let multi_merge_pairs = [
   ['UID345', JSON.stringify(UID345_delta)],
 ];
 
-AsyncStorage.multiSet(multi_set_pairs, err => {
-  AsyncStorage.multiMerge(multi_merge_pairs, err => {
+AsyncStorage.multiSet(multi_set_pairs, (err) => {
+  AsyncStorage.multiMerge(multi_merge_pairs, (err) => {
     AsyncStorage.multiGet(['UID234', 'UID345'], (err, stores) => {
       stores.map((result, i, store) => {
         let key = store[i][0];
@@ -136,7 +136,7 @@ Removing multiple items:
 
 ```javascript
 let keys = ['k1', 'k2'];
-AsyncStorage.multiRemove(keys, err => {
+AsyncStorage.multiRemove(keys, (err) => {
   // keys k1 & k2 removed, if they existed
   // do most stuff after removal (if you want)
 });

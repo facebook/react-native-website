@@ -116,7 +116,7 @@ AlertIOS.prompt(
     },
     {
       text: 'OK',
-      onPress: password => console.log('OK Pressed, password: ' + password),
+      onPress: (password) => console.log('OK Pressed, password: ' + password),
     },
   ],
   'secure-text'
@@ -131,7 +131,7 @@ Example with the default button and a custom callback:
 AlertIOS.prompt(
   'Update username',
   null,
-  text => console.log('Your username is ' + text),
+  (text) => console.log('Your username is ' + text),
   null,
   'default'
 );

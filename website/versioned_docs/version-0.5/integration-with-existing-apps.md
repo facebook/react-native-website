@@ -315,7 +315,7 @@ import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
-    var contents = this.props['scores'].map(score => (
+    var contents = this.props['scores'].map((score) => (
       <Text key={score.name}>
         {score.name}:{score.value}
         {'\n'}

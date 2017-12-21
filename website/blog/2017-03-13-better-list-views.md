@@ -75,7 +75,7 @@ Lists are used in many contexts, so we packed the new components full of feature
       <MyItem
         item={item}
         onPress={() =>
-          this.setState(oldState => ({
+          this.setState((oldState) => ({
             selected: {
               // New instance breaks `===`
               ...oldState.selected, // copy old data
