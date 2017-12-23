@@ -118,7 +118,6 @@ function SnackPlayer(md) {
           border: 1px solid rgba(0,0,0,.16);
           border-radius: 4px;
           height: 514px;
-          width: 880px;
         "
       >` +
       '</div>' +
