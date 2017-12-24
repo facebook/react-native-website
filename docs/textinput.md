@@ -101,6 +101,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
 - [`caretHidden`](textinput.md#carethidden)
+- [`contextMenuHidden`](textinput.md#contextMenuHidden)
 - [`defaultValue`](textinput.md#defaultvalue)
 - [`editable`](textinput.md#editable)
 - [`keyboardType`](textinput.md#keyboardtype)
@@ -207,6 +208,16 @@ If `true`, the text field will blur when submitted. The default value is true fo
 ### `caretHidden`
 
 If `true`, caret is hidden. The default value is `false`.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `contextMenuHidden`
+
+If `true`, context menu is hidden. The default value is `false`.
 
 | Type | Required |
 | ---- | -------- |
