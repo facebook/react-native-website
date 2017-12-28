@@ -31,6 +31,8 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 - [`onMomentumScrollBegin`](scrollview.md#onmomentumscrollbegin)
 - [`onMomentumScrollEnd`](scrollview.md#onmomentumscrollend)
 - [`onScroll`](scrollview.md#onscroll)
+- [`onScrollBeginDrag`](scrollview.md#onscrollbegindrag)
+- [`onScrollEndDrag`](scrollview.md#onscrollenddrag)
 - [`pagingEnabled`](scrollview.md#pagingenabled)
 - [`refreshControl`](scrollview.md#refreshcontrol)
 - [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
@@ -183,6 +185,26 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 ### `onScroll`
 
 Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onScrollBeginDrag`
+
+Called when the user begins to drag the scroll view.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onScrollEndDrag`
+
+Called when the user stops dragging the scroll view and it either stops or begins to glide.
 
 | Type     | Required |
 | -------- | -------- |
