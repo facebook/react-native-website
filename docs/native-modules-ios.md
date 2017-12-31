@@ -444,6 +444,7 @@ class CalendarManager: NSObject {
     // Date is ready to use!
   }
 
+  @objc
   func constantsToExport() -> [String: Any]! {
     return ["someKey": "someValue"]
   }
