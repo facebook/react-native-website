@@ -568,28 +568,32 @@ The current scale of the scroll view content. The default value is 1.0.
 ### `scrollTo()`
 
 ```javascript
-scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
+scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean), ([duration]: number));
 ```
 
-Scrolls to a given x, y offset, either immediately or with a smooth animation.
+Scrolls to a given x, y offset, either immediately or with a smooth animation. For Android, you may specify a "duration" instead of using "animated", which simply resolves to a default duration of 250 milliseconds. Using `{animated: true}` for Android is the same as specifing `{duration: 250}`.
 
 Example:
 
-`scrollTo({x: 0, y: 0, animated: true})`
+`scrollTo({x: 0, y: 0, animated: true, duration: 0})`
 
-Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
+Note 1: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
+
+Note 2: The "duration" argument is only currently supported for Android.
 
 ---
 
 ### `scrollToEnd()`
 
 ```javascript
-scrollToEnd(([options]: object));
+scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
 Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. If no options are passed, `animated` defaults to true.
+
+For Android, you may specify a "duration" instead of using "animated", which simply resolves to a default duration of 250 milliseconds. Using `{animated: true}` for Android is the same as specifing `{duration: 250}`.
 
 ---
 
