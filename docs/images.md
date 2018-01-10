@@ -26,7 +26,7 @@ You can also use the `@2x` and `@3x` suffixes to provide images for different sc
 ...and `button.js` code contains:
 
 ```javascript
-<Image source={require('./assets/check.png')} />
+<Image source={require('./img/check.png')} />
 ```
 
 ...the packager will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
