@@ -110,9 +110,10 @@ The `supportedOrientations` prop allows the modal to be rotated to any of the sp
 
 The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV.
 
-| Type             | Required |
-| ---------------- | -------- |
-| (Platform.isTVOS |          | Platform.OS === 'android') ? PropTypes.func.isRequired : PropTypes.func | No |
+| Type     | Required | Platform                 |
+| -------- | -------- | ------------------------ |
+| function | Yes      | Android, Platform.isTVOS |
+| function | No       | (Others)                 |
 
 ---
 
