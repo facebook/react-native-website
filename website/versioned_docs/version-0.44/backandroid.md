@@ -4,7 +4,7 @@ title: BackAndroid
 original_id: backandroid
 ---
 
-Deprecated. Use BackHandler instead.
+Deprecated.  Use [`BackHandler`](backhandler.md) instead.
 
 ### Methods
 
