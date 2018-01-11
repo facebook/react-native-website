@@ -213,6 +213,7 @@ target 'NumberTileGame' do
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'BatchedBridge', # Fix for [#15049](https://github.com/facebook/react-native/issues/15049)
     'RCTText',
     'RCTNetwork',
     'RCTWebSocket', # needed for debugging
