@@ -308,9 +308,9 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 `justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start). See https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content for more details.
 
-| Type                                                                      | Required |
-| ------------------------------------------------------------------------- | -------- |
-| enum('flex-start', 'flex-end', 'center', 'space-between', 'space-around') | No       |
+| Type                                                                                      | Required |
+| ----------------------------------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly') | No       |
 
 ---
 
