@@ -4,15 +4,10 @@ title: ActionSheetIOS
 original_id: actionsheetios
 ---
 
-
-
 ### Methods
 
-- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
-
-
-
+* [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
+* [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
 
 ---
 
@@ -26,8 +21,6 @@ original_id: actionsheetios
 static showActionSheetWithOptions(options, callback)
 ```
 
-
-
 ---
 
 ### `showShareActionSheetWithOptions()`
@@ -35,6 +28,3 @@ static showActionSheetWithOptions(options, callback)
 ```javascript
 static showShareActionSheetWithOptions(options, failureCallback, successCallback)
 ```
-
-
-

@@ -57,7 +57,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 Now, from your JavaScript file you can call the method like this:
 
 ```javascript
-import { NativeModules } from 'react-native';
+import {NativeModules} from 'react-native';
 var CalendarManager = NativeModules.CalendarManager;
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 ```
@@ -72,12 +72,12 @@ The CalendarManager module is instantiated on the Objective-C side using a [Cale
 
 `RCT_EXPORT_METHOD` supports all standard JSON object types, such as:
 
-- string (`NSString`)
-- number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
-- boolean (`BOOL`, `NSNumber`)
-- array (`NSArray`) of any types from this list
-- object (`NSDictionary`) with string keys and values of any type from this list
-- function (`RCTResponseSenderBlock`)
+* string (`NSString`)
+* number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
+* boolean (`BOOL`, `NSNumber`)
+* array (`NSArray`) of any types from this list
+* object (`NSDictionary`) with string keys and values of any type from this list
+* function (`RCTResponseSenderBlock`)
 
 But it also works with any type that is supported by the `RCTConvert` class (see [`RCTConvert`](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details). The `RCTConvert` helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
@@ -111,16 +111,24 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 You would then call this from JavaScript by using either:
 
 ```javascript
-CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.getTime()); // passing date as number of milliseconds since Unix epoch
+CalendarManager.addEvent(
+  'Birthday Party',
+  '4 Privet Drive, Surrey',
+  date.getTime()
+); // passing date as number of milliseconds since Unix epoch
 ```
 
 or
 
 ```javascript
-CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.toISOString()); // passing date as ISO-8601 string
+CalendarManager.addEvent(
+  'Birthday Party',
+  '4 Privet Drive, Surrey',
+  date.toISOString()
+); // passing date as ISO-8601 string
 ```
 
-And both values would get converted correctly to the native `NSDate`.  A bad value, like an `Array`, would generate a helpful "RedBox" error message.
+And both values would get converted correctly to the native `NSDate`. A bad value, like an `Array`, would generate a helpful "RedBox" error message.
 
 As `CalendarManager.addEvent` method gets more and more complex, the number of arguments will grow. Some of them might be optional. In this case it's worth considering changing the API a little bit to accept a dictionary of event attributes, like this:
 
@@ -141,8 +149,8 @@ and call it from JavaScript:
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.getTime(),
-  description: '...'
-})
+  description: '...',
+});
 ```
 
 > **NOTE**: About array and map
@@ -174,12 +182,12 @@ CalendarManager.findEvents((error, events) => {
   } else {
     this.setState({events: events});
   }
-})
+});
 ```
 
 A native module should invoke its callback exactly once. It's okay to store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates - see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/master/React/Modules/RCTAlertManager.m) for an example. If the callback is never invoked, some memory is leaked. If both `onSuccess` and `onFail` callbacks are passed, you should only invoke one of them.
 
-If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h).  Right now this just passes an Error-shaped dictionary to JavaScript, but we would like to automatically generate real JavaScript `Error` objects in the future.
+If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h). Right now this just passes an Error-shaped dictionary to JavaScript, but we would like to automatically generate real JavaScript `Error` objects in the future.
 
 ## Promises
 
@@ -204,12 +212,12 @@ RCT_REMAP_METHOD(findEvents,
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```js
+```javascript
 async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
 
-    this.setState({ events });
+    this.setState({events});
   } catch (e) {
     console.error(e);
   }
@@ -220,7 +228,7 @@ updateEvents();
 
 ## Threading
 
-The native module should not have any assumptions about what thread it is being called on. React Native invokes native modules methods on a separate serial GCD queue, but this is an implementation detail and might change.  The `- (dispatch_queue_t)methodQueue` method allows the native module to specify which queue its methods should be run on.  For example, if it needs to use a main-thread-only iOS API, it should specify this via:
+The native module should not have any assumptions about what thread it is being called on. React Native invokes native modules methods on a separate serial GCD queue, but this is an implementation detail and might change. The `- (dispatch_queue_t)methodQueue` method allows the native module to specify which queue its methods should be run on. For example, if it needs to use a main-thread-only iOS API, it should specify this via:
 
 ```objectivec
 - (dispatch_queue_t)methodQueue
@@ -238,7 +246,7 @@ Similarly, if an operation may take a long time to complete, the native module s
 }
 ```
 
-The specified `methodQueue` will be shared by all of the methods in your module. If *just one* of your methods is long-running (or needs to be run on a different queue than the others for some reason), you can use `dispatch_async` inside the method to perform that particular method's code on another queue, without affecting the others:
+The specified `methodQueue` will be shared by all of the methods in your module. If _just one_ of your methods is long-running (or needs to be run on a different queue than the others for some reason), you can use `dispatch_async` inside the method to perform that particular method's code on another queue, without affecting the others:
 
 ```objectivec
 RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSenderBlock)callback)
@@ -257,6 +265,7 @@ RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSe
 > The `methodQueue` method will be called once when the module is initialized, and then retained by the bridge, so there is no need to retain the queue yourself, unless you wish to make use of it within your module. However, if you wish to share the same queue between multiple modules then you will need to ensure that you retain and return the same queue instance for each of them; merely returning a queue of the same name for each won't work.
 
 ## Dependency Injection
+
 The bridge initializes any registered RCTBridgeModules automatically, however you may wish to instantiate your own module instances (so you may inject dependencies, for example).
 
 You can do this by creating a class that implements the RCTBridgeDelegate Protocol, initializing an RCTBridge with the delegate as an argument and initialising a RCTRootView with the initialized bridge.
@@ -332,7 +341,6 @@ RCT_EXPORT_METHOD(updateStatusBarAnimation:(UIStatusBarAnimation)animation
 
 Your enum will then be automatically unwrapped using the selector provided (`integerValue` in the above example) before being passed to your exported method.
 
-
 ## Sending Events to JavaScript
 
 The native module can signal events to JavaScript without being invoked directly. The preferred way to do this is to subclass `RCTEventEmitter`, implement `supportedEvents` and call `self sendEventWithName`:
@@ -385,9 +393,11 @@ const subscription = calendarManagerEmitter.addListener(
 // Don't forget to unsubscribe, typically in componentWillUnmount
 subscription.remove();
 ```
+
 For more examples of sending events to JavaScript, see [`RCTLocationObserver`](https://github.com/facebook/react-native/blob/master/Libraries/Geolocation/RCTLocationObserver.m).
 
 ### Optimizing for zero listeners
+
 You will receive a warning if you expend resources unnecessarily by emitting an event while there are no listeners. To avoid this, and to optimize your module's workload (e.g. by unsubscribing from upstream notifications or pausing background tasks), you can override `startObserving` and `stopObserving` in your `RCTEventEmitter` subclass.
 
 ```objectivec
@@ -416,6 +426,7 @@ You will receive a warning if you expend resources unnecessarily by emitting an 
   }
 }
 ```
+
 ## Exporting Swift
 
 Swift doesn't have support for macros so exposing it to React Native requires a bit more setup but works relatively the same.
@@ -432,7 +443,8 @@ class CalendarManager: NSObject {
   func addEvent(name: String, location: String, date: NSNumber) -> Void {
     // Date is ready to use!
   }
-  
+
+  @objc
   func constantsToExport() -> [String: Any]! {
     return ["someKey": "someValue"]
   }

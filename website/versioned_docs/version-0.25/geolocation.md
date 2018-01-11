@@ -4,31 +4,24 @@ title: Geolocation
 original_id: geolocation
 ---
 
-The Geolocation API follows the web spec:
-https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
+The Geolocation API follows the web spec: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
 
 ### iOS
-You need to include the `NSLocationWhenInUseUsageDescription` key
-in Info.plist to enable geolocation. Geolocation is enabled by default
-when you create a project with `react-native init`.
+
+You need to include the `NSLocationWhenInUseUsageDescription` key in Info.plist to enable geolocation. Geolocation is enabled by default when you create a project with `react-native init`.
 
 ### Android
-To request access to location, you need to add the following line to your
-app's `AndroidManifest.xml`:
+
+To request access to location, you need to add the following line to your app's `AndroidManifest.xml`:
 
 `<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
 
-
-
 ### Methods
 
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
-
-
-
+* [`getCurrentPosition`](geolocation.md#getcurrentposition)
+* [`watchPosition`](geolocation.md#watchposition)
+* [`clearWatch`](geolocation.md#clearwatch)
+* [`stopObserving`](geolocation.md#stopobserving)
 
 ---
 
@@ -42,14 +35,7 @@ app's `AndroidManifest.xml`:
 static getCurrentPosition(geo_success, geo_error?, geo_options?)
 ```
 
-
-Invokes the success callback once with the latest location info.  Supported
-options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool)
-On Android, this can return almost immediately if the location is cached or
-request an update, which might take a while.
-
-
-
+Invokes the success callback once with the latest location info. Supported options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool) On Android, this can return almost immediately if the location is cached or request an update, which might take a while.
 
 ---
 
@@ -59,12 +45,7 @@ request an update, which might take a while.
 static watchPosition(success, error?, options?)
 ```
 
-
-Invokes the success callback whenever the location changes.  Supported
-options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilter(m)
-
-
-
+Invokes the success callback whenever the location changes. Supported options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilter(m)
 
 ---
 
@@ -74,8 +55,6 @@ options: timeout (ms), maximumAge (ms), enableHighAccuracy (bool), distanceFilte
 static clearWatch(watchID)
 ```
 
-
-
 ---
 
 ### `stopObserving()`
@@ -83,6 +62,3 @@ static clearWatch(watchID)
 ```javascript
 static stopObserving()
 ```
-
-
-

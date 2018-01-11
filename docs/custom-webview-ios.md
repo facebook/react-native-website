@@ -94,7 +94,7 @@ RCT_EXPORT_VIEW_PROPERTY(finalUrl, NSString)
 
 ### Extending Existing Events
 
-You should refer to  [RCTWebView.m](https://github.com/facebook/react-native/blob/master/React/Views/RCTWebView.m) in the React Native codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
+You should refer to [RCTWebView.m](https://github.com/facebook/react-native/blob/master/React/Views/RCTWebView.m) in the React Native codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
 
 By default, most methods aren't exposed from RCTWebView. If you need to expose them, you need to create an [Objective C category](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html), and then expose all the methods you need to use.
 
@@ -144,22 +144,21 @@ To use your custom web view, you'll need to create a class for it. Your class mu
 
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 
-```js
-
-import React, { Component, PropTypes } from 'react';
-import { WebView, requireNativeComponent, NativeModules } from 'react-native';
-const { CustomWebViewManager } = NativeModules; 
+```javascript
+import React, {Component, PropTypes} from 'react';
+import {WebView, requireNativeComponent, NativeModules} from 'react-native';
+const {CustomWebViewManager} = NativeModules;
 
 export default class CustomWebView extends Component {
-  static propTypes = WebView.propTypes
+  static propTypes = WebView.propTypes;
 
   render() {
     return (
       <WebView
         {...this.props}
-        nativeConfig={{ 
+        nativeConfig={{
           component: RCTCustomWebView,
-          viewManager: CustomWebViewManager
+          viewManager: CustomWebViewManager,
         }}
       />
     );
@@ -171,7 +170,6 @@ const RCTCustomWebView = requireNativeComponent(
   CustomWebView,
   WebView.extraNativeComponentConfig
 );
-
 ```
 
 If you want to add custom props to your native component, you can use `nativeConfig.props` on the web view. For iOS, you should also set the `nativeConfig.viewManager` prop with your custom WebView ViewManager as in the example above.
@@ -180,7 +178,7 @@ For events, the event handler must always be set to a function. This means it is
 
 If you are unsure how something should be implemented from the JS side, look at [WebView.ios.js](https://github.com/facebook/react-native/blob/master/Libraries/Components/WebView/WebView.ios.js) in the React Native source.
 
-```js
+```javascript
 export default class CustomWebView extends Component {
   static propTypes = {
     ...WebView.propTypes,
@@ -193,9 +191,9 @@ export default class CustomWebView extends Component {
   };
 
   _onNavigationCompleted = (event) => {
-    const { onNavigationCompleted } = this.props;
+    const {onNavigationCompleted} = this.props;
     onNavigationCompleted && onNavigationCompleted(event);
-  }
+  };
 
   render() {
     return (
@@ -207,7 +205,7 @@ export default class CustomWebView extends Component {
             finalUrl: this.props.finalUrl,
             onNavigationCompleted: this._onNavigationCompleted,
           },
-          viewManager: CustomWebViewManager
+          viewManager: CustomWebViewManager,
         }}
       />
     );
@@ -219,7 +217,7 @@ Just like for regular native components, you must provide all your prop types in
 
 For example, if you wanted to add an internal event handler called `onScrollToBottom`, you would use,
 
-```js
+```javascript
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,

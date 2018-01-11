@@ -4,6 +4,7 @@ title: Accessibility
 ---
 
 ## Native App Accessibility (iOS and Android)
+
 Both iOS and Android provide APIs for making apps accessible to people with disabilities. In addition, both platforms provide bundled assistive technologies, like the screen readers VoiceOver (iOS) and TalkBack (Android) for the visually impaired. Similarly, in React Native we have included APIs designed to provide developers with support for making apps more accessible. Take note, iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
 In addition to this documentation, you might find [this blog post](https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/) about React Native accessibility to be useful.
@@ -27,8 +28,6 @@ On Android, ‘accessible={true}’ property for a react-native View will be tra
 
 In the above example, we can't get accessibility focus separately on 'text one' and 'text two'. Instead we get focus on a parent view with 'accessible' property.
 
-
-
 #### accessibilityLabel (iOS, Android)
 
 When a view is marked as accessible, it is a good practice to set an accessibilityLabel on the view, so that people who use VoiceOver know what element they have selected. VoiceOver will read this string when a user selects the associated element.
@@ -36,7 +35,10 @@ When a view is marked as accessible, it is a good practice to set an accessibili
 To use, set the `accessibilityLabel` property to a custom string on your View:
 
 ```javascript
-<TouchableOpacity accessible={true} accessibilityLabel={'Tap me!'} onPress={this._onPress}>
+<TouchableOpacity
+  accessible={true}
+  accessibilityLabel={'Tap me!'}
+  onPress={this._onPress}>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
   </View>
@@ -57,11 +59,11 @@ To use, set the `accessibilityTraits` property to one of (or an array of) access
 * **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 * **search** Used when the text field element should also be treated as a search field.
 * **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
-* **selected**  Used when the element is selected. For example, a selected row in a table or a selected button within a segmented control.
+* **selected** Used when the element is selected. For example, a selected row in a table or a selected button within a segmented control.
 * **plays** Used when the element plays its own sound when activated.
 * **key** Used when the element acts as a keyboard key.
 * **text** Used when the element should be treated as static text that cannot change.
-* **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.  For example, when Weather first launches, the element with today's weather conditions is marked with this trait.
+* **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches. For example, when Weather first launches, the element with today's weather conditions is marked with this trait.
 * **disabled** Used when the control is not enabled and does not respond to user input.
 * **frequentUpdates** Used when the element frequently updates its label or value, but too often to send notifications. Allows an accessibility client to poll for changes. A stopwatch would be an example.
 * **startsMedia** Used when activating an element starts a media session (e.g. playing a movie, recording audio) that should not be interrupted by output from an assistive technology, like VoiceOver.
@@ -73,8 +75,7 @@ To use, set the `accessibilityTraits` property to one of (or an array of) access
 
 A Boolean value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver.
 
-For example, in a window that contains sibling views `A` and `B`, setting `accessibilityViewIsModal` to `true` on view `B` causes VoiceOver to ignore the elements in the view `A`.
-On the other hand, if view `B` contains a child view `C` and you set `accessibilityViewIsModal` to `true` on view `C`, VoiceOver does not ignore the elements in view `A`.
+For example, in a window that contains sibling views `A` and `B`, setting `accessibilityViewIsModal` to `true` on view `B` causes VoiceOver to ignore the elements in the view `A`. On the other hand, if view `B` contains a child view `C` and you set `accessibilityViewIsModal` to `true` on view `C`, VoiceOver does not ignore the elements in view `A`.
 
 #### onAccessibilityTap (iOS)
 
@@ -86,7 +87,7 @@ Assign this property to a custom function which will be called when someone perf
 
 #### accessibilityComponentType (Android)
 
-In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. For instances, we support ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’ and so on.
+In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
 
 ```javascript
 <TouchableWithoutFeedback accessibilityComponentType=”button”
@@ -118,7 +119,7 @@ When components dynamically change, we want TalkBack to alert the end user. This
 </Text>
 ```
 
-In the above example method _addOne changes the state.count variable. As soon as an end user clicks the TouchableWithoutFeedback, TalkBack reads text in the Text view because of its 'accessibilityLiveRegion=”polite”' property.
+In the above example method \_addOne changes the state.count variable. As soon as an end user clicks the TouchableWithoutFeedback, TalkBack reads text in the Text view because of its 'accessibilityLiveRegion=”polite”' property.
 
 #### importantForAccessibility (Android)
 
@@ -164,7 +165,6 @@ _onPress: function() {
 ```
 
 In the above example we've created a custom radio button that now behaves like a native one. More specifically, TalkBack now correctly announces changes to the radio button selection.
-
 
 ## Testing VoiceOver Support (iOS)
 

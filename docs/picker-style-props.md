@@ -7,10 +7,8 @@ title: Picker Style Props
 
 ### Props
 
-- [View Style Props...](view-style-props.md)
-- [`color`](picker-style-props.md#color)
-
-
+* [View Style Props...](view-style-props.md)
+* [`color`](picker-style-props.md#color)
 
 ---
 
@@ -20,8 +18,6 @@ title: Picker Style Props
 
 ### `color`
 
-
-
-| Type | Required |
-| - | - |
-| [color](color.md) | No |
+| Type              | Required |
+| ----------------- | -------- |
+| [color](color.md) | No       |

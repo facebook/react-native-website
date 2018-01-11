@@ -3,9 +3,8 @@ id: version-0.28-image
 title: Image
 original_id: image
 ---
-A React component for displaying different types of images,
-including network images, static resources, temporary local images, and
-images from local disk, such as the camera roll.
+
+A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
 
 Example usage:
 
@@ -28,32 +27,26 @@ renderImages: function() {
 
 ### Props
 
-- [`testID`](image.md#testid)
-- [`onLayout`](image.md#onlayout)
-- [`onLoadEnd`](image.md#onloadend)
-- [`onLoadStart`](image.md#onloadstart)
-- [`resizeMode`](image.md#resizemode)
-- [`source`](image.md#source)
-- [`style`](image.md#style)
-- [`onLoad`](image.md#onload)
-- [`accessibilityLabel`](image.md#accessibilitylabel)
-- [`accessible`](image.md#accessible)
-- [`blurRadius`](image.md#blurradius)
-- [`capInsets`](image.md#capinsets)
-- [`defaultSource`](image.md#defaultsource)
-- [`onError`](image.md#onerror)
-- [`onProgress`](image.md#onprogress)
-
-
-
+* [`testID`](image.md#testid)
+* [`onLayout`](image.md#onlayout)
+* [`onLoadEnd`](image.md#onloadend)
+* [`onLoadStart`](image.md#onloadstart)
+* [`resizeMode`](image.md#resizemode)
+* [`source`](image.md#source)
+* [`style`](image.md#style)
+* [`onLoad`](image.md#onload)
+* [`accessibilityLabel`](image.md#accessibilitylabel)
+* [`accessible`](image.md#accessible)
+* [`blurRadius`](image.md#blurradius)
+* [`capInsets`](image.md#capinsets)
+* [`defaultSource`](image.md#defaultsource)
+* [`onError`](image.md#onerror)
+* [`onProgress`](image.md#onprogress)
 
 ### Methods
 
-- [`getSize`](image.md#getsize)
-- [`prefetch`](image.md#prefetch)
-
-
-
+* [`getSize`](image.md#getsize)
+* [`prefetch`](image.md#prefetch)
 
 ---
 
@@ -63,29 +56,21 @@ renderImages: function() {
 
 ### `testID`
 
-A unique identifier for this element to be used in UI Automation
-testing scripts.
+A unique identifier for this element to be used in UI Automation testing scripts.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `onLayout`
 
-Invoked on mount and layout changes with
-`{nativeEvent: {layout: {x, y, width, height}}}`.
+Invoked on mount and layout changes with `{nativeEvent: {layout: {x, y, width, height}}}`.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -93,12 +78,9 @@ Invoked on mount and layout changes with
 
 Invoked when load either succeeds or fails
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -106,37 +88,25 @@ Invoked when load either succeeds or fails
 
 Invoked on load start
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw
-image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions.
 
-'cover': Scale the image uniformly (maintain the image's aspect ratio)
-so that both dimensions (width and height) of the image will be equal
-to or larger than the corresponding dimension of the view (minus padding).
+'cover': Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
-'contain': Scale the image uniformly (maintain the image's aspect ratio)
-so that both dimensions (width and height) of the image will be equal to
-or less than the corresponding dimension of the view (minus padding).
+'contain': Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
 
-'stretch': Scale width and height independently, This may change the
-aspect ratio of the src.
+'stretch': Scale width and height independently, This may change the aspect ratio of the src.
 
-| Type | Required |
-| - | - |
-| enum('cover', 'contain', 'stretch') | No |
-
-
-
+| Type                                | Required |
+| ----------------------------------- | -------- |
+| enum('cover', 'contain', 'stretch') | No       |
 
 ---
 
@@ -144,77 +114,62 @@ aspect ratio of the src.
 
 The image source (either a remote URL or a local file resource).
 
-| Type | Required |
-| - | - |
-| ImageSourcePropType | No |
-
-
-
+| Type                | Required |
+| ------------------- | -------- |
+| ImageSourcePropType | No       |
 
 ---
 
 ### `style`
 
+| Type  | Required |
+| ----- | -------- |
+| style | No       |
 
+* [Layout Props...](layout-props.md#props)
 
-| Type | Required |
-| - | - |
-| style | No |
+* [Shadow Props...](shadow-props.md#props)
 
+* [Transforms...](transforms.md#props)
 
-  - [Layout Props...](layout-props.md#props)
+* **`borderTopRightRadius`**: number
 
-  - [Shadow Props...](shadow-props.md#props)
+* **`backfaceVisibility`**: enum('visible', 'hidden')
 
-  - [Transforms...](transforms.md#props)
+* **`borderBottomLeftRadius`**: number
 
-  - **`borderTopRightRadius`**: number
+* **`borderBottomRightRadius`**: number
 
-  - **`backfaceVisibility`**: enum('visible', 'hidden')
+* **`borderColor`**: [color](colors.md)
 
-  - **`borderBottomLeftRadius`**: number
+* **`borderRadius`**: number
 
-  - **`borderBottomRightRadius`**: number
+* **`borderTopLeftRadius`**: number
 
-  - **`borderColor`**: [color](colors.md)
+* **`backgroundColor`**: [color](colors.md)
 
-  - **`borderRadius`**: number
+* **`borderWidth`**: number
 
-  - **`borderTopLeftRadius`**: number
+* **`opacity`**: number
 
-  - **`backgroundColor`**: [color](colors.md)
+* **`overflow`**: enum('visible', 'hidden')
 
-  - **`borderWidth`**: number
+* **`resizeMode`**: Object.keys(ImageResizeMode)
 
-  - **`opacity`**: number
+* **`tintColor`**: [color](colors.md)
 
-  - **`overflow`**: enum('visible', 'hidden')
+  Changes the color of all the non-transparent pixels to the tintColor.
 
-  - **`resizeMode`**: Object.keys(ImageResizeMode)
+* **`overlayColor`**: string (_Android_)
 
-  - **`tintColor`**: [color](colors.md)
+  When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 
-    Changes the color of all the non-transparent pixels to the tintColor.
+  * Certain resize modes, such as 'contain'
+  * Animated GIFs
 
-  - **`overlayColor`**: string (_Android_)
+  A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
-    When the image has rounded corners, specifying an overlayColor will
-    cause the remaining space in the corners to be filled with a solid color.
-    This is useful in cases which are not supported by the Android
-    implementation of rounded corners:
-      - Certain resize modes, such as 'contain'
-      - Animated GIFs
-    
-    A typical way to use this prop is with images displayed on a solid
-    background and setting the `overlayColor` to the same color
-    as the background.
-    
-    For details of how this works under the hood, see
-    http://frescolib.org/rounded-corners-and-circles.md
-    
-    
-
-
+  For details of how this works under the hood, see http://frescolib.org/rounded-corners-and-circles.md
 
 ---
 
@@ -222,27 +177,19 @@ The image source (either a remote URL or a local file resource).
 
 Invoked when load completes successfully
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `accessibilityLabel`
 
-The text that's read by the screen reader when the user interacts with
-the image.
+The text that's read by the screen reader when the user interacts with the image.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| string | No | iOS  |
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
 
 ---
 
@@ -250,13 +197,9 @@ the image.
 
 When true, indicates the image is an accessibility element.
 
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
@@ -264,31 +207,19 @@ When true, indicates the image is an accessibility element.
 
 blurRadius: the blur radius of the blur filter added to the image
 
-
-| Type | Required | Platform |
-| - | - | - |
-| number | No | iOS  |
-
-
-
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
 
 ---
 
 ### `capInsets`
 
-When the image is resized, the corners of the size specified
-by capInsets will stay a fixed size, but the center content and borders
-of the image will be stretched.  This is useful for creating resizable
-rounded buttons, shadows, and other resizable assets.  More info on
-[Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets)
+When the image is resized, the corners of the size specified by capInsets will stay a fixed size, but the center content and borders of the image will be stretched. This is useful for creating resizable rounded buttons, shadows, and other resizable assets. More info on [Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets)
 
-
-| Type | Required | Platform |
-| - | - | - |
-| object: {top: number, left: number, bottom: number, right: number} | No | iOS  |
-
-
-
+| Type                                                               | Required | Platform |
+| ------------------------------------------------------------------ | -------- | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
 
 ---
 
@@ -296,13 +227,9 @@ rounded buttons, shadows, and other resizable assets.  More info on
 
 A static image to display while loading the image source.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| object: {uri: string,width: number,height: number,scale: number}, ,number | No | iOS  |
-
-
-
+| Type                                                                      | Required | Platform |
+| ------------------------------------------------------------------------- | -------- | -------- |
+| object: {uri: string,width: number,height: number,scale: number}, ,number | No       | iOS      |
 
 ---
 
@@ -310,13 +237,9 @@ A static image to display while loading the image source.
 
 Invoked on load error with `{nativeEvent: {error}}`
 
-
-| Type | Required | Platform |
-| - | - | - |
-| function | No | iOS  |
-
-
-
+| Type     | Required | Platform |
+| -------- | -------- | -------- |
+| function | No       | iOS      |
 
 ---
 
@@ -324,15 +247,9 @@ Invoked on load error with `{nativeEvent: {error}}`
 
 Invoked on download progress with `{nativeEvent: {loaded, total}}`
 
-
-| Type | Required | Platform |
-| - | - | - |
-| function | No | iOS  |
-
-
-
-
-
+| Type     | Required | Platform |
+| -------- | -------- | -------- |
+| function | No       | iOS      |
 
 ## Methods
 
@@ -342,17 +259,9 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`
 static getSize(uri: string, success: function, failure: function)
 ```
 
-Retrieve the width and height (in pixels) of an image prior to displaying it.
-This method can fail if the image cannot be found, or fails to download.
+Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
 
-In order to retrieve the image dimensions, the image may first need to be
-loaded or downloaded, after which it will be cached. This means that in
-principle you could use this method to preload images, however it is not
-optimized for that purpose, and may in future be implemented in a way that
-does not fully load/download the image data. A proper, supported way to
-preload images will be provided as a separate API.
-
-
+In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
 
 ---
 
@@ -362,8 +271,4 @@ preload images will be provided as a separate API.
 static prefetch(url: string)
 ```
 
-Prefetches a remote image for later use by downloading it to the disk
-cache
-
-
-
+Prefetches a remote image for later use by downloading it to the disk cache

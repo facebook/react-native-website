@@ -110,7 +110,7 @@ public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
 
 You can trigger the event in your web view client. You can hook existing handlers if your events are based on them.
 
-You should refer to  [ReactWebViewManager.java](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/views/webview/ReactWebViewManager.java) in the React Native codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
+You should refer to [ReactWebViewManager.java](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/views/webview/ReactWebViewManager.java) in the React Native codebase to see what handlers are available and how they are implemented. You can extend any methods here to provide extra functionality.
 
 ```java
 public class NavigationCompletedEvent extends Event<NavigationCompletedEvent> {
@@ -178,19 +178,16 @@ To use your custom web view, you'll need to create a class for it. Your class mu
 
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 
-```js
-import React, { Component, PropTypes } from 'react';
-import { WebView, requireNativeComponent } from 'react-native';
+```javascript
+import React, {Component, PropTypes} from 'react';
+import {WebView, requireNativeComponent} from 'react-native';
 
 export default class CustomWebView extends Component {
-  static propTypes = WebView.propTypes
+  static propTypes = WebView.propTypes;
 
   render() {
     return (
-      <WebView
-        {...this.props}
-        nativeConfig={{ component: RCTCustomWebView }}
-      />
+      <WebView {...this.props} nativeConfig={{component: RCTCustomWebView}} />
     );
   }
 }
@@ -221,9 +218,9 @@ export default class CustomWebView extends Component {
   };
 
   _onNavigationCompleted = (event) => {
-    const { onNavigationCompleted } = this.props;
+    const {onNavigationCompleted} = this.props;
     onNavigationCompleted && onNavigationCompleted(event);
-  }
+  };
 
   render() {
     return (
@@ -234,7 +231,7 @@ export default class CustomWebView extends Component {
           props: {
             finalUrl: this.props.finalUrl,
             onNavigationCompleted: this._onNavigationCompleted,
-          }
+          },
         }}
       />
     );
@@ -246,7 +243,7 @@ Just like for regular native components, you must provide all your prop types in
 
 For example, if you wanted to add an internal event handler called `onScrollToBottom`, you would use,
 
-```js
+```javascript
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,

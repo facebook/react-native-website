@@ -5,8 +5,7 @@ title: Navigating Between Screens
 
 Mobile apps are rarely made up of a single screen. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator.
 
-This guide covers the various navigation components available in React Native.
-If you are just getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides an easy to use navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both iOS and Android. As this is a JavaScript implementation, it provides the greatest amount of configurability as well as flexibility when integrating with state management libraries such as [redux](https://reactnavigation.org/docs/guides/redux).
+This guide covers the various navigation components available in React Native. If you are just getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides an easy to use navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both iOS and Android. As this is a JavaScript implementation, it provides the greatest amount of configurability as well as flexibility when integrating with state management libraries such as [redux](https://reactnavigation.org/docs/guides/redux).
 
 If you're only targeting iOS, you may want to also check out [NavigatorIOS](navigation.md#navigatorios) as a way of providing a native look and feel with minimal configuration, as it provides a wrapper around the native `UINavigationController` class. This component will not work on Android, however.
 
@@ -66,14 +65,14 @@ For a complete intro to React Navigation, follow the [React Navigation Getting S
 
 `NavigatorIOS` looks and feels just like [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/), because it is actually built on top of it.
 
-![](/react-native/docs/assets/NavigationStack-NavigatorIOS.png)
+![](/react-native/docs/assets/NavigationStack-NavigatorIOS.gif)
 
 ```javascript
 <NavigatorIOS
   initialRoute={{
     component: MyScene,
     title: 'My Initial Scene',
-    passProps: { myProp: 'foo' },
+    passProps: {myProp: 'foo'},
   }}
 />
 ```
@@ -85,7 +84,7 @@ As `NavigatorIOS` leverages native UIKit navigation, it will automatically rende
 ```javascript
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, NavigatorIOS, Text, View } from 'react-native';
+import {Button, NavigatorIOS, Text, View} from 'react-native';
 
 export default class NavigatorIOSApp extends React.Component {
   render() {
@@ -98,42 +97,42 @@ export default class NavigatorIOSApp extends React.Component {
         }}
         style={{flex: 1}}
       />
-    )
+    );
   }
 }
 
 class MyScene extends React.Component {
   static propTypes = {
     route: PropTypes.shape({
-      title: PropTypes.string.isRequired
+      title: PropTypes.string.isRequired,
     }),
     navigator: PropTypes.object.isRequired,
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
     this._onForward = this._onForward.bind(this);
   }
-  
+
   _onForward() {
     let nextIndex = ++this.props.index;
     this.props.navigator.push({
       component: MyScene,
       title: 'Scene ' + nextIndex,
-      passProps: {index: nextIndex}
+      passProps: {index: nextIndex},
     });
   }
 
   render() {
     return (
       <View>
-        <Text>Current Scene: { this.props.title }</Text>
+        <Text>Current Scene: {this.props.title}</Text>
         <Button
           onPress={this._onForward}
           title="Tap me to load the next scene"
         />
       </View>
-    )
+    );
   }
 }
 ```

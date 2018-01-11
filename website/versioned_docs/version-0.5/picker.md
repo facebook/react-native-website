@@ -33,8 +33,7 @@ Renders the native picker component on iOS and Android. Example:
 
 ### `onValueChange`
 
-Callback for when an item is selected. This is called with the following
-parameters:
+Callback for when an item is selected. This is called with the following parameters:
 
 * `itemValue`: the `value` prop of the item that was selected
 * `itemPosition`: the index of the selected item in this picker
@@ -57,8 +56,7 @@ Value matching value of one of the items. Can be a string or an integer.
 
 ### `enabled`
 
-If set to false, the picker will be disabled, i.e. the user will not be able to
-make a selection.
+If set to false, the picker will be disabled, i.e. the user will not be able to make a selection.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
@@ -68,8 +66,7 @@ make a selection.
 
 ### `mode`
 
-On Android, specifies how to display the selection items when the user taps on
-the picker:
+On Android, specifies how to display the selection items when the user taps on the picker:
 
 * 'dialog': Show a modal dialog. This is the default.
 * 'dropdown': Shows a dropdown anchored to the picker view
@@ -82,8 +79,7 @@ the picker:
 
 ### `prompt`
 
-Prompt string for this picker, used on Android in dialog mode as the title of
-the dialog.
+Prompt string for this picker, used on Android in dialog mode as the title of the dialog.
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |

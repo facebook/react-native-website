@@ -4,17 +4,12 @@ title: ImagePickerIOS
 original_id: imagepickerios
 ---
 
-
-
 ### Methods
 
-- [`canRecordVideos`](imagepickerios.md#canrecordvideos)
-- [`canUseCamera`](imagepickerios.md#canusecamera)
-- [`openCameraDialog`](imagepickerios.md#opencameradialog)
-- [`openSelectDialog`](imagepickerios.md#openselectdialog)
-
-
-
+* [`canRecordVideos`](imagepickerios.md#canrecordvideos)
+* [`canUseCamera`](imagepickerios.md#canusecamera)
+* [`openCameraDialog`](imagepickerios.md#opencameradialog)
+* [`openSelectDialog`](imagepickerios.md#openselectdialog)
 
 ---
 
@@ -25,38 +20,29 @@ original_id: imagepickerios
 ### `canRecordVideos()`
 
 ```javascript
-ImagePickerIOS.canRecordVideos(callback)
+ImagePickerIOS.canRecordVideos(callback);
 ```
-
-
 
 ---
 
 ### `canUseCamera()`
 
 ```javascript
-ImagePickerIOS.canUseCamera(callback)
+ImagePickerIOS.canUseCamera(callback);
 ```
-
-
 
 ---
 
 ### `openCameraDialog()`
 
 ```javascript
-ImagePickerIOS.openCameraDialog(config, successCallback, cancelCallback)
+ImagePickerIOS.openCameraDialog(config, successCallback, cancelCallback);
 ```
-
-
 
 ---
 
 ### `openSelectDialog()`
 
 ```javascript
-ImagePickerIOS.openSelectDialog(config, successCallback, cancelCallback)
+ImagePickerIOS.openSelectDialog(config, successCallback, cancelCallback);
 ```
-
-
-

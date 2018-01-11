@@ -18,26 +18,22 @@ Example:
 
 ```javascript
 BackHandler.addEventListener('hardwareBackPress', function() {
- // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
- // Typically you would use the navigator here to go to the last state.
+  // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
+  // Typically you would use the navigator here to go to the last state.
 
- if (!this.onMainScreen()) {
-   this.goBack();
-   return true;
- }
- return false;
+  if (!this.onMainScreen()) {
+    this.goBack();
+    return true;
+  }
+  return false;
 });
 ```
 
-
 ### Methods
 
-- [`exitApp`](backhandler.md#exitapp)
-- [`addEventListener`](backhandler.md#addeventlistener)
-- [`removeEventListener`](backhandler.md#removeeventlistener)
-
-
-
+* [`exitApp`](backhandler.md#exitapp)
+* [`addEventListener`](backhandler.md#addeventlistener)
+* [`removeEventListener`](backhandler.md#removeeventlistener)
 
 ---
 
@@ -48,28 +44,21 @@ BackHandler.addEventListener('hardwareBackPress', function() {
 ### `exitApp()`
 
 ```javascript
-BackHandler.exitApp()
+BackHandler.exitApp();
 ```
-
-
 
 ---
 
 ### `addEventListener()`
 
 ```javascript
-BackHandler.addEventListener(eventName, handler)
+BackHandler.addEventListener(eventName, handler);
 ```
-
-
 
 ---
 
 ### `removeEventListener()`
 
 ```javascript
-BackHandler.removeEventListener(eventName, handler)
+BackHandler.removeEventListener(eventName, handler);
 ```
-
-
-

@@ -40,7 +40,7 @@
     "linkAppStore": "https://itunes.apple.com/it/app/f8/id853467066?l=en&mt=8",
     "linkPlayStore":
       "https://play.google.com/store/apps/details?id=com.facebook.f8&hl=en",
-    "infoLink": "http://makeitopen.com/tutorials/building-the-f8-app/planning/",
+    "infoLink": "http://makeitopen.com/docs/en/1-1-planning.html",
     "infoTitle": "Tutorial: Building the F8 conference app",
     "pinned": true
   },
@@ -58,7 +58,7 @@
   {
     "name": "Skype",
     "icon":
-      "http://is1.mzstatic.com/image/thumb/Purple118/v4/9c/86/19/9c861944-900e-2d61-18b5-9250b3840277/source/175x175bb.jpg",
+      "skype.png",
     "linkAppStore":
       "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
     "linkPlayStore":
@@ -269,6 +269,15 @@
       "https://play.google.com/store/apps/details?id=com.wix.android&hl=en",
     "infoLink": "https://www.youtube.com/watch?v=abSNo2P9mMM",
     "infoTitle": "Building a React Native App for 80 Million Users",
+    "pinned": false
+  },
+  {
+    "name": "adidas GLITCH",
+    "icon": "glitch.png",
+    "linkAppStore": "https://itunes.apple.com/gb/app/adidas-glitch-interchangeable/id1166181522?mt=8&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-IPHONE",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.adidas.glitch&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-ANDROID",
+    "infoLink": "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
+    "infoTitle": "Building Adidas GLITCH app with React Native",
     "pinned": false
   }
 ]

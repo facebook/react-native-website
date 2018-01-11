@@ -2,16 +2,16 @@
 id: segmentedcontrolios
 title: SegmentedControlIOS
 ---
+
 Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 #### Programmatically changing selected index
 
-The selected index can be changed on the fly by assigning the
-selectedIndex prop to a state variable, then changing that variable.
-Note that the state variable would need to be updated as the user
-selects a value and changes the index, as shown in the example below.
+The selected index can be changed on the fly by assigning the selectedIndex prop to a state variable, then changing that variable. Note that the state variable would need to be updated as the user selects a value and changes the index, as shown in the example below.
 
-````
+## Example
+
+```
 <SegmentedControlIOS
   values={['One', 'Two']}
   selectedIndex={this.state.selectedIndex}
@@ -19,11 +19,14 @@ selects a value and changes the index, as shown in the example below.
     this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
   }}
 />
-````
+```
+
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`enabled`](segmentedcontrolios.md#enabled)
 - [`momentary`](segmentedcontrolios.md#momentary)
 - [`onChange`](segmentedcontrolios.md#onchange)
@@ -31,11 +34,6 @@ selects a value and changes the index, as shown in the example below.
 - [`selectedIndex`](segmentedcontrolios.md#selectedindex)
 - [`tintColor`](segmentedcontrolios.md#tintcolor)
 - [`values`](segmentedcontrolios.md#values)
-
-
-
-
-
 
 ---
 
@@ -45,57 +43,45 @@ selects a value and changes the index, as shown in the example below.
 
 ### `enabled`
 
-If false the user won't be able to interact with the control.
-Default value is true.
+If false the user won't be able to interact with the control. Default value is true.
 
 | Type | Required |
-| - | - |
-| bool | No |
+| ---- | -------- |
+| bool | No       |
 
-
-
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
 
 ---
 
 ### `momentary`
 
-If true, then selecting a segment won't persist visually.
-The `onValueChange` callback will still work as expected.
+If true, then selecting a segment won't persist visually. The `onValueChange` callback will still work as expected.
 
 | Type | Required |
-| - | - |
-| bool | No |
+| ---- | -------- |
+| bool | No       |
 
-
-
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
 
 ---
 
 ### `onChange`
 
-Callback that is called when the user taps a segment;
-passes the event as an argument
+Callback that is called when the user taps a segment; passes the event as an argument
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onValueChange`
 
-Callback that is called when the user taps a segment;
-passes the segment's value as an argument
+Callback that is called when the user taps a segment; passes the segment's value as an argument
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -103,12 +89,9 @@ passes the segment's value as an argument
 
 The index in `props.values` of the segment to be (pre)selected.
 
-| Type | Required |
-| - | - |
-| number | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -116,12 +99,11 @@ The index in `props.values` of the segment to be (pre)selected.
 
 Accent color of the control.
 
-| Type | Required |
-| - | - |
-| string | No |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
-
-
+<center><img src="/react-native/docs/assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
 
 ---
 
@@ -129,12 +111,6 @@ Accent color of the control.
 
 The labels for the control's segment buttons, in order.
 
-| Type | Required |
-| - | - |
-| array of string | No |
-
-
-
-
-
-
+| Type            | Required |
+| --------------- | -------- |
+| array of string | No       |

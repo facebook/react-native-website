@@ -4,33 +4,24 @@ title: AsyncStorage
 original_id: asyncstorage
 ---
 
-AsyncStorage is a simple, asynchronous, persistent, key-value storage
-system that is global to the app.  It should be used instead of LocalStorage.
+AsyncStorage is a simple, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
-It is recommended that you use an abstraction on top of AsyncStorage instead
-of AsyncStorage directly for anything more than light usage since it
-operates globally.
+It is recommended that you use an abstraction on top of AsyncStorage instead of AsyncStorage directly for anything more than light usage since it operates globally.
 
-This JS code is a simple facade over the native iOS implementation to provide
-a clear JS API, real Error objects, and simple non-multi functions. Each
-method returns a `Promise` object.
-
+This JS code is a simple facade over the native iOS implementation to provide a clear JS API, real Error objects, and simple non-multi functions. Each method returns a `Promise` object.
 
 ### Methods
 
-- [`getItem`](asyncstorage.md#getitem)
-- [`setItem`](asyncstorage.md#setitem)
-- [`removeItem`](asyncstorage.md#removeitem)
-- [`mergeItem`](asyncstorage.md#mergeitem)
-- [`clear`](asyncstorage.md#clear)
-- [`getAllKeys`](asyncstorage.md#getallkeys)
-- [`multiGet`](asyncstorage.md#multiget)
-- [`multiSet`](asyncstorage.md#multiset)
-- [`multiRemove`](asyncstorage.md#multiremove)
-- [`multiMerge`](asyncstorage.md#multimerge)
-
-
-
+* [`getItem`](asyncstorage.md#getitem)
+* [`setItem`](asyncstorage.md#setitem)
+* [`removeItem`](asyncstorage.md#removeitem)
+* [`mergeItem`](asyncstorage.md#mergeitem)
+* [`clear`](asyncstorage.md#clear)
+* [`getAllKeys`](asyncstorage.md#getallkeys)
+* [`multiGet`](asyncstorage.md#multiget)
+* [`multiSet`](asyncstorage.md#multiset)
+* [`multiRemove`](asyncstorage.md#multiremove)
+* [`multiMerge`](asyncstorage.md#multimerge)
 
 ---
 
@@ -44,12 +35,7 @@ method returns a `Promise` object.
 static getItem(key, callback?)
 ```
 
-
-Fetches `key` and passes the result to `callback`, along with an `Error` if
-there is any. Returns a `Promise` object.
-
-
-
+Fetches `key` and passes the result to `callback`, along with an `Error` if there is any. Returns a `Promise` object.
 
 ---
 
@@ -59,12 +45,7 @@ there is any. Returns a `Promise` object.
 static setItem(key, value, callback?)
 ```
 
-
-Sets `value` for `key` and calls `callback` on completion, along with an
-`Error` if there is any. Returns a `Promise` object.
-
-
-
+Sets `value` for `key` and calls `callback` on completion, along with an `Error` if there is any. Returns a `Promise` object.
 
 ---
 
@@ -74,11 +55,7 @@ Sets `value` for `key` and calls `callback` on completion, along with an
 static removeItem(key, callback?)
 ```
 
-
 Returns a `Promise` object.
-
-
-
 
 ---
 
@@ -88,12 +65,7 @@ Returns a `Promise` object.
 static mergeItem(key, value, callback?)
 ```
 
-
-Merges existing value with input value, assuming they are stringified json.
-Returns a `Promise` object. Not supported by all native implementations.
-
-
-
+Merges existing value with input value, assuming they are stringified json. Returns a `Promise` object. Not supported by all native implementations.
 
 ---
 
@@ -103,13 +75,7 @@ Returns a `Promise` object. Not supported by all native implementations.
 static clear(callback?)
 ```
 
-
-Erases *all* AsyncStorage for all clients, libraries, etc.  You probably
-don't want to call this - use removeItem or multiRemove to clear only your
-own keys instead. Returns a `Promise` object.
-
-
-
+Erases _all_ AsyncStorage for all clients, libraries, etc. You probably don't want to call this - use removeItem or multiRemove to clear only your own keys instead. Returns a `Promise` object.
 
 ---
 
@@ -119,11 +85,7 @@ own keys instead. Returns a `Promise` object.
 static getAllKeys(callback?)
 ```
 
-
-Gets *all* keys known to the app, for all callers, libraries, etc. Returns a `Promise` object.
-
-
-
+Gets _all_ keys known to the app, for all callers, libraries, etc. Returns a `Promise` object.
 
 ---
 
@@ -133,14 +95,9 @@ Gets *all* keys known to the app, for all callers, libraries, etc. Returns a `Pr
 static multiGet(keys, callback?)
 ```
 
+multiGet invokes callback with an array of key-value pair arrays that matches the input format of multiSet. Returns a `Promise` object.
 
-multiGet invokes callback with an array of key-value pair arrays that
-matches the input format of multiSet. Returns a `Promise` object.
-
-  multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
-
-
-
+multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 ---
 
@@ -150,14 +107,9 @@ matches the input format of multiSet. Returns a `Promise` object.
 static multiSet(keyValuePairs, callback?)
 ```
 
+multiSet and multiMerge take arrays of key-value array pairs that match the output of multiGet, e.g. Returns a `Promise` object.
 
-multiSet and multiMerge take arrays of key-value array pairs that match
-the output of multiGet, e.g. Returns a `Promise` object.
-
-  multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
-
-
-
+multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
 
 ---
 
@@ -167,11 +119,7 @@ the output of multiGet, e.g. Returns a `Promise` object.
 static multiRemove(keys, callback?)
 ```
 
-
 Delete all the keys in the `keys` array. Returns a `Promise` object.
-
-
-
 
 ---
 
@@ -181,12 +129,6 @@ Delete all the keys in the `keys` array. Returns a `Promise` object.
 static multiMerge(keyValuePairs, callback?)
 ```
 
-
-Merges existing values with input values, assuming they are stringified
-json. Returns a `Promise` object.
+Merges existing values with input values, assuming they are stringified json. Returns a `Promise` object.
 
 Not supported by all native implementations.
-
-
-
-

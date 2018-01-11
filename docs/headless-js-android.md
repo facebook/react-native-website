@@ -9,16 +9,16 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 
 A task is a simple async function that you register on `AppRegistry`, similar to registering React applications:
 
-```js
+```javascript
 AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
 ```
 
 Then, in `SomeTaskName.js`:
 
-```js
+```javascript
 module.exports = async (taskData) => {
   // do stuff
-}
+};
 ```
 
 You can do anything in your task as long as it doesn't touch UI: network requests, timers and so on. Once your task completes (i.e. the promise is resolved), React Native will go into "paused" mode (unless there are other tasks running, or there is a foreground app).
@@ -75,7 +75,8 @@ getApplicationContext().startService(service);
 
 Service can be started from Java API. First you need to decide when the service should be started and implement your solution accordingly. Here is a simple example that reacts to network connection change.
 
-Following lines shows part of Android manifest file for registering broadcast receiver.   
+Following lines shows part of Android manifest file for registering broadcast receiver.
+
 ```xml
 <receiver android:name=".NetworkChangeReceiver" >
   <intent-filter>
@@ -97,7 +98,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
         **/
         if (!isAppOnForeground((context))) {
             /**
-              We will start our service and send extra info about 
+              We will start our service and send extra info about
               network connections
             **/
             boolean hasInternet = isNetworkAvailable(context);
@@ -114,14 +115,14 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
          http://stackoverflow.com/questions/8489993/check-android-application-is-in-foreground-or-not
         **/
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningAppProcessInfo> appProcesses = 
+        List<ActivityManager.RunningAppProcessInfo> appProcesses =
         activityManager.getRunningAppProcesses();
         if (appProcesses == null) {
             return false;
         }
         final String packageName = context.getPackageName();
         for (ActivityManager.RunningAppProcessInfo appProcess : appProcesses) {
-            if (appProcess.importance == 
+            if (appProcess.importance ==
             ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND &&
              appProcess.processName.equals(packageName)) {
                 return true;
@@ -131,7 +132,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     }
 
     public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) 
+        ConnectivityManager cm = (ConnectivityManager)
         context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return (netInfo != null && netInfo.isConnected());

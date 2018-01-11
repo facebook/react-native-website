@@ -38,7 +38,7 @@ ES6
 * [Object Concise Method](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var obj = { method() { return 10; } };`
 * [Object Short Notation](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var name = 'vjeux'; var obj = { name };`
 * [Rest Params](https://github.com/sebmarkbage/ecmascript-rest-spread): `function(type, ...args) { }`
-* [Template Literals](http://babeljs.io/docs/learn-es2015/#template-strings): ``var who = 'world'; var str = `Hello ${who}`;``
+* [Template Literals](http://babeljs.io/docs/learn-es2015/#template-strings): `` var who = 'world'; var str = `Hello ${who}`; ``
 
 ES7
 
@@ -50,7 +50,6 @@ Specific
 
 * [JSX](https://facebook.github.io/react/jsx-in-depth.md): `<View style={{color: 'red'}} />`
 * [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
-
 
 ## Polyfills
 

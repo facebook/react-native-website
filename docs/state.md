@@ -16,18 +16,18 @@ import { AppRegistry, Text, View } from 'react-native';
 class Blink extends Component {
   constructor(props) {
     super(props);
-    this.state = {showText: true};
+    this.state = {isShowingText: true};
 
     // Toggle the state every second
     setInterval(() => {
       this.setState(previousState => {
-        return { showText: !previousState.showText };
+        return { isShowingText: !previousState.isShowingText };
       });
     }, 1000);
   }
 
   render() {
-    let display = this.state.showText ? this.props.text : ' ';
+    let display = this.state.isShowingText ? this.props.text : ' ';
     return (
       <Text>{display}</Text>
     );
@@ -55,5 +55,4 @@ In a real application, you probably won't be setting state with a timer. You mig
 
 When setState is called, BlinkApp will re-render its Component. By calling setState within the Timer, the component will re-render every time the Timer ticks.
 
-State works the same way as it does in React, so for more details on handling state, you can look at the [React.Component API](https://reactjs.org/docs/react-component.html#setstate).
-At this point, you might be annoyed that most of our examples so far use boring default black text. To make things more beautiful, you will have to [learn about Style](style.md).
+State works the same way as it does in React, so for more details on handling state, you can look at the [React.Component API](https://reactjs.org/docs/react-component.html#setstate). At this point, you might be annoyed that most of our examples so far use boring default black text. To make things more beautiful, you will have to [learn about Style](style.md).

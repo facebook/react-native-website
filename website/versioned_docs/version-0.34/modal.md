@@ -3,17 +3,16 @@ id: version-0.34-modal
 title: Modal
 original_id: modal
 ---
+
 The Modal component is a simple way to present content above an enclosing view.
 
-_Note: If you need more control over how to present modals over the rest of your app,
-then consider using a top-level Navigator. Go [here](/react-native/navigator-comparison.md) to compare navigation options._
+_Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator. Go [here](navigator-comparison.md) to compare navigation options._
 
 ```javascript
-import React, { Component } from 'react';
-import { Modal, Text, TouchableHighlight, View } from 'react-native';
+import React, {Component} from 'react';
+import {Modal, Text, TouchableHighlight, View} from 'react-native';
 
 class ModalExample extends Component {
-
   constructor(props) {
     super(props);
     this.state = {modalVisible: false};
@@ -27,31 +26,32 @@ class ModalExample extends Component {
     return (
       <View style={{marginTop: 22}}>
         <Modal
-          animationType={"slide"}
+          animationType={'slide'}
           transparent={false}
           visible={this.state.modalVisible}
-          onRequestClose={() => {alert("Modal has been closed.")}}
-          >
-         <View style={{marginTop: 22}}>
-          <View>
-            <Text>Hello World!</Text>
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
 
-            <TouchableHighlight onPress={() => {
-              this.setModalVisible(!this.state.modalVisible)
-            }}>
-              <Text>Hide Modal</Text>
-            </TouchableHighlight>
-
+              <TouchableHighlight
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
           </View>
-         </View>
         </Modal>
 
-        <TouchableHighlight onPress={() => {
-          this.setModalVisible(true)
-        }}>
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}>
           <Text>Show Modal</Text>
         </TouchableHighlight>
-
       </View>
     );
   }
@@ -60,19 +60,14 @@ class ModalExample extends Component {
 
 ### Props
 
-- [`animationType`](modal.md#animationtype)
-- [`onRequestClose`](modal.md#onrequestclose)
-- [`onShow`](modal.md#onshow)
-- [`transparent`](modal.md#transparent)
-- [`visible`](modal.md#visible)
-- [`onOrientationChange`](modal.md#onorientationchange)
-- [`supportedOrientations`](modal.md#supportedorientations)
-- [`animated`](modal.md#animated)
-
-
-
-
-
+* [`animationType`](modal.md#animationtype)
+* [`onRequestClose`](modal.md#onrequestclose)
+* [`onShow`](modal.md#onshow)
+* [`transparent`](modal.md#transparent)
+* [`visible`](modal.md#visible)
+* [`onOrientationChange`](modal.md#onorientationchange)
+* [`supportedOrientations`](modal.md#supportedorientations)
+* [`animated`](modal.md#animated)
 
 ---
 
@@ -84,16 +79,13 @@ class ModalExample extends Component {
 
 The `animationType` prop controls how the modal animates.
 
-- `slide` slides in from the bottom
-- `fade` fades into view
-- `none` appears without an animation
+* `slide` slides in from the bottom
+* `fade` fades into view
+* `none` appears without an animation
 
-| Type | Required |
-| - | - |
-| PropTypes.oneOf(['none', 'slide', 'fade']) | No |
-
-
-
+| Type                                       | Required |
+| ------------------------------------------ | -------- |
+| PropTypes.oneOf(['none', 'slide', 'fade']) | No       |
 
 ---
 
@@ -103,12 +95,9 @@ The `onRequestClose` prop allows passing a function that will be called once the
 
 _On the Android platform, this is a required function._
 
-| Type | Required |
-| - | - |
-| Platform.OS === 'android' ? PropTypes.func.isRequired : PropTypes.func | No |
-
-
-
+| Type                                                                   | Required |
+| ---------------------------------------------------------------------- | -------- |
+| Platform.OS === 'android' ? PropTypes.func.isRequired : PropTypes.func | No       |
 
 ---
 
@@ -116,12 +105,9 @@ _On the Android platform, this is a required function._
 
 The `onShow` prop allows passing a function that will be called once the modal has been shown.
 
-| Type | Required |
-| - | - |
-| PropTypes.func | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.func | No       |
 
 ---
 
@@ -129,12 +115,9 @@ The `onShow` prop allows passing a function that will be called once the modal h
 
 The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
@@ -142,42 +125,29 @@ The `transparent` prop determines whether your modal will fill the entire view. 
 
 The `visible` prop determines whether your modal is visible.
 
-| Type | Required |
-| - | - |
-| PropTypes.bool | No |
-
-
-
+| Type           | Required |
+| -------------- | -------- |
+| PropTypes.bool | No       |
 
 ---
 
 ### `onOrientationChange`
 
-The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed.
-The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
+The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed. The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.func | No | iOS  |
-
-
-
+| Type           | Required | Platform |
+| -------------- | -------- | -------- |
+| PropTypes.func | No       | iOS      |
 
 ---
 
 ### `supportedOrientations`
 
-The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations.
-On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
+The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| PropTypes.arrayOf(PropTypes.oneOf(['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right'])) | No | iOS  |
-
-
-
+| Type                                                                                                                       | Required | Platform |
+| -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| PropTypes.arrayOf(PropTypes.oneOf(['portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right'])) | No       | iOS      |
 
 ---
 
@@ -185,14 +155,6 @@ On iOS, the modal is still restricted by what's specified in your app's Info.pli
 
 **Deprecated.** Use the `animationType` prop instead.
 
-
-
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
-
-
-
+| ---- | -------- |
+| bool | No       |

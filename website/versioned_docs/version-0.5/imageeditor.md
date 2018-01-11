@@ -4,14 +4,9 @@ title: ImageEditor
 original_id: imageeditor
 ---
 
-
-
 ### Methods
 
-- [`cropImage`](imageeditor.md#cropimage)
-
-
-
+* [`cropImage`](imageeditor.md#cropimage)
 
 ---
 
@@ -22,7 +17,7 @@ original_id: imageeditor
 ### `cropImage()`
 
 ```javascript
-ImageEditor.cropImage(uri, cropData, success, failure)
+ImageEditor.cropImage(uri, cropData, success, failure);
 ```
 
 Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the failure callback will be called.
@@ -33,9 +28,9 @@ If the cropping process is successful, the resultant cropped image will be store
 
 The following options can be used with the `cropData` parameter:
 
-| Name | Type | Required | Description |
-| - | - | - | - | 
-| offset | `{ x: number, y: number}` | Yes | The top-left corner of the cropped image, specified in the original image's coordinate space. |
-| size | `{ width: number, height: number }` | Yes | The size (dimensions) of the cropped image, specified in the original image's coordinate space. |
-| displaySize | `{ width: number, height: number }` | No | Size to scale the cropped image to. |
-| resizeMode | `enum( contain: string, cover: string, stretch: string }` | No | The resizing mode to use when scaling the image. If the `displaySize` param is not specified, this has no effect. |
+| Name        | Type                                                      | Required | Description                                                                                                       |
+| ----------- | --------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| offset      | `{ x: number, y: number}`                                 | Yes      | The top-left corner of the cropped image, specified in the original image's coordinate space.                     |
+| size        | `{ width: number, height: number }`                       | Yes      | The size (dimensions) of the cropped image, specified in the original image's coordinate space.                   |
+| displaySize | `{ width: number, height: number }`                       | No       | Size to scale the cropped image to.                                                                               |
+| resizeMode  | `enum( contain: string, cover: string, stretch: string }` | No       | The resizing mode to use when scaling the image. If the `displaySize` param is not specified, this has no effect. |

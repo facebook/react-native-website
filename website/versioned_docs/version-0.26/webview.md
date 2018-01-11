@@ -3,11 +3,13 @@ id: version-0.26-webview
 title: WebView
 original_id: webview
 ---
+
 Renders a native WebView.
 
 ### Props
 
 * [View props...](view.md#props)
+
 - [`scalesPageToFit`](webview.md#scalespagetofit)
 - [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
 - [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
@@ -33,19 +35,13 @@ Renders a native WebView.
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
 
-
-
-
 ### Methods
 
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`stopLoading`](webview.md#stoploading)
-- [`getWebViewHandle`](webview.md#getwebviewhandle)
-
-
-
+* [`goForward`](webview.md#goforward)
+* [`goBack`](webview.md#goback)
+* [`reload`](webview.md#reload)
+* [`stopLoading`](webview.md#stoploading)
+* [`getWebViewHandle`](webview.md#getwebviewhandle)
 
 ---
 
@@ -58,39 +54,26 @@ Renders a native WebView.
 Sets whether the webpage scales to fit the view and the user can change the scale.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `automaticallyAdjustContentInsets`
 
-
-
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `onShouldStartLoadWithRequest`
 
-Allows custom handling of any webview requests by a JS handler. Return true
-or false from this method to continue loading the request.
+Allows custom handling of any webview requests by a JS handler. Return true or false from this method to continue loading the request.
 
-
-| Type | Required | Platform |
-| - | - | - |
-| function | No | iOS  |
-
-
-
+| Type     | Required | Platform |
+| -------- | -------- | -------- |
+| function | No       | iOS      |
 
 ---
 
@@ -98,26 +81,19 @@ or false from this method to continue loading the request.
 
 Sets the JS to be injected when the webpage loads.
 
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `mediaPlaybackRequiresUserAction`
 
-Determines whether HTML5 audio & videos require the user to tap before they can
-start playing. The default value is `false`.
+Determines whether HTML5 audio & videos require the user to tap before they can start playing. The default value is `false`.
 
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -125,12 +101,9 @@ start playing. The default value is `false`.
 
 Invoked when load fails
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -138,12 +111,9 @@ Invoked when load fails
 
 Invoked when load finish
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -151,12 +121,9 @@ Invoked when load finish
 
 Invoked when load either succeeds or fails
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -164,25 +131,17 @@ Invoked when load either succeeds or fails
 
 Invoked on load start
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `onNavigationStateChange`
 
-
-
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -190,12 +149,9 @@ Invoked on load start
 
 Function that returns a view to show if there's an error.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -203,25 +159,17 @@ Function that returns a view to show if there's an error.
 
 Function that returns a loading indicator.
 
-| Type | Required |
-| - | - |
-| function | No |
-
-
-
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `contentInset`
 
-
-
-| Type | Required |
-| - | - |
-| object: {top: number, left: number, bottom: number, right: number} | No |
-
-
-
+| Type                                                               | Required |
+| ------------------------------------------------------------------ | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       |
 
 ---
 
@@ -229,58 +177,38 @@ Function that returns a loading indicator.
 
 Loads static html or a uri (with optional headers) in the WebView.
 
-| Type | Required |
-| - | - |
-| object: {uri: string,method: string,headers: object,body: string}, ,object: {html: string,baseUrl: string}, ,number | No |
-
-
-
+| Type                                                                                                                | Required |
+| ------------------------------------------------------------------------------------------------------------------- | -------- |
+| object: {uri: string,method: string,headers: object,body: string}, ,object: {html: string,baseUrl: string}, ,number | No       |
 
 ---
 
 ### `startInLoadingState`
 
-
-
 | Type | Required |
-| - | - |
-| bool | No |
-
-
-
+| ---- | -------- |
+| bool | No       |
 
 ---
 
 ### `style`
 
-
-
-| Type | Required |
-| - | - |
-| [View](view.md#style) | No |
-
-
-
+| Type                  | Required |
+| --------------------- | -------- |
+| [View](view.md#style) | No       |
 
 ---
 
 ### `decelerationRate`
 
-A floating-point number that determines how quickly the scroll view
-decelerates after the user lifts their finger. You may also use string
-shortcuts `"normal"` and `"fast"` which match the underlying iOS settings
-for `UIScrollViewDecelerationRateNormal` and
-`UIScrollViewDecelerationRateFast` respectively.
-  - normal: 0.998
-  - fast: 0.99 (the default for iOS WebView)
+A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively.
 
+* normal: 0.998
+* fast: 0.99 (the default for iOS WebView)
 
-| Type | Required | Platform |
-| - | - | - |
-| ScrollView.propTypes.decelerationRate | No | iOS  |
-
-
-
+| Type                                  | Required | Platform |
+| ------------------------------------- | -------- | -------- |
+| ScrollView.propTypes.decelerationRate | No       | iOS      |
 
 ---
 
@@ -288,13 +216,9 @@ for `UIScrollViewDecelerationRateNormal` and
 
 Used on Android only, controls whether DOM Storage is enabled or not
 
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | Android  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
@@ -302,58 +226,35 @@ Used on Android only, controls whether DOM Storage is enabled or not
 
 Used on Android only, JS is enabled by default for WebView on iOS
 
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | Android  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
 ### `allowsInlineMediaPlayback`
 
-Determines whether HTML5 videos play inline or use the native full-screen
-controller.
-default value `false`
-**NOTE** : "In order for video to play inline, not only does this
-property need to be set to true, but the video element in the HTML
-document must also include the webkit-playsinline attribute."
-
+Determines whether HTML5 videos play inline or use the native full-screen controller. default value `false` **NOTE** : "In order for video to play inline, not only does this property need to be set to true, but the video element in the HTML document must also include the webkit-playsinline attribute."
 
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
 ### `bounces`
 
-
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
 ### `scrollEnabled`
 
-
-
 | Type | Required | Platform |
-| - | - | - |
-| bool | No | iOS  |
-
-
-
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
@@ -361,14 +262,9 @@ document must also include the webkit-playsinline attribute."
 
 **Deprecated.** Use the `source` prop instead.
 
-
-
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -376,72 +272,54 @@ document must also include the webkit-playsinline attribute."
 
 **Deprecated.** Use the `source` prop instead.
 
-
-
-| Type | Required |
-| - | - |
-| string | No |
-
-
-
-
-
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ## Methods
 
 ### `goForward()`
 
 ```javascript
-goForward()
+goForward();
 ```
 
 Go forward one page in the webview's history.
-
-
 
 ---
 
 ### `goBack()`
 
 ```javascript
-goBack()
+goBack();
 ```
 
 Go back one page in the webview's history.
-
-
 
 ---
 
 ### `reload()`
 
 ```javascript
-reload()
+reload();
 ```
 
 Reloads the current page.
-
-
 
 ---
 
 ### `stopLoading()`
 
 ```javascript
-stopLoading()
+stopLoading();
 ```
-
-
 
 ---
 
 ### `getWebViewHandle()`
 
 ```javascript
-getWebViewHandle(): 
+getWebViewHandle():
 ```
 
 Returns the native webview node.
-
-
-

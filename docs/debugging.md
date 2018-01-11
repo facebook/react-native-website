@@ -92,11 +92,11 @@ It should connect to your simulator within a few seconds.
 
 Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
-![React Native Inspector](/react-native/docs/assets/Inspector.png)
+![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
 However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
-![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.png)
+![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
 You can choose "Hide Inspector" in the same menu to exit this mode.
 
@@ -110,7 +110,7 @@ Make sure that the dropdown in the top left corner of the Chrome console says `d
 
 Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
 
-![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.png)
+![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.gif)
 
 ## Performance Monitor
 
@@ -172,40 +172,40 @@ Follow this guide to enable Stetho for Debug mode:
 > The above will configure Stetho v1.5.0. You can check at http://facebook.github.io/stetho/ if a newer version is available.
 
 2. Create the following Java classes to wrap the Stetho call, one for release and one for debug:
-   
-    ```java
-    // android/app/src/release/java/com/{yourAppName}/StethoWrapper.java
-    
-    public class StethoWrapper {
 
-        public static void initialize(Context context) {
-            // NO_OP
-        }
+   ```java
+   // android/app/src/release/java/com/{yourAppName}/StethoWrapper.java
 
-        public static void addInterceptor() {
-            // NO_OP
-        }
-    }
-    ```
+   public class StethoWrapper {
 
-    ```java
-    // android/app/src/debug/java/com/{yourAppName}/StethoWrapper.java
+       public static void initialize(Context context) {
+           // NO_OP
+       }
 
-    public class StethoWrapper {
-        public static void initialize(Context context) {
-          Stetho.initializeWithDefaults(context);
-        }
+       public static void addInterceptor() {
+           // NO_OP
+       }
+   }
+   ```
 
-        public static void addInterceptor() {
-          OkHttpClient client = OkHttpClientProvider.getOkHttpClient()
-                 .newBuilder()
-                 .addNetworkInterceptor(new StethoInterceptor())
-                 .build();
-          
-          OkHttpClientProvider.replaceOkHttpClient(client);
-        }
-    }
-    ```
+   ```java
+   // android/app/src/debug/java/com/{yourAppName}/StethoWrapper.java
+
+   public class StethoWrapper {
+       public static void initialize(Context context) {
+         Stetho.initializeWithDefaults(context);
+       }
+
+       public static void addInterceptor() {
+         OkHttpClient client = OkHttpClientProvider.getOkHttpClient()
+                .newBuilder()
+                .addNetworkInterceptor(new StethoInterceptor())
+                .build();
+
+         OkHttpClientProvider.replaceOkHttpClient(client);
+       }
+   }
+   ```
 
 3. Open `android/app/src/main/java/com/{yourAppName}/MainApplication.java` and replace the original `onCreate` function:
 
@@ -213,7 +213,7 @@ Follow this guide to enable Stetho for Debug mode:
   public void onCreate() {
       super.onCreate();
 
-      if (BuildConfig.DEBUG) {      
+      if (BuildConfig.DEBUG) {
           StethoWrapper.initialize(this);
           StethoWrapper.addInterceptor();
       }

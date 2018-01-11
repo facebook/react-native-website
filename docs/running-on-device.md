@@ -236,6 +236,7 @@ You can also iterate quickly on a device using the development server. You only 
 > If you have any issues, ensure that your Mac and device are on the same network and can reach each other. Many open wireless networks with captive portals are configured to prevent devices from reaching other devices on the network. You may use your device's Personal Hotspot feature in this case.
 
 When trying to connect to the development server you might get a [red screen with an error](debugging.md#in-app-errors-and-warnings) saying:
+
 > Connection to [http://localhost:8081/debugger-proxy?role=client]() timed out. Are you running node proxy? If you are running on the device, check if you have the right IP address in `RCTWebSocketExecutor.m`.
 
 To solve this issue check the following points.
@@ -246,7 +247,7 @@ Make sure your laptop and your phone are on the **same** Wi-Fi network.
 
 #### 2. IP address
 
-Make sure that the build script detected the IP address of your machine correctly (e.g. 10.0.1.123). 
+Make sure that the build script detected the IP address of your machine correctly (e.g. 10.0.1.123).
 
 ![](/react-native/docs/assets/XcodeBuildIP.png)
 
@@ -262,12 +263,12 @@ Now check if you are able to resolve the xip.io address, by running `nslookup`.
 $ nslookup 10.0.1.123.xip.io
 ```
 
-If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it. 
+If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it.
 
-To still use xip.io behind your rooter:
+To still use xip.io behind your router:
 
-- configure your phone to use Google DNS (8.8.8.8)
-- disable the appropriate security feature in your router
+* configure your phone to use Google DNS (8.8.8.8)
+* disable the appropriate security feature in your router
 
 <block class="mac windows linux android" />
 
@@ -341,7 +342,38 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 ![](/react-native/docs/assets/ConfigureReleaseScheme.png)
 
-### 3. Build app for release
+### 3. Configure app to use static bundle
+
+During the development process, React Native has loaded your JavaScript code dynamically at runtime. For a production build, you want to pre-package the JavaScript bundle and distribute it inside your application. Doing this requires a code change in your code so that it knows to load the static bundle.
+
+In `AppDelegate.m`, change the default `jsCodeLocation` to point to the static bundle that is built in Release.
+
+```objc
+  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+```
+
+This will now reference the `main.jsbundle` resource file that is created during the `Bundle React Native code and images` Build Phase in Xcode.
+
+> Note: The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
+
+```shell
+ if [ "${CONFIGURATION}" == "Debug" ]; then
+  export SKIP_BUNDLING=true
+ fi
+```
+
+#### Pro Tip
+
+As your App Bundle grows in size, you may start to see a white screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
+
+```objc
+  // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
+  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
+  launchScreenView.frame = self.window.bounds;
+  rootView.loadingView = launchScreenView;
+```
+
+### 4. Build app for release
 
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
