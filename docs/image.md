@@ -183,7 +183,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 
   A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
-  For details of how this works under the hood, see http://frescolib.org/rounded-corners-and-circles.md
+  For details of how this works under the hood, see http://frescolib.org/docs/rounded-corners-and-circles.html
 
 ---
 
@@ -301,7 +301,7 @@ The mechanism that should be used to resize the image when the image's dimension
 
 * `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
-More details about `resize` and `scale` can be found at http://frescolib.org/resizing-rotating.md.
+More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.html.
 
 | Type                            | Required | Platform |
 | ------------------------------- | -------- | -------- |
