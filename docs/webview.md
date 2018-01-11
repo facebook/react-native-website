@@ -23,6 +23,8 @@ class MyWeb extends Component {
 
 You can use this component to navigate back and forth in the web view's history and configure various properties for the web content.
 
+> **Security Warning:** Currently, `onMessage` and `postMessage` do not allow specifying an origin. This can lead to cross-site scripting attacks if an unexpected document is loaded within a `WebView` instance. Please refer to the MDN documentation for [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) for more details on the security implications of this.
+
 ### Props
 
 * [View props...](view.md#props)
