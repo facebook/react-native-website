@@ -111,8 +111,8 @@ All pull requests should be opened against the `master` branch. After opening yo
 A good test plan has the exact commands you ran and their output, provides screenshots or videos if the pull request changes UI or updates the website.
 
 * If you've added code that should be tested, add tests!
-* If you've changed APIs, update the documentation.
-* If you've updated the docs, verify the website locally and submit screenshots if applicable (see [website/README.md](https://github.com/facebook/react-native/blob/master/website/README.md))
+* If you've changed APIs, update the documentation via an additional PR to the [react-native-website](https://github.com/facebook/react-native-website) repo.
+* If you've updated the docs, verify the website locally and submit screenshots if applicable (see the [react-native-website](https://github.com/facebook/react-native-website) README).
 
 See [What is a Test Plan?](https://medium.com/@martinkonicek/what-is-a-test-plan-8bfc840ec171#.y9lcuqqi9) to learn more.
 
