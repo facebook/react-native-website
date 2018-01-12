@@ -72,7 +72,7 @@ Expects a params object of the following shape:
   * `All`
   * `Videos`
   * `Photos` // default
-* `mimeTypes` : {string} : Filter by mimetype (e.g. image/jpeg).
+* `mimeTypes` : {Array} : Filter by mimetype (e.g. image/jpeg).
 
 Returns a Promise which when resolved will be of the following shape:
 
