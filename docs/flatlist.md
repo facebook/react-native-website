@@ -105,7 +105,7 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 * [`ListEmptyComponent`](flatlist.md#listemptycomponent)
 * [`ListFooterComponent`](flatlist.md#listfootercomponent)
 * [`ListHeaderComponent`](flatlist.md#listheadercomponent)
-* [`columnwrapperstyle`](flatlist.md#columnwrapperstyle)
+* [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
 * [`extraData`](flatlist.md#extradata)
 * [`getItemLayout`](flatlist.md#getitemlayout)
 * [`horizontal`](flatlist.md#horizontal)
