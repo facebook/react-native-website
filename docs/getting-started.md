@@ -96,10 +96,14 @@ This page will help you install and build your first React Native app. If you al
 
 [Create React Native App](https://github.com/react-community/create-react-native-app) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
 
-Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the `create-react-native-app` command line utility:
+Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm or yarn to install the `create-react-native-app` command line utility:
 
 ```
 npm install -g create-react-native-app
+```
+or
+```
+yarn install -g create-react-native-app
 ```
 
 Then run the following commands to create a new React Native project called "AwesomeProject":
@@ -205,12 +209,13 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <block class="native mac ios android" />
 
-### Node, Watchman
+### Node, Yarn and Watchman
 
-We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node, Yarn and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```
 brew install node
+brew install yarn
 brew install watchman
 ```
 
@@ -226,7 +231,7 @@ Follow the [installation instructions for your Linux distribution](https://nodej
 
 <block class='native windows android' />
 
-### Node, Python2, JDK
+### Node, Yarn, Python2, JDK
 
 We recommend installing Node and Python2 via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
 
@@ -235,7 +240,7 @@ React Native also requires a recent version of the [Java SE Development Kit (JDK
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs.install python2 jdk8
+choco install -y nodejs.install python2 jdk8 yarn
 ```
 
 If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
