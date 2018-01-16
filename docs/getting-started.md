@@ -79,6 +79,8 @@ title: Getting Started
   }
 </style>
 
+TEST
+
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
 
 <div class="toggler">
