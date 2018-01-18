@@ -8,9 +8,9 @@ authorTwitter:
 category: engineering
 ---
 
-<img src="/react-native/blog/assets/loading-screen-01.gif" style="float: left; padding-right: 80px; padding-bottom: 20px"/>
-
 Twitter’s iOS app has a loading animation I quite enjoy.
+
+<img src="/react-native/blog/assets/loading-screen-01.gif" style="float: left; padding-right: 80px; padding-bottom: 20px"/>
 
 Once the app is ready, the Twitter logo delightfully expands, revealing the app.
 
