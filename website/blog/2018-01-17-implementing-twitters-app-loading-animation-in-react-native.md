@@ -62,7 +62,7 @@ While the mask is scaling up, we fade in the opacity of the app layer, showing t
 
 They say a picture is worth 1,000 words. How many words is an interactive visualization worth? Click through the animation with the “Next Step” button. Showing the layers gives you a side view perspective. The grid is there to help visualize the transparent layers.
 
-<iframe height='750' scrolling='no' title='Loading Screen Animation Steps' src='//codepen.io/TheSavior/embed/NXNoJM/?height=265&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%; padding: 20px 0'>See the Pen <a href='https://codepen.io/TheSavior/pen/NXNoJM/'>Loading Screen Animation Steps</a> by Eli White (<a href='https://codepen.io/TheSavior'>@TheSavior</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='750' scrolling='no' title='Loading Screen Animation Steps' src='//codepen.io/TheSavior/embed/NXNoJM/?height=265&theme-id=0&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' class='codepen'>See the Pen <a href='https://codepen.io/TheSavior/pen/NXNoJM/'>Loading Screen Animation Steps</a> by Eli White (<a href='https://codepen.io/TheSavior'>@TheSavior</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Now, for the React Native
@@ -103,7 +103,7 @@ What we want to do is render our blue layer, and then on top render our masked a
 
 This will give us the layers we see below.
 
-![](/react-native/blog/assets/loading-screen-04.png)
+<img src="/react-native/blog/assets/loading-screen-04.png" style="margin-left: auto; margin-right: auto; display: block" />
 
 ## Now for the Animated part
 
@@ -264,7 +264,7 @@ Don’t fret, dear reader. I too hate when guides only give you chunks of the co
 
 This component has been published to npm and is on GitHub as [react-native-mask-loader](https://github.com/TheSavior/react-native-mask-loader). To try this out on your phone, it is [available on Expo](https://expo.io/@eliwhite/react-native-mask-loader-example) here:
 
-![](/react-native/blog/assets/loading-screen-07.png)
+<img src="/react-native/blog/assets/loading-screen-07.png" style="margin-left: auto; margin-right: auto; display: block" />
 
 ## More Reading / Extra Credit
 
