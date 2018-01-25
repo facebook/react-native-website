@@ -2,6 +2,7 @@
 id: sectionlist
 title: SectionList
 ---
+Note: A React Native version of 0.43+ is required to use the SectionList component.
 
 A performant interface for rendering sectioned lists, supporting the most handy features:
 
