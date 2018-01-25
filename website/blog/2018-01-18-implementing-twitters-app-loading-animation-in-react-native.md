@@ -136,7 +136,7 @@ Our initial component state will be the following.
 
 ```javascript
 state = {
-  loadingProgress: Animated.Value(0),
+  loadingProgress: new Animated.Value(0),
 };
 ```
 
