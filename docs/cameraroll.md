@@ -85,6 +85,7 @@ Returns a Promise which when resolved will be of the following shape:
       * `height`: {number}
       * `width`: {number}
       * `isStored`: {boolean}
+      * `playableDuration`: {number}
     * `timestamp`: {number}
     * `location`: {object} : An object with the following shape:
       * `latitude`: {number}
