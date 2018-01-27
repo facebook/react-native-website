@@ -249,7 +249,7 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 * `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-* `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio.
+* `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio, unless it is larger than the view, in which case it will be scaled down uniformly.
 
 | Type                                                    | Required |
 | ------------------------------------------------------- | -------- |
