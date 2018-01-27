@@ -67,6 +67,13 @@ static addEventListener(type, handler)
 
 Add a handler to AppState changes by listening to the `change` event type and providing the handler
 
+**Parameters:**
+
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| type    | string   | Yes      |             |
+| handler | function | Yes      |             |
+
 ---
 
 ### `removeEventListener()`
@@ -77,4 +84,17 @@ static removeEventListener(type, handler)
 
 Remove a handler by passing the `change` event type and the handler
 
+**Parameters:**
+
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| type    | string   | Yes      |             |
+| handler | function | Yes      |             |
+
 ## Properties
+
+### `currentState`
+
+```javascript
+AppState.currentState
+```

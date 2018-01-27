@@ -60,23 +60,18 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### Methods
 
-* [`=`](appstate.md#)
 * [`addEventListener`](appstate.md#addeventlistener)
 * [`removeEventListener`](appstate.md#removeeventlistener)
+
+### Properties
+
+* [`currentState`](appstate.md#currentState)
 
 ---
 
 # Reference
 
 ## Methods
-
-### `=()`
-
-```javascript
-=(;, ()
-```
-
----
 
 ### `addEventListener()`
 
@@ -97,3 +92,11 @@ removeEventListener(type, handler);
 ```
 
 Remove a handler by passing the `change` event type and the handler
+
+## Properties
+
+### `currentState`
+
+```javascript
+AppState.currentState
+```

@@ -58,23 +58,18 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### Methods
 
-* [`=`](appstate.md#)
 * [`addEventListener`](appstate.md#addeventlistener)
 * [`removeEventListener`](appstate.md#removeeventlistener)
+
+### Properties
+
+* [`currentState`](appstate.md#currentState)
 
 ---
 
 # Reference
 
 ## Methods
-
-### `=()`
-
-```javascript
-=(;, ()
-```
-
----
 
 ### `addEventListener()`
 
@@ -83,6 +78,13 @@ addEventListener(type, handler);
 ```
 
 Add a handler to AppState changes by listening to the `change` event type and providing the handler
+
+**Parameters:**
+
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| type    | string   | Yes      |             |
+| handler | function | Yes      |             |
 
 TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate `addEventListener` and `removeEventListener` and just use `addListener` and `listener.remove()` directly. That will be a breaking change though, as both the method and event names are different (addListener events are currently required to be globally unique).
 
@@ -95,3 +97,18 @@ removeEventListener(type, handler);
 ```
 
 Remove a handler by passing the `change` event type and the handler
+
+**Parameters:**
+
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| type    | string   | Yes      |             |
+| handler | function | Yes      |             |
+
+## Properties
+
+### `currentState`
+
+```javascript
+AppState.currentState
+```
