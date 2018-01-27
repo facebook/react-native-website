@@ -60,6 +60,10 @@ This example will only ever appear to say "Current state is: active" because the
 * [`addEventListener`](appstate.md#addeventlistener)
 * [`removeEventListener`](appstate.md#removeeventlistener)
 
+### Properties
+
+* [`currentState`](appstate.md#currentState)
+
 ---
 
 # Reference
@@ -97,3 +101,11 @@ Remove a handler by passing the `change` event type and the handler.
 | ------- | -------- | -------- | ----------- |
 | type    | string   | Yes      |             |
 | handler | function | Yes      |             |
+
+## Properties
+
+### `currentState`
+
+```javascript
+AppState.currentState
+```
