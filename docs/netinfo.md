@@ -54,7 +54,79 @@ To request network info, you need to add the following line to your app's `Andro
 
 `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
 
-### isConnectionExpensive
+### Methods
+
+* [`addEventListener`](netinfo.md#addeventlistener)
+* [`removeEventListener`](netinfo.md#removeeventlistener)
+* [`getConnectionInfo`](netinfo.md#getconnectioninfo)
+* [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+
+### Properties
+
+* [`isConnected`](netinfo.md#isconnected)
+
+---
+
+# Reference
+
+## Methods
+
+### `addEventListener()`
+
+```javascript
+NetInfo.addEventListener(eventName, handler);
+```
+
+Adds an event handler.
+
+**Parameters:**
+
+| Name      | Type                           | Required | Description            |
+| --------- | ------------------------------ | -------- | ---------------------- |
+| eventName | enum(connectionChange, change) | Yes      | The change event name. |
+| handler   | function                       | Yes      | Listener function.     |
+
+Supported events:
+
+* `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
+  * `type`: A `ConnectionType` (listed above)
+  * `effectiveType`: An `EffectiveConnectionType` (listed above)
+* `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
+
+---
+
+### `removeEventListener()`
+
+```javascript
+NetInfo.removeEventListener(eventName, handler);
+```
+
+Removes the listener for network status changes.
+
+**Parameters:**
+
+| Name      | Type                           | Required | Description            |
+| --------- | ------------------------------ | -------- | ---------------------- |
+| eventName | enum(connectionChange, change) | Yes      | The change event name. |
+| handler   | function                       | Yes      | Listener function.     |
+
+---
+
+### `getConnectionInfo()`
+
+```javascript
+NetInfo.getConnectionInfo();
+```
+
+Returns a promise that resolves to an object with `type` and `effectiveType` keys whose values are a [`ConnectionType`](netinfo.md#connectiontype-enum) and an [`EffectiveConnectionType`](netinfo.md#effectiveconnectiontype-enum)), respectively.
+
+---
+
+### `isConnectionExpensive()`
+
+```javascript
+NetInfo.isConnectionExpensive();
+```
 
 Available on Android. Detect if the current active connection is metered or not. A network is classified as metered when the user is sensitive to heavy data usage on that connection due to monetary costs, data limitations or battery/performance issues.
 
@@ -68,7 +140,9 @@ NetInfo.isConnectionExpensive()
 });
 ```
 
-### isConnected
+## Properties
+
+### `isConnected`
 
 Available on all platforms. Asynchronously fetch a boolean to determine internet connectivity.
 
@@ -88,103 +162,3 @@ NetInfo.isConnected.addEventListener(
   handleFirstConnectivityChange
 );
 ```
-
-### Connectivity Types (deprecated)
-
-The following connectivity types are deprecated. They're used by the deprecated APIs `fetch` and the `change` event.
-
-iOS connectivity types (deprecated):
-
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cell` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
-
-Android connectivity types (deprecated).
-
-* `NONE` - device is offline
-* `BLUETOOTH` - The Bluetooth data connection.
-* `DUMMY` - Dummy data connection.
-* `ETHERNET` - The Ethernet data connection.
-* `MOBILE` - The Mobile data connection.
-* `MOBILE_DUN` - A DUN-specific Mobile data connection.
-* `MOBILE_HIPRI` - A High Priority Mobile data connection.
-* `MOBILE_MMS` - An MMS-specific Mobile data connection.
-* `MOBILE_SUPL` - A SUPL-specific Mobile data connection.
-* `VPN` - A virtual network using one or more native bearers. Requires API Level 21
-* `WIFI` - The WIFI data connection.
-* `WIMAX` - The WiMAX data connection.
-* `UNKNOWN` - Unknown data connection.
-
-The rest of the connectivity types are hidden by the Android API, but can be used if necessary.
-
-### Methods
-
-* [`addEventListener`](netinfo.md#addeventlistener)
-* [`removeEventListener`](netinfo.md#removeeventlistener)
-* [`fetch`](netinfo.md#fetch)
-* [`getConnectionInfo`](netinfo.md#getconnectioninfo)
-* [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
-
-### Properties
-
-* [`isConnected`](netinfo.md#isconnected)
-
----
-
-# Reference
-
-## Methods
-
-### `addEventListener()`
-
-```javascript
-static addEventListener(eventName, handler)
-```
-
-Adds an event handler. Supported events:
-
-* `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
-  * `type`: A `ConnectionType` (listed above)
-  * `effectiveType`: An `EffectiveConnectionType` (listed above)
-* `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
-
----
-
-### `removeEventListener()`
-
-```javascript
-static removeEventListener(eventName, handler)
-```
-
-Removes the listener for network status changes.
-
----
-
-### `fetch()`
-
-```javascript
-static fetch()
-```
-
-This function is deprecated. Use `getConnectionInfo` instead. Returns a promise that resolves with one of the deprecated connectivity types listed above.
-
----
-
-### `getConnectionInfo()`
-
-```javascript
-static getConnectionInfo()
-```
-
-Returns a promise that resolves to an object with `type` and `effectiveType` keys whose values are a `ConnectionType` and an `EffectiveConnectionType`, (described above), respectively.
-
----
-
-### `isConnectionExpensive()`
-
-```javascript
-static isConnectionExpensive()
-```
-
-## Properties

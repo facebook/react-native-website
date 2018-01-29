@@ -111,6 +111,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 * [`onLoadStart`](image.md#onloadstart)
 * [`resizeMode`](image.md#resizemode)
 * [`source`](image.md#source)
+* [`loadingIndicatorSource`](image.md#loadingindicatorsource)
 * [`onError`](image.md#onerror)
 * [`testID`](image.md#testid)
 * [`resizeMethod`](image.md#resizemethod)
@@ -125,6 +126,9 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 
 * [`getSize`](image.md#getsize)
 * [`prefetch`](image.md#prefetch)
+* [`abortPrefetch`](image.md#abortprefetch)
+* [`queryCache`](image.md#querycache)
+* [`resolveAssetSource`](image.md#resolveassetsource)
 
 ---
 
@@ -134,7 +138,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 
 ### `style`
 
-> `ImageResizeMode` is an `Enum` for different image resizing modes, set via the `resizeMode` style property on `Image` components. The values are `contain`, `cover`, `stretch`, `center`, `repeat`.
+`ImageResizeMode` is an `Enum` for different image resizing modes, set via the `resizeMode` style property on `Image` components. The values are `contain`, `cover`, `stretch`, `center`, `repeat`.
 
 | Type  | Required |
 | ----- | -------- |
@@ -273,6 +277,18 @@ The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp` (
 
 ---
 
+### `loadingIndicatorSource`
+
+Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
+
+| Type                                  | Required |
+| ------------------------------------- | -------- |
+| array of ImageSourcePropTypes, number | No       |
+
+> Can accept a number as returned by `require('./image.jpg')`
+
+---
+
 ### `onError`
 
 Invoked on load error with `{nativeEvent: {error}}`.
@@ -345,14 +361,19 @@ When the image is resized, the corners of the size specified by `capInsets` will
 
 A static image to display while loading the image source.
 
+| Type           | Required | Platform |
+| -------------- | -------- | -------- |
+| object, number | No       | iOS      |
+
+If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
+
 * `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
 * `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
 * `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
-* `number` - Opaque type returned by something like `require('./image.jpg')`.
 
-| Type                                                                      | Required | Platform |
-| ------------------------------------------------------------------------- | -------- | -------- |
-| object: {uri: string,width: number,height: number,scale: number}, ,number | No       | iOS      |
+If passing a number:
+
+* `number` - Opaque type returned by something like `require('./image.jpg')`.
 
 ---
 
@@ -379,7 +400,7 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 ### `getSize()`
 
 ```javascript
-static getSize(uri: string, success: function, [failure]: function):
+Image.getSize(uri, success, [failure]);
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
@@ -401,7 +422,7 @@ Does not work for static image resources.
 ### `prefetch()`
 
 ```javascript
-static prefetch(url: string):
+Image.prefetch(url);
 ```
 
 Prefetches a remote image for later use by downloading it to the disk cache
@@ -411,3 +432,53 @@ Prefetches a remote image for later use by downloading it to the disk cache
 | Name | Type   | Required | Description                       |
 | ---- | ------ | -------- | --------------------------------- |
 | url  | string | Yes      | The remote location of the image. |
+
+---
+
+### `abortPrefetch()`
+
+```javascript
+Image.abortPrefetch(requestId);
+```
+
+Abort prefetch request. Android-only.
+
+**Parameters:**
+
+| Name      | Type   | Required | Description                  |
+| --------- | ------ | -------- | ---------------------------- |
+| requestId | number | Yes      | Id as returned by prefetch() |
+
+---
+
+### `queryCache()`
+
+```javascript
+Image.queryCache(urls);
+```
+
+Perform cache interrogation. Returns a mapping from URL to cache status, such as "disk" or "memory". If a requested URL is not in the mapping, it means it's not in the cache.
+
+**Parameters:**
+
+| Name | Type  | Required | Description                                |
+| ---- | ----- | -------- | ------------------------------------------ |
+| urls | array | Yes      | List of image URLs to check the cache for. |
+
+---
+
+### `resolveAssetSource()`
+
+```javascript
+Image.resolveAssetSource(source);
+```
+
+Resolves an asset reference into an object which has the properties `uri`, `width`, and `height`.
+
+**Parameters:**
+
+| Name   | Type           | Required | Description                                                                  |
+| ------ | -------------- | -------- | ---------------------------------------------------------------------------- |
+| source | number, object | Yes      | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+
+> `ImageSource` is an object like `{ uri: '<http location || file path>' }`

@@ -3,7 +3,7 @@ id: geolocation
 title: Geolocation
 ---
 
-The Geolocation API extends the web spec: https://developer.mozilla.org/en-US/docs/Web/API/Geolocation
+The Geolocation API extends the [Geolocation web spec](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation).
 
 As a browser polyfill, this API is available through the `navigator.geolocation` global - you do not need to `import` it.
 
@@ -59,23 +59,27 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 ### `setRNConfiguration()`
 
 ```javascript
-static setRNConfiguration(config)
+Geolocation.setRNConfiguration(config);
 ```
 
 Sets configuration options that will be used in all location requests.
 
-### Options
+**Parameters:**
 
-#### iOS
+| Name   | Type   | Required | Description |
+| ------ | ------ | -------- | ----------- |
+| config | object | Yes      | See below.  |
 
-* `skipPermissionRequests` - defaults to `false`, if `true` you must request permissions before using Geolocation APIs.
+Supported options:
+
+* `skipPermissionRequests` (boolean, iOS-only) - Defaults to `false`. If `true`, you must request permissions before using Geolocation APIs.
 
 ---
 
 ### `requestAuthorization()`
 
 ```javascript
-static requestAuthorization()
+Geolocation.requestAuthorization();
 ```
 
 Request suitable Location permission based on the key configured on pList. If NSLocationAlwaysUsageDescription is set, it will request Always authorization, although if NSLocationWhenInUseUsageDescription is set, it will request InUse authorization.
@@ -85,33 +89,69 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```javascript
-static getCurrentPosition(geo_success, geo_error?, geo_options?)
+Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ```
 
-Invokes the success callback once with the latest location info. Supported options: timeout (ms), maximumAge (ms, default - INFINITY), enableHighAccuracy (bool) On Android, if the location is cached this can return almost immediately, or it will request an update which might take a while.
+Invokes the success callback once with the latest location info.
+
+**Parameters:**
+
+| Name        | Type     | Required | Description                               |
+| ----------- | -------- | -------- | ----------------------------------------- |
+| geo_success | function | Yes      | Invoked with latest location info.        |
+| geo_error   | function | No       | Invoked whenever an error is encountered. |
+| geo_options | object   | No       | See below.                                |
+
+Supported options:
+
+* `timeout` (ms)
+* `maximumAge` (ms) - Defaults to INFINITY.
+* `enableHighAccuracy` (bool) - On Android, if the location is cached this can return almost immediately, or it will request an update which might take a while.
 
 ---
 
 ### `watchPosition()`
 
 ```javascript
-static watchPosition(success, error?, options?)
+Geolocation.watchPosition(success, [error], [options]);
 ```
 
-Invokes the success callback whenever the location changes. Supported options: timeout (ms), maximumAge (ms, default - INFINITY), enableHighAccuracy (bool), distanceFilter(m), useSignificantChanges (bool)
+Invokes the success callback whenever the location changes. Returns a `watchId` (number).
+
+**Parameters:**
+
+| Name    | Type     | Required | Description                               |
+| ------- | -------- | -------- | ----------------------------------------- |
+| success | function | Yes      | Invoked whenever the location changes.    |
+| error   | function | No       | Invoked whenever an error is encountered. |
+| options | object   | No       | See below.                                |
+
+Supported options:
+
+* `timeout` (ms)
+* `maximumAge` (ms) - Defaults to INFINITY.
+* `enableHighAccuracy` (bool)
+* `distanceFilter` (m)
+* `useSignificantChanges` (bool)
 
 ---
 
 ### `clearWatch()`
 
 ```javascript
-static clearWatch(watchID)
+Geolocation.clearWatch(watchID);
 ```
+
+**Parameters:**
+
+| Name    | Type   | Required | Description                          |
+| ------- | ------ | -------- | ------------------------------------ |
+| watchID | number | Yes      | Id as returned by `watchPosition()`. |
 
 ---
 
 ### `stopObserving()`
 
 ```javascript
-static stopObserving()
+Geolocation.stopObserving();
 ```
