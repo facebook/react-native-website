@@ -25,7 +25,7 @@ The user's permission is required in order to access the Camera Roll on devices 
 ### `saveToCameraRoll()`
 
 ```javascript
-CameraRoll.saveToCameraRoll(tag, [type])
+CameraRoll.saveToCameraRoll(tag, [type]);
 ```
 
 Saves the photo or video to the camera roll or photo library.
@@ -45,13 +45,12 @@ Returns a Promise which will resolve with the new URI.
 | tag  | string                 | Yes      | See above.                                                 |
 | type | enum('photo', 'video') | No       | Overrides automatic detection based on the file extension. |
 
-
 ---
 
 ### `getPhotos()`
 
 ```javascript
-CameraRoll.getPhotos(params)
+CameraRoll.getPhotos(params);
 ```
 
 Returns a Promise with photo identifier objects from the local camera roll of the device matching shape defined by `getPhotosReturnChecker`.
@@ -61,7 +60,6 @@ Returns a Promise with photo identifier objects from the local camera roll of th
 | Name   | Type   | Required | Description                                      |
 | ------ | ------ | -------- | ------------------------------------------------ |
 | params | object | Yes      | Expects a params with the shape described below. |
-
 
 * `first` : {number} : The number of photos wanted in reverse order of the photo application (i.e. most recent first for SavedPhotos).
 * `after` : {string} : A cursor that matches `page_info { end_cursor }` returned from a previous call to `getPhotos`.

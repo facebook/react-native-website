@@ -52,27 +52,27 @@ Vibration.cancel()
 ### `vibrate()`
 
 ```javascript
-static vibrate(pattern: number, Array<number>, repeat: boolean)
+Vibration.vibrate(pattern: number, Array<number>, repeat: boolean)
 ```
 
 Trigger a vibration with specified `pattern`.
 
 **Parameters:**
 
-| Name    | Type                 | Required | Description                                                                 |
-| ------- | -------------------- | -------- | --------------------------------------------------------------------------- |
-| pattern | number,Array<number> | Yes      | Vibration pattern, accept a number or an array of number. Default to 400ms. |
-| repeat  | boolean              | Yes      | Optional. Repeat vibration pattern until cancel(), default to false.        |
+| Name    | Type                    | Required | Description                                                                 |
+| ------- | ----------------------- | -------- | --------------------------------------------------------------------------- |
+| pattern | number or Array<number> | Yes      | Vibration pattern, accept a number or an array of number. Default to 400ms. |
+| repeat  | boolean                 | No       | Repeat vibration pattern until cancel(), default to false.                  |
 
 ---
 
 ### `cancel()`
 
 ```javascript
-static cancel()
+Vibration.cancel();
 ```
 
-Stop vibration
+Stop vibration.
 
 ```
 Vibration.cancel()
