@@ -29,7 +29,7 @@
       "prettier --config ../.prettierrc  --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
-    "precommit": "lint-staged",
+    "lint-staged": "lint-staged",
     "test": "yarn build"
   },
   "lint-staged": {
@@ -48,7 +48,6 @@
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "glob-promise": "^3.3.0",
-    "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "path": "^0.12.7",
     "prettier": "1.9.1"
