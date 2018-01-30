@@ -34,7 +34,8 @@
       "building-for-apple-tv",
       "running-on-device",
       "upgrading",
-      "troubleshooting"
+      "troubleshooting",
+      "native-modules-setup"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
