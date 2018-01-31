@@ -51,7 +51,7 @@ Stage 3
 
 Specific
 
-* [JSX](https://facebook.github.io/react/jsx-in-depth.md): `<View style={{color: 'red'}} />`
+* [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
 * [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
 
 ## Polyfills
