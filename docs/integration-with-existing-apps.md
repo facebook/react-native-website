@@ -723,7 +723,7 @@ We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar
 
 > A `ReactInstanceManager` can be shared by multiple activities and/or fragments. You will want to make your own `ReactFragment` or `ReactActivity` and have a singleton _holder_ that holds a `ReactInstanceManager`. When you need the `ReactInstanceManager` (e.g., to hook up the `ReactInstanceManager` to the lifecycle of those Activities or Fragments) use the one provided by the singleton.
 
-Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceManager`:
+Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceManager` and `ReactRootView`:
 
 ```java
 @Override
@@ -750,6 +750,9 @@ protected void onDestroy() {
 
     if (mReactInstanceManager != null) {
         mReactInstanceManager.onHostDestroy(this);
+    }
+    if (mReactRootView != null) {
+        mReactRootView.unmountReactApplication();
     }
 }
 ```
