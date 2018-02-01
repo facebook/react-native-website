@@ -150,9 +150,9 @@ Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/doc
 
 The locale for the date picker. Value needs to be a [Locale ID](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html).
 
-| Type         | Required |
-| ------------ | -------- |
-| String       | No       |
+| Type   | Required |
+| ------ | -------- |
+| String | No       |
 
 ---
 

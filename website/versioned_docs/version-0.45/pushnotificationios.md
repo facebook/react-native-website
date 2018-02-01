@@ -105,13 +105,13 @@ Schedules the localNotification for immediate presentation.
 
 details is an object containing:
 
- * `alertBody` : The message displayed in the notification alert.
- * `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
- * `soundName` : The sound played when the notification is fired (optional).
- * `isSilent`  : If true, the notification will appear without sound (optional).
- * `category`  : The category of this notification, required for actionable notifications (optional).
- * `userInfo`  : An optional object containing additional notification data.
- * `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
+* `alertBody` : The message displayed in the notification alert.
+* `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
+* `soundName` : The sound played when the notification is fired (optional).
+* `isSilent` : If true, the notification will appear without sound (optional).
+* `category` : The category of this notification, required for actionable notifications (optional).
+* `userInfo` : An optional object containing additional notification data.
+* `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
 
 ---
 
