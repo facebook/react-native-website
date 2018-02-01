@@ -20,17 +20,17 @@ const siteConfig = {
   baseUrl,
   projectName: "react-native",
   repoUrl,
-  // users,
+  users: [],
   editUrl:
     "https://github.com/reactnativecn/react-native-website/blob/production/cndocs/",
   headerLinks: [
     { doc: "getting-started", label: "文档" },
-    { href: bbsUrl, label: "课程" },
+    { href: "https://ke.qq.com/course/197101", label: "课程", external: true },
     // { blog: true, label: "博客" },
-    { href: "http://bbs.reactnative.cn", label: "讨论" },
+    { href: "http://bbs.reactnative.cn", external: true, label: "讨论" },
     { search: true },
     { href: repoUrl, label: "GitHub" },
-    { href: "https://doc.react-china.org/", label: "React" }
+    { href: "https://doc.react-china.org/", external: true, label: "React" }
   ],
   headerIcon: "img/header_logo.png",
   footerIcon: "img/header_logo.png",
@@ -61,7 +61,8 @@ const siteConfig = {
   },
   // TODO GA
   gaTrackingId: "UA-41298772-2",
-  scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"]
+  scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"],
+  customDocsPath: "cndocs"
 };
 
 module.exports = siteConfig;

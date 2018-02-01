@@ -111,20 +111,18 @@ class Footer extends React.Component {
             </div>
           </div>
         </section>
-
-        <a
-          href="https://code.facebook.com/projects/"
-          target="_blank"
-          className="fbOpenSource">
-          <img
-            src={this.props.config.baseUrl + 'img/oss_logo.png'}
-            alt="Facebook Open Source"
-            width="170"
-            height="45"
-          />
-        </a>
         <section className="copyright">
-          Copyright &copy; {currentYear} Facebook Inc.
+          <p>
+            React Native中文网 &copy; {currentYear} 杭州欧石南网络科技有限公司
+          </p>
+          <p>
+            浙ICP备15023664号-3
+            <img
+              src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png"
+              alt="浙公网安备 33010602005511号"
+            />
+            浙公网安备 33010602005511号
+          </p>
         </section>
       </footer>
     );

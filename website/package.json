@@ -19,14 +19,10 @@
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
-    "format:source":
-      "prettier --config ../.prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "format:markdown":
-      "prettier --config ../.prettierrc  --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
-    "nit:source":
-      "prettier --config ../.prettierrc  --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown":
-      "prettier --config ../.prettierrc  --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "format:source": "prettier --config ../.prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
+    "format:markdown": "prettier --config ../.prettierrc  --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:source": "prettier --config ../.prettierrc  --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+    "nit:markdown": "prettier --config ../.prettierrc  --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "lint-staged": "lint-staged",
@@ -39,7 +35,7 @@
     ]
   },
   "dependencies": {
-    "docusaurus": "^1.0.3",
+    "docusaurus": "^1.0.5",
     "highlight.js": "^9.12.0",
     "remarkable": "^1.7.1"
   },
@@ -50,6 +46,6 @@
     "glob-promise": "^3.3.0",
     "lint-staged": "^6.0.0",
     "path": "^0.12.7",
-    "prettier": "1.9.1"
+    "prettier": "^1.10.2"
   }
 }
