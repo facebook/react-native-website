@@ -11,6 +11,8 @@ On iOS, the `CameraRoll` API requires the `RCTCameraRoll` library to be linked. 
 
 The user's permission is required in order to access the Camera Roll on devices running iOS 10 or later. Add the `NSPhotoLibraryUsageDescription` key in your `Info.plist` with a string that describes how your app will use this data. This key will appear as `Privacy - Photo Library Usage Description` in Xcode.
 
+If you are targeting devices running iOS 11 or later, you will also need to add the `NSPhotoLibraryAddUsageDescription` key in your `Info.plist`. Use this key to define a string that describes how your app will use this data. By adding this key to your `Info.plist`, you will be able to request write-only access permission from the user. If you try to save to the camera roll without this permission, your app will exit.
+
 ### Methods
 
 * [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
