@@ -101,8 +101,8 @@ Returns a Promise which when resolved will be of the following shape:
       * `speed`: {number}
 * `page_info` : {object} : An object with the following shape:
   * `has_next_page`: {boolean}
-  * `start_cursor`: {boolean}
-  * `end_cursor`: {boolean}
+  * `start_cursor`: {string}
+  * `end_cursor`: {string}
 
 #### Example
 
