@@ -59,7 +59,7 @@ React Navigation routers make it easy to override navigation logic or integrate 
 
 The views in React Navigation use native components and the [`Animated`](animated.md) library to deliver 60fps animations that are run on the native thread. Plus, the animations and gestures can be easily customized.
 
-For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/intro/), or browse other docs such as the [Intro to Navigators](https://reactnavigation.org/docs/navigators/).
+For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/getting-started.html), or browse other docs such as the [Intro to Navigators](https://expo.io/@react-navigation/NavigationPlayground).
 
 ## NavigatorIOS
 
