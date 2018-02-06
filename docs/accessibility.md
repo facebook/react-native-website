@@ -17,7 +17,7 @@ In addition to this documentation, you might find [this blog post](https://code.
 
 When `true`, indicates that the view is an accessibility element. When a view is an accessibility element, it groups its children into a single selectable component. By default, all touchable elements are accessible.
 
-On Android, ‘accessible={true}’ property for a react-native View will be translated into native ‘focusable={true}’.
+On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
 
 ```javascript
 <View accessible={true}>
