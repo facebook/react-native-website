@@ -149,13 +149,20 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or a custom radio button has been selected). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event.
 
 ```javascript
+import { UIManager, findNodeHandle } from 'react-native';
+
 _onPress: function() {
-  this.state.radioButton = this.state.radioButton === “radiobutton_checked” ?
-  “radiobutton_unchecked” : “radiobutton_checked”;
-  if (this.state.radioButton === “radiobutton_checked”) {
-    RCTUIManager.sendAccessibilityEvent(
-      ReactNative.findNodeHandle(this),
-      RCTUIManager.AccessibilityEventTypes.typeViewClicked);
+  const radioButton = this.state.radioButton === "radiobutton_checked" ?
+    "radiobutton_unchecked" : "radiobutton_checked"
+
+  this.setState({
+    radioButton: radioButton
+  });
+
+  if (radioButton === "radiobutton_checked") {
+    UIManager.sendAccessibilityEvent(
+      findNodeHandle(this),
+      UIManager.AccessibilityEventTypes.typeViewClicked);
   }
 }
 
