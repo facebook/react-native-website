@@ -152,14 +152,14 @@ Sometimes it is useful to trigger an accessibility event on a UI component (i.e.
 import { UIManager, findNodeHandle } from 'react-native';
 
 _onPress: function() {
-  const radioButton = this.state.radioButton === "radiobutton_checked" ?
-    "radiobutton_unchecked" : "radiobutton_checked"
+  const radioButton = this.state.radioButton === 'radiobutton_checked' ?
+    'radiobutton_unchecked' : 'radiobutton_checked'
 
   this.setState({
     radioButton: radioButton
   });
 
-  if (radioButton === "radiobutton_checked") {
+  if (radioButton === 'radiobutton_checked') {
     UIManager.sendAccessibilityEvent(
       findNodeHandle(this),
       UIManager.AccessibilityEventTypes.typeViewClicked);
