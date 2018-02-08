@@ -287,7 +287,13 @@ You can use this method if your device is running Android 5.0 (Lollipop) or newe
 Run the following in a command prompt:
 
 ```
-$ adb reverse tcp:8081 tcp:8081
+$ adb -s <device name> reverse tcp:8081 tcp:8081
+```
+
+To find the device name, run the following adb command:
+
+```
+$ adb devices
 ```
 
 You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
