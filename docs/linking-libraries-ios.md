@@ -59,10 +59,6 @@ _Do I need to know the contents of the library at compile time?_
 
 What that means is, are you using this library on the native side or only in JavaScript? If you are only using it in JavaScript, you are good to go!
 
-This step is not necessary for libraries that we ship with React Native with the exception of `PushNotificationIOS` and `Linking`.
-
-In the case of the `PushNotificationIOS` for example, you have to call a method on the library from your `AppDelegate` every time a new push notification is received.
-
-For that we need to know the library's headers. To achieve that you have to go to your project's file, select `Build Settings` and search for `Header Search Paths`. There you should include the path to your library (if it has relevant files on subdirectories remember to make it `recursive`, like `React` on the example).
+If you do need to call it from native, then we need to know the library's headers. To achieve that you have to go to your project's file, select `Build Settings` and search for `Header Search Paths`. There you should include the path to your library. (This documentation used to recommend using `recursive`, but this is no longer recommended, as it can cause subtle build failures, especially with CocoaPods.)
 
 ![](/react-native/docs/assets/AddToSearchPaths.png)

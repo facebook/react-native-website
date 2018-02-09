@@ -62,7 +62,7 @@ And then in your AppDelegate implementation add the following:
 
 ### Methods
 
-* [`=`](pushnotificationios.md#)
+* [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
 * [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
 * [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
 * [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
@@ -94,21 +94,45 @@ And then in your AppDelegate implementation add the following:
 
 ## Methods
 
-### `=()`
+### `presentLocalNotification()`
 
 ```javascript
-=(NewData, NoData, ResultFailed, }, static, (, :)
+PushNotificationIOS.presentLocalNotification(details);
 ```
+
+Schedules the localNotification for immediate presentation.
+
+**Parameters:**
+
+| Name    | Type   | Required | Description |
+| ------- | ------ | -------- | ----------- |
+| details | object | Yes      | See below.  |
+
+details is an object containing:
+
+* `alertBody` : The message displayed in the notification alert.
+* `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
+* `soundName` : The sound played when the notification is fired (optional).
+* `isSilent` : If true, the notification will appear without sound (optional).
+* `category` : The category of this notification, required for actionable notifications (optional).
+* `userInfo` : An optional object containing additional notification data.
+* `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
 
 ---
 
 ### `scheduleLocalNotification()`
 
 ```javascript
-static scheduleLocalNotification(details)
+PushNotificationIOS.scheduleLocalNotification(details);
 ```
 
 Schedules the localNotification for future presentation.
+
+**Parameters:**
+
+| Name    | Type   | Required | Description |
+| ------- | ------ | -------- | ----------- |
+| details | object | Yes      | See below.  |
 
 details is an object containing:
 
@@ -128,7 +152,7 @@ details is an object containing:
 ### `cancelAllLocalNotifications()`
 
 ```javascript
-static cancelAllLocalNotifications()
+PushNotificationIOS.cancelAllLocalNotifications();
 ```
 
 Cancels all scheduled localNotifications
@@ -138,7 +162,7 @@ Cancels all scheduled localNotifications
 ### `removeAllDeliveredNotifications()`
 
 ```javascript
-static removeAllDeliveredNotifications()
+PushNotificationIOS.removeAllDeliveredNotifications();
 ```
 
 Remove all delivered notifications from Notification Center
@@ -148,12 +172,16 @@ Remove all delivered notifications from Notification Center
 ### `getDeliveredNotifications()`
 
 ```javascript
-static getDeliveredNotifications(callback)
+PushNotificationIOS.getDeliveredNotifications(callback);
 ```
 
 Provides you with a list of the app’s notifications that are still displayed in Notification Center
 
-@param callback Function which receive an array of delivered notifications
+**Parameters:**
+
+| Name     | Type     | Required | Description                                                 |
+| -------- | -------- | -------- | ----------------------------------------------------------- |
+| callback | function | Yes      | Function which receive an array of delivered notifications. |
 
 A delivered notification is an object containing:
 
@@ -169,64 +197,99 @@ A delivered notification is an object containing:
 ### `removeDeliveredNotifications()`
 
 ```javascript
-static removeDeliveredNotifications(identifiers)
+PushNotificationIOS.removeDeliveredNotifications(identifiers);
 ```
 
 Removes the specified notifications from Notification Center
 
-@param identifiers Array of notification identifiers
+**Parameters:**
+
+| Name        | Type  | Required | Description                        |
+| ----------- | ----- | -------- | ---------------------------------- |
+| identifiers | array | Yes      | Array of notification identifiers. |
 
 ---
 
 ### `setApplicationIconBadgeNumber()`
 
 ```javascript
-static setApplicationIconBadgeNumber(number)
+PushNotificationIOS.setApplicationIconBadgeNumber(number);
 ```
 
 Sets the badge number for the app icon on the home screen
+
+**Parameters:**
+
+| Name   | Type   | Required | Description                    |
+| ------ | ------ | -------- | ------------------------------ |
+| number | number | Yes      | Badge number for the app icon. |
 
 ---
 
 ### `getApplicationIconBadgeNumber()`
 
 ```javascript
-static getApplicationIconBadgeNumber(callback)
+PushNotificationIOS.getApplicationIconBadgeNumber(callback);
 ```
 
 Gets the current badge number for the app icon on the home screen
+
+**Parameters:**
+
+| Name     | Type     | Required | Description                                              |
+| -------- | -------- | -------- | -------------------------------------------------------- |
+| callback | function | Yes      | A function that will be passed the current badge number. |
 
 ---
 
 ### `cancelLocalNotifications()`
 
 ```javascript
-static cancelLocalNotifications(userInfo)
+PushNotificationIOS.cancelLocalNotifications(userInfo);
 ```
 
 Cancel local notifications.
 
 Optionally restricts the set of canceled notifications to those notifications whose `userInfo` fields match the corresponding fields in the `userInfo` argument.
 
+**Parameters:**
+
+| Name     | Type   | Required | Description |
+| -------- | ------ | -------- | ----------- |
+| userInfo | object | No       |             |
+
 ---
 
 ### `getScheduledLocalNotifications()`
 
 ```javascript
-static getScheduledLocalNotifications(callback)
+PushNotificationIOS.getScheduledLocalNotifications(callback);
 ```
 
 Gets the local notifications that are currently scheduled.
+
+**Parameters:**
+
+| Name     | Type     | Required | Description                                                                        |
+| -------- | -------- | -------- | ---------------------------------------------------------------------------------- |
+| callback | function | Yes      | A function that will be passed an array of objects describing local notifications. |
 
 ---
 
 ### `addEventListener()`
 
 ```javascript
-static addEventListener(type, handler)
+PushNotificationIOS.addEventListener(type, handler);
 ```
 
 Attaches a listener to remote or local notification events while the app is running in the foreground or the background.
+
+**Parameters:**
+
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| type    | string   | Yes      | Event type. |
+| handler | function | Yes      | Listener.   |
 
 Valid events are:
 
@@ -240,17 +303,24 @@ Valid events are:
 ### `removeEventListener()`
 
 ```javascript
-static removeEventListener(type, handler)
+PushNotificationIOS.removeEventListener(type, handler);
 ```
 
 Removes the event listener. Do this in `componentWillUnmount` to prevent memory leaks
+
+**Parameters:**
+
+| Name    | Type     | Required | Description |
+| ------- | -------- | -------- | ----------- |
+| type    | string   | Yes      | Event type. |
+| handler | function | Yes      | Listener.   |
 
 ---
 
 ### `requestPermissions()`
 
 ```javascript
-static requestPermissions(permissions?)
+PushNotificationIOS.requestPermissions([permissions]);
 ```
 
 Requests notification permissions from iOS, prompting the user's dialog box. By default, it will request all notification permissions, but a subset of these can be requested by passing a map of requested permissions. The following permissions are supported:
@@ -263,12 +333,18 @@ If a map is provided to the method, only the permissions with truthy values will
 
 This method returns a promise that will resolve when the user accepts, rejects, or if the permissions were previously rejected. The promise resolves to the current state of the permission.
 
+**Parameters:**
+
+| Name        | Type  | Required | Description            |
+| ----------- | ----- | -------- | ---------------------- |
+| permissions | array | No       | alert, badge, or sound |
+
 ---
 
 ### `abandonPermissions()`
 
 ```javascript
-static abandonPermissions()
+PushNotificationIOS.abandonPermissions();
 ```
 
 Unregister for all remote notifications received via Apple Push Notification service.
@@ -280,10 +356,18 @@ You should call this method in rare circumstances only, such as when a new versi
 ### `checkPermissions()`
 
 ```javascript
-static checkPermissions(callback)
+PushNotificationIOS.checkPermissions(callback);
 ```
 
-See what push permissions are currently enabled. `callback` will be invoked with a `permissions` object:
+See what push permissions are currently enabled.
+
+**Parameters:**
+
+| Name     | Type     | Required | Description |
+| -------- | -------- | -------- | ----------- |
+| callback | function | Yes      | See below.  |
+
+`callback` will be invoked with a `permissions` object:
 
 * `alert` :boolean
 * `badge` :boolean
@@ -294,7 +378,7 @@ See what push permissions are currently enabled. `callback` will be invoked with
 ### `getInitialNotification()`
 
 ```javascript
-static getInitialNotification()
+PushNotificationIOS.getInitialNotification();
 ```
 
 This method returns a promise that resolves to either the notification object if the app was launched by a push notification, or `null` otherwise.
@@ -307,7 +391,7 @@ This method returns a promise that resolves to either the notification object if
 constructor(nativeNotif);
 ```
 
-You will never need to instantiate `PushNotificationIOS` yourself. Listening to the `notification` event and invoking `getInitialNotification` is sufficient
+You will never need to instantiate `PushNotificationIOS` yourself. Listening to the `notification` event and invoking `getInitialNotification` is sufficient.
 
 ---
 

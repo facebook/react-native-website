@@ -3,67 +3,57 @@ id: modal
 title: Modal
 ---
 
-Minimal modal example:
+The Modal component is a simple way to present content above an enclosing view.
 
-```
-import React, { Component } from 'react';
-import { Text, View, Button, Modal, StyleSheet } from 'react-native';
+> Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
-export default class MyComponent extends Component {
+```javascript
+import React, {Component} from 'react';
+import {Modal, Text, TouchableHighlight, View} from 'react-native';
+
+class ModalExample extends Component {
   state = {
     modalVisible: false,
   };
 
-  openModal() {
-    this.setState({modalVisible:true});
-  }
-
-  closeModal() {
-    this.setState({modalVisible:false});
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
   }
 
   render() {
     return (
-        <View style={styles.container}>
-          <Modal
-              visible={this.state.modalVisible}
-              animationType={'slide'}
-              onRequestClose={() => this.closeModal()}
-          >
-            <View style={styles.modalContainer}>
-              <View style={styles.innerContainer}>
-                <Text>This is content inside of modal component</Text>
-                <Button
-                    onPress={() => this.closeModal()}
-                    title="Close modal"
-                >
-                </Button>
-              </View>
+      <View style={{marginTop: 22}}>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            alert('Modal has been closed.');
+          }}>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
             </View>
-          </Modal>
-          <Button
-              onPress={() => this.openModal()}
-              title="Open modal"
-          />
-        </View>
+          </View>
+        </Modal>
+
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}>
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
+      </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  modalContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'grey',
-  },
-  innerContainer: {
-    alignItems: 'center',
-  },
-});
 ```
 
 ### Props
@@ -197,13 +187,3 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 | Type                                                           | Required | Platform |
 | -------------------------------------------------------------- | -------- | -------- |
 | enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | No       | iOS      |
-
----
-
-### `animated`
-
-**Deprecated.** Use the `animationType` prop instead.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |

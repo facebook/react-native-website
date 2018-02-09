@@ -549,16 +549,6 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 
 ---
 
-### `autoGrow`
-
-If true, will increase the height of the textbox if need be. If false, the textbox will become scrollable once the height is reached. The default value is false.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
 ### `disableFullscreenUI`
 
 When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
@@ -638,6 +628,7 @@ The color of the `TextInput` underline.
 ### `clearButtonMode`
 
 When the clear button should appear on the right side of the text view.
+This property is supported only for single-line TextInput component.
 
 | Type                                                       | Required | Platform |
 | ---------------------------------------------------------- | -------- | -------- |
