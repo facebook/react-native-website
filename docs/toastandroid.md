@@ -77,7 +77,7 @@ static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 ### `SHORT`
 
 ```javascript
-ToastAndroid.SHORT
+ToastAndroid.SHORT;
 ```
 
 ---
@@ -85,7 +85,7 @@ ToastAndroid.SHORT
 ### `LONG`
 
 ```javascript
-ToastAndroid.LONG
+ToastAndroid.LONG;
 ```
 
 ---
@@ -93,7 +93,7 @@ ToastAndroid.LONG
 ### `TOP`
 
 ```javascript
-ToastAndroid.TOP
+ToastAndroid.TOP;
 ```
 
 ---
@@ -101,7 +101,7 @@ ToastAndroid.TOP
 ### `BOTTOM`
 
 ```javascript
-ToastAndroid.BOTTOM
+ToastAndroid.BOTTOM;
 ```
 
 ---
@@ -109,5 +109,5 @@ ToastAndroid.BOTTOM
 ### `CENTER`
 
 ```javascript
-ToastAndroid.CENTER
+ToastAndroid.CENTER;
 ```

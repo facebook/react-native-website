@@ -144,7 +144,7 @@ var styles = StyleSheet.create({
 });
 ```
 
-This constant will always be a round number of pixels (so a line defined by it look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
+This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
 
 A line with hairline width may not be visible if your simulator is downscaled.
 
