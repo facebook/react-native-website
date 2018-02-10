@@ -9,6 +9,10 @@ The underlay comes from wrapping the child in a new View, which can affect layou
 
 TouchableHighlight must have one child (not zero or more than one). If you wish to have several child components, wrap them in a View.
 
+<aside class="warning">
+  Note: If onPress not set hightlight will not work.
+</aside>
+
 Example:
 
 ```
