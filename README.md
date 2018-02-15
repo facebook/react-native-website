@@ -16,6 +16,7 @@ This repo contains a clone and a Chinese translated version of offcial
 1. Node: install version 6.2.2 or greater
 1. Yarn: See
    [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
+1. A fork of the repo (for any contributions)
 1. A clone of the `react-native-website` repo.
 1. Docusaurus: Run `yarn global add docusaurus-init` or `npm install --global docusaurus-init`
 1. Prettier: See
@@ -140,9 +141,11 @@ React Native showcase.
 
 ### Make the change
 
-1. Follow the "Running locally" instructions
-1. Save the files and check in the browser. Some changes may require a server
-   restart.
+1. Follow the "Running locally" instructions 
+1. Save the files and check in the browser. Some changes may require a server restart.
+1. Changes to /docs will only be visible in the latest version of the documentation (master). 
+
+`open http://localhost:3000/react-native/versions.html`to see other versions.
 
 ### Test the change
 

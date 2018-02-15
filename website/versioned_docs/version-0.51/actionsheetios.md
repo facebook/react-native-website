@@ -36,9 +36,9 @@ Minimal example:
 
 ```
 ActionSheetIOS.showActionSheetWithOptions({
-  options: ['Remove', 'Cancel'],
-  destructiveButtonIndex: 0,
-  cancelButtonIndex: 1,
+  options: ['Cancel', 'Remove'],
+  destructiveButtonIndex: 1,
+  cancelButtonIndex: 0,
 },
 (buttonIndex) => {
   if (buttonIndex === 1) { /* destructive action */ }

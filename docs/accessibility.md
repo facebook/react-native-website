@@ -17,7 +17,7 @@ In addition to this documentation, you might find [this blog post](https://code.
 
 When `true`, indicates that the view is an accessibility element. When a view is an accessibility element, it groups its children into a single selectable component. By default, all touchable elements are accessible.
 
-On Android, ‘accessible={true}’ property for a react-native View will be translated into native ‘focusable={true}’.
+On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
 
 ```javascript
 <View accessible={true}>
@@ -149,13 +149,20 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or a custom radio button has been selected). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event.
 
 ```javascript
+import { UIManager, findNodeHandle } from 'react-native';
+
 _onPress: function() {
-  this.state.radioButton = this.state.radioButton === “radiobutton_checked” ?
-  “radiobutton_unchecked” : “radiobutton_checked”;
-  if (this.state.radioButton === “radiobutton_checked”) {
-    RCTUIManager.sendAccessibilityEvent(
-      ReactNative.findNodeHandle(this),
-      RCTUIManager.AccessibilityEventTypes.typeViewClicked);
+  const radioButton = this.state.radioButton === 'radiobutton_checked' ?
+    'radiobutton_unchecked' : 'radiobutton_checked'
+
+  this.setState({
+    radioButton: radioButton
+  });
+
+  if (radioButton === 'radiobutton_checked') {
+    UIManager.sendAccessibilityEvent(
+      findNodeHandle(this),
+      UIManager.AccessibilityEventTypes.typeViewClicked);
   }
 }
 
