@@ -1,7 +1,12 @@
-# facebook.github.io/react-native/
+# reactnativecn/react-native/
 
-This repo contains the website configuration and documentation powering the
+This repo contains a clone and a Chinese translated version of offcial
 [React Native website](https://facebook.github.io/react-native/).
+
+## Sync with offcial repo
+
+1. [facebook:master -> offcial-clone](https://github.com/reactnativecn/react-native-website/compare/offcial-clone...facebook:master)
+2. [offcial-clone -> production](https://github.com/reactnativecn/react-native-website/compare/production...reactnativecn:offcial-clone)
 
 ## Getting started
 
@@ -12,8 +17,7 @@ This repo contains the website configuration and documentation powering the
 1. Yarn: See
    [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1. A clone of the `react-native-website` repo.
-1. Docusaurus: Run `yarn global add docusaurus-init` or `npm install --global
-   docusaurus-init`
+1. Docusaurus: Run `yarn global add docusaurus-init` or `npm install --global docusaurus-init`
 1. Prettier: See
    [Prettier website for installation instructions](https://prettier.io/docs/en/install.html)
 
@@ -26,8 +30,7 @@ This repo contains the website configuration and documentation powering the
 
 ### Running locally
 
-1. `yarn start` to start the development server (powered by Docusaurus) (or `npm
-   start`, if not using Yarn)
+1. `yarn start` to start the development server (powered by Docusaurus) (or `npm start`, if not using Yarn)
 1. `open http://localhost:3000/` to open the site in your favorite browser
 
 # Overview
