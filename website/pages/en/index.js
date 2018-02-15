@@ -246,6 +246,7 @@ class SomethingFast extends Component {
   }
 }
 
+/*
 class MiniShowcase extends React.Component {
   render() {
     return (
@@ -266,6 +267,7 @@ class MiniShowcase extends React.Component {
     );
   }
 }
+*/
 
 class Index extends React.Component {
   render() {
@@ -273,7 +275,7 @@ class Index extends React.Component {
       <div className="pageContainer">
         <HeaderHero />
         <Features />
-        <MiniShowcase />
+        {/* <MiniShowcase /> */}
         <Hero>
           <HomeCallToAction />
         </Hero>

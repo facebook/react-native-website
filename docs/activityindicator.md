@@ -17,7 +17,7 @@ import {
   View,
 } from 'react-native'
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <View style={[styles.container, styles.horizontal]}>

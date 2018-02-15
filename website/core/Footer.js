@@ -14,7 +14,7 @@ class Footer extends React.Component {
     const currentYear = new Date().getFullYear();
     return (
       <footer className="nav-footer" id="footer">
-        <section className="sitemap">
+        {/* <section className="sitemap">
           <a href={this.props.config.baseUrl} className="nav-home">
             <img
               src={this.props.config.baseUrl + this.props.config.footerIcon}
@@ -110,7 +110,7 @@ class Footer extends React.Component {
               </a>
             </div>
           </div>
-        </section>
+        </section> */}
         <section className="copyright">
           <p>
             React Native中文网 &copy; {currentYear} 杭州欧石南网络科技有限公司

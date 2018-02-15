@@ -107,5 +107,5 @@ Remove a handler by passing the `change` event type and the handler.
 ### `currentState`
 
 ```javascript
-AppState.currentState
+AppState.currentState;
 ```
