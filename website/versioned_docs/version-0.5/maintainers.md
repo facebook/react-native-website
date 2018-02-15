@@ -25,27 +25,27 @@ You have gathered all the information required to open a new issue, and you are 
 
   Some features may not be a good fit for the core React Native library. This is usually the case for \*_new modules_ that Facebook does not use in production. In this case, a maintainer will explain that this should be released to npm as a separate module, allowing users to easily pull in the module in their projects.
 
-  Even if the feature does belong in the core library, adding it means maintaining it. A maintainer will encourage you to submit a pull request or otherwise post your request to [Canny](https://react-native.canny.io/feature-requests) by issuing the `@facebook-github-bot feature` command, closing the issue.
+  Even if the feature does belong in the core library, adding it means maintaining it. A maintainer will encourage you to submit a pull request or otherwise post your request to [Canny](https://react-native.canny.io/feature-requests).
 
   An exception can be made for proposals and long-running discussions, though these should be rare. If you have been contributing to the project long enough, you will probably already have access to the [React Native Core Contributors](https://www.facebook.com/groups/reactnativeoss/) Facebook Group, where this sort of discussion is usually held.
 
 * **Is this issue a request for help?**
 
-  Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers may encourage you to ask on Stack Overflow by issuing the `@facebook-github-bot stack-overflow` command, closing the issue. Feel free to also answer some [questions on Stack Overflow](stackoverflow.com/questions/tagged/react-native), you'll get rep!
+  Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers should encourage contributors to ask on Stack Overflow, before closing the issue. Feel free to also answer some [questions on Stack Overflow](stackoverflow.com/questions/tagged/react-native), you'll get rep!
 
 * **Was the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md) used to fill out the issue? Did the author answer Yes to both questions at the top?**
 
-  If not, the maintainer will ask you to provide more information by issuing the `@facebook-github-bot no-template` command, closing the issue.
+  If not, the maintainer will ask you to provide more information by filling out the issue template, then they will close the issue.
 
 * **Is the issue a duplicate of an existing, open issue?**
 
-  A maintainer will use the `@facebook-github-bot duplicate #123` command to mark the issue as a duplicate of issue #123, closing it.
+  A maintainer will add a comment, `Duplicate of #123`, which will mark the issue as a duplicate of issue #123. They will then close the issue.
 
 * **Does the issue include a Snack or list of steps to reproduce the issue?**
 
   Issues should be relatively easy to reproduce. Sometimes the issue affects a particular app but a minimal repro is not provided, perhaps a crash is seen in the logs and the author is not sure where its coming from, maybe the issue is sporadic.
 
-  As it happens, if a maintainer cannot easily reproduce the issue, one cannot reasonably expect them to be able to work on a fix. These issues can be closed by issuing the `@facebook-github-bot needs-repro` command.
+  As it happens, if a maintainer cannot easily reproduce the issue, one cannot reasonably expect them to be able to work on a fix. The maintainer will let you know this is the case, and your issue will be closed.
 
   Exceptions can be made if multiple people appear to be affected by the issue, especially right after a new React Native release is cut.
 
@@ -55,19 +55,19 @@ You have gathered all the information required to open a new issue, and you are 
 
 * **Can the issue be reliably reproduced?**
 
-  If not, a maintainer may issue the `@facebook-github-bot cannot-repro` command, closing the issue.
+  Transient issues or issues that only occur on a specific project but a minimum repro is not provided may be closed.
 
 * **Does the issue need more information?**
 
-  Some issues need additional information in order to reproduce them. Maintainers should explain what additional information is needed, using the `@facebook-github-bot label Needs more information` command to label the issue as such.
+  Some issues need additional information in order to reproduce them. Maintainers should explain what additional information is needed, after adding the 'Needs more information' label.
 
-  Issues with the 'Needs more information' label that have been open for more than a week without a response from the author can be closed using `@facebook-github-bot no-reply`.
+  Issues with the 'Needs more information' label that have been open for more than a week without a response from the author can be closed.
 
 * **Has the issue been resolved already in the comments?**
 
-  Sometimes another contributor has already provided a solution in the comments. Maintainers may issue the `@facebook-github-bot answered` command to close the issue.
+  Sometimes another contributor has already provided a solution in the comments. Maintainers may close the issue in this case.
 
-> **Reopening a closed issue:** Sometimes it's necessary to reopen an issue. For example, if an issue was closed waiting for the author, then the author replied and it turns out this is indeed a bug, you can comment `@facebook-github-bot reopen` to reopen it.
+> **Reopening a closed issue:** Sometimes it's necessary to reopen an issue. For example, if an issue was closed waiting for the author, then the author replied and it turns out this is indeed a bug, maintainers can reopen the issue.
 
 Valid bug reports with good repro steps are some of the best issues! Maintainers should thank the author for finding the issue, then explain that React Native is a community project and **ask them if they would be up for sending a fix**.
 
@@ -75,15 +75,11 @@ Valid bug reports with good repro steps are some of the best issues! Maintainers
 
 If a issue is still open after going through all of the checks above, it will move on to the triage stage. A maintainer will then do the following:
 
-1. Add relevant labels. For example, if this is an issue that affects Android, use the `@facebook-github-bot label Android` command.
+1. Add relevant labels.
 2. Leave a comment saying the issue has been triaged.
 3. Tag the relevant people.
 
 You can generally figure out who may be relevant for a given issue by looking at the [CODEOWNERS](https://github.com/facebook/react-native/blob/master/.github/CODEOWNERS) file.
-
-#### What are all the available commands for the bot?
-
-You can find the full command reference in the [Facebook GitHub Bot](/maintainers.md#facebook-github-bot) section below.
 
 ### Stale issues
 
@@ -160,157 +156,4 @@ If a contributor becomes hostile or disrespectful, they will be referred to the 
 
 ## Facebook GitHub Bot
 
-The Facebook GitHub Bot allows members of the community to perform administrative actions such as labeling and closing issues. To have access to the bot, please add your GitHub username to the first line of [IssueCommands.txt](https://github.com/facebook/react-native/blob/master/bots/IssueCommands.txt), in alphabetical order, by submitting a Pull Request.
-
-### Using the Facebook GitHub Bot
-
-The bot can be triggered by adding any of the following commands as a standalone comment on an issue:
-
-<div class="botActions">
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> no-template
-    </h4>
-    <div><p>
-      Use this when more information is needed, especially if the issue does not adhere to the <a href="https://raw.githubusercontent.com/facebook/react-native/master/.github/ISSUE_TEMPLATE.md">issue template</a>. The bot will <strong>close</strong> the issue after adding the "Needs more information" label.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> stack-overflow
-    </h4>
-    <div><p>
-      Mark issues that do not belong in the bug tracker, and redirect to Stack Overflow. The bot will <strong>close</strong> the issue after adding the "For Stack Overflow" label.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> needs-repro
-    </h4>
-    <div><p>
-      Prompts the author to provide a reproducible example or <a href="http://snack.expo.io">Snack</a>. The bot will apply the "Needs more information" label.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> cannot-repro
-    </h4>
-    <div><p>
-      Use this when the issue cannot be reproduced, either because it affects a particular app but no minimal repro was provided, or the issue describes something sporadic that is unlikely to be reproduced by a community member. The bot will <strong>close</strong> the issue.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> duplicate (#[0-9]+)
-    </h4>
-    <div><p>
-      Marks an issue as a duplicate. Requires a issue number to be provided. The bot will <strong>close</strong> the issue.
-    </p>
-    <p>
-      Example: <code>@facebook-github-bot duplicate #42</code>
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> label (.*)
-    </h4>
-    <div><p>
-      Use this command to add a <a href="https://github.com/facebook/react-native/labels">label</a>, such as "iOS" or "Android", to an issue.
-    </p><p>
-      Example: <code>@facebook-github-bot label Android</code>
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> feature
-    </h4>
-    <div><p>
-      Use this when an issue describes a feature request, as opposed to a reproducible bug. The bot will point the author to the feature request tracker, add the "Feature Request" label, then <strong>close</strong> the issue.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> expected
-    </h4>
-    <div><p>
-      Use this when an issue describes a type of expected behavior. The bot will <strong>close</strong> the issue.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> answered
-    </h4>
-    <div><p>
-      Use this when an issue appears to be a question that has already been answered by someone on the thread. The bot will <strong>close</strong> the issue.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> close
-    </h4>
-    <div><p>
-      <strong>Closes</strong> an issue without providing a particular explanation.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> reopen
-    </h4>
-    <div><p>
-      <strong>Re-opens</strong> a previously closed issue.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> bugfix
-    </h4>
-    <div><p>
-      Mark issues that describe a reproducible bug and encourage the author to send a pull request. The bot will add the "Help Wanted" label.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> no-reply
-    </h4>
-    <div><p>
-      Use this when an issue requires more information from the author but they have not added a comment in a while. The bot will <strong>close</strong> the issue.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> icebox
-    </h4>
-    <div><p>
-      Use this when an issue has been open for over 30 days with no activity and no community member has volunteered to work on a fix. The bot will <strong>close</strong> the issue after adding the "Icebox" label.
-    </p></div>
-  </div>
-</div>
-
-Additionally, the following commands can be used on a pull request:
-
-<div class="botActions">
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> cla
-    </h4>
-    <div><p>
-      Remind the author that the CLA needs to be signed.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> shipit
-    </h4>
-    <div><p>
-      Flag the PR for merging. If used by a core contributor, the bot will attempt to import the pull request. In general, core contributors are those who have consistently submitted high quality contributions to the project. Access control for this command is configured internally in Facebook, outside of the IssueCommands.txt file mentioned above.
-    </p></div>
-  </div>
-  <div class="botAction">
-    <h4 class="botCommand">
-      <span class="botMentionName">@facebook-github-bot</span> large-pr
-    </h4>
-    <div><p>
-      Flag PRs that change too many files at once. These PRs are extremely unlikely to be reviewed. The bot will leave a helpful message indicating next steps such as splitting the PR. The bot will <strong>close</strong> the PR after adding the "Large PR" label.
-    </p></div>
-  </div>
-</div>
+The Facebook GitHub Bot was used to allow members of the community to perform administrative actions such as labeling and closing issues. The bot is no longer necessary, as maintainers will be granted the necessary permissions to manage issues. If you are interested in maintaining the repo, please reach out to Héctor Ramos (@hramos) on GitHub.

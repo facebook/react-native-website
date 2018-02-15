@@ -1,6 +1,7 @@
 ---
-id: accessibility
+id: version-0.54-RC-accessibility
 title: Accessibility
+original_id: accessibility
 ---
 
 ## Native App Accessibility (iOS and Android)

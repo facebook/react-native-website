@@ -109,16 +109,11 @@ class Help extends React.Component {
             If you want to contribute, read the{" "}
             <a href={siteConfig.baseUrl + "docs/contributing.html"}>
               Contributor's Guide
-            </a>, then take a look at the{" "}
-            <a href="https://github.com/facebook/react-native/wiki/Roadmap">
-              Roadmap
             </a>{" "}
-            to learn more about what people are working on, or check out the
-            list of{" "}
-            <a href="https://react-native.canny.io/feature-requests">
-              most popular features
-            </a>{" "}
-            requested by the community.
+            and{" "}
+            <a href={siteConfig.baseUrl + "docs/maintainers.html"}>
+              What to Expect from Maintainers
+            </a>.
           </p>
         </Container>
       </div>

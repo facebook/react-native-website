@@ -1,6 +1,7 @@
 ---
-id: vibration
+id: version-0.54-RC-vibration
 title: Vibration
+original_id: vibration
 ---
 
 The Vibration API is exposed at `Vibration.vibrate()`. The vibration is asynchronous so this method will return immediately.

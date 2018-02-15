@@ -1,6 +1,7 @@
 ---
-id: running-on-device
+id: version-0.54-RC-running-on-device
 title: Running On Device
+original_id: running-on-device
 ---
 
 <style>
