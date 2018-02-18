@@ -46,7 +46,7 @@ class Help extends React.Component {
               </a>
             </li>
             <li>
-              <a href={siteConfig.baseUrl + "docs/components.html"}>
+              <a href={siteConfig.baseUrl + "docs/components-and-apis.html"}>
                 Components and APIs
               </a>
             </li>
