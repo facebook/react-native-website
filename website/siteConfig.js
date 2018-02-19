@@ -7,57 +7,61 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-const RemarkablePlugins = require('./core/RemarkablePlugins');
+const RemarkablePlugins = require("./core/RemarkablePlugins");
 
-const users = require('./showcase.json');
+// const users = require("./showcase.json");
 
-const baseUrl = '/react-native/';
-const repoUrl = 'https://github.com/facebook/react-native';
+const baseUrl = "/";
+const repoUrl = "https://github.com/facebook/react-native";
+const bbsUrl = "http://bbs.reactnative.cn";
 const siteConfig = {
-  title: 'React Native',
-  tagline: 'A framework for building native apps using React',
-  url: 'https://facebook.github.io',
+  title: "React Native 中文网",
+  tagline: "使用React来编写原生应用的框架",
   baseUrl,
-  projectName: 'react-native',
+  projectName: "react-native",
   repoUrl,
-  users,
-  editUrl: "https://github.com/facebook/react-native-website/blob/master/docs/",
+  users: [],
+  editUrl:
+    "https://github.com/reactnativecn/react-native-website/blob/production/cndocs/",
   headerLinks: [
-    {doc: 'getting-started', label: 'Docs'},
-    {page: 'help', label: 'Community'},
-    {blog: true, label: 'Blog'},
-    {search: true},
-    {href: repoUrl, label: 'GitHub'},
-    {href: 'https://reactjs.org/', label: 'React'},
+    { doc: "getting-started", label: "文档" },
+    { href: "https://ke.qq.com/course/197101", label: "课程", external: true },
+    // { blog: true, label: "博客" },
+    { href: "http://bbs.reactnative.cn", external: true, label: "讨论" },
+    { href: "http://update.reactnative.cn", label: "热更新", external: true },
+    { search: true },
+    { href: repoUrl, label: "GitHub" },
+    { href: "https://doc.react-china.org/", external: true, label: "React" }
   ],
-  headerIcon: 'img/header_logo.png',
-  footerIcon: 'img/header_logo.png',
-  favicon: 'img/favicon.png',
+  headerIcon: "img/header_logo.png",
+  footerIcon: "img/header_logo.png",
+  favicon: "img/favicon.png",
   colors: {
-    primaryColor: 'rgb(34, 34, 34)',
-    secondaryColor: '#05A5D1',
-    tintColor: '#005068',
-    backgroundColor: '#f5fcff',
+    primaryColor: "rgb(34, 34, 34)",
+    secondaryColor: "#05A5D1",
+    tintColor: "#005068",
+    backgroundColor: "#f5fcff"
   },
   algolia: {
-    apiKey: '2c98749b4a1e588efec53b2acec13025',
-    indexName: 'react-native-versions',
+    apiKey: "c22559bbcaf0b48ef46e8ebac0cf187d",
+    indexName: "react-native-cn-versions",
     algoliaOptions: {
-      facetFilters: ['tags:VERSION'],
-      hitsPerPage: 5,
-    },
+      facetFilters: ["tags:VERSION"],
+      hitsPerPage: 5
+    }
   },
-  facebookAppId: '1677033832619985',
-  twitter: 'reactnative',
+  // facebookAppId: "1677033832619985",
+  // twitter: "reactnative",
   markdownPlugins: [
     RemarkablePlugins.SnackPlayer,
-    RemarkablePlugins.ReactNativeWebPlayer,
+    RemarkablePlugins.ReactNativeWebPlayer
   ],
   highlight: {
-    theme: 'solarized-dark',
+    theme: "solarized-dark"
   },
-  gaTrackingId: 'UA-41298772-2',
-  scripts: ['https://snack.expo.io/embed.js', baseUrl + 'js/codeblocks.js'],
+  gaTrackingId: "UA-63485149-4",
+  scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"],
+  customDocsPath: "cndocs"
 };
 
 module.exports = siteConfig;

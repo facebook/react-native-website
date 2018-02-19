@@ -3,10 +3,9 @@
 This repo contains a clone and a Chinese translated version of offcial
 [React Native website](https://facebook.github.io/react-native/).
 
-## Sync with offcial repo
+## Sync with official repo
 
-1. [facebook:master -> offcial-clone](https://github.com/reactnativecn/react-native-website/compare/offcial-clone...facebook:master)
-2. [offcial-clone -> production](https://github.com/reactnativecn/react-native-website/compare/production...reactnativecn:offcial-clone)
+[facebook:master -> production](https://github.com/reactnativecn/react-native-website/compare/production...facebook:master)
 
 ## Getting started
 
@@ -141,9 +140,9 @@ React Native showcase.
 
 ### Make the change
 
-1. Follow the "Running locally" instructions 
+1. Follow the "Running locally" instructions
 1. Save the files and check in the browser. Some changes may require a server restart.
-1. Changes to /docs will only be visible in the latest version of the documentation (master). 
+1. Changes to /docs will only be visible in the latest version of the documentation (master).
 
 `open http://localhost:3000/react-native/versions.html`to see other versions.
 
