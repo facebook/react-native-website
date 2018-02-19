@@ -3,10 +3,9 @@
 This repo contains a clone and a Chinese translated version of offcial
 [React Native website](https://facebook.github.io/react-native/).
 
-## Sync with offcial repo
+## Sync with official repo
 
-1. [facebook:master -> offcial-clone](https://github.com/reactnativecn/react-native-website/compare/offcial-clone...facebook:master)
-2. [offcial-clone -> production](https://github.com/reactnativecn/react-native-website/compare/production...reactnativecn:offcial-clone)
+[facebook:master -> production](https://github.com/reactnativecn/react-native-website/compare/production...facebook:master)
 
 ## Getting started
 

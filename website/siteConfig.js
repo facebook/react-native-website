@@ -28,6 +28,7 @@ const siteConfig = {
     { href: "https://ke.qq.com/course/197101", label: "课程", external: true },
     // { blog: true, label: "博客" },
     { href: "http://bbs.reactnative.cn", external: true, label: "讨论" },
+    { href: "http://update.reactnative.cn", label: "热更新", external: true },
     { search: true },
     { href: repoUrl, label: "GitHub" },
     { href: "https://doc.react-china.org/", external: true, label: "React" }
@@ -41,10 +42,9 @@ const siteConfig = {
     tintColor: "#005068",
     backgroundColor: "#f5fcff"
   },
-  // TODO algolia
   algolia: {
-    apiKey: "2c98749b4a1e588efec53b2acec13025",
-    indexName: "react-native-versions",
+    apiKey: "c22559bbcaf0b48ef46e8ebac0cf187d",
+    indexName: "react-native-cn-versions",
     algoliaOptions: {
       facetFilters: ["tags:VERSION"],
       hitsPerPage: 5
@@ -59,8 +59,7 @@ const siteConfig = {
   highlight: {
     theme: "solarized-dark"
   },
-  // TODO GA
-  gaTrackingId: "UA-41298772-2",
+  gaTrackingId: "UA-63485149-4",
   scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"],
   customDocsPath: "cndocs"
 };
