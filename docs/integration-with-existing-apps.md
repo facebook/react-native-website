@@ -200,6 +200,12 @@ Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a 
 
 ![Before RN Integration](/react-native/docs/assets/react-native-existing-app-integration-ios-before.png)
 
+### Xcode Command Line Tools
+
+Install the Xcode Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+
+![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+
 ### Configuring CocoaPods dependencies
 
 Before you integrate React Native into your application, you will want to decide what parts of the React Native framework you would like to integrate. We will use CocoaPods to specify which of these "subspecs" your app will depend on.
@@ -279,10 +285,6 @@ end
 <block class="objc swift" />
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
-
-You will also need to install the Xcode Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
-
-![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 ```
 $ pod install
