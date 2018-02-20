@@ -143,9 +143,9 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 
 上面这个例子里，第二个 View 的组件对于 TalkBack 和其他一些辅助服务来说是完全不可见的。这样我们就可以轻易地把两个视图覆盖到同一个父容器上，而不用担心影响 TalkBack 服务。
 
-### Checking if a Screen Reader is Enabled
+### 查看读屏应用是否已开启
 
-The `AccessibilityInfo` API allows you to determine whether or not a screen reader is currently active. See the [AccessibilityInfo documentation](accessibilityinfo.md) for details.
+`AccessibilityInfo`可以用于查询读屏应用是否已开启。请查看[AccessibilityInfo 的文档](accessibilityinfo.md)来了解具体用法。
 
 ### 发送无障碍功能的相关事件 (Android)
 
