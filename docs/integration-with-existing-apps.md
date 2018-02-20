@@ -280,6 +280,8 @@ end
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
+First, go to Xcode and in Preferences > Locations, make sure you have the Command Line Tools assigned. This is needed for installation of some of the third-party dependencies (for example GLog).
+
 ```
 $ pod install
 ```
@@ -296,6 +298,8 @@ Integrating client project
 Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
+
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in Preferences > Locations, you have the Command Line Tools assigned.
 
 <block class="swift" />
 
