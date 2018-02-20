@@ -156,17 +156,17 @@ Install the `react` and `react-native` packages. Open a terminal or command prom
 $ yarn add react-native
 ```
 
-This will print something like:
+This will print a message similar to the following (scroll up in the yarn output to see it):
 
 > warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
 
-This is OK, it means we also need to install react:
+This is OK, it means we also need to install React:
 
 ```
-$ yarn add react@16.2.0    # Make sure you use the same react version as printed by yarn when installing react-native!
+$ yarn add react@version_printed_above
 ```
 
-This will create a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file.
 
