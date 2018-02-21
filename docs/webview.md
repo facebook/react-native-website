@@ -59,6 +59,7 @@ You can use this component to navigate back and forth in the web view's history 
 - [`contentInset`](webview.md#contentinset)
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`scrollEnabled`](webview.md#scrollenabled)
+- [`onScrollChanged`](webview.md#onscrollchanged)
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
 
@@ -393,6 +394,20 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `onScrollChanged`
+
+A function that is invoked whenever the internal webview is scrolled. It is called with
+
+`{nativeEvent: {x, y, prevX, prevY}}`
+
+where `x` is the current horizontal scroll origin, `y` is the current vertical scroll origin, `prevX` is the previous horizontal scroll origin, and `prevY` is the previous vertical scroll origin.
+
+| Type     | Required | Platform |
+| -------- | -------- | -------- |
+| function | No       | Android  |
 
 ---
 
