@@ -200,6 +200,12 @@ Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a 
 
 ![Before RN Integration](/react-native/docs/assets/react-native-existing-app-integration-ios-before.png)
 
+### Command Line Tools for Xcode
+
+Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+
+![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+
 ### Configuring CocoaPods dependencies
 
 Before you integrate React Native into your application, you will want to decide what parts of the React Native framework you would like to integrate. We will use CocoaPods to specify which of these "subspecs" your app will depend on.
@@ -296,6 +302,8 @@ Integrating client project
 Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
+
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in Preferences > Locations the Command Line Tools are assigned.
 
 <block class="swift" />
 
