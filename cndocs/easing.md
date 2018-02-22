@@ -3,22 +3,22 @@ id: easing
 title: Easing
 ---
 
-The `Easing` module implements common easing functions. This module is used by [Animated.timing()](animated.md#timing) to convey physically believable motion in animations.
+`Easing`模块实现了常见的动画缓动函数。 This module is used by [Animated.timing()](animated.md#timing) to convey physically believable motion in animations.
 
 You can find a visualization of some common easing functions at http://easings.net/
 
-### Predefined animations
+### 查看预置动画
 
-The `Easing` module provides several predefined animations through the following methods:
+`Easing`模块通过以下几个方法提供了几种预置的动画：
 
 * [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
 * [`bounce`](easing.md#bounce) provides a bouncing animation
 * [`ease`](easing.md#ease) provides a simple inertial animation
 * [`elastic`](easing.md#elastic) provides a simple spring interaction
 
-### Standard functions
+### 查看标准函数
 
-Three standard easing functions are provided:
+目前提供了三种标准缓动函数：
 
 * [`linear`](easing.md#linear)
 * [`quad`](easing.md#quad)
@@ -26,9 +26,9 @@ Three standard easing functions are provided:
 
 The [`poly`](easing.md#poly) function can be used to implement quartic, quintic, and other higher power functions.
 
-### Additional functions
+### 查看补充函数
 
-Additional mathematical functions are provided by the following methods:
+此外还通过以下几个方法提供了几种数学函数：
 
 * [`bezier`](easing.md#bezier) provides a cubic bezier curve
 * [`circle`](easing.md#circle) provides a circular function
@@ -41,7 +41,7 @@ The following helpers are used to modify other easing functions.
 * [`inOut`](easing.md#inout) makes any easing function symmetrical
 * [`out`](easing.md#out) runs an easing function backwards
 
-### Methods
+### 查看方法
 
 * [`step0`](easing.md#step0)
 * [`step1`](easing.md#step1)
@@ -65,7 +65,7 @@ The following helpers are used to modify other easing functions.
 
 # 文档
 
-## Methods
+## 方法
 
 ### `step0()`
 

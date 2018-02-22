@@ -117,7 +117,7 @@ Animated.sequence([
 
 默认情况下，如果任何一个动画被停止或中断了，组内所有其它的动画也会被停止。Parallel 有一个`stopTogether`属性，如果设置为`false`，可以禁用自动停止。
 
-You can find a full list of composition methods in the [Composing animations](animated.md#composing-animations) section of the `Animated` API reference.
+在`Animated`文档的[组合动画](animated.md#composing-animations)一节中列出了所有的组合方法。
 
 ### 合成动画值
 
