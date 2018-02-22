@@ -95,6 +95,7 @@
     "refreshcontrol": "RefreshControl",
     "running-on-device": "Running On Device",
     "running-on-simulator-ios": "Running On Simulator",
+    "safeareaview": "SafeAreaView",
     "scrollview": "ScrollView",
     "sectionlist": "SectionList",
     "segmentedcontrolios": "SegmentedControlIOS",
