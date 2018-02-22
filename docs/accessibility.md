@@ -156,7 +156,7 @@ _onPress: function() {
     'radiobutton_unchecked' : 'radiobutton_checked'
 
   this.setState({
-    radioButton: radioButton
+    radioButton
   });
 
   if (radioButton === 'radiobutton_checked') {
