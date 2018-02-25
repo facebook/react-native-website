@@ -121,6 +121,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 * [`defaultSource`](image.md#defaultsource)
 * [`onPartialLoad`](image.md#onpartialload)
 * [`onProgress`](image.md#onprogress)
+* [`fadeDuration`](image.md#fadeduration)
 
 ### Methods
 
@@ -388,6 +389,20 @@ Invoked when a partial load of the image is complete. The definition of what con
 ---
 
 ### `onProgress`
+
+Invoked on download progress with `{nativeEvent: {loaded, total}}`.
+
+| Type     | Required | Platform |
+| -------- | -------- | -------- |
+| function | No       | iOS      |
+
+### `fadeDuration`
+
+Android only. By default, it is 300ms.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 
