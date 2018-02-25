@@ -404,12 +404,6 @@ Android only. By default, it is 300ms.
 | ------ | -------- | -------- |
 | number | No       | Android  |
 
-Invoked on download progress with `{nativeEvent: {loaded, total}}`.
-
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
-
 ## Methods
 
 ### `getSize()`
