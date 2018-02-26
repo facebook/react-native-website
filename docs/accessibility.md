@@ -32,12 +32,12 @@ In the above example, we can't get accessibility focus separately on 'text one' 
 
 When a view is marked as accessible, it is a good practice to set an accessibilityLabel on the view, so that people who use VoiceOver know what element they have selected. VoiceOver will read this string when a user selects the associated element.
 
-To use, set the `accessibilityLabel` property to a custom string on your View:
+To use, set the `accessibilityLabel` property to a custom string on your View, Text or Touchable:
 
 ```javascript
 <TouchableOpacity
   accessible={true}
-  accessibilityLabel={'Tap me!'}
+  accessibilityLabel="Tap me!"
   onPress={this._onPress}>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
@@ -46,6 +46,27 @@ To use, set the `accessibilityLabel` property to a custom string on your View:
 ```
 
 In the above example, the `accessibilityLabel` on the TouchableOpacity element would default to "Press me!". The label is constructed by concatenating all Text node children separated by spaces.
+
+#### accessibilityHint (iOS)
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
+
+```javascript
+<TouchableOpacity
+  accessible={true}
+  accessibilityLabel="Go back"
+  accessibilityHint="Navigates to the previous screen"
+  onPress={this._onPress}>
+  <View style={styles.button}>
+    <Text style={styles.buttonText}>Back</Text>
+  </View>
+</TouchableOpacity>
+```
+
+In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings.
+Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
 
 #### accessibilityTraits (iOS)
 
