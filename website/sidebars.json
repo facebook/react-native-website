@@ -126,6 +126,7 @@
       "panresponder",
       "permissionsandroid",
       "pixelratio",
+      "platform-view-style-props",
       "pushnotificationios",
       "settings",
       "shadow-props",

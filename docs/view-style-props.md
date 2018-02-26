@@ -5,6 +5,7 @@ title: View Style Props
 
 ### Props
 
+* [Platform View Style Props...](platform-view-style-props.md)
 * [`borderRightColor`](view-style-props.md#borderrightcolor)
 * [`backfaceVisibility`](view-style-props.md#backfacevisibility)
 * [`borderBottomColor`](view-style-props.md#borderbottomcolor)
@@ -30,7 +31,6 @@ title: View Style Props
 * [`borderTopWidth`](view-style-props.md#bordertopwidth)
 * [`borderWidth`](view-style-props.md#borderwidth)
 * [`opacity`](view-style-props.md#opacity)
-* [`elevation`](view-style-props.md#elevation)
 
 ---
 
@@ -235,13 +235,3 @@ title: View Style Props
 | Type   | Required |
 | ------ | -------- |
 | number | No       |
-
----
-
-### `elevation`
-
-(Android-only) Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
