@@ -393,7 +393,16 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 - **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
 
-- **`letterSpacing`**: number (_iOS_)
+- **`letterSpacing`**: number
+
+  Increase or decrease the spacing between characters. The default is 0, for no extra letter spacing.
+   
+  iOS: The additional space will be rendered after each glyph.
+    
+  Android: Only supported since Android 5.0 - older versions will ignore this attribute.
+  Please note that additional space will be added *around* the glyphs (half on each side), which
+  differs from the iOS rendering. It is possible to emulate the iOS rendering by using layout
+  attributes, e.g. negative margins, as appropriate for your situation.
 
 - **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
