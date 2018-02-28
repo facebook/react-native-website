@@ -105,7 +105,6 @@ Note that on Android performing text selection in input can change app's activit
 - [`defaultValue`](textinput.md#defaultvalue)
 - [`editable`](textinput.md#editable)
 - [`keyboardType`](textinput.md#keyboardtype)
-- [`maxHeight`](textinput.md#maxheight)
 - [`maxLength`](textinput.md#maxlength)
 - [`multiline`](textinput.md#multiline)
 - [`onBlur`](textinput.md#onblur)
@@ -127,7 +126,6 @@ Note that on Android performing text selection in input can change app's activit
 - [`selectionColor`](textinput.md#selectioncolor)
 - [`style`](textinput.md#style)
 - [`value`](textinput.md#value)
-- [`autoGrow`](textinput.md#autogrow)
 - [`disableFullscreenUI`](textinput.md#disablefullscreenui)
 - [`inlineImageLeft`](textinput.md#inlineimageleft)
 - [`inlineImagePadding`](textinput.md#inlineimagepadding)
@@ -278,16 +276,6 @@ The following values work on Android only:
 | Type                                                                                                                                                                                                    | Required |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') | No       |
-
----
-
-### `maxHeight`
-
-If autogrow is `true`, limits the height that the TextInput box can grow to. Once it reaches this height, the TextInput becomes scrollable.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
 
 ---
 
