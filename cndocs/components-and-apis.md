@@ -5,7 +5,7 @@ title: 组件和API
 
 React Native provides a number of built-in components. You will find a full list of components and APIs on the sidebar to the left. If you're not sure where to get started, take a look at the following categories:
 
-* [Basic Components](components-and-apis.md#basic-components)
+* [基础组件](components-and-apis.md#basic-components)
 * [User Interface](components-and-apis.md#user-interface)
 * [List Views](components-and-apis.md#list-views)
 * [iOS-specific](components-and-apis.md#ios-components-and-apis)
@@ -14,7 +14,7 @@ React Native provides a number of built-in components. You will find a full list
 
 You're not limited to the components and APIs bundled with React Native. React Native is a community of thousands of developers. If you're looking for a library that does something specific, search the npm registry for packages mentioning [react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal), or check out [Awesome React Native](http://www.awesome-react-native.com/) for a curated list.
 
-## Basic Components
+## 基础组件
 
 Most apps will end up using one of these basic components. You'll want to get yourself familiarized with all of these if you're new to React Native.
 
