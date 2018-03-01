@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-appstate
+id: version-0.54-appstate
 title: AppState
 original_id: appstate
 ---

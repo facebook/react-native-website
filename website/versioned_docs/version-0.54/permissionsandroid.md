@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-permissionsandroid
+id: version-0.54-permissionsandroid
 title: PermissionsAndroid
 original_id: permissionsandroid
 ---

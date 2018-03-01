@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-cameraroll
+id: version-0.54-cameraroll
 title: CameraRoll
 original_id: cameraroll
 ---

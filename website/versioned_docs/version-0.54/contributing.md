@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-contributing
+id: version-0.54-contributing
 title: How to Contribute
 original_id: contributing
 ---

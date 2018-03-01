@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-navigation
+id: version-0.54-navigation
 title: Navigating Between Screens
 original_id: navigation
 ---

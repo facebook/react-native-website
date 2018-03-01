@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-flexbox
+id: version-0.54-flexbox
 title: Layout with Flexbox
 original_id: flexbox
 ---

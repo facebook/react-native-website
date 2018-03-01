@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-sectionlist
+id: version-0.54-sectionlist
 title: SectionList
 original_id: sectionlist
 ---

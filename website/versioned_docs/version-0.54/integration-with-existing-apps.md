@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-integration-with-existing-apps
+id: version-0.54-integration-with-existing-apps
 title: Integration with Existing Apps
 original_id: integration-with-existing-apps
 ---

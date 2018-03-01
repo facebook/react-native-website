@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-direct-manipulation
+id: version-0.54-direct-manipulation
 title: Direct Manipulation
 original_id: direct-manipulation
 ---

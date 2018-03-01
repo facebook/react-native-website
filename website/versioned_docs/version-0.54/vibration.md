@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-vibration
+id: version-0.54-vibration
 title: Vibration
 original_id: vibration
 ---

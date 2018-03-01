@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-activityindicator
+id: version-0.54-activityindicator
 title: ActivityIndicator
 original_id: activityindicator
 ---

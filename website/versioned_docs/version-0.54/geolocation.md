@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-geolocation
+id: version-0.54-geolocation
 title: Geolocation
 original_id: geolocation
 ---

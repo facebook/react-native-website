@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-image
+id: version-0.54-image
 title: Image
 original_id: image
 ---

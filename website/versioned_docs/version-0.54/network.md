@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-network
+id: version-0.54-network
 title: Networking
 original_id: network
 ---

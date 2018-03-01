@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-stylesheet
+id: version-0.54-stylesheet
 title: StyleSheet
 original_id: stylesheet
 ---

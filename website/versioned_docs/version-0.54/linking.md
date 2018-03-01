@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-linking
+id: version-0.54-linking
 title: Linking
 original_id: linking
 ---

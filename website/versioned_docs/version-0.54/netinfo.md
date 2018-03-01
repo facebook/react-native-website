@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-netinfo
+id: version-0.54-netinfo
 title: NetInfo
 original_id: netinfo
 ---

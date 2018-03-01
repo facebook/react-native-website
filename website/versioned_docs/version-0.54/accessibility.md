@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-accessibility
+id: version-0.54-accessibility
 title: Accessibility
 original_id: accessibility
 ---

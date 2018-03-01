@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-modal
+id: version-0.54-modal
 title: Modal
 original_id: modal
 ---

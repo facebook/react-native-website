@@ -1,5 +1,5 @@
 ---
-id: version-0.54-RC-flatlist
+id: version-0.54-flatlist
 title: FlatList
 original_id: flatlist
 ---
