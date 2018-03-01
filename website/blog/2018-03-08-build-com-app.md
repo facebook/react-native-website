@@ -1,24 +1,24 @@
 ---
 title: Built with React Native - The Build.com app
 author: Garrett McCullough
-authorTitle:
+authorTitle: Senior Mobile Engineer
 authorURL: https://twitter.com/gwmccull
 authorImage: https://pbs.twimg.com/profile_images/955503100785172486/UrMKkQXc_400x400.jpg
 authorTwitter: gwmccull
 category: built-with-reactnative
 ---
 
-[Build.com](https://www.build.com/) is one of the largest online retailers for home improvement items based in Chico, California. The team has had a strong web-centric business for 18 years and thinking about a mobile App in 2015. Building unique iOS and Android apps wasn’t practical due to the small team size and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on RN v49.
+[Build.com](https://www.build.com/), headquartered in Chico, California, is one of the largest online retailers for home improvement items. The team has had a strong web-centric business for 18 years and began thinking about a mobile App in 2015. Building unique iOS and Android apps wasn’t practical due to our small team and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on RN v53.
 
 You can check out the app at https://www.build.com/app
 
 ## Features
 
-Our app is full featured and includes all of the normal features that you’d expect from an e-commerce app: product listings, search and sorting, the ability to configure complex products, favorites, etc. We accept standard credit card payment methods as well as PayPal, and Apple Pay for our iOS users.
+Our app is full featured and includes everything that you’d expect from an e-commerce app: product listings, search and sorting, the ability to configure complex products, favorites, etc. We accept standard credit card payment methods as well as PayPal, and Apple Pay for our iOS users.
 
 A few standout features you might not expect include :
 
-1.  3D models available for around 40 products with 90 finishes.
+1.  3D models available for around 40 products with 90 finishes
 2.  Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy (iOS only). The Build.com React Native App is featured in the Apple App store for AR Shopping!
 3.  Collaborative project management features that allow people to put together shopping lists for the different phases of their project and collaborate around selection
 
@@ -30,23 +30,23 @@ Build.com allows each dev to choose the tools that best suit them.
 
 * IDEs include Atom, IntelliJ, VS Code, Sublime, Eclipse, etc.
 
-* For Unit testing, developers are responsible for creating Jest unit tests for any new components and we’re working to increase the coverage of older parts of the app using jest-coverage-ratchet.
-* Devops with Jenkins to build out our beta and release candidates. This process works well for us but still requires significant work to create the release notes and other artifacts.
+* For Unit testing, developers are responsible for creating Jest unit tests for any new components and we’re working to increase the coverage of older parts of the app using jest-coverage-ratchet
+* We use Jenkins to build out our beta and release candidates. This process works well for us but still requires significant work to create the release notes and other artifacts
 * Integration Testing include a shared pool of testers that work across desktop, mobile and web. Our automation engineer is building out our suite of automated integration tests using Java and Appium.
-* Other parts of the workflow include a detailed eslint configuration custom rules that enforce properties needed for testing and pre-commit hooks that block offending changes.
+* Other parts of the workflow include a detailed eslint configuration, custom rules that enforce properties needed for testing, and pre-push hooks that block offending changes
 
 ## Libraries Used in the App
 
 The Build.com app relies on a number of common open source libraries including: Redux, Moment, Numeral, Enzyme and a bunch of React Native bridge modules. We also use a number of forked open source libraries; forked either because they were abandoned or because we needed custom features. A quick count shows around 115 JavaScript and native dependencies. We would like to explore tools that remove unused libraries.
 
-We’re considering adding static typing (probably via TypeScript) and optional chaining to the app. These features could help us with solving a couple classes of bugs that we still see:
+We're in the process of adding static typing via TypeScript and looking into optional chaining. These features could help us with solving a couple classes of bugs that we still see:
 
 * Data that is the wrong type
 * Data that is undefined because an object didn’t contain what we expected
 
 ## Open Source Contributions
 
-Since we rely so heavily on open source, our team is committed to contributing back to the community. Build.com encourages the team to open source libraries that we use in the app and contribute back to the libraries that we used.
+Since we rely so heavily on open source, our team is committed to contributing back to the community. Build.com allows the team to open source libraries that we've built and encourages us contribute back to the libraries that we use.
 
 We’ve released and maintained a number of React Native libraries:
 
@@ -54,7 +54,7 @@ We’ve released and maintained a number of React Native libraries:
 * react-native-simple-store
 * react-native-contact-picker
 
-We have also contributed to a long list of libraries including, React and React Native, react-native-schemes-manager, react-native-swipeable, react-native-gallery, react-native-view-transformer, react-native-navigation
+We have also contributed to a long list of libraries including: React and React Native, react-native-schemes-manager, react-native-swipeable, react-native-gallery, react-native-view-transformer, react-native-navigation
 
 ## Our Journey
 
@@ -72,8 +72,8 @@ Another big challenge has been with bridge modules. When we first started, a lot
 
 As React Native continues to grow, our wishlist to our community include:
 
-* Stabilize and improve the navigation libraries.
-* Maintain support for libraries in the React Native ecosystem.
-* Improve the experience for adding native libraries and bridge modules to a project.
+* Stabilize and improve the navigation libraries
+* Maintain support for libraries in the React Native ecosystem
+* Improve the experience for adding native libraries and bridge modules to a project
 
 Companies and individuals in the React Native community have been great about volunteering their time and effort to improve the tools that we all use. If you haven’t gotten involved in open source, I hope you’ll take a look at improving the code or documentation for some of the libraries that you use. There are a lot of articles to help you get started and it may be a lot easier than you think!
