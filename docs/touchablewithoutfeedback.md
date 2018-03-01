@@ -11,12 +11,14 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 
 * [`hitSlop`](touchablewithoutfeedback.md#hitslop)
 * [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+* [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
+* [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
+* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
 * [`accessible`](touchablewithoutfeedback.md#accessible)
 * [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
 * [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
 * [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
 * [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
 * [`onLayout`](touchablewithoutfeedback.md#onlayout)
 * [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
 * [`onPress`](touchablewithoutfeedback.md#onpress)
@@ -49,6 +51,34 @@ This defines how far your touch can start away from the button. This is added to
 | Type                        | Required |
 | --------------------------- | -------- |
 | AccessibilityComponentTypes | No       |
+
+---
+
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
+### `accessibilityLabel`
+
+Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
+
+| Type | Required |
+| ---- | -------- |
+| node | No       |
+
+---
+
+### `accessibilityTraits`
+
+| Type                                               | Required |
+| -------------------------------------------------- | -------- |
+| AccessibilityTraits, ,array of AccessibilityTraits | No       |
 
 ---
 
@@ -97,14 +127,6 @@ If true, disable all interactions for this component.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
----
-
-### `accessibilityTraits`
-
-| Type                                               | Required |
-| -------------------------------------------------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | No       |
 
 ---
 

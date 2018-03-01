@@ -206,6 +206,8 @@ We believe that this more constrained way to style text will yield better apps:
 ### Props
 
 * [`selectable`](text.md#selectable)
+* [`accessibilityHint`](text.md#accessibilityhint)
+* [`accessibilityLabel`](text.md#accessibilitylabel)
 * [`accessible`](text.md#accessible)
 * [`ellipsizeMode`](text.md#ellipsizemode)
 * [`nativeID`](text.md#nativeid)
@@ -237,6 +239,26 @@ Lets the user select text, to use the native copy and paste functionality.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
+### `accessibilityLabel`
+
+Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
+
+| Type | Required |
+| ---- | -------- |
+| node | No       |
 
 ---
 
