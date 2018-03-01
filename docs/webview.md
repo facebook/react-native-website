@@ -246,7 +246,7 @@ Function that allows custom handling of any web view requests. Return `true` fro
 
 ### `startInLoadingState`
 
-Boolean value that forces the `WebView` to show the loading view on the first load.  This prop must be set to `true` in order for the `renderLoading` Prop to work
+Boolean value that forces the `WebView` to show the loading view on the first load. This prop must be set to `true` in order for the `renderLoading` prop to work.
 
 | Type | Required |
 | ---- | -------- |
