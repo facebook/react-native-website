@@ -39,6 +39,7 @@ const siteConfig = {
     tintColor: '#005068',
     backgroundColor: '#f5fcff',
   },
+  blogSidebarCount: 'ALL',
   algolia: {
     apiKey: '2c98749b4a1e588efec53b2acec13025',
     indexName: 'react-native-versions',
