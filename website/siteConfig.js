@@ -43,8 +43,8 @@ const siteConfig = {
     backgroundColor: "#f5fcff"
   },
   algolia: {
-    apiKey: "c22559bbcaf0b48ef46e8ebac0cf187d",
-    indexName: "react-native-cn-versions",
+    apiKey: "7ab53ed26928639bae06ef0f6165f68b",
+    indexName: "reactnative_cn",
     algoliaOptions: {
       facetFilters: ["tags:VERSION"],
       hitsPerPage: 5
