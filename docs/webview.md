@@ -206,7 +206,7 @@ Function that returns a view to show if there's an error.
 
 ### `renderLoading`
 
-Function that returns a loading indicator.
+Function that returns a loading indicator. The startInLoadingState prop must be set to true in order to use this prop.
 
 | Type     | Required |
 | -------- | -------- |
