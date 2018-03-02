@@ -3,87 +3,87 @@ id: components-and-apis
 title: 组件和API
 ---
 
-React Native provides a number of built-in components. You will find a full list of components and APIs on the sidebar to the left. If you're not sure where to get started, take a look at the following categories:
+React Native 提供了一些内置的组件。你可以在网站的左侧看到组件的完整列表。如果你不知道从哪看起，那么可以先看一下下面这个简单的分类：
 
-* [基础组件](components-and-apis.md#basic-components)
-* [User Interface](components-and-apis.md#user-interface)
-* [List Views](components-and-apis.md#list-views)
-* [iOS-specific](components-and-apis.md#ios-components-and-apis)
-* [Android-specific](components-and-apis.md#android-components-and-apis)
-* [Others](components-and-apis.md#others)
+* [基础组件](components-and-apis.md#基础组件)
+* [交互控件](components-and-apis.md#交互控件)
+* [列表视图](components-and-apis.md#列表视图)
+* [iOS 独有组件](components-and-apis.md#iOS 独有的组件和 API)
+* [Android 独有组件](components-and-apis.md#Android 独有的组件和 API)
+* [其他](components-and-apis.md#其他)
 
-You're not limited to the components and APIs bundled with React Native. React Native is a community of thousands of developers. If you're looking for a library that does something specific, search the npm registry for packages mentioning [react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal), or check out [Awesome React Native](http://www.awesome-react-native.com/) for a curated list.
+需要说明的是，你不会被局限在这些内置组件上。React Native 是大开源社区的作品，所以你还可以在 github 或是 npm 上搜索到带有`react native`关键字的大量的第三方组件。
 
 ## 基础组件
 
-Most apps will end up using one of these basic components. You'll want to get yourself familiarized with all of these if you're new to React Native.
+大多数应用都会用到这里的基础组件。如果你是新手的话，那更应该先好好熟悉一下这些组件：
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="view.html">View</a></h3>
-    <p>The most fundamental component for building a UI.</p>
+    <p>搭建用户界面的最基础组件。</p>
   </div>
   <div class="component">
     <h3><a href="text.html">Text</a></h3>
-    <p>A component for displaying text.</p>
+    <p>显示文本内容的组件。</p>
   </div>
   <div class="component">
     <h3><a href="image.html">Image</a></h3>
-    <p>A component for displaying images.</p>
+    <p>显示图片内容的组件</p>
   </div>
   <div class="component">
     <h3><a href="textinput.html">TextInput</a></h3>
-    <p>A component for inputting text into the app via a keyboard.</p>
+    <p>文本输入框。</p>
   </div>
   <div class="component">
     <h3><a href="scrollview.html">ScrollView</a></h3>
-    <p>Provides a scrolling container that can host multiple components and views.</p>
+    <p>可滚动的容器视图。</p>
   </div>
   <div class="component">
     <h3><a href="stylesheet.html">StyleSheet</a></h3>
-    <p>Provides an abstraction layer similar to CSS stylesheets.</p>
+    <p>提供类似CSS样式表的样式抽象层。</p>
   </div>
 </div>
 
-## User Interface
+## 交互控件
 
-Render common user interface controls on any platform using the following components. For platform specific components, keep reading.
+提供一些常见的跨平台的交互控件。
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="button.html">Button</a></h3>
-    <p>A basic button component for handling touches that should render nicely on any platform.</p>
+    <p>一个简单的跨平台的按钮控件。</p>
   </div>
   <div class="component">
     <h3><a href="picker.html">Picker</a></h3>
-    <p>Renders the native picker component on iOS and Android.</p>
+    <p>在iOS和Android上调用各自原生的选择器控件。</p>
   </div>
   <div class="component">
     <h3><a href="slider.html">Slider</a></h3>
-    <p>A component used to select a single value from a range of values.</p>
+    <p>滑动数值选择器。</p>
   </div>
   <div class="component">
     <h3><a href="switch.html">Switch</a></h3>
-    <p>Renders a boolean input.</p>
+    <p>开关控件。</p>
   </div>
 </div>
 
-## List Views
+## 列表视图
 
-Unlike the more generic `ScrollView`, the following list view components only render elements that are currently showing on the screen. This makes them a great choice for displaying long lists of data.
+和一般化用途的`ScrollView`不同，下面的列表组件只会渲染当前屏幕可见的元素，这样有利于显示大量的数据。
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="flatlist.html">FlatList</a></h3>
-    <p>A component for rendering performant scrollable lists.</p>
+    <p>高性能的滚动列表组件。</p>
   </div>
   <div class="component">
     <h3><a href="sectionlist.html">SectionList</a></h3>
-    <p>Like <code>FlatList</code>, but for sectioned lists.</p>
+    <p>类似<code>FlatList</code>，但是多了分组显示。</p>
   </div>
 </div>
 
-## iOS Components and APIs
+## iOS 独有的组件和 API
 
 Many of the following components provide wrappers for commonly used UIKit classes.
 
@@ -126,7 +126,7 @@ Many of the following components provide wrappers for commonly used UIKit classe
   </div>
 </div>
 
-## Android Components and APIs
+## Android 独有的组件和 API
 
 Many of the following components provide wrappers for commonly used Android classes.
 
@@ -169,14 +169,14 @@ Many of the following components provide wrappers for commonly used Android clas
   </div>
 </div>
 
-## Others
+## 其他
 
-These components may come in handy for certain applications. For an exhaustive list of components and APIs, check out the sidebar to the left.
+下面的组件可能适用于一些特定场景。
 
 <div class="component-grid">
   <div class="component">
     <h3><a href="activityindicator.html">ActivityIndicator</a></h3>
-    <p>Displays a circular loading indicator.</p>
+    <p>显示一个圆形的正在加载的符号。</p>
   </div>
   <div class="component">
     <h3><a href="alert.html">Alert</a></h3>
@@ -212,18 +212,18 @@ These components may come in handy for certain applications. For an exhaustive l
   </div>
   <div class="component">
     <h3><a href="pixelratio.html">PixelRatio</a></h3>
-    <p>Provides access to the device pixel density.</p>
+    <p>可以获取设备的像素密度。</p>
   </div>
   <div class="component">
     <h3><a href="refreshcontrol.html">RefreshControl</a></h3>
-    <p>This component is used inside a <code>ScrollView</code> to add pull to refresh functionality.</p>
+    <p>此组件用在<code>ScrollView</code>及其衍生组件的内部，用于添加下拉刷新的功能。</p>
   </div>
   <div class="component">
     <h3><a href="statusbar.html">StatusBar</a></h3>
-    <p>Component to control the app status bar.</p>
+    <p>用于控制应用顶部状态栏样式的组件。</p>
   </div>
   <div class="component">
     <h3><a href="webview.html">WebView</a></h3>
-    <p>A component that renders web content in a native view.</p>
+    <p>在原生视图中显示Web内容的组件。</p>
   </div>
 </div>

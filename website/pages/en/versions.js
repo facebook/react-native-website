@@ -34,7 +34,7 @@ class VersionItem extends React.Component {
           "getting-started.html"
         }
       >
-        Documentation
+        文档
       </a>
     );
     const releaseNotesLink = isNext ? null : (
@@ -46,7 +46,7 @@ class VersionItem extends React.Component {
           (isRC ? "-rc.0" : "")
         }
       >
-        Release Notes
+        更新日志（英文）
       </a>
     );
 
@@ -73,27 +73,23 @@ class Versions extends React.Component {
     return (
       <div className="pageContainer">
         <Container className="mainContainer documentContainer postContainer">
-          <h1>React Native Versions</h1>
+          <h1>React Native 版本规则</h1>
           <p>
-            Open source React Native releases follow a monthly release train. At
-            the beginning of each month, a new release candidate is created off
-            the master branch on GitHub. The release candidate will soak for a
-            month to allow contributors like yourself to{" "}
+            开源版本的React
+            Native原则上每月发布一个新版本。在每月初发布新的稳定版本的同时，
+            在GitHub的最新主代码分支上会切出一个新的测试候选版本（RC）。这个候选版本会在这一个月
+            中接受大家的
             <a href={siteConfig.baseUrl + "docs/upgrading.html"}>
-              verify the changes
-            </a>{" "}
-            and to identify any issues by{" "}
+              尝鲜测试
+            </a>，并积极听取
             <a href="github.com/facebook/react-native/issues">
-              writing clear, actionable bug reports
-            </a>. Eventually, the release candidate will be promoted to stable.
+              描述清楚的、有建设性的意见反馈
+            </a>。下个月时，这一候选版本就会成为新的稳定版本。
           </p>
-          <h2>Latest versions</h2>
+          <h2>最新候选版本</h2>
           <p>
-            To see what changes are coming and provide better feedback to React
-            Native contributors, use the latest release candidate when possible.
-            Changes introduced in a release candidate will have been shipped to
-            production Facebook apps for over two weeks by the time the release
-            is cut.
+            要了解尝试最新的变化并提供积极的意见反馈，那就来试试最新的候选版本吧。
+            候选版本中的新变化一般会在两周之后正式版发布时，在Facebook的官方应用中上线使用。
           </p>
           <table className="versions">
             <tbody>
@@ -109,11 +105,9 @@ class Versions extends React.Component {
               })}
             </tbody>
           </table>
-          <h2>Stable versions</h2>
+          <h2>稳定版本</h2>
           <p>
-            The most recent stable version will be used automatically whenever a
-            new project is created using the <code>react-native init</code>{" "}
-            command.
+            最新的稳定版本会在每次使用<code>react-native init</code>命令创建新项目时自动采用。
           </p>
           <table className="versions">
             <tbody>
@@ -129,11 +123,6 @@ class Versions extends React.Component {
               })}
             </tbody>
           </table>
-          <p>
-            You can come back to this page and switch the version of the docs
-            you're reading at any time by clicking on the version number at the
-            top of the page.
-          </p>
         </Container>
       </div>
     );

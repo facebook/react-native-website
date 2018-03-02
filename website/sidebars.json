@@ -1,6 +1,6 @@
 {
   "docs": {
-    "The Basics": [
+    "入门基础": [
       "getting-started",
       "tutorial",
       "props",
@@ -15,7 +15,7 @@
       "network",
       "more-resources"
     ],
-    "Guides": [
+    "进阶指南": [
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -36,7 +36,7 @@
       "upgrading",
       "troubleshooting"
     ],
-    "Guides (iOS)": [
+    "使用指南(iOS)": [
       "native-modules-ios",
       "native-components-ios",
       "linking-libraries-ios",
@@ -44,20 +44,14 @@
       "communication-ios",
       "app-extensions"
     ],
-    "Guides (Android)": [
+    "使用指南(Android)": [
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
       "android-building-from-source"
     ],
-    "Contributing": [
-      "contributing",
-      "maintainers",
-      "testing",
-      "understanding-cli"
-    ],
-    "Components": [
+    "组件": [
       "activityindicator",
       "button",
       "datepickerios",
@@ -95,7 +89,7 @@
       "virtualizedlist",
       "webview"
     ],
-    "APIs": [
+    "API": [
       "accessibilityinfo",
       "actionsheetios",
       "alert",
