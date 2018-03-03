@@ -9,7 +9,6 @@ Example usage:
 
 ```
 import { KeyboardAvoidingView } from 'react-native';
-...
 
 <KeyboardAvoidingView style={styles.container} behavior="padding">
   ... your UI ...
