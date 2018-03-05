@@ -108,7 +108,7 @@ Then run the following commands to create a new React Native project called "Awe
 create-react-native-app AwesomeProject
 
 cd AwesomeProject
-npm start
+yarn start
 ```
 
 This will start a development server for you, and print a QR code in your terminal.
@@ -139,7 +139,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 Create React Native App makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for building projects with native code to learn how to install Xcode and set up your Android development environment.
 
-Once you've set these up, you can launch your app on an Android Virtual Device by running `npm run android`, or on the iOS Simulator by running `npm run ios` (macOS only).
+Once you've set these up, you can launch your app on an Android Virtual Device by running `yarn run android`, or on the iOS Simulator by running `yarn run ios` (macOS only).
 
 ### Caveats
 
