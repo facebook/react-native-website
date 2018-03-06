@@ -19,20 +19,21 @@
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
-    "format:source": "prettier --config ../.prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "format:markdown": "prettier --config ../.prettierrc  --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
-    "nit:source": "prettier --config ../.prettierrc  --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown": "prettier --config ../.prettierrc  --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "format:source":
+      "prettier --config ../.prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
+    "format:markdown":
+      "prettier --config ../.prettierrc  --write \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:source":
+      "prettier --config ../.prettierrc  --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+    "nit:markdown":
+      "prettier --config ../.prettierrc  --list-different \"{../docs/**/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "precommit": "lint-staged",
     "test": "yarn build"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --config ../.prettierrc --write",
-      "git add"
-    ]
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   },
   "dependencies": {
     "docusaurus": "^1.0.3",
