@@ -6,7 +6,7 @@ original_id: animations
 
 Animations are very important to create a great user experience. Stationary objects must overcome inertia as they start moving. Objects in motion have momentum and rarely come to a stop immediately. Animations allow you to convey physically believable motion in your interface.
 
-React Native provides two complementary animation systems: [`Animated`](animations.md#animated-api) for granular and interactive control of specific values, and [`LayoutAnimation`](animations.md#layoutanimation) for animated global layout transactions.
+React Native provides two complementary animation systems: [`Animated`](animations.md#animated-api) for granular and interactive control of specific values, and [`LayoutAnimation`](animations.md#layoutanimation-api) for animated global layout transactions.
 
 ## `Animated` API
 

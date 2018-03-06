@@ -4,9 +4,9 @@ title: StyleSheet
 original_id: stylesheet
 ---
 
-A StyleSheet is an abstraction similar to CSS StyleSheets
+A `StyleSheet` is an abstraction similar to CSS StyleSheets
 
-Create a new StyleSheet:
+Create a new `StyleSheet`:
 
 ```
 const styles = StyleSheet.create({
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-Use a StyleSheet:
+Use a `StyleSheet`:
 
 ```
 <View style={styles.container}>
@@ -45,9 +45,9 @@ Performance:
 
 ### Methods
 
-* [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
 * [`create`](stylesheet.md#create)
 * [`flatten`](stylesheet.md#flatten)
+* [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
 
 ### Properties
 
@@ -60,18 +60,6 @@ Performance:
 # Reference
 
 ## Methods
-
-### `setStyleAttributePreprocessor()`
-
-```javascript
-static setStyleAttributePreprocessor(property, process)
-```
-
-WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
-
-Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
-
----
 
 ### `create()`
 
@@ -131,6 +119,20 @@ StyleSheet.flatten(styles.listItem);
 ```
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
+
+---
+
+### `setStyleAttributePreprocessor()`
+
+```javascript
+static setStyleAttributePreprocessor(property, process)
+```
+
+> **WARNING: EXPERIMENTAL**
+>
+> Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+
+Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
 
 ## Properties
 

@@ -16,7 +16,7 @@ A performant interface for rendering simple, flat lists, supporting the most han
 * Scroll loading.
 * ScrollToIndex support.
 
-If you need section support, use [`<SectionList>`](sectionlist.md).
+If you need section support, use [`SectionList`](sectionlist.md).
 
 Minimal Example:
 

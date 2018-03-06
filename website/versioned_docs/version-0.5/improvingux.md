@@ -20,7 +20,7 @@ Building apps for mobile platforms is nuanced, there are many little details tha
 
 ## Configure text inputs
 
-Entering text on touch phone is a challange - small screen, software keyboard. But based on what kind of data you need, you can make it easier by properly configuring the text inputs:
+Entering text on touch phone is a challenge - small screen, software keyboard. But based on what kind of data you need, you can make it easier by properly configuring the text inputs:
 
 * Focus the first field automatically
 * Use placeholder text as an example of expected data format
@@ -57,6 +57,10 @@ Android API 21+ uses the material design ripple to provide user with feedback wh
 <video src="/react-native/img/ripple.mp4" autoplay loop width="320"></video>
 
 [Try it on your phone](https://snack.expo.io/SJywqe3rZ)
+
+## Screen orientation lock
+
+Unless supporting both, it is considered good practice to lock the screen orientation to either portrait or landscape. On iOS, in the General tab and Deployment Info section of Xcode enable the Device Orientation you want to support (ensure you have selected iPhone from the Devices menu when making the changes). For Android, open the AndroidManifest.xml file and within the activity element add 'android:screenOrientation=”portrait”' to lock to portrait or 'android:screenOrientation=”landscape”' to lock to landscape.
 
 # Learn more
 

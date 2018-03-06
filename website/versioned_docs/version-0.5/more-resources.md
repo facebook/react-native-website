@@ -12,20 +12,20 @@ If you're using React Native, you probably already know about [React](https://fa
 
 One common question is how to handle the "state" of your React Native application. The most popular library for this is [Redux](http://redux.js.org/). Don't be afraid of how often Redux uses the word "reducer" - it's a pretty simple library, and there's also a nice [series of videos](https://egghead.io/courses/getting-started-with-redux) explaining it.
 
-If you're looking for a library that does a specific thing, check out [Awesome React Native](http://www.awesome-react-native.com/), a curated list of components that also has demos, articles, and other stuff. You can also find a curated list of React Native libraries at [Native Directory](http://native.directory/), together with quality assessment, recommendations, a lot of pertinent GitHub information, and code examples.
+If you're looking for a library that does a specific thing, check out [Awesome React Native](http://www.awesome-react-native.com/), a curated list of components that also has demos, articles, and other stuff.
 
 ## Examples
 
 Try out apps from the [Showcase](/react-native/showcase.html) to see what React Native is capable of! There are also some [example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can run the apps on a simulator or device, and you can see the source code for these apps, which is neat.
 
-The folks who built the app for Facebook's F8 conference in 2016 also [open-sourced the code](https://github.com/fbsamples/f8app) and wrote up a [detailed series of tutorials](http://makeitopen.com/tutorials/building-the-f8-app/planning/). This is useful if you want a more in-depth example that's more realistic than most sample apps out there.
+The folks who built the app for Facebook's F8 conference also [open-sourced the code](https://github.com/fbsamples/f8app) and wrote up a [detailed series of tutorials](http://makeitopen.com/). This is useful if you want a more in-depth example that's more realistic than most sample apps out there.
 
 ## Extending React Native
 
-* Looking for a component? [JS.coach](https://js.coach/react-native)
 * Fellow developers write and publish React Native modules to npm and open source them on GitHub.
 * Making modules helps grow the React Native ecosystem and community. We recommend writing modules for your use cases and sharing them on npm.
 * Read the guides on Native Modules ([iOS](https://facebook.github.io/react-native/native-modules-ios.md), [Android](https://facebook.github.io/react-native/native-modules-android.md)) and Native UI Components ([iOS](https://facebook.github.io/react-native/native-components-ios.md), [Android](https://facebook.github.io/react-native/native-components-android.md)) if you are interested in extending native functionality.
+* Looking for a pre-built component? Check [JS.coach](https://js.coach/react-native).
 
 ## Development Tools
 

@@ -4,7 +4,7 @@ title: NetInfo
 original_id: netinfo
 ---
 
-NetInfo exposes info about online/offline status
+`NetInfo` exposes information about online/offline status.
 
 ```
 NetInfo.getConnectionInfo().then((connectionInfo) => {
