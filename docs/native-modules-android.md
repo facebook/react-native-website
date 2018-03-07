@@ -17,8 +17,10 @@ This guide will use the [Toast](http://developer.android.com/reference/android/w
 
 We start by creating a native module. A native module is a Java class that usually extends the `ReactContextBaseJavaModule` class and implements the functionality required by the JavaScript. Our goal here is to be able to write `ToastExample.show('Awesome', ToastExample.SHORT);` from JavaScript to display a short toast on the screen.
 
+create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+
 ```java
-// ToastModule.java 
+// ToastModule.java
 
 package com.facebook.react.modules.toast;
 
@@ -94,6 +96,8 @@ Read more about [ReadableMap](https://github.com/facebook/react-native/blob/mast
 ### Register the Module
 
 The last step within Java is to register the Module; this happens in the `createNativeModules` of your apps package. If a module is not registered it will not be available from JavaScript.
+
+create a new Java Class named `CustomToastPackage.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
 
 ```java
 // CustomToastPackage.java
