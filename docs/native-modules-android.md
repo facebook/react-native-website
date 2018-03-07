@@ -135,7 +135,7 @@ The package needs to be provided in the `getPackages` method of the `MainApplica
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new AnExampleReactPackage()); // <-- Add this line with your package name.
+            new CustomToastPackage()); // <-- Add this line with your package name.
 }
 ```
 
