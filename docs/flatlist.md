@@ -21,7 +21,7 @@ Minimal Example:
 
     <FlatList
       data={[{key: 'a'}, {key: 'b'}]}
-      renderItem={({item}) => <Text>{item.key}</Text>}
+      renderItem={(item) => <Text>{item.key}</Text>}
     />
 
 More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
