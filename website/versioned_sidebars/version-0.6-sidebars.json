@@ -60,6 +60,7 @@
     "Components": [
       "version-0.6-datepickerios",
       "version-0.6-image",
+      "version-0.6-navigator",
       "version-0.6-navigatorios",
       "version-0.6-progressviewios",
       "version-0.6-scrollview",

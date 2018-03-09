@@ -77,6 +77,7 @@
     "native-modules-android": "Native Modules",
     "native-modules-ios": "Native Modules",
     "navigation": "Navigating Between Screens",
+    "navigator": "Navigator (Legacy Custom Component)",
     "navigatorios": "NavigatorIOS",
     "netinfo": "NetInfo",
     "network": "Networking",
