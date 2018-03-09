@@ -49,7 +49,7 @@ javac 1.8.0_111
 
 The version string `1.8.x_xxx` corresponds to JDK 8.
 
-You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html).
+You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html). Note that brew may not install the version needed to run the test. For best results, use the same version as the GitHub builds, which can be found in the `.circleci` folder in the root of the repo.
 
 To run the Android unit tests:
 
