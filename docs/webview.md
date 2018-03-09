@@ -61,6 +61,7 @@ You can use this component to navigate back and forth in the web view's history 
 - [`scrollEnabled`](webview.md#scrollenabled)
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
+- [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 
 ### Methods
 
@@ -393,6 +394,16 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `allowUniversalAccessFromFileURLs`
+
+Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
