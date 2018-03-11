@@ -98,7 +98,7 @@ Which "Touchable" component you use will depend on what kind of feedback you wan
 
 * If you need to handle a tap gesture but you don't want any feedback to be displayed, use [**TouchableWithoutFeedback**](touchablewithoutfeedback.md).
 
-In some cases, you may want to detect when a user presses and holds a view for a set amount of time. These long presses can be handled by passing a function to the `onLongPress` props of any of the "Touchable" components.
+In some cases, you may want to detect when a user presses and holds a view for a set amount of time. These long presses can be handled by passing a function to the `onLongPress` props of any the "Touchable" components.
 
 Let's see all of these in action:
 

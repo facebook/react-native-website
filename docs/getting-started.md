@@ -300,7 +300,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 #### 1. Install Android Studio
 
-[Download and install Android Studio](https://developer.android.com/studio/index.html). Choose a "Custom" setup when prompted to select an installation type. Make sure the boxes next to all of the following are checked:
+[Download and install Android Studio](https://developer.android.com/studio/index.html). Choose a "Custom" setup when prompted to select an installation type. Make sure the boxes next to all the following are checked:
 
 <block class="native mac windows android" />
 

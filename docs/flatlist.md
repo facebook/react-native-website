@@ -93,7 +93,7 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 * In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 * By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
+Also, inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
 
 ### Props
 

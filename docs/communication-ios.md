@@ -58,7 +58,7 @@ class ImageBrowserApp extends React.Component {
 AppRegistry.registerComponent('AwesomeProject', () => ImageBrowserApp);
 ```
 
-`RCTRootView` also provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
+`RCTRootView` also provides a read-write property `appProperties`. After `appProperties` is set, React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
 
 ```
 NSArray *imageList = @[@"http://foo.com/bar3.png",
@@ -99,11 +99,11 @@ Events are powerful, because they allow us to change React Native components wit
 * Events share namespace, which means that you may encounter some name collisions. Collisions will not be detected statically, which makes them hard to debug.
 * If you use several instances of the same React Native component and you want to distinguish them from the perspective of your event, you'll likely need to introduce identifiers and pass them along with events (you can use the native view's `reactTag` as an identifier).
 
-The common pattern we use when embedding native in React Native is to make the native component's RCTViewManager a delegate for the views, sending events back to JavaScript via the bridge. This keeps related event calls in one place.
+The common pattern we use when embedding native in React Native is to make the native component's RCTViewManager a delegate for the views, sending events back to JavaScript via the bridge. These keeps related event calls in one place.
 
 ### Calling native functions from React Native (native modules)
 
-Native modules are Objective-C classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-ios.md#content).
+Native modules are Objective-C classes that are available in JS. Typically, one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-ios.md#content).
 
 The fact that native modules are singletons limits the mechanism in the context of embedding. Let's say we have a React Native component embedded in a native view and we want to update the native, parent view. Using the native module mechanism, we would export a function that not only takes expected arguments, but also an identifier of the parent native view. The identifier would be used to retrieve a reference to the parent view to update. That said, we would need to keep a mapping from identifiers to native views in the module.
 
@@ -199,7 +199,7 @@ Let's look at an example.
 }
 ```
 
-In the example we have a `FlexibleSizeExampleView` view that holds a root view. We create the root view, initialize it and set the delegate. The delegate will handle size updates. Then, we set the root view's size flexibility to `RCTRootViewSizeFlexibilityHeight`, which means that `rootViewDidChangeIntrinsicSize:` method will be called every time the React Native content changes its height. Finally, we set the root view's width and position. Note that we set there height as well, but it has no effect as we made the height RN-dependent.
+In the example we have a `FlexibleSizeExampleView` view that holds a root view. We create the root view, initialize it and set the delegate. The delegate will handle size updates. Then, we set the root view's size flexibility to `RCTRootViewSizeFlexibilityHeight`, which means that `rootViewDidChangeIntrinsicSize:` method will be called every time the React Native content changes its height. Finally, we set the root view's width and position. Note that we set their height as well, but it has no effect as we made the height RN-dependent.
 
 You can checkout full source code of the example [here](https://github.com/facebook/react-native/blob/master/RNTester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m).
 

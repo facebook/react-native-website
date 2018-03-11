@@ -3,7 +3,7 @@ id: contributing
 title: How to Contribute
 ---
 
-React Native is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody using Facebook's mobile apps. If you're interested in contributing to React Native, hopefully this document makes the process for contributing clear.
+React Native is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody use Facebook's mobile apps. If you're interested in contributing to React Native, hopefully this document makes the process for contributing clear.
 
 ## [Code of Conduct](https://code.facebook.com/codeofconduct)
 
@@ -20,7 +20,7 @@ There are many ways to contribute to React Native, and many of them do not invol
 * Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
 * Take a look at the [features requested](https://react-native.canny.io/feature-requests) by others in the community and consider opening a pull request if you see something you want to work on.
 
-Contributions are very welcome. If you think you need help planning your contribution, please hop into [#react-native](https://discord.gg/0ZcbPKXt5bZjGY5n) and let people know you're looking for a mentor.
+Contributions are very welcome. If you think you need help to plain your contribution, please hop into [#react-native](https://discord.gg/0ZcbPKXt5bZjGY5n) and let people know you're looking for a mentor.
 
 Core contributors to React Native meet monthly and post their meeting notes on the [React Native blog](https://facebook.github.io/react-native/blog). You can also find ad hoc discussions in the [React Native Core Contributors](https://www.facebook.com/groups/reactnativeoss/) Facebook group.
 
@@ -37,7 +37,7 @@ You can learn more about handling issues in the [maintainer's guide](maintainers
 
 ## Our development process
 
-Some of the core team will be working directly on [GitHub](https://github.com/facebook/react-native). These changes will be public from the beginning. Other changesets will come via a bridge with Facebook's internal source control. This is a necessity as it allows engineers at Facebook outside of the core team to move fast and contribute from an environment they are comfortable in.
+Some core team will be working directly on [GitHub](https://github.com/facebook/react-native). These changes will be public from the beginning. Other changesets will come via a bridge with Facebook's internal source control. This is a necessity as it allows engineers at Facebook outside of the core team to move fast and contribute from an environment they are comfortable in.
 
 When a change made on GitHub is approved, it will first be imported into Facebook's internal source control. The change will eventually sync back to GitHub as a single commit once it has passed all internal tests.
 
@@ -88,7 +88,7 @@ If you would like to request a new feature or enhancement but are not yet thinki
 
 If you intend to change the public API, or make any non-trivial changes to the implementation, we recommend [filing an issue](https://github.com/facebook/react-native/issues/new?title=%5BProposal%5D) that includes `[Proposal]` in the title. This lets us reach an agreement on your proposal before you put significant effort into it. These types of issues should be rare. If you have been contributing to the project long enough, you will probably already have access to the [React Native Core Contributors](https://www.facebook.com/groups/reactnativeoss/) Facebook Group, where this sort of discussion is usually held.
 
-If you're only fixing a bug, it's fine to submit a pull request right away but we still recommend to file an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
+If you're only fixing a bug, it's fine to submit a pull request right away, but we still recommend filing an issue detailing what you're fixing. This is helpful in case we don't accept that specific fix but want to keep track of the issue.
 
 ### Sending a pull request
 

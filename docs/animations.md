@@ -9,7 +9,7 @@ React Native provides two complementary animation systems: [`Animated`](animatio
 
 ## `Animated` API
 
-The [`Animated`](animated.md) API is designed to make it very easy to concisely express a wide variety of interesting animation and interaction patterns in a very performant way. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
+The [`Animated`](animated.md) API is designed to make it very easy to concisely express a wide variety of interesting animation and interaction patterns in a very efficient way. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
 
 `Animated` exports four animatable component types: `View`, `Text`, `Image`, and `ScrollView`, but you can also create your own using `Animated.createAnimatedComponent()`.
 
@@ -73,7 +73,7 @@ Because the entire configuration is declarative, we will be able to implement fu
 
 ### Configuring animations
 
-Animations are heavily configurable. Custom and predefined easing functions, delays, durations, decay factors, spring constants, and more can all be tweaked depending on the type of animation.
+Animations are heavily configurable. Custom and predefined easing functions, delays, duration, decay factors, spring constants, and more can all be tweaked depending on the type of animation.
 
 `Animated` provides several animation types, the most commonly used one being [`Animated.timing()`](animated.md#timing). It supports animating a value over time using one of various predefined easing functions, or you can use your own. Easing functions are typically used in animation to convey gradual acceleration and deceleration of objects.
 
@@ -139,7 +139,7 @@ Animated.spring(a, {
 
 ### Interpolation
 
-Each property can be run through an interpolation first. An interpolation maps input ranges to output ranges, typically using a linear interpolation but also supports easing functions. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value.
+Each property can be run through an interpolation first. An interpolation maps input ranges to output ranges, typically using a linear interpolation but also supports easing functions. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamps the output value.
 
 A simple mapping to convert a 0-1 range to a 0-100 range would be:
 
@@ -164,7 +164,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
   }}
 ```
 
-[`interpolate()`](animated.md#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get an negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
+[`interpolate()`](animated.md#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
 
 ```javascript
 value.interpolate({

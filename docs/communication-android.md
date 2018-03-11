@@ -82,7 +82,7 @@ It is fine to update properties anytime. However, updates have to be performed o
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
 
-> **_Note:_** Currently, JS functions `componentWillReceiveProps` and `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentWillMount` function.
+> **_Note:_** Currently, JS functions `componentWillReceiveProps` and `componentWillUpdateProps` of the top-level RN component will not be called after a prop update. However, you can access the new props in `componentWillMount` function.
 
 ### Passing properties from React Native to native
 
@@ -112,6 +112,6 @@ Events are powerful, because they allow us to change React Native components wit
 
 ### Calling native functions from React Native (native modules)
 
-Native modules are Java classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android.md).
+Native modules are Java classes that are available in JS. Typically, one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android.md).
 
 > **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.

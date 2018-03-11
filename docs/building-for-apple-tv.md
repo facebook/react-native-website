@@ -147,7 +147,7 @@ var running_on_android_tv = Platform.isTV;
 
 <block class="android" />
 
-* _Access to touchable controls_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
+* _Access to touchable controls_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on the relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
 
   * `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
   * `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus

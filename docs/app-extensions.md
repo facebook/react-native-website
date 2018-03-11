@@ -7,7 +7,7 @@ App extensions let you provide custom functionality and content outside of your 
 
 ## Memory use in extensions
 
-As these extensions are loaded outside of the regular app sandbox, it's highly likely that several of these app extensions will be loaded simultaneously. As you might expect, these extensions have small memory usage limits. Keep these in mind when developing your app extensions. It's always highly recommended to test your application on an actual device, and more so when developing app extensions: too frequently, developers find that their extension works just fine in the iOS Simulator, only to get user reports that their extension is not loading on actual devices.
+As these extensions are loaded outside of the regular app sandbox, it's highly likely that several of these app extensions will be loaded simultaneously. As you might expect, these extensions have small memory usage limits. Keep these in mind when developing your app extensions. It's always highly recommended testing your application on an actual device, and more so when developing app extensions: too frequently, developers find that their extension works just fine in the iOS Simulator, only to get user reports that their extension is not loading on actual devices.
 
 We highly recommend that you watch Conrad Kramer's talk on [Memory Use in Extensions](https://cocoaheads.tv/memory-use-in-extensions-by-conrad-kramer/) to learn more about this topic.
 

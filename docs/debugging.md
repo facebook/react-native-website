@@ -227,7 +227,7 @@ Follow this guide to enable Stetho for Debug mode:
     }
 ```
 
-4. Open the project in Android Studio and resolve any dependency issues. The IDE should guide you through this steps after hovering your pointer over the red lines.
+4. Open the project in Android Studio and resolve any dependency issues. The IDE should guide you through these steps after hovering your pointer over the red lines.
 
 5. Run `react-native run-android`.
 
