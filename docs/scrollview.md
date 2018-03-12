@@ -66,6 +66,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 - [`snapToAlignment`](scrollview.md#snaptoalignment)
 - [`snapToInterval`](scrollview.md#snaptointerval)
 - [`zoomScale`](scrollview.md#zoomscale)
+- [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
 ### Methods
 
@@ -562,6 +563,16 @@ The current scale of the scroll view content. The default value is 1.0.
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | iOS      |
+
+---
+
+### `nestedScrollEnabled`
+
+Enables nested scrolling for Android API level 21+. Nested scrolling is supported by default on iOS.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ## Methods
 
