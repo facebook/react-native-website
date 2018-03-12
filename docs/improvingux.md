@@ -13,6 +13,7 @@ Building apps for mobile platforms is nuanced, there are many little details tha
 * [Manage layout when keyboard is visible](#manage-layout-when-keyboard-is-visible)
 * [Make tappable areas larger](#make-tappable-areas-larger)
 * [Use Android Ripple](#use-android-ripple)
+* [Screen orientation lock](#screen-orientation-lock)
 * [Learn More](#learn-more)
 
 ---
