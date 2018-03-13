@@ -206,7 +206,7 @@ Function that returns a view to show if there's an error.
 
 ### `renderLoading`
 
-Function that returns a loading indicator.
+Function that returns a loading indicator. The startInLoadingState prop must be set to true in order to use this prop.
 
 | Type     | Required |
 | -------- | -------- |
@@ -246,7 +246,7 @@ Function that allows custom handling of any web view requests. Return `true` fro
 
 ### `startInLoadingState`
 
-Boolean value that forces the `WebView` to show the loading view on the first load.
+Boolean value that forces the `WebView` to show the loading view on the first load. This prop must be set to `true` in order for the `renderLoading` prop to work.
 
 | Type | Required |
 | ---- | -------- |

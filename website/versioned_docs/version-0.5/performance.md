@@ -40,7 +40,7 @@ JavaScript thread performance suffers greatly when running in dev mode. This is 
 
 When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save`, and then edit the `.babelrc` file under your project directory like this:
 
-```json
+```javascripton
 {
   "env": {
     "production": {
@@ -90,7 +90,7 @@ On iOS, each time you adjust the width or height of an Image component it is re-
 
 Sometimes, if we do an action in the same frame that we are adjusting the opacity or highlight of a component that is responding to a touch, we won't see that effect until after the `onPress` function has returned. If `onPress` does a `setState` that results in a lot of work and a few frames dropped, this may occur. A solution to this is to wrap any action inside of your `onPress` handler in `requestAnimationFrame`:
 
-```js
+```javascript
 handleOnPress() {
   // Always use TimerMixin with requestAnimationFrame, setTimeout and
   // setInterval
@@ -102,7 +102,9 @@ handleOnPress() {
 
 ### Slow navigator transitions
 
-As mentioned above, `Navigator` animations are controlled by the JavaScript thread. Imagine the "push from right" scene transition: each frame, the new scene is moved from the right to left, starting offscreen (let's say at an x-offset of 320) and ultimately settling when the scene sits at an x-offset of 0. Each frame during this transition, the JavaScript thread needs to send a new x-offset to the main thread. If the JavaScript thread is locked up, it cannot do this and so no update occurs on that frame and the animation stutters.
+As mentioned above, `Navigator` animations are controlled by the JavaScript thread. Imagine the "push from right" scene transition: each frame, the new scene is moved from the right to left, starting offscreen (let's say at an x-offset of 320) and ultimately settling when the scene sits at an x-offset of
+
+0. Each frame during this transition, the JavaScript thread needs to send a new x-offset to the main thread. If the JavaScript thread is locked up, it cannot do this and so no update occurs on that frame and the animation stutters.
 
 One solution to this is to allow for JavaScript-based animations to be offloaded to the main thread. If we were to do the same thing as in the above example with this approach, we might calculate a list of all x-offsets for the new scene when we are starting the transition and send them to the main thread to execute in an optimized way. Now that the JavaScript thread is freed of this responsibility, it's not a big deal if it drops a few frames while rendering the scene -- you probably won't even notice because you will be too distracted by the pretty transition.
 
@@ -114,11 +116,9 @@ Use the built-in profiler to get detailed information about work done in the Jav
 
 For iOS, Instruments is an invaluable tool, and on Android you should learn to use [`systrace`](performance.md#profiling-android-ui-performance-with-systrace).
 
-You can also use [`react-addons-perf`](https://facebook.github.io/react/perf.md) to get insights into where React is spending time when rendering your components.
-
-Another way to profile JavaScript is to use the Chrome profiler while debugging. This won't give you accurate results as the code is running in Chrome but will give you a general idea of where bottlenecks might be.
-
 But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-dev-true) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
+
+Another way to profile JavaScript is to use the Chrome profiler while debugging. This won't give you accurate results as the code is running in Chrome but will give you a general idea of where bottlenecks might be. Run the profiler under Chrome's `Performance` tab. A flame graph will appear under `User Timing`. To view more details in tabular format, click at the `Bottom Up` tab below and then select `DedicatedWorker Thread` at the top left menu.
 
 ### Profiling Android UI Performance with `systrace`
 
@@ -218,7 +218,7 @@ At this point, you'll have some very helpful information to inform your next ste
 
 If you identified a JS problem, look for clues in the specific JS that you're executing. In the scenario above, we see `RCTEventEmitter` being called multiple times per frame. Here's a zoom-in of the JS thread from the trace above:
 
-![Too much JS](img/SystraceBadJS2.png)
+![Too much JS](/react-native/docs/assets/SystraceBadJS2.png)
 
 This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://facebook.github.io/react/component-specs.md#updating-shouldcomponentupdate).
 
@@ -252,7 +252,7 @@ In the second scenario, you'll see something more like this:
 
 Notice that first the JS thread thinks for a bit, then you see some work done on the native modules thread, followed by an expensive traversal on the UI thread.
 
-There isn't an easy way to mitigate this unless you're able to postpone creating new UI until after the interaction, or you are able to simplify the UI you're creating. The react native team is working on a infrastructure level solution for this that will allow new UI to be created and configured off the main thread, allowing the interaction to continue smoothly.
+There isn't an easy way to mitigate this unless you're able to postpone creating new UI until after the interaction, or you are able to simplify the UI you're creating. The react native team is working on an infrastructure level solution for this that will allow new UI to be created and configured off the main thread, allowing the interaction to continue smoothly.
 
 ## Unbundling + inline requires
 

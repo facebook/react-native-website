@@ -234,7 +234,8 @@ target 'NumberTileGame' do
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
     'RCTText',
     'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
@@ -242,7 +243,7 @@ target 'NumberTileGame' do
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 end
@@ -276,7 +277,7 @@ target 'swift-2048' do
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 end

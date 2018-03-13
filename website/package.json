@@ -33,10 +33,7 @@
     "test": "yarn build"
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
-      "prettier --config ../.prettierrc --write",
-      "git add"
-    ]
+    "*.{js,json,css,md}": ["prettier --write", "git add"]
   },
   "dependencies": {
     "docusaurus": "^1.0.3",
