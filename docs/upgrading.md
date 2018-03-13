@@ -42,7 +42,7 @@ The `react-native-git-upgrade` module provides a CLI and must be installed globa
 ```sh
 $ npm install -g react-native-git-upgrade
 ```
-
+if you have issue like write access just put `--unsafe-perm=true --allow-root` and run with `sudo` command. 
 #### 3. Run the command
 
 Run the following command to start the process of upgrading to the latest version:
