@@ -85,87 +85,87 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
 
 ## iOS 独有的组件和 API
 
-Many of the following components provide wrappers for commonly used UIKit classes.
+下面很多组件都是对常用的 UIKit 类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="actionsheetios.html">ActionSheetIOS</a></h3>
-    <p>API to display an iOS action sheet or share sheet.</p>
+    <p>从设备底部弹出一个显示一个ActionSheet弹出框选项菜单或分享菜单。</p>
   </div>
   <div class="component">
     <h3><a href="alertios.html">AlertIOS</a></h3>
-    <p>Create an iOS alert dialog with a message or create a prompt for user input.</p>
+    <p>弹出一个提示对话框，还可以带有输入框。</p>
   </div>
   <div class="component">
     <h3><a href="datepickerios.html">DatePickerIOS</a></h3>
-    <p>Renders a date/time picker (selector) on iOS.</p>
+    <p>显示一个日期/时间选择器。</p>
   </div>
   <div class="component">
     <h3><a href="imagepickerios.html">ImagePickerIOS</a></h3>
-    <p>Renders a image picker on iOS.</p>
+    <p>插入图片。</p>
   </div>
   <div class="component">
     <h3><a href="navigatorios.html">NavigatorIOS</a></h3>
-    <p>A wrapper around <code>UINavigationController</code>, enabling you to implement a navigation stack.</p>
+    <p><code>UINavigationController</code>的封装，用于实现页面的导航跳转。</p>
   </div>
   <div class="component">
     <h3><a href="progressviewios.html">ProgressViewIOS</a></h3>
-    <p>Renders a <code>UIProgressView</a></code> on iOS.</p>
+    <p>渲染一个<code>UIProgressView</a></code>进度条。</p>
   </div>
   <div class="component">
     <h3><a href="pushnotificationios.html">PushNotificationIOS</a></h3>
-    <p>Handle push notifications for your app, including permission handling and icon badge number.</p>
+    <p>管理推送通知，包括权限处理和应用角标数字。</p>
   </div>
   <div class="component">
     <h3><a href="segmentedcontrolios.html">SegmentedControlIOS</a></h3>
-    <p>Renders a <code>UISegmentedControl</code> on iOS.</p>
+    <p>渲染一个<code>UISegmentedControl</code>顶部选项卡布局</p>
   </div>
   <div class="component">
     <h3><a href="tabbarios.html">TabBarIOS</a></h3>
-    <p>Renders a <code>UITabViewController</code> on iOS. Use with <a href="tabbarios-item.html">TabBarIOS.Item</a>.</p>
+    <p>渲染一个<code>UITabViewController</code>底部选项卡布局。需要和<a href="tabbarios-item.html">TabBarIOS.Item</a>搭配使用。</p>
   </div>
 </div>
 
 ## Android 独有的组件和 API
 
-Many of the following components provide wrappers for commonly used Android classes.
+下面很多组件提供了对 Andriod 常用类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="backhandler.html">BackHandler</a></h3>
-    <p>Detect hardware button presses for back navigation.</p>
+    <p>监听并处理设备上的返回按钮。</p>
   </div>
   <div class="component">
     <h3><a href="datepickerandroid.html">DatePickerAndroid</a></h3>
-    <p>Opens the standard Android date picker dialog.</p>
+    <p>打开日期选择器。</p>
   </div>
   <div class="component">
     <h3><a href="drawerlayoutandroid.html">DrawerLayoutAndroid</a></h3>
-    <p>Renders a <code>DrawerLayout</code> on Android.</p>
+    <p>渲染一个<code>DrawerLayout</code>抽屉布局。</p>
   </div>
   <div class="component">
     <h3><a href="permissionsandroid.html">PermissionsAndroid</a></h3>
-    <p>Provides access to the permissions model introduced in Android M.</p>
+    <p>对Android 6.0引入的权限模型的封装。</p>
   </div>
   <div class="component">
     <h3><a href="progressbarandroid.html">ProgressBarAndroid</a></h3>
-    <p>Renders a <code>ProgressBar</code> on Android.</p>
+    <p>渲染一个<code>ProgressBar</code>进度条。</p>
   </div>
   <div class="component">
     <h3><a href="timepickerandroid.html">TimePickerAndroid</a></h3>
-    <p>Opens the standard Android time picker dialog.</p>
+    <p>打开时间选择器。</p>
   </div>
   <div class="component">
     <h3><a href="toastandroid.html">ToastAndroid</a></h3>
-    <p>Create an Android Toast alert.</p>
+    <p>弹出一个Toast提示框。</p>
   </div>
   <div class="component">
     <h3><a href="toolbarandroid.html">ToolbarAndroid</a></h3>
-    <p>Renders a <code>Toolbar</code> on Android.</p>
+    <p>在顶部渲染一个<code>Toolbar</code>工具栏。</p>
   </div>
   <div class="component">
     <h3><a href="viewpagerandroid.html">ViewPagerAndroid</a></h3>
-    <p>Container that allows to flip left and right between child views.</p>
+    <p>可左右翻页滑动的视图容器。</p>
   </div>
 </div>
 
@@ -180,35 +180,35 @@ Many of the following components provide wrappers for commonly used Android clas
   </div>
   <div class="component">
     <h3><a href="alert.html">Alert</a></h3>
-    <p>Launches an alert dialog with the specified title and message.</p>
+    <p>弹出一个提示框，显示指定的标题和信息。</p>
   </div>
   <div class="component">
     <h3><a href="animated.html">Animated</a></h3>
-    <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
+    <p>易于使用和维护的动画库，可生成流畅而强大的动画。</p>
   </div>
   <div class="component">
     <h3><a href="cameraroll.html">CameraRoll</a></h3>
-    <p>Provides access to the local camera roll / gallery.</p>
+    <p>访问本地相册。</p>
   </div>
   <div class="component">
     <h3><a href="clipboard.html">Clipboard</a></h3>
-    <p>Provides an interface for setting and getting content from the clipboard on both iOS and Android.</p>
+    <p>读写剪贴板内容。</p>
   </div>
   <div class="component">
     <h3><a href="dimensions.html">Dimensions</a></h3>
-    <p>Provides an interface for getting device dimensions.</p>
+    <p>获取设备尺寸。</p>
   </div>
   <div class="component">
     <h3><a href="keyboardavoidingview.html">KeyboardAvoidingView</a></h3>
-    <p>Provides a view that moves out of the way of the virtual keyboard automatically.</p>
+    <p>一种视图容器，可以随键盘升起而自动移动。</p>
   </div>
   <div class="component">
     <h3><a href="linking.html">Linking</a></h3>
-    <p>Provides a general interface to interact with both incoming and outgoing app links.</p>
+    <p>提供了一个通用的接口来调起其他应用或被其他应用调起。</p>
   </div>
   <div class="component">
     <h3><a href="modal.html">Modal</a></h3>
-    <p>Provides a simple way to present content above an enclosing view.</p>
+    <p>一种简单的覆盖全屏的模态视图。</p>
   </div>
   <div class="component">
     <h3><a href="pixelratio.html">PixelRatio</a></h3>

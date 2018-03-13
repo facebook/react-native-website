@@ -7,22 +7,22 @@ title: 处理触摸事件
 
 ## 显示一个简单的按钮
 
-[Button](button.md) provides a basic button component that is rendered nicely on all platforms. The minimal example to display a button looks like this:
+[Button](button.md)是一个简单的跨平台的按钮组件。下面是一个最简示例：
 
 ```javascript
 <Button
   onPress={() => {
-    Alert.alert("You tapped the button!");
+    Alert.alert("你点击了按钮！");
   }}
-  title="Press Me"
+  title="点我！"
 />
 ```
 
-This will render a blue label on iOS, and a blue rounded rectangle with white text on Android. Pressing the button will call the "onPress" function, which in this case displays an alert popup. If you like, you can specify a "color" prop to change the color of your button.
+上面这段代码会在 iOS 上渲染一个蓝色的标签状按钮，在 Android 上则会渲染一个蓝色圆角矩形带白字的按钮。点击这个按钮会调用"onPress"函数，具体作用就是显示一个 alert 弹出框。你还可以指定"color"属性来修改按钮的颜色。
 
 ![](assets/Button.png)
 
-Go ahead and play around with the `Button` component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right, then click on "Tap to Play" to preview the app.
+再试试下面这个使用`Button`的例子吧。你可以点击"Tap to Play"来预览真实效果。（下面会显示一个嵌在网页中的手机模拟器，国内用户可能打不开这个网页模拟器，或速度非常慢）。
 
 ```SnackPlayer name=Button%20Basics
 import React, { Component } from 'react';
@@ -86,7 +86,7 @@ AppRegistry.registerComponent('AwesomeProject', () => ButtonBasics);
 
 ## Touchable 系列组件
 
-If the basic button doesn't look right for your app, you can build your own button using any of the "Touchable" components provided by React Native. The "Touchable" components provide the capability to capture tapping gestures, and can display feedback when a gesture is recognized. These components do not provide any default styling, however, so you will need to do a bit of work to get them looking nicely in your app.
+这个组件的样式是固定的。所以如果它的外观并不怎么搭配你的设计，那就需要使用`TouchableOpacity`或是`TouchableNativeFeedback`组件来定制自己所需要的按钮，视频教程[如何制作一个按钮](http://v.youku.com/v_show/id_XMTQ5OTE3MjkzNg==.html?f=26822355&from=y1.7-1.3)讲述了完整的过程。或者你也可以在 github.com 网站上搜索 'react native button' 来看看社区其他人的作品。
 
 具体使用哪种组件，取决于你希望给用户什么样的视觉反馈：
 
@@ -173,4 +173,4 @@ const styles = StyleSheet.create({
 
 ## 在列表中上下滑动、在视图上左右滑动以及双指缩放
 
-Another gesture commonly used in mobile apps is the swipe or pan. This gesture allows the user to scroll through a list of items, or swipe through pages of content. In order to handle these and other gestures, we'll learn [如何使用滚动视图](using-a-scrollview.md) next.
+另一个在移动应用中常见的手势就是滑动。用户会在列表中上下滑动，或是在视图上左右滑动。要处理这样的手势，你可以看一下[如何使用滚动视图](using-a-scrollview.md)这篇文档。

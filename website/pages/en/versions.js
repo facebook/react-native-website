@@ -82,7 +82,7 @@ class Versions extends React.Component {
             <a href={siteConfig.baseUrl + "docs/upgrading.html"}>
               尝鲜测试
             </a>，并积极听取
-            <a href="github.com/facebook/react-native/issues">
+            <a href="https://github.com/facebook/react-native/issues">
               描述清楚的、有建设性的意见反馈
             </a>。下个月时，这一候选版本就会成为新的稳定版本。
           </p>
