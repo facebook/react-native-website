@@ -48,12 +48,12 @@
       "version-0.18-native-modules-android",
       "version-0.18-native-components-android",
       "version-0.18-headless-js-android",
-      "version-0.18-signed-apk-android",
-      "version-0.18-android-building-from-source"
+      "version-0.18-signed-apk-android"
     ],
     "Contributing": [
       "version-0.18-contributing",
       "version-0.18-maintainers",
+      "version-0.18-building-from-source",
       "version-0.18-testing",
       "version-0.18-understanding-cli"
     ],

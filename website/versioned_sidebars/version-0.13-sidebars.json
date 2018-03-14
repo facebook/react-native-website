@@ -48,13 +48,13 @@
       "version-0.13-native-modules-android",
       "version-0.13-native-components-android",
       "version-0.13-headless-js-android",
-      "version-0.13-signed-apk-android",
-      "version-0.13-android-building-from-source"
+      "version-0.13-signed-apk-android"
     ],
     "Contributing": [
       "version-0.13-contributing",
       "version-0.13-maintainers",
       "version-0.13-testing",
+      "version-0.13-building-from-source",
       "version-0.13-understanding-cli"
     ],
     "Components": [

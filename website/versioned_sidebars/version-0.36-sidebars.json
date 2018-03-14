@@ -48,12 +48,12 @@
       "version-0.36-native-modules-android",
       "version-0.36-native-components-android",
       "version-0.36-headless-js-android",
-      "version-0.36-signed-apk-android",
-      "version-0.36-android-building-from-source"
+      "version-0.36-signed-apk-android"
     ],
     "Contributing": [
       "version-0.36-contributing",
       "version-0.36-maintainers",
+      "version-0.36-building-from-source",
       "version-0.36-testing",
       "version-0.36-understanding-cli"
     ],
