@@ -1,4 +1,5 @@
 aliases:
+  # Caches
   - &restore-yarn-cache
     keys:
       - v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
@@ -11,11 +12,12 @@ aliases:
       - ~/.cache/yarn
     key: v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
 
+  # Filters
   - &filter-only-master
     branches:
       only:
         - master
-  
+
 defaults: &defaults
   working_directory: ~/react-native-website
   docker:
@@ -23,19 +25,20 @@ defaults: &defaults
 
 version: 2
 jobs:
-  # Checkout and install dependencies
-  checkout_deps:
+  # Checkout and run yarn
+  checkout_code:
     <<: *defaults
     steps:
       - checkout
-      - run: *restore-yarn-cache
+
+      - restore-cache: *restore-yarn-cache
       - run:
-          name: Install Dependencies
+          name: Yarn Install
           command: |
             cd website
-            yarn --no-progress
-            sudo apt install rsync
-      - run: *save-yarn-cache
+            yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
+      - save-cache: *save-yarn-cache
+
       - persist_to_workspace:
           root: .
           paths: .
@@ -47,12 +50,8 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/react-native-website
-      - run:
-          name: Check Formatting with Prettier
-          command: yarn ci-check
-      - run:
-          name: Test Website
-          command: yarn test
+      - run: yarn ci-check
+      - run: yarn test
 
   # Deploys website 
   deploy_website:
@@ -61,6 +60,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/react-native-website
+      - run:
+          name: Install Dependencies
+          command: sudo apt install rsync
       - run:
           name: Build and Deploy Static Website
           command: |
@@ -78,21 +80,21 @@ workflows:
   version: 2
 
   # Tests run on master and on forks
-  test:
+  tests:
     jobs:
-      - checkout_deps
+      - checkout_code
 
       # Test website
       - test_website:
-        requires:
-          - checkout_deps
+          requires:
+            - checkout_code
     
   # If we are on master, deploy docs
   deploy:
     jobs:
-      - checkout_deps:
+      - checkout_code:
           filters: *filter-only-master
 
       - deploy_website:
           requires:
-            - checkout_deps
+            - checkout_code
