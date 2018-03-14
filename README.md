@@ -1,4 +1,4 @@
-# facebook.github.io/react-native/
+# [facebook.github.io/react-native/](https://facebook.github.io/react-native/) &middot;  [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 This repo contains the website configuration and documentation powering the
 [React Native website](https://facebook.github.io/react-native/).
@@ -8,7 +8,7 @@ This repo contains the website configuration and documentation powering the
 ### Prerequisites
 
 1.  Git
-1.  Node: install version 6.2.2 or greater
+1.  Node: install version 6.2.2 or greater. Node v8 would be ideal.
 1.  Yarn: See
     [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/)
 1.  A fork of the repo (for any contributions)
