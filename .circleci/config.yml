@@ -16,10 +16,6 @@ aliases:
       only:
         - master
   
-  - &filter-ignore-gh-pages
-    branches:
-      ignore: gh-pages
-
 defaults: &defaults
   working_directory: ~/react-native-website
   docker:
@@ -27,38 +23,44 @@ defaults: &defaults
 
 version: 2
 jobs:
-  # Tests website
-  test-website:
+  # Checkout and install dependencies
+  checkout_deps:
     <<: *defaults
     steps:
       - checkout
-      - run:
-          name: Install Dependencies
-          command: |
-            cd website
-            yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
-      - run:
-          name: Check Formatting with Prettier
-          command: |
-            cd website
-            yarn ci-check
-      - run:
-          name: Test Website
-          command: |
-            cd website
-            yarn test
-
-  # Deploys website 
-  deploy-website:
-    <<: *defaults
-    steps:
-      - checkout
+      - run: *restore-yarn-cache
       - run:
           name: Install Dependencies
           command: |
             cd website
             yarn --no-progress
             sudo apt install rsync
+      - run: *save-yarn-cache
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  # Tests website
+  test_website:
+    <<: *defaults
+    working_directory: ~/react-native-website/website
+    steps:
+      - attach_workspace:
+          at: ~/react-native-website
+      - run:
+          name: Check Formatting with Prettier
+          command: yarn ci-check
+      - run:
+          name: Test Website
+          command: yarn test
+
+  # Deploys website 
+  deploy_website:
+    <<: *defaults
+    working_directory: ~/react-native-website/website
+    steps:
+      - attach_workspace:
+          at: ~/react-native-website
       - run:
           name: Build and Deploy Static Website
           command: |
@@ -67,23 +69,30 @@ jobs:
               git config --global user.name "Website Deployment Script"
               echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
               echo "Deploying website..."
-              cd website && GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
+              GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
             else
               echo "Skipping deploy."
             fi
 
-# Workflows enables us to run multiple jobs in parallel
 workflows:
   version: 2
 
-  build:
+  # Tests run on master and on forks
+  test:
     jobs:
+      - checkout_deps
+
       # Test website
-      - test-website:
-          filters: *filter-ignore-gh-pages
+      - test_website:
+        requires:
+          - checkout_deps
     
-      # If we are on master, deploy docs
-      - deploy-website:
+  # If we are on master, deploy docs
+  deploy:
+    jobs:
+      - checkout_deps:
           filters: *filter-only-master
+
+      - deploy_website:
           requires:
-            - test-website
+            - checkout_deps
