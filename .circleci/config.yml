@@ -74,11 +74,11 @@ jobs:
               echo "Skipping deploy."
             fi
 
-# Workflows enables us to run multiple jobs in parallel
 workflows:
   version: 2
 
-  build:
+  # Tests run on master and on forks
+  test:
     jobs:
       - checkout_deps
 
@@ -87,8 +87,12 @@ workflows:
         requires:
           - checkout_deps
     
-      # If we are on master, deploy docs
-      - deploy_website:
+  # If we are on master, deploy docs
+  deploy:
+    jobs:
+      - checkout_deps:
           filters: *filter-only-master
+
+      - deploy_website:
           requires:
-            - test_website
+            - checkout_deps
