@@ -1,4 +1,5 @@
 aliases:
+  # Caches
   - &restore-yarn-cache
     keys:
       - v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
@@ -11,14 +12,11 @@ aliases:
       - ~/.cache/yarn
     key: v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
 
+  # Filters
   - &filter-only-master
     branches:
       only:
         - master
-  
-  - &filter-ignore-gh-pages
-    branches:
-      ignore: gh-pages
 
 defaults: &defaults
   working_directory: ~/react-native-website
@@ -27,38 +25,44 @@ defaults: &defaults
 
 version: 2
 jobs:
-  # Tests website
-  test-website:
+  # Checkout and run yarn
+  checkout_code:
     <<: *defaults
     steps:
       - checkout
+
+      - restore-cache: *restore-yarn-cache
       - run:
-          name: Install Dependencies
+          name: Yarn Install
           command: |
             cd website
             yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
-      - run:
-          name: Check Formatting with Prettier
-          command: |
-            cd website
-            yarn ci-check
-      - run:
-          name: Test Website
-          command: |
-            cd website
-            yarn test
+      - save-cache: *save-yarn-cache
+
+      - persist_to_workspace:
+          root: .
+          paths: .
+
+  # Tests website
+  test_website:
+    <<: *defaults
+    working_directory: ~/react-native-website/website
+    steps:
+      - attach_workspace:
+          at: ~/react-native-website
+      - run: yarn ci-check
+      - run: yarn test
 
   # Deploys website 
-  deploy-website:
+  deploy_website:
     <<: *defaults
+    working_directory: ~/react-native-website/website
     steps:
-      - checkout
+      - attach_workspace:
+          at: ~/react-native-website
       - run:
           name: Install Dependencies
-          command: |
-            cd website
-            yarn --no-progress
-            sudo apt install rsync
+          command: sudo apt install rsync
       - run:
           name: Build and Deploy Static Website
           command: |
@@ -67,23 +71,30 @@ jobs:
               git config --global user.name "Website Deployment Script"
               echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
               echo "Deploying website..."
-              cd website && GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
+              GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
             else
               echo "Skipping deploy."
             fi
 
-# Workflows enables us to run multiple jobs in parallel
 workflows:
   version: 2
 
-  build:
+  # Tests run on master and on forks
+  tests:
     jobs:
+      - checkout_code
+
       # Test website
-      - test-website:
-          filters: *filter-ignore-gh-pages
-    
-      # If we are on master, deploy docs
-      - deploy-website:
-          filters: *filter-only-master
+      - test_website:
           requires:
-            - test-website
+            - checkout_code
+    
+  # If we are on master, deploy docs
+  deploy:
+    jobs:
+      - checkout_code:
+          filters: *filter-only-master
+
+      - deploy_website:
+          requires:
+            - checkout_code
