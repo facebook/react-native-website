@@ -42,10 +42,10 @@ Schedules an animation to happen on the next layout.
 
 #### Parameters:
 
-| Name              | Type     | Required | Description                                                 |
-| ----------------- | -------- | -------- | ----------------------------------------------------------- |
-| config            | object   | Yes      | See config parameters below.                                |
-| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS.  |
+| Name              | Type     | Required | Description                                                |
+| ----------------- | -------- | -------- | ---------------------------------------------------------- |
+| config            | object   | Yes      | See config parameters below.                               |
+| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
 
 ##### config
 
