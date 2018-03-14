@@ -405,6 +405,8 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 - **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
 
+- **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize') (_iOS_)
+
 - **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 
 ---
