@@ -48,12 +48,12 @@
       "version-0.50-native-modules-android",
       "version-0.50-native-components-android",
       "version-0.50-headless-js-android",
-      "version-0.50-signed-apk-android",
-      "version-0.50-android-building-from-source"
+      "version-0.50-signed-apk-android"
     ],
     "Contributing": [
       "version-0.50-contributing",
       "version-0.50-maintainers",
+      "version-0.50-building-from-source",
       "version-0.50-testing",
       "version-0.50-understanding-cli"
     ],
