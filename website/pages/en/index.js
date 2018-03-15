@@ -1,10 +1,8 @@
 /**
  * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 const React = require("react");
@@ -41,10 +39,10 @@ class HomeCallToAction extends React.Component {
           href={siteConfig.baseUrl + "docs/getting-started.html"}
           target="_self"
         >
-          搭建环境
+          Get Started
         </Button>
         <Button href={siteConfig.baseUrl + "docs/tutorial.html"} target="_self">
-          开始使用
+          Learn the Basics
         </Button>
       </div>
     );
@@ -61,8 +59,10 @@ class HeaderHero extends React.Component {
   render() {
     return (
       <Hero>
-        <div className="text">React Native中文网</div>
-        <div className="minitext">使用JavaScript和React编写原生移动应用</div>
+        <div className="text">React Native</div>
+        <div className="minitext">
+          Build native mobile apps using JavaScript and React
+        </div>
         <div className="buttons-unit">
           <HomeCallToAction />
         </div>
@@ -106,10 +106,11 @@ class Features extends React.Component {
         <Container>
           <div className="blockElement">
             <div className="blockContent">
-              <h2>使用JavaScript和React编写原生移动应用</h2>
+              <h2>Build native mobile apps using JavaScript and React</h2>
               <MarkdownBlock>
-                React Native使你只使用JavaScript也能编写原生移动应用。
-                它在设计原理上和React一致，通过声明式的组件机制来搭建丰富多彩的用户界面。
+                React Native lets you build mobile apps using only JavaScript.
+                It uses the same design as React, letting you compose a rich
+                mobile UI from declarative components.
               </MarkdownBlock>
             </div>
             <MarkdownBlock>
@@ -122,11 +123,11 @@ class WhyReactNativeIsSoGreat extends Component {
     return (
       <View>
         <Text>
-          如果你喜欢在Web上使用React，那你也肯定会喜欢React Native.
+          If you like React on the web, you'll like React Native.
         </Text>
         <Text>
-          基本上就是用原生组件比如'View'和'Text'
-          来代替web组件'div'和'span'。
+          You just use native components like 'View' and 'Text',
+          instead of web components like 'div' and 'span'.
         </Text>
       </View>
     );
@@ -139,13 +140,14 @@ class WhyReactNativeIsSoGreat extends Component {
         <Container>
           <div className="blockElement">
             <div className="blockContent">
-              <h2>React Native应用是真正的移动应用</h2>
+              <h2>A React Native app is a real mobile app</h2>
               <MarkdownBlock>
-                React Native产出的并不是“网页应用”，
-                或者说“HTML5应用”，又或者“混合应用”。
-                最终产品是一个真正的移动应用，从使用感受上和用Objective-C或Java编写的应用相比几乎是无法区分的。
-                React Native所使用的基础UI组件和原生应用完全一致。
-                你要做的就是把这些基础组件使用JavaScript和React的方式组合起来。
+                With React Native, you don't build a "mobile web app", an "HTML5
+                app", or a "hybrid app". You build a real mobile app that's
+                indistinguishable from an app built using Objective-C or Java.
+                React Native uses the same fundamental UI building blocks as
+                regular iOS and Android apps. You just put those building blocks
+                together using JavaScript and React.
               </MarkdownBlock>
             </div>
             <MarkdownBlock>
@@ -162,13 +164,14 @@ class AwkwardScrollingImageWithText extends Component {
           style={{width: 320, height:180}}
         />
         <Text>
-          在iOS上，React Native的ScrollView组件封装的是原生的UIScrollView。
-          在Android上，封装的则是原生的ScrollView。
+          On iOS, a React Native ScrollView uses a native UIScrollView.
+          On Android, it uses a native ScrollView.
 
-          在iOS上，React Native的Image组件封装的是原生的UIImageView。
-          在Android上，封装的则是原生的ImageView。
+          On iOS, a React Native Image uses a native UIImageView.
+          On Android, it uses a native ImageView.
 
-          React Native封装了这些基础的原生组件，使你在得到媲美原生应用性能的同时，还能受益于React优雅的架构设计。 
+          React Native wraps the fundamental native components, giving you
+          the performance of a native app, plus the clean design of React.
         </Text>
       </ScrollView>
     );
@@ -182,13 +185,14 @@ class AwkwardScrollingImageWithText extends Component {
         <Container>
           <div className="blockElement">
             <div className="blockContent">
-              <h2>别再傻等编译了！</h2>
+              <h2>Don't waste time recompiling</h2>
               <div>
                 <MarkdownBlock>
-                  React Native让你可以快速迭代开发应用。
-                  比起传统原生应用漫长的编译过程，现在你可以在瞬间刷新你的应用。开启[Hot
-                  Reloading](docs/debugging.html#自动刷新)的话，甚至能在保持应用运行状态的情况下热替换新代码！
-                  试试看吧，包你双击666。
+                  React Native lets you build your app faster. Instead of
+                  recompiling, you can reload your app instantly. With [Hot
+                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html),
+                  you can even run new code while retaining your application
+                  state. Give it a try - it's a magical experience.
                 </MarkdownBlock>
               </div>
             </div>
@@ -198,13 +202,15 @@ class AwkwardScrollingImageWithText extends Component {
         <Container>
           <div className="blockElement">
             <div className="blockContent">
-              <h2>可随时呼叫原生外援</h2>
+              <h2>Use native code when you need to</h2>
               <div>
                 <MarkdownBlock>
-                  React Native完美兼容使用Objective-C、Java或是Swift编写的组件。
-                  如果你需要针对应用的某一部分特别优化，中途换用原生代码编写也很容易。
-                  想要应用的一部分用原生，一部分用React Native也完全没问题 ——
-                  Facebook的应用就是这么做的。
+                  React Native combines smoothly with components written in
+                  Objective-C, Java, or Swift. It's simple to drop down to
+                  native code if you need to optimize a few aspects of your
+                  application. It's also easy to build part of your app in React
+                  Native, and part of your app using native code directly -
+                  that's how the Facebook app works.
                 </MarkdownBlock>
               </div>
             </div>
@@ -221,8 +227,8 @@ class SomethingFast extends Component {
       <View>
         <TheGreatestComponentInTheWorld />
         <Text>
-          上面这个TheGreatestComponentInTheWorld组件完全可以使用原生Objective-C、
-          Java或是Swift来编写 - 开发流程并无二致。
+          TheGreatestComponentInTheWorld could use native Objective-C,
+          Java, or Swift - the product development process is the same.
         </Text>
       </View>
     );
@@ -238,7 +244,6 @@ class SomethingFast extends Component {
   }
 }
 
-/*
 class MiniShowcase extends React.Component {
   render() {
     return (
@@ -259,7 +264,6 @@ class MiniShowcase extends React.Component {
     );
   }
 }
-*/
 
 class Index extends React.Component {
   render() {
@@ -267,7 +271,7 @@ class Index extends React.Component {
       <div className="pageContainer">
         <HeaderHero />
         <Features />
-        {/* <MiniShowcase /> */}
+        <MiniShowcase />
         <Hero>
           <HomeCallToAction />
         </Hero>

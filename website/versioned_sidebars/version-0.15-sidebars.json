@@ -48,12 +48,12 @@
       "version-0.15-native-modules-android",
       "version-0.15-native-components-android",
       "version-0.15-headless-js-android",
-      "version-0.15-signed-apk-android",
-      "version-0.15-android-building-from-source"
+      "version-0.15-signed-apk-android"
     ],
     "Contributing": [
       "version-0.15-contributing",
       "version-0.15-maintainers",
+      "version-0.15-building-from-source",
       "version-0.15-testing",
       "version-0.15-understanding-cli"
     ],
@@ -62,6 +62,7 @@
       "version-0.15-drawerlayoutandroid",
       "version-0.15-image",
       "version-0.15-modal",
+      "version-0.15-navigator",
       "version-0.15-navigatorios",
       "version-0.15-progressbarandroid",
       "version-0.15-progressviewios",

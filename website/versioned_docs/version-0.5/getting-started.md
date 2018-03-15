@@ -215,7 +215,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is version 4 or newer.
+If you have already installed Node on your system, make sure it is version 6 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -239,7 +239,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs.install python2 jdk8
 ```
 
-If you have already installed Node on your system, make sure it is version 4 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
+If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
@@ -435,7 +435,7 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 ### Watchman (optional)
 
-Follow the [Watchman installation guide](https://facebook.github.io/watchman/install.html#buildinstall) to compile and install Watchman from source.
+Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
 
 > [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance, but it's alright to skip this if you find the process to be tedious.
 

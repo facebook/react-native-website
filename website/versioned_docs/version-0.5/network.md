@@ -14,13 +14,13 @@ React Native provides the [Fetch API](https://developer.mozilla.org/en-US/docs/W
 
 In order to fetch content from an arbitrary URL, just pass the URL to fetch:
 
-```js
+```javascript
 fetch('https://mywebsite.com/mydata.json');
 ```
 
 Fetch also takes an optional second argument that allows you to customize the HTTP request. You may want to specify additional headers, or make a POST request:
 
-```js
+```javascript
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
@@ -42,7 +42,7 @@ The above examples show how you can make a request. In many cases, you will want
 
 Networking is an inherently asynchronous operation. Fetch methods will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that makes it straightforward to write code that works in an asynchronous manner:
 
-```js
+```javascript
 function getMoviesFromApiAsync() {
   return fetch('https://facebook.github.io/react-native/movies.json')
     .then((response) => response.json())
@@ -57,7 +57,7 @@ function getMoviesFromApiAsync() {
 
 You can also use the proposed ES2017 `async`/`await` syntax in a React Native app:
 
-```js
+```javascript
 async function getMoviesFromApi() {
   try {
     let response = await fetch(
@@ -74,48 +74,52 @@ async function getMoviesFromApi() {
 Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
 
 ```SnackPlayer name=Fetch%20Example
-import React, { Component } from 'react';
-import { ActivityIndicator, ListView, Text, View } from 'react-native';
+import React from 'react';
+import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
 
-export default class Movies extends Component {
-  constructor(props) {
+export default class FetchExample extends React.Component {
+
+  constructor(props){
     super(props);
-    this.state = {
-      isLoading: true
-    }
+    this.state ={ isLoading: true}
   }
 
-  componentDidMount() {
+  componentDidMount(){
     return fetch('https://facebook.github.io/react-native/movies.json')
       .then((response) => response.json())
       .then((responseJson) => {
-        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
         this.setState({
           isLoading: false,
-          dataSource: ds.cloneWithRows(responseJson.movies),
-        }, function() {
-          // do something with new state
+          dataSource: responseJson.movies,
+        }, function(){
+
         });
+
       })
-      .catch((error) => {
+      .catch((error) =>{
         console.error(error);
       });
   }
 
-  render() {
-    if (this.state.isLoading) {
-      return (
-        <View style={{flex: 1, paddingTop: 20}}>
-          <ActivityIndicator />
+
+
+  render(){
+
+    if(this.state.isLoading){
+      return(
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
         </View>
-      );
+      )
     }
 
-    return (
-      <View style={{flex: 1, paddingTop: 20}}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData.title}, {rowData.releaseYear}</Text>}
+    return(
+      <View style={{flex: 1, paddingTop:20}}>
+        <FlatList
+          data={this.state.dataSource}
+          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
+          keyExtractor={(item, index) => index}
         />
       </View>
     );
@@ -123,13 +127,13 @@ export default class Movies extends Component {
 }
 ```
 
-> By default, iOS will block any request that's not encrypted using SSL. If you need to fetch from a cleartext URL (one that begins with `http`) you will first need to add an App Transport Security exception. If you know ahead of time what domains you will need access to, it is more secure to add exceptions just for those domains; if the domains are not known until runtime you can [disable ATS completely](integration-with-existing-apps.md#app-transport-security). Note however that from January 2017, [Apple's App Store review will require reasonable justification for disabling ATS](https://forums.developer.apple.com/thread/48979). See [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) for more information.
+> By default, iOS will block any request that's not encrypted using SSL. If you need to fetch from a cleartext URL (one that begins with `http`) you will first need to [add an App Transport Security exception](integration-with-existing-apps.md#test-your-integration). If you know ahead of time what domains you will need access to, it is more secure to add exceptions just for those domains; if the domains are not known until runtime you can [disable ATS completely](integration-with-existing-apps.md#app-transport-security). Note however that from January 2017, [Apple's App Store review will require reasonable justification for disabling ATS](https://forums.developer.apple.com/thread/48979). See [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) for more information.
 
 ### Using Other Networking Libraries
 
 The [XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) is built in to React Native. This means that you can use third party libraries such as [frisbee](https://github.com/niftylettuce/frisbee) or [axios](https://github.com/mzabriskie/axios) that depend on it, or you can use the XMLHttpRequest API directly if you prefer.
 
-```js
+```javascript
 var request = new XMLHttpRequest();
 request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
@@ -153,7 +157,7 @@ request.send();
 
 React Native also supports [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket), a protocol which provides full-duplex communication channels over a single TCP connection.
 
-```js
+```javascript
 var ws = new WebSocket('ws://host.com/path');
 
 ws.onopen = () => {

@@ -48,12 +48,12 @@
       "version-0.29-native-modules-android",
       "version-0.29-native-components-android",
       "version-0.29-headless-js-android",
-      "version-0.29-signed-apk-android",
-      "version-0.29-android-building-from-source"
+      "version-0.29-signed-apk-android"
     ],
     "Contributing": [
       "version-0.29-contributing",
       "version-0.29-maintainers",
+      "version-0.29-building-from-source",
       "version-0.29-testing",
       "version-0.29-understanding-cli"
     ],
@@ -64,6 +64,7 @@
       "version-0.29-image",
       "version-0.29-keyboardavoidingview",
       "version-0.29-modal",
+      "version-0.29-navigator",
       "version-0.29-navigatorios",
       "version-0.29-picker",
       "version-0.29-pickerios",

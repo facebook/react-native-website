@@ -6,7 +6,7 @@ original_id: appstate
 
 `AppState` can tell you if the app is in the foreground or background, and notify you when the state changes.
 
-AppState is frequently used to determine the intent and proper behavior when handling push notifications.
+`AppState` is frequently used to determine the intent and proper behavior when handling push notifications.
 
 ### App States
 

@@ -1,37 +1,32 @@
 /**
  * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 const RemarkablePlugins = require("./core/RemarkablePlugins");
 
-// const users = require("./showcase.json");
+const users = require("./showcase.json");
 
-const baseUrl = "/";
+const baseUrl = "/react-native/";
 const repoUrl = "https://github.com/facebook/react-native";
-const bbsUrl = "http://bbs.reactnative.cn";
 const siteConfig = {
-  title: "React Native 中文网",
-  tagline: "使用React来编写原生应用的框架",
+  title: "React Native",
+  tagline: "A framework for building native apps using React",
+  url: "https://facebook.github.io",
   baseUrl,
   projectName: "react-native",
   repoUrl,
-  users: [],
-  editUrl:
-    "https://github.com/reactnativecn/react-native-website/blob/production/cndocs/",
+  users,
+  editUrl: "https://github.com/facebook/react-native-website/blob/master/docs/",
   headerLinks: [
-    { doc: "getting-started", label: "文档" },
-    { href: "https://ke.qq.com/course/197101", label: "课程", external: true },
-    // { blog: true, label: "博客" },
-    { href: "http://bbs.reactnative.cn", external: true, label: "讨论" },
-    { href: "http://update.reactnative.cn", label: "热更新", external: true },
+    { doc: "getting-started", label: "Docs" },
+    { page: "help", label: "Community" },
+    { blog: true, label: "Blog" },
     { search: true },
     { href: repoUrl, label: "GitHub" },
-    { href: "https://doc.react-china.org/", external: true, label: "React" }
+    { href: "https://reactjs.org/", label: "React" }
   ],
   headerIcon: "img/header_logo.png",
   footerIcon: "img/header_logo.png",
@@ -42,16 +37,17 @@ const siteConfig = {
     tintColor: "#005068",
     backgroundColor: "#f5fcff"
   },
+  blogSidebarCount: "ALL",
   algolia: {
-    apiKey: "7ab53ed26928639bae06ef0f6165f68b",
-    indexName: "reactnative_cn",
+    apiKey: "2c98749b4a1e588efec53b2acec13025",
+    indexName: "react-native-versions",
     algoliaOptions: {
       facetFilters: ["tags:VERSION"],
       hitsPerPage: 5
     }
   },
-  // facebookAppId: "1677033832619985",
-  // twitter: "reactnative",
+  facebookAppId: "1677033832619985",
+  twitter: "reactnative",
   markdownPlugins: [
     RemarkablePlugins.SnackPlayer,
     RemarkablePlugins.ReactNativeWebPlayer
@@ -59,9 +55,8 @@ const siteConfig = {
   highlight: {
     theme: "solarized-dark"
   },
-  gaTrackingId: "UA-63485149-4",
-  scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"],
-  customDocsPath: "cndocs"
+  gaTrackingId: "UA-41298772-2",
+  scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"]
 };
 
 module.exports = siteConfig;

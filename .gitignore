@@ -14,3 +14,10 @@ website/node_modules
 website/package-lock.json
 website/translated_docs
 website/yarn.lock
+
+cnwebsite/build/
+cnwebsite/i18n/*
+cnwebsite/node_modules
+cnwebsite/package-lock.json
+cnwebsite/translated_docs
+cnwebsite/yarn.lock

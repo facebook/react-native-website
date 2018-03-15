@@ -1,6 +1,6 @@
 {
   "docs": {
-    "入门基础": [
+    "The Basics": [
       "getting-started",
       "tutorial",
       "props",
@@ -15,7 +15,7 @@
       "network",
       "more-resources"
     ],
-    "进阶指南": [
+    "Guides": [
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -36,7 +36,7 @@
       "upgrading",
       "troubleshooting"
     ],
-    "使用指南(iOS)": [
+    "Guides (iOS)": [
       "native-modules-ios",
       "native-components-ios",
       "linking-libraries-ios",
@@ -44,20 +44,27 @@
       "communication-ios",
       "app-extensions"
     ],
-    "使用指南(Android)": [
+    "Guides (Android)": [
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
-      "signed-apk-android",
-      "android-building-from-source"
+      "signed-apk-android"
     ],
-    "组件": [
+    "Contributing": [
+      "contributing",
+      "maintainers",
+      "building-from-source",
+      "testing",
+      "understanding-cli"
+    ],
+    "Components": [
       "activityindicator",
       "button",
       "datepickerios",
       "drawerlayoutandroid",
       "flatlist",
       "image",
+      "inputaccessoryview",
       "keyboardavoidingview",
       "listview",
       "maskedviewios",
@@ -68,6 +75,7 @@
       "progressbarandroid",
       "progressviewios",
       "refreshcontrol",
+      "safeareaview",
       "scrollview",
       "sectionlist",
       "segmentedcontrolios",
@@ -89,7 +97,7 @@
       "virtualizedlist",
       "webview"
     ],
-    "API": [
+    "APIs": [
       "accessibilityinfo",
       "actionsheetios",
       "alert",

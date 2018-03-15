@@ -62,4 +62,4 @@ ScrollViews can be configured to allow paging through views using swiping gestur
 
 A ScrollView with a single item can be used to allow the user to zoom content. Set up the `maximumZoomScale` and `minimumZoomScale` props and your user will be able to use pinch and expand gestures to zoom in and out.
 
-The ScrollView works best to present a small amount of things of a limited size. All the elements and views of a `ScrollView` are rendered, even if they are not currently shown on the screen. If you have a long list of more items that can fit on the screen, you should use a `FlatList` instead. So let's [learn about list views](using-a-listview.md) next.
+The ScrollView works best to present a small amount of things of a limited size. All the elements and views of a `ScrollView` are rendered, even if they are not currently shown on the screen. If you have a long list of more items than can fit on the screen, you should use a `FlatList` instead. So let's [learn about list views](using-a-listview.md) next.
