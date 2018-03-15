@@ -1,11 +1,13 @@
 ---
-id: android-building-from-source
+id: building-from-source
 title: Building React Native from source
 ---
 
 You will need to build React Native from source if you want to work on a new feature/bug fix, try out the latest features which are not released yet, or maintain your own fork with patches that cannot be merged to the core.
 
-## Prerequisites
+## Android
+
+### Prerequisites
 
 Assuming you have the Android SDK installed, run `android` to open the Android SDK Manager.
 
@@ -16,7 +18,7 @@ Make sure you have the following installed:
 3. Android Support Repository >= 17 (for Android Support Library)
 4. Android NDK (download links and installation instructions below)
 
-### Point Gradle to your Android SDK:
+#### Point Gradle to your Android SDK:
 
 **Step 1:** Set environment variables through your local shell.
 
@@ -42,7 +44,7 @@ sdk.dir=/Users/your_unix_name/android-sdk-macosx
 ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
 ```
 
-### Download links for Android NDK
+#### Download links for Android NDK
 
 1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
 2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
@@ -51,7 +53,7 @@ ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
 
 You can find further instructions on the [official page](https://developer.android.com/ndk/index.html).
 
-## Building the source
+### Building the source
 
 #### 1. Installing the fork
 
@@ -119,13 +121,13 @@ configurations.all {
 }
 ```
 
-## Building from Android Studio
+### Building from Android Studio
 
 From the Welcome screen of Android Studio choose "Import project" and select the `android` folder of your app.
 
 You should be able to use the _Run_ button to run your app on a device. Android Studio won't start the packager automatically, you'll need to start it by running `npm start` on the command line.
 
-## Additional notes
+### Additional notes
 
 Building from source can take a long time, especially for the first build, as it needs to download ~200 MB of artifacts and compile the native code. Every time you update the `react-native` version from your repo, the build directory may get deleted, and all the files are re-downloaded. To avoid this, you might want to change your build directory path by editing the `~/.gradle/init.gradle` file:
 
@@ -137,7 +139,7 @@ gradle.projectsLoaded {
 }
 ```
 
-## Building for Maven/Nexus deployment
+### Building for Maven/Nexus deployment
 
 If you find that you need to push up a locally compiled React Native .aar and related files to a remote Nexus repository, you can.
 
@@ -149,10 +151,10 @@ Start by following the `Point Gradle to your Android SDK` section of this page. 
 
 This will package everything that would typically be included in the `android` directory of your `node_modules/react-native/` installation in the root directory of your React Native checkout.
 
-## Testing
-
-If you made changes to React Native and submit a pull request, all tests will run on your pull request automatically. To run the tests locally, see [Running Tests](testing.md).
-
-## Troubleshooting
+### Troubleshooting
 
 Gradle build fails in `ndk-build`. See the section about `local.properties` file above.
+
+## Testing your Changes
+
+If you made changes to React Native and submit a pull request, all tests will run on your pull request automatically. To run the tests locally, see [Testing your Changes](testing.md).

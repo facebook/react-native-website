@@ -156,17 +156,17 @@ Install the `react` and `react-native` packages. Open a terminal or command prom
 $ yarn add react-native
 ```
 
-This will print something like:
+This will print a message similar to the following (scroll up in the yarn output to see it):
 
 > warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
 
-This is OK, it means we also need to install react:
+This is OK, it means we also need to install React:
 
 ```
-$ yarn add react@16.2.0    # Make sure you use the same react version as printed by yarn when installing react-native!
+$ yarn add react@version_printed_above
 ```
 
-This will create a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
 
 Add `node_modules/` to your `.gitignore` file.
 
@@ -200,6 +200,12 @@ Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a 
 
 ![Before RN Integration](/react-native/docs/assets/react-native-existing-app-integration-ios-before.png)
 
+### Command Line Tools for Xcode
+
+Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+
+![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+
 ### Configuring CocoaPods dependencies
 
 Before you integrate React Native into your application, you will want to decide what parts of the React Native framework you would like to integrate. We will use CocoaPods to specify which of these "subspecs" your app will depend on.
@@ -228,7 +234,8 @@ target 'NumberTileGame' do
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
     'RCTText',
     'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
@@ -236,7 +243,7 @@ target 'NumberTileGame' do
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 end
@@ -270,7 +277,7 @@ target 'swift-2048' do
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 end
@@ -296,6 +303,8 @@ Integrating client project
 Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
+
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in Preferences > Locations the Command Line Tools are assigned.
 
 <block class="swift" />
 
