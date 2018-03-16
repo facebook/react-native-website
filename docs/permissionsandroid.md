@@ -46,7 +46,7 @@ async function requestCameraPermission() {
 }
 ```
 
-#### Permissions that require prompting the user
+### Permissions that require prompting the user
 
 Available as constants under `PermissionsAndroid.PERMISSIONS`:
 
