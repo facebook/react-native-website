@@ -12,14 +12,18 @@ category: built-with-reactnative
 
 You can check out the app at https://www.build.com/app
 
+<p align="center">
+  <img src="/react-native/blog/assets/build-com-blog-image.jpg" />
+</p>
+
 ## Features
 
 Our app is full featured and includes everything that you’d expect from an e-commerce app: product listings, search and sorting, the ability to configure complex products, favorites, etc. We accept standard credit card payment methods as well as PayPal, and Apple Pay for our iOS users.
 
-A few standout features you might not expect include :
+A few standout features you might not expect include:
 
 1.  3D models available for around 40 products with 90 finishes
-2.  Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy (iOS only). The Build.com React Native App is featured in the Apple App store for AR Shopping!
+2.  Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy. The Build.com React Native App is featured in the Apple App store for AR Shopping! AR is now available for iOS and Android!
 3.  Collaborative project management features that allow people to put together shopping lists for the different phases of their project and collaborate around selection
 
 We’re working on many new and exciting features that will continue to improve our app experience including the next phase of Immersive Shopping with AR.
@@ -29,7 +33,6 @@ We’re working on many new and exciting features that will continue to improve 
 Build.com allows each dev to choose the tools that best suit them.
 
 * IDEs include Atom, IntelliJ, VS Code, Sublime, Eclipse, etc.
-
 * For Unit testing, developers are responsible for creating Jest unit tests for any new components and we’re working to increase the coverage of older parts of the app using jest-coverage-ratchet
 * We use Jenkins to build out our beta and release candidates. This process works well for us but still requires significant work to create the release notes and other artifacts
 * Integration Testing include a shared pool of testers that work across desktop, mobile and web. Our automation engineer is building out our suite of automated integration tests using Java and Appium.
