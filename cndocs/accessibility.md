@@ -80,6 +80,12 @@ A Boolean value indicating whether VoiceOver should ignore the elements within v
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityViewIsModal` to `true` on view `B` causes VoiceOver to ignore the elements in the view `A`. On the other hand, if view `B` contains a child view `C` and you set `accessibilityViewIsModal` to `true` on view `C`, VoiceOver does not ignore the elements in view `A`.
 
+#### accessibilityElementsHidden (iOS)
+
+A Boolean value indicating whether the accessibility elements contained within this accessibility element are hidden.
+
+For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
+
 #### 无障碍元素的点击事件 onAccessibilityTap (iOS)
 
 使用这一属性来绑定一个自定义的事件处理函数，这一函数会在当用户双击某个已经选中的无障碍元素时调用。

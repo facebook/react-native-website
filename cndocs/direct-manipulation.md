@@ -120,7 +120,7 @@ export default class App extends React.Component {
 }
 ```
 
-现在你可以用`MyButton`来代替`TouchableOpacity`了！有一点需要特别说明：这里我们使用了[ref 回调](https://facebook.github.io/react/docs/more-about-refs.html#the-ref-callback-attribute)语法，而不是传统的字符串型 ref 引用。
+现在你可以用`MyButton`来代替`TouchableOpacity`了！有一点需要特别说明：这里我们使用了[ref 回调](https://doc.react-china.org/docs/refs-and-the-dom.html)语法，而不是传统的字符串型 ref 引用。
 
 你可能还会注意到我们在向下传递 props 时使用了`{...this.props}`语法（这一用法的说明请参考[对象的扩展运算符](http://es6.ruanyifeng.com/#docs/object)）。这是因为`TouchableOpacity`本身其实也是个复合组件， 它除了要求在子组件上执行`setNativeProps` 以外，还要求子组件对触摸事件进行处理。因此，它会传递多个 props，其中包含了[onmoveshouldsetresponder](view.html#onmoveshouldsetresponder) 函数，这个函数需要回调给`TouchableOpacity`组件，以完成触摸事件的处理。与之相对的是`TouchableHighlight`组件，它本身是由原生视图构成，因而只需要我们实现`setNativeProps`。
 

@@ -27,6 +27,8 @@ In addition to implementing the `RCTBridgeModule` protocol, your class must also
 
 ```objectivec
 // CalendarManager.m
+#import "CalendarManager.h"
+
 @implementation CalendarManager
 
 // To export a module named CalendarManager

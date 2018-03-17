@@ -139,7 +139,7 @@ On the web, the usual way to set a font family and size for the entire document 
 
 ```css
 html {
-  font-family: 'lucida grande', tahoma, verdana, arial, sans-serif;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: 11px;
   color: #141823;
 }
@@ -180,7 +180,7 @@ Assuming that `MyAppText` is a component that simply renders out its children in
 class MyAppHeaderText extends Component {
   render() {
     <MyAppText>
-      <Text style={{fontSize: 20}}>{this.props.children}</Text>
+      <Text style={{ fontSize: 20 }}>{this.props.children}</Text>
     </MyAppText>;
   }
 }
@@ -191,9 +191,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
 ```javascript
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: "bold" }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: "red" }}>and red</Text>
 </Text>
 ```
 
@@ -235,8 +235,8 @@ We believe that this more constrained way to style text will yield better apps:
 Lets the user select text, to use the native copy and paste functionality.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -247,8 +247,8 @@ When set to `true`, indicates that the view is an accessibility element. The def
 See the [Accessibility guide](accessibility.md#accessible-ios-android) for more information.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -268,8 +268,8 @@ The default is `tail`.
 > `clip` is working only for iOS
 
 | 类型                                   | 必填 |
-| -------------------------------------- | -------- |
-| enum('head', 'middle', 'tail', 'clip') | 否       |
+| -------------------------------------- | ---- |
+| enum('head', 'middle', 'tail', 'clip') | 否   |
 
 ---
 
@@ -278,8 +278,8 @@ The default is `tail`.
 Used to locate this view from native code.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
@@ -290,8 +290,8 @@ Used to truncate the text with an ellipsis after computing the text layout, incl
 This prop is commonly used with `ellipsizeMode`.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -302,8 +302,8 @@ Invoked on mount and layout changes with
 `{nativeEvent: {layout: {x, y, width, height}}}`
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -314,8 +314,8 @@ This function is called on long press.
 e.g., `onLongPress={this.increaseSize}>`
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -326,8 +326,8 @@ This function is called on press.
 e.g., `onPress={() => console.log('1st')}`
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -336,8 +336,8 @@ e.g., `onPress={() => console.log('1st')}`
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
 | 类型                                                               | 必填 |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | 否       |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -346,16 +346,16 @@ When the scroll view is disabled, this defines how far your touch may move off o
 Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
 ### `style`
 
 | 类型  | 必填 |
-| ----- | -------- |
-| style | 否       |
+| ----- | ---- |
+| style | 否   |
 
 * [View Style Props...](view-style-props.md#style)
 
@@ -393,13 +393,19 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 - **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
 
-- **`letterSpacing`**: number (_iOS_)
+- **`letterSpacing`**: number
 
-- **`textDecorationColor`**: [color](colors.md) (_iOS_)
+Increase or decrease the spacing between characters. The default is 0, for no extra letter spacing.
 
-- **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+iOS: The additional space will be rendered after each glyph.
 
-- **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
+Android: Only supported since Android 5.0 - older versions will ignore this attribute. Please note that additional space will be added _around_ the glyphs (half on each side), which differs from the iOS rendering. It is possible to emulate the iOS rendering by using layout attributes, e.g. negative margins, as appropriate for your situation.
+
+* **`textDecorationColor`**: [color](colors.md) (_iOS_)
+
+* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+
+* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 
 ---
 
@@ -408,8 +414,8 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 Used to locate this view in end-to-end tests.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
@@ -417,9 +423,9 @@ Used to locate this view in end-to-end tests.
 
 Specifies the disabled state of the text view for testing purposes
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -427,9 +433,9 @@ Specifies the disabled state of the text view for testing purposes
 
 The highlight color of the text.
 
-| 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | Android  |
+| 类型               | 必填 | 平台    |
+| ------------------ | ---- | ------- |
+| [color](colors.md) | 否   | Android |
 
 ---
 
@@ -437,9 +443,9 @@ The highlight color of the text.
 
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
 
-| 类型                                      | 必填 | 平台 |
-| ----------------------------------------- | -------- | -------- |
-| enum('simple', 'highQuality', 'balanced') | 否       | Android  |
+| 类型                                      | 必填 | 平台    |
+| ----------------------------------------- | ---- | ------- |
+| enum('simple', 'highQuality', 'balanced') | 否   | Android |
 
 ---
 
@@ -448,8 +454,8 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 Specifies whether font should be scaled down automatically to fit given style constraints.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -458,8 +464,8 @@ Specifies whether font should be scaled down automatically to fit given style co
 Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+| ------ | ---- | ---- |
+| number | 否   | iOS  |
 
 ---
 
@@ -468,5 +474,5 @@ Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is 
 When `true`, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |

@@ -7,6 +7,7 @@ Renders the native picker component on iOS and Android. Example:
 
     <Picker
       selectedValue={this.state.language}
+      style={{ height: 50, width: 100 }}
       onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
       <Picker.Item label="Java" value="java" />
       <Picker.Item label="JavaScript" value="js" />
@@ -39,8 +40,8 @@ Callback for when an item is selected. This is called with the following paramet
 * `itemPosition`: the index of the selected item in this picker
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -49,16 +50,16 @@ Callback for when an item is selected. This is called with the following paramet
 Value matching value of one of the items. Can be a string or an integer.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| any  | 否       |
+| ---- | ---- |
+| any  | 否   |
 
 ---
 
 ### `style`
 
 | 类型            | 必填 |
-| --------------- | -------- |
-| pickerStyleType | 否       |
+| --------------- | ---- |
+| pickerStyleType | 否   |
 
 ---
 
@@ -67,8 +68,8 @@ Value matching value of one of the items. Can be a string or an integer.
 Used to locate this view in end-to-end tests.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
@@ -76,9 +77,9 @@ Used to locate this view in end-to-end tests.
 
 If set to false, the picker will be disabled, i.e. the user will not be able to make a selection.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -89,9 +90,9 @@ On Android, specifies how to display the selection items when the user taps on t
 * 'dialog': Show a modal dialog. This is the default.
 * 'dropdown': Shows a dropdown anchored to the picker view
 
-| 类型                       | 必填 | 平台 |
-| -------------------------- | -------- | -------- |
-| enum('dialog', 'dropdown') | 否       | Android  |
+| 类型                       | 必填 | 平台    |
+| -------------------------- | ---- | ------- |
+| enum('dialog', 'dropdown') | 否   | Android |
 
 ---
 
@@ -99,9 +100,9 @@ On Android, specifies how to display the selection items when the user taps on t
 
 Prompt string for this picker, used on Android in dialog mode as the title of the dialog.
 
-| 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| string | 否       | Android  |
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| string | 否   | Android |
 
 ---
 
@@ -110,5 +111,5 @@ Prompt string for this picker, used on Android in dialog mode as the title of th
 Style to apply to each of the item labels.
 
 | 类型                               | 必填 | 平台 |
-| ---------------------------------- | -------- | -------- |
-| [text styles](text-style-props.md) | 否       | iOS      |
+| ---------------------------------- | ---- | ---- |
+| [text styles](text-style-props.md) | 否   | iOS  |

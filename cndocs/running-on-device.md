@@ -189,7 +189,7 @@ In this case, it's `22b8`. That's the identifier for Motorola.
 You'll need to input this into your udev rules in order to get up and running:
 
 ```sh
-echo SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev" | sudo tee /etc/udev/rules.d/51-android-usb.rules
+echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
 ```
 
 Make sure that you replace `22b8` with the identifier you get in the above command.

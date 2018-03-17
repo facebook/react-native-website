@@ -1,11 +1,13 @@
 ---
-id: android-building-from-source
+id: building-from-source
 title: 从源代码编译React Native
 ---
 
 如果你想提前合并官方的修复补丁，尝试还没发布的最新特性，或者添加一些你自己的原生代码，那么就需要自己从源代码编译 React Native。
 
-## 预备条件
+## Android
+
+### 预备条件
 
 在 Android Studio 的 SDK Manager 中安装以下组件：
 
@@ -14,7 +16,7 @@ title: 从源代码编译React Native
 * Android Support Repository >= 17
 * Android NDK(下载及安装指南请看后文)
 
-### 将 Gradle 指向你的安卓 SDK：
+#### 将 Gradle 指向你的安卓 SDK：
 
 **第一步：** 在命令行配置文件中设置环境变量。
 
@@ -37,16 +39,16 @@ export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r10e
 ndk.dir=指向android ndk目录的绝对路径
 ```
 
-### Android NDK r10e 的下载链接（目前只能用这个版本）
+#### Android NDK r10e 的下载链接（目前只能用这个版本）
 
-1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
-2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
-4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
+1.  Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
+2.  Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
+3.  Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
+4.  Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
 
 安装说明请参考[官方文档](https://developer.android.com/ndk/index.html)。
 
-## 编译源代码
+### 编译源代码
 
 #### 1. 下载 react-native 源代码
 
@@ -114,13 +116,13 @@ configurations.all {
 }
 ```
 
-## 在 Android Studio 中编译
+### 在 Android Studio 中编译
 
 在 Android Studio 欢迎页中选择`Import project`，随后选择您应用所在的文件夹。
 
 您还需要使用*Run*按钮(**译注**：Android Studio 中绿色的运行按钮)来在设备上运行您的 app，此外 Android Studio 不会自动开启服务，你还需要通过`npm start`来启动开发服务。
 
-## 其他注意事项
+### 其他注意事项
 
 从源码进行编译将会花费很长时间，尤其是第一次编译，需要下载接近 200M 的文件然后编译原生代码。每次你在自己的仓库更新`react-native`版本时，构建的目录可能会被删除，所有的文件都需要重新下载。为了避免构建目录被删，你需要编辑`~/.gradle/init.gradle`文件来修改构建目录路径。
 
@@ -132,7 +134,7 @@ gradle.projectsLoaded {
 }
 ```
 
-## Building for Maven/Nexus deployment
+### Building for Maven/Nexus deployment
 
 If you find that you need to push up a locally compiled React Native .aar and related files to a remote Nexus repository, you can.
 
@@ -144,10 +146,10 @@ Start by following the `Point Gradle to your Android SDK` section of this page. 
 
 This will package everything that would typically be included in the `android` directory of your `node_modules/react-native/` installation in the root directory of your React Native checkout.
 
-## Testing
-
-If you made changes to React Native and submit a pull request, all tests will run on your pull request automatically. To run the tests locally, see [Running Tests](testing.md).
-
-## Troubleshooting
+### Troubleshooting
 
 Gradle build fails in `ndk-build`. See the section about `local.properties` file above.
+
+## Testing your Changes
+
+If you made changes to React Native and submit a pull request, all tests will run on your pull request automatically. To run the tests locally, see [Running Tests](testing.md).

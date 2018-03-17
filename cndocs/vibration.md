@@ -59,10 +59,10 @@ Trigger a vibration with specified `pattern`.
 
 **参数：**
 
-| 名称    | 类型                    | 必填 | 说明                                                                 |
-| ------- | ----------------------- | -------- | --------------------------------------------------------------------------- |
-| pattern | number or Array<number> | 是      | Vibration pattern, accept a number or an array of numbers. Default to 400ms.|
-| repeat  | boolean                 | 否       | Repeat vibration pattern until cancel(), default to false.                  |
+| 名称    | 类型                    | 必填 | 说明                                                                         |
+| ------- | ----------------------- | ---- | ---------------------------------------------------------------------------- |
+| pattern | number or Array<number> | 是   | Vibration pattern, accept a number or an array of numbers. Default to 400ms. |
+| repeat  | boolean                 | 否   | Repeat vibration pattern until cancel(), default to false.                   |
 
 ---
 

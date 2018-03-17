@@ -111,18 +111,20 @@ AppRegistry.registerComponent('App', () => App)
 Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
 ### `tvParallaxProperties`
 
-Apple TV parallax effects
+_(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
-| 类型   | 必填 |
-| ------ | -------- |
-| object | 否       |
+enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0. pressMagnification: Defaults to 1.0. pressDuration: Defaults to 0.3. pressDelay: Defaults to 0.0.
+
+| 类型   | 必填 | 平台 |
+| ------ | ---- | ---- |
+| object | 否   | iOS  |
 
 ---
 
@@ -131,8 +133,8 @@ Apple TV parallax effects
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ## Methods
 

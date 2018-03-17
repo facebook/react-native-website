@@ -113,8 +113,8 @@ AppRegistry.registerComponent('App', () => App)
 Determines what the opacity of the wrapped view should be when touch is active.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -123,8 +123,8 @@ Determines what the opacity of the wrapped view should be when touch is active.
 Called immediately after the underlay is hidden
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -133,16 +133,16 @@ Called immediately after the underlay is hidden
 Called immediately after the underlay is shown
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
 ### `style`
 
 | 类型       | 必填 |
-| ---------- | -------- |
-| View.style | 否       |
+| ---------- | ---- |
+| View.style | 否   |
 
 ---
 
@@ -151,8 +151,8 @@ Called immediately after the underlay is shown
 The color of the underlay that will show through when the touch is active.
 
 | 类型               | 必填 |
-| ------------------ | -------- |
-| [color](colors.md) | 否       |
+| ------------------ | ---- |
+| [color](colors.md) | 否   |
 
 ---
 
@@ -161,8 +161,8 @@ The color of the underlay that will show through when the touch is active.
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -170,8 +170,8 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
-enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0.
+enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0. pressMagnification: Defaults to 1.0. pressDuration: Defaults to 0.3. pressDelay: Defaults to 0.0.
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| object | 否       | iOS      |
+| ------ | ---- | ---- |
+| object | 否   | iOS  |

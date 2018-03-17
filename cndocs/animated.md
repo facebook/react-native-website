@@ -145,6 +145,8 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 ## 方法
 
+When the given value is a ValueXY instead of a Value, each config option may be a vector of the form `{x: ..., y: ...}` instead of a scalar.
+
 ### `decay()`
 
 ```javascript

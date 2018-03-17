@@ -15,12 +15,13 @@ class ViewColoredBoxesWithText extends Component {
     return (
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: "row",
           height: 100,
-          padding: 20,
-        }}>
-        <View style={{backgroundColor: 'blue', flex: 0.3}} />
-        <View style={{backgroundColor: 'red', flex: 0.5}} />
+          padding: 20
+        }}
+      >
+        <View style={{ backgroundColor: "blue", flex: 0.3 }} />
+        <View style={{ backgroundColor: "red", flex: 0.5 }} />
         <Text>Hello World!</Text>
       </View>
     );
@@ -76,6 +77,7 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 * [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 * [`accessibilityTraits`](view.md#accessibilitytraits)
 * [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
+* [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 * [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
@@ -91,8 +93,8 @@ Does this view want to become responder on the start of a touch?
 `View.props.onStartShouldSetResponder: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -101,8 +103,8 @@ Does this view want to become responder on the start of a touch?
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| node | 否       |
+| ---- | ---- |
+| node | 否   |
 
 ---
 
@@ -115,8 +117,8 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
 | 类型                                                               | 必填 |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | 否       |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -127,8 +129,8 @@ Used to locate this view from native classes.
 > This disables the 'layout-only view removal' optimization for this view!
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
@@ -137,8 +139,8 @@ Used to locate this view from native classes.
 When `accessible` is true, the system will try to invoke this function when the user performs accessibility tap gesture.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -151,8 +153,8 @@ Invoked on mount and layout changes with:
 This event is fired immediately once the layout has been calculated, but the new layout may not yet be reflected on the screen at the time the event is received, especially if a layout animation is in progress.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -161,8 +163,8 @@ This event is fired immediately once the layout has been calculated, but the new
 When `accessible` is `true`, the system will invoke this function when the user performs the magic tap gesture.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -173,8 +175,8 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 `View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -185,8 +187,8 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 `View.props.onMoveShouldSetResponderCapture: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -197,8 +199,8 @@ The View is now responding for touch events. This is the time to highlight and s
 `View.props.onResponderGrant: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -209,8 +211,8 @@ The user is moving their finger.
 `View.props.onResponderMove: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -221,8 +223,8 @@ Another responder is already active and will not release it to that `View` askin
 `View.props.onResponderReject: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -233,8 +235,8 @@ Fired at the end of the touch.
 `View.props.onResponderRelease: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -245,8 +247,8 @@ The responder has been taken from the `View`. Might be taken by other views afte
 `View.props.onResponderTerminate: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -257,8 +259,8 @@ Some other `View` wants to become responder and is asking this `View` to release
 `View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -267,8 +269,8 @@ Some other `View` wants to become responder and is asking this `View` to release
 When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -279,8 +281,8 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 `View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -315,8 +317,8 @@ Controls whether the `View` can be the target of touch events.
 > Since `pointerEvents` does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include `pointerEvents` on `style`. On some platforms, we would need to implement it as a `className` anyways. Using `style` or not is an implementation detail of the platform.
 
 | 类型                                         | 必填 |
-| -------------------------------------------- | -------- |
-| enum('box-none', 'none', 'box-only', 'auto') | 否       |
+| -------------------------------------------- | ---- |
+| enum('box-none', 'none', 'box-only', 'auto') | 否   |
 
 ---
 
@@ -325,16 +327,16 @@ Controls whether the `View` can be the target of touch events.
 This is a special performance property exposed by `RCTView` and is useful for scrolling content when there are many subviews, most of which are offscreen. For this property to be effective, it must be applied to a view that contains many subviews that extend outside its bound. The subviews must also have `overflow: hidden`, as should the containing view (or one of its superviews).
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
 ### `style`
 
 | 类型                               | 必填 |
-| ---------------------------------- | -------- |
-| [view styles](view-style-props.md) | 否       |
+| ---------------------------------- | ---- |
+| [view styles](view-style-props.md) | 否   |
 
 ---
 
@@ -345,8 +347,8 @@ Used to locate this view in end-to-end tests.
 > This disables the 'layout-only view removal' optimization for this view!
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
@@ -361,9 +363,9 @@ Possible values are one of:
 * `'radiobutton_checked'`
 * `'radiobutton_unchecked'`
 
-| 类型                        | 必填 | 平台 |
-| --------------------------- | -------- | -------- |
-| AccessibilityComponentTypes | 否       | Android  |
+| 类型                        | 必填 | 平台    |
+| --------------------------- | ---- | ------- |
+| AccessibilityComponentTypes | 否   | Android |
 
 ---
 
@@ -377,9 +379,9 @@ Indicates to accessibility services whether the user should be notified when thi
 
 See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
-| 类型                                | 必填 | 平台 |
-| ----------------------------------- | -------- | -------- |
-| enum('none', 'polite', 'assertive') | 否       | Android  |
+| 类型                                | 必填 | 平台    |
+| ----------------------------------- | ---- | ------- |
+| enum('none', 'polite', 'assertive') | 否   | Android |
 
 ---
 
@@ -387,9 +389,9 @@ See the [Android `View` docs](http://developer.android.com/reference/android/vie
 
 Views that are only used to layout their children or otherwise don't draw anything may be automatically removed from the native hierarchy as an optimization. Set this property to `false` to disable this optimization and ensure that this `View` exists in the native view hierarchy.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -406,9 +408,9 @@ Possible values:
 
 See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
-| 类型                                             | 必填 | 平台 |
-| ------------------------------------------------ | -------- | -------- |
-| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否       | Android  |
+| 类型                                             | 必填 | 平台    |
+| ------------------------------------------------ | ---- | ------- |
+| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否   | Android |
 
 ---
 
@@ -418,9 +420,9 @@ Whether this `View` needs to rendered offscreen and composited with an alpha in 
 
 Rendering offscreen to preserve correct alpha behavior is extremely expensive and hard to debug for non-native developers, which is why it is not turned on by default. If you do need to enable this property for an animation, consider combining it with renderToHardwareTextureAndroid if the view **contents** are static (i.e. it doesn't need to be redrawn each frame). If that property is enabled, this View will be rendered off-screen once, saved in a hardware texture, and then composited onto the screen with an alpha each frame without having to switch rendering targets on the GPU.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -430,9 +432,9 @@ Whether this `View` should render itself (and all of its children) into a single
 
 On Android, this is useful for animations and interactions that only modify opacity, rotation, translation, and/or scale: in those cases, the view doesn't have to be redrawn and display lists don't need to be re-executed. The texture can just be re-used and re-composited with different parameters. The downside is that this can use up limited video memory, so this prop should be set back to false at the end of the interaction/animation.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -465,8 +467,8 @@ Possible values for `AccessibilityTraits` are:
 See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
 | 类型                                               | 必填 | 平台 |
-| -------------------------------------------------- | -------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | 否       | iOS      |
+| -------------------------------------------------- | ---- | ---- |
+| AccessibilityTraits, ,array of AccessibilityTraits | 否   | iOS  |
 
 ---
 
@@ -477,8 +479,20 @@ A value indicating whether VoiceOver should ignore the elements within views tha
 See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
+
+---
+
+### `accessibilityElementsHidden`
+
+A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
+
+See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
+
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -491,5 +505,5 @@ On iOS, this is useful for animations and interactions that do not modify this c
 Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. Test and measure when using this property.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |

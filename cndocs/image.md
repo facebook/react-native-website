@@ -110,6 +110,7 @@ dependencies {
 * [`defaultSource`](image.md#defaultsource)
 * [`onPartialLoad`](image.md#onpartialload)
 * [`onProgress`](image.md#onprogress)
+* [`fadeDuration`](image.md#fadeduration)
 
 ### 查看方法
 
@@ -383,6 +384,14 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
 | function | 否   | iOS  |
+
+### `fadeDuration`
+
+Android only. By default, it is 300ms.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ## 方法
 

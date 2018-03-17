@@ -5,6 +5,16 @@ title: KeyboardAvoidingView
 
 It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its position or bottom padding based on the position of the keyboard.
 
+Example usage:
+
+```
+import { KeyboardAvoidingView } from 'react-native';
+
+<KeyboardAvoidingView style={styles.container} behavior="padding">
+  ... your UI ...
+</KeyboardAvoidingView>
+```
+
 ### Example
 
 ![](assets/KeyboardAvoidingView/example.gif)
@@ -34,8 +44,8 @@ It is a component to solve the common problem of views that need to move out of 
 This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 是      |
+| ------ | ---- |
+| number | 是   |
 
 ---
 
@@ -44,8 +54,8 @@ This is the distance between the top of the user screen and the react native vie
 _Note: Android and iOS both interact with this prop differently._ _Android may behave better when given no behavior prop at all, whereas iOS is the opposite._
 
 | 类型                                  | 必填 |
-| ------------------------------------- | -------- |
-| enum('height', 'position', 'padding') | 否       |
+| ------------------------------------- | ---- |
+| enum('height', 'position', 'padding') | 否   |
 
 ---
 
@@ -54,8 +64,8 @@ _Note: Android and iOS both interact with this prop differently._ _Android may b
 The style of the content container(View) when behavior is 'position'.
 
 | 类型       | 必填 |
-| ---------- | -------- |
-| View.style | 否       |
+| ---------- | ---- |
+| View.style | 否   |
 
 ## Methods
 

@@ -97,8 +97,8 @@ Optional props:
 The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
 
 | 类型                                        | 必填 |
-| ------------------------------------------- | -------- |
-| array of [Section](sectionlist.md#section)s | 是      |
+| ------------------------------------------- | ---- |
+| array of [Section](sectionlist.md#section)s | 是   |
 
 ---
 
@@ -107,8 +107,8 @@ The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
 How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 是      |
+| ------ | ---- |
+| number | 是   |
 
 ---
 
@@ -117,8 +117,8 @@ How many items to render in the initial batch. This should be enough to fill the
 Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks item.key, then falls back to using the index, like react does. Note that this sets keys for each item, but each overall section still needs its own key.
 
 | 类型                                  | 必填 |
-| ------------------------------------- | -------- |
-| (item: Item, index: number) => string | 是      |
+| ------------------------------------- | ---- |
+| (item: Item, index: number) => string | 是   |
 
 ---
 
@@ -127,8 +127,8 @@ Used to extract a unique key for a given item at the specified index. Key is use
 Default renderer for every item in every section. Can be over-ridden on a per-section basis. Should return a React element.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 是      |
+| -------- | ---- |
+| function | 是   |
 
 The render function will be passed an object with the following keys:
 
@@ -149,8 +149,8 @@ The render function will be passed an object with the following keys:
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
 
 | 类型                                        | 必填 |
-| ------------------------------------------- | -------- |
-| [(info: {distanceFromEnd: number}) => void] | 否       |
+| ------------------------------------------- | ---- |
+| [(info: {distanceFromEnd: number}) => void] | 否   |
 
 ---
 
@@ -159,8 +159,8 @@ Called once when the scroll position gets within `onEndReachedThreshold` of the 
 A marker property for telling the list to re-render (since it implements `PureComponent`). If any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the `data` prop, stick it here and treat it immutably.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| any  | 否       |
+| ---- | ---- |
+| any  | 否   |
 
 ---
 
@@ -169,8 +169,8 @@ A marker property for telling the list to re-render (since it implements `PureCo
 Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Separator]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
 | 类型                           | 必填 |
-| ------------------------------ | -------- |
-| [component, function, element] | 否       |
+| ------------------------------ | ---- |
+| [component, function, element] | 否   |
 
 ---
 
@@ -179,8 +179,8 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 Reverses the direction of scroll. Uses scale transforms of -1.
 
 | 类型      | 必填 |
-| --------- | -------- |
-| [boolean] | 否       |
+| --------- | ---- |
+| [boolean] | 否   |
 
 ---
 
@@ -189,16 +189,16 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 Rendered at the very end of the list. Can be a React Component Class, a render function, or a rendered element.
 
 | 类型                           | 必填 |
-| ------------------------------ | -------- |
-| [component, function, element] | 否       |
+| ------------------------------ | ---- |
+| [component, function, element] | 否   |
 
 ---
 
 ### `legacyImplementation`
 
 | 类型      | 必填 |
-| --------- | -------- |
-| [boolean] | 否       |
+| --------- | ---- |
+| [boolean] | 否   |
 
 ---
 
@@ -207,8 +207,8 @@ Rendered at the very end of the list. Can be a React Component Class, a render f
 Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
 
 | 类型                           | 必填 |
-| ------------------------------ | -------- |
-| [component, function, element] | 否       |
+| ------------------------------ | ---- |
+| [component, function, element] | 否   |
 
 ---
 
@@ -217,8 +217,8 @@ Rendered when the list is empty. Can be a React Component Class, a render functi
 How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| [number] | 否       |
+| -------- | ---- |
+| [number] | 否   |
 
 ---
 
@@ -227,8 +227,8 @@ How far from the end (in units of visible length of the list) the bottom edge of
 If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
 
 | 类型         | 必填 |
-| ------------ | -------- |
-| [() => void] | 否       |
+| ------------ | ---- |
+| [() => void] | 否   |
 
 ---
 
@@ -237,8 +237,8 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 The function will be passed an object with the following keys:
 
@@ -248,12 +248,12 @@ The function will be passed an object with the following keys:
 The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
 | 名称       | 类型    | 必填 |
-| ---------- | ------- | -------- |
-| item       | any     | 是      |
-| key        | string  | 是      |
-| index      | number  | 否       |
-| isViewable | boolean | 是      |
-| section    | any     | 否       |
+| ---------- | ------- | ---- |
+| item       | any     | 是   |
+| key        | string  | 是   |
+| index      | number  | 否   |
+| isViewable | boolean | 是   |
+| section    | any     | 否   |
 
 ---
 
@@ -262,8 +262,8 @@ The `ViewToken` type is exported by `ViewabilityHelper.js`:
 Set this true while waiting for new data from a refresh.
 
 | 类型      | 必填 |
-| --------- | -------- |
-| [boolean] | 否       |
+| --------- | ---- |
+| [boolean] | 否   |
 
 ---
 
@@ -274,8 +274,8 @@ Note: may have bugs (missing content) in some circumstances - use at your own ri
 This may improve scroll performance for large lists.
 
 | 类型    | 必填 |
-| ------- | -------- |
-| boolean | 否       |
+| ------- | ---- |
+| boolean | 否   |
 
 ---
 
@@ -284,8 +284,8 @@ This may improve scroll performance for large lists.
 Rendered at the very beginning of the list. Can be a React Component Class, a render function, or a rendered element.
 
 | 类型                         | 必填 |
-| ---------------------------- | -------- |
-| component, function, element | 否       |
+| ---------------------------- | ---- |
+| component, function, element | 否   |
 
 ---
 
@@ -294,8 +294,8 @@ Rendered at the very beginning of the list. Can be a React Component Class, a re
 Rendered at the bottom of each section.
 
 | 类型                                                 | 必填 |
-| ---------------------------------------------------- | -------- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | 否       |
+| ---------------------------------------------------- | ---- |
+| [(info: {section: SectionT}) => ?React.Element<any>] | 否   |
 
 ---
 
@@ -304,8 +304,8 @@ Rendered at the bottom of each section.
 Rendered at the top of each section. These stick to the top of the `ScrollView` by default on iOS. See `stickySectionHeadersEnabled`.
 
 | 类型                                                 | 必填 |
-| ---------------------------------------------------- | -------- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | 否       |
+| ---------------------------------------------------- | ---- |
+| [(info: {section: SectionT}) => ?React.Element<any>] | 否   |
 
 ---
 
@@ -314,8 +314,8 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 Rendered at the top and bottom of each section (note this is different from `ItemSeparatorComponent` which is only rendered between items). These are intended to separate sections from the headers above and below and typically have the same highlight response as `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Separator]`, and any custom props from `separators.updateProps`.
 
 | 类型              | 必填 |
-| ----------------- | -------- |
-| [ReactClass<any>] | 否       |
+| ----------------- | ---- |
+| [ReactClass<any>] | 否   |
 
 ---
 
@@ -324,8 +324,8 @@ Rendered at the top and bottom of each section (note this is different from `Ite
 Makes section headers stick to the top of the screen until the next one pushes it off. Only enabled by default on iOS because that is the platform standard there.
 
 | 类型    | 必填 |
-| ------- | -------- |
-| boolean | 否       |
+| ------- | ---- |
+| boolean | 否   |
 
 ## Methods
 
@@ -341,9 +341,9 @@ Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the 
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明 |
-| ------ | ------ | -------- | ----------- |
-| params | object | 是      | 看下面的说明  |
+| 名称   | 类型   | 必填 | 说明         |
+| ------ | ------ | ---- | ------------ |
+| params | object | 是   | 看下面的说明 |
 
 Valid `params` keys are:
 
@@ -385,11 +385,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| 名称                                     | 类型                         | 说明                                                                                                                                                            |
-| ---------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
-| [key]                                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections,                                                                          |
-| the array index will be used by default. |
-| [renderItem]                             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
-| [ItemSeparatorComponent]                 | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor]                           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+| 名称                     | 类型                         | 说明                                                                                                                                                                   |
+| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
+| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
+| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
+| [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
+| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |

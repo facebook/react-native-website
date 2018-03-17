@@ -40,13 +40,18 @@ static configureNext(config, onAnimationDidEnd?)
 
 Schedules an animation to happen on the next layout.
 
-@param config Specifies animation properties:
+#### Parameters:
+
+| Name              | Type     | Required | Description                                                |
+| ----------------- | -------- | -------- | ---------------------------------------------------------- |
+| config            | object   | Yes      | See config parameters below.                               |
+| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
+
+##### config
 
 * `duration` in milliseconds
 * `create`, config for animating in new views (see `Anim` type)
 * `update`, config for animating views that have been updated (see `Anim` type)
-
-@param onAnimationDidEnd Called when the animation finished. Only supported on iOS. @param onError Called on error. Only supported on iOS.
 
 ---
 
