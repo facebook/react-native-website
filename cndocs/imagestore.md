@@ -3,7 +3,7 @@ id: imagestore
 title: ImageStore
 ---
 
-### Methods
+### 方法
 
 * [`hasImageForTag`](imagestore.md#hasimagefortag)
 * [`removeImageForTag`](imagestore.md#removeimagefortag)
@@ -14,7 +14,7 @@ title: ImageStore
 
 # 文档
 
-## Methods
+## 查看方法
 
 ### `hasImageForTag()`
 
@@ -22,7 +22,7 @@ title: ImageStore
 static hasImageForTag(uri, callback)
 ```
 
-Check if the ImageStore contains image data for the specified URI. @platform ios
+检查 ImageStore 中是否包含了指定 URI 的图片数据。目前仅限 iOS。
 
 ---
 
@@ -32,7 +32,7 @@ Check if the ImageStore contains image data for the specified URI. @platform ios
 static removeImageForTag(uri)
 ```
 
-Delete an image from the ImageStore. Images are stored in memory and must be manually removed when you are finished with them, otherwise they will continue to use up RAM until the app is terminated. It is safe to call `removeImageForTag()` without first calling `hasImageForTag()`, it will simply fail silently. @platform ios
+从 ImageStore 中删除指定图片。存储在 ImageStore 中的图标必须手动删除，否则在应用退出之前将会一直占用内存。调用此删除方法并不需要先调用`hasImageForTag()`方法来检查，此方法会自动处理异常情况。目前仅限 iOS。
 
 ---
 
@@ -42,9 +42,9 @@ Delete an image from the ImageStore. Images are stored in memory and must be man
 static addImageFromBase64(base64ImageData, success, failure)
 ```
 
-Stores a base64-encoded image in the ImageStore, and returns a URI that can be used to access or display the image later. Images are stored in memory only, and must be manually deleted when you are finished with them by calling `removeImageForTag()`.
+在 ImageStore 中以 base64 编码格式存储一幅图片，并返回一个 URI 以便访问或显示此图片。图片数据仅仅保存在内存中，在使用完毕后请调用`removeImageForTag()`方法来手动删除。
 
-Note that it is very inefficient to transfer large quantities of binary data between JS and native code, so you should avoid calling this more than necessary. @platform ios
+注意在 JS 和原生代码间传递大量二进制数据是非常低效的，所以若非必要，请尽量少用此方法。目前仅限 iOS。
 
 ---
 
@@ -54,6 +54,6 @@ Note that it is very inefficient to transfer large quantities of binary data bet
 static getBase64ForTag(uri, success, failure)
 ```
 
-Retrieves the base64-encoded data for an image in the ImageStore. If the specified URI does not match an image in the store, the failure callback will be called.
+将 ImageStore 中的指定 URI 图片以 base64 编码格式的数据返回。如果找不到指定的 URI，则会调用 failure 回调函数。
 
-Note that it is very inefficient to transfer large quantities of binary data between JS and native code, so you should avoid calling this more than necessary. To display an image in the ImageStore, you can just pass the URI to an `<Image/>` component; there is no need to retrieve the base64 data.
+注意在 JS 和原生代码间传递大量二进制数据是非常低效的，所以若非必要，请尽量少用此方法。如果只是为了显示图片，可以直接把 URI 传递给`<Image/>`组件，并不需要额外取 base64 数据。

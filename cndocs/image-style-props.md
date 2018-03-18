@@ -124,7 +124,7 @@ title: Image样式属性
 
 ### `tintColor`
 
-Changes the color of all the non-transparent pixels to the tintColor.
+为所有非透明的像素指定一个颜色。
 
 | 类型               | 必填 |
 | ------------------ | ---- |
@@ -134,14 +134,14 @@ Changes the color of all the non-transparent pixels to the tintColor.
 
 ### `overlayColor`
 
-When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
+当图片有圆角的时候，指定一个颜色用于填充圆角处的空白。虽然一般情况下圆角处是透明的，但在某些情况下，Android 并不支持圆角透明，比如：
 
-* Certain resize modes, such as 'contain'
-* Animated GIFs
+* 某些 resize 模式比如'contain'
+* GIF 动画
 
-A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
+常见的用法就是在不能圆角透明时，设置`overlayColor`和背景色一致。
 
-For details of how this works under the hood, see http://frescolib.org/rounded-corners-and-circles.md
+详细说明可参考<http://frescolib.org/rounded-corners-and-circles.md>。
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |

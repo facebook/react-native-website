@@ -134,11 +134,11 @@ dependencies {
 | ----- | ---- |
 | style | 否   |
 
-* [Layout Props...](layout-props.md#props)
+* [布局属性...](layout-props.md#props)
 
-* [Shadow Props...](shadow-props.md#props)
+* [阴影属性...](shadow-props.md#props)
 
-* [Transforms...](transforms.md#props)
+* [动画变换 Transforms...](transforms.md#props)
 
 * **`borderTopRightRadius`**: number
 
@@ -166,18 +166,18 @@ dependencies {
 
 * **`tintColor`**: [color](colors.md)
 
-  Changes the color of all the non-transparent pixels to the tintColor.
+  为所有非透明的像素指定一个颜色。
 
 * **`overlayColor`**: string (_Android_)
 
-  When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
+  当图片有圆角的时候，指定一个颜色用于填充圆角处的空白。虽然一般情况下圆角处是透明的，但在某些情况下，Android 并不支持圆角透明，比如：
 
-  * Certain resize modes, such as 'contain'
-  * Animated GIFs
+  * 某些 resize 模式比如'contain'
+  * GIF 动画
 
-  A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
+  常见的用法就是在不能圆角透明时，设置`overlayColor`和背景色一致。
 
-  For details of how this works under the hood, see http://frescolib.org/docs/rounded-corners-and-circles.html
+  详细说明可参考<http://frescolib.org/rounded-corners-and-circles.md>。
 
 ---
 
@@ -255,11 +255,11 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 ### `source`
 
-The image source (either a remote URL or a local file resource).
+图片源数据（远程 URL 地址或本地数据）。
 
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache.
 
-The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp` (Android only), `psd` (iOS only).
+目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。
 
 | 类型                | 必填 |
 | ------------------- | ---- |
@@ -281,7 +281,7 @@ Similarly to `source`, this property represents the resource used to render the 
 
 ### `onError`
 
-Invoked on load error with `{nativeEvent: {error}}`.
+当加载错误的时候调用此回调函数，参数为`{nativeEvent: {error}}`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -291,7 +291,7 @@ Invoked on load error with `{nativeEvent: {error}}`.
 
 ### `testID`
 
-A unique identifier for this element to be used in UI Automation testing scripts.
+一个唯一的资源标识符，用来在自动测试脚本中标识这个元素。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -301,15 +301,15 @@ A unique identifier for this element to be used in UI Automation testing scripts
 
 ### `resizeMethod`
 
-The mechanism that should be used to resize the image when the image's dimensions differ from the image view's dimensions. Defaults to `auto`.
+当图片实际尺寸和容器样式尺寸不一致时，决定以怎样的策略来调整图片的尺寸。默认为`auto`。
 
-* `auto`: Use heuristics to pick between `resize` and `scale`.
+* `auto`: 使用启发式算法来在`resize`和`scale`中自动决定。
 
-* `resize`: A software operation which changes the encoded image in memory before it gets decoded. This should be used instead of `scale` when the image is much larger than the view.
+* `resize`: 在图片解码之前，使用软件算法对其在内存中的数据进行修改。当图片尺寸比容器尺寸大得多时，应该优先使用此选项。
 
-* `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
+* `scale`: 对图片进行缩放。和`resize`相比，`scale`速度更快（一般有硬件加速），而且图片质量更优。在图片尺寸比容器尺寸小或者只是稍大一点时，应该优先使用此选项。
 
-More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.html.
+关于`resize`和`scale`的详细说明请参考<http://frescolib.org/docs/resizing.html>。
 
 | 类型                            | 必填 | 平台    |
 | ------------------------------- | ---- | ------- |
@@ -319,7 +319,7 @@ More details about `resize` and `scale` can be found at http://frescolib.org/doc
 
 ### `accessibilityLabel`
 
-The text that's read by the screen reader when the user interacts with the image.
+设置一段文字。当用户与图片交互时，读屏器（无障碍功能）会朗读你所设置的这段文字。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -329,7 +329,7 @@ The text that's read by the screen reader when the user interacts with the image
 
 ### `accessible`
 
-When true, indicates the image is an accessibility element.
+当此属性为 true 时，表示此图片是一个启用了无障碍功能的元素。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -349,7 +349,7 @@ When true, indicates the image is an accessibility element.
 
 ### `defaultSource`
 
-在读取图片时默认显示的加载提示图片。仅限 iOS 使用。（译注：Android 怎么办？可以使用另一张图片绝对定位盖住当前图片，在当前图片加载完成后撤掉）。
+在读取图片时默认显示的图片。仅限 iOS 使用。
 
 | 类型           | 必填 | 平台 |
 | -------------- | ---- | ---- |
@@ -357,19 +357,17 @@ When true, indicates the image is an accessibility element.
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
-* `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
-* `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
-* `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
+* `uri` - 是一个表示图片的资源标识的字符串，它可以是一个本地文件路径或是一个静态资源引用（使用`require(相对路径)`来引用）。
+* `width`, `height` - 如果你知道图片的尺寸，那么可以在这里指定。这一尺寸会被用作`<Image/>`组件的默认尺寸。
+* `scale` - 图片的缩放系数。默认是 1.0，意味着每一个图片像素都对应一个设备独立像素（DIP）。
 
-If passing a number:
-
-* `number` - Opaque type returned by something like `require('./image.jpg')`.
+* `number` - 静态图片引用语法`require('./image.jpg')`所返回的资源 id。
 
 ---
 
 ### `onPartialLoad`
 
-Invoked when a partial load of the image is complete. The definition of what constitutes a "partial load" is loader specific though this is meant for progressive JPEG loads.
+如果图片本身支持逐步加载，则逐步加载的过程中会调用此方法。“逐步加载”的具体定义与具体的标准和实现有关。
 
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
@@ -379,7 +377,7 @@ Invoked when a partial load of the image is complete. The definition of what con
 
 ### `onProgress`
 
-Invoked on download progress with `{nativeEvent: {loaded, total}}`.
+在加载过程中不断调用，参数为`{nativeEvent: {loaded, total}}`。
 
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
@@ -401,19 +399,19 @@ Android only. By default, it is 300ms.
 Image.getSize(uri, success, [failure]);
 ```
 
-Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
+在显示图片前获取图片的宽高(以像素为单位)。如果图片地址不正确或下载失败,此方法也会失败。
 
-In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
+要获取图片的尺寸,首先需要加载或下载图片(同时会被缓存起来)。这意味着理论上你可以用这个方法来预加载图片，虽然此方法并没有针对这一用法进行优化，而且将来可能会换一些实现方案使得并不需要完整下载图片即可获取尺寸。所以更好的预加载方案是使用下面那个专门的预加载方法。
 
-Does not work for static image resources.
+此方法不能用于静态图片资源。
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明                                                                                                 |
-| ------- | -------- | ---- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | 是   | The location of the image.                                                                           |
-| success | function | 是   | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | 否   | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| 名称    | 类型     | 必填 | 说明                             |
+| ------- | -------- | ---- | -------------------------------- |
+| uri     | string   | 是   | 图片地址                         |
+| success | function | 是   | 成功的回调函数，返回图片宽高数据 |
+| failure | function | 否   | 失败的回调函数                   |
 
 ---
 
@@ -423,13 +421,13 @@ Does not work for static image resources.
 Image.prefetch(url);
 ```
 
-Prefetches a remote image for later use by downloading it to the disk cache
+预加载一个远程图片(将其下载到本地磁盘缓存)。
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明                              |
-| ---- | ------ | ---- | --------------------------------- |
-| url  | string | 是   | The remote location of the image. |
+| 名称 | 类型   | 必填 | 说明           |
+| ---- | ------ | ---- | -------------- |
+| url  | string | 是   | 图片的远程地址 |
 
 ---
 
@@ -443,9 +441,9 @@ Image.abortPrefetch(requestId);
 
 **参数：**
 
-| 名称      | 类型   | 必填 | 说明                         |
-| --------- | ------ | ---- | ---------------------------- |
-| requestId | number | 是   | Id as returned by prefetch() |
+| 名称      | 类型   | 必填 | 说明                |
+| --------- | ------ | ---- | ------------------- |
+| requestId | number | 是   | prefetch()返回的 id |
 
 ---
 
@@ -475,8 +473,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **参数：**
 
-| 名称   | 类型           | 必填 | 说明                                                                         |
-| ------ | -------------- | ---- | ---------------------------------------------------------------------------- |
-| source | number, object | 是   | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+| 名称   | 类型           | 必填 | 说明                                                                           |
+| ------ | -------------- | ---- | ------------------------------------------------------------------------------ |
+| source | number, object | 是   | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
 
-> `ImageSource` is an object like `{ uri: '<http location || file path>' }`
+> `ImageSource`是一个对象，其结构为`{ uri: '<http location || file path>' }`

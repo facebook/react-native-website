@@ -3,7 +3,7 @@ id: imagepickerios
 title: ImagePickerIOS
 ---
 
-### Methods
+### 查看方法
 
 * [`canRecordVideos`](imagepickerios.md#canrecordvideos)
 * [`canUseCamera`](imagepickerios.md#canusecamera)
@@ -14,7 +14,7 @@ title: ImagePickerIOS
 
 # 文档
 
-## Methods
+## 方法
 
 ### `canRecordVideos()`
 

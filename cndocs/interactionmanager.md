@@ -3,46 +3,46 @@ id: interactionmanager
 title: InteractionManager
 ---
 
-InteractionManager allows long-running work to be scheduled after any interactions/animations have completed. In particular, this allows JavaScript animations to run smoothly.
+Interactionmanager 可以将一些耗时较长的工作安排到所有互动或动画完成之后再进行。这样可以保证 JavaScript 动画的流畅运行。
 
-Applications can schedule tasks to run after interactions with the following:
+应用这样可以安排一个任务在交互和动画完成之后执行：
 
 ```
 InteractionManager.runAfterInteractions(() => {
-  // ...long-running synchronous task...
+  // ...耗时较长的同步执行的任务...
 });
 ```
 
-Compare this to other scheduling alternatives:
+和其他的延迟计划函数对比：
 
-* requestAnimationFrame(): for code that animates a view over time.
-* setImmediate/setTimeout(): run code later, note this may delay animations.
-* runAfterInteractions(): run code later, without delaying active animations.
+* requestAnimationFrame(): 用来执行在一段时间内控制视图动画的代码。
+* setImmediate/setTimeout(): 在稍后执行代码。注意这有可能会延迟当前正在进行的动画。
+* runAfterInteractions(): 在稍后执行代码，不会延迟当前进行的动画。
 
-The touch handling system considers one or more active touches to be an 'interaction' and will delay `runAfterInteractions()` callbacks until all touches have ended or been cancelled.
+触摸处理系统会把一个或多个进行中的触摸操作认定为'交互'，并且会将`runAfterInteractions()`的回调函数延迟执行，直到所有的触摸操作都结束或取消了。
 
-InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
+InteractionManager 还允许应用注册动画，在动画开始时创建一个交互“句柄”，然后在结束的时候清除它。
 
 ```
 var handle = InteractionManager.createInteractionHandle();
-// run animation... (`runAfterInteractions` tasks are queued)
-// later, on animation completion:
+// 执行动画... (`runAfterInteractions`中的任务现在开始排队等候)
+// 在动画完成之后开始清除句柄：
 InteractionManager.clearInteractionHandle(handle);
-// queued tasks run if all handles were cleared
+// 在所有句柄都清除之后，现在开始依序执行队列中的任务
 ```
 
-`runAfterInteractions` takes either a plain callback function, or a `PromiseTask` object with a `gen` method that returns a `Promise`. If a `PromiseTask` is supplied, then it is fully resolved (including asynchronous dependencies that also schedule more tasks via `runAfterInteractions`) before starting on the next task that might have been queued up synchronously earlier.
+`runAfterInteractions`接受一个普通的回调函数，或是一个`PromiseTask`对象，该对象需要带有名为`gen`的方法，并返回一个`Promise`。如果提供的参数是一个`PromiseTask`， 那么即便它是异步的它也会阻塞任务队列，直到它（以及它所有的依赖任务，哪怕这些依赖任务也是异步的）执行完毕后，才会执行下一个任务。
 
-By default, queued tasks are executed together in a loop in one `setImmediate` batch. If `setDeadline` is called with a positive number, then tasks will only be executed until the deadline (in terms of js event loop run time) approaches, at which point execution will yield via setTimeout, allowing events such as touches to start interactions and block queued tasks from executing, making apps more responsive.
+默认情况下，排队的任务会在一次`setImmediate`方法中依序批量执行。如果你调用了`setDeadLine`方法并设定了一个正整数值，则任务只会在设定的时间到达后开始执行。在此之前，任务会通过`setTimeout`来挂起并阻塞其他任务执行，这样可以给诸如触摸交互一类的事件留出时间，使应用可以更快地响应用户。
 
-### Methods
+### 查看方法
 
 * [`runAfterInteractions`](interactionmanager.md#runafterinteractions)
 * [`createInteractionHandle`](interactionmanager.md#createinteractionhandle)
 * [`clearInteractionHandle`](interactionmanager.md#clearinteractionhandle)
 * [`setDeadline`](interactionmanager.md#setdeadline)
 
-### Properties
+### 查看属性
 
 * [`Events`](interactionmanager.md#events)
 * [`addListener`](interactionmanager.md#addlistener)
@@ -51,7 +51,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 
 # 文档
 
-## Methods
+## 方法
 
 ### `runAfterInteractions()`
 
@@ -59,7 +59,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 static runAfterInteractions(task)
 ```
 
-Schedule a function to run after all interactions have completed. Returns a cancellable "promise".
+安排一个函数在所有的交互和动画完成之后运行。返回一个可取消的 promise。
 
 ---
 
@@ -69,7 +69,7 @@ Schedule a function to run after all interactions have completed. Returns a canc
 static createInteractionHandle()
 ```
 
-Notify manager that an interaction has started.
+通知管理器有某个交互开始了。
 
 ---
 
@@ -79,7 +79,7 @@ Notify manager that an interaction has started.
 static clearInteractionHandle(handle)
 ```
 
-Notify manager that an interaction has completed.
+通知管理器有某个交互已经结束了。
 
 ---
 
@@ -89,8 +89,8 @@ Notify manager that an interaction has completed.
 static setDeadline(deadline)
 ```
 
-A positive number will use setTimeout to schedule any tasks after the eventLoopRunningTime hits the deadline value, otherwise all tasks will be executed in one setImmediate batch (default).
+如果设定了一个正整数值，则会使用 setTimeout 来挂起所有尚未执行的任务。在 eventLoopRunningTime 到达设定时间后，才开始使用一个 setImmediate 方法来批量执行所有任务。
 
-## Properties
+## 属性
 
 ---
