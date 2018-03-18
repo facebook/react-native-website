@@ -19,7 +19,7 @@ class Example extends Component {
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }
 
-  componentWillUnmount () {
+  componentDidmount () {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
