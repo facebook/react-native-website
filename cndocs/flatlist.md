@@ -146,7 +146,7 @@ title: FlatList
 renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
 ```
 
-Takes an item from `data` and renders it into the list.
+从`data`中挨个取出数据并渲染到列表中。
 
 Provides additional metadata like `index` if you need it, as well as a more generic `separators.updateProps` function which let you set whatever props you want to change the rendering of either the leading separator or trailing separator in case the more common `highlight` and `unhighlight` (which set the `highlighted: boolean` prop) are insufficient for your use case.
 
@@ -154,7 +154,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 | -------- | ---- |
 | function | 是   |
 
-Example usage:
+示例：
 
 ```javascript
 <FlatList

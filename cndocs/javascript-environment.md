@@ -3,62 +3,65 @@ id: javascript-environment
 title: JavaScript环境
 ---
 
-## JavaScript Runtime
+## JavaScript 运行时环境
 
-When using React Native, you're going to be running your JavaScript code in two environments:
+在使用 React Native 时，你的 JavaScript 代码将会运行在两个不同的环境上：
 
-* In most cases, React Native will use [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore), the JavaScript engine that powers Safari. Note that on iOS, JavaScriptCore does not use JIT due to the absence of writable executable memory in iOS apps.
-* When using Chrome debugging, all JavaScript code runs within Chrome itself, communicating with native code via WebSockets. Chrome uses [V8](https://code.google.com/p/v8/) as its JavaScript engine.
+* 大多数情况下，React Native 使用的是[JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore)，也就是 Safari 所使用的 JavaScript 引擎。但是在 iOS 上 JavaScriptCore 并没有使用即时编译技术（JIT），因为在 iOS 中应用无权拥有可写可执行的内存页（因此无法动态生成代码）。
+* 在使用 Chrome 调试时，所有的 JavaScript 代码都运行在 Chrome 中，并且通过 WebSocket 与原生代码通信。此时的运行环境是[V8 引擎](https://code.google.com/p/v8/)。
 
-While both environments are very similar, you may end up hitting some inconsistencies. We're likely going to experiment with other JavaScript engines in the future, so it's best to avoid relying on specifics of any runtime.
+虽然两个环境非常类似，但开发者还是可能碰到一些不一致的地方。未来我们很可能会尝试一些其他的 JS 引擎，所以请尽量避免使用依赖于特定运行环境的代码。
 
-## JavaScript Syntax Transformers
+> 常见的不一致比如有：iOS 上有部分日期构造函数未实现；Android 上重复定义的 props 可能会导致报错。
 
-Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.
+## JavaScript 语法转换器
 
-React Native ships with the [Babel JavaScript compiler](https://babeljs.io). Check [Babel documentation](https://babeljs.io/docs/plugins/#transform-plugins) on its supported transformations for more details.
+语法转换器可以使编写代码的过程更加享受，因为开发者可以借助转换器直接使用新的 JavaScirpt 语法标准，而无需等待 JS 解释器的支持。
 
-Here's a full list of React Native's [enabled transformations](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16).
+React Native 内置了[Babel 转换器](https://babeljs.io)。你可以查看[Babel 的文档](https://babeljs.io/docs/plugins/#transform-plugins)来了解有关它可以转换的语法的详情。
+
+这里可以看到目前 React Native 默认开启的[语法转换特性](https://github.com/facebook/react-native/blob/master/babel-preset/configs/main.js#L16)。  
+注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6 入门》](http://es6.ruanyifeng.com/)以及论坛的[讨论帖](http://bbs.reactnative.cn/topic/15)。
 
 ES5
 
-* Reserved Words: `promise.catch(function() { });`
+* 保留关键字: `promise.catch(function() { });`
 
 ES6
 
-* [Arrow functions](http://babeljs.io/docs/learn-es2015/#arrows): `<C onPress={() => this.setState({pressed: true})}`
-* [Block scoping](https://babeljs.io/docs/learn-es2015/#let-const): `let greeting = 'hi';`
-* [Call spread](http://babeljs.io/docs/learn-es2015/#default-rest-spread): `Math.max(...array);`
-* [Classes](http://babeljs.io/docs/learn-es2015/#classes): `class C extends React.Component { render() { return <View />; } }`
-* [Constants](https://babeljs.io/docs/learn-es2015/#let-const): `const answer = 42;`
-* [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring): `var {isActive, style} = this.props;`
+* [箭头函数 Arrow functions](http://babeljs.io/docs/learn-es2015/#arrows): `<C onPress={() => this.setState({pressed: true})}`
+* [块级作用域 Block scoping](https://babeljs.io/docs/learn-es2015/#let-const): `let greeting = 'hi';`
+* [数组的扩展运算 Call spread](http://babeljs.io/docs/learn-es2015/#default-rest-spread): `Math.max(...array);`
+* [类 Classes](http://babeljs.io/docs/learn-es2015/#classes): `class C extends React.Component { render() { return <View />; } }`
+* [常量 Constants](https://babeljs.io/docs/learn-es2015/#let-const): `const answer = 42;`
+* [解构 Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring): `var {isActive, style} = this.props;`
 * [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): `for (var num of [1, 2, 3]) {}`
-* [Modules](http://babeljs.io/docs/learn-es2015/#modules): `import React, { Component } from 'react';`
-* [Computed Properties](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var key = 'abc'; var obj = {[key]: 10};`
-* [Object Concise Method](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var obj = { method() { return 10; } };`
-* [Object Short Notation](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var name = 'vjeux'; var obj = { name };`
-* [Rest Params](https://github.com/sebmarkbage/ecmascript-rest-spread): `function(type, ...args) { }`
-* [Template Literals](http://babeljs.io/docs/learn-es2015/#template-strings): `` var who = 'world'; var str = `Hello ${who}`; ``
+* [模块 Modules](http://babeljs.io/docs/learn-es2015/#modules): `import React, { Component } from 'react';`
+* [动态属性键 Computed Properties](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var key = 'abc'; var obj = {[key]: 10};`
+* 对象方法的简写 Object Consise Method: `var obj = { method() { return 10; } };`
+* [对象属性的简写 Object Short Notation](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var name = 'vjeux'; var obj = { name };`
+* [参数的扩展运算 Rest Params](https://github.com/sebmarkbage/ecmascript-rest-spread): `function(type, ...args) { }`
+* [字符串模板 Template Literals](http://babeljs.io/docs/learn-es2015/#template-strings): `` var who = 'world'; var str = `Hello ${who}`; ``
 
 ES8
 
-* [Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) { }`
-* [Async Functions](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); }`;
+* [参数列表末尾允许放置逗号 Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) { }`
+* [异步函数 Async Functions](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); }`;
 
 Stage 3
 
-* [Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
+* [对象的扩展运算 Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
 
-Specific
+其他特性
 
 * [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
 * [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
 
-## Polyfills
+## 接口兼容（Polyfills）
 
-Many standards functions are also available on all the supported JavaScript runtimes.
+许多标准功能也都在支持的 JavaScript 运行环境上做了兼容支持。
 
-Browser
+浏览器
 
 * [console.{log, warn, error, info, trace, table}](https://developer.chrome.com/devtools/docs/console-api)
 * [CommonJS require](https://nodejs.org/docs/latest/api/modules.html)
@@ -81,6 +84,6 @@ ES8
 
 * Object.{[entries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries), [values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)}
 
-Specific
+其他特性
 
-* `__DEV__`
+* `__DEV__` 用于判断当前是否开发环境的全局变量
