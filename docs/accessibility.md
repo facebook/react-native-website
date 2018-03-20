@@ -54,7 +54,7 @@ Accessibility traits tell a person using VoiceOver what kind of element they hav
 To use, set the `accessibilityTraits` property to one of (or an array of) accessibility trait strings:
 
 * **none** Used when the element has no traits.
-* **button** Used when the element should be treated as a button.
+* **button** Used when the element should be treated as a button. By default, all the Touchable components have this set.
 * **link** Used when the element should be treated as a link.
 * **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 * **search** Used when the text field element should also be treated as a search field.
@@ -93,18 +93,20 @@ Assign this property to a custom function which will be called when someone perf
 
 #### accessibilityComponentType (Android)
 
-In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
+In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a radiobutton). To set the component type that TalkBack should announce, you should specify the `accessibilityComponentType` property for the UI component. Supported values are `"none"`, `"button"`, `"radiobutton_checked"` and `"radiobutton_unchecked"`. All the Touchable* components have `accessibilityComponentType="button"` set as default.
 
 ```javascript
-<TouchableWithoutFeedback accessibilityComponentType=”button”
-  onPress={this._onPress}>
+<TouchableWithoutFeedback
+  accessibilityComponentType={this.state.checked ? 'radiobutton_checked' : 'radiobutton_unchecked'}
+  onPress={this._onPress}
+>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
   </View>
 </TouchableWithoutFeedback>
 ```
 
-In the above example, the TouchableWithoutFeedback is being announced by TalkBack as a native Button.
+In the above example, the TouchableWithoutFeedback is being announced by TalkBack as a native RadioButton.
 
 #### accessibilityLiveRegion (Android)
 
