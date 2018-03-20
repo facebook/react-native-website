@@ -1,6 +1,6 @@
 ---
 id: communication-android
-title: Communication between native and React Native
+title: 和原生端通信
 ---
 
 In [Integrating with Existing Apps guide](integration-with-existing-apps.md) and [Native UI Components guide](native-components-android.md) we learn how to embed React Native in a native component and vice versa. When we mix native and React Native components, we'll eventually find a need to communicate between these two worlds. Some ways to achieve that have been already mentioned in other guides. This article summarizes available techniques.
