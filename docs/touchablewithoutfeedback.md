@@ -46,6 +46,8 @@ This defines how far your touch can start away from the button. This is added to
 
 ### `accessibilityComponentType`
 
+The default is `"button"`
+
 | Type                        | Required |
 | --------------------------- | -------- |
 | [AccessibilityComponentTypes](/react-native/docs/accessibility.html#accessibilitycomponenttype-android) | No       |
@@ -101,6 +103,8 @@ If true, disable all interactions for this component.
 ---
 
 ### `accessibilityTraits`
+
+The default is `"button"`
 
 | Type                                               | Required |
 | -------------------------------------------------- | -------- |
