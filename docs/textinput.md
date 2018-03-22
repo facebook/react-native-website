@@ -655,7 +655,9 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
-| bool | No       | iOS      | --- |
+| bool | No       | iOS      |
+
+---
 
 ### `style`
 
