@@ -116,6 +116,6 @@ class TextInputAccessoryViewExample extends React.Component<{}, *> {
 
 Another example for [Sticky Text Inputs](https://github.com/facebook/react-native/blob/84ef7bc372ad870127b3e1fb8c13399fe09ecd4d/RNTester/js/InputAccessoryViewExample.js).
 
-The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8).
+The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](http://facebook.github.io/react-native/docs/next/inputaccessoryview.html) will be available in the upcoming v0.55.0 release.
 
 Happy keyboarding :)
