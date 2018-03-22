@@ -655,7 +655,9 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
-| bool | No       | iOS      |---
+| bool | No       | iOS      |
+
+---
 
 ### `style`
 
@@ -708,7 +710,6 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 | ------ | -------- |
 | string | No       |
 
-
 ## Methods
 
 ### `clear()`
@@ -728,5 +729,3 @@ isFocused():
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.
-
-
