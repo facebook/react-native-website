@@ -1,9 +1,9 @@
 ---
 id: layout-props
-title: Layout Props
+title: 布局属性
 ---
 
-### Props
+### 查看属性
 
 * [`alignContent`](layout-props.md#aligncontent)
 * [`alignItems`](layout-props.md#alignitems)
@@ -63,11 +63,11 @@ title: Layout Props
 
 # 文档
 
-## Props
+## 属性
 
 ### `alignContent`
 
-`alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. See https://developer.mozilla.org/en-US/docs/Web/CSS/align-content for more details.
+`alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/align-content>来进一步了解。
 
 | 类型                                                                                 | 必填 |
 | ------------------------------------------------------------------------------------ | ---- |
@@ -77,7 +77,7 @@ title: Layout Props
 
 ### `alignItems`
 
-`alignItems` aligns children in the cross direction. For example, if children are flowing vertically, `alignItems` controls how they align horizontally. It works like `align-items` in CSS (default: stretch). See https://developer.mozilla.org/en-US/docs/Web/CSS/align-items for more details.
+`alignItems`决定了子元素在次轴方向的排列方式（此样式设置在父元素上）。例如若子元素本来是沿着竖直方向排列的（即主轴竖直，次轴水平），则`alignItems`决定了它们在水平方向的排列方式。此样式和 CSS 中的`align-items`表现一致，默认值为 stretch。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/align-items>来进一步了解。
 
 | 类型                                                            | 必填 |
 | --------------------------------------------------------------- | ---- |
@@ -87,7 +87,7 @@ title: Layout Props
 
 ### `alignSelf`
 
-`alignSelf` controls how a child aligns in the cross direction, overriding the `alignItems` of the parent. It works like `align-self` in CSS (default: auto). See https://developer.mozilla.org/en-US/docs/Web/CSS/align-self for more details.
+`alignSelf`决定了元素在父元素的次轴方向的排列方式（此样式设置在子元素上），其值会覆盖父元素的`alignItems`的值。其表现和 CSS 上的`align-self`一致（默认值为 auto）。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/align-self>来进一步了解。
 
 | 类型                                                                    | 必填 |
 | ----------------------------------------------------------------------- | ---- |
@@ -113,7 +113,7 @@ Aspect ratio control the size of the undefined dimension of a node. Aspect ratio
 
 ### `borderBottomWidth`
 
-`borderBottomWidth` works like `border-bottom-width` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width for more details.
+`borderBottomWidth`和 CSS 上的`border-bottom-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width>来进一步了解。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -133,7 +133,7 @@ When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. W
 
 ### `borderLeftWidth`
 
-`borderLeftWidth` works like `border-left-width` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width for more details.
+`borderLeftWidth`和 CSS 上的`border-left-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width>来进一步了解。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -143,7 +143,7 @@ When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. W
 
 ### `borderRightWidth`
 
-`borderRightWidth` works like `border-right-width` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width for more details.
+`borderRightWidth`和 CSS 上的`border-right-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width>来进一步了解。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -163,7 +163,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 ### `borderTopWidth`
 
-`borderTopWidth` works like `border-top-width` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width for more details.
+`borderTopWidth`和 CSS 上的`border-top-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width>来进一步了解。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -173,7 +173,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 ### `borderWidth`
 
-`borderWidth` works like `border-width` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/border-width for more details.
+`borderWidth`和 CSS 上的`border-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-width>来进一步了解。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -183,11 +183,11 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 ### `bottom`
 
-`bottom` is the number of logical pixels to offset the bottom edge of this component.
+`bottom`值是指将本组件定位到距离底部多少个逻辑像素（底部的定义取决于`position`属性）。
 
-It works similarly to `bottom` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`bottom`类似，但注意在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of how `bottom` affects layout.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/bottom>来进一步了解`bottom`是如何影响布局的。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -197,7 +197,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ### `direction`
 
-`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://facebook.github.io/yoga/docs/rtl/ for more details.
+`direction`指定了用户界面的阅读顺序。`ltr`表示 left to right，即从左往右阅读。反之`rtl`为从右往左阅读。。默认值为`inherit`，但根节点的值会根据用户所在地的不同而不同。访问<https://facebook.github.io/yoga/docs/rtl/>来进一步了解。
 
 | 类型                          | 必填 | 平台 |
 | ----------------------------- | ---- | ---- |
@@ -207,9 +207,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 ### `display`
 
-`display` sets the display type of this component.
+`display`设置组件的显示类型。可用于元素的显示和隐藏。
 
-It works similarly to `display` in CSS, but only support 'flex' and 'none'. 'flex' is the default.
+它的表现和 CSS 上的`display`类似，但目前只支持'flex'和'none'两个值。默认值是'flex'。
 
 | 类型                 | 必填 |
 | -------------------- | ---- |
@@ -219,9 +219,9 @@ It works similarly to `display` in CSS, but only support 'flex' and 'none'. 'fle
 
 ### `end`
 
-When the direction is `ltr`, `end` is equivalent to `right`. When the direction is `rtl`, `end` is equivalent to `left`.
+当`direction`设置为`ltr`时，`end`等同于`right`。当`direction`设置为`rtl`，`end`等同于`left`。
 
-This style takes precedence over the `left` and `right` styles.
+此样式的优先级高于`left`和`right`。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -231,15 +231,15 @@ This style takes precedence over the `left` and `right` styles.
 
 ### `flex`
 
-In React Native `flex` does not work the same way that it does in CSS. `flex` is a number rather than a string, and it works according to the `Yoga` library at https://github.com/facebook/yoga
+在 React Native 中`flex`的表现和 CSS 有些区别。`flex`在 RN 中只能为整数值，其具体表现请参考`yoga`布局引擎的文档，其地址为<https://github.com/facebook/yoga>。
 
-When `flex` is a positive number, it makes the component flexible and it will be sized proportional to its flex value. So a component with `flex` set to 2 will take twice the space as a component with `flex` set to 1.
+当`flex`为一个正整数时，组件尺寸会具有弹性，并根据具体的 flex 值来按比例分配。比如两个组件在同一个父容器中，一个`flex`为 2，另一个`flex`为 1，则两者的尺寸比为 2：1。
 
-When `flex` is 0, the component is sized according to `width` and `height` and it is inflexible.
+当`flex`为 0 时，组件尺寸由`width`和`height`决定，此时不再具有弹性。
 
-When `flex` is -1, the component is normally sized according `width` and `height`. However, if there's not enough space, the component will shrink to its `minWidth` and `minHeight`.
+当`flex`为-1 时，组件尺寸一般还是由`width`和`height`决定。但是当空间不够时，组件尺寸会收缩到`minWidth`和`minHeight`所设定的值。
 
-flexGrow, flexShrink, and flexBasis work the same as in CSS.
+`flexGrow`、`flexShrink`、`flexBasis`和在 CSS 上表现一致。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -257,7 +257,7 @@ flexGrow, flexShrink, and flexBasis work the same as in CSS.
 
 ### `flexDirection`
 
-`flexDirection` controls which directions children of a container go. `row` goes left to right, `column` goes top to bottom, and you may be able to guess what the other two do. It works like `flex-direction` in CSS, except the default is `column`. See https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction for more details.
+`flexDirection` controls which directions children of a container go. `row` goes left to right, `column` goes top to bottom, and you may be able to guess what the other two do. It works like `flex-direction` in CSS, except the default is `column`. 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction>来进一步了解。
 
 | 类型                                                   | 必填 |
 | ------------------------------------------------------ | ---- |
@@ -283,7 +283,7 @@ flexGrow, flexShrink, and flexBasis work the same as in CSS.
 
 ### `flexWrap`
 
-`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). See https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap for more details.
+`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap>来进一步了解。
 
 | 类型                   | 必填 |
 | ---------------------- | ---- |
@@ -293,9 +293,9 @@ flexGrow, flexShrink, and flexBasis work the same as in CSS.
 
 ### `height`
 
-`height` sets the height of this component.
+`height`用于设置组件的高度。
 
-It works similarly to `height` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported. See https://developer.mozilla.org/en-US/docs/Web/CSS/height for more details.
+它的表现和 CSS 上的`height`类似， but in React Native 只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/height>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -305,7 +305,7 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 ### `justifyContent`
 
-`justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start). See https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content for more details.
+`justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content>来进一步了解。
 
 | 类型                                                                                      | 必填 |
 | ----------------------------------------------------------------------------------------- | ---- |
@@ -315,11 +315,11 @@ It works similarly to `height` in CSS, but in React Native you must use points o
 
 ### `left`
 
-`left` is the number of logical pixels to offset the left edge of this component.
+`left`值是指将本组件定位到距离左边多少个逻辑像素（左边的定义取决于`position`属性）。
 
-It works similarly to `left` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`left`类似， but in React Native 只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/left for more details of how `left` affects layout.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/left for more details of how `left` affects layout.
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -329,7 +329,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/left for more details of ho
 
 ### `margin`
 
-Setting `margin` has the same effect as setting each of `marginTop`, `marginLeft`, `marginBottom`, and `marginRight`. See https://developer.mozilla.org/en-US/docs/Web/CSS/margin for more details.
+设置`margin`相同于同时设置`marginTop`、`marginLeft`、`marginBottom`以及`marginRight`。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/margin>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -339,7 +339,7 @@ Setting `margin` has the same effect as setting each of `marginTop`, `marginLeft
 
 ### `marginBottom`
 
-`marginBottom` works like `margin-bottom` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom for more details.
+`marginBottom`和 CSS 上的`margin-bottom`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -359,7 +359,7 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 ### `marginHorizontal`
 
-Setting `marginHorizontal` has the same effect as setting both `marginLeft` and `marginRight`.
+设置`marginHorizontal`相同于同时设置`marginLeft`和`marginRight`。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -369,7 +369,7 @@ Setting `marginHorizontal` has the same effect as setting both `marginLeft` and 
 
 ### `marginLeft`
 
-`marginLeft` works like `margin-left` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left for more details.
+`marginLeft`和 CSS 上的`margin-left`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -379,7 +379,7 @@ Setting `marginHorizontal` has the same effect as setting both `marginLeft` and 
 
 ### `marginRight`
 
-`marginRight` works like `margin-right` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right for more details.
+`marginRight`和 CSS 上的`margin-right`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -399,7 +399,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 ### `marginTop`
 
-`marginTop` works like `margin-top` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top for more details.
+`marginTop`和 CSS 上的`margin-top`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -409,7 +409,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 ### `marginVertical`
 
-Setting `marginVertical` has the same effect as setting both `marginTop` and `marginBottom`.
+设置`marginVertical`相同于同时设置`marginTop`和`marginBottom`。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -421,9 +421,9 @@ Setting `marginVertical` has the same effect as setting both `marginTop` and `ma
 
 `maxHeight` is the maximum height for this component, in logical pixels.
 
-It works similarly to `max-height` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`max-height`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/max-height for more details.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/max-height>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -435,9 +435,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/max-height for more details
 
 `maxWidth` is the maximum width for this component, in logical pixels.
 
-It works similarly to `max-width` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`max-width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/max-width for more details.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/max-width>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -449,9 +449,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/max-width for more details.
 
 `minHeight` is the minimum height for this component, in logical pixels.
 
-It works similarly to `min-height` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`min-height`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/min-height for more details.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/min-height>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -463,9 +463,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/min-height for more details
 
 `minWidth` is the minimum width for this component, in logical pixels.
 
-It works similarly to `min-width` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`min-width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/min-width for more details.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/min-width>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -475,7 +475,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/min-width for more details.
 
 ### `overflow`
 
-`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details. `overflow: visible` only works on iOS. On Android, all views will clip their children.
+`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). 访问<https://developer.mozilla.org/en/docs/Web/CSS/overflow>来进一步了解。 `overflow: visible` only works on iOS. On Android, all views will clip their children.
 
 | 类型                                | 必填 |
 | ----------------------------------- | ---- |
@@ -485,7 +485,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/min-width for more details.
 
 ### `padding`
 
-Setting `padding` has the same effect as setting each of `paddingTop`, `paddingBottom`, `paddingLeft`, and `paddingRight`. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding for more details.
+设置`padding`相同于同时设置`paddingTop`、`paddingBottom`、`paddingLeft`以及`paddingRight`。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/padding>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -495,7 +495,7 @@ Setting `padding` has the same effect as setting each of `paddingTop`, `paddingB
 
 ### `paddingBottom`
 
-`paddingBottom` works like `padding-bottom` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom for more details.
+`paddingBottom`和 CSS 上的`padding-bottom`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -515,7 +515,7 @@ When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When dire
 
 ### `paddingHorizontal`
 
-Setting `paddingHorizontal` is like setting both of `paddingLeft` and `paddingRight`.
+设置`paddingHorizontal`相同于同时设置`paddingLeft`和`paddingRight`。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -525,7 +525,7 @@ Setting `paddingHorizontal` is like setting both of `paddingLeft` and `paddingRi
 
 ### `paddingLeft`
 
-`paddingLeft` works like `padding-left` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left for more details.
+`paddingLeft`和 CSS 上的`padding-left`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -535,7 +535,7 @@ Setting `paddingHorizontal` is like setting both of `paddingLeft` and `paddingRi
 
 ### `paddingRight`
 
-`paddingRight` works like `padding-right` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right for more details.
+`paddingRight`和 CSS 上的`padding-right`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -555,7 +555,7 @@ When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When dir
 
 ### `paddingTop`
 
-`paddingTop` works like `padding-top` in CSS. See https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top for more details.
+`paddingTop`和 CSS 上的`padding-top`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -565,7 +565,7 @@ When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When dir
 
 ### `paddingVertical`
 
-Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBottom`.
+设置`paddingVertical`相同于同时设置`paddingTop`和`paddingBottom`。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -581,7 +581,7 @@ If you want to position a child using specific numbers of logical pixels relativ
 
 If you want to position a child relative to something that is not its parent, just don't use styles for that. Use the component tree.
 
-See https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
+访问<https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
 
 | 类型                         | 必填 |
 | ---------------------------- | ---- |
@@ -591,11 +591,11 @@ See https://github.com/facebook/yoga for more details on how `position` differs 
 
 ### `right`
 
-`right` is the number of logical pixels to offset the right edge of this component.
+`right`值是指将本组件定位到距离右边多少个逻辑像素（右边的定义取决于`position`属性）。
 
-It works similarly to `right` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`right`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of how `right` affects layout.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of how `right` affects layout.
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -605,9 +605,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of h
 
 ### `start`
 
-When the direction is `ltr`, `start` is equivalent to `left`. When the direction is `rtl`, `start` is equivalent to `right`.
+当`direction`设置为`ltr`时，`start`等同于`left`。当`direction`设置为`rtl`，`start`等同于`right`。
 
-This style takes precedence over the `left`, `right`, and `end` styles.
+此样式的优先级高于`left`、`right`和`end`。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -617,11 +617,11 @@ This style takes precedence over the `left`, `right`, and `end` styles.
 
 ### `top`
 
-`top` is the number of logical pixels to offset the top edge of this component.
+`top`值是指将本组件定位到距离顶部多少个逻辑像素（顶部的定义取决于`position`属性）。
 
-It works similarly to `top` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported.
+它的表现和 CSS 上的`top`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。
 
-See https://developer.mozilla.org/en-US/docs/Web/CSS/top for more details of how `top` affects layout.
+访问<https://developer.mozilla.org/en-US/docs/Web/CSS/top for more details of how `top` affects layout.
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -631,9 +631,9 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/top for more details of how
 
 ### `width`
 
-`width` sets the width of this component.
+`width`设置组件的宽度。
 
-It works similarly to `width` in CSS, but in React Native you must use points or percentages. Ems and other units are not supported. See https://developer.mozilla.org/en-US/docs/Web/CSS/width for more details.
+它的表现和 CSS 上的`width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/width>来进一步了解。
 
 | 类型            | 必填 |
 | --------------- | ---- |
@@ -645,7 +645,7 @@ It works similarly to `width` in CSS, but in React Native you must use points or
 
 `zIndex` controls which components display on top of others. Normally, you don't use `zIndex`. Components render according to their order in the document tree, so later components draw over earlier ones. `zIndex` may be useful if you have animations or custom modal interfaces where you don't want this behavior.
 
-It works like the CSS `z-index` property - components with a larger `zIndex` will render on top. Think of the z-direction like it's pointing from the phone into your eyeball. See https://developer.mozilla.org/en-US/docs/Web/CSS/z-index for more details.
+It works like the CSS `z-index` property - components with a larger `zIndex` will render on top. Think of the z-direction like it's pointing from the phone into your eyeball. 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/z-index>来进一步了解。
 
 On iOS, `zIndex` may require `View`s to be siblings of each other for it to work as expected.
 

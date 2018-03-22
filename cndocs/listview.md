@@ -3,6 +3,8 @@ id: listview
 title: ListView
 ---
 
+**已弃用** —— 请使用新列表组件[`FlatList`](flatlist.md)或[`SectionList`](sectionlist.md)。
+
 DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](https://facebook.github.io/react-native/blog/2017/03/13/better-list-views.html) for more details.
 
 ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](listviewdatasource.md), populate it with a simple array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
@@ -78,8 +80,8 @@ There are a few performance operations designed to make ListView scroll smoothly
 An instance of [ListView.DataSource](listviewdatasource.md) to use
 
 | 类型               | 必填 |
-| ------------------ | -------- |
-| ListViewDataSource | 是      |
+| ------------------ | ---- |
+| ListViewDataSource | 是   |
 
 ---
 
@@ -88,8 +90,8 @@ An instance of [ListView.DataSource](listviewdatasource.md) to use
 How many rows to render on initial component mount. Use this to make it so that the first screen worth of data appears at one time instead of over the course of multiple frames.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 是      |
+| ------ | ---- |
+| number | 是   |
 
 ---
 
@@ -98,8 +100,8 @@ How many rows to render on initial component mount. Use this to make it so that 
 Threshold in pixels (virtual, not physical) for calling onEndReached.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 是      |
+| ------ | ---- |
+| number | 是   |
 
 ---
 
@@ -108,8 +110,8 @@ Threshold in pixels (virtual, not physical) for calling onEndReached.
 Number of rows to render per event loop. Note: if your 'rows' are actually cells, i.e. they don't span the full width of your view (as in the ListViewGridLayoutExample), you should set the pageSize to be a multiple of the number of cells per row, otherwise you're likely to see gaps at the edge of the ListView as new pages are loaded.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 是      |
+| ------ | ---- |
+| number | 是   |
 
 ---
 
@@ -120,8 +122,8 @@ Number of rows to render per event loop. Note: if your 'rows' are actually cells
 Takes a data entry from the data source and its ids and should return a renderable component to be rendered as the row. By default the data is exactly what was put into the data source, but it's also possible to provide custom extractors. ListView can be notified when a row is being highlighted by calling `highlightRow(sectionID, rowID)`. This sets a boolean value of adjacentRowHighlighted in renderSeparator, allowing you to control the separators above and below the highlighted row. The highlighted state of a row can be reset by calling highlightRow(null).
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 是      |
+| -------- | ---- |
+| function | 是   |
 
 ---
 
@@ -132,8 +134,8 @@ Takes a data entry from the data source and its ids and should return a renderab
 A function that returns the scrollable component in which the list rows are rendered. Defaults to returning a ScrollView with the given props.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 是      |
+| -------- | ---- |
+| function | 是   |
 
 ---
 
@@ -142,8 +144,8 @@ A function that returns the scrollable component in which the list rows are rend
 How early to start rendering rows before they come on screen, in pixels.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 是      |
+| ------ | ---- |
+| number | 是   |
 
 ---
 
@@ -152,8 +154,8 @@ How early to start rendering rows before they come on screen, in pixels.
 An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. This property is not supported in conjunction with `horizontal={true}`.
 
 | 类型            | 必填 |
-| --------------- | -------- |
-| array of number | 是      |
+| --------------- | ---- |
+| array of number | 是   |
 
 ---
 
@@ -162,16 +164,16 @@ An array of child indices determining which children get docked to the top of th
 Flag indicating whether empty section headers should be rendered. In the future release empty section headers will be rendered by default, and the flag will be deprecated. If empty sections are not desired to be rendered their indices should be excluded from sectionID object.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
 ### `renderHeader`
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -180,8 +182,8 @@ Flag indicating whether empty section headers should be rendered. In the future 
 Called when all rows have been rendered and the list has been scrolled to within onEndReachedThreshold of the bottom. The native scroll event is provided.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -190,8 +192,8 @@ Called when all rows have been rendered and the list has been scrolled to within
 Makes the sections headers sticky. The sticky behavior means that it will scroll with the content at the top of the section until it reaches the top of the screen, at which point it will stick to the top until it is pushed off the screen by the next section header. This property is not supported in conjunction with `horizontal={true}`. Only enabled by default on iOS because of typical platform standards.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -202,8 +204,8 @@ Makes the sections headers sticky. The sticky behavior means that it will scroll
 If provided, a header is rendered for this section.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -214,8 +216,8 @@ If provided, a header is rendered for this section.
 If provided, a renderable component to be rendered as the separator below each row but not the last row if there is a section header below. Take a sectionID and rowID of the row above and whether its adjacent row is highlighted.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -226,8 +228,8 @@ If provided, a renderable component to be rendered as the separator below each r
 Called when the set of visible rows changes. `visibleRows` maps { sectionID: { rowID: true }} for all the visible rows, and `changedRows` maps { sectionID: { rowID: true | false }} for the rows that have changed their visibility, with true indicating visible, and false indicating the view has moved out of view.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -236,8 +238,8 @@ Called when the set of visible rows changes. `visibleRows` maps { sectionID: { r
 A performance optimization for improving scroll perf of large lists, used in conjunction with overflow: 'hidden' on the row containers. This is enabled by default.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -248,8 +250,8 @@ A performance optimization for improving scroll perf of large lists, used in con
 The header and footer are always rendered (if these props are provided) on every render pass. If they are expensive to re-render, wrap them in StaticContainer or other mechanism as appropriate. Footer is always at the bottom of the list, and header at the top, on every render pass. In a horizontal ListView, the header is rendered on the left and the footer on the right.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ## Methods
 

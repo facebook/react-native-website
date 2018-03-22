@@ -1,6 +1,6 @@
 ---
 id: linking-libraries-ios
-title: Linking Libraries
+title: 链接原生库
 ---
 
 Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to make it easy to add these features whenever you need them.

@@ -3,21 +3,27 @@ id: layoutanimation
 title: LayoutAnimation
 ---
 
-Automatically animates views to their new positions when the next layout happens.
+当布局变化时，自动将视图运动到它们新的位置上。
 
-A common way to use this API is to call it before calling `setState`.
+一个常用的调用此 API 的办法是调用`LayoutAnimation.configureNext`，然后调用`setState`。
 
-Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
+注意如果要在**Android**上使用此动画，则需要在代码中启用：
 
-    UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+```
+import { UIManager } from 'react-native';
 
-### Methods
+UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+```
+
+上面这段代码应该写在任何组件加载之前，比如可以写到 index.js 的开头。
+
+### 查看方法
 
 * [`configureNext`](layoutanimation.md#configurenext)
 * [`create`](layoutanimation.md#create)
 * [`checkConfig`](layoutanimation.md#checkconfig)
 
-### Properties
+### 查看属性
 
 * [`Types`](layoutanimation.md#types)
 * [`Properties`](layoutanimation.md#properties)
@@ -30,7 +36,7 @@ Note that in order to get this to work on **Android** you need to set the follow
 
 # 文档
 
-## Methods
+## 方法
 
 ### `configureNext()`
 
@@ -38,20 +44,20 @@ Note that in order to get this to work on **Android** you need to set the follow
 static configureNext(config, onAnimationDidEnd?)
 ```
 
-Schedules an animation to happen on the next layout.
+计划下一次布局要发生的动画。
 
-#### Parameters:
+#### 参数：
 
-| Name              | Type     | Required | Description                                                |
-| ----------------- | -------- | -------- | ---------------------------------------------------------- |
-| config            | object   | Yes      | See config parameters below.                               |
-| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
+| 名称              | 类型     | 必填 | 说明                                |
+| ----------------- | -------- | ---- | ----------------------------------- |
+| config            | object   | 是   | 看下面的说明。                      |
+| onAnimationDidEnd | function | 否   | 动画结束后的回调。目前仅 iOS 可用。 |
 
 ##### config
 
-* `duration` in milliseconds
-* `create`, config for animating in new views (see `Anim` type)
-* `update`, config for animating views that have been updated (see `Anim` type)
+* `duration` 动画持续时间，单位是毫秒。
+* `create`，配置创建新视图时的动画。（参阅`Anim`类型）
+* `update`，配置被更新的视图的动画。（参阅`Anim`类型）
 
 ---
 
@@ -61,7 +67,7 @@ Schedules an animation to happen on the next layout.
 static create(duration, type, creationProp)
 ```
 
-Helper for creating a config for `configureNext`.
+用来创建`configureNext`所需的 config 参数的辅助函数。
 
 ---
 
@@ -71,7 +77,7 @@ Helper for creating a config for `configureNext`.
 static checkConfig(config, location, name)
 ```
 
-## Properties
+## 属性
 
 ---
 
