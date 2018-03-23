@@ -23,7 +23,7 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 
 * Fellow developers write and publish React Native modules to npm and open source them on GitHub.
 * Making modules helps grow the React Native ecosystem and community. We recommend writing modules for your use cases and sharing them on npm.
-* Read the guides on Native Modules ([iOS](https://facebook.github.io/react-native/native-modules-ios.md), [Android](https://facebook.github.io/react-native/native-modules-android.md)) and Native UI Components ([iOS](https://facebook.github.io/react-native/native-components-ios.md), [Android](https://facebook.github.io/react-native/native-components-android.md)) if you are interested in extending native functionality.
+* Read the guides on Native Modules ([iOS](native-modules-ios.md), [Android](native-modules-android.md)) and Native UI Components ([iOS](native-components-ios.md), [Android](native-components-android.md)) if you are interested in extending native functionality.
 * Looking for a pre-built component? Check [JS.coach](https://js.coach/react-native).
 
 ## Development Tools
