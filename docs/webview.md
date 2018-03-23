@@ -27,7 +27,7 @@ You can use this component to navigate back and forth in the web view's history 
 
 ### Props
 
-* [View props...](view.md#props)
+* [Inherited props from View...](view.md#props)
 
 - [`source`](webview.md#source)
 - [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
