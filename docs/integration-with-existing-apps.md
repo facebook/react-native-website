@@ -232,6 +232,7 @@ target 'NumberTileGame' do
     'Core',
     'CxxBridge', # Include this for RN >= 0.47
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
+    'BatchedBridge', # Fix for [#15049](https://github.com/facebook/react-native/issues/15049)
     'RCTText',
     'RCTNetwork',
     'RCTWebSocket', # Needed for debugging
