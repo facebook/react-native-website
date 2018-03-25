@@ -453,13 +453,13 @@ Image.abortPrefetch(requestId);
 Image.queryCache(urls);
 ```
 
-Perform cache interrogation. Returns a mapping from URL to cache status, such as "disk" or "memory". If a requested URL is not in the mapping, it means it's not in the cache.
+查询图片缓存状态。根据图片 URL 地址返回缓存状态，比如"disk"（缓存在磁盘文件中）或是"memory"（缓存在内存中）。
 
 **参数：**
 
-| 名称 | 类型  | 必填 | 说明                                       |
-| ---- | ----- | ---- | ------------------------------------------ |
-| urls | array | 是   | List of image URLs to check the cache for. |
+| 名称 | 类型  | 必填 | 说明                            |
+| ---- | ----- | ---- | ------------------------------- |
+| urls | array | 是   | 要查询缓存状态的图片 URL 数组。 |
 
 ---
 

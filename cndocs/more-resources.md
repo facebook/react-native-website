@@ -3,42 +3,31 @@ id: more-resources
 title: 其他参考资源
 ---
 
-If you just read through this website, you should be able to build a pretty cool React Native app. But React Native isn't just a product made by one company - it's a community of thousands of developers. So if you're interested in React Native, here's some related stuff you might want to check out.
+如果你耐心的读完并理解了本网站上的所有文档，那么你应该已经可以编写一个像样的 React Native 应用了。但是 React Native 并不全是某一家公司的作品——它汇聚了成千上万开源社区开发者的智慧结晶。如果你想深入研究 React Native，那么建议不要错过下面这些参考资源。
 
-## Popular Libraries
+## 常用的第三方库
 
-If you're using React Native, you probably already know about [React](https://facebook.github.io/react/). So I feel a bit silly mentioning this. But if you haven't, check out React - it's the best way to build a modern website.
+如果你正在使用 React Native，那你应该已经对[React](https://facebook.github.io/react/)有一定的了解了。React 是基础中的基础所以我其实不太好意思提这个——但是，如果不幸你属于“但是”，那么请一定先了解下 React，它也非常适合编写现代化的网站。
 
-One common question is how to handle the "state" of your React Native application. The most popular library for this is [Redux](http://redux.js.org/). Don't be afraid of how often Redux uses the word "reducer" - it's a pretty simple library, and there's also a nice [series of videos](https://egghead.io/courses/getting-started-with-redux) explaining it.
+开发实践中的一个常见问题就是如何管理应用的“状态（state）”。这方面目前最流行的库非[Redux](http://redux.js.org/)莫属了。不要被 Redux 中经常出现的类似"reducer"这样的概念术语给吓住了——它其实是个很简单的库，网上也有很多优秀的[视频教程（英文）](https://egghead.io/courses/getting-started-with-redux) 。。
 
-If you're looking for a library that does a specific thing, check out [Awesome React Native](http://www.awesome-react-native.com/), a curated list of components that also has demos, articles, and other stuff.
+如果你在寻找具有某个特定功能的第三方库，那么可以看看别人[精心整理的资源列表](https://github.com/jondot/awesome-react-native)。这里还有个类似的[中文资源列表](https://github.com/reactnativecn/react-native-guide)。
 
-## Examples
+更重要的技能是学会在 github 上搜索。比如你需要搜索`视频`相关的库，那么可以在 github 中搜索`react native video`。
 
-Try out apps from the [Showcase](/react-native/showcase.html) to see what React Native is capable of! There are also some [example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can run the apps on a simulator or device, and you can see the source code for these apps, which is neat.
+## 开发工具
 
-The folks who built the app for Facebook's F8 conference also [open-sourced the code](https://github.com/fbsamples/f8app) and wrote up a [detailed series of tutorials](http://makeitopen.com/). This is useful if you want a more in-depth example that's more realistic than most sample apps out there.
+[Nuclide](https://nuclide.io/)是 Facebook 内部所使用的 React Native 开发工具。它最大的特点是自带调试功能，并且非常好地支持 flow 语法规则。 [VS Code](https://code.visualstudio.com/)也是目前非常受 JS 开发者欢迎的 IDE 工具。
 
-## Extending React Native
+[Ignite](https://github.com/infinitered/ignite)是一套整合了 Redux 以及一些常见 UI 组件的脚手架。它带有一个命令行可以生成 app、组件或是容器。如果你喜欢它的选择搭配，那么不妨一试。
 
-* Fellow developers write and publish React Native modules to npm and open source them on GitHub.
-* Making modules helps grow the React Native ecosystem and community. We recommend writing modules for your use cases and sharing them on npm.
-* Read the guides on Native Modules ([iOS](https://facebook.github.io/react-native/native-modules-ios.md), [Android](https://facebook.github.io/react-native/native-modules-android.md)) and Native UI Components ([iOS](https://facebook.github.io/react-native/native-components-ios.md), [Android](https://facebook.github.io/react-native/native-components-android.md)) if you are interested in extending native functionality.
-* Looking for a pre-built component? Check [JS.coach](https://js.coach/react-native).
+[CodePush](https://microsoft.github.io/code-push/)是由微软提供的热更新服务。热更新可以使你绕过 AppStore 的审核机制，直接修改已经上架的应用。对于国内用户，我们也推荐由本网站提供的[Pushy](http://update.reactnative.cn)热更新服务，相比 CodePush 来说，提供了全中文的文档和技术支持，服务器部署在国内速度更快，还提供了全自动的差量更新方式，大幅节约更新流量，欢迎朋友们试用和反馈意见！
 
-## Development Tools
+[Expo](https://docs.expo.io)是一套沙盒开发环境，还带有一个已上架的空应用容器。这样你可以在没有原生开发平台（Xcode 或是 Android Studio）的情况下直接编写 React Native 应用（当然这样你只能写 js 部分代码而没法写原生代码）。
 
-[Nuclide](https://nuclide.io/) is the IDE that Facebook uses internally for JavaScript development. The killer feature of Nuclide is its debugging ability. It also has great inline Flow support. [VS Code](https://code.visualstudio.com/) is another IDE that is popular with JavaScript developers.
+## React Native 的交流社区
 
-[Ignite](https://github.com/infinitered/ignite) is a starter kit that uses Redux and a few different common UI libraries. It has a CLI to generate apps, components, and containers. If you like all of the individual tech choices, Ignite could be perfect for you.
-
-[CodePush](https://microsoft.github.io/code-push/) is a service from Microsoft that makes it easy to deploy live updates to your React Native app. If you don't like going through the app store process to deploy little tweaks, and you also don't like setting up your own backend, give CodePush a try.
-
-[Expo](https://docs.expo.io) is a development environment plus application that focuses on letting you build React Native apps in the Expo development environment, without ever touching Xcode or Android Studio. If you wish React Native was even more JavaScripty and webby, check out Expo.
-
-The [React Developer Tools](debugging.md#react-developer-tools) are great for debugging React and React Native apps.
-
-## Where React Native People Hang Out
+以下这些都是英文的交流区，我也就不翻译了……
 
 The [React Native Community](https://www.facebook.com/groups/react.native.community) Facebook group has thousands of developers, and it's pretty active. Come there to show off your project, or ask how other people solved similar problems.
 
@@ -49,3 +38,5 @@ The [React Twitter account](https://twitter.com/reactjs) covers both React and R
 There are a lot of [React Native Meetups](http://www.meetup.com/topics/react-native/) that happen around the world. Often there is React Native content in React meetups as well.
 
 Sometimes we have React conferences. We posted the [videos from React.js Conf 2017](https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0) and [React.js Conf 2016](https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY), and we'll probably have more conferences in the future, too. Stay tuned. You can also find a list of dedicated React Native conferences [here](http://www.awesome-react-native.com/#conferences).
+
+欢迎朋友们在[论坛分享区](http://bbs.reactnative.cn/category/5/)分享中文教程和资源。

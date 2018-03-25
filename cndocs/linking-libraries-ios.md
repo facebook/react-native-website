@@ -3,62 +3,70 @@ id: linking-libraries-ios
 title: 链接原生库
 ---
 
-Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to make it easy to add these features whenever you need them.
+并不是所有的 APP 都需要使用全部的原生功能，包含支持全部特性的代码会增大应用的体积。但我们仍然希望能让你简单地根据自己的需求添加需要的特性。
 
-With that in mind we exposed many of these features as independent static libraries.
+在这种思想下，我们把许多特性都发布成为互不相关的静态库。
 
-For most of the libs it will be as simple as dragging two files, sometimes a third step will be necessary, but no more than that.
+大部分的库只需要拖进两个文件就可以使用了，偶尔你还需要几步额外的工作，但不会再有更多的事情要做了。
 
-_All the libraries we ship with React Native live on the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it. Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library._
+_我们随着 React Native 发布的所有库都在仓库中的`Libraries`文件夹下。其中有一些是纯 Javascript 代码，你只需要去`import`它们就可以使用了。另外有一些库基于一些原生代码实现，你必须把这些文件添加到你的应用，否则应用会在你使用这些库的时候产生报错。_
 
-## Here are the few steps to link your libraries that contain native code
+## 添加包含原生代码的库需要几个步骤：
 
-### Automatic linking
+### 自动链接
 
-#### Step 1
+#### 第一步
 
-Install a library with native dependencies:
+安装一个带原生依赖的库：
 
 ```bash
-$ npm install <library-with-native-dependencies> --save
+$ npm install 某个带有原生依赖的库
 ```
 
-> **_Note:_** `--save` or `--save-dev` flag is very important for this step. React Native will link your libs based on `dependencies` and `devDependencies` in your `package.json` file.
+#### 第二步
 
-#### Step 2
-
-Link your native dependencies:
+运行以下命令，它会根据`package.json`文件中的`dependencies`和`devDependencies`记录来链接所有需要链接的库（注意一些老的教程和文档可能会提到`rnpm link`命令，此命令已过期不再使用，由下面这个命令代替）：
 
 ```bash
 $ react-native link
 ```
 
-Done! All libraries with native dependencies should be successfully linked to your iOS/Android project.
+如果只需要链接某一个库：
+
+```bash
+$ react-native link 某已安装的具体库名
+```
+
+好了！现在原生依赖就成功地链接到你的 iOS/Android 项目了。
 
 > **_Note:_** If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `react-native link` will link library using Podfile. To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
 
-### Manual linking
+### 手动链接
 
-#### Step 1
+#### 第一步
 
-If the library has native code, there must be a `.xcodeproj` file inside it's folder. Drag this file to your project on Xcode (usually under the `Libraries` group on Xcode);
+如果该库包含原生代码，那么在它的文件夹下一定有一个`.xcodeproj`文件。把这个文件拖到你的 XCode 工程下（通常拖到 XCode 的`Libraries`分组里）
 
 ![](assets/AddToLibraries.png)
 
-#### Step 2
+#### 第二步
 
-Click on your main project file (the one that represents the `.xcodeproj`) select `Build Phases` and drag the static library from the `Products` folder inside the Library you are importing to `Link Binary With Libraries`
+点击你的主工程文件，选择`Build Phases`，然后把刚才所添加进去的`.xcodeproj`下的`Products`文件夹中的静态库文件（.a 文件），拖到`Link Binary With Libraries`组内。
 
 ![](assets/AddToBuildPhases.png)
 
-#### Step 3
+#### 第三步
 
-Not every library will need this step, what you need to consider is:
+不是所有的库都需要进行这个步骤，你需要考虑的问题在于：
 
-_Do I need to know the contents of the library at compile time?_
+_我需要在编译的期间了解库的内容吗？_
 
-What that means is, are you using this library on the native side or only in JavaScript? If you are only using it in JavaScript, you are good to go!
+这个问题的意思是，你是需要在原生代码中使用这个库，还是只需要通过 JavaScript 访问？如果你只需要通过 JavaScript 访问这个库，你就可以跳过这步了。
 
-If you do need to call it from native, then we need to know the library's headers. To achieve that you have to go to your project's file, select `Build Settings` and search for `Header Search Paths`. There you should include the path to your library. (This documentation used to recommend using `recursive`, but this is no longer recommended, as it can cause subtle build failures, especially with CocoaPods.)
+这一步骤对于我们随 React Native 发布的大部分库来说都不是必要的，但有两个例外是`PushNotificationIOS`和`LinkingIOS`。
+
+以`PushNotificationIOS`为例，你需要在`AppDelegate`每收到一条推送通知之后，调用库中的一个方法。
+
+这种情况下我们需要能够访问到库的头文件。为了能够顺利打包，你需要打开你的工程文件，选择`Build Settings`，然后搜索`Header Search Paths`，然后添加库所在的目录。
 
 ![](assets/AddToSearchPaths.png)

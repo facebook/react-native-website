@@ -14,13 +14,13 @@ title: Linking
   </p>
 </div>
 
-`Linking` gives you a general interface to interact with both incoming and outgoing app links.
+`Linking`提供了一个通用的接口来与传入和传出的 App 链接进行交互。
 
-### Basic Usage
+### 基本用法
 
-#### Handling deep links
+#### 处理链接
 
-If your app was launched from an external url registered to your app you can access and handle it from any component you want with
+如果你的应用被其注册过的外部 url 调起，则可以在任何组件内这样获取和处理它：
 
 ```
 componentDidMount() {
@@ -32,9 +32,9 @@ componentDidMount() {
 }
 ```
 
-> For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+> 要了解更多如何在 Android 上支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
 
-If you wish to receive the intent in an existing instance of MainActivity, you may set the `launchMode` of MainActivity to `singleTask` in `AndroidManifest.xml`. See [`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html) documentation for more information.
+如果要在现有的 MainActivity 中监听传入的 intent，那么需要在`AndroidManifest.xml`中将 MainActivity 的`launchMode`设置为`singleTask`。相关解释可参考[`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html)文档。
 
 ```
 <activity
@@ -42,10 +42,10 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
   android:launchMode="singleTask">
 ```
 
-NOTE: On iOS, you'll need to link `RCTLinking` to your project by following the steps described [here](linking-libraries-ios.md#manual-linking). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+注： 对于 iOS 来说，如果要在 App 启动后也监听传入的 App 链接，那么首先需要在项目中链接`RCTLinking`，具体步骤请参考[手动链接](linking-libraries-ios.html#手动链接)这篇文档，然后需要在`AppDelegate.m`中增加以下代码：
 
 ```
-// iOS 9.x or newer
+// iOS 9.x 或更高版本
 #import <React/RCTLinkingManager.h>
 
 - (BOOL)application:(UIApplication *)application
@@ -56,10 +56,8 @@ NOTE: On iOS, you'll need to link `RCTLinking` to your project by following the 
 }
 ```
 
-If you're targeting iOS 8.x or older, you can use the following code instead:
-
 ```
-// iOS 8.x or older
+// iOS 8.x 或更低版本
 #import <React/RCTLinkingManager.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
@@ -82,7 +80,7 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 }
 ```
 
-And then on your React component you'll be able to listen to the events on `Linking` as follows
+然后你的 React 组件就可以监听`Linking`的相关事件：
 
 ```
 componentDidMount() {
@@ -96,15 +94,15 @@ _handleOpenURL(event) {
 }
 ```
 
-#### Opening external links
+#### 打开外部链接
 
-To start the corresponding activity for a link (web URL, email, contact etc.), call
+要启动一个链接相对应的应用（打开浏览器、邮箱或者其它的应用），只需调用：
 
 ```
 Linking.openURL(url).catch(err => console.error('An error occurred', err));
 ```
 
-If you want to check if any installed app can handle a given URL beforehand you can call
+如果想在打开链接前先检查是否安装了对应的应用，则调用以下方法：
 
 ```
 Linking.canOpenURL(url).then(supported => {
@@ -116,7 +114,7 @@ Linking.canOpenURL(url).then(supported => {
 }).catch(err => console.error('An error occurred', err));
 ```
 
-### Methods
+### 查看方法
 
 * [`constructor`](linking.md#constructor)
 * [`addEventListener`](linking.md#addeventlistener)
@@ -129,7 +127,7 @@ Linking.canOpenURL(url).then(supported => {
 
 # 文档
 
-## Methods
+## 方法
 
 ### `constructor()`
 
@@ -145,7 +143,7 @@ constructor();
 addEventListener(type, handler);
 ```
 
-Add a handler to Linking changes by listening to the `url` event type and providing the handler
+添加一个监听 Linking 变化的事件。type 参数应填`url`，并提供一个处理函数。
 
 ---
 
@@ -155,7 +153,7 @@ Add a handler to Linking changes by listening to the `url` event type and provid
 removeEventListener(type, handler);
 ```
 
-Remove a handler by passing the `url` event type and the handler
+删除一个事件处理函数。type 参数应填`url`。
 
 ---
 
@@ -165,21 +163,21 @@ Remove a handler by passing the `url` event type and the handler
 openURL(url);
 ```
 
-Try to open the given `url` with any of the installed apps.
+尝试使用设备上已经安装的应用打开指定的`url`。
 
-You can use other URLs, like a location (e.g. "geo:37.484847,-122.148386" on Android or "http://maps.apple.com/?ll=37.484847,-122.148386" on iOS), a contact, or any other URL that can be opened with the installed apps.
+你还可以使用其他类型的 URL，比如一个地理位置（形如"geo:37.484847,-122.148386"或是一个通讯录名片，只要是可以通过已安装的应用打开的即可。
 
-The method returns a `Promise` object. If the user confirms the open dialog or the url automatically opens, the promise is resolved. If the user cancels the open dialog or there are no registered applications for the url, the promise is rejected.
+本方法会返回一个`Promise`对象。如果用户在弹出的对话框中点击了确认或是 url 自动打开了，则 promise 成功完成。如果用户在弹出的对话框中点击取消或是没有对应应用可以处理此类型的 url，则 promise 会失败。
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明      |
-| ---- | ------ | -------- | ---------------- |
-| url  | string | 是      | The URL to open. |
+| 名称 | 类型   | 必填 | 说明         |
+| ---- | ------ | ---- | ------------ |
+| url  | string | 是   | 要打开的 URL |
 
-> This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check {@code canOpenURL} first.
+> 如果系统不知道如何处理给定的 URL，则此方法会调用失败。如果你传入的 URL 不是一个 http 链接，则最好先通过{@code canOpenURL}方法检查一下。
 
-> For web URLs, the protocol ("http://", "https://") must be set accordingly!
+> 对于 web 链接来说，协议头("http://", "https://")不能省略！
 
 ---
 
@@ -189,19 +187,19 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 canOpenURL(url);
 ```
 
-Determine whether or not an installed app can handle a given URL.
+判断设备上是否有已经安装的应用可以处理指定的 URL。
 
-The method returns a `Promise` object. When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
+本方法会返回一个`Promise`对象。When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明      |
-| ---- | ------ | -------- | ---------------- |
-| url  | string | 是      | The URL to open. |
+| 名称 | 类型   | 必填 | 说明         |
+| ---- | ------ | ---- | ------------ |
+| url  | string | 是   | 要打开的 URL |
 
-> For web URLs, the protocol ("http://", "https://") must be set accordingly!
+> 对于 web 链接来说，协议头("http://", "https://")不能省略！
 
-> As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
+> 对于 iOS 9 来说，你需要在`Info.plist`中添加`LSApplicationQueriesSchemes`字段，否则`canOpenURL`可能一直返回 false。
 
 ---
 
@@ -211,6 +209,6 @@ The method returns a `Promise` object. When it is determined whether or not the 
 getInitialURL();
 ```
 
-If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`
+如果应用是被一个链接调起的，则会返回相应的链接地址。否则它会返回`null`。
 
-> To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
+> 如果要在 Android 上支持深度链接，请参阅<http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents>

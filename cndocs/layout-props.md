@@ -643,11 +643,11 @@ If you want to position a child relative to something that is not its parent, ju
 
 ### `zIndex`
 
-`zIndex` controls which components display on top of others. Normally, you don't use `zIndex`. Components render according to their order in the document tree, so later components draw over earlier ones. `zIndex` may be useful if you have animations or custom modal interfaces where you don't want this behavior.
+`zIndex`控制着组件的堆叠覆盖顺序。多数情况下你不会用到此样式。默认情况下组件按其在文档树的顺序依次渲染，所以在代码结构上靠后的组件会覆盖前面的组件（如果它们在布局上有重叠的部分）。有时候在写一些动画或者自定义的模态窗口时，你可能会需要设置`zIndex`样式来改变层叠覆盖顺序。
 
-It works like the CSS `z-index` property - components with a larger `zIndex` will render on top. Think of the z-direction like it's pointing from the phone into your eyeball. 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/z-index>来进一步了解。
+它的表现和 CSS 上的`z-index`一致——`zIndex`大的在上面。这里面的`z`意味着三维空间中的`z轴`，你可以想象成垂直于手机屏幕指向你的眼睛的坐标轴。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/z-index>来进一步了解。
 
-On iOS, `zIndex` may require `View`s to be siblings of each other for it to work as expected.
+在 iOS 上，使用`zIndex`可能需要`View`彼此为兄弟节点才能生效。
 
 | 类型   | 必填 |
 | ------ | ---- |
