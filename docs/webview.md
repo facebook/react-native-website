@@ -407,6 +407,17 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 
 ---
 
+
+### `handleIFrameLoadingEvent`
+
+Boolean that sets whether IFrame Loading Events should be fired. For Android only. This allows the detection of URLs for technologies like AMP. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `url`
 
 **Deprecated.** Use the `source` prop instead.
