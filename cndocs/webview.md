@@ -3,7 +3,7 @@ id: webview
 title: WebView
 ---
 
-`WebView` renders web content in a native view.
+`WebView` 创建一个原生的WebView，可以用于访问一个网页
 
 ```
 import React, { Component } from 'react';
@@ -21,9 +21,11 @@ class MyWeb extends Component {
 }
 ```
 
-You can use this component to navigate back and forth in the web view's history and configure various properties for the web content.
 
-> **Security Warning:** Currently, `onMessage` and `postMessage` do not allow specifying an origin. This can lead to cross-site scripting attacks if an unexpected document is loaded within a `WebView` instance. Please refer to the MDN documentation for [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) for more details on the security implications of this.
+你可以使用这个组件进行网页的来回导航，并且为网页内容设置多方面的属性。
+
+
+> **安全提示:** 目前, `onMessage` and `postMessage` 方法不能够指定源。当`WebView`加载某些非预期文档时可能导致跨站脚本攻击。请查阅MDN文档获取更多安全方面的细节 [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) .
 
 ### Props
 
@@ -70,11 +72,11 @@ You can use this component to navigate back and forth in the web view's history 
 
 # 文档
 
-## Props
+## 属性
 
 ### `source`
 
-Loads static html or a uri (with optional headers) in the WebView.
+在WebView中载入一段静态的html代码或是一个url（还可以附带一些header选项）。
 
 | 类型                                                                                                                | 必填 |
 | ------------------------------------------------------------------------------------------------------------------- | ---- |
@@ -84,7 +86,7 @@ Loads static html or a uri (with optional headers) in the WebView.
 
 ### `automaticallyAdjustContentInsets`
 
-Controls whether to adjust the content inset for web views that are placed behind a navigation bar, tab bar, or toolbar. The default value is `true`.
+控制插入到导航栏，标签栏或者工具条之后的web内容是否自适应。默认为`true`。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -94,7 +96,7 @@ Controls whether to adjust the content inset for web views that are placed behin
 
 ### `injectJavaScript`
 
-Function that accepts a string that will be passed to the WebView and executed immediately as JavaScript.
+在网页加载完成之后，还可以主动调用此方法（以ref形式调用）继续给WebView注入JS代码。注入后会立即执行。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -104,7 +106,7 @@ Function that accepts a string that will be passed to the WebView and executed i
 
 ### `injectedJavaScript`
 
-Set this to provide JavaScript that will be injected into the web page when the view loads.
+设置js字符串，在网页加载之前注入的一段JS代码。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -114,7 +116,7 @@ Set this to provide JavaScript that will be injected into the web page when the 
 
 ### `mediaPlaybackRequiresUserAction`
 
-Boolean that determines whether HTML5 audio and video requires the user to tap them before they start playing. The default value is `true`.
+布尔值，控制HTML5音频和视频播放前是否需要用户点击。默认为`true`。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -124,7 +126,8 @@ Boolean that determines whether HTML5 audio and video requires the user to tap t
 
 ### `nativeConfig`
 
-Override the native component used to render the WebView. Enables a custom native WebView which uses the same JavaScript as the original WebView.
+
+覆盖渲染WebView的原生组件。启用一个js和初始WebView一样的定制的原生WebView。
 
 | 类型                                                       | 必填 |
 | ---------------------------------------------------------- | ---- |
@@ -134,7 +137,7 @@ Override the native component used to render the WebView. Enables a custom nativ
 
 ### `onError`
 
-Function that is invoked when the `WebView` load fails.
+当 `WebView`加载失败时调用的函数
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -144,7 +147,8 @@ Function that is invoked when the `WebView` load fails.
 
 ### `onLoad`
 
-Function that is invoked when the `WebView` has finished loading.
+
+当 `WebView`加载成功后执行的函数
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -154,7 +158,7 @@ Function that is invoked when the `WebView` has finished loading.
 
 ### `onLoadEnd`
 
-Function that is invoked when the `WebView` load succeeds or fails.
+函数，当加载结束调用，不管是成功还是失败。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -164,7 +168,7 @@ Function that is invoked when the `WebView` load succeeds or fails.
 
 ### `onLoadStart`
 
-Function that is invoked when the `WebView` starts loading.
+当 `WebView`刚开始加载时调用的函数
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -174,9 +178,9 @@ Function that is invoked when the `WebView` starts loading.
 
 ### `onMessage`
 
-A function that is invoked when the webview calls `window.postMessage`. Setting this property will inject a `postMessage` global into your webview, but will still call pre-existing values of `postMessage`.
+在webview内部的网页中调用window.postMessage方法时可以触发此属性对应的函数，从而实现网页和RN之间的数据交换。 设置此属性的同时会在webview中注入一个postMessage的全局函数并覆盖可能已经存在的同名实现。
 
-`window.postMessage` accepts one argument, `data`, which will be available on the event object, `event.nativeEvent.data`. `data` must be a string.
+网页端的window.postMessage只发送一个参数data，此参数封装在RN端的event对象中，即event.nativeEvent.data。data 只能是一个字符串。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -186,7 +190,7 @@ A function that is invoked when the webview calls `window.postMessage`. Setting 
 
 ### `onNavigationStateChange`
 
-Function that is invoked when the `WebView` loading starts or ends.
+当导航状态发生变化的时候调用。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -196,7 +200,7 @@ Function that is invoked when the `WebView` loading starts or ends.
 
 ### `renderError`
 
-Function that returns a view to show if there's an error.
+设置一个函数，返回一个视图用于显示错误。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -206,7 +210,7 @@ Function that returns a view to show if there's an error.
 
 ### `renderLoading`
 
-Function that returns a loading indicator. The startInLoadingState prop must be set to true in order to use this prop.
+设置一个函数，返回一个加载指示器。。为了使用这个属性必须将startInLoadingState 属性设置为true。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -216,7 +220,7 @@ Function that returns a loading indicator. The startInLoadingState prop must be 
 
 ### `scalesPageToFit`
 
-Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale. The default value is `true`.
+布尔值，控制网页内容是否自动适配视图的大小，同时启用用户缩放功能。默认为`true`。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -226,7 +230,7 @@ Boolean that controls whether the web content is scaled to fit the view and enab
 
 ### `initialScale`
 
-Number that controls whether the initial scale percentage of the view. 50 is 50%, 100 is 100%, etc. Used only in Android.
+数值，控制初始视图比例。50代表50%，100代表100%。仅在安卓下使用
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -236,7 +240,8 @@ Number that controls whether the initial scale percentage of the view. 50 is 50%
 
 ### `onShouldStartLoadWithRequest`
 
-Function that allows custom handling of any web view requests. Return `true` from the function to continue loading the request and `false` to stop loading.
+
+允许为webview发起的请求运行一个自定义的处理函数。返回true或false表示是否要继续执行响应的请求。
 
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
@@ -246,7 +251,8 @@ Function that allows custom handling of any web view requests. Return `true` fro
 
 ### `startInLoadingState`
 
-Boolean value that forces the `WebView` to show the loading view on the first load. This prop must be set to `true` in order for the `renderLoading` prop to work.
+
+布尔值，控制`WebView`第一次加载时是否显示加载视图（如指示器）。当设置了`renderLoading`时必须将这个属性设置为`true` 才能正常显示。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -256,7 +262,7 @@ Boolean value that forces the `WebView` to show the loading view on the first lo
 
 ### `style`
 
-The style to apply to the `WebView`.
+设置 `WebView`的style.
 
 | 类型       | 必填 |
 | ---------- | ---- |
@@ -266,10 +272,10 @@ The style to apply to the `WebView`.
 
 ### `decelerationRate`
 
-A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use the string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively:
+指定一个浮点数，用于设置在用户停止触摸之后，此视图应以多快的速度停止滚动。也可以指定预设的字符串值，如"normal"和"fast"，分别对应UIScrollViewDecelerationRateNormal 和UIScrollViewDecelerationRateFast。
 
 * normal: 0.998
-* fast: 0.99 (the default for iOS web view)
+* fast: 0.99 (ios web view默认)
 
 | 类型                                  | 必填 | 平台 |
 | ------------------------------------- | ---- | ---- |
@@ -279,7 +285,7 @@ A floating-point number that determines how quickly the scroll view decelerates 
 
 ### `domStorageEnabled`
 
-Boolean value to control whether DOM Storage is enabled. Used only in Android.
+仅限Android平台。指定是否开启DOM本地存储。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -289,7 +295,7 @@ Boolean value to control whether DOM Storage is enabled. Used only in Android.
 
 ### `javaScriptEnabled`
 
-Boolean value to enable JavaScript in the `WebView`. Used on Android only as JavaScript is enabled by default on iOS. The default value is `true`.
+布尔值，控制是否启用JavaScript。仅在安卓下使用，因为IOS默认为启用JavaScript。默认值为`true`。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -299,13 +305,12 @@ Boolean value to enable JavaScript in the `WebView`. Used on Android only as Jav
 
 ### `mixedContentMode`
 
-Specifies the mixed content mode. i.e WebView will allow a secure origin to load content from any other origin.
+指定混合内容模式。即WebView是否应该允许安全链接（https）页面中加载非安全链接（http）的内容,
 
-Possible values for `mixedContentMode` are:
+* 'never' (默认) - WebView不允许安全链接页面中加载非安全链接的内容
+* 'always' - WebView允许安全链接页面中加载非安全链接的内容。
+* 'compatibility' - WebView会尽量和浏览器当前对待此情况的行为一致
 
-* `'never'` (default) - WebView will not allow a secure origin to load content from an insecure origin.
-* `'always'` - WebView will allow a secure origin to load content from any other origin, even if that origin is insecure.
-* `'compatibility'` - WebView will attempt to be compatible with the approach of a modern web browser with regard to mixed content.
 
 | 类型                                     | 必填 | 平台    |
 | ---------------------------------------- | ---- | ------- |
@@ -315,7 +320,7 @@ Possible values for `mixedContentMode` are:
 
 ### `thirdPartyCookiesEnabled`
 
-Boolean value to enable third party cookies in the `WebView`. Used on Android Lollipop and above only as third party cookies are enabled by default on Android Kitkat and below and on iOS. The default value is `true`.
+布尔值，是否启用第三方cookie。仅在安卓Lollipop版本或以上使用，因为安卓Kitkat以下版本和IOS系统默认都启用第三方cookie。 默认为 `true`。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -325,7 +330,7 @@ Boolean value to enable third party cookies in the `WebView`. Used on Android Lo
 
 ### `userAgent`
 
-Sets the user-agent for the `WebView`.
+设置 `WebView`安卓的用户代理.
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -335,9 +340,9 @@ Sets the user-agent for the `WebView`.
 
 ### `allowsInlineMediaPlayback`
 
-Boolean that determines whether HTML5 videos play inline or use the native full-screen controller. The default value is `false`.
+布尔值，控制HTML5视频是在内部播放(非全屏)还是使用原生的全屏控制器。默认为 `false`。
 
-**NOTE** : In order for video to play inline, not only does this property need to be set to `true`, but the video element in the HTML document must also include the `webkit-playsinline` attribute.
+**注意** : 为了确保内联播放，除了这个属性需要被设置成`true`, 在html代码中视频元素也需要包含 `webkit-playsinline`属性。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -347,7 +352,7 @@ Boolean that determines whether HTML5 videos play inline or use the native full-
 
 ### `bounces`
 
-Boolean value that determines whether the web view bounces when it reaches the edge of the content. The default value is `true`.
+布尔值，控制当webview内容到达底部时是否进行回弹。默认为 `true`。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -357,7 +362,7 @@ Boolean value that determines whether the web view bounces when it reaches the e
 
 ### `contentInset`
 
-The amount by which the web view content is inset from the edges of the scroll view. Defaults to {top: 0, left: 0, bottom: 0, right: 0}.
+webview插入到滑动视图时距离边缘的距离。默认为{top: 0, left: 0, bottom: 0, right: 0}
 
 | 类型                                                               | 必填 | 平台 |
 | ------------------------------------------------------------------ | ---- | ---- |
@@ -367,12 +372,11 @@ The amount by which the web view content is inset from the edges of the scroll v
 
 ### `dataDetectorTypes`
 
-Determines the types of data converted to clickable URLs in the web view's content. By default only phone numbers are detected.
+检测webview内容，并将指定类型的数据变成可点击的URL。默认只对手机号码进行变换。
 
-You can provide one type or an array of many types.
+你可以提供单一类型或者数组类型
 
-Possible values for `dataDetectorTypes` are:
-
+可用的 `dataDetectorTypes` 如下:
 * `'phoneNumber'`
 * `'link'`
 * `'address'`
@@ -388,7 +392,7 @@ Possible values for `dataDetectorTypes` are:
 
 ### `scrollEnabled`
 
-Boolean value that determines whether scrolling is enabled in the `WebView`. The default value is `true`.
+控制是否在 `WebView`中启用滑动。默认为 `true`。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -398,7 +402,7 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 
 ### `url`
 
-**Deprecated.** Use the `source` prop instead.
+**已过期.** 请使用 `source` 属性代替.
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -408,7 +412,7 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 
 ### `html`
 
-**Deprecated.** Use the `source` prop instead.
+**已过期.** 请使用 `source` 属性代替.
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -421,3 +425,6 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 ```javascript
 static extraNativeComponentConfig()
 ```
+
+
+  [1]: https://github.com/facebook/react-native/commit/da9a712a9e17942dcd05b8d955f0764c2026a4ad
