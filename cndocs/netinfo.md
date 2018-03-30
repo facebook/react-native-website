@@ -54,14 +54,14 @@ To request network info, you need to add the following line to your app's `Andro
 
 `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
 
-### Methods
+### 查看方法
 
 * [`addEventListener`](netinfo.md#addeventlistener)
 * [`removeEventListener`](netinfo.md#removeeventlistener)
 * [`getConnectionInfo`](netinfo.md#getconnectioninfo)
 * [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
 
-### Properties
+### 查看属性
 
 * [`isConnected`](netinfo.md#isconnected)
 
@@ -81,10 +81,10 @@ Adds an event handler.
 
 **参数：**
 
-| 名称      | 类型                           | 必填 | 说明            |
-| --------- | ------------------------------ | -------- | ---------------------- |
-| eventName | enum(connectionChange, change) | 是      | The change event name. |
-| handler   | function                       | 是      | Listener function.     |
+| 名称      | 类型                           | 必填 | 说明                   |
+| --------- | ------------------------------ | ---- | ---------------------- |
+| eventName | enum(connectionChange, change) | 是   | The change event name. |
+| handler   | function                       | 是   | Listener function.     |
 
 Supported events:
 
@@ -105,10 +105,10 @@ Removes the listener for network status changes.
 
 **参数：**
 
-| 名称      | 类型                           | 必填 | 说明            |
-| --------- | ------------------------------ | -------- | ---------------------- |
-| eventName | enum(connectionChange, change) | 是      | The change event name. |
-| handler   | function                       | 是      | Listener function.     |
+| 名称      | 类型                           | 必填 | 说明                   |
+| --------- | ------------------------------ | ---- | ---------------------- |
+| eventName | enum(connectionChange, change) | 是   | The change event name. |
+| handler   | function                       | 是   | Listener function.     |
 
 ---
 

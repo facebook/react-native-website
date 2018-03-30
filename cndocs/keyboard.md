@@ -14,7 +14,7 @@ import React, { Component } from 'react';
 import { Keyboard, TextInput } from 'react-native';
 
 class Example extends Component {
-  componentWillMount () {
+  componentDidMount () {
     this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
     this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
   }

@@ -3,9 +3,7 @@ id: modal
 title: Modal
 ---
 
-The Modal component is a simple way to present content above an enclosing view.
-
-> 注：If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
+Modal 组件是一种简单的在其他视图之上显示内容的方式。
 
 ```javascript
 import React, { Component } from "react";
@@ -81,7 +79,7 @@ class ModalExample extends Component {
 
 ### `visible`
 
-The `visible` prop determines whether your modal is visible.
+`visible`属性决定 modal 是否显示。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -132,13 +130,13 @@ The `transparent` prop determines whether your modal will fill the entire view. 
 
 ### `animationType`
 
-The `animationType` prop controls how the modal animates.
+`animationType`指定了 modal 的动画类型。
 
-* `slide` slides in from the bottom
-* `fade` fades into view
-* `none` appears without an animation
+* `slide` 从底部滑入滑出。
+* `fade` 淡入淡出。
+* `none` 没有动画，直接蹦出来。
 
-Default is set to `none`.
+默认值为`none`。
 
 | 类型                          | 必填 |
 | ----------------------------- | ---- |
@@ -148,7 +146,7 @@ Default is set to `none`.
 
 ### `hardwareAccelerated`
 
-The `hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
+`hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |

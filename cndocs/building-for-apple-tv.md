@@ -65,7 +65,7 @@ title: 为电视和机顶盒制作应用
   }
 </style>
 
-TV devices support has been implemented with the intention of making existing React Native applications "just work" on Apple TV and Android TV, with few or no changes needed in the JavaScript code for the applications.
+目前的 React Native 应用只需在 JavaScript 端简单修改甚至无需修改，在电视和机顶盒设备上就基本可用了。
 
 <div class="toggler">
 
@@ -81,33 +81,33 @@ TV devices support has been implemented with the intention of making existing Re
 
 <block class="ios" />
 
-The RNTester app supports Apple TV; use the `RNTester-tvOS` build target to build for tvOS.
+源代码仓库里的[RNTester 演示应用](https://github.com/facebook/react-native/tree/master/RNTester)支持在 Apple TV 上运行，使用`RNTester-tvOS`编译目标来在 tvOS 上编译运行。
 
-## Build changes
+## 编译变更
 
-* _Native layer_: React Native Xcode projects all now have Apple TV build targets, with names ending in the string '-tvOS'.
+* _原生端_: React Native 生成的 Xcode 项目现都已包含 Apple TV 编译目标，其名字都带有'-tvOS'后缀。
 
-* _react-native init_: New React Native projects created with `react-native init` will have Apple TV target automatically created in their XCode projects.
+* _react-native init_: 使用`react-native init`命令创建的新项目会自动在 Xcode 新项目中包含 Apple TV 编译目标。
 
-* _JavaScript layer_: Support for Apple TV has been added to `Platform.ios.js`. You can check whether code is running on AppleTV by doing
+* _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```javascript
-var Platform = require("Platform");
-var running_on_tv = Platform.isTV;
+import { Platform } from "react-native";
+const running_on_tv = Platform.isTV;
 
-// If you want to be more specific and only detect devices running tvOS
-// (but no Android TV devices) you can use:
-var running_on_apple_tv = Platform.isTVOS;
+// 如果你想更精确地针对tvOS设备（即排除Android设备），
+// 那么可以使用下面的代码：
+const running_on_apple_tv = Platform.isTVOS;
 ```
 
 <block class="android" />
 
-## Build changes
+## 编译修改
 
-* _Native layer_: To run React Native project on Android TV make sure to make the following changes to `AndroidManifest.xml`
+* _原生端_: 在 Android TV 上运行 React Native 项目请先在`AndroidManifest.xml`中加入下列配置：
 
 ```xml
-  <!-- Add custom banner image to display as Android TV launcher icon -->
+  <!-- 加入自定义的banner图作为TV设备上的图标 -->
  <application
   ...
   android:banner="@drawable/tv_banner"
@@ -122,16 +122,16 @@ var running_on_apple_tv = Platform.isTVOS;
   </application>
 ```
 
-* _JavaScript layer_: Support for Android TV has been added to `Platform.android.js`. You can check whether code is running on Android TV by doing
+* _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```js
-var Platform = require("Platform");
-var running_on_android_tv = Platform.isTV;
+import { Platform } from "react-native";
+const running_on_tv = Platform.isTV;
 ```
 
 <block class="ios android" />
 
-## Code changes
+## 代码修改
 
 <block class="ios" />
 
@@ -139,7 +139,7 @@ var running_on_android_tv = Platform.isTV;
 
 * _Common codebase_: Since tvOS and iOS share most Objective-C and JavaScript code in common, most documentation for iOS applies equally to tvOS.
 
-* _Access to touchable controls_: When running on Apple TV, the native view class is `RCTTVView`, which has additional methods to make use of the tvOS focus engine. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight` and `TouchableOpacity` will "just work". In particular:
+* _访问可点击的控件_: When running on Apple TV, the native view class is `RCTTVView`, which has additional methods to make use of the tvOS focus engine. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight` and `TouchableOpacity` will "just work". In particular:
 
   * `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
   * `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus
@@ -147,7 +147,7 @@ var running_on_android_tv = Platform.isTV;
 
 <block class="android" />
 
-* _Access to touchable controls_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
+* _访问可点击的控件_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
 
   * `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
   * `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus
@@ -222,15 +222,15 @@ class Game2048 extends React.Component {
 
 <block class="ios" />
 
-* _Known issues_:
+* _已知问题_:
 
   * [ListView scrolling](https://github.com/facebook/react-native/issues/12793). The issue can be easily worked around by setting `removeClippedSubviews` to false in ListView and similar components. For more discussion of this issue, see [this PR](https://github.com/facebook/react-native/pull/12944).
 
 <block class="android" />
 
-* _Known issues_:
+* _已知问题_:
 
-  * `InputText` components do not work for now (i.e. they cannot receive focus).
+  * `TextInput` components do not work for now (i.e. they cannot receive focus).
 
 <script>
   function displayTab(type, value) {
