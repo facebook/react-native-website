@@ -539,9 +539,9 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 * `'center'` will align the snap in the center
 * `'end'` will align the snap at the right (horizontal) or bottom (vertical)
 
-| Type                           | Required | Platform |
-| ------------------------------ | -------- | -------- |
-| enum('start', 'center', 'end') | No       | iOS      |
+| Type                           | Required |
+| ------------------------------ | -------- |
+| enum('start', 'center', 'end') | No       |
 
 ---
 
@@ -549,9 +549,11 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 
 When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+Note: Vertical snapToInterval is not supported on Android.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
