@@ -28,18 +28,18 @@ class ViewColoredBoxesWithText extends Component {
 
 ### 合成触摸事件
 
-For `View` responder props (e.g., `onResponderMove`), the synthetic touch event passed to them are of the following form:
+用于 `View` 响应属性 (例如, `onResponderMove`), 合成触摸事件采用以下的格式:
 
 * `nativeEvent`
-  * `changedTouches` - Array of all touch events that have changed since the last event.
-  * `identifier` - The ID of the touch.
-  * `locationX` - The X position of the touch, relative to the element.
-  * `locationY` - The Y position of the touch, relative to the element.
-  * `pageX` - The X position of the touch, relative to the root element.
-  * `pageY` - The Y position of the touch, relative to the root element.
-  * `target` - The node id of the element receiving the touch event.
-  * `timestamp` - A time identifier for the touch, useful for velocity calculation.
-  * `touches` - Array of all current touches on the screen.
+  * `changedTouches` - 从上一次事件以来的触摸事件数组。
+  * `identifier` - 触摸事件的ID。
+  * `locationX` - 触摸事件相对元素位置的X坐标。
+  * `locationY` - 触摸事件相对元素位置的Y坐标。
+  * `pageX` - 触摸事件相对根元素位置的X坐标。
+  * `pageY` - 触摸事件相对根元素位置的Y坐标。
+  * `target` - 接收触摸事件的元素ID.
+  * `timestamp` - 触摸事件的时间标记，用来计算速度.
+  * `touches` - 屏幕上所有当前触摸事件的数组.
 
 ### 属性
 
@@ -105,11 +105,11 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 
 ### `hitSlop`
 
-This defines how far a touch event can start away from the view. Typical interface guidelines recommend touch targets that are at least 30 - 40 points/density-independent pixels.
+定义触摸事件在距离视图多远以内时可以触发的。典型的接口规范建议触摸目标至少要30-40点/密度-独立像素。
 
-For example, if a touchable view has a height of 20 the touchable height can be extended to 40 with `hitSlop={{top: 10, bottom: 10, left: 0, right: 0}}`
+例如，一个可触摸的视图有20单位高，那么设置`hitSlop={{top: 10, bottom: 10, left: 0, right: 0}}`则可触摸高度会扩展到40单位。
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+> 触摸范围不会扩展到父视图之外，另外如果触摸到两个重叠的视图，Z-index高的元素会优先。
 
 | 类型                                                               | 必填 |
 | ------------------------------------------------------------------ | ---- |
@@ -307,8 +307,7 @@ For example, if a touchable view has a height of 20 the touchable height can be 
      pointer-events: none;
 }
 ```
-
-> 因为`pointerEvents` 不影响布局和外观does not affect layout/appearance, and we are already deviating from the spec by adding additional modes, we opt to not include `pointerEvents` on `style`. On some platforms, we would need to implement it as a `className` anyways. Using `style` or not is an implementation detail of the platform.
+> 因为`pointerEvents` 不影响布局和外观，我们选择不将`pointerEvents`放到`style`中。不管如何，在某些平台，我们需要实现一个`className`类。是否使用`style`是一个平台的实现细节。
 
 | 类型                                         | 必填 |
 | -------------------------------------------- | ---- |
@@ -443,24 +442,24 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 可用的`AccessibilityTraits`值:
 
 * `'none'` - 元素没有特性。
-* `'button'` - 元素应该像按钮一样对待。
-* `'link'` - 元素应该像链接一样对待。
-* `'header'` - The element is a header that divides content into sections.
-* `'search'` - The element should be treated as a search field.
-* `'image'` - 元素应该像图片一样对待。
-* `'selected'` - 元素应该像选择框一样对待。
+* `'button'` - 元素应该被当作按钮。
+* `'link'` - 元素应该被当作链接。
+* `'header'` - 元素是分段的头部.
+* `'search'` - 元素应该被当作搜索字段。
+* `'image'` - 元素被当作图片。
+* `'selected'` - 元素被当作选择框。
 * `'plays'` - 元素播放声音。
 * `'key'` - 元素应该像键盘上的一个按键一样对待。
 * `'text'` - 元素应该像文本一样对待。
-* `'summary'` - The element provides app summary information.
+* `'summary'` - 元素提供app摘要信息。
 * `'disabled'` - 元素失效了。
 * `'frequentUpdates'` - 元素频繁的更改它的值。
-* `'startsMedia'` - 元素开启了一个媒体会话.
-* `'adjustable'` - 元素允许范围值调节.
-* `'allowsDirectInteraction'` - The element allows direct touch interaction for VoiceOver users.
-* `'pageTurn'` - Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
+* `'startsMedia'` - 元素开启了一个媒体会话。
+* `'adjustable'` - 元素允许范围值调节。
+* `'allowsDirectInteraction'` -元素允许语音辅助用户直接触摸。
+* `'pageTurn'` - 当读完元素内容时通知语音辅助用户应该跳转到下一页。
 
-See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+阅读 [Accessibility guide](accessibility.md#accessibilitytraits-ios) 获取更多信息。
 
 | 类型                                               | 必填 | 平台 |
 | -------------------------------------------------- | ---- | ---- |
@@ -470,7 +469,8 @@ See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more
 
 ### `accessibilityViewIsModal`
 
-A value indicating whether VoiceOver should ignore the elements within views that are siblings of the receiver. Default is `false`.
+指示语音辅助是否应该忽略视图中接收者的兄弟元素。
+默认为`false`.
 
 阅读[Accessibility guide](accessibility.md#accessibilitytraits-ios) 获取更多信息。
 
@@ -482,7 +482,7 @@ A value indicating whether VoiceOver should ignore the elements within views tha
 
 ### `accessibilityElementsHidden`
 
-指示该可访问元素中包含的可访问元素是否被隐藏。
+指示该无障碍元素中包含的无障碍元素是否被隐藏。
 默认为`false`.
 
 阅读[Accessibility guide](accessibility.md#accessibilityelementshidden-ios)获取更多信息。
