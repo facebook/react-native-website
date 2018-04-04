@@ -240,7 +240,7 @@ title: View Style Props
 
 ### `elevation`
 
-(Android-only) Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
+(限Android)使用Android原生的 elevation API来设置视图的高度（ [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation)）。这样可以为视图添加一个投影，并且会影响视图层叠的顺序。此属性仅支持Android5.0及以上版本。
 
 | 类型   | 必填 | 平台 |
 | ------ | -------- | -------- |
