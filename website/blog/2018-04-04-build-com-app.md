@@ -8,7 +8,7 @@ authorTwitter: gwmccull
 category: built-with-reactnative
 ---
 
-[Build.com](https://www.build.com/), headquartered in Chico, California, is one of the largest online retailers for home improvement items. The team has had a strong web-centric business for 18 years and began thinking about a mobile App in 2015. Building unique iOS and Android apps wasn’t practical due to our small team and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on RN v53.
+[Build.com](https://www.build.com/), headquartered in Chico, California, is one of the largest online retailers for home improvement items. The team has had a strong web-centric business for 18 years and began thinking about a mobile App in 2015. Building unique iOS and Android apps wasn’t practical due to our small team and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on React Native version 0.53.0.
 
 You can check out the app at https://www.build.com/app
 
@@ -53,11 +53,11 @@ Since we rely so heavily on open source, our team is committed to contributing b
 
 We’ve released and maintained a number of React Native libraries:
 
-* react-native-polyfill
-* react-native-simple-store
-* react-native-contact-picker
+* `react-native-polyfill`
+* `react-native-simple-store`
+* `react-native-contact-picker`
 
-We have also contributed to a long list of libraries including: React and React Native, react-native-schemes-manager, react-native-swipeable, react-native-gallery, react-native-view-transformer, react-native-navigation
+We have also contributed to a long list of libraries including: React and React Native, `react-native-schemes-manager`, `react-native-swipeable`, `react-native-gallery`, `react-native-view-transformer`, `react-native-navigation`.
 
 ## Our Journey
 
