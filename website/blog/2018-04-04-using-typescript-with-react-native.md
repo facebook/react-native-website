@@ -8,7 +8,7 @@ authorTwitter: ashfurrow
 category: engineering
 ---
 
-JavaScript! We all love it. But someone us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org) and today we're going to look at how to use TypeScript in React Native apps.
+JavaScript! We all love it. But someone us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org), but React Native supports [Flow](https://flow.org) out of the box. Which you prefer is a matter of preference, they each have their own approach on how to add the magic of types to JavaScript. Today, we're going to look at how to use TypeScript in React Native apps.
 
 We'll be using Microsoft's [TypeScript-React-Native-Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter) repo as a guide.
 
@@ -100,7 +100,7 @@ At this point, you should be able to run the React Native app.
 
 ## Adding TypeScript Testing Infrastructure
 
-Since we're using [Jest](https://github.com/facebook/jest), we'll want to add [ts-jest](https://www.npmjs.com/package/ts-jest) to our devDependencies.
+React Native ships with [Jest](https://github.com/facebook/jest), so for testing a React Native app with TypeScript, we'll want to add [ts-jest](https://www.npmjs.com/package/ts-jest) to our `devDependencies`.
 
 ```sh
 yarn add --dev ts-jest
@@ -125,8 +125,7 @@ Then, we'll open up our `package.json` and replace the `jest` field with the fol
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "testPathIgnorePatterns": [
       "\\.snap$",
-      "<rootDir>/node_modules/",
-      "<rootDir>/lib/"
+      "<rootDir>/node_modules/"
     ],
     "cacheDirectory": ".jest/cache"
   }
@@ -139,25 +138,21 @@ This will configure Jest to run `.ts` and `.tsx` files with `ts-jest`.
 
 To get the best experience in TypeScript, we want the type-checker to understand the shape and API of our dependencies. Some libraries will publish their packages with `.d.ts` files (type declaration/type definition files), which can describe the shape of the underlying JavaScript. For other libraries, we'll need to explicitly install the appropriate package in the `@types/` npm scope.
 
-For example, here we'll need types for Jest, React, and React Native, and React Test Renderer. This turns out to require a pretty simple command.
+For example, here we'll need types for Jest, React, and React Native, and React Test Renderer.
 
 ```ts
 yarn add --dev @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
-We saved these declaration file packages to our _dev_ dependencies because we're not publishing this package as a library to npm. If we were, we might have to add some of them as regular dependencies.
+We saved these declaration file packages to our _dev_ dependencies because this is a React Native _app_ that only uses these dependencies during development and not during runtime. If we were publishing a library to NPM, we might have to add some of these type dependencies as regular dependencies.
 
 You can read more [here about getting `.d.ts` files](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html).
 
 ## Ignoring More Files
 
-For your source control, you'll want to start ignoring the `.jest` and `lib` folders. If you're using git, we can just add entries to our `.gitignore` file.
+For your source control, you'll want to start ignoring the `.jest` folder. If you're using git, we can just add entries to our `.gitignore` file.
 
 ```config
-# TypeScript
-#
-lib/
-
 # Jest
 #
 .jest/
@@ -174,7 +169,7 @@ git commit -am "Initial commit."
 
 ## Adding a Component
 
-We can now add a component to our app. Let's go ahead and create a `Hello.tsx` component. It's a pedagogical component, not something that you'd actually write in an app, but something nontrivial that shows off how to use TypeScript in React Native.
+Let's add a component to our app. Let's go ahead and create a `Hello.tsx` component. It's a pedagogical component, not something that you'd actually write in an app, but something nontrivial that shows off how to use TypeScript in React Native.
 
 Create a `components` directory and add the following example.
 
@@ -275,7 +270,7 @@ const styles = StyleSheet.create({
 Whoa! That's a lot, but let's break it down:
 
 * Instead of rendering HTML elements like `div`, `span`, `h1`, etc., we're rendering components like `View` and `Button`. These are native components that work across different platforms.
-* Styling is specified using the `StyleSheet.create` function that React Native gives us. React's styleSheets allow us to control our layout using Flexbox, and style using other constructs similar to those in CSS.
+* Styling is specified using the `StyleSheet.create` function that React Native gives us. React's stylesheets allow us to control our layout using Flexbox, and style using other constructs similar to those in CSS.
 
 ## Adding a Component Test
 
