@@ -36,6 +36,7 @@ Simple Examples:
     const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
 
     <SectionList
+      renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
       sections={[
         { title: 'Title1', data: ['item1', 'item2'], renderItem: overrideRenderItem },
         { title: 'Title2', data: ['item3', 'item4'] },
