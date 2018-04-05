@@ -300,8 +300,6 @@ The first time the test is ran, it will create a snapshot of the DOM and store i
 
 ## Next Steps
 
-Check out [our React tutorial](https://github.com/DanielRosenwasser/React-TypeScript-Tutorial) where we also cover topics like state management with [Redux](http://redux.js.org). These same subjects can be applied when writing React Native apps.
-
-Additionally, you may want to look at the [ReactXP](https://microsoft.github.io/reactxp/) if you're looking for a component library written entirely in TypeScript that supports both React on the web as well as React Native.
+Check out the official [React tutorial](https://reactjs.org/tutorial/tutorial.html) and state-management library [Redux](http://redux.js.org). These resources can be helpful when writing React Native apps. Additionally, you may want to look at [ReactXP](https://microsoft.github.io/reactxp/), a component library written entirely in TypeScript that supports both React on the web as well as React Native.
 
 Have fun in a more type-safe React Native development environment!
