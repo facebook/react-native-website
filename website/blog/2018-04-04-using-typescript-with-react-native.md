@@ -8,7 +8,7 @@ authorTwitter: ashfurrow
 category: engineering
 ---
 
-JavaScript! We all love it. But someone us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org), but React Native supports [Flow](https://flow.org) out of the box. Which you prefer is a matter of preference, they each have their own approach on how to add the magic of types to JavaScript. Today, we're going to look at how to use TypeScript in React Native apps.
+JavaScript! We all love it. But some of us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org), but React Native supports [Flow](https://flow.org) out of the box. Which you prefer is a matter of preference, they each have their own approach on how to add the magic of types to JavaScript. Today, we're going to look at how to use TypeScript in React Native apps.
 
 We'll be using Microsoft's [TypeScript-React-Native-Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter) repo as a guide.
 
@@ -16,7 +16,7 @@ We'll be using Microsoft's [TypeScript-React-Native-Starter](https://github.com/
 
 Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](https://facebook.github.io/react-native/docs/getting-started.html). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
 
-You will also need [Node.js](https://nodejs.org/en/), [NPM](https://www.npmjs.com), and [Yarn](https://yarnpkg.com/lang/en).
+You will also need [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com), and [Yarn](https://yarnpkg.com/lang/en).
 
 ## Initializing
 
@@ -37,7 +37,7 @@ The next step is to add TypeScript to your project. The following commands will:
 * add an empty React Native TypeScript Transformer config file, which we'll configure next
 * adds [typings](https://github.com/DefinitelyTyped/DefinitelyTyped) for React and React Native
 
-Okay let's go ahead and run these.
+Okay, let's go ahead and run these.
 
 ```sh
 yarn add --dev typescript
@@ -47,13 +47,12 @@ touch rn-cli.config.js
 yarn add --dev @types/react @types/react-native
 ```
 
-The `tsconfig.json` file contains all the settings for the TypeScript compile. The defaults created by the command above are mostly fine, but open the file and uncomment the following line:
+The `tsconfig.json` file contains all the settings for the TypeScript compiler. The defaults created by the command above are mostly fine, but open the file and uncomment the following line:
 
 ```js
 {
-  ...
+  /* Search the config file for the following line and uncomment it. */
   // "allowSyntheticDefaultImports": true,  /* Allow default imports from modules with no default export. This does not affect code emit, just typechecking. */
-  ...
 }
 ```
 
@@ -61,11 +60,10 @@ You'll also want to add this to the **top-level** of the config, to tell TypeScr
 
 ```js
 {
-  ...
+  /* This will be in the top-level of the config file. */
   "exclude": [
     "node_modules"
   ]
-  ...
 }
 ```
 
@@ -110,7 +108,6 @@ Then, we'll open up our `package.json` and replace the `jest` field with the fol
 
 ```js
 {
-  ...
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": [
