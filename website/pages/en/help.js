@@ -56,7 +56,7 @@ class Help extends React.Component {
           </p>
           <h2>Twitter</h2>
           <p>
-            For the latest news about React,{" "}
+            For the latest news about React Native,{" "}
             <a href="https://twitter.com/reactnative">
               follow <strong>@reactnative</strong> on Twitter
             </a>.
