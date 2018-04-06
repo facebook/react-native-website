@@ -95,73 +95,63 @@ Note that on Android performing text selection in input can change app's activit
 
 * [View props...](view.md#props)
 
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`allowFontScaling`](textinput.md#allowfontscaling)
+- [`autoCapitalize`](textinput.md#autocapitalize)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
 - [`caretHidden`](textinput.md#carethidden)
+- [`clearButtonMode`](textinput.md#clearbuttonmode)
+- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
 - [`contextMenuHidden`](textinput.md#contextMenuHidden)
+- [`dataDetectorTypes`](textinput.md#datadetectortypes)
 - [`defaultValue`](textinput.md#defaultvalue)
+- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
 - [`editable`](textinput.md#editable)
+- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+- [`inlineImageLeft`](textinput.md#inlineimageleft)
+- [`inlineImagePadding`](textinput.md#inlineimagepadding)
+- [`keyboardAppearance`](textinput.md#keyboardappearance)
 - [`keyboardType`](textinput.md#keyboardtype)
 - [`maxLength`](textinput.md#maxlength)
 - [`multiline`](textinput.md#multiline)
+- [`numberOfLines`](textinput.md#numberoflines)
 - [`onBlur`](textinput.md#onblur)
 - [`onChange`](textinput.md#onchange)
 - [`onChangeText`](textinput.md#onchangetext)
 - [`onContentSizeChange`](textinput.md#oncontentsizechange)
 - [`onEndEditing`](textinput.md#onendediting)
 - [`onFocus`](textinput.md#onfocus)
+- [`onKeyPress`](textinput.md#onkeypress)
 - [`onLayout`](textinput.md#onlayout)
 - [`onScroll`](textinput.md#onscroll)
 - [`onSelectionChange`](textinput.md#onselectionchange)
 - [`onSubmitEditing`](textinput.md#onsubmitediting)
 - [`placeholder`](textinput.md#placeholder)
-- [`autoCapitalize`](textinput.md#autocapitalize)
+- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+- [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
 - [`secureTextEntry`](textinput.md#securetextentry)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
 - [`selection`](textinput.md#selection)
 - [`selectionColor`](textinput.md#selectioncolor)
+- [`selectionState`](textinput.md#selectionstate)
+- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+- [`spellCheck`](textinput.md#spellcheck)
 - [`style`](textinput.md#style)
-- [`value`](textinput.md#value)
-- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
-- [`inlineImageLeft`](textinput.md#inlineimageleft)
-- [`inlineImagePadding`](textinput.md#inlineimagepadding)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`textBreakStrategy`](textinput.md#textbreakstrategy)
 - [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`dataDetectorTypes`](textinput.md#datadetectortypes)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`selectionState`](textinput.md#selectionstate)
-- [`spellCheck`](textinput.md#spellcheck)
+- [`value`](textinput.md#value)
 
 ### Methods
 
-* [`isFocused`](textinput.md#isfocused)
 * [`clear`](textinput.md#clear)
+* [`isFocused`](textinput.md#isfocused)
 
 ---
 
-# 文档
+# Reference
 
 ## Props
-
-### `placeholderTextColor`
-
-The text color of the placeholder string.
-
-| 类型               | 必填 |
-| ------------------ | ---- |
-| [color](colors.md) | 否   |
-
----
 
 ### `allowFontScaling`
 
@@ -169,7 +159,22 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
+
+---
+
+### `autoCapitalize`
+
+Can tell `TextInput` to automatically capitalize certain characters.
+
+* `characters`: all characters.
+* `words`: first letter of each word.
+* `sentences`: first letter of each sentence (_default_).
+* `none`: don't auto capitalize anything.
+
+| 类型                                             | 必填 |
+| ------------------------------------------------ | ---- |
+| enum('none', 'sentences', 'words', 'characters') | No   |
 
 ---
 
@@ -179,7 +184,7 @@ If `false`, disables auto-correct. The default value is `true`.
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
 
 ---
 
@@ -189,7 +194,7 @@ If `true`, focuses the input on `componentDidMount`. The default value is `false
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
 
 ---
 
@@ -199,7 +204,7 @@ If `true`, the text field will blur when submitted. The default value is true fo
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
 
 ---
 
@@ -209,7 +214,27 @@ If `true`, caret is hidden. The default value is `false`.
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
+
+---
+
+### `clearButtonMode`
+
+When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.
+
+| 类型                                                       | 必填 | 平台 |
+| ---------------------------------------------------------- | ---- | ---- |
+| enum('never', 'while-editing', 'unless-editing', 'always') | No   | iOS  |
+
+---
+
+### `clearTextOnFocus`
+
+If `true`, clears the text field automatically when editing begins.
+
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | No   | iOS  |
 
 ---
 
@@ -219,7 +244,28 @@ If `true`, context menu is hidden. The default value is `false`.
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
+
+---
+
+### `dataDetectorTypes`
+
+Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
+
+You can provide one type or an array of many types.
+
+Possible values for `dataDetectorTypes` are:
+
+* `'phoneNumber'`
+* `'link'`
+* `'address'`
+* `'calendarEvent'`
+* `'none'`
+* `'all'`
+
+| 类型                                                                                                                                                     | 必填 | 平台 |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- |
+| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | No   | iOS  |
 
 ---
 
@@ -229,7 +275,17 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 | 类型   | 必填 |
 | ------ | ---- |
-| string | 否   |
+| string | No   |
+
+---
+
+### `disableFullscreenUI`
+
+When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
+
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | No   | Android |
 
 ---
 
@@ -239,7 +295,53 @@ If `false`, text is not editable. The default value is `true`.
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
+
+---
+
+### `enablesReturnKeyAutomatically`
+
+If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
+
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | No   | iOS  |
+
+---
+
+### `inlineImageLeft`
+
+If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
+
+```
+<TextInput
+ inlineImageLeft='search_icon'
+/>
+```
+
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| string | No   | Android |
+
+---
+
+### `inlineImagePadding`
+
+Padding between the inline image, if any, and the text input itself.
+
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| number | No   | Android |
+
+---
+
+### `keyboardAppearance`
+
+Determines the color of the keyboard.
+
+| 类型                             | 必填 | 平台 |
+| -------------------------------- | ---- | ---- |
+| enum('default', 'light', 'dark') | No   | iOS  |
 
 ---
 
@@ -275,7 +377,7 @@ The following values work on Android only:
 
 | 类型                                                                                                                                                                                                    | 必填 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') | 否   |
+| enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') | No   |
 
 ---
 
@@ -285,7 +387,7 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 | 类型   | 必填 |
 | ------ | ---- |
-| number | 否   |
+| number | No   |
 
 ---
 
@@ -295,7 +397,17 @@ If `true`, the text input can be multiple lines. The default value is `false`.
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
+| bool | No   |
+
+---
+
+### `numberOfLines`
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| number | No   | Android |
 
 ---
 
@@ -305,7 +417,7 @@ Callback that is called when the text input is blurred.
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -315,7 +427,7 @@ Callback that is called when the text input's text changes.
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -325,7 +437,7 @@ Callback that is called when the text input's text changes. Changed text is pass
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -337,7 +449,7 @@ Only called for multiline text inputs.
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -347,7 +459,7 @@ Callback that is called when text input ends.
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -357,7 +469,17 @@ Callback that is called when the text input is focused.
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
+
+---
+
+### `onKeyPress`
+
+Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks.
+
+| 类型     | 必填 | 平台 |
+| -------- | ---- | ---- |
+| function | No   | iOS  |
 
 ---
 
@@ -367,7 +489,7 @@ Invoked on mount and layout changes with `{x, y, width, height}`.
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -377,7 +499,7 @@ Invoked on content scroll with `{ nativeEvent: { contentOffset: { x, y } } }`. M
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -387,7 +509,7 @@ Callback that is called when the text input selection is changed. This will be c
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -397,7 +519,7 @@ Callback that is called when the text input's submit button is pressed. Invalid 
 
 | 类型     | 必填 |
 | -------- | ---- |
-| function | 否   |
+| function | No   |
 
 ---
 
@@ -407,22 +529,27 @@ The string that will be rendered before text input has been entered.
 
 | 类型   | 必填 |
 | ------ | ---- |
-| string | 否   |
+| string | No   |
 
 ---
 
-### `autoCapitalize`
+### `placeholderTextColor`
 
-Can tell `TextInput` to automatically capitalize certain characters.
+The text color of the placeholder string.
 
-* `characters`: all characters.
-* `words`: first letter of each word.
-* `sentences`: first letter of each sentence (_default_).
-* `none`: don't auto capitalize anything.
+| 类型               | 必填 |
+| ------------------ | ---- |
+| [color](colors.md) | No   |
 
-| 类型                                             | 必填 |
-| ------------------------------------------------ | ---- |
-| enum('none', 'sentences', 'words', 'characters') | 否   |
+---
+
+### `returnKeyLabel`
+
+Sets the return key to the label. Use it instead of `returnKeyType`.
+
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| string | No   | Android |
 
 ---
 
@@ -460,7 +587,7 @@ The following values work on iOS only:
 
 | 类型                                                                                                                              | 必填 |
 | --------------------------------------------------------------------------------------------------------------------------------- | ---- |
-| enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | 否   |
+| enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No   |
 
 ---
 
@@ -470,17 +597,7 @@ If `true`, the text input obscures the text entered so that sensitive text like 
 
 | 类型 | 必填 |
 | ---- | ---- |
-| bool | 否   |
-
----
-
-### `selectTextOnFocus`
-
-If `true`, all text will automatically be selected on focus.
-
-| 类型 | 必填 |
-| ---- | ---- |
-| bool | 否   |
+| bool | No   |
 
 ---
 
@@ -490,7 +607,7 @@ The start and end of the text input's selection. Set start and end to the same v
 
 | 类型                                | 必填 |
 | ----------------------------------- | ---- |
-| object: {start: number,end: number} | 否   |
+| object: {start: number,end: number} | No   |
 
 ---
 
@@ -500,7 +617,45 @@ The highlight and cursor color of the text input.
 
 | 类型               | 必填 |
 | ------------------ | ---- |
-| [color](colors.md) | 否   |
+| [color](colors.md) | No   |
+
+---
+
+### `selectionState`
+
+An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
+
+Some functionality that can be performed with this instance is:
+
+* `blur()`
+* `focus()`
+* `update()`
+
+> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
+
+| 类型                   | 必填 | 平台 |
+| ---------------------- | ---- | ---- |
+| DocumentSelectionState | No   | iOS  |
+
+---
+
+### `selectTextOnFocus`
+
+If `true`, all text will automatically be selected on focus.
+
+| 类型 | 必填 |
+| ---- | ---- |
+| bool | No   |
+
+---
+
+### `spellCheck`
+
+If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
+
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | No   | iOS  |
 
 ---
 
@@ -523,73 +678,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 | 类型                  | 必填 |
 | --------------------- | ---- |
-| [Text](text.md#style) | 否   |
-
----
-
-### `value`
-
-The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
-
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 否   |
-
----
-
-### `disableFullscreenUI`
-
-When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
-
-| 类型 | 必填 | 平台    |
-| ---- | ---- | ------- |
-| bool | 否   | Android |
-
----
-
-### `inlineImageLeft`
-
-If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
-
-```
-<TextInput
- inlineImageLeft='search_icon'
-/>
-```
-
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| string | 否   | Android |
-
----
-
-### `inlineImagePadding`
-
-Padding between the inline image, if any, and the text input itself.
-
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| number | 否   | Android |
-
----
-
-### `numberOfLines`
-
-Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
-
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| number | 否   | Android |
-
----
-
-### `returnKeyLabel`
-
-Sets the return key to the label. Use it instead of `returnKeyType`.
-
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| string | 否   | Android |
+| [Text](text.md#style) | No   |
 
 ---
 
@@ -599,7 +688,7 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 | 类型                                      | 必填 | 平台    |
 | ----------------------------------------- | ---- | ------- |
-| enum('simple', 'highQuality', 'balanced') | 否   | Android |
+| enum('simple', 'highQuality', 'balanced') | No   | Android |
 
 ---
 
@@ -609,118 +698,19 @@ The color of the `TextInput` underline.
 
 | 类型               | 必填 | 平台    |
 | ------------------ | ---- | ------- |
-| [color](colors.md) | 否   | Android |
+| [color](colors.md) | No   | Android |
 
 ---
 
-### `clearButtonMode`
+### `value`
 
-When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.
+The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
-| 类型                                                       | 必填 | 平台 |
-| ---------------------------------------------------------- | ---- | ---- |
-| enum('never', 'while-editing', 'unless-editing', 'always') | 否   | iOS  |
-
----
-
-### `clearTextOnFocus`
-
-If `true`, clears the text field automatically when editing begins.
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
-
----
-
-### `dataDetectorTypes`
-
-Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
-
-You can provide one type or an array of many types.
-
-Possible values for `dataDetectorTypes` are:
-
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
-
-| 类型                                                                                                                                                     | 必填 | 平台 |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- |
-| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | 否   | iOS  |
-
----
-
-### `enablesReturnKeyAutomatically`
-
-If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
-
----
-
-### `keyboardAppearance`
-
-Determines the color of the keyboard.
-
-| 类型                             | 必填 | 平台 |
-| -------------------------------- | ---- | ---- |
-| enum('default', 'light', 'dark') | 否   | iOS  |
-
----
-
-### `onKeyPress`
-
-Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks.
-
-| 类型     | 必填 | 平台 |
-| -------- | ---- | ---- |
-| function | 否   | iOS  |
-
----
-
-### `selectionState`
-
-An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
-
-Some functionality that can be performed with this instance is:
-
-* `blur()`
-* `focus()`
-* `update()`
-
-> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
-
-| 类型                   | 必填 | 平台 |
-| ---------------------- | ---- | ---- |
-| DocumentSelectionState | 否   | iOS  |
-
----
-
-### `spellCheck`
-
-If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
+| 类型   | 必填 |
+| ------ | ---- |
+| string | No   |
 
 ## Methods
-
-### `isFocused()`
-
-```javascript
-isFocused():
-```
-
-Returns `true` if the input is currently focused; `false` otherwise.
-
----
 
 ### `clear()`
 
@@ -729,3 +719,13 @@ clear();
 ```
 
 Removes all text from the `TextInput`.
+
+---
+
+### `isFocused()`
+
+```javascript
+isFocused():
+```
+
+Returns `true` if the input is currently focused; `false` otherwise.

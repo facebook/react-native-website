@@ -3,14 +3,16 @@ id: safeareaview
 title: SafeAreaView
 ---
 
-Render content within safe area boundaries of an device.
+The purpose of `SafeAreaView` is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices.
 
-iOS: Renders nested content and automatically applies paddings reflect the portion of the view that is not covered by navigation bars, tab bars, toolbars, and other ancestor views. Moreover, and most importantly, Safe Area's paddings reflect physical limitation of the screen, such as rounded corners or camera notches (aka sensor housing area on iPhone X).
+`SafeAreaView` renders nested content and automatically applies paddings reflect the portion of the view that is not covered by navigation bars, tab bars, toolbars, and other ancestor views. Moreover, and most importantly, Safe Area's paddings reflect the physical limitation of the screen, such as rounded corners or camera notches (i.e. the sensor housing area on iPhone X).
 
-Android: Not applicable.
+### Usage Example
+
+Simply wrap your top level view with a `SafeAreaView` with a `flex: 1` style applied to it. You may also want to use a background color that matches your application's design.
 
 ```javascript
-<SafeAreaView style={{ flex: 1 }}>
+SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
   <View style={{ flex: 1 }}>
     <Text>Hello World!</Text>
   </View>

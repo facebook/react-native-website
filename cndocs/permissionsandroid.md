@@ -46,7 +46,9 @@ async function requestCameraPermission() {
 }
 ```
 
-#### Permissions that require prompting the user
+### Permissions that require prompting the user
+
+Available as constants under `PermissionsAndroid.PERMISSIONS`:
 
 * `READ_CALENDAR`: 'android.permission.READ_CALENDAR'
 * `WRITE_CALENDAR`: 'android.permission.WRITE_CALENDAR'
@@ -72,6 +74,14 @@ async function requestCameraPermission() {
 * `RECEIVE_MMS`: 'android.permission.RECEIVE_MMS'
 * `READ_EXTERNAL_STORAGE`: 'android.permission.READ_EXTERNAL_STORAGE'
 * `WRITE_EXTERNAL_STORAGE`: 'android.permission.WRITE_EXTERNAL_STORAGE'
+
+### Result strings for requesting permissions
+
+Available as constants under `PermissionsAndroid.RESULTS`:
+
+* `GRANTED`: 'granted'
+* `DENIED`: 'denied'
+* `NEVER_ASK_AGAIN`: 'never_ask_again'
 
 ### Methods
 
@@ -100,13 +110,13 @@ constructor();
 check(permission);
 ```
 
-Returns a promise resolving to a boolean value as to whether the specified permissions has been granted. Possible return values are `GRANTED`, `DENIED`, and `NEVER_ASK_AGAIN`.
+Returns a promise resolving to a boolean value as to whether the specified permissions has been granted.
 
 **参数：**
 
-| 名称       | 类型   | 必填 | 说明                  |
-| ---------- | ------ | -------- | ---------------------------- |
-| permission | string | 是      | The permission to check for. |
+| 名称       | 类型   | 必填 | 说明                         |
+| ---------- | ------ | ---- | ---------------------------- |
+| permission | string | 是   | The permission to check for. |
 
 ---
 
@@ -116,16 +126,16 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 request(permission, [rationale]);
 ```
 
-Prompts the user to enable a permission and returns a promise resolving to a string value indicating whether the user allowed or denied the request
+Prompts the user to enable a permission and returns a promise resolving to a string value (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
 
 If `rationale` is provided, this function checks with the OS whether it is necessary to show a dialog explaining why the permission is needed (https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog.
 
 **参数：**
 
-| 名称       | 类型   | 必填 | 说明                          |
-| ---------- | ------ | -------- | ------------------------------------ |
-| permission | string | 是      | The permission to request.           |
-| rationale  | object | 否       | Object with a `title` and `message`. |
+| 名称       | 类型   | 必填 | 说明                                 |
+| ---------- | ------ | ---- | ------------------------------------ |
+| permission | string | 是   | The permission to request.           |
+| rationale  | object | 否   | Object with a `title` and `message`. |
 
 ---
 
@@ -135,10 +145,10 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 requestMultiple(permissions);
 ```
 
-Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values indicating whether the user allowed or denied the request
+Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
 
 **参数：**
 
-| 名称        | 类型  | 必填 | 说明                     |
-| ----------- | ----- | -------- | ------------------------------- |
-| permissions | array | 是      | Array of permission to request. |
+| 名称        | 类型  | 必填 | 说明                            |
+| ----------- | ----- | ---- | ------------------------------- |
+| permissions | array | 是   | Array of permission to request. |

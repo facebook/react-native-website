@@ -29,11 +29,21 @@ class MyWeb extends Component {
 
 * [View props...](view.md#props)
 
-- [`source`](webview.md#source)
+- [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+- [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`injectJavaScript`](webview.md#injectjavascript)
+- [`bounces`](webview.md#bounces)
+- [`contentInset`](webview.md#contentinset)
+- [`dataDetectorTypes`](webview.md#datadetectortypes)
+- [`decelerationRate`](webview.md#decelerationrate)
+- [`domStorageEnabled`](webview.md#domstorageenabled)
+- [`html`](webview.md#html)
+- [`initialScale`](webview.md#initialScale)
 - [`injectedJavaScript`](webview.md#injectedjavascript)
+- [`injectJavaScript`](webview.md#injectjavascript)
+- [`javaScriptEnabled`](webview.md#javascriptenabled)
 - [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
+- [`mixedContentMode`](webview.md#mixedcontentmode)
 - [`nativeConfig`](webview.md#nativeconfig)
 - [`onError`](webview.md#onerror)
 - [`onLoad`](webview.md#onload)
@@ -41,26 +51,17 @@ class MyWeb extends Component {
 - [`onLoadStart`](webview.md#onloadstart)
 - [`onMessage`](webview.md#onmessage)
 - [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+- [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
 - [`renderError`](webview.md#rendererror)
 - [`renderLoading`](webview.md#renderloading)
 - [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`initialScale`](webview.md#initialScale)
-- [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
+- [`scrollEnabled`](webview.md#scrollenabled)
 - [`startInLoadingState`](webview.md#startinloadingstate)
+- [`source`](webview.md#source)
 - [`style`](webview.md#style)
-- [`decelerationRate`](webview.md#decelerationrate)
-- [`domStorageEnabled`](webview.md#domstorageenabled)
-- [`javaScriptEnabled`](webview.md#javascriptenabled)
-- [`mixedContentMode`](webview.md#mixedcontentmode)
 - [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
 - [`userAgent`](webview.md#useragent)
-- [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-- [`bounces`](webview.md#bounces)
-- [`contentInset`](webview.md#contentinset)
-- [`dataDetectorTypes`](webview.md#datadetectortypes)
-- [`scrollEnabled`](webview.md#scrollenabled)
 - [`url`](webview.md#url)
-- [`html`](webview.md#html)
 
 ### 查看方法
 
@@ -71,6 +72,16 @@ class MyWeb extends Component {
 # 文档
 
 ## Props
+
+### `allowUniversalAccessFromFileURLs`
+
+Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
+
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | No   | Android |
+
+---
 
 ### `source`
 
