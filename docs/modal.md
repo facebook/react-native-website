@@ -98,7 +98,7 @@ The `supportedOrientations` prop allows the modal to be rotated to any of the sp
 
 ### `onRequestClose`
 
-The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open. 
+The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
 
 | Type     | Required | Platform                 |
 | -------- | -------- | ------------------------ |
