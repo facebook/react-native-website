@@ -76,9 +76,10 @@ By default, if one animation is stopped or interrupted, then all other animation
 
 ### Combining animated values
 
-You can combine two animated values via addition, multiplication, division, or modulo to make a new animated value:
+You can combine two animated values via addition, subtraction, multiplication, division, or modulo to make a new animated value:
 
 * [`Animated.add()`](animated.md#add)
+* [`Animated.subtract()`](animated.md#subtract)
 * [`Animated.divide()`](animated.md#divide)
 * [`Animated.modulo()`](animated.md#modulo)
 * [`Animated.multiply()`](animated.md#multiply)
@@ -117,6 +118,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
 * [`timing`](animated.md#timing)
 * [`spring`](animated.md#spring)
 * [`add`](animated.md#add)
+* [`subtract`](animated.md#subtract)
 * [`divide`](animated.md#divide)
 * [`multiply`](animated.md#multiply)
 * [`modulo`](animated.md#modulo)
@@ -226,6 +228,16 @@ static add(a, b)
 ```
 
 Creates a new Animated value composed from two Animated values added together.
+
+---
+
+### `subtract()`
+
+```javascript
+static subtract(a, b)
+```
+
+Creates a new Animated value composed by subtracting the second Animated value from the first Animated value.
 
 ---
 
