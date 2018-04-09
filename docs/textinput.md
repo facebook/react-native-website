@@ -137,6 +137,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`selectionState`](textinput.md#selectionstate)
 - [`selectTextOnFocus`](textinput.md#selecttextonfocus)
 - [`spellCheck`](textinput.md#spellcheck)
+- [`textContentType`](textinput.md#textcontenttype)
 - [`style`](textinput.md#style)
 - [`textBreakStrategy`](textinput.md#textbreakstrategy)
 - [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
@@ -656,6 +657,49 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `textContentType`
+
+Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
+
+For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
+
+To disable autofill, set `textContentType` to `none`.
+
+Possible values for `textContentType` are:
+
+* `none`
+* `URL`
+* `addressCity`
+* `addressCityAndState`
+* `addressState`
+* `countryName`
+* `creditCardNumber`
+* `emailAddress`
+* `familyName`
+* `fullStreetAddress`
+* `givenName`
+* `jobTitle`
+* `location`
+* `middleName`
+* `name`
+* `namePrefix`
+* `nameSuffix`
+* `nickname`
+* `organizationName`
+* `postalCode`
+* `streetAddressLine1`
+* `streetAddressLine2`
+* `sublocality`
+* `telephoneNumber`
+* `username`
+* `password`
+
+| Type                                                                                                                                                     | Required | Platform |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
 
 ---
 
