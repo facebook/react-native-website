@@ -36,6 +36,8 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 
 [Expo](https://docs.expo.io) is a development environment plus application that focuses on letting you build React Native apps in the Expo development environment, without ever touching Xcode or Android Studio. If you wish React Native was even more JavaScripty and webby, check out Expo.
 
+[Yoga](https://yogalayout.com/) is a stand-alone layout engine that extends beyond React Native and allows product engineers to build layouts quickly for multiple platforms with a highly optimized open source layout engine designed with speed, size, and ease of use in mind.
+
 The [React Developer Tools](debugging.md#react-developer-tools) are great for debugging React and React Native apps.
 
 ## Where React Native People Hang Out
