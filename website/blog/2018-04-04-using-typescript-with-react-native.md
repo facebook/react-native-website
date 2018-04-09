@@ -172,20 +172,16 @@ Create a `components` directory and add the following example.
 
 ```ts
 // components/Hello.tsx
-import * as React from 'react';
+import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
 export interface Props {
   name: string;
   enthusiasmLevel?: number;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
 }
 
 interface State {
   enthusiasmLevel: number;
-  onIncrement: () => void;
-  onDecrement: () => void;
 }
 
 export class Hello extends React.Component<Props, State> {
@@ -197,15 +193,13 @@ export class Hello extends React.Component<Props, State> {
     }
 
     this.state = {
-      enthusiasmLevel: props.enthusiasmLevel || 1,
-      onIncrement: props.onIncrement || (() => {}),
-      onDecrement: props.onDecrement || (() => {}),
+      enthusiasmLevel: props.enthusiasmLevel || 1
     };
   }
 
-  getExclamationMarks(numChars: number) {
-    return Array(numChars + 1).join('!');
-  }
+  onIncrement = () => this.setState({ enthusiasmLevel: this.state.enthusiasmLevel + 1 });
+  onDecrement = () => this.setState({ enthusiasmLevel: this.state.enthusiasmLevel - 1 });
+  getExclamationMarks = (numChars: number) => Array(numChars + 1).join("!")
 
   render() {
     return (
@@ -220,7 +214,7 @@ export class Hello extends React.Component<Props, State> {
           <View style={styles.button}>
             <Button
               title="-"
-              onPress={this.state.onDecrement}
+              onPress={this.onDecrement}
               accessibilityLabel="decrement"
               color="red"
             />
@@ -229,7 +223,7 @@ export class Hello extends React.Component<Props, State> {
           <View style={styles.button}>
             <Button
               title="+"
-              onPress={this.state.onIncrement}
+              onPress={this.onIncrement}
               accessibilityLabel="increment"
               color="blue"
             />
@@ -283,8 +277,8 @@ Now let's create a `__tests__` folder in the `components` directory and add a te
 
 ```ts
 // components/__tests__/Hello.tsx
-import * as React from 'react';
-import * as renderer from 'react-test-renderer';
+import React from 'react';
+import renderer from 'react-test-renderer';
 
 import {Hello} from '../Hello';
 
@@ -296,7 +290,7 @@ it('renders correctly with defaults', () => {
 });
 ```
 
-The first time the test is ran, it will create a snapshot of the DOM and store it in the `components/__tests__/__snapshots__/Hello.tsx.snap` file. When you modify your component, you'll need to update the snapshots and review the update for inadvertent changes. You can read more about testing React Native components [here](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
+The first time the test is run, it will create a snapshot of the rendered component and store it in the `components/__tests__/__snapshots__/Hello.tsx.snap` file. When you modify your component, you'll need to update the snapshots and review the update for inadvertent changes. You can read more about testing React Native components [here](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
 
 ## Next Steps
 
