@@ -11,7 +11,7 @@ Example:
 render: function() {
   var progressBar =
     <View style={styles.container}>
-      <ProgressBar styleAttr="Inverse" />
+      <ProgressBarAndroid styleAttr="Inverse" />
     </View>;
 
   return (
