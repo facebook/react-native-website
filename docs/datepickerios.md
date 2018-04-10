@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
 - [`minimumDate`](datepickerios.md#minimumdate)
 - [`minuteInterval`](datepickerios.md#minuteinterval)
 - [`mode`](datepickerios.md#mode)
+- [`locale`](datepickerios.md#locale)
 - [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
 ---
@@ -142,6 +143,16 @@ The date picker mode.
 | enum('date', 'time', 'datetime') | No       |
 
 Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/docs/assets/DatePickerIOS/mode.png)
+
+---
+
+### `locale`
+
+The locale for the date picker. Value needs to be a [Locale ID](https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPInternational/LanguageandLocaleIDs/LanguageandLocaleIDs.html).
+
+| Type   | Required |
+| ------ | -------- |
+| String | No       |
 
 ---
 

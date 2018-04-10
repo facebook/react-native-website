@@ -48,12 +48,12 @@
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
-      "signed-apk-android",
-      "android-building-from-source"
+      "signed-apk-android"
     ],
     "Contributing": [
       "contributing",
       "maintainers",
+      "building-from-source",
       "testing",
       "understanding-cli"
     ],
@@ -64,6 +64,7 @@
       "drawerlayoutandroid",
       "flatlist",
       "image",
+      "inputaccessoryview",
       "keyboardavoidingview",
       "listview",
       "maskedviewios",
@@ -74,6 +75,7 @@
       "progressbarandroid",
       "progressviewios",
       "refreshcontrol",
+      "safeareaview",
       "scrollview",
       "sectionlist",
       "segmentedcontrolios",

@@ -27,6 +27,8 @@ In addition to implementing the `RCTBridgeModule` protocol, your class must also
 
 ```objectivec
 // CalendarManager.m
+#import "CalendarManager.h"
+
 @implementation CalendarManager
 
 // To export a module named CalendarManager
@@ -444,6 +446,7 @@ class CalendarManager: NSObject {
     // Date is ready to use!
   }
 
+  @objc
   func constantsToExport() -> [String: Any]! {
     return ["someKey": "someValue"]
   }

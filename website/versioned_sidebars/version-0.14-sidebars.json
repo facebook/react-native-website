@@ -48,12 +48,12 @@
       "version-0.14-native-modules-android",
       "version-0.14-native-components-android",
       "version-0.14-headless-js-android",
-      "version-0.14-signed-apk-android",
-      "version-0.14-android-building-from-source"
+      "version-0.14-signed-apk-android"
     ],
     "Contributing": [
       "version-0.14-contributing",
       "version-0.14-maintainers",
+      "version-0.14-building-from-source",
       "version-0.14-testing",
       "version-0.14-understanding-cli"
     ],
@@ -62,6 +62,7 @@
       "version-0.14-drawerlayoutandroid",
       "version-0.14-image",
       "version-0.14-modal",
+      "version-0.14-navigator",
       "version-0.14-navigatorios",
       "version-0.14-progressbarandroid",
       "version-0.14-progressviewios",

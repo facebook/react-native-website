@@ -49,7 +49,7 @@ javac 1.8.0_111
 
 The version string `1.8.x_xxx` corresponds to JDK 8.
 
-You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html).
+You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html). Note that brew may not install the version needed to run the tests. For best results, use the same version as the GitHub builds, which can be found in the `.circleci` folder in the root of the repo.
 
 To run the Android unit tests:
 
@@ -60,7 +60,7 @@ It's a good idea to add an Android unit test whenever you are working on code th
 
 ### Integration Tests
 
-To run the integration tests, you need to install the Android NDK. See [Prerequisites](android-building-from-source.md#prerequisites).
+To run the integration tests, you need to install the Android NDK. See [Prerequisites](building-from-source.md#prerequisites).
 
 You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html).
 
@@ -123,12 +123,8 @@ Finally, make sure end-to-end tests run successfully by executing the following 
     $ cd react-native
     $ ./scripts/test-manual-e2e.sh
 
-## Website
+## Updating the Documentation
 
-The React Native website is hosted on GitHub pages and is automatically generated from Markdown sources as well as comments in the JavaScript source files. It's always a good idea to check that the website is generated properly whenever you edit the docs.
+If you are adding new functionality or introducing a change in behavior, we will ask you to update the documentation to reflect your changes. The docs are hosted as part of the React Native website. The website itself is hosted on GitHub Pages and is automatically generated [from the Markdown sources](https://github.com/facebook/react-native-website/tree/master/docs).
 
-    $ cd website
-    $ npm install
-    $ npm start
-
-Then open http://localhost:8079/react-native/index.html in your browser.
+To update the documentation, you will need to clone the [`facebook/react-native-website`](https://github.com/facebook/react-native-website) repository, make your changes in the `docs/` directory, and then send a pull request. For lightweight changes to a single file, you may also click on "Edit" at the top of any doc right here on the website.

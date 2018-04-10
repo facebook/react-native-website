@@ -32,7 +32,7 @@ componentDidMount() {
 }
 ```
 
-NOTE: For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
+> For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
 
 If you wish to receive the intent in an existing instance of MainActivity, you may set the `launchMode` of MainActivity to `singleTask` in `AndroidManifest.xml`. See [`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html) documentation for more information.
 
@@ -171,9 +171,15 @@ You can use other URLs, like a location (e.g. "geo:37.484847,-122.148386" on And
 
 The method returns a `Promise` object. If the user confirms the open dialog or the url automatically opens, the promise is resolved. If the user cancels the open dialog or there are no registered applications for the url, the promise is rejected.
 
-NOTE: This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check {@code canOpenURL} first.
+**Parameters:**
 
-NOTE: For web URLs, the protocol ("http://", "https://") must be set accordingly!
+| Name | Type   | Required | Description      |
+| ---- | ------ | -------- | ---------------- |
+| url  | string | Yes      | The URL to open. |
+
+> This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check {@code canOpenURL} first.
+
+> For web URLs, the protocol ("http://", "https://") must be set accordingly!
 
 ---
 
@@ -185,11 +191,17 @@ canOpenURL(url);
 
 Determine whether or not an installed app can handle a given URL.
 
-NOTE: For web URLs, the protocol ("http://", "https://") must be set accordingly!
+The method returns a `Promise` object. When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
 
-NOTE: As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
+**Parameters:**
 
-@param URL the URL to open
+| Name | Type   | Required | Description      |
+| ---- | ------ | -------- | ---------------- |
+| url  | string | Yes      | The URL to open. |
+
+> For web URLs, the protocol ("http://", "https://") must be set accordingly!
+
+> As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
 
 ---
 
@@ -201,4 +213,4 @@ getInitialURL();
 
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`
 
-NOTE: To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
+> To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents

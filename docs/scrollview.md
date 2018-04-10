@@ -66,6 +66,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 - [`snapToAlignment`](scrollview.md#snaptoalignment)
 - [`snapToInterval`](scrollview.md#snaptointerval)
 - [`zoomScale`](scrollview.md#zoomscale)
+- [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
 ### Methods
 
@@ -539,9 +540,9 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 * `'center'` will align the snap in the center
 * `'end'` will align the snap at the right (horizontal) or bottom (vertical)
 
-| Type                           | Required | Platform |
-| ------------------------------ | -------- | -------- |
-| enum('start', 'center', 'end') | No       | iOS      |
+| Type                           | Required |
+| ------------------------------ | -------- |
+| enum('start', 'center', 'end') | No       |
 
 ---
 
@@ -549,9 +550,11 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 
 When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+Note: Vertical snapToInterval is not supported on Android.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -562,6 +565,16 @@ The current scale of the scroll view content. The default value is 1.0.
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | iOS      |
+
+---
+
+### `nestedScrollEnabled`
+
+Enables nested scrolling for Android API level 21+. Nested scrolling is supported by default on iOS.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ## Methods
 

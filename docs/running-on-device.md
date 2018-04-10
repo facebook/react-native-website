@@ -189,7 +189,7 @@ In this case, it's `22b8`. That's the identifier for Motorola.
 You'll need to input this into your udev rules in order to get up and running:
 
 ```sh
-echo SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev" | sudo tee /etc/udev/rules.d/51-android-usb.rules
+echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
 ```
 
 Make sure that you replace `22b8` with the identifier you get in the above command.
@@ -255,7 +255,7 @@ Open the **Report navigator** tab, select the last **Build** and search for `xip
 
 #### 3. Network/router configuration
 
-React Native uses the wildcard DNS service **xip.io** to address your device. Some routers have security features to prevent DNS Servers to resolve anything in the local IP range.
+React Native uses the wildcard DNS service **xip.io** to address your device, as Apple ATS prohibits URLs with IP addresses instead of domain names, and developers' networks are often not set up to resolve local hostnames. Some routers have security features to prevent DNS Servers from resolving to anything in the local IP range.
 
 Now check if you are able to resolve the xip.io address, by running `nslookup`.
 
@@ -287,7 +287,13 @@ You can use this method if your device is running Android 5.0 (Lollipop) or newe
 Run the following in a command prompt:
 
 ```
-$ adb reverse tcp:8081 tcp:8081
+$ adb -s <device name> reverse tcp:8081 tcp:8081
+```
+
+To find the device name, run the following adb command:
+
+```
+$ adb devices
 ```
 
 You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
@@ -310,13 +316,13 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 
 <block class="mac windows linux android" />
 
-1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
-2. Open your React Native app on your device.
-3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
-5. Go to **Dev Settings** → **Debug server host for device**.
-6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
-7. Go back to the **Developer menu** and select **Reload JS**.
+1.  Make sure your laptop and your phone are on the **same** Wi-Fi network.
+2.  Open your React Native app on your device.
+3.  You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
+4.  Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+5.  Go to **Dev Settings** → **Debug server host & port for device**.
+6.  Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
+7.  Go back to the **Developer menu** and select **Reload JS**.
 
 You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
 

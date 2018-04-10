@@ -79,17 +79,17 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 ```
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  compile 'com.facebook.fresco:animated-base-support:1.3.0'
+  compile 'com.facebook.fresco:animated-base-support:1.8.1'
 
   // For animated GIF support
-  compile 'com.facebook.fresco:animated-gif:1.3.0'
+  compile 'com.facebook.fresco:animated-gif:1.8.1'
 
   // For WebP support, including animated WebP
-  compile 'com.facebook.fresco:animated-webp:1.3.0'
-  compile 'com.facebook.fresco:webpsupport:1.3.0'
+  compile 'com.facebook.fresco:animated-webp:1.8.1'
+  compile 'com.facebook.fresco:webpsupport:1.8.1'
 
   // For WebP support, without animations
-  compile 'com.facebook.fresco:webpsupport:1.3.0'
+  compile 'com.facebook.fresco:webpsupport:1.8.1'
 }
 ```
 
@@ -111,6 +111,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 * [`onLoadStart`](image.md#onloadstart)
 * [`resizeMode`](image.md#resizemode)
 * [`source`](image.md#source)
+* [`loadingIndicatorSource`](image.md#loadingindicatorsource)
 * [`onError`](image.md#onerror)
 * [`testID`](image.md#testid)
 * [`resizeMethod`](image.md#resizemethod)
@@ -120,11 +121,15 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 * [`defaultSource`](image.md#defaultsource)
 * [`onPartialLoad`](image.md#onpartialload)
 * [`onProgress`](image.md#onprogress)
+* [`fadeDuration`](image.md#fadeduration)
 
 ### Methods
 
 * [`getSize`](image.md#getsize)
 * [`prefetch`](image.md#prefetch)
+* [`abortPrefetch`](image.md#abortprefetch)
+* [`queryCache`](image.md#querycache)
+* [`resolveAssetSource`](image.md#resolveassetsource)
 
 ---
 
@@ -134,7 +139,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 
 ### `style`
 
-> `ImageResizeMode` is an `Enum` for different image resizing modes, set via the `resizeMode` style property on `Image` components. The values are `contain`, `cover`, `stretch`, `center`, `repeat`.
+`ImageResizeMode` is an `Enum` for different image resizing modes, set via the `resizeMode` style property on `Image` components. The values are `contain`, `cover`, `stretch`, `center`, `repeat`.
 
 | Type  | Required |
 | ----- | -------- |
@@ -183,7 +188,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 
   A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
-  For details of how this works under the hood, see http://frescolib.org/rounded-corners-and-circles.md
+  For details of how this works under the hood, see http://frescolib.org/docs/rounded-corners-and-circles.html
 
 ---
 
@@ -249,7 +254,9 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 * `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-* `repeat`: Repeat the image to cover the frame of the view. The image will keep it's size and aspect ratio. (iOS only)
+* `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio, unless it is larger than the view, in which case it will be scaled down uniformly so that it is contained in the view.
+
+* `center`: Center the image in the view along both dimensions. If the image is larger than the view, scale it down uniformly so that it is contained in the view.
 
 | Type                                                    | Required |
 | ------------------------------------------------------- | -------- |
@@ -268,6 +275,18 @@ The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp` (
 | Type                | Required |
 | ------------------- | -------- |
 | ImageSourcePropType | No       |
+
+---
+
+### `loadingIndicatorSource`
+
+Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
+
+| Type                                  | Required |
+| ------------------------------------- | -------- |
+| array of ImageSourcePropTypes, number | No       |
+
+> Can accept a number as returned by `require('./image.jpg')`
 
 ---
 
@@ -301,7 +320,7 @@ The mechanism that should be used to resize the image when the image's dimension
 
 * `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
-More details about `resize` and `scale` can be found at http://frescolib.org/resizing-rotating.md.
+More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.html.
 
 | Type                            | Required | Platform |
 | ------------------------------- | -------- | -------- |
@@ -343,14 +362,19 @@ When the image is resized, the corners of the size specified by `capInsets` will
 
 A static image to display while loading the image source.
 
+| Type           | Required | Platform |
+| -------------- | -------- | -------- |
+| object, number | No       | iOS      |
+
+If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
+
 * `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
 * `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
 * `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
-* `number` - Opaque type returned by something like `require('./image.jpg')`.
 
-| Type                                                                      | Required | Platform |
-| ------------------------------------------------------------------------- | -------- | -------- |
-| object: {uri: string,width: number,height: number,scale: number}, ,number | No       | iOS      |
+If passing a number:
+
+* `number` - Opaque type returned by something like `require('./image.jpg')`.
 
 ---
 
@@ -372,12 +396,20 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 | -------- | -------- | -------- |
 | function | No       | iOS      |
 
+### `fadeDuration`
+
+Android only. By default, it is 300ms.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
 ## Methods
 
 ### `getSize()`
 
 ```javascript
-static getSize(uri: string, success: function, [failure]: function):
+Image.getSize(uri, success, [failure]);
 ```
 
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
@@ -399,7 +431,7 @@ Does not work for static image resources.
 ### `prefetch()`
 
 ```javascript
-static prefetch(url: string):
+Image.prefetch(url);
 ```
 
 Prefetches a remote image for later use by downloading it to the disk cache
@@ -409,3 +441,53 @@ Prefetches a remote image for later use by downloading it to the disk cache
 | Name | Type   | Required | Description                       |
 | ---- | ------ | -------- | --------------------------------- |
 | url  | string | Yes      | The remote location of the image. |
+
+---
+
+### `abortPrefetch()`
+
+```javascript
+Image.abortPrefetch(requestId);
+```
+
+Abort prefetch request. Android-only.
+
+**Parameters:**
+
+| Name      | Type   | Required | Description                  |
+| --------- | ------ | -------- | ---------------------------- |
+| requestId | number | Yes      | Id as returned by prefetch() |
+
+---
+
+### `queryCache()`
+
+```javascript
+Image.queryCache(urls);
+```
+
+Perform cache interrogation. Returns a mapping from URL to cache status, such as "disk" or "memory". If a requested URL is not in the mapping, it means it's not in the cache.
+
+**Parameters:**
+
+| Name | Type  | Required | Description                                |
+| ---- | ----- | -------- | ------------------------------------------ |
+| urls | array | Yes      | List of image URLs to check the cache for. |
+
+---
+
+### `resolveAssetSource()`
+
+```javascript
+Image.resolveAssetSource(source);
+```
+
+Resolves an asset reference into an object which has the properties `uri`, `width`, and `height`.
+
+**Parameters:**
+
+| Name   | Type           | Required | Description                                                                  |
+| ------ | -------------- | -------- | ---------------------------------------------------------------------------- |
+| source | number, object | Yes      | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+
+> `ImageSource` is an object like `{ uri: '<http location || file path>' }`

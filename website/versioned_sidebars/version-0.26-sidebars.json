@@ -48,12 +48,12 @@
       "version-0.26-native-modules-android",
       "version-0.26-native-components-android",
       "version-0.26-headless-js-android",
-      "version-0.26-signed-apk-android",
-      "version-0.26-android-building-from-source"
+      "version-0.26-signed-apk-android"
     ],
     "Contributing": [
       "version-0.26-contributing",
       "version-0.26-maintainers",
+      "version-0.26-building-from-source",
       "version-0.26-testing",
       "version-0.26-understanding-cli"
     ],
@@ -62,6 +62,7 @@
       "version-0.26-drawerlayoutandroid",
       "version-0.26-image",
       "version-0.26-modal",
+      "version-0.26-navigator",
       "version-0.26-navigatorios",
       "version-0.26-picker",
       "version-0.26-pickerios",

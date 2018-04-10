@@ -154,7 +154,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">Create React Native App</a>, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Create React Native App</a>, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
@@ -215,7 +215,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is version 4 or newer.
+If you have already installed Node on your system, make sure it is version 6 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -239,7 +239,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs.install python2 jdk8
 ```
 
-If you have already installed Node on your system, make sure it is version 4 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
+If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
@@ -435,7 +435,7 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 ### Watchman (optional)
 
-Follow the [Watchman installation guide](https://facebook.github.io/watchman/install.html#buildinstall) to compile and install Watchman from source.
+Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
 
 > [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance, but it's alright to skip this if you find the process to be tedious.
 

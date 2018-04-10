@@ -20,23 +20,32 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 Simple Examples:
 
-    <SectionList
-      renderItem={({item}) => <ListItem title={item} />}
-      renderSectionHeader={({section}) => <Header title={section.title} />}
-      sections={[ // homogeneous rendering between sections
-        {data: [...], title: ...},
-        {data: [...], title: ...},
-        {data: [...], title: ...},
-      ]}
-    />
+```javascript
+// Example 1 (Homogeneous Rendering) 
+ <SectionList 
+  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>} 
+  renderSectionHeader={({ section: { title } }) => <Text style={{ fontWeight: 'bold' }}>{title}</Text>} 
+  sections={[ 
+   { title: 'Title1', data: ['item1', 'item2'] }, 
+   { title: 'Title2', data: ['item3', 'item4'] }, 
+   { title: 'Title3', data: ['item5', 'item6'] }, 
+   ]} 
+  keyExtractor={(item, index) => item + index} />
+```
 
-    <SectionList
-      sections={[ // heterogeneous rendering between sections
-        {data: [...], renderItem: ...},
-        {data: [...], renderItem: ...},
-        {data: [...], renderItem: ...},
-      ]}
-    />
+```javascript
+// Example 2 (Heterogeneous Rendering / No Section Headers)
+const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
+
+<SectionList
+  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
+  sections={[
+    { title: 'Title1', data: ['item1', 'item2'], renderItem: overrideRenderItem },
+    { title: 'Title2', data: ['item3', 'item4'] },
+    { title: 'Title3', data: ['item5', 'item6'] },
+  ]}
+/>
+```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
 
@@ -337,7 +346,7 @@ scrollToLocation(params);
 
 Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the section) positioned in the viewable area such that `viewPosition` 0 places it at the top (and may be covered by a sticky header), 1 at the bottom, and 0.5 centered in the middle.
 
-> Note: Cannot scroll to locations outside the render window without specifyingthe `getItemLayout` prop.
+> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
 
 **Parameters:**
 
@@ -385,11 +394,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| Name                                     | Type                         | Description                                                                                                                                                            |
-| ---------------------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
-| [key]                                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections,                                                                          |
-| the array index will be used by default. |
-| [renderItem]                             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
-| [ItemSeparatorComponent]                 | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor]                           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+| Name                     | Type                         | Description                                                                                                                                                            |
+| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
+| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
+| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
+| [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
+| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |

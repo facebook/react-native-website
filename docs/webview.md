@@ -23,6 +23,8 @@ class MyWeb extends Component {
 
 You can use this component to navigate back and forth in the web view's history and configure various properties for the web content.
 
+> **Security Warning:** Currently, `onMessage` and `postMessage` do not allow specifying an origin. This can lead to cross-site scripting attacks if an unexpected document is loaded within a `WebView` instance. Please refer to the MDN documentation for [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) for more details on the security implications of this.
+
 ### Props
 
 * [View props...](view.md#props)
@@ -57,6 +59,7 @@ You can use this component to navigate back and forth in the web view's history 
 - [`contentInset`](webview.md#contentinset)
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`scrollEnabled`](webview.md#scrollenabled)
+- [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
 
@@ -204,7 +207,7 @@ Function that returns a view to show if there's an error.
 
 ### `renderLoading`
 
-Function that returns a loading indicator.
+Function that returns a loading indicator. The startInLoadingState prop must be set to true in order to use this prop.
 
 | Type     | Required |
 | -------- | -------- |
@@ -244,7 +247,7 @@ Function that allows custom handling of any web view requests. Return `true` fro
 
 ### `startInLoadingState`
 
-Boolean value that forces the `WebView` to show the loading view on the first load.
+Boolean value that forces the `WebView` to show the loading view on the first load. This prop must be set to `true` in order for the `renderLoading` prop to work.
 
 | Type | Required |
 | ---- | -------- |
@@ -391,6 +394,16 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `allowUniversalAccessFromFileURLs`
+
+Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 

@@ -129,7 +129,7 @@ Follow the instructions for building apps with native code from the [Getting Sta
 
 ### 1. Set up directory structure
 
-To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing Android project to a `/android` subfolder.
+To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing Android project to an `/android` subfolder.
 
 <block class="objc swift android" />
 
@@ -148,15 +148,27 @@ Go to the root directory for your project and create a new `package.json` file w
 }
 ```
 
-Next, you will install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the root directory for your project and type the following commands:
+Next, make sure you have [installed the yarn package manager](https://yarnpkg.com/lang/en/docs/install/).
+
+Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
 ```
-$ npm install --save react@16.0.0-beta.5 react-native
+$ yarn add react-native
 ```
 
-> Make sure you use the same React version as specified in the [React Native package.json](https://github.com/facebook/react-native/blob/master/package.json) for your release. This will only be necessary as long as React Native depends on a pre-release version of React.
+This will print a message similar to the following (scroll up in the yarn output to see it):
 
-This will create a new `/node_modules` folder in your project's root directory. This folder stores all the JavaScript dependencies required to build your project.
+> warning "react-native@0.52.2" has unmet peer dependency "react@16.2.0".
+
+This is OK, it means we also need to install React:
+
+```
+$ yarn add react@version_printed_above
+```
+
+Yarn has created a new `/node_modules` folder. This folder stores all the JavaScript dependencies required to build your project.
+
+Add `node_modules/` to your `.gitignore` file.
 
 <block class="objc swift" />
 
@@ -188,6 +200,12 @@ Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a 
 
 ![Before RN Integration](/react-native/docs/assets/react-native-existing-app-integration-ios-before.png)
 
+### Command Line Tools for Xcode
+
+Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
+
+![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+
 ### Configuring CocoaPods dependencies
 
 Before you integrate React Native into your application, you will want to decide what parts of the React Native framework you would like to integrate. We will use CocoaPods to specify which of these "subspecs" your app will depend on.
@@ -212,10 +230,12 @@ target 'NumberTileGame' do
   # but if not, adjust the `:path` accordingly
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
+    'CxxBridge', # Include this for RN >= 0.47
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
     'RCTText',
     'RCTNetwork',
-    'RCTWebSocket', # needed for debugging
+    'RCTWebSocket', # Needed for debugging
+    'RCTAnimation', # Needed for FlatList and animations running on native UI thread
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
@@ -223,7 +243,7 @@ target 'NumberTileGame' do
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 end
@@ -257,7 +277,7 @@ target 'swift-2048' do
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
-  pod 'GLog', :podspec => '../node_modules/react-native/third-party-podspecs/GLog.podspec'
+  pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
 end
@@ -283,6 +303,8 @@ Integrating client project
 Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
+
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in Preferences > Locations the Command Line Tools are assigned.
 
 <block class="swift" />
 
@@ -542,7 +564,7 @@ Add the React Native dependency to your app's `build.gradle` file:
 dependencies {
     compile 'com.android.support:appcompat-v7:23.0.1'
     ...
-    compile "com.facebook.react:react-native:+" // From node_modules.
+    compile "com.facebook.react:react-native:+" // From node_modules
 }
 ```
 
@@ -575,7 +597,7 @@ If you need to access to the `DevSettingsActivity` add to your `AndroidManifest.
 
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
-This is only really used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
+This is only used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
 
 ### Code integration
 
@@ -625,9 +647,13 @@ AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
 
 ##### 3. Configure permissions for development error overlay
 
-If your app is targeting the Android `API level 23` or greater, make sure you have the `overlay` permission enabled for the development build. You can check it with `Settings.canDrawOverlays(this);`. This is required in dev builds because react native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23, the user needs to approve it. This can be achieved by adding the following code to the Activity file in the onCreate() method. OVERLAY_PERMISSION_REQ_CODE is a field of the class which would be responsible for passing the result back to the Activity.
+If your app is targeting the Android `API level 23` or greater, make sure you have the permission `android.permission.SYSTEM_ALERT_WINDOW` enabled for the development build. You can check this with `Settings.canDrawOverlays(this);`. This is required in dev builds because React Native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23 (Android M), the user needs to approve it. This can be achieved by adding the following code to your Activity's in `onCreate()` method.
 
 ```java
+private final int OVERLAY_PERMISSION_REQ_CODE = 1;  // Choose any value
+
+...
+
 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
     if (!Settings.canDrawOverlays(this)) {
         Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
@@ -645,7 +671,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!Settings.canDrawOverlays(this)) {
-                // SYSTEM_ALERT_WINDOW permission not granted...
+                // SYSTEM_ALERT_WINDOW permission not granted
             }
         }
     }
@@ -654,7 +680,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 #### The Magic: `ReactRootView`
 
-You need to add some native code in order to start the React Native runtime and get it to render something. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
+Let's add some native code in order to start the React Native runtime and tell it to render our JS component. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
 
 > If you are targetting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
 
@@ -676,6 +702,8 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
+        // The string here (e.g. "MyReactNativeApp") has to match
+        // the string in AppRegistry.registerComponent() in index.js
         mReactRootView.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null);
 
         setContentView(mReactRootView);
@@ -690,9 +718,9 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
 
 > If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your index.js file (it’s the first argument to the `AppRegistry.registerComponent()` method).
 
-If you are using Android Studio, use `Alt + Enter` to add all missing imports in your MyReactActivity class. Be careful to use your package’s `BuildConfig` and not the one from the `...facebook...` package.
+If you are using Android Studio, use `Alt + Enter` to add all missing imports in your MyReactActivity class. Be careful to use your package’s `BuildConfig` and not the one from the `facebook` package.
 
-We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` because some components rely on this theme.
+We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` because some React Native UI components rely on this theme.
 
 ```xml
 <activity
@@ -702,9 +730,9 @@ We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar
 </activity>
 ```
 
-> A `ReactInstanceManager` can be shared amongst multiple activities and/or fragments. You will want to make your own `ReactFragment` or `ReactActivity` and have a singleton _holder_ that holds a `ReactInstanceManager`. When you need the `ReactInstanceManager` (e.g., to hook up the `ReactInstanceManager` to the lifecycle of those Activities or Fragments) use the one provided by the singleton.
+> A `ReactInstanceManager` can be shared by multiple activities and/or fragments. You will want to make your own `ReactFragment` or `ReactActivity` and have a singleton _holder_ that holds a `ReactInstanceManager`. When you need the `ReactInstanceManager` (e.g., to hook up the `ReactInstanceManager` to the lifecycle of those Activities or Fragments) use the one provided by the singleton.
 
-Next, we need to pass some activity lifecycle callbacks down to the `ReactInstanceManager`:
+Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceManager` and `ReactRootView`:
 
 ```java
 @Override
@@ -732,6 +760,9 @@ protected void onDestroy() {
     if (mReactInstanceManager != null) {
         mReactInstanceManager.onHostDestroy(this);
     }
+    if (mReactRootView != null) {
+        mReactRootView.unmountReactApplication();
+    }
 }
 ```
 
@@ -748,7 +779,7 @@ We also need to pass back button events to React Native:
 }
 ```
 
-This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle a back press, your `invokeDefaultOnBackPressed` method will be called. By default this simply finishes your `Activity`.
+This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle the back button press, your `invokeDefaultOnBackPressed` method will be called. By default this simply finishes your `Activity`.
 
 Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use `Ctrl + M` if you're using Android Studio emulator):
 
@@ -774,7 +805,7 @@ You have now done all the basic steps to integrate React Native with your curren
 To run your app, you need to first start the development server. To do this, simply run the following command in the root directory of your React Native project:
 
 ```
-$ npm start
+$ yarn start
 ```
 
 ##### 2. Run the app

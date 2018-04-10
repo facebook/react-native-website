@@ -49,7 +49,7 @@ To see what changes are coming and provide better feedback to React Native contr
 
 ## Bugs
 
-We use [GitHub Issues](https://github.com/facebook/react-native/issues) for our public bugs. If you would like to report a problem, take a look around and see if someone already opened an issue about it. If you a are certain this is a new, unreported bug, you can submit a [bug report](http://facebook.github.io/react-native/docs/contributing.html#reporting-new-issues).
+We use [GitHub Issues](https://github.com/facebook/react-native/issues) for our public bugs. If you would like to report a problem, take a look around and see if someone already opened an issue about it. If you are certain this is a new, unreported bug, you can submit a [bug report](http://facebook.github.io/react-native/docs/contributing.html#reporting-new-issues).
 
 If you have questions about using React Native, the [Community page](http://facebook.github.io/react-native/help.html) list various resources that should help you get started.
 
@@ -80,7 +80,7 @@ Working on your first Pull Request? You can learn how from this free video serie
 
 [**How to Contribute to an Open Source Project on GitHub**](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
-We have a list of [beginner friendly issues](https://github.com/facebook/react-native/labels/Good%20First%20Task) to help you get your feet wet in the React Native codebase and familiar with our contribution process. This is a great place to get started.
+We have a list of [beginner friendly issues](https://github.com/facebook/react-native/labels/Good%20first%20issue) to help you get your feet wet in the React Native codebase and familiar with our contribution process. This is a great place to get started.
 
 ### Proposing a change
 
@@ -96,11 +96,11 @@ Small pull requests are much easier to review and more likely to get merged. Mak
 
 Please make sure the following is done when submitting a pull request:
 
-1. Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
-2. Add the copyright notice to the top of any new files you've added.
-3. Describe your [**test plan**](contributing.html#test-plan) in your pull request description. Make sure to [test your changes](testing.html)!
-4. Make sure your code lints (`npm run lint`).
-5. If you haven't already, [sign the CLA](https://code.facebook.com/cla).
+1.  Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
+2.  Add the copyright notice to the top of any new files you've added.
+3.  Describe your [**test plan**](contributing.html#test-plan) in your pull request description. Make sure to [test your changes](testing.html)!
+4.  Make sure your code lints (`npm run lint`).
+5.  If you haven't already, [sign the CLA](https://code.facebook.com/cla).
 
 All pull requests should be opened against the `master` branch. After opening your pull request, ensure [**all tests pass**](contributing.html#contrinuous-integration-tests) on Circle CI. If a test fails and you believe it is unrelated to your change, leave a comment on the pull request explaining why.
 
@@ -111,8 +111,8 @@ All pull requests should be opened against the `master` branch. After opening yo
 A good test plan has the exact commands you ran and their output, provides screenshots or videos if the pull request changes UI or updates the website.
 
 * If you've added code that should be tested, add tests!
-* If you've changed APIs, update the documentation.
-* If you've updated the docs, verify the website locally and submit screenshots if applicable (see [website/README.md](https://github.com/facebook/react-native/blob/master/website/README.md))
+* If you've changed APIs, update the documentation via an additional PR to the [react-native-website](https://github.com/facebook/react-native-website) repo.
+* If you've updated the docs, verify the website locally and submit screenshots if applicable (see the [react-native-website](https://github.com/facebook/react-native-website) README).
 
 See [What is a Test Plan?](https://medium.com/@martinkonicek/what-is-a-test-plan-8bfc840ec171#.y9lcuqqi9) to learn more.
 
@@ -144,11 +144,9 @@ Copy and paste this to the top of your new file(s):
 ```javascript
 /**
  * Copyright (c) 2015-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 ```
 

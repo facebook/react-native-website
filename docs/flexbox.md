@@ -36,7 +36,7 @@ AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 
 #### Justify Content
 
-Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, and `space-between`.
+Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, `space-between` and `space-evenly`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';

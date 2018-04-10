@@ -46,12 +46,47 @@ async function requestCameraPermission() {
 }
 ```
 
+### Permissions that require prompting the user
+
+Available as constants under `PermissionsAndroid.PERMISSIONS`:
+
+* `READ_CALENDAR`: 'android.permission.READ_CALENDAR'
+* `WRITE_CALENDAR`: 'android.permission.WRITE_CALENDAR'
+* `CAMERA`: 'android.permission.CAMERA'
+* `READ_CONTACTS`: 'android.permission.READ_CONTACTS'
+* `WRITE_CONTACTS`: 'android.permission.WRITE_CONTACTS'
+* `GET_ACCOUNTS`: 'android.permission.GET_ACCOUNTS'
+* `ACCESS_FINE_LOCATION`: 'android.permission.ACCESS_FINE_LOCATION'
+* `ACCESS_COARSE_LOCATION`: 'android.permission.ACCESS_COARSE_LOCATION'
+* `RECORD_AUDIO`: 'android.permission.RECORD_AUDIO'
+* `READ_PHONE_STATE`: 'android.permission.READ_PHONE_STATE'
+* `CALL_PHONE`: 'android.permission.CALL_PHONE'
+* `READ_CALL_LOG`: 'android.permission.READ_CALL_LOG'
+* `WRITE_CALL_LOG`: 'android.permission.WRITE_CALL_LOG'
+* `ADD_VOICEMAIL`: 'com.android.voicemail.permission.ADD_VOICEMAIL'
+* `USE_SIP`: 'android.permission.USE_SIP'
+* `PROCESS_OUTGOING_CALLS`: 'android.permission.PROCESS_OUTGOING_CALLS'
+* `BODY_SENSORS`: 'android.permission.BODY_SENSORS'
+* `SEND_SMS`: 'android.permission.SEND_SMS'
+* `RECEIVE_SMS`: 'android.permission.RECEIVE_SMS'
+* `READ_SMS`: 'android.permission.READ_SMS'
+* `RECEIVE_WAP_PUSH`: 'android.permission.RECEIVE_WAP_PUSH'
+* `RECEIVE_MMS`: 'android.permission.RECEIVE_MMS'
+* `READ_EXTERNAL_STORAGE`: 'android.permission.READ_EXTERNAL_STORAGE'
+* `WRITE_EXTERNAL_STORAGE`: 'android.permission.WRITE_EXTERNAL_STORAGE'
+
+### Result strings for requesting permissions
+
+Available as constants under `PermissionsAndroid.RESULTS`:
+
+* `GRANTED`: 'granted'
+* `DENIED`: 'denied'
+* `NEVER_ASK_AGAIN`: 'never_ask_again'
+
 ### Methods
 
 * [`constructor`](permissionsandroid.md#constructor)
-* [`checkPermission`](permissionsandroid.md#checkpermission)
 * [`check`](permissionsandroid.md#check)
-* [`requestPermission`](permissionsandroid.md#requestpermission)
 * [`request`](permissionsandroid.md#request)
 * [`requestMultiple`](permissionsandroid.md#requestmultiple)
 
@@ -69,55 +104,38 @@ constructor();
 
 ---
 
-### `checkPermission()`
-
-```javascript
-checkPermission(permission);
-```
-
-DEPRECATED - use check
-
-Returns a promise resolving to a boolean value as to whether the specified permissions has been granted
-
-@deprecated
-
----
-
 ### `check()`
 
 ```javascript
 check(permission);
 ```
 
-Returns a promise resolving to a boolean value as to whether the specified permissions has been granted
+Returns a promise resolving to a boolean value as to whether the specified permissions has been granted.
 
----
+**Parameters:**
 
-### `requestPermission()`
-
-```javascript
-requestPermission(permission, rationale?)
-```
-
-DEPRECATED - use request
-
-Prompts the user to enable a permission and returns a promise resolving to a boolean value indicating whether the user allowed or denied the request
-
-If the optional rationale argument is included (which is an object with a `title` and `message`), this function checks with the OS whether it is necessary to show a dialog explaining why the permission is needed (https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog
-
-@deprecated
+| Name       | Type   | Required | Description                  |
+| ---------- | ------ | -------- | ---------------------------- |
+| permission | string | Yes      | The permission to check for. |
 
 ---
 
 ### `request()`
 
 ```javascript
-request(permission, rationale?)
+request(permission, [rationale]);
 ```
 
-Prompts the user to enable a permission and returns a promise resolving to a string value indicating whether the user allowed or denied the request
+Prompts the user to enable a permission and returns a promise resolving to a string value (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
 
-If the optional rationale argument is included (which is an object with a `title` and `message`), this function checks with the OS whether it is necessary to show a dialog explaining why the permission is needed (https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog
+If `rationale` is provided, this function checks with the OS whether it is necessary to show a dialog explaining why the permission is needed (https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog.
+
+**Parameters:**
+
+| Name       | Type   | Required | Description                          |
+| ---------- | ------ | -------- | ------------------------------------ |
+| permission | string | Yes      | The permission to request.           |
+| rationale  | object | No       | Object with a `title` and `message`. |
 
 ---
 
@@ -127,4 +145,10 @@ If the optional rationale argument is included (which is an object with a `title
 requestMultiple(permissions);
 ```
 
-Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values indicating whether the user allowed or denied the request
+Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
+
+**Parameters:**
+
+| Name        | Type  | Required | Description                     |
+| ----------- | ----- | -------- | ------------------------------- |
+| permissions | array | Yes      | Array of permission to request. |

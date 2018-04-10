@@ -51,7 +51,7 @@ Run the following command to start the process of upgrading to the latest versio
 $ react-native-git-upgrade
 ```
 
-> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y`
+> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y.Z`
 
 The templates are upgraded in a optimized way. You still may encounter conflicts but only where the Git 3-way merge have failed, depending on the version and how you modified your sources.
 

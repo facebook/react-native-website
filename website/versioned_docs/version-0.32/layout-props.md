@@ -476,6 +476,8 @@ It works similarly to `width` in CSS, but in React Native you must use logical p
 
 It works like the CSS `z-index` property - components with a larger `zIndex` will render on top. Think of the z-direction like it's pointing from the phone into your eyeball. See https://developer.mozilla.org/en-US/docs/Web/CSS/z-index for more details.
 
+On iOS, `zIndex` may require `View`s to be siblings of each other for it to work as expected.
+
 | Type                  | Required |
 | --------------------- | -------- |
 | ReactPropTypes.number | No       |

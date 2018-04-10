@@ -42,8 +42,11 @@ function htmlForCodeBlock(code) {
  * whenever an example that uses the SnackPlayer is updated with code
  * that requires a newer Expo SDK release.
  */
-const LatestSDKVersion = '23.0.0';
+const LatestSDKVersion = '26.0.0';
 const ReactNativeToExpoSDKVersionMap = {
+  '0.54': '26.0.0',
+  '0.52': '25.0.0',
+  '0.51': '24.0.0',
   '0.50': '23.0.0',
   '0.49': '22.0.0',
   '0.48': '21.0.0',
