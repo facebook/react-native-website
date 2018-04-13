@@ -87,6 +87,17 @@
     "pinned": true
   },
   {
+    "name": "GrabPay Merchant",
+    "icon": "grabPayMerchant.png",
+    "linkAppStore":
+      "https://itunes.apple.com/sg/app/grabpay-merchant/id1343620481?mt=8",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.grabpay.merchant",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
     "name": "Artsy",
     "icon":
       "https://raw.githubusercontent.com/artsy/eigen/master/Artsy/Resources/Images.xcassets/AppIcon.appiconset/AppIcon167.png",
