@@ -23,6 +23,8 @@ title: Linking
 If your app was launched from an external url registered to your app you can access and handle it from any component you want with
 
 ```
+import {Linking} from "react-native";
+
 componentDidMount() {
   Linking.getInitialURL().then((url) => {
     if (url) {
