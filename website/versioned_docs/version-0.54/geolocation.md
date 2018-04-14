@@ -156,3 +156,7 @@ Geolocation.clearWatch(watchID);
 ```javascript
 Geolocation.stopObserving();
 ```
+
+Stops observing for device location changes. In addition, it removes all listeners previously registered.
+
+Notice that this method has only effect if the `geolocation.watchPosition(successCallback, errorCallback)` method was previously invoked.
