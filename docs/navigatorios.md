@@ -12,7 +12,7 @@ To set up the navigator, provide the `initialRoute` prop with a route object. A 
 ```
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { NavigatorIOS, Text } from 'react-native';
+import { NavigatorIOS, Text, TouchableHighlight, View } from 'react-native';
 
 export default class NavigatorIOSApp extends Component {
   render() {
