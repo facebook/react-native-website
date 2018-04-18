@@ -3,7 +3,7 @@ title: Building <InputAccessoryView> For React Native
 author: Peter Argany
 authorTitle: Software Engineer at Facebook
 authorURL: https://github.com/PeteTheHeat
-authorImage: https://avatars3.githubusercontent.com/u/6011080?s=400&u=028e28081107d0ab16a5cb22baca43c080f5fa50&v=4
+authorImageURL: https://avatars3.githubusercontent.com/u/6011080?s=400&u=028e28081107d0ab16a5cb22baca43c080f5fa50&v=4
 authorTwitter: peterargany
 category: engineering
 ---

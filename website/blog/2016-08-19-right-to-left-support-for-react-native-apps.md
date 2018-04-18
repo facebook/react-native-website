@@ -3,7 +3,7 @@ title: Right-to-Left Layout Support For React Native Apps
 author: Mengjue (Mandy) Wang
 authorTitle: Software Engineer Intern at Facebook
 authorURL: https://github.com/MengjueW
-authorImage: https://avatars0.githubusercontent.com/u/13987140?v=3&s=128
+authorImageURL: https://avatars0.githubusercontent.com/u/13987140?v=3&s=128
 category: engineering
 ---
 
