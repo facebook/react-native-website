@@ -381,7 +381,7 @@ See what push permissions are currently enabled.
 PushNotificationIOS.getInitialNotification();
 ```
 
-This method returns a promise that resolves to either the notification object if the app was launched by a push notification, or `null` otherwise.
+This method returns a promise. If the app was launched by a push notification, this promise resolves to an object of type `PushNotificationIOS`. Otherwise, it resolves to `null`.
 
 ---
 

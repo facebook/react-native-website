@@ -137,6 +137,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`selectionState`](textinput.md#selectionstate)
 - [`selectTextOnFocus`](textinput.md#selecttextonfocus)
 - [`spellCheck`](textinput.md#spellcheck)
+- [`textContentType`](textinput.md#textcontenttype)
 - [`style`](textinput.md#style)
 - [`textBreakStrategy`](textinput.md#textbreakstrategy)
 - [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
@@ -475,11 +476,11 @@ Callback that is called when the text input is focused.
 
 ### `onKeyPress`
 
-Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks.
+Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks. Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
 
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -656,6 +657,49 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `textContentType`
+
+Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
+
+For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
+
+To disable autofill, set `textContentType` to `none`.
+
+Possible values for `textContentType` are:
+
+* `none`
+* `URL`
+* `addressCity`
+* `addressCityAndState`
+* `addressState`
+* `countryName`
+* `creditCardNumber`
+* `emailAddress`
+* `familyName`
+* `fullStreetAddress`
+* `givenName`
+* `jobTitle`
+* `location`
+* `middleName`
+* `name`
+* `namePrefix`
+* `nameSuffix`
+* `nickname`
+* `organizationName`
+* `postalCode`
+* `streetAddressLine1`
+* `streetAddressLine2`
+* `sublocality`
+* `telephoneNumber`
+* `username`
+* `password`
+
+| Type                                                                                                                                                     | Required | Platform |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
 
 ---
 

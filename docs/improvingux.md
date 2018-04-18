@@ -3,21 +3,6 @@ id: improvingux
 title: Improving User Experience
 ---
 
-Building apps for mobile platforms is nuanced, there are many little details that developers coming from a web background often do not consider. This guide is intended to explain some of these nuances and demonstrate how you might factor them in to your application.
-
-> We are improving and adding more details to this page. If you'd like to help out, chime in at [react-native/14979](https://github.com/facebook/react-native/issues/14979).
-
-## Topics index
-
-* [Configure text inputs](#configure-text-inputs)
-* [Manage layout when keyboard is visible](#manage-layout-when-keyboard-is-visible)
-* [Make tappable areas larger](#make-tappable-areas-larger)
-* [Use Android Ripple](#use-android-ripple)
-* [Screen orientation lock](#screen-orientation-lock)
-* [Learn More](#learn-more)
-
----
-
 ## Configure text inputs
 
 Entering text on touch phone is a challenge - small screen, software keyboard. But based on what kind of data you need, you can make it easier by properly configuring the text inputs:

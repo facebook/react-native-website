@@ -26,6 +26,8 @@ You need to include the `NSLocationWhenInUseUsageDescription` key in Info.plist 
 
 In order to enable geolocation in the background, you need to include the 'NSLocationAlwaysUsageDescription' key in Info.plist and add location as a background mode in the 'Capabilities' tab in Xcode.
 
+If you are using CocoaPods for React Native, make sure to include the `RCTGeolocation` sub-podspec.
+
 #### Android
 
 To request access to location, you need to add the following line to your app's `AndroidManifest.xml`:
@@ -155,3 +157,7 @@ Geolocation.clearWatch(watchID);
 ```javascript
 Geolocation.stopObserving();
 ```
+
+Stops observing for device location changes. In addition, it removes all listeners previously registered.
+
+Notice that this method has only effect if the `geolocation.watchPosition(successCallback, errorCallback)` method was previously invoked.
