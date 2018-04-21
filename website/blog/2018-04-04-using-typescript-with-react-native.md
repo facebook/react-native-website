@@ -56,17 +56,6 @@ The `tsconfig.json` file contains all the settings for the TypeScript compiler. 
 }
 ```
 
-You'll also want to add this to the **top-level** of the config, to tell TypeScript not to try compiling your `node_modules` directory:
-
-```js
-{
-  /* This will be in the top-level of the config file. */
-  "exclude": [
-    "node_modules"
-  ]
-}
-```
-
 The `rn-cli.config.js` contains the settings for the React Native TypeScript Transformer. Open it and add the following:
 
 ```js
