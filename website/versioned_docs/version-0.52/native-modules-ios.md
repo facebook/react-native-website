@@ -197,7 +197,7 @@ Native modules can also fulfill a promise, which can simplify your code, especia
 Refactoring the above code to use a promise instead of callbacks looks like this:
 
 ```objectivec
-RCT_REMAP_METHOD(findEvents,
+RCT_REMAP_METHOD(findEvents
                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
