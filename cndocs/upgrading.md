@@ -31,7 +31,7 @@ The module `react-native-git-upgrade` provides a one-step operation to upgrade t
 
 > **IMPORTANT:** You don't have to install the new version of the `react-native` package, it will be installed automatically.
 
-#### 1. Install Git
+#### 1. 安装 Git
 
 While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `react-native-git-upgrade`. Git will also need to be available in the `PATH`.
 

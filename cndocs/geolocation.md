@@ -32,6 +32,8 @@ title: Geolocation
 
 In order to enable geolocation in the background, you need to include the 'NSLocationAlwaysUsageDescription' key in Info.plist and add location as a background mode in the 'Capabilities' tab in Xcode.
 
+如果你是使用 CocoaPods 来引入 React Native，那么请确保你在使用本 API 前引入了`RCTGeolocation`模块。 sub-podspec.
+
 #### Android
 
 要请求访问地理位置的权限，你需要在`AndroidManifest.xml`文件中加入如下一行：
@@ -156,3 +158,7 @@ Geolocation.clearWatch(watchID);
 ```javascript
 Geolocation.stopObserving();
 ```
+
+Stops observing for device location changes. In addition, it removes all listeners previously registered.
+
+Notice that this method has only effect if the `geolocation.watchPosition(successCallback, errorCallback)` method was previously invoked.

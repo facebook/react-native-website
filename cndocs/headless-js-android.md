@@ -71,7 +71,7 @@ getApplicationContext().startService(service);
 
 ## 示例
 
-Service can be started from Java API. First you need to decide when the service should be started and implement your solution accordingly. Here is a simple example that reacts to network connection change.
+我们可以使用 Java API 来开启一个 service。. First you need to decide when the service should be started and implement your solution accordingly. Here is a simple example that reacts to network connection change.
 
 Following lines shows part of Android manifest file for registering broadcast receiver.
 

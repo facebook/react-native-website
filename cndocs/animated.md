@@ -3,9 +3,9 @@ id: animated
 title: Animated
 ---
 
-The `Animated` library is designed to make animations fluid, powerful, and easy to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
+`Animated`库旨在使动画变得流畅，强大并易于构建和维护。`Animated`侧重于输入和输出之间的声明性关系，以及两者之间的可配置变换，此外还提供了简单的 `start/stop`方法来控制基于时间的动画执行。
 
-The simplest workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
+创建动画最简单的工作流程是创建一个 `Animated.Value` ，将它连接到动画组件的一个或多个样式属性，然后使用`Animated.timing()`通过动画效果展示数据的变化：
 
 ```javascript
 Animated.timing(
@@ -33,20 +33,20 @@ Animated.timing(
 `Animated`提供了三种动画类型。每种动画类型都提供了特定的函数曲线，用于控制动画值从初始值变化到最终值的变化过程：
 
 * [`Animated.decay()`](animated.md#decay)以指定的初始速度开始变化，然后变化速度越来越慢直至停下。
-* [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
-* [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
+* [`Animated.spring()`](animated.md#spring)提供了一个简单的弹簧物理模型.
+* [`Animated.timing()`](animated.md#timing)使用[easing 函数](easing.md)让数值随时间动起来。
 
-大多数情况下你应该使用`timing()`. By default, it uses a symmetric easeInOut curve that conveys the gradual acceleration of an object to full speed and concludes by gradually decelerating to a stop.
+大多数情况下你应该使用`timing()`。默认情况下，它使用对称的 easeInOut 曲线，将对象逐渐加速到全速，然后通过逐渐减速停止结束。
 
 ### 使用动画
 
-Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
+通过在动画上调用`start()`来启动动画。 `start()`需要一个 完成 回调函数，当动画完成时将会调用它。如果动画运行正常，则将通过`{finished：true}`触发回调。如果动画是因为调用了`stop()`而结束（例如，因为它被手势或其他动画中断），则它会收到`{finished：false}`。
 
 ### 启用原生动画驱动
 
-By using the native driver, we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
+使用原生动画，我们会在开始动画之前将所有关于动画的内容发送到原生代码，从而使用原生代码在 UI 线程上执行动画，而不是通过对每一帧的桥接去执行动画。一旦动画开始，JS 线程就可以在不影响动画效果的情况下阻塞（去执行其他任务）掉了。
 
-You can use the native driver by specifying `useNativeDriver: true` in your animation configuration. 你可以在[动画文档](animations.md#启用原生动画驱动) 中看到更详细的解释。
+您可以通过在动画配置中指定`useNativeDriver：true` 来使用原生动画驱动。你可以在[动画文档](animations.md#启用原生动画驱动) 中看到更详细的解释。
 
 ### 自定义动画组件
 
@@ -63,29 +63,30 @@ You can use the native driver by specifying `useNativeDriver: true` in your anim
 
 ### 组合动画
 
-Animations can also be combined in complex ways using composition functions:
+动画还可以使用组合函数以复杂的方式进行组合：
 
-* [`Animated.delay()`](animated.md#delay) starts an animation after a given delay.
-* [`Animated.parallel()`](animated.md#parallel) starts a number of animations at the same time.
-* [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
-* [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
+* [`Animated.delay()`](animated.md#delay)在给定延迟后开始动画。
+* [`Animated.parallel()`](animated.md#parallel)同时启动多个动画。
+* [`Animated.sequence()`](animated.md#sequence)按顺序启动动画，等待每一个动画完成后再开始下一个动画。
+* [`Animated.stagger()`](animated.md#stagger)按照给定的延时间隔，顺序并行的启动动画。
 
-Animations can also be chained together simply by setting the `toValue` of one animation to be another `Animated.Value`. See [跟踪动态值](animations.md#跟踪动态值) in the Animations guide.
+动画也可以通过将`toValue`设置为另一个动画的`Animated.Value`来简单的链接在一起。请参阅动画指南中的[跟踪动态值](animations.md＃跟踪动态值)值。
 
-By default, if one animation is stopped or interrupted, then all other animations in the group are also stopped.
+默认情况下，如果一个动画停止或中断，则组合中的所有其他动画也会停止。
 
 ### 合成动画值
 
 你可以使用加减乘除以及取余等运算来把两个动画值合成为一个新的动画值：
 
 * [`Animated.add()`](animated.md#add)
+* [`Animated.subtract()`](animated.md#subtract)
 * [`Animated.divide()`](animated.md#divide)
 * [`Animated.modulo()`](animated.md#modulo)
 * [`Animated.multiply()`](animated.md#multiply)
 
 ### 插值
 
-The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses lineal interpolation by default but also supports easing functions.
+`interpolate()`函数允许输入范围映射到不同的输出范围。默认情况下，它将推断超出给定范围的曲线，但也可以限制输出值。它默认使用线性插值，但也支持缓动功能。
 
 * [`interpolate()`](animated.md#插值)
 
@@ -93,11 +94,11 @@ The `interpolate()` function allows input ranges to map to different output rang
 
 ### 处理手势和其他事件
 
-Gestures, like panning or scrolling, and other events can map directly to animated values using `Animated.event()`. This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
+手势，如平移或滚动，以及其他事件可以使用`Animated.event()`直接映射到动画值。这是通过结构化映射语法完成的，以便可以从复杂的事件对象中提取值。第一层参数是一个数组，你可以在其中指定多个参数映射，这种映射可以是嵌套的对象。
 
 * [`Animated.event()`](animated.md#event)
 
-For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
+例如，在使用水平滚动手势时，为了将`event.nativeEvent.contentOffset.x`映射到`scrollX`（`Animated.Value`），您需要执行以下操作：
 
 ```javascript
  onScroll={Animated.event(
@@ -117,6 +118,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
 * [`timing`](animated.md#timing)
 * [`spring`](animated.md#spring)
 * [`add`](animated.md#add)
+* [`subtract`](animated.md#subtract)
 * [`divide`](animated.md#divide)
 * [`multiply`](animated.md#multiply)
 * [`modulo`](animated.md#modulo)
@@ -229,6 +231,16 @@ static add(a, b)
 
 ---
 
+### `subtract()`
+
+```javascript
+static subtract(a, b)
+```
+
+将两个动画值相减计算，得出一个新的动画值。
+
+---
+
 ### `divide()`
 
 ```javascript
@@ -317,7 +329,7 @@ static stagger(time, animations)
 static loop(animation)
 ```
 
-无限循环指定的动画，从头到尾周而复始。Can specify number of times to loop using the key `iterations` in the config. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+无限循环一个指定的动画，从头到尾周而复始。Can specify number of times to loop using the key `iterations` in the config. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
 
 ---
 
@@ -365,7 +377,7 @@ Advanced imperative API for snooping on animated events that are passed in throu
 static unforkEvent(event, listener)
 ```
 
-## Properties
+## 属性
 
 ---
 

@@ -13,7 +13,7 @@ Renders the native picker component on iOS and Android. Example:
       <Picker.Item label="JavaScript" value="js" />
     </Picker>
 
-### Props
+### 查看 Props
 
 * [View props...](view.md#props)
 

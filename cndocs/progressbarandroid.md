@@ -3,25 +3,43 @@ id: progressbarandroid
 title: ProgressBarAndroid
 ---
 
-React component that wraps the Android-only `ProgressBar`. This component is used to indicate that the app is loading or there is some activity in the app.
+Android-only React component used to indicate that the app is loading or there is some activity in the app.
 
 Example:
 
 ```
-render: function() {
-  var progressBar =
-    <View style={styles.container}>
-      <ProgressBar styleAttr="Inverse" />
-    </View>;
+import React, { Component } from "react";
+import {
+  ProgressBarAndroid,
+  AppRegistry,
+  StyleSheet,
+  View
+} from "react-native";
 
-  return (
-    <MyLoadingComponent
-      componentView={componentView}
-      loadingView={progressBar}
-      style={styles.loadingComponent}
-    />
-  );
-},
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <ProgressBarAndroid />
+        <ProgressBarAndroid styleAttr="Horizontal" />
+        <ProgressBarAndroid styleAttr="Horizontal" color="#2196F3" />
+        <ProgressBarAndroid
+          styleAttr="Horizontal"
+          indeterminate={false}
+          progress={0.5}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-evenly",
+    padding: 10
+  }
+});
 ```
 
 ### Props
@@ -46,8 +64,8 @@ render: function() {
 Whether to show the ProgressBar (true, the default) or hide it (false).
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -56,8 +74,8 @@ Whether to show the ProgressBar (true, the default) or hide it (false).
 Color of the progress bar.
 
 | 类型               | 必填 |
-| ------------------ | -------- |
-| [color](colors.md) | 否       |
+| ------------------ | ---- |
+| [color](colors.md) | 否   |
 
 ---
 
@@ -66,8 +84,8 @@ Color of the progress bar.
 If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal.
 
 | 类型              | 必填 |
-| ----------------- | -------- |
-| indeterminateType | 否       |
+| ----------------- | ---- |
+| indeterminateType | 否   |
 
 ---
 
@@ -76,8 +94,8 @@ If the progress bar will show indeterminate progress. Note that this can only be
 The progress value (between 0 and 1).
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -94,8 +112,8 @@ Style of the ProgressBar. One of:
 * LargeInverse
 
 | 类型                                                                                      | 必填 |
-| ----------------------------------------------------------------------------------------- | -------- |
-| enum('Horizontal', 'Normal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | 否       |
+| ----------------------------------------------------------------------------------------- | ---- |
+| enum('Horizontal', 'Normal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | 否   |
 
 ---
 
@@ -104,5 +122,5 @@ Style of the ProgressBar. One of:
 Used to locate this view in end-to-end tests.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |

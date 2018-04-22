@@ -3,9 +3,9 @@ id: viewpagerandroid
 title: ViewPagerAndroid
 ---
 
-一个允许在子视图之间左右翻页的容器。每一个ViewPagerAndroid的子容器会被视作一个单独的页，并且会被拉伸填满ViewPagerAndroid。
+一个允许在子视图之间左右翻页的容器。每一个 ViewPagerAndroid 的子容器会被视作一个单独的页，并且会被拉伸填满 ViewPagerAndroid。
 
-注意所有的子视图都必须是纯View，而不能是自定义的复合容器。你可以给每个子视图设置样式属性譬如padding或backgroundColor。
+注意所有的子视图都必须是纯 View，而不能是自定义的复合容器。你可以给每个子视图设置样式属性譬如 padding 或 backgroundColor。
 
 例如:
 
@@ -39,7 +39,7 @@ var styles = {
 }
 ```
 
-### 属性
+### 查看 Props
 
 * [View props...](view.md#props)
 
@@ -60,20 +60,19 @@ var styles = {
 
 # 文档
 
-## 属性
+## Props
 
 ### `initialPage`
 
-初始选中的页的下标。你可以用setPage 函数来翻页，并且用onPageSelected来监听页的变化。
+初始选中的页的下标。你可以用 setPage 函数来翻页，并且用 onPageSelected 来监听页的变化。
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
 ### `keyboardDismissMode`
-
 
 决定在滑动的时候是否要让软键盘消失。
 
@@ -81,24 +80,23 @@ var styles = {
 * on-drag， 当拖拽开始的时候会让键盘消失。
 
 | 类型                    | 必填 |
-| ----------------------- | -------- |
-| enum('none', 'on-drag') | 否       |
+| ----------------------- | ---- |
+| enum('none', 'on-drag') | 否   |
 
 ---
 
 ### `onPageScroll`
 
-
 当在页间切换时（不论是由于动画还是由于用户在页间滑动/拖拽）执行。
 
-回调参数中的event.nativeEvent对象会包含如下数据：
+回调参数中的 event.nativeEvent 对象会包含如下数据：
 
 * position 从左数起第一个当前可见的页面的下标。
-* offset 一个在[0,1)（大于等于0，小于1）之间的范围，代表当前页面切换的状态。值x表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有x的部分可见。
+* offset 一个在[0,1)（大于等于 0，小于 1）之间的范围，代表当前页面切换的状态。值 x 表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有 x 的部分可见。
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -111,8 +109,8 @@ var styles = {
 * settling 处理中，意味着当前页面发生过交互，且正在结束开头或收尾的动画。
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -120,13 +118,13 @@ var styles = {
 
 这个回调会在页面切换完成后（当用户在页面间滑动）调用。
 
-回调参数中的event.nativeEvent对象会包含如下的字段：
+回调参数中的 event.nativeEvent 对象会包含如下的字段：
 
 * position 当前被选中的页面下标
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -135,28 +133,28 @@ var styles = {
 页面滑动时两个页面之间的间距。仅仅在滑动时可见，页面之间仍然时边对边的。
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
 ### `peekEnabled`
 
-是否在当前页滑动时展示前一页或者后一页，默认为false
+是否在当前页滑动时展示前一页或者后一页，默认为 false
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
 ### `scrollEnabled`
 
-设为false时可禁止滚动。默认值为true
+设为 false 时可禁止滚动。默认值为 true
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ## Type Definitions
 
@@ -169,7 +167,7 @@ var styles = {
 **Constants:**
 
 | Value    | 说明 |
-| -------- | ----------- |
-| idle     |             |
-| dragging |             |
-| settling |             |
+| -------- | ---- |
+| idle     |      |
+| dragging |      |
+| settling |      |

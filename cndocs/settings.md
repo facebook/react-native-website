@@ -3,20 +3,20 @@ id: settings
 title: Settings
 ---
 
-### Methods
+### 查看方法
 
 * [`get`](settings.md#get)
 * [`set`](settings.md#set)
 * [`watchKeys`](settings.md#watchkeys)
 * [`clearWatch`](settings.md#clearwatch)
 
-### Properties
+### 查看属性
 
 ---
 
 # 文档
 
-## Methods
+## 方法
 
 ### `get()`
 
@@ -48,4 +48,4 @@ static watchKeys(keys, callback)
 static clearWatch(watchId)
 ```
 
-## Properties
+## 属性

@@ -7,14 +7,14 @@ title: AnimatedValueXY
 
 See also [`Animated`](animated.md).
 
-## Example
+## 示例
 
 ```javascript
 class DraggableView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pan: new Animated.ValueXY(), // inits to zero
+      pan: new Animated.ValueXY() // inits to zero
     };
     this.state.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -22,22 +22,23 @@ class DraggableView extends React.Component {
         null,
         {
           dx: this.state.pan.x, // x,y are Animated.Value
-          dy: this.state.pan.y,
-        },
+          dy: this.state.pan.y
+        }
       ]),
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}} // Back to zero
+          { toValue: { x: 0, y: 0 } } // Back to zero
         ).start();
-      },
+      }
     });
   }
   render() {
     return (
       <Animated.View
         {...this.state.panResponder.panHandlers}
-        style={this.state.pan.getLayout()}>
+        style={this.state.pan.getLayout()}
+      >
         {this.props.children}
       </Animated.View>
     );
@@ -76,8 +77,8 @@ Directly set the value. This will stop any animations running on the value and u
 **参数：**
 
 | 名称  | 类型   | 必填 | 说明 |
-| ----- | ------ | -------- | ----------- |
-| value | number | 是      |             |
+| ----- | ------ | ---- | ---- |
+| value | number | 是   |      |
 
 ---
 
@@ -92,8 +93,8 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 **参数：**
 
 | 名称   | 类型   | 必填 | 说明 |
-| ------ | ------ | -------- | ----------- |
-| offset | number | 是      |             |
+| ------ | ------ | ---- | ---- |
+| offset | number | 是   |      |
 
 ---
 
@@ -129,9 +130,9 @@ Returns a string that serves as an identifier for the listener.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                                                 |
-| -------- | -------- | -------- | ------------------------------------------------------------------------------------------- |
-| callback | function | 是      | The callback function which will receive an object with a `value` key set to the new value. |
+| 名称     | 类型     | 必填 | 说明                                                                                        |
+| -------- | -------- | ---- | ------------------------------------------------------------------------------------------- |
+| callback | function | 是   | The callback function which will receive an object with a `value` key set to the new value. |
 
 ---
 
@@ -145,9 +146,9 @@ Unregister a listener. The `id` param shall match the identifier previously retu
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明                        |
-| ---- | ------ | -------- | ---------------------------------- |
-| id   | string | 是      | Id for the listener being removed. |
+| 名称 | 类型   | 必填 | 说明                               |
+| ---- | ------ | ---- | ---------------------------------- |
+| id   | string | 是   | Id for the listener being removed. |
 
 ---
 
@@ -171,9 +172,9 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                   |
-| -------- | -------- | -------- | --------------------------------------------- |
-| callback | function | 否       | A function that will receive the final value. |
+| 名称     | 类型     | 必填 | 说明                                          |
+| -------- | -------- | ---- | --------------------------------------------- |
+| callback | function | 否   | A function that will receive the final value. |
 
 ---
 
@@ -187,9 +188,9 @@ Stops any animation and resets the value to its original.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                      |
-| -------- | -------- | -------- | ------------------------------------------------ |
-| callback | function | 否       | A function that will receive the original value. |
+| 名称     | 类型     | 必填 | 说明                                             |
+| -------- | -------- | ---- | ------------------------------------------------ |
+| callback | function | 否   | A function that will receive the original value. |
 
 ---
 

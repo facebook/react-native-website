@@ -104,9 +104,9 @@ Schedules the localNotification for immediate presentation.
 
 **参数：**
 
-| 名称    | 类型   | 必填 | 说明 |
-| ------- | ------ | -------- | ----------- |
-| details | object | 是      | 看下面的说明  |
+| 名称    | 类型   | 必填 | 说明         |
+| ------- | ------ | ---- | ------------ |
+| details | object | 是   | 看下面的说明 |
 
 details is an object containing:
 
@@ -130,9 +130,9 @@ Schedules the localNotification for future presentation.
 
 **参数：**
 
-| 名称    | 类型   | 必填 | 说明 |
-| ------- | ------ | -------- | ----------- |
-| details | object | 是      | 看下面的说明  |
+| 名称    | 类型   | 必填 | 说明         |
+| ------- | ------ | ---- | ------------ |
+| details | object | 是   | 看下面的说明 |
 
 details is an object containing:
 
@@ -179,9 +179,9 @@ Provides you with a list of the app’s notifications that are still displayed i
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                 |
-| -------- | -------- | -------- | ----------------------------------------------------------- |
-| callback | function | 是      | Function which receive an array of delivered notifications. |
+| 名称     | 类型     | 必填 | 说明                                                        |
+| -------- | -------- | ---- | ----------------------------------------------------------- |
+| callback | function | 是   | Function which receive an array of delivered notifications. |
 
 A delivered notification is an object containing:
 
@@ -204,9 +204,9 @@ Removes the specified notifications from Notification Center
 
 **参数：**
 
-| 名称        | 类型  | 必填 | 说明                        |
-| ----------- | ----- | -------- | ---------------------------------- |
-| identifiers | array | 是      | Array of notification identifiers. |
+| 名称        | 类型  | 必填 | 说明                               |
+| ----------- | ----- | ---- | ---------------------------------- |
+| identifiers | array | 是   | Array of notification identifiers. |
 
 ---
 
@@ -220,9 +220,9 @@ Sets the badge number for the app icon on the home screen
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明                    |
-| ------ | ------ | -------- | ------------------------------ |
-| number | number | 是      | Badge number for the app icon. |
+| 名称   | 类型   | 必填 | 说明                           |
+| ------ | ------ | ---- | ------------------------------ |
+| number | number | 是   | Badge number for the app icon. |
 
 ---
 
@@ -236,9 +236,9 @@ Gets the current badge number for the app icon on the home screen
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                              |
-| -------- | -------- | -------- | -------------------------------------------------------- |
-| callback | function | 是      | A function that will be passed the current badge number. |
+| 名称     | 类型     | 必填 | 说明                                                     |
+| -------- | -------- | ---- | -------------------------------------------------------- |
+| callback | function | 是   | A function that will be passed the current badge number. |
 
 ---
 
@@ -255,8 +255,8 @@ Optionally restricts the set of canceled notifications to those notifications wh
 **参数：**
 
 | 名称     | 类型   | 必填 | 说明 |
-| -------- | ------ | -------- | ----------- |
-| userInfo | object | 否       |             |
+| -------- | ------ | ---- | ---- |
+| userInfo | object | 否   |      |
 
 ---
 
@@ -270,9 +270,9 @@ Gets the local notifications that are currently scheduled.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                                        |
-| -------- | -------- | -------- | ---------------------------------------------------------------------------------- |
-| callback | function | 是      | A function that will be passed an array of objects describing local notifications. |
+| 名称     | 类型     | 必填 | 说明                                                                               |
+| -------- | -------- | ---- | ---------------------------------------------------------------------------------- |
+| callback | function | 是   | A function that will be passed an array of objects describing local notifications. |
 
 ---
 
@@ -286,10 +286,10 @@ Attaches a listener to remote or local notification events while the app is runn
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明 |
-| ------- | -------- | -------- | ----------- |
-| type    | string   | 是      | Event type. |
-| handler | function | 是      | Listener.   |
+| 名称    | 类型     | 必填 | 说明        |
+| ------- | -------- | ---- | ----------- |
+| type    | string   | 是   | Event type. |
+| handler | function | 是   | Listener.   |
 
 Valid events are:
 
@@ -310,10 +310,10 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明 |
-| ------- | -------- | -------- | ----------- |
-| type    | string   | 是      | Event type. |
-| handler | function | 是      | Listener.   |
+| 名称    | 类型     | 必填 | 说明        |
+| ------- | -------- | ---- | ----------- |
+| type    | string   | 是   | Event type. |
+| handler | function | 是   | Listener.   |
 
 ---
 
@@ -335,9 +335,9 @@ This method returns a promise that will resolve when the user accepts, rejects, 
 
 **参数：**
 
-| 名称        | 类型  | 必填 | 说明            |
-| ----------- | ----- | -------- | ---------------------- |
-| permissions | array | 否       | alert, badge, or sound |
+| 名称        | 类型  | 必填 | 说明                   |
+| ----------- | ----- | ---- | ---------------------- |
+| permissions | array | 否   | alert, badge, or sound |
 
 ---
 
@@ -363,9 +363,9 @@ See what push permissions are currently enabled.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明 |
-| -------- | -------- | -------- | ----------- |
-| callback | function | 是      | 看下面的说明  |
+| 名称     | 类型     | 必填 | 说明         |
+| -------- | -------- | ---- | ------------ |
+| callback | function | 是   | 看下面的说明 |
 
 `callback` will be invoked with a `permissions` object:
 
@@ -381,7 +381,7 @@ See what push permissions are currently enabled.
 PushNotificationIOS.getInitialNotification();
 ```
 
-This method returns a promise that resolves to either the notification object if the app was launched by a push notification, or `null` otherwise.
+This method returns a promise. If the app was launched by a push notification, this promise resolves to an object of type `PushNotificationIOS`. Otherwise, it resolves to `null`.
 
 ---
 

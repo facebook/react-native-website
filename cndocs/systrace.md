@@ -90,7 +90,7 @@ static endAsyncEvent(profileName?, cookie?)
 static counterEvent(profileName?, value?)
 ```
 
-counterEvent registers the value to the profileName on the systrace timeline
+Register the value to the profileName on the systrace timeline
 
 ---
 
@@ -110,7 +110,7 @@ Relay profiles use await calls, so likely occur out of current stack frame there
 static swizzleJSON()
 ```
 
-This is not called by default due to perf overhead but it's useful if you want to find traces which spend too much time in JSON.
+This is not called by default due to performance overhead, but it's useful for finding traces which spend too much time in JSON.
 
 ---
 
@@ -120,7 +120,7 @@ This is not called by default due to perf overhead but it's useful if you want t
 static measureMethods(object, objectName, methodNames)
 ```
 
-Measures multiple methods of a class. For example, you can do: Systrace.measureMethods(JSON, 'JSON', ['parse', 'stringify']);
+Measures multiple methods of a class. For example, the following will return the `parse` and `stringify` methods of the JSON class: Systrace.measureMethods(JSON, 'JSON', ['parse', 'stringify']);
 
 @param object @param objectName @param methodNames Map from method names to method display names.
 

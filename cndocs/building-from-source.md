@@ -134,7 +134,7 @@ gradle.projectsLoaded {
 }
 ```
 
-### Building for Maven/Nexus deployment
+### 针对 Maven/Nexus 部署的编译
 
 If you find that you need to push up a locally compiled React Native .aar and related files to a remote Nexus repository, you can.
 

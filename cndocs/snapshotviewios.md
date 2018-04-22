@@ -3,7 +3,7 @@ id: snapshotviewios
 title: SnapshotViewIOS
 ---
 
-### Props
+### 查看 Props
 
 * [View props...](view.md#props)
 
@@ -19,13 +19,13 @@ title: SnapshotViewIOS
 ### `onSnapshotReady`
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
 ### `testIdentifier`
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |

@@ -3,9 +3,9 @@ id: statusbar
 title: StatusBar
 ---
 
-Component to control the app status bar.
+控制应用状态栏的组件。
 
-### Usage with Navigator
+### 和导航器一起使用的注意事项
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted. One use case is to specify status bar styles per route using `Navigator`.
 
@@ -69,8 +69,8 @@ For cases where using a component is not ideal, there is also an imperative API 
 If the transition between status bar property changes should be animated. Supported for backgroundColor, barStyle and hidden.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -79,8 +79,8 @@ If the transition between status bar property changes should be animated. Suppor
 Sets the color of the status bar text.
 
 | 类型                                             | 必填 |
-| ------------------------------------------------ | -------- |
-| enum('default', 'light-content', 'dark-content') | 否       |
+| ------------------------------------------------ | ---- |
+| enum('default', 'light-content', 'dark-content') | 否   |
 
 ---
 
@@ -89,8 +89,8 @@ Sets the color of the status bar text.
 If the status bar is hidden.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -98,9 +98,9 @@ If the status bar is hidden.
 
 The background color of the status bar.
 
-| 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | Android  |
+| 类型               | 必填 | 平台    |
+| ------------------ | ---- | ------- |
+| [color](colors.md) | 否   | Android |
 
 ---
 
@@ -108,9 +108,9 @@ The background color of the status bar.
 
 If the status bar is translucent. When translucent is set to true, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -119,8 +119,8 @@ If the status bar is translucent. When translucent is set to true, the app will 
 If the network activity indicator should be visible.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -129,8 +129,8 @@ If the network activity indicator should be visible.
 The transition effect when showing and hiding the status bar using the `hidden` prop. Defaults to 'fade'.
 
 | 类型                  | 必填 | 平台 |
-| --------------------- | -------- | -------- |
-| enum('fade', 'slide') | 否       | iOS      |
+| --------------------- | ---- | ---- |
+| enum('fade', 'slide') | 否   | iOS  |
 
 ## Methods
 
@@ -144,10 +144,10 @@ Show or hide the status bar
 
 **参数：**
 
-| 名称      | 类型                                                  | 必填 | 说明                                                      |
-| --------- | ----------------------------------------------------- | -------- | ---------------------------------------------------------------- |
-| hidden    | boolean                                               | 是      | Hide the status bar.                                             |
-| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否       | Optional animation when changing the status bar hidden property. |
+| 名称      | 类型                                                  | 必填 | 说明                                                             |
+| --------- | ----------------------------------------------------- | ---- | ---------------------------------------------------------------- |
+| hidden    | boolean                                               | 是   | Hide the status bar.                                             |
+| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否   | Optional animation when changing the status bar hidden property. |
 
 ---
 
@@ -161,10 +161,10 @@ Set the status bar style
 
 **参数：**
 
-| 名称     | 类型                                          | 必填 | 说明               |
-| -------- | --------------------------------------------- | -------- | ------------------------- |
-| style    | [StatusBarStyle](statusbar.md#statusbarstyle) | 是      | Status bar style to set   |
-| animated | boolean                                       | 否       | Animate the style change. |
+| 名称     | 类型                                          | 必填 | 说明                      |
+| -------- | --------------------------------------------- | ---- | ------------------------- |
+| style    | [StatusBarStyle](statusbar.md#statusbarstyle) | 是   | Status bar style to set   |
+| animated | boolean                                       | 否   | Animate the style change. |
 
 ---
 
@@ -178,9 +178,9 @@ Control the visibility of the network activity indicator
 
 **参数：**
 
-| 名称    | 类型    | 必填 | 说明         |
-| ------- | ------- | -------- | ------------------- |
-| visible | boolean | 是      | Show the indicator. |
+| 名称    | 类型    | 必填 | 说明                |
+| ------- | ------- | ---- | ------------------- |
+| visible | boolean | 是   | Show the indicator. |
 
 ---
 
@@ -194,10 +194,10 @@ Set the background color for the status bar
 
 **参数：**
 
-| 名称     | 类型    | 必填 | 说明               |
-| -------- | ------- | -------- | ------------------------- |
-| color    | string  | 是      | Background color.         |
-| animated | boolean | 否       | Animate the style change. |
+| 名称     | 类型    | 必填 | 说明                      |
+| -------- | ------- | ---- | ------------------------- |
+| color    | string  | 是   | Background color.         |
+| animated | boolean | 否   | Animate the style change. |
 
 ---
 
@@ -211,9 +211,9 @@ Control the translucency of the status bar
 
 **参数：**
 
-| 名称        | 类型    | 必填 | 说明         |
-| ----------- | ------- | -------- | ------------------- |
-| translucent | boolean | 是      | Set as translucent. |
+| 名称        | 类型    | 必填 | 说明                |
+| ----------- | ------- | ---- | ------------------- |
+| translucent | boolean | 是   | Set as translucent. |
 
 ## Type Definitions
 
@@ -227,7 +227,7 @@ Status bar style
 
 **Constants:**
 
-| Value         | 说明                                                          |
+| Value         | 说明                                                                 |
 | ------------- | -------------------------------------------------------------------- |
 | default       | Default status bar style (dark for iOS, light for Android)           |
 | light-content | Dark background, white texts and icons                               |
@@ -245,7 +245,7 @@ Status bar animation
 
 **Constants:**
 
-| Value | 说明     |
+| Value | 说明            |
 | ----- | --------------- |
 | none  | 否 animation    |
 | fade  | Fade animation  |

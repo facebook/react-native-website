@@ -283,7 +283,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 ### `flexWrap`
 
-`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap>来进一步了解。
+`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap>来进一步了解。Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
 
 | 类型                   | 必填 |
 | ---------------------- | ---- |

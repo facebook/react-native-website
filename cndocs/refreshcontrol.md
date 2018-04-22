@@ -5,7 +5,7 @@ title: RefreshControl
 
 This component is used inside a ScrollView or ListView to add pull to refresh functionality. When the ScrollView is at `scrollY: 0`, swiping down triggers an `onRefresh` event.
 
-### Usage example
+### 示例
 
 ```javascript
 class RefreshableList extends Component {
@@ -70,8 +70,8 @@ class RefreshableList extends Component {
 Whether the view should be indicating an active refresh.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 是      |
+| ---- | ---- |
+| bool | 是   |
 
 ---
 
@@ -80,8 +80,8 @@ Whether the view should be indicating an active refresh.
 Called when the view starts refreshing.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -89,9 +89,9 @@ Called when the view starts refreshing.
 
 The colors (at least one) that will be used to draw the refresh indicator.
 
-| 类型                        | 必填 | 平台 |
-| --------------------------- | -------- | -------- |
-| array of [color](colors.md) | 否       | Android  |
+| 类型                        | 必填 | 平台    |
+| --------------------------- | ---- | ------- |
+| array of [color](colors.md) | 否   | Android |
 
 ---
 
@@ -99,9 +99,9 @@ The colors (at least one) that will be used to draw the refresh indicator.
 
 Whether the pull to refresh functionality is enabled.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -109,9 +109,9 @@ Whether the pull to refresh functionality is enabled.
 
 The background color of the refresh indicator.
 
-| 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | Android  |
+| 类型               | 必填 | 平台    |
+| ------------------ | ---- | ------- |
+| [color](colors.md) | 否   | Android |
 
 ---
 
@@ -119,9 +119,9 @@ The background color of the refresh indicator.
 
 Progress view top offset
 
-| 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | Android  |
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| number | 否   | Android |
 
 ---
 
@@ -129,9 +129,9 @@ Progress view top offset
 
 Size of the refresh indicator, see RefreshControl.SIZE.
 
-| 类型                                                                   | 必填 | 平台 |
-| ---------------------------------------------------------------------- | -------- | -------- |
-| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | 否       | Android  |
+| 类型                                                                   | 必填 | 平台    |
+| ---------------------------------------------------------------------- | ---- | ------- |
+| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | 否   | Android |
 
 ---
 
@@ -140,8 +140,8 @@ Size of the refresh indicator, see RefreshControl.SIZE.
 The color of the refresh indicator.
 
 | 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | iOS      |
+| ------------------ | ---- | ---- |
+| [color](colors.md) | 否   | iOS  |
 
 ---
 
@@ -150,8 +150,8 @@ The color of the refresh indicator.
 The title displayed under the refresh indicator.
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| string | 否       | iOS      |
+| ------ | ---- | ---- |
+| string | 否   | iOS  |
 
 ---
 
@@ -160,5 +160,5 @@ The title displayed under the refresh indicator.
 Title color.
 
 | 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | iOS      |
+| ------------------ | ---- | ---- |
+| [color](colors.md) | 否   | iOS  |

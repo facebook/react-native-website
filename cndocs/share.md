@@ -3,7 +3,7 @@ id: share
 title: Share
 ---
 
-### Methods
+### 查看方法
 
 * [`share`](share.md#share)
 * [`sharedAction`](share.md#sharedaction)
@@ -13,7 +13,7 @@ title: Share
 
 # 文档
 
-## Methods
+## 方法
 
 ### `share()`
 

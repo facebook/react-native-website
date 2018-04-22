@@ -89,7 +89,7 @@ class ModalExample extends Component {
 
 ### `supportedOrientations`
 
-The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+`supportedOrientations`用于指定在设备切换横竖屏方向时，modal 会在哪些屏幕朝向下跟随旋转。在 iOS 上，除了本属性外，还会受到应用的 Info.plist 文件中`UISupportedInterfaceOrientations`的限制。如果还设置了`presentationStyle`属性为`pageSheet`或`formSheet`，则在 iOS 上本属性将被忽略。
 
 | 类型                                                                                                | 必填 | 平台 |
 | --------------------------------------------------------------------------------------------------- | ---- | ---- |
@@ -99,7 +99,7 @@ The `supportedOrientations` prop allows the modal to be rotated to any of the sp
 
 ### `onRequestClose`
 
-The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
+`onRequestClose`回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。请务必注意本属性在 Android 平台上为必填，且会在 modal 处于开启状态时阻止`BackHandler`事件。
 
 | 类型     | 必填 | 平台                     |
 | -------- | ---- | ------------------------ |
@@ -110,7 +110,7 @@ The `onRequestClose` callback is called when the user taps the hardware back but
 
 ### `onShow`
 
-The `onShow` prop allows passing a function that will be called once the modal has been shown.
+`onShow`回调函数会在 modal 显示时调用。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -120,7 +120,7 @@ The `onShow` prop allows passing a function that will be called once the modal h
 
 ### `transparent`
 
-The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
+`transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -146,7 +146,7 @@ The `transparent` prop determines whether your modal will fill the entire view. 
 
 ### `hardwareAccelerated`
 
-`hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
+`hardwareAccelerated`属性决定是否强制启用硬件加速来绘制弹出层。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -156,7 +156,7 @@ The `transparent` prop determines whether your modal will fill the entire view. 
 
 ### `onDismiss`
 
-The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
+`onDismiss`回调会在 modal 被关闭时调用。
 
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
@@ -176,9 +176,9 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 ### `presentationStyle`
 
-The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
+`presentationStyle`决定 modal（在较大屏幕的设备比如 iPad 或是 Plus 机型）如何展现。See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
 
-* `fullScreen` covers the screen completely
+* `fullScreen`完全盖满屏幕。
 * `pageSheet` covers portrait-width view centered (only on larger devices)
 * `formSheet` covers narrow-width view centered (only on larger devices)
 * `overFullScreen` covers the screen completely, but allows transparency

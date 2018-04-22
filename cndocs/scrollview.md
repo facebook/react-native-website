@@ -66,6 +66,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 - [`snapToAlignment`](scrollview.md#snaptoalignment)
 - [`snapToInterval`](scrollview.md#snaptointerval)
 - [`zoomScale`](scrollview.md#zoomscale)
+- [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
 ### Methods
 
@@ -85,8 +86,8 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `horizontal={true}` and true otherwise.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -108,8 +109,8 @@ const styles = StyleSheet.create({
 ```
 
 | 类型                                 | 必填 |
-| ------------------------------------ | -------- |
-| StyleSheetPropType(View Style props) | 否       |
+| ------------------------------------ | ---- |
+| StyleSheetPropType(View Style props) | 否   |
 
 ---
 
@@ -127,8 +128,8 @@ _iOS Only_
 * `'interactive'`, the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
 
 | 类型                                   | 必填 |
-| -------------------------------------- | -------- |
-| enum('none', 'on-drag', 'interactive') | 否       |
+| -------------------------------------- | ---- |
+| enum('none', 'on-drag', 'interactive') | 否   |
 
 ---
 
@@ -143,8 +144,8 @@ Determines when the keyboard should stay visible after a tap.
 * `true`, deprecated, use 'always' instead
 
 | 类型                                            | 必填 |
-| ----------------------------------------------- | -------- |
-| enum('always', 'never', 'handled', false, true) | 否       |
+| ----------------------------------------------- | ---- |
+| enum('always', 'never', 'handled', false, true) | 否   |
 
 ---
 
@@ -157,8 +158,8 @@ Handler function is passed the content width and content height as parameters: `
 It's implemented using onLayout handler attached to the content container which this ScrollView renders.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -167,8 +168,8 @@ It's implemented using onLayout handler attached to the content container which 
 Called when the momentum scroll starts (scroll which occurs as the ScrollView glides to a stop).
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -177,8 +178,8 @@ Called when the momentum scroll starts (scroll which occurs as the ScrollView gl
 Called when the momentum scroll ends (scroll which occurs as the ScrollView glides to a stop).
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -187,8 +188,8 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -197,8 +198,8 @@ Fires at most once per frame during scrolling. The frequency of the events can b
 Called when the user begins to drag the scroll view.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -207,8 +208,8 @@ Called when the user begins to drag the scroll view.
 Called when the user stops dragging the scroll view and it either stops or begins to glide.
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -219,8 +220,8 @@ When true, the scroll view stops on multiples of the scroll view's size when scr
 Note: Vertical pagination is not supported on Android.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -231,8 +232,8 @@ A RefreshControl component, used to provide pull-to-refresh functionality for th
 See [RefreshControl](refreshcontrol.md).
 
 | 类型    | 必填 |
-| ------- | -------- |
-| element | 否       |
+| ------- | ---- |
+| element | 否   |
 
 ---
 
@@ -241,8 +242,8 @@ See [RefreshControl](refreshcontrol.md).
 Experimental: When true, offscreen child views (whose `overflow` value is `hidden`) are removed from their native backing superview when offscreen. This can improve scrolling performance on long lists. The default value is true.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -253,8 +254,8 @@ When false, the view cannot be scrolled via touch interaction. The default value
 Note that the view can always be scrolled by calling `scrollTo`.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -263,8 +264,8 @@ Note that the view can always be scrolled by calling `scrollTo`.
 When true, shows a horizontal scroll indicator. The default value is true.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -273,8 +274,8 @@ When true, shows a horizontal scroll indicator. The default value is true.
 When true, shows a vertical scroll indicator. The default value is true.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -283,8 +284,8 @@ When true, shows a vertical scroll indicator. The default value is true.
 An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. This property is not supported in conjunction with `horizontal={true}`.
 
 | 类型            | 必填 |
-| --------------- | -------- |
-| array of number | 否       |
+| --------------- | ---- |
+| array of number | 否   |
 
 ---
 
@@ -292,9 +293,9 @@ An array of child indices determining which children get docked to the top of th
 
 Sometimes a scrollview takes up more space than its content fills. When this is the case, this prop will fill the rest of the scrollview with a color to avoid setting a background and creating unnecessary overdraw. This is an advanced optimization that is not needed in the general case.
 
-| 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | Android  |
+| 类型               | 必填 | 平台    |
+| ------------------ | ---- | ------- |
+| [color](colors.md) | 否   | Android |
 
 ---
 
@@ -308,9 +309,9 @@ Possible values:
 * `'always'` - Always allow a user to over-scroll this view.
 * `'never'` - Never allow a user to over-scroll this view.
 
-| 类型                            | 必填 | 平台 |
-| ------------------------------- | -------- | -------- |
-| enum('auto', 'always', 'never') | 否       | Android  |
+| 类型                            | 必填 | 平台    |
+| ------------------------------- | ---- | ------- |
+| enum('auto', 'always', 'never') | 否   | Android |
 
 ---
 
@@ -318,9 +319,9 @@ Possible values:
 
 Tag used to log scroll performance on this scroll view. Will force momentum events to be turned on (see sendMomentumEvents). This doesn't do anything out of the box and you need to implement a custom native FpsListener for it to be useful.
 
-| 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| string | 否       | Android  |
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| string | 否   | Android |
 
 ---
 
@@ -329,8 +330,8 @@ Tag used to log scroll performance on this scroll view. Will force momentum even
 When true, ScrollView will emit updateChildFrames data in scroll events, otherwise will not compute or emit child frame data. This only exists to support legacy issues, `onLayout` should be used instead to retrieve frame data. The default value is false.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -339,8 +340,8 @@ When true, ScrollView will emit updateChildFrames data in scroll events, otherwi
 When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself. The default value is true when `horizontal={true}` and false otherwise.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -349,8 +350,8 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 When true, the scroll view's children are arranged horizontally in a row instead of vertically in a column. The default value is false.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
 ---
 
@@ -359,8 +360,8 @@ When true, the scroll view's children are arranged horizontally in a row instead
 Controls whether iOS should automatically adjust the content inset for scroll views that are placed behind a navigation bar or tab bar/ toolbar. The default value is true.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -369,8 +370,8 @@ Controls whether iOS should automatically adjust the content inset for scroll vi
 When true, the scroll view bounces when it reaches the end of the content if the content is larger then the scroll view along the axis of the scroll direction. When false, it disables all bouncing even if the `alwaysBounce*` props are true. The default value is true.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -379,8 +380,8 @@ When true, the scroll view bounces when it reaches the end of the content if the
 When true, gestures can drive zoom past min/max and the zoom will animate to the min/max value at gesture end, otherwise the zoom will not exceed the limits.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -389,8 +390,8 @@ When true, gestures can drive zoom past min/max and the zoom will animate to the
 When false, once tracking starts, won't try to drag if the touch moves. The default value is true.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -399,8 +400,8 @@ When false, once tracking starts, won't try to drag if the touch moves. The defa
 When true, the scroll view automatically centers the content when the content is smaller than the scroll view bounds; when the content is larger than the scroll view, this property has no effect. The default value is false.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -409,8 +410,8 @@ When true, the scroll view automatically centers the content when the content is
 The amount by which the scroll view content is inset from the edges of the scroll view. Defaults to `{top: 0, left: 0, bottom: 0, right: 0}`.
 
 | 类型                                                               | 必填 | 平台 |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | 否       | iOS      |
+| ------------------------------------------------------------------ | ---- | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
 ---
 
@@ -419,8 +420,8 @@ The amount by which the scroll view content is inset from the edges of the scrol
 This property specifies how the safe area insets are used to modify the content area of the scroll view. The default value of this property is "never". Available on iOS 11 and later.
 
 | 类型                                                   | 必填 | 平台 |
-| ------------------------------------------------------ | -------- | -------- |
-| enum('automatic', 'scrollableAxes', 'never', 'always') | 否       | iOS      |
+| ------------------------------------------------------ | ---- | ---- |
+| enum('automatic', 'scrollableAxes', 'never', 'always') | 否   | iOS  |
 
 ---
 
@@ -429,8 +430,8 @@ This property specifies how the safe area insets are used to modify the content 
 Used to manually set the starting scroll offset. The default value is `{x: 0, y: 0}`.
 
 | 类型          | 必填 | 平台 |
-| ------------- | -------- | -------- |
-| PointPropType | 否       | iOS      |
+| ------------- | ---- | ---- |
+| PointPropType | 否   | iOS  |
 
 ---
 
@@ -442,8 +443,8 @@ A floating-point number that determines how quickly the scroll view decelerates 
 * `'fast'`: 0.99
 
 | 类型                            | 必填 | 平台 |
-| ------------------------------- | -------- | -------- |
-| enum('fast', 'normal'), ,number | 否       | iOS      |
+| ------------------------------- | ---- | ---- |
+| enum('fast', 'normal'), ,number | 否   | iOS  |
 
 ---
 
@@ -452,8 +453,8 @@ A floating-point number that determines how quickly the scroll view decelerates 
 When true, the ScrollView will try to lock to only vertical or horizontal scrolling while dragging. The default value is false.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -466,8 +467,8 @@ The style of the scroll indicators.
 * `'white'`, scroll indicator is white. This style is good against a dark background.
 
 | 类型                              | 必填 | 平台 |
-| --------------------------------- | -------- | -------- |
-| enum('default', 'black', 'white') | 否       | iOS      |
+| --------------------------------- | ---- | ---- |
+| enum('default', 'black', 'white') | 否   | iOS  |
 
 ---
 
@@ -476,8 +477,8 @@ The style of the scroll indicators.
 The maximum allowed zoom scale. The default value is 1.0.
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+| ------ | ---- | ---- |
+| number | 否   | iOS  |
 
 ---
 
@@ -486,8 +487,8 @@ The maximum allowed zoom scale. The default value is 1.0.
 The minimum allowed zoom scale. The default value is 1.0.
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+| ------ | ---- | ---- |
+| number | 否   | iOS  |
 
 ---
 
@@ -496,8 +497,8 @@ The minimum allowed zoom scale. The default value is 1.0.
 When true, ScrollView allows use of pinch gestures to zoom in and out. The default value is true.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -506,8 +507,8 @@ When true, ScrollView allows use of pinch gestures to zoom in and out. The defau
 This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being send over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is zero, which results in the scroll event being sent only once each time the view is scrolled.
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+| ------ | ---- | ---- |
+| number | 否   | iOS  |
 
 ---
 
@@ -516,8 +517,8 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`. Defaults to `{0, 0, 0, 0}`.
 
 | 类型                                                               | 必填 | 平台 |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | 否       | iOS      |
+| ------------------------------------------------------------------ | ---- | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
 ---
 
@@ -526,8 +527,8 @@ The amount by which the scroll view indicators are inset from the edges of the s
 When true, the scroll view scrolls to top when the status bar is tapped. The default value is true.
 
 | 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | iOS      |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -539,9 +540,9 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 * `'center'` will align the snap in the center
 * `'end'` will align the snap at the right (horizontal) or bottom (vertical)
 
-| 类型                           | 必填 | 平台 |
-| ------------------------------ | -------- | -------- |
-| enum('start', 'center', 'end') | 否       | iOS      |
+| 类型                           | 必填 |
+| ------------------------------ | ---- |
+| enum('start', 'center', 'end') | 否   |
 
 ---
 
@@ -549,9 +550,11 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 
 When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop.
 
-| 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+Note: Vertical snapToInterval is not supported on Android.
+
+| 类型   | 必填 |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -560,8 +563,18 @@ When set, causes the scroll view to stop at multiples of the value of `snapToInt
 The current scale of the scroll view content. The default value is 1.0.
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+| ------ | ---- | ---- |
+| number | 否   | iOS  |
+
+---
+
+### `nestedScrollEnabled`
+
+Enables nested scrolling for Android API level 21+. Nested scrolling is supported by default on iOS.
+
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ## Methods
 
