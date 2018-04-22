@@ -1,5 +1,5 @@
 ---
-id: version-0.55-keyboardavoidingview
+id: version-0.54-keyboardavoidingview
 title: KeyboardAvoidingView
 original_id: keyboardavoidingview
 ---
