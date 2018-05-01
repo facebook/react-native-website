@@ -49,7 +49,7 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "android-building-from-source"
+      "building-from-source"
     ],
     "组件": [
       "activityindicator",
