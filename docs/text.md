@@ -265,8 +265,6 @@ This can be one of the following values:
 
 The default is `tail`.
 
-> `clip` is working only for iOS
-
 | Type                                   | Required |
 | -------------------------------------- | -------- |
 | enum('head', 'middle', 'tail', 'clip') | No       |
