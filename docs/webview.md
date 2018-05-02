@@ -59,6 +59,7 @@ You can use this component to navigate back and forth in the web view's history 
 - [`contentInset`](webview.md#contentinset)
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`scrollEnabled`](webview.md#scrollenabled)
+- [`geolocationEnabled`](webview.md#geolocationenabled)
 - [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
@@ -394,6 +395,17 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `geolocationEnabled`
+
+Set whether Geolocation is enabled in the `WebView`. The default value is `false`.
+Used only in Android.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
