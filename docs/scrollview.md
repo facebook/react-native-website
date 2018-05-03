@@ -114,6 +114,16 @@ const styles = StyleSheet.create({
 
 ---
 
+### `disableScrollViewPanResponder`
+
+When true, the default JS pan responder on the ScrollView is disabled, and full control over touches inside the ScrollView is left to it's child components. This is particularly useful if snapToInterval is enabled, since it does not follow typical touch patterns. Do not use this on regular ScrollView use cases without snapToInterval as it may cause unexpected touches to occur while scrolling. The default value is false.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
 ### `keyboardDismissMode`
 
 Determines whether the keyboard gets dismissed in response to a drag.
