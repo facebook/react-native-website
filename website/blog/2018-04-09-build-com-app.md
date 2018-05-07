@@ -3,7 +3,7 @@ title: Built with React Native - The Build.com app
 author: Garrett McCullough
 authorTitle: Senior Mobile Engineer
 authorURL: https://twitter.com/gwmccull
-authorImage: https://pbs.twimg.com/profile_images/955503100785172486/UrMKkQXc_400x400.jpg
+authorImageURL: https://pbs.twimg.com/profile_images/955503100785172486/UrMKkQXc_400x400.jpg
 authorTwitter: gwmccull
 category: built-with-reactnative
 ---

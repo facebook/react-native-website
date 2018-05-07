@@ -3,7 +3,7 @@ title: idx: The Existential Function
 author: Timothy Yung
 authorTitle: Engineering Manager at Facebook
 authorURL: https://github.com/yungsters
-authorImage: https://pbs.twimg.com/profile_images/1592444107/image.jpg
+authorImageURL: https://pbs.twimg.com/profile_images/1592444107/image.jpg
 authorTwitter: yungsters
 category: engineering
 ---

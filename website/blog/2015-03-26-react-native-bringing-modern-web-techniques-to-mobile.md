@@ -3,7 +3,7 @@ title: React Native: Bringing modern web techniques to mobile
 author: Tom Occhino
 authorTitle: Engineering Manager at Facebook
 authorURL: https://github.com/tomocchino
-authorImage: https://avatars0.githubusercontent.com/u/13947?v=3&s=460
+authorImageURL: https://avatars0.githubusercontent.com/u/13947?v=3&s=460
 authorTwitter: tomocchino
 hero: /react-native/blog/assets/dark-hero.png
 category: announcements

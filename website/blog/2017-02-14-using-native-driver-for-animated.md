@@ -3,7 +3,7 @@ title: Using Native Driver for Animated
 author: Janic Duplessis
 authorTitle: Software Engineer at App & Flow
 authorURL: https://twitter.com/janicduplessis
-authorImage: https://secure.gravatar.com/avatar/8d6b6c0f5b228b0a8566a69de448b9dd?s=128
+authorImageURL: https://secure.gravatar.com/avatar/8d6b6c0f5b228b0a8566a69de448b9dd?s=128
 authorTwitter: janicduplessis
 category: engineering
 ---

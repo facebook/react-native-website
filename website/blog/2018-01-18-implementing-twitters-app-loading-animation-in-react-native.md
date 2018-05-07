@@ -3,7 +3,7 @@ title: Implementing Twitter’s App Loading Animation in React Native
 author: Eli White
 authorTitle: Software Engineer at Facebook
 authorURL: https://github.com/TheSavior
-authorImage: https://avatars2.githubusercontent.com/u/249164?s=460&v=4
+authorImageURL: https://avatars2.githubusercontent.com/u/249164?s=460&v=4
 authorTwitter: eli_white
 category: engineering
 ---
