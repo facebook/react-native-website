@@ -41,6 +41,7 @@ You can use this component to navigate back and forth in the web view's history 
 - [`onLoadStart`](webview.md#onloadstart)
 - [`onMessage`](webview.md#onmessage)
 - [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+- [`originWhitelist`](webview.md#originwhitelist)
 - [`renderError`](webview.md#rendererror)
 - [`renderLoading`](webview.md#renderloading)
 - [`scalesPageToFit`](webview.md#scalespagetofit)
@@ -193,6 +194,18 @@ Function that is invoked when the `WebView` loading starts or ends.
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
+
+---
+
+### `originWhitelist`
+
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against *just* the origin (not the full URL).
+If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS.
+The default whitelisted origins are "http://*" and "https://*".
+
+| Type             | Required |
+| ---------------- | -------- | 
+| array of strings | No       |
 
 ---
 
