@@ -158,7 +158,7 @@ When false, the content does not scroll. The default value is true.
 
 ### `setPage`
 
-A helper function to scroll to a specific page in the ViewPager.The transition between pages will be animated.
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will be animated.
 
 * position - index of page that will been selected
 
