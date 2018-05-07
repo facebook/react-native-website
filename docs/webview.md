@@ -203,9 +203,9 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS.
 The default whitelisted origins are "http://*" and "https://*".
 
-| Type                                     | Required |
-| ---------------------------------------- | -------- | 
-| PropTypes.arrayOf(PropTypes.string)      | No       |
+| Type             | Required |
+| ---------------- | -------- | 
+| array of strings | No       |
 
 ---
 
