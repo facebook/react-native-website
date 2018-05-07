@@ -41,7 +41,7 @@ You can use this component to navigate back and forth in the web view's history 
 - [`onLoadStart`](webview.md#onloadstart)
 - [`onMessage`](webview.md#onmessage)
 - [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-- [`originWhitelist`](webview.md#originWhitelist)
+- [`originWhitelist`](webview.md#originwhitelist)
 - [`renderError`](webview.md#rendererror)
 - [`renderLoading`](webview.md#renderloading)
 - [`scalesPageToFit`](webview.md#scalespagetofit)
