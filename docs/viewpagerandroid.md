@@ -51,8 +51,8 @@ var styles = {
 - [`pageMargin`](viewpagerandroid.md#pagemargin)
 - [`peekEnabled`](viewpagerandroid.md#peekenabled)
 - [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
-- [`setPage`](viewpagerandroid.md#setPage)
-- [`setPageWithoutAnimation`](viewpagerandroid.md#setPageWithoutAnimation)
+- [`setPage`](viewpagerandroid.md#setpage)
+- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
 
 ### Type Definitions
 
