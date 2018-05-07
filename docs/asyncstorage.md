@@ -2,6 +2,7 @@
 id: asyncstorage
 title: AsyncStorage
 ---
+AsyncStorage doesn't work well on Android. See [here the issue](https://github.com/facebook/react-native/issues/14101#issuecomment-345563563) (it's still not solved since May 2017).
 
 `AsyncStorage` is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
