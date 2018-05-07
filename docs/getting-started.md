@@ -111,7 +111,7 @@ cd AwesomeProject
 npm start
 ```
 
-This will start a development server for you, and print a QR code in your terminal.
+This will start a development server for you.
 
 ## Running your React Native application
 
