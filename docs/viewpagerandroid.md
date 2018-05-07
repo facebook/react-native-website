@@ -51,6 +51,8 @@ var styles = {
 - [`pageMargin`](viewpagerandroid.md#pagemargin)
 - [`peekEnabled`](viewpagerandroid.md#peekenabled)
 - [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
+- [`setPage`](viewpagerandroid.md#setpage)
+- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
 
 ### Type Definitions
 
@@ -151,6 +153,30 @@ When false, the content does not scroll. The default value is true.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `setPage`
+
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will be animated.
+
+* position - index of page that will be selected
+
+| Type     | Required |
+| -------- | -------- |
+| Number   | Yes      |
+
+---
+
+### `setPageWithoutAnimation`
+
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will *not* be animated.
+
+* position - index of page that will be selected
+
+| Type     | Required |
+| -------- | -------- |
+| Number   | Yes      |
 
 ## Type Definitions
 

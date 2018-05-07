@@ -46,7 +46,7 @@ This is the distance between the top of the user screen and the react native vie
 
 | Type   | Required |
 | ------ | -------- |
-| number | Yes      |
+| number | No       |
 
 ---
 

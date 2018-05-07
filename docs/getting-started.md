@@ -115,7 +115,7 @@ This will start a development server for you.
 
 ## Running your React Native application
 
-Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. From your terminal, select "send the app URL to your phone number or email address" and follow the instructions. Once on your phone, the app URL should automatically open in Expo and display your app.
+Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, follow on-screen instructions to get a link.
 
 ### Modifying your app
 
