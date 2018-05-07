@@ -23,7 +23,7 @@ Fetch also takes an optional second argument that allows you to customize the HT
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
-    Accept: 'application/json',
+    'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
