@@ -28,6 +28,21 @@ BackHandler.addEventListener('hardwareBackPress', function() {
 });
 ```
 
+Example 2:
+
+```javascript
+  componentDidMount() {
+    this.androidBackHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+      this.goBack(); // works best when the goBack is async
+      return true;
+    });
+  }
+
+  componentWillUnmount() {
+    this.androidBackHandler.remove();
+  }
+```
+
 ### Methods
 
 * [`exitApp`](backhandler.md#exitapp)
