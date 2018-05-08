@@ -162,21 +162,21 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 * position - index of page that will be selected
 
-| Type     | Required |
-| -------- | -------- |
-| Number   | Yes      |
+| Type   | Required |
+| ------ | -------- |
+| Number | Yes      |
 
 ---
 
 ### `setPageWithoutAnimation`
 
-A helper function to scroll to a specific page in the ViewPager. The transition between pages will *not* be animated.
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will _not_ be animated.
 
 * position - index of page that will be selected
 
-| Type     | Required |
-| -------- | -------- |
-| Number   | Yes      |
+| Type   | Required |
+| ------ | -------- |
+| Number | Yes      |
 
 ## Type Definitions
 
