@@ -196,7 +196,7 @@ class AwkwardScrollingImageWithText extends Component {
                 </MarkdownBlock>
               </div>
             </div>
-            <img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif" alt="hot-loader" />
+            <img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif" alt="hot-reloader-demo" />
           </div>
         </Container>
         <Container>
