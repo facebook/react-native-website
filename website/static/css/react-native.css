@@ -16,8 +16,10 @@ body {
   }
 }
 
-.docsNavContainer {
-  width: 240px;
+@media only screen and (min-width: 736px) {
+  .docsNavContainer {
+    width: 240px;
+  }
 }
 
 .mainContainer h1,
@@ -32,14 +34,6 @@ body {
 a {
   color: $secondaryColor;
   text-decoration: none !important;
-}
-
-.navGroup {
-  background-color: #eaf2f5 !important;
-}
-
-.navitemactive {
-  color: $secondaryColor !important;
 }
 
 input#search_input_react {
