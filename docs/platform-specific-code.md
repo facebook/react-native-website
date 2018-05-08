@@ -110,8 +110,8 @@ You can also use the `.native.js` extension when a module needs to be shared bet
 For example, say you have the following files in your project:
 
 ```sh
-Container.js // pick by Webpack, Rollup or any other Web bundler
-Container.native.js // pick by the React Native bundler for both Android and iOS (Metro)
+Container.js # picked up by Webpack, Rollup or any other Web bundler
+Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
 ```
 
 You can still require it without the `.native` extension, as follows:
@@ -119,3 +119,5 @@ You can still require it without the `.native` extension, as follows:
 ```javascript
 const Container = require('./Container');
 ```
+
+**Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.
