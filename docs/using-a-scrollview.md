@@ -32,7 +32,7 @@ export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
-          <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />          
+          <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Text style={{fontSize:96}}>What's the best</Text>
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
@@ -44,7 +44,7 @@ export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
-          <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />          
+          <Image source={{uri: "http://facebook.github.io/react-native/img/favicon.png", width: 64, height: 64}} />
           <Text style={{fontSize:80}}>React Native</Text>
         </ScrollView>
     );
