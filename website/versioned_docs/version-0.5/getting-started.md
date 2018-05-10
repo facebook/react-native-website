@@ -112,11 +112,11 @@ cd AwesomeProject
 npm start
 ```
 
-This will start a development server for you, and print a QR code in your terminal.
+This will start a development server for you.
 
 ## Running your React Native application
 
-Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. Using the Expo app, scan the QR code from your terminal to open your project.
+Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, follow on-screen instructions to get a link.
 
 ### Modifying your app
 
@@ -215,7 +215,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer.
+If you have already installed Node on your system, make sure it is Node 8 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -223,7 +223,7 @@ If you have already installed Node on your system, make sure it is version 6 or 
 
 ### Node
 
-Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 6 or newer.
+Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 8 or newer.
 
 <block class='native windows android' />
 
@@ -239,7 +239,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs.install python2 jdk8
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
+If you have already installed Node on your system, make sure it is Node 8 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
@@ -417,7 +417,7 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 <block class="native windows android" />
 
-Open the System pane under **System and Security** in the Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
 ![ANDROID_HOME Environment Variable](/react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
