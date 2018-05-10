@@ -28,18 +28,35 @@ BackHandler.addEventListener('hardwareBackPress', function() {
 });
 ```
 
-Example 2:
+Lifecycle example:
 
 ```javascript
   componentDidMount() {
-    this.androidBackHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  handleBackPress = () => {
+    this.goBack(); // works best when the goBack is async
+    return true;
+  }
+```
+
+Lifecycle alternative:
+
+```javascript
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
       this.goBack(); // works best when the goBack is async
       return true;
     });
   }
 
   componentWillUnmount() {
-    this.androidBackHandler.remove();
+    this.backHandler.remove();
   }
 ```
 
