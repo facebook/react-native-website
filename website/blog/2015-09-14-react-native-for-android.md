@@ -3,7 +3,7 @@ title: React Native for Android: How we built the first cross-platform React Nat
 author: Daniel Witte
 authorTitle: Software Engineer at Facebook
 authorURL: https://www.facebook.com/drwitte
-authorImageURL: https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c54.54.681.681/s160x160/20622_10100459314481893_1435252658_n.jpg?_nc_log=1&oh=7afdb6aaa02f320c4dd4749733140133&oe=59D77C28
+authorFBID: 210064
 hero: /react-native/blog/assets/blue-hero.png
 category: announcements
 ---
