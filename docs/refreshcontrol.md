@@ -25,7 +25,7 @@ class RefreshableList extends Component {
 
   render() {
     return (
-      <ListView
+      <FlatList
         refreshControl={
           <RefreshControl
             refreshing={this.state.refreshing}
@@ -33,9 +33,7 @@ class RefreshableList extends Component {
           />
         }
         ...
-      >
-      ...
-      </ListView>
+      />
     );
   }
   ...
