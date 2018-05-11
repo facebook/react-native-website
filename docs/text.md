@@ -209,6 +209,7 @@ We believe that this more constrained way to style text will yield better apps:
 * [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
 * [`minimumFontScale`](text.md#minimumfontscale)
 * [`suppressHighlighting`](text.md#suppresshighlighting)
+* [`dataDetectorType`](text.md#datadetectortype)
 
 ---
 
@@ -500,3 +501,23 @@ When `true`, no visual change is made when text is pressed down. By default, a g
 # Known issues
 
 * [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute
+
+### `dataDetectorType`
+
+Determines the types of data converted to clickable URLs in the text element. By default no data types are detected.
+
+You can provide only one type.
+
+Possible values for `dataDetectorType` are:
+
+* `'phoneNumber'`
+* `'link'`
+* `'email'`
+* `'none'`
+* `'all'`
+
+| Type                                                | Required | Platform |
+| --------------------------------------------------- | -------- | -------- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
+
+---
