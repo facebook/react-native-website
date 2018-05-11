@@ -57,8 +57,7 @@
   },
   {
     "name": "Skype",
-    "icon":
-      "skype.png",
+    "icon": "skype.png",
     "linkAppStore":
       "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
     "linkPlayStore":
@@ -274,10 +273,20 @@
   {
     "name": "adidas GLITCH",
     "icon": "glitch.png",
-    "linkAppStore": "https://itunes.apple.com/gb/app/adidas-glitch-interchangeable/id1166181522?mt=8&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-IPHONE",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.adidas.glitch&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-ANDROID",
-    "infoLink": "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
+    "linkAppStore":
+      "https://itunes.apple.com/gb/app/adidas-glitch-interchangeable/id1166181522?mt=8&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-IPHONE",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.adidas.glitch&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-ANDROID",
+    "infoLink":
+      "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
+    "pinned": false
+  },
+  {
+    "name": "Facebook Analytics",
+    "icon": "fba.png",
+    "linkAppStore": "https://fb.me/fba_ios",
+    "linkPlayStore": "https://fb.me/fba_android",
     "pinned": false
   }
 ]
