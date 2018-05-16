@@ -465,11 +465,15 @@ static extraNativeComponentConfig()
 goForward();
 ```
 
+Go forward one page in the web view's history.
+
 ### `goBack()`
 
 ```javascript
 goBack();
 ```
+
+Go back one page in the web view's history.
 
 ### `reload()`
 
@@ -477,8 +481,12 @@ goBack();
 reload();
 ```
 
+Reloads the current page.
+
 ### `stopLoading()`
 
 ```javascript
 stopLoading();
 ```
+
+Stop loading the current page.
