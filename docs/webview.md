@@ -68,6 +68,10 @@ You can use this component to navigate back and forth in the web view's history 
 ### Methods
 
 * [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
+* [`goForward`](webview.md#goforward)
+* [`goBack`](webview.md#goback)
+* [`reload`](webview.md#reload)
+* [`stopLoading`](webview.md#stoploading)
 
 ---
 
@@ -454,3 +458,35 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 ```javascript
 static extraNativeComponentConfig()
 ```
+
+### `goForward()`
+
+```javascript
+goForward();
+```
+
+Go forward one page in the web view's history.
+
+### `goBack()`
+
+```javascript
+goBack();
+```
+
+Go back one page in the web view's history.
+
+### `reload()`
+
+```javascript
+reload();
+```
+
+Reloads the current page.
+
+### `stopLoading()`
+
+```javascript
+stopLoading();
+```
+
+Stop loading the current page.
