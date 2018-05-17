@@ -263,5 +263,12 @@
       "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
     "pinned": false
+  },
+  {
+    "name": "Facebook Analytics",
+    "icon": "fba.png",
+    "linkAppStore": "https://fb.me/fba_ios",
+    "linkPlayStore": "https://fb.me/fba_android",
+    "pinned": false
   }
 ]
