@@ -132,6 +132,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
+- [`scrollEnabled`](textinput.md#scrollenabled)
 - [`secureTextEntry`](textinput.md#securetextentry)
 - [`selection`](textinput.md#selection)
 - [`selectionColor`](textinput.md#selectioncolor)
@@ -589,6 +590,16 @@ The following values work on iOS only:
 | Type                                                                                                                              | Required |
 | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No       |
+
+---
+
+### `scrollEnabled`
+
+If `false`, scrolling of the text view will be disabled. The default value is `true`. Does only work with 'multiline={true}'.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
