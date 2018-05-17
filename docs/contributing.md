@@ -19,6 +19,9 @@ There are many ways to contribute to React Native, and many of them do not invol
 * Read through the [React Native docs](http://facebook.github.io/react-native/). If you find anything that is confusing or can be improved, you can make edits by clicking "Edit" at the top of most docs.
 * Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
 * Take a look at the [features requested](https://react-native.canny.io/feature-requests) by others in the community and consider opening a pull request if you see something you want to work on.
+* Before opening your pull request, make sure you have fully tested your changes. Test your changes locally and by running the various tests provided. 
+* For information on how to build the React Native project locally with your changes, make sure to read through the [Building React Native from source guide](https://facebook.github.io/react-native/docs/building-from-source.html). 
+* Check out the [Testing your changes guide](https://facebook.github.io/react-native/docs/testing.html) to find out about the numerous tests which has been provided to help ensure that any new changes wont cause a regression.
 
 Contributions are very welcome. If you think you need help planning your contribution, please hop into [#react-native](https://discord.gg/0ZcbPKXt5bZjGY5n) and let people know you're looking for a mentor.
 
