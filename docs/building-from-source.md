@@ -13,9 +13,9 @@ Assuming you have the Android SDK installed, run `android` to open the Android S
 
 Make sure you have the following installed:
 
-1. Android SDK version 23 (compileSdkVersion in [`build.gradle`](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle))
-2. SDK build tools version 23.0.1 (buildToolsVersion in [`build.gradle`](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle))
-3. Android Support Repository >= 17 (for Android Support Library)
+1. Android SDK version 26 (compileSdkVersion in [`build.gradle`](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle))
+2. SDK build tools version 26.0.3 (buildToolsVersion in [`build.gradle`](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle))
+3. Android Support Repository >= 26 (for Android Support Library)
 4. Android NDK (download links and installation instructions below)
 
 #### Point Gradle to your Android SDK:
@@ -100,7 +100,7 @@ Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instea
 ...
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:appcompat-v7:26.0.2'
 
     compile project(':ReactAndroid')
 
