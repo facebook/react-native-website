@@ -271,5 +271,17 @@
       "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
     "pinned": false
+  },
+  {
+    "name": "KSGR",
+    "icon": "ksgr.png",
+    "linkAppStore": "https://itunes.apple.com/ch/app/id1321288305",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=ch.ksgr.ksgr",
+    "infoLink":
+      "https://blog.edge5.com/ensure-efficient-development-and-deployment-of-a-high-quality-hospital-app-using-react-native-4e4cebf9be17",
+    "infoTitle":
+      "Ensure efficient development and deployment of a high-quality hospital app using React Native",
+    "pinned": false
   }
 ]
