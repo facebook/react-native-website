@@ -11,13 +11,10 @@ On iOS, `AsyncStorage` is backed by native code that stores small values in a se
 
 The `AsyncStorage` JavaScript code is a simple facade that provides a clear JavaScript API, real `Error` objects, and simple non-multi functions. Each method in the API returns a `Promise` object.
 
-import async storage library
+Importing the `AsyncStorage` library:
 
 ```
-import {
-...
-AsyncStorage
-} from "react-native"
+import { AsyncStorage } from "react-native"
 ```
 
 Persisting data:
