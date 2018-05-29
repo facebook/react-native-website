@@ -171,7 +171,7 @@ The instructions are a bit different depending on your development operating sys
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
 
 <block class="native mac ios" />
 
