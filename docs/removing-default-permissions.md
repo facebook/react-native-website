@@ -66,4 +66,4 @@ The default permissions that get added are:
     </manifest>
     ```
     
-That's it. We did not remove the `INTERNET` permission as pretty much all apps use it. Now whenever you create an APK these 4 permissions will be removed.
+That's it. We did not remove the `INTERNET` permission as pretty much all apps use it. Now whenever you create a production APK all these 4 permissions will be removed. When you create a debug APK (`react-native run-android`) it will install the APK with only the three permissions removed, and `SYSTEM_ALERT_WINDOW` will remain.
