@@ -14,6 +14,7 @@ Whenever you are fixing a bug or adding new functionality to React Native, you s
 * [iOS](testing.md#ios)
 * [Apple TV](testing.md#apple-tv)
 * [End-to-end tests](testing.md#end-to-end-tests)
+* [Updating the Documentation](testing.md#updating-the-documentation)
 
 ## JavaScript
 
