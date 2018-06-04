@@ -32,7 +32,7 @@ Example:
 
 ```
 export ANDROID_SDK=/Users/your_unix_name/android-sdk-macosx
-export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r10e
+export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r16
 ```
 
 **Step 2:** Create a `local.properties` file in the `android` directory of your react-native app with the following contents:
@@ -41,15 +41,15 @@ Example:
 
 ```
 sdk.dir=/Users/your_unix_name/android-sdk-macosx
-ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
+ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r16
 ```
 
 #### Download links for Android NDK
 
-1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
-2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
-4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
+1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r16-darwin-x86_64.zip
+2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r16-linux-x86_64.zip
+3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r16-windows-x86_64.zip
+4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r16-windows-x86.zip
 
 You can find further instructions on the [official page](https://developer.android.com/ndk/index.html).
 
