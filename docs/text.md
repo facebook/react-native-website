@@ -179,9 +179,11 @@ Assuming that `MyAppText` is a component that simply renders out its children in
 ```javascript
 class MyAppHeaderText extends Component {
   render() {
-    <MyAppText>
-      <Text style={{fontSize: 20}}>{this.props.children}</Text>
-    </MyAppText>;
+    return (
+      <MyAppText>
+        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+      </MyAppText>
+    );
   }
 }
 ```
@@ -205,24 +207,26 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### Props
 
-* [`selectable`](text.md#selectable)
-* [`accessible`](text.md#accessible)
-* [`ellipsizeMode`](text.md#ellipsizemode)
-* [`nativeID`](text.md#nativeid)
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onLongPress`](text.md#onlongpress)
-* [`onPress`](text.md#onpress)
-* [`pressRetentionOffset`](text.md#pressretentionoffset)
-* [`allowFontScaling`](text.md#allowfontscaling)
-* [`style`](text.md#style)
-* [`testID`](text.md#testid)
-* [`disabled`](text.md#disabled)
-* [`selectionColor`](text.md#selectioncolor)
-* [`textBreakStrategy`](text.md#textbreakstrategy)
-* [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-* [`minimumFontScale`](text.md#minimumfontscale)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
+- [Reference](#reference)
+  - [Props](#props)
+    - [`selectable`](#selectable)
+    - [`accessible`](#accessible)
+    - [`ellipsizeMode`](#ellipsizemode)
+    - [`nativeID`](#nativeid)
+    - [`numberOfLines`](#numberoflines)
+    - [`onLayout`](#onlayout)
+    - [`onLongPress`](#onlongpress)
+    - [`onPress`](#onpress)
+    - [`pressRetentionOffset`](#pressretentionoffset)
+    - [`allowFontScaling`](#allowfontscaling)
+    - [`style`](#style)
+    - [`testID`](#testid)
+    - [`disabled`](#disabled)
+    - [`selectionColor`](#selectioncolor)
+    - [`textBreakStrategy`](#textbreakstrategy)
+    - [`adjustsFontSizeToFit`](#adjustsfontsizetofit)
+    - [`minimumFontScale`](#minimumfontscale)
+    - [`suppressHighlighting`](#suppresshighlighting)
 
 ---
 
