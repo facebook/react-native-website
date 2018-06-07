@@ -93,14 +93,6 @@ dependencies {
 }
 ```
 
-Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-rules.pro` :
-
-```
--keep class com.facebook.imagepipeline.animated.factory.AnimatedFactoryImpl {
-  public AnimatedFactoryImpl(com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory, com.facebook.imagepipeline.core.ExecutorSupplier);
-}
-```
-
 ### Props
 
 * [`style`](image.md#style)
