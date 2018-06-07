@@ -108,6 +108,7 @@ Then run the following commands to create a new React Native project called "Awe
 create-react-native-app AwesomeProject
 
 cd AwesomeProject
+npm install
 npm start
 ```
 
