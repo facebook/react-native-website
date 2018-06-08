@@ -22,3 +22,21 @@ Simply wrap your top level view with a `SafeAreaView` with a `flex: 1` style app
 ### Props
 
 * [View props...](view.md#props)
+
+- [`onInsetsChange`](safeareaview.md#oninsetschange)
+
+---
+
+# Reference
+
+## Props
+
+### `onInsetsChange`
+
+Invoked when safe area view insets change with:
+
+`{nativeEvent: {insets: {left, top, right, bottom}}}`
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
