@@ -8,7 +8,6 @@
  */
 
 const React = require("react");
-
 const CompLibrary = require("../../core/CompLibrary.js");
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 const Container = CompLibrary.Container;
@@ -63,6 +62,7 @@ class HeaderHero extends React.Component {
       <Hero>
         <div className="text">React Native中文网</div>
         <div className="minitext">使用JavaScript和React编写原生移动应用</div>
+
         <div className="buttons-unit">
           <HomeCallToAction />
         </div>
@@ -260,11 +260,30 @@ class MiniShowcase extends React.Component {
   }
 }
 */
+// const onAdClicked = gainfo => {
+//   ga("send", "event", "ad", "clicked", gainfo);
+// };
+
+const Banner = () => {
+  const { banner: { img, text, link, topicId, gainfo } } = siteConfig.adData;
+  return (
+    <div className="vip">
+      <a
+        target="_blank"
+        href={link || siteConfig.bbsUrl + "/topic/" + topicId}
+        // onClick={() => onAdClicked(gainfo)}
+      >
+        <img title={text} src={siteConfig.baseUrl + "img" + img} />
+      </a>
+    </div>
+  );
+};
 
 class Index extends React.Component {
   render() {
     return (
       <div className="pageContainer">
+        <Banner />
         <HeaderHero />
         <Features />
         {/* <MiniShowcase /> */}

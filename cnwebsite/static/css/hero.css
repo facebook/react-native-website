@@ -13,6 +13,10 @@
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
+.vip img {
+  display: block;
+}
+
 .button:hover {
   text-decoration: none;
 }
@@ -37,7 +41,7 @@
   padding: 50px 0;
   color: #fdf3e7;
   font-weight: 300;
-  text-align: center;  
+  text-align: center;
 }
 
 .hero .text {
@@ -67,7 +71,7 @@
 }
 
 .buttons-unit a {
-  color:white;
+  color: white;
 }
 
 .buttons-unit .button {

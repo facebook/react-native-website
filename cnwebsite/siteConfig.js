@@ -15,8 +15,17 @@ const baseUrl = "/";
 const repoUrl = "https://github.com/facebook/react-native";
 const bbsUrl = "http://bbs.reactnative.cn";
 const siteConfig = {
+  adData: {
+    banner: {
+      img: "/banner/course01.png",
+      text: "听晴明老师从头讲React Native",
+      topicId: "3798",
+      gainfo: "post3798/index"
+    }
+  },
   title: "React Native 中文网",
   tagline: "使用React来编写原生应用的框架",
+  bbsUrl,
   baseUrl,
   projectName: "react-native",
   repoUrl,
