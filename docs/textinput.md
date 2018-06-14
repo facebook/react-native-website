@@ -353,6 +353,7 @@ Determines which keyboard to open, e.g.`numeric`.
 The following values work across platforms:
 
 * `default`
+* `number-pad`
 * `decimal-pad`
 * `numeric`
 * `email-address`
@@ -365,7 +366,6 @@ The following values work on iOS only:
 * `ascii-capable`
 * `numbers-and-punctuation`
 * `url`
-* `number-pad`
 * `name-phone-pad`
 * `twitter`
 * `web-search`
