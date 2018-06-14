@@ -15,7 +15,7 @@ The default permissions that get added are:
 
 1. Let's start by removing `READ_PHONE_STATE`, `WRITE_EXTERNAL_STORAGE`, and `READ_EXTERNAL_STORAGE` from both production and debug APKs, as it is not required in either. These storage permissions are still not needed if `AsyncStorage` module is in use, so it is safe to remove from both production and debug.
 2. Open your `android/app/src/main/AndroidManifest.xml` file.
-3. Even though these three permissions are not listed in the manifest they get added in. We add the three permissions with `tools:node="remove"` attribute, to make sure it gets removed during build. Note that the package identifier will be different, for below it is "com.myapp" becuase the project was created with `react-native init myapp`.
+3. Even though these three permissions are not listed in the manifest they get added in. We add the three permissions with `tools:node="remove"` attribute, to make sure it gets removed during build. Note that the package identifier will be different, for below it is "com.myapp" because the project was created with `react-native init myapp`.
   
     ```diff
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
