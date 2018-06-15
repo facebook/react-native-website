@@ -81,7 +81,7 @@ class Versions extends React.Component {
               verify the changes
             </a>{" "}
             and to identify any issues by{" "}
-            <a href="github.com/facebook/react-native/issues">
+			<a href="https://github.com/facebook/react-native/issues">
               writing clear, actionable bug reports
             </a>. Eventually, the release candidate will be promoted to stable.
           </p>
