@@ -48,7 +48,8 @@
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
-      "signed-apk-android"
+      "signed-apk-android",
+      "removing-default-permissions"
     ],
     "Contributing": [
       "contributing",
