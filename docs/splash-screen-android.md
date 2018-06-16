@@ -19,6 +19,8 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
 2. **Create drawable directory** - We will need to place some assets in a special folder. Create a directory in `./android/app/src/main/res/` called `drawable`.
 
 3. **Add image of logo** - To this newly created "drawable" directory add an image. For example we can add `myimg.png` to `./android/app/src/main/res/drawable/myimg.png`.
+    
+    * This uses one image size for all image densities. If you want to use a different image for various densities see the section at the end of this guide ![Different sized image for different densities](#different_sized_image_for_different_densities).
 
 4. **Create layout file** - We now layout what our splash screen should look like. We want it to have the color `foobar` and lets place a centered logo image. Create a file called `splash_screen.xml` in this "drawable" directory. (Final path of file is: `./android/app/src/main/res/drawable/splash_screen.xml`). Populate this file with the following contents:
 
@@ -102,3 +104,30 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
       * **Cover it** - This is the easiest solution but has quirks. Set the background color of the root view of your app. "Root view" means the first `<View>` based component that you render in your app and that you have control over. Meaning you can style it. To this view add a `style` and set its `backgroundColor` to a solid non-transparent color. This will effectively keep the splash screen covered.
         * *Warning* - When the keyboard shows, the quirk is splash screen in the backgrond will be seen for a split second as the flexible view of app resizes before the keyboard animation completes. If your splash screen had a small image, then it is probably not seen, and probably not an issue. However if your splash image gets seen, then the "clear it" solution below does not have this issue.
       * **Clear it** - This is the best solution as it removes the image in the splash background. Use [react-native-background-color](https://github.com/ramilushev/react-native-background-color) module and whenever you are ready to clear the splash screen image, call `BackgroundColor.setColor('#000000')`, this will remove the background image and change the color of the splash screen.
+
+
+### Different sized image for different densities
+
+Instead of adding the image to `./android/app/src/main/res/drawable` directory, move this image to `./android/app/src/main/res/mipmap-mdpi/` directory, this is our `@1x` image. Then create a @2x (twice as big), @3x (three times as big). Here is a list of where the various sized images should go:
+
+   * `./android/app/src/main/res/mipmap-mdpi/` - myimage.png
+   * `mipmap-hdpi` - myimg@2x.png
+   * `mipmap-xhdpi` - myimg@3x.png
+   * `mipmap-xxhdpi` - myimg@3x.png
+   
+Next go to `./android/app/src/main/res/drawable/splash_screen.xml` and modify it, the diff is shown here:
+ 
+```diff
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/foobar" />
+
+    -<item>
+    -    <bitmap android:gravity="center" android:src="@drawable/myimg" />
+    -</item>
+    +<item android:gravity="center" android:drawable="@mipmap/myimg" />
+
+</layer-list>
+ ```
+ 
