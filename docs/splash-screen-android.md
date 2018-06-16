@@ -47,9 +47,9 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
             <!-- Customize your theme here. -->
         </style>
 
-        + <style name="SplashTheme" parent="AppTheme">
-        +     <item name="android:windowBackground">@drawable/splash_screen</item>
-        + </style>
+    +    <style name="SplashTheme" parent="AppTheme">
+    +        <item name="android:windowBackground">@drawable/splash_screen</item>
+    +    </style>
 
     </resources>
     ```
