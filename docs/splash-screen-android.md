@@ -35,6 +35,21 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
     </layer-list>
     ```
     
-    The bitmap here centers our image, and the `android:src` is `@drawable/` followed by our image file name *without* the image extension.
+    The bitmap here centers our image, and the `android:src` is `@drawable/` followed by our image file name *without* the image extension.  
     
-    
+5. **Update styles.xml** - Update the `styles.xml` file located at `./android/app/src/main/res/values/styles.xml`. Add the following lines:
+
+    ```diff
+    <resources>
+
+        <!-- Base application theme. -->
+        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+            <!-- Customize your theme here. -->
+        </style>
+
+        + <style name="SplashTheme" parent="AppTheme">
+        +     <item name="android:windowBackground">@drawable/splash_screen</item>
+        + </style>
+
+    </resources>
+    ```
