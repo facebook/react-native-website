@@ -76,3 +76,11 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
             android:name=".MainActivity"
             android:label="@string/app_name"
     ```
+
+7. **Try it** - Now try the app out with `react-native run-android`. As we made native changes, a re-compile is needed. You will see this splash screen, then the app will then load. You will notice that the splash screen image/color stays behind things. After seeing this, step 8 will make sense.
+
+8. **Hide the splash screen** - There are two options to hide the splash screen:
+
+      * **Cover it** - This is the easiest solution but has quirks. Set the background color of the root view of your app. "Root view" means the first `<View>` based component that you render in your app and that you have control over. Meaning you can style it. To this view add a `style` and set its `backgroundColor` to a solid non-transparent color. This will effectively keep the splash screen covered.
+        * *Warning* - When the keyboard shows, the quirk is splash screen in the backgrond will be seen for a split second as the flexible view of app resizes before the keyboard animation completes. If your splash screen had a small image, then it is probably not seen, and probably not an issue. However if your splash image gets seen, then the "clear it" solution below does not have this issue.
+      * **Clear it** - This is the best solution as it removes the image in the splash background. Use [react-native-background-color](https://github.com/ramilushev/react-native-background-color) module and whenever you are ready to clear the splash screen image, call `BackgroundColor.setColor('#000000')`, this will remove the background image and change the color of the splash screen.
