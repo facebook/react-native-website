@@ -54,6 +54,24 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
     </resources>
     ```
     
+    If you want to set the color of the status bar then add `<item name="android:statusBarColor">@color/foobar</item>`, for the above example it would be:
+    
+    ```diff
+    <resources>
+
+        <!-- Base application theme. -->
+        <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+            <!-- Customize your theme here. -->
+        </style>
+
+        <style name="SplashTheme" parent="AppTheme">
+            <item name="android:windowBackground">@drawable/splash_screen</item>
+    +       <item name="android:statusBarColor">@color/foobar</item>
+        </style>
+
+    </resources>
+    ```
+    
 6. **Update AndroidManifest.xml** - Open `./android/app/src/main/AndroidManifest.xml` and change the `android:theme` from `@style/AppTheme` to `@style/SplashTheme` in `MainActivity`:
 
     ```diff
