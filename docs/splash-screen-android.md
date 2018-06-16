@@ -123,10 +123,10 @@ Next go to `./android/app/src/main/res/drawable/splash_screen.xml` and modify it
 
     <item android:drawable="@color/foobar" />
 
-    -<item>
-    -    <bitmap android:gravity="center" android:src="@drawable/myimg" />
-    -</item>
-    +<item android:gravity="center" android:drawable="@mipmap/myimg" />
+    - <item>
+    -     <bitmap android:gravity="center" android:src="@drawable/myimg" />
+    - </item>
+    + <item android:gravity="center" android:drawable="@mipmap/myimg" />
 
 </layer-list>
  ```
