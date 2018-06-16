@@ -10,14 +10,31 @@ There are a few ways to do splash screens. This shows one of the simpler and mor
     ```
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
-      <color name="foobar">#ca949b</color>
+      <color name="foobar">#00ff00</color>
     </resources>
     ```
   
-  You can use any hex in place of `#ca949b` and can name the color anything in place of `foobar`. For this guide we will be leaving it at this.
-  
-2. **Create layout file** - We now layout what our splash screen should look like. Create a directory in `./android/app/src/main/res/` called `drawable`. And inside it create a file called `splash_screen.xml`. (Final path of file is: `./android/app/src/main/res/drawable/splash_screen.xml`. Populate this file with the following contents:
+    You can use any hex in place of `#00ff00` and can name the color anything in place of `foobar`. For this guide we will be leaving it at this, it is green.
+
+2. **Create drawable directory** - We will need to place some assets in a special folder. Create a directory in `./android/app/src/main/res/` called `drawable`.
+
+3. **Add image of logo** - To this newly created "drawable" directory add an image. For example we can add `myimg.png` to `./android/app/src/main/res/drawable/myimg.png`.
+
+4. **Create layout file** - We now layout what our splash screen should look like. We want it to have the color `foobar` and lets place a centered logo image. Create a file called `splash_screen.xml` in this "drawable" directory. (Final path of file is: `./android/app/src/main/res/drawable/splash_screen.xml`). Populate this file with the following contents:
 
     ```
-    blah blah
+    <?xml version="1.0" encoding="utf-8"?>
+    <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <item android:drawable="@color/foobar" />
+
+        <item>
+            <bitmap android:gravity="center" android:src="@drawable/myimg" />
+        </item>
+
+    </layer-list>
     ```
+    
+    The bitmap here centers our image, and the `android:src` is `@drawable/` followed by our image file name *without* the image extension.
+    
+    
