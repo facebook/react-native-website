@@ -156,7 +156,7 @@ var styles = {
 | ---- | ---- |
 | bool | 否   |
 
-## Type Definitions
+## 类型定义
 
 ### ViewPagerScrollState
 
@@ -164,7 +164,7 @@ var styles = {
 | ----- |
 | $Enum |
 
-**Constants:**
+**常量:**
 
 | Value    | 说明 |
 | -------- | ---- |

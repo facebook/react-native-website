@@ -3,7 +3,7 @@ id: netinfo
 title: NetInfo
 ---
 
-NetInfo exposes info about online/offline status
+通过NetInfo模块可以获取设备当前的联网状态。
 
 ```
 NetInfo.getConnectionInfo().then((connectionInfo) => {
@@ -22,24 +22,24 @@ NetInfo.addEventListener(
 );
 ```
 
-### ConnectionType enum
+### ConnectionType枚举值
 
-`ConnectionType` describes the type of connection the device is using to communicate with the network.
+`ConnectionType`描述了设备联网的方式。
 
-Cross platform values for `ConnectionType`:
+`ConnectionType`有如下跨平台可用的值:
 
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cellular` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
+* `none` - 设备处于离线状态
+* `wifi` - 设备通过wifi联网，或者设备是iOS模拟器
+* `cellular` - 设备通过蜂窝数据流量联网
+* `unknown` - 联网状态异常
 
-Android-only values for `ConnectionType`:
+`ConnectionType`还有如下仅在Android平台上可用的值:
 
-* `bluetooth` - device is connected via Bluetooth
-* `ethernet` - device is connected via Ethernet
-* `wimax` - device is connected via WiMAX
+* `bluetooth` - 设备通过蓝牙协议联网
+* `ethernet` - 设备通过以太网协议联网
+* `wimax` - 设备通过WiMAX协议联网
 
-### EffectiveConnectionType enum
+### EffectiveConnectionType枚举值
 
 Cross platform values for `EffectiveConnectionType`:
 
@@ -69,7 +69,7 @@ To request network info, you need to add the following line to your app's `Andro
 
 # 文档
 
-## Methods
+## 方法
 
 ### `addEventListener()`
 

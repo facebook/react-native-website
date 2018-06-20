@@ -94,7 +94,7 @@ title: 搭建开发环境
 
 <block class="quickstart mac windows linux ios android" />
 
-译注：沙盒环境大量依赖于国外网络环境，因此不建议国内用户使用。
+译注：沙盒环境大量依赖于国外网络环境，也不能直接发布应用，只是用于学习、演示、试验等目的。不建议国内用户使用。
 
 [Create React Native App](https://github.com/react-community/create-react-native-app) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
 
@@ -131,9 +131,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
+- Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
 
-* If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
+- If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -218,7 +218,7 @@ brew install node
 brew install watchman
 ```
 
-如果你已经安装了 Node，请检查其版本是否在 v6.0 以上。安装完 Node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
+如果你已经安装了 Node，请检查其版本是否在 v8.0 以上。安装完 Node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
 
 ```
 npm config set registry https://registry.npm.taobao.org --global
@@ -283,7 +283,7 @@ yarn config set disturl https://npm.taobao.org/dist --global
 
 ### Xcode
 
-React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 8.0 或更高版本。你可以通过 App Store 或是到[Apple 开发者官网](https://developer.apple.com/xcode/downloads/)上下载。这一步骤会同时安装 Xcode IDE、Xcode 的命令行工具和 iOS 模拟器。
+React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 9.0 或更高版本。你可以通过 App Store 或是到[Apple 开发者官网](https://developer.apple.com/xcode/downloads/)上下载。这一步骤会同时安装 Xcode IDE、Xcode 的命令行工具和 iOS 模拟器。
 
 #### Xcode 的命令行工具
 
@@ -316,16 +316,16 @@ React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 版本）�
 
 <block class="native mac windows android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Performance (Intel ® HAXM)`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Performance (Intel ® HAXM)`
+- `Android Virtual Device`
 
 <block class="native linux android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Android Virtual Device`
 
 <block class="native mac windows linux android" />
 
@@ -355,8 +355,8 @@ Android Studio 默认会安装最新版本的 Android SDK。然而目前编译 R
 
 在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 6.0 (Marshmallow)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
 
-* `Android SDK Platform 23`
-* `Intel x86 Atom_64 System Image`（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）
+- `Android SDK Platform 23`
+- `Intel x86 Atom_64 System Image`（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）
 
 <block class="native mac android" />
 
@@ -602,13 +602,13 @@ react-native run-android
 
 <block class="native mac ios" />
 
-* 使用你喜欢的编辑器打开`App.js`并随便改上几行。
-* 在 iOS 模拟器中按下`⌘-R`就可以刷新 APP 并看到你的最新修改！（如果没有反应，请检查模拟器的 Hardware 菜单中，connect hardware keyboard 选项是否选中开启）
+- 使用你喜欢的编辑器打开`App.js`并随便改上几行。
+- 在 iOS 模拟器中按下`⌘-R`就可以刷新 APP 并看到你的最新修改！（如果没有反应，请检查模拟器的 Hardware 菜单中，connect hardware keyboard 选项是否选中开启）
 
 <block class="native mac android" />
 
-* 使用你喜欢的文本编辑器打开`App.js`并随便改上几行
-* 按两下 R 键，或是用 Menu 键（通常是 F2，在 Genymotion 模拟器中是`⌘+M`）打开开发者菜单，然后选择 _Reload JS_ 就可以看到你的最新修改。
+- 使用你喜欢的文本编辑器打开`App.js`并随便改上几行
+- 按两下 R 键，或是用 Menu 键（通常是 F2，在 Genymotion 模拟器中是`⌘+M`）打开开发者菜单，然后选择 _Reload JS_ 就可以看到你的最新修改。
 
 <block class="native windows linux android" />
 
@@ -616,8 +616,8 @@ react-native run-android
 
 现在你已经成功运行了项目，我们可以开始尝试动手改一改了：
 
-* 使用你喜欢的文本编辑器打开`App.js`并随便改上几行
-* 按两下 R 键，或是在开发者菜单中选择 _Reload JS_，就可以看到你的最新修改。
+- 使用你喜欢的文本编辑器打开`App.js`并随便改上几行
+- 按两下 R 键，或是在开发者菜单中选择 _Reload JS_，就可以看到你的最新修改。
 
 <block class="native mac ios android" />
 
@@ -639,9 +639,9 @@ react-native run-android
 
 ## 接下来？
 
-* 试着在开发者菜单中打开[Live Reload](debugging.md#自动刷新)，现在你只要一保存代码应用就会自动完整刷新。
+- 试着在开发者菜单中打开[Live Reload](debugging.md#自动刷新)，现在你只要一保存代码应用就会自动完整刷新。
 
-* 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
+- 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
 如果你想从头开始学习 React Native 开发，可以从尝试[编写 Hello World](tutorial.md)开始。
 
@@ -649,9 +649,9 @@ react-native run-android
 
 ## 接下来？
 
-* 试着在开发者菜单中打开[Live Reload](debugging.md#自动刷新)，现在你只要一保存代码应用就会自动完整刷新。
+- 试着在开发者菜单中打开[Live Reload](debugging.md#自动刷新)，现在你只要一保存代码应用就会自动完整刷新。
 
-* 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
+- 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
 如果你想从头开始学习 React Native 开发，可以从尝试[编写 Hello World](tutorial.md)开始。
 
