@@ -22,7 +22,7 @@ create a new Java Class named `ToastModule.java` inside `android/app/src/main/ja
 ```java
 // ToastModule.java
 
-package com.facebook.react.modules.toast;
+package com.your-app-name;
 
 import android.widget.Toast;
 
@@ -102,7 +102,7 @@ create a new Java Class named `CustomToastPackage.java` inside `android/app/src/
 ```java
 // CustomToastPackage.java
 
-package com.facebook.react.modules.toast;
+package com.your-app-name;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
