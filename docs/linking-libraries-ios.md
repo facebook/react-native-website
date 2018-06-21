@@ -1,41 +1,9 @@
 ---
 id: linking-libraries-ios
-title: Linking Libraries
+title: Linking Libraries (iOS)
 ---
 
-Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to make it easy to add these features whenever you need them.
-
-With that in mind we exposed many of these features as independent static libraries.
-
-For most of the libs it will be as simple as dragging two files, sometimes a third step will be necessary, but no more than that.
-
-_All the libraries we ship with React Native live on the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it. Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library._
-
-## Here are the few steps to link your libraries that contain native code
-
-### Automatic linking
-
-#### Step 1
-
-Install a library with native dependencies:
-
-```bash
-$ npm install <library-with-native-dependencies> --save
-```
-
-> **_Note:_** `--save` or `--save-dev` flag is very important for this step. React Native will link your libs based on `dependencies` and `devDependencies` in your `package.json` file.
-
-#### Step 2
-
-Link your native dependencies:
-
-```bash
-$ react-native link
-```
-
-Done! All libraries with native dependencies should be successfully linked to your iOS/Android project.
-
-> **_Note:_** If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `react-native link` will link library using Podfile. To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
+For most applications, [React Native's Automatic Linking](linking-libraries.md) should be sufficient. In some cases, you will not be able to automatically link, and must link your binaries by hand. For most applications this will mean dragging and dropping a handful of files, as documented below.
 
 ### Manual linking
 
