@@ -357,6 +357,8 @@ A static image to display while loading the image source.
 | Type           | Required | Platform |
 | -------------- | -------- | -------- |
 | object, number | No       | iOS      |
+| -------------- | -------- | -------- |
+| number         | No       | Android  |
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
@@ -367,6 +369,8 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 If passing a number:
 
 * `number` - Opaque type returned by something like `require('./image.jpg')`.
+
+**Android**: It works only on release builds, don't worry if it shows nothing on DEBUG builds
 
 ---
 
