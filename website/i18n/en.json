@@ -95,6 +95,7 @@
     "props": "Props",
     "pushnotificationios": "PushNotificationIOS",
     "refreshcontrol": "RefreshControl",
+    "removing-default-permissions": "Removing Default Permissions",
     "running-on-device": "Running On Device",
     "running-on-simulator-ios": "Running On Simulator",
     "safeareaview": "SafeAreaView",
