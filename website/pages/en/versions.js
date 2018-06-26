@@ -35,17 +35,12 @@ class VersionItem extends React.Component {
         Documentation
       </a>
     );
+    let releaseNotesURI = "https://github.com/facebook/react-native/releases";
+    if (!isNext && !isRC) {
+      releaseNotesURI += `/tag/v${version}.0`;
+    }
     const releaseNotesLink = isNext ? null : (
-      <a
-        href={
-          "https://github.com/facebook/react-native/releases/tag/v" +
-          version.replace("-RC", "") +
-          ".0" +
-          (isRC ? "-rc.0" : "")
-        }
-      >
-        Release Notes
-      </a>
+      <a href={releaseNotesURI}>Release Notes</a>
     );
 
     return (
@@ -81,7 +76,7 @@ class Versions extends React.Component {
               verify the changes
             </a>{" "}
             and to identify any issues by{" "}
-			<a href="https://github.com/facebook/react-native/issues">
+            <a href="https://github.com/facebook/react-native/issues">
               writing clear, actionable bug reports
             </a>. Eventually, the release candidate will be promoted to stable.
           </p>
