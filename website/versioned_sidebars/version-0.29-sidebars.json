@@ -48,7 +48,8 @@
       "version-0.29-native-modules-android",
       "version-0.29-native-components-android",
       "version-0.29-headless-js-android",
-      "version-0.29-signed-apk-android"
+      "version-0.29-signed-apk-android",
+      "version-0.29-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.29-contributing",

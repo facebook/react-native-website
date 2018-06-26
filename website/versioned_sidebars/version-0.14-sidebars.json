@@ -48,7 +48,8 @@
       "version-0.14-native-modules-android",
       "version-0.14-native-components-android",
       "version-0.14-headless-js-android",
-      "version-0.14-signed-apk-android"
+      "version-0.14-signed-apk-android",
+      "version-0.14-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.14-contributing",

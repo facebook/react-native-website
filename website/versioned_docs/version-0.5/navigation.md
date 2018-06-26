@@ -26,10 +26,10 @@ Then you can quickly create an app with a home screen and a profile screen:
 
 ```
 import {
-  StackNavigator,
+  createStackNavigator,
 } from 'react-navigation';
 
-const App = StackNavigator({
+const App = createStackNavigator({
   Home: { screen: HomeScreen },
   Profile: { screen: ProfileScreen },
 });

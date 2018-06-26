@@ -48,7 +48,8 @@
       "version-0.28-native-modules-android",
       "version-0.28-native-components-android",
       "version-0.28-headless-js-android",
-      "version-0.28-signed-apk-android"
+      "version-0.28-signed-apk-android",
+      "version-0.28-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.28-contributing",
