@@ -55,7 +55,8 @@ const siteConfig = {
     apiKey: "7ab53ed26928639bae06ef0f6165f68b",
     indexName: "reactnative_cn",
     algoliaOptions: {
-      facetFilters: ["tags:VERSION"],
+      // TODO
+      // facetFilters: ["version:VERSION"],
       hitsPerPage: 5
     }
   },
