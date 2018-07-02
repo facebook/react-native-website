@@ -1,14 +1,14 @@
 ---
 title: Releasing 0.56
 author: Lorenzo Sciandra
-authorTitle: React Native developer and core maintainer
+authorTitle: React Native Developer and Core Maintainer
 authorURL: https://github.com/kelset
 authorImageURL: https://avatars2.githubusercontent.com/u/16104054?s=460&v=4
 authorTwitter: kelset
 category: engineering
 ---
 
-If you are reading this, it means that the long awaited 0.56 version of React Native is, officially, released 🎉
+If you are reading this, it means that the long awaited 0.56 version of React Native is, officially, released 🎉.
 
 This blog post highlights some of the [changes](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md#highlights) that this massive new version introduces and explains what we've been busy with since May.
 
@@ -17,7 +17,7 @@ React Native changes go through a multi-step process to keep up with the interna
 With React Native's impressive adoption, breaking changes must be made with great care. Sometimes this process isn't as quick as desired. Couple that with inconvenient timing for many contributors, and a decision was forced to skip the April and May monthly releases. Instead, the team bundled the first 0.56 rc with the intent of simplifying the BC handling, and extra testing took place. [Dedicated community communication](https://github.com/react-native-community/react-native-releases/issues/14) channels were used along the way to ensure that 0.56.0 will be as hassle-free as possible to adopt by those who patiently waited for the stable release.
 
 Hopefully, these few paragraphs helped explain what we've been so busy with. Thanks to all the 62 contributors who worked on the massive 803 commits that will make your apps even better 👏
-(and remember, every pull request is appreciated 😊)
+(and remember, every pull request is appreciated 😊).
 
 Without further ado...
 
