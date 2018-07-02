@@ -1,14 +1,14 @@
 ---
 title: Releasing 0.56
 author: Lorenzo Sciandra
-authorTitle: Core Maintainer & React Native Dev [@Drivetribe](https://twitter.com/DRIVETRIBE)
+authorTitle: Core Maintainer & React Native Dev @ Drivetribe
 authorURL: https://github.com/kelset
 authorImageURL: https://avatars2.githubusercontent.com/u/16104054?s=460&v=4
 authorTwitter: kelset
 category: engineering
 ---
 
-If you are reading this, it means that the long awaited 0.56 version of React Native is, officially, released 🎉.
+If you are reading this, it means that the long awaited 0.56 version of React Native has, officially, been released 🎉.
 
 This blog post highlights some of the [changes](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md#highlights) that this massive new version introduces and explains what we've been busy with since May.
 
@@ -50,8 +50,9 @@ And for those of you that are enforcing typing via Flow, we upgraded to [0.74](h
 
 ### And a lot of other things
 
-For instance, YellowBox was ~~updated~~ [replaced](https://github.com/facebook/react-native/commit/d0219a0301e59e8b0ef75dbd786318d4b4619f4c) with a new implementation that makes debugging a lot better. For the complete release notes, please reference the full [changelog here](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md).
+For instance, YellowBox was ~~updated~~ [replaced](https://github.com/facebook/react-native/commit/d0219a0301e59e8b0ef75dbd786318d4b4619f4c) with a new implementation that makes debugging a lot better.
 
+For the complete release notes, please reference the full [changelog here](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md).
 And remember to keep an eye on the [upgrading guide](https://facebook.github.io/react-native/docs/upgrading.html) to avoid issues moving to this new version.
 
 ---
@@ -61,9 +62,7 @@ A final note: starting this week, the React Native core team will resume holding
 Happy coding everyone!
 
 [Lorenzo](https://twitter.com/Kelset),
-
 [Ryan](https://github.com/turnrye),
-
 and the whole [React Native core team](https://twitter.com/reactnative)
 
-PS: as always, we'd like to remind everyone that React Native is still in 0.x versioning because of the many changes still undergoing - so remember when upgrading that yes, probably, something may still crash or be broken. Be helpful towards each other in the issues and when submitting PRs - and remember to follow the [CoC](https://code.fb.com/codeofconduct/) enforced: there's always a human on the other side of the screen.
+**PS:** as always, we'd like to remind everyone that React Native is still in 0.x versioning because of the many changes still undergoing - so remember when upgrading that yes, probably, something may still crash or be broken. Be helpful towards each other in the issues and when submitting PRs - and remember to follow the [CoC](https://code.fb.com/codeofconduct/) enforced: there's always a human on the other side of the screen.
