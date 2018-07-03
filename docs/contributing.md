@@ -13,15 +13,15 @@ Facebook has adopted a Code of Conduct that we expect project participants to ad
 
 There are many ways to contribute to React Native, and many of them do not involve writing any code. Here's a few ideas to get started:
 
-- Simply start using React Native. Go through the [Getting Started](http://facebook.github.io/react-native/docs/getting-started.html) guide. Does everything work as expected? If not, we're always looking for improvements. Let us know by [opening an issue](http://facebook.github.io/react-native/docs/contributing.html#reporting-new-issues).
-- Look through the [open issues](https://github.com/facebook/react-native/issues). Provide workarounds, ask for clarification, or suggest labels. Help [triage issues](http://facebook.github.io/react-native/docs/contributing.html#triaging-issues-and-pull-requests).
-- If you find an issue you would like to fix, [open a pull request](http://facebook.github.io/react-native/docs/contributing.html#your-first-pull-request). Issues tagged as [_Good first issue_](https://github.com/facebook/react-native/labels/Good%20first%20issue) are a good place to get started.
-- Read through the [React Native docs](http://facebook.github.io/react-native/). If you find anything that is confusing or can be improved, you can make edits by clicking "Edit" at the top of most docs.
-- Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
-- Take a look at the [features requested](https://react-native.canny.io/feature-requests) by others in the community and consider opening a pull request if you see something you want to work on.
-- Before opening your pull request, make sure you have fully tested your changes. Test your changes locally and by running the various tests provided.
-- For information on how to build the React Native project locally with your changes, make sure to read through the [Building React Native from source guide](https://facebook.github.io/react-native/docs/building-from-source.html).
-- Check out the [Testing your changes guide](https://facebook.github.io/react-native/docs/testing.html) to find out about the numerous tests which has been provided to help ensure that any new changes wont cause a regression.
+* Simply start using React Native. Go through the [Getting Started](http://facebook.github.io/react-native/docs/getting-started.html) guide. Does everything work as expected? If not, we're always looking for improvements. Let us know by [opening an issue](http://facebook.github.io/react-native/docs/contributing.html#reporting-new-issues).
+* Look through the [open issues](https://github.com/facebook/react-native/issues). Provide workarounds, ask for clarification, or suggest labels. Help [triage issues](http://facebook.github.io/react-native/docs/contributing.html#triaging-issues-and-pull-requests).
+* If you find an issue you would like to fix, [open a pull request](http://facebook.github.io/react-native/docs/contributing.html#your-first-pull-request). Issues tagged as [_Good first issue_](https://github.com/facebook/react-native/labels/Good%20first%20issue) are a good place to get started.
+* Read through the [React Native docs](http://facebook.github.io/react-native/). If you find anything that is confusing or can be improved, you can make edits by clicking "Edit" at the top of most docs.
+* Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
+* Take a look at the [features requested](https://react-native.canny.io/feature-requests) by others in the community and consider opening a pull request if you see something you want to work on.
+* Before opening your pull request, make sure you have fully tested your changes. Test your changes locally and by running the various tests provided.
+* For information on how to build the React Native project locally with your changes, make sure to read through the [Building React Native from source guide](https://facebook.github.io/react-native/docs/building-from-source.html).
+* Check out the [Testing your changes guide](https://facebook.github.io/react-native/docs/testing.html) to find out about the numerous tests which has been provided to help ensure that any new changes wont cause a regression.
 
 Contributions are very welcome. If you think you need help planning your contribution, please hop into [#react-native](https://discord.gg/0ZcbPKXt5bZjGY5n) and let people know you're looking for a mentor.
 
@@ -31,10 +31,10 @@ Core contributors to React Native meet monthly and post their meeting notes on t
 
 One great way you can contribute to the project without writing any code is to help triage issues and pull requests as they come in.
 
-- Ask for more information if the issue does not provide all the details required by the template.
-- Suggest [labels](https://github.com/facebook/react-native/labels) that can help categorize issues.
-- Flag issues that are stale or that should be closed.
-- Ask for test plans and review code.
+* Ask for more information if the issue does not provide all the details required by the template.
+* Suggest [labels](https://github.com/facebook/react-native/labels) that can help categorize issues.
+* Flag issues that are stale or that should be closed.
+* Ask for test plans and review code.
 
 You can learn more about handling issues in the [maintainer's guide](maintainers.html#handling-issues).
 
@@ -64,10 +64,10 @@ We also have a [place where you can request features or enhancements](https://re
 
 When [opening a new issue](https://github.com/facebook/react-native/issues/new), always make sure to fill out the [issue template](https://raw.githubusercontent.com/facebook/react-native/master/.github/ISSUE_TEMPLATE.md). **This step is very important!** Not doing so may result in your issue getting closed. Don't take this personally if this happens, and feel free to open a new issue once you've gathered all the information required by the template.
 
-- **One issue, one bug:** Please report a single bug per issue.
-- **Provide a Snack:** The best way to get attention on your issue is to provide a reduced test case. You can use [Snack](https://snack.expo.io/) to demonstrate the issue.
-- **Provide reproduction steps:** List all the steps necessary to reproduce the issue. Provide a Snack or upload a sample project to GitHub. The person reading your bug report should be able to follow these steps to reproduce your issue with minimal effort.
-- **Try out the latest version:** Verify that the issue can be reproduced locally by updating your project to use [React Native from `master`](http://facebook.github.io/react-native/versions.html). The bug may have already been fixed!
+* **One issue, one bug:** Please report a single bug per issue.
+* **Provide a Snack:** The best way to get attention on your issue is to provide a reduced test case. You can use [Snack](https://snack.expo.io/) to demonstrate the issue.
+* **Provide reproduction steps:** List all the steps necessary to reproduce the issue. Provide a Snack or upload a sample project to GitHub. The person reading your bug report should be able to follow these steps to reproduce your issue with minimal effort.
+* **Try out the latest version:** Verify that the issue can be reproduced locally by updating your project to use [React Native from `master`](http://facebook.github.io/react-native/versions.html). The bug may have already been fixed!
 
 We're not able to provide support through GitHub Issues. If you're looking for help with your code, consider asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/react-native) or reaching out to the community through [other channels](https://facebook.github.io/react-native/help.html).
 
@@ -101,11 +101,11 @@ Small pull requests are much easier to review and more likely to get merged. Mak
 
 Please make sure the following is done when submitting a pull request:
 
-1.  Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
-2.  Add the copyright notice to the top of any new files you've added.
-3.  Describe your [**test plan**](contributing.html#test-plan) in your pull request description. Make sure to [test your changes](testing.html)!
-4.  Make sure your code lints (`npm run lint`).
-5.  If you haven't already, [sign the CLA](https://code.facebook.com/cla).
+1. Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
+2. Add the copyright notice to the top of any new files you've added.
+3. Describe your [**test plan**](contributing.html#test-plan) in your pull request description. Make sure to [test your changes](testing.html)!
+4. Make sure your code lints (`npm run lint`).
+5. If you haven't already, [sign the CLA](https://code.facebook.com/cla).
 
 All pull requests should be opened against the `master` branch. After opening your pull request, ensure [**all tests pass**](contributing.html#contrinuous-integration-tests) on Circle CI. If a test fails and you believe it is unrelated to your change, leave a comment on the pull request explaining why.
 
@@ -115,9 +115,9 @@ All pull requests should be opened against the `master` branch. After opening yo
 
 A good test plan has the exact commands you ran and their output, provides screenshots or videos if the pull request changes UI or updates the website.
 
-- If you've added code that should be tested, add tests!
-- If you've changed APIs, update the documentation via an additional PR to the [react-native-website](https://github.com/facebook/react-native-website) repo.
-- If you've updated the docs, verify the website locally and submit screenshots if applicable (see the [react-native-website](https://github.com/facebook/react-native-website) README).
+* If you've added code that should be tested, add tests!
+* If you've changed APIs, update the documentation via an additional PR to the [react-native-website](https://github.com/facebook/react-native-website) repo.
+* If you've updated the docs, verify the website locally and submit screenshots if applicable (see the [react-native-website](https://github.com/facebook/react-native-website) README).
 
 See [What is a Test Plan?](https://medium.com/@martinkonicek/what-is-a-test-plan-8bfc840ec171#.y9lcuqqi9) to learn more.
 
@@ -175,44 +175,44 @@ However, there are still some styles that the linter cannot pick up.
 
 #### General
 
-- **Most important: Look around.** Match the style you see used in the rest of the project. This includes formatting, naming things in code, naming things in documentation.
-- Add trailing commas,
-- 2 spaces for indentation (no tabs)
-- "Attractive"
+* **Most important: Look around.** Match the style you see used in the rest of the project. This includes formatting, naming things in code, naming things in documentation.
+* Add trailing commas,
+* 2 spaces for indentation (no tabs)
+* "Attractive"
 
 #### JavaScript
 
-- Use semicolons;
-- ES6 standards
-- Prefer `'` over `"`
-- Do not use the optional parameters of `setTimeout` and `setInterval`
-- 80 character line length
+* Use semicolons;
+* ES6 standards
+* Prefer `'` over `"`
+* Do not use the optional parameters of `setTimeout` and `setInterval`
+* 80 character line length
 
 #### JSX
 
-- Prefer `"` over `'` for string literal props
-- When wrapping opening tags over multiple lines, place one prop per line
-- `{}` of props should hug their values (no spaces)
-- Place the closing `>` of opening tags on the same line as the last prop
-- Place the closing `/>` of self-closing tags on their own line and left-align them with the opening `<`
+* Prefer `"` over `'` for string literal props
+* When wrapping opening tags over multiple lines, place one prop per line
+* `{}` of props should hug their values (no spaces)
+* Place the closing `>` of opening tags on the same line as the last prop
+* Place the closing `/>` of self-closing tags on their own line and left-align them with the opening `<`
 
 #### Objective-C
 
-- Space after `@property` declarations
-- Brackets on _every_ `if`, on the _same_ line
-- `- method`, `@interface`, and `@implementation` brackets on the following line
-- _Try_ to keep it around 80 characters line length (sometimes it's just not possible...)
-- `*` operator goes with the variable name (e.g. `NSObject *variableName;`)
+* Space after `@property` declarations
+* Brackets on _every_ `if`, on the _same_ line
+* `- method`, `@interface`, and `@implementation` brackets on the following line
+* _Try_ to keep it around 80 characters line length (sometimes it's just not possible...)
+* `*` operator goes with the variable name (e.g. `NSObject *variableName;`)
 
 #### Java
 
-- If a method call spans multiple lines closing bracket is on the same line as the last argument.
-- If a method header doesn't fit on one line each argument goes on a separate line.
-- 100 character line length
+* If a method call spans multiple lines closing bracket is on the same line as the last argument.
+* If a method header doesn't fit on one line each argument goes on a separate line.
+* 100 character line length
 
 ### Documentation
 
-- Do not wrap lines at 80 characters - configure your editor to soft-wrap when editing documentation.
+* Do not wrap lines at 80 characters - configure your editor to soft-wrap when editing documentation.
 
 ## License
 
