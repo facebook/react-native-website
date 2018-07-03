@@ -33,6 +33,8 @@ const App = createStackNavigator({
   Home: { screen: HomeScreen },
   Profile: { screen: ProfileScreen },
 });
+
+export default App;
 ```
 
 Each screen component can set navigation options such as the header title. It can use action creators on the `navigation` prop to link to other screens:

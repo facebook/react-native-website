@@ -484,7 +484,7 @@ fs.writeFile('./packager/modulePaths.js', fileData, err => {
 });
 ```
 
-You can run via `node packager/modulePaths.js`.
+You can run via `node packager/generateModulePaths.js`.
 
 This script attempts to map from the module names to module paths. Its not foolproof though, for instance, it ignores platform specific files (\*ios.js, and \*.android.js). However based on initial testing, it handles 95% of cases. When it runs, after some time it should complete and output a file named `packager/modulePaths.js`. It should contain paths to module files that are relative to your projects root. You can commit modulePaths.js to your repo so it is transportable.
 
