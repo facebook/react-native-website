@@ -20,7 +20,7 @@ Is `0.56.0` perfect? No, as every piece of software out there: but we reached a 
 
 You might consider `0.56.0` as a fundamental building block towards a more stable framework: it will take probably a week or two of widespread adoption before all the edge cases will be sanded off, but this will lead to an even better July 2018 (`0.57.0`) release.
 
-We'd like to conclude this section by thanking [all the 62 contributors who worked on a total of 803 commits](https://github.com/facebook/react-native/compare/v0.55.4...v0.56.0-rc.4) (!) that will help make your apps even better 👏.
+We'd like to conclude this section by thanking [all the 67 contributors who worked on a total of 818 commits](https://github.com/facebook/react-native/compare/v0.55.4...v0.56.0-rc.4) (!) that will help make your apps even better 👏.
 
 And now, without further ado...
 
