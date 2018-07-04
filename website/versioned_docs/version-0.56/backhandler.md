@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-backhandler
+id: version-0.56-backhandler
 title: BackHandler
 original_id: backhandler
 ---

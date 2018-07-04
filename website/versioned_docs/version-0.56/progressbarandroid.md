@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-progressbarandroid
+id: version-0.56-progressbarandroid
 title: ProgressBarAndroid
 original_id: progressbarandroid
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-viewpagerandroid
+id: version-0.56-viewpagerandroid
 title: ViewPagerAndroid
 original_id: viewpagerandroid
 ---

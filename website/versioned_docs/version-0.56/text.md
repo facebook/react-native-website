@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-text
+id: version-0.56-text
 title: Text
 original_id: text
 ---

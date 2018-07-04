@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-refreshcontrol
+id: version-0.56-refreshcontrol
 title: RefreshControl
 original_id: refreshcontrol
 ---

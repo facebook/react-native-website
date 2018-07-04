@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-asyncstorage
+id: version-0.56-asyncstorage
 title: AsyncStorage
 original_id: asyncstorage
 ---

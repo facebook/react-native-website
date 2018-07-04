@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-keyboardavoidingview
+id: version-0.56-keyboardavoidingview
 title: KeyboardAvoidingView
 original_id: keyboardavoidingview
 ---

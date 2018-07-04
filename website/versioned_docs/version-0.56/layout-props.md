@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-layout-props
+id: version-0.56-layout-props
 title: Layout Props
 original_id: layout-props
 ---

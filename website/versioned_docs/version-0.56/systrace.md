@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-systrace
+id: version-0.56-systrace
 title: Systrace
 original_id: systrace
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-text-style-props
+id: version-0.56-text-style-props
 title: Text Style Props
 original_id: text-style-props
 ---

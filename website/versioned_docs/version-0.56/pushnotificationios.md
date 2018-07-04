@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-pushnotificationios
+id: version-0.56-pushnotificationios
 title: PushNotificationIOS
 original_id: pushnotificationios
 ---

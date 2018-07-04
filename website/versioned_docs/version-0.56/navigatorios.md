@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-navigatorios
+id: version-0.56-navigatorios
 title: NavigatorIOS
 original_id: navigatorios
 ---

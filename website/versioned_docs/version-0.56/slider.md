@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-slider
+id: version-0.56-slider
 title: Slider
 original_id: slider
 ---

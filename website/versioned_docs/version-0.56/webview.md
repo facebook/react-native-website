@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-webview
+id: version-0.56-webview
 title: WebView
 original_id: webview
 ---

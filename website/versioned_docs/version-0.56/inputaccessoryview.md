@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-inputaccessoryview
+id: version-0.56-inputaccessoryview
 title: InputAccessoryView
 original_id: inputaccessoryview
 ---

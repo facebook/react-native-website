@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-panresponder
+id: version-0.56-panresponder
 title: PanResponder
 original_id: panresponder
 ---

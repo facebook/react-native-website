@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-scrollview
+id: version-0.56-scrollview
 title: ScrollView
 original_id: scrollview
 ---

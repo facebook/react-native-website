@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-image
+id: version-0.56-image
 title: Image
 original_id: image
 ---

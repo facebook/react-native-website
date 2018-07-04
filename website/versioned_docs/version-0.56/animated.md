@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-animated
+id: version-0.56-animated
 title: Animated
 original_id: animated
 ---

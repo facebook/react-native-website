@@ -1,5 +1,5 @@
 ---
-id: version-0.56-RC-textinput
+id: version-0.56-textinput
 title: TextInput
 original_id: textinput
 ---
