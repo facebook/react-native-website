@@ -214,7 +214,7 @@ class Game2048 extends React.Component {
 
 <block class="android" />
 
-* _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, make a long press on the play/pause button on the remote. (Please do not shake the Android TV device, that will not work :) )
+* _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )
 
 <block class="ios" />
 
