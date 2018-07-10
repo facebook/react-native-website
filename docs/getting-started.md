@@ -478,7 +478,7 @@ If you have a physical Android device, you can use it for development in place o
 
 ### Using a virtual device
 
-You can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
+If you use Android Studio to open `./AwesomeProject/android`, you can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
 ![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
