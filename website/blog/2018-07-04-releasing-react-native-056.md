@@ -62,8 +62,6 @@ A final note: starting this week, the React Native core team will resume holding
 
 Happy coding everyone!
 
-[Lorenzo](https://twitter.com/Kelset),
-[Ryan](https://github.com/turnrye),
-and the whole [React Native core team](https://twitter.com/reactnative)
+[Lorenzo](https://twitter.com/Kelset), [Ryan](https://github.com/turnrye), and the whole [React Native core team](https://twitter.com/reactnative)
 
 **PS:** as always, we'd like to remind everyone that React Native is still in 0.x versioning because of the many changes still undergoing - so remember when upgrading that yes, probably, something may still crash or be broken. Be helpful towards each other in the issues and when submitting PRs - and remember to follow the [CoC](https://code.fb.com/codeofconduct/) enforced: there's always a human on the other side of the screen.
