@@ -716,13 +716,12 @@ __Windows用户请注意，请不要在命令行默认的System32目录中init�
 - 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。
 
 </div>
-<script class="markdown-script">
+<script>
 window.display = function (type, value) {
   var container = document.querySelector('.md-block').parentNode;
   container.className = 'display-' + type + '-' + value + ' ' +
     container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
 }
-
 // If we are coming to the page with a hash in it (i.e. from a search, for example), try to get
 // us as close as possible to the correct platform and dev os using the hashtag and block walk up.
 var foundHash = false;
@@ -737,7 +736,6 @@ if (window.location.hash !== '' && window.location.hash !== 'content') { // cont
           var targetPlatform = null;
           // Could be more than one target os and dev platform, but just choose some sort of order
           // of priority here.
-
           // Dev OS
           if (parent.className.indexOf('mac') > -1) {
             devOS = 'mac';
@@ -748,7 +746,6 @@ if (window.location.hash !== '' && window.location.hash !== 'content') { // cont
           } else {
             break; // assume we don't have anything.
           }
-
           // Target Platform
           if (parent.className.indexOf('ios') > -1) {
             targetPlatform = 'ios';

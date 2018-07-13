@@ -4,11 +4,11 @@ title: 搭建开发环境
 original_id: getting-started
 ---
 
-欢迎使用React Native！这篇文档会帮助你搭建基本的React Native开发环境。如果你已经搭好了环境，那么可以尝试一下[编写Hello World](tutorial.html)。
+欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。如果你已经搭好了环境，那么可以尝试一下[编写 Hello World](tutorial.html)。
 
-根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发iOS和Android也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
+根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
 
-如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。
+如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows 环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。
 
 <div class="toggler">
 <style>
@@ -58,10 +58,9 @@ original_id: getting-started
 
 ## 暂不支持
 
-苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑先开发Android应用了。
+苹果公司目前只允许在 Mac 电脑上开发 iOS 应用。如果你没有 Mac 电脑，那么只能考虑先开发 Android 应用了。
 
 ![](img/react-native-sorry-not-supported.png)
-
 
 <!-- ######### MAC for iOS ##################### -->
 
@@ -73,13 +72,13 @@ original_id: getting-started
 
 #### Homebrew
 
-[Homebrew](http://brew.sh/), Mac系统的包管理器，用于安装NodeJS和一些其他必需的工具软件。
+[Homebrew](http://brew.sh/), Mac 系统的包管理器，用于安装 NodeJS 和一些其他必需的工具软件。
 
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-译注：在Max OS X 10.11（El Capitan)版本中，homebrew在安装软件时可能会碰到`/usr/local`目录不可写的权限问题。可以使用下面的命令修复：  
+译注：在 Max OS X 10.11（El Capitan)版本中，homebrew 在安装软件时可能会碰到`/usr/local`目录不可写的权限问题。可以使用下面的命令修复：
 
 ```bash
 sudo chown -R `whoami` /usr/local
@@ -87,38 +86,37 @@ sudo chown -R `whoami` /usr/local
 
 #### Node
 
-使用Homebrew来安装[Node.js](https://nodejs.org/).
+使用 Homebrew 来安装[Node.js](https://nodejs.org/).
 
-> React Native目前需要NodeJS 5.0或更高版本。本文发布时Homebrew默认安装的是最新版本，一般都满足要求。 
+> React Native 目前需要 NodeJS 5.0 或更高版本。本文发布时 Homebrew 默认安装的是最新版本，一般都满足要求。
 
 ```
 brew install node
 ```
 
-安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别！
+安装完 node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
 
 ```
 npm config set registry https://registry.npm.taobao.org --global
 npm config set disturl https://npm.taobao.org/dist --global
 ```
 
-#### Yarn、React Native的命令行工具（react-native-cli）
+#### Yarn、React Native 的命令行工具（react-native-cli）
 
-[Yarn](http://yarnpkg.com)是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
+[Yarn](http://yarnpkg.com)是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。React Native 的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
 
 ```
 npm install -g yarn react-native-cli
 ```
 
-安装完yarn后同理也要设置镜像源：
+安装完 yarn 后同理也要设置镜像源：
 
 ```
 yarn config set registry https://registry.npm.taobao.org --global
 yarn config set disturl https://npm.taobao.org/dist --global
 ```
 
-
-如果你看到`EACCES: permission denied`这样的权限报错，那么请参照上文的homebrew译注，修复`/usr/local`目录的所有权：  
+如果你看到`EACCES: permission denied`这样的权限报错，那么请参照上文的 homebrew 译注，修复`/usr/local`目录的所有权：
 
 ```bash
 sudo chown -R `whoami` /usr/local
@@ -128,24 +126,24 @@ sudo chown -R `whoami` /usr/local
 
 #### Xcode
 
-React Native目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 8.0 或更高版本。你可以通过App Store或是到[Apple开发者官网](https://developer.apple.com/xcode/downloads/)上下载。这一步骤会同时安装Xcode IDE和Xcode的命令行工具。
+React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 8.0 或更高版本。你可以通过 App Store 或是到[Apple 开发者官网](https://developer.apple.com/xcode/downloads/)上下载。这一步骤会同时安装 Xcode IDE 和 Xcode 的命令行工具。
 
-> 虽然一般来说命令行工具都是默认安装了，但你最好还是启动Xcode，并在`Xcode | Preferences | Locations`菜单中检查一下是否装有某个版本的`Command Line Tools`。Xcode的命令行工具中也包含一些必须的工具，比如`git`等。
+> 虽然一般来说命令行工具都是默认安装了，但你最好还是启动 Xcode，并在`Xcode | Preferences | Locations`菜单中检查一下是否装有某个版本的`Command Line Tools`。Xcode 的命令行工具中也包含一些必须的工具，比如`git`等。
 
 </div><div markdown class="md-block mac android" >
 
 #### Android Studio
 
-React Native目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0或更高版本。
+React Native 目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0 或更高版本。
 
-> Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入
-> `javac -version`来查看你当前安装的JDK版本。如果版本不合要求，则可以到
+> Android Studio 需要 Java Development Kit [JDK] 1.8 或更高版本。你可以在命令行中输入
+> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到
 > [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 
-Android Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。
+Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK 和模拟器。
 
-> 除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了
-> `Android Support Repository`，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。
+> 除非特别注明，请不要改动安装过程中的选项。比如 Android Studio 默认安装了
+> `Android Support Repository`，而这也是 React Native 必须的（否则在 react-native run-android 时会报 appcompat-v7 包找不到的错误）。
 
 安装过程中有一些需要改动的选项：
 
@@ -157,7 +155,7 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 
 ![additional installs](img/react-native-android-studio-additional-installs.png)
 
-- 安装完成后，在Android Studio的启动欢迎界面中选择`Configure | SDK Manager`。
+- 安装完成后，在 Android Studio 的启动欢迎界面中选择`Configure | SDK Manager`。
 
 ![configure sdk](img/react-native-android-studio-configure-sdk.png)
 
@@ -169,16 +167,16 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 
 ![build tools](img/react-native-android-studio-android-sdk-build-tools.png)
 
-#### ANDROID_HOME环境变量
+#### ANDROID_HOME 环境变量
 
-确保`ANDROID_HOME`环境变量正确地指向了你安装的Android SDK的路径。具体的做法是把下面的命令加入到`~/.bash_profile`文件中：(__译注__：~表示用户目录，即`/Users/你的用户名/`，而小数点开头的文件在Finder中是隐藏的，并且这个文件有可能并不存在。请在终端下使用`vi ~/.bash_profile`命令创建或编辑。如不熟悉vi操作，请点击[这里](http://www.eepw.com.cn/article/48018.htm)学习）  
+确保`ANDROID_HOME`环境变量正确地指向了你安装的 Android SDK 的路径。具体的做法是把下面的命令加入到`~/.bash_profile`文件中：(**译注**：~表示用户目录，即`/Users/你的用户名/`，而小数点开头的文件在 Finder 中是隐藏的，并且这个文件有可能并不存在。请在终端下使用`vi ~/.bash_profile`命令创建或编辑。如不熟悉 vi 操作，请点击[这里](http://www.eepw.com.cn/article/48018.htm)学习）
 
 ```
 # 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。
 export ANDROID_HOME=~/Library/Android/sdk
-```  
+```
 
-然后使用下列命令使其立即生效（否则重启后才生效）：  
+然后使用下列命令使其立即生效（否则重启后才生效）：
 
 ```bash
 source ~/.bash_profile
@@ -193,7 +191,7 @@ source ~/.bash_profile
 
 #### Watchman
 
-[Watchman](https://facebook.github.io/watchman/docs/install.html)是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。
+[Watchman](https://facebook.github.io/watchman/docs/install.html)是由 Facebook 提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager 可以快速捕捉文件的变化从而实现实时刷新）。
 
 ```
 brew install watchman
@@ -201,8 +199,7 @@ brew install watchman
 
 #### Flow
 
-[Flow](http://www.flowtype.org)是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。
-
+[Flow](http://www.flowtype.org)是一个静态的 JS 类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个 flow 工具的语法。这一语法并不属于 ES 标准，只是 Facebook 自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习 flow 相关语法）。
 
 ```
 brew install flow
@@ -210,9 +207,9 @@ brew install flow
 
 </div><div markdown class="md-block mac android">
 
-#### 将Android SDK的Tools目录添加到`PATH`变量中
+#### 将 Android SDK 的 Tools 目录添加到`PATH`变量中
 
-你可以把Android SDK的tools和platform-tools目录添加到`PATH`变量中，以便在终端中运行一些Android工具，例如`android avd`或是`adb logcat`等。具体做法仍然是在`~/.bash_profile`中添加：
+你可以把 Android SDK 的 tools 和 platform-tools 目录添加到`PATH`变量中，以便在终端中运行一些 Android 工具，例如`android avd`或是`adb logcat`等。具体做法仍然是在`~/.bash_profile`中添加：
 
 ```
 export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
@@ -222,7 +219,7 @@ export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 #### Git
 
-Git版本控制。如果你已经安装过[Xcode](https://developer.apple.com/xcode/)，则Git也已经一并安装了。如若没有，则使用下列命令安装：
+Git 版本控制。如果你已经安装过[Xcode](https://developer.apple.com/xcode/)，则 Git 也已经一并安装了。如若没有，则使用下列命令安装：
 
 ```
 brew install git
@@ -232,23 +229,23 @@ brew install git
 
 #### Nuclide
 
-[Nuclide](http://nuclide.io)（此链接需要科学上网）是由Facebook提供的基于atom的集成开发环境，可用于编写、[运行](http://nuclide.io/docs/platforms/react-native/#running-applications)和
-[调试](http://nuclide.io/docs/platforms/react-native/#debugging)React Native应用。
+[Nuclide](http://nuclide.io)（此链接需要科学上网）是由 Facebook 提供的基于 atom 的集成开发环境，可用于编写、[运行](http://nuclide.io/docs/platforms/react-native/#running-applications)和
+[调试](http://nuclide.io/docs/platforms/react-native/#debugging)React Native 应用。
 
-点击这里阅读[Nuclide的入门文档](http://nuclide.io/docs/quick-start/getting-started/)。
+点击这里阅读[Nuclide 的入门文档](http://nuclide.io/docs/quick-start/getting-started/)。
 
-译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写React Native应用。
+译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写 React Native 应用。
 
 </div><div markdown class="md-block mac android">
 
 #### Genymotion
 
-比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。
+比起 Android Studio 自带的原装模拟器，Genymotion 是一个性能更好的选择，但它只对个人用户免费。
 
-1. 下载和安装[Genymotion](https://www.genymotion.com/download)（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。
-2. 打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。
-3. 创建一个新模拟器并启动。
-4. 启动React Native应用后，可以按下⌘+M来打开开发者菜单。
+1.  下载和安装[Genymotion](https://www.genymotion.com/download)（genymotion 需要依赖 VirtualBox 虚拟机，下载选项中提供了包含 VirtualBox 和不包含的选项，请按需选择）。
+2.  打开 Genymotion。如果你还没有安装 VirtualBox，则此时会提示你安装。
+3.  创建一个新模拟器并启动。
+4.  启动 React Native 应用后，可以按下 ⌘+M 来打开开发者菜单。
 
 </div>
 <div markdown class="md-block linux windows android">
@@ -261,21 +258,21 @@ brew install git
 
 #### Chocolatey
 
-[Chocolatey](https://chocolatey.org)是一个Windows上的包管理器，类似于linux上的`yum`和
+[Chocolatey](https://chocolatey.org)是一个 Windows 上的包管理器，类似于 linux 上的`yum`和
 `apt-get`。 你可以在其[官方网站](https://chocolatey.org)上查看具体的使用说明。一般的安装步骤应该是下面这样：
 
 ```
 @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
 ```
 
-> 一般来说，使用Chocolatey来安装软件的时候，需要以管理员的身份来运行命令提示符窗口。译注：chocolatey的网站可能在国内访问困难，导致上述安装命令无法正常完成。请使用稳定的翻墙工具。
-> 如果你实在装不上这个工具，也不要紧。下面所需的python2和nodejs你可以分别单独去对应的官方网站下载安装即可。
+> 一般来说，使用 Chocolatey 来安装软件的时候，需要以管理员的身份来运行命令提示符窗口。译注：chocolatey 的网站可能在国内访问困难，导致上述安装命令无法正常完成。请使用稳定的翻墙工具。
+> 如果你实在装不上这个工具，也不要紧。下面所需的 python2 和 nodejs 你可以分别单独去对应的官方网站下载安装即可。
 
 #### Python 2
 
-打开命令提示符窗口，使用Chocolatey来安装Python 2.
+打开命令提示符窗口，使用 Chocolatey 来安装 Python 2.
 
-> 注意目前不支持Python 3版本。
+> 注意目前不支持 Python 3 版本。
 
 ```
 choco install python2
@@ -287,7 +284,7 @@ choco install python2
 
 </div><div markdown class="md-block linux android">
 
-打开终端窗口，输入下面的命令来安装NodeJS:
+打开终端窗口，输入下面的命令来安装 NodeJS:
 
 ```
 sudo apt-get install -y build-essential
@@ -296,16 +293,15 @@ sudo apt-get install -y nodejs
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
-
 </div><div markdown class="md-block windows android">
 
-打开命令提示符窗口，使用Chocolatey来安装NodeJS。注意，目前已知Node 7.1版本在windows上无法正常工作，请避开这个版本！
+打开命令提示符窗口，使用 Chocolatey 来安装 NodeJS。注意，目前已知 Node 7.1 版本在 windows 上无法正常工作，请避开这个版本！
 
 ```
 choco install nodejs.install
 ```
 
-安装完node后建议设置npm镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用cnpm！cnpm安装的模块路径比较奇怪，packager不能正常识别！
+安装完 node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
 
 ```
 npm config set registry https://registry.npm.taobao.org --global
@@ -314,40 +310,40 @@ npm config set disturl https://npm.taobao.org/dist --global
 
 </div><div markdown class="md-block windows linux android">
 
-#### Yarn、React Native的命令行工具（react-native-cli）
+#### Yarn、React Native 的命令行工具（react-native-cli）
 
-[Yarn](http://yarnpkg.com)是Facebook提供的替代npm的工具，可以加速node模块的下载。React Native的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
+[Yarn](http://yarnpkg.com)是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。React Native 的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
 
 ```
 npm install -g yarn react-native-cli
 ```
 
-安装完yarn后同理也要设置镜像源：
+安装完 yarn 后同理也要设置镜像源：
 
 ```
 yarn config set registry https://registry.npm.taobao.org --global
 yarn config set disturl https://npm.taobao.org/dist --global
 ```
 
-> 如果你遇到`EACCES: permission denied`权限错误，可以尝试运行下面的命令（限linux系统）：
+> 如果你遇到`EACCES: permission denied`权限错误，可以尝试运行下面的命令（限 linux 系统）：
 > `sudo npm install -g yarn react-native-cli`.
 
 #### Android Studio
 
 [Android Studio](http://developer.android.com/sdk/index.html) 2.0 or higher.
 
-React Native目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0或更高版本。
+React Native 目前需要[Android Studio](http://developer.android.com/sdk/index.html)2.0 或更高版本。
 
-> Android Studio需要Java Development Kit [JDK] 1.8或更高版本。你可以在命令行中输入
-> `javac -version`来查看你当前安装的JDK版本。如果版本不合要求，则可以到
+> Android Studio 需要 Java Development Kit [JDK] 1.8 或更高版本。你可以在命令行中输入
+> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到
 > [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 > 或是使用包管理器来安装（比如`choco install jdk8`或是
 > `apt-get install default-jdk`）
 
-Android Studio包含了运行和测试React Native应用所需的Android SDK和模拟器。
+Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK 和模拟器。
 
-> 除非特别注明，请不要改动安装过程中的选项。比如Android Studio默认安装了
-> `Android Support Repository`，而这也是React Native必须的（否则在react-native run-android时会报appcompat-v7包找不到的错误）。
+> 除非特别注明，请不要改动安装过程中的选项。比如 Android Studio 默认安装了
+> `Android Support Repository`，而这也是 React Native 必须的（否则在 react-native run-android 时会报 appcompat-v7 包找不到的错误）。
 
 </div><div markdown class="md-block linux android">
 
@@ -369,13 +365,13 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 
 ![custom installation](img/react-native-android-studio-custom-install-windows.png)
 
-- 检查已安装的组件，尤其是模拟器和HAXM加速驱动。
+- 检查已安装的组件，尤其是模拟器和 HAXM 加速驱动。
 
 ![verify installs](img/react-native-android-studio-verify-installs-windows.png)
 
 </div><div markdown class="md-block windows linux android">
 
-- 安装完成后，在Android Studio的欢迎界面中选择`Configure | SDK Manager`。
+- 安装完成后，在 Android Studio 的欢迎界面中选择`Configure | SDK Manager`。
 
 </div><div markdown class="md-block linux android">
 
@@ -411,21 +407,20 @@ Android Studio包含了运行和测试React Native应用所需的Android SDK和�
 
 </div><div markdown class="md-block windows linux android">
 
+#### ANDROID_HOME 环境变量
 
-#### ANDROID_HOME环境变量
-
-确保`ANDROID_HOME`环境变量正确地指向了你安装的Android SDK的路径。
+确保`ANDROID_HOME`环境变量正确地指向了你安装的 Android SDK 的路径。
 
 </div><div markdown class="md-block linux android">
 
-具体的做法是把下面的命令加入到`~/.bashrc`、`~/.bash_profile`文件中。如果你使用的是其他的shell，则选择对应的配置文件:
+具体的做法是把下面的命令加入到`~/.bashrc`、`~/.bash_profile`文件中。如果你使用的是其他的 shell，则选择对应的配置文件:
 
 ```
 # 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。
 export ANDROID_HOME=~/Library/Android/sdk
 ```
 
-然后使用下列命令使其立即生效（否则重启后才生效）：  
+然后使用下列命令使其立即生效（否则重启后才生效）：
 
 ```bash
 source ./bash_profile
@@ -452,11 +447,11 @@ source ./bash_profile
 
 #### Watchman
 
-[Watchman](https://facebook.github.io/watchman/docs/install.html)是由Facebook提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager可以快速捕捉文件的变化从而实现实时刷新）。
+[Watchman](https://facebook.github.io/watchman/docs/install.html)是由 Facebook 提供的监视文件系统变更的工具。安装此工具可以提高开发时的性能（packager 可以快速捕捉文件的变化从而实现实时刷新）。
 
-> 安装watchman还可以避免node的一个与文件监视有关的bug。
+> 安装 watchman 还可以避免 node 的一个与文件监视有关的 bug。
 
-在终端中输入以下命令来编译并安装watchman:
+在终端中输入以下命令来编译并安装 watchman:
 
 ```
 git clone https://github.com/facebook/watchman.git
@@ -470,9 +465,9 @@ sudo make install
 
 #### Flow
 
-[Flow](http://www.flowtype.org)是一个静态的JS类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个flow工具的语法。这一语法并不属于ES标准，只是Facebook自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习flow相关语法）。
+[Flow](http://www.flowtype.org)是一个静态的 JS 类型检查工具。译注：你在很多示例中看到的奇奇怪怪的冒号问号，以及方法参数中像类型一样的写法，都是属于这个 flow 工具的语法。这一语法并不属于 ES 标准，只是 Facebook 自家的代码规范。所以新手可以直接跳过（即不需要安装这一工具，也不建议去费力学习 flow 相关语法）。
 
-在终端中输入以下命令来安装flow:
+在终端中输入以下命令来安装 flow:
 
 ```
 npm install -g flow-bin
@@ -483,7 +478,7 @@ npm install -g flow-bin
 
 #### Gradle Daemon
 
-开启[Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html)可以极大地提升java代码的增量编译速度。
+开启[Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html)可以极大地提升 java 代码的增量编译速度。
 
 </div>
 <div markdown class="md-block mac linux android">
@@ -502,19 +497,19 @@ touch ~/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> ~/.gradle/
 </div>
 <div markdown class="md-block linux android">
 
-#### Android模拟器加速器
+#### Android 模拟器加速器
 
-在安装Android Studio时你可能会看到下面这样的提示：
+在安装 Android Studio 时你可能会看到下面这样的提示：
 
 ![accelerator](img/react-native-android-studio-kvm-linux.png)
 
-如果你的系统支持KVM，那就应该安装[Intel的Android模拟器加速器](https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272)。
+如果你的系统支持 KVM，那就应该安装[Intel 的 Android 模拟器加速器](https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272)。
 
 </div><div markdown class="md-block windows linux android">
 
-#### 将Android SDK的Tools目录添加到`PATH`变量中
+#### 将 Android SDK 的 Tools 目录添加到`PATH`变量中
 
-你可以把Android SDK的tools和platform-tools目录添加到`PATH`变量中，以便在终端中运行一些Android工具，例如`android avd`或是`adb logcat`等。
+你可以把 Android SDK 的 tools 和 platform-tools 目录添加到`PATH`变量中，以便在终端中运行一些 Android 工具，例如`android avd`或是`adb logcat`等。
 
 </div><div markdown class="md-block linux android">
 
@@ -543,12 +538,12 @@ export PATH
 
 </div><div markdown class="md-block linux android">
 
-[使用包管理器](https://git-scm.com/download/linux)来安装Git
+[使用包管理器](https://git-scm.com/download/linux)来安装 Git
 (例如`sudo apt-get install git-all`).
 
 </div><div markdown class="md-block windows android">
 
-你可以使用Chocolatey来安装`git`:
+你可以使用 Chocolatey 来安装`git`:
 
 ```
 choco install git
@@ -561,37 +556,37 @@ choco install git
 
 #### Nuclide
 
-[Nuclide](http://nuclide.io)（此链接需要科学上网）是由Facebook提供的基于atom的集成开发环境，可用于编写、[运行](http://nuclide.io/docs/platforms/react-native/#running-applications)和
-[调试](http://nuclide.io/docs/platforms/react-native/#debugging)React Native应用。
+[Nuclide](http://nuclide.io)（此链接需要科学上网）是由 Facebook 提供的基于 atom 的集成开发环境，可用于编写、[运行](http://nuclide.io/docs/platforms/react-native/#running-applications)和
+[调试](http://nuclide.io/docs/platforms/react-native/#debugging)React Native 应用。
 
-点击这里阅读[Nuclide的入门文档](http://nuclide.io/docs/quick-start/getting-started/)。
+点击这里阅读[Nuclide 的入门文档](http://nuclide.io/docs/quick-start/getting-started/)。
 
-译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写React Native应用。
+译注：我们更推荐使用[WebStorm](https://www.jetbrains.com/webstorm/)或[Sublime Text](http://www.sublimetext.com/)来编写 React Native 应用。
 
 </div><div markdown class="md-block linux windows android">
 
 #### Genymotion
 
-比起Android Studio自带的原装模拟器，Genymotion是一个性能更好的选择，但它只对个人用户免费。
+比起 Android Studio 自带的原装模拟器，Genymotion 是一个性能更好的选择，但它只对个人用户免费。
 
-1. 下载和安装[Genymotion](https://www.genymotion.com/download)（genymotion需要依赖VirtualBox虚拟机，下载选项中提供了包含VirtualBox和不包含的选项，请按需选择）。
-2. 打开Genymotion。如果你还没有安装VirtualBox，则此时会提示你安装。
-3. 创建一个新模拟器并启动。
-4. 启动React Native应用后，可以按下F1来打开开发者菜单。
+1.  下载和安装[Genymotion](https://www.genymotion.com/download)（genymotion 需要依赖 VirtualBox 虚拟机，下载选项中提供了包含 VirtualBox 和不包含的选项，请按需选择）。
+2.  打开 Genymotion。如果你还没有安装 VirtualBox，则此时会提示你安装。
+3.  创建一个新模拟器并启动。
+4.  启动 React Native 应用后，可以按下 F1 来打开开发者菜单。
 
 </div><div markdown class="md-block windows android">
 
 #### Visual Studio Emulator for Android
 
-[Visual Studio Emulator for Android](https://www.visualstudio.com/zh-cn/features/msft-android-emulator-vs.aspx#中国 (简体中文))是利用了Hyper-V技术进行硬件加速的免费android模拟器。也是Android Studio自带的原装模拟器之外的一个很好的选择。而且你并不需要安装Visual Studio。
-在用于React Native开发前，需要先在注册表中进行一些修改：
+[Visual Studio Emulator for Android](https://www.visualstudio.com/zh-cn/features/msft-android-emulator-vs.aspx#中国 "简体中文")是利用了 Hyper-V 技术进行硬件加速的免费 android 模拟器。也是 Android Studio 自带的原装模拟器之外的一个很好的选择。而且你并不需要安装 Visual Studio。
+在用于 React Native 开发前，需要先在注册表中进行一些修改：
 
-1. 打开运行命令（按下Windows+R键）
-2. 输入`regedit.exe`然后回车
-3. 在注册表编辑器中找到`HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Android SDK Tools`条目
-4. 右键点击`Android SDK Tools`，选择`新建 > 字符串值`
-5. 名称设为`Path`
-6. 双击`Path`，将其值设为你的Android SDK的路径。（例如`C:\Program Files\Android\sdk`）
+1.  打开运行命令（按下 Windows+R 键）
+2.  输入`regedit.exe`然后回车
+3.  在注册表编辑器中找到`HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Android SDK Tools`条目
+4.  右键点击`Android SDK Tools`，选择`新建 > 字符串值`
+5.  名称设为`Path`
+6.  双击`Path`，将其值设为你的 Android SDK 的路径。（例如`C:\Program Files\Android\sdk`）
 
 </div>
 <div markdown class="md-block mac ios android">
@@ -609,7 +604,7 @@ react-native run-ios
 > 提示：你可以使用`--version`参数创建指定版本的项目。例如`react-native init MyApp --version 0.39.2`。注意版本号必须精确到两个小数点。
 
 你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹
-然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)，或是双击`ios/AwesomeProject.xcodeproj`文件然后在Xcode中点击`Run`按钮。
+然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)，或是双击`ios/AwesomeProject.xcodeproj`文件然后在 Xcode 中点击`Run`按钮。
 
 </div><div markdown class="md-block mac android">
 
@@ -620,7 +615,7 @@ react-native run-android
 ```
 
 > 提示：你可以使用`--version`参数创建指定版本的项目。例如`react-native init MyApp --version 0.39.2`。注意版本号必须精确到两个小数点。
- 
+
 你也可以在[Nuclide](http://nuclide.io)中打开[`AwesomeProject`](http://nuclide.io/docs/quick-start/getting-started/#adding-a-project)文件夹然后[运行](http://nuclide.io/docs/platforms/react-native/#command-line)。
 
 </div><div markdown class="md-block mac ios android">
@@ -632,19 +627,19 @@ react-native run-android
 </div><div markdown class="md-block mac ios">
 
 - 使用你喜欢的编辑器打开`index.ios.js`并随便改上几行。
-- 在iOS Emulator中按下`⌘-R`就可以刷新APP并看到你的最新修改！
+- 在 iOS Emulator 中按下`⌘-R`就可以刷新 APP 并看到你的最新修改！
 
 </div><div markdown class="md-block mac android">
 
 - 使用你喜欢的文本编辑器打开`index.android.js`并随便改上几行
-- 按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是`⌘+M`）打开开发者菜单，然后选择 *Reload JS* 就可以看到你的最新修改。
+- 按两下 R 键，或是用 Menu 键（通常是 F2，在 Genymotion 模拟器中是`⌘+M`）打开开发者菜单，然后选择 _Reload JS_ 就可以看到你的最新修改。
 - 在终端下运行`adb logcat *:S ReactNative:V ReactNativeJS:V`可以看到你的应用的日志。
 
 </div><div markdown class="md-block mac ios android">
 
 ### 完成了！
 
-恭喜！你已经成功运行并修改了你的第一个React Native应用。
+恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
 ![](img/react-native-congratulations.png)
 
@@ -660,7 +655,8 @@ react-native run-android
 
 > 提示：你可以使用`--version`参数创建指定版本的项目。例如`react-native init MyApp --version 0.39.2`。注意版本号必须精确到两个小数点。
 
-__Windows用户请注意，请不要在命令行默认的System32目录中init项目！会有各种权限限制导致不能运行！__
+**Windows 用户请注意，请不要在命令行默认的 System32 目录中 init 项目！会有各种权限限制导致不能运行！**
+
 </div>
 <div markdown class="md-block windows linux android">
 
@@ -669,12 +665,12 @@ __Windows用户请注意，请不要在命令行默认的System32目录中init�
 现在你已经成功运行了项目，我们可以开始尝试动手改一改了：
 
 - 使用你喜欢的文本编辑器打开`index.android.js`并随便改上几行
-- 按两下R键，或是用Menu键（通常是F2，在Genymotion模拟器中是`⌘+M`）打开开发者菜单，然后选择 *Reload JS* 就可以看到你的最新修改。
+- 按两下 R 键，或是用 Menu 键（通常是 F2，在 Genymotion 模拟器中是`⌘+M`）打开开发者菜单，然后选择 _Reload JS_ 就可以看到你的最新修改。
 - 在终端下运行`adb logcat *:S ReactNative:V ReactNativeJS:V`可以看到你的应用的日志。
 
 ### 完成了！
 
-恭喜！你已经成功运行并修改了你的第一个React Native应用。
+恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
 ![](img/react-native-congratulations.png)
 
@@ -694,7 +690,6 @@ __Windows用户请注意，请不要在命令行默认的System32目录中init�
 
 - 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。
 
-
 </div><div markdown class="md-block windows linux android">
 
 ## 接下来
@@ -704,13 +699,12 @@ __Windows用户请注意，请不要在命令行默认的System32目录中init�
 - 如果你碰到了一些问题，请参阅[常见问题](http://bbs.reactnative.cn/topic/130)。
 
 </div>
-<script class="markdown-script">
+<script>
 window.display = function (type, value) {
   var container = document.querySelector('.md-block').parentNode;
   container.className = 'display-' + type + '-' + value + ' ' +
     container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
 }
-
 // If we are coming to the page with a hash in it (i.e. from a search, for example), try to get
 // us as close as possible to the correct platform and dev os using the hashtag and block walk up.
 var foundHash = false;
@@ -725,7 +719,6 @@ if (window.location.hash !== '' && window.location.hash !== 'content') { // cont
           var targetPlatform = null;
           // Could be more than one target os and dev platform, but just choose some sort of order
           // of priority here.
-
           // Dev OS
           if (parent.className.indexOf('mac') > -1) {
             devOS = 'mac';
@@ -736,7 +729,6 @@ if (window.location.hash !== '' && window.location.hash !== 'content') { // cont
           } else {
             break; // assume we don't have anything.
           }
-
           // Target Platform
           if (parent.className.indexOf('ios') > -1) {
             targetPlatform = 'ios';
