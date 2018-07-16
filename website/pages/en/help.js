@@ -47,6 +47,16 @@ class Help extends React.Component {
             React Native. If you have an answerable code-level question, please
             post it to Stack Overflow instead.
           </p>
+          <h2>DEV Community</h2>
+          <p>
+            <a href="https://dev.to/t/reactnative">
+              Dev community's React Native tag
+            </a>{" "}
+            is a place to share React Native projects, articles and tutorials as
+            well as start discussions and ask for feedback on React Native
+            related topics. Developers of all skill-levels are welcome to take
+            part.
+          </p>
           <h2>Reactiflux Chat</h2>
           <p>
             If you need an answer right away, check out the{" "}
