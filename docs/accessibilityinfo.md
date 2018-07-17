@@ -96,7 +96,7 @@ Add an event handler. Supported events:
 static setAccessibilityFocus(reactTag)
 ```
 
-iOS-Only. Set accessibility focus to a react component.
+Set accessibility focus to a React component. On Android, this is equivalent to `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`.
 
 ---
 
