@@ -161,3 +161,7 @@ table tr th:first-of-type {
 table tr th:nth-of-type(4) {
   width: 80%;
 }
+
+.edit-page-link {
+  font-size: 14px;
+}

@@ -265,7 +265,9 @@ class MiniShowcase extends React.Component {
 // };
 
 const Banner = () => {
-  const { banner: { img, text, link, topicId, gainfo } } = siteConfig.adData;
+  const {
+    banner: { img, text, link, topicId, gainfo }
+  } = siteConfig.adData;
   return (
     <div className="vip">
       <a
@@ -283,8 +285,8 @@ class Index extends React.Component {
   render() {
     return (
       <div className="pageContainer">
-        <Banner />
         <HeaderHero />
+        <Banner />
         <Features />
         {/* <MiniShowcase /> */}
         <Hero>

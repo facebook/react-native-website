@@ -13,6 +13,11 @@
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
+.vip {
+  margin: 20px auto;
+  max-width: 900px;
+}
+
 .vip img {
   display: block;
 }
@@ -40,14 +45,12 @@
   background: #2d2d2d;
   padding: 50px 0;
   color: #fdf3e7;
-  font-weight: 300;
   text-align: center;
 }
 
 .hero .text {
   font-size: 300%;
   text-align: center;
-  height: 44px;
 }
 
 .hero .minitext {
@@ -63,6 +66,10 @@
   .hero .minitext {
     font-size: 18px;
     text-align: center;
+  }
+
+  .vip {
+    margin: 0;
   }
 }
 
