@@ -9,33 +9,15 @@ title: StatusBar
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted. One use case is to specify status bar styles per route using `Navigator`.
 
-```
- <View>
-   <StatusBar
-     backgroundColor="blue"
-     barStyle="light-content"
-   />
-   <Navigator
-     initialRoute={{statusBarHidden: true}}
-     renderScene={(route, navigator) =>
-       <View>
-         <StatusBar hidden={route.statusBarHidden} />
-         ...
-       </View>
-     }
-   />
- </View>
-```
+### 静态API
 
-### Imperative API
+有些场景并不适合使用组件，因此`StatusBar`也暴露了一个静态API。然而不推荐大家同时通过静态API和组件来定义相同的属性，因为静态API定义的属性值在后续的渲染中会被组件中定义的值所覆盖。
 
-For cases where using a component is not ideal, there is also an imperative API exposed as static functions on the component. It is however not recommended to use the static API and the component for the same prop because any value set by the static API will get overriden by the one set by the component in the next render.
+### 常量
 
-### Constants
+`currentHeight` (仅限Android)状态栏的当前高度。
 
-`currentHeight` (Android only) The height of the status bar.
-
-### Props
+### 查看Props
 
 * [`animated`](statusbar.md#animated)
 * [`barStyle`](statusbar.md#barstyle)
@@ -45,7 +27,7 @@ For cases where using a component is not ideal, there is also an imperative API 
 * [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
 * [`showHideTransition`](statusbar.md#showhidetransition)
 
-### Methods
+### 查看方法
 
 * [`setHidden`](statusbar.md#sethidden)
 * [`setBarStyle`](statusbar.md#setbarstyle)
@@ -53,7 +35,7 @@ For cases where using a component is not ideal, there is also an imperative API 
 * [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
 * [`setTranslucent`](statusbar.md#settranslucent)
 
-### Type Definitions
+### 类型定义
 
 * [`StatusBarStyle`](statusbar.md#statusbarstyle)
 * [`StatusBarAnimation`](statusbar.md#statusbaranimation)
@@ -132,7 +114,7 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 | --------------------- | ---- | ---- |
 | enum('fade', 'slide') | 否   | iOS  |
 
-## Methods
+## 方法
 
 ### `setHidden()`
 
@@ -215,7 +197,7 @@ Control the translucency of the status bar
 | ----------- | ------- | ---- | ------------------- |
 | translucent | boolean | 是   | Set as translucent. |
 
-## Type Definitions
+## 类型定义
 
 ### StatusBarStyle
 
@@ -225,7 +207,7 @@ Status bar style
 | ----- |
 | $Enum |
 
-**Constants:**
+**常量：**
 
 | Value         | 说明                                                                 |
 | ------------- | -------------------------------------------------------------------- |
@@ -243,7 +225,7 @@ Status bar animation
 | ----- |
 | $Enum |
 
-**Constants:**
+**常量：**
 
 | Value | 说明            |
 | ----- | --------------- |

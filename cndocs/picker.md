@@ -3,15 +3,16 @@ id: picker
 title: Picker
 ---
 
-Renders the native picker component on iOS and Android. Example:
-
-    <Picker
-      selectedValue={this.state.language}
-      style={{ height: 50, width: 100 }}
-      onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-      <Picker.Item label="Java" value="java" />
-      <Picker.Item label="JavaScript" value="js" />
-    </Picker>
+本组件可以在iOS和Android上渲染原生的选择器（Picker）。用例：
+```js
+<Picker
+  selectedValue={this.state.language}
+  style={{ height: 50, width: 100 }}
+  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+  <Picker.Item label="Java" value="java" />
+  <Picker.Item label="JavaScript" value="js" />
+</Picker>
+```
 
 ### 查看 Props
 
@@ -34,10 +35,10 @@ Renders the native picker component on iOS and Android. Example:
 
 ### `onValueChange`
 
-Callback for when an item is selected. This is called with the following parameters:
+某一项被选中时执行此回调。调用时带有如下参数：
 
-* `itemValue`: the `value` prop of the item that was selected
-* `itemPosition`: the index of the selected item in this picker
+* `itemValue`: 被选中项的`value`属性
+* `itemPosition`: 被选中项在picker中的索引位置
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -47,7 +48,7 @@ Callback for when an item is selected. This is called with the following paramet
 
 ### `selectedValue`
 
-Value matching value of one of the items. Can be a string or an integer.
+默认选中的值。可以是字符串或整数。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -65,7 +66,7 @@ Value matching value of one of the items. Can be a string or an integer.
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用于在端对端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -75,7 +76,7 @@ Used to locate this view in end-to-end tests.
 
 ### `enabled`
 
-If set to false, the picker will be disabled, i.e. the user will not be able to make a selection.
+如果设为false，则会禁用此选择器。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -85,10 +86,10 @@ If set to false, the picker will be disabled, i.e. the user will not be able to 
 
 ### `mode`
 
-On Android, specifies how to display the selection items when the user taps on the picker:
+在Android上，可以指定在用户点击选择器时，以怎样的形式呈现选项：
 
-* 'dialog': Show a modal dialog. This is the default.
-* 'dropdown': Shows a dropdown anchored to the picker view
+* 'dialog':  显示一个模态对话框。默认选项。
+* 'dropdown': 以选择器所在位置为锚点展开一个下拉框。
 
 | 类型                       | 必填 | 平台    |
 | -------------------------- | ---- | ------- |
@@ -98,7 +99,7 @@ On Android, specifies how to display the selection items when the user taps on t
 
 ### `prompt`
 
-Prompt string for this picker, used on Android in dialog mode as the title of the dialog.
+设置选择器的提示字符串。在Android的对话框模式中用作对话框的标题。
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -108,7 +109,7 @@ Prompt string for this picker, used on Android in dialog mode as the title of th
 
 ### `itemStyle`
 
-Style to apply to each of the item labels.
+指定应用在每项标签上的样式。
 
 | 类型                               | 必填 | 平台 |
 | ---------------------------------- | ---- | ---- |

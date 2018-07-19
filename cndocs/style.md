@@ -3,11 +3,11 @@ id: style
 title: 样式
 ---
 
-With React Native, you don't use a special language or syntax for defining styles. You just style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) usually match how CSS works on the web, except names are written using camel casing, e.g `backgroundColor` rather than `background-color`.
+在 React Native 中，你并不需要学习什么特殊的语法来定义样式。我们仍然是使用 JavaScript 来写样式。所有的核心组件都接受名为`style`的属性。这些样式名基本上是遵循了 web 上的 CSS 的命名，只是按照 JS 的语法要求使用了驼峰命名法，例如将`background-color`改为`backgroundColor`。
 
-The `style` prop can be a plain old JavaScript object. That's the simplest and what we usually use for example code. You can also pass an array of styles - the last style in the array has precedence, so you can use this to inherit styles.
+`style`属性可以是一个普通的 JavaScript 对象。这是最简单的用法，因而在示例代码中很常见。你还可以传入一个数组——在数组中位置居后的样式对象比居前的优先级更高，这样你可以间接实现样式的继承。
 
-As a component grows in complexity, it is often cleaner to use `StyleSheet.create` to define several styles in one place. Here's an example:
+实际开发中组件的样式会越来越复杂，我们建议使用`StyleSheet.create`来集中定义组件的样式。比如像下面这样：
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -36,13 +36,10 @@ const styles = StyleSheet.create({
     color: 'red',
   },
 });
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => LotsOfStyles);
 ```
 
-One common pattern is to make your component accept a `style` prop which in turn is used to style subcomponents. You can use this to make styles "cascade" the way they do in CSS.
+常见的做法是按顺序声明和使用`style`属性，以借鉴 CSS 中的“层叠”做法（即后声明的属性会覆盖先声明的同名属性）。
 
-There are a lot more ways to customize text style. Check out the [Text component reference](text.md) for a complete list.
+文本的样式定义请参阅[Text 组件的文档](text.md)。
 
-Now you can make your text beautiful. The next step in becoming a style master is to [learn how to control component size](height-and-width.md).
+现在你已经了解如何调整文本样式了，下面我们要学习的是[如何控制组件的尺寸](height-and-width.md)。

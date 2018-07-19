@@ -83,7 +83,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 * `DENIED`: 'denied'
 * `NEVER_ASK_AGAIN`: 'never_ask_again'
 
-### Methods
+### 查看方法
 
 * [`constructor`](permissionsandroid.md#constructor)
 * [`check`](permissionsandroid.md#check)
@@ -94,7 +94,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 
 # 文档
 
-## Methods
+## 方法
 
 ### `constructor()`
 

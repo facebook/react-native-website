@@ -3,9 +3,9 @@ id: progressviewios
 title: ProgressViewIOS
 ---
 
-Use `ProgressViewIOS` to render a UIProgressView on iOS.
+使用`ProgressViewIOS`来在iOS上渲染一个UIProgressView。
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 
@@ -24,7 +24,7 @@ Use `ProgressViewIOS` to render a UIProgressView on iOS.
 
 ### `progress`
 
-The progress value (between 0 and 1).
+当前的进度值（0到1之间）。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -34,7 +34,7 @@ The progress value (between 0 and 1).
 
 ### `progressImage`
 
-A stretchable image to display as the progress bar.
+一个可以拉伸的图片，用于显示进度条。
 
 | 类型                   | 必填 |
 | ---------------------- | -------- |
@@ -44,7 +44,7 @@ A stretchable image to display as the progress bar.
 
 ### `progressTintColor`
 
-The tint color of the progress bar itself.
+进度条本身染上的颜色。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -54,7 +54,7 @@ The tint color of the progress bar itself.
 
 ### `progressViewStyle`
 
-The progress bar style.
+进度条的样式。
 
 | 类型                   | 必填 |
 | ---------------------- | -------- |
@@ -64,7 +64,7 @@ The progress bar style.
 
 ### `trackImage`
 
-A stretchable image to display behind the progress bar.
+一个可拉伸的图片，用于显示进度条后面的轨道。
 
 | 类型                   | 必填 |
 | ---------------------- | -------- |
@@ -74,7 +74,7 @@ A stretchable image to display behind the progress bar.
 
 ### `trackTintColor`
 
-The tint color of the progress bar track.
+进度条轨道染上的颜色。
 
 | 类型   | 必填 |
 | ------ | -------- |

@@ -90,16 +90,16 @@ If you used Create React Native App to set up your project, you can preview your
 
 <block class="linux windows mac ios" />
 
-## Running your app on iOS devices
+## 在 iOS 设备上运行应用
 
 <block class="linux windows mac android" />
 
-## Running your app on Android devices
+## 在 Android 设备上运行应用
 
 <block class="linux windows mac ios android" />
 
 <div class="toggler">
-<span>Development OS:</span>
+<span>开发平台：</span>
 <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
 <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
 <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
@@ -267,8 +267,8 @@ If it doesn't resolve your local IP address either the **xip.io** service is dow
 
 To still use xip.io behind your router:
 
-* configure your phone to use Google DNS (8.8.8.8)
-* disable the appropriate security feature in your router
+- configure your phone to use Google DNS (8.8.8.8)
+- disable the appropriate security feature in your router
 
 <block class="mac windows linux android" />
 

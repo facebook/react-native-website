@@ -3,31 +3,32 @@ id: state
 title: State（状态）
 ---
 
-There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
+我们使用两种数据来控制一个组件：`props`和`state`。`props`是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。 对于需要改变的数据，我们需要使用`state`。
 
-In general, you should initialize `state` in the constructor, and then call `setState` when you want to change it.
+一般来说，你需要在 constructor 中初始化`state`（译注：这是 ES6 的写法，早期的很多 ES5 的例子使用的是 getInitialState 方法来初始化 state，这一做法会逐渐被淘汰），然后在需要修改时调用`setState`方法。
 
-For example, let's say we want to make text that blinks all the time. The text itself gets set once when the blinking component gets created, so the text itself is a `prop`. The "whether the text is currently on or off" changes over time, so that should be kept in `state`.
+假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个`prop`。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到`state`中。
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 class Blink extends Component {
   constructor(props) {
     super(props);
-    this.state = {isShowingText: true};
+    this.state = { showText: true };
 
-    // Toggle the state every second
+    // 每1000毫秒对showText状态做一次取反操作
     setInterval(() => {
       this.setState(previousState => {
-        return { isShowingText: !previousState.isShowingText };
+        return { showText: !previousState.showText };
       });
     }, 1000);
   }
 
   render() {
-    let display = this.state.isShowingText ? this.props.text : ' ';
+    // 根据当前showText的值决定是否显示text内容
+    let display = this.state.showText ? this.props.text : ' ';
     return (
       <Text>{display}</Text>
     );
@@ -46,13 +47,20 @@ export default class BlinkApp extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
 ```
 
-In a real application, you probably won't be setting state with a timer. You might set state when you have new data arrived from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) to control your data flow. In that case you would use Redux to modify your state rather than calling `setState` directly.
+实际开发中，我们一般不会在定时器函数（setInterval、setTimeout 等）中来操作 state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如[Redux](http://redux.js.org/index.html)来统一管理数据流。
 
-When setState is called, BlinkApp will re-render its Component. By calling setState within the Timer, the component will re-render every time the Timer ticks.
+每次调用`setState`时，BlinkApp 都会重新执行 render 方法重新渲染。这里我们使用定时器来不停调用`setState`，于是组件就会随着时间变化不停地重新渲染。
 
-State works the same way as it does in React, so for more details on handling state, you can look at the [React.Component API](https://reactjs.org/docs/react-component.html#setstate). At this point, you might be annoyed that most of our examples so far use boring default black text. To make things more beautiful, you will have to [learn about Style](style.md).
+State 的工作原理和 React.js 完全一致，所以对于处理 state 的一些更深入的细节，你可以参阅[React.Component API](https://reactjs.org/docs/react-component.html#setstate)。
+
+译注：提示一些初学者应该牢记的要点：
+
+- 一切界面变化都是`状态state变化`
+- `state`的修改必须通过`setState()`方法
+  - this.state.likes = 100; // 这样的`直接赋值修改无效！`
+  - setState 是一个 merge 合并操作，只修改指定属性，不影响其他属性
+  - setState 是`异步`操作，修改`不会马上生效`
+
+看到这里，你可能觉得我们的例子总是千篇一律的黑色文本，太特么无聊了。那么我们一起来[学习一下样式](style.md)吧。

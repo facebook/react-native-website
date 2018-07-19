@@ -14,22 +14,24 @@ title: PushNotificationIOS
   </p>
 </div>
 
-Handle push notifications for your app, including permission handling and icon badge number.
+本模块帮助你处理应用的推送通知，包括权限控制以及应用图标上的角标数（未读消息数）。
 
-To get up and running, [configure your notifications with Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6) and your server-side system.
+要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。
 
-[Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library
+首先请[手动链接](linking-libraries-ios.md)PushNotificationIOS的库（以下操作如果不熟悉，请自行补习Xcode的使用教程）：  
 
-* Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
-* Add the following to `Link Binary With Libraries`: `libRCTPushNotification.a`
+- 将`node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`文件拖到Xcode界面中
+- 在Xcode的`Link Binary With Libraries`中添加`libRCTPushNotification.a`
 
-Finally, to enable support for `notification` and `register` events you need to augment your AppDelegate.
+然后你需要在AppDelegate中启用推送通知的支持以及注册相应的事件。
 
-At the top of your `AppDelegate.m`:
+在`AppDelegate.m`开头：
 
-`#import <React/RCTPushNotificationManager.h>`
+```objective-c
+#import <React/RCTPushNotificationManager.h>
+```
 
-And then in your AppDelegate implementation add the following:
+然后在AppDelegate实现中添加如下的代码：
 
 ```
  // Required to register for notifications
@@ -60,7 +62,7 @@ And then in your AppDelegate implementation add the following:
  }
 ```
 
-### Methods
+### 查看方法
 
 * [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
 * [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)

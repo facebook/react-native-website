@@ -3,13 +3,13 @@ id: tutorial
 title: Learn the Basics
 ---
 
-React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, `state`, and `props`. If you already know React, you still need to learn some React-Native-specific stuff, like the native components. This tutorial is aimed at all audiences, whether you have React experience or not.
+React Native 看起来很像 React，只不过其基础组件是原生组件而非 web 组件。要理解 React Native 应用的基本结构，首先需要了解一些基本的 React 的概念，比如 JSX 语法、组件、`state`状态以及`props`属性。如果你已经了解了 React，那么还需要掌握一些 React Native 特有的知识，比如原生组件的使用。这篇教程可以供任何基础的读者学习，不管你是否有 React 方面的经验。
 
-Let's do this thing.
+让我们开始吧！
 
 ## Hello World
 
-In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello world". Here it is:
+根据历史悠久的“传统”，我们也来写一个“Hello World”：
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -24,20 +24,20 @@ export default class HelloWorldApp extends Component {
 }
 ```
 
-If you are feeling curious, you can play around with sample code directly in the web simulators. You can also paste it into your `App.js` file to create a real app on your local machine.
+你可以新建一个项目，然后用上面的代码覆盖你的`App.js`文件，然后运行看看。
 
-## What's going on here?
+## 那这段代码是什么意思呢？
 
-Some of the things in here might not look like JavaScript to you. Don't panic. _This is the future_.
+初看这段代码，可能觉得并不像 JavaScript——没错，这是“未来”的 JavaScript.
 
-First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development. React Native ships with ES2015 support, so you can use this stuff without worrying about compatibility. `import`, `from`, `class`, `extends`, and the `() =>` syntax in the example above are all ES2015 features. If you aren't familiar with ES2015, you can probably pick it up just by reading through sample code like this tutorial has. If you want, [this page](https://babeljs.io/learn-es2015/) has a good overview of ES2015 features.
+首先你需要了解 ES2015 （也叫作 ES6）——这是一套对 JavaScript 的语法改进的官方标准。但是这套标准目前还没有在所有的浏览器上完整实现，所以目前而言 web 开发中还很少使用。React Native 内置了对 ES2015 标准的支持，你可以放心使用而无需担心兼容性问题。上面的示例代码中的`import`、`from`、`class`、`extends`、以及`() =>`箭头函数等新语法都是 ES2015 中的特性。如果你不熟悉 ES2015 的话，可以看看[阮一峰老师的书](http://es6.ruanyifeng.com/)，还有论坛的这篇[总结](http://bbs.reactnative.cn/topic/15)。
 
-The other unusual thing in this code example is `<Text>Hello world!</Text>`. This is JSX - a syntax for embedding XML within JavaScript. Many frameworks use a special templating language which lets you embed code inside markup language. In React, this is reversed. JSX lets you write your markup language inside code. It looks like HTML on the web, except instead of web things like `<div>` or `<span>`, you use React components. In this case, `<Text>` is a built-in component that just displays some text.
+示例中的这一行`<Text>Hello world!</Text>`恐怕很多人看起来也觉得陌生。这叫做 JSX——是一种在 JavaScript 中嵌入 XML 结构的语法。很多传统的应用框架会设计自有的模板语法，让你在结构标记中嵌入代码。React 反其道而行之，设计的 JSX 语法却是让你在代码中嵌入结构标记。初看起来，这种写法很像 web 上的 HTML，只不过使用的并不是 web 上常见的标签如`<div>`或是`<span>`等，这里我们使用的是 React Native 的组件。上面的示例代码中，使用的是内置的`<Text>`组件，它专门用来显示文本。
 
-## Components
+## 组件
 
-So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component. A component can be pretty simple - the only thing that's required is a `render` function which returns some JSX to render.
+上面的代码定义了一个名为`HelloWorldApp`的新的`组件（Component）`。你在编写 React Native 应用时，肯定会写出很多新的组件。而一个 App 的最终界面，其实也就是各式各样的组件的组合。组件本身结构可以非常简单——唯一必须的就是在`render`方法中返回一些用于渲染结构的 JSX 语句。
 
-## This app doesn't do very much
+## 这个示例弱爆了！
 
-Good point. To make components do more interesting things, you need to [learn about Props](props.md).
+……是的。如果想做些更有意思的东西，请[接着学习 Props 属性](props.md)。或者可以看看一个[稍微复杂些的“电影列表”例子](sample-application-movies.md)。

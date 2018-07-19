@@ -3,9 +3,9 @@ id: progressbarandroid
 title: ProgressBarAndroid
 ---
 
-Android-only React component used to indicate that the app is loading or there is some activity in the app.
+封装了Android平台上的`ProgressBar`的React组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。
 
-Example:
+例子：
 
 ```
 import React, { Component } from "react";
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
 ### `animating`
 
-Whether to show the ProgressBar (true, the default) or hide it (false).
+是否显示进度条（默认为true显示）。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -71,7 +71,7 @@ Whether to show the ProgressBar (true, the default) or hide it (false).
 
 ### `color`
 
-Color of the progress bar.
+进度条的颜色。
 
 | 类型               | 必填 |
 | ------------------ | ---- |
@@ -81,7 +81,7 @@ Color of the progress bar.
 
 ### `indeterminate`
 
-If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal.
+决定进度条是否要显示一个不确定的进度。注意这个在styleAttr是Horizontal的时候必须是false。
 
 | 类型              | 必填 |
 | ----------------- | ---- |
@@ -91,7 +91,7 @@ If the progress bar will show indeterminate progress. Note that this can only be
 
 ### `progress`
 
-The progress value (between 0 and 1).
+当前的进度值（在0到1之间）。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -101,7 +101,7 @@ The progress value (between 0 and 1).
 
 ### `styleAttr`
 
-Style of the ProgressBar. One of:
+进度条的样式。可取值有：
 
 * Horizontal
 * Normal (default)
@@ -119,7 +119,7 @@ Style of the ProgressBar. One of:
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位这个视图。
 
 | 类型   | 必填 |
 | ------ | ---- |

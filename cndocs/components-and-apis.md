@@ -29,7 +29,7 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
   </div>
   <div class="component">
     <h3><a href="image.html">Image</a></h3>
-    <p>显示图片内容的组件</p>
+    <p>显示图片内容的组件。</p>
   </div>
   <div class="component">
     <h3><a href="textinput.html">TextInput</a></h3>
