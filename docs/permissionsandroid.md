@@ -14,7 +14,7 @@ title: PermissionsAndroid
   </p>
 </div>
 
-`PermissionsAndroid` provides access to Android M's new permissions model. The so-called "normal" permissions are granted by default when the application is installed so long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
+`PermissionsAndroid` provides access to Android M's new permissions model. The so-called "normal" permissions are granted by default when the application is installed as long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
 
 On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` and `request` should always resolve to `PermissionsAndroid.RESULTS.GRANTED`.
 
