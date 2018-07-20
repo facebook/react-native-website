@@ -45,7 +45,6 @@ You can use this component to navigate back and forth in the web view's history 
 - [`renderError`](webview.md#rendererror)
 - [`renderLoading`](webview.md#renderloading)
 - [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`initialScale`](webview.md#initialScale)
 - [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
 - [`startInLoadingState`](webview.md#startinloadingstate)
 - [`style`](webview.md#style)
@@ -223,16 +222,6 @@ Boolean that controls whether the web content is scaled to fit the view and enab
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
----
-
-### `initialScale`
-
-Number that controls whether the initial scale percentage of the view. 50 is 50%, 100 is 100%, etc. Used only in Android.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
 
 ---
 
