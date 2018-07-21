@@ -3,6 +3,7 @@ id: version-0.55-building-from-source
 title: 从源代码编译React Native
 original_id: building-from-source
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 如果你想提前合并官方的修复补丁，尝试还没发布的最新特性，或者添加一些你自己的原生代码，那么就需要自己从源代码编译 React Native。
 

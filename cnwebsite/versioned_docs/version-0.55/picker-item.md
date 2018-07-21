@@ -3,6 +3,7 @@ id: version-0.55-picker-item
 title: Picker.Item
 original_id: picker-item
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 Individual selectable item in a [Picker](picker.md).
 

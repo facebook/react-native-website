@@ -3,6 +3,7 @@ id: version-0.55-linking-libraries-ios
 title: 链接原生库
 original_id: linking-libraries-ios
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 并不是所有的 APP 都需要使用全部的原生功能，包含支持全部特性的代码会增大应用的体积。但我们仍然希望能让你简单地根据自己的需求添加需要的特性。
 

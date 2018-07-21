@@ -3,6 +3,7 @@ id: version-0.55-accessibilityinfo
 title: AccessibilityInfo
 original_id: accessibilityinfo
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 有时候我们希望知道用户的设备是否正在运行读屏应用。`AccessibilityInfo`正是用于此目的。你可以用它来查询读屏应用的当前状态，并且可以监听其状态变化。
 

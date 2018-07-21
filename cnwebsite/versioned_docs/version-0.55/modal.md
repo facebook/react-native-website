@@ -3,8 +3,9 @@ id: version-0.55-modal
 title: Modal
 original_id: modal
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-Modal 组件是一种简单的在其他视图之上显示内容的方式。
+Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
 ```javascript
 import React, { Component } from "react";
@@ -177,14 +178,14 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 ### `presentationStyle`
 
-`presentationStyle`决定 modal（在较大屏幕的设备比如 iPad 或是 Plus 机型）如何展现。See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
+`presentationStyle`决定 modal（在较大屏幕的设备比如 iPad 或是 Plus 机型）如何展现。更多细节请参阅<https://developer.apple.com/reference/uikit/uimodalpresentationstyle>。
 
 * `fullScreen`完全盖满屏幕。
-* `pageSheet` covers portrait-width view centered (only on larger devices)
-* `formSheet` covers narrow-width view centered (only on larger devices)
-* `overFullScreen` covers the screen completely, but allows transparency
+* `pageSheet`竖直方向几乎盖满，水平居中，左右留出一定空白（仅用于大屏设备）。
+* `formSheet`竖直和水平都居中，四周都留出一定空白（仅用于大屏设备）。
+* `overFullScreen`完全盖满屏幕，同时允许透明。
 
-Default is set to `overFullScreen` or `fullScreen` depending on `transparent` property.
+默认会根据`transparent`属性而设置为`overFullScreen`或是`fullScreen`。
 
 | 类型                                                           | 必填 | 平台 |
 | -------------------------------------------------------------- | ---- | ---- |

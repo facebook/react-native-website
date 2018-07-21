@@ -3,6 +3,7 @@ id: version-0.55-integration-with-existing-apps
 title: 集成到现有原生应用
 original_id: integration-with-existing-apps
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 <style>
   .toggler li {

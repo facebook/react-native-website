@@ -3,6 +3,7 @@ id: version-0.55-building-for-apple-tv
 title: 为电视和机顶盒制作应用
 original_id: building-for-apple-tv
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 <style>
   .toggler li {

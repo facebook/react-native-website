@@ -3,6 +3,7 @@ id: version-0.55-backhandler
 title: BackHandler
 original_id: backhandler
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 监听设备上的后退按钮事件。
 

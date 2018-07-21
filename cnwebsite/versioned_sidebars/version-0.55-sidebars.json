@@ -13,6 +13,7 @@
       "version-0.55-using-a-scrollview",
       "version-0.55-using-a-listview",
       "version-0.55-network",
+      "version-0.55-sample-application-movies",
       "version-0.55-more-resources"
     ],
     "进阶指南": [
@@ -33,8 +34,7 @@
       "version-0.55-integration-with-existing-apps",
       "version-0.55-building-for-apple-tv",
       "version-0.55-running-on-device",
-      "version-0.55-upgrading",
-      "version-0.55-troubleshooting"
+      "version-0.55-upgrading"
     ],
     "使用指南(iOS)": [
       "version-0.55-native-modules-ios",

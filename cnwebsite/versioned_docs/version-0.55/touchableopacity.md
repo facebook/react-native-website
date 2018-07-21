@@ -3,12 +3,13 @@ id: version-0.55-touchableopacity
 title: TouchableOpacity
 original_id: touchableopacity
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
+本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。
 
-Opacity is controlled by wrapping the children in an Animated.View, which is added to the view hierarchy. Be aware that this can affect layout.
+不透明度的变化是通过把子元素封装在一个`Animated.View`中来实现的，这个动画视图会被添加到视图层级中，少数情况下有可能会影响到布局。（译注：此组件与TouchableHighlight的区别在于并没有额外的颜色变化，更适于一般场景。）
 
-Example:
+例子：
 
 ```
 renderButton: function() {
@@ -23,7 +24,7 @@ renderButton: function() {
 },
 ```
 
-### Example
+### 示例
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react'
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('App', () => App)
 ```
 
-### Props
+### 查看Props
 
 * [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
@@ -97,7 +98,7 @@ AppRegistry.registerComponent('App', () => App)
 - [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
 - [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
 
-### Methods
+### 查看方法
 
 * [`setOpacityTo`](touchableopacity.md#setopacityto)
 
@@ -109,7 +110,7 @@ AppRegistry.registerComponent('App', () => App)
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
+指定封装的视图在被触摸操作激活时以多少不透明度显示（0到1之间）。默认值为0.2。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -137,7 +138,7 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
-## Methods
+## 方法
 
 ### `setOpacityTo()`
 
@@ -145,4 +146,4 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 setOpacityTo((value: number), (duration: number));
 ```
 
-Animate the touchable to a new opacity.
+将本组件的不透明度设为指定值（伴有过渡动画）。

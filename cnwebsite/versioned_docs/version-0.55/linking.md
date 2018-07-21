@@ -3,6 +3,7 @@ id: version-0.55-linking
 title: Linking
 original_id: linking
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 <div class="banner-crna-ejected">
   <h3>Projects with Native Code Only</h3>

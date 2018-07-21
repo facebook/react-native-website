@@ -3,6 +3,7 @@ id: version-0.55-permissionsandroid
 title: PermissionsAndroid
 original_id: permissionsandroid
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 <div class="banner-crna-ejected">
   <h3>Project with Native Code Required</h3>
@@ -84,7 +85,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 * `DENIED`: 'denied'
 * `NEVER_ASK_AGAIN`: 'never_ask_again'
 
-### Methods
+### 查看方法
 
 * [`constructor`](permissionsandroid.md#constructor)
 * [`check`](permissionsandroid.md#check)
@@ -95,7 +96,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 
 # 文档
 
-## Methods
+## 方法
 
 ### `constructor()`
 

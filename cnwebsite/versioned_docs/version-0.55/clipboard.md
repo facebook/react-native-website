@@ -3,6 +3,7 @@ id: version-0.55-clipboard
 title: Clipboard
 original_id: clipboard
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 `Clipboard`组件可以在 iOS 和 Android 的剪贴板中读写内容。
 

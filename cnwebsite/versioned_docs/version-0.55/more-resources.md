@@ -3,6 +3,7 @@ id: version-0.55-more-resources
 title: 其他参考资源
 original_id: more-resources
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 如果你耐心的读完并理解了本网站上的所有文档，那么你应该已经可以编写一个像样的 React Native 应用了。但是 React Native 并不全是某一家公司的作品——它汇聚了成千上万开源社区开发者的智慧结晶。如果你想深入研究 React Native，那么建议不要错过下面这些参考资源。
 

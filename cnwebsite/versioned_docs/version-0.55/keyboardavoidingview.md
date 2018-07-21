@@ -3,6 +3,7 @@ id: version-0.55-keyboardavoidingview
 title: KeyboardAvoidingView
 original_id: keyboardavoidingview
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 本组件用于解决一个常见的尴尬问题：手机上弹出的键盘常常会挡住当前的视图。本组件可以自动根据键盘的位置，调整自身的 position 或底部的 padding，以避免被遮挡。
 

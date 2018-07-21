@@ -3,6 +3,7 @@ id: version-0.55-webview
 title: WebView
 original_id: webview
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.31%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(3.69%)
 
 `WebView` 创建一个原生的 WebView，可以用于访问一个网页。
 

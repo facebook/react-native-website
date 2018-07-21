@@ -3,14 +3,17 @@ id: version-0.55-toolbarandroid
 title: ToolbarAndroid
 original_id: toolbarandroid
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-React component that wraps the Android-only [`Toolbar` widget][0]. A Toolbar can display a logo, navigation icon (e.g. hamburger menu), a title & subtitle and a list of actions. The title and subtitle are expanded so the logo and navigation icons are displayed on the left, title and subtitle in the middle and the actions on the right.
+ToolbarAndroid是一个包装了仅限Android平台的`工具栏(Toolbar)`[部件][0]的React组件。一个Toolbar可以显示一个徽标，一个导航图标（譬如汉堡形状的菜单按钮），一个标题与副标题，以及一个功能列表。标题和副标题会在中间显示，徽标和导航图标会在左侧显示，而功能列表则在右侧显示。
 
-If the toolbar has an only child, it will be displayed between the title and actions.
+如果工具栏只有一个子节点，它会在标题和功能列表之间显示。
 
-Although the Toolbar supports remote images for the logo, navigation and action icons, this should only be used in DEV mode where `require('./some_icon.png')` translates into a packager URL. In release mode you should always use a drawable resource for these icons. Using `require('./some_icon.png')` will do this automatically for you, so as long as you don't explicitly use e.g. `{uri: 'http://...'}`, you will be good.
+尽管Toolbar支持在徽标、导航和功能图标上使用远程图片，这也只应该在开发(DEV)模式下使用。在发行（release）模式下，你永远都应该用图片资源来渲染这些图标。使用`require('./some_icon.png')`会自动帮你包装好，所以只要你不直接用`{uri:'http://...'}`，就没什么问题。
 
-Example:
+[0]: https://developer.android.com/reference/android/support/v7/widget/Toolbar.html
+
+例子：
 
 ```
 render: function() {
@@ -31,7 +34,7 @@ onActionSelected: function(position) {
 
 [0]: https://developer.android.com/reference/android/support/v7/widget/Toolbar.html
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 
@@ -58,7 +61,7 @@ onActionSelected: function(position) {
 
 ### `overflowIcon`
 
-Sets the overflow icon.
+设置功能列表的弹出菜单的图标。
 
 | 类型                | 必填 |
 | ------------------- | -------- |
@@ -68,14 +71,14 @@ Sets the overflow icon.
 
 ### `actions`
 
-Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu.
+设置功能菜单中的可用功能。他们会显示为部件右侧的图标或文字。如果放不下，则会被放进一个弹出菜单里。
 
-This property takes an array of objects, where each object has the following keys:
+这个属性接受一个对象数组，每个对象可以有如下的字段：
 
-* `title`: **required**, the title of this action
-* `icon`: the icon for this action, e.g. `require('./some_icon.png')`
-* `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
-* `showWithText`: boolean, whether to show text alongside the icon or not
+* `title`: **必需**, 功能的标题。
+* `icon`: 这个功能的图标，例如`require('./some_icon.png')`。
+* `show`: 是直接作为icon显示，还是放到弹出菜单里：`always`总是显示，`ifRoom`如果工具栏放得下就显示，或者 `never`不显示。
+* `showWithText`: 值为布尔类型，指定是否在图标旁边同时还显示文字。
 
 | 类型                                                                                                                  | 必填 |
 | --------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -85,9 +88,9 @@ This property takes an array of objects, where each object has the following key
 
 ### `contentInsetStart`
 
-Sets the content inset for the toolbar starting edge.
+设置工具栏的左边缘和屏幕左边缘的距离。
 
-The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
+除了导航按钮和菜单以外，设置这一属性也会影响工具栏的内容区域。它定义了工具栏与屏幕边沿的最小边距，可以用来使工具栏的内容和一些设计上的网格线对齐。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -97,7 +100,7 @@ The content inset affects the valid area for Toolbar content other than the navi
 
 ### `logo`
 
-Sets the toolbar logo.
+设置整个工具条的logo。
 
 | 类型                | 必填 |
 | ------------------- | -------- |
@@ -107,7 +110,7 @@ Sets the toolbar logo.
 
 ### `navIcon`
 
-Sets the navigation icon.
+设置导航器的图标。
 
 | 类型                | 必填 |
 | ------------------- | -------- |
@@ -117,7 +120,7 @@ Sets the navigation icon.
 
 ### `onActionSelected`
 
-Callback that is called when an action is selected. The only argument that is passed to the callback is the position of the action in the actions array.
+当一个功能被选中的时候调用此回调。传递给此回调的唯一参数是该功能在actions数组中的位置。
 
 | 类型     | 必填 |
 | -------- | -------- |
@@ -127,7 +130,7 @@ Callback that is called when an action is selected. The only argument that is pa
 
 ### `onIconClicked`
 
-Callback called when the icon is selected.
+当图标被选中的时候调用此回调。
 
 | 类型     | 必填 |
 | -------- | -------- |
@@ -137,9 +140,9 @@ Callback called when the icon is selected.
 
 ### `contentInsetEnd`
 
-Sets the content inset for the toolbar ending edge.
+设置工具栏的右边缘和屏幕右边缘的距离。
 
-The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
+除了导航按钮和菜单以外，设置这一属性也会影响工具栏的内容区域。它定义了工具栏与屏幕边沿的最小边距，可以用来使工具栏的内容和一些设计上的网格线对齐。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -149,11 +152,7 @@ The content inset affects the valid area for Toolbar content other than the navi
 
 ### `rtl`
 
-Used to set the toolbar direction to RTL. In addition to this property you need to add
-
-android:supportsRtl="true"
-
-to your application AndroidManifest.xml and then call `setLayoutDirection(LayoutDirection.RTL)` in your MainActivity `onCreate` method.
+设置工具栏的排列顺序为从右到左。除了将这一属性设为true以外，你还需要在AndroidManifest.xml中添加：`android:supportsRtl="true"`以及在`MainActivity`的`onCreate`方法中调用`setLayoutDirection(LayoutDirection.RTL)`。
 
 | 类型 | 必填 |
 | ---- | -------- |
@@ -163,7 +162,7 @@ to your application AndroidManifest.xml and then call `setLayoutDirection(Layout
 
 ### `subtitle`
 
-Sets the toolbar subtitle.
+设置工具栏的子标题。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -173,7 +172,7 @@ Sets the toolbar subtitle.
 
 ### `subtitleColor`
 
-Sets the toolbar subtitle color.
+设置工具栏子标题的颜色。
 
 | 类型               | 必填 |
 | ------------------ | -------- |
@@ -183,7 +182,7 @@ Sets the toolbar subtitle color.
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -193,7 +192,7 @@ Used to locate this view in end-to-end tests.
 
 ### `title`
 
-Sets the toolbar title.
+设置工具栏的标题。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -203,7 +202,7 @@ Sets the toolbar title.
 
 ### `titleColor`
 
-Sets the toolbar title color.
+设置工具栏的标题颜色。
 
 | 类型               | 必填 |
 | ------------------ | -------- |

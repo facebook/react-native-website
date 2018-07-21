@@ -3,8 +3,11 @@ id: version-0.55-tabbarios
 title: TabBarIOS
 original_id: tabbarios
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-### Props
+> 译注：本组件，以及一切带IOS或Android后缀的组件，都不能跨平台运行。如果需要替代品，请到[js.coach](https://js.coach/react-native?search=tab)或[github](https://github.com/search?utf8=%E2%9C%93&q=react+native+tab)上搜索。
+
+### 查看Props
 
 * [View props...](view.md#props)
 

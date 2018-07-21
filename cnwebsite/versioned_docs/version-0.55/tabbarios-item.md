@@ -3,8 +3,9 @@ id: version-0.55-tabbarios-item
 title: TabBarIOS.Item
 original_id: tabbarios-item
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 

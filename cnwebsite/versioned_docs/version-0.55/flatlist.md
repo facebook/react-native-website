@@ -3,6 +3,7 @@ id: version-0.55-flatlist
 title: FlatList
 original_id: flatlist
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 高性能的简单列表组件，支持下面这些常用的功能：
 

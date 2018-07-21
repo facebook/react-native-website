@@ -3,6 +3,7 @@ id: version-0.55-viewpagerandroid
 title: ViewPagerAndroid
 original_id: viewpagerandroid
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(90.17%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(9.83%)
 
 一个允许在子视图之间左右翻页的容器。每一个 ViewPagerAndroid 的子容器会被视作一个单独的页，并且会被拉伸填满 ViewPagerAndroid。
 
@@ -53,7 +54,7 @@ var styles = {
 - [`peekEnabled`](viewpagerandroid.md#peekenabled)
 - [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
 
-### 类型定义
+### 查看类型定义
 
 * [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
 
@@ -157,7 +158,7 @@ var styles = {
 | ---- | ---- |
 | bool | 否   |
 
-## Type Definitions
+## 类型定义
 
 ### ViewPagerScrollState
 
@@ -165,7 +166,7 @@ var styles = {
 | ----- |
 | $Enum |
 
-**Constants:**
+**常量:**
 
 | Value    | 说明 |
 | -------- | ---- |

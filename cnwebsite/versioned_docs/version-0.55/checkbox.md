@@ -3,6 +3,7 @@ id: version-0.55-checkbox
 title: CheckBox
 original_id: checkbox
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 渲染一个单选框（目前仅 Android 可用）。
 
@@ -58,7 +59,7 @@ Invoked with the new value when the value changes.
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | ---- |

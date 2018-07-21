@@ -3,6 +3,7 @@ id: version-0.55-improvingux
 title: 改进用户体验
 original_id: improvingux
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 Building apps for mobile platforms is nuanced, there are many little details that developers coming from a web background often do not consider. This guide is intended to explain some of these nuances and demonstrate how you might factor them in to your application.
 

@@ -3,6 +3,7 @@ id: version-0.55-actionsheetios
 title: ActionSheetIOS
 original_id: actionsheetios
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ### 查看方法
 

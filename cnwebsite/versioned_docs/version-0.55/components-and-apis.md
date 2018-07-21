@@ -3,6 +3,7 @@ id: version-0.55-components-and-apis
 title: 组件和API
 original_id: components-and-apis
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 React Native 提供了一些内置的组件。你可以在网站的左侧看到组件的完整列表。如果你不知道从哪看起，那么可以先看一下下面这个简单的分类：
 
@@ -30,7 +31,7 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
   </div>
   <div class="component">
     <h3><a href="image.html">Image</a></h3>
-    <p>显示图片内容的组件</p>
+    <p>显示图片内容的组件。</p>
   </div>
   <div class="component">
     <h3><a href="textinput.html">TextInput</a></h3>

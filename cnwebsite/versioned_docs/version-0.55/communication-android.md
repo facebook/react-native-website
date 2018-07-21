@@ -3,6 +3,7 @@ id: version-0.55-communication-android
 title: 和原生端通信
 original_id: communication-android
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 通过[植入原生应用](integration-with-existing-apps.md)和[原生 UI 组件](native-component-android.md)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
 

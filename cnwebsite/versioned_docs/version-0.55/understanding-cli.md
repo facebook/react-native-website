@@ -3,6 +3,7 @@ id: version-0.55-understanding-cli
 title: Understanding the CLI
 original_id: understanding-cli
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 Though you may have installed the `react-native-cli` via npm as a separate module, it is a shell for accessing the CLI embedded in the React Native of each project. Your commands and their effects are dependent on the version of the module of `react-native` in context of the project. This guide will give a brief overview of the CLI in the module.
 

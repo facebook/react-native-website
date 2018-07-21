@@ -3,6 +3,7 @@ id: version-0.55-layoutanimation
 title: LayoutAnimation
 original_id: layoutanimation
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 当布局变化时，自动将视图运动到它们新的位置上。
 

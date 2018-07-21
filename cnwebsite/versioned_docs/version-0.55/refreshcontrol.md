@@ -3,8 +3,9 @@ id: version-0.55-refreshcontrol
 title: RefreshControl
 original_id: refreshcontrol
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-This component is used inside a ScrollView or ListView to add pull to refresh functionality. When the ScrollView is at `scrollY: 0`, swiping down triggers an `onRefresh` event.
+这一组件可以用在ScrollView或FlatList内部，为其添加下拉刷新的功能。当ScrollView处于竖直方向的起点位置（scrollY: 0），此时下拉会触发一个`onRefresh`事件。
 
 ### 示例
 
@@ -43,9 +44,9 @@ class RefreshableList extends Component {
 }
 ```
 
-**Note:** `refreshing` is a controlled prop, this is why it needs to be set to true in the `onRefresh` function otherwise the refresh indicator will stop immediately.
+**注意：** `refreshing`是一个受控属性， 所以必须在`onRefresh`函数中设置为true，否则loading指示器会立即停止。 
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 
@@ -68,7 +69,7 @@ class RefreshableList extends Component {
 
 ### `refreshing`
 
-Whether the view should be indicating an active refresh.
+视图是否应该在刷新时显示指示器。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -78,7 +79,7 @@ Whether the view should be indicating an active refresh.
 
 ### `onRefresh`
 
-Called when the view starts refreshing.
+在视图开始刷新时调用。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -88,7 +89,7 @@ Called when the view starts refreshing.
 
 ### `colors`
 
-The colors (at least one) that will be used to draw the refresh indicator.
+指定至少一种颜色用来绘制刷新指示器。
 
 | 类型                        | 必填 | 平台    |
 | --------------------------- | ---- | ------- |
@@ -98,7 +99,7 @@ The colors (at least one) that will be used to draw the refresh indicator.
 
 ### `enabled`
 
-Whether the pull to refresh functionality is enabled.
+指定是否要启用刷新指示器。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -108,7 +109,7 @@ Whether the pull to refresh functionality is enabled.
 
 ### `progressBackgroundColor`
 
-The background color of the refresh indicator.
+指定刷新指示器的背景色。
 
 | 类型               | 必填 | 平台    |
 | ------------------ | ---- | ------- |
@@ -118,7 +119,7 @@ The background color of the refresh indicator.
 
 ### `progressViewOffset`
 
-Progress view top offset
+指定刷新指示器的垂直起始位置(top offset)。
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -128,7 +129,7 @@ Progress view top offset
 
 ### `size`
 
-Size of the refresh indicator, see RefreshControl.SIZE.
+指定刷新指示器的大小，具体数值可参阅RefreshControl.SIZE.
 
 | 类型                                                                   | 必填 | 平台    |
 | ---------------------------------------------------------------------- | ---- | ------- |
@@ -138,7 +139,7 @@ Size of the refresh indicator, see RefreshControl.SIZE.
 
 ### `tintColor`
 
-The color of the refresh indicator.
+指定刷新指示器的颜色。
 
 | 类型               | 必填 | 平台 |
 | ------------------ | ---- | ---- |
@@ -148,7 +149,7 @@ The color of the refresh indicator.
 
 ### `title`
 
-The title displayed under the refresh indicator.
+指定刷新指示器下显示的文字。
 
 | 类型   | 必填 | 平台 |
 | ------ | ---- | ---- |
@@ -158,7 +159,7 @@ The title displayed under the refresh indicator.
 
 ### `titleColor`
 
-Title color.
+指定刷新指示器下显示的文字的颜色。
 
 | 类型               | 必填 | 平台 |
 | ------------------ | ---- | ---- |

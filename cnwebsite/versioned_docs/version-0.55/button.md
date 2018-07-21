@@ -3,6 +3,7 @@ id: version-0.55-button
 title: Button
 original_id: button
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 一个简单的跨平台的按钮组件。可以进行一些简单的定制。
 
@@ -82,7 +83,7 @@ import { Button } from 'react-native';
 
 ### `disabled`
 
-设置为 true 时此按钮将不可点击
+设置为 true 时此按钮将不可点击。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -92,7 +93,7 @@ import { Button } from 'react-native';
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | ---- |

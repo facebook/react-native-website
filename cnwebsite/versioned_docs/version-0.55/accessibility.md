@@ -3,6 +3,7 @@ id: version-0.55-accessibility
 title: 无障碍功能
 original_id: accessibility
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ## iOS 与 Android 原生 App 的无障碍功能(accessibility)
 

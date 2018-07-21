@@ -3,8 +3,9 @@ id: version-0.55-netinfo
 title: NetInfo
 original_id: netinfo
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-NetInfo exposes info about online/offline status
+通过NetInfo模块可以获取设备当前的联网状态。
 
 ```
 NetInfo.getConnectionInfo().then((connectionInfo) => {
@@ -23,26 +24,26 @@ NetInfo.addEventListener(
 );
 ```
 
-### ConnectionType enum
+### ConnectionType枚举值
 
-`ConnectionType` describes the type of connection the device is using to communicate with the network.
+`ConnectionType`描述了设备联网的方式。
 
-Cross platform values for `ConnectionType`:
+`ConnectionType`有如下跨平台可用的值:
 
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cellular` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
+* `none` - 设备处于离线状态
+* `wifi` - 设备通过wifi联网，或者设备是iOS模拟器
+* `cellular` - 设备通过蜂窝数据流量联网
+* `unknown` - 联网状态异常
 
-Android-only values for `ConnectionType`:
+`ConnectionType`还有如下仅在Android平台上可用的值:
 
-* `bluetooth` - device is connected via Bluetooth
-* `ethernet` - device is connected via Ethernet
-* `wimax` - device is connected via WiMAX
+* `bluetooth` - 设备通过蓝牙协议联网
+* `ethernet` - 设备通过以太网协议联网
+* `wimax` - 设备通过WiMAX协议联网
 
-### EffectiveConnectionType enum
+### EffectiveConnectionType枚举值
 
-Cross platform values for `EffectiveConnectionType`:
+`EffectiveConnectionType`有如下跨平台可用的值:
 
 * `2g`
 * `3g`
@@ -51,7 +52,7 @@ Cross platform values for `EffectiveConnectionType`:
 
 ### Android
 
-To request network info, you need to add the following line to your app's `AndroidManifest.xml`:
+要在Android上获取联网状态，还需要在`AndroidManifest.xml`中添加如下权限请求：
 
 `<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />`
 
@@ -70,7 +71,7 @@ To request network info, you need to add the following line to your app's `Andro
 
 # 文档
 
-## Methods
+## 方法
 
 ### `addEventListener()`
 
@@ -78,21 +79,21 @@ To request network info, you need to add the following line to your app's `Andro
 NetInfo.addEventListener(eventName, handler);
 ```
 
-Adds an event handler.
+添加一个事件监听函数。
 
 **参数：**
 
 | 名称      | 类型                           | 必填 | 说明                   |
 | --------- | ------------------------------ | ---- | ---------------------- |
-| eventName | enum(connectionChange, change) | 是   | The change event name. |
-| handler   | function                       | 是   | Listener function.     |
+| eventName | enum(connectionChange, change) | 是   | 事件名 |
+| handler   | function                       | 是   | 监听函数     |
 
-Supported events:
+支持的事件名：
 
-* `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
-  * `type`: A `ConnectionType` (listed above)
-  * `effectiveType`: An `EffectiveConnectionType` (listed above)
-* `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
+* `connectionChange`：当联网状态改变时触发。传给监听函数的参数是一个对象，包含有下列属性：
+  * `type`： 上面所列出的`ConnectionType`值
+  * `effectiveType`: 上面所列出的`EffectiveConnectionType`值
+* `change`: 这一事件已过期。请使用`connectionChange`代替。当联网状态改变时触发。
 
 ---
 
@@ -102,14 +103,14 @@ Supported events:
 NetInfo.removeEventListener(eventName, handler);
 ```
 
-Removes the listener for network status changes.
+移除联网状态改变的监听函数。
 
 **参数：**
 
 | 名称      | 类型                           | 必填 | 说明                   |
 | --------- | ------------------------------ | ---- | ---------------------- |
-| eventName | enum(connectionChange, change) | 是   | The change event name. |
-| handler   | function                       | 是   | Listener function.     |
+| eventName | enum(connectionChange, change) | 是   | 事件名 |
+| handler   | function                       | 是   | 监听函数     |
 
 ---
 
@@ -119,7 +120,7 @@ Removes the listener for network status changes.
 NetInfo.getConnectionInfo();
 ```
 
-Returns a promise that resolves to an object with `type` and `effectiveType` keys whose values are a [`ConnectionType`](netinfo.md#connectiontype-enum) and an [`EffectiveConnectionType`](netinfo.md#effectiveconnectiontype-enum)), respectively.
+返回一个promise，最终解析值为带有`type`和`effectiveType`属性的对象。其中`type`属性的值为[`ConnectionType`](netinfo.md#connectiontype-enum) ，而`effectiveType`属性的值为[`EffectiveConnectionType`](netinfo.md#effectiveconnectiontype-enum))。
 
 ---
 
@@ -129,7 +130,7 @@ Returns a promise that resolves to an object with `type` and `effectiveType` key
 NetInfo.isConnectionExpensive();
 ```
 
-Available on Android. Detect if the current active connection is metered or not. A network is classified as metered when the user is sensitive to heavy data usage on that connection due to monetary costs, data limitations or battery/performance issues.
+仅Android可用。用于判断当前活动的连接是否计费。如果当前连接是通过移动数据网络，或者通过基于移动数据网络所创建的wifi热点，或是大量消耗电池等等，都有可能被判定为计费的数据连接。
 
 ```
 NetInfo.isConnectionExpensive()
@@ -141,11 +142,11 @@ NetInfo.isConnectionExpensive()
 });
 ```
 
-## Properties
+## 属性
 
 ### `isConnected`
 
-Available on all platforms. Asynchronously fetch a boolean to determine internet connectivity.
+在所有平台上可用。以异步方式获取一个布尔值，用于判断当前设备是否联网。
 
 ```
 NetInfo.isConnected.fetch().then(isConnected => {

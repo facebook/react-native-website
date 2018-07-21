@@ -1,8 +1,9 @@
 ---
 id: version-0.55-text-style-props
-title: Text Style Props
+title: Text样式属性
 original_id: text-style-props
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ### Props
 

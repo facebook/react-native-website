@@ -1,10 +1,11 @@
 ---
 id: version-0.55-shadow-props
-title: Shadow Props
+title: 阴影样式属性
 original_id: shadow-props
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-### Props
+### 查看Props
 
 * [`shadowColor`](shadow-props.md#shadowcolor)
 * [`shadowOffset`](shadow-props.md#shadowoffset)
@@ -19,7 +20,7 @@ original_id: shadow-props
 
 ### `shadowColor`
 
-Sets the drop shadow color
+设置阴影色。
 
 | 类型               | 必填 | 平台 |
 | ------------------ | -------- | -------- |
@@ -29,7 +30,7 @@ Sets the drop shadow color
 
 ### `shadowOffset`
 
-Sets the drop shadow offset
+设置阴影偏移量。
 
 | 类型                                   | 必填 | 平台 |
 | -------------------------------------- | -------- | -------- |
@@ -39,7 +40,7 @@ Sets the drop shadow offset
 
 ### `shadowOpacity`
 
-Sets the drop shadow opacity (multiplied by the color's alpha component)
+设置阴影不透明度 (乘以颜色的alpha分量)。
 
 | 类型   | 必填 | 平台 |
 | ------ | -------- | -------- |
@@ -49,7 +50,7 @@ Sets the drop shadow opacity (multiplied by the color's alpha component)
 
 ### `shadowRadius`
 
-Sets the drop shadow blur radius
+设置阴影模糊半径。
 
 | 类型   | 必填 | 平台 |
 | ------ | -------- | -------- |

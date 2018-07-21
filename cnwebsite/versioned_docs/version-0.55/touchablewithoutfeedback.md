@@ -3,12 +3,15 @@ id: version-0.55-touchablewithoutfeedback
 title: TouchableWithoutFeedback
 original_id: touchablewithoutfeedback
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
+除非你有一个很好的理由，否则不要用这个组件。所有能够响应触屏操作的元素在触屏后都应该有一个视觉上的反馈（然而本组件没有任何视觉反馈），这也是为什么一个"web"应用总是显得不够"原生"的主要原因之一。
 
-TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View.
+注意`TouchableWithoutFeedback`只支持一个子节点（不能没有子节点也不能多于一个）。如果你希望包含多个子组件，可以用一个View来包装它们。
 
-### Props
+> 译注：常见的使用场景比如想实现点击空白处触发某个操作，那么就可以把空白部分用`TouchableWithoutFeedback`包起来，或者绝对定位覆盖住。
+
+### 查看Props
 
 * [`hitSlop`](touchablewithoutfeedback.md#hitslop)
 * [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
@@ -25,7 +28,7 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`onPressOut`](touchablewithoutfeedback.md#onpressout)
 * [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
 
-### Type Definitions
+### 查看类型定义
 
 * [`Event`](touchablewithoutfeedback.md#event)
 
@@ -37,7 +40,8 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 
 ### `hitSlop`
 
-This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+这一属性定义了按钮的外延范围。这一范围也会使`pressRetentionOffset`变得更大。
+**注意：** 触摸范围不会超过父视图的边界，也不会影响原先和本组件层叠的视图（保留原先的触摸优先级）。
 
 | 类型                                                               | 必填 |
 | ------------------------------------------------------------------ | -------- |
@@ -63,7 +67,7 @@ This defines how far your touch can start away from the button. This is added to
 
 ### `delayLongPress`
 
-Delay in ms, from onPressIn, before onLongPress is called.
+从onPressIn开始，到onLongPress被调用的延迟。单位是毫秒.
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -73,7 +77,7 @@ Delay in ms, from onPressIn, before onLongPress is called.
 
 ### `delayPressIn`
 
-Delay in ms, from the start of the touch, before onPressIn is called.
+从触摸操作开始到onPressIn被调用的延迟。单位是毫秒。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -83,7 +87,7 @@ Delay in ms, from the start of the touch, before onPressIn is called.
 
 ### `delayPressOut`
 
-Delay in ms, from the release of the touch, before onPressOut is called.
+从触摸操作结束开始到onPressOut被调用的延迟。单位是毫秒。
 
 | 类型   | 必填 |
 | ------ | -------- |
@@ -93,7 +97,7 @@ Delay in ms, from the release of the touch, before onPressOut is called.
 
 ### `disabled`
 
-If true, disable all interactions for this component.
+如果设为true，则禁止此组件的一切交互。
 
 | 类型 | 必填 |
 | ---- | -------- |
@@ -111,7 +115,7 @@ If true, disable all interactions for this component.
 
 ### `onLayout`
 
-Invoked on mount and layout changes with
+当加载或者布局改变的时候被调用，参数为：
 
 `{nativeEvent: {layout: {x, y, width, height}}}`
 
@@ -131,7 +135,7 @@ Invoked on mount and layout changes with
 
 ### `onPress`
 
-Called when the touch is released, but not if cancelled (e.g. by a scroll that steals the responder lock).
+当触摸操作结束时调用，但如果被取消了则不调用（譬如响应者被一个滚动操作取代）。
 
 | 类型     | 必填 |
 | -------- | -------- |
@@ -161,13 +165,13 @@ Called as soon as the touch is released even before onPress.
 
 ### `pressRetentionOffset`
 
-When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
+在当前视图不能滚动的前提下指定这个属性，可以决定当手指移开多远距离之后，会不再激活按钮。但如果手指再次移回范围内，按钮会被再次激活。只要视图不能滚动，你可以来回多次这样的操作。确保你传入一个常量来减少内存分配。
 
 | 类型                                                               | 必填 |
 | ------------------------------------------------------------------ | -------- |
 | object: {top: number, left: number, bottom: number, right: number} | 否       |
 
-## Type Definitions
+## 类型定义
 
 ### Event
 
