@@ -1,6 +1,6 @@
 ---
 id: text-style-props
-title: Text Style Props
+title: Text样式属性
 ---
 
 ### Props

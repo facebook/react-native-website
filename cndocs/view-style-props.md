@@ -1,6 +1,6 @@
 ---
 id: view-style-props
-title: View Style Props
+title: View样式属性
 ---
 
 ### Props

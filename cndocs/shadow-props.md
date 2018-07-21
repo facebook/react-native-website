@@ -1,6 +1,6 @@
 ---
 id: shadow-props
-title: Shadow Props
+title: 阴影样式属性
 ---
 
 ### 查看Props

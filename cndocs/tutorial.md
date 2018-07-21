@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: Learn the Basics
+title: 示例教程：Hello World
 ---
 
 React Native 看起来很像 React，只不过其基础组件是原生组件而非 web 组件。要理解 React Native 应用的基本结构，首先需要了解一些基本的 React 的概念，比如 JSX 语法、组件、`state`状态以及`props`属性。如果你已经了解了 React，那么还需要掌握一些 React Native 特有的知识，比如原生组件的使用。这篇教程可以供任何基础的读者学习，不管你是否有 React 方面的经验。

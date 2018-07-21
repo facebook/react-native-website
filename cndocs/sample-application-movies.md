@@ -1,6 +1,6 @@
 ---
 id: sample-application-movies
-title: 示例教程（电影列表）
+title: 示例教程：电影列表
 ---
 
 ## 简介

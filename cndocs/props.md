@@ -1,6 +1,6 @@
 ---
 id: props
-title: Props
+title: Props（属性）
 ---
 
 大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为`props`（属性）。

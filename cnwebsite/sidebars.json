@@ -13,6 +13,7 @@
       "using-a-scrollview",
       "using-a-listview",
       "network",
+      "sample-application-movies",
       "more-resources"
     ],
     "进阶指南": [
@@ -33,8 +34,7 @@
       "integration-with-existing-apps",
       "building-for-apple-tv",
       "running-on-device",
-      "upgrading",
-      "troubleshooting"
+      "upgrading"
     ],
     "使用指南(iOS)": [
       "native-modules-ios",
