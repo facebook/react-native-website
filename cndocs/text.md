@@ -3,15 +3,13 @@ id: text
 title: Text
 ---
 
-A React component for displaying text.
+一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理。
 
-`Text` supports nesting, styling, and touch handling.
-
-In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
+在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 export default class TextInANest extends Component {
   constructor(props) {
@@ -46,17 +44,15 @@ const styles = StyleSheet.create({
   },
 });
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('TextInANest', () => TextInANest);
 ```
 
-## Nested text
+## 嵌套文本
 
-Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+在iOS和Android中显示格式化文本的方法类似，都是提供你想显示的文本内容，然后使用范围标注来指定一些格式（在iOS上是用`NSAttributedString`，Android上则是`SpannableString`）。这种用法非常繁琐。在React Native中，我们决定采用和Web一致的设计，这样你可以把相同格式的文本嵌套包裹起来：
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, Text } from 'react-native';
+import { Text } from 'react-native';
 
 export default class BoldAndBeautiful extends Component {
   render() {
@@ -70,12 +66,9 @@ export default class BoldAndBeautiful extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BoldAndBeautiful);
 ```
 
-Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
+而实际上在框架内部，这会生成一个扁平结构的`NSAttributedString`或是`SpannableString`，包含以下信息：
 
 ```javascript
 "I am bold and red"
@@ -83,13 +76,13 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 9-17: bold, red
 ```
 
-## Nested views (iOS only)
+## 嵌套视图（仅限iOS）
 
 On iOS, you can nest views within your Text component. Here's an example:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 export default class BlueIsCool extends Component {
   render() {
@@ -102,16 +95,13 @@ export default class BlueIsCool extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BlueIsCool);
 ```
 
 > In order to use this feature, you must give the view a `width` and a `height`.
 
-## Containers
+## 容器
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+`<Text>`元素在布局上不同于其它组件：在Text内部的元素不再使用flexbox布局，而是采用文本布局。这意味着`<Text>`内部的元素不再是一个个矩形，而可能会在行末进行折叠。
 
 ```javascript
 <Text>
@@ -133,11 +123,12 @@ The `<Text>` element is special relative to layout: everything inside is no long
 // |second part|
 ```
 
-## Limited Style Inheritance
+## 样式继承限制
 
-On the web, the usual way to set a font family and size for the entire document is to take advantage of inherited CSS properties like so:
+在Web上，要想指定整个文档的字体和大小，我们只需要写：
 
 ```css
+/* 这段代码是CSS, *不是*React Native */
 html {
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: 11px;
@@ -145,32 +136,30 @@ html {
 }
 ```
 
-All elements in the document will inherit this font unless they or one of their parents specifies a new rule.
+当浏览器尝试渲染一个文本节点的时候，它会在树中一路向上查询，直到根节点，来找到一个具备`font-size`属性的元素。这个系统一个不好的地方在于**任何**节点都可能会有`font-size`属性，包括`<div>`标签。这个设计为了方便而设计，但实际上语义上并不太正确。
 
-In React Native, we are more strict about it: **you must wrap all the text nodes inside of a `<Text>` component**. You cannot have a text node directly under a `<View>`.
+在React Native中，我们把这个问题设计的更加严谨：**你必须把你的文本节点放在`<Text>`组件内**。你不能直接在`<View>`下放置一段文本。
 
 ```javascript
-// BAD: will raise exception, can't have a text node as child of a <View>
+// 错误的做法：会导致一个错误。<View>下不能直接放一段文本。
 <View>
-  Some text
+  一些文本
 </View>
 
-// GOOD
+// 正确的做法
 <View>
   <Text>
-    Some text
+    一些文本
   </Text>
 </View>
 ```
 
-You also lose the ability to set up a default font for an entire subtree. The recommended way to use consistent fonts and sizes across your application is to create a component `MyAppText` that includes them and use this component across your app. You can also use this component to make more specific components like `MyAppHeaderText` for other kinds of text.
+并且你也不能直接设置一整颗子树的默认样式。使用一个一致的文本和尺寸的推荐方式是创建一个包含相关样式的组件`MyAppText`，然后在你的App中反复使用它。你还可以创建更多特殊的组件譬如`MyAppHeaderText`来表达不同样式的文本。
 
 ```javascript
 <View>
-  <MyAppText>
-    Text styled with the default font for the entire application
-  </MyAppText>
-  <MyAppHeaderText>Text styled as a header</MyAppHeaderText>
+  <MyAppText>这个组件包含了一个默认的字体样式，用于整个应用的文本</MyAppText>
+  <MyAppHeaderText>这个组件包含了用于标题的样式</MyAppHeaderText>
 </View>
 ```
 
@@ -188,7 +177,7 @@ class MyAppHeaderText extends Component {
 
 Composing `MyAppText` in this way ensures that we get the styles from a top-level component, but leaves us the ability to add / override them in specific use cases.
 
-React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
+React Native实际上还是有一部分样式继承的实现，不过仅限于文本标签的子树。在下面的代码里，第二部分会在加粗的同时又显示为红色：
 
 ```javascript
 <Text style={{ fontWeight: "bold" }}>
@@ -197,13 +186,13 @@ React Native still has the concept of style inheritance, but limited to text sub
 </Text>
 ```
 
-We believe that this more constrained way to style text will yield better apps:
+我们相信这种看起来不太舒服的给文本添加样式的方法反而会帮助我们生产更好的App：
 
-* (Developer) React components are designed with strong isolation in mind: You should be able to drop a component anywhere in your application, trusting that as long as the props are the same, it will look and behave the same way. Text properties that could inherit from outside of the props would break this isolation.
+- (对开发者来说) React组件在概念上被设计为强隔离性的：你应当可以在应用的任何位置放置一个组件，而且只要属性相同，其外观和表现都将完全相同。文本如果能够继承外面的样式属性，将会打破这种隔离性。
 
-* (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
+- (对实现者来说) React Native的实现也被简化了。我们不需要在每个元素上都添加一个`fontFamily`字段，并且我们也不需要隐含地在显示文本的时候向上遍历树。唯一的样式继承在原生Text组件中编码，也不会影响到其它组件或者系统本身。
 
-### Props
+### 查看Props
 
 * [`selectable`](text.md#selectable)
 * [`accessible`](text.md#accessible)
@@ -232,7 +221,7 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### `selectable`
 
-Lets the user select text, to use the native copy and paste functionality.
+决定用户是否可以长按选择文本，以便复制和粘贴。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -285,7 +274,7 @@ Used to locate this view from native code.
 
 ### `numberOfLines`
 
-Used to truncate the text with an ellipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number.
+用来当文本过长的时候裁剪文本。包括折叠产生的换行在内，总的行数不会超过这个属性的限制。
 
 This prop is commonly used with `ellipsizeMode`.
 
@@ -297,7 +286,7 @@ This prop is commonly used with `ellipsizeMode`.
 
 ### `onLayout`
 
-Invoked on mount and layout changes with
+在加载时或者布局变化以后调用，参数为如下的内容：
 
 `{nativeEvent: {layout: {x, y, width, height}}}`
 
@@ -309,9 +298,9 @@ Invoked on mount and layout changes with
 
 ### `onLongPress`
 
-This function is called on long press.
+当文本被长按以后调用此回调函数。
 
-e.g., `onLongPress={this.increaseSize}>`
+例如：`onLongPress={this.increaseSize}>`
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -321,9 +310,9 @@ e.g., `onLongPress={this.increaseSize}>`
 
 ### `onPress`
 
-This function is called on press.
+当文本被点击以后调用此回调函数。
 
-e.g., `onPress={() => console.log('1st')}`
+例如：`onPress={() => console.log('1st')}`
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -343,7 +332,7 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 ### `allowFontScaling`
 
-Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
+控制字体是否要根据系统的“字体大小”辅助选项来进行缩放。默认值为`true`。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -369,13 +358,13 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 * **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
-  Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
+  指定字体的粗细。大多数字体都支持'normal'和'bold'值。并非所有字体都支持所有的数字值。如果某个值不支持，则会自动选择最接近的值。
 
 * **`lineHeight`**: number
 
 * **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
+  指定文本的对齐方式。其中'justify'值仅iOS支持，在Android上会变为`left`。
 
 * **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 
@@ -387,7 +376,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 * **`includeFontPadding`**: bool (_Android_)
 
-  Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`. Default is true.
+  Android在默认情况下会为文字额外保留一些padding，以便留出空间摆放上标或是下标的文字。对于某些字体来说，这些额外的padding可能会导致文字难以垂直居中。如果你把`textAlignVertical`设置为`center`之后，文字看起来依然不在正中间，那么可以尝试将本属性设置为`false`。默认值为true。
 
 - **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
 
@@ -411,7 +400,7 @@ Android: Only supported since Android 5.0 - older versions will ignore this attr
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -451,7 +440,7 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ### `adjustsFontSizeToFit`
 
-Specifies whether font should be scaled down automatically to fit given style constraints.
+指定字体是否随着给定样式的限制而自动缩放。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -461,7 +450,7 @@ Specifies whether font should be scaled down automatically to fit given style co
 
 ### `minimumFontScale`
 
-Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
+当adjustsFontSizeToFit开启时，指定最小的缩放比（即不能低于这个值）。可设定的值为0.01 - 1.
 
 | 类型   | 必填 | 平台 |
 | ------ | ---- | ---- |
@@ -471,7 +460,7 @@ Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is 
 
 ### `suppressHighlighting`
 
-When `true`, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
+设为true时，当文本被按下会没有任何视觉效果。默认情况下，文本被按下时会有一个灰色的、椭圆形的高光。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |

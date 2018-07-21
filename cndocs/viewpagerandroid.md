@@ -52,7 +52,7 @@ var styles = {
 - [`peekEnabled`](viewpagerandroid.md#peekenabled)
 - [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
 
-### 类型定义
+### 查看类型定义
 
 * [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
 

@@ -57,7 +57,7 @@ Invoked with the new value when the value changes.
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | ---- |

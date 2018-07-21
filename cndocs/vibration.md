@@ -3,13 +3,13 @@ id: vibration
 title: Vibration
 ---
 
-The Vibration API is exposed at `Vibration.vibrate()`. The vibration is asynchronous so this method will return immediately.
+本模块导出函数`Vibration.vibrate()`用于控制设备震动。震动触发是异步的，也就是说这个函数会立即返回而非等待震动结束。
 
-There will be no effect on devices that do not support Vibration, eg. the simulator.
+在不支持震动的设备上（如iOS模拟器），调用此方法没有任何效果。
 
-**Note for Android:** add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
+**注意**对于android来说需要在`AndroidManifest.xml`中添加`<uses-permission android:name="android.permission.VIBRATE"/>`权限。
 
-Since the **vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
+由于**在iOS上无法设置震动的持续时间**，所以这一API在两个平台上的使用和表现有所差异。In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
 
 In iOS, invoking `vibrate(duration)` will just ignore the duration and vibrate for a fixed time. While the `pattern` array is used to define the duration between each vibration. See below example for more.
 
@@ -38,7 +38,7 @@ Vibration.cancel()
 // iOS: vibration stopped
 ```
 
-### Methods
+### 查看方法
 
 * [`vibrate`](vibration.md#vibrate)
 * [`cancel`](vibration.md#cancel)
@@ -47,7 +47,7 @@ Vibration.cancel()
 
 # 文档
 
-## Methods
+## 方法
 
 ### `vibrate()`
 
@@ -59,10 +59,10 @@ Trigger a vibration with specified `pattern`.
 
 **参数：**
 
-| 名称    | 类型                    | 必填 | 说明                                                                         |
-| ------- | ----------------------- | ---- | ---------------------------------------------------------------------------- |
-| pattern | number or Array<number> | 是   | Vibration pattern, accept a number or an array of numbers. Default to 400ms. |
-| repeat  | boolean                 | 否   | Repeat vibration pattern until cancel(), default to false.                   |
+| 名称    | 类型                    | 必填 | 说明                                                          |
+| ------- | ----------------------- | ---- | ------------------------------------------------------------- |
+| pattern | number or Array<number> | 是   | 震动的模式，可以以数字或数组的形式定义。默认为震动400ms。     |
+| repeat  | boolean                 | 否   | 表示是否持续循环震动，直到调用cancel()才会停止。默认为false。 |
 
 ---
 
@@ -72,7 +72,7 @@ Trigger a vibration with specified `pattern`.
 Vibration.cancel();
 ```
 
-Stop vibration.
+停止震动。
 
 ```
 Vibration.cancel()

@@ -94,7 +94,7 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 * [`recordInteraction`](sectionlist.md#recordinteraction)
 * [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
 
-### 类型定义
+### 查看类型定义
 
 * [`Section`](sectionlist.md#section)
 

@@ -3,7 +3,7 @@ id: transforms
 title: Transforms
 ---
 
-### Props
+### 查看Props
 
 * [`decomposedMatrix`](transforms.md#decomposedmatrix)
 * [`rotation`](transforms.md#rotation)

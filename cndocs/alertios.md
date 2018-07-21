@@ -31,7 +31,7 @@ AlertIOS.prompt(
 * [`alert`](alertios.md#alert)
 * [`prompt`](alertios.md#prompt)
 
-### 类型定义
+### 查看类型定义
 
 * [`AlertType`](alertios.md#alerttype)
 * [`AlertButtonStyle`](alertios.md#alertbuttonstyle)

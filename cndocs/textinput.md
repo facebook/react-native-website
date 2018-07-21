@@ -3,13 +3,13 @@ id: textinput
 title: TextInput
 ---
 
-A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
+TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字，以及多种不同的键盘类型（如纯数字键盘）等等。
 
-The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
+最简单的用法就是丢一个`TextInput`到应用里，然后订阅它的`onChangeText`事件来读取用户的输入。注意，从TextInput里取值这就是目前唯一的做法！也就是使用在`onChangeText`中用`setState`把用户的输入写入到state中，然后在需要取值的地方从this.state中取出值。它还有一些其它的事件，譬如`onSubmitEditing`和`onFocus`。一个简单的例子如下：
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 
 export default class UselessTextInput extends Component {
   constructor(props) {
@@ -28,23 +28,21 @@ export default class UselessTextInput extends Component {
   }
 }
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => UselessTextInput);
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
 
-Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
+注意有些属性仅在`multiline`为true或者为false的时候有效。此外，当`multiline=false`时，为元素的某一个边添加边框样式（例如：`borderBottomColor`，`borderLeftWidth`等）将不会生效。为了能够实现效果你可以使用一个`View`来包裹`TextInput`：
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 class UselessTextInput extends Component {
   render() {
     return (
       <TextInput
-        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+        {...this.props} // 将父组件传递来的所有props传递给TextInput;比如下面的multiline和numberOfLines
         editable = {true}
         maxLength = {40}
       />
@@ -60,8 +58,7 @@ export default class UselessTextInputMultiline extends Component {
     };
   }
 
-  // If you type something in the text box that is a color, the background will change to that
-  // color.
+  // 你可以试着输入一种颜色，比如red，那么这个red就会作用到View的背景色样式上
   render() {
     return (
      <View style={{
@@ -80,18 +77,15 @@ export default class UselessTextInputMultiline extends Component {
   }
 }
 
-// skip these lines if using Create React Native App
-AppRegistry.registerComponent(
- 'AwesomeProject',
- () => UselessTextInputMultiline
-);
 ```
 
-`TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this is to either not set height explicitly, case in which the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
+`TextInput`在安卓上默认有一个底边框，同时会有一些padding。如果要想使其看起来和iOS上尽量一致，则需要设置`padding: 0`，同时设置`underlineColorAndroid="transparent"`来去掉底边框。
 
-Note that on Android performing text selection in input can change app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
+又，在安卓上如果设置`multiline = {true}`，文本默认会垂直居中，可设置`textAlignVertical: 'top'`样式来使其居顶显示。
 
-### Props
+又又，在安卓上长按选择文本会导致`windowSoftInputMode`设置变为`adjustResize`，这样可能导致绝对定位的元素被键盘给顶起来。要解决这一问题你需要在AndroidManifest.xml中明确指定合适的`windowSoftInputMode`( <https://developer.android.com/guide/topics/manifest/activity-element.html> )值，或是自己监听事件来处理布局变化。
+
+### 查看Props
 
 * [View props...](view.md#props)
 
@@ -143,7 +137,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
 - [`value`](textinput.md#value)
 
-### Methods
+### 查看方法
 
 * [`clear`](textinput.md#clear)
 * [`isFocused`](textinput.md#isfocused)
@@ -156,7 +150,7 @@ Note that on Android performing text selection in input can change app's activit
 
 ### `allowFontScaling`
 
-Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
+控制字体是否要根据系统的“字体大小”辅助选项来进行缩放。默认值为`true`。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -166,12 +160,12 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `autoCapitalize`
 
-Can tell `TextInput` to automatically capitalize certain characters.
+控制TextInput是否要自动将特定字符切换为大写：
 
-* `characters`: all characters.
-* `words`: first letter of each word.
-* `sentences`: first letter of each sentence (_default_).
-* `none`: don't auto capitalize anything.
+* `characters`: 所有的字符。
+* `words`: 每个单词的第一个字符。
+* `sentences`: 每句话的第一个字符（默认）。
+* `none`: 不切换。
 
 | 类型                                             | 必填 |
 | ------------------------------------------------ | ---- |
@@ -181,7 +175,7 @@ Can tell `TextInput` to automatically capitalize certain characters.
 
 ### `autoCorrect`
 
-If `false`, disables auto-correct. The default value is `true`.
+如果为false，会关闭拼写自动修正。默认值是true。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -191,7 +185,7 @@ If `false`, disables auto-correct. The default value is `true`.
 
 ### `autoFocus`
 
-If `true`, focuses the input on `componentDidMount`. The default value is `false`.
+如果为true，在`componentDidMount`后会获得焦点。默认值为false。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -201,7 +195,7 @@ If `true`, focuses the input on `componentDidMount`. The default value is `false
 
 ### `blurOnSubmit`
 
-If `true`, the text field will blur when submitted. The default value is true for single-line fields and false for multiline fields. Note that for multiline fields, setting `blurOnSubmit` to `true` means that pressing return will blur the field and trigger the `onSubmitEditing` event instead of inserting a newline into the field.
+如果为true，文本框会在提交的时候失焦。对于单行输入框默认值为true，多行则为false。注意：对于多行输入框来说，如果将`blurOnSubmit`设为true，则在按下回车键时就会失去焦点同时触发`onSubmitEditing`事件，而不会换行。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -211,7 +205,7 @@ If `true`, the text field will blur when submitted. The default value is true fo
 
 ### `caretHidden`
 
-If `true`, caret is hidden. The default value is `false`.
+如果为true，则隐藏光标。默认值为false。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -221,7 +215,7 @@ If `true`, caret is hidden. The default value is `false`.
 
 ### `clearButtonMode`
 
-When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.
+是否要在文本框右侧显示“清除”按钮。仅在单行模式下可用。
 
 | 类型                                                       | 必填 | 平台 |
 | ---------------------------------------------------------- | ---- | ---- |
@@ -231,7 +225,7 @@ When the clear button should appear on the right side of the text view. This pro
 
 ### `clearTextOnFocus`
 
-If `true`, clears the text field automatically when editing begins.
+如果为true，每次开始输入的时候都会清除文本框的内容。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -251,11 +245,11 @@ If `true`, context menu is hidden. The default value is `false`.
 
 ### `dataDetectorTypes`
 
-Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
+设置 text input 内能被转化为可点击URL的数据的类型。当且仅当`multiline={true}`和`editable={false}`时起作用。默认情况下不检测任何数据类型。
 
-You can provide one type or an array of many types.
+可接受一个类型值或类型值数组。
 
-Possible values for `dataDetectorTypes` are:
+`dataDetectorTypes`的可用值有:
 
 * `'phoneNumber'`
 * `'link'`
@@ -272,7 +266,7 @@ Possible values for `dataDetectorTypes` are:
 
 ### `defaultValue`
 
-Provides an initial value that will change when the user starts typing. Useful for simple use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
+提供一个文本框中的初始值。当用户开始输入的时候，值就可以改变。在一些简单的使用情形下，如果你不想用监听消息然后更新value属性的方法来保持属性和状态同步的时候，就可以用defaultValue来代替。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -282,7 +276,7 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ### `disableFullscreenUI`
 
-When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
+当值为false时, 如果 text input 的周围有少量可用空间的话（比如说，当手机横过来时），操作系统可能会将这个 text input 设置为全屏模式。当值为true时, 这个特性不可用，text input 就是普通的模式。默认为false。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -292,7 +286,7 @@ When `false`, if there is a small amount of space available around a text input 
 
 ### `editable`
 
-If `false`, text is not editable. The default value is `true`.
+如果为false，文本框是不可编辑的。默认值为true。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -302,7 +296,7 @@ If `false`, text is not editable. The default value is `true`.
 
 ### `enablesReturnKeyAutomatically`
 
-If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
+如果为true，键盘会在文本框内没有文字的时候禁用确认按钮。默认值为false。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -312,7 +306,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `inlineImageLeft`
 
-If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
+指定一个图片放置在左侧。图片必须放置在`/android/app/src/main/res/drawable`目录下，经过编译后按如下形式引用（无路径无后缀）：
 
 ```
 <TextInput
@@ -328,7 +322,7 @@ If defined, the provided image resource will be rendered on the left. The image 
 
 ### `inlineImagePadding`
 
-Padding between the inline image, if any, and the text input itself.
+给放置在左侧的图片设置padding样式。
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -338,7 +332,7 @@ Padding between the inline image, if any, and the text input itself.
 
 ### `keyboardAppearance`
 
-Determines the color of the keyboard.
+指定键盘的颜色。
 
 | 类型                             | 必填 | 平台 |
 | -------------------------------- | ---- | ---- |
@@ -348,18 +342,16 @@ Determines the color of the keyboard.
 
 ### `keyboardType`
 
-Determines which keyboard to open, e.g.`numeric`.
+决定弹出的何种软键盘的，譬如`numeric`（纯数字键盘）。
 
-The following values work across platforms:
+这些值在所有平台都可用：
 
 * `default`
 * `numeric`
 * `email-address`
 * `phone-pad`
 
-_iOS Only_
-
-The following values work on iOS only:
+下面的值仅iOS可用：
 
 * `ascii-capable`
 * `numbers-and-punctuation`
@@ -370,9 +362,7 @@ The following values work on iOS only:
 * `twitter`
 * `web-search`
 
-_Android Only_
-
-The following values work on Android only:
+下面的值仅Android可用：
 
 * `visible-password`
 
@@ -384,7 +374,7 @@ The following values work on Android only:
 
 ### `maxLength`
 
-Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
+限制文本框中最多的字符数。使用这个属性而不用JS逻辑去实现，可以避免闪烁的现象。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -394,7 +384,7 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`.
+如果为true，文本框中可以输入多行文字。默认值为false。注意安卓上如果设置`multiline = {true}`，文本默认会垂直居中，可设置`textAlignVertical: 'top'`样式来使其居顶显示。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -404,7 +394,7 @@ If `true`, the text input can be multiple lines. The default value is `false`.
 
 ### `numberOfLines`
 
-Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+设置输入框的行数。当multiline设置为true时使用它，可以占据对应的行数。
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -414,7 +404,7 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 ### `onBlur`
 
-Callback that is called when the text input is blurred.
+当文本框失去焦点的时候调用此回调函数。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -424,7 +414,7 @@ Callback that is called when the text input is blurred.
 
 ### `onChange`
 
-Callback that is called when the text input's text changes.
+当文本框内容变化时调用此回调函数。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -434,7 +424,7 @@ Callback that is called when the text input's text changes.
 
 ### `onChangeText`
 
-Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.
+当文本框内容变化时调用此回调函数。改变后的文字内容会作为参数传递。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -456,7 +446,7 @@ Only called for multiline text inputs.
 
 ### `onEndEditing`
 
-Callback that is called when text input ends.
+当文本输入结束后调用此回调函数。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -466,7 +456,7 @@ Callback that is called when text input ends.
 
 ### `onFocus`
 
-Callback that is called when the text input is focused.
+当文本框获得焦点的时候调用此回调函数。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -476,7 +466,7 @@ Callback that is called when the text input is focused.
 
 ### `onKeyPress`
 
-Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks. Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
+当一个键被按下的时候调用此回调。传递给回调函数的参数为`{ nativeEvent: { key: keyValue } }`，其中`keyValue`即为被按下的键。会在onChange之前调用。注意：在Android上只有软键盘会触发此事件，物理键盘不会触发。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -486,7 +476,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{x, y, width, height}`.
+当组件加载或者布局变化的时候调用，参数为`{x, y, width, height}`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -496,7 +486,7 @@ Invoked on mount and layout changes with `{x, y, width, height}`.
 
 ### `onScroll`
 
-Invoked on content scroll with `{ nativeEvent: { contentOffset: { x, y } } }`. May also contain other properties from ScrollEvent but on Android contentSize is not provided for performance reasons.
+在内容滚动时持续调用，传回参数的格式形如`{ nativeEvent: { contentOffset: { x, y } } }`。也可能包含其他和滚动事件相关的参数，但是在Android上，出于性能考虑，不会提供`contentSize`参数。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -506,7 +496,7 @@ Invoked on content scroll with `{ nativeEvent: { contentOffset: { x, y } } }`. M
 
 ### `onSelectionChange`
 
-Callback that is called when the text input selection is changed. This will be called with `{ nativeEvent: { selection: { start, end } } }`.
+长按选择文本时，选择范围变化时调用此函数，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -516,7 +506,7 @@ Callback that is called when the text input selection is changed. This will be c
 
 ### `onSubmitEditing`
 
-Callback that is called when the text input's submit button is pressed. Invalid if `multiline={true}` is specified.
+此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数。如果`multiline={true}`，此属性不可用。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -526,7 +516,7 @@ Callback that is called when the text input's submit button is pressed. Invalid 
 
 ### `placeholder`
 
-The string that will be rendered before text input has been entered.
+如果没有任何文字输入，会显示此字符串。
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -536,7 +526,7 @@ The string that will be rendered before text input has been entered.
 
 ### `placeholderTextColor`
 
-The text color of the placeholder string.
+占位字符串显示的文字颜色。
 
 | 类型               | 必填 |
 | ------------------ | ---- |
@@ -556,11 +546,9 @@ Sets the return key to the label. Use it instead of `returnKeyType`.
 
 ### `returnKeyType`
 
-Determines how the return key should look. On Android you can also use `returnKeyLabel`.
+决定“确定”按钮显示的内容。在Android上你还可以使用`returnKeyLabel`。
 
-_Cross platform_
-
-The following values work across platforms:
+下列这些选项是跨平台可用的：
 
 * `done`
 * `go`
@@ -568,16 +556,12 @@ The following values work across platforms:
 * `search`
 * `send`
 
-_Android Only_
-
-The following values work on Android only:
+下列这些选项仅Android可用：
 
 * `none`
 * `previous`
 
-_iOS Only_
-
-The following values work on iOS only:
+下列这些选项仅iOS可用：
 
 * `default`
 * `emergency-call`
@@ -594,7 +578,7 @@ The following values work on iOS only:
 
 ### `secureTextEntry`
 
-If `true`, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is `false`. Does not work with 'multiline={true}'.
+如果为true，文本框会遮住之前输入的文字，这样类似密码之类的敏感文字可以更加安全。默认值为false。`multiline={true}`时不可用。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -604,7 +588,7 @@ If `true`, the text input obscures the text entered so that sensitive text like 
 
 ### `selection`
 
-The start and end of the text input's selection. Set start and end to the same value to position the cursor.
+设置选中文字的范围（指定首尾的索引值）。如果首尾为同一索引位置，则相当于指定光标的位置。
 
 | 类型                                | 必填 |
 | ----------------------------------- | ---- |
@@ -614,7 +598,7 @@ The start and end of the text input's selection. Set start and end to the same v
 
 ### `selectionColor`
 
-The highlight and cursor color of the text input.
+设置输入框高亮时的颜色（还包括光标）。
 
 | 类型               | 必填 |
 | ------------------ | ---- |
@@ -624,7 +608,7 @@ The highlight and cursor color of the text input.
 
 ### `selectionState`
 
-An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
+An instance of `DocumentSelectionState`，可以控制一个文档中哪段文字被选中的状态。
 
 Some functionality that can be performed with this instance is:
 
@@ -632,7 +616,7 @@ Some functionality that can be performed with this instance is:
 * `focus()`
 * `update()`
 
-> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
+> 参阅[`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)源码中的`DocumentSelectionState`
 
 | 类型                   | 必填 | 平台 |
 | ---------------------- | ---- | ---- |
@@ -642,7 +626,7 @@ Some functionality that can be performed with this instance is:
 
 ### `selectTextOnFocus`
 
-If `true`, all text will automatically be selected on focus.
+如果为true，当获得焦点的时候，所有的文字都会被选中。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -652,7 +636,7 @@ If `true`, all text will automatically be selected on focus.
 
 ### `spellCheck`
 
-If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
+如果设置为`false`，则禁用拼写检查的样式（比如错误拼写的单词下的红线）。默认值继承自`autoCorrect`。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -726,7 +710,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ### `textBreakStrategy`
 
-Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
+在 Android API Level 23+ 的平台上设置文字断行策略, 可能值有`simple`, `highQuality`, `balanced`。默认值为`simple`。
 
 | 类型                                      | 必填 | 平台    |
 | ----------------------------------------- | ---- | ------- |
@@ -736,7 +720,7 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ### `underlineColorAndroid`
 
-The color of the `TextInput` underline.
+文本框的下划线颜色(译注：如果要去掉文本框的边框，请将此属性设为透明transparent)。
 
 | 类型               | 必填 | 平台    |
 | ------------------ | ---- | ------- |
@@ -746,13 +730,14 @@ The color of the `TextInput` underline.
 
 ### `value`
 
-The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
+文本框中的文字内容。
+TextInput是一个受约束的(Controlled)的组件，意味着如果提供了value属性，原生值会被强制与value属性保持一致。在大部分情况下这都工作的很好，不过有些情况下会导致一些闪烁现象——一个常见的原因就是通过不改变value来阻止用户进行编辑。如果你希望阻止用户输入，可以考虑设置`editable={false}`；如果你是希望限制输入的长度，可以考虑设置`maxLength`属性，这两个属性都不会导致闪烁。
 
 | 类型   | 必填 |
 | ------ | ---- |
 | string | No   |
 
-## Methods
+## 方法
 
 ### `clear()`
 
@@ -760,7 +745,7 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 clear();
 ```
 
-Removes all text from the `TextInput`.
+清空输入框的内容。
 
 ---
 
@@ -770,4 +755,4 @@ Removes all text from the `TextInput`.
 isFocused():
 ```
 
-Returns `true` if the input is currently focused; `false` otherwise.
+返回值表明当前输入框是否获得了焦点。

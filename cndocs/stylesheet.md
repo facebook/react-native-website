@@ -3,9 +3,9 @@ id: stylesheet
 title: StyleSheet
 ---
 
-A StyleSheet is an abstraction similar to CSS StyleSheets
+StyleSheet 提供了一种类似 CSS 样式表的抽象。
 
-Create a new StyleSheet:
+创建一个样式表：
 
 ```
 const styles = StyleSheet.create({
@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-Use a StyleSheet:
+使用一个样式表：
 
 ```
 <View style={styles.container}>
@@ -32,33 +32,33 @@ Use a StyleSheet:
 </View>
 ```
 
-Code quality:
+从代码质量角度：
 
-* By moving styles away from the render function, you're making the code easier to understand.
-* Naming the styles is a good way to add meaning to the low level components in the render function.
+- 从 render 函数中移除具体的样式内容，可以使代码更清晰易懂。
+- 给样式命名也可以对 render 函数中的组件增加语义化的描述。
 
-Performance:
+从性能角度：
 
-* Making a stylesheet from a style object makes it possible to refer to it by ID instead of creating a new style object every time.
-* It also allows to send the style only once through the bridge. All subsequent uses are going to refer an id (not implemented yet).
+- 创建一个样式表，就可以使得我们后续更容易通过 ID 来引用样式，而不是每次都创建一个新的对象。
+- 它还使得样式只会在 JavaScript 和原生之间传递一次，随后的过程都可以只传递一个 ID（这个优化还未实现）。
 
-### Methods
+### 查看方法
 
-* [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
-* [`create`](stylesheet.md#create)
-* [`flatten`](stylesheet.md#flatten)
+- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
+- [`create`](stylesheet.md#create)
+- [`flatten`](stylesheet.md#flatten)
 
-### Properties
+### 查看常量
 
-* [`hairlineWidth`](stylesheet.md#hairlinewidth)
-* [`absoluteFill`](stylesheet.md#absolutefill)
-* [`absoluteFillObject`](stylesheet.md#absolutefillobject)
+- [`hairlineWidth`](stylesheet.md#hairlinewidth)
+- [`absoluteFill`](stylesheet.md#absolutefill)
+- [`absoluteFillObject`](stylesheet.md#absolutefillobject)
 
 ---
 
 # 文档
 
-## Methods
+## 方法
 
 ### `setStyleAttributePreprocessor()`
 
@@ -99,11 +99,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: "white"
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: "green"
+  }
 });
 
 StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
@@ -117,11 +117,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: "white"
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: "green"
+  }
 });
 
 StyleSheet.flatten(styles.listItem);
@@ -131,22 +131,22 @@ StyleSheet.flatten(styles.listItem);
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
 
-## Properties
+## 常量
 
 ### `hairlineWidth`
 
 ```javascript
 var styles = StyleSheet.create({
   separator: {
-    borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+    borderBottomColor: "#bbb",
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
 });
 ```
 
-This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
+这一常量始终是一个整数的像素值（线看起来会像头发丝一样细），并会尽量符合当前平台最细的线的标准。可以用作边框或是两个元素间的分隔线。然而，你不能把它“视为一个常量”，因为不同的平台和不同的屏幕像素密度会导致不同的结果。
 
-A line with hairline width may not be visible if your simulator is downscaled.
+如果模拟器缩放过，可能会看不到这么细的线。
 
 ---
 
@@ -165,8 +165,8 @@ const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFillObject,
     top: 10,
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: "transparent"
+  }
 });
 ```
 

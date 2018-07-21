@@ -3,7 +3,7 @@ id: tabbarios-item
 title: TabBarIOS.Item
 ---
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 

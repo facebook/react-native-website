@@ -3,7 +3,7 @@ id: segmentedcontrolios
 title: SegmentedControlIOS
 ---
 
-Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
+使用`SegmentedControlIOS`来在iOS设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
 
 #### Programmatically changing selected index
 
@@ -23,7 +23,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 <center><img src="assets/SegmentedControlIOS/example.gif" width="360"></img></center>
 
-### Props
+### 查看Props
 
 * [View props...](view.md#props)
 

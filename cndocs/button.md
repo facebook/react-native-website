@@ -81,7 +81,7 @@ import { Button } from 'react-native';
 
 ### `disabled`
 
-设置为 true 时此按钮将不可点击
+设置为 true 时此按钮将不可点击。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -91,7 +91,7 @@ import { Button } from 'react-native';
 
 ### `testID`
 
-Used to locate this view in end-to-end tests.
+用来在端到端测试中定位此视图。
 
 | 类型   | 必填 |
 | ------ | ---- |
