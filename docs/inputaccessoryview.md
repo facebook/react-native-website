@@ -59,7 +59,7 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 # Reference
 
-## Properties
+## Props
 
 ### `backgroundColor`
 

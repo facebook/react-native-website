@@ -48,7 +48,8 @@
       "version-0.52-native-modules-android",
       "version-0.52-native-components-android",
       "version-0.52-headless-js-android",
-      "version-0.52-signed-apk-android"
+      "version-0.52-signed-apk-android",
+      "version-0.52-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.52-contributing",

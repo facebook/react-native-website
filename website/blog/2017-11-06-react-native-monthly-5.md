@@ -3,7 +3,7 @@ title: React Native Monthly #5
 author: Tomislav Tenodi
 authorTitle: Founder at Speck
 authorURL: https://github.com/tenodi
-authorImage: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
+authorImageURL: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
 authorTwitter: TomislavTenodi
 category: engineering
 ---

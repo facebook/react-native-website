@@ -179,9 +179,11 @@ Assuming that `MyAppText` is a component that simply renders out its children in
 ```javascript
 class MyAppHeaderText extends Component {
   render() {
-    <MyAppText>
-      <Text style={{fontSize: 20}}>{this.props.children}</Text>
-    </MyAppText>;
+    return (
+      <MyAppText>
+        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+      </MyAppText>
+    );
   }
 }
 ```
@@ -264,8 +266,6 @@ This can be one of the following values:
 * `clip` - Lines are not drawn past the edge of the text container.
 
 The default is `tail`.
-
-> `clip` is working only for iOS
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -404,6 +404,8 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 - **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
 - **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+
+- **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize') (_iOS_)
 
 - **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 

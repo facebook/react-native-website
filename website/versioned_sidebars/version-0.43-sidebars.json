@@ -48,7 +48,8 @@
       "version-0.43-native-modules-android",
       "version-0.43-native-components-android",
       "version-0.43-headless-js-android",
-      "version-0.43-signed-apk-android"
+      "version-0.43-signed-apk-android",
+      "version-0.43-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.43-contributing",

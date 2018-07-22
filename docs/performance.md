@@ -37,7 +37,7 @@ JavaScript thread performance suffers greatly when running in dev mode. This is 
 
 ### Using `console.log` statements
 
-When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save`, and then edit the `.babelrc` file under your project directory like this:
+When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save-dev`, and then edit the `.babelrc` file under your project directory like this:
 
 ```javascripton
 {
@@ -55,7 +55,7 @@ This will automatically remove all `console.*` calls in the release (production)
 
 Use the new [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.
 
-If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/flatlist.md#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
+If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/docs/flatlist.html#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
 
 ### JS FPS plunges when re-rendering a view that hardly changes
 
@@ -103,7 +103,7 @@ handleOnPress() {
 
 As mentioned above, `Navigator` animations are controlled by the JavaScript thread. Imagine the "push from right" scene transition: each frame, the new scene is moved from the right to left, starting offscreen (let's say at an x-offset of 320) and ultimately settling when the scene sits at an x-offset of
 
-0.  Each frame during this transition, the JavaScript thread needs to send a new x-offset to the main thread. If the JavaScript thread is locked up, it cannot do this and so no update occurs on that frame and the animation stutters.
+0. Each frame during this transition, the JavaScript thread needs to send a new x-offset to the main thread. If the JavaScript thread is locked up, it cannot do this and so no update occurs on that frame and the animation stutters.
 
 One solution to this is to allow for JavaScript-based animations to be offloaded to the main thread. If we were to do the same thing as in the above example with this approach, we might calculate a list of all x-offsets for the new scene when we are starting the transition and send them to the main thread to execute in an optimized way. Now that the JavaScript thread is freed of this responsibility, it's not a big deal if it drops a few frames while rendering the scene -- you probably won't even notice because you will be too distracted by the pretty transition.
 
@@ -225,8 +225,8 @@ This doesn't seem right. Why is it being called so often? Are they actually diff
 
 If you identified a native UI problem, there are usually two scenarios:
 
-1.  the UI you're trying to draw each frame involves too much work on the GPU, or
-2.  You're constructing new UI during the animation/interaction (e.g. loading in new content during a scroll).
+1. the UI you're trying to draw each frame involves too much work on the GPU, or
+2. You're constructing new UI during the animation/interaction (e.g. loading in new content during a scroll).
 
 ##### Too much GPU work
 
@@ -483,7 +483,7 @@ fs.writeFile('./packager/modulePaths.js', fileData, err => {
 });
 ```
 
-You can run via `node packager/modulePaths.js`.
+You can run via `node packager/generateModulePaths.js`.
 
 This script attempts to map from the module names to module paths. Its not foolproof though, for instance, it ignores platform specific files (\*ios.js, and \*.android.js). However based on initial testing, it handles 95% of cases. When it runs, after some time it should complete and output a file named `packager/modulePaths.js`. It should contain paths to module files that are relative to your projects root. You can commit modulePaths.js to your repo so it is transportable.
 

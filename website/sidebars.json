@@ -34,7 +34,8 @@
       "building-for-apple-tv",
       "running-on-device",
       "upgrading",
-      "troubleshooting"
+      "troubleshooting",
+      "native-modules-setup"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -48,7 +49,8 @@
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
-      "signed-apk-android"
+      "signed-apk-android",
+      "removing-default-permissions"
     ],
     "Contributing": [
       "contributing",

@@ -28,6 +28,8 @@ In addition to implementing the `RCTBridgeModule` protocol, your class must also
 
 ```objectivec
 // CalendarManager.m
+#import "CalendarManager.h"
+
 @implementation CalendarManager
 
 // To export a module named CalendarManager
@@ -213,7 +215,7 @@ RCT_REMAP_METHOD(findEvents,
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```js
+```javascript
 async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
@@ -445,7 +447,8 @@ class CalendarManager: NSObject {
     // Date is ready to use!
   }
 
-  func constantsToExport() -> [AnyHashable: Any]! {
+  @objc
+  func constantsToExport() -> [String: Any]! {
     return ["someKey": "someValue"]
   }
 

@@ -113,7 +113,7 @@ A Mac is required in order to build your app for iOS devices. Alternatively, you
 
 ### 1. Plug in your device via USB
 
-Connect your iOS device to your Mac using a USB to Lightning cable. Navigate to the `ios` folder in your project, then open the `.xcodeproj` file within it using Xcode.
+Connect your iOS device to your Mac using a USB to Lightning cable. Navigate to the `ios` folder in your project, then open the `.xcodeproj` file, or if you are using CocoaPods open `.xcworkspace`, within it using Xcode.
 
 If this is your first time running an app on your iOS device, you may need to register your device for development. Open the **Product** menu from Xcode's menubar, then go to **Destination**. Look for and select your device from the list. Xcode will then register your device for development.
 
@@ -316,13 +316,13 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 
 <block class="mac windows linux android" />
 
-1.  Make sure your laptop and your phone are on the **same** Wi-Fi network.
-2.  Open your React Native app on your device.
-3.  You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
-4.  Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
-5.  Go to **Dev Settings** → **Debug server host & port for device**.
-6.  Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
-7.  Go back to the **Developer menu** and select **Reload JS**.
+1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
+2. Open your React Native app on your device.
+3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
+4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+5. Go to **Dev Settings** → **Debug server host & port for device**.
+6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
+7. Go back to the **Developer menu** and select **Reload JS**.
 
 You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
 

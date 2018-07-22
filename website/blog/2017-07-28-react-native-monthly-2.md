@@ -3,7 +3,7 @@ title: React Native Monthly #2
 author: Tomislav Tenodi
 authorTitle: Product Manager at Shoutem
 authorURL: https://github.com/tenodi
-authorImage: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
+authorImageURL: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
 authorTwitter: TomislavTenodi
 category: engineering
 ---

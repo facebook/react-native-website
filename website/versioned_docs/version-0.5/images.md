@@ -200,11 +200,13 @@ You might not want to use `<ImageBackground>` in some cases, since the implement
 
 ```javascript
 return (
-  <ImageBackground source={...}>
+  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>
   </ImageBackground>
 );
 ```
+
+Note that you must specify some width and height style attributes.
 
 ## iOS Border Radius Styles
 

@@ -48,7 +48,8 @@
       "version-0.36-native-modules-android",
       "version-0.36-native-components-android",
       "version-0.36-headless-js-android",
-      "version-0.36-signed-apk-android"
+      "version-0.36-signed-apk-android",
+      "version-0.36-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.36-contributing",

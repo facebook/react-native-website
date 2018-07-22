@@ -131,7 +131,7 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
   style={{
     width: 51,
     height: 51,
-    resizeMode: Image.resizeMode.contain,
+    resizeMode: 'contain',
   }}
   source={{
     uri:
@@ -199,11 +199,13 @@ You might not want to use `<ImageBackground>` in some cases, since the implement
 
 ```javascript
 return (
-  <ImageBackground source={...}>
+  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>
   </ImageBackground>
 );
 ```
+
+Note that you must specify some width and height style attributes.
 
 ## iOS Border Radius Styles
 

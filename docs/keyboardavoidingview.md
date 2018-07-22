@@ -10,7 +10,7 @@ Example usage:
 ```
 import { KeyboardAvoidingView } from 'react-native';
 
-<KeyboardAvoidingView style={styles.container} behavior="padding">
+<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
   ... your UI ...
 </KeyboardAvoidingView>
 ```
@@ -26,6 +26,7 @@ import { KeyboardAvoidingView } from 'react-native';
 - [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
 - [`behavior`](keyboardavoidingview.md#behavior)
 - [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+- [`enabled`](keyboardavoidingview.md#enabled)
 
 ### Methods
 
@@ -45,7 +46,7 @@ This is the distance between the top of the user screen and the react native vie
 
 | Type   | Required |
 | ------ | -------- |
-| number | Yes      |
+| number | No       |
 
 ---
 
@@ -66,6 +67,16 @@ The style of the content container(View) when behavior is 'position'.
 | Type       | Required |
 | ---------- | -------- |
 | View.style | No       |
+
+---
+
+### `enabled`
+
+Enabled or disabled KeyboardAvoidingView.
+
+| Type    | Required |
+| ------- | -------- |
+| boolean | Yes      |
 
 ## Methods
 

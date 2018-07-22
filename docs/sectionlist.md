@@ -21,16 +21,19 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 Simple Examples:
 
 ```javascript
-// Example 1 (Homogeneous Rendering) 
- <SectionList 
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>} 
-  renderSectionHeader={({ section: { title } }) => <Text style={{ fontWeight: 'bold' }}>{title}</Text>} 
-  sections={[ 
-   { title: 'Title1', data: ['item1', 'item2'] }, 
-   { title: 'Title2', data: ['item3', 'item4'] }, 
-   { title: 'Title3', data: ['item5', 'item6'] }, 
-   ]} 
-  keyExtractor={(item, index) => item + index} />
+// Example 1 (Homogeneous Rendering)
+<SectionList
+  renderItem={({item, index, section}) => <Text key={index}>{item}</Text>}
+  renderSectionHeader={({section: {title}}) => (
+    <Text style={{fontWeight: 'bold'}}>{title}</Text>
+  )}
+  sections={[
+    {title: 'Title1', data: ['item1', 'item2']},
+    {title: 'Title2', data: ['item3', 'item4']},
+    {title: 'Title3', data: ['item5', 'item6']},
+  ]}
+  keyExtractor={(item, index) => item + index}
+/>
 ```
 
 ```javascript
@@ -346,7 +349,7 @@ scrollToLocation(params);
 
 Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the section) positioned in the viewable area such that `viewPosition` 0 places it at the top (and may be covered by a sticky header), 1 at the bottom, and 0.5 centered in the middle.
 
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` prop.
+> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` or `onScrollToIndexFailed` prop.
 
 **Parameters:**
 

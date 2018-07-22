@@ -367,7 +367,7 @@ Config is an object that may have the following options:
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a simple javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
 
 ---
 

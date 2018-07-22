@@ -48,7 +48,8 @@
       "version-0.10-native-modules-android",
       "version-0.10-native-components-android",
       "version-0.10-headless-js-android",
-      "version-0.10-signed-apk-android"
+      "version-0.10-signed-apk-android",
+      "version-0.10-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.10-contributing",

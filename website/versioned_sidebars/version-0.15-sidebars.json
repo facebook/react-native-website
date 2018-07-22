@@ -48,7 +48,8 @@
       "version-0.15-native-modules-android",
       "version-0.15-native-components-android",
       "version-0.15-headless-js-android",
-      "version-0.15-signed-apk-android"
+      "version-0.15-signed-apk-android",
+      "version-0.15-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.15-contributing",

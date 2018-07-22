@@ -5,9 +5,9 @@ title: How to Contribute
 
 React Native is one of Facebook's first open source projects that is both under very active development and is also being used to ship code to everybody using Facebook's mobile apps. If you're interested in contributing to React Native, hopefully this document makes the process for contributing clear.
 
-## [Code of Conduct](https://code.facebook.com/codeofconduct)
+## [Code of Conduct](https://code.fb.com/codeofconduct/)
 
-Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.facebook.com/codeofconduct) so that you can understand what actions will and will not be tolerated.
+Facebook has adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](https://code.fb.com/codeofconduct/) so that you can understand what actions will and will not be tolerated.
 
 ## Get involved
 
@@ -19,10 +19,13 @@ There are many ways to contribute to React Native, and many of them do not invol
 * Read through the [React Native docs](http://facebook.github.io/react-native/). If you find anything that is confusing or can be improved, you can make edits by clicking "Edit" at the top of most docs.
 * Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
 * Take a look at the [features requested](https://react-native.canny.io/feature-requests) by others in the community and consider opening a pull request if you see something you want to work on.
+* Before opening your pull request, make sure you have fully tested your changes. Test your changes locally and by running the various tests provided.
+* For information on how to build the React Native project locally with your changes, make sure to read through the [Building React Native from source guide](https://facebook.github.io/react-native/docs/building-from-source.html).
+* Check out the [Testing your changes guide](https://facebook.github.io/react-native/docs/testing.html) to find out about the numerous tests which has been provided to help ensure that any new changes wont cause a regression.
 
 Contributions are very welcome. If you think you need help planning your contribution, please hop into [#react-native](https://discord.gg/0ZcbPKXt5bZjGY5n) and let people know you're looking for a mentor.
 
-Core contributors to React Native meet monthly and post their meeting notes on the [React Native blog](https://facebook.github.io/react-native/blog). You can also find ad hoc discussions in the [React Native Core Contributors](https://www.facebook.com/groups/reactnativeoss/) Facebook group.
+Core contributors to React Native meet monthly and post their meeting notes on the [React Native blog](https://facebook.github.io/react-native/blog). You can also find ad hoc discussions at [https://discuss.reactjs.org/](https://discuss.reactjs.org/).
 
 ### Triaging issues and pull requests
 
@@ -37,7 +40,9 @@ You can learn more about handling issues in the [maintainer's guide](maintainers
 
 ## Our development process
 
-Some of the core team will be working directly on [GitHub](https://github.com/facebook/react-native). These changes will be public from the beginning. Other changesets will come via a bridge with Facebook's internal source control. This is a necessity as it allows engineers at Facebook outside of the core team to move fast and contribute from an environment they are comfortable in.
+The [`facebook/react-native`](https://github.com/facebook/react-native) repository on GitHub contains a mirror of the React Native library used internally at Facebook. The GitHub repository is linked to Facebook's internal source control, and all changes made to the internal React Native project [get synced to the `master` branch on GitHub](https://github.com/facebook/react-native/commits/master) on an ongoing basis. Having Facebook's internal source control serve as the source of truth allows engineers at Facebook outside of the React Native team to move fast and contritube from an environment they are comfortable in.
+
+React Native is also contributed to by a core team of engineers from several companies outside of Facebook, as well as many other open source [contributors](https://github.com/facebook/react-native/graphs/contributors). The core team coordinates open source releases through the [`react-native-releases`](https://github.com/react-native-community/react-native-releases) repository on GitHub.
 
 When a change made on GitHub is approved, it will first be imported into Facebook's internal source control. The change will eventually sync back to GitHub as a single commit once it has passed all internal tests.
 
@@ -96,11 +101,11 @@ Small pull requests are much easier to review and more likely to get merged. Mak
 
 Please make sure the following is done when submitting a pull request:
 
-1.  Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
-2.  Add the copyright notice to the top of any new files you've added.
-3.  Describe your [**test plan**](contributing.html#test-plan) in your pull request description. Make sure to [test your changes](testing.html)!
-4.  Make sure your code lints (`npm run lint`).
-5.  If you haven't already, [sign the CLA](https://code.facebook.com/cla).
+1. Fork [the repository](https://github.com/facebook/react-native) and create your branch from `master`.
+2. Add the copyright notice to the top of any new files you've added.
+3. Describe your [**test plan**](contributing.html#test-plan) in your pull request description. Make sure to [test your changes](testing.html)!
+4. Make sure your code lints (`npm run lint`).
+5. If you haven't already, [sign the CLA](https://code.facebook.com/cla).
 
 All pull requests should be opened against the `master` branch. After opening your pull request, ensure [**all tests pass**](contributing.html#contrinuous-integration-tests) on Circle CI. If a test fails and you believe it is unrelated to your change, leave a comment on the pull request explaining why.
 

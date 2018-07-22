@@ -111,11 +111,11 @@ cd AwesomeProject
 npm start
 ```
 
-This will start a development server for you, and print a QR code in your terminal.
+This will start a development server for you.
 
 ## Running your React Native application
 
-Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. Using the Expo app, scan the QR code from your terminal to open your project.
+Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, follow on-screen instructions to get a link.
 
 ### Modifying your app
 
@@ -129,9 +129,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
+- Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
 
-* If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
+- If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -171,7 +171,7 @@ The instructions are a bit different depending on your development operating sys
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
 
 <block class="native mac ios" />
 
@@ -214,7 +214,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer.
+If you have already installed Node on your system, make sure it is Node 8.3 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -222,7 +222,7 @@ If you have already installed Node on your system, make sure it is version 6 or 
 
 ### Node
 
-Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 6 or newer.
+Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 8.3 or newer.
 
 <block class='native windows android' />
 
@@ -238,7 +238,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs.install python2 jdk8
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
+If you have already installed Node on your system, make sure it is Node 8.3 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
@@ -304,16 +304,16 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <block class="native mac windows android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Performance (Intel ® HAXM)`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Performance (Intel ® HAXM)`
+- `Android Virtual Device`
 
 <block class="native linux android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Android Virtual Device`
 
 <block class="native mac windows linux android" />
 
@@ -343,10 +343,10 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 6.0 (Marshmallow)` entry, then make sure the following items are all checked:
 
-* `Google APIs`
-* `Android SDK Platform 23`
-* `Intel x86 Atom_64 System Image`
-* `Google APIs Intel x86 Atom_64 System Image`
+- `Google APIs`
+- `Android SDK Platform 23`
+- `Intel x86 Atom_64 System Image`
+- `Google APIs Intel x86 Atom_64 System Image`
 
 <block class="native mac android" />
 
@@ -395,6 +395,7 @@ Add the following lines to your `$HOME/.bash_profile` config file:
 ```
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
@@ -403,6 +404,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
@@ -416,7 +418,7 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 <block class="native windows android" />
 
-Open the System pane under **System and Security** in the Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
 ![ANDROID_HOME Environment Variable](/react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
@@ -432,11 +434,11 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 <block class="native linux android" />
 
-### Watchman (optional)
+### Watchman
 
 Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
 
-> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance, but it's alright to skip this if you find the process to be tedious.
+> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
 <block class="native mac ios" />
 
@@ -502,7 +504,7 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
 
-> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows) to set it up, then go back to the AVD Manager.
+> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
@@ -510,7 +512,7 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
 
-> If you don't have HAXM installed, follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x) to set it up, then go back to the AVD Manager.
+> If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 
@@ -576,13 +578,13 @@ Now that you have successfully run the app, let's modify it.
 
 <block class="native mac ios" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
 
 <block class="native mac android" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
 
 <block class="native windows linux android" />
 
@@ -590,8 +592,8 @@ Now that you have successfully run the app, let's modify it.
 
 Now that you have successfully run the app, let's modify it.
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
 
 <block class="native mac ios android" />
 
@@ -613,9 +615,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -623,9 +625,9 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 

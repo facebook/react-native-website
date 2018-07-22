@@ -353,6 +353,8 @@ Determines which keyboard to open, e.g.`numeric`.
 The following values work across platforms:
 
 * `default`
+* `number-pad`
+* `decimal-pad`
 * `numeric`
 * `email-address`
 * `phone-pad`
@@ -364,9 +366,7 @@ The following values work on iOS only:
 * `ascii-capable`
 * `numbers-and-punctuation`
 * `url`
-* `number-pad`
 * `name-phone-pad`
-* `decimal-pad`
 * `twitter`
 * `web-search`
 
@@ -697,8 +697,8 @@ Possible values for `textContentType` are:
 * `username`
 * `password`
 
-| Type                                                                                                                                                     | Required | Platform |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
 
 ---

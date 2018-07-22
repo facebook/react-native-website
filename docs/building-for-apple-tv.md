@@ -166,10 +166,6 @@ var running_on_android_tv = Platform.isTV;
 ```javascript
 var TVEventHandler = require('TVEventHandler');
 
-.
-.
-.
-
 class Game2048 extends React.Component {
   _tvEventHandler: any;
 
