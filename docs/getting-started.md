@@ -129,9 +129,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-- Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
+* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
 
-- If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
+* If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -304,16 +304,16 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <block class="native mac windows android" />
 
-- `Android SDK`
-- `Android SDK Platform`
-- `Performance (Intel ® HAXM)`
-- `Android Virtual Device`
+* `Android SDK`
+* `Android SDK Platform`
+* `Performance (Intel ® HAXM)`
+* `Android Virtual Device`
 
 <block class="native linux android" />
 
-- `Android SDK`
-- `Android SDK Platform`
-- `Android Virtual Device`
+* `Android SDK`
+* `Android SDK Platform`
+* `Android Virtual Device`
 
 <block class="native mac windows linux android" />
 
@@ -343,10 +343,10 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 6.0 (Marshmallow)` entry, then make sure the following items are all checked:
 
-- `Google APIs`
-- `Android SDK Platform 23`
-- `Intel x86 Atom_64 System Image`
-- `Google APIs Intel x86 Atom_64 System Image`
+* `Google APIs`
+* `Android SDK Platform 23`
+* `Intel x86 Atom_64 System Image`
+* `Google APIs Intel x86 Atom_64 System Image`
 
 <block class="native mac android" />
 
@@ -578,13 +578,13 @@ Now that you have successfully run the app, let's modify it.
 
 <block class="native mac ios" />
 
-- Open `App.js` in your text editor of choice and edit some lines.
-- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+* Open `App.js` in your text editor of choice and edit some lines.
+* Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
 
 <block class="native mac android" />
 
-- Open `App.js` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+* Open `App.js` in your text editor of choice and edit some lines.
+* Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
 
 <block class="native windows linux android" />
 
@@ -592,8 +592,8 @@ Now that you have successfully run the app, let's modify it.
 
 Now that you have successfully run the app, let's modify it.
 
-- Open `App.js` in your text editor of choice and edit some lines.
-- Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
+* Open `App.js` in your text editor of choice and edit some lines.
+* Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
 
 <block class="native mac ios android" />
 
@@ -615,9 +615,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -625,9 +625,9 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 ## Now what?
 
-- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
