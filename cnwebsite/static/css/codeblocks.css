@@ -1,4 +1,8 @@
 /** React Native Web Player **/
+.web-player {
+  margin-bottom: 1em;
+}
+
 .web-player > iframe {
   display: none;
 }

@@ -46,7 +46,7 @@ export default class UselessTextInput extends Component {
 
 This component can also be used to create sticky text inputs (text inputs which are anchored to the top of the keyboard). To do this, wrap a `TextInput` with the `InputAccessoryView` component, and don't set a `nativeID`. For an example, look at [InputAccessoryViewExample.js](https://github.com/facebook/react-native/blob/master/RNTester/js/InputAccessoryViewExample.js).
 
-### Props
+### 查看Props
 
 * [`backgroundColor`](inputaccessoryview.md#backgroundcolor)
 * [`nativeID`](inputaccessoryview.md#nativeid)
@@ -56,7 +56,7 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 # 文档
 
-## 属性
+## Props
 
 ### `backgroundColor`
 

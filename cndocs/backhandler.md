@@ -27,11 +27,43 @@ BackHandler.addEventListener("hardwareBackPress", function() {
 });
 ```
 
+在生命周期方法中使用的示例：
+
+```javascript
+  componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+  }
+
+  handleBackPress = () => {
+    this.goBack(); // works best when the goBack is async
+    return true;
+  }
+```
+
+在生命周期方法中使用的另一种写法：
+
+```javascript
+  componentDidMount() {
+    this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+      this.goBack(); // works best when the goBack is async
+      return true;
+    });
+  }
+
+  componentWillUnmount() {
+    this.backHandler.remove();
+  }
+```
+
 ### 查看方法
 
-* [`exitApp`](backhandler.md#exitapp)
-* [`addEventListener`](backhandler.md#addeventlistener)
-* [`removeEventListener`](backhandler.md#removeeventlistener)
+- [`exitApp`](backhandler.md#exitapp)
+- [`addEventListener`](backhandler.md#addeventlistener)
+- [`removeEventListener`](backhandler.md#removeeventlistener)
 
 ---
 

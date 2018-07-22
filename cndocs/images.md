@@ -134,7 +134,7 @@ var icon = this.props.active
   style={{
     width: 51,
     height: 51,
-    resizeMode: Image.resizeMode.contain
+    resizeMode: "contain"
   }}
   source={{
     uri:
@@ -147,10 +147,10 @@ var icon = this.props.active
 
 在某些情况下你可能仅仅想展示一张已经在本地缓存的图片，例如一个低分辨率的占位符，直到高分辨率的图片可用。又或者你无所谓图片是否过时，而且也不在乎显示过时的图片，节省带宽相对更重要。缓存资源属性提供给了你控制网络层与缓存交互的方式。
 
-* `default`: 使用原生平台默认策略。
-* `reload`: URL 的数据将从原始地址加载。不使用现有的缓存数据。
-* `force-cache`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则从原始地址加载。
-* `only-if-cached`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则不尝试从原始地址加载，并且认为请求是失败的。
+- `default`: 使用原生平台默认策略。
+- `reload`: URL 的数据将从原始地址加载。不使用现有的缓存数据。
+- `force-cache`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则从原始地址加载。
+- `only-if-cached`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则不尝试从原始地址加载，并且认为请求是失败的。
 
 ```javascript
 <Image
@@ -202,20 +202,22 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 ```javascript
 return (
-  <ImageBackground source={...}>
+  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>
   </ImageBackground>
 );
 ```
 
+注意你必须指定宽高样式。
+
 ## iOS 边框圆角的注意事项
 
 请注意下列边框圆角样式目前在 iOS 的图片组件上还不支持：
 
-* `borderTopLeftRadius`
-* `borderTopRightRadius`
-* `borderBottomLeftRadius`
-* `borderBottomRightRadius`
+- `borderTopLeftRadius`
+- `borderTopRightRadius`
+- `borderBottomLeftRadius`
+- `borderBottomRightRadius`
 
 ## 在主线程外解码图片
 

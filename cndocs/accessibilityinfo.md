@@ -18,7 +18,7 @@ class ScreenReaderStatusExample extends React.Component {
       "change",
       this._handleScreenReaderToggled
     );
-    AccessibilityInfo.fetch().done(isEnabled => {
+    AccessibilityInfo.fetch().then(isEnabled => {
       this.setState({
         screenReaderEnabled: isEnabled
       });
@@ -53,11 +53,11 @@ class ScreenReaderStatusExample extends React.Component {
 
 ### 查看方法
 
-* [`fetch`](accessibilityinfo.md#fetch)
-* [`addEventListener`](accessibilityinfo.md#addeventlistener)
-* [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
-* [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
-* [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
+- [`fetch`](accessibilityinfo.md#fetch)
+- [`addEventListener`](accessibilityinfo.md#addeventlistener)
+- [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
+- [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
+- [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
 
 ---
 
@@ -83,10 +83,10 @@ static addEventListener(eventName, handler)
 
 添加一个监听函数，支持的事件类型如下：
 
-* `change`: 读屏应用状态改变时触发。传递给监听函数的参数为布尔值，`true`表示开启状态，`false`反之。
-* `announcementFinished`: 仅 iOS 可用。在读屏软件完成一次朗读后触发。传递给监听函数的参数为一个字典，包含以下两个字段：
-  * `announcement`: 读屏软件所读的字符串。
-  * `success`: 此次朗读是否成功完成。
+- `change`: 读屏应用状态改变时触发。传递给监听函数的参数为布尔值，`true`表示开启状态，`false`反之。
+- `announcementFinished`: 仅 iOS 可用。在读屏软件完成一次朗读后触发。传递给监听函数的参数为一个字典，包含以下两个字段：
+  - `announcement`: 读屏软件所读的字符串。
+  - `success`: 此次朗读是否成功完成。
 
 ---
 
@@ -96,7 +96,7 @@ static addEventListener(eventName, handler)
 static setAccessibilityFocus(reactTag)
 ```
 
-仅 iOS 可用。将读屏软件的焦点设置到某个 react 组件上。
+将读屏软件的焦点设置到某个 react 组件上。在 Android 上等同于调用 `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`。
 
 ---
 

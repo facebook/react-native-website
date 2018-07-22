@@ -9,6 +9,10 @@ title: 原生模块
 
 本文是关于如何封装原生模块的高级向导，我们假设您已经具备 Objective-C 或者 Swift，以及 iOS 核心库（Foundation、UIKit）的相关知识。
 
+## Native Module Setup
+
+Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.md) guide first.
+
 ## iOS 日历模块演示
 
 本向导将会用[iOS 日历 API](https://developer.apple.com/library/mac/documentation/DataManagement/Conceptual/EventKitProgGuide/Introduction/Introduction.html)作为示例。我们的目标就是在 Javascript 中可以访问到 iOS 的日历功能。
@@ -80,12 +84,12 @@ The CalendarManager module is instantiated on the Objective-C side using a [Cale
 
 `RCT_EXPORT_METHOD` 支持所有标准 JSON 类型，包括：
 
-* string (`NSString`)
-* number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
-* boolean (`BOOL`, `NSNumber`)
-* array (`NSArray`) 可包含本列表中任意类型
-* object (`NSDictionary`) 可包含 string 类型的键和本列表中任意类型的值
-* function (`RCTResponseSenderBlock`)
+- string (`NSString`)
+- number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
+- boolean (`BOOL`, `NSNumber`)
+- array (`NSArray`) 可包含本列表中任意类型
+- object (`NSDictionary`) 可包含 string 类型的键和本列表中任意类型的值
+- function (`RCTResponseSenderBlock`)
 
 除此以外，任何`RCTConvert`类支持的的类型也都可以使用(参见[`RCTConvert`](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h)了解更多信息)。`RCTConvert`还提供了一系列辅助函数，用来接收一个 JSON 值并转换到原生 Objective-C 类型或类。
 

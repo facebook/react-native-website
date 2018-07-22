@@ -73,7 +73,8 @@ android {
 只需在终端中运行以下命令：
 
 ```sh
-$ cd android && ./gradlew assembleRelease
+$ cd android
+$ ./gradlew assembleRelease
 ```
 
 > 译注：`cd android`表示进入 android 目录（如果你已经在 android 目录中了那就不用输入了）。`./gradlew assembleRelease`在 macOS、Linux 或是 windows 的 PowerShell 环境中表示执行当前目录下的名为 gradlew 的脚本文件，且其运行参数为 assembleRelease，注意这个`./`不可省略；而在 windows 的传统 CMD 命令行下则需要去掉`./`。

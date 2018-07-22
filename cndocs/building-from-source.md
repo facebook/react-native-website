@@ -11,10 +11,10 @@ title: 从源代码编译React Native
 
 在 Android Studio 的 SDK Manager 中安装以下组件：
 
-* Android SDK version 23 (编译 SDK 版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
-* SDK build tools version 23.0.1(编译工具版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
-* Android Support Repository >= 17
-* Android NDK(下载及安装指南请看后文)
+- Android SDK version 26 (编译 SDK 版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
+- SDK build tools version 26.0.3(编译工具版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
+- Android Support Repository >= 26
+- Android NDK(下载及安装指南请看后文)
 
 #### 将 Gradle 指向你的安卓 SDK：
 
@@ -22,9 +22,9 @@ title: 从源代码编译React Native
 
 注意： 对于不同的 shell 命令行，配置文件有所不同，请根据具体情况选择，例如：
 
-* bash: `.bash_profile` 或 `.bashrc`
-* zsh: `.zprofile` 或 `.zshrc`
-* ksh: `.profile` 或 `$ENV`
+- bash: `.bash_profile` 或 `.bashrc`
+- zsh: `.zprofile` 或 `.zshrc`
+- ksh: `.profile` 或 `$ENV`
 
 在配置文件中加入：
 
@@ -95,7 +95,7 @@ project(':ReactAndroid').projectDir = new File(
 ...
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:appcompat-v7:26.0.2'
 
     compile project(':ReactAndroid')
 

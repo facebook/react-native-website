@@ -11,27 +11,38 @@ title: AsyncStorage
 
 本模块的 JS 代码提供了对原生实现的一个封装，以提供一个更清晰的 JS API、抛出真正的`Error`对象，以及简单的单项对象操作函数。每个方法都会返回一个`Promise`对象。
 
+导入`AsyncStorage`库：
+
+```
+import { AsyncStorage } from "react-native"
+```
+
+
 保存数据：
 
 ```
-try {
-  await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
-} catch (error) {
-  // Error saving data
+_storeData = async () => {
+  try {
+    await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+  } catch (error) {
+    // Error saving data
+  }
 }
 ```
 
 读取数据：
 
 ```
-try {
-  const value = await AsyncStorage.getItem('@MySuperStore:key');
-  if (value !== null){
-    // We have data!!
-    console.log(value);
-  }
-} catch (error) {
-  // Error retrieving data
+_retrieveData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('TASKS');
+    if (value !== null) {
+      // We have data!!
+      console.log(value);
+    }
+   } catch (error) {
+     // Error retrieving data
+   }
 }
 ```
 

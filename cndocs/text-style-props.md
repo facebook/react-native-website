@@ -22,6 +22,7 @@ title: Text样式属性
 * [`letterSpacing`](text-style-props.md#letterspacing)
 * [`textDecorationColor`](text-style-props.md#textdecorationcolor)
 * [`textDecorationStyle`](text-style-props.md#textdecorationstyle)
+* [`textTransform`](text-style-props.md#texttransform)
 * [`writingDirection`](text-style-props.md#writingdirection)
 
 ---
@@ -169,6 +170,14 @@ Set to `false` to remove extra font padding intended to make space for certain a
 | 类型                                        | 必填 | 平台 |
 | ------------------------------------------- | -------- | -------- |
 | enum('solid', 'double', 'dotted', 'dashed') | 否       | iOS      |
+
+---
+
+### `textTransform`
+
+| 类型                                                 | 必填 | 平台 |
+| ---------------------------------------------------- | -------- | -------- |
+| enum('none', 'uppercase', 'lowercase', 'capitalize') | No       | iOS      |
 
 ---
 

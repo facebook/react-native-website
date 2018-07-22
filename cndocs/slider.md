@@ -114,7 +114,7 @@ Used to style and layout the `Slider`. See `StyleSheet.js` and `ViewStylePropTyp
 
 ### `maximumTrackTintColor`
 
-滑块右侧轨道的颜色。在iOS上默认为一个蓝色的渐变色。
+滑块右侧轨道的颜色。在iOS上默认为一个灰色的渐变色。
 
 | 类型               | 必填 |
 | ------------------ | -------- |

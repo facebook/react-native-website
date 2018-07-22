@@ -347,6 +347,8 @@ If `true`, context menu is hidden. The default value is `false`.
 这些值在所有平台都可用：
 
 * `default`
+* `number-pad`
+* `decimal-pad`
 * `numeric`
 * `email-address`
 * `phone-pad`
@@ -356,9 +358,7 @@ If `true`, context menu is hidden. The default value is `false`.
 * `ascii-capable`
 * `numbers-and-punctuation`
 * `url`
-* `number-pad`
 * `name-phone-pad`
-* `decimal-pad`
 * `twitter`
 * `web-search`
 

@@ -34,7 +34,9 @@
       "integration-with-existing-apps",
       "building-for-apple-tv",
       "running-on-device",
-      "upgrading"
+      "upgrading",
+      "native-modules-setup",
+      "building-from-source"
     ],
     "使用指南(iOS)": [
       "native-modules-ios",
@@ -49,7 +51,7 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "building-from-source"
+      "removing-default-permissions"
     ],
     "组件": [
       "activityindicator",

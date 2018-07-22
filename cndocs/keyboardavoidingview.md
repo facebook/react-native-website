@@ -10,7 +10,7 @@ title: KeyboardAvoidingView
 ```
 import { KeyboardAvoidingView } from 'react-native';
 
-<KeyboardAvoidingView style={styles.container} behavior="padding">
+<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
   ... 在这里放置需要根据键盘调整位置的组件 ...
 </KeyboardAvoidingView>
 ```
@@ -26,6 +26,7 @@ import { KeyboardAvoidingView } from 'react-native';
 - [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
 - [`behavior`](keyboardavoidingview.md#behavior)
 - [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+- [`enabled`](keyboardavoidingview.md#enabled)
 
 ### 查看方法
 
@@ -45,7 +46,7 @@ import { KeyboardAvoidingView } from 'react-native';
 
 | 类型   | 必填 |
 | ------ | ---- |
-| number | 是   |
+| number | 否   |
 
 ---
 
@@ -66,6 +67,14 @@ _注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能�
 | 类型       | 必填 |
 | ---------- | ---- |
 | View.style | 否   |
+
+### `enabled`
+
+是否启用KeyboardAvoidingView。
+
+| 类型    | 必填 |
+| ------- | ---- |
+| boolean | 是   |
 
 ## 方法
 

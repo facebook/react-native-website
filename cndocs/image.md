@@ -68,25 +68,17 @@ export default class DisplayAnImageWithStyle extends Component {
 ```
 dependencies {
   // 如果你需要支持Android4.0(API level 14)之前的版本
-  compile 'com.facebook.fresco:animated-base-support:1.8.1'
+  compile 'com.facebook.fresco:animated-base-support:1.9.0'
 
   // 如果你需要支持GIF动图
-  compile 'com.facebook.fresco:animated-gif:1.8.1'
+  compile 'com.facebook.fresco:animated-gif:1.9.0'
 
   // 如果你需要支持WebP格式，包括WebP动图
-  compile 'com.facebook.fresco:animated-webp:1.8.1'
-  compile 'com.facebook.fresco:webpsupport:1.8.1'
+  compile 'com.facebook.fresco:animated-webp:1.9.0'
+  compile 'com.facebook.fresco:webpsupport:1.9.0'
 
   // 如果只需要支持WebP格式而不需要动图
-  compile 'com.facebook.fresco:webpsupport:1.8.1'
-}
-```
-
-如果你在使用 GIF 的同时还使用了 ProGuard，那么需要在`proguard-rules.pro`中添加如下规则 :
-
-```
--keep class com.facebook.imagepipeline.animated.factory.AnimatedFactoryImpl {
-  public AnimatedFactoryImpl(com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory, com.facebook.imagepipeline.core.ExecutorSupplier);
+  compile 'com.facebook.fresco:webpsupport:1.9.0'
 }
 ```
 
@@ -351,9 +343,11 @@ Similarly to `source`, this property represents the resource used to render the 
 
 在读取图片时默认显示的图片。仅限 iOS 使用。
 
-| 类型           | 必填 | 平台 |
-| -------------- | ---- | ---- |
-| object, number | 否   | iOS  |
+| 类型           | 必填     | 平台     |
+| -------------- | -------- | -------- |
+| object, number | 否       | iOS      |
+| -------------- | -------- | -------- |
+| number         | 否       | Android  |
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
@@ -362,6 +356,8 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 * `scale` - 图片的缩放系数。默认是 1.0，意味着每一个图片像素都对应一个设备独立像素（DIP）。
 
 * `number` - 静态图片引用语法`require('./image.jpg')`所返回的资源 id。
+
+**Android**: It works only on release builds, don't worry if it shows nothing on DEBUG builds
 
 ---
 

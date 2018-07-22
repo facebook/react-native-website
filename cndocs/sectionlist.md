@@ -349,7 +349,7 @@ scrollToLocation(params);
 
 将可视区内位于特定`sectionIndex` 或 `itemIndex` (section内)位置的列表项，滚动到可视区的制定位置。比如说，`viewPosition` 为0时将这个列表项滚动到可视区顶部 (可能会被顶部粘接的header覆盖), 为1时将它滚动到可视区底部, 为0.5时将它滚动到可视区中央。
 
-> 注意: 如果没有设置`getItemLayout`，就不能滚动到位于外部渲染区的位置。
+> 注意: 如果没有设置`getItemLayout`或是`onScrollToIndexFailed`，就不能滚动到位于外部渲染区的位置。
 
 **参数：**
 

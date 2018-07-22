@@ -51,6 +51,8 @@ var styles = {
 - [`pageMargin`](viewpagerandroid.md#pagemargin)
 - [`peekEnabled`](viewpagerandroid.md#peekenabled)
 - [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
+- [`setPage`](viewpagerandroid.md#setpage)
+- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
 
 ### 查看类型定义
 
@@ -155,6 +157,29 @@ var styles = {
 | 类型 | 必填 |
 | ---- | ---- |
 | bool | 否   |
+
+
+### `setPage`
+
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will be animated.
+
+* position - index of page that will be selected
+
+| Type   | Required |
+| ------ | -------- |
+| Number | Yes      |
+
+---
+
+### `setPageWithoutAnimation`
+
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will _not_ be animated.
+
+* position - index of page that will be selected
+
+| Type   | Required |
+| ------ | -------- |
+| Number | Yes      |
 
 ## 类型定义
 

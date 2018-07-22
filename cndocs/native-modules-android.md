@@ -7,6 +7,10 @@ title: 原生模块
 
 我们把 React Native 设计为可以在其基础上编写真正的原生代码，并且可以访问平台所有的能力。这是一个相对高级的特性，我们并不认为它应当在日常开发的过程中经常出现，但具备这样的能力是很重要的。如果 React Native 还不支持某个你需要的原生特性，你应当可以自己实现该特性的封装。
 
+## Native Module Setup
+
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.md) guide first.
+
 ### 开启 Gradle Daemon
 
 我们建议开启[Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html)来加速 Java 代码编译。
@@ -22,7 +26,7 @@ title: 原生模块
 ```java
 // ToastModule.java
 
-package com.facebook.react.modules.toast;
+package com.your-app-name;
 
 import android.widget.Toast;
 
@@ -102,7 +106,7 @@ ReadableArray -> Array
 ```java
 // CustomToastPackage.java
 
-package com.facebook.react.modules.toast;
+package com.your-app-name;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;

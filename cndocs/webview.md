@@ -37,8 +37,8 @@ class MyWeb extends Component {
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`decelerationRate`](webview.md#decelerationrate)
 - [`domStorageEnabled`](webview.md#domstorageenabled)
+- [`geolocationEnabled`](webview.md#geolocationenabled)
 - [`html`](webview.md#html)
-- [`initialScale`](webview.md#initialScale)
 - [`injectedJavaScript`](webview.md#injectedjavascript)
 - [`injectJavaScript`](webview.md#injectjavascript)
 - [`javaScriptEnabled`](webview.md#javascriptenabled)
@@ -52,6 +52,7 @@ class MyWeb extends Component {
 - [`onMessage`](webview.md#onmessage)
 - [`onNavigationStateChange`](webview.md#onnavigationstatechange)
 - [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
+- [`originWhitelist`](webview.md#originwhitelist)
 - [`renderError`](webview.md#rendererror)
 - [`renderLoading`](webview.md#renderloading)
 - [`scalesPageToFit`](webview.md#scalespagetofit)
@@ -66,6 +67,10 @@ class MyWeb extends Component {
 ### 查看方法
 
 * [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
+* [`goForward`](webview.md#goforward)
+* [`goBack`](webview.md#goback)
+* [`reload`](webview.md#reload)
+* [`stopLoading`](webview.md#stoploading)
 
 ---
 
@@ -79,7 +84,17 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
-| bool | No   | Android |
+| bool | 否   | Android |
+
+---
+
+### `geolocationEnabled`
+
+Set whether Geolocation is enabled in the `WebView`. The default value is `false`. Used only in Android.
+
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -235,16 +250,6 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 
 ---
 
-### `initialScale`
-
-数值，控制初始视图比例。50 代表 50%，100 代表 100%。仅在安卓下使用。
-
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| number | 否   | Android |
-
----
-
 ### `onShouldStartLoadWithRequest`
 
 允许为 webview 发起的请求运行一个自定义的处理函数。返回 true 或 false 表示是否要继续执行响应的请求。
@@ -252,6 +257,16 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
 | function | 否   | iOS  |
+
+---
+
+### `originWhitelist`
+
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://*" and "https://*".
+
+| 类型             | 必填 |
+| ---------------- | ---- |
+| array of strings | 否   |
 
 ---
 
@@ -430,5 +445,37 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 ```javascript
 static extraNativeComponentConfig()
 ```
+
+### `goForward()`
+
+```javascript
+goForward();
+```
+
+Go forward one page in the web view's history.
+
+### `goBack()`
+
+```javascript
+goBack();
+```
+
+Go back one page in the web view's history.
+
+### `reload()`
+
+```javascript
+reload();
+```
+
+Reloads the current page.
+
+### `stopLoading()`
+
+```javascript
+stopLoading();
+```
+
+Stop loading the current page.
 
 [1]: https://github.com/facebook/react-native/commit/da9a712a9e17942dcd05b8d955f0764c2026a4ad

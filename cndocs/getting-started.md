@@ -175,7 +175,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 暂不支持
 
-<blockquote><p>苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑使用<a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">沙盒环境</a>，或者先开发Android应用了。</blockquote>
+<blockquote><p>苹果公司目前只允许在Mac电脑上开发iOS应用。如果你没有Mac电脑，那么只能考虑使用<a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">沙盒环境</a>，或者先开发Android应用了。</blockquote>
 
 <block class="native mac ios" />
 
@@ -218,7 +218,7 @@ brew install node
 brew install watchman
 ```
 
-如果你已经安装了 Node，请检查其版本是否在 v8.0 以上。安装完 Node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
+如果你已经安装了 Node，请检查其版本是否在 v8.3 以上。安装完 Node 后建议设置 npm 镜像以加速后面的过程（或使用科学上网工具）。注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
 
 ```
 npm config set registry https://registry.npm.taobao.org --global
@@ -231,7 +231,7 @@ npm config set disturl https://npm.taobao.org/dist --global
 
 ### Node
 
-参照 Node 官方的[Linux 安装指南](https://nodejs.org/en/download/package-manager/)来安装 Node 6.0 以上的版本。
+参照 Node 官方的[Linux 安装指南](https://nodejs.org/en/download/package-manager/)来安装 Node 8.3 以上的版本。
 
 <block class='native windows android' />
 
@@ -239,7 +239,7 @@ npm config set disturl https://npm.taobao.org/dist --global
 
 我们建议直接使用搜索引擎搜索下载 Node 、Python2 和[Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-注意 Node 的版本必须高于 6.0，Python 的版本必须为 2.x（不支持 3.x），而 JDK 的版本必须是 1.8（不支持 1.9）。
+注意 Node 的版本必须高于 8.3，Python 的版本必须为 2.x（不支持 3.x），而 JDK 的版本必须是 1.8（不支持 1.9）。
 
 <block class="native mac ios android" />
 
@@ -446,7 +446,7 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk
 
 <block class="native linux android" />
 
-### Watchman (可选)
+### Watchman
 
 参照[Watchman 的安装说明](https://facebook.github.io/watchman/docs/install.html#buildinstall)来从源码来编译和安装 Watchman。
 

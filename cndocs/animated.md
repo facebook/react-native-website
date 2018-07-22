@@ -23,8 +23,8 @@ Animated.timing(
 
 `Animated`提供了两种类型的值：
 
-* [`Animated.Value()`](animated.md#value)用于单个值
-* [`Animated.ValueXY()`](animated.md#valuexy)用于矢量值
+- [`Animated.Value()`](animated.md#value)用于单个值
+- [`Animated.ValueXY()`](animated.md#valuexy)用于矢量值
 
 `Animated.Value`可以绑定到样式或是其他属性上，也可以进行插值运算。单个`Animated.Value`可以用在任意多个属性上。
 
@@ -32,9 +32,9 @@ Animated.timing(
 
 `Animated`提供了三种动画类型。每种动画类型都提供了特定的函数曲线，用于控制动画值从初始值变化到最终值的变化过程：
 
-* [`Animated.decay()`](animated.md#decay)以指定的初始速度开始变化，然后变化速度越来越慢直至停下。
-* [`Animated.spring()`](animated.md#spring)提供了一个简单的弹簧物理模型.
-* [`Animated.timing()`](animated.md#timing)使用[easing 函数](easing.md)让数值随时间动起来。
+- [`Animated.decay()`](animated.md#decay)以指定的初始速度开始变化，然后变化速度越来越慢直至停下。
+- [`Animated.spring()`](animated.md#spring)提供了一个简单的弹簧物理模型.
+- [`Animated.timing()`](animated.md#timing)使用[easing 函数](easing.md)让数值随时间动起来。
 
 大多数情况下你应该使用`timing()`。默认情况下，它使用对称的 easeInOut 曲线，将对象逐渐加速到全速，然后通过逐渐减速停止结束。
 
@@ -52,23 +52,23 @@ Animated.timing(
 
 组件必须经过特殊处理才能用于动画。所谓的特殊处理主要是指把动画值绑定到属性上，并且在一帧帧执行动画时避免 react 重新渲染和重新调和的开销。此外还得在组件卸载时做一些清理工作，使得这些组件在使用时是安全的。
 
-* [`createAnimatedComponent()`](animated.md#createanimatedcomponent)方法正是用来处理组件，使其可以用于动画。
+- [`createAnimatedComponent()`](animated.md#createanimatedcomponent)方法正是用来处理组件，使其可以用于动画。
 
 `Animated`中默认导出了以下这些可以直接使用的动画组件，当然它们都是通过使用上面这个方法进行了封装：
 
-* `Animated.Image`
-* `Animated.ScrollView`
-* `Animated.Text`
-* `Animated.View`
+- `Animated.Image`
+- `Animated.ScrollView`
+- `Animated.Text`
+- `Animated.View`
 
 ### 组合动画
 
 动画还可以使用组合函数以复杂的方式进行组合：
 
-* [`Animated.delay()`](animated.md#delay)在给定延迟后开始动画。
-* [`Animated.parallel()`](animated.md#parallel)同时启动多个动画。
-* [`Animated.sequence()`](animated.md#sequence)按顺序启动动画，等待每一个动画完成后再开始下一个动画。
-* [`Animated.stagger()`](animated.md#stagger)按照给定的延时间隔，顺序并行的启动动画。
+- [`Animated.delay()`](animated.md#delay)在给定延迟后开始动画。
+- [`Animated.parallel()`](animated.md#parallel)同时启动多个动画。
+- [`Animated.sequence()`](animated.md#sequence)按顺序启动动画，等待每一个动画完成后再开始下一个动画。
+- [`Animated.stagger()`](animated.md#stagger)按照给定的延时间隔，顺序并行的启动动画。
 
 动画也可以通过将`toValue`设置为另一个动画的`Animated.Value`来简单的链接在一起。请参阅动画指南中的[跟踪动态值](animations.md＃跟踪动态值)值。
 
@@ -78,17 +78,17 @@ Animated.timing(
 
 你可以使用加减乘除以及取余等运算来把两个动画值合成为一个新的动画值：
 
-* [`Animated.add()`](animated.md#add)
-* [`Animated.subtract()`](animated.md#subtract)
-* [`Animated.divide()`](animated.md#divide)
-* [`Animated.modulo()`](animated.md#modulo)
-* [`Animated.multiply()`](animated.md#multiply)
+- [`Animated.add()`](animated.md#add)
+- [`Animated.subtract()`](animated.md#subtract)
+- [`Animated.divide()`](animated.md#divide)
+- [`Animated.modulo()`](animated.md#modulo)
+- [`Animated.multiply()`](animated.md#multiply)
 
 ### 插值
 
 `interpolate()`函数允许输入范围映射到不同的输出范围。默认情况下，它将推断超出给定范围的曲线，但也可以限制输出值。它默认使用线性插值，但也支持缓动功能。
 
-* [`interpolate()`](animated.md#插值)
+- [`interpolate()`](animated.md#插值)
 
 你可以在[动画](animations.md#插值)文档中了解到更多。
 
@@ -96,7 +96,7 @@ Animated.timing(
 
 手势，如平移或滚动，以及其他事件可以使用`Animated.event()`直接映射到动画值。这是通过结构化映射语法完成的，以便可以从复杂的事件对象中提取值。第一层参数是一个数组，你可以在其中指定多个参数映射，这种映射可以是嵌套的对象。
 
-* [`Animated.event()`](animated.md#event)
+- [`Animated.event()`](animated.md#event)
 
 例如，在使用水平滚动手势时，为了将`event.nativeEvent.contentOffset.x`映射到`scrollX`（`Animated.Value`），您需要执行以下操作：
 
@@ -114,32 +114,32 @@ Animated.timing(
 
 ### 查看方法
 
-* [`decay`](animated.md#decay)
-* [`timing`](animated.md#timing)
-* [`spring`](animated.md#spring)
-* [`add`](animated.md#add)
-* [`subtract`](animated.md#subtract)
-* [`divide`](animated.md#divide)
-* [`multiply`](animated.md#multiply)
-* [`modulo`](animated.md#modulo)
-* [`diffClamp`](animated.md#diffclamp)
-* [`delay`](animated.md#delay)
-* [`sequence`](animated.md#sequence)
-* [`parallel`](animated.md#parallel)
-* [`stagger`](animated.md#stagger)
-* [`loop`](animated.md#loop)
-* [`event`](animated.md#event)
-* [`forkEvent`](animated.md#forkevent)
-* [`unforkEvent`](animated.md#unforkevent)
+- [`decay`](animated.md#decay)
+- [`timing`](animated.md#timing)
+- [`spring`](animated.md#spring)
+- [`add`](animated.md#add)
+- [`subtract`](animated.md#subtract)
+- [`divide`](animated.md#divide)
+- [`multiply`](animated.md#multiply)
+- [`modulo`](animated.md#modulo)
+- [`diffClamp`](animated.md#diffclamp)
+- [`delay`](animated.md#delay)
+- [`sequence`](animated.md#sequence)
+- [`parallel`](animated.md#parallel)
+- [`stagger`](animated.md#stagger)
+- [`loop`](animated.md#loop)
+- [`event`](animated.md#event)
+- [`forkEvent`](animated.md#forkevent)
+- [`unforkEvent`](animated.md#unforkevent)
 
 ### 属性
 
-* [`Value`](animated.md#value)
-* [`ValueXY`](animated.md#valuexy)
-* [`Interpolation`](animated.md#interpolation)
-* [`Node`](animated.md#node)
-* [`createAnimatedComponent`](animated.md#createanimatedcomponent)
-* [`attachNativeEvent`](animated.md#attachnativeevent)
+- [`Value`](animated.md#value)
+- [`ValueXY`](animated.md#valuexy)
+- [`Interpolation`](animated.md#interpolation)
+- [`Node`](animated.md#node)
+- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
+- [`attachNativeEvent`](animated.md#attachnativeevent)
 
 ---
 
@@ -159,10 +159,10 @@ static decay(value, config)
 
 Config 参数有以下这些属性：
 
-* `velocity`: 初始速度。必填。
-* `deceleration`: 衰减系数。默认值 0.997。
-* `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-* `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
+- `velocity`: 初始速度。必填。
+- `deceleration`: 衰减系数。默认值 0.997。
+- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
 
@@ -176,11 +176,11 @@ static timing(value, config)
 
 Config 参数有以下这些属性：
 
-* `duration`: 动画的持续时间（毫秒）。默认值为 500.
-* `easing`: 缓动函数。 默认为`Easing.inOut(Easing.ease)`。
-* `delay`: 开始动画前的延迟时间（毫秒）。默认为 0.
-* `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-* `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
+- `duration`: 动画的持续时间（毫秒）。默认值为 500.
+- `easing`: 缓动函数。 默认为`Easing.inOut(Easing.ease)`。
+- `delay`: 开始动画前的延迟时间（毫秒）。默认为 0.
+- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
 
@@ -198,26 +198,26 @@ Config 参数有以下这些属性：
 
 The friction/tension or bounciness/speed options match the spring model in [Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
 
-* `friction`: Controls "bounciness"/overshoot. Default 7.
-* `tension`: Controls speed. Default 40.
-* `speed`: Controls speed of the animation. Default 12.
-* `bounciness`: Controls bounciness. Default 8.
+- `friction`: Controls "bounciness"/overshoot. Default 7.
+- `tension`: Controls speed. Default 40.
+- `speed`: Controls speed of the animation. Default 12.
+- `bounciness`: Controls bounciness. Default 8.
 
 Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation primitive.
 
-* `stiffness`: The spring stiffness coefficient. Default 100.
-* `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
-* `mass`: The mass of the object attached to the end of the spring. Default 1.
+- `stiffness`: The spring stiffness coefficient. Default 100.
+- `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
+- `mass`: The mass of the object attached to the end of the spring. Default 1.
 
 Other configuration options are as follows:
 
-* `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
-* `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
-* `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
-* `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
-* `delay`: Start the animation after delay (milliseconds). Default 0.
-* `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
-* `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
+- `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
+- `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
+- `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
+- `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
+- `delay`: Start the animation after delay (milliseconds). Default 0.
+- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
 
@@ -356,8 +356,8 @@ static event(argMapping, config?)
 
 Config is an object that may have the following options:
 
-* `listener`: Optional async listener.
-* `useNativeDriver`: Uses the native driver when true. Default false.
+- `listener`: Optional async listener.
+- `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
@@ -367,7 +367,7 @@ Config is an object that may have the following options:
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a simple javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
 
 ---
 

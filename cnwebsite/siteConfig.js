@@ -71,6 +71,7 @@ const siteConfig = {
   },
   gaTrackingId: "UA-63485149-4",
   scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"],
+  cleanUrl: true,
   customDocsPath: "cndocs"
 };
 
