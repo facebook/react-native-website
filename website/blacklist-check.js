@@ -57,6 +57,9 @@ glob("versioned_docs/**/*.md")
       console.log(file);
     });
     if (foundBlacklistedFiles) {
+      console.log(
+        "You will need to update the markdown front matter to account for the new document version (e.g. make sure the id is prefixed with `version-0.5-` instead)."
+      );
       process.exit(1);
     }
   });
