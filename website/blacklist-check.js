@@ -6,9 +6,19 @@
  */
 
 /**
- * Docusaurus provides us with an easy way to keep snapshots of the docs for each version of React Native. As a result, people can go back and see what a View component looked like in any past React Native release.
+ * Docusaurus provides us with an easy way to keep snapshots of the docs for
+ * each version of React Native. As a result, people can go back and see what a
+ * View component looked like in any past React Native release.
  *
- * This is less relevant for "evergreen" content such as the Getting Started guide, the Tutorial, and basically the rest of the Guides. These docs should be getting updated across all versions at the same time. This script makes sure we are not tracking separate versions of a unversioned doc.
+ * This is less relevant for "evergreen" content such as the Getting Started
+ * guide, the Tutorial, and basically the rest of the Guides. These docs should
+ * be getting updated across all versions at the same time. This script makes
+ * sure we are not tracking separate versions of a unversioned doc.
+ *
+ * We achieve this by ensuring any changes made to these files in `docs/` are
+ * then persisted to the `versioned_docs/version-0.5` folder, as Version 0.5
+ * is the oldest document version. This makes it so that the same text is
+ * displayed to the reader, regardless of what version they are looking at.
  */
 const glob = require("glob-promise");
 const fm = require("front-matter");
@@ -49,7 +59,7 @@ glob("versioned_docs/**/*.md")
     });
     if (foundBlacklistedFiles) {
       console.log(
-        "This can be rectified by moving the following files to `versioned_docs/version-0.5`:"
+        "This can be rectified by moving the following files to `versioned_docs/version-0.5` and updating their id to use the `version-0.5` prefix:"
       );
     }
     blacklistedAssetsFound.forEach(asset => {
@@ -57,9 +67,6 @@ glob("versioned_docs/**/*.md")
       console.log(file);
     });
     if (foundBlacklistedFiles) {
-      console.log(
-        "You will need to update the markdown front matter to account for the new document version (e.g. make sure the id is prefixed with `version-0.5-` instead)."
-      );
       process.exit(1);
     }
   });
