@@ -47,6 +47,31 @@ To use, set the `accessibilityLabel` property to a custom string on your View:
 
 In the above example, the `accessibilityLabel` on the TouchableOpacity element would default to "Press me!". The label is constructed by concatenating all Text node children separated by spaces.
 
+#### accessibilityRole (iOS, Android)
+
+Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. 
+To use, set the `accessibilityRole` property to one of the following strings:
+
+* **none** Used when the element has no role.
+* **button** Used when the element should be treated as a button.
+* **link** Used when the element should be treated as a link.
+* **search** Used when the text field element should also be treated as a search field.
+* **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
+* **keyboardkey** Used when the element acts as a keyboard key.
+* **text** Used when the element should be treated as static text that cannot change.
+* **adjustable** Used when an element can be "adjusted" (e.g. a slider).
+* **imagebutton** Used when the element should be treated as a button and is also an image.
+* **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+* **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+
+#### accessibilityState (iOS, Android)
+Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
+
+* **selected** Used when the element is in a selected state. For example, a button is selected.
+* **disabled** Used when the element is disabled and cannot be interacted with.
+
+To use, set the `accessibilityState` to an array containing either `selected`, `disabled`, or both.
+
 #### accessibilityTraits (iOS)
 
 Accessibility traits tell a person using VoiceOver what kind of element they have selected. Is this element a label? A button? A header? These questions are answered by `accessibilityTraits`.
