@@ -31,16 +31,16 @@ const siteConfig = {
   repoUrl,
   users: [],
   editUrl:
-    "https://github.com/reactnativecn/react-native-website/blob/production/cndocs/",
+    "//github.com/reactnativecn/react-native-website/blob/production/cndocs/",
   headerLinks: [
     { doc: "getting-started", label: "文档" },
-    { href: "https://ke.qq.com/course/197101", label: "课程", external: true },
+    { href: "//ke.qq.com/course/197101", label: "课程", external: true },
     // { blog: true, label: "博客" },
-    { href: "http://bbs.reactnative.cn", external: true, label: "讨论" },
-    { href: "http://update.reactnative.cn", label: "热更新", external: true },
+    { href: "//bbs.reactnative.cn", external: true, label: "讨论" },
+    { href: "//update.reactnative.cn", label: "热更新", external: true },
     { search: true },
     { href: repoUrl, label: "GitHub" },
-    { href: "https://doc.react-china.org/", external: true, label: "React" }
+    { href: "//doc.react-china.org/", external: true, label: "React" }
   ],
   headerIcon: "img/header_logo.png",
   footerIcon: "img/header_logo.png",

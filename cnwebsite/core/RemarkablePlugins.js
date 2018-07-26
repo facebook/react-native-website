@@ -157,8 +157,6 @@ function ReactNativeWebPlayer(md) {
     env,
     self
   ) {
-    const WEB_PLAYER_VERSION = "1.10.0";
-
     let sampleCode = tokens[idx].content;
     let hash = `#code=${encodeURIComponent(sampleCode)}`;
 
@@ -173,7 +171,7 @@ function ReactNativeWebPlayer(md) {
       htmlForCodeBlock(sampleCode) +
       `<iframe style="margin-top: 4" width="100%" height="${
         parseParams(paramsString).platform === "android" ? "425" : "420"
-      }" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html${hash}" frame-border="0"></iframe>` +
+      }" data-src="//dabbott.github.io/react-native-web-player/index.html${hash}" frame-border="0"></iframe>` +
       `</div>` +
       "\n\n"
     );
