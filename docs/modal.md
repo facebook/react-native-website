@@ -187,3 +187,9 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 | Type                                                           | Required | Platform |
 | -------------------------------------------------------------- | -------- | -------- |
 | enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | No       | iOS      |
+
+---
+
+### `animated`
+
+Deprecated. Use the `animationType` prop instead.
