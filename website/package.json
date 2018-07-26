@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "bluebird": "^3.5.1",
+    "front-matter": "^2.3.0",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "glob-promise": "^3.3.0",
