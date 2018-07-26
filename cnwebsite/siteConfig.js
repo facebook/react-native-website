@@ -56,21 +56,24 @@ const siteConfig = {
     indexName: "reactnative_cn",
     algoliaOptions: {
       // TODO
-      // facetFilters: ["version:VERSION"],
+      facetFilters: ["version:VERSION"],
       hitsPerPage: 5
     }
   },
   // facebookAppId: "1677033832619985",
   // twitter: "reactnative",
   markdownPlugins: [
-    RemarkablePlugins.SnackPlayer,
+    // RemarkablePlugins.SnackPlayer,
     RemarkablePlugins.ReactNativeWebPlayer
   ],
   highlight: {
     theme: "solarized-dark"
   },
   gaTrackingId: "UA-63485149-4",
-  scripts: ["https://snack.expo.io/embed.js", baseUrl + "js/codeblocks.js"],
+  scripts: [
+    // "https://snack.expo.io/embed.js",
+    baseUrl + "js/codeblocks.js"
+  ],
   cleanUrl: true,
   customDocsPath: "cndocs"
 };

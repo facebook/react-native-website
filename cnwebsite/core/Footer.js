@@ -7,7 +7,7 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-const React = require('react');
+const React = require("react");
 
 class Footer extends React.Component {
   render() {
@@ -124,9 +124,25 @@ class Footer extends React.Component {
             浙公网安备 33010602005511号
           </p>
         </section>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+        (function(){
+          const c = document.createElement("div");
+          c.setAttribute("id", "lv-container");
+          c.setAttribute("data-id", "city");
+          c.setAttribute("data-uid", "MTAyMC8zODM4NS8xNDkxMw==");
+          document.querySelector(".mainContainer").appendChild(c);
+        })()
+        `
+          }}
+        />
+        <script src="https://cdn-city.livere.com/js/embed.dist.js" />
       </footer>
     );
   }
+  componentDidMount() {}
+  loadCommentBox() {}
 }
 
 module.exports = Footer;
