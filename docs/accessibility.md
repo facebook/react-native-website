@@ -49,6 +49,8 @@ In the above example, the `accessibilityLabel` on the TouchableOpacity element w
 
 #### accessibilityRole (iOS, Android)
 
+*Note: Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
+
 Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. 
 To use, set the `accessibilityRole` property to one of the following strings:
 
@@ -65,6 +67,9 @@ To use, set the `accessibilityRole` property to one of the following strings:
 * **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 
 #### accessibilityState (iOS, Android)
+
+*Note: `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
+
 Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
 
 * **selected** Used when the element is in a selected state. For example, a button is selected.
@@ -73,6 +78,8 @@ Accessibility State tells a person using either VoiceOver on iOS or TalkBack on 
 To use, set the `accessibilityState` to an array containing either `selected`, `disabled`, or both.
 
 #### accessibilityTraits (iOS)
+
+*Note:`accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
 
 Accessibility traits tell a person using VoiceOver what kind of element they have selected. Is this element a label? A button? A header? These questions are answered by `accessibilityTraits`.
 
@@ -117,6 +124,8 @@ Use this property to assign a custom function to be called when someone activate
 Assign this property to a custom function which will be called when someone performs the "magic tap" gesture, which is a double-tap with two fingers. A magic tap function should perform the most relevant action a user could take on a component. In the Phone app on iPhone, a magic tap answers a phone call, or ends the current one. If the selected element does not have an `onMagicTap` function, the system will traverse up the view hierarchy until it finds a view that does.
 
 #### accessibilityComponentType (Android)
+
+*Note: `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
 
 In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
 
