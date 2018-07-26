@@ -15,18 +15,18 @@ This command prompts you for passwords for the keystore and key, and to provide 
 
 The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
 
-On Mac, if you're not sure where your jdk bin folder is, then perform the following command to find it: 
+On Mac, if you're not sure where your jdk bin folder is, then perform the following command to find it:
 
     $ /usr/libexec/java_home
 
-It will output the directory of the jdk, which will look something like this: 
+It will output the directory of the jdk, which will look something like this:
 
     /Library/Java/JavaVirtualMachines/jdkX.X.X_XXX.jdk/Contents/Home
 
-Navigate to that directory by using the command `$ cd /your/jdk/path` and use the keytool command with sudo permission as shown below. 
+Navigate to that directory by using the command `$ cd /your/jdk/path` and use the keytool command with sudo permission as shown below.
 
     $ sudo keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000
-    
+
 _Note: Remember to keep your keystore file private and never commit it to version control._
 
 ### Setting up gradle variables
