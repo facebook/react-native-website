@@ -130,6 +130,7 @@ public class ReactImageManagerPackage implements ReactPackage {
   public List<ViewManager> createViewManagers(
                             ReactApplicationContext reactContext) {
     return Arrays.<ViewManager>asList(
+      new MainReactPackage(),
       new ReactImageManager() // <- new UI Component here
     );
   }
