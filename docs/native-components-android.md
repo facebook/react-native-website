@@ -45,7 +45,7 @@ import com.facebook.react.views.image.ReactImageView;
 
 public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
-  public static final String REACT_CLASS = 'CustomRCTImageView';
+  public static final String REACT_CLASS = "CustomRCTImageView";
     private Object mCallerContext;
 
   public ReactImageManagerModule() {
