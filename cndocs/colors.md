@@ -6,8 +6,9 @@ title: 颜色
 Components in React Native are [styled using JavaScript](style.md). Color properties usually match how [CSS works on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value).
 
 ### Red-green-blue
+### 红-绿-蓝
 
-React Native supports `rgb()` and `rgba()` in both hexadecimal and functional notation:
+React Native 支持 `rgb()` 和 `rgba()` 两种十六进制与函数方法
 
 * `'#f0f'` (#rgb)
 * `'#ff00ff'` (#rrggbb)
@@ -18,22 +19,22 @@ React Native supports `rgb()` and `rgba()` in both hexadecimal and functional no
 * `'#f0ff'` (#rgba)
 * `'#ff00ff00'` (#rrggbbaa)
 
-### Hue-saturation-lightness
+### 色调-饱和度-亮度
 
-`hsl()` and `hsla()` is supported in functional notation:
+也支持 `hsl()` 和 `hsla()` 函数方法：
 
 * `'hsl(360, 100%, 100%)'`
 * `'hsla(360, 100%, 100%, 1.0)'`
 
-### `transparent`
+### `透明度`
 
-This is a shortcut for `rgba(0,0,0,0)`:
+`rgba(0,0,0,0)` 的快捷方式是：
 
 * `'transparent'`
 
-### Named colors
+### 称谓颜色
 
-You can also use color names as values. React Native 遵循[CSS3 规范](http://www.w3.org/TR/css3-color/#svg-color)：
+你还可以使用颜色名称来作为颜色值. React Native 遵循[CSS3 规范](http://www.w3.org/TR/css3-color/#svg-color)：
 
 * <color aliceblue /> aliceblue (#f0f8ff)
 * <color antiquewhite /> antiquewhite (#faebd7)
