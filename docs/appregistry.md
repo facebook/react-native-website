@@ -36,7 +36,9 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 * [`runApplication`](appregistry.md#runapplication)
 * [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
 * [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
+* [`registerCancellableHeadlessTask`](appregistry.md#registercancellableheadlesstask)
 * [`startHeadlessTask`](appregistry.md#startheadlesstask)
+* [`cancelHeadlessTask`](appregistry.md#cancelheadlesstask)
 
 ---
 
@@ -151,11 +153,20 @@ static unmountApplicationComponentAtRootTag(rootTag)
 ### `registerHeadlessTask()`
 
 ```javascript
-static registerHeadlessTask(taskKey, task)
+static registerHeadlessTask(taskKey, taskProvider)
 ```
 
-Register a headless task. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param task a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context.
+Register a headless task. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context.
 
+---
+
+### `registerCancellableHeadlessTask()`
+
+```javascript
+static registerCancellableHeadlessTask(taskKey, taskProvider, taskCancelProvider)
+```
+
+Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. @param taskCancelProvider a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.
 ---
 
 ### `startHeadlessTask()`
@@ -167,3 +178,15 @@ static startHeadlessTask(taskId, taskKey, data)
 Only called from native code. Starts a headless task.
 
 @param taskId the native id for this task instance to keep track of its execution @param taskKey the key for the task to start @param data the data to pass to the task
+
+---
+
+### `cancelHeadlessTask()`
+
+```javascript
+static cancelHeadlessTask(taskId, taskKey)
+```
+
+Only called from native code. Cancels a headless task.
+
+@param taskId the native id for this task instance that was used when startHeadlessTask was called @param taskKey the key for the task that was used when startHeadlessTask was called
