@@ -49,7 +49,8 @@ In the above example, the `accessibilityLabel` on the TouchableOpacity element w
 
 #### accessibilityRole (iOS, Android)
 
-*Note: Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
+> **Note:** 
+> Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
 
 Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. 
 To use, set the `accessibilityRole` property to one of the following strings:
@@ -68,7 +69,8 @@ To use, set the `accessibilityRole` property to one of the following strings:
 
 #### accessibilityState (iOS, Android)
 
-*Note: `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
+> **Note:**
+> `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
 
 Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
 
@@ -79,7 +81,8 @@ To use, set the `accessibilityState` to an array containing either `selected`, `
 
 #### accessibilityTraits (iOS)
 
-*Note:`accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.*
+> **Note:** 
+> `accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
 
 Accessibility traits tell a person using VoiceOver what kind of element they have selected. Is this element a label? A button? A header? These questions are answered by `accessibilityTraits`.
 
