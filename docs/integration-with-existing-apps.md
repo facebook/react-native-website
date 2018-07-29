@@ -55,14 +55,14 @@ title: Integration with Existing Apps
   }
   .display-language-objc .toggler .button-objc,
   .display-language-swift .toggler .button-swift,
-  .display-language-android .toggler .button-android {
+  .display-language-java .toggler .button-java {
     background-color: #05A5D1;
     color: white;
   }
   block { display: none; }
   .display-language-objc .objc,
   .display-language-swift .swift,
-  .display-language-android .android {
+  .display-language-java .java {
     display: block;
   }
 </style>
@@ -79,13 +79,13 @@ The specific steps are different depending on what platform you're targeting.
     <li id="swift" class="button-swift" aria-selected="false" role="tab" tabindex="0" aria-controls="swifttab" onclick="displayTab('language', 'swift')">
       iOS (Swift)
     </li>
-    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('language', 'android')">
+    <li id="java" class="button-java" aria-selected="false" role="tab" tabindex="0" aria-controls="javatab" onclick="displayTab('language', 'java')">
       Android (Java)
     </li>
   </ul>
 </div>
 
-<block class="objc swift android" />
+<block class="objc swift java" />
 
 ## Key Concepts
 
@@ -101,7 +101,7 @@ The keys to integrating React Native components into your iOS application are to
 6. Start the React Native server and run your native application.
 7. Verify that the React Native aspect of your application works as expected.
 
-<block class="android" />
+<block class="java" />
 
 The keys to integrating React Native components into your Android application are to:
 
@@ -111,7 +111,7 @@ The keys to integrating React Native components into your Android application ar
 4. Start the React Native server and run your native application.
 5. Verify that the React Native aspect of your application works as expected.
 
-<block class="objc swift android" />
+<block class="objc swift java" />
 
 ## Prerequisites
 
@@ -123,7 +123,7 @@ Follow the instructions for building apps with native code from the [Getting Sta
 
 To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing iOS project to a `/ios` subfolder.
 
-<block class="android" />
+<block class="java" />
 
 Follow the instructions for building apps with native code from the [Getting Started guide](getting-started.md) to configure your development environment for building React Native apps for Android.
 
@@ -131,7 +131,7 @@ Follow the instructions for building apps with native code from the [Getting Sta
 
 To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing Android project to an `/android` subfolder.
 
-<block class="objc swift android" />
+<block class="objc swift java" />
 
 ### 2. Install JavaScript dependencies
 
@@ -552,7 +552,7 @@ You can examine the code that added the React Native screen to our sample app on
 
 You can examine the code that added the React Native screen to our sample app on [GitHub](https://github.com/JoelMarcey/swift-2048/commit/13272a31ee6dd46dc68b1dcf4eaf16c1a10f5229).
 
-<block class="android" />
+<block class="java" />
 
 ## Adding React Native to your app
 
@@ -828,7 +828,7 @@ $ react-native bundle --platform android --dev false --entry-file index.js --bun
 
 Now just create a release build of your native app from within Android Studio as usual and you should be good to go!
 
-<block class="objc swift android" />
+<block class="objc swift java" />
 
 ### Now what?
 
@@ -912,9 +912,9 @@ At this point you can continue developing your app as usual. Refer to our [debug
                 displayTab('platform', 'ios');
                 foundHash = true;
               } else if (
-                parent.className.indexOf('android') > -1
+                parent.className.indexOf('java') > -1
               ) {
-                displayTab('platform', 'android');
+                displayTab('platform', 'java');
                 foundHash = true;
               } else {
                 break;
@@ -942,7 +942,7 @@ At this point you can continue developing your app as usual. Refer to our [debug
     if (!foundHash) {
       var isMac = navigator.platform === 'MacIntel';
       var isWindows = navigator.platform === 'Win32';
-      displayTab('platform', isMac ? 'ios' : 'android');
+      displayTab('platform', isMac ? 'ios' : 'java');
       displayTab(
         'os',
         isMac ? 'mac' : isWindows ? 'windows' : 'linux'
