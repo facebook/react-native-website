@@ -55,14 +55,16 @@ title: Integration with Existing Apps
   }
   .display-language-objc .toggler .button-objc,
   .display-language-swift .toggler .button-swift,
-  .display-language-java .toggler .button-java {
+  .display-language-java .toggler .button-java,
+  .display-language-kotlin .toggler .button-kotlin, {
     background-color: #05A5D1;
     color: white;
   }
   block { display: none; }
   .display-language-objc .objc,
   .display-language-swift .swift,
-  .display-language-java .java {
+  .display-language-java .java,
+  .display-language-kotlin .kotlin {
     display: block;
   }
 </style>
@@ -81,6 +83,9 @@ The specific steps are different depending on what platform you're targeting.
     </li>
     <li id="java" class="button-java" aria-selected="false" role="tab" tabindex="0" aria-controls="javatab" onclick="displayTab('language', 'java')">
       Android (Java)
+    </li>
+    <li id="kotlin" class="button-kotlin" aria-selected="false" role="tab" tabindex="0" aria-controls="kotlintab" onclick="displayTab('language', 'kotlin')">
+      Android (Kotlin)
     </li>
   </ul>
 </div>
