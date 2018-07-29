@@ -90,7 +90,7 @@ The specific steps are different depending on what platform you're targeting.
   </ul>
 </div>
 
-<block class="objc swift java" />
+<block class="objc swift java kotlin" />
 
 ## Key Concepts
 
@@ -106,7 +106,7 @@ The keys to integrating React Native components into your iOS application are to
 6. Start the React Native server and run your native application.
 7. Verify that the React Native aspect of your application works as expected.
 
-<block class="java" />
+<block class="java kotlin" />
 
 The keys to integrating React Native components into your Android application are to:
 
@@ -116,7 +116,7 @@ The keys to integrating React Native components into your Android application ar
 4. Start the React Native server and run your native application.
 5. Verify that the React Native aspect of your application works as expected.
 
-<block class="objc swift java" />
+<block class="objc swift java kotlin" />
 
 ## Prerequisites
 
@@ -128,7 +128,7 @@ Follow the instructions for building apps with native code from the [Getting Sta
 
 To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing iOS project to a `/ios` subfolder.
 
-<block class="java" />
+<block class="java kotlin" />
 
 Follow the instructions for building apps with native code from the [Getting Started guide](getting-started.md) to configure your development environment for building React Native apps for Android.
 
@@ -136,7 +136,7 @@ Follow the instructions for building apps with native code from the [Getting Sta
 
 To ensure a smooth experience, create a new folder for your integrated React Native project, then copy your existing Android project to an `/android` subfolder.
 
-<block class="objc swift java" />
+<block class="objc swift java kotlin" />
 
 ### 2. Install JavaScript dependencies
 
@@ -557,7 +557,7 @@ You can examine the code that added the React Native screen to our sample app on
 
 You can examine the code that added the React Native screen to our sample app on [GitHub](https://github.com/JoelMarcey/swift-2048/commit/13272a31ee6dd46dc68b1dcf4eaf16c1a10f5229).
 
-<block class="java" />
+<block class="java kotlin" />
 
 ## Adding React Native to your app
 
@@ -654,6 +654,8 @@ AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
 
 If your app is targeting the Android `API level 23` or greater, make sure you have the permission `android.permission.SYSTEM_ALERT_WINDOW` enabled for the development build. You can check this with `Settings.canDrawOverlays(this);`. This is required in dev builds because React Native development errors must be displayed above all the other windows. Due to the new permissions system introduced in the API level 23 (Android M), the user needs to approve it. This can be achieved by adding the following code to your Activity's in `onCreate()` method.
 
+<block class="java" />
+
 ```java
 private final int OVERLAY_PERMISSION_REQ_CODE = 1;  // Choose any value
 
@@ -668,7 +670,25 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 }
 ```
 
+```kotlin
+private const val OVERLAY_PERMISSION_REQ_CODE = 1  // Choose any value
+
+...
+
+if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+    if (!Settings.canDrawOverlays(this)) {
+        val intent = Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                            Uri.parse("package:$packageName"))
+        startActivityForResult(intent, OVERLAY_PERMISSION_REQ_CODE)
+    }
+}
+```
+
+<block class="java kotlin" />
+
 Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX.
+
+<block class="java" />
 
 ```java
 @Override
@@ -683,11 +703,28 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
+<block class="kotlin" />
+
+```kotlin
+override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    super.onActivityResult(requestCode, resultCode, data)
+    if (requestCode == OVERLAY_PERMISSION_REQ_CODE) {
+        if (!canDrawOverlays(this)) {
+            // SYSTEM_ALERT_WINDOW permission not granted
+        }
+    }
+}
+```
+
+<block class="java kotlin" />
+
 #### The Magic: `ReactRootView`
 
 Let's add some native code in order to start the React Native runtime and tell it to render our JS component. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
 
 > If you are targetting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
+
+<block class="java" />
 
 ```java
 public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -721,6 +758,40 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
 }
 ```
 
+<block class="kotlin" />
+
+```kotlin
+public class MyReactActivity: Activity(), DefaultHardwareBackBtnHandler {
+    private lateinit var reactRootView: ReactRootView
+    private lateinit var reactInstanceManager: ReactInstanceManager
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        reactRootView = ReactRootView(this)
+        reactInstanceManager = ReactInstanceManager.builder()
+                .setApplication(application)
+                .setBundleAssetName("index.android.bundle")
+                .setJSMainModulePath("index")
+                .addPackage(MainReactPackage())
+                .setUseDeveloperSupport(BuildConfig.DEBUG)
+                .setInitialLifecycleState(LifecycleState.RESUMED)
+                .build()
+        // The string here (e.g. "MyReactNativeApp") has to match
+        // the string in AppRegistry.registerComponent() in index.js
+        reactRootView?.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
+
+        setContentView(reactRootView)
+    }
+
+    override fun invokeDefaultOnBackPressed() {
+        super.onBackPressed();
+    }
+}
+```
+
+<block class="java kotlin" />
+
 > If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your index.js file (it’s the first argument to the `AppRegistry.registerComponent()` method).
 
 If you are using Android Studio, use `Alt + Enter` to add all missing imports in your MyReactActivity class. Be careful to use your package’s `BuildConfig` and not the one from the `facebook` package.
@@ -738,6 +809,8 @@ We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar
 > A `ReactInstanceManager` can be shared by multiple activities and/or fragments. You will want to make your own `ReactFragment` or `ReactActivity` and have a singleton _holder_ that holds a `ReactInstanceManager`. When you need the `ReactInstanceManager` (e.g., to hook up the `ReactInstanceManager` to the lifecycle of those Activities or Fragments) use the one provided by the singleton.
 
 Next, we need to pass some activity lifecycle callbacks to the `ReactInstanceManager` and `ReactRootView`:
+
+<block class="java" />
 
 ```java
 @Override
@@ -771,7 +844,31 @@ protected void onDestroy() {
 }
 ```
 
+<block class="kotlin" />
+
+```kotlin
+override fun onPause() {
+    super.onPause()
+    reactInstanceManager?.onHostPause(this)
+}
+
+override fun onResume() {
+    super.onResume()
+    reactInstanceManager?.onHostResume(this, this)
+}
+
+override fun onDestroy() {
+    super.onDestroy()
+    reactInstanceManager?.onHostDestroy(this)
+    reactRootView?.unmountReactApplication()
+}
+```
+
+<block class="java kotlin" />
+
 We also need to pass back button events to React Native:
+
+<block class="java" />
 
 ```java
 @Override
@@ -784,9 +881,25 @@ We also need to pass back button events to React Native:
 }
 ```
 
+<block class="kotlin" />
+
+```kotlin
+override fun onBackPressed() {
+    if (reactInstanceManager != null) {
+        reactInstanceManager.onBackPressed()
+    } else {
+        super.onBackPressed()
+    }
+}
+```
+
+<block class="java kotlin" />
+
 This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle the back button press, your `invokeDefaultOnBackPressed` method will be called. By default this simply finishes your `Activity`.
 
 Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use `Ctrl + M` if you're using Android Studio emulator):
+
+<block class="java" />
 
 ```java
 @Override
@@ -798,6 +911,20 @@ public boolean onKeyUp(int keyCode, KeyEvent event) {
     return super.onKeyUp(keyCode, event);
 }
 ```
+
+<block class="kotlin" />
+
+```kotlin
+override fun onKeyUp(keyCode: Int, event: KeyEvent) =
+    if (keyCode == KEYCODE_MENU && reactInstanceManager != null) {
+        reactInstanceManager?.showDevOptionsDialog()
+        true
+    } else {
+        super.onKeyUp(keyCode, event)
+    }
+```
+
+<block class="java kotlin" />
 
 Now your activity is ready to run some JavaScript code.
 
