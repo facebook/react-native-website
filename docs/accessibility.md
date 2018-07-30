@@ -65,8 +65,7 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
 </TouchableOpacity>
 ```
 
-In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings.
-Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
+In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
 
 #### accessibilityRole (iOS, Android)
 
