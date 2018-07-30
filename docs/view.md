@@ -475,9 +475,9 @@ See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
-| Type   | Required |
-| ------ | -------- |
-| String | No       |
+| Type              | Required |
+| ----------------- | -------- |
+| AccessibilityRole | No       |
 
 ---
 
