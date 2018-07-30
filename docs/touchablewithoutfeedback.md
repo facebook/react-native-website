@@ -13,6 +13,8 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
 * [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
 * [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
+* [`accessibilityRole`](view.md#accessibilityrole)
+* [`accessibilityStates`](view.md#accessibilitystates)
 * [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
 * [`accessible`](touchablewithoutfeedback.md#accessible)
 * [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
@@ -48,6 +50,8 @@ This defines how far your touch can start away from the button. This is added to
 
 ### `accessibilityComponentType`
 
+_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
+
 | Type                        | Required |
 | --------------------------- | -------- |
 | AccessibilityComponentTypes | No       |
@@ -74,7 +78,25 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
+### `accessibilityRole`
+
+| Type                        | Required |
+| --------------------------- | -------- |
+| AccessibilityRoles          | No       |
+
+---
+
+### `accessibilityStates`
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| array of AccessibilityStates | No       |
+
+---
+
 ### `accessibilityTraits`
+
+_> Note: `accessibilityTraits`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
 
 | Type                                               | Required |
 | -------------------------------------------------- | -------- |
