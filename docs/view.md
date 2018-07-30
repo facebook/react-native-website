@@ -49,6 +49,7 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 
 * [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
 * [`accessibilityLabel`](view.md#accessibilitylabel)
+* [`accessibilityHint`](view.md#accessibilityhint)
 * [`hitSlop`](view.md#hitslop)
 * [`nativeID`](view.md#nativeid)
 * [`onAccessibilityTap`](view.md#onaccessibilitytap)
@@ -94,6 +95,16 @@ Does this view want to become responder on the start of a touch?
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
+
+---
+
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
