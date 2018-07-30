@@ -253,13 +253,13 @@ Notice that first the JS thread thinks for a bit, then you see some work done on
 
 There isn't an easy way to mitigate this unless you're able to postpone creating new UI until after the interaction, or you are able to simplify the UI you're creating. The react native team is working on an infrastructure level solution for this that will allow new UI to be created and configured off the main thread, allowing the interaction to continue smoothly.
 
-## Unbundling + inline requires
+## RAM bundles + inline requires
 
-If you have a large app you may want to consider unbundling and using inline requires. This is useful for apps that have a large number of screens which may not ever be opened during a typical usage of the app. Generally it is useful to apps that have large amounts of code that are not needed for a while after startup. For instance the app includes complicated profile screens or lesser used features, but most sessions only involve visiting the main screen of the app for updates. We can optimize the loading of the bundle by using the unbundle feature of the packager and requiring those features and screens inline (when they are actually used).
+If you have a large app you may want to consider the Random Access Modules (RAM) bundle format, and using inline requires. This is useful for apps that have a large number of screens which may not ever be opened during a typical usage of the app. Generally it is useful to apps that have large amounts of code that are not needed for a while after startup. For instance the app includes complicated profile screens or lesser used features, but most sessions only involve visiting the main screen of the app for updates. We can optimize the loading of the bundle by using the RAM format and requiring those features and screens inline (when they are actually used).
 
 ### Loading JavaScript
 
-Before react-native can execute JS code, that code must be loaded into memory and parsed. With a standard bundle if you load a 50mb bundle, all 50mb must be loaded and parsed before any of it can be executed. The optimization behind unbundling is that you can load only the portion of the 50mb that you actually need at startup, and progressively load more of the bundle as those sections are needed.
+Before react-native can execute JS code, that code must be loaded into memory and parsed. With a standard bundle if you load a 50mb bundle, all 50mb must be loaded and parsed before any of it can be executed. The optimization behind RAM bundles is that you can load only the portion of the 50mb that you actually need at startup, and progressively load more of the bundle as those sections are needed.
 
 ### Inline Requires
 
@@ -317,25 +317,25 @@ export default class Optimized extends Component {
 }
 ```
 
-Even without unbundling inline requires can lead to startup time improvements, because the code within VeryExpensive.js will only execute once it is required for the first time.
+Even without the RAM format, inline requires can lead to startup time improvements, because the code within VeryExpensive.js will only execute once it is required for the first time.
 
-### Enable Unbundling
+### Enable the RAM format
 
-On iOS unbundling will create a single indexed file that react native will load one module at a time. On Android, by default it will create a set of files for each module. You can force Android to create a single file, like iOS, but using multiple files can be more performant and requires less memory.
+On iOS using the RAM format will create a single indexed file that react native will load one module at a time. On Android, by default it will create a set of files for each module. You can force Android to create a single file, like iOS, but using multiple files can be more performant and requires less memory.
 
-Enable unbundling in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/packager/react-native-xcode.sh` add `export BUNDLE_COMMAND="unbundle"`:
+Enable the RAM format in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/packager/react-native-xcode.sh` add `export BUNDLE_COMMAND="ram-bundle"`:
 
 ```
-export BUNDLE_COMMAND="unbundle"
+export BUNDLE_COMMAND="ram-bundle"
 export NODE_BINARY=node
 ../node_modules/react-native/packager/react-native-xcode.sh
 ```
 
-On Android enable unbundling by editing your android/app/build.gradle file. Before the line `apply from: "../../node_modules/react-native/react.gradle"` add or amend the `project.ext.react` block:
+On Android enable the RAM format by editing your `android/app/build.gradle` file. Before the line `apply from: "../../node_modules/react-native/react.gradle"` add or amend the `project.ext.react` block:
 
 ```
 project.ext.react = [
-  bundleCommand: "unbundle",
+  bundleCommand: "ram-bundle",
 ]
 ```
 
@@ -343,14 +343,14 @@ Use the following lines on Android if you want to use a single indexed file:
 
 ```
 project.ext.react = [
-  bundleCommand: "unbundle",
-  extraPackagerArgs: ["--indexed-unbundle"]
+  bundleCommand: "ram-bundle",
+  extraPackagerArgs: ["--indexed-ram-bundle"]
 ]
 ```
 
 ### Configure Preloading and Inline Requires
 
-Now that we have unbundled our code, there is overhead for calling require. require now needs to send a message over the bridge when it encounters a module it has not loaded yet. This will impact startup the most, because that is where the largest number of require calls are likely to take place while the app loads the initial module. Luckily we can configure a portion of the modules to be preloaded. In order to do this, you will need to implement some form of inline require.
+Now that we have a RAM bundle, there is overhead for calling `require`. `require` now needs to send a message over the bridge when it encounters a module it has not loaded yet. This will impact startup the most, because that is where the largest number of require calls are likely to take place while the app loads the initial module. Luckily we can configure a portion of the modules to be preloaded. In order to do this, you will need to implement some form of inline require.
 
 ### Adding a packager config file
 
@@ -371,7 +371,7 @@ module.exports = config;
 In Xcode, in the build phase, include `export BUNDLE_CONFIG="packager/config.js"`.
 
 ```
-export BUNDLE_COMMAND="unbundle"
+export BUNDLE_COMMAND="ram-bundle"
 export BUNDLE_CONFIG="packager/config.js"
 export NODE_BINARY=node
 ../node_modules/react-native/packager/react-native-xcode.sh
@@ -381,7 +381,7 @@ Edit your android/app/build.gradle file to include `bundleConfig: "packager/conf
 
 ```
 project.ext.react = [
-  bundleCommand: "unbundle",
+  bundleCommand: "ram-bundle",
   bundleConfig: "packager/config.js"
 ]
 ```
@@ -514,8 +514,8 @@ const config = {
 module.exports = config;
 ```
 
-The preloadedModules entry in the config indicates which modules should be marked as preloaded by the unbundler. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The blacklist entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the javascript spends extra time resolving the inline require every time the imports are referenced.
+The `preloadedModules` entry in the config indicates which modules should be marked as preloaded when building a RAM bundle. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The blacklist entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the javascript spends extra time resolving the inline require every time the imports are referenced.
 
 ### Test and Measure Improvements
 
-You should now be ready to build your app using unbundling and inline requires. Make sure you measure the before and after startup times.
+You should now be ready to build your app using the RAM format and inline requires. Make sure you measure the before and after startup times.
