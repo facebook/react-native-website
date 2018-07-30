@@ -779,7 +779,7 @@ public class MyReactActivity: Activity(), DefaultHardwareBackBtnHandler {
                 .build()
         // The string here (e.g. "MyReactNativeApp") has to match
         // the string in AppRegistry.registerComponent() in index.js
-        reactRootView?.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
+        reactRootView.startReactApplication(reactInstanceManager, "MyReactNativeApp", null)
 
         setContentView(reactRootView)
     }
@@ -849,18 +849,18 @@ protected void onDestroy() {
 ```kotlin
 override fun onPause() {
     super.onPause()
-    reactInstanceManager?.onHostPause(this)
+    reactInstanceManager.onHostPause(this)
 }
 
 override fun onResume() {
     super.onResume()
-    reactInstanceManager?.onHostResume(this, this)
+    reactInstanceManager.onHostResume(this, this)
 }
 
 override fun onDestroy() {
     super.onDestroy()
-    reactInstanceManager?.onHostDestroy(this)
-    reactRootView?.unmountReactApplication()
+    reactInstanceManager.onHostDestroy(this)
+    reactRootView.unmountReactApplication()
 }
 ```
 
@@ -885,11 +885,7 @@ We also need to pass back button events to React Native:
 
 ```kotlin
 override fun onBackPressed() {
-    if (reactInstanceManager != null) {
-        reactInstanceManager.onBackPressed()
-    } else {
-        super.onBackPressed()
-    }
+    reactInstanceManager.onBackPressed()
 }
 ```
 
@@ -916,8 +912,8 @@ public boolean onKeyUp(int keyCode, KeyEvent event) {
 
 ```kotlin
 override fun onKeyUp(keyCode: Int, event: KeyEvent) =
-    if (keyCode == KEYCODE_MENU && reactInstanceManager != null) {
-        reactInstanceManager?.showDevOptionsDialog()
+    if (keyCode == KEYCODE_MENU) {
+        reactInstanceManager.showDevOptionsDialog()
         true
     } else {
         super.onKeyUp(keyCode, event)
