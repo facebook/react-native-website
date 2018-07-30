@@ -158,7 +158,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
     transform: [{
       translateY: this.state.fadeAnim.interpolate({
         inputRange: [0, 1],
-        outputRange: [150, 0]  // 0 : 150, 0.5 : 75, 1 : 0
+        outputRange: [150, 0]  // 0 : 150 // 0.5 : 75 // 1 : 0
       }),
     }],
   }}
