@@ -75,6 +75,8 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 * [`importantForAccessibility`](view.md#importantforaccessibility)
 * [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
 * [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
+* [`accessibilityRole`](view.md#accessibilityrole)
+* [`accessibilityStates`](view.md#accessibilitystates)
 * [`accessibilityTraits`](view.md#accessibilitytraits)
 * [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
 * [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
