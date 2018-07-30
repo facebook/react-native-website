@@ -9,7 +9,7 @@ There will be no effect on devices that do not support Vibration, eg. the simula
 
 **Note for Android:** add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
 
-Since the **vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
+**The vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
 
 In iOS, invoking `vibrate(duration)` will just ignore the duration and vibrate for a fixed time. While the `pattern` array is used to define the duration between each vibration. See below example for more.
 
@@ -59,10 +59,10 @@ Trigger a vibration with specified `pattern`.
 
 **Parameters:**
 
-| Name    | Type                    | Required | Description                                                                 |
-| ------- | ----------------------- | -------- | --------------------------------------------------------------------------- |
-| pattern | number or Array<number> | Yes      | Vibration pattern, accept a number or an array of numbers. Default to 400ms.|
-| repeat  | boolean                 | No       | Repeat vibration pattern until cancel(), default to false.                  |
+| Name    | Type                    | Required | Description                                                                  |
+| ------- | ----------------------- | -------- | ---------------------------------------------------------------------------- |
+| pattern | number or Array<number> | Yes      | Vibration pattern, accept a number or an array of numbers. Default to 400ms. |
+| repeat  | boolean                 | No       | Repeat vibration pattern until cancel(), default to false.                   |
 
 ---
 

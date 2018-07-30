@@ -3,7 +3,7 @@ title: Dive into React Native Performance
 author: Pieter De Baets
 authorTitle: Software Engineer at Facebook
 authorURL: https://github.com/javache
-authorImage: https://avatars1.githubusercontent.com/u/5676?v=3&s=460
+authorImageURL: https://avatars1.githubusercontent.com/u/5676?v=3&s=460
 authorTwitter: javache
 category: engineering
 ---

@@ -18,7 +18,7 @@ In addition to this documentation, you might find [this blog post](https://code.
 
 When `true`, indicates that the view is an accessibility element. When a view is an accessibility element, it groups its children into a single selectable component. By default, all touchable elements are accessible.
 
-On Android, ‘accessible={true}’ property for a react-native View will be translated into native ‘focusable={true}’.
+On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
 
 ```javascript
 <View accessible={true}>
@@ -78,6 +78,12 @@ A Boolean value indicating whether VoiceOver should ignore the elements within v
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityViewIsModal` to `true` on view `B` causes VoiceOver to ignore the elements in the view `A`. On the other hand, if view `B` contains a child view `C` and you set `accessibilityViewIsModal` to `true` on view `C`, VoiceOver does not ignore the elements in view `A`.
 
+#### accessibilityElementsHidden (iOS)
+
+A Boolean value indicating whether the accessibility elements contained within this accessibility element are hidden.
+
+For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
+
 #### onAccessibilityTap (iOS)
 
 Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected.
@@ -88,7 +94,7 @@ Assign this property to a custom function which will be called when someone perf
 
 #### accessibilityComponentType (Android)
 
-In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. For instances, we support ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’ and so on.
+In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
 
 ```javascript
 <TouchableWithoutFeedback accessibilityComponentType=”button”
@@ -150,13 +156,20 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or a custom radio button has been selected). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event.
 
 ```javascript
+import { UIManager, findNodeHandle } from 'react-native';
+
 _onPress: function() {
-  this.state.radioButton = this.state.radioButton === “radiobutton_checked” ?
-  “radiobutton_unchecked” : “radiobutton_checked”;
-  if (this.state.radioButton === “radiobutton_checked”) {
-    RCTUIManager.sendAccessibilityEvent(
-      ReactNative.findNodeHandle(this),
-      RCTUIManager.AccessibilityEventTypes.typeViewClicked);
+  const radioButton = this.state.radioButton === 'radiobutton_checked' ?
+    'radiobutton_unchecked' : 'radiobutton_checked'
+
+  this.setState({
+    radioButton: radioButton
+  });
+
+  if (radioButton === 'radiobutton_checked') {
+    UIManager.sendAccessibilityEvent(
+      findNodeHandle(this),
+      UIManager.AccessibilityEventTypes.typeViewClicked);
   }
 }
 

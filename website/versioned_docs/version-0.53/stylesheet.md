@@ -4,9 +4,9 @@ title: StyleSheet
 original_id: stylesheet
 ---
 
-A StyleSheet is an abstraction similar to CSS StyleSheets
+A `StyleSheet` is an abstraction similar to CSS StyleSheets
 
-Create a new StyleSheet:
+Create a new `StyleSheet`:
 
 ```
 const styles = StyleSheet.create({
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-Use a StyleSheet:
+Use a `StyleSheet`:
 
 ```
 <View style={styles.container}>

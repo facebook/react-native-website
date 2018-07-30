@@ -26,6 +26,8 @@ You need to include the `NSLocationWhenInUseUsageDescription` key in Info.plist 
 
 In order to enable geolocation in the background, you need to include the 'NSLocationAlwaysUsageDescription' key in Info.plist and add location as a background mode in the 'Capabilities' tab in Xcode.
 
+If you are using CocoaPods for React Native, make sure to include the `RCTGeolocation` sub-podspec.
+
 #### Android
 
 To request access to location, you need to add the following line to your app's `AndroidManifest.xml`:
@@ -104,9 +106,9 @@ Invokes the success callback once with the latest location info.
 
 Supported options:
 
-* `timeout` (ms)
-* `maximumAge` (ms) - Defaults to INFINITY.
-* `enableHighAccuracy` (bool) - On Android, if the location is cached this can return almost immediately, or it will request an update which might take a while.
+* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
+* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
 
 ---
 
@@ -128,11 +130,11 @@ Invokes the success callback whenever the location changes. Returns a `watchId` 
 
 Supported options:
 
-* `timeout` (ms)
-* `maximumAge` (ms) - Defaults to INFINITY.
-* `enableHighAccuracy` (bool)
-* `distanceFilter` (m)
-* `useSignificantChanges` (bool)
+* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
+* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
+* `distanceFilter` (m) - The minimum distance from the previous location to exceed before returning a new location. Set to 0 to not filter locations. Defaults to 100m.
+* `useSignificantChanges` (bool) - Uses the battery-efficient native significant changes APIs to return locations. Locations will only be returned when the device detects a significant distance has been breached. Defaults to FALSE.
 
 ---
 
@@ -155,3 +157,7 @@ Geolocation.clearWatch(watchID);
 ```javascript
 Geolocation.stopObserving();
 ```
+
+Stops observing for device location changes. In addition, it removes all listeners previously registered.
+
+Notice that this method has only effect if the `geolocation.watchPosition(successCallback, errorCallback)` method was previously invoked.

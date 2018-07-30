@@ -111,11 +111,11 @@ cd AwesomeProject
 npm start
 ```
 
-This will start a development server for you, and print a QR code in your terminal.
+This will start a development server for you.
 
 ## Running your React Native application
 
-Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. Using the Expo app, scan the QR code from your terminal to open your project.
+Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, follow on-screen instructions to get a link.
 
 ### Modifying your app
 
@@ -171,7 +171,7 @@ The instructions are a bit different depending on your development operating sys
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.md" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
 
 <block class="native mac ios" />
 
@@ -214,7 +214,7 @@ brew install node
 brew install watchman
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer.
+If you have already installed Node on your system, make sure it is Node 8.3 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
 
@@ -222,7 +222,7 @@ If you have already installed Node on your system, make sure it is version 6 or 
 
 ### Node
 
-Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 6 or newer.
+Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 8.3 or newer.
 
 <block class='native windows android' />
 
@@ -238,7 +238,7 @@ Open an Administrator Command Prompt (right click Command Prompt and select "Run
 choco install -y nodejs.install python2 jdk8
 ```
 
-If you have already installed Node on your system, make sure it is version 6 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
+If you have already installed Node on your system, make sure it is Node 8.3 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
@@ -276,7 +276,7 @@ npm install -g react-native-cli
 
 The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
-If you have already installed Xcode on your system, make sure it is version 8 or higher.
+If you have already installed Xcode on your system, make sure it is version 9.4 or newer.
 
 #### Command Line Tools
 
@@ -395,6 +395,7 @@ Add the following lines to your `$HOME/.bash_profile` config file:
 ```
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
@@ -403,6 +404,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 ```
 
@@ -416,7 +418,7 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 <block class="native windows android" />
 
-Open the System pane under **System and Security** in the Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
 ![ANDROID_HOME Environment Variable](/react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
@@ -432,11 +434,11 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 <block class="native linux android" />
 
-### Watchman (optional)
+### Watchman
 
 Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
 
-> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance, but it's alright to skip this if you find the process to be tedious.
+> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
 <block class="native mac ios" />
 
@@ -476,7 +478,7 @@ If you have a physical Android device, you can use it for development in place o
 
 ### Using a virtual device
 
-You can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
+If you use Android Studio to open `./AwesomeProject/android`, you can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
 ![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
@@ -502,7 +504,7 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
 
-> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows) to set it up, then go back to the AVD Manager.
+> If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
@@ -510,7 +512,7 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 ![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
 
-> If you don't have HAXM installed, follow [these instructions](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x) to set it up, then go back to the AVD Manager.
+> If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
 
 ![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 

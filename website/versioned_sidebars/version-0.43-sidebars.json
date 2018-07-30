@@ -49,11 +49,12 @@
       "version-0.43-native-components-android",
       "version-0.43-headless-js-android",
       "version-0.43-signed-apk-android",
-      "version-0.43-android-building-from-source"
+      "version-0.43-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.43-contributing",
       "version-0.43-maintainers",
+      "version-0.43-building-from-source",
       "version-0.43-testing",
       "version-0.43-understanding-cli"
     ],
@@ -65,6 +66,7 @@
       "version-0.43-image",
       "version-0.43-keyboardavoidingview",
       "version-0.43-modal",
+      "version-0.43-navigator",
       "version-0.43-navigatorios",
       "version-0.43-picker",
       "version-0.43-pickerios",

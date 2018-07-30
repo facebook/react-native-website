@@ -49,11 +49,12 @@
       "version-0.11-native-components-android",
       "version-0.11-headless-js-android",
       "version-0.11-signed-apk-android",
-      "version-0.11-android-building-from-source"
+      "version-0.11-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.11-contributing",
       "version-0.11-maintainers",
+      "version-0.11-building-from-source",
       "version-0.11-testing",
       "version-0.11-understanding-cli"
     ],
@@ -62,6 +63,7 @@
       "version-0.11-drawerlayoutandroid",
       "version-0.11-image",
       "version-0.11-modal",
+      "version-0.11-navigator",
       "version-0.11-navigatorios",
       "version-0.11-progressbarandroid",
       "version-0.11-progressviewios",

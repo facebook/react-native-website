@@ -37,7 +37,7 @@ JavaScript thread performance suffers greatly when running in dev mode. This is 
 
 ### Using `console.log` statements
 
-When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save`, and then edit the `.babelrc` file under your project directory like this:
+When running a bundled app, these statements can cause a big bottleneck in the JavaScript thread. This includes calls from debugging libraries such as [redux-logger](https://github.com/evgenyrodionov/redux-logger), so make sure to remove them before bundling. You can also use this [babel plugin](https://babeljs.io/docs/plugins/transform-remove-console/) that removes all the `console.*` calls. You need to install it first with `npm i babel-plugin-transform-remove-console --save-dev`, and then edit the `.babelrc` file under your project directory like this:
 
 ```javascripton
 {
@@ -55,13 +55,13 @@ This will automatically remove all `console.*` calls in the release (production)
 
 Use the new [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.
 
-If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/flatlist.md#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
+If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/docs/flatlist.html#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
 
 ### JS FPS plunges when re-rendering a view that hardly changes
 
 If you are using a ListView, you must provide a `rowHasChanged` function that can reduce a lot of work by quickly determining whether or not a row needs to be re-rendered. If you are using immutable data structures, this would be as simple as a reference equality check.
 
-Similarly, you can implement `shouldComponentUpdate` and indicate the exact conditions under which you would like the component to re-render. If you write pure components (where the return value of the render function is entirely dependent on props and state), you can leverage PureRenderMixin to do this for you. Once again, immutable data structures are useful to keep this fast -- if you have to do a deep comparison of a large list of objects, it may be that re-rendering your entire component would be quicker, and it would certainly require less code.
+Similarly, you can implement `shouldComponentUpdate` and indicate the exact conditions under which you would like the component to re-render. If you write pure components (where the return value of the render function is entirely dependent on props and state), you can leverage PureComponent to do this for you. Once again, immutable data structures are useful to keep this fast -- if you have to do a deep comparison of a large list of objects, it may be that re-rendering your entire component would be quicker, and it would certainly require less code.
 
 ### Dropping JS thread FPS because of doing a lot of work on the JavaScript thread at the same time
 
@@ -483,7 +483,7 @@ fs.writeFile('./packager/modulePaths.js', fileData, err => {
 });
 ```
 
-You can run via `node packager/modulePaths.js`.
+You can run via `node packager/generateModulePaths.js`.
 
 This script attempts to map from the module names to module paths. Its not foolproof though, for instance, it ignores platform specific files (\*ios.js, and \*.android.js). However based on initial testing, it handles 95% of cases. When it runs, after some time it should complete and output a file named `packager/modulePaths.js`. It should contain paths to module files that are relative to your projects root. You can commit modulePaths.js to your repo so it is transportable.
 

@@ -49,11 +49,12 @@
       "version-0.19-native-components-android",
       "version-0.19-headless-js-android",
       "version-0.19-signed-apk-android",
-      "version-0.19-android-building-from-source"
+      "version-0.19-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.19-contributing",
       "version-0.19-maintainers",
+      "version-0.19-building-from-source",
       "version-0.19-testing",
       "version-0.19-understanding-cli"
     ],
@@ -62,6 +63,7 @@
       "version-0.19-drawerlayoutandroid",
       "version-0.19-image",
       "version-0.19-modal",
+      "version-0.19-navigator",
       "version-0.19-navigatorios",
       "version-0.19-picker",
       "version-0.19-progressbarandroid",

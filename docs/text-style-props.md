@@ -22,6 +22,7 @@ title: Text Style Props
 * [`letterSpacing`](text-style-props.md#letterspacing)
 * [`textDecorationColor`](text-style-props.md#textdecorationcolor)
 * [`textDecorationStyle`](text-style-props.md#textdecorationstyle)
+* [`textTransform`](text-style-props.md#texttransform)
 * [`writingDirection`](text-style-props.md#writingdirection)
 
 ---
@@ -169,6 +170,14 @@ Set to `false` to remove extra font padding intended to make space for certain a
 | Type                                        | Required | Platform |
 | ------------------------------------------- | -------- | -------- |
 | enum('solid', 'double', 'dotted', 'dashed') | No       | iOS      |
+
+---
+
+### `textTransform`
+
+| Type                                                 | Required | Platform |
+| ---------------------------------------------------- | -------- | -------- |
+| enum('none', 'uppercase', 'lowercase', 'capitalize') | No       | iOS      |
 
 ---
 

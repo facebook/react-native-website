@@ -121,7 +121,7 @@ export default class App extends React.Component {
 }
 ```
 
-You can now use `MyButton` inside of `TouchableOpacity`! A sidenote for clarity: we used the [ref callback](https://facebook.github.io/react/more-about-refs.md#the-ref-callback-attribute) syntax here, rather than the traditional string-based ref.
+You can now use `MyButton` inside of `TouchableOpacity`! A sidenote for clarity: we used the [ref callback](https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element) syntax here, rather than the traditional string-based ref.
 
 You may have noticed that we passed all of the props down to the child view using `{...this.props}`. The reason for this is that `TouchableOpacity` is actually a composite component, and so in addition to depending on `setNativeProps` on its child, it also requires that the child perform touch handling. To do this, it passes on [various props](view.md#onmoveshouldsetresponder) that call back to the `TouchableOpacity` component. `TouchableHighlight`, in contrast, is backed by a native view and only requires that we implement `setNativeProps`.
 
@@ -160,7 +160,7 @@ If you update a property that is also managed by the render function, you might 
 
 ## setNativeProps & shouldComponentUpdate
 
-By [intelligently applying `shouldComponentUpdate`](https://facebook.github.io/react/advanced-performance.md#avoiding-reconciling-the-dom) you can avoid the unnecessary overhead involved in reconciling unchanged component subtrees, to the point where it may be performant enough to use `setState` instead of `setNativeProps`.
+By [intelligently applying `shouldComponentUpdate`](https://reactjs.org/docs/optimizing-performance.html#avoid-reconciliation) you can avoid the unnecessary overhead involved in reconciling unchanged component subtrees, to the point where it may be performant enough to use `setState` instead of `setNativeProps`.
 
 ## Other native methods
 

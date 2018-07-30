@@ -3,20 +3,6 @@ id: improvingux
 title: Improving User Experience
 ---
 
-Building apps for mobile platforms is nuanced, there are many little details that developers coming from a web background often do not consider. This guide is intended to explain some of these nuances and demonstrate how you might factor them in to your application.
-
-> We are improving and adding more details to this page. If you'd like to help out, chime in at [react-native/14979](https://github.com/facebook/react-native/issues/14979).
-
-## Topics index
-
-* [Configure text inputs](#configure-text-inputs)
-* [Manage layout when keyboard is visible](#manage-layout-when-keyboard-is-visible)
-* [Make tappable areas larger](#make-tappable-areas-larger)
-* [Use Android Ripple](#use-android-ripple)
-* [Learn More](#learn-more)
-
----
-
 ## Configure text inputs
 
 Entering text on touch phone is a challenge - small screen, software keyboard. But based on what kind of data you need, you can make it easier by properly configuring the text inputs:
@@ -59,7 +45,9 @@ Android API 21+ uses the material design ripple to provide user with feedback wh
 
 ## Screen orientation lock
 
-Unless supporting both, it is considered good practice to lock the screen orientation to either portrait or landscape. On iOS, in the General tab and Deployment Info section of Xcode enable the Device Orientation you want to support (ensure you have selected iPhone from the Devices menu when making the changes). For Android, open the AndroidManifest.xml file and within the activity element add 'android:screenOrientation=”portrait”' to lock to portrait or 'android:screenOrientation=”landscape”' to lock to landscape.
+Multiple screen orientations should work fine by default unless you're using `Dimensions` API and don't handle orientation changes. If you don't want to support multiple screen orientations, you can lock the screen orientation to either portrait or landscape.
+
+On iOS, in the General tab and Deployment Info section of Xcode enable the Device Orientation you want to support (ensure you have selected iPhone from the Devices menu when making the changes). For Android, open the AndroidManifest.xml file and within the activity element add `'android:screenOrientation="portrait"'` to lock to portrait or `'android:screenOrientation="landscape"'` to lock to landscape.
 
 # Learn more
 

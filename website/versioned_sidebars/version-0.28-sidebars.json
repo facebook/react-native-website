@@ -49,11 +49,12 @@
       "version-0.28-native-components-android",
       "version-0.28-headless-js-android",
       "version-0.28-signed-apk-android",
-      "version-0.28-android-building-from-source"
+      "version-0.28-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.28-contributing",
       "version-0.28-maintainers",
+      "version-0.28-building-from-source",
       "version-0.28-testing",
       "version-0.28-understanding-cli"
     ],
@@ -63,6 +64,7 @@
       "version-0.28-drawerlayoutandroid",
       "version-0.28-image",
       "version-0.28-modal",
+      "version-0.28-navigator",
       "version-0.28-navigatorios",
       "version-0.28-picker",
       "version-0.28-pickerios",

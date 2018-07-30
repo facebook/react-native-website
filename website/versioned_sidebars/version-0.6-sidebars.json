@@ -49,17 +49,19 @@
       "version-0.6-native-components-android",
       "version-0.6-headless-js-android",
       "version-0.6-signed-apk-android",
-      "version-0.6-android-building-from-source"
+      "version-0.6-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.6-contributing",
       "version-0.6-maintainers",
+      "version-0.6-building-from-source",
       "version-0.6-testing",
       "version-0.6-understanding-cli"
     ],
     "Components": [
       "version-0.6-datepickerios",
       "version-0.6-image",
+      "version-0.6-navigator",
       "version-0.6-navigatorios",
       "version-0.6-progressviewios",
       "version-0.6-scrollview",

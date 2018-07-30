@@ -12,7 +12,7 @@ To set up the navigator, provide the `initialRoute` prop with a route object. A 
 ```
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { NavigatorIOS, Text } from 'react-native';
+import { NavigatorIOS, Text, TouchableHighlight, View } from 'react-native';
 
 export default class NavigatorIOSApp extends Component {
   render() {
@@ -282,7 +282,7 @@ The default text color of the navigation bar title.
 
 ### `translucent`
 
-Boolean value that indicates whether the navigation bar is translucent by default
+Boolean value that indicates whether the navigation bar is translucent by default. When true any screens loaded within the navigator will sit below the status bar and underneath the navigation bar. To have screens render below the navigation bar set to false.
 
 | Type | Required |
 | ---- | -------- |

@@ -49,11 +49,12 @@
       "version-0.32-native-components-android",
       "version-0.32-headless-js-android",
       "version-0.32-signed-apk-android",
-      "version-0.32-android-building-from-source"
+      "version-0.32-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.32-contributing",
       "version-0.32-maintainers",
+      "version-0.32-building-from-source",
       "version-0.32-testing",
       "version-0.32-understanding-cli"
     ],
@@ -64,6 +65,7 @@
       "version-0.32-image",
       "version-0.32-keyboardavoidingview",
       "version-0.32-modal",
+      "version-0.32-navigator",
       "version-0.32-navigatorios",
       "version-0.32-picker",
       "version-0.32-pickerios",

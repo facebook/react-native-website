@@ -9,7 +9,7 @@ The Modal component is a simple way to present content above an enclosing view.
 
 ```javascript
 import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View} from 'react-native';
+import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
 
 class ModalExample extends Component {
   state = {
@@ -28,7 +28,7 @@ class ModalExample extends Component {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {
-            alert('Modal has been closed.');
+            Alert.alert('Modal has been closed.');
           }}>
           <View style={{marginTop: 22}}>
             <View>
@@ -98,7 +98,7 @@ The `supportedOrientations` prop allows the modal to be rotated to any of the sp
 
 ### `onRequestClose`
 
-The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV.
+The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
 
 | Type     | Required | Platform                 |
 | -------- | -------- | ------------------------ |
@@ -187,3 +187,9 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 | Type                                                           | Required | Platform |
 | -------------------------------------------------------------- | -------- | -------- |
 | enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | No       | iOS      |
+
+---
+
+### `animated`
+
+Deprecated. Use the `animationType` prop instead.

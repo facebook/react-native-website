@@ -11,7 +11,7 @@ The React Native packager runs on port 8081. If another process is already using
 
 #### Terminating a process on port 8081
 
-Run the following command on a Mac to find the id for the process that is listening on port 8081:
+Run the following command to find the id for the process that is listening on port 8081:
 
 ```
 $ sudo lsof -i :8081
@@ -60,6 +60,10 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 ```
 
 Next, make sure you have run `pod install` and that a `Pods/` directory has been created in your project with React installed. CocoaPods will instruct you to use the generated `.xcworkspace` file henceforth to be able to use these installed dependencies.
+
+#### React Native does not compile when being used as a CocoaPod
+
+There is a CocoaPods plugin called [cocoapods-fix-react-native](https://github.com/orta/cocoapods-fix-react-native) which handles any potential post-fixing of the source code due to differences when using a dependency manager.
 
 #### Argument list too long: recursive header expansion failed
 

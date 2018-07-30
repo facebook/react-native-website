@@ -42,8 +42,11 @@ function htmlForCodeBlock(code) {
  * whenever an example that uses the SnackPlayer is updated with code
  * that requires a newer Expo SDK release.
  */
-const LatestSDKVersion = '23.0.0';
+const LatestSDKVersion = '26.0.0';
 const ReactNativeToExpoSDKVersionMap = {
+  '0.54': '26.0.0',
+  '0.52': '25.0.0',
+  '0.51': '24.0.0',
   '0.50': '23.0.0',
   '0.49': '22.0.0',
   '0.48': '21.0.0',
@@ -168,7 +171,7 @@ function ReactNativeWebPlayer(md) {
     return (
       '<div class="web-player">' +
       htmlForCodeBlock(sampleCode) +
-      `<iframe style="margin-top: 4" width="880" height="${
+      `<iframe style="margin-top: 4" width="100%" height="${
         parseParams(paramsString).platform === 'android' ? '425' : '420'
       }" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html${hash}" frame-border="0"></iframe>` +
       `</div>` +

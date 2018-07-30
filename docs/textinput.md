@@ -95,75 +95,64 @@ Note that on Android performing text selection in input can change app's activit
 
 * [View props...](view.md#props)
 
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`allowFontScaling`](textinput.md#allowfontscaling)
+- [`autoCapitalize`](textinput.md#autocapitalize)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
 - [`caretHidden`](textinput.md#carethidden)
+- [`clearButtonMode`](textinput.md#clearbuttonmode)
+- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
 - [`contextMenuHidden`](textinput.md#contextMenuHidden)
+- [`dataDetectorTypes`](textinput.md#datadetectortypes)
 - [`defaultValue`](textinput.md#defaultvalue)
+- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
 - [`editable`](textinput.md#editable)
+- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+- [`inlineImageLeft`](textinput.md#inlineimageleft)
+- [`inlineImagePadding`](textinput.md#inlineimagepadding)
+- [`keyboardAppearance`](textinput.md#keyboardappearance)
 - [`keyboardType`](textinput.md#keyboardtype)
-- [`maxHeight`](textinput.md#maxheight)
 - [`maxLength`](textinput.md#maxlength)
 - [`multiline`](textinput.md#multiline)
+- [`numberOfLines`](textinput.md#numberoflines)
 - [`onBlur`](textinput.md#onblur)
 - [`onChange`](textinput.md#onchange)
 - [`onChangeText`](textinput.md#onchangetext)
 - [`onContentSizeChange`](textinput.md#oncontentsizechange)
 - [`onEndEditing`](textinput.md#onendediting)
 - [`onFocus`](textinput.md#onfocus)
+- [`onKeyPress`](textinput.md#onkeypress)
 - [`onLayout`](textinput.md#onlayout)
 - [`onScroll`](textinput.md#onscroll)
 - [`onSelectionChange`](textinput.md#onselectionchange)
 - [`onSubmitEditing`](textinput.md#onsubmitediting)
 - [`placeholder`](textinput.md#placeholder)
-- [`autoCapitalize`](textinput.md#autocapitalize)
+- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+- [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
 - [`secureTextEntry`](textinput.md#securetextentry)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
 - [`selection`](textinput.md#selection)
 - [`selectionColor`](textinput.md#selectioncolor)
+- [`selectionState`](textinput.md#selectionstate)
+- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+- [`spellCheck`](textinput.md#spellcheck)
+- [`textContentType`](textinput.md#textcontenttype)
 - [`style`](textinput.md#style)
-- [`value`](textinput.md#value)
-- [`autoGrow`](textinput.md#autogrow)
-- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
-- [`inlineImageLeft`](textinput.md#inlineimageleft)
-- [`inlineImagePadding`](textinput.md#inlineimagepadding)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`textBreakStrategy`](textinput.md#textbreakstrategy)
 - [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`dataDetectorTypes`](textinput.md#datadetectortypes)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`selectionState`](textinput.md#selectionstate)
-- [`spellCheck`](textinput.md#spellcheck)
+- [`value`](textinput.md#value)
 
 ### Methods
 
-* [`isFocused`](textinput.md#isfocused)
 * [`clear`](textinput.md#clear)
+* [`isFocused`](textinput.md#isfocused)
 
 ---
 
 # Reference
 
 ## Props
-
-### `placeholderTextColor`
-
-The text color of the placeholder string.
-
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
-
----
 
 ### `allowFontScaling`
 
@@ -172,6 +161,21 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `autoCapitalize`
+
+Can tell `TextInput` to automatically capitalize certain characters.
+
+* `characters`: all characters.
+* `words`: first letter of each word.
+* `sentences`: first letter of each sentence (_default_).
+* `none`: don't auto capitalize anything.
+
+| Type                                             | Required |
+| ------------------------------------------------ | -------- |
+| enum('none', 'sentences', 'words', 'characters') | No       |
 
 ---
 
@@ -215,6 +219,26 @@ If `true`, caret is hidden. The default value is `false`.
 
 ---
 
+### `clearButtonMode`
+
+When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.
+
+| Type                                                       | Required | Platform |
+| ---------------------------------------------------------- | -------- | -------- |
+| enum('never', 'while-editing', 'unless-editing', 'always') | No       | iOS      |
+
+---
+
+### `clearTextOnFocus`
+
+If `true`, clears the text field automatically when editing begins.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
 ### `contextMenuHidden`
 
 If `true`, context menu is hidden. The default value is `false`.
@@ -222,6 +246,27 @@ If `true`, context menu is hidden. The default value is `false`.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `dataDetectorTypes`
+
+Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
+
+You can provide one type or an array of many types.
+
+Possible values for `dataDetectorTypes` are:
+
+* `'phoneNumber'`
+* `'link'`
+* `'address'`
+* `'calendarEvent'`
+* `'none'`
+* `'all'`
+
+| Type                                                                                                                                                     | Required | Platform |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | No       | iOS      |
 
 ---
 
@@ -235,6 +280,16 @@ Provides an initial value that will change when the user starts typing. Useful f
 
 ---
 
+### `disableFullscreenUI`
+
+When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `editable`
 
 If `false`, text is not editable. The default value is `true`.
@@ -245,6 +300,52 @@ If `false`, text is not editable. The default value is `true`.
 
 ---
 
+### `enablesReturnKeyAutomatically`
+
+If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
+### `inlineImageLeft`
+
+If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
+
+```
+<TextInput
+ inlineImageLeft='search_icon'
+/>
+```
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | Android  |
+
+---
+
+### `inlineImagePadding`
+
+Padding between the inline image, if any, and the text input itself.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+---
+
+### `keyboardAppearance`
+
+Determines the color of the keyboard.
+
+| Type                             | Required | Platform |
+| -------------------------------- | -------- | -------- |
+| enum('default', 'light', 'dark') | No       | iOS      |
+
+---
+
 ### `keyboardType`
 
 Determines which keyboard to open, e.g.`numeric`.
@@ -252,6 +353,8 @@ Determines which keyboard to open, e.g.`numeric`.
 The following values work across platforms:
 
 * `default`
+* `number-pad`
+* `decimal-pad`
 * `numeric`
 * `email-address`
 * `phone-pad`
@@ -263,9 +366,7 @@ The following values work on iOS only:
 * `ascii-capable`
 * `numbers-and-punctuation`
 * `url`
-* `number-pad`
 * `name-phone-pad`
-* `decimal-pad`
 * `twitter`
 * `web-search`
 
@@ -278,16 +379,6 @@ The following values work on Android only:
 | Type                                                                                                                                                                                                    | Required |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') | No       |
-
----
-
-### `maxHeight`
-
-If autogrow is `true`, limits the height that the TextInput box can grow to. Once it reaches this height, the TextInput becomes scrollable.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
 
 ---
 
@@ -308,6 +399,16 @@ If `true`, the text input can be multiple lines. The default value is `false`.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `numberOfLines`
+
+Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -373,6 +474,16 @@ Callback that is called when the text input is focused.
 
 ---
 
+### `onKeyPress`
+
+Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks. Note: on Android only the inputs from soft keyboard are handled, not the hardware keyboard inputs.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `onLayout`
 
 Invoked on mount and layout changes with `{x, y, width, height}`.
@@ -423,18 +534,23 @@ The string that will be rendered before text input has been entered.
 
 ---
 
-### `autoCapitalize`
+### `placeholderTextColor`
 
-Can tell `TextInput` to automatically capitalize certain characters.
+The text color of the placeholder string.
 
-* `characters`: all characters.
-* `words`: first letter of each word.
-* `sentences`: first letter of each sentence (_default_).
-* `none`: don't auto capitalize anything.
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
-| Type                                             | Required |
-| ------------------------------------------------ | -------- |
-| enum('none', 'sentences', 'words', 'characters') | No       |
+---
+
+### `returnKeyLabel`
+
+Sets the return key to the label. Use it instead of `returnKeyType`.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | Android  |
 
 ---
 
@@ -486,16 +602,6 @@ If `true`, the text input obscures the text entered so that sensitive text like 
 
 ---
 
-### `selectTextOnFocus`
-
-If `true`, all text will automatically be selected on focus.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
-
----
-
 ### `selection`
 
 The start and end of the text input's selection. Set start and end to the same value to position the cursor.
@@ -513,6 +619,87 @@ The highlight and cursor color of the text input.
 | Type               | Required |
 | ------------------ | -------- |
 | [color](colors.md) | No       |
+
+---
+
+### `selectionState`
+
+An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
+
+Some functionality that can be performed with this instance is:
+
+* `blur()`
+* `focus()`
+* `update()`
+
+> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
+
+| Type                   | Required | Platform |
+| ---------------------- | -------- | -------- |
+| DocumentSelectionState | No       | iOS      |
+
+---
+
+### `selectTextOnFocus`
+
+If `true`, all text will automatically be selected on focus.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `spellCheck`
+
+If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
+### `textContentType`
+
+Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
+
+For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
+
+To disable autofill, set `textContentType` to `none`.
+
+Possible values for `textContentType` are:
+
+* `none`
+* `URL`
+* `addressCity`
+* `addressCityAndState`
+* `addressState`
+* `countryName`
+* `creditCardNumber`
+* `emailAddress`
+* `familyName`
+* `fullStreetAddress`
+* `givenName`
+* `jobTitle`
+* `location`
+* `middleName`
+* `name`
+* `namePrefix`
+* `nameSuffix`
+* `nickname`
+* `organizationName`
+* `postalCode`
+* `streetAddressLine1`
+* `streetAddressLine2`
+* `sublocality`
+* `telephoneNumber`
+* `username`
+* `password`
+
+| Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
 
 ---
 
@@ -539,72 +726,6 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ---
 
-### `value`
-
-The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
-
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
-
----
-
-### `disableFullscreenUI`
-
-When `false`, if there is a small amount of space available around a text input (e.g. landscape orientation on a phone), the OS may choose to have the user edit the text inside of a full screen text input mode. When `true`, this feature is disabled and users will always edit the text directly inside of the text input. Defaults to `false`.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `inlineImageLeft`
-
-If defined, the provided image resource will be rendered on the left. The image resource must be inside `/android/app/src/main/res/drawable` and referenced like
-
-```
-<TextInput
- inlineImageLeft='search_icon'
-/>
-```
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | Android  |
-
----
-
-### `inlineImagePadding`
-
-Padding between the inline image, if any, and the text input itself.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
-
----
-
-### `numberOfLines`
-
-Sets the number of lines for a `TextInput`. Use it with multiline set to `true` to be able to fill the lines.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
-
----
-
-### `returnKeyLabel`
-
-Sets the return key to the label. Use it instead of `returnKeyType`.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | Android  |
-
----
-
 ### `textBreakStrategy`
 
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
@@ -625,115 +746,15 @@ The color of the `TextInput` underline.
 
 ---
 
-### `clearButtonMode`
+### `value`
 
-When the clear button should appear on the right side of the text view.
-This property is supported only for single-line TextInput component.
+The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
-| Type                                                       | Required | Platform |
-| ---------------------------------------------------------- | -------- | -------- |
-| enum('never', 'while-editing', 'unless-editing', 'always') | No       | iOS      |
-
----
-
-### `clearTextOnFocus`
-
-If `true`, clears the text field automatically when editing begins.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
-### `dataDetectorTypes`
-
-Determines the types of data converted to clickable URLs in the text input. Only valid if `multiline={true}` and `editable={false}`. By default no data types are detected.
-
-You can provide one type or an array of many types.
-
-Possible values for `dataDetectorTypes` are:
-
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
-
-| Type                                                                                                                                                     | Required | Platform |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | No       | iOS      |
-
----
-
-### `enablesReturnKeyAutomatically`
-
-If `true`, the keyboard disables the return key when there is no text and automatically enables it when there is text. The default value is `false`.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
-### `keyboardAppearance`
-
-Determines the color of the keyboard.
-
-| Type                             | Required | Platform |
-| -------------------------------- | -------- | -------- |
-| enum('default', 'light', 'dark') | No       | iOS      |
-
----
-
-### `onKeyPress`
-
-Callback that is called when a key is pressed. This will be called with `{ nativeEvent: { key: keyValue } }` where `keyValue` is `'Enter'` or `'Backspace'` for respective keys and the typed-in character otherwise including `' '` for space. Fires before `onChange` callbacks.
-
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
-
----
-
-### `selectionState`
-
-An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
-
-Some functionality that can be performed with this instance is:
-
-* `blur()`
-* `focus()`
-* `update()`
-
-> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
-
-| Type                   | Required | Platform |
-| ---------------------- | -------- | -------- |
-| DocumentSelectionState | No       | iOS      |
-
----
-
-### `spellCheck`
-
-If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ## Methods
-
-### `isFocused()`
-
-```javascript
-isFocused():
-```
-
-Returns `true` if the input is currently focused; `false` otherwise.
-
----
 
 ### `clear()`
 
@@ -742,3 +763,13 @@ clear();
 ```
 
 Removes all text from the `TextInput`.
+
+---
+
+### `isFocused()`
+
+```javascript
+isFocused():
+```
+
+Returns `true` if the input is currently focused; `false` otherwise.

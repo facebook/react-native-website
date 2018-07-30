@@ -253,7 +253,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 (data, index) => {length: number, offset: number, index: number}
 ```
 
-`getItemLayout` is an optional optimization that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient, and is easy to use if you have fixed height items, for example:
+`getItemLayout` is an optional optimization that let us skip the measurement of dynamic content if you know the height of items ahead of time. `getItemLayout` is both efficient and easy to use if you have fixed height items, for example:
 
 ```javascript
   getItemLayout={(data, index) => (
@@ -437,6 +437,54 @@ See `ViewabilityHelper.js` for flow type and further documentation.
 | Type              | Required |
 | ----------------- | -------- |
 | ViewabilityConfig | No       |
+
+`viewabilityConfig` takes a type `ViewabilityConfig` an object with following properties
+
+| Property                         | Required | Type    |
+| -------------------------------- | -------- | ------- |
+| minimumViewTime                  | No       | number  |
+| viewAreaCoveragePercentThreshold | No       | number  |
+| itemVisiblePercentThreshold      | No       | number  |
+| waitForInteraction               | No       | boolean |
+
+At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/facebook/react-native/issues/17408)):
+
+```
+  Error: Changing viewabilityConfig on the fly is not supported`
+```
+
+```javascript
+constructor (props) {
+  super(props)
+
+  this.viewabilityConfig = {
+      waitForInteraction: true,
+      viewAreaCoveragePercentThreshold: 95
+  }
+}
+```
+
+```javascript
+<FlatList
+    viewabilityConfig={this.viewabilityConfig}
+  ...
+```
+
+#### minimumViewTime
+
+Minimum amount of time (in milliseconds) that an item must be physically viewable before the viewability callback will be fired. A high number means that scrolling through content without stopping will not mark the content as viewable.
+
+#### viewAreaCoveragePercentThreshold
+
+Percent of viewport that must be covered for a partially occluded item to count as "viewable", 0-100. Fully visible items are always considered viewable. A value of 0 means that a single pixel in the viewport makes the item viewable, and a value of 100 means that an item must be either entirely visible or cover the entire viewport to count as viewable.
+
+#### itemVisiblePercentThreshold
+
+Similar to `viewAreaPercentThreshold`, but considers the percent of the item that is visible, rather than the fraction of the viewable area it covers.
+
+#### waitForInteraction
+
+Nothing is considered viewable until the user scrolls or `recordInteraction` is called after render.
 
 ---
 

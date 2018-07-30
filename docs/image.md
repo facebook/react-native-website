@@ -79,25 +79,17 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 ```
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  compile 'com.facebook.fresco:animated-base-support:1.3.0'
+  compile 'com.facebook.fresco:animated-base-support:1.9.0'
 
   // For animated GIF support
-  compile 'com.facebook.fresco:animated-gif:1.3.0'
+  compile 'com.facebook.fresco:animated-gif:1.9.0'
 
   // For WebP support, including animated WebP
-  compile 'com.facebook.fresco:animated-webp:1.3.0'
-  compile 'com.facebook.fresco:webpsupport:1.3.0'
+  compile 'com.facebook.fresco:animated-webp:1.9.0'
+  compile 'com.facebook.fresco:webpsupport:1.9.0'
 
   // For WebP support, without animations
-  compile 'com.facebook.fresco:webpsupport:1.3.0'
-}
-```
-
-Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-rules.pro` :
-
-```
--keep class com.facebook.imagepipeline.animated.factory.AnimatedFactoryImpl {
-  public AnimatedFactoryImpl(com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory, com.facebook.imagepipeline.core.ExecutorSupplier);
+  compile 'com.facebook.fresco:webpsupport:1.9.0'
 }
 ```
 
@@ -121,6 +113,7 @@ Also, if you use GIF with ProGuard, you will need to add this rule in `proguard-
 * [`defaultSource`](image.md#defaultsource)
 * [`onPartialLoad`](image.md#onpartialload)
 * [`onProgress`](image.md#onprogress)
+* [`fadeDuration`](image.md#fadeduration)
 
 ### Methods
 
@@ -253,7 +246,7 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 * `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-* `repeat`: Repeat the image to cover the frame of the view. The image will keep it's size and aspect ratio. (iOS only)
+* `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio, unless it is larger than the view, in which case it will be scaled down uniformly so that it is contained in the view.
 
 * `center`: Center the image in the view along both dimensions. If the image is larger than the view, scale it down uniformly so that it is contained in the view.
 
@@ -364,6 +357,8 @@ A static image to display while loading the image source.
 | Type           | Required | Platform |
 | -------------- | -------- | -------- |
 | object, number | No       | iOS      |
+| -------------- | -------- | -------- |
+| number         | No       | Android  |
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
@@ -374,6 +369,8 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 If passing a number:
 
 * `number` - Opaque type returned by something like `require('./image.jpg')`.
+
+**Android**: It works only on release builds, don't worry if it shows nothing on DEBUG builds
 
 ---
 
@@ -395,6 +392,14 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 | -------- | -------- | -------- |
 | function | No       | iOS      |
 
+### `fadeDuration`
+
+Android only. By default, it is 300ms.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
 ## Methods
 
 ### `getSize()`
@@ -415,7 +420,7 @@ Does not work for static image resources.
 | ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | uri     | string   | Yes      | The location of the image.                                                                           |
 | success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| failure | function | No       | The function that will be called if there was an error, such as failing to retrieve the image.       |
 
 ---
 

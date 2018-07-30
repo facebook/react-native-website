@@ -114,7 +114,7 @@ Step value of the slider. The value should be between 0 and (maximumValue - mini
 
 ### `maximumTrackTintColor`
 
-The color used for the track to the right of the button. Overrides the default blue gradient image on iOS.
+The color used for the track to the right of the button. Overrides the default gray gradient image on iOS.
 
 | Type               | Required |
 | ------------------ | -------- |

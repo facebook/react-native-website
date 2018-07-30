@@ -14,9 +14,9 @@ title: PermissionsAndroid
   </p>
 </div>
 
-`PermissionsAndroid` provides access to Android M's new permissions model. Some permissions are granted by default when the application is installed so long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
+`PermissionsAndroid` provides access to Android M's new permissions model. The so-called "normal" permissions are granted by default when the application is installed as long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
 
-On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` and `request` should always be true.
+On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` and `request` should always resolve to `PermissionsAndroid.RESULTS.GRANTED`.
 
 If a user has previously turned off a permission that you prompt for, the OS will advise your app to show a rationale for needing the permission. The optional `rationale` argument will show a dialog prompt only if necessary - otherwise the normal permission prompt will appear.
 
@@ -46,7 +46,9 @@ async function requestCameraPermission() {
 }
 ```
 
-#### Permissions that require prompting the user
+### Permissions that require prompting the user
+
+Available as constants under `PermissionsAndroid.PERMISSIONS`:
 
 * `READ_CALENDAR`: 'android.permission.READ_CALENDAR'
 * `WRITE_CALENDAR`: 'android.permission.WRITE_CALENDAR'
@@ -72,6 +74,14 @@ async function requestCameraPermission() {
 * `RECEIVE_MMS`: 'android.permission.RECEIVE_MMS'
 * `READ_EXTERNAL_STORAGE`: 'android.permission.READ_EXTERNAL_STORAGE'
 * `WRITE_EXTERNAL_STORAGE`: 'android.permission.WRITE_EXTERNAL_STORAGE'
+
+### Result strings for requesting permissions
+
+Available as constants under `PermissionsAndroid.RESULTS`:
+
+* `GRANTED`: 'granted'
+* `DENIED`: 'denied'
+* `NEVER_ASK_AGAIN`: 'never_ask_again'
 
 ### Methods
 
@@ -100,7 +110,7 @@ constructor();
 check(permission);
 ```
 
-Returns a promise resolving to a boolean value as to whether the specified permissions has been granted. Possible return values are `GRANTED`, `DENIED`, and `NEVER_ASK_AGAIN`.
+Returns a promise resolving to a boolean value as to whether the specified permissions has been granted.
 
 **Parameters:**
 
@@ -116,7 +126,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 request(permission, [rationale]);
 ```
 
-Prompts the user to enable a permission and returns a promise resolving to a string value indicating whether the user allowed or denied the request
+Prompts the user to enable a permission and returns a promise resolving to a string value (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
 
 If `rationale` is provided, this function checks with the OS whether it is necessary to show a dialog explaining why the permission is needed (https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog.
 
@@ -135,7 +145,7 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 requestMultiple(permissions);
 ```
 
-Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values indicating whether the user allowed or denied the request
+Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
 
 **Parameters:**
 

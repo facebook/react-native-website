@@ -18,7 +18,11 @@ This guide will use the [Toast](http://developer.android.com/reference/android/w
 
 We start by creating a native module. A native module is a Java class that usually extends the `ReactContextBaseJavaModule` class and implements the functionality required by the JavaScript. Our goal here is to be able to write `ToastExample.show('Awesome', ToastExample.SHORT);` from JavaScript to display a short toast on the screen.
 
+create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+
 ```java
+// ToastModule.java
+
 package com.facebook.react.modules.toast;
 
 import android.widget.Toast;
@@ -94,7 +98,11 @@ Read more about [ReadableMap](https://github.com/facebook/react-native/blob/mast
 
 The last step within Java is to register the Module; this happens in the `createNativeModules` of your apps package. If a module is not registered it will not be available from JavaScript.
 
+create a new Java Class named `CustomToastPackage.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+
 ```java
+// CustomToastPackage.java
+
 package com.facebook.react.modules.toast;
 
 import com.facebook.react.ReactPackage;
@@ -106,7 +114,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AnExampleReactPackage implements ReactPackage {
+public class CustomToastPackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -132,13 +140,13 @@ The package needs to be provided in the `getPackages` method of the `MainApplica
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new AnExampleReactPackage()); // <-- Add this line with your package name.
+            new CustomToastPackage()); // <-- Add this line with your package name.
 }
 ```
 
 To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
 
-```js
+```javascript
 /**
  * This exposes the native ToastExample module as a JS module. This has a
  * function 'show' which takes the following parameters:
@@ -153,7 +161,7 @@ module.exports = NativeModules.ToastExample;
 
 Now, from your other JavaScript file you can call the method like this:
 
-```js
+```javascript
 import ToastExample from './ToastExample';
 
 ToastExample.show('Awesome', ToastExample.SHORT);
@@ -166,6 +174,8 @@ ToastExample.show('Awesome', ToastExample.SHORT);
 Native modules also support a special kind of argument - a callback. In most cases it is used to provide the function call result to JavaScript.
 
 ```java
+import com.facebook.react.bridge.Callback;
+
 public class UIManagerModule extends ReactContextBaseJavaModule {
 
 ...
@@ -193,7 +203,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 This method would be accessed in JavaScript using:
 
-```js
+```javascript
 UIManager.measureLayout(
   100,
   100,
@@ -249,7 +259,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```js
+```javascript
 async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
@@ -291,7 +301,7 @@ sendEvent(reactContext, "keyboardWillShow", params);
 
 JavaScript modules can then register to receive events by `addListenerOn` using the `Subscribable` mixin.
 
-```js
+```javascript
 import { DeviceEventEmitter } from 'react-native';
 ...
 
@@ -314,7 +324,7 @@ var ScrollResponderMixin = {
 
 You can also directly use the `DeviceEventEmitter` module to listen for events.
 
-```js
+```javascript
 ...
 componentWillMount: function() {
   DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {

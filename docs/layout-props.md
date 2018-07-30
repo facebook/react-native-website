@@ -5,8 +5,8 @@ title: Layout Props
 
 ### Props
 
-* [`marginHorizontal`](layout-props.md#marginhorizontal)
 * [`alignContent`](layout-props.md#aligncontent)
+* [`alignItems`](layout-props.md#alignitems)
 * [`alignSelf`](layout-props.md#alignself)
 * [`aspectRatio`](layout-props.md#aspectratio)
 * [`borderBottomWidth`](layout-props.md#borderbottomwidth)
@@ -32,7 +32,7 @@ title: Layout Props
 * [`margin`](layout-props.md#margin)
 * [`marginBottom`](layout-props.md#marginbottom)
 * [`marginEnd`](layout-props.md#marginend)
-* [`alignItems`](layout-props.md#alignitems)
+* [`marginHorizontal`](layout-props.md#marginhorizontal)
 * [`marginLeft`](layout-props.md#marginleft)
 * [`marginRight`](layout-props.md#marginright)
 * [`marginStart`](layout-props.md#marginstart)
@@ -65,16 +65,6 @@ title: Layout Props
 
 ## Props
 
-### `marginHorizontal`
-
-Setting `marginHorizontal` has the same effect as setting both `marginLeft` and `marginRight`.
-
-| Type            | Required |
-| --------------- | -------- |
-| number, ,string | No       |
-
----
-
 ### `alignContent`
 
 `alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. See https://developer.mozilla.org/en-US/docs/Web/CSS/align-content for more details.
@@ -82,6 +72,16 @@ Setting `marginHorizontal` has the same effect as setting both `marginLeft` and 
 | Type                                                                                 | Required |
 | ------------------------------------------------------------------------------------ | -------- |
 | enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around') | No       |
+
+---
+
+### `alignItems`
+
+`alignItems` aligns children in the cross direction. For example, if children are flowing vertically, `alignItems` controls how they align horizontally. It works like `align-items` in CSS (default: stretch). See https://developer.mozilla.org/en-US/docs/Web/CSS/align-items for more details.
+
+| Type                                                            | Required |
+| --------------------------------------------------------------- | -------- |
+| enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | No       |
 
 ---
 
@@ -283,7 +283,7 @@ flexGrow, flexShrink, and flexBasis work the same as in CSS.
 
 ### `flexWrap`
 
-`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). See https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap for more details.
+`flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). See https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap for more details. Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
 
 | Type                   | Required |
 | ---------------------- | -------- |
@@ -357,13 +357,13 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 ---
 
-### `alignItems`
+### `marginHorizontal`
 
-`alignItems` aligns children in the cross direction. For example, if children are flowing vertically, `alignItems` controls how they align horizontally. It works like `align-items` in CSS (default: stretch). See https://developer.mozilla.org/en-US/docs/Web/CSS/align-items for more details.
+Setting `marginHorizontal` has the same effect as setting both `marginLeft` and `marginRight`.
 
-| Type                                                            | Required |
-| --------------------------------------------------------------- | -------- |
-| enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | No       |
+| Type            | Required |
+| --------------- | -------- |
+| number, ,string | No       |
 
 ---
 
@@ -646,6 +646,8 @@ It works similarly to `width` in CSS, but in React Native you must use points or
 `zIndex` controls which components display on top of others. Normally, you don't use `zIndex`. Components render according to their order in the document tree, so later components draw over earlier ones. `zIndex` may be useful if you have animations or custom modal interfaces where you don't want this behavior.
 
 It works like the CSS `z-index` property - components with a larger `zIndex` will render on top. Think of the z-direction like it's pointing from the phone into your eyeball. See https://developer.mozilla.org/en-US/docs/Web/CSS/z-index for more details.
+
+On iOS, `zIndex` may require `View`s to be siblings of each other for it to work as expected.
 
 | Type   | Required |
 | ------ | -------- |

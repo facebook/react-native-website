@@ -41,10 +41,10 @@ You can use this component to navigate back and forth in the web view's history 
 - [`onLoadStart`](webview.md#onloadstart)
 - [`onMessage`](webview.md#onmessage)
 - [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+- [`originWhitelist`](webview.md#originwhitelist)
 - [`renderError`](webview.md#rendererror)
 - [`renderLoading`](webview.md#renderloading)
 - [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`initialScale`](webview.md#initialScale)
 - [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
 - [`startInLoadingState`](webview.md#startinloadingstate)
 - [`style`](webview.md#style)
@@ -59,12 +59,18 @@ You can use this component to navigate back and forth in the web view's history 
 - [`contentInset`](webview.md#contentinset)
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`scrollEnabled`](webview.md#scrollenabled)
+- [`geolocationEnabled`](webview.md#geolocationenabled)
+- [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`url`](webview.md#url)
 - [`html`](webview.md#html)
 
 ### Methods
 
 * [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
+* [`goForward`](webview.md#goforward)
+* [`goBack`](webview.md#goback)
+* [`reload`](webview.md#reload)
+* [`stopLoading`](webview.md#stoploading)
 
 ---
 
@@ -194,6 +200,16 @@ Function that is invoked when the `WebView` loading starts or ends.
 
 ---
 
+### `originWhitelist`
+
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://*" and "https://*".
+
+| Type             | Required |
+| ---------------- | -------- |
+| array of strings | No       |
+
+---
+
 ### `renderError`
 
 Function that returns a view to show if there's an error.
@@ -206,7 +222,7 @@ Function that returns a view to show if there's an error.
 
 ### `renderLoading`
 
-Function that returns a loading indicator.
+Function that returns a loading indicator. The startInLoadingState prop must be set to true in order to use this prop.
 
 | Type     | Required |
 | -------- | -------- |
@@ -224,16 +240,6 @@ Boolean that controls whether the web content is scaled to fit the view and enab
 
 ---
 
-### `initialScale`
-
-Number that controls whether the initial scale percentage of the view. 50 is 50%, 100 is 100%, etc. Used only in Android.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
-
----
-
 ### `onShouldStartLoadWithRequest`
 
 Function that allows custom handling of any web view requests. Return `true` from the function to continue loading the request and `false` to stop loading.
@@ -246,7 +252,7 @@ Function that allows custom handling of any web view requests. Return `true` fro
 
 ### `startInLoadingState`
 
-Boolean value that forces the `WebView` to show the loading view on the first load.
+Boolean value that forces the `WebView` to show the loading view on the first load. This prop must be set to `true` in order for the `renderLoading` prop to work.
 
 | Type | Required |
 | ---- | -------- |
@@ -396,6 +402,26 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 
 ---
 
+### `geolocationEnabled`
+
+Set whether Geolocation is enabled in the `WebView`. The default value is `false`. Used only in Android.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `allowUniversalAccessFromFileURLs`
+
+Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `url`
 
 **Deprecated.** Use the `source` prop instead.
@@ -421,3 +447,35 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 ```javascript
 static extraNativeComponentConfig()
 ```
+
+### `goForward()`
+
+```javascript
+goForward();
+```
+
+Go forward one page in the web view's history.
+
+### `goBack()`
+
+```javascript
+goBack();
+```
+
+Go back one page in the web view's history.
+
+### `reload()`
+
+```javascript
+reload();
+```
+
+Reloads the current page.
+
+### `stopLoading()`
+
+```javascript
+stopLoading();
+```
+
+Stop loading the current page.

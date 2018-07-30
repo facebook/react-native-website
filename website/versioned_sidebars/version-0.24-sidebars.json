@@ -49,11 +49,12 @@
       "version-0.24-native-components-android",
       "version-0.24-headless-js-android",
       "version-0.24-signed-apk-android",
-      "version-0.24-android-building-from-source"
+      "version-0.24-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.24-contributing",
       "version-0.24-maintainers",
+      "version-0.24-building-from-source",
       "version-0.24-testing",
       "version-0.24-understanding-cli"
     ],
@@ -62,6 +63,7 @@
       "version-0.24-drawerlayoutandroid",
       "version-0.24-image",
       "version-0.24-modal",
+      "version-0.24-navigator",
       "version-0.24-navigatorios",
       "version-0.24-picker",
       "version-0.24-progressbarandroid",

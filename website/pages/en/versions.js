@@ -1,10 +1,8 @@
 /**
  * Copyright (c) 2017-present, Facebook, Inc.
- * All rights reserved.
  *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 const React = require("react");
@@ -23,8 +21,9 @@ class VersionItem extends React.Component {
 
     const isCurrentVersion = this.props.currentVersion === version;
     const isNext = version === "next";
-    const isRC = version.indexOf("-RC") !== -1;
+    const isRC = version.toUpperCase().indexOf("-RC") !== -1;
 
+    const latestMajorVersion = versions[0].toUpperCase().replace("-RC", "");
     const documentationLink = (
       <a
         href={
@@ -37,18 +36,16 @@ class VersionItem extends React.Component {
         Documentation
       </a>
     );
-    const releaseNotesLink = isNext ? null : (
-      <a
-        href={
-          "https://github.com/facebook/react-native/releases/tag/v" +
-          version.replace("-RC", "") +
-          ".0" +
-          (isRC ? "-rc.0" : "")
-        }
-      >
-        Release Notes
-      </a>
-    );
+    let releaseNotesURL = "https://github.com/facebook/react-native/releases";
+    let releaseNotesTitle = "Changelog";
+    if (isNext) {
+      releaseNotesURL = `https://github.com/facebook/react-native/compare/${latestMajorVersion}-stable...master`;
+      releaseNotesTitle = "Commits since " + latestMajorVersion;
+    } else if (!isRC) {
+      releaseNotesURL = `https://github.com/facebook/react-native/releases/tag/v${version}.0`;
+    }
+
+    const releaseNotesLink = <a href={releaseNotesURL}>{releaseNotesTitle}</a>;
 
     return (
       <tr>
@@ -75,15 +72,26 @@ class Versions extends React.Component {
         <Container className="mainContainer documentContainer postContainer">
           <h1>React Native Versions</h1>
           <p>
-            Open source React Native releases follow a monthly release train. At
-            the beginning of each month, a new release candidate is created off
-            the master branch on GitHub. The release candidate will soak for a
-            month to allow contributors like yourself to{" "}
+            Open source React Native releases follow a monthly release train
+            that is coordinated on GitHub through the
+            <a
+              href={
+                "https://github.com/react-native-community/react-native-releases"
+              }
+            >
+              <code>react-native-releases</code>
+            </a>{" "}
+            repository. At the beginning of each month, a new release candidate
+            is created off the master branch of{" "}
+            <a href={"https://github.com/facebook/react-native"}>
+              <code>facebook/react-native</code>
+            </a>. The release candidate will soak for a month to allow
+            contributors like yourself to{" "}
             <a href={siteConfig.baseUrl + "docs/upgrading.html"}>
               verify the changes
             </a>{" "}
             and to identify any issues by{" "}
-            <a href="github.com/facebook/react-native/issues">
+            <a href="https://github.com/facebook/react-native/issues">
               writing clear, actionable bug reports
             </a>. Eventually, the release candidate will be promoted to stable.
           </p>
@@ -93,7 +101,7 @@ class Versions extends React.Component {
             Native contributors, use the latest release candidate when possible.
             Changes introduced in a release candidate will have been shipped to
             production Facebook apps for over two weeks by the time the release
-            is cut.
+            candidate is cut.
           </p>
           <table className="versions">
             <tbody>

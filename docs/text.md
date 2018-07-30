@@ -179,9 +179,11 @@ Assuming that `MyAppText` is a component that simply renders out its children in
 ```javascript
 class MyAppHeaderText extends Component {
   render() {
-    <MyAppText>
-      <Text style={{fontSize: 20}}>{this.props.children}</Text>
-    </MyAppText>;
+    return (
+      <MyAppText>
+        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+      </MyAppText>
+    );
   }
 }
 ```
@@ -286,8 +288,6 @@ This can be one of the following values:
 * `clip` - Lines are not drawn past the edge of the text container.
 
 The default is `tail`.
-
-> `clip` is working only for iOS
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -415,11 +415,19 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 - **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
 
-- **`letterSpacing`**: number (_iOS_)
+- **`letterSpacing`**: number
+
+  Increase or decrease the spacing between characters. The default is 0, for no extra letter spacing.
+
+  iOS: The additional space will be rendered after each glyph.
+
+  Android: Only supported since Android 5.0 - older versions will ignore this attribute. Please note that additional space will be added _around_ the glyphs (half on each side), which differs from the iOS rendering. It is possible to emulate the iOS rendering by using layout attributes, e.g. negative margins, as appropriate for your situation.
 
 - **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
 - **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+
+- **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize') (_iOS_)
 
 - **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 

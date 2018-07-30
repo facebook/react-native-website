@@ -10,6 +10,10 @@ We designed React Native such that it is possible for you to write real native c
 
 This is a more advanced guide that shows how to build a native module. It assumes the reader knows Objective-C or Swift and core libraries (Foundation, UIKit).
 
+## Native Module Setup
+
+Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.html) guide first.
+
 ## iOS Calendar Module Example
 
 This guide will use the [iOS Calendar API](https://developer.apple.com/library/mac/documentation/DataManagement/Conceptual/EventKitProgGuide/Introduction/Introduction.html) example. Let's say we would like to be able to access the iOS calendar from JavaScript.
@@ -28,6 +32,8 @@ In addition to implementing the `RCTBridgeModule` protocol, your class must also
 
 ```objectivec
 // CalendarManager.m
+#import "CalendarManager.h"
+
 @implementation CalendarManager
 
 // To export a module named CalendarManager
@@ -213,7 +219,7 @@ RCT_REMAP_METHOD(findEvents,
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```js
+```javascript
 async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
@@ -445,7 +451,8 @@ class CalendarManager: NSObject {
     // Date is ready to use!
   }
 
-  func constantsToExport() -> [AnyHashable: Any]! {
+  @objc
+  func constantsToExport() -> [String: Any]! {
     return ["someKey": "someValue"]
   }
 

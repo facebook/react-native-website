@@ -16,7 +16,7 @@ class RefreshableList extends Component {
     };
   }
 
-  _onRefresh() {
+  _onRefresh = () => {
     this.setState({refreshing: true});
     fetchData().then(() => {
       this.setState({refreshing: false});
@@ -25,17 +25,15 @@ class RefreshableList extends Component {
 
   render() {
     return (
-      <ListView
+      <ScrollView
         refreshControl={
           <RefreshControl
             refreshing={this.state.refreshing}
-            onRefresh={this._onRefresh.bind(this)}
+            onRefresh={this._onRefresh}
           />
         }
         ...
-      >
-      ...
-      </ListView>
+      />
     );
   }
   ...

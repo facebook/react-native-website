@@ -11,27 +11,37 @@ On iOS, `AsyncStorage` is backed by native code that stores small values in a se
 
 The `AsyncStorage` JavaScript code is a simple facade that provides a clear JavaScript API, real `Error` objects, and simple non-multi functions. Each method in the API returns a `Promise` object.
 
+Importing the `AsyncStorage` library:
+
+```
+import { AsyncStorage } from "react-native"
+```
+
 Persisting data:
 
 ```
-try {
-  await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
-} catch (error) {
-  // Error saving data
+_storeData = async () => {
+  try {
+    await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+  } catch (error) {
+    // Error saving data
+  }
 }
 ```
 
 Fetching data:
 
 ```
-try {
-  const value = await AsyncStorage.getItem('@MySuperStore:key');
-  if (value !== null){
-    // We have data!!
-    console.log(value);
-  }
-} catch (error) {
-  // Error retrieving data
+_retrieveData = async () => {
+  try {
+    const value = await AsyncStorage.getItem('TASKS');
+    if (value !== null) {
+      // We have data!!
+      console.log(value);
+    }
+   } catch (error) {
+     // Error retrieving data
+   }
 }
 ```
 

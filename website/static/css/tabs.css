@@ -1,3 +1,6 @@
+.toggler {
+  margin-bottom: 1em;
+}
 .toggler li {
   display: inline-block;
   position: relative;
@@ -48,4 +51,3 @@
   text-decoration: none !important;
   color: $secondaryColor;
 }
-
