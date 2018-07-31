@@ -76,6 +76,7 @@
     "native-components-ios": "Native UI Components",
     "native-modules-android": "Native Modules",
     "native-modules-ios": "Native Modules",
+    "native-modules-setup": "Native Modules Setup",
     "navigation": "Navigating Between Screens",
     "navigator": "Navigator (Legacy Custom Component)",
     "navigatorios": "NavigatorIOS",
