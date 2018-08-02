@@ -670,6 +670,8 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 }
 ```
 
+<block class="kotlin" />
+
 ```kotlin
 private const val OVERLAY_PERMISSION_REQ_CODE = 1  // Choose any value
 
