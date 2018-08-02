@@ -29,8 +29,8 @@ React Native 在 iOS 模拟器上支持一些快捷键操作，具体会在下�
 
 但有些时候你必须要重新编译应用才能使修改生效：
 
-* 增加了新的资源(比如给 iOS 的`Images.xcassets`或是 Andorid 的`res/drawable`文件夹添加了图片)
-* 更改了任何的原生代码（objective-c/swift/java）
+- 增加了新的资源(比如给 iOS 的`Images.xcassets`或是 Andorid 的`res/drawable`文件夹添加了图片)
+- 更改了任何的原生代码（objective-c/swift/java）
 
 ## 应用内的错误与警告提示（红屏和黄屏）
 
@@ -62,7 +62,7 @@ YellowBox.ignoreWarnings(["Warning: ..."]);
 
 ## Chrome 开发者工具
 
-在开发者菜单中选择"Debug JS Remotely"选项，即可以开始在 Chrome 中调试 JavaScript 代码。点击这个选项的同时会自动打开调试页面 <http://localhost:8081/debugger-ui>.
+在开发者菜单中选择"Debug JS Remotely"选项，即可以开始在 Chrome 中调试 JavaScript 代码。点击这个选项的同时会自动打开调试页面 <http://localhost:8081/debugger-ui>.(如果地址栏打开的是 ip 地址，则请自行改为 localhost)
 
 在 Chrome 的菜单中选择`Tools → Developer Tools`可以打开开发者工具，也可以通过键盘快捷键来打开（Mac 上是**`Command`**`⌘` + **`Option`**`⌥` + **`I`**，Windows 上是**`Ctrl`** + **`Shift`** + **`I`**或是 F12）。打开[有异常时暂停（Pause On Caught Exceptions）](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)选项，能够获得更好的开发体验。
 

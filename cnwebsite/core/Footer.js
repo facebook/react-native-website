@@ -128,11 +128,12 @@ class Footer extends React.Component {
           dangerouslySetInnerHTML={{
             __html: `
         (function(){
-          const c = document.createElement("div");
+          var c = document.createElement("div");
           c.setAttribute("id", "lv-container");
           c.setAttribute("data-id", "city");
           c.setAttribute("data-uid", "MTAyMC8zODM4NS8xNDkxMw==");
-          document.querySelector(".mainContainer").appendChild(c);
+          var container = document.querySelector(".mainContainer")
+          container && container.appendChild(c);
         })()
         `
           }}

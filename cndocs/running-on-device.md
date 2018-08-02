@@ -111,13 +111,13 @@ A Mac is required in order to build your app for iOS devices. Alternatively, you
 
 <block class="mac ios" />
 
-### 1. Plug in your device via USB
+### 1. 通过 USB 数据线连接设备
 
 Connect your iOS device to your Mac using a USB to Lightning cable. Navigate to the `ios` folder in your project, then open the `.xcodeproj` file, or if you are using CocoaPods open `.xcworkspace`, within it using Xcode.
 
 If this is your first time running an app on your iOS device, you may need to register your device for development. Open the **Product** menu from Xcode's menubar, then go to **Destination**. Look for and select your device from the list. Xcode will then register your device for development.
 
-### 2. Configure code signing
+### 2. 配置代码签名
 
 Register for an [Apple developer account](https://developer.apple.com/) if you don't have one yet.
 
@@ -127,7 +127,7 @@ Select your project in the Xcode Project Navigator, then select your main target
 
 Repeat this step for the Tests target in your project.
 
-### 3. Build and Run your app
+### 3. 编译并运行应用
 
 If everything is set up correctly, your device will be listed as the build target in the Xcode toolbar, and it will also appear in the Devices pane (`⇧⌘2`). You can now press the **Build and run** button (`⌘R`) or select **Run** from the **Product** menu. Your app will launch on your device shortly.
 
@@ -137,13 +137,15 @@ If everything is set up correctly, your device will be listed as the build targe
 
 <block class="mac windows linux android" />
 
+> 下文所指的设备包括 Android 手机和模拟器。
+
 ### 1. 开启 USB 调试
 
-Most Android devices can only install and run apps downloaded from Google Play, by default. 你需要开启 USB 调试才能在你的设备上安装你的开发版本的 APP。
+在默认情况下 Android 设备只能从应用市场来安装应用。你需要开启 USB 调试才能自由安装开发版本的 APP。
 
 首先，确定[你已经打开设备的 USB 调试开关](https://www.baidu.com/s?wd=打开usb调试)。
 
-### 2. 通过 USB 数据线连接你的设备
+### 2. 通过 USB 数据线连接设备
 
 Let's now set up an Android device to run our React Native projects. Go ahead and plug in your device via USB to your development machine.
 
@@ -229,7 +231,7 @@ emulator-5554 offline   # Google emulator
 
 ![](assets/DeveloperMenu.png)
 
-### Troubleshooting
+### 常见问题
 
 > If you have any issues, ensure that your Mac and device are on the same network and can reach each other. Many open wireless networks with captive portals are configured to prevent devices from reaching other devices on the network. You may use your device's Personal Hotspot feature in this case.
 
@@ -272,7 +274,9 @@ To still use xip.io behind your router:
 
 ## 从设备上访问开发服务器
 
-在启用开发服务器的情况下，你可以快速的迭代修改应用，然后在设备上立即查看结果。按照下面描述的任意一种方法来使你的设备可以访问到运行在电脑上的开发服务器。
+在启用开发服务器（官方名称metro，但我们更常称之为Packager）的情况下，你可以快速的迭代修改应用，然后在设备上立即查看结果。按照下面描述的任意一种方法来使你的设备可以访问到运行在电脑上的开发服务器。
+
+> 译注：默认情况下模拟器可以自动探测宿主机 ip 并连接，只有 Android 5.0 以下版本的手机需要按下文说明来手动操作。但某些情形下可能也无法正常连接，请注意去[论坛的求助专区](http://bbs.reactnative.cn/category/4/)查看是否有人遭遇同类型的问题（不同时期不同版本可能是不同的问题）。有些文章会提到`react-native bundle`命令，这个命令会把 js 文件打包内置到应用中，从而不需要连接Packager，但这`并没有解决问题`。我们在开发中必须使用到Packager，否则无法刷新代码。
 
 ### (Android 5.0 及以上)使用 adb reverse 命令
 
