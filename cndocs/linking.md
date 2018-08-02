@@ -4,13 +4,9 @@ title: Linking
 ---
 
 <div class="banner-crna-ejected">
-  <h3>Projects with Native Code Only</h3>
+  <h3>仅用在原生代码的项目</h3>
   <p>
-    This section only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    本节仅适用于使用 <code>react-native init</code> 或使用 Create React Native App 创建的项目，这些项目已经弹出。 有关"弹出"的详细信息，请参阅 Create React Native App 代码库中的<a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">指南</a>。
   </p>
 </div>
 
@@ -68,7 +64,7 @@ componentDidMount() {
 }
 ```
 
-If your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html), you'll need to add the following code as well:
+如果你的 app 用了 [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html)，需要正确的把下述代码添加进去：
 
 ```
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
@@ -189,7 +185,7 @@ canOpenURL(url);
 
 判断设备上是否有已经安装的应用可以处理指定的 URL。
 
-本方法会返回一个`Promise`对象。When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
+本方法会返回一个`Promise`对象。当确定传入的 URL 可以被处理时，promise 就会返回，值的第一个参数是表示是否可以打开 URL。
 
 **参数：**
 
