@@ -763,7 +763,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
 <block class="kotlin" />
 
 ```kotlin
-public class MyReactActivity: Activity(), DefaultHardwareBackBtnHandler {
+class MyReactActivity: Activity(), DefaultHardwareBackBtnHandler {
     private lateinit var reactRootView: ReactRootView
     private lateinit var reactInstanceManager: ReactInstanceManager
 
