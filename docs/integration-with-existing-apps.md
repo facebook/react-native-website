@@ -787,7 +787,7 @@ class MyReactActivity: Activity(), DefaultHardwareBackBtnHandler {
     }
 
     override fun invokeDefaultOnBackPressed() {
-        super.onBackPressed();
+        super.onBackPressed()
     }
 }
 ```
