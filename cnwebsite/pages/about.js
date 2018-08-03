@@ -1,4 +1,4 @@
-const React = require("React");
+const React = require("react");
 const CompLibrary = require("../core/CompLibrary.js");
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 
