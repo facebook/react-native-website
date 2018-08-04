@@ -446,8 +446,9 @@ const config = {
   getTransformOptions: () => {
     const moduleMap = {};
     modulePaths.forEach(path => {
+      path = resolve(ROOT_FOLDER, path);
       if (fs.existsSync(path)) {
-        moduleMap[resolve(ROOT_FOLDER, path)] = true;
+        moduleMap[path] = true;
       }
     });
     return {
