@@ -414,7 +414,7 @@ console.log(
   waitingModuleNames.length
 );
 
-// grab this text blob, and put it in a file named packager/moduleNames.js
+// grab this text blob, and put it in a file named packager/modulePaths.js
 console.log(`module.exports = ${JSON.stringify(loadedModuleNames.sort())};`);
 ```
 
@@ -428,64 +428,7 @@ require.Systrace.beginEvent = (message) => {
 }
 ```
 
-Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisified, put the output of the loadedModuleNames into a file named packager/moduleNames.js.
-
-### Transforming to Module Paths
-
-The loaded module names get us part of the way there, but we actually need absolute module paths, so the next script will set that up. Add `packager/generateModulePaths.js` to your project with the following:
-
-```
-// @flow
-/* eslint-disable no-console */
-const execSync = require('child_process').execSync;
-const fs = require('fs');
-const moduleNames = require('./moduleNames');
-
-const pjson = require('../package.json');
-const localPrefix = `${pjson.name}/`;
-
-const modulePaths = moduleNames.map(moduleName => {
-  if (moduleName.startsWith(localPrefix)) {
-    return `./${moduleName.substring(localPrefix.length)}`;
-  }
-  if (moduleName.endsWith('.js')) {
-    return `./node_modules/${moduleName}`;
-  }
-  try {
-    const result = execSync(
-      `grep "@providesModule ${moduleName}" $(find . -name ${moduleName}\\\\.js) -l`
-    )
-      .toString()
-      .trim()
-      .split('\n')[0];
-    if (result != null) {
-      return result;
-    }
-  } catch (e) {
-    return null;
-  }
-  return null;
-});
-
-const paths = modulePaths
-  .filter(path => path != null)
-  .map(path => `'${path}'`)
-  .join(',\n');
-
-const fileData = `module.exports = [${paths}];`;
-
-fs.writeFile('./packager/modulePaths.js', fileData, err => {
-  if (err) {
-    console.log(err);
-  }
-
-  console.log('Done');
-});
-```
-
-You can run via `node packager/generateModulePaths.js`.
-
-This script attempts to map from the module names to module paths. Its not foolproof though, for instance, it ignores platform specific files (\*ios.js, and \*.android.js). However based on initial testing, it handles 95% of cases. When it runs, after some time it should complete and output a file named `packager/modulePaths.js`. It should contain paths to module files that are relative to your projects root. You can commit modulePaths.js to your repo so it is transportable.
+Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisified, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
 
 ### Updating the config.js
 
@@ -496,12 +439,16 @@ const modulePaths = require('./modulePaths');
 const resolve = require('path').resolve;
 const fs = require('fs');
 
+// Update the following line if the root folder of your app is somewhere else.
+const ROOT_FOLDER = path.resolve(__dirname, '..');
+
 const config = {
   getTransformOptions: () => {
     const moduleMap = {};
     modulePaths.forEach(path => {
+      path = resolve(ROOT_FOLDER, path);
       if (fs.existsSync(path)) {
-        moduleMap[resolve(path)] = true;
+        moduleMap[path] = true;
       }
     });
     return {
