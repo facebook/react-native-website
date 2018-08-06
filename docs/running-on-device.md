@@ -352,10 +352,14 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 During the development process, React Native has loaded your JavaScript code dynamically at runtime. For a production build, you want to pre-package the JavaScript bundle and distribute it inside your application. Doing this requires a code change in your code so that it knows to load the static bundle.
 
-In `AppDelegate.m`, change the default `jsCodeLocation` to point to the static bundle that is built in Release.
+In `AppDelegate.m`, change `jsCodeLocation` to point to the static bundle if you're not in debug mode.
 
 ```objc
+#ifdef DEBUG
+   jsCodeLocation = // Your Static Location
+#else
   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
 ```
 
 This will now reference the `main.jsbundle` resource file that is created during the `Bundle React Native code and images` Build Phase in Xcode.
