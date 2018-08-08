@@ -47,7 +47,7 @@ To use, set the `accessibilityLabel` property to a custom string on your View, T
 
 In the above example, the `accessibilityLabel` on the TouchableOpacity element would default to "Press me!". The label is constructed by concatenating all Text node children separated by spaces.
 
-#### accessibilityHint (iOS)
+#### accessibilityHint (iOS, Android)
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
 
@@ -64,8 +64,11 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
   </View>
 </TouchableOpacity>
 ```
-
+iOS
 In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
+
+Android
+In the above example, Talkback will read the hint after the label. At this time, hints cannot be turned off on Android.
 
 #### accessibilityRole (iOS, Android)
 
