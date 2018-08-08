@@ -80,6 +80,7 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 * [`accessibilityTraits`](view.md#accessibilitytraits)
 * [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
 * [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
+* [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
 * [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
@@ -555,6 +556,18 @@ See the [Accessibility guide](accessibility.md#accessibilityviewismodal-ios) for
 A value indicating whether the accessibility elements contained within this accessibility element are hidden. Default is `false`.
 
 See the [Accessibility guide](accessibility.md#accessibilityelementshidden-ios) for more information.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
+### `accessibilityIgnoresInvertColors`
+
+A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
+
+See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
