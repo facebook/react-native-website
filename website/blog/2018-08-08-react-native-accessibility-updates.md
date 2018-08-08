@@ -1,13 +1,10 @@
-
 ---
-
-title: Accessibility API Updates
-author: Ziqi Chen
-authorTitle: Student at UC Berkeley
-authorURL: https://ziqichen.com/
-authorImage: https://avatars2.githubusercontent.com/u/13990087?s=400&u=5841da1b6064341d52ecab70a586b6701d9f6978&v=4
-category: engineering
-    
+title: Accessibility API Updates 
+author: Ziqi Chen 
+authorTitle: Student at UC Berkeley 
+authorURL: https://ziqichen.com/ 
+authorImage: https://avatars2.githubusercontent.com/u/13990087?s=400&u=5841da1b6064341d52ecab70a586b6701d9f6978&v=4 
+category: engineering 
 ---
 
 ## Motivation
