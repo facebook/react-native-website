@@ -70,6 +70,10 @@ In the above example, VoiceOver will read the hint after the label, if the user 
 Android
 In the above example, Talkback will read the hint after the label. At this time, hints cannot be turned off on Android.
 
+### accessibilityIgnoresInvertColors(iOS)
+Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision. 
+However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be false so that these specific views won't have their colors inverted. 
+
 #### accessibilityRole (iOS, Android)
 
 > **Note:** Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
