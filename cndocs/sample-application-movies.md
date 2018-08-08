@@ -437,12 +437,12 @@ export default class SampleAppMovies extends Component {
     return (
       <View style={styles.container}>
         <Image
-          source={{ uri: movie.posters.thumbnail }}
+          source={{ uri: item.posters.thumbnail }}
           style={styles.thumbnail}
         />
         <View style={styles.rightContainer}>
-          <Text style={styles.title}>{movie.title}</Text>
-          <Text style={styles.year}>{movie.year}</Text>
+          <Text style={styles.title}>{item.title}</Text>
+          <Text style={styles.year}>{item.year}</Text>
         </View>
       </View>
     );
