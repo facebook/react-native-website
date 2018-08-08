@@ -140,13 +140,18 @@ public class CustomToastPackage implements ReactPackage {
 The package needs to be provided in the `getPackages` method of the `MainApplication.java` file. This file exists under the android folder in your react-native application directory. The path to this file is: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
+// MainApplication.java
+
+...
+import com.your-app-name.CustomToastPackage; // <-- Add this line with your package name.
+...
+
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
             new CustomToastPackage()); // <-- Add this line with your package name.
 }
 ```
-Further, add this line to the import statements `import com.your-app-name.CustomToastPackage;`. If you don't add it, Java won't know which class/pacakge you want to add. 
 
 To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
 
