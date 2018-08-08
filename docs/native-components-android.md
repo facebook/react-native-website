@@ -25,53 +25,29 @@ Vending a view is simple:
 
 ## 1. Create the `ViewManager` subclass
 
-In this example we create view manager class `ReactImageManager` that extends `SimpleViewManager` of type `ReactImageView`. `ReactImageView` is the type of object managed by the manager, this will be the custom native view. Set the initializers and set the name `REACT_CLASS` to `CustomRCTImageView` as `RCTImageView` is already used by React. Name returned by `getName` is used to reference the native view type from JavaScript.
+In this example we create view manager class `ReactImageManager` that extends `SimpleViewManager` of type `ReactImageView`. `ReactImageView` is the type of object managed by the manager, this will be the custom native view. Name returned by `getName` is used to reference the native view type from JavaScript.
 
 ```java
-// ReactImageManager.java
-
-package com.your-app-name;
-
-import javax.annotation.Nullable;
-
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.uimanager.SimpleViewManager;
-import com.facebook.react.uimanager.ThemedReactContext;
-import com.facebook.react.uimanager.ViewProps;
-import com.facebook.react.uimanager.annotations.ReactProp;
-import com.facebook.react.views.image.ImageResizeMode;
-import com.facebook.react.views.image.ReactImageView;
+...
 
 public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
-  public static final String REACT_CLASS = "CustomRCTImageView";
-    private Object mCallerContext;
-
-  public ReactImageManagerModule() {
-  }
-
-  public ReactImageManagerModule(Object mCallerContext) {
-      this.mCallerContext = mCallerContext;
-  }
+  public static final String REACT_CLASS = "RCTImageView";
 
   @Override
   public String getName() {
-      return REACT_CLASS;
+    return REACT_CLASS;
   }
-}
 ```
 
 ## 2. Implement method `createViewInstance`
 
-Views are created in the `createViewInstance` method, the view should initialize itself in its default state, any properties will be set via a follow up call to `updateView.` 
+Views are created in the `createViewInstance` method, the view should initialize itself in its default state, any properties will be set via a follow up call to `updateView.`
 
 ```java
-// ReactImageManager.java
-
   @Override
   public ReactImageView createViewInstance(ThemedReactContext context) {
-    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext);
+    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), mCallerContext);
   }
 ```
 
@@ -88,8 +64,6 @@ Setter declaration requirements for methods annotated with `@ReactPropGroup` are
 **IMPORTANT!** in ReactJS updating the property value will result in setter method call. Note that one of the ways we can update component is by removing properties that have been set before. In that case setter method will be called as well to notify view manager that property has changed. In that case "default" value will be provided (for primitive types "default" can value can be specified using `defaultBoolean`, `defaultFloat`, etc. arguments of `@ReactProp` annotation, for complex types setter will be called with value set to `null`).
 
 ```java
-// ReactImageManager.java
-
   @ReactProp(name = "src")
   public void setSrc(ReactImageView view, @Nullable ReadableArray sources) {
     view.setSource(sources);
@@ -111,39 +85,13 @@ Setter declaration requirements for methods annotated with `@ReactPropGroup` are
 The final Java step is to register the ViewManager to the application, this happens in a similar way to [Native Modules](native-modules-android.md), via the applications package member function `createViewManagers.`
 
 ```java
-//ReactImageManagerPackage.java
-
-package com.your-app-name;
-
-import com.facebook.react.ReactPackage;
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.ViewManager;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-public class ReactImageManagerPackage implements ReactPackage {
-
   @Override
   public List<ViewManager> createViewManagers(
                             ReactApplicationContext reactContext) {
     return Arrays.<ViewManager>asList(
-      new MainReactPackage(),
-      new ReactImageManager() // <- new UI Component here
+      new ReactImageManager()
     );
   }
-  
-  @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        List<NativeModule> modules = new ArrayList<>();
-
-        modules.add(new ReactImageManagerModule(reactContext));
-
-        return modules;
-    }
- }
 ```
 
 ## 5. Implement the JavaScript module
@@ -154,65 +102,22 @@ The very final step is to create the JavaScript module that defines the interfac
 // ImageView.js
 
 import PropTypes from 'prop-types';
-import {
-    requireNativeComponent,
-    ViewPropTypes
-} from 'react-native';
+import {requireNativeComponent, ViewPropTypes} from 'react-native';
 
 var iface = {
-  name: 'CustomImageView',
+  name: 'ImageView',
   propTypes: {
-      src: PropTypes.arrayOf(
-              PropTypes.shape({
-                  uri: PropTypes.string,
-          })
-      ),
-      borderRadius: PropTypes.number,
-      resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
-      ...ViewPropTypes, // include the default view properties
+    src: PropTypes.string,
+    borderRadius: PropTypes.number,
+    resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
+    ...ViewPropTypes, // include the default view properties
   },
 };
 
-module.exports = requireNativeComponent('CustomRCTImageView', iface);
+module.exports = requireNativeComponent('RCTImageView', iface);
 ```
 
-`requireNativeComponent` commonly takes two parameters, the first is the name of the native view and the second is an object that describes the component interface. The component interface should declare a friendly `name` for use in debug messages and must declare the `propTypes` reflected by the Native View. The `propTypes` are used for checking the validity of a user's use of the native view. Now we can use the created component in our React-Native application. Dont worry why we have to set wrap the `uri-Object` into `[]` for now. When you use already creatred `<Image />` component you do not have to do that. 
-
-```javascript
-// App.js
-
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import CustomImageView from './bridge/ImageView.js';
-
-type Props = {};
-export default class App extends Component<Props> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <CustomImageView src={[{ uri: 'https://facebook.github.io/react/logo-og.png'}]}
-          style={{ width: 400, height: 400 }} />
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-});
-```
-
-Note that if you need your JavaScript component to do more than just specify a name and propTypes, like do custom event handling, you can wrap the native component in a normal react component. In that case, you want to pass in the wrapper component instead of `iface` to `requireNativeComponent`. This is illustrated in the `MyCustomView` example below.
+`requireNativeComponent` commonly takes two parameters, the first is the name of the native view and the second is an object that describes the component interface. The component interface should declare a friendly `name` for use in debug messages and must declare the `propTypes` reflected by the Native View. The `propTypes` are used for checking the validity of a user's use of the native view. Note that if you need your JavaScript component to do more than just specify a name and propTypes, like do custom event handling, you can wrap the native component in a normal react component. In that case, you want to pass in the wrapper component instead of `iface` to `requireNativeComponent`. This is illustrated in the `MyCustomView` example below.
 
 # Events
 
