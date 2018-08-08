@@ -358,10 +358,12 @@ Create a folder in your project called packager, and create a single file named 
 
 ```
 const config = {
-  getTransformOptions: () => {
-    return {
-      transform: { inlineRequires: true },
-    };
+  transformer: {
+    getTransformOptions: () => {
+      return {
+        transform: { inlineRequires: true },
+      };
+    },
   },
 };
 
@@ -443,18 +445,19 @@ const fs = require('fs');
 const ROOT_FOLDER = path.resolve(__dirname, '..');
 
 const config = {
-  getTransformOptions: () => {
-    const moduleMap = {};
-    modulePaths.forEach(path => {
-      path = resolve(ROOT_FOLDER, path);
-      if (fs.existsSync(path)) {
-        moduleMap[path] = true;
-      }
-    });
-    return {
-      preloadedModules: moduleMap,
-      transform: { inlineRequires: { blacklist: moduleMap } },
-    };
+  transformer: {
+    getTransformOptions: () => {
+      const moduleMap = {};
+      modulePaths.forEach(path => {
+        if (fs.existsSync(path)) {
+          moduleMap[resolve(path)] = true;
+        }
+      });
+      return {
+        preloadedModules: moduleMap,
+        transform: { inlineRequires: { blacklist: moduleMap } },
+      };
+    },
   },
 };
 
