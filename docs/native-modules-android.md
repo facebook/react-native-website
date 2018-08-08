@@ -140,6 +140,12 @@ public class CustomToastPackage implements ReactPackage {
 The package needs to be provided in the `getPackages` method of the `MainApplication.java` file. This file exists under the android folder in your react-native application directory. The path to this file is: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
+// MainApplication.java
+
+...
+import com.your-app-name.CustomToastPackage; // <-- Add this line with your package name.
+...
+
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
