@@ -12,7 +12,7 @@ This is a more advanced guide that shows how to build a native module. It assume
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.html) guide first.
+Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ## iOS Calendar Module Example
 

@@ -34,7 +34,8 @@
       "version-0.52-building-for-apple-tv",
       "version-0.52-running-on-device",
       "version-0.52-upgrading",
-      "version-0.52-troubleshooting"
+      "version-0.52-troubleshooting",
+      "version-0.52-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.52-native-modules-ios",

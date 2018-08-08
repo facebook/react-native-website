@@ -55,7 +55,7 @@ The default permissions that get added are:
 4. Now let's remove `SYSTEM_ALERT_WINDOW` from the production APK only.
 5. Go to the `android/app/src/` directory. Create a new directory inside this directory, called `release`. (path: `android/app/src/release/`)
 6. Inside this `android/app/src/release/` directory create a `AndroidManifest.xml` file. (path: `android/app/src/release/AndroidManifest.xml`)
-7. Inside this file paste the following conents. Note, make sure to update your package identifier from "com.myapp" to what yours is.
+7. Inside this file paste the following contents. Note, make sure to update your package identifier from "com.myapp" to what yours is.
 
    ```diff
    <manifest xmlns:android="http://schemas.android.com/apk/res/android"

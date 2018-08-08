@@ -34,7 +34,8 @@
       "version-0.56-building-for-apple-tv",
       "version-0.56-running-on-device",
       "version-0.56-upgrading",
-      "version-0.56-troubleshooting"
+      "version-0.56-troubleshooting",
+      "version-0.56-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.56-native-modules-ios",

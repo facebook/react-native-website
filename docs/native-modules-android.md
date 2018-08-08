@@ -9,7 +9,7 @@ We designed React Native such that it is possible for you to write real native c
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.html) guide first.
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ### Enable Gradle
 

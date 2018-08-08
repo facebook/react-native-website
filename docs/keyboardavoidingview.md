@@ -72,11 +72,11 @@ The style of the content container(View) when behavior is 'position'.
 
 ### `enabled`
 
-Enabled or disabled KeyboardAvoidingView.
+Enabled or disabled KeyboardAvoidingView. The default is `true`.
 
 | Type    | Required |
 | ------- | -------- |
-| boolean | Yes      |
+| boolean | No       |
 
 ## Methods
 
