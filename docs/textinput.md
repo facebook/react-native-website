@@ -666,6 +666,8 @@ Give the keyboard and the system information about the expected semantic meaning
 
 For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
 
+For iOS 12+ `newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
+
 To disable autofill, set `textContentType` to `none`.
 
 Possible values for `textContentType` are:
