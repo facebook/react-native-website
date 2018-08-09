@@ -473,7 +473,8 @@ Possible values for `AccessibilityRole` is one of:
 * `'imagebutton'` - The element has the role of both an image and also a button.
 * `'adjustable'` - The element allows adjustment over a range of values.
 
-On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'.
+See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
@@ -489,10 +490,10 @@ _> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-p
 
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
-You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
+You can provide one state, no state, or both states. The states must be passed in through an array.
+Ex: ['selected'] or ['selected', 'disabled']
 
 Possible values for `AccessibilityStates` are:
-
 * `'selected'` - The element is in a selcted state.
 * `'disabled'` - The element is in a disabled state.
 
