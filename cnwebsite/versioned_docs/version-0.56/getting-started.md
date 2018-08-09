@@ -1,7 +1,9 @@
 ---
-id: getting-started
+id: version-0.56-getting-started
 title: 搭建开发环境
+original_id: getting-started
 ---
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.87%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.13%)
 
 <style>
   .toggler li {
