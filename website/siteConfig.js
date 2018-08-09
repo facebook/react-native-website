@@ -18,6 +18,7 @@ const siteConfig = {
   baseUrl,
   projectName: "react-native",
   repoUrl,
+  defaultVersionShown: 0.56,
   users,
   editUrl: "https://github.com/facebook/react-native-website/blob/master/docs/",
   headerLinks: [

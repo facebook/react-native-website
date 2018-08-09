@@ -1,5 +1,5 @@
 ---
-id: version-0.56-viewpagerandroid
+id: version-0.57-RC-viewpagerandroid
 title: ViewPagerAndroid
 original_id: viewpagerandroid
 ---
@@ -44,16 +44,16 @@ var styles = {
 
 * [View props...](view.md#props)
 
-- [`initialPage`](viewpagerandroid.md#initialpage)
-- [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
-- [`onPageScroll`](viewpagerandroid.md#onpagescroll)
-- [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
-- [`onPageSelected`](viewpagerandroid.md#onpageselected)
-- [`pageMargin`](viewpagerandroid.md#pagemargin)
-- [`peekEnabled`](viewpagerandroid.md#peekenabled)
-- [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
-- [`setPage`](viewpagerandroid.md#setpage)
-- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
+* [`initialPage`](viewpagerandroid.md#initialpage)
+* [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
+* [`onPageScroll`](viewpagerandroid.md#onpagescroll)
+* [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
+* [`onPageSelected`](viewpagerandroid.md#onpageselected)
+* [`pageMargin`](viewpagerandroid.md#pagemargin)
+* [`peekEnabled`](viewpagerandroid.md#peekenabled)
+* [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
+* [`setPage`](viewpagerandroid.md#setpage)
+* [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
 
 ### Type Definitions
 
