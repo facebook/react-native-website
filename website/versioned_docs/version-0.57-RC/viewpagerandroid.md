@@ -1,6 +1,7 @@
 ---
-id: viewpagerandroid
+id: version-0.57-RC-viewpagerandroid
 title: ViewPagerAndroid
+original_id: viewpagerandroid
 ---
 
 Container that allows to flip left and right between child views. Each child view of the `ViewPagerAndroid` will be treated as a separate page and will be stretched to fill the `ViewPagerAndroid`.
