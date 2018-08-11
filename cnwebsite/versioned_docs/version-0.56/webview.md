@@ -3,7 +3,7 @@ id: version-0.56-webview
 title: WebView
 original_id: webview
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.67%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(3.33%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.79%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(3.21%)
 
 `WebView` 创建一个原生的 WebView，可以用于访问一个网页。
 
@@ -17,6 +17,23 @@ class MyWeb extends Component {
       <WebView
         source={{uri: 'https://github.com/facebook/react-native'}}
         style={{marginTop: 20}}
+      />
+    );
+  }
+}
+```
+
+还可以直接嵌入html代码：
+
+```
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
+ class MyInlineWeb extends Component {
+  render() {
+    return (
+      <WebView
+        originWhitelist={['*']}
+        source={{ html: '<h1>Hello world</h1>' }}
       />
     );
   }
@@ -102,7 +119,7 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 
 ### `source`
 
-在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。
+在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。注意如果是载入html代码，则需要设置`originWhitelist`，比如可以设为`["*"]`来允许运行本地代码。
 
 | 类型                                                                                                                | 必填 |
 | ------------------------------------------------------------------------------------------------------------------- | ---- |

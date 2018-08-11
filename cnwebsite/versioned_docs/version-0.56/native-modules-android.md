@@ -11,7 +11,7 @@ original_id: native-modules-android
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.md) guide first.
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ### 开启 Gradle Daemon
 
@@ -142,6 +142,10 @@ public class CustomToastPackage implements ReactPackage {
 这个 package 需要在`MainApplication.java`文件的`getPackages`方法中提供。这个文件位于你的 react-native 应用文件夹的 android 目录中。具体路径是: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
+// MainApplication.java
+...
+import com.your-app-name.CustomToastPackage; // <-- 引入你自己的包
+...
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),

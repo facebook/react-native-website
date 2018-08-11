@@ -248,13 +248,13 @@ Notice that first the JS thread thinks for a bit, then you see some work done on
 
 There isn't an easy way to mitigate this unless you're able to postpone creating new UI until after the interaction, or you are able to simplify the UI you're creating. The react native team is working on an infrastructure level solution for this that will allow new UI to be created and configured off the main thread, allowing the interaction to continue smoothly.
 
-## 拆包和内联引用
+## 拆包(RAM bundles)和内联引用
 
-如果你有一个较为庞大的应用程序，你可能要考虑使用拆分和内联引用。这对于具有大量页面的应用程序是非常有用的，这些页面在应用程序的典型使用过程中可能不会被打开。通常对于启动后一段时间内不需要大量代码的应用程序来说是非常有用的。例如应用程序包含复杂的配置文件屏幕或较少使用的功能，但大多数会话只涉及访问应用程序的主屏幕更新。我们可以通过使用打包器的`unbundle`特性来优化`bundle`的加载，并且内联引用这些功能和页面（当它们被实际使用时）。
+如果你有一个较为庞大的应用程序，你可能要考虑使用`RAM`(Random Access Modules，随机存取模块）格式的 bundle 和内联引用。这对于具有大量页面的应用程序是非常有用的，这些页面在应用程序的典型使用过程中可能不会被打开。通常对于启动后一段时间内不需要大量代码的应用程序来说是非常有用的。例如应用程序包含复杂的配置文件屏幕或较少使用的功能，但大多数会话只涉及访问应用程序的主屏幕更新。我们可以通过使用`RAM`格式来优化`bundle`的加载，并且内联引用这些功能和页面（当它们被实际使用时）。
 
-### Loading JavaScript
+### 加载 JavaScript
 
-在 react-native 执行 JS 代码之前，必须将代码加载到内存中并进行解析。如果你加载了一个 50MB 的 bundle，那么所有的 50mb 都必须被加载和解析才能被执行。拆分后的优化是，启动时只加载 50MB 中实际需要的部分，并随着需要的部分逐渐加载更多的包。
+在 react-native 执行 JS 代码之前，必须将代码加载到内存中并进行解析。如果你加载了一个 50MB 的 bundle，那么所有的 50mb 都必须被加载和解析才能被执行。RAM 格式的 bundle 则对此进行了优化，即启动时只加载 50MB 中实际需要的部分，之后再逐渐按需加载更多的包。
 
 ### 内联引用
 
@@ -312,25 +312,25 @@ export default class Optimized extends Component {
 }
 ```
 
-即使没有使用拆包，内联引用也会使启动时间减少，因为优化后的代码只有在第一次 require 时才会执行。
+即便不使用 RAM 格式，内联引用也会使启动时间减少，因为优化后的代码只有在第一次 require 时才会执行。
 
-### 启用拆包(Unbundling)
+### 启用 RAM 格式
 
-在 iOS 上 unbundling 将创建一个简单的索引文件，React Native 将一次加载一个模块。在 Android 上，默认情况下它会为每个模块创建一组文件。你可以像 iOS 一样，强制 Android 只创建一个文件，但使用多个文件可以提高性能，并降低内存占用。
+在 iOS 上使用 RAM 格式将创建一个简单的索引文件，React Native 将根据此文件一次加载一个模块。在 Android 上，默认情况下它会为每个模块创建一组文件。你可以像 iOS 一样，强制 Android 只创建一个文件，但使用多个文件可以提高性能，并降低内存占用。
 
-通过编辑 build phase "Bundle React Native code and images"，在 Xcode 中启用 unbundling。在`../node_modules/react-native/packager/react-native-xcode.sh` 添加 `export BUNDLE_COMMAND="unbundle"`:
+在 Xcode 中启用 RAM 格式，需要编辑 build phase 里的"Bundle React Native code and images"。在`../node_modules/react-native/packager/react-native-xcode.sh`中添加 `export BUNDLE_COMMAND="ram-bundle"`:
 
 ```
-export BUNDLE_COMMAND="unbundle"
+export BUNDLE_COMMAND="ram-bundle"
 export NODE_BINARY=node
 ../node_modules/react-native/packager/react-native-xcode.sh
 ```
 
-在 Android 上，通过编辑你的 android/app/build.gradle 文件启用 unbundling。在`apply from: "../../node_modules/react-native/react.gradle"`之前修改或添加`project.ext.react`：
+在 Android 上启用 RAM 格式，需要编辑 android/app/build.gradle 文件。在`apply from: "../../node_modules/react-native/react.gradle"`之前修改或添加`project.ext.react`：
 
 ```
 project.ext.react = [
-  bundleCommand: "unbundle",
+  bundleCommand: "ram-bundle",
 ]
 ```
 
@@ -338,14 +338,14 @@ project.ext.react = [
 
 ```
 project.ext.react = [
-  bundleCommand: "unbundle",
-  extraPackagerArgs: ["--indexed-unbundle"]
+  bundleCommand: "ram-bundle",
+  extraPackagerArgs: ["--indexed-ram-bundle"]
 ]
 ```
 
 ### 配置预加载及内联引用
 
-现在我们已经拆分了我们的代码，然而调用 require 会造成额外的开销。当遇到尚未加载的模块时，现在需要通过桥发送消息。这主要会影响到启动速度，因为在应用程序加载初始模块时可能触发相当大量的请求调用。幸运的是，我们可以配置一部分模块进行预加载。为了做到这一点，你将需要实现某种形式的内联引用。
+现在我们已经启用了RAM格式，然而调用`require`会造成额外的开销。因为当遇到尚未加载的模块时，`require`需要通过bridge来发送消息。这主要会影响到启动速度，因为在应用程序加载初始模块时可能触发相当大量的请求调用。幸运的是，我们可以配置一部分模块进行预加载。为了做到这一点，你将需要实现某种形式的内联引用。
 
 ### 添加 packager 配置文件
 
@@ -353,10 +353,12 @@ project.ext.react = [
 
 ```
 const config = {
-  getTransformOptions: () => {
-    return {
-      transform: { inlineRequires: true },
-    };
+  transformer: {
+    getTransformOptions: () => {
+      return {
+        transform: { inlineRequires: true },
+      };
+    },
   },
 };
 
@@ -366,7 +368,7 @@ module.exports = config;
 在 Xcode 的 Build phase 中添加`export BUNDLE_CONFIG="packager/config.js"`
 
 ```
-export BUNDLE_COMMAND="unbundle"
+export BUNDLE_COMMAND="ram-bundle"
 export BUNDLE_CONFIG="packager/config.js"
 export NODE_BINARY=node
 ../node_modules/react-native/packager/react-native-xcode.sh
@@ -376,7 +378,7 @@ export NODE_BINARY=node
 
 ```
 project.ext.react = [
-  bundleCommand: "unbundle",
+  bundleCommand: "ram-bundle",
   bundleConfig: "packager/config.js"
 ]
 ```
@@ -409,7 +411,7 @@ console.log(
   waitingModuleNames.length
 );
 
-// grab this text blob, and put it in a file named packager/moduleNames.js
+// grab this text blob, and put it in a file named packager/modulePaths.js
 console.log(`module.exports = ${JSON.stringify(loadedModuleNames.sort())};`);
 ```
 
@@ -423,64 +425,7 @@ require.Systrace.beginEvent = (message) => {
 }
 ```
 
-虽然每个 App 各有不同，但只加载第一个页面所需的模块是有普适意义的。当你满意时，把 loadedModuleNames 的输出放到 packager/moduleNames.js 文件中。
-
-### 转化模块路径
-
-得到了需要预加载的模块名还不够，我们还需要模块的绝对路径，所以接下来将会搞定它。添加 `packager/generatemodulepaths.js` 文件：
-
-```
-// @flow
-/* eslint-disable no-console */
-const execSync = require('child_process').execSync;
-const fs = require('fs');
-const moduleNames = require('./moduleNames');
-
-const pjson = require('../package.json');
-const localPrefix = `${pjson.name}/`;
-
-const modulePaths = moduleNames.map(moduleName => {
-  if (moduleName.startsWith(localPrefix)) {
-    return `./${moduleName.substring(localPrefix.length)}`;
-  }
-  if (moduleName.endsWith('.js')) {
-    return `./node_modules/${moduleName}`;
-  }
-  try {
-    const result = execSync(
-      `grep "@providesModule ${moduleName}" $(find . -name ${moduleName}\\\\.js) -l`
-    )
-      .toString()
-      .trim()
-      .split('\n')[0];
-    if (result != null) {
-      return result;
-    }
-  } catch (e) {
-    return null;
-  }
-  return null;
-});
-
-const paths = modulePaths
-  .filter(path => path != null)
-  .map(path => `'${path}'`)
-  .join(',\n');
-
-const fileData = `module.exports = [${paths}];`;
-
-fs.writeFile('./packager/modulePaths.js', fileData, err => {
-  if (err) {
-    console.log(err);
-  }
-
-  console.log('Done');
-});
-```
-
-你可以通过`node packager/modulePaths.js`来运行这段脚本。
-
-此脚本尝试从模块名称映射到模块路径，但它不是万无一失的。例如，它忽略了平台特定的文件（_ ios.js 和_ .android.js）。然而根据最初的测试，它处理了 95％的情况。当它运行一段时间后，它应该完成并输出一个名为`packager/modulePaths.js`的文件。它应该包含相对于你的项目根目录的模块文件路径。您可以将 modulePaths.js 提交到您的代码仓库，以便它可以被传递。
+虽然每个 App 各有不同，但只加载第一个页面所需的模块是有普适意义的。当你满意时，把 loadedModuleNames 的输出放到 packager/modulePaths.js 文件中。
 
 ### 更新配置文件
 
@@ -491,26 +436,31 @@ const modulePaths = require('./modulePaths');
 const resolve = require('path').resolve;
 const fs = require('fs');
 
+// Update the following line if the root folder of your app is somewhere else.
+const ROOT_FOLDER = path.resolve(__dirname, '..');
+
 const config = {
-  getTransformOptions: () => {
-    const moduleMap = {};
-    modulePaths.forEach(path => {
-      if (fs.existsSync(path)) {
-        moduleMap[resolve(path)] = true;
-      }
-    });
-    return {
-      preloadedModules: moduleMap,
-      transform: { inlineRequires: { blacklist: moduleMap } },
-    };
+  transformer: {
+    getTransformOptions: () => {
+      const moduleMap = {};
+      modulePaths.forEach(path => {
+        if (fs.existsSync(path)) {
+          moduleMap[resolve(path)] = true;
+        }
+      });
+      return {
+        preloadedModules: moduleMap,
+        transform: { inlineRequires: { blacklist: moduleMap } },
+      };
+    },
   },
 };
 
 module.exports = config;
 ```
 
-配置文件中的 preloadedModules 条目指示哪些模块应被标记为由 unbundler 预加载。当 bundle 被加载时，这些模块立即被加载，甚至在任何 requires 执行之前。blacklist 表明这些模块不应该被要求内联引用，因为它们是预加载的，所以使用内联没有性能优势。实际上每次解析内联引用 JavaScript 都会花费额外的时间。
+在启用RAM格式之后，配置文件中的`preloadedModules`条目指示哪些模块需要预加载。当 bundle 被加载时，这些模块立即被加载，甚至在任何 requires 执行之前。blacklist 表明这些模块不应该被要求内联引用，因为它们是预加载的，所以使用内联没有性能优势。实际上每次解析内联引用 JavaScript 都会花费额外的时间。
 
 ### 测试和衡量改进
 
-您现在应该准备好使用分拆和内联引用来构建您的应用了。保存启动前后的时间，来测试下有多少改进吧！
+您现在应该准备好使用RAM格式和内联引用来构建您的应用了。保存启动前后的时间，来测试下有多少改进吧！

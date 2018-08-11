@@ -199,6 +199,8 @@ React Native实际上还是有一部分样式继承的实现，不过仅限于�
 ### 查看Props
 
 * [`selectable`](text.md#selectable)
+* [`accessibilityHint`](text.md#accessibilityhint)
+* [`accessibilityLabel`](text.md#accessibilitylabel)
 * [`accessible`](text.md#accessible)
 * [`ellipsizeMode`](text.md#ellipsizemode)
 * [`nativeID`](text.md#nativeid)
@@ -230,6 +232,26 @@ React Native实际上还是有一部分样式继承的实现，不过仅限于�
 | 类型 | 必填 |
 | ---- | ---- |
 | bool | 否   |
+
+---
+
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+| 类型   | 必填 |
+| ------ | ---- |
+| string | 否   |
+
+---
+
+### `accessibilityLabel`
+
+Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
+
+| 类型 | 必填 |
+| ---- | ---- |
+| node | 否   |
 
 ---
 
@@ -278,7 +300,7 @@ Used to locate this view from native code.
 
 用来当文本过长的时候裁剪文本。包括折叠产生的换行在内，总的行数不会超过这个属性的限制。
 
-This prop is commonly used with `ellipsizeMode`.
+此属性一般和`ellipsizeMode`搭配使用。
 
 | 类型   | 必填 |
 | ------ | ---- |

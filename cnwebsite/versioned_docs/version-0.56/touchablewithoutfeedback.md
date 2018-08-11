@@ -15,12 +15,16 @@ original_id: touchablewithoutfeedback
 
 * [`hitSlop`](touchablewithoutfeedback.md#hitslop)
 * [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+* [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
+* [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
+* [`accessibilityRole`](view.md#accessibilityrole)
+* [`accessibilityStates`](view.md#accessibilitystates)
+* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
 * [`accessible`](touchablewithoutfeedback.md#accessible)
 * [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
 * [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
 * [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
 * [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
 * [`onLayout`](touchablewithoutfeedback.md#onlayout)
 * [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
 * [`onPress`](touchablewithoutfeedback.md#onpress)
@@ -51,9 +55,55 @@ original_id: touchablewithoutfeedback
 
 ### `accessibilityComponentType`
 
+_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
+
 | 类型                        | 必填 |
 | --------------------------- | -------- |
 | AccessibilityComponentTypes | 否       |
+
+---
+
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+| 类型   | 必填 |
+| ------ | -------- |
+| string | 否       |
+
+---
+
+### `accessibilityLabel`
+
+Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
+
+| 类型 | 必填 |
+| ---- | -------- |
+| node | 否       |
+
+---
+
+### `accessibilityRole`
+
+| 类型                        | 必填 |
+| --------------------------- | -------- |
+| AccessibilityRoles          | 否       |
+
+---
+
+### `accessibilityStates`
+
+| 类型                         | 必填 |
+| ---------------------------- | -------- |
+| array of AccessibilityStates | 否       |
+
+---
+
+### `accessibilityTraits`
+
+| 类型                                               | 必填 |
+| -------------------------------------------------- | -------- |
+| AccessibilityTraits, ,array of AccessibilityTraits | 否       |
 
 ---
 
@@ -102,14 +152,6 @@ original_id: touchablewithoutfeedback
 | 类型 | 必填 |
 | ---- | -------- |
 | bool | 否       |
-
----
-
-### `accessibilityTraits`
-
-| 类型                                               | 必填 |
-| -------------------------------------------------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | 否       |
 
 ---
 

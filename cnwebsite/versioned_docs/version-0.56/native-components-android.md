@@ -100,30 +100,24 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
 ## 5. 实现对应的 JavaScript 模块
 
-整个过程的最后一步就是创建 JavaScript 模块并且定义 Java 和 JavaScript 之间的接口层。大部分过程都由 React 底层的 Java 和 JavaScript 代码来完成，你所需要做的就是通过`propTypes`来描述属性的类型。
+整个过程的最后一步就是创建 JavaScript 模块并且定义 Java 和 JavaScript 之间的接口层。我们建议你使用 Flow 或是 TypeScript 来规范定义接口的具体结构，或者至少用注释说明清楚（老版本的 RN 使用`propTypes`来规范接口定义，这一做法已不再支持）。
 
 ```javascript
 // ImageView.js
 
-import PropTypes from "prop-types";
-import { requireNativeComponent, ViewPropTypes } from "react-native";
+import { requireNativeComponent } from "react-native";
 
-var iface = {
-  name: "ImageView",
-  propTypes: {
-    src: PropTypes.string,
-    borderRadius: PropTypes.number,
-    resizeMode: PropTypes.oneOf(["cover", "contain", "stretch"]),
-    ...ViewPropTypes // 包含默认的View的属性
-  }
-};
-
-module.exports = requireNativeComponent("RCTImageView", iface);
+/**
+ * Composes `View`.
+ *
+ * - src: string
+ * - borderRadius: number
+ * - resizeMode: 'cover' | 'contain' | 'stretch'
+ */
+module.exports = requireNativeComponent("RCTImageView");
 ```
 
-`requireNativeComponent`通常接受两个参数，第一个参数是原生视图的名字，而第二个参数是一个描述组件接口的对象。组件接口应当声明一个友好的`name`，用来在调试信息中显示；组件接口还必须声明`propTypes`字段，用来对应到原生视图上。这个`propTypes`还可以用来检查用户使用 View 的方式是否正确。
-
-注意，如果你还需要一个 JavaScript 组件来做一些除了指定`name`和`propTypes`以外的事情，譬如事件处理，你可以把原生组件用一个普通 React 组件封装。在这种情况下，`requireNativeComponent`的第二个参数变为用于封装的组件。这个在后文的`MyCustomView`例子里面用到。
+`requireNativeComponent`目前只接受一个参数，即原生视图的名字。如果你还需要做一些复杂的逻辑譬如事件处理，那么可以把原生组件用一个普通 React 组件封装。后文的`MyCustomView`例子里演示了这种用法。
 
 # 事件
 
@@ -181,17 +175,6 @@ class MyCustomView extends React.Component {
     return <RCTMyCustomView {...this.props} onChange={this._onChange} />;
   }
 }
-MyCustomView.propTypes = {
-  /**
-   * Callback that is called continuously when the user is dragging the map.
-   */
-  onChangeMessage: PropTypes.func,
-  ...
-};
 
-var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`, MyCustomView, {
-  nativeOnly: {onChange: true}
-});
+var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 ```
-
-注意上面用到了`nativeOnly`。有时候有一些特殊的属性，想从原生组件中导出，但是又不希望它们成为对应 React 封装组件的属性。举个例子，`Switch`组件可能在原生组件上有一个`onChange`事件，然后在封装类中导出`onValueChange`回调属性。这个属性在调用的时候会带上 Switch 的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在 API 之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是带上`nativeOnly`选项。

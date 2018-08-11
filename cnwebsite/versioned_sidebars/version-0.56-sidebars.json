@@ -36,7 +36,8 @@
       "version-0.56-running-on-device",
       "version-0.56-upgrading",
       "version-0.56-native-modules-setup",
-      "version-0.56-building-from-source"
+      "version-0.56-building-from-source",
+      "version-0.56-understanding-cli"
     ],
     "使用指南(iOS)": [
       "version-0.56-native-modules-ios",

@@ -3,7 +3,7 @@ id: version-0.56-getting-started
 title: 搭建开发环境
 original_id: getting-started
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.87%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.13%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 <style>
   .toggler li {
@@ -339,7 +339,7 @@ React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 版本）�
 
 #### 2. 安装 Android SDK
 
-Android Studio 默认会安装最新版本的 Android SDK。然而目前编译 React Native 应用需要的是`Android 6.0 (Marshmallow)`版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
+Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 8.0 (Oreo)`版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
 
 你可以在 Android Studio 的欢迎界面中找到 SDK Manager。点击"Configure"，然后就能看到"SDK Manager"。
 
@@ -355,9 +355,9 @@ Android Studio 默认会安装最新版本的 Android SDK。然而目前编译 R
 
 > SDK Manager 还可以在 Android Studio 的"Preferences"菜单中找到。具体路径是**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
-在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 6.0 (Marshmallow)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
+在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 8.0 (Oreo)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
 
-- `Android SDK Platform 23`
+- `Android SDK Platform 26`
 - `Intel x86 Atom_64 System Image`（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）
 
 <block class="native mac android" />
@@ -370,15 +370,15 @@ Android Studio 默认会安装最新版本的 Android SDK。然而目前编译 R
 
 <block class="native windows mac linux android" />
 
-然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`23.0.1`版本。你可以同时安装多个其他版本，然后还要勾选最底部的`Android Support Repository`。
+然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`26.0.3`版本。你可以同时安装多个其他版本，然后还要勾选最底部的`Android Support Repository`。
 
 <block class="native mac android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
+![Android SDK Manager - 26.0.3 Build Tools](assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
+![Android SDK Manager - 26.0.3 Build Tools](assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
 
 <block class="native windows mac linux android" />
 
@@ -498,11 +498,13 @@ react-native init AwesomeProject
 
 ### 使用 Android 模拟器
 
-你可以在 Android Studi 打开"AVD Manager"来查看可用的虚拟设备，它的图标看起来像下面这样：
+你可以使用 Android Studio 打开项目下的"android"目录，然后可以使用"AVD Manager"来查看可用的虚拟设备，它的图标看起来像下面这样：
 
 ![Android Studio AVD Manager](assets/GettingStartedAndroidStudioAVD.png)
 
 如果你刚刚才安装 Android Studio，那么可能需要先[创建一个虚拟设备](https://developer.android.com/studio/run/managing-avds.html)。点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"。
+
+> 译注：请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
 <block class="native windows android" />
 
@@ -592,9 +594,9 @@ react-native run-android
 
 `react-native run-android`只是运行应用的方式之一。你也可以在 Android Studio 或是[Nuclide](https://nuclide.io/)中直接运行应用。
 
-> 译注：请务必在`run-android`成功后再尝试使用 Android Studio 启动。请不要轻易点击 Android Studio 中可能给出的更新项目中某依赖项的建议，否则可能导致无法运行。
+> 译注：建议在`run-android`成功后再尝试使用 Android Studio 启动。请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
-> 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看论坛的[求助专区](http://bbs.reactnative.cn/category/4)。
+> 如果你无法正常运行，遇到奇奇怪怪的红屏错误，先回头`仔细对照文档检查`，然后可以看看论坛的[求助专区](http://bbs.reactnative.cn/category/4)。不同时期不同版本可能会碰到不同的问题，我们会在论坛中及时解答更新。但请注意***千万不要***执行bundle命令，那样会导致代码完全无法刷新。
 
 <block class="native mac ios android" />
 
