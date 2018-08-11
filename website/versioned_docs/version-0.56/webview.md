@@ -81,7 +81,7 @@ You can use this component to navigate back and forth in the web view's history 
 
 ### `source`
 
-Loads static html or a uri (with optional headers) in the WebView.
+Loads static html or a uri (with optional headers) in the WebView. Note that static html will require setting of `originWhitelist` for example to `["*"]`.
 
 | Type                                                                                                                | Required |
 | ------------------------------------------------------------------------------------------------------------------- | -------- |

@@ -21,6 +21,24 @@ class MyWeb extends Component {
 }
 ```
 
+Minimal example with inline HTML:
+
+```
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
+
+class MyInlineWeb extends Component {
+  render() {
+    return (
+      <WebView
+        originWhitelist={['*']}
+        source={{ html: '<h1>Hello world</h1>' }}
+      />
+    );
+  }
+}
+```
+
 You can use this component to navigate back and forth in the web view's history and configure various properties for the web content.
 
 > **Security Warning:** Currently, `onMessage` and `postMessage` do not allow specifying an origin. This can lead to cross-site scripting attacks if an unexpected document is loaded within a `WebView` instance. Please refer to the MDN documentation for [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) for more details on the security implications of this.
@@ -80,7 +98,7 @@ You can use this component to navigate back and forth in the web view's history 
 
 ### `source`
 
-Loads static html or a uri (with optional headers) in the WebView.
+Loads static html or a uri (with optional headers) in the WebView. Note that static html will require setting of `originWhitelist` for example to `["*"]`.
 
 | Type                                                                                                                | Required |
 | ------------------------------------------------------------------------------------------------------------------- | -------- |

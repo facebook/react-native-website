@@ -129,9 +129,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
+- Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
 
-* If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
+- If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -276,7 +276,7 @@ npm install -g react-native-cli
 
 The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
-If you have already installed Xcode on your system, make sure it is version 8 or higher.
+If you have already installed Xcode on your system, make sure it is version 9.4 or newer.
 
 #### Command Line Tools
 
@@ -288,7 +288,7 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ### Java Development Kit
 
-React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed.
+React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8 or newer](http://openjdk.java.net/install/) as an alternative.
 
 <block class="native mac linux windows android" />
 
@@ -304,16 +304,16 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <block class="native mac windows android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Performance (Intel ® HAXM)`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Performance (Intel ® HAXM)`
+- `Android Virtual Device`
 
 <block class="native linux android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Android Virtual Device`
 
 <block class="native mac windows linux android" />
 
@@ -325,7 +325,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 #### 2. Install the Android SDK
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 6.0 (Marshmallow)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.0 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".
 
@@ -341,12 +341,10 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 6.0 (Marshmallow)` entry, then make sure the following items are all checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.0 (Oreo)` entry, then make sure the following items are all checked:
 
-* `Google APIs`
-* `Android SDK Platform 23`
-* `Intel x86 Atom_64 System Image`
-* `Google APIs Intel x86 Atom_64 System Image`
+- `Android SDK Platform 26`
+- `Google APIs Intel x86 Atom_64 System Image`
 
 <block class="native mac android" />
 
@@ -358,15 +356,15 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 
 <block class="native windows mac linux android" />
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `23.0.1` is selected.
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `26.0.3` is selected.
 
 <block class="native mac android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
+![Android SDK Manager - 26.0.3 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
 
 <block class="native windows android" />
 
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
+![Android SDK Manager - 26.0.3 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
 
 <block class="native windows mac linux android" />
 
@@ -478,7 +476,7 @@ If you have a physical Android device, you can use it for development in place o
 
 ### Using a virtual device
 
-You can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
+If you use Android Studio to open `./AwesomeProject/android`, you can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
 ![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
@@ -494,7 +492,7 @@ If you have just installed Android Studio, you will likely need to [create a new
 
 <block class="native mac windows linux android" />
 
-Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86_64 ABI image with a Android 6.0 (Google APIs) target.
+Select the "x86 Images" tab, then look for the **Oreo** API Level 26, x86_64 ABI image with a Android 8.0 (Google APIs) target.
 
 <block class="native linux android" />
 
@@ -578,13 +576,13 @@ Now that you have successfully run the app, let's modify it.
 
 <block class="native mac ios" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
 
 <block class="native mac android" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
 
 <block class="native windows linux android" />
 
@@ -592,8 +590,8 @@ Now that you have successfully run the app, let's modify it.
 
 Now that you have successfully run the app, let's modify it.
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
 
 <block class="native mac ios android" />
 
@@ -615,9 +613,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -625,9 +623,9 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 

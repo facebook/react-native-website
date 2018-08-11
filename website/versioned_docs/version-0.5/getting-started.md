@@ -277,7 +277,7 @@ npm install -g react-native-cli
 
 The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
-If you have already installed Xcode on your system, make sure it is version 8 or higher.
+If you have already installed Xcode on your system, make sure it is version 9.4 or newer.
 
 #### Command Line Tools
 
@@ -289,7 +289,7 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ### Java Development Kit
 
-React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed.
+React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8 or newer](http://openjdk.java.net/install/) as an alternative.
 
 <block class="native mac linux windows android" />
 
