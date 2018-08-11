@@ -21,5 +21,4 @@ cnwebsite/i18n/*
 cnwebsite/node_modules
 cnwebsite/package-lock.json
 cnwebsite/translated_docs
-cnwebsite/yarn.lock
 cnwebsite/yarn-error.log

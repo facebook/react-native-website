@@ -70,11 +70,11 @@ _注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能�
 
 ### `enabled`
 
-是否启用KeyboardAvoidingView。
+是否启用KeyboardAvoidingView。默认为true。
 
 | 类型    | 必填 |
 | ------- | ---- |
-| boolean | 是   |
+| boolean | 否   |
 
 ## 方法
 

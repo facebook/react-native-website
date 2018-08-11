@@ -1,6 +1,6 @@
 ---
 id: removing-default-permissions
-title: Removing Default Permissions
+title: 移除不需要的权限
 ---
 
 By default, some permissions are added to your Android APK.

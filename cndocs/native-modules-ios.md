@@ -11,7 +11,7 @@ title: 原生模块
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.md) guide first.
+Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ## iOS 日历模块演示
 

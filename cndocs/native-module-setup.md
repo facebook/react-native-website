@@ -1,6 +1,6 @@
 ---
 id: native-modules-setup
-title: Native Modules Setup
+title: 原生模块配置
 ---
 
 Native modules are usually distributed as npm packages, except that on top of the usual Javascript they will include some native code per platform. To understand more about npm packages you may find [this guide](https://docs.npmjs.com/getting-started/publishing-npm-packages) useful.

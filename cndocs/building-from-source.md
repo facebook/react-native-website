@@ -67,7 +67,7 @@ npm install --save github:facebook/react-native#master
 ```gradle
 ...
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'de.undercouch:gradle-download-task:3.1.2'
 
         // 注意：不要把你的应用的依赖放在这里；

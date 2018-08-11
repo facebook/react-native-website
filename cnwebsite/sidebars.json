@@ -36,7 +36,8 @@
       "running-on-device",
       "upgrading",
       "native-modules-setup",
-      "building-from-source"
+      "building-from-source",
+      "understanding-cli"
     ],
     "使用指南(iOS)": [
       "native-modules-ios",

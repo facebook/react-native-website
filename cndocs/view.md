@@ -46,6 +46,7 @@ class ViewColoredBoxesWithText extends Component {
 
 * [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
 * [`accessibilityLabel`](view.md#accessibilitylabel)
+* [`accessibilityHint`](view.md#accessibilityhint)
 * [`hitSlop`](view.md#hitslop)
 * [`nativeID`](view.md#nativeid)
 * [`onAccessibilityTap`](view.md#onaccessibilitytap)
@@ -71,9 +72,12 @@ class ViewColoredBoxesWithText extends Component {
 * [`importantForAccessibility`](view.md#importantforaccessibility)
 * [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
 * [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
+* [`accessibilityRole`](view.md#accessibilityrole)
+* [`accessibilityStates`](view.md#accessibilitystates)
 * [`accessibilityTraits`](view.md#accessibilitytraits)
 * [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
 * [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
+* [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
 * [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
@@ -94,6 +98,16 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 
 ---
 
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+
+| 类型   | 必填 |
+| ------ | ---- |
+| string | 否   |
+
+---
+
 ### `accessibilityLabel`
 
 设置当用户与此元素交互时，“读屏器”（对视力障碍人士的辅助功能）阅读的文字。默认情况下，这个文字会通过遍历所有的子元素并累加所有的文本标签来构建。
@@ -103,6 +117,7 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 | node | 否   |
 
 ---
+
 
 ### `hitSlop`
 
@@ -192,9 +207,9 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 这个视图开始响应触摸事件。此时需要高亮告诉用户正在响应。（译者注：对于大部分的触摸处理，你只需要用 TouchableHighlight 或 TouchableOpacity 包装你的组件。阅读 Touchable.js。）
 
 `View.props.onResponderGrant: (event) => {}`,其中 event 是一个合成触摸事件。
-| 类型 | 必填 |
+| 类型     | 必填 |
 | -------- | ---- |
-| function | 否 |
+| function | 否   |
 
 ---
 
@@ -273,9 +288,9 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 如果父视图想要阻止子视图响应 touch start 事件，它就应该设置这个方法并返回 true。
 
 `View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。
-| 类型 | 必填 |
+| 类型     | 必填 |
 | -------- | ---- |
-| function | 否 |
+| function | 否   |
 
 ---
 
@@ -348,6 +363,8 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 ---
 
 ### `accessibilityComponentType`
+
+_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
 
 使无障碍服务对这个 UI 组件与原生组件一致处理。仅对 Android 平台有效。
 
@@ -433,6 +450,56 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 
 ---
 
+### `accessibilityRole`
+
+_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
+
+Tells the screen reader to treat the currently focused on element as having a specific role.
+
+Possible values for `AccessibilityRole` is one of:
+
+* `'none'` - The element has no role.
+* `'button'` - The element should be treated as a button.
+* `'link'` - The element should be treated as a link.
+* `'header'` - The element is a header that divides content into sections.
+* `'search'` - The element should be treated as a search field.
+* `'image'` - The element should be treated as an image.
+* `'key'` - The element should be treated like a keyboard key.
+* `'text'` - The element should be treated as text.
+* `'summary'` - The element provides app summary information.
+* `'imagebutton'` - The element has the role of both an image and also a button.
+* `'adjustable'` - The element allows adjustment over a range of values.
+
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'.
+See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+
+On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
+
+| 类型              | 必填 |
+| ----------------- | ---- |
+| AccessibilityRole | 否   |
+
+---
+
+### `accessibilityStates`
+
+_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
+
+Tells the screen reader to treat the currently focused on element as being in a specific state.
+
+You can provide one state, no state, or both states. The states must be passed in through an array.
+Ex: ['selected'] or ['selected', 'disabled']
+
+Possible values for `AccessibilityStates` are:
+* `'selected'` - The element is in a selcted state.
+* `'disabled'` - The element is in a disabled state.
+
+| 类型                        | 必填 |
+| --------------------------- | ---- |
+| array of AccessibilitStates | 否   |
+
+---
+
 ### `accessibilityTraits`
 
 为读屏器提供更多属性。除非在元素里指定，默认情况下不提供任何属性。
@@ -484,6 +551,18 @@ View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event �
 指示该无障碍元素中包含的无障碍元素是否被隐藏。默认为`false`.
 
 阅读[Accessibility guide](accessibility.md#accessibilityelementshidden-ios)获取更多信息。
+
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
+
+---
+
+### `accessibilityIgnoresInvertColors`
+
+A value indicating this view should or should not be inverted when color inversion is turned on. A value of `true` will tell the view to not be inverted even if color inversion is turned on.
+
+See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |

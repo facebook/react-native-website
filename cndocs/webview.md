@@ -21,6 +21,23 @@ class MyWeb extends Component {
 }
 ```
 
+还可以直接嵌入html代码：
+
+```
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
+ class MyInlineWeb extends Component {
+  render() {
+    return (
+      <WebView
+        originWhitelist={['*']}
+        source={{ html: '<h1>Hello world</h1>' }}
+      />
+    );
+  }
+}
+```
+
 你可以使用这个组件进行网页的来回导航，并且为网页内容设置多方面的属性。
 
 > **安全提示:** 目前, `onMessage` and `postMessage` 方法不能够指定源。当`WebView`加载某些非预期文档时可能导致跨站脚本攻击。请查阅 MDN 文档获取更多安全方面的细节[`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) .
@@ -100,7 +117,7 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 
 ### `source`
 
-在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。
+在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。注意如果是载入html代码，则需要设置`originWhitelist`，比如可以设为`["*"]`来允许运行本地代码。
 
 | 类型                                                                                                                | 必填 |
 | ------------------------------------------------------------------------------------------------------------------- | ---- |
