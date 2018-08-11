@@ -343,8 +343,8 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.0 (Oreo)` entry, then make sure the following items are all checked:
 
-- `Android SDK Platform 26`
-- `Google APIs Intel x86 Atom_64 System Image`
+* `Android SDK Platform 26`
+* `Google APIs Intel x86 Atom_64 System Image`
 
 <block class="native mac android" />
 
