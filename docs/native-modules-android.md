@@ -9,7 +9,7 @@ We designed React Native such that it is possible for you to write real native c
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.html) guide first.
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ### Enable Gradle
 
@@ -140,6 +140,12 @@ public class CustomToastPackage implements ReactPackage {
 The package needs to be provided in the `getPackages` method of the `MainApplication.java` file. This file exists under the android folder in your react-native application directory. The path to this file is: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
+// MainApplication.java
+
+...
+import com.your-app-name.CustomToastPackage; // <-- Add this line with your package name.
+...
+
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
