@@ -96,7 +96,7 @@ It should connect to your simulator within a few seconds.
 
 ### Integration with React Native Inspector
 
-Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
 ![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
@@ -104,7 +104,7 @@ However, when `react-devtools` is running, Inspector will enter a special collap
 
 ![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
-You can choose "Hide Inspector" in the same menu to exit this mode.
+Selecting "Toggle Inspector" from the delevoper menu again while this mode is active will exit it.
 
 ### Inspecting Component Instances
 
