@@ -63,7 +63,7 @@ render() {
 }
 ```
 
-![](img/AnimatedFadeInView.gif)
+![](/img/AnimatedFadeInView.gif)
 
 Let's break down what's happening here.
 In the `FadeInView` constructor, a new `Animated.Value` called `fadeAnim` is initialized as part of `state`.
@@ -303,7 +303,7 @@ The UIExplorer sample app has various examples of `Animated` in use:
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
-![](img/LayoutAnimationExample.gif)
+![](/img/LayoutAnimationExample.gif)
 
 ```javascript
 import React from 'react';

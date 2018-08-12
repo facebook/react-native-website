@@ -63,7 +63,7 @@ React Navigation中的视图是原生组件，同时用到了运行在原生线�
 
 如果你只针对iOS平台开发，那么可以考虑使用[NavigatorIOS](navigatorios.html)。它是基于 [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/)封装的，所以看起来很像。
 
-![](img/NavigationStack-NavigatorIOS.gif)
+![](/img/NavigationStack-NavigatorIOS.gif)
 
 ```javascript
 <NavigatorIOS

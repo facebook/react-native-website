@@ -188,7 +188,7 @@ onPanResponderMove={Animated.event([
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
-![](img/LayoutAnimationExample.gif)
+![](/img/LayoutAnimationExample.gif)
 
 ```javascript
 var App = React.createClass({
@@ -277,7 +277,7 @@ reactMixin.onClass(App, tweenState.Mixin);
 ```
 [运行这个例子](https://rnplay.org/apps/4FUQ-A)
 
-![](img/TweenState.gif)
+![](/img/TweenState.gif)
 
 在上面的例子里我们变化的是透明度，但你可能也猜到了，我们能变化任何数值的值。可以参考它的[说明文档](https://github.com/chenglou/react-tween-state)来了解更多信息。
 
@@ -285,7 +285,7 @@ reactMixin.onClass(App, tweenState.Mixin);
 
 [Rebound.js](https://github.com/facebook/rebound-js)是一个[安卓版Rebound](https://github.com/facebook/rebound)的JavaScript移植版。它在概念上类似react-tween-state：你有一个起始值，然后定义一个结束值，然后Rebound会生成所有中间的值并用于你的动画。Rebound基于弹性物理模型，你不需要提供一个动画的持续时间，它会自动根据弹性系数、助力、当前值和结束值来计算。我们[在React Native内部应用](https://github.com/facebook/react-native/search?utf8=%E2%9C%93&q=rebound)了Rebound，比如`Navigator`和`WarningBox`。
 
-![](img/ReboundImage.gif)
+![](/img/ReboundImage.gif)
 
 需要注意的是Rebound动画可以被中断——如果你在按下动画的过程中释放手指，它会从当前状态弹回初始值。
 
@@ -344,7 +344,7 @@ var App = React.createClass({
 
 你还可以为弹跳值启用边界，这样它们不会超出，而是会缓缓接近最终值。在上面的例子里，我们可以添加`this._scrollSpring.setOvershootClampingEnabled(true)`来启用边界。参见下面的gif动画来看一个启用了边界的效果：
 
-![](img/Rebound.gif) 截图来自
+![](/img/Rebound.gif) 截图来自
 [react-native-scrollable-tab-view](https://github.com/brentvatne/react-native-scrollable-tab-view)。
 
 你可以在[这里](https://rnplay.org/apps/qHU_5w)看到一个类似的例子。

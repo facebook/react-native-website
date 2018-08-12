@@ -93,7 +93,7 @@ AppRegistry.registerComponent(
 
 
 ### 截图
-![](img/components/textinput.png)
+![](/img/components/textinput.png)
 
 ### 属性
 

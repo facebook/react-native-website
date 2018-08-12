@@ -15,7 +15,7 @@ original_id: cameraroll
 从iOS11开始，如果您的项目有保存图片需求，需要额外申请用户授权。你需要在`Info.plist`中添加一条名为`NSPhotoLibraryAddUsageDescription`的键，然后在其值中填写向用户请求权限的具体描述。编辑完成后这个键在Xcode中实际会显示为`Privacy - Photo Library Additions Usage Description`。而名为`NSPhotoLibraryUsageDescription`的键此时仅控制相册的读取。具体说明请翻阅[官方文档](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)搜索相关键值。
 
 ### 截图
-![cameraroll](img/api/cameraroll.png)
+![cameraroll](/img/api/cameraroll.png)
 
 ### 方法
 

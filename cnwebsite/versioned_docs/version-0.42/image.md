@@ -26,7 +26,7 @@ renderImages() {
 ```
 
 ### 截图
-![](img/components/image.png)
+![](/img/components/image.png)
 
 ### 在Android上支持GIF和WebP格式图片
 

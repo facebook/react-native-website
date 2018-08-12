@@ -60,7 +60,7 @@ original_id: getting-started
 
 苹果公司目前只允许在 Mac 电脑上开发 iOS 应用。如果你没有 Mac 电脑，那么只能考虑先开发 Android 应用了。
 
-![](img/react-native-sorry-not-supported.png)
+![](/img/react-native-sorry-not-supported.png)
 
 <!-- ######### MAC for iOS ##################### -->
 
@@ -149,23 +149,23 @@ Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK
 
 - 选择`Custom`选项：
 
-![custom installation](img/react-native-android-studio-custom-install.png)
+![custom installation](/img/react-native-android-studio-custom-install.png)
 
 - 勾选`Performance`和`Android Virtual Device`
 
-![additional installs](img/react-native-android-studio-additional-installs.png)
+![additional installs](/img/react-native-android-studio-additional-installs.png)
 
 - 安装完成后，在 Android Studio 的启动欢迎界面中选择`Configure | SDK Manager`。
 
-![configure sdk](img/react-native-android-studio-configure-sdk.png)
+![configure sdk](/img/react-native-android-studio-configure-sdk.png)
 
 - 在`SDK Platforms`窗口中，选择`Show Package Details`，然后在`Android 6.0 (Marshmallow)`中勾选`Google APIs`、`Android SDK Platform 23`、`Intel x86 Atom System Image`、`Intel x86 Atom_64 System Image`以及`Google APIs Intel x86 Atom_64 System Image`。
 
-![platforms](img/react-native-android-studio-android-sdk-platforms.png)
+![platforms](/img/react-native-android-studio-android-sdk-platforms.png)
 
 - 在`SDK Tools`窗口中，选择`Show Package Details`，然后在`Android SDK Build Tools`中勾选`Android SDK Build-Tools 23.0.1`（必须是这个版本）。然后还要勾选最底部的`Android Support Repository`.
 
-![build tools](img/react-native-android-studio-android-sdk-build-tools.png)
+![build tools](/img/react-native-android-studio-android-sdk-build-tools.png)
 
 #### ANDROID_HOME 环境变量
 
@@ -351,11 +351,11 @@ Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK
 
 - 选择`Custom`选项：
 
-![custom installation](img/react-native-android-studio-custom-install-linux.png)
+![custom installation](/img/react-native-android-studio-custom-install-linux.png)
 
 - 选择`Android Virtual Device`
 
-![additional installs](img/react-native-android-studio-additional-installs-linux.png)
+![additional installs](/img/react-native-android-studio-additional-installs-linux.png)
 
 </div><div markdown class="md-block windows android">
 
@@ -363,11 +363,11 @@ Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK
 
 - 在初步安装完成后，选择`Custom`安装项：
 
-![custom installation](img/react-native-android-studio-custom-install-windows.png)
+![custom installation](/img/react-native-android-studio-custom-install-windows.png)
 
 - 检查已安装的组件，尤其是模拟器和 HAXM 加速驱动。
 
-![verify installs](img/react-native-android-studio-verify-installs-windows.png)
+![verify installs](/img/react-native-android-studio-verify-installs-windows.png)
 
 </div><div markdown class="md-block windows linux android">
 
@@ -375,11 +375,11 @@ Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK
 
 </div><div markdown class="md-block linux android">
 
-![configure sdk](img/react-native-android-studio-configure-sdk-linux.png)
+![configure sdk](/img/react-native-android-studio-configure-sdk-linux.png)
 
 </div><div markdown class="md-block windows android">
 
-![configure sdk](img/react-native-android-studio-configure-sdk-windows.png)
+![configure sdk](/img/react-native-android-studio-configure-sdk-windows.png)
 
 </div><div markdown class="md-block windows linux android">
 
@@ -387,11 +387,11 @@ Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK
 
 </div><div markdown class="md-block linux android">
 
-![platforms](img/react-native-android-studio-android-sdk-platforms-linux.png)
+![platforms](/img/react-native-android-studio-android-sdk-platforms-linux.png)
 
 </div><div markdown class="md-block windows android">
 
-![platforms](img/react-native-android-studio-android-sdk-platforms-windows.png)
+![platforms](/img/react-native-android-studio-android-sdk-platforms-windows.png)
 
 </div><div markdown class="md-block windows linux android">
 
@@ -399,11 +399,11 @@ Android Studio 包含了运行和测试 React Native 应用所需的 Android SDK
 
 </div><div markdown class="md-block linux android">
 
-![build tools](img/react-native-android-studio-android-sdk-build-tools-linux.png)
+![build tools](/img/react-native-android-studio-android-sdk-build-tools-linux.png)
 
 </div><div markdown class="md-block windows android">
 
-![build tools](img/react-native-android-studio-android-sdk-build-tools-windows.png)
+![build tools](/img/react-native-android-studio-android-sdk-build-tools-windows.png)
 
 </div><div markdown class="md-block windows linux android">
 
@@ -435,7 +435,7 @@ source ~/.bash_profile
 
 > 具体的路径可能和下图不一致，请自行确认。
 
-![env variable](img/react-native-android-sdk-environment-variable-windows.png)
+![env variable](/img/react-native-android-sdk-environment-variable-windows.png)
 
 > 你需要关闭现有的命令符提示窗口然后重新打开，这样新的环境变量才能生效。
 
@@ -501,7 +501,7 @@ touch ~/.gradle/gradle.properties && echo "org.gradle.daemon=true" >> ~/.gradle/
 
 在安装 Android Studio 时你可能会看到下面这样的提示：
 
-![accelerator](img/react-native-android-studio-kvm-linux.png)
+![accelerator](/img/react-native-android-studio-kvm-linux.png)
 
 如果你的系统支持 KVM，那就应该安装[Intel 的 Android 模拟器加速器](https://software.intel.com/en-us/android/articles/speeding-up-the-android-emulator-on-intel-architecture#_Toc358213272)。
 
@@ -528,7 +528,7 @@ export PATH
 
 > 注意你的具体路径可能和下图不同
 
-![env variable](img/react-native-android-tools-environment-variable-windows.png)
+![env variable](/img/react-native-android-tools-environment-variable-windows.png)
 
 </div><div markdown class="md-block windows linux android">
 
@@ -641,7 +641,7 @@ react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-![](img/react-native-congratulations.png)
+![](/img/react-native-congratulations.png)
 
 </div><div markdown class="md-block windows linux android">
 
@@ -672,7 +672,7 @@ react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-![](img/react-native-congratulations.png)
+![](/img/react-native-congratulations.png)
 
 </div><div markdown class="md-block mac ios android">
 

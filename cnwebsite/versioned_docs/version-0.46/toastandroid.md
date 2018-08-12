@@ -18,7 +18,7 @@ ToastAndroid.showWithGravity('All Your Base Are Belong To Us', ToastAndroid.SHOR
 ```
 
 ### 截图
-![toastandroid](img/api/toastandroid.png)
+![toastandroid](/img/api/toastandroid.png)
 
 ### 方法
 

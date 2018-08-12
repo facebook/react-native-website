@@ -115,7 +115,7 @@ $ sudo gem install cocoapods
 </div>
 <div markdown class="md-block objc swift">
 
-![Before RN Integration](img/react-native-existing-app-integration-ios-before.png)
+![Before RN Integration](/img/react-native-existing-app-integration-ios-before.png)
 
 ## 依赖包
 
@@ -357,7 +357,7 @@ We will tie our React Native component with a new native view in the `ViewContro
 
 You can add a new link on the main game menu to go to the "High Score" React Native page.
 
-![Event Path](img/react-native-add-react-native-integration-link.png)
+![Event Path](/img/react-native-add-react-native-integration-link.png)
 
 #### 事件处理
 
@@ -456,7 +456,7 @@ import React
 
 Wire up the new link in the main menu to the newly added event handler method.
 
-![Event Path](img/react-native-add-react-native-integration-wire-up.png)
+![Event Path](/img/react-native-add-react-native-integration-wire-up.png)
 
 > One of the easier ways to do this is to open the view in the storyboard and right click on the new link. Select something such as the `Touch Up Inside` event, drag that to the storyboard and then select the created method from the list provided.
 
@@ -502,11 +502,11 @@ In our sample application, you should see the link to the "High Scores" and then
 
 Here is the _native_ application home screen:
 
-![Home Screen](img/react-native-add-react-native-integration-example-home-screen.png)
+![Home Screen](/img/react-native-add-react-native-integration-example-home-screen.png)
 
 Here is the _React Native_ high score screen:
 
-![High Scores](img/react-native-add-react-native-integration-example-high-scores.png)
+![High Scores](/img/react-native-add-react-native-integration-example-high-scores.png)
 
 > If you are getting module resolution issues when running your application please see [this GitHub issue](https://github.com/facebook/react-native/issues/4968) for information and possible resolution. [This comment](https://github.com/facebook/react-native/issues/4968#issuecomment-220941717) seemed to be the latest possible resolution.
 
@@ -782,7 +782,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 编译执行一切顺利进行之后，在进入到 MyReactActivity 时应该就能立刻从 packager 中读取 JavaScript 代码并执行和显示：
 
-![Screenshot](img/EmbeddedAppAndroid.png)
+![Screenshot](/img/EmbeddedAppAndroid.png)
 
 ## 在 Android Studio 中打包
 

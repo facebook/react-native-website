@@ -7,7 +7,7 @@ original_id: webview
 创建一个原生的WebView，可以用于访问一个网页。
 
 ### 截图
-![](img/components/webview.png)
+![](/img/components/webview.png)
 
 ### 属性
 

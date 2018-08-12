@@ -86,7 +86,7 @@ export default class UselessTextInputMultiline extends Component {
 
 
 ### 截图
-![](img/components/textinput.png)
+![](/img/components/textinput.png)
 
 ### 属性
 

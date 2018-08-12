@@ -10,9 +10,9 @@ original_id: switch
 @keyword checkbox @keyword toggle @keyword 单选 @keyword 多选
 
 ### 截图
-![](img/components/switchandroid.png)
+![](/img/components/switchandroid.png)
 
-![](img/components/switchios.png)
+![](/img/components/switchios.png)
 
 ### 属性
 

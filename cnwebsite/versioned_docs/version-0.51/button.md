@@ -6,7 +6,7 @@ original_id: button
 
 一个简单的跨平台的按钮组件。可以进行一些简单的定制。
 
-![](img/components/buttonExample.png)
+![](/img/components/buttonExample.png)
 
 这个组件的样式是固定的。所以如果它的外观并不怎么搭配你的设计，那你需要使用`TouchableOpacity`或
 是`TouchableNativeFeedback`组件来定制自己所需要的按钮，视频教

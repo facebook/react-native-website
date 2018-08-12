@@ -46,13 +46,13 @@ $ react-native link 某已安装的具体库名
 如果该库包含原生代码，那么在它的文件夹下一定有一个`.xcodeproj`文件。
 把这个文件拖到你的XCode工程下（通常拖到XCode的`Libraries`分组里）
 
-![](img/AddToLibraries.png)
+![](/img/AddToLibraries.png)
 
 #### 第二步
 
 点击你的主工程文件，选择`Build Phases`，然后把刚才所添加进去的`.xcodeproj`下的`Products`文件夹中的静态库文件（.a文件），拖到`Link Binary With Libraries`组内。
 
-![](img/AddToBuildPhases.png)
+![](/img/AddToBuildPhases.png)
 
 #### 第三步
 
@@ -68,5 +68,5 @@ _我需要在编译的期间了解库的内容吗？_
 
 这种情况下我们需要能够访问到库的头文件。为了能够顺利打包，你需要打开你的工程文件，选择`Build Settings`，然后搜索`Header Search Paths`，然后添加库所在的目录（如果它还有像`React`这样的子目录需要包含，注意要选中`recursive`选项）
 
-![](img/AddToSearchPaths.png)
+![](/img/AddToSearchPaths.png)
 

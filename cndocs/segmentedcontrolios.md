@@ -21,7 +21,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 />
 ```
 
-<center><img src="assets/SegmentedControlIOS/example.gif" width="360"></img></center>
+<center><img src="/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
 
 ### 查看Props
 
@@ -49,7 +49,7 @@ If false the user won't be able to interact with the control. Default value is t
 | ---- | -------- |
 | bool | 否       |
 
-<center><img src="assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
+<center><img src="/docs/assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
 
 ---
 
@@ -61,7 +61,7 @@ If true, then selecting a segment won't persist visually. The `onValueChange` ca
 | ---- | -------- |
 | bool | 否       |
 
-<center><img src="assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
+<center><img src="/docs/assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
 
 ---
 
@@ -103,7 +103,7 @@ Accent color of the control.
 | ------ | -------- |
 | string | 否       |
 
-<center><img src="assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
+<center><img src="/docs/assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
 
 ---
 

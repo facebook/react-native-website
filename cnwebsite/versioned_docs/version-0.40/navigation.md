@@ -10,7 +10,7 @@ original_id: navigation
 
 `Navigator`使用纯JavaScript实现了一个导航栈，因此可以跨平台工作，同时也便于定制。这也是我们在[使用导航器跳转页面](using-navigators.html)的教程中示例用的组件。
 
-![](img/NavigationStack-Navigator.gif)
+![](/img/NavigationStack-Navigator.gif)
 
 `Navigator`可以在`renderScene`方法中根据当前路由渲染不同的组件。默认情况下新的场景会从屏幕右侧滑进来，但你也可以通过`configureScene`方法来管理这一行为。你还可以通过`navigationBar`属性来配置一个跨场景的导航栏。（译注：但我们不推荐使用跨场景的navigationBar，它的代码逻辑维护起来很困难！建议自己在场景中用`View`实现自定义的导航栏。）
 
@@ -20,7 +20,7 @@ original_id: navigation
 
 如果你只针对iOS平台开发，那么可以考虑使用[NavigatorIOS](navigatorios.html)。它是基于 [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/)封装的，所以看起来很像。
 
-![](img/NavigationStack-NavigatorIOS.gif)
+![](/img/NavigationStack-NavigatorIOS.gif)
 
 ```javascript
 <NavigatorIOS

@@ -100,7 +100,7 @@ var styles = StyleSheet.create({
 
 |                           |                            |
 | ------------------------- | -------------------------- |
-| ![](img/TutorialMock.png) | ![](img/TutorialMock2.png) |
+| ![](/img/TutorialMock.png) | ![](/img/TutorialMock2.png) |
 
 ### 添加样式
 
@@ -173,7 +173,7 @@ return (
 
 |                                 |                                  |
 | ------------------------------- | -------------------------------- |
-| ![](img/TutorialStyledMock.png) | ![](img/TutorialStyledMock2.png) |
+| ![](/img/TutorialStyledMock.png) | ![](/img/TutorialStyledMock2.png) |
 
 ### 拉取真正的数据
 
@@ -270,7 +270,7 @@ var REQUEST_URL =
 
 |                                    |                                     |
 | ---------------------------------- | ----------------------------------- |
-| ![](img/TutorialSingleFetched.png) | ![](img/TutorialSingleFetched2.png) |
+| ![](/img/TutorialSingleFetched.png) | ![](/img/TutorialSingleFetched2.png) |
 
 ## FlatList
 
@@ -368,7 +368,7 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 |                            |                             |
 | -------------------------- | --------------------------- |
-| ![](img/TutorialFinal.png) | ![](img/TutorialFinal2.png) |
+| ![](/img/TutorialFinal.png) | ![](/img/TutorialFinal2.png) |
 
 为了实现一个完整功能的应用，接下来其实还有一些工作要做，譬如：添加导航器，搜索，加载更多，等等等等。
 

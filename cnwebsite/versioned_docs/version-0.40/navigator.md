@@ -11,9 +11,9 @@ original_id: navigator
 __译注__：本文档的说明较为简略，使用上有一定的难度。论坛中有一篇更为详细的[教程](http://bbs.reactnative.cn/topic/20)，推荐阅读。
 
 ### 截图
-![](img/components/navigator1.png)
+![](/img/components/navigator1.png)
 
-![](img/components/navigator2.png)
+![](/img/components/navigator2.png)
 
 ### 基本用法
 ```javascript

@@ -25,7 +25,7 @@ render: function() {
 },
 ```
 ### 截图
-![](img/components/progressbarandroid.png)
+![](/img/components/progressbarandroid.png)
 
 ### 属性
 

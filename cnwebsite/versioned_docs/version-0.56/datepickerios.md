@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
 })
 ```
 
-<center><img src="assets/DatePickerIOS/example.gif" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
 
 ### 查看 Props
 
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
 
 Example with `maximumDate` set to December 31, 2017:
 
-<center><img src="assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
 
 ---
 
@@ -132,7 +132,7 @@ See [`maximumDate`](datepickerios.md#maximumdate) for an example image.
 
 Example with `minuteInterval` set to `10`:
 
-<center><img src="assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
 
 ---
 

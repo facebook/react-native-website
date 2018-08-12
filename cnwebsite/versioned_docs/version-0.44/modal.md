@@ -59,7 +59,7 @@ class ModalExample extends Component {
 ```
 
 ### 截图
-![](img/components/modal.png)
+![](/img/components/modal.png)
 
 ### 属性
 

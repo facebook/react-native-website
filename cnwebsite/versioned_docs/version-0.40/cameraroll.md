@@ -12,7 +12,7 @@ original_id: cameraroll
 从iOS10开始，访问相册需要用户授权。你需要在`Info.plist`中添加一条名为`NSCameraUsageDescription`的键，然后在其值中填写向用户请求权限的具体描述。编辑完成后这个键在Xcode中实际会显示为`Privacy - Camera Usage Description`。
 
 ### 截图
-![cameraroll](img/api/cameraroll.png)
+![cameraroll](/img/api/cameraroll.png)
 
 ### 方法
 

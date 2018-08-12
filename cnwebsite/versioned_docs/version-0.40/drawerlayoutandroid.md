@@ -7,7 +7,7 @@ original_id: drawerlayoutandroid
 封装了平台`DrawerLayout`（仅限安卓平台）的React组件。抽屉（通常用于导航切换）是通过`renderNavigationView`方法渲染的，并且DrawerLayoutAndroid的直接子视图会成为主视图（用于放置你的内容）。导航视图一开始在屏幕上并不可见，不过可以从`drawerPosition`指定的窗口侧面拖拽出来，并且抽屉的宽度可以使用`drawerWidth`属性来指定。
 
 ### 截图
-![](img/components/drawerlayoutandroid.png)
+![](/img/components/drawerlayoutandroid.png)
 
 ### 例子
 

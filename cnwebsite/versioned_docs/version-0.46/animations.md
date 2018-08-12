@@ -63,7 +63,7 @@ render() {
 }
 ```
 
-![](img/AnimatedFadeInView.gif)
+![](/img/AnimatedFadeInView.gif)
 
 我们来分析一下这个过程。
 在`FadeInView`的构造函数里，我们创建了一个名为`fadeAnim`的`Animated.Value`，并放在`state`中。
@@ -299,7 +299,7 @@ The RNTester app has various examples of `Animated` in use:
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
-![](img/LayoutAnimationExample.gif)
+![](/img/LayoutAnimationExample.gif)
 
 ```javascript
 import React from 'react';

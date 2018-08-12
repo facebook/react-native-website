@@ -7,7 +7,7 @@ original_id: segmentedcontrolios
 使用`SegmentedControlIOS`来在iOS设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
 
 ### 截图
-![SegmentedControlIOS](img/components/segmentedcontrolios.png)
+![SegmentedControlIOS](/img/components/segmentedcontrolios.png)
 
 ### 属性
 

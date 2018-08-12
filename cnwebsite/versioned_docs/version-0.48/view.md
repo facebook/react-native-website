@@ -17,7 +17,7 @@ original_id: view
 `View`的设计初衷是和`StyleSheet`搭配使用，这样可以使代码更清晰并且获得更高的性能。尽管内联样式也同样可以使用。
 
 ### 截图
-![](img/components/view.png)
+![](/img/components/view.png)
 
 ### 属性
 

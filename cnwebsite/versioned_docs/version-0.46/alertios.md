@@ -21,9 +21,9 @@ AlertIOS.alert(
 )
 ```
 ### 截图
-![alertios1](img/api/alertios1.png)
+![alertios1](/img/api/alertios1.png)
 
-![alertios2](img/api/alertios2.png)
+![alertios2](/img/api/alertios2.png)
 
 ### 方法
 

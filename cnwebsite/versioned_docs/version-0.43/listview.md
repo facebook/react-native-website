@@ -34,11 +34,11 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
 * 限制频率的行渲染 - 默认情况下，每次消息循环只有一行会被渲染（可以用`pageSize`属性配置）。这把较大的工作分散成小的碎片，以降低因为渲染而导致丢帧的可能性。
 
 ### 截图
-![](img/components/listview1.png)
+![](/img/components/listview1.png)
 
-![](img/components/listview2.png)
+![](/img/components/listview2.png)
 
-![](img/components/listview3.png)
+![](/img/components/listview3.png)
 
 ### 属性
 
