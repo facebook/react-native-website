@@ -90,7 +90,15 @@ class Help extends React.Component {
             who can help out or point you to somewhere you might want to look.
           </p>
           <h3>DevTo</h3>
-          <p>bla</p>
+          <p>
+            <a href="https://dev.to/t/reactnative">
+              Dev community's React Native tag
+            </a>{" "}
+            is a place to share React Native projects, articles and tutorials as
+            well as start discussions and ask for feedback on React Native
+            related topics. Developers of all skill-levels are welcome to take
+            part.
+          </p>
           <h3>Spectrum</h3>
           <p>bla</p>
         </Container>
