@@ -80,9 +80,9 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityRole`
 
-| Type                        | Required |
-| --------------------------- | -------- |
-| AccessibilityRoles          | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| AccessibilityRoles | No       |
 
 ---
 
