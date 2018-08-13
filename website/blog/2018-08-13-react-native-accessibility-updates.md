@@ -15,7 +15,7 @@ React Native's limited Accessibility API has always been a huge pain point for d
 
 ## Problems With the Existing API
 
-### Problem One: Two Completely Different Yet Similar Props - AccessibilityComponentType (android) and AccessibilityTraits(iOs)
+### Problem One: Two Completely Different Yet Similar Props - AccessibilityComponentType (android) and AccessibilityTraits(iOS)
 
 `AccessibilityComponentType` and `AccessibilityTraits` are two properties that are used to tell TalkBack on Android and VoiceOver on iOS what kind of UI element the user is interacting with. The two biggest problems with these properties are that:
 
@@ -32,7 +32,7 @@ Some users with vision loss use inverted colors on their mobile phones to have g
 
 ## Design of the New API
 
-### Solution One: Combining AccessibilityComponentType(android) and AccessibilityTraits(iOs)
+### Solution One: Combining AccessibilityComponentType(android) and AccessibilityTraits(iOS)
 
 In order to solve the confusion between accessibilityComponentType and accessibilityTraits, we decided to merge them into a single property. This made sense because they technically had the same intended functionality and by merging them, developers no longer had to worry about platform specific intricacies when building accessibility features.
 
