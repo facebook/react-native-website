@@ -59,6 +59,7 @@ class Footer extends React.Component {
               Discussion Forum
             </a>
             <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Chat</a>
+            <a href="https://dev.to/t/reactnative">DEV's React Native tag</a>
           </div>
           <div>
             <h5>More</h5>
