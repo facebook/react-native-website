@@ -47,11 +47,11 @@ class Help extends React.Component {
           <h2>Staying up to date</h2>
           <h3>Official channels</h3>
           <p>
-            The [React Twitter account](https://twitter.com/reactjs) covers both
-            React and React Native. Follow the React Native [Twitter
-            account](https://twitter.com/reactnative) and
-            [blog](/react-native/blog/) to find out what's happening in the
-            world of React Native.
+            The <a href="https://twitter.com/reactjs">React Twitter account</a>{" "}
+            covers both React and React Native. Follow the React Native{" "}
+            <a href="https://twitter.com/reactnative">Twitter account</a> and{" "}
+            <a href="/react-native/blog/">blog</a> to find out what's happening
+            in the world of React Native.
           </p>
           <h3>Discussion Forum</h3>
           <p>
@@ -67,19 +67,30 @@ class Help extends React.Component {
           <p>Discussions and proposals repo</p>
           <h3>Conferences</h3>
           <p>
-            There are a lot of [React Native
-            Meetups](http://www.meetup.com/topics/react-native/) that happen
-            around the world. Often there is React Native content in React
-            meetups as well. Sometimes we have React conferences. We posted the
-            [videos from React.js Conf
-            2017](https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0),
-            [React.js Conf
-            2016](https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY),
-            and [React.js Conf
-            2015](https://www.youtube.com/watch?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&v=KVZ-P-ZI6W4).
-            We'll probably have more conferences in the future, too. Stay tuned.
-            You can also find a list of dedicated React Native conferences
-            [here](http://www.awesome-react-native.com/#conferences).
+            There are a lot of{" "}
+            <a href="http://www.meetup.com/topics/react-native/">
+              React Native Meetups
+            </a>{" "}
+            that happen around the world. Often there is React Native content in
+            React meetups as well. Sometimes we have React conferences. We
+            posted the{" "}
+            <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
+              React.js Conf 2017
+            </a>
+            {", "}
+            <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY">
+              React.js Conf 2016
+            </a>
+            {" ,"}
+            and{" "}
+            <a href="https://www.youtube.com/watch?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&v=KVZ-P-ZI6W4">
+              React.js Conf 2015
+            </a>
+            {". "}
+            And React.js Conf 2018 is happening this coming October. You can
+            also find a list of dedicated React Native conferences{" "}
+            <a href="http://www.awesome-react-native.com/#conferences">here</a>
+            {" . "}
           </p>
           <h2>Communities at large</h2>
           <h3>Reactiflux Chat</h3>
