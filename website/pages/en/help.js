@@ -29,8 +29,12 @@ class Help extends React.Component {
             product infrastructure engineering team. But there are far more
             people in the community who make key contributions and fix things;
             if the issue you are facing is code related, you should consider
-            checking the open issues in the main repo and create a new one
-            following the template if it's something none faced yet.
+            checking the open issues in the{" "}
+            <a href="https://github.com/facebook/react-native/issues">
+              main repository
+            </a>{" "}
+            and create a new one following the template, if it's something none
+            faced yet.
           </p>
           <h3>Stack Overflow</h3>
           <p>
@@ -55,16 +59,25 @@ class Help extends React.Component {
           </p>
           <h3>Discussion Forum</h3>
           <p>
-            For longer-form conversations about React Native, we’ve set up a{" "}
+            For longer-form conversations about React Native, we’ve set up a
+            discussion forum at{" "}
             <a href="https://discuss.reactjs.org/t/welcome-react-native-community-group/10239">
-              discussion forum at <strong>discuss.reactjs.org</strong>
-            </a>. This forum is a great place for discussion about best
-            practices and application architecture as well as the future of
-            React Native. If you have an answerable code-level question, please
-            post it to Stack Overflow instead.
+              <strong>discuss.reactjs.org</strong>
+            </a>. This is a great place for discussion about best practices and
+            application architecture. If you have an answerable code-level
+            question, please post it to Stack Overflow instead.
           </p>
           <h3>Proposals</h3>
-          <p>Discussions and proposals repo</p>
+          <p>
+            React Native is still a young framework, and its rapid release cycle
+            leaves the door open for discussing how it can evolve at every step
+            of the way. If you want to know what the current proposals and RFCs
+            are talking about, you can head{" "}
+            <a href="https://github.com/react-native-community/discussions-and-proposals">
+              here
+            </a>
+            {"."}
+          </p>
           <h3>Conferences</h3>
           <p>
             There are a lot of{" "}
@@ -81,7 +94,7 @@ class Help extends React.Component {
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY">
               React.js Conf 2016
             </a>
-            {" ,"}
+            {", "}
             and{" "}
             <a href="https://www.youtube.com/watch?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&v=KVZ-P-ZI6W4">
               React.js Conf 2015
@@ -90,7 +103,7 @@ class Help extends React.Component {
             And React.js Conf 2018 is happening this coming October. You can
             also find a list of dedicated React Native conferences{" "}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
-            {" . "}
+            {"."}
           </p>
           <h2>Communities at large</h2>
           <h3>Reactiflux Chat</h3>
@@ -100,18 +113,47 @@ class Help extends React.Component {
             community. There are usually a number of React Native experts there
             who can help out or point you to somewhere you might want to look.
           </p>
-          <h3>DevTo</h3>
+          <h3>Forum-like groups</h3>
           <p>
-            <a href="https://dev.to/t/reactnative">
-              Dev community's React Native tag
+            If you want to create less temporary conversations, check out the{" "}
+            <a href="https://spectrum.chat/react-native">
+              React Native Spectrum
             </a>{" "}
-            is a place to share React Native projects, articles and tutorials as
-            well as start discussions and ask for feedback on React Native
-            related topics. Developers of all skill-levels are welcome to take
-            part.
+            community or the{" "}
+            <a href="https://www.facebook.com/groups/react.native.community">
+              React Native Facebook Group
+            </a>
+            {", "} which is more focused on post announcements, blog posts,
+            talks, videos, cool new libraries and apps.
           </p>
-          <h3>Spectrum</h3>
-          <p>bla</p>
+          <h3>Company-based Communities</h3>
+          <p>
+            Some companies actively involved in the React Native have also their
+            own communication channels focused towards the projects they
+            maintain, like{" "}
+            <a href="https://discordapp.com/invite/zwR2Cdh">
+              Callstack.io's Discord server
+            </a>
+            {", "}
+            <a href="https://infiniteredcommunity.herokuapp.com/">
+              Infinite Red's Slack Group
+            </a>
+            {" and "}
+            <a href="https://slack.expo.io/">Expo' Slack Group</a>.
+          </p>
+          <h3>Content sharing</h3>
+          <p>
+            <a href="https://dev.to/t/reactnative">DevTo community's</a> and{" "}
+            <a href="https://medium.com/tag/react-native">Medium's</a> React
+            Native tag are places where you can share React Native projects,
+            articles and tutorials as well as start discussions and ask for
+            feedback on React Native related topics. (but remember to give some
+            love to the{" "}
+            <a href="https://github.com/facebook/react-native-website">
+              main documentation
+            </a>{" "}
+            too!)
+          </p>
         </Container>
       </div>
     );
