@@ -18,6 +18,9 @@ class Help extends React.Component {
       <div className="pageContainer">
         <Container className="mainContainer documentContainer postContainer">
           <h1>The React Native Community</h1>
+          <p>
+            There are a lot of developers around the world using React Native; this page aims to give a brief overview of where you could go to find them.
+          </p>
           <h2>Where To Get Help</h2>
           <p>
             If you need help with your React Native app, the right place to go
