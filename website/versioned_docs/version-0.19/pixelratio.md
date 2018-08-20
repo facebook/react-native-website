@@ -47,10 +47,11 @@ Returns the device pixel density. Some examples:
 * PixelRatio.get() === 2
   * iPhone 4, 4S
   * iPhone 5, 5c, 5s
-  * iPhone 6
+  * iPhone 6, 7, 8
   * xhdpi Android devices (320 dpi)
 * PixelRatio.get() === 3
-  * iPhone 6 plus
+  * iPhone 6 Plus, 7 Plus, 8 Plus
+  * iPhone X
   * xxhdpi Android devices (480 dpi)
 * PixelRatio.get() === 3.5
   * Nexus 6
