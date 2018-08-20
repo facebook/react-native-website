@@ -323,12 +323,12 @@ Even without the RAM format, inline requires can lead to startup time improvemen
 
 On iOS using the RAM format will create a single indexed file that react native will load one module at a time. On Android, by default it will create a set of files for each module. You can force Android to create a single file, like iOS, but using multiple files can be more performant and requires less memory.
 
-Enable the RAM format in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/packager/react-native-xcode.sh` add `export BUNDLE_COMMAND="ram-bundle"`:
+Enable the RAM format in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/scripts/react-native-xcode.sh` add `export BUNDLE_COMMAND="ram-bundle"`:
 
 ```
 export BUNDLE_COMMAND="ram-bundle"
 export NODE_BINARY=node
-../node_modules/react-native/packager/react-native-xcode.sh
+../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
 On Android enable the RAM format by editing your `android/app/build.gradle` file. Before the line `apply from: "../../node_modules/react-native/react.gradle"` add or amend the `project.ext.react` block:
@@ -376,7 +376,7 @@ In Xcode, in the build phase, include `export BUNDLE_CONFIG="packager/config.js"
 export BUNDLE_COMMAND="ram-bundle"
 export BUNDLE_CONFIG="packager/config.js"
 export NODE_BINARY=node
-../node_modules/react-native/packager/react-native-xcode.sh
+../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
 Edit your android/app/build.gradle file to include `bundleConfig: "packager/config.js",`.
