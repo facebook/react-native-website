@@ -19,7 +19,7 @@ class Help extends React.Component {
         <Container className="mainContainer documentContainer postContainer">
           <h1>The React Native Community</h1>
           <p>
-            There are a lot of developers around the world using React Native; this page aims to give a brief overview of where you could go to find them.
+            There are a lot of developers around the world using React Native. This is a brief overview of where you can find them.
           </p>
           <h2>Where To Get Help</h2>
           <p>
@@ -28,16 +28,16 @@ class Help extends React.Component {
           </p>
           <h3>Repository</h3>
           <p>
-            <strong>React Native</strong> is worked on full-time by Facebook's
-            product infrastructure engineering team. But there are far more
-            people in the community who make key contributions and fix things;
-            if the issue you are facing is code related, you should consider
-            checking the open issues in the{" "}
+            The core of <strong>React Native</strong> is worked on full-time by Facebook's
+            React Native team. 
+            But there are far more people in the community who make key contributions and fix things.
+            If the issue you are facing is code related, you should consider checking the open issues in the{" "}
             <a href="https://github.com/facebook/react-native/issues">
               main repository
-            </a>{" "}
-            and create a new one following the template, if it's something none
-            faced yet.
+            </a>. If you cannot find an existing issue, please{" "}
+            <a href="https://github.com/facebook/react-native/issues/new?template=bug_report.md">
+              use the Bug Report template
+            </a> to create an issue with a minimal example.
           </p>
           <h3>Stack Overflow</h3>
           <p>
@@ -75,9 +75,9 @@ class Help extends React.Component {
             React Native is still a young framework, and its rapid release cycle
             leaves the door open for discussing how it can evolve at every step
             of the way. If you want to know what the current proposals and RFCs
-            are talking about, you can head{" "}
+            are talking about, you can read through the{" "}
             <a href="https://github.com/react-native-community/discussions-and-proposals">
-              here
+              Discussions and Proposals repository
             </a>
             {"."}
           </p>
@@ -88,22 +88,24 @@ class Help extends React.Component {
               React Native Meetups
             </a>{" "}
             that happen around the world. Often there is React Native content in
-            React meetups as well. Sometimes we have React conferences. We
-            posted the{" "}
+            React meetups as well. React Native has been covered often in past React Conf talks. Videos for these talks can be found online in the following playlists: {" "}
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
-              React.js Conf 2017
+              React Conf 2017
             </a>
             {", "}
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY">
-              React.js Conf 2016
+              React Conf 2016
             </a>
             {", "}
             and{" "}
             <a href="https://www.youtube.com/watch?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&v=KVZ-P-ZI6W4">
-              React.js Conf 2015
+              React Conf 2015
             </a>
             {". "}
-            And React.js Conf 2018 is happening this coming October. You can
+            The next{" "}
+            <a href="https://conf.reactjs.org/">
+              React Conf
+            </a> will take place October 25 and 26 in Henderson, Nevada. You can
             also find a list of dedicated React Native conferences{" "}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {"."}
@@ -127,7 +129,7 @@ class Help extends React.Component {
               React Native Facebook Group
             </a>
             {", "} which is more focused on post announcements, blog posts,
-            talks, videos, cool new libraries and apps.
+            talks, videos, cool new libraries, and apps.
           </p>
           <h3>Company-based Communities</h3>
           <p>
