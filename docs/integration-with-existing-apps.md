@@ -239,7 +239,7 @@ target 'NumberTileGame' do
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'ReactYoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
@@ -273,7 +273,7 @@ target 'swift-2048' do
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+  pod 'ReactYoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
