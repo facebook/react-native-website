@@ -140,6 +140,10 @@ class Help extends React.Component {
               Callstack.io's Discord server
             </a>
             {", "}
+            <a href="https://discord.gg/C9aK28N">
+              Invertase.io's Discord server (e.g. React Native Firebase)
+            </a>
+            {", "}
             <a href="https://infiniteredcommunity.herokuapp.com/">
               Infinite Red's Slack Group
             </a>
