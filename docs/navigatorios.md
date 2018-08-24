@@ -36,7 +36,7 @@ class MyScene extends Component {
 
   _onForward = () => {
     this.props.navigator.push({
-      title: 'Scene ' + nextIndex,
+      title: 'Scene',
     });
   }
 
