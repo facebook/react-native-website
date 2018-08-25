@@ -202,12 +202,15 @@ Follow this guide to enable Stetho for Debug mode:
        }
 
        public static void addInterceptor() {
-         OkHttpClient client = OkHttpClientProvider.getOkHttpClient()
-                .newBuilder()
-                .addNetworkInterceptor(new StethoInterceptor())
-                .build();
-
-         OkHttpClientProvider.replaceOkHttpClient(client);
+         final OkHttpClient baseClient = OkHttpClientProvider.createClient();
+         OkHttpClientProvider.setOkHttpClientFactory(new OkHttpClientFactory() {
+           @Override
+           public OkHttpClient createNewNetworkModuleClient() {
+             return baseClient.newBuilder()
+                 .addNetworkInterceptor(new StethoInterceptor())
+                 .build();
+           }
+         });
        }
    }
    ```
