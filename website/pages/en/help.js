@@ -19,7 +19,8 @@ class Help extends React.Component {
         <Container className="mainContainer documentContainer postContainer">
           <h1>The React Native Community</h1>
           <p>
-            There are a lot of developers around the world using React Native. This is a brief overview of where you can find them.
+            There are a lot of developers around the world using React Native.
+            This is a brief overview of where you can find them.
           </p>
           <h2>Where To Get Help</h2>
           <p>
@@ -28,16 +29,18 @@ class Help extends React.Component {
           </p>
           <h3>Repository</h3>
           <p>
-            The core of <strong>React Native</strong> is worked on full-time by Facebook's
-            React Native team. 
-            But there are far more people in the community who make key contributions and fix things.
-            If the issue you are facing is code related, you should consider checking the open issues in the{" "}
+            The core of <strong>React Native</strong> is worked on full-time by
+            Facebook's React Native team. But there are far more people in the
+            community who make key contributions and fix things. If the issue
+            you are facing is code related, you should consider checking the
+            open issues in the{" "}
             <a href="https://github.com/facebook/react-native/issues">
               main repository
             </a>. If you cannot find an existing issue, please{" "}
             <a href="https://github.com/facebook/react-native/issues/new?template=bug_report.md">
               use the Bug Report template
-            </a> to create an issue with a minimal example.
+            </a>{" "}
+            to create an issue with a minimal example.
           </p>
           <h3>Stack Overflow</h3>
           <p>
@@ -88,7 +91,9 @@ class Help extends React.Component {
               React Native Meetups
             </a>{" "}
             that happen around the world. Often there is React Native content in
-            React meetups as well. React Native has been covered often in past React Conf talks. Videos for these talks can be found online in the following playlists: {" "}
+            React meetups as well. React Native has been covered often in past
+            React Conf talks. Videos for these talks can be found online in the
+            following playlists:{" "}
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
               React Conf 2017
             </a>
@@ -102,11 +107,9 @@ class Help extends React.Component {
               React Conf 2015
             </a>
             {". "}
-            The next{" "}
-            <a href="https://conf.reactjs.org/">
-              React Conf
-            </a> will take place October 25 and 26 in Henderson, Nevada. You can
-            also find a list of dedicated React Native conferences{" "}
+            The next <a href="https://conf.reactjs.org/">React Conf</a> will
+            take place October 25 and 26 in Henderson, Nevada. You can also find
+            a list of dedicated React Native conferences{" "}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {"."}
           </p>
@@ -129,7 +132,9 @@ class Help extends React.Component {
               React Native Facebook Group
             </a>
             {", "} which is more focused on post announcements, blog posts,
-            talks, videos, cool new libraries, and apps.
+            talks, videos, cool new libraries, and apps.{" "}
+            <a href="https://forums.expo.io">The Expo Forums</a> are a good
+            place to get help if you are using Expo.
           </p>
           <h3>Company-based Communities</h3>
           <p>
@@ -148,7 +153,7 @@ class Help extends React.Component {
               Infinite Red's Slack Group
             </a>
             {" and "}
-            <a href="https://slack.expo.io/">Expo' Slack Group</a>.
+            <a href="https://slack.expo.io/">The Expo Slack Group</a>.
           </p>
           <h3>Content sharing</h3>
           <p>
