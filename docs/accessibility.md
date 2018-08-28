@@ -232,7 +232,7 @@ _onPress: function() {
 }
 
 <CustomRadioButton
-  accessibleComponentType={this.state.radioButton}
+  accessibilityComponentType={this.state.radioButton}
   onPress={this._onPress}/>
 ```
 
