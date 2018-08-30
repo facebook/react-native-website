@@ -18,7 +18,7 @@ title: AppRegistry
 
 To "stop" an application when a view should be destroyed, call `AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was passed into `runApplication`. These should always be used as a pair.
 
-`AppRegistry` should be `require`d early in the `require` sequence to make sure the JS execution environment is setup before other modules are `require`d.
+`AppRegistry` should be required early in the `require` sequence to make sure the JS execution environment is setup before other modules are required.
 
 ### Methods
 
