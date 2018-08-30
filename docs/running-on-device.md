@@ -356,7 +356,7 @@ In `AppDelegate.m`, change `jsCodeLocation` to point to the static bundle if you
 
 ```objc
 #ifdef DEBUG
-   jsCodeLocation = // Your Static Location
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 #else
   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 #endif
