@@ -13,7 +13,8 @@
       "using-a-scrollview",
       "using-a-listview",
       "network",
-      "more-resources"
+      "more-resources",
+      "out-of-tree-platforms"
     ],
     "Guides": [
       "components-and-apis",
