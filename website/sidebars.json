@@ -13,8 +13,7 @@
       "using-a-scrollview",
       "using-a-listview",
       "network",
-      "more-resources",
-      "out-of-tree-platforms"
+      "more-resources"
     ],
     "Guides": [
       "components-and-apis",
@@ -36,7 +35,8 @@
       "running-on-device",
       "upgrading",
       "troubleshooting",
-      "native-modules-setup"
+      "native-modules-setup",
+      "out-of-tree-platforms"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
