@@ -3,23 +3,72 @@ id: debugging
 title: Debugging
 ---
 
-## Enabling Keyboard Shortcuts
+Debugging can be achieved for apps running in the emulator/simulator and for devices connected via USB. 
+The debugging is a bit different for development done in windows vs. development on the mac, as outlined below.   
 
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
+Debugging is possible in several ways:
+ - Through logs
+ - By viewing in Chrome tools 
+ - By debugging the native code. 
 
-## Accessing the In-App Developer Menu
-
-You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
-
+An In-App Developer Menu can be shown at any time inside the app if built and run in debug mode:
 ![](/react-native/docs/assets/DeveloperMenu.png)
 
 > The Developer Menu is disabled in release (production) builds.
+Invoking the run in debug mode in an attached device or on the emulator/simulator will be explained below.
 
-## Reloading JavaScript
 
-Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press `⌘R` in the iOS Simulator, or tap `R` twice on Android emulators.
+## Debugging on a Mac 
 
-### Automatic reloading
+### For apps running in attached devices
+When running from XCode on a device connected with firewire (the Mac equivalent to USB), remember to choose the correct type of target device in the XCode choice near the RUN button, and to have the device id set in the code. 
+
+You can access the in-app developer menu by shaking your device.
+
+Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu
+
+
+### Debugging apps running in the iOS simulator or Android emulator on a Mac
+React Native supports a few keyboard shortcuts in the iOS Simulator/android emulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "**Connect Hardware Keyboard**" is checked.
+
+- by invoking the in-app developer menu on the mac that is building and running the app. The in-app developer menu opens inside the simulated device. 
+ 
+ To invoke the In-App Developer Menu, go in the mac to the simulator/emulator and: 
+ - select "**Shake Gesture**" inside the Hardware menu in the Simulator/Emulator. 
+ - **for iOS simulator on a Mac**: Use the `⌘D` keyboard shortcut 
+ - **for Android emulator on a Mac**: Use the `⌘M` keyboard shortcut
+ 
+Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu or press `⌘R` in the iOS Simulator.
+
+ 
+## Debuggin on Windows and Linux
+It is advised under the android folder in you project to run `gradlew clean` before running your app.
+
+### For apps running in attached devices
+You can connect your device via USB and then run the app on the device and debug it. 
+
+Check that your device is connected by running in a cmd window, in your project directory: 
+    `adb devices`
+    
+It should show a number and then the word `device` if connected ok. 
+ 
+In the project folder if you now run your app with `react-native run-android` it will run on tbe device in debug mode.
+
+If you choose to debug remotely you can use Chrome Tools debugger to view the Javascript and logs. 
+Please see below the section on Chrome Tools. 
+
+### For apps running in the Android Emulator on Windows
+In the Android Emulator use the `Ctrl+M` on Windows and Linux to access the debugger tools menu.
+
+Alternatively, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
+
+Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu or press `ctrl+R` in the iOS Simulator.
+
+If you choose to debug remotely you can use Chrome Tools debugger to view the Javascript and logs. 
+Please see below the section on Chrome Tools. 
+
+
+## Automatic reloading
 
 You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
 
@@ -59,9 +108,24 @@ In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` enviro
 
 ## Chrome Developer Tools
 
-To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+For apps created **without** the React-Native-Create-App,for Android 5.0+ devices connected via USB, you need to use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
-Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
+`adb reverse tcp:8081 tcp:8081`
+
+Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
+
+> If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
+
+To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu.
+
+This will open a new tab in your Chrome broswer at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
+
+To select **Debug JS Remotely**: 
+ - Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools).
+ - for macOS: `⌘⌥I` 
+ - for windows: `Ctrl+Shift+I`. 
+ 
+ You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
 
 > Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
 
@@ -149,20 +213,6 @@ You may also access these through `Debug → Open System Log...` in the iOS Simu
 
 > If you're using Create React Native App, console logs already appear in the same terminal output as the packager.
 
-## Debugging on a device with Chrome Developer Tools
-
-> If you're using Create React Native App, this is configured for you already.
-
-On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
-
-On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
-
-`adb reverse tcp:8081 tcp:8081`
-
-Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
-
-> If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
-
 ### Debugging with [Stetho](http://facebook.github.io/stetho/) on Android
 
 Follow this guide to enable Stetho for Debug mode:
@@ -239,3 +289,5 @@ Follow this guide to enable Stetho for Debug mode:
 ## Debugging native code
 
 When working with native code, such as when writing native modules, you can launch the app from Android Studio or Xcode and take advantage of the native debugging features (setting up breakpoints, etc.) as you would in case of building a standard native app.
+
+The project file for XCode is in the ios folder and for Android Studio is in android folder. 
