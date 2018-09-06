@@ -286,7 +286,7 @@ class Index extends React.Component {
     return (
       <div className="pageContainer">
         <HeaderHero />
-        <Banner />
+        {/* <Banner /> */}
         <Features />
         {/* <MiniShowcase /> */}
         <Hero>

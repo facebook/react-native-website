@@ -49,7 +49,7 @@ fetch("https://mywebsite.com/endpoint/", {
 
 可以参考[Fetch 请求文档](https://developer.mozilla.org/en-US/docs/Web/API/Request)来查看所有可用的参数。
 
-> 注意：使用 Chrome 调试目前无法观测到 React Native 中的网络请求，你可以使用第三方的(react-native-debugger)[https://github.com/jhen0409/react-native-debugger]来进行观测。
+> 注意：使用 Chrome 调试目前无法观测到 React Native 中的网络请求，你可以使用第三方的[react-native-debugger](https://github.com/jhen0409/react-native-debugger)来进行观测。
 
 #### 处理服务器的响应数据
 
