@@ -32,9 +32,9 @@ If the cropping process is successful, the resultant cropped image will be store
 
 ```javascript
 cropData = {
-  offset: { x: number, y: number },
-  size: { width: number, height: number },
-  displaySize: { width: number, height: number },
+  offset: {x: number, y: number},
+  size: {width: number, height: number},
+  displaySize: {width: number, height: number},
   resizeMode: 'contain/cover/stretch',
-}
+};
 ```
