@@ -82,6 +82,7 @@
     "navigatorios": "NavigatorIOS",
     "netinfo": "NetInfo",
     "network": "Networking",
+    "out-of-tree-platforms": "Out-of-Tree Platforms",
     "panresponder": "PanResponder",
     "performance": "Performance",
     "permissionsandroid": "PermissionsAndroid",
