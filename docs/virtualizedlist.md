@@ -359,7 +359,7 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 ### `maxToRenderPerBatch`
 
-The maximum number of items to render in each incremental render batch. The more rendered at once, the better the fill rate, but responsiveness my suffer because rendering content may interfere with responding to button taps or other interactions.
+The maximum number of items to render in each incremental render batch. The more rendered at once, the better the fill rate, but responsiveness may suffer because rendering content may interfere with responding to button taps or other interactions.
 
 | Type   | Required |
 | ------ | -------- |
