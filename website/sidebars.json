@@ -35,8 +35,7 @@
       "running-on-device",
       "upgrading",
       "troubleshooting",
-      "native-modules-setup",
-      "out-of-tree-platforms"
+      "native-modules-setup"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
