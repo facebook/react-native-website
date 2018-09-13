@@ -46,10 +46,10 @@ ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
 
 #### Download links for Android NDK
 
-1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
-2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
-4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
+1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-darwin-x86_64.zip
+2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-linux-x86_64.zip
+3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86_64.zip
+4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86.zip
 
 You can find further instructions on the [official page](https://developer.android.com/ndk/index.html).
 

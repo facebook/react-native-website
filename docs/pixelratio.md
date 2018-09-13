@@ -33,7 +33,6 @@ In React Native, everything in JavaScript and within the layout engine works wit
 * [`getFontScale`](pixelratio.md#getfontscale)
 * [`getPixelSizeForLayoutSize`](pixelratio.md#getpixelsizeforlayoutsize)
 * [`roundToNearestPixel`](pixelratio.md#roundtonearestpixel)
-* [`startDetecting`](pixelratio.md#startdetecting)
 
 ---
 
@@ -50,19 +49,23 @@ static get()
 Returns the device pixel density. Some examples:
 
 * PixelRatio.get() === 1
-  * mdpi Android devices (160 dpi)
+  * [mdpi Android devices](https://material.io/tools/devices/)
 * PixelRatio.get() === 1.5
-  * hdpi Android devices (240 dpi)
+  * [hdpi Android devices](https://material.io/tools/devices/)
 * PixelRatio.get() === 2
   * iPhone 4, 4S
   * iPhone 5, 5c, 5s
-  * iPhone 6
-  * xhdpi Android devices (320 dpi)
+  * iPhone 6, 7, 8
+  * [xhdpi Android devices](https://material.io/tools/devices/)
 * PixelRatio.get() === 3
-  * iPhone 6 plus
-  * xxhdpi Android devices (480 dpi)
+  * iPhone 6 Plus, 7 Plus, 8 Plus
+  * iPhone X
+  * Pixel, Pixel 2
+  * [xxhdpi Android devices](https://material.io/tools/devices/)
 * PixelRatio.get() === 3.5
   * Nexus 6
+  * Pixel XL, Pixel 2 XL
+  * [xxxhdpi Android devices](https://material.io/tools/devices/)
 
 ---
 
@@ -99,13 +102,3 @@ static roundToNearestPixel(layoutSize)
 ```
 
 Rounds a layout size (dp) to the nearest layout size that corresponds to an integer number of pixels. For example, on a device with a PixelRatio of 3, `PixelRatio.roundToNearestPixel(8.4) = 8.33`, which corresponds to exactly (8.33 \* 3) = 25 pixels.
-
----
-
-### `startDetecting()`
-
-```javascript
-static startDetecting()
-```
-
-// No-op for iOS, but used on the web. Should not be documented.

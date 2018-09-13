@@ -61,7 +61,7 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 ### `setRNConfiguration()`
 
 ```javascript
-Geolocation.setRNConfiguration(config);
+geolocation.setRNConfiguration(config);
 ```
 
 Sets configuration options that will be used in all location requests.
@@ -81,7 +81,7 @@ Supported options:
 ### `requestAuthorization()`
 
 ```javascript
-Geolocation.requestAuthorization();
+geolocation.requestAuthorization();
 ```
 
 Request suitable Location permission based on the key configured on pList. If NSLocationAlwaysUsageDescription is set, it will request Always authorization, although if NSLocationWhenInUseUsageDescription is set, it will request InUse authorization.
@@ -91,7 +91,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```javascript
-Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
+geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ```
 
 Invokes the success callback once with the latest location info.
@@ -115,7 +115,7 @@ Supported options:
 ### `watchPosition()`
 
 ```javascript
-Geolocation.watchPosition(success, [error], [options]);
+geolocation.watchPosition(success, [error], [options]);
 ```
 
 Invokes the success callback whenever the location changes. Returns a `watchId` (number).
@@ -141,7 +141,7 @@ Supported options:
 ### `clearWatch()`
 
 ```javascript
-Geolocation.clearWatch(watchID);
+geolocation.clearWatch(watchID);
 ```
 
 **Parameters:**
@@ -155,7 +155,7 @@ Geolocation.clearWatch(watchID);
 ### `stopObserving()`
 
 ```javascript
-Geolocation.stopObserving();
+geolocation.stopObserving();
 ```
 
 Stops observing for device location changes. In addition, it removes all listeners previously registered.
