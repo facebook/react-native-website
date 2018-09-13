@@ -3,7 +3,7 @@ id: animatedvalue
 title: AnimatedValue
 ---
 
-Standard value for driving animations. One `Animated.Value` can drive multiple properties in a synchronized fashion, but can only be driven by one mechanism at a time. Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
+驱动动画的标准值. One `Animated.Value` can drive multiple properties in a synchronized fashion, but can only be driven by one mechanism at a time. Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
 
 一般这样来初始化`new Animated.Value(0);`
 

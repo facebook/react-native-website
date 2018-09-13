@@ -174,12 +174,12 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 `在浏览器中`，如果你不给图片指定尺寸，那么浏览器会首先渲染一个 0x0 大小的元素占位，然后下载图片，在下载完成后再基于正确的尺寸来渲染图片。这样做的最大问题是 UI 会在图片加载的过程中上下跳动，使得用户体验非常糟糕。
 
-`在React Native`中我们有意避免了这一行为。如此一来开发者就需要做更多工作来提前知晓远程图片的尺寸（或宽高比），但我们相信这样可以带来更好的用户体验。然而，从已经打包好的应用资源文件中读取图片（使用`require('image!x')`语法）则`无需指定尺寸`，因为它们的尺寸在加载时就可以立刻知道。
+`在React Native`中我们有意避免了这一行为。如此一来开发者就需要做更多工作来提前知晓远程图片的尺寸（或宽高比），但我们相信这样可以带来更好的用户体验。然而，读取本地静态图片（使用`require('./my-icon.png')`语法）则`无需指定尺寸`，因为它们的尺寸在加载时就可以立刻知道。
 
-比如这样一个引用`require('image!logo')`的实际输出结果可能是：
+比如这样一个引用`require('./my-icon.png')`的实际输出结果可能是：
 
 ```javascript
-{"__packager_asset":true,"isStatic":true,"path":"/Users/react/HelloWorld/iOS/Images.xcassets/react.imageset/logo.png","uri":"logo","width":591,"height":573}
+{"__packager_asset":true,"uri":"my-icon.png","width":591,"height":573}
 ```
 
 ## 资源属性是一个对象（object）

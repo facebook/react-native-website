@@ -86,7 +86,7 @@ Animated.timing(this.state.xPosition, {
 }).start();
 ```
 
-Take a look at the [Configuring animations](animated.md#configuring-animations) section of the `Animated` API reference to learn more about all the config parameters supported by the built-in animations.
+Take a look at the [配置动画](animated.md#配置动画) section of the `Animated` API reference to learn more about all the config parameters supported by the built-in animations.
 
 ### 组合动画
 

@@ -3,6 +3,7 @@ id: version-0.55-images
 title: 图片
 original_id: images
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ## 静态图片资源
@@ -149,10 +150,10 @@ var icon = this.props.active
 
 在某些情况下你可能仅仅想展示一张已经在本地缓存的图片，例如一个低分辨率的占位符，直到高分辨率的图片可用。又或者你无所谓图片是否过时，而且也不在乎显示过时的图片，节省带宽相对更重要。缓存资源属性提供给了你控制网络层与缓存交互的方式。
 
-* `default`: 使用原生平台默认策略。
-* `reload`: URL 的数据将从原始地址加载。不使用现有的缓存数据。
-* `force-cache`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则从原始地址加载。
-* `only-if-cached`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则不尝试从原始地址加载，并且认为请求是失败的。
+- `default`: 使用原生平台默认策略。
+- `reload`: URL 的数据将从原始地址加载。不使用现有的缓存数据。
+- `force-cache`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则从原始地址加载。
+- `only-if-cached`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则不尝试从原始地址加载，并且认为请求是失败的。
 
 ```javascript
 <Image
@@ -176,12 +177,12 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 `在浏览器中`，如果你不给图片指定尺寸，那么浏览器会首先渲染一个 0x0 大小的元素占位，然后下载图片，在下载完成后再基于正确的尺寸来渲染图片。这样做的最大问题是 UI 会在图片加载的过程中上下跳动，使得用户体验非常糟糕。
 
-`在React Native`中我们有意避免了这一行为。如此一来开发者就需要做更多工作来提前知晓远程图片的尺寸（或宽高比），但我们相信这样可以带来更好的用户体验。然而，从已经打包好的应用资源文件中读取图片（使用`require('image!x')`语法）则`无需指定尺寸`，因为它们的尺寸在加载时就可以立刻知道。
+`在React Native`中我们有意避免了这一行为。如此一来开发者就需要做更多工作来提前知晓远程图片的尺寸（或宽高比），但我们相信这样可以带来更好的用户体验。然而，读取本地静态图片（使用`require('./my-icon.png')`语法）则`无需指定尺寸`，因为它们的尺寸在加载时就可以立刻知道。
 
-比如这样一个引用`require('image!logo')`的实际输出结果可能是：
+比如这样一个引用`require('./my-icon.png')`的实际输出结果可能是：
 
 ```javascript
-{"__packager_asset":true,"isStatic":true,"path":"/Users/react/HelloWorld/iOS/Images.xcassets/react.imageset/logo.png","uri":"logo","width":591,"height":573}
+{"__packager_asset":true,"uri":"my-icon.png","width":591,"height":573}
 ```
 
 ## 资源属性是一个对象（object）
@@ -214,10 +215,10 @@ return (
 
 请注意下列边框圆角样式目前在 iOS 的图片组件上还不支持：
 
-* `borderTopLeftRadius`
-* `borderTopRightRadius`
-* `borderBottomLeftRadius`
-* `borderBottomRightRadius`
+- `borderTopLeftRadius`
+- `borderTopRightRadius`
+- `borderBottomLeftRadius`
+- `borderBottomRightRadius`
 
 ## 在主线程外解码图片
 
