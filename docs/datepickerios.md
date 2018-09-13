@@ -23,7 +23,7 @@ export default class App extends Component {
     this.setDate = this.setDate.bind(this);
   }
 
-  setDate(newDate) {
+  setDate = (newDate) => {
     this.setState({chosenDate: newDate})
   }
 
