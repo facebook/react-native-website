@@ -125,11 +125,7 @@ code {
 }
 
 .wrapper {
-  max-width: 1200px;
-}
-
-.container {
-  max-width: 900px;
+  max-width: 1400px;
 }
 
 .container .wrapper h2 {

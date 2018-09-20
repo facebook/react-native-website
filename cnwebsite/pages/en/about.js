@@ -1,12 +1,11 @@
 const React = require("react");
-const CompLibrary = require("../core/CompLibrary.js");
+const CompLibrary = require("../../core/CompLibrary.js");
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 
 const About = () => (
-  <div className="pageContainer">
-    <div className="container">
-      <MarkdownBlock>
-        {`
+  <div className="pageContainer aboutPage">
+    <MarkdownBlock>
+      {`
 “React Native中文网”由以下人员维护：
 
 [天地之灵](http://github.com/tdzl2003) 
@@ -104,8 +103,7 @@ React Native中文网是由杭州欧石南网络科技有限公司创办的，�
 
 邮箱：[eliza@hzerica.cn](mailto:eliza@hzerica.cn)
 `}
-      </MarkdownBlock>
-    </div>
+    </MarkdownBlock>
   </div>
 );
 

@@ -39,7 +39,7 @@ const siteConfig = {
     { href: "//bbs.reactnative.cn/category/3/blogs", external: true, label: "博客" },
     { href: "//bbs.reactnative.cn", external: true, label: "讨论" },
     { href: "//update.reactnative.cn", label: "热更新", external: true },
-    // { page: "about", label: "关于" },
+    { page: "about", label: "关于" },
     { search: true },
     { href: repoUrl, label: "GitHub" },
     { href: "//doc.react-china.org/", external: true, label: "React" }

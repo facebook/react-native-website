@@ -4,13 +4,13 @@
   "version": "0.0.1",
   "private": true,
   "bugs": {
-    "url": "https://github.com/facebook/react-native-website"
+    "url": "https://github.com/reactnativecn/react-native-website"
   },
   "license": "CC",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/facebook/react-native-website.git"
+    "url": "git+https://github.com/reactnativecn/react-native-website.git"
   },
   "scripts": {
     "start": "docusaurus-start",
@@ -35,17 +35,17 @@
     ]
   },
   "dependencies": {
-    "docusaurus": "1.3.2",
+    "docusaurus": "1.4.0",
     "highlight.js": "^9.12.0",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
-    "bluebird": "^3.5.1",
+    "bluebird": "^3.5.2",
     "front-matter": "^2.3.0",
-    "fs-extra": "^6.0.1",
-    "glob": "^7.1.2",
+    "fs-extra": "^7.0.0",
+    "glob": "^7.1.3",
     "glob-promise": "^3.4.0",
-    "lint-staged": "^7.2.0",
+    "lint-staged": "^7.3.0",
     "path": "^0.12.7",
     "prettier": "1.14"
   }
