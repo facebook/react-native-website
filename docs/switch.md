@@ -18,7 +18,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 * [`ios_backgroundColor`](switch.md#ios_backgroundColor)
 * [`onValueChange`](switch.md#onvaluechange)
 * [`testID`](switch.md#testid)
-* [`thumbTintColor`](switch.md#thumbtintcolor)
+* [`_thumbColor`](switch.md#_thumbColor)
 * [`tintColor`](switch.md#tintcolor)
 * [`value`](switch.md#value)
 
