@@ -80,6 +80,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
 - [`scrollEnabled`](webview.md#scrollenabled)
 - [`geolocationEnabled`](webview.md#geolocationenabled)
+- [`allowFileAccess`](webview.md#allowFileAccess)
 - [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`useWebKit`](webview.md#usewebkit)
 - [`url`](webview.md#url)
@@ -446,6 +447,16 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 ### `geolocationEnabled`
 
 Set whether Geolocation is enabled in the `WebView`. The default value is `false`. Used only in Android.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `allowFileAccess`
+
+Sets whether the webview allow access to file system. The default value is `false`. Used only in Android.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
