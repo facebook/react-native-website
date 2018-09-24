@@ -14,7 +14,9 @@ title: Switch
 * [View props...](view.md#props)
 
 - [`disabled`](switch.md#disabled)
-- [`onTintColor`](switch.md#ontintcolor)
+- [`trackColor`](switch.md#trackColor)
+- [`onValueChange`](switch.md#onvaluechange)	
+- [`ios_backgroundColor`](switch.md#ios_backgroundColor)
 - [`onValueChange`](switch.md#onvaluechange)
 - [`testID`](switch.md#testid)
 - [`thumbTintColor`](switch.md#thumbtintcolor)
@@ -37,9 +39,21 @@ title: Switch
 
 ---
 
-### `onTintColor`
+### `trackColor`
 
-开启状态时的背景颜色。
+开启状态时的背景颜色。`onTintColor` is now deprecated.
+
+iOS: when the switch value is false, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
+
+| 类型   | 必填 |
+| ------------------------------------------------------------- | -------- |
+| object: {false: [color](colors.md), true: [color](colors.md)} | 否       |
+
+---
+
+### `ios_backgroundColor`
+
+On iOS, custom color for the background. This background color can be seen either when the switch value is false or when the switch is disabled (and the switch is translucent).
 
 | 类型               | 必填 |
 | ------------------ | -------- |

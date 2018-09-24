@@ -30,7 +30,7 @@ title: 从源代码编译React Native
 
 ```
 export ANDROID_SDK=/Users/your_unix_name/android-sdk-macosx
-export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r10e
+export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r17b
 ```
 
 **第二步：** 在项目目录的 android 目录下创建`local.properties`文件。添加以下内容：（注意：windows 下路径需要使用反双斜杠）
@@ -39,12 +39,12 @@ export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r10e
 ndk.dir=指向android ndk目录的绝对路径
 ```
 
-#### Android NDK r10e 的下载链接（目前只能用这个版本）
+#### Android NDK r17b 的下载链接（0.57 之前使用 r10e 版本）
 
-1.  Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
-2.  Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-3.  Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
-4.  Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
+1.  Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-darwin-x86_64.zip
+2.  Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-linux-x86_64.zip
+3.  Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86_64.zip
+4.  Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86.zip
 
 安装说明请参考[官方文档](https://developer.android.com/ndk/index.html)。
 

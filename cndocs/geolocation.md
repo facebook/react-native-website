@@ -62,7 +62,7 @@ In order to enable geolocation in the background, you need to include the 'NSLoc
 ### `setRNConfiguration()`
 
 ```javascript
-Geolocation.setRNConfiguration(config);
+geolocation.setRNConfiguration(config);
 ```
 
 Sets configuration options that will be used in all location requests.
@@ -82,7 +82,7 @@ Supported options:
 ### `requestAuthorization()`
 
 ```javascript
-Geolocation.requestAuthorization();
+geolocation.requestAuthorization();
 ```
 
 Request suitable Location permission based on the key configured on pList. If NSLocationAlwaysUsageDescription is set, it will request Always authorization, although if NSLocationWhenInUseUsageDescription is set, it will request InUse authorization.
@@ -92,7 +92,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```javascript
-Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
+geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ```
 
 成功时会调用 geo_success 回调，参数中包含最新的位置信息。
@@ -116,7 +116,7 @@ Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ### `watchPosition()`
 
 ```javascript
-Geolocation.watchPosition(success, [error], [options]);
+geolocation.watchPosition(success, [error], [options]);
 ```
 
 持续监听位置，每当位置变化之后都调用 success 回调。返回一个`watchId`（整型）。
@@ -142,7 +142,7 @@ Supported options:
 ### `clearWatch()`
 
 ```javascript
-Geolocation.clearWatch(watchID);
+geolocation.clearWatch(watchID);
 ```
 
 **参数：**
@@ -156,7 +156,7 @@ Geolocation.clearWatch(watchID);
 ### `stopObserving()`
 
 ```javascript
-Geolocation.stopObserving();
+geolocation.stopObserving();
 ```
 
 Stops observing for device location changes. In addition, it removes all listeners previously registered.

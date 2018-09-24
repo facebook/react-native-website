@@ -416,7 +416,7 @@ Android: Only supported since Android 5.0 - older versions will ignore this attr
 
 * **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
 
-* **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize') (_iOS_)
+* **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize')
 
 * **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 

@@ -379,12 +379,36 @@ static unforkEvent(event, listener)
 
 ## 属性
 
----
+### `Value`
+
+Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
 
 ---
 
----
+### `ValueXY`
+
+2D value class for driving 2D animations, such as pan gestures.
 
 ---
 
+### `Interpolation`
+
+Exported to use the Interpolation type in flow.
+
 ---
+
+### `Node`
+
+Exported for ease of type checking. All animated values derive from this class.
+
+---
+
+### `createAnimatedComponent`
+
+Make any React component Animatable. Used to create `Animated.View`, etc.
+
+---
+
+### `attachNativeEvent`
+
+Imperative API to attach an animated value to an event on a view. Prefer using `Animated.event` with `useNativeDrive: true` if possible.

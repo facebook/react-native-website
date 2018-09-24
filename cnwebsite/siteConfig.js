@@ -14,6 +14,7 @@ const RemarkablePlugins = require("./core/RemarkablePlugins");
 const baseUrl = "/";
 const repoUrl = "https://github.com/facebook/react-native";
 const bbsUrl = "http://bbs.reactnative.cn";
+const defaultVersionShown = "0.57";
 const siteConfig = {
   adData: {
     banner: {
@@ -29,6 +30,7 @@ const siteConfig = {
   baseUrl,
   projectName: "react-native",
   repoUrl,
+  defaultVersionShown,
   users: [],
   editUrl:
     "//github.com/reactnativecn/react-native-website/blob/production/cndocs/",

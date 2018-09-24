@@ -343,11 +343,10 @@ Similarly to `source`, this property represents the resource used to render the 
 
 在读取图片时默认显示的图片。仅限 iOS 使用。
 
-| 类型           | 必填     | 平台     |
-| -------------- | -------- | -------- |
-| object, number | 否       | iOS      |
-| -------------- | -------- | -------- |
-| number         | 否       | Android  |
+| 类型           | 必填 | 平台    |
+| -------------- | ---- | ------- |
+| object, number | 否   | iOS     |
+| number         | 否   | Android |
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
@@ -357,7 +356,7 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 
 * `number` - 静态图片引用语法`require('./image.jpg')`所返回的资源 id。
 
-**Android**: It works only on release builds, don't worry if it shows nothing on DEBUG builds
+> **注意：** 在Android的debug版本上本属性不会生效（但在release版本中会生效）。
 
 ---
 

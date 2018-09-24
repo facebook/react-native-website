@@ -125,6 +125,7 @@ export default class UselessTextInputMultiline extends Component {
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
+- [`scrollEnabled`](textinput.md#scrollenabled)
 - [`secureTextEntry`](textinput.md#securetextentry)
 - [`selection`](textinput.md#selection)
 - [`selectionColor`](textinput.md#selectioncolor)
@@ -573,6 +574,16 @@ Sets the return key to the label. Use it instead of `returnKeyType`.
 | 类型                                                                                                                              | 必填 |
 | --------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No   |
+
+---
+
+### `scrollEnabled`
+
+If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
+
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 

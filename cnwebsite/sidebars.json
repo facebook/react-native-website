@@ -36,6 +36,7 @@
       "running-on-device",
       "upgrading",
       "native-modules-setup",
+      "out-of-tree-platforms",
       "building-from-source",
       "understanding-cli"
     ],

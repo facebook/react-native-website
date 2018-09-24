@@ -40,6 +40,8 @@ import { WebView } from 'react-native';
 
 你可以使用这个组件进行网页的来回导航，并且为网页内容设置多方面的属性。
 
+On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implementation.
+
 > **安全提示:** 目前, `onMessage` and `postMessage` 方法不能够指定源。当`WebView`加载某些非预期文档时可能导致跨站脚本攻击。请查阅 MDN 文档获取更多安全方面的细节[`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) .
 
 ### 查看 Props
@@ -78,6 +80,7 @@ import { WebView } from 'react-native';
 - [`source`](webview.md#source)
 - [`style`](webview.md#style)
 - [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
+- [`useWebKit`](webview.md#usewebkit)
 - [`userAgent`](webview.md#useragent)
 - [`url`](webview.md#url)
 
@@ -119,9 +122,23 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 
 在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。注意如果是载入html代码，则需要设置`originWhitelist`，比如可以设为`["*"]`来允许运行本地代码。
 
-| 类型                                                                                                                | 必填 |
-| ------------------------------------------------------------------------------------------------------------------- | ---- |
-| object: {uri: string,method: string,headers: object,body: string}, ,object: {html: string,baseUrl: string}, ,number | 否   |
+The object passed to `source` can have either of the following shapes:
+
+**Load uri**
+
+* `uri` (string) - The URI to load in the `WebView`. Can be a local or remote file.
+* `method` (string) - The HTTP Method to use. Defaults to GET if not specified. On Android, the only supported methods are GET and POST.
+* `headers` (object) - Additional HTTP headers to send with the request. On Android, this can only be used with GET requests.
+* `body` (string) - The HTTP body to send with the request. This must be a valid UTF-8 string, and will be sent exactly as specified, with no additional encoding (e.g. URL-escaping or base64) applied. On Android, this can only be used with POST requests.
+
+**Static HTML**
+
+* `html` (string) - A static HTML page to display in the WebView.
+* `baseUrl` (string) - The base URL to be used for any relative links in the HTML.
+
+| 类别   | 必填 |
+| ------ | ---- |
+| object | No   |
 
 ---
 
@@ -169,9 +186,15 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 
 覆盖渲染 WebView 的原生组件。启用一个 js 和初始 WebView 一样的定制的原生 WebView。
 
-| 类型                                                       | 必填 |
-| ---------------------------------------------------------- | ---- |
-| object: {component: any,props: object,viewManager: object} | 否   |
+The `nativeConfig` prop expects an object with the following keys:
+
+* `component` (any)
+* `props` (object)
+* `viewManager` (object)
+
+| 类型   | 必填 |
+| ------ | ---- |
+| object | 否   |
 
 ---
 
@@ -261,6 +284,8 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 
 布尔值，控制网页内容是否自动适配视图的大小，同时启用用户缩放功能。默认为`true`。
 
+On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
+
 | 类型 | 必填 |
 | ---- | ---- |
 | bool | 否   |
@@ -314,9 +339,9 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 * normal: 0.998
 * fast: 0.99 (ios web view 默认)
 
-| 类型                                  | 必填 | 平台 |
-| ------------------------------------- | ---- | ---- |
-| ScrollView.propTypes.decelerationRate | 否   | iOS  |
+| 类型   | 必填 | 平台 |
+| ------ | ---- | ---- |
+| number | 否   | iOS  |
 
 ---
 
@@ -344,13 +369,13 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 指定混合内容模式。即 WebView 是否应该允许安全链接（https）页面中加载非安全链接（http）的内容,
 
-* 'never' (默认) - WebView 不允许安全链接页面中加载非安全链接的内容
-* 'always' - WebView 允许安全链接页面中加载非安全链接的内容。
-* 'compatibility' - WebView 会尽量和浏览器当前对待此情况的行为一致
+* `never` (默认) - WebView 不允许安全链接页面中加载非安全链接的内容
+* `always` - WebView 允许安全链接页面中加载非安全链接的内容。
+* `compatibility` - WebView 会尽量和浏览器当前对待此情况的行为一致
 
-| 类型                                     | 必填 | 平台    |
-| ---------------------------------------- | ---- | ------- |
-| enum('never', 'always', 'compatibility') | 否   | Android |
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| string | 否   | Android |
 
 ---
 
@@ -378,7 +403,9 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 布尔值，控制 HTML5 视频是在内部播放(非全屏)还是使用原生的全屏控制器。默认为 `false`。
 
-**注意** : 为了确保内联播放，除了这个属性需要被设置成`true`, 在 html 代码中视频元素也需要包含 `webkit-playsinline`属性。
+> **注意** : 
+> 
+> 为了确保内联播放，除了这个属性需要被设置成`true`, 在 html 代码中视频元素也需要包含 `webkit-playsinline`属性。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
@@ -414,16 +441,22 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 可用的 `dataDetectorTypes` 如下:
 
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
+* `phoneNumber`
+* `link`
+* `address`
+* `calendarEvent`
+* `none`
+* `all`
 
-| 类型                                                                                                                                                     | 必填 | 平台 |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- |
-| enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | 否   | iOS  |
+With the [new WebKit](webview.md#usewebkit) implementation, we have three new values:
+
+* `trackingNumber`
+* `flightNumber`
+* `lookupSuggestion`
+  
+| 类型             | 必填 | 平台 |
+| ---------------- | ---- | ---- |
+| string, or array | 否   | iOS  |
 
 ---
 
@@ -434,6 +467,16 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
+
+---
+
+### `useWebKit`
+
+If true, use WKWebView instead of UIWebView.
+
+| 类型    | 必填 | 平台 |
+| ------- | ---- | ---- |
+| boolean | 否   | iOS  |
 
 ---
 

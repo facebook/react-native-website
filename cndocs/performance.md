@@ -316,12 +316,12 @@ export default class Optimized extends Component {
 
 在 iOS 上使用 RAM 格式将创建一个简单的索引文件，React Native 将根据此文件一次加载一个模块。在 Android 上，默认情况下它会为每个模块创建一组文件。你可以像 iOS 一样，强制 Android 只创建一个文件，但使用多个文件可以提高性能，并降低内存占用。
 
-在 Xcode 中启用 RAM 格式，需要编辑 build phase 里的"Bundle React Native code and images"。在`../node_modules/react-native/packager/react-native-xcode.sh`中添加 `export BUNDLE_COMMAND="ram-bundle"`:
+在 Xcode 中启用 RAM 格式，需要编辑 build phase 里的"Bundle React Native code and images"。在`../node_modules/react-native/scripts/react-native-xcode.sh.sh`中添加 `export BUNDLE_COMMAND="ram-bundle"`:
 
 ```
 export BUNDLE_COMMAND="ram-bundle"
 export NODE_BINARY=node
-../node_modules/react-native/packager/react-native-xcode.sh
+../node_modules/react-native/scripts/react-native-xcode.sh.sh
 ```
 
 在 Android 上启用 RAM 格式，需要编辑 android/app/build.gradle 文件。在`apply from: "../../node_modules/react-native/react.gradle"`之前修改或添加`project.ext.react`：
@@ -369,7 +369,7 @@ module.exports = config;
 export BUNDLE_COMMAND="ram-bundle"
 export BUNDLE_CONFIG="packager/config.js"
 export NODE_BINARY=node
-../node_modules/react-native/packager/react-native-xcode.sh
+../node_modules/react-native/scripts/react-native-xcode.sh.sh
 ```
 
 编辑 android/app/build.gradle 文件，添加`bundleConfig: "packager/config.js",`
