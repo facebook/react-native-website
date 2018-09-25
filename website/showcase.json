@@ -271,5 +271,17 @@
       "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
     "pinned": false
+  },
+  {
+    "name": "Hike",
+    "icon": "hike.png",
+    "linkAppStore":
+      "https://itunes.apple.com/in/app/hike-messenger/id568038211?mt=8",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.bsb.hike",
+    "infoLink":
+      "https://blog.hike.in/react-native-at-hike-a2032c6d954b",
+    "infoTitle": "Integrating React Native at Hike",
+    "pinned": false
   }
 ]
