@@ -65,6 +65,9 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 - [`scrollsToTop`](scrollview.md#scrollstotop)
 - [`snapToAlignment`](scrollview.md#snaptoalignment)
 - [`snapToInterval`](scrollview.md#snaptointerval)
+- [`snapToOffsets`](scrollview.md#snaptooffsets)
+- [`snapToStart`](scrollview.md#snaptostart)
+- [`snapToEnd`](scrollview.md#snaptoend)
 - [`zoomScale`](scrollview.md#zoomscale)
 - [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
