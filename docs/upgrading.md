@@ -127,4 +127,4 @@ This will check your files against the latest template and perform the following
 
 ## Manual Upgrades
 
-Some upgrades require manual steps, e.g. 0.13 to 0.14, or 0.28 to 0.29. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
+Some upgrades require manual steps, e.g. 0.28 to 0.29, or 0.56 to 0.57. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
