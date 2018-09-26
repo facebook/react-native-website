@@ -104,7 +104,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`caretHidden`](textinput.md#carethidden)
 - [`clearButtonMode`](textinput.md#clearbuttonmode)
 - [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`contextMenuHidden`](textinput.md#contextMenuHidden)
+- [`contextMenuHidden`](textinput.md#contextmenuhidden)
 - [`dataDetectorTypes`](textinput.md#datadetectortypes)
 - [`defaultValue`](textinput.md#defaultvalue)
 - [`disableFullscreenUI`](textinput.md#disablefullscreenui)
