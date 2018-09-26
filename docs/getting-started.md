@@ -129,9 +129,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md) you can reference if you have questions specific to the tool.
+* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/README.md) you can reference if you have questions specific to the tool.
 
-* If you can't get this to work, see the [Troubleshooting](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#troubleshooting) section in the README for Create React Native App.
+* If you can't get this to work, see the [Support and Contact](https://github.com/react-community/create-react-native-app/blob/master/README.md#support-and-contact) section in the README for Create React Native App.
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
