@@ -18,7 +18,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 * [`ios_backgroundColor`](switch.md#ios_backgroundColor)
 * [`onValueChange`](switch.md#onvaluechange)
 * [`testID`](switch.md#testid)
-* [`_thumbColor`](switch.md#_thumbColor)
+* [`thumbColor`](switch.md#thumbColor)
 * [`tintColor`](switch.md#tintcolor)
 * [`value`](switch.md#value)
 
@@ -80,9 +80,9 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `_thumbColor`
+### `thumbColor`
 
-Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow. `thumbTintColor` is now deprecated.
+Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
 
 | Type               | Required |
 | ------------------ | -------- |
