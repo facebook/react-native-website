@@ -32,7 +32,10 @@ async function requestCameraPermission() {
       {
         'title': 'Cool Photo App Camera Permission',
         'message': 'Cool Photo App needs access to your camera ' +
-                   'so you can take awesome pictures.'
+                   'so you can take awesome pictures.',
+        'buttonNeutral': "Ask Me Later",
+        'buttonNegative':"Cancel",
+        'buttonPositive': "OK"
       }
     )
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
