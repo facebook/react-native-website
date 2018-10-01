@@ -94,18 +94,18 @@ This page will help you install and build your first React Native app. If you al
 
 <block class="quickstart mac windows linux ios android" />
 
-[Create React Native App](https://github.com/react-community/create-react-native-app) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
+The [Expo CLI](https://docs.expo.io/versions/latest/) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
 
-Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the `create-react-native-app` command line utility:
+Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the `expo-cli` command line utility:
 
 ```
-npm install -g create-react-native-app
+npm install -g expo-cli
 ```
 
 Then run the following commands to create a new React Native project called "AwesomeProject":
 
 ```
-create-react-native-app AwesomeProject
+expo init AwesomeProject
 
 cd AwesomeProject
 npm start
