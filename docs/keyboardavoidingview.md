@@ -21,18 +21,18 @@ import { KeyboardAvoidingView } from 'react-native';
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
-- [`behavior`](keyboardavoidingview.md#behavior)
-- [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
-- [`enabled`](keyboardavoidingview.md#enabled)
+* [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
+* [`behavior`](keyboardavoidingview.md#behavior)
+* [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+* [`enabled`](keyboardavoidingview.md#enabled)
 
 ### Methods
 
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
+- [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
+- [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
+- [`onLayout`](keyboardavoidingview.md#onlayout)
 
 ---
 
@@ -77,27 +77,3 @@ Enabled or disabled KeyboardAvoidingView. The default is `true`.
 | Type    | Required |
 | ------- | -------- |
 | boolean | No       |
-
-## Methods
-
-### `relativeKeyboardHeight()`
-
-```javascript
-relativeKeyboardHeight(keyboardFrame: object):
-```
-
----
-
-### `onKeyboardChange()`
-
-```javascript
-onKeyboardChange((event: object));
-```
-
----
-
-### `onLayout()`
-
-```javascript
-onLayout((event: ViewLayoutEvent));
-```
