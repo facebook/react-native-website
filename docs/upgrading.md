@@ -3,13 +3,13 @@ id: upgrading
 title: Upgrading to new React Native versions
 ---
 
-Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you. The instructions are a bit different depending on whether you used `create-react-native-app` or `react-native init` to create your project.
+Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you. The instructions are a bit different depending on whether you used `expo-cli` or `react-native init` to create your project.
 
 ## Create React Native App projects
 
 Upgrading your Create React Native App project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
 
-See the [CRNA user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#updating-to-new-releases) for up-to-date information about upgrading your project.
+See the [CRNA readme](https://github.com/react-community/create-react-native-app) for up-to-date information about upgrading your project.
 
 ## Projects built with native code
 
