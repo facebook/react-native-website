@@ -103,7 +103,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`caretHidden`](textinput.md#carethidden)
 - [`clearButtonMode`](textinput.md#clearbuttonmode)
 - [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`contextMenuHidden`](textinput.md#contextMenuHidden)
+- [`contextMenuHidden`](textinput.md#contextmenuhidden)
 - [`dataDetectorTypes`](textinput.md#datadetectortypes)
 - [`defaultValue`](textinput.md#defaultvalue)
 - [`disableFullscreenUI`](textinput.md#disablefullscreenui)
@@ -677,6 +677,8 @@ Give the keyboard and the system information about the expected semantic meaning
 
 For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
 
+For iOS 12+ `newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
+
 To disable autofill, set `textContentType` to `none`.
 
 Possible values for `textContentType` are:
@@ -707,6 +709,8 @@ Possible values for `textContentType` are:
 * `telephoneNumber`
 * `username`
 * `password`
+* `newPassword`
+* `oneTimeCode`
 
 | Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
