@@ -10,7 +10,7 @@ Creating an iOS alert:
 ```
 AlertIOS.alert(
  'Sync Complete',
- 'All your data are belong to us.'
+ 'All your data belong to us.'
 );
 ```
 
