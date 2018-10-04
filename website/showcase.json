@@ -271,5 +271,16 @@
       "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
     "pinned": false
+  },
+  {
+    "name": "Salesforce App",
+    "icon": "salesforce.png",
+    "linkAppStore":
+      "https://itunes.apple.com/us/app/salesforce/id404249815?mt=8",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
+    "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
+    "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
+    "pinned": false
   }
 ]
