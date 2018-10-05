@@ -68,7 +68,7 @@ var icon = this.props.active
 
 上面描述的`require`语法也可以用来静态地加载你项目中的声音、视频或者文档文件。大多数常见文件类型都支持，包括`.mp3`, `.wav`, `.mp4`, `.mov`, `.htm` 和 `.pdf`等（完整列表请看 [packager defaults](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68))。
 
-你也可以创建自己的配置文件来支持其他类型的文件。具体的配置可以参考[packager config file](https://github.com/facebook/metro/blob/master/packages/metro/src/defaults.js#L14-L44)。
+你也可以创建自己的配置文件来支持其他类型的文件。具体的配置可以参考[packager config file](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44)。
 
 需要注意的是视频必须指定尺寸而不能使用`flex`样式，因为我们目前还不能从非图片资源中获取到尺寸信息。对于直接链接到 Xcode 或者 Android 资源文件夹的视频，则不会有这个限制。
 

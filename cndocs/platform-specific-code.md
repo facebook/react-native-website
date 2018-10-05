@@ -102,3 +102,5 @@ const BigButton = require("./BigButton");
 ```
 
 React Native 会根据运行平台的不同自动引入正确对应的组件。
+
+如果你还希望在 web 端复用 React Native 的代码，那么还可以使用`.native.js`的扩展名。此时 iOS 和 Android 会使用`BigButton.native.js`文件，而 web 端会使用`BigButton.js`。（注意目前官方并没有直接提供 web 端的支持，请在社区搜索第三方方案）。
