@@ -16,12 +16,12 @@ original_id: switch
 * [View props...](view.md#props)
 
 - [`disabled`](switch.md#disabled)
-- [`trackColor`](switch.md#trackColor)
+- [`trackColor`](switch.md#trackcolor)
 - [`onValueChange`](switch.md#onvaluechange)	
-- [`ios_backgroundColor`](switch.md#ios_backgroundColor)
+- [`ios_backgroundColor`](switch.md#ios_backgroundcolor)
 - [`onValueChange`](switch.md#onvaluechange)
 - [`testID`](switch.md#testid)
-- [`thumbTintColor`](switch.md#thumbtintcolor)
+- [`thumbColor`](switch.md#thumbcolor)
 - [`tintColor`](switch.md#tintcolor)
 - [`value`](switch.md#value)
 
@@ -83,7 +83,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 ---
 
-### `thumbTintColor`
+### `thumbColor`
 
 开关上圆形按钮的背景颜色。在iOS上设置此颜色会丢失按钮的投影。
 

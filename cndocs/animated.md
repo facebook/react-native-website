@@ -147,7 +147,7 @@ Animated.timing(
 
 ## 方法
 
-When the given value is a ValueXY instead of a Value, each config option may be a vector of the form `{x: ..., y: ...}` instead of a scalar.
+如果下面的方法参数是二维向量值 ValueXY 而不是单一标量值 Value，则对应的配置参数 config 也应该是二维向量形式`{x: ..., y: ...}`。
 
 ### `decay()`
 
@@ -161,7 +161,7 @@ Config 参数有以下这些属性：
 
 - `velocity`: 初始速度。必填。
 - `deceleration`: 衰减系数。默认值 0.997。
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: 指定本动画是否在`InteractionManager`的队列中注册以影响其任务调度。默认值为 true。
 - `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
@@ -179,7 +179,7 @@ Config 参数有以下这些属性：
 - `duration`: 动画的持续时间（毫秒）。默认值为 500.
 - `easing`: 缓动函数。 默认为`Easing.inOut(Easing.ease)`。
 - `delay`: 开始动画前的延迟时间（毫秒）。默认为 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: 指定本动画是否在`InteractionManager`的队列中注册以影响其任务调度。默认值为 true。
 - `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
@@ -216,7 +216,7 @@ Other configuration options are as follows:
 - `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
 - `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 - `delay`: Start the animation after delay (milliseconds). Default 0.
-- `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
+- `isInteraction`: 指定本动画是否在`InteractionManager`的队列中注册以影响其任务调度。默认值为 true。
 - `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
@@ -354,10 +354,10 @@ static event(argMapping, config?)
  ),
 ```
 
-Config is an object that may have the following options:
+Config 参数有以下这些属性：
 
-- `listener`: Optional async listener.
-- `useNativeDriver`: Uses the native driver when true. Default false.
+- `listener`: 可选的异步监听函数
+- `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
 ---
 
@@ -381,13 +381,13 @@ static unforkEvent(event, listener)
 
 ### `Value`
 
-Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
+驱动动画运行的一维标量值。一般使用`new Animated.Value(0);`来初始化。
 
 ---
 
 ### `ValueXY`
 
-2D value class for driving 2D animations, such as pan gestures.
+驱动 2D 动画运行的二维向量值，比如用在手势动画中。
 
 ---
 
@@ -405,7 +405,7 @@ Exported for ease of type checking. All animated values derive from this class.
 
 ### `createAnimatedComponent`
 
-Make any React component Animatable. Used to create `Animated.View`, etc.
+封装任意 React 组件，使其可以动画化。`Animated.View`等内置组件就是通过这一方法封装的。
 
 ---
 

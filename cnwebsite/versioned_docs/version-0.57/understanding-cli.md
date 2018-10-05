@@ -3,7 +3,7 @@ id: version-0.57-understanding-cli
 title: 命令行相关
 original_id: understanding-cli
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.67%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(1.33%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 Though you may have installed the `react-native-cli` via npm as a separate module, it is a shell for accessing the CLI embedded in the React Native of each project. Your commands and their effects are dependent on the version of the module of `react-native` in context of the project. This guide will give a brief overview of the CLI in the module.
 
@@ -63,7 +63,7 @@ Running `react-native --help` from inside a React Native project will list all o
 
 When using `react-native start`, its platform derivatives, and `react-native bundle` you can use a file to define the CLI options used by React Native by default. If you create a file `rn-cli.config.js` in the root of your project, it will be evaluated and options for the commands will come from there.
 
-You can see the options for the CLI config file inside the [source code for Metro here](https://github.com/facebook/metro/tree/master/packages/metro-config), and here is a common `rn-cli.config.js` used for supporting TypeScript in React Native projects:
+You can see the options for the CLI config file inside the [source code for Metro here](https://github.com/facebook/metro/blob/master/packages/metro/src/rn-cli.config.js), and here is a common `rn-cli.config.js` used for supporting TypeScript in React Native projects:
 
 ```js
 module.exports = {

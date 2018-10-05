@@ -50,17 +50,17 @@ iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此�
 
 在上面这段示例代码中，如果不在 TouchableOpacity 上设置无障碍标签，那么其默认值就会是"Press me!"（即 Text 子组件的文本值）。此时无障碍标签是通过自动取所有 Text 子节点的值，然后用空格连起来生成。
 
-#### accessibilityHint (iOS, Android)
+#### 无障碍提示 accessibilityHint (iOS, Android)
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+无障碍提示用于帮助用户理解操作可能导致什么后果，尤其是当这些后果并不能从无障碍标签中清楚地了解时。
 
-To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
+要启用无障碍提示只需在需要设置的元素上设置`accessibilityHint`属性，并赋予用于解释的文本：
 
 ```javascript
 <TouchableOpacity
   accessible={true}
-  accessibilityLabel="Go back"
-  accessibilityHint="Navigates to the previous screen"
+  accessibilityLabel="返回"
+  accessibilityHint="返回到上一个页面"
   onPress={this._onPress}
 >
   <View style={styles.button}>
@@ -69,18 +69,16 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
 </TouchableOpacity>
 ```
 
-iOS
-In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
+在上面这个例子里，iOS 的 VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
 
-Android
-In the above example, Talkback will read the hint after the label. At this time, hints cannot be turned off on Android.
+在上面这个例子里，Android 的 Talkback will read the hint after the label. At this time, hints cannot be turned off on Android.
 
 #### accessibilityIgnoresInvertColors(iOS)
 
 Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision.
 However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be false so that these specific views won't have their colors inverted.
 
-#### accessibilityRole (iOS, Android)
+#### 无障碍角色 accessibilityRole (iOS, Android)
 
 > **Note:** Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
 
@@ -98,7 +96,7 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 
-#### accessibilityState (iOS, Android)
+#### 无障碍状态 accessibilityState (iOS, Android)
 
 > **Note:** > `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
 

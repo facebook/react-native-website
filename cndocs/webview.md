@@ -448,7 +448,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 * `none`
 * `all`
 
-With the [new WebKit](webview.md#usewebkit) implementation, we have three new values:
+如果启用新的[WKWebView](webview.md#usewebkit)实现，还有额外的三个值可用：
 
 * `trackingNumber`
 * `flightNumber`
@@ -472,7 +472,7 @@ With the [new WebKit](webview.md#usewebkit) implementation, we have three new va
 
 ### `useWebKit`
 
-If true, use WKWebView instead of UIWebView.
+设置true的时候会使用新的WKWebView来代替老的UIWebView。
 
 | 类型    | 必填 | 平台 |
 | ------- | ---- | ---- |
@@ -512,7 +512,7 @@ static extraNativeComponentConfig()
 goForward();
 ```
 
-Go forward one page in the web view's history.
+根据webview的历史访问记录往前一个页面。
 
 ### `goBack()`
 
@@ -520,7 +520,7 @@ Go forward one page in the web view's history.
 goBack();
 ```
 
-Go back one page in the web view's history.
+根据webview的历史访问记录往后一个页面。
 
 ### `reload()`
 
@@ -528,7 +528,7 @@ Go back one page in the web view's history.
 reload();
 ```
 
-Reloads the current page.
+刷新当前页面。
 
 ### `stopLoading()`
 
@@ -536,6 +536,6 @@ Reloads the current page.
 stopLoading();
 ```
 
-Stop loading the current page.
+停止载入当前页面。
 
 [1]: https://github.com/facebook/react-native/commit/da9a712a9e17942dcd05b8d955f0764c2026a4ad

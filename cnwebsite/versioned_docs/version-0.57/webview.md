@@ -3,7 +3,7 @@ id: version-0.57-webview
 title: WebView
 original_id: webview
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(97.04%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(2.96%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(95.93%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(2.96%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(1.11%)
 
 `WebView` 创建一个原生的 WebView，可以用于访问一个网页。
 
@@ -450,7 +450,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 * `none`
 * `all`
 
-With the [new WebKit](webview.md#usewebkit) implementation, we have three new values:
+如果启用新的[WKWebView](webview.md#usewebkit)实现，还有额外的三个值可用：
 
 * `trackingNumber`
 * `flightNumber`
@@ -474,7 +474,7 @@ With the [new WebKit](webview.md#usewebkit) implementation, we have three new va
 
 ### `useWebKit`
 
-If true, use WKWebView instead of UIWebView.
+设置true的时候会使用新的WKWebView来代替老的UIWebView。
 
 | 类型    | 必填 | 平台 |
 | ------- | ---- | ---- |
@@ -514,7 +514,7 @@ static extraNativeComponentConfig()
 goForward();
 ```
 
-Go forward one page in the web view's history.
+根据webview的历史访问记录往前一个页面。
 
 ### `goBack()`
 
@@ -522,7 +522,7 @@ Go forward one page in the web view's history.
 goBack();
 ```
 
-Go back one page in the web view's history.
+根据webview的历史访问记录往后一个页面。
 
 ### `reload()`
 
@@ -530,7 +530,7 @@ Go back one page in the web view's history.
 reload();
 ```
 
-Reloads the current page.
+刷新当前页面。
 
 ### `stopLoading()`
 
@@ -538,6 +538,6 @@ Reloads the current page.
 stopLoading();
 ```
 
-Stop loading the current page.
+停止载入当前页面。
 
 [1]: https://github.com/facebook/react-native/commit/da9a712a9e17942dcd05b8d955f0764c2026a4ad

@@ -3,9 +3,9 @@ id: version-0.57-animatedvalue
 title: AnimatedValue
 original_id: animatedvalue
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.56%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.44%)
 
-驱动动画的标准值. One `Animated.Value` can drive multiple properties in a synchronized fashion, but can only be driven by one mechanism at a time. Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
+驱动动画的一维标量值. 一个`Animated.Value`可以同步地驱动多个属性，但每次只能以一种动画机制变化。Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
 
 一般这样来初始化`new Animated.Value(0);`
 

@@ -63,10 +63,11 @@ export default class App extends React.Component {
 
 我们来分解一下这个过程。在`FadeInView`的构造函数里，我们创建了一个名为`fadeAnim`的`Animated.Value`，并放在`state`中。而`View`的透明度是和这个值绑定的。
 
-组件加载时，透明度首先设为 0. Then, an easing animation is started on the `fadeAnim` animated value, which will update all of its dependent mappings (in this case, just the opacity) on each frame as the value animates to the final value of 1.
+组件加载时，透明度首先设为 0。然后一个easing动画开始改变`fadeAnim`值，同时会导致所有与其相关联的值（本例中是透明度）也逐帧更新，最终和`fadeAnim`一样变为1。
 
-This is done in an optimized way that is faster than calling `setState` and re-rendering.  
-Because the entire configuration is declarative, we will be able to implement further optimizations that serialize the configuration and runs the animation on a high-priority thread.
+这一过程经过特别优化，执行效率会远高于反复调用`setState`和多次重渲染。 
+
+因为这一过程是纯声明式的，因此还有进一步优化的空间，比如我们可以把这些声明的配置序列化后发送到一个高优先级的线程上运行。
 
 ### 配置动画
 
@@ -173,18 +174,18 @@ value.interpolate({
 它的最终映射结果如下：
 
 ```
-输入 | 输出
-------|-------
-  -400|    450
-  -300|    300
-  -200|    150
-  -100|      0
-   -50|    0.5
-     0|      1
-    50|    0.5
-   100|      0
-   101|      0
-   200|      0
+| 输入 | 输出 |
+| ---- | ---- |
+| -400 | 450  |
+| -300 | 300  |
+| -200 | 150  |
+| -100 | 0    |
+| -50  | 0.5  |
+| 0    | 1    |
+| 50   | 0.5  |
+| 100  | 0    |
+| 101  | 0    |
+| 200  | 0    |
 ```
 
 `interpolate()`还支持到字符串的映射，从而可以实现颜色以及带有单位的值的动画变换。例如你可以像下面这样实现一个旋转动画：

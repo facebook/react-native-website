@@ -5,7 +5,7 @@ title: ActivityIndicator
 
 显示一个圆形的 loading 提示符号。
 
-### Example
+### 示例
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react'

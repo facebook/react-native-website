@@ -58,12 +58,12 @@ static get()
   - [hdpi Android devices](https://material.io/tools/devices/)
 - PixelRatio.get() === 2
   - iPhone 4, 4S
-  - iPhone 5, 5c, 5s
+  - iPhone 5, 5C, 5S
   - iPhone 6, 7, 8
   - [xhdpi Android devices](https://material.io/tools/devices/)
 - PixelRatio.get() === 3
   - iPhone 6 Plus, 7 Plus, 8 Plus
-  - iPhone X
+  - iPhone X, XS, XS Max
   - Pixel, Pixel 2
   - [xxhdpi Android devices](https://material.io/tools/devices/)
 - PixelRatio.get() === 3.5

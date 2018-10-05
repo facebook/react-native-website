@@ -63,6 +63,9 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 - [`scrollsToTop`](scrollview.md#scrollstotop)
 - [`snapToAlignment`](scrollview.md#snaptoalignment)
 - [`snapToInterval`](scrollview.md#snaptointerval)
+- [`snapToOffsets`](scrollview.md#snaptooffsets)
+- [`snapToStart`](scrollview.md#snaptostart)
+- [`snapToEnd`](scrollview.md#snaptoend)
 - [`zoomScale`](scrollview.md#zoomscale)
 - [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
@@ -435,12 +438,12 @@ This property specifies how the safe area insets are used to modify the content 
 
 一个浮点数，用于决定当用户抬起手指之后，滚动视图减速停下的速度。你也可以设置为`"normal"`或者`"fast"`，分别对应的是iOS上的`UIScrollViewDecelerationRateNormal`和 `UIScrollViewDecelerationRateFast`。
 
-* `'normal'`: 0.998 （默认值）
+* `'normal'`: iOS上是0.998，Android上是0.985（默认值）
 * `'fast'`: 0.99
 
-| 类型                            | 必填 | 平台 |
-| ------------------------------- | ---- | ---- |
-| enum('fast', 'normal'), ,number | 否   | iOS  |
+| 类型                            | 必填 |
+| ------------------------------- | ---- |
+| enum('fast', 'normal'), ,number | 否   |
 
 ---
 
@@ -546,11 +549,39 @@ This property specifies how the safe area insets are used to modify the content 
 
 当设置了此属性时，会让滚动视图滚动停止后，停止在`snapToInterval`的倍数的位置。这可以在一些子视图比滚动视图本身小的时候用于实现分页显示。需要与`snapToAlignment`组合使用。
 
-注意：竖直的snapToInterval在Android上不支持。
-
 | 类型   | 必填 |
 | ------ | ---- |
 | number | 否   |
+
+---
+
+### `snapToOffsets`
+
+When set, causes the scroll view to stop at the defined offsets. This can be used for paginating through variously sized children that have lengths smaller than the scroll view. Typically used in combination with `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` and `snapToInterval` props.
+
+| 类型            | 必填 |
+| --------------- | -------- |
+| 以数字为元素的数组 | 否       |
+
+---
+
+### `snapToStart`
+
+Use in conjuction with `snapToOffsets`. By default, the beginning of the list counts as a snap offset. Set `snapToStart` to false to disable this behavior and allow the list to scroll freely between its start and the first `snapToOffsets` offset. The default value is true.
+
+| 类型    | 必填 |
+| ------- | -------- |
+| boolean | 否       |
+
+---
+
+### `snapToEnd`
+
+Use in conjuction with `snapToOffsets`. By default, the end of the list counts as a snap offset. Set `snapToEnd` to false to disable this behavior and allow the list to scroll freely between its end and the last `snapToOffsets` offset. The default value is true.
+
+| 类型    | 必填 |
+| ------- | -------- |
+| boolean | 否       |
 
 ---
 
