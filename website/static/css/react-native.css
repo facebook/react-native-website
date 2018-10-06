@@ -166,7 +166,7 @@ p {
 }
 
 .big-button:hover {
-  background: $tintColor;
+  background: #047598;
   color: #fff;
 }
 
