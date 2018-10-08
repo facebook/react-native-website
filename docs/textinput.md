@@ -97,6 +97,7 @@ Note that on Android performing text selection in input can change app's activit
 
 - [`allowFontScaling`](textinput.md#allowfontscaling)
 - [`autoCapitalize`](textinput.md#autocapitalize)
+- [`autoCorrect`](textinput.md#autocomplete)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
@@ -179,6 +180,30 @@ Can tell `TextInput` to automatically capitalize certain characters.
 | enum('none', 'sentences', 'words', 'characters') | No       |
 
 ---
+
+### `autoComplete`
+ Specifies autocomplete hints for the system, so it can provide autofill.
+ On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
+ 
+ Possible values for `autoComplete` are:
+ * `off`
+ * `username`
+ * `password`
+ * `email`
+ * `name`
+ * `tel`
+ * `street-address`
+ * `postal-code`
+ * `cc-number`
+ * `cc-csc`
+ * `cc-exp`
+ * `cc-exp-month`
+ * `cc-exp-year`
+
+ | Type                                                                                                                                                     | Required | Platform |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | No       | Android      |
+ ---
 
 ### `autoCorrect`
 
