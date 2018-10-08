@@ -162,12 +162,13 @@ p {
   text-decoration: none;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .big-button:hover {
   background: $tintColor;
   color: #fff;
+  transform: scale(1.05);
 }
 
 .big-button a {
