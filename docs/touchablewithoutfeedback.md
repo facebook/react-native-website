@@ -9,7 +9,6 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 
 ### Props
 
-* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
 * [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
 * [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
 * [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
@@ -21,6 +20,7 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
 * [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
 * [`disabled`](touchablewithoutfeedback.md#disabled)
+* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
 * [`onLayout`](touchablewithoutfeedback.md#onlayout)
 * [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
 * [`onPress`](touchablewithoutfeedback.md#onpress)
@@ -37,16 +37,6 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 # Reference
 
 ## Props
-
-### `hitSlop`
-
-This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
-
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
-
----
 
 ### `accessibilityComponentType`
 
@@ -149,6 +139,16 @@ If true, disable all interactions for this component.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `hitSlop`
+
+This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+
+| Type                                                               | Required |
+| ------------------------------------------------------------------ | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       |
 
 ---
 
