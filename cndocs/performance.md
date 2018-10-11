@@ -69,11 +69,11 @@ if (!__DEV__) {
 
 这样在打包发布时，所有的控制台语句就会被自动移除，而在调试时它们仍然会被正常调用。
 
-### `ListView` initial rendering is too slow or scroll performance is bad for large lists
+### `ListView` 首次渲染缓慢或者由于列表很大导致滑动很慢
 
-Use the new [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.
+用新的[`FlatList`](flatlist.md)或者[`SectionList`](sectionlist.md)组件替代。除了简化了API，这些新的列表组件在性能方面都有了极大的提升, 其中最主要的一个是无论列表有多少行，它的内存使用都是常数级的。
 
-If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/flatlist.md#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
+如果你的[`FlatList`](flatlist.md)渲染得很慢, 请确保你使用了[`getItemLayout`](flatlist.md#getitemlayout)，它通过跳过对items的处理来优化你的渲染速度。
 
 ### 在重绘一个几乎没有什么变化的页面时，JS 帧率严重降低
 
