@@ -96,9 +96,9 @@ var styles = StyleSheet.create({
 
 按下`⌘+R`或者`Reload JS`，现在图片应该可以被渲染出来了。
 
-|                           |                            |
-| ------------------------- | -------------------------- |
-| ![](img/TutorialMock.png) | ![](img/TutorialMock2.png) |
+|                            |                             |
+| -------------------------- | --------------------------- |
+| ![](/img/TutorialMock.png) | ![](/img/TutorialMock2.png) |
 
 ### 添加样式
 
@@ -169,9 +169,9 @@ return (
 
 再按一次`⌘+R`或者`Reload JS`来看看最新的结果。
 
-|                                 |                                  |
-| ------------------------------- | -------------------------------- |
-| ![](img/TutorialStyledMock.png) | ![](img/TutorialStyledMock2.png) |
+|                                  |                                   |
+| -------------------------------- | --------------------------------- |
+| ![](/img/TutorialStyledMock.png) | ![](/img/TutorialStyledMock2.png) |
 
 ### 拉取真正的数据
 
@@ -266,9 +266,9 @@ var REQUEST_URL =
 
 现在再按一次`⌘+R`或者`Reload JS`，你会首先看到“正在加载电影数据……”，然后在响应数据到达之后，看到第一个电影的信息。
 
-|                                    |                                     |
-| ---------------------------------- | ----------------------------------- |
-| ![](img/TutorialSingleFetched.png) | ![](img/TutorialSingleFetched2.png) |
+|                                     |                                      |
+| ----------------------------------- | ------------------------------------ |
+| ![](/img/TutorialSingleFetched.png) | ![](/img/TutorialSingleFetched2.png) |
 
 ## FlatList
 
@@ -364,9 +364,9 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 现在可以体现最终的结果了：
 
-|                            |                             |
-| -------------------------- | --------------------------- |
-| ![](img/TutorialFinal.png) | ![](img/TutorialFinal2.png) |
+|                             |                              |
+| --------------------------- | ---------------------------- |
+| ![](/img/TutorialFinal.png) | ![](/img/TutorialFinal2.png) |
 
 为了实现一个完整功能的应用，接下来其实还有一些工作要做，譬如：添加导航器，搜索，加载更多，等等等等。
 
