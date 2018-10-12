@@ -191,19 +191,19 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Android Studio。
 
 <block class="native linux android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Android Studio。
 
 <block class="native windows android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Android Studio。
 
 <block class="native mac windows linux android" />
 
