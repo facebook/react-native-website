@@ -122,7 +122,8 @@ var RNTMap = requireNativeComponent('RNTMap', MapView);
 module.exports = MapView;
 ```
 
-Now we have a nicely documented wrapper component that is easy to work with. Note that we changed the second argument to `requireNativeComponent` from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props to reduce the chances of mismatches between the ObjC and JS code.
+Now we have a nicely documented wrapper component that is easy to work with. 
+we changed the second argument to `requireNativeComponent` from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props to reduce the chances of mismatches between the ObjC and JS code.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
@@ -271,8 +272,7 @@ Until now we've just returned a `MKMapView` instance from our manager's `-(UIVie
 
 @end
 ```
-
-Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
+Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
 
 ```objectivec{9,17,31-48}
 // RNTMapManager.m
