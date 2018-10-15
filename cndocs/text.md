@@ -267,14 +267,15 @@ See the [Accessibility guide](accessibility.md#accessible-ios-android) for more 
 
 ### `ellipsizeMode`
 
-When `numberOfLines` is set, this prop defines how text will be truncated. `numberOfLines` must be set in conjunction with this prop.
+这个属性通常和下面的 `numberOfLines` 属性配合使用，表示当 Text 组件无法全部显示需要显示的字符串时如何用省略号进行修饰。
 
-This can be one of the following values:
+该属性有如下 4 种取值:
 
-* `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
-* `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
-* `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
-* `clip` - Lines are not drawn past the edge of the text container.
+
+* `head` - 从文本内容头部截取显示省略号。例如： "...efg"
+* `middle` - 在文本内容中间截取显示省略号。例如： "ab...yz"
+* `tail` - 从文本内容尾部截取显示省略号。例如： "abcd..."
+* `clip` - 不显示省略号，直接从尾部截断。
 
 The default is `tail`.
 
