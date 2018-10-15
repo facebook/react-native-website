@@ -89,7 +89,7 @@ $ npm install
 
 > 注意：react-native 依赖于特定版本的，高于或低于某个范围都不可以。本文无法在这里列出所有 react native 和对应的 react 模块版本要求，只能提醒读者先尝试执行 npm install，然后注意观察安装过程中的报错信息，例如`require react@某.某.某版本, but none was installed`，然后根据这样的提示，执行`npm install react@某.某.某版本`。
 
-## 2. 升级项目模板文件
+#### 2. 升级项目模板文件
 
 新版本的 npm 包通常还会包含一些动态生成的文件，这些文件是在运行`react-native init`创建新项目时生成的，比如 iOS 和 Android 的项目文件。为了使老项目的项目文件也能得到更新（不重新 init），你需要在命令行中运行：
 
