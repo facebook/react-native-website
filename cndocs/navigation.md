@@ -7,9 +7,9 @@ title: 使用导航器跳转页面
 
 本文档总结对比了 React Native 中现有的几个导航组件。如果你刚开始接触，那么直接选择[React Navigation](navigation.md#react-navigation)就好。 React Navigation 提供了简单易用的跨平台导航方案，在 iOS 和 Android 上都可以进行翻页式、tab 选项卡式和抽屉式的导航布局。
 
-如果你只针对 iOS 平台开发，想和系统原生外观一致，不需要什么自定义的设置，那么可以选择[NavigatorIOS](navigation.md#navigatorios)， as it provides a wrapper around the native `UINavigationController` class. This component will not work on Android, however.
+如果你只针对 iOS 平台开发，想和系统原生外观一致，不需要什么自定义的设置，那么可以选择[NavigatorIOS](navigation.md#navigatorios)，因为它提供了一个基于原生 `UINavigationController` 类的封装。然而组件在Android上不会起作用。
 
-If you'd like to achieve a native look and feel on both iOS and Android, or you're integrating React Native into an app that already manages navigation natively, the following libraries provide native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
+如果你想同时在iOS和Android上达到看起来像原生，或者你想把RN整合到一个已经有原生导航管理的APP里, 下面这个库提供了在两个平台都适用的原生导航: [react-native-navigation](https://github.com/wix/react-native-navigation).
 
 ## React Navigation
 
