@@ -22,6 +22,8 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
 * [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
 * [`disabled`](touchablewithoutfeedback.md#disabled)
+* [`onBlur`](touchablewithoutfeedback.md#onblur)
+* [`onFocus`](touchablewithoutfeedback.md#onfocus)
 * [`onLayout`](touchablewithoutfeedback.md#onlayout)
 * [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
 * [`onPress`](touchablewithoutfeedback.md#onpress)
