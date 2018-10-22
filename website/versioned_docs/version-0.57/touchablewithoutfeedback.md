@@ -153,6 +153,26 @@ If true, disable all interactions for this component.
 
 ---
 
+### `onBlur`
+
+Invoked when the item loses focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onFocus`
+
+Invoked when the item receives focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `onLayout`
 
 Invoked on mount and layout changes with
