@@ -118,8 +118,13 @@ The `<Text>` element is special relative to layout: everything inside is no long
   <Text>First part and </Text>
   <Text>second part</Text>
 </Text>
-// Text container: all the text flows as if it was one
+// Text container: the text will be inline if the space allowed it
 // |First part and second part|
+
+// otherwise, the text will flow as if it was one
+// |First part |
+// |and second |
+// |part       |
 
 <View>
   <Text>First part and </Text>
@@ -128,6 +133,11 @@ The `<Text>` element is special relative to layout: everything inside is no long
 // View container: each text is its own block
 // |First part and|
 // |second part   |
+
+// the will will flow in its own block
+// |First part |
+// |and        |
+// |second part|
 ```
 
 ## Limited Style Inheritance
