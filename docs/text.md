@@ -126,9 +126,8 @@ The `<Text>` element is special relative to layout: everything inside is no long
   <Text>second part</Text>
 </View>
 // View container: each text is its own block
-// |First part |
-// |and        |
-// |second part|
+// |First part and|
+// |second part   |
 ```
 
 ## Limited Style Inheritance
