@@ -38,7 +38,7 @@ async _getContent() {
 static setString(content)
 ```
 
-设置剪贴板的文本内容。返回一个`Promise`，然后你可以用下面的方式来设置剪贴板内容。
+设置剪贴板的文本内容，然后你可以用下面的方式来设置剪贴板内容。
 
 ```javascript
 _setContent() {
