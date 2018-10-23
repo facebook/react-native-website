@@ -28,12 +28,6 @@ import { KeyboardAvoidingView } from 'react-native';
 - [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
 - [`enabled`](keyboardavoidingview.md#enabled)
 
-### Methods
-
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
-
 ---
 
 # Reference
