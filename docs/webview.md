@@ -51,7 +51,6 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 - [`source`](webview.md#source)
 - [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`injectJavaScript`](webview.md#injectjavascript)
 - [`injectedJavaScript`](webview.md#injectedjavascript)
 - [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
 - [`nativeConfig`](webview.md#nativeconfig)
@@ -93,6 +92,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 * [`goBack`](webview.md#goback)
 * [`reload`](webview.md#reload)
 * [`stopLoading`](webview.md#stoploading)
+- [`injectJavaScript`](webview.md#injectjavascriptscript)
 
 ---
 
@@ -131,16 +131,6 @@ Controls whether to adjust the content inset for web views that are placed behin
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
----
-
-### `injectJavaScript`
-
-Function that accepts a string that will be passed to the WebView and executed immediately as JavaScript.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
 
 ---
 
@@ -541,3 +531,11 @@ stopLoading();
 ```
 
 Stop loading the current page.
+
+### `injectJavaScript(script)`
+
+```javascript
+injectJavaScript("...");
+```
+
+Script will be passed to the WebView and executed immediately as JavaScript.
