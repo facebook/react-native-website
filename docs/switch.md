@@ -13,7 +13,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 * [`disabled`](switch.md#disabled)
 * [`trackColor`](switch.md#trackcolor)
-* [`ios-backgroundColor`](switch.md#ios_backgroundcolor)
+* [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
 * [`onValueChange`](switch.md#onvaluechange)
 * [`testID`](switch.md#testid)
 * [`thumbColor`](switch.md#thumbcolor)
