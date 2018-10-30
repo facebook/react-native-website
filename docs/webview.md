@@ -92,7 +92,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 * [`goBack`](webview.md#goback)
 * [`reload`](webview.md#reload)
 * [`stopLoading`](webview.md#stoploading)
-- [`injectJavaScript`](webview.md#injectjavascriptscript)
+- [`injectJavaScript`](webview.md#injectjavascriptstr)
 
 ---
 
@@ -532,10 +532,10 @@ stopLoading();
 
 Stop loading the current page.
 
-### `injectJavaScript(script)`
+### `injectJavaScript(str)`
 
 ```javascript
-injectJavaScript("...");
+injectJavaScript("... javascript string ...");
 ```
 
-Script will be passed to the WebView and executed immediately as JavaScript.
+Executes the JavaScript string.
