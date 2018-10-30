@@ -12,11 +12,11 @@ This is a controlled component that requires an `onValueChange` callback that up
 - [View props...](view.md#props)
 
 * [`disabled`](switch.md#disabled)
-* [`trackColor`](switch.md#trackColor)
-* [`ios_backgroundColor`](switch.md#ios_backgroundColor)
+* [`trackColor`](switch.md#trackcolor)
+* [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
 * [`onValueChange`](switch.md#onvaluechange)
 * [`testID`](switch.md#testid)
-* [`thumbColor`](switch.md#thumbColor)
+* [`thumbColor`](switch.md#thumbcolor)
 * [`tintColor`](switch.md#tintcolor)
 * [`value`](switch.md#value)
 
