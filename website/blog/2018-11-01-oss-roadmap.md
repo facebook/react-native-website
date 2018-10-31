@@ -28,9 +28,9 @@ We have identified the following focus areas to help us achieve this vision.
 
 ## ✂️ Lean Core
 
-Our goal is to reduce the surface area of React Native by removing non-core and unused components. We'll transfer non-core components to the community to allow it to move faster. The reduced surface area will make it easier to manage contributions to React Native.
+Our goal is to [reduce the surface area of React Native](https://github.com/react-native-community/discussions-and-proposals/issues/6) by removing non-core and unused components. We'll transfer non-core components to the community to allow it to move faster. The reduced surface area will make it easier to manage contributions to React Native.
 
-`WebView` is an example of a component that we transferred to the community. We are working on a workflow that will allow internal teams to continue using these components after we remove them from the repository. We have identified [dozens more components](https://github.com/react-native-community/discussions-and-proposals/issues/6) that we'll that we'll give ownership of to the community.
+[`WebView`](https://github.com/react-native-community/discussions-and-proposals/blob/master/proposals/0001-webview.md) is an example of a component that we transferred to the community. We are working on a workflow that will allow internal teams to continue using these components after we remove them from the repository. We have identified [dozens more components](https://github.com/react-native-community/discussions-and-proposals/issues/6) that we'll give ownership of to the community.
 
 ## 🎁 Open Sourcing Internals and 🛠Updated Tooling
 
@@ -38,11 +38,10 @@ The React Native development experience for product teams at Facebook can be qui
 
 We'll work on releasing some of these internal tools. We'll also improve support for tools popular with the open source community. Here's a non-exhaustive list of projects we'll tackle:
 
-* Open source JSI
-* Enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release
-* Support 64-bit libraries on Android
-* Enable debugging under the new architecture
-* Improve support for CocoaPods, Gradle, Maven.
+* Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release.
+* Support 64-bit libraries on Android.
+* Enable debugging under the new architecture.
+* Improve support for CocoaPods, Gradle, Maven, and new Xcode build system.
 
 ## ✅ Testing Infrastructure
 
@@ -63,6 +62,6 @@ React Native is one of the [top open source projects on GitHub](https://octovers
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">So happy we could get a bunch of React Native core contributors together for dinner at React Conf 2018! <a href="https://t.co/p5tEWhGAwy">pic.twitter.com/p5tEWhGAwy</a></p>&mdash; Eli White (@Eli_White) <a href="https://twitter.com/Eli_White/status/1056008011120955392?ref_src=twsrc%5Etfw">October 27, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-### Timeline
+## Timeline
 
-We're planning to land these projects throughout the next year or so. Some of these efforts are already ongoing, such as JSI which has already landed in open source. Others will take a bit longer to complete, such as reducing the surface area. We'll do our best to keep the community up to date with our progress.
+We're planning to land these projects throughout the next year or so. Some of these efforts are already ongoing, such as [JSI which has already landed in open source](https://github.com/facebook/react-native/compare/e337bcafb0b017311c37f2dbc24e5a757af0a205...8427f64e06456f171f9df0316c6ca40613de7a20). Others will take a bit longer to complete, such as reducing the surface area. We'll do our best to keep the community up to date with our progress.
