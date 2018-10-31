@@ -15,7 +15,7 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 Basic usage:
 
 ```javascript
-import { ToastAndroid } from 'react-native'; 
+import {ToastAndroid} from 'react-native';
 
 ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
 ToastAndroid.showWithGravity(
@@ -34,16 +34,11 @@ ToastAndroid.showWithGravityAndOffset(
 
 ### Advanced usage:
 
-The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack)
-to expose a declarative component from it. See an example below:
+The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
 ```javascript
-import React, { Component } from 'react';
-import {
-  View,
-  Button,
-  ToastAndroid,
-} from 'react-native';
+import React, {Component} from 'react';
+import {View, Button, ToastAndroid} from 'react-native';
 
 // a component that calls the imperative ToastAndroid API
 const Toast = (props) => {
@@ -69,26 +64,26 @@ class App extends Component {
   }
 
   handleButtonPress = () => {
-    this.setState({
+    this.setState(
+      {
         visible: true,
-    }, () => {
-      this.hideToast();
-    });
+      },
+      () => {
+        this.hideToast();
+      }
+    );
   };
 
   hideToast = () => {
     this.setState({
-      visible: false
-    })
-  }
+      visible: false,
+    });
+  };
 
   render() {
     return (
       <View style={styles.container}>
-        <Toast
-          visible={this.state.visible}
-          message="Example"
-        />
+        <Toast visible={this.state.visible} message="Example" />
         <Button title="Toggle Modal" onPress={this.handleButtonPress} />
       </View>
     );
