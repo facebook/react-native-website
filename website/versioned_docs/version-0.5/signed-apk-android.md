@@ -92,7 +92,7 @@ Gradle's `assembleRelease` will bundle all the JavaScript needed to run your app
 
 > Note: Make sure gradle.properties does not include _org.gradle.configureondemand=true_ as that will make the release build skip bundling JS and assets into the APK.
 
-The generated APK can be found under `android/app/build/outputs/apk/app-release.apk`, and is ready to be distributed.
+The generated APK can be found under `android/app/build/outputs/apk/release/app-release.apk`, and is ready to be distributed.
 
 ### Testing the release build of your app
 
