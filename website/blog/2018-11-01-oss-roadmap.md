@@ -38,7 +38,7 @@ The React Native development experience for product teams at Facebook can be qui
 
 We'll work on releasing some of these internal tools. We'll also improve support for tools popular with the open source community. Here's a non-exhaustive list of projects we'll tackle:
 
-* Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release. We'll be covering what JSI is in an upcoming blog post, in the meantime you can learn more about JSI from [Parashuram's talk at React Conf](https://www.youtube.com/watch?v=UcqRXTriUVI).
+* Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release. We'll be covering what JSI is in a future post, in the meantime you can learn more about JSI from [Parashuram's talk at React Conf](https://www.youtube.com/watch?v=UcqRXTriUVI).
 * Support 64-bit libraries on Android.
 * Enable debugging under the new architecture.
 * Improve support for CocoaPods, Gradle, Maven, and new Xcode build system.
