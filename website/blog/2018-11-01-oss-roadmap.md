@@ -38,7 +38,7 @@ The React Native development experience for product teams at Facebook can be qui
 
 We'll work on releasing some of these internal tools. We'll also improve support for tools popular with the open source community. Here's a non-exhaustive list of projects we'll tackle:
 
-* Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release.
+* Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release. We'll be covering what JSI is in an upcoming blog post, in the meantime you can learn more about JSI from [Parashuram's talk at React Conf](https://www.youtube.com/watch?v=UcqRXTriUVI).
 * Support 64-bit libraries on Android.
 * Enable debugging under the new architecture.
 * Improve support for CocoaPods, Gradle, Maven, and new Xcode build system.
@@ -57,7 +57,7 @@ Facebook will consume React Native via the public API, the same way open source 
 
 ## 📣 Communication
 
-React Native is one of the [top open source projects on GitHub](https://octoverse.github.com/projects) by contributor count. That makes us really happy, and we'd like to keep it going. We'll continue working on initiatives that lead to involved contributors, such as increased transparency and open discussion. The documentation is one of the first things someone new to React Native will encounter, yet it has not been a priority. We'd like to fix that, starting with bringing back auto-generated API reference docs, and creating additional content focused on creating [quality user experiences](http://facebook.github.io/react-native/docs/improvingux).
+React Native is one of the [top open source projects on GitHub](https://octoverse.github.com/projects) by contributor count. That makes us really happy, and we'd like to keep it going. We'll continue working on initiatives that lead to involved contributors, such as increased transparency and open discussion. The documentation is one of the first things someone new to React Native will encounter, yet it has not been a priority. We'd like to fix that, starting with bringing back auto-generated API reference docs, creating additional content focused on creating [quality user experiences](http://facebook.github.io/react-native/docs/improvingux), and improving our [release notes](https://github.com/react-native-community/react-native-releases/issues/47).
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">So happy we could get a bunch of React Native core contributors together for dinner at React Conf 2018! <a href="https://t.co/p5tEWhGAwy">pic.twitter.com/p5tEWhGAwy</a></p>&mdash; Eli White (@Eli_White) <a href="https://twitter.com/Eli_White/status/1056008011120955392?ref_src=twsrc%5Etfw">October 27, 2018</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
