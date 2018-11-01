@@ -15,7 +15,7 @@ Whenever you are fixing a bug or adding new functionality to React Native, you s
 * [iOS](testing.md#ios)
 * [Apple TV](testing.md#apple-tv)
 * [End-to-end tests](testing.md#end-to-end-tests)
-* [Website](testing.md#website)
+* [Updating the Documentation](testing.md#updating-the-documentation)
 
 ## JavaScript
 
@@ -50,7 +50,7 @@ javac 1.8.0_111
 
 The version string `1.8.x_xxx` corresponds to JDK 8.
 
-You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html).
+You also need to install the [Buck build tool](https://buckbuild.com/setup/install.html). Note that brew may not install the version needed to run the tests. For best results, use the same version as the GitHub builds, which can be found in the `.circleci` folder in the root of the repo.
 
 To run the Android unit tests:
 
