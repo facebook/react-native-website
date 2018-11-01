@@ -135,20 +135,20 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 
 **Parameters:**
 
-| Name       | Type   | Required | Description                          |
-| ---------- | ------ | -------- | ------------------------------------ |
-| permission | string | Yes      | The permission to request.           |
-| rationale  | object | No       | See `rationale` below.               |
+| Name       | Type   | Required | Description                |
+| ---------- | ------ | -------- | -------------------------- |
+| permission | string | Yes      | The permission to request. |
+| rationale  | object | No       | See `rationale` below.     |
 
 **Rationale:**
 
-| Name              | Type   | Required | Description                          |
-| ----------------- | ------ | -------- | ------------------------------------ |
-| title             | string | Yes      | The title of the dialog.             |
-| message           | string | Yes      | The message of the dialog.           |
-| buttonPositive    | string | Yes      | The text of the positive button.     |
-| buttonNegative    | string | No       | The text of the negative button.     |
-| buttonNeutral     | string | No       | The text of the neutral button.      |
+| Name           | Type   | Required | Description                      |
+| -------------- | ------ | -------- | -------------------------------- |
+| title          | string | Yes      | The title of the dialog.         |
+| message        | string | Yes      | The message of the dialog.       |
+| buttonPositive | string | Yes      | The text of the positive button. |
+| buttonNegative | string | No       | The text of the negative button. |
+| buttonNeutral  | string | No       | The text of the neutral button.  |
 
 ---
 

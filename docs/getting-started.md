@@ -132,6 +132,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
 
 If you have a problem with Expo, before creating a new issue, please see if there's an existing issue about it:
+
 * in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
 * in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
