@@ -36,12 +36,12 @@ class HomeCallToAction extends React.Component {
     return (
       <div>
         <Button
-          href={siteConfig.baseUrl + "docs/getting-started.html"}
+          href={siteConfig.baseUrl + "docs/getting-started"}
           target="_self"
         >
           Get Started
         </Button>
-        <Button href={siteConfig.baseUrl + "docs/tutorial.html"} target="_self">
+        <Button href={siteConfig.baseUrl + "docs/tutorial"} target="_self">
           Learn the Basics
         </Button>
       </div>
@@ -190,7 +190,7 @@ class AwkwardScrollingImageWithText extends Component {
                 <MarkdownBlock>
                   React Native lets you build your app faster. Instead of
                   recompiling, you can reload your app instantly. With [Hot
-                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html),
+                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading),
                   you can even run new code while retaining your application
                   state. Give it a try - it's a magical experience.
                 </MarkdownBlock>
@@ -256,7 +256,7 @@ class MiniShowcase extends React.Component {
           Thousands of apps are using React Native, from established Fortune 500
           companies to hot new startups. If you're curious to see what can be
           accomplished with React Native,{" "}
-          <a href={siteConfig.baseUrl + "showcase.html"}>
+          <a href={siteConfig.baseUrl + "showcase"}>
             check out these apps
           </a>!
         </p>
