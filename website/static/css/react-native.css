@@ -148,6 +148,10 @@ p {
   font-size: 18px;
 }
 
+li {
+  font-size: 18px;
+}
+
 .big-button {
   text-align: center;
   background: $secondaryColor;
