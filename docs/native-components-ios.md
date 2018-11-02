@@ -122,8 +122,7 @@ var RNTMap = requireNativeComponent('RNTMap', MapView);
 module.exports = MapView;
 ```
 
-Now we have a nicely documented wrapper component that is easy to work with. 
-we changed the second argument to `requireNativeComponent` from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props to reduce the chances of mismatches between the ObjC and JS code.
+Now we have a nicely documented wrapper component that is easy to work with. Note that we changed `requireNativeComponent`'s second argument from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props in order to reduce the chances of mismatches between the Objective-C and JavaScript code.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
