@@ -78,7 +78,7 @@ import {Share, Button} from 'react-native'
 
 class ShareExample extends Component {
 
-  async onShare() {
+  async onShare = () => {
     try {
       const result = await Share.share({
         message:
@@ -97,11 +97,11 @@ class ShareExample extends Component {
     } catch (error) {
       alert(error.message);
     }
-  }
+  };
 
   render() {
     return (
-      <Button onPress={() => this.onShare()}>Share</Button>
+      <Button onPress={this.onShare}>Share</Button>
     );
   }
 
