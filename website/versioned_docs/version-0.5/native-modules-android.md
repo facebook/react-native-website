@@ -222,7 +222,7 @@ UIManager.measureLayout(
   },
   (x, y, width, height) => {
     console.log(x + ':' + y + ':' + width + ':' + height);
-  }
+  },
 );
 ```
 
@@ -274,7 +274,7 @@ async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
       100,
-      100
+      100,
     );
 
     console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);

@@ -120,7 +120,7 @@ You would then call this from JavaScript by using either:
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.getTime()
+  date.getTime(),
 ); // passing date as number of milliseconds since Unix epoch
 ```
 
@@ -130,7 +130,7 @@ or
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.toISOString()
+  date.toISOString(),
 ); // passing date as ISO-8601 string
 ```
 
