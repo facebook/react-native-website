@@ -147,7 +147,7 @@ A line with hairline width may not be visible if your simulator is downscaled.
 
 ### `absoluteFill`
 
-A very common pattern is to create overlays with position absolute and zero positioning, so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles.
+A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles.
 
 ---
 
