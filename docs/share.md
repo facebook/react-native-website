@@ -68,10 +68,11 @@ The content was successfully shared.
 static dismissedAction()
 ```
 
-The dialog has been dismissed. @platform ios
+_iOS Only_. The dialog has been dismissed. 
 
 
 ## Basic Example
+
 ```javascript
 import React, {Component} from 'react'
 import {Share, Button} from 'react-native'
