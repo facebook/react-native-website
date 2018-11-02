@@ -170,7 +170,7 @@ li {
 }
 
 .big-button:hover {
-  background: $tintColor;
+  background: #047598;
   color: #fff;
   transform: scale(1.05);
 }
