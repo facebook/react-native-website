@@ -1,20 +1,20 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-const glob = require("glob-promise");
-const fs = require("fs-extra");
-const path = require("path");
-const siteConfig = require("./siteConfig");
+const glob = require('glob-promise');
+const fs = require('fs-extra');
+const path = require('path');
+const siteConfig = require('./siteConfig');
 
 const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);
 
 let missingAssets = [];
 let queue = Promise.resolve();
-glob("../docs/**/*.md")
+glob('../docs/**/*.md')
   .then(files => {
     files.forEach(file => {
       queue = queue
@@ -25,10 +25,10 @@ glob("../docs/**/*.md")
           let matches;
           while ((matches = imageReferenceRegExp.exec(contents))) {
             const pathToFile = path.join(
-              "..",
-              matches[1].replace(siteConfig.baseUrl, "")
+              '..',
+              matches[1].replace(siteConfig.baseUrl, '')
             );
-            missingAssets.push({ imagePath: pathToFile, markdownPath: file });
+            missingAssets.push({imagePath: pathToFile, markdownPath: file});
           }
         });
     });
@@ -37,7 +37,7 @@ glob("../docs/**/*.md")
   .then(() => {
     queue = Promise.resolve();
     missingAssets.forEach(missingAsset => {
-      const { imagePath, markdownPath } = missingAsset;
+      const {imagePath, markdownPath} = missingAsset;
       queue = queue
         .then(() => {
           return fs.stat(imagePath);
@@ -45,9 +45,9 @@ glob("../docs/**/*.md")
         .then(stats => {})
         .catch(e => {
           console.error(
-            "Could not find " +
+            'Could not find ' +
               imagePath +
-              " which has at least one reference in " +
+              ' which has at least one reference in ' +
               markdownPath +
               ". Did you forget to add the asset to '/docs/assets'?"
           );
