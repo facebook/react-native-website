@@ -19,6 +19,7 @@ You can also use the `@2x` and `@3x` suffixes to provide images for different sc
 .
 ├── button.js
 └── img
+    ├── check.png
     ├── check@2x.png
     └── check@3x.png
 ```
