@@ -464,19 +464,11 @@ If you have just installed Android Studio, you will likely need to [create a new
 
 <block class="native windows android" />
 
-![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
-
 > If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
-
-![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
 <block class="native mac android" />
 
-![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
-
 > If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
-
-![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 
