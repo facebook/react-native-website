@@ -13,7 +13,6 @@ As a component grows in complexity, it is often cleaner to use `StyleSheet.creat
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
-// all the styles in one place
 const styles = StyleSheet.create({
   bigblue: {
     color: 'blue',
