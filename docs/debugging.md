@@ -84,7 +84,7 @@ You can use Safari to debug the iOS version of your app without having to enable
 However, there are some disadvantages:
 
 1. No sourcemaps when debugging
-2. Everytime the app is reloaded (live reload or manually), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 
 ## React Developer Tools
 
