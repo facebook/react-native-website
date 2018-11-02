@@ -58,6 +58,7 @@ Upon completion, run the following command to find your corresponding git patch 
 ```
 $ ls $TMPDIR/react-native-git-upgrade
 ```
+
 To apply the git patch, run `git apply <path to patch>` inside your project folder.
 
 The templates are upgraded in a optimized way. You still may encounter conflicts but only where the Git 3-way merge have failed, depending on the version and how you modified your sources.

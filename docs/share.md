@@ -68,8 +68,7 @@ The content was successfully shared.
 static dismissedAction()
 ```
 
-_iOS Only_. The dialog has been dismissed. 
-
+_iOS Only_. The dialog has been dismissed.
 
 ## Basic Example
 

@@ -8,7 +8,6 @@
 const glob = require("glob-promise");
 const fs = require("fs-extra");
 const path = require("path");
-const Promise = require("bluebird");
 const siteConfig = require("./siteConfig");
 
 const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);

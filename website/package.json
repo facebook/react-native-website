@@ -19,7 +19,6 @@
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
-    "fix-guides": "node blacklist-check.js",
     "format:source":
       "prettier --config ../.prettierrc --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:markdown":
@@ -31,6 +30,7 @@
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "precommit": "lint-staged",
+    "sync-guides": "node sync-guides.js",
     "test": "yarn build"
   },
   "lint-staged": {
@@ -42,7 +42,6 @@
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
-    "bluebird": "^3.5.1",
     "front-matter": "^2.3.0",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
