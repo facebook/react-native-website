@@ -73,6 +73,19 @@ The debugger will receive a list of all project roots, separated by a space. For
 
 > Custom debugger commands executed this way should be short-lived processes, and they shouldn't produce more than 200 kilobytes of output.
 
+## Safari Developer Tools
+
+You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
+
+- Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
+- Select your app's JSContext: `Develop → Simulator → JSContext`
+- Safari's Web Inspector should open which has a Console and a Debugger
+
+However, there are some disadvantages:
+
+1. No sourcemaps when debugging
+2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+
 ## React Developer Tools
 
 You can use [the standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:

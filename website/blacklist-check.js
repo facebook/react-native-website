@@ -26,6 +26,35 @@ const fs = require("fs-extra");
 const Promise = require("bluebird");
 
 const blacklist = require("./versionedDocsBlacklist.json");
+const versions = require("./versions.json");
+if (versions.length === 0) {
+  throw "No versions found.";
+}
+
+const replaceVersionWithAsset = opts => {
+  const { version, asset } = opts;
+  const { id, file } = asset;
+
+  const pathToDocVersion =
+    "versioned_docs/version-" + version + "/" + id + ".md";
+  const idForDocVersion = "version-" + version + "-" + id;
+
+  const data = fs.readFileSync(`../docs/${id}.md`, "utf8");
+  const frontmatter = fm(data);
+  const title = frontmatter.attributes.title;
+  const body = frontmatter.body;
+
+  const newData = `---
+id: ${idForDocVersion}
+title: ${title}
+original_id: ${id}
+---
+${body}
+`;
+
+  fs.writeFileSync(pathToDocVersion, newData);
+  fs.removeSync(file);
+};
 
 let blacklistedAssetsFound = [];
 let queue = Promise.resolve();
@@ -58,15 +87,13 @@ glob("versioned_docs/**/*.md")
       console.log("[version-" + version + "]: " + id);
     });
     if (foundBlacklistedFiles) {
-      console.log(
-        "This can be rectified by moving the following files to `versioned_docs/version-0.5` and updating their id to use the `version-0.5` prefix:"
-      );
+      console.log("Rectifying...");
     }
+    const oldestVersion = versions[versions.length - 1];
     blacklistedAssetsFound.forEach(asset => {
-      const { id, version, file } = asset;
-      console.log(file);
+      replaceVersionWithAsset({
+        version: oldestVersion,
+        asset
+      });
     });
-    if (foundBlacklistedFiles) {
-      process.exit(1);
-    }
   });

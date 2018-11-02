@@ -8,20 +8,18 @@ Renders a boolean input.
 
 This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
 
-@keyword checkbox @keyword toggle
-
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`disabled`](switch.md#disabled)
-- [`trackColor`](switch.md#trackColor)
-- [`ios_backgroundColor`](switch.md#ios_backgroundColor)
-- [`onValueChange`](switch.md#onvaluechange)
-- [`testID`](switch.md#testid)
-- [`thumbTintColor`](switch.md#thumbtintcolor)
-- [`tintColor`](switch.md#tintcolor)
-- [`value`](switch.md#value)
+* [`disabled`](switch.md#disabled)
+* [`trackColor`](switch.md#trackColor)
+* [`ios_backgroundColor`](switch.md#ios_backgroundColor)
+* [`onValueChange`](switch.md#onvaluechange)
+* [`testID`](switch.md#testid)
+* [`thumbColor`](switch.md#thumbColor)
+* [`tintColor`](switch.md#tintcolor)
+* [`value`](switch.md#value)
 
 ---
 
@@ -81,7 +79,7 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `thumbTintColor`
+### `thumbColor`
 
 Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
 

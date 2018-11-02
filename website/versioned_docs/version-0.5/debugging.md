@@ -96,7 +96,7 @@ It should connect to your simulator within a few seconds.
 
 ### Integration with React Native Inspector
 
-Open the in-app developer menu and choose "Show Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
+Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
 ![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
@@ -104,7 +104,7 @@ However, when `react-devtools` is running, Inspector will enter a special collap
 
 ![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
-You can choose "Hide Inspector" in the same menu to exit this mode.
+You can choose "Toggle Inspector" in the same menu to exit this mode.
 
 ### Inspecting Component Instances
 
@@ -130,7 +130,7 @@ You can enable a performance overlay to help you debug performance problems by s
   <h3>Projects with Native Code Only</h3>
   <p>
     The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
+    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
@@ -148,11 +148,11 @@ $ react-native log-android
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-> If you're using Create React Native App, console logs already appear in the same terminal output as the packager.
+> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the packager.
 
 ## Debugging on a device with Chrome Developer Tools
 
-> If you're using Create React Native App, this is configured for you already.
+> If you're using Create React Native App or Expo CLI, this is configured for you already.
 
 On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/facebook/react-native/blob/master/Libraries/WebSocket/RCTWebSocketExecutor.m) and change "localhost" to the IP address of your computer, then select "Debug JS Remotely" from the Developer Menu.
 

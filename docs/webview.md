@@ -75,6 +75,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 - [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
 - [`userAgent`](webview.md#useragent)
 - [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+- [`allowFileAccess`](webview.md#allowFileAccess)
 - [`bounces`](webview.md#bounces)
 - [`contentInset`](webview.md#contentinset)
 - [`dataDetectorTypes`](webview.md#datadetectortypes)
@@ -456,6 +457,16 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 ### `allowUniversalAccessFromFileURLs`
 
 Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `allowFileAccess`
+
+Boolean that sets whether the `WebView` has access to the file system. The default value is `false`.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

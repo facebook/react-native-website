@@ -132,6 +132,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
 
 If you have a problem with Expo, before creating a new issue, please see if there's an existing issue about it:
+
 * in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
 * in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
@@ -155,7 +156,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo/a> or Create React Native App, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
@@ -290,7 +291,7 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ### Java Development Kit
 
-React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8 or newer](http://openjdk.java.net/install/) as an alternative.
+React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8](http://openjdk.java.net/install/) as an alternative.
 
 <block class="native mac linux windows android" />
 
@@ -327,7 +328,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 #### 2. Install the Android SDK
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.0 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.1 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".
 
@@ -343,9 +344,9 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.0 (Oreo)` entry, then make sure the following items are all checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.1 (Oreo)` entry, then make sure the following items are all checked:
 
-* `Android SDK Platform 26`
+* `Android SDK Platform 27`
 * `Google APIs Intel x86 Atom_64 System Image`
 
 <block class="native mac android" />

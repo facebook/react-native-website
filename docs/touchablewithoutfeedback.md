@@ -21,6 +21,8 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
 * [`disabled`](touchablewithoutfeedback.md#disabled)
 * [`hitSlop`](touchablewithoutfeedback.md#hitslop)
+* [`onBlur`](touchablewithoutfeedback.md#onblur)
+* [`onFocus`](touchablewithoutfeedback.md#onfocus)
 * [`onLayout`](touchablewithoutfeedback.md#onlayout)
 * [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
 * [`onPress`](touchablewithoutfeedback.md#onpress)
@@ -149,6 +151,24 @@ This defines how far your touch can start away from the button. This is added to
 | Type                                                               | Required |
 | ------------------------------------------------------------------ | -------- |
 | object: {top: number, left: number, bottom: number, right: number} | No       |
+
+### `onBlur`
+
+Invoked when the item loses focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onFocus`
+
+Invoked when the item receives focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 

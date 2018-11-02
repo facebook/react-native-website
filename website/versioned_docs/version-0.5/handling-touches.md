@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   }
-})
+});
 
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => ButtonBasics);
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
     padding: 20,
     color: 'white'
   }
-})
+});
 
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => Touchables);
