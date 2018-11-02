@@ -41,7 +41,7 @@ Example:
 
 ```
 sdk.dir=/Users/your_unix_name/android-sdk-macosx
-ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
+ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r17b
 ```
 
 #### Download links for Android NDK
@@ -94,15 +94,15 @@ project(':ReactAndroid').projectDir = new File(
 ...
 ```
 
-Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instead of the pre-compiled library, e.g. - replace `compile 'com.facebook.react:react-native:+'` with `compile project(':ReactAndroid')`:
+Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instead of the pre-compiled library, e.g. - replace `implementation 'com.facebook.react:react-native:+'` with `implementation project(':ReactAndroid')`:
 
 ```gradle
 ...
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.0.2'
 
-    compile project(':ReactAndroid')
+    implementation project(':ReactAndroid')
 
     ...
 }
