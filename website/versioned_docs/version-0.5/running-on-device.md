@@ -75,7 +75,7 @@ original_id: running-on-device
 
 It's always a good idea to test your app on an actual device before releasing it to your users. This document will guide you through the necessary steps to run your React Native app on a device and to get it ready for production.
 
-If you used Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
+If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
 
 <div class="toggler">
 
@@ -108,7 +108,7 @@ If you used Create React Native App to set up your project, you can preview your
 
 <block class="linux windows ios" />
 
-A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to the [Quick Start instructions](getting-started.md) to learn how to build your app using Create React Native App, which will allow you to run your app using the Expo client app.
+A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to the [Quick Start instructions](getting-started.md) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
 
 <block class="mac ios" />
 
@@ -353,10 +353,14 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 During the development process, React Native has loaded your JavaScript code dynamically at runtime. For a production build, you want to pre-package the JavaScript bundle and distribute it inside your application. Doing this requires a code change in your code so that it knows to load the static bundle.
 
-In `AppDelegate.m`, change the default `jsCodeLocation` to point to the static bundle that is built in Release.
+In `AppDelegate.m`, change `jsCodeLocation` to point to the static bundle if you're not in debug mode.
 
 ```objc
+#ifdef DEBUG
+  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+#else
   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+#endif
 ```
 
 This will now reference the `main.jsbundle` resource file that is created during the `Bundle React Native code and images` Build Phase in Xcode.

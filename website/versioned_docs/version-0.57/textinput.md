@@ -168,7 +168,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `autoCapitalize`
 
-Can tell `TextInput` to automatically capitalize certain characters.
+Can tell `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
 
 * `characters`: all characters.
 * `words`: first letter of each word.
@@ -223,7 +223,7 @@ If `true`, caret is hidden. The default value is `false`.
 
 ### `clearButtonMode`
 
-When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.
+When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component. The default value is `never`.
 
 | Type                                                       | Required | Platform |
 | ---------------------------------------------------------- | -------- | -------- |

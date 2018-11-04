@@ -22,6 +22,8 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
 * [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
 * [`disabled`](touchablewithoutfeedback.md#disabled)
+* [`onBlur`](touchablewithoutfeedback.md#onblur)
+* [`onFocus`](touchablewithoutfeedback.md#onfocus)
 * [`onLayout`](touchablewithoutfeedback.md#onlayout)
 * [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
 * [`onPress`](touchablewithoutfeedback.md#onpress)
@@ -150,6 +152,26 @@ If true, disable all interactions for this component.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `onBlur`
+
+Invoked when the item loses focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onFocus`
+
+Invoked when the item receives focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 

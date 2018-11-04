@@ -35,7 +35,7 @@ async function requestCameraPermission() {
         message:
           'Cool Photo App needs access to your camera ' +
           'so you can take awesome pictures.',
-      }
+      },
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       console.log('You can use the camera');

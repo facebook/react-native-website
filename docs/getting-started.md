@@ -94,18 +94,18 @@ This page will help you install and build your first React Native app. If you al
 
 <block class="quickstart mac windows linux ios android" />
 
-[Create React Native App](https://github.com/react-community/create-react-native-app) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
+[Expo](https://expo.io) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
 
-Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the `create-react-native-app` command line utility:
+Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
 
-```
-npm install -g create-react-native-app
+```sh
+npm install -g expo-cli
 ```
 
 Then run the following commands to create a new React Native project called "AwesomeProject":
 
-```
-create-react-native-app AwesomeProject
+```sh
+expo init AwesomeProject
 
 cd AwesomeProject
 npm start
@@ -129,31 +129,34 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Create React Native App also has a [user guide](https://github.com/react-community/create-react-native-app/blob/master/README.md) you can reference if you have questions specific to the tool.
+Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
 
-* If you can't get this to work, see the [Support and Contact](https://github.com/react-community/create-react-native-app/blob/master/README.md#support-and-contact) section in the README for Create React Native App.
+If you have a problem with Expo, before creating a new issue, please see if there's an existing issue about it:
+
+* in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
+* in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
 ### Running your app on a simulator or virtual device
 
-Create React Native App makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for building projects with native code to learn how to install Xcode and set up your Android development environment.
+Expo CLI makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for building projects with native code to learn how to install Xcode and set up your Android development environment.
 
 Once you've set these up, you can launch your app on an Android Virtual Device by running `npm run android`, or on the iOS Simulator by running `npm run ios` (macOS only).
 
 ### Caveats
 
-Because you don't build any native code when using Create React Native App to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
+Because you don't build any native code when using Expo to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
 
-If you know that you'll eventually need to include your own native code, Create React Native App is still a good way to get started. In that case you'll just need to "[eject](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md)" eventually to create your own native builds. If you do eject, the "Building Projects with Native Code" instructions will be required to continue working on your project.
+If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/expokit/eject)" eventually to create your own native builds. If you do eject, the "Building Projects with Native Code" instructions will be required to continue working on your project.
 
-Create React Native App configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported.
+Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported.
 
-If you're integrating React Native into an existing project, you'll want to skip Create React Native App and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Native.
+If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Native.
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Create React Native App</a>, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
@@ -171,7 +174,7 @@ The instructions are a bit different depending on your development operating sys
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Create React Native App instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
 
 <block class="native mac ios" />
 
@@ -288,7 +291,7 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ### Java Development Kit
 
-React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8 or newer](http://openjdk.java.net/install/) as an alternative.
+React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8](http://openjdk.java.net/install/) as an alternative.
 
 <block class="native mac linux windows android" />
 
@@ -325,7 +328,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 #### 2. Install the Android SDK
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.0 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.1 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".
 
@@ -341,44 +344,14 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.0 (Oreo)` entry, then make sure the following items are all checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.1 (Oreo)` entry, then make sure the following items are checked:
 
-* `Android SDK Platform 26`
-* `Google APIs Intel x86 Atom_64 System Image`
+* `Android SDK Platform 27`
+* `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
 
-<block class="native mac android" />
-
-![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerWindows.png)
-
-<block class="native windows mac linux android" />
-
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `26.0.3` is selected.
-
-<block class="native mac android" />
-
-![Android SDK Manager - 26.0.3 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager - 26.0.3 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
-
-<block class="native windows mac linux android" />
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `27.0.3` is selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
-
-<block class="native mac android" />
-
-![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
-
-<block class="native mac windows linux android" />
 
 #### 3. Configure the ANDROID_HOME environment variable
 
@@ -450,7 +423,7 @@ Use the React Native command line interface to generate a new React Native proje
 react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
+This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
 
 <block class="native mac windows linux android" />
 
@@ -482,19 +455,7 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 ![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next".
-
-<block class="native windows android" />
-
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDWindows.png)
-
-<block class="native mac android" />
-
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDMacOS.png)
-
-<block class="native mac windows linux android" />
-
-Select the "x86 Images" tab, then look for the **Oreo** API Level 26, x86_64 ABI image with a Android 8.0 (Google APIs) target.
+If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Oreo** API Level 27 image.
 
 <block class="native linux android" />
 
@@ -502,19 +463,11 @@ Select the "x86 Images" tab, then look for the **Oreo** API Level 26, x86_64 ABI
 
 <block class="native windows android" />
 
-![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
-
 > If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
-
-![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
 <block class="native mac android" />
 
-![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
-
 > If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
-
-![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 

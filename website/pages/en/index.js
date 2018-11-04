@@ -1,17 +1,17 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require("react");
+const React = require('react');
 
-const CompLibrary = require("../../core/CompLibrary.js");
+const CompLibrary = require('../../core/CompLibrary.js');
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 const Container = CompLibrary.Container;
 
-const siteConfig = require(process.cwd() + "/siteConfig.js");
+const siteConfig = require(process.cwd() + '/siteConfig.js');
 
 const pinnedApps = siteConfig.users.filter(app => {
   return app.pinned;
@@ -23,8 +23,7 @@ class Button extends React.Component {
       <a
         className="big-button"
         href={this.props.href}
-        target={this.props.target}
-      >
+        target={this.props.target}>
         {this.props.children}
       </a>
     );
@@ -36,12 +35,11 @@ class HomeCallToAction extends React.Component {
     return (
       <div>
         <Button
-          href={siteConfig.baseUrl + "docs/getting-started.html"}
-          target="_self"
-        >
+          href={siteConfig.baseUrl + 'docs/getting-started'}
+          target="_self">
           Get Started
         </Button>
-        <Button href={siteConfig.baseUrl + "docs/tutorial.html"} target="_self">
+        <Button href={siteConfig.baseUrl + 'docs/tutorial'} target="_self">
           Learn the Basics
         </Button>
       </div>
@@ -92,8 +90,8 @@ class AppList extends React.Component {
 
   _renderAppIcon(app) {
     let imgSource = app.icon;
-    if (!app.icon.startsWith("http")) {
-      imgSource = siteConfig.baseUrl + "img/showcase/" + app.icon;
+    if (!app.icon.startsWith('http')) {
+      imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
     }
     return <img src={imgSource} alt={app.name} />;
   }
@@ -190,7 +188,7 @@ class AwkwardScrollingImageWithText extends Component {
                 <MarkdownBlock>
                   React Native lets you build your app faster. Instead of
                   recompiling, you can reload your app instantly. With [Hot
-                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html),
+                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading),
                   you can even run new code while retaining your application
                   state. Give it a try - it's a magical experience.
                 </MarkdownBlock>
@@ -255,10 +253,8 @@ class MiniShowcase extends React.Component {
         <p>
           Thousands of apps are using React Native, from established Fortune 500
           companies to hot new startups. If you're curious to see what can be
-          accomplished with React Native,{" "}
-          <a href={siteConfig.baseUrl + "showcase.html"}>
-            check out these apps
-          </a>!
+          accomplished with React Native,{' '}
+          <a href={siteConfig.baseUrl + 'showcase'}>check out these apps</a>!
         </p>
         <div className="logos">
           <AppList apps={pinnedApps} />

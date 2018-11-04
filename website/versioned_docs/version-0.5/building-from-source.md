@@ -42,15 +42,15 @@ Example:
 
 ```
 sdk.dir=/Users/your_unix_name/android-sdk-macosx
-ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r10e
+ndk.dir=/Users/your_unix_name/android-ndk/android-ndk-r17b
 ```
 
 #### Download links for Android NDK
 
-1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-darwin-x86_64.zip
-2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-linux-x86_64.zip
-3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86_64.zip
-4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r10e-windows-x86.zip
+1. Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-darwin-x86_64.zip
+2. Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-linux-x86_64.zip
+3. Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86_64.zip
+4. Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86.zip
 
 You can find further instructions on the [official page](https://developer.android.com/ndk/index.html).
 
@@ -73,7 +73,7 @@ Add `gradle-download-task` as dependency in `android/build.gradle`:
 ```gradle
 ...
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.3.1'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'de.undercouch:gradle-download-task:3.1.2'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -95,15 +95,15 @@ project(':ReactAndroid').projectDir = new File(
 ...
 ```
 
-Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instead of the pre-compiled library, e.g. - replace `compile 'com.facebook.react:react-native:+'` with `compile project(':ReactAndroid')`:
+Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instead of the pre-compiled library, e.g. - replace `implementation 'com.facebook.react:react-native:+'` with `implementation project(':ReactAndroid')`:
 
 ```gradle
 ...
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.0.2'
 
-    compile project(':ReactAndroid')
+    implementation project(':ReactAndroid')
 
     ...
 }
