@@ -7,7 +7,7 @@ Opens the standard Android date picker dialog.
 
 ### Example
 
-```
+```javascript
 try {
   const {action, year, month, day} = await DatePickerAndroid.open({
     // Use `new Date()` for current date.

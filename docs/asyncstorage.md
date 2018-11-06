@@ -13,25 +13,25 @@ The `AsyncStorage` JavaScript code is a simple facade that provides a clear Java
 
 Importing the `AsyncStorage` library:
 
-```
+```javscript
 import { AsyncStorage } from "react-native"
 ```
 
 Persisting data:
 
-```
+```javascript
 _storeData = async () => {
   try {
     await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
   } catch (error) {
     // Error saving data
   }
-}
+};
 ```
 
 Fetching data:
 
-```
+```javascript
 _retrieveData = async () => {
   try {
     const value = await AsyncStorage.getItem('TASKS');
@@ -42,7 +42,7 @@ _retrieveData = async () => {
   } catch (error) {
     // Error retrieving data
   }
-}
+};
 ```
 
 ### Methods

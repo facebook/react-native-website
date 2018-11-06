@@ -9,10 +9,10 @@ As the name implies, it is only available on iOS. Take a look at [`React Navigat
 
 To set up the navigator, provide the `initialRoute` prop with a route object. A route object is used to describe each scene that your app navigates to. `initialRoute` represents the first route in your navigator.
 
-```
+```javascript
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { NavigatorIOS, Text, TouchableHighlight, View } from 'react-native';
+import React, {Component} from 'react';
+import {NavigatorIOS, Text, TouchableHighlight, View} from 'react-native';
 
 export default class NavigatorIOSApp extends Component {
   render() {
@@ -32,23 +32,23 @@ class MyScene extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
     navigator: PropTypes.object.isRequired,
-  }
+  };
 
   _onForward = () => {
     this.props.navigator.push({
       title: 'Scene',
     });
-  }
+  };
 
   render() {
     return (
       <View>
-        <Text>Current Scene: { this.props.title }</Text>
+        <Text>Current Scene: {this.props.title}</Text>
         <TouchableHighlight onPress={this._onForward}>
           <Text>Tap me to load the next scene</Text>
         </TouchableHighlight>
       </View>
-    )
+    );
   }
 }
 ```
@@ -57,7 +57,7 @@ In this code, the navigator renders the component specified in initialRoute, whi
 
 You can optionally pass in a `passProps` property to your `initialRoute`. `NavigatorIOS` passes this in as props to the rendered component:
 
-```
+```javascript
 initialRoute={{
   component: MyScene,
   title: 'My Initial Scene',
@@ -71,7 +71,7 @@ You can then access the props passed in via `{this.props.myProp}`.
 
 To trigger navigation functionality such as pushing or popping a view, you have access to a `navigator` object. The object is passed in as a prop to any component that is rendered by `NavigatorIOS`. You can then call the relevant methods to perform the navigation action you need:
 
-```
+```javascript
 class MyView extends Component {
   _handleBackPress() {
     this.props.navigator.pop();
@@ -85,9 +85,9 @@ class MyView extends Component {
     const nextRoute = {
       component: MyView,
       title: 'Bar That',
-      passProps: { myProp: 'bar' }
+      passProps: {myProp: 'bar'},
     };
-    return(
+    return (
       <TouchableHighlight onPress={() => this._handleNextPress(nextRoute)}>
         <Text style={{marginTop: 200, alignSelf: 'center'}}>
           See you on the other nav {this.props.myProp}!
@@ -100,24 +100,24 @@ class MyView extends Component {
 
 You can also trigger navigator functionality from the `NavigatorIOS` component:
 
-```
+```javascript
 class NavvyIOS extends Component {
   _handleNavigationRequest() {
     this.refs.nav.push({
       component: MyView,
       title: 'Genius',
-      passProps: { myProp: 'genius' },
+      passProps: {myProp: 'genius'},
     });
   }
 
   render() {
     return (
       <NavigatorIOS
-        ref='nav'
+        ref="nav"
         initialRoute={{
           component: MyView,
           title: 'Foo This',
-          passProps: { myProp: 'foo' },
+          passProps: {myProp: 'foo'},
           rightButtonTitle: 'Add',
           onRightButtonPress: () => this._handleNavigationRequest(),
         }}
@@ -134,7 +134,7 @@ The code above adds a `_handleNavigationRequest` private method that is invoked 
 
 Props passed to `NavigatorIOS` will set the default configuration for the navigation bar. Props passed as properties to a route object will set the configuration for that route's navigation bar, overriding any props passed to the `NavigatorIOS` component.
 
-```
+```javascript
 _handleNavigationRequest() {
   this.refs.nav.push({
     //...

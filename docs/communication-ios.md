@@ -21,7 +21,7 @@ In order to embed a React Native view in a native component, we use `RCTRootView
 
 `RCTRootView` has an initializer that allows you to pass arbitrary properties down to the React Native app. The `initialProperties` parameter has to be an instance of `NSDictionary`. The dictionary is internally converted into a JSON object that the top-level JS component can reference.
 
-```
+```objectivec
 NSArray *imageList = @[@"http://foo.com/bar1.png",
                        @"http://foo.com/bar2.png"];
 
@@ -32,26 +32,16 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                           initialProperties:props];
 ```
 
-```
+```javascript
 import React from 'react';
-import {
-  AppRegistry,
-  View,
-  Image
-} from 'react-native';
+import {AppRegistry, View, Image} from 'react-native';
 
 class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
-    return (
-      <Image source={{uri: imgURI}} />
-    );
+    return <Image source={{uri: imgURI}} />;
   }
   render() {
-    return (
-      <View>
-        {this.props.images.map(this.renderImage)}
-      </View>
-    );
+    return <View>{this.props.images.map(this.renderImage)}</View>;
   }
 }
 
@@ -60,7 +50,7 @@ AppRegistry.registerComponent('AwesomeProject', () => ImageBrowserApp);
 
 `RCTRootView` also provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
 
-```
+```objectivec
 NSArray *imageList = @[@"http://foo.com/bar3.png",
                        @"http://foo.com/bar4.png"];
 
@@ -129,7 +119,7 @@ The simplest scenario is when we have a React Native app with a fixed size, whic
 
 For instance, to make an RN app 200 (logical) pixels high, and the hosting view's width wide, we could do:
 
-```
+```objectivec
 // SomeViewController.m
 
 - (void)viewDidLoad
@@ -156,7 +146,7 @@ In some cases we'd like to render content of initially unknown size. Let's say t
 
 `RCTRootView` supports 4 different size flexibility modes:
 
-```
+```objectivec
 // RCTRootView.h
 
 typedef NS_ENUM(NSInteger, RCTRootViewSizeFlexibility) {
@@ -173,7 +163,7 @@ typedef NS_ENUM(NSInteger, RCTRootViewSizeFlexibility) {
 
 Let's look at an example.
 
-```
+```objectivec
 // FlexibleSizeExampleView.m
 
 - (instancetype)initWithFrame:(CGRect)frame

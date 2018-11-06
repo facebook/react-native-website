@@ -5,21 +5,28 @@ title: NetInfo
 
 NetInfo exposes info about online/offline status
 
-```
+```javascript
 NetInfo.getConnectionInfo().then((connectionInfo) => {
-  console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+  console.log(
+    'Initial, type: ' +
+      connectionInfo.type +
+      ', effectiveType: ' +
+      connectionInfo.effectiveType,
+  );
 });
 function handleFirstConnectivityChange(connectionInfo) {
-  console.log('First change, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
+  console.log(
+    'First change, type: ' +
+      connectionInfo.type +
+      ', effectiveType: ' +
+      connectionInfo.effectiveType,
+  );
   NetInfo.removeEventListener(
     'connectionChange',
-    handleFirstConnectivityChange
+    handleFirstConnectivityChange,
   );
 }
-NetInfo.addEventListener(
-  'connectionChange',
-  handleFirstConnectivityChange
-);
+NetInfo.addEventListener('connectionChange', handleFirstConnectivityChange);
 ```
 
 ### ConnectionType enum

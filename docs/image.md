@@ -76,7 +76,7 @@ When building your own native code, GIF and WebP are not supported by default on
 
 You will need to add some optional modules in `android/app/build.gradle`, depending on the needs of your app.
 
-```
+```gradle
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
   compile 'com.facebook.fresco:animated-base-support:1.10.0'

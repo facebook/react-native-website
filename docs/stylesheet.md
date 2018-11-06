@@ -7,7 +7,7 @@ A StyleSheet is an abstraction similar to CSS StyleSheets
 
 Create a new StyleSheet:
 
-```
+```javascript
 const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 Use a StyleSheet:
 
-```
+```javascript
 <View style={styles.container}>
   <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
 </View>
