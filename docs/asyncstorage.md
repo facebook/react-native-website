@@ -13,8 +13,8 @@ The `AsyncStorage` JavaScript code is a simple facade that provides a clear Java
 
 Importing the `AsyncStorage` library:
 
-```javscript
-import { AsyncStorage } from "react-native"
+```javascript
+import {AsyncStorage} from 'react-native';
 ```
 
 Persisting data:
