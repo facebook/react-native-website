@@ -29,6 +29,7 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 * [`onPressIn`](touchablewithoutfeedback.md#onpressin)
 * [`onPressOut`](touchablewithoutfeedback.md#onpressout)
 * [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+* [`testID`](touchablewithoutfeedback.md#testid)
 
 ### Type Definitions
 
@@ -229,6 +230,16 @@ When the scroll view is disabled, this defines how far your touch may move off o
 | Type                                                               | Required |
 | ------------------------------------------------------------------ | -------- |
 | object: {top: number, left: number, bottom: number, right: number} | No       |
+
+### `testID`
+
+Used to locate this view in end-to-end tests.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
 
 ## Type Definitions
 
