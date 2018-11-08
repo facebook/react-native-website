@@ -68,6 +68,7 @@ rootView.appProperties = @{@"images" : imageList};
 ```
 
 It is fine to update properties anytime. However, updates have to be performed on the main thread. You use the getter on any thread.
+> **_Note:_** Currently, there is a known issue where setting appProperties during the bridge startup, the change can be lost. See https://github.com/facebook/react-native/issues/20115 for more information.
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
 
