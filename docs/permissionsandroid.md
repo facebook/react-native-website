@@ -164,4 +164,4 @@ Prompts the user to enable multiple permissions in the same dialog and returns a
 
 | Name        | Type  | Required | Description                     |
 | ----------- | ----- | -------- | ------------------------------- |
-| permissions | array | Yes      | Array of permission to request. |
+| permissions | array | Yes      | Array of permissions to request. |
