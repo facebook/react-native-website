@@ -186,7 +186,7 @@ _onDirectionChange = () => {
     'Reload this page',
     'Please reload this page to change the UI direction! ' +
       'All examples in this app will be affected. ' +
-      'Check them out to see what they look like in RTL layout.'
+      'Check them out to see what they look like in RTL layout.',
   );
 };
 ```

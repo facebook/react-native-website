@@ -14,7 +14,7 @@ Animated.timing(
   this.state.fadeAnim, // The value to drive
   {
     toValue: 1, // Animate to final value of 1
-  }
+  },
 ).start(); // Start the animation
 ```
 
@@ -211,7 +211,7 @@ Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an a
 Other configuration options are as follows:
 
 * `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
-* `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
+* `overshootClamping`: Boolean indicating whether the spring should be clamped and not bounce. Default false.
 * `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
 * `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 * `delay`: Start the animation after delay (milliseconds). Default 0.

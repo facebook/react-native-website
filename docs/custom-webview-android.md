@@ -195,7 +195,7 @@ export default class CustomWebView extends Component {
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,
-  WebView.extraNativeComponentConfig
+  WebView.extraNativeComponentConfig,
 );
 ```
 
@@ -253,6 +253,6 @@ const RCTCustomWebView = requireNativeComponent(
       ...WebView.extraNativeComponentConfig.nativeOnly,
       onScrollToBottom: true,
     },
-  }
+  },
 );
 ```

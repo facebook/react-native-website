@@ -562,9 +562,9 @@ Add the React Native dependency to your app's `build.gradle` file:
 
 ```
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     ...
-    compile "com.facebook.react:react-native:+" // From node_modules
+    implementation "com.facebook.react:react-native:+" // From node_modules
 }
 ```
 
@@ -663,7 +663,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 }
 ```
 
-Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX.
+Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX. Also, for integrating Native Modules which use `startActivityForResult`, we need to pass the result to the `onActivityResult` method of our `ReactInstanceManager` instance.
 
 ```java
 @Override
@@ -675,6 +675,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             }
         }
     }
+    mReactInstanceManager.onActivityResult( this, requestCode, resultCode, data );
 }
 ```
 

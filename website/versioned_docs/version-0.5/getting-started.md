@@ -157,7 +157,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo/a> or Create React Native App, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
@@ -292,7 +292,7 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ### Java Development Kit
 
-React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8 or newer](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8 or newer](http://openjdk.java.net/install/) as an alternative.
+React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8](http://openjdk.java.net/install/) as an alternative.
 
 <block class="native mac linux windows android" />
 
@@ -329,7 +329,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 #### 2. Install the Android SDK
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 6.0 (Marshmallow)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.1 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".
 
@@ -345,46 +345,14 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 6.0 (Marshmallow)` entry, then make sure the following items are all checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.1 (Oreo)` entry, then make sure the following items are checked:
 
-* `Google APIs`
-* `Android SDK Platform 23`
-* `Intel x86 Atom_64 System Image`
-* `Google APIs Intel x86 Atom_64 System Image`
+* `Android SDK Platform 27`
+* `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
 
-<block class="native mac android" />
-
-![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager](/react-native/docs/assets/GettingStartedAndroidSDKManagerWindows.png)
-
-<block class="native windows mac linux android" />
-
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `23.0.1` is selected.
-
-<block class="native mac android" />
-
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager - 23.0.1 Build Tools](/react-native/docs/assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
-
-<block class="native windows mac linux android" />
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `27.0.3` is selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
-
-<block class="native mac android" />
-
-![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager - Installs](/react-native/docs/assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
-
-<block class="native mac windows linux android" />
 
 #### 3. Configure the ANDROID_HOME environment variable
 
@@ -398,6 +366,7 @@ Add the following lines to your `$HOME/.bash_profile` config file:
 
 ```
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
@@ -407,6 +376,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 ```
 export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
@@ -482,23 +452,11 @@ If you have a physical Android device, you can use it for development in place o
 
 ### Using a virtual device
 
-You can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
+If you use Android Studio to open `./AwesomeProject/android`, you can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
 ![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next".
-
-<block class="native windows android" />
-
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDWindows.png)
-
-<block class="native mac android" />
-
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedCreateAVDMacOS.png)
-
-<block class="native mac windows linux android" />
-
-Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86_64 ABI image with a Android 6.0 (Google APIs) target.
+If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Oreo** API Level 27 image.
 
 <block class="native linux android" />
 
@@ -506,19 +464,11 @@ Select the "x86 Images" tab, then look for the **Marshmallow** API Level 23, x86
 
 <block class="native windows android" />
 
-![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86Windows.png)
-
 > If you don't have HAXM installed, click on "Install HAXM" or follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-Windows) to set it up, then go back to the AVD Manager.
-
-![AVD List](/react-native/docs/assets/GettingStartedAVDManagerWindows.png)
 
 <block class="native mac android" />
 
-![Install HAXM](/react-native/docs/assets/GettingStartedCreateAVDx86MacOS.png)
-
 > If you don't have HAXM installed, follow [these instructions](https://github.com/intel/haxm/wiki/Installation-Instructions-on-macOS) to set it up, then go back to the AVD Manager.
-
-![AVD List](/react-native/docs/assets/GettingStartedAVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 

@@ -29,7 +29,7 @@ class DraggableView extends React.Component {
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}} // Back to zero
+          {toValue: {x: 0, y: 0}}, // Back to zero
         ).start();
       },
     });
