@@ -7,7 +7,7 @@ Opens the standard Android time picker dialog.
 
 ### Example
 
-```
+```javascript
 try {
   const {action, hour, minute} = await TimePickerAndroid.open({
     hour: 14,

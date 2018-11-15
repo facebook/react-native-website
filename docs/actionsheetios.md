@@ -33,15 +33,19 @@ The 'callback' function takes one parameter, the zero-based index of the selecte
 
 Minimal example:
 
-```
-ActionSheetIOS.showActionSheetWithOptions({
-  options: ['Cancel', 'Remove'],
-  destructiveButtonIndex: 1,
-  cancelButtonIndex: 0,
-},
-(buttonIndex) => {
-  if (buttonIndex === 1) { /* destructive action */ }
-});
+```javascript
+ActionSheetIOS.showActionSheetWithOptions(
+  {
+    options: ['Cancel', 'Remove'],
+    destructiveButtonIndex: 1,
+    cancelButtonIndex: 0,
+  },
+  (buttonIndex) => {
+    if (buttonIndex === 1) {
+      /* destructive action */
+    }
+  },
+);
 ```
 
 ---

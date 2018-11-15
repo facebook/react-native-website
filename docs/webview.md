@@ -7,9 +7,9 @@ title: WebView
 
 `WebView` renders web content in a native view.
 
-```
-import React, { Component } from 'react';
-import { WebView } from 'react-native';
+```javascript
+import React, {Component} from 'react';
+import {WebView} from 'react-native';
 
 class MyWeb extends Component {
   render() {
@@ -25,16 +25,16 @@ class MyWeb extends Component {
 
 Minimal example with inline HTML:
 
-```
-import React, { Component } from 'react';
-import { WebView } from 'react-native';
+```javascript
+import React, {Component} from 'react';
+import {WebView} from 'react-native';
 
 class MyInlineWeb extends Component {
   render() {
     return (
       <WebView
         originWhitelist={['*']}
-        source={{ html: '<h1>Hello world</h1>' }}
+        source={{html: '<h1>Hello world</h1>'}}
       />
     );
   }

@@ -7,20 +7,15 @@ title: AlertIOS
 
 Creating an iOS alert:
 
-```
-AlertIOS.alert(
- 'Sync Complete',
- 'All your data are belong to us.'
-);
+```javascript
+AlertIOS.alert('Sync Complete', 'All your data are belong to us.');
 ```
 
 Creating an iOS prompt:
 
-```
-AlertIOS.prompt(
-  'Enter a value',
-  null,
-  text => console.log("You entered "+text)
+```javascript
+AlertIOS.prompt('Enter a value', null, (text) =>
+  console.log('You entered ' + text),
 );
 ```
 

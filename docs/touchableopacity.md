@@ -9,7 +9,7 @@ Opacity is controlled by wrapping the children in an Animated.View, which is add
 
 Example:
 
-```
+```javascript
 renderButton: function() {
   return (
     <TouchableOpacity onPress={this._onPressButton}>

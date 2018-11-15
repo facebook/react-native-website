@@ -11,7 +11,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 
 Example:
 
-```
+```javascript
 renderButton: function() {
   return (
     <TouchableHighlight onPress={this._onPressButton}>

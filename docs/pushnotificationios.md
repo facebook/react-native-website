@@ -31,7 +31,7 @@ At the top of your `AppDelegate.m`:
 
 And then in your AppDelegate implementation add the following:
 
-```
+```objectivec
  // Required to register for notifications
  - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
  {

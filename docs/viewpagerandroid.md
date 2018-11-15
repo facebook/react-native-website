@@ -9,7 +9,7 @@ It is important all children are `<View>`s and not composite components. You can
 
 Example:
 
-```
+```javascript
 render: function() {
   return (
     <ViewPagerAndroid
