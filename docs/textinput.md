@@ -425,7 +425,7 @@ Callback that is called when the text input is blurred.
 
 ### `onChange`
 
-Callback that is called when the text input's text changes.
+Callback that is called when the text input's text changes. This will be called with `{ nativeEvent: { eventCount, target, text} }`
 
 | Type     | Required |
 | -------- | -------- |
@@ -435,7 +435,7 @@ Callback that is called when the text input's text changes.
 
 ### `onChangeText`
 
-Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.
+Callback that is called when the text input's text changes. Changed text is passed as a single string argument to the callback handler.
 
 | Type     | Required |
 | -------- | -------- |
@@ -467,7 +467,7 @@ Callback that is called when text input ends.
 
 ### `onFocus`
 
-Callback that is called when the text input is focused.
+Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -487,7 +487,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{x, y, width, height}`.
+Invoked on mount and layout changes with `{ nativeEvent: {layout: {x, y, width, height}, target } }`.
 
 | Type     | Required |
 | -------- | -------- |
