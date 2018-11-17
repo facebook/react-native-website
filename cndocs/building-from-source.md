@@ -89,15 +89,15 @@ project(':ReactAndroid').projectDir = new File(
 ...
 ```
 
-修改你的`android/app/build.gradle`文件，使用`:ReactAndroid`替换预编译库。例如用`compile project(':ReactAndroid')`替换`compile 'com.facebook.react:react-native:+'`
+修改你的`android/app/build.gradle`文件，使用`:ReactAndroid`替换预编译库。例如用`implementation project(':ReactAndroid')`替换`implementation 'com.facebook.react:react-native:+'`
 
 ```gradle
 ...
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:26.0.2'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.0.2'
 
-    compile project(':ReactAndroid')
+    implementation project(':ReactAndroid')
 
     ...
 }

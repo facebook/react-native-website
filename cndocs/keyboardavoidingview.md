@@ -28,12 +28,6 @@ import { KeyboardAvoidingView } from 'react-native';
 - [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
 - [`enabled`](keyboardavoidingview.md#enabled)
 
-### 查看方法
-
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
-
 ---
 
 # 文档
@@ -75,27 +69,3 @@ _注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能�
 | 类型    | 必填 |
 | ------- | ---- |
 | boolean | 否   |
-
-## 方法
-
-### `relativeKeyboardHeight()`
-
-```javascript
-relativeKeyboardHeight(keyboardFrame: object):
-```
-
----
-
-### `onKeyboardChange()`
-
-```javascript
-onKeyboardChange((event: object));
-```
-
----
-
-### `onLayout()`
-
-```javascript
-onLayout((event: ViewLayoutEvent));
-```

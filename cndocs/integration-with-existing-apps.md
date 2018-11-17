@@ -336,15 +336,15 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 在`index.js`中添加你自己的组件。这里我们只是简单的添加一个`<Text>`组件，然后用一个带有样式的`<View>`组件把它包起来。
 
 ```javascript
-import React from "react";
-import { AppRegistry, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
-    var contents = this.props["scores"].map(score => (
+    var contents = this.props['scores'].map((score) => (
       <Text key={score.name}>
         {score.name}:{score.value}
-        {"\n"}
+        {'\n'}
       </Text>
     ));
     return (
@@ -359,24 +359,24 @@ class RNHighScores extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF"
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
   },
   highScoresTitle: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 10
+    textAlign: 'center',
+    margin: 10,
   },
   scores: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });
 
 // 整体js模块的名称
-AppRegistry.registerComponent("RNHighScores", () => RNHighScores);
+AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
 ```
 
 > `RNHighScores`是整体 js 模块（即你所有的 js 代码）的名称。你在 iOS 原生代码中添加 React Native 视图时会用到这个名称。
@@ -567,9 +567,9 @@ Here is the _React Native_ high score screen:
 
 ```
 dependencies {
-    compile 'com.android.support:appcompat-v7:23.0.1'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
     ...
-    compile "com.facebook.react:react-native:+" // From node_modules
+    implementation "com.facebook.react:react-native:+" // From node_modules
 }
 ```
 
@@ -623,8 +623,8 @@ Now we will actually modify the native Android application to integrate React Na
 在`index.js`中添加你自己的组件。这里我们只是简单的添加一个`<Text>`组件，然后用一个带有样式的`<View>`组件把它包起来。
 
 ```javascript
-import React from "react";
-import { AppRegistry, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
 class HelloWorld extends React.Component {
   render() {
@@ -638,16 +638,16 @@ class HelloWorld extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   hello: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  }
+    textAlign: 'center',
+    margin: 10,
+  },
 });
 
-AppRegistry.registerComponent("MyReactNativeApp", () => HelloWorld);
+AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
 ```
 
 ##### 3. 配置权限以便开发中的红屏错误能正确显示
@@ -668,7 +668,7 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
 }
 ```
 
-Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX.
+Finally, the `onActivityResult()` method (as shown in the code below) has to be overridden to handle the permission Accepted or Denied cases for consistent UX. Also, for integrating Native Modules which use `startActivityForResult`, we need to pass the result to the `onActivityResult` method of our `ReactInstanceManager` instance.
 
 ```java
 @Override
@@ -680,6 +680,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
             }
         }
     }
+    mReactInstanceManager.onActivityResult( this, requestCode, resultCode, data );
 }
 ```
 

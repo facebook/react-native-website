@@ -108,7 +108,10 @@ export default class BlueIsCool extends Component {
   <Text>First part and </Text>
   <Text>second part</Text>
 </Text>
-// Text container: all the text flows as if it was one
+// Text container: the text will be inline if the space allowed it
+// |First part and second part|
+
+// otherwise, the text will flow as if it was one
 // |First part |
 // |and second |
 // |part       |
@@ -118,6 +121,10 @@ export default class BlueIsCool extends Component {
   <Text>second part</Text>
 </View>
 // View container: each text is its own block
+// |First part and|
+// |second part   |
+
+// the text will flow in its own block
 // |First part |
 // |and        |
 // |second part|

@@ -306,8 +306,7 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 9
 
 React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高版本）。你可以在命令行中输入
 
-> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到
-> [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
+> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到 [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 
 <block class="native mac linux windows android" />
 
@@ -346,7 +345,7 @@ React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高�
 
 #### 2. 安装 Android SDK
 
-Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 8.0 (Oreo)`版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
+Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 8.1 (Oreo)`版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
 
 你可以在 Android Studio 的欢迎界面中找到 SDK Manager。点击"Configure"，然后就能看到"SDK Manager"。
 
@@ -362,44 +361,14 @@ Android Studio 默认会安装最新版本的 Android SDK。目前编译 React N
 
 > SDK Manager 还可以在 Android Studio 的"Preferences"菜单中找到。具体路径是**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
-在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 8.0 (Oreo)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
+在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 8.1 (Oreo)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
 
-- `Android SDK Platform 26`
+- `Android SDK Platform 27`
 - `Intel x86 Atom_64 System Image`（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）
 
-<block class="native mac android" />
-
-![Android SDK Manager](assets/GettingStartedAndroidSDKManagerMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager](assets/GettingStartedAndroidSDKManagerWindows.png)
-
-<block class="native windows mac linux android" />
-
-然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`26.0.3`版本。你可以同时安装多个其他版本，然后还要勾选最底部的`Android Support Repository`。
-
-<block class="native mac android" />
-
-![Android SDK Manager - 26.0.3 Build Tools](assets/GettingStartedAndroidSDKManagerSDKToolsMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager - 26.0.3 Build Tools](assets/GettingStartedAndroidSDKManagerSDKToolsWindows.png)
-
-<block class="native windows mac linux android" />
+然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`27.0.3`版本。你可以同时安装多个其他版本。
 
 最后点击"Apply"来下载和安装这些组件。
-
-<block class="native mac android" />
-
-![Android SDK Manager - Installs](assets/GettingStartedAndroidSDKManagerInstallsMacOS.png)
-
-<block class="native windows android" />
-
-![Android SDK Manager - Installs](assets/GettingStartedAndroidSDKManagerInstallsWindows.png)
-
-<block class="native mac windows linux android" />
 
 #### 3. 配置 ANDROID_HOME 环境变量
 
@@ -501,7 +470,7 @@ react-native init AwesomeProject
 
 ## 准备 Android 设备
 
-你需要准备一台 Android 设备来运行 React Native Android 应用。这里所指的设备既可以是真机，也可以是模拟器。Android 官方提供了名为 Android Virtual Device（简称 AVD）的模拟器。此外还有很多第三方提供的模拟器如[Genymotion](https://www.genymotion.com/download)、BlueStack 等。一般来说官方模拟器免费、功能完整，但性能较差。第三方模拟器性能较好，但可能需要付费，或带有广告。
+你需要准备一台 Android 设备来运行 React Native Android 应用。这里所指的设备既可以是真机，也可以是模拟器。后面我们所有的文档除非特别说明，并不区分真机或者模拟器。Android 官方提供了名为 Android Virtual Device（简称 AVD）的模拟器。此外还有很多第三方提供的模拟器如[Genymotion](https://www.genymotion.com/download)、BlueStack 等。一般来说官方模拟器免费、功能完整，但性能较差。第三方模拟器性能较好，但可能需要付费，或带有广告。
 
 ### 使用 Android 真机
 
@@ -513,21 +482,9 @@ react-native init AwesomeProject
 
 ![Android Studio AVD Manager](assets/GettingStartedAndroidStudioAVD.png)
 
-如果你刚刚才安装 Android Studio，那么可能需要先[创建一个虚拟设备](https://developer.android.com/studio/run/managing-avds.html)。点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"。
+如果你刚刚才安装 Android Studio，那么可能需要先[创建一个虚拟设备](https://developer.android.com/studio/run/managing-avds.html)。点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"，然后选择**Oreo** API Level 27 image.
 
 > 译注：请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
-
-<block class="native windows android" />
-
-![Android Studio AVD Manager](assets/GettingStartedCreateAVDWindows.png)
-
-<block class="native mac android" />
-
-![Android Studio AVD Manager](assets/GettingStartedCreateAVDMacOS.png)
-
-<block class="native mac windows linux android" />
-
-选择"x86 Images"选项卡，这里可以看到你之前已安装过的镜像文件。必须先安装镜像文件才能创建对应的虚拟设备。
 
 <block class="native linux android" />
 
@@ -535,19 +492,11 @@ react-native init AwesomeProject
 
 <block class="native windows android" />
 
-![Install HAXM](assets/GettingStartedCreateAVDx86Windows.png)
-
 > 如果你还没有安装 HAXM（Intel 虚拟硬件加速驱动），则先点击"Install HAXM"或是按这篇[文档说明](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-windows)来进行安装。
-
-![AVD List](assets/GettingStartedAVDManagerWindows.png)
 
 <block class="native mac android" />
 
-![Install HAXM](assets/GettingStartedCreateAVDx86MacOS.png)
-
 > 如果你还没有安装 HAXM（Intel 虚拟硬件加速驱动），则先按这篇[文档说明](https://software.intel.com/en-us/android/articles/installation-instructions-for-intel-hardware-accelerated-execution-manager-mac-os-x)来进行安装。
-
-![AVD List](assets/GettingStartedAVDManagerMacOS.png)
 
 <block class="native mac windows linux android" />
 

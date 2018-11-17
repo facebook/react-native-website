@@ -5,6 +5,9 @@ title: View样式属性
 
 ### Props
 
+* [布局属性](layout-props.md#props)
+* [阴影样式属性](shadow-props.md#props)
+* [Transforms](transforms.md#props)
 * [`borderRightColor`](view-style-props.md#borderrightcolor)
 * [`backfaceVisibility`](view-style-props.md#backfacevisibility)
 * [`borderBottomColor`](view-style-props.md#borderbottomcolor)

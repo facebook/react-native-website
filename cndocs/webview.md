@@ -49,6 +49,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 * [View props...](view.md#props)
 
 - [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+- [`allowFileAccess`](webview.md#allowFileAccess)
 - [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
 - [`bounces`](webview.md#bounces)
@@ -107,6 +108,16 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 | bool | 否   | Android |
 
 ---
+
+### `allowFileAccess`
+
+ Boolean that sets whether the `WebView` has access to the file system. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+ ---
 
 ### `geolocationEnabled`
 

@@ -92,7 +92,7 @@ title: 为电视和机顶盒制作应用
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```javascript
-import { Platform } from "react-native";
+import {Platform} from 'react-native';
 const running_on_tv = Platform.isTV;
 
 // 如果你想更精确地针对tvOS设备（即排除Android设备），
@@ -125,7 +125,7 @@ const running_on_apple_tv = Platform.isTVOS;
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```js
-import { Platform } from "react-native";
+import {Platform} from 'react-native';
 const running_on_tv = Platform.isTV;
 ```
 
@@ -139,19 +139,19 @@ const running_on_tv = Platform.isTV;
 
 - _Common codebase_: Since tvOS and iOS share most Objective-C and JavaScript code in common, most documentation for iOS applies equally to tvOS.
 
-- _访问可点击的控件_: When running on Apple TV, the native view class is `RCTTVView`, which has additional methods to make use of the tvOS focus engine. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight` and `TouchableOpacity` will "just work". In particular:
+- _访问可点击的控件_: When running on Apple TV, the native view class is `RCTTVView`, which has additional methods to make use of the tvOS focus engine. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableWithoutFeedback`, `TouchableHighlight` and `TouchableOpacity` will "just work". In particular:
 
-  - `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
-  - `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus
-  - `touchableHandlePress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
+  - `onFocus` will be executed when the touchable view goes into focus
+  - `onBlur` will be executed when the touchable view goes out of focus
+  - `onPress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
 
 <block class="android" />
 
-- _访问可点击的控件_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
+- _访问可点击的控件_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableWithoutFeedback`, `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
 
-  - `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
-  - `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus
-  - `touchableHandlePress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
+  - `onFocus` will be executed when the touchable view goes into focus
+  - `onBlur` will be executed when the touchable view goes out of focus
+  - `onPress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
 
 <block class="ios" />
 
@@ -204,13 +204,13 @@ class Game2048 extends React.Component {
 
 <block class="ios" />
 
-* _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )
+- _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )
 
-* _TV remote animations_: `RCTTVView` native code implements Apple-recommended parallax animations to help guide the eye as the user navigates through views. The animations can be disabled or adjusted with new optional view properties.
+- _TV remote animations_: `RCTTVView` native code implements Apple-recommended parallax animations to help guide the eye as the user navigates through views. The animations can be disabled or adjusted with new optional view properties.
 
-* _Back navigation with the TV remote menu button_: The `BackHandler` component, originally written to support the Android back button, now also supports back navigation on the Apple TV using the menu button on the TV remote.
+- _Back navigation with the TV remote menu button_: The `BackHandler` component, originally written to support the Android back button, now also supports back navigation on the Apple TV using the menu button on the TV remote.
 
-* _TabBarIOS behavior_: The `TabBarIOS` component wraps the native `UITabBar` API, which works differently on Apple TV. To avoid jittery rerendering of the tab bar in tvOS (see [this issue](https://github.com/facebook/react-native/issues/15081)), the selected tab bar item can only be set from Javascript on initial render, and is controlled after that by the user through native code.
+- _TabBarIOS behavior_: The `TabBarIOS` component wraps the native `UITabBar` API, which works differently on Apple TV. To avoid jittery rerendering of the tab bar in tvOS (see [this issue](https://github.com/facebook/react-native/issues/15081)), the selected tab bar item can only be set from Javascript on initial render, and is controlled after that by the user through native code.
 
 <block class="android" />
 

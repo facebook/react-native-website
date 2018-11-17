@@ -8,7 +8,7 @@ title: 图片
 React Native 提供了一个统一的方式来管理 iOS 和 Android 应用中的图片。要往 App 中添加一个静态图片，只需把图片文件放在代码文件夹中某处，然后像下面这样去引用它：
 
 ```javascript
-<Image source={require("./my-icon.png")} />
+<Image source={require('./my-icon.png')} />
 ```
 
 > 注意，一些老文章和教程提到的`require('image!xxx')`的写法已经从 0.40 版本开始不再支持！
@@ -21,6 +21,7 @@ React Native 提供了一个统一的方式来管理 iOS 和 Android 应用中�
 .
 ├── button.js
 └── img
+    ├── check.png
     ├── check@2x.png
     └── check@3x.png
 ```
@@ -28,7 +29,7 @@ React Native 提供了一个统一的方式来管理 iOS 和 Android 应用中�
 并且`button.js`里有这样的代码：
 
 ```javascript
-<Image source={require("./img/check.png")} />
+<Image source={require('./img/check.png')} />
 ```
 
 Packager 会打包所有的图片并且依据屏幕精度提供对应的资源。譬如说，iPhone 7 会使用`check@2x.png`，而 iPhone 7 plus 或是 Nexus 5 上则会使用`check@3x.png`。如果没有图片恰好满足屏幕分辨率，则会自动选中最接近的一个图片。
@@ -49,16 +50,16 @@ _注意_：如果你添加图片的时候 packager 正在运行，可能需要�
 
 ```javascript
 // 正确
-<Image source={require("./my-icon.png")} />;
+<Image source={require('./my-icon.png')} />;
 
 // 错误
-var icon = this.props.active ? "my-icon-active" : "my-icon-inactive";
-<Image source={require("./" + icon + ".png")} />;
+var icon = this.props.active ? 'my-icon-active' : 'my-icon-inactive';
+<Image source={require('./' + icon + '.png')} />;
 
 // 正确
 var icon = this.props.active
-  ? require("./my-icon-active.png")
-  : require("./my-icon-inactive.png");
+  ? require('./my-icon-active.png')
+  : require('./my-icon-inactive.png');
 <Image source={icon} />;
 ```
 
@@ -77,16 +78,13 @@ var icon = this.props.active
 如果你在编写一个混合 App（一部分 UI 使用 React Native，而另一部分使用平台原生代码），也可以使用已经打包到 App 中的图片资源（以拖拽的方式放置在 Xcode 的 asset 类目中，或是放置在 Android 的 drawable 目录里）。注意此时只使用文件名，不带路径也不带后缀：
 
 ```javascript
-<Image source={{ uri: "app_icon" }} style={{ width: 40, height: 40 }} />
+<Image source={{uri: 'app_icon'}} style={{width: 40, height: 40}} />
 ```
 
 对于放置在 Android 的 assets 目录中的图片，还可以使用`asset:/` 前缀来引用：
 
 ```javascript
-<Image
-  source={{ uri: "asset:/app_icon.png" }}
-  style={{ width: 40, height: 40 }}
-/>
+<Image source={{uri: 'asset:/app_icon.png'}} style={{width: 40, height: 40}} />
 ```
 
 注意：这些做法并没有任何安全检查。你需要自己确保图片在应用中确实存在，而且还需要指定尺寸。
@@ -111,14 +109,14 @@ var icon = this.props.active
 ```javascript
 <Image
   source={{
-    uri: "https://facebook.github.io/react/logo-og.png",
-    method: "POST",
+    uri: 'https://facebook.github.io/react/logo-og.png',
+    method: 'POST',
     headers: {
-      Pragma: "no-cache"
+      Pragma: 'no-cache',
     },
-    body: "Your Body goes here"
+    body: 'Your Body goes here',
   }}
-  style={{ width: 400, height: 400 }}
+  style={{width: 400, height: 400}}
 />
 ```
 
@@ -134,11 +132,11 @@ var icon = this.props.active
   style={{
     width: 51,
     height: 51,
-    resizeMode: "contain"
+    resizeMode: 'contain',
   }}
   source={{
     uri:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=="
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
   }}
 />
 ```
@@ -155,10 +153,10 @@ var icon = this.props.active
 ```javascript
 <Image
   source={{
-    uri: "https://facebook.github.io/react/logo-og.png",
-    cache: "only-if-cached"
+    uri: 'https://facebook.github.io/react/logo-og.png',
+    cache: 'only-if-cached',
   }}
-  style={{ width: 400, height: 400 }}
+  style={{width: 400, height: 400}}
 />
 ```
 
@@ -187,7 +185,7 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 在 React Native 中，另一个值得一提的变动是我们把`src`属性改为了`source`属性，而且并不接受字符串，正确的值是一个带有`uri`属性的对象。
 
 ```javascript
-<Image source={{ uri: "something.jpg" }} />
+<Image source={{uri: 'something.jpg'}} />
 ```
 
 深层次的考虑是，这样可以使我们在对象中添加一些元数据(metadata)。假设你在使用`require('./my-icon.png')`，那么我们就会在其中添加真实文件路径以及尺寸等信息（这只是举个例子，未来的版本中 require 的具体行为可能会变化）。此外这也是考虑了未来的扩展性，比如我们可能会加入精灵图（sprites）的支持：在输出`{uri: ...}`的基础上，我们可以进一步输出裁切信息`{uri: ..., crop: {left: 10, top: 50, width: 20, height: 40}}`，这样理论上就可以在现有的代码中无缝支持精灵图的切分。
@@ -198,7 +196,7 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 开发者们常面对的一种需求就是类似 web 中的背景图（`background-image`）。要实现这一用例，只需使用`<ImageBackground>`组件（其 props 与`<Image>`完全相同），然后把需要背景图的子组件嵌入其中即可。
 
-也可能你并不需要使用`<ImageBackground>`，因为它的实现其实非常简单，实质就是对图片使用了绝对定位。你可以阅读其[源码](https://github.com/facebook/react-native/blob/master/Libraries/Image/ImageBackground.js)然后思考你是否有更好更简单的布局方案。
+也可能你并不需要使用`<ImageBackground>`，因为它的实现其实非常简单，实质就是对图片使用了绝对定位。你可以阅读其[文档](imagebackground.md)然后思考你是否有更好更简单的布局方案。
 
 ```javascript
 return (

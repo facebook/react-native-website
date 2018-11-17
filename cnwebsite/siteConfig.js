@@ -36,7 +36,7 @@ const siteConfig = {
     "//github.com/reactnativecn/react-native-website/blob/production/cndocs/",
   headerLinks: [
     { doc: "getting-started", label: "文档" },
-    { href: "//ke.qq.com/course/197101", label: "课程", external: true },
+    // { href: "//ke.qq.com/course/197101", label: "课程", external: true },
     // { blog: true, label: "博客" },
     { href: "//bbs.reactnative.cn/category/3/blogs", external: true, label: "博客" },
     { href: "//bbs.reactnative.cn", external: true, label: "讨论" },
