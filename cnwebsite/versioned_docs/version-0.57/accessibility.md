@@ -3,7 +3,8 @@ id: version-0.57-accessibility
 title: 无障碍功能
 original_id: accessibility
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.43%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(3.57%)
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ## iOS 与 Android 原生 App 的无障碍功能(accessibility)
 
@@ -42,8 +43,7 @@ iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此�
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Tap me!"
-  onPress={this._onPress}
->
+  onPress={this._onPress}>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
   </View>
@@ -63,8 +63,7 @@ iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此�
   accessible={true}
   accessibilityLabel="返回"
   accessibilityHint="返回到上一个页面"
-  onPress={this._onPress}
->
+  onPress={this._onPress}>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Back</Text>
   </View>
@@ -77,8 +76,7 @@ iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此�
 
 #### accessibilityIgnoresInvertColors(iOS)
 
-Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision.
-However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be false so that these specific views won't have their colors inverted.
+Inverting screen colors is an Accessibility feature that makes the iPhone and iPad easier on the eyes for some people with a sensitivity to brightness, easier to distinguish for some people with color blindness, and easier to make out for some people with low vision. However, sometimes you have views such as photos that you don't want to be inverted. In this case, you can set this property to be false so that these specific views won't have their colors inverted.
 
 #### 无障碍角色 accessibilityRole (iOS, Android)
 
@@ -98,7 +96,7 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 
-#### 无障碍状态 accessibilityState (iOS, Android)
+#### 无障碍状态 accessibilityStates (iOS, Android)
 
 > **Note:** > `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
 
@@ -107,7 +105,7 @@ Accessibility State tells a person using either VoiceOver on iOS or TalkBack on 
 - **selected** Used when the element is in a selected state. For example, a button is selected.
 - **disabled** Used when the element is disabled and cannot be interacted with.
 
-To use, set the `accessibilityState` to an array containing either `selected`, `disabled`, or both.
+To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
 
 #### 无障碍元素特性 accessibilityTraits (iOS)
 

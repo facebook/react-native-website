@@ -3,7 +3,7 @@ id: version-0.57-webview
 title: WebView
 original_id: webview
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(95.93%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(2.96%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(1.11%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(97.10%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(2.90%)
 
 `WebView` 创建一个原生的 WebView，可以用于访问一个网页。
 
@@ -51,6 +51,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 * [View props...](view.md#props)
 
 - [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+- [`allowFileAccess`](webview.md#allowFileAccess)
 - [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
 - [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
 - [`bounces`](webview.md#bounces)
@@ -109,6 +110,16 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 | bool | 否   | Android |
 
 ---
+
+### `allowFileAccess`
+
+ Boolean that sets whether the `WebView` has access to the file system. The default value is `false`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+ ---
 
 ### `geolocationEnabled`
 

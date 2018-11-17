@@ -63,7 +63,7 @@ Running `react-native --help` from inside a React Native project will list all o
 
 When using `react-native start`, its platform derivatives, and `react-native bundle` you can use a file to define the CLI options used by React Native by default. If you create a file `rn-cli.config.js` in the root of your project, it will be evaluated and options for the commands will come from there.
 
-You can see the options for the CLI config file inside the [source code for Metro here](https://github.com/facebook/metro/blob/master/packages/metro/src/rn-cli.config.js), and here is a common `rn-cli.config.js` used for supporting TypeScript in React Native projects:
+You can see the options for the CLI config on the [metro website](https://facebook.github.io/metro/docs/en/configuration). Here's a common `rn-cli.config.js` used for supporting TypeScript in React Native projects:
 
 ```js
 module.exports = {

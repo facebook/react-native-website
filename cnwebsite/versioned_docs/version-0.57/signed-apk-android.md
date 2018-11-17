@@ -85,7 +85,7 @@ Gradle 的`assembleRelease`参数会把所有用到的 JavaScript 代码都打�
 
 > 注意：请确保 gradle.properties 中`没有`包含`_org.gradle.configureondemand=true_`，否则会跳过 js 打包的步骤，导致最终生成的 apk 是一个无法运行的空壳。
 
-生成的 APK 文件位于`android/app/build/outputs/apk/app-release.apk`，它已经可以用来发布了。
+生成的 APK 文件位于`android/app/build/outputs/apk/release/app-release.apk`，它已经可以用来发布了。
 
 ### 测试应用的发行版本
 

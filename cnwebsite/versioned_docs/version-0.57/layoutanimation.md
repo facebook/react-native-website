@@ -3,6 +3,7 @@ id: version-0.57-layoutanimation
 title: LayoutAnimation
 original_id: layoutanimation
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 当布局变化时，自动将视图运动到它们新的位置上。
@@ -21,18 +22,18 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 
 ### 查看方法
 
-* [`configureNext`](layoutanimation.md#configurenext)
-* [`create`](layoutanimation.md#create)
-* [`checkConfig`](layoutanimation.md#checkconfig)
+- [`configureNext`](layoutanimation.md#configurenext)
+- [`create`](layoutanimation.md#create)
+- [`checkConfig`](layoutanimation.md#checkconfig)
 
 ### 查看属性
 
-* [`Types`](layoutanimation.md#types)
-* [`Properties`](layoutanimation.md#properties)
-* [`Presets`](layoutanimation.md#presets)
-* [`easeInEaseOut`](layoutanimation.md#easeineaseout)
-* [`linear`](layoutanimation.md#linear)
-* [`spring`](layoutanimation.md#spring)
+- [`Types`](layoutanimation.md#types)
+- [`Properties`](layoutanimation.md#properties)
+- [`Presets`](layoutanimation.md#presets)
+- [`easeInEaseOut`](layoutanimation.md#easeineaseout)
+- [`linear`](layoutanimation.md#linear)
+- [`spring`](layoutanimation.md#spring)
 
 ---
 
@@ -57,9 +58,9 @@ static configureNext(config, onAnimationDidEnd?)
 
 ##### config
 
-* `duration` 动画持续时间，单位是毫秒。
-* `create`，配置创建新视图时的动画。（参阅`Anim`类型）
-* `update`，配置被更新的视图的动画。（参阅`Anim`类型）
+- `duration` 动画持续时间，单位是毫秒。
+- `create`，配置创建新视图时的动画。（参阅`Anim`类型）
+- `update`，配置被更新的视图的动画。（参阅`Anim`类型）
 
 ---
 
@@ -81,12 +82,41 @@ static checkConfig(config, location, name)
 
 ## 属性
 
----
+An enumerate of object property to be animated, used in [`create`](layoutanimation.md#create) method.
+
+| Properties |
+| ---------- |
+| opacity    |
+| scaleX     |
+| scaleY     |
+| scaleXY    |
 
 ---
 
----
+### Presets
+
+A set of predefined animation config.
+
+| Presets       | Value                                                                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
+| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
+| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
 
 ---
 
+### easeInEaseOut
+
+Shortcut to bind `configureNext()` methods with `Presets.easeInEaseOut`.
+
 ---
+
+### linear
+
+Shortcut to bind `configureNext()` methods with `Presets.linear`.
+
+---
+
+### spring
+
+Shortcut to bind `configureNext()` methods with `Presets.spring`.

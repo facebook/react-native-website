@@ -20,21 +20,13 @@
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
     "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "format:markdown":
-      "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
-    "nit:source":
-      "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown":
-      "prettier  --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "format:markdown": "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:source": "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+    "nit:markdown": "prettier  --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "sync-guides": "node sync-guides.js",
     "test": "yarn build"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "dependencies": {
     "docusaurus": "1.4.0",

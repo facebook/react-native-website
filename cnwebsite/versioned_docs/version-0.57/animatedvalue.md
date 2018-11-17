@@ -3,7 +3,8 @@ id: version-0.57-animatedvalue
 title: AnimatedValue
 original_id: animatedvalue
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.56%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.44%)
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 驱动动画的一维标量值. 一个`Animated.Value`可以同步地驱动多个属性，但每次只能以一种动画机制变化。Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
 
@@ -13,19 +14,19 @@ original_id: animatedvalue
 
 ### 查看方法
 
-* [`setValue`](animatedvalue.md#setvalue)
-* [`setOffset`](animatedvalue.md#setoffset)
-* [`flattenOffset`](animatedvalue.md#flattenoffset)
-* [`extractOffset`](animatedvalue.md#extractoffset)
-* [`addListener`](animatedvalue.md#addlistener)
-* [`removeListener`](animatedvalue.md#removelistener)
-* [`removeAllListeners`](animatedvalue.md#removealllisteners)
-* [`stopAnimation`](animatedvalue.md#stopanimation)
-* [`resetAnimation`](animatedvalue.md#resetanimation)
-* [`interpolate`](animatedvalue.md#interpolate)
-* [`animate`](animatedvalue.md#animate)
-* [`stopTracking`](animatedvalue.md#stoptracking)
-* [`track`](animatedvalue.md#track)
+- [`setValue`](animatedvalue.md#setvalue)
+- [`setOffset`](animatedvalue.md#setoffset)
+- [`flattenOffset`](animatedvalue.md#flattenoffset)
+- [`extractOffset`](animatedvalue.md#extractoffset)
+- [`addListener`](animatedvalue.md#addlistener)
+- [`removeListener`](animatedvalue.md#removelistener)
+- [`removeAllListeners`](animatedvalue.md#removealllisteners)
+- [`stopAnimation`](animatedvalue.md#stopanimation)
+- [`resetAnimation`](animatedvalue.md#resetanimation)
+- [`interpolate`](animatedvalue.md#interpolate)
+- [`animate`](animatedvalue.md#animate)
+- [`stopTracking`](animatedvalue.md#stoptracking)
+- [`track`](animatedvalue.md#track)
 
 ---
 
@@ -179,12 +180,12 @@ See `AnimatedInterpolation.js`
 
 The `config` object is composed of the following keys:
 
-* `inputRange`: an array of numbers
-* `outputRange`: an array of numbers or strings
-* `easing` (optional): a function that returns a number, given an input number
-* `extrapolate` (optional): a string such as 'extend', 'identity', or 'clamp'
-* `extrapolateLeft` (optional): a string such as 'extend', 'identity', or 'clamp'
-* `extrapolateRight` (optional): a string such as 'extend', 'identity', or 'clamp'
+- `inputRange`: an array of numbers
+- `outputRange`: an array of numbers or strings
+- `easing` (optional): a function that returns a number, given an input number
+- `extrapolate` (optional): a string such as 'extend', 'identity', or 'clamp'
+- `extrapolateLeft` (optional): a string such as 'extend', 'identity', or 'clamp'
+- `extrapolateRight` (optional): a string such as 'extend', 'identity', or 'clamp'
 
 ---
 

@@ -5,6 +5,44 @@ original_id: share
 ---
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
+## Basic Example
+
+```javascript
+import React, {Component} from 'react'
+import {Share, Button} from 'react-native'
+
+class ShareExample extends Component {
+
+  async onShare = () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      })
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  render() {
+    return (
+      <Button onPress={this.onShare}>Share</Button>
+    );
+  }
+
+}
+```
+
 ### 查看方法
 
 - [`share`](share.md#share)

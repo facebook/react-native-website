@@ -3,7 +3,8 @@ id: version-0.57-animations
 title: 动画
 original_id: animations
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.16%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(3.84%)
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 流畅、有意义的动画对于移动应用用户体验来说是非常重要的。现实生活中的物体在开始移动和停下来的时候都具有一定的惯性，我们在界面中也可以使用动画来实现契合物理规律的交互。
 
@@ -11,8 +12,7 @@ React Native 提供了两个互补的动画系统：用于创建精细的交互�
 
 ## `Animated`
 
-[`Animated`](animated.md)使得开发者可以非常容易地实现各种各样的动画和交互方式，并且具备极高的性能。`Animated`旨在以声明的形式来定义动画的输入与输出，在其中建立一个可配置的变化函数，然后使用简单的`start/stop`方法来控制动画按顺序执行。
-`Animated`仅封装了四个可以动画化的组件：`View`、`Text`、`Image`和`ScrollView`，不过你也可以使用`Animated.createAnimatedComponent()`来封装你自己的组件。下面是一个在加载时带有淡入动画效果的视图：
+[`Animated`](animated.md)使得开发者可以非常容易地实现各种各样的动画和交互方式，并且具备极高的性能。`Animated`旨在以声明的形式来定义动画的输入与输出，在其中建立一个可配置的变化函数，然后使用简单的`start/stop`方法来控制动画按顺序执行。 `Animated`仅封装了四个可以动画化的组件：`View`、`Text`、`Image`和`ScrollView`，不过你也可以使用`Animated.createAnimatedComponent()`来封装你自己的组件。下面是一个在加载时带有淡入动画效果的视图：
 
 ```SnackPlayer
 import React from 'react';
@@ -65,9 +65,9 @@ export default class App extends React.Component {
 
 我们来分解一下这个过程。在`FadeInView`的构造函数里，我们创建了一个名为`fadeAnim`的`Animated.Value`，并放在`state`中。而`View`的透明度是和这个值绑定的。
 
-组件加载时，透明度首先设为 0。然后一个easing动画开始改变`fadeAnim`值，同时会导致所有与其相关联的值（本例中是透明度）也逐帧更新，最终和`fadeAnim`一样变为1。
+组件加载时，透明度首先设为 0。然后一个 easing 动画开始改变`fadeAnim`值，同时会导致所有与其相关联的值（本例中是透明度）也逐帧更新，最终和`fadeAnim`一样变为 1。
 
-这一过程经过特别优化，执行效率会远高于反复调用`setState`和多次重渲染。 
+这一过程经过特别优化，执行效率会远高于反复调用`setState`和多次重渲染。
 
 因为这一过程是纯声明式的，因此还有进一步优化的空间，比如我们可以把这些声明的配置序列化后发送到一个高优先级的线程上运行。
 
@@ -85,7 +85,7 @@ For example, if we want to create a 2-second long animation of an object that sl
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
-  duration: 2000
+  duration: 2000,
 }).start();
 ```
 
@@ -102,19 +102,19 @@ Animated.sequence([
   // decay, then spring to start and twirl
   Animated.decay(position, {
     // coast to a stop
-    velocity: { x: gestureState.vx, y: gestureState.vy }, // velocity from gesture release
-    deceleration: 0.997
+    velocity: {x: gestureState.vx, y: gestureState.vy}, // velocity from gesture release
+    deceleration: 0.997,
   }),
   Animated.parallel([
     // after decay, in parallel:
     Animated.spring(position, {
-      toValue: { x: 0, y: 0 } // return to start
+      toValue: {x: 0, y: 0}, // return to start
     }),
     Animated.timing(twirl, {
       // and twirl
-      toValue: 360
-    })
-  ])
+      toValue: 360,
+    }),
+  ]),
 ]).start(); // start the sequence group
 ```
 
@@ -133,7 +133,7 @@ const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
 Animated.spring(a, {
-  toValue: 2
+  toValue: 2,
 }).start();
 ```
 
@@ -146,7 +146,7 @@ A simple mapping to convert a 0-1 range to a 0-100 range would be:
 ```javascript
 value.interpolate({
   inputRange: [0, 1],
-  outputRange: [0, 100]
+  outputRange: [0, 100],
 });
 ```
 
@@ -169,7 +169,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 ```javascript
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
-  outputRange: [300, 0, 1, 0, 0]
+  outputRange: [300, 0, 1, 0, 0],
 });
 ```
 
@@ -195,7 +195,7 @@ value.interpolate({
 ```javascript
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ["0deg", "360deg"]
+  outputRange: ['0deg', '360deg'],
 });
 ```
 
@@ -206,12 +206,12 @@ value.interpolate({
 动画中所设的值还可以通过跟踪别的值得到。你只要把 toValue 设置成另一个动态值而不是一个普通数字就行了。比如我们可以用弹跳动画来实现聊天头像的闪动，又比如通过`timing`设置`duration:0`来实现快速的跟随。他们还可以使用插值来进行组合：
 
 ```javascript
-Animated.spring(follower, { toValue: leader }).start();
+Animated.spring(follower, {toValue: leader}).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
-    outputRange: [1, 0]
-  })
+    outputRange: [1, 0],
+  }),
 }).start();
 ```
 
@@ -250,8 +250,8 @@ onPanResponderMove={Animated.event(
 
 你可能会注意到这里没有一个明显的方法来在动画的过程中读取当前的值——这是出于优化的角度考虑，有些值只有在原生代码运行阶段中才知道。如果你需要在 JavaScript 中响应当前的值，有两种可能的办法：
 
-* `spring.stopAnimation(callback)`会停止动画并且把最终的值作为参数传递给回调函数`callback`——这在处理手势动画的时候非常有用。
-* `spring.addListener(callback)`会在动画的执行过程中持续异步调用`callback`回调函数，提供一个最近的值作为参数。这在用于触发状态切换的时候非常有用，譬如当用户拖拽一个东西靠近的时候弹出一个新的气泡选项。不过这个状态切换可能并不会十分灵敏，因为它不像许多连续手势操作（如旋转）那样在 60fps 下运行。
+- `spring.stopAnimation(callback)`会停止动画并且把最终的值作为参数传递给回调函数`callback`——这在处理手势动画的时候非常有用。
+- `spring.addListener(callback)`会在动画的执行过程中持续异步调用`callback`回调函数，提供一个最近的值作为参数。这在用于触发状态切换的时候非常有用，譬如当用户拖拽一个东西靠近的时候弹出一个新的气泡选项。不过这个状态切换可能并不会十分灵敏，因为它不像许多连续手势操作（如旋转）那样在 60fps 下运行。
 
 `Animated` is designed to be fully serializable so that animations can be run in a high performance way, independent of the normal JavaScript event loop. This does influence the API, so keep that in mind when it seems a little trickier to do something compared to a fully synchronous system. Check out `Animated.Value.addListener` as a way to work around some of these limitations, but use it sparingly since it might have performance implications in the future.
 
@@ -265,7 +265,7 @@ onPanResponderMove={Animated.event(
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
-  useNativeDriver: true // <-- 加上这一行
+  useNativeDriver: true, // <-- 加上这一行
 }).start();
 ```
 
@@ -280,13 +280,12 @@ Animated.timing(this.state.animatedValue, {
     [
       {
         nativeEvent: {
-          contentOffset: { y: this.state.animatedValue }
-        }
-      }
+          contentOffset: {y: this.state.animatedValue},
+        },
+      },
     ],
-    { useNativeDriver: true } // <-- 加上这一行
-  )}
->
+    {useNativeDriver: true}, // <-- 加上这一行
+  )}>
   {content}
 </Animated.ScrollView>
 ```
@@ -307,10 +306,10 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 <Animated.View
   style={{
     transform: [
-      { scale: this.state.scale },
-      { rotateY: this.state.rotateY },
-      { perspective: 1000 } // without this line this Animation will not render on Android while working fine on iOS
-    ]
+      {scale: this.state.scale},
+      {rotateY: this.state.rotateY},
+      {perspective: 1000}, // without this line this Animation will not render on Android while working fine on iOS
+    ],
   }}
 />
 ```
@@ -319,8 +318,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 
 The RNTester app has various examples of `Animated` in use:
 
-* [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/AnimatedGratuitousApp)
-* [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)
+- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/AnimatedGratuitousApp)
+- [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)
 
 ## `LayoutAnimation` API
 

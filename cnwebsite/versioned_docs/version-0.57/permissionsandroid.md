@@ -9,7 +9,7 @@ original_id: permissionsandroid
   <h3>Project with Native Code Required</h3>
   <p>
     This API only works in projects made with <code>react-native init</code>
-    or in those made with Create React Native App which have since ejected. For
+    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
@@ -24,26 +24,30 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 
 ### Example
 
-```
-import { PermissionsAndroid } from 'react-native';
+```javascript
+import {PermissionsAndroid} from 'react-native';
 
 async function requestCameraPermission() {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
-        'title': 'Cool Photo App Camera Permission',
-        'message': 'Cool Photo App needs access to your camera ' +
-                   'so you can take awesome pictures.'
-      }
-    )
+        title: 'Cool Photo App Camera Permission',
+        message:
+          'Cool Photo App needs access to your camera ' +
+          'so you can take awesome pictures.',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
+    );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera")
+      console.log('You can use the camera');
     } else {
-      console.log("Camera permission denied")
+      console.log('Camera permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
 }
 ```
@@ -85,7 +89,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 * `DENIED`: 'denied'
 * `NEVER_ASK_AGAIN`: 'never_ask_again'
 
-### 查看方法
+### Methods
 
 * [`constructor`](permissionsandroid.md#constructor)
 * [`check`](permissionsandroid.md#check)
@@ -94,9 +98,9 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 
 ---
 
-# 文档
+# Reference
 
-## 方法
+## Methods
 
 ### `constructor()`
 
@@ -114,11 +118,11 @@ check(permission);
 
 Returns a promise resolving to a boolean value as to whether the specified permissions has been granted.
 
-**参数：**
+**Parameters:**
 
-| 名称       | 类型   | 必填 | 说明                         |
-| ---------- | ------ | ---- | ---------------------------- |
-| permission | string | 是   | The permission to check for. |
+| Name       | Type   | Required | Description                  |
+| ---------- | ------ | -------- | ---------------------------- |
+| permission | string | Yes      | The permission to check for. |
 
 ---
 
@@ -132,12 +136,22 @@ Prompts the user to enable a permission and returns a promise resolving to a str
 
 If `rationale` is provided, this function checks with the OS whether it is necessary to show a dialog explaining why the permission is needed (https://developer.android.com/training/permissions/requesting.html#explain) and then shows the system permission dialog.
 
-**参数：**
+**Parameters:**
 
-| 名称       | 类型   | 必填 | 说明                                 |
-| ---------- | ------ | ---- | ------------------------------------ |
-| permission | string | 是   | The permission to request.           |
-| rationale  | object | 否   | Object with a `title` and `message`. |
+| Name       | Type   | Required | Description                |
+| ---------- | ------ | -------- | -------------------------- |
+| permission | string | Yes      | The permission to request. |
+| rationale  | object | No       | See `rationale` below.     |
+
+**Rationale:**
+
+| Name           | Type   | Required | Description                      |
+| -------------- | ------ | -------- | -------------------------------- |
+| title          | string | Yes      | The title of the dialog.         |
+| message        | string | Yes      | The message of the dialog.       |
+| buttonPositive | string | Yes      | The text of the positive button. |
+| buttonNegative | string | No       | The text of the negative button. |
+| buttonNeutral  | string | No       | The text of the neutral button.  |
 
 ---
 
@@ -149,8 +163,8 @@ requestMultiple(permissions);
 
 Prompts the user to enable multiple permissions in the same dialog and returns an object with the permissions as keys and strings as values (see result strings above) indicating whether the user allowed or denied the request or does not want to be asked again.
 
-**参数：**
+**Parameters:**
 
-| 名称        | 类型  | 必填 | 说明                            |
-| ----------- | ----- | ---- | ------------------------------- |
-| permissions | array | 是   | Array of permission to request. |
+| Name        | Type  | Required | Description                     |
+| ----------- | ----- | -------- | ------------------------------- |
+| permissions | array | Yes      | Array of permission to request. |

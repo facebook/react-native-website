@@ -163,7 +163,7 @@ export default class UselessTextInputMultiline extends Component {
 
 ### `autoCapitalize`
 
-控制TextInput是否要自动将特定字符切换为大写：
+控制TextInput是否要自动将特定字符切换为大写，This property is not supported by some keyboard types such as `name-phone-pad`.
 
 * `characters`: 所有的字符。
 * `words`: 每个单词的第一个字符。
@@ -218,7 +218,7 @@ export default class UselessTextInputMultiline extends Component {
 
 ### `clearButtonMode`
 
-是否要在文本框右侧显示“清除”按钮。仅在单行模式下可用。
+是否要在文本框右侧显示“清除”按钮。仅在单行模式下可用。默认值为`never`。
 
 | 类型                                                       | 必填 | 平台 |
 | ---------------------------------------------------------- | ---- | ---- |

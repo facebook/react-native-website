@@ -3,7 +3,7 @@ id: version-0.57-text
 title: Text
 original_id: text
 ---
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.60%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.40%)
 
 一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理。
 
@@ -110,7 +110,10 @@ export default class BlueIsCool extends Component {
   <Text>First part and </Text>
   <Text>second part</Text>
 </Text>
-// Text container: all the text flows as if it was one
+// Text container: the text will be inline if the space allowed it
+// |First part and second part|
+
+// otherwise, the text will flow as if it was one
 // |First part |
 // |and second |
 // |part       |
@@ -120,6 +123,10 @@ export default class BlueIsCool extends Component {
   <Text>second part</Text>
 </View>
 // View container: each text is its own block
+// |First part and|
+// |second part   |
+
+// the text will flow in its own block
 // |First part |
 // |and        |
 // |second part|
@@ -269,14 +276,15 @@ See the [Accessibility guide](accessibility.md#accessible-ios-android) for more 
 
 ### `ellipsizeMode`
 
-When `numberOfLines` is set, this prop defines how text will be truncated. `numberOfLines` must be set in conjunction with this prop.
+这个属性通常和下面的 `numberOfLines` 属性配合使用，表示当 Text 组件无法全部显示需要显示的字符串时如何用省略号进行修饰。
 
-This can be one of the following values:
+该属性有如下 4 种取值:
 
-* `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
-* `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
-* `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
-* `clip` - Lines are not drawn past the edge of the text container.
+
+* `head` - 从文本内容头部截取显示省略号。例如： "...efg"
+* `middle` - 在文本内容中间截取显示省略号。例如： "ab...yz"
+* `tail` - 从文本内容尾部截取显示省略号。例如： "abcd..."
+* `clip` - 不显示省略号，直接从尾部截断。
 
 The default is `tail`.
 
