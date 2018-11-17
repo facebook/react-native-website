@@ -3,6 +3,8 @@ id: webview
 title: WebView
 ---
 
+> **Warning** Please use the [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) fork of this component instead. To reduce the surface area of React Native, `<WebView/>` is going to be removed from the React Native core. For more information, please read [The Slimmening proposal](https://github.com/react-native-community/discussions-and-proposals/issues/6).
+
 `WebView` 创建一个原生的 WebView，可以用于访问一个网页。
 
 ```
