@@ -22,7 +22,7 @@ title: Linking
 
 If your app was launched from an external url registered to your app you can access and handle it from any component you want with
 
-```
+```javascript
 componentDidMount() {
   Linking.getInitialURL().then((url) => {
     if (url) {
@@ -36,7 +36,7 @@ componentDidMount() {
 
 If you wish to receive the intent in an existing instance of MainActivity, you may set the `launchMode` of MainActivity to `singleTask` in `AndroidManifest.xml`. See [`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html) documentation for more information.
 
-```
+```xml
 <activity
   android:name=".MainActivity"
   android:launchMode="singleTask">
@@ -44,7 +44,7 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 
 NOTE: On iOS, you'll need to link `RCTLinking` to your project by following the steps described [here](linking-libraries-ios.md#manual-linking). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
 
-```
+```objectivec
 // iOS 9.x or newer
 #import <React/RCTLinkingManager.h>
 
@@ -58,7 +58,7 @@ NOTE: On iOS, you'll need to link `RCTLinking` to your project by following the 
 
 If you're targeting iOS 8.x or older, you can use the following code instead:
 
-```
+```objectivec
 // iOS 8.x or older
 #import <React/RCTLinkingManager.h>
 
@@ -72,7 +72,7 @@ If you're targeting iOS 8.x or older, you can use the following code instead:
 
 If your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html), you'll need to add the following code as well:
 
-```
+```objectivec
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
  restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
 {
@@ -84,7 +84,7 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 
 And then on your React component you'll be able to listen to the events on `Linking` as follows
 
-```
+```javascript
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
 },
@@ -100,20 +100,22 @@ _handleOpenURL(event) {
 
 To start the corresponding activity for a link (web URL, email, contact etc.), call
 
-```
-Linking.openURL(url).catch(err => console.error('An error occurred', err));
+```javascript
+Linking.openURL(url).catch((err) => console.error('An error occurred', err));
 ```
 
 If you want to check if any installed app can handle a given URL beforehand you can call
 
-```
-Linking.canOpenURL(url).then(supported => {
-  if (!supported) {
-    console.log('Can\'t handle url: ' + url);
-  } else {
-    return Linking.openURL(url);
-  }
-}).catch(err => console.error('An error occurred', err));
+```javascript
+Linking.canOpenURL(url)
+  .then((supported) => {
+    if (!supported) {
+      console.log("Can't handle url: " + url);
+    } else {
+      return Linking.openURL(url);
+    }
+  })
+  .catch((err) => console.error('An error occurred', err));
 ```
 
 ### Methods

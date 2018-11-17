@@ -108,7 +108,7 @@ Returns a Promise which when resolved will be of the following shape:
 
 Loading images:
 
-```
+```javascript
 _handleButtonPress = () => {
    CameraRoll.getPhotos({
        first: 20,

@@ -22,15 +22,14 @@ For more information, see [Apple's documentation](https://developer.apple.com/li
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
-```
-import React, {Component} from 'react'
-import {AppState, Text} from 'react-native'
+```javascript
+import React, {Component} from 'react';
+import {AppState, Text} from 'react-native';
 
 class AppStateExample extends Component {
-
   state = {
-    appState: AppState.currentState
-  }
+    appState: AppState.currentState,
+  };
 
   componentDidMount() {
     AppState.addEventListener('change', this._handleAppStateChange);
@@ -41,18 +40,18 @@ class AppStateExample extends Component {
   }
 
   _handleAppStateChange = (nextAppState) => {
-    if (this.state.appState.match(/inactive|background/) && nextAppState === 'active') {
-      console.log('App has come to the foreground!')
+    if (
+      this.state.appState.match(/inactive|background/) &&
+      nextAppState === 'active'
+    ) {
+      console.log('App has come to the foreground!');
     }
     this.setState({appState: nextAppState});
-  }
+  };
 
   render() {
-    return (
-      <Text>Current state is: {this.state.appState}</Text>
-    );
+    return <Text>Current state is: {this.state.appState}</Text>;
   }
-
 }
 ```
 

@@ -3,11 +3,13 @@ id: webview
 title: WebView
 ---
 
+> **Warning** Please use the [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) fork of this component instead. To reduce the surface area of React Native, `<WebView/>` is going to be removed from the React Native core. For more information, please read [The Slimmening proposal](https://github.com/react-native-community/discussions-and-proposals/issues/6).
+
 `WebView` renders web content in a native view.
 
-```
-import React, { Component } from 'react';
-import { WebView } from 'react-native';
+```javascript
+import React, {Component} from 'react';
+import {WebView} from 'react-native';
 
 class MyWeb extends Component {
   render() {
@@ -23,16 +25,16 @@ class MyWeb extends Component {
 
 Minimal example with inline HTML:
 
-```
-import React, { Component } from 'react';
-import { WebView } from 'react-native';
+```javascript
+import React, {Component} from 'react';
+import {WebView} from 'react-native';
 
 class MyInlineWeb extends Component {
   render() {
     return (
       <WebView
         originWhitelist={['*']}
-        source={{ html: '<h1>Hello world</h1>' }}
+        source={{html: '<h1>Hello world</h1>'}}
       />
     );
   }

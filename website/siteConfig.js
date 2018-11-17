@@ -53,6 +53,7 @@ const siteConfig = {
     RemarkablePlugins.SnackPlayer,
     RemarkablePlugins.ReactNativeWebPlayer,
   ],
+  usePrism: ['javascript', 'js', 'jsx', 'java', 'objective-c', 'json'],
   highlight: {
     theme: 'solarized-dark',
   },

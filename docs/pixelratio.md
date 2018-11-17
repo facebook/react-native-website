@@ -9,12 +9,12 @@ PixelRatio class gives access to the device pixel density.
 
 You should get a higher resolution image if you are on a high pixel density device. A good rule of thumb is to multiply the size of the image you display by the pixel ratio.
 
-```
+```javascript
 var image = getImage({
   width: PixelRatio.getPixelSizeForLayoutSize(200),
   height: PixelRatio.getPixelSizeForLayoutSize(100),
 });
-<Image source={image} style={{width: 200, height: 100}} />
+<Image source={image} style={{width: 200, height: 100}} />;
 ```
 
 ## Pixel grid snapping

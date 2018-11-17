@@ -11,7 +11,7 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 Example:
 
-```
+```javascript
 renderButton: function() {
   return (
     <TouchableNativeFeedback

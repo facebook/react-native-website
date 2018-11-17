@@ -561,7 +561,7 @@ You can examine the code that added the React Native screen to our sample app on
 
 Add the React Native dependency to your app's `build.gradle` file:
 
-```
+```gradle
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     ...
@@ -573,7 +573,7 @@ dependencies {
 
 Add an entry for the local React Native maven directory to `build.gradle`. Be sure to add it to the "allprojects" block, above other maven repositories:
 
-```
+```gradle
 allprojects {
     repositories {
         maven {

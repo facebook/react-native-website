@@ -9,7 +9,7 @@ ListView - A core component designed for efficient display of vertically scrolli
 
 Minimal example:
 
-```
+```javascript
 class MyComponent extends Component {
   constructor() {
     super();
