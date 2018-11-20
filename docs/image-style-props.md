@@ -116,9 +116,9 @@ title: Image Style Props
 
 ### `resizeMode`
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| Object.keys(ImageResizeMode) | No       |
+| Type                                                    | Required |
+| ------------------------------------------------------- | -------- |
+| enum('cover', 'contain', 'stretch', 'repeat', 'center') | No       |
 
 ---
 
