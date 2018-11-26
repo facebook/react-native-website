@@ -18,7 +18,7 @@ Make sure you have the following installed:
 3. Android Support Repository >= 26 (for Android Support Library)
 4. Android NDK (download links and installation instructions below)
 
-#### Point Gradle to your Android SDK:
+#### [Point Gradle to your Android SDK](#gradle-android-sdk):
 
 **Step 1:** Set environment variables through your local shell.
 
@@ -138,47 +138,6 @@ gradle.projectsLoaded {
     }
 }
 ```
-
-### Building for Maven/Nexus deployment
-
-If you find that you need to push up a locally compiled React Native .aar and related files to a remote Nexus repository, you can.
-
-Start by following the `Point Gradle to your Android SDK` section of this page. Once you do this, assuming you have Gradle configured properly, you can then run the following command from the root of your React Native checkout to build and package all required files:
-
-```
-./gradlew ReactAndroid:installArchives --no-daemon
-```
-
-This will package everything that would typically be included in the `android` directory of your `node_modules/react-native/` installation in the root directory of your React Native checkout.
-
-### Building for a git fork dependency
-
-The goal of these types of forks are important to note; Sometimes you are temporarily stuck on an older React Native version, but you require changes from newer versions urgently. You basically want some older version, but with one or two commits from recent React Native versions without having to upgrade right away. With this goal in mind, you can make git dependency branches following the below steps, that are intended to be short lived and should be discarded when you manage to upgrade to a new React Native version.
-
-Instead of uploading to Maven/Nexus, you can add the binaries built in the previous steps to git, by changing the .gitignore and committing the binaries to your forked branch. This allows you to make your fork into a functioning git dependency for React Native app projects.
-
-If you have changes that you want to actually merge to React Native, make them on another branch first and open a PR. To start making your dependency branch, make sure you are on a 'release/my-forked-release' branch, then merge any commits that you need from yourself or others into this branch. This release branch should never be merged into any other branch. 
-
-```$bash
-./gradlew :ReactAndroid:installArchives --no-daemon
-sed -i '' "s|^/android/||g" .gitignore
-git add android
-git commit -m 'my release commit'
-git push
-```
-
-Now you can use this branch as a git dependency in your app project, by pointing your package.json dependency to this branch:
-
-```
-"dependencies": {
-    ...
-    "react-native": "my-name/react-native#release/my-forked-release,
-    ...
-}
-```
-
-No other modifications to your dependencies should be necessary for your native changes to be included in your project.
-
 
 ### Troubleshooting
 
