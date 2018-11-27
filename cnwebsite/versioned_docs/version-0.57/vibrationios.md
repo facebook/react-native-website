@@ -3,6 +3,7 @@ id: version-0.57-vibrationios
 title: VibrationIOS
 original_id: vibrationios
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 注意：`VibrationIOS`已经过期。请使用[`Vibration`](vibration.md)代替。

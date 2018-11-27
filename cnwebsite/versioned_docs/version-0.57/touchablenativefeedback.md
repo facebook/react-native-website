@@ -3,6 +3,7 @@ id: version-0.57-touchablenativefeedback
 title: TouchableNativeFeedback
 original_id: touchablenativefeedback
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 本组件用于封装视图，使其可以正确响应触摸操作（仅限Android平台）。在Android设备上，这个组件利用原生状态来渲染触摸的反馈。

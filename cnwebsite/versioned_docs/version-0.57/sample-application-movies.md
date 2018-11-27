@@ -3,6 +3,7 @@ id: version-0.57-sample-application-movies
 title: 示例教程：电影列表
 original_id: sample-application-movies
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.38%), [949975358](https://github.com/search?q=949975358%40qq.com+in%3Aemail&type=Users)(0.63%)
 
 ## 简介

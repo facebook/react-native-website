@@ -3,6 +3,7 @@ id: version-0.57-props
 title: Props（属性）
 original_id: props
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 大多数组件在创建时就可以使用各种参数来进行定制。用于定制的这些参数就称为`props`（属性）。

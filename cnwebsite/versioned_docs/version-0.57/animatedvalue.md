@@ -14,19 +14,19 @@ original_id: animatedvalue
 
 ### 查看方法
 
-- [`setValue`](animatedvalue.md#setvalue)
-- [`setOffset`](animatedvalue.md#setoffset)
-- [`flattenOffset`](animatedvalue.md#flattenoffset)
-- [`extractOffset`](animatedvalue.md#extractoffset)
-- [`addListener`](animatedvalue.md#addlistener)
-- [`removeListener`](animatedvalue.md#removelistener)
-- [`removeAllListeners`](animatedvalue.md#removealllisteners)
-- [`stopAnimation`](animatedvalue.md#stopanimation)
-- [`resetAnimation`](animatedvalue.md#resetanimation)
-- [`interpolate`](animatedvalue.md#interpolate)
-- [`animate`](animatedvalue.md#animate)
-- [`stopTracking`](animatedvalue.md#stoptracking)
-- [`track`](animatedvalue.md#track)
+* [`setValue`](animatedvalue.md#setvalue)
+* [`setOffset`](animatedvalue.md#setoffset)
+* [`flattenOffset`](animatedvalue.md#flattenoffset)
+* [`extractOffset`](animatedvalue.md#extractoffset)
+* [`addListener`](animatedvalue.md#addlistener)
+* [`removeListener`](animatedvalue.md#removelistener)
+* [`removeAllListeners`](animatedvalue.md#removealllisteners)
+* [`stopAnimation`](animatedvalue.md#stopanimation)
+* [`resetAnimation`](animatedvalue.md#resetanimation)
+* [`interpolate`](animatedvalue.md#interpolate)
+* [`animate`](animatedvalue.md#animate)
+* [`stopTracking`](animatedvalue.md#stoptracking)
+* [`track`](animatedvalue.md#track)
 
 ---
 
@@ -180,12 +180,12 @@ See `AnimatedInterpolation.js`
 
 The `config` object is composed of the following keys:
 
-- `inputRange`: an array of numbers
-- `outputRange`: an array of numbers or strings
-- `easing` (optional): a function that returns a number, given an input number
-- `extrapolate` (optional): a string such as 'extend', 'identity', or 'clamp'
-- `extrapolateLeft` (optional): a string such as 'extend', 'identity', or 'clamp'
-- `extrapolateRight` (optional): a string such as 'extend', 'identity', or 'clamp'
+* `inputRange`: an array of numbers
+* `outputRange`: an array of numbers or strings
+* `easing` (optional): a function that returns a number, given an input number
+* `extrapolate` (optional): a string such as 'extend', 'identity', or 'clamp'
+* `extrapolateLeft` (optional): a string such as 'extend', 'identity', or 'clamp'
+* `extrapolateRight` (optional): a string such as 'extend', 'identity', or 'clamp'
 
 ---
 

@@ -10,8 +10,8 @@ original_id: clipboard
 
 ### 查看方法
 
-- [`getString`](clipboard.md#getstring)
-- [`setString`](clipboard.md#setstring)
+* [`getString`](clipboard.md#getstring)
+* [`setString`](clipboard.md#setstring)
 
 ---
 

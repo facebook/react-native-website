@@ -3,6 +3,7 @@ id: version-0.57-toolbarandroid
 title: ToolbarAndroid
 original_id: toolbarandroid
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ToolbarAndroid是一个包装了仅限Android平台的`工具栏(Toolbar)`[部件][0]的React组件。一个Toolbar可以显示一个徽标，一个导航图标（譬如汉堡形状的菜单按钮），一个标题与副标题，以及一个功能列表。标题和副标题会在中间显示，徽标和导航图标会在左侧显示，而功能列表则在右侧显示。

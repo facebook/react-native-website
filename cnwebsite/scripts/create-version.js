@@ -57,5 +57,5 @@ function generateAuthorList(authors) {
       ((lineCount / authors.totalLineCount) * 100).toFixed(2) + "%";
     return `[${name}](${link})(${contribution})`;
   });
-  return "##### 本文档贡献者：" + authorList.join(", ") + "\n";
+  return "\n##### 本文档贡献者：" + authorList.join(", ") + "\n";
 }

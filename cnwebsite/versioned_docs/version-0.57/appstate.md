@@ -3,6 +3,7 @@ id: version-0.57-appstate
 title: AppState
 original_id: appstate
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 `AppState`能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
@@ -15,7 +16,7 @@ AppState 通常在处理推送通知的时候用来决定内容和对应的行�
 * `background` - 应用正在后台运行。用户可能面对以下几种情况：
   * 在别的应用中
   * 停留在桌面
-  * 对 Android 来说还可能出在另一个`Activity`中（即便是由你的应用拉起的）
+  * 对 Android 来说还可能处在另一个`Activity`中（即便是由你的应用拉起的）
 * `inactive` - 此状态表示应用正在前后台的切换过程中，或是处在系统的多任务视图，又或是处在来电状态中。
 
 要了解更多信息，可以阅读[Apple 的文档](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)。

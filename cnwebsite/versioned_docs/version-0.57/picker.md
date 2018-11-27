@@ -3,6 +3,7 @@ id: version-0.57-picker
 title: Picker
 original_id: picker
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 本组件可以在iOS和Android上渲染原生的选择器（Picker）。用例：

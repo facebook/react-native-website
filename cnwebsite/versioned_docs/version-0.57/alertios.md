@@ -3,6 +3,7 @@ id: version-0.57-alertios
 title: AlertIOS
 original_id: alertios
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 `AlertIOS`用于弹出一个 iOS 提示对话框，可以通知用户一些信息或是提示用户输入一些文字。

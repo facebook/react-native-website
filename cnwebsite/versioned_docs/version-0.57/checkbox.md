@@ -3,6 +3,7 @@ id: version-0.57-checkbox
 title: CheckBox
 original_id: checkbox
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 渲染一个单选框（目前仅 Android 可用）。

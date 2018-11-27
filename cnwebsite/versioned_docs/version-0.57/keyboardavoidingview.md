@@ -24,12 +24,12 @@ import { KeyboardAvoidingView } from 'react-native';
 
 ### 查看 Props
 
-- [View props...](view.md#props)
+* [View props...](view.md#props)
 
-* [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
-* [`behavior`](keyboardavoidingview.md#behavior)
-* [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
-* [`enabled`](keyboardavoidingview.md#enabled)
+- [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
+- [`behavior`](keyboardavoidingview.md#behavior)
+- [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+- [`enabled`](keyboardavoidingview.md#enabled)
 
 ---
 
@@ -67,7 +67,7 @@ _注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能�
 
 ### `enabled`
 
-是否启用 KeyboardAvoidingView。默认为 true。
+是否启用KeyboardAvoidingView。默认为true。
 
 | 类型    | 必填 |
 | ------- | ---- |

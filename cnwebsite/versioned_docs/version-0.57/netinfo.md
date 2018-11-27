@@ -3,6 +3,7 @@ id: version-0.57-netinfo
 title: NetInfo
 original_id: netinfo
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 通过NetInfo模块可以获取设备当前的联网状态。

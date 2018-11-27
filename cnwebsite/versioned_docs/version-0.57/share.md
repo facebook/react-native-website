@@ -3,6 +3,7 @@ id: version-0.57-share
 title: Share
 original_id: share
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ## Basic Example

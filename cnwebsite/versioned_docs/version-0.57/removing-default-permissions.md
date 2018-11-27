@@ -3,6 +3,7 @@ id: version-0.57-removing-default-permissions
 title: 移除不需要的权限
 original_id: removing-default-permissions
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 默认情况下我们会给最终打包的 APK 加入一些权限申请，具体如下：

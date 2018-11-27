@@ -3,6 +3,7 @@ id: version-0.57-modal
 title: Modal
 original_id: modal
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。

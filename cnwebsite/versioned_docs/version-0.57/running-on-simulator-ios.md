@@ -3,6 +3,7 @@ id: version-0.57-running-on-simulator-ios
 title: 在iOS模拟器上运行
 original_id: running-on-simulator-ios
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ## 启动模拟器

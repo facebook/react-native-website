@@ -3,6 +3,7 @@ id: version-0.57-headless-js-android
 title: Headless JS（后台任务）
 original_id: headless-js-android
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来在后台同步数据、处理推送通知或是播放音乐等等。

@@ -3,6 +3,7 @@ id: version-0.57-touchableopacity
 title: TouchableOpacity
 original_id: touchableopacity
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。

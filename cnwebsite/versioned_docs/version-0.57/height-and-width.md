@@ -3,6 +3,7 @@ id: version-0.57-height-and-width
 title: 高度与宽度
 original_id: height-and-width
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 组件的高度和宽度决定了其在屏幕上显示的尺寸。

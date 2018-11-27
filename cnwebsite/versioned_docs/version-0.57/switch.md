@@ -3,6 +3,7 @@ id: version-0.57-switch
 title: Switch
 original_id: switch
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 跨平台通用的“开关”组件。  
