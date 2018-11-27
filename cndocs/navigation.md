@@ -13,55 +13,9 @@ title: 使用导航器跳转页面
 
 ## React Navigation
 
-社区今后主推的方案是一个单独的导航库`react-navigation`，它的使用十分简单。
+社区今后主推的方案是一个单独的导航库`react-navigation`，它的使用十分简单。React Navigation 中的视图是原生组件，同时用到了运行在原生线程上的`Animated`动画库，因而性能表现十分流畅。此外其动画形式和手势都非常便于定制。
 
-首先是在你的应用中安装此库：
-
-```
-yarn add react-navigation
-```
-
-然后你就可以快速创建一个有两个页面（Main 和 Profile）的应用了：
-
-```
-import {
-  createStackNavigator,
-} from 'react-navigation';
-
-const App = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Profile: { screen: ProfileScreen },
-});
-
-export default App;
-```
-
-其中每一个 screen 组件都可以单独设置导航选项，例如导航头的标题。还可以使用`navigation`属性中的方法去跳转到别的页面：
-
-```
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render() {
-    const { navigate } = this.props.navigation;
-    return (
-      <Button
-        title="Go to Jane's profile"
-        onPress={() =>
-          navigate('Profile', { name: 'Jane' })
-        }
-      />
-    );
-  }
-}
-```
-
-React Navigation 的路由写法使其非常容易扩展导航逻辑。由于路由可以嵌套使用，因而开发者可以根据不同页面编写不同的导航逻辑，且彼此互不影响。
-
-React Navigation 中的视图是原生组件，同时用到了运行在原生线程上的`Animated`动画库，因而性能表现十分流畅。此外其动画形式和手势都非常便于定制。
-
-要想详细了解 React Navigation，可以阅读这一篇英文的[入门文档](https://reactnavigation.org/docs/getting-started.html)。
+要想详细了解 React Navigation的具体用法，请访问其[官方网站](https://reactnavigation.org/)，网站右上角有中文翻译，但内容可能会有所滞后。
 
 ## NavigatorIOS
 
