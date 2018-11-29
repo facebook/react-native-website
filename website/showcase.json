@@ -282,5 +282,12 @@
     "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
     "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": false
+  },
+  {
+    "name": "Stremio",
+    "icon": "stremio.png",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.stremio",
+    "pinned": false
   }
 ]
