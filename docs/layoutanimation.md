@@ -7,9 +7,11 @@ Automatically animates views to their new positions when the next layout happens
 
 A common way to use this API is to call it before calling `setState`.
 
-Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
-
-    UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+Note that in order to get this to work on **Android** First check if the Platform is "android" or not via `Platform` and then set the following flags via `UIManager` inside your constructor method :
+    constructor(props) {
+        UIManager.setLayoutAnimationEnabledExperimental 
+        && UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
 
 ### Methods
 
