@@ -344,7 +344,7 @@ Similarly to `source`, this property represents the resource used to render the 
 
 ### `defaultSource`
 
-在读取图片时默认显示的图片。仅限 iOS 使用。
+在读取图片时默认显示的图片。
 
 | 类型           | 必填 | 平台    |
 | -------------- | ---- | ------- |
