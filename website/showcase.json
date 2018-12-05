@@ -282,5 +282,16 @@
     "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
     "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": false
+  },
+  {
+    "name": "Uphold",
+    "icon": "uphold.png",
+    "linkAppStore":
+      "https://itunes.apple.com/pt/app/uphold-the-internet-of-money/id1101145849?mt=8",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.uphold.wallet",
+    "infoLink": "https://uphold.com",
+    "infoTitle": "Buy and sell digital currencies easily built with React Native.",
+    "pinned": false
   }
 ]
