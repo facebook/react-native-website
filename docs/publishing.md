@@ -1,11 +1,37 @@
 ---
 id: publishing-fork
-title: Publishing your version
+title: Publish your own version of react native
 ---
 
+TL;DR
+---
+There is a docker image that helps you build the required Android sources without installing any additional tooling (other than [Docker](https://www.docker.com/)), which can be committed to a git branch as a fully functional React Native fork release.
+
+Run this from a fork of the React Native [repo](https://github.com/facebook/react-native).
+```
+git checkout -d release/my-react-native-release
+docker run --rm --name rn-build -v $PWD:/pwd -w /pwd reactnativecommunity/react-native-android /bin/sh -c "./gradlew installArchives"
+git add android --force
+git commit -a -m 'my react native forked release'
+git push
+```
+
+Install it in your app project package.json.
+```
+"dependencies": {
+    ...
+    "react-native": "myName/react-native#release/my-react-native-release"
+}
+```
+
+Rationale
+---
 The recommended approach to working with React Native is to always update to the latest version. No support is provided on older versions and if you run into issues the contributors will always ask you to upgrade to the latest version before even looking at your particular issue. Sometimes, though, you are temporarily stuck on an older React Native version, but you require some changes from newer versions urgently (bugfixes) without having to do a full upgrade right now. This situation should be short lived by definition and once you have the time, the real solution is to upgrade to the latest version.
 
 With this goal of a shortlived fork of React Native in mind, you can publish your own version of React Native. The facebook/react-native repository contains all the dependencies required to be used directly as a git dependency, except for the Android React Native library binary (.aar).
+
+Building
+---
 
  This binary needs to become available in your project's `node_modules/react-native/android` folder or directly in your gradle dependency of your Android app. You can achieve this in one of two ways: Git dependency branch, Android binary dependency through Maven.
 
@@ -14,14 +40,14 @@ With this goal of a shortlived fork of React Native in mind, you can publish you
 ./gradlew :ReactAndroid:installArchives --no-daemon
  ```
 
-Alternatively, if you don't want to 
+If you don't want to 
 install the required toolchain for building from source, you can use a prebuilt docker image to create a react native binary;
  ```
- docker run --rm --name rn-build -v $PWD:/pwd -w /pwd gengjiawen/react-native /bin/sh -c "./gradlew installArchives"
+ docker run --rm --name rn-build -v $PWD:/pwd -w /pwd reactnativecommunity/react-native-android /bin/sh -c "./gradlew installArchives"
 ```
 If you haven't used the Android NDK before or if you have a NDK version not exactly matching the required version for building React Native, this is the recommended approach.
  
-The resulting binary can be made  available to app projects in one of the two ways described below.
+The resulting binary can be made available to app projects in one of the two ways described below.
 
 ### Publishing to Maven/Nexus
 Upload the binaries from the `android` folder to maven and point your Android app project gradle dependency for React Native to your Maven/Nexus dependency.
