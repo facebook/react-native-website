@@ -4,7 +4,7 @@ title: Modal
 original_id: modal
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.95%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.05%)
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
@@ -123,7 +123,7 @@ class ModalExample extends Component {
 
 ### `transparent`
 
-`transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
+`transparent` 属性是指背景是否透明，默认为白色，将这个属性设为：true 的时候弹出一个透明背景层的modal。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -169,7 +169,7 @@ class ModalExample extends Component {
 
 ### `onOrientationChange`
 
-The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed. The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
+模态窗显示的时候，当设备方向发生更改时，将调用`onOrientationChange`回调方法。 提供的设备方向仅为“竖屏”或“横屏”。 无论当前方向如何，也会在初始渲染时调用此回调方法。
 
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
