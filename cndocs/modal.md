@@ -166,7 +166,7 @@ class ModalExample extends Component {
 
 ### `onOrientationChange`
 
-The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed. The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
+模态窗显示的时候，当设备方向发生更改时，将调用`onOrientationChange`回调方法。 提供的设备方向仅为“竖屏”或“横屏”。 无论当前方向如何，也会在初始渲染时调用此回调方法。
 
 | 类型     | 必填 | 平台 |
 | -------- | ---- | ---- |
