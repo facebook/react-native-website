@@ -442,7 +442,7 @@ const resolve = require('path').resolve;
 const fs = require('fs');
 
 // Update the following line if the root folder of your app is somewhere else.
-const ROOT_FOLDER = path.resolve(__dirname, '..');
+const ROOT_FOLDER = resolve(__dirname, '..');
 
 const config = {
   transformer: {
@@ -459,6 +459,7 @@ const config = {
       };
     },
   },
+  projectRoot:ROOT_FOLDER,
 };
 
 module.exports = config;
