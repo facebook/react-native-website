@@ -64,12 +64,12 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 Required props:
 
 * [`sections`](sectionlist.md#sections)
+* [`renderItem`](sectionlist.md#renderitem)
 
 Optional props:
 
 * [`initialNumToRender`](sectionlist.md#initialnumtorender)
 * [`keyExtractor`](sectionlist.md#keyextractor)
-* [`renderItem`](sectionlist.md#renderitem)
 * [`onEndReached`](sectionlist.md#onendreached)
 * [`extraData`](sectionlist.md#extradata)
 * [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
