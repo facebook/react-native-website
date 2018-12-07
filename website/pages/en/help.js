@@ -63,16 +63,6 @@ class Help extends React.Component {
             <a href="/react-native/blog/">blog</a> to find out what's happening
             in the world of React Native.
           </p>
-          <h3>Discussion Forum</h3>
-          <p>
-            For longer-form conversations about React Native, we’ve set up a
-            discussion forum at{' '}
-            <a href="https://discuss.reactjs.org/t/welcome-react-native-community-group/10239">
-              <strong>discuss.reactjs.org</strong>
-            </a>. This is a great place for discussion about best practices and
-            application architecture. If you have an answerable code-level
-            question, please post it to Stack Overflow instead.
-          </p>
           <h3>Proposals</h3>
           <p>
             React Native is still a young framework, and its rapid release cycle
@@ -113,7 +103,7 @@ class Help extends React.Component {
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {'.'}
           </p>
-          <h2>Communities at large</h2>
+          <h2>Communities</h2>
           <h3>Reactiflux Chat</h3>
           <p>
             If you need an answer right away, check out the{' '}
