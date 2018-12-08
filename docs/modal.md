@@ -28,7 +28,7 @@ class ModalExample extends Component {
           transparent={false}
           visible={this.state.modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
+            console.log('Modal close requested');
           }}>
           <View style={{marginTop: 22}}>
             <View>
