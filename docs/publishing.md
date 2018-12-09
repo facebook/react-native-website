@@ -59,8 +59,7 @@ If you have changes that you want to actually merge to React Native, make them o
 
 ```$bash
 # create .aar, then:
-sed -i '' "s|^/android/||g" .gitignore
-git add android
+git add android --force
 git commit -m 'my release commit'
 git push
 ```
