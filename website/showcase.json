@@ -282,5 +282,18 @@
     "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
     "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": false
+  },
+  {
+    "name": "Drops",
+    "icon": "drops.png",
+    "linkAppStore":
+      "https://itunes.apple.com/us/app/drops-learn-31-new-languages/id939540371?mt=8",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.languagedrops.drops.international&hl=en_GB",
+    "infoLink":
+      "https://medium.com/drops-engineering/play-stores-best-app-of-2018-is-built-on-react-native-47acef23da0b",
+    "infoTitle":
+      "Play Store's \"Best app of 2018\" - Drops - is built on React Native",
+    "pinned": false
   }
 ]
