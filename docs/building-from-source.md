@@ -146,3 +146,7 @@ Gradle build fails in `ndk-build`. See the section about `local.properties` file
 ## Testing your Changes
 
 If you made changes to React Native and submit a pull request, all tests will run on your pull request automatically. To run the tests locally, see [Testing your Changes](testing.md).
+
+## Making your changes available
+
+See the [Publishing your own version of react native](publishing.md) for several options to make your changes available for your and other app projects.

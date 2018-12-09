@@ -5,7 +5,7 @@ title: Publish your own version of react native
 
 TL;DR
 ---
-There is a docker image that helps you build the required Android sources without installing any additional tooling (other than [Docker](https://www.docker.com/)), which can be committed to a git branch as a fully functional React Native fork release.
+There is a docker image that helps you build the required Android sources without installing any additional tooling (other than [Docker](https://docs.docker.com/install/), which can be committed to a git branch as a fully functional React Native fork release.
 
 Run this from a fork of the React Native [repo](https://github.com/facebook/react-native).
 ```
