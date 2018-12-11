@@ -809,7 +809,7 @@ Removes all text from the `TextInput`.
 ### `isFocused()`
 
 ```javascript
-isFocused():
+isFocused();
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.
