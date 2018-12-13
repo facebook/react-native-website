@@ -86,7 +86,21 @@ Jest is already installed by default 🎁. We do need to install [ts-jest](https
 npm install --save-dev ts-jest
 ```
 
-And we need to configure it for TypeScript. Add the following to the `jest` key in your `package.json` so that Jest looks for TypeScript files and knows how to transform them.
+And we need to configure it for TypeScript.
+
+Create a file called `tsconfig.jest.json`. It is going to tell our `ts-jest` preprocessor to translate our code properly into common JavaScript.
+
+```json
+{
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "commonjs"
+  }
+}
+```
+
+Afterwards, add the following to the `jest` key in your `package.json` so that Jest looks for TypeScript files and knows how to transform them.
 
 ```json
 "jest": {
