@@ -16,7 +16,7 @@ In this tutorial, you are going to learn how to set up a React Native project wi
 
 An older [blog post](http://facebook.github.io/react-native/blog/2018/05/07/using-typescript-with-react-native) on the React Native site describes how to set up React Native with TypeScript. It's a little outdated, though.
 
-Things have changed since then. Since version 0.57 the framework ships with TypeScript support. And there is an [excellent template](https://github.com/emin93/react-native-template-typescript) for RN with TypeScript. This post is an update and an enhancement for the instructions of that old article. In addition to [Jest](https://jestjs.io/), we will also go into detail on how to set up linting, [Enzyme](https://airbnb.io/enzyme/) and [React Native Testing Library](https://www.npmjs.com/package/react-native-testing-library). Let's get started.
+Things have changed since then. Since version 0.57 the framework ships with TypeScript support. And there is an [excellent template](https://github.com/emin93/react-native-template-typescript) for RN with TypeScript. This post is an update and an enhancement for the instructions of the former article. In addition to [Jest](https://jestjs.io/), we will also go into detail on how to set up linting, [Enzyme](https://airbnb.io/enzyme/) and [React Native Testing Library](https://www.npmjs.com/package/react-native-testing-library). Let's get started.
 
 ## 1. Creating the Project
 
