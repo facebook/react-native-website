@@ -88,7 +88,7 @@ npm install --save-dev ts-jest
 
 And we need to configure it for TypeScript.
 
-Create a file called `tsconfig.jest.json`. It is going to tell our `ts-jest` preprocessor to translate our code properly into common JavaScript.
+Create a file called `tsconfig.jest.json`. It is [going to tell](https://kulshekhar.github.io/ts-jest/user/config/) our `ts-jest` preprocessor to translate our code properly into common JavaScript.
 
 ```json
 {
