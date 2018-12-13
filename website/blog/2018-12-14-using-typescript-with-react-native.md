@@ -154,7 +154,7 @@ Tada 🎉. It works.
 
 ---
 
-**Note:** Most people either use Enzyme or React Native Testing Library. So you probably only want to follow one of 4. a) and 4. b).
+**Note for the following section:** Most people use either Enzyme or React Native Testing Library. So you probably only want to follow one of 4. a) and 4. b).
 
 ## 4. a) Setting Up Enzyme
 
