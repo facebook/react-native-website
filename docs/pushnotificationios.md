@@ -475,4 +475,4 @@ Gets the badge count number from the `aps` object
 getData();
 ```
 
-Gets the data object on the notif
+Gets the data object on the notification
