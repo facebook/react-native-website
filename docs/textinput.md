@@ -97,7 +97,7 @@ Note that on Android performing text selection in input can change app's activit
 
 - [`allowFontScaling`](textinput.md#allowfontscaling)
 - [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoCorrect`](textinput.md#autocomplete)
+- [`autoComplete`](textinput.md#autocomplete)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
