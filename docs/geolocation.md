@@ -7,6 +7,8 @@ The Geolocation API extends the [Geolocation web spec](https://developer.mozilla
 
 As a browser polyfill, this API is available through the `navigator.geolocation` global - you do not need to `import` it.
 
+On Android, this uses the [android.location API](https://developer.android.com/reference/android/location/package-summary). This API is not recommended by Google because it is less accurate and slower than the recommended [Google Location Services API](https://developer.android.com/training/location/). In order to use it with React Native, use the [react-native-geolocation-service](https://github.com/Agontuk/react-native-geolocation-service) module.
+
 ### Configuration and Permissions
 
 <div class="banner-crna-ejected">

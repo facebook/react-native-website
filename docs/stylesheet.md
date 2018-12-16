@@ -120,7 +120,7 @@ var styles = StyleSheet.create({
 });
 
 StyleSheet.flatten(styles.listItem);
-// return { flex: 1, fontSize: 16, color: 'white' }
+// returns { flex: 1, fontSize: 16, color: 'white' }
 // Simply styles.listItem would return its ID (number)
 ```
 
