@@ -102,7 +102,7 @@ var styles = StyleSheet.create({
 });
 
 StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
-// returns { flex: 1, fontSize: 16, color: 'green' }
+// 返回值为 { flex: 1, fontSize: 16, color: 'green' }
 ```
 
 Alternative use:
@@ -120,8 +120,8 @@ var styles = StyleSheet.create({
 });
 
 StyleSheet.flatten(styles.listItem);
-// return { flex: 1, fontSize: 16, color: 'white' }
-// Simply styles.listItem would return its ID (number)
+// 返回值为 { flex: 1, fontSize: 16, color: 'white' }
+// 如果直接打印 styles.listItem，则返回值是一个整数型的ID
 ```
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.

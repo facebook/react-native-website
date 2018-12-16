@@ -58,14 +58,16 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 {
   RCTLogInfo(@"Pretending to create an event %@ at %@", name, location);
 }
+
+@end
 ```
 
 现在从 Javascript 里可以这样调用这个方法：
 
 ```javascript
-import { NativeModules } from "react-native";
+import {NativeModules} from 'react-native';
 const CalendarManager = NativeModules.CalendarManager;
-CalendarManager.addEvent("Birthday Party", "4 Privet Drive, Surrey");
+CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 ```
 
 > **NOTE**: JavaScript method names
@@ -124,9 +126,9 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 
 ```javascript
 CalendarManager.addEvent(
-  "Birthday Party",
-  "4 Privet Drive, Surrey",
-  date.getTime()
+  'Birthday Party',
+  '4 Privet Drive, Surrey',
+  date.getTime(),
 ); // 把日期以unix时间戳形式传递
 ```
 
@@ -134,9 +136,9 @@ CalendarManager.addEvent(
 
 ```javascript
 CalendarManager.addEvent(
-  "Birthday Party",
-  "4 Privet Drive, Surrey",
-  date.toISOString()
+  'Birthday Party',
+  '4 Privet Drive, Surrey',
+  date.toISOString(),
 ); // 把日期以ISO-8601的字符串形式传递
 ```
 
@@ -158,10 +160,10 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name details:(NSDictionary *)details)
 然后在 JS 里这样调用：
 
 ```javascript
-CalendarManager.addEvent("Birthday Party", {
-  location: "4 Privet Drive, Surrey",
+CalendarManager.addEvent('Birthday Party', {
+  location: '4 Privet Drive, Surrey',
   time: date.getTime(),
-  description: "..."
+  description: '...',
 });
 ```
 
@@ -192,7 +194,7 @@ CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
   } else {
-    this.setState({ events: events });
+    this.setState({events: events});
   }
 });
 ```
@@ -231,7 +233,7 @@ async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
 
-    this.setState({ events });
+    this.setState({events});
   } catch (e) {
     console.error(e);
   }

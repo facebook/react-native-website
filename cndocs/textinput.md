@@ -91,6 +91,7 @@ export default class UselessTextInputMultiline extends Component {
 
 - [`allowFontScaling`](textinput.md#allowfontscaling)
 - [`autoCapitalize`](textinput.md#autocapitalize)
+- [`autoComplete`](textinput.md#autocomplete)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
@@ -173,6 +174,32 @@ export default class UselessTextInputMultiline extends Component {
 | enum('none', 'sentences', 'words', 'characters') | No   |
 
 ---
+
+### `autoComplete`
+
+Specifies autocomplete hints for the system, so it can provide autofill.
+On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
+ 
+ Possible values for `autoComplete` are:
+ * `off`
+ * `username`
+ * `password`
+ * `email`
+ * `name`
+ * `tel`
+ * `street-address`
+ * `postal-code`
+ * `cc-number`
+ * `cc-csc`
+ * `cc-exp`
+ * `cc-exp-month`
+ * `cc-exp-year`
+
+ | 类型                                                                                                                                                         | 必填 | 平台    |
+ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ------- |
+ | enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | 否   | Android |
+ 
+ ---
 
 ### `autoCorrect`
 
@@ -415,7 +442,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 ### `onChange`
 
-当文本框内容变化时调用此回调函数。
+当文本框内容变化时调用此回调函数。回调参数为`{ nativeEvent: { eventCount, target, text} }`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -457,7 +484,7 @@ Only called for multiline text inputs.
 
 ### `onFocus`
 
-当文本框获得焦点的时候调用此回调函数。
+当文本框获得焦点的时候调用此回调函数。回调参数为`{ nativeEvent: { target } }`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -477,7 +504,7 @@ Only called for multiline text inputs.
 
 ### `onLayout`
 
-当组件加载或者布局变化的时候调用，参数为`{x, y, width, height}`。
+当组件加载或者布局变化的时候调用，回调参数为`{ nativeEvent: {layout: {x, y, width, height}, target } }`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -767,7 +794,7 @@ clear();
 ### `isFocused()`
 
 ```javascript
-isFocused():
+isFocused();
 ```
 
 返回值表明当前输入框是否获得了焦点。

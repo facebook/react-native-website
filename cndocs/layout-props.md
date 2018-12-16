@@ -197,7 +197,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 ### `direction`
 
-`direction`指定了用户界面的阅读顺序。`ltr`表示 left to right，即从左往右阅读。反之`rtl`为从右往左阅读。。默认值为`inherit`，但根节点的值会根据用户所在地的不同而不同。访问<https://facebook.github.io/yoga/docs/rtl/>来进一步了解。
+`direction`指定了用户界面的阅读顺序。`ltr`表示 left to right，即从左往右阅读。反之`rtl`为从右往左阅读。。默认值为`inherit`，但根节点的值会根据用户所在地的不同而不同。访问<https://yogalayout.com/docs/layout-direction>来进一步了解。
 
 | 类型                          | 必填 | 平台 |
 | ----------------------------- | ---- | ---- |

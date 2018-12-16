@@ -91,7 +91,7 @@ AppRegistry.registerComponent('App', () => App)
 ### 查看Props
 
 * [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
+- [`style`](touchableopacity.md#style)
 - [`activeOpacity`](touchableopacity.md#activeopacity)
 - [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
 - [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
@@ -105,6 +105,14 @@ AppRegistry.registerComponent('App', () => App)
 # 文档
 
 ## Props
+
+### `style`
+
+| 类型       | 必填 |
+| ---------- | ---- |
+| View.style | 否   |
+
+---
 
 ### `activeOpacity`
 

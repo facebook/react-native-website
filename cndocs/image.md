@@ -103,6 +103,7 @@ dependencies {
 * [`onPartialLoad`](image.md#onpartialload)
 * [`onProgress`](image.md#onprogress)
 * [`fadeDuration`](image.md#fadeduration)
+* [`progressiveRenderingEnabled`](image.md#progressiverenderingenabled)
 
 ### 查看方法
 
@@ -378,13 +379,26 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 | -------- | ---- | ---- |
 | function | 否   | iOS  |
 
+---
+
 ### `fadeDuration`
 
 Android only. By default, it is 300ms.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | 必填 | 平台    |
+| ------ | ---- | ------- |
+| number | 否   | Android |
+
+---
+
+### `progressiveRenderingEnabled`
+
+Android only. When true, enables progressive jpeg streaming. https://frescolib.org/docs/progressive-jpegs.html
+
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
+
 
 ## 方法
 

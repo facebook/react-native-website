@@ -64,12 +64,12 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 必须的props:
 
 * [`sections`](sectionlist.md#sections)
+* [`renderItem`](sectionlist.md#renderitem)
 
 可选的props:
 
 * [`initialNumToRender`](sectionlist.md#initialnumtorender)
 * [`keyExtractor`](sectionlist.md#keyextractor)
-* [`renderItem`](sectionlist.md#renderitem)
 * [`onEndReached`](sectionlist.md#onendreached)
 * [`extraData`](sectionlist.md#extradata)
 * [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)

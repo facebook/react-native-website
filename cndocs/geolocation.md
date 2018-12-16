@@ -7,6 +7,8 @@ title: Geolocation
 
 正因为如此，此 API 和在浏览器上使用方法一致，都是直接访问全局的`navigator.geolocation`对象，并不需要额外`import`。
 
+On Android, this uses the [android.location API](https://developer.android.com/reference/android/location/package-summary). This API is not recommended by Google because it is less accurate and slower than the recommended [Google Location Services API](https://developer.android.com/training/location/). In order to use it with React Native, use the [react-native-geolocation-service](https://github.com/Agontuk/react-native-geolocation-service) module.
+
 > 译注 1：本 API 在安卓上需要谷歌框架支持，因而无法在国内使用，请在 github 上搜索百度或高德等国内第三方封装替代库。
 
 > 译注 2：地理定位只用于返回经纬度数据，无法得出具体地名。如果需要通过经纬度数据查询具体地名，则需要额外的“逆地理编码”（即通过经纬度查询地图数据库得到地名）。一般第三方的地图封装带有此功能。

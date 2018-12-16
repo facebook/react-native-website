@@ -116,9 +116,9 @@ title: Image样式属性
 
 ### `resizeMode`
 
-| 类型                         | 必填 |
-| ---------------------------- | ---- |
-| Object.keys(ImageResizeMode) | 否   |
+| 类型                                                    | 必填 |
+| ------------------------------------------------------- | ---- |
+| enum('cover', 'contain', 'stretch', 'repeat', 'center') | 否   |
 
 ---
 
