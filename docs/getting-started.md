@@ -407,6 +407,20 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 <block class="native linux android" />
 
+<block class="native windows android" />
+
+#### 4. Add platform-tools to Path
+
+Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
+
+The default location for this folder is:
+
+```powershell
+c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+```
+
+<block class="native linux android" />
+
 ### Watchman
 
 Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
