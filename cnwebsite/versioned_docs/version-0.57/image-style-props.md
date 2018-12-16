@@ -119,9 +119,9 @@ original_id: image-style-props
 
 ### `resizeMode`
 
-| 类型                         | 必填 |
-| ---------------------------- | ---- |
-| Object.keys(ImageResizeMode) | 否   |
+| 类型                                                    | 必填 |
+| ------------------------------------------------------- | ---- |
+| enum('cover', 'contain', 'stretch', 'repeat', 'center') | 否   |
 
 ---
 

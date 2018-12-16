@@ -4,7 +4,7 @@ title: ScrollView
 original_id: scrollview
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.85%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.15%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 一个封装了平台的ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
 
