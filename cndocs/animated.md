@@ -9,12 +9,12 @@ title: Animated
 
 ```javascript
 Animated.timing(
-  // Animate value over time
-  this.state.fadeAnim, // The value to drive
+  // timing方法使动画值随时间变化
+  this.state.fadeAnim, // 要变化的动画值
   {
-    toValue: 1 // Animate to final value of 1
-  }
-).start(); // Start the animation
+    toValue: 1, // 最终的动画值
+  },
+).start(); // 开始执行动画
 ```
 
 你可以在[动画](animations.md#animated-api)文档中看到更多实际的例子。
