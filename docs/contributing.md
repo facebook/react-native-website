@@ -99,6 +99,41 @@ In order to accept your pull request, we need you to submit a CLA. You only need
 
 [**Complete your CLA here.**](https://code.facebook.com/cla)
 
+### Changelog
+
+Provide a changelog entry to help reviewers during the release process. Changes that do not impact React Native developers may be ommitted from the changelog.
+
+A changelog entry has the following format:
+
+```
+[CATEGORY] [TYPE] - Message
+```
+
+* `CATEGORY` may be:
+
+  * [General]
+  * [iOS]
+  * [Android]
+
+* `TYPE` may be:
+
+  * [Added] for new features.
+  * [Changed] for changes in existing functionality.
+  * [Deprecated] for soon-to-be removed features.
+  * [Removed] for now removed features.
+  * [Fixed] for any bug fixes.
+  * [Security] in case of vulnerabilities.
+
+* `MESSAGE` may answer "what and why" on a feature level. Use this to briefly tell React Native users about notable changes.
+
+For more detail, see [How do I make a good changelog?](https://keepachangelog.com/en/1.0.0/#how)
+
+#### Changelog Examples
+
+* [General][added] - Add snapToOffsets prop to ScrollView component
+* [General][fixed] - Fix various issues in snapToInterval on ScrollView component
+* [iOS][fixed] - Fix crash in RCTImagePicker
+
 ### Test plan
 
 A good test plan has the exact commands you ran and their output, provides screenshots or videos if the pull request changes UI or updates the website.
