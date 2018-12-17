@@ -392,6 +392,8 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 | -------- | -------- | -------- |
 | function | No       | iOS      |
 
+---
+
 ### `fadeDuration`
 
 Android only. By default, it is 300ms.
@@ -399,6 +401,8 @@ Android only. By default, it is 300ms.
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | Android  |
+
+---
 
 ### `progressiveRenderingEnabled`
 
