@@ -39,7 +39,7 @@ Next, we want to set up linting. I like a combination of three rules:
 You can check out what the respective configuration does by clicking on it. Let's install these rules together with TSLint now.
 
 ```sh
-npm install --save-dev tslint tslint-eslint-rulestslint-react tslint-config-prettier
+npm install --save-dev tslint tslint-eslint-rules tslint-react tslint-config-prettier
 ```
 
 Consequently, we want to set up a `tslint.json` file. In it, you can fine-tune your linting configuration (below you'll see my personal preference).
