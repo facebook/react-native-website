@@ -18,7 +18,7 @@ class RefreshableList extends Component {
     };
   }
 
-  _onRefresh = () => {
+  onRefresh = () => {
     this.setState({refreshing: true});
     fetchData().then(() => {
       this.setState({refreshing: false});
