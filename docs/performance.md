@@ -357,6 +357,11 @@ Now that we have a RAM bundle, there is overhead for calling `require`. `require
 Create a folder in your project called packager, and create a single file named config.js. Add the following:
 
 ```
+const resolve = require('path').resolve;
+
+// Update the following line if the root folder of your app is somewhere else.
+const ROOT_FOLDER = resolve(__dirname, '..');
+
 const config = {
   transformer: {
     getTransformOptions: () => {
@@ -365,6 +370,7 @@ const config = {
       };
     },
   },
+  projectRoot: ROOT_FOLDER,
 };
 
 module.exports = config;
@@ -459,7 +465,7 @@ const config = {
       };
     },
   },
-  projectRoot:ROOT_FOLDER,
+  projectRoot: ROOT_FOLDER,
 };
 
 module.exports = config;
