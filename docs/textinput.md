@@ -110,6 +110,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`disableFullscreenUI`](textinput.md#disablefullscreenui)
 - [`editable`](textinput.md#editable)
 - [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+- [`importantForAutofill`](textinput.md#importantForAutofill)
 - [`inlineImageLeft`](textinput.md#inlineimageleft)
 - [`inlineImagePadding`](textinput.md#inlineimagepadding)
 - [`keyboardAppearance`](textinput.md#keyboardappearance)
@@ -184,7 +185,7 @@ Can tell `TextInput` to automatically capitalize certain characters. This proper
 ### `autoComplete`
  Specifies autocomplete hints for the system, so it can provide autofill.
  On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
- 
+
  Possible values for `autoComplete` are:
  * `off`
  * `username`
@@ -333,6 +334,22 @@ If `true`, the keyboard disables the return key when there is no text and automa
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `importantForAutofill`
+
+Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+
+* `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
+* `no`: This view isn't important for autofill.
+* `noExcludeDescendants`: This view and its children aren't important for autofill.
+* `yes`: This view is important for autofill.
+* `yesExcludeDescendants`: This view is important for autofill, but its children aren't important for autofill.
+
+| Type                                                                                                                                                     | Required | Platform |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| enum('auto', 'no', 'noExcludeDescendants', 'yes', 'yesExcludeDescendants') | No       | Android      |
 
 ---
 
