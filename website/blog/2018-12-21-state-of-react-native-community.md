@@ -8,7 +8,7 @@ authorTwitter: kelset
 category: announcements
 ---
 
-We made a large number of changes about how we develop and communicate about React Native. We hope that in two years from now we can look back and see that 2018 was a turning point for React Native.
+This year we made a large number of changes about how we develop and communicate about React Native; we hope that in two years from now we can look back and see that this shift was a turning point for React Native.
 
 A lot of people are excited about the rewrite of React Native's architecture, widely known as [Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4). Among other things, this will fix fundamental flaws in React Native's architecture and will set up React Native for success in the future together with [JSI and TurboModules](https://github.com/react-native-community/discussions-and-proposals/issues/40).
 
@@ -34,7 +34,7 @@ But we are far from done.
 
 ### What awaits ahead 🎓
 
-As explained above, over the past 6-8 months, the [React Native Community organisation](https://github.com/react-native-community) has been used by core contributors to take more ownership over the development of React Native, and enhance the collaboration with Facebook. But this always lacked the formal structure that similar projects have for their plugin libraries. 
+As explained above, over the past 6-8 months, the [React Native Community organisation](https://github.com/react-native-community) has been used by core contributors to take more ownership over the development of React Native, and enhance the collaboration with Facebook. But this always lacked the formal structure that similar projects may have in place. 
 
 By enforcing a set of standards for all the packages/repos hosted in it, providing a common place for all the maintainers to help each other and providing quality code, this organisation can set the example for everyone in the larger developer community.
 
