@@ -401,6 +401,8 @@ Set this when offset is needed for the loading indicator to show correctly.
 
 ### `legacyImplementation`
 
+Uses legacy `MetroListView` instead of default `VirtualizedSectionList`.
+
 May not have full feature parity and is meant for debugging and performance comparison.
 
 | Type    | Required |

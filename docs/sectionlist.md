@@ -208,6 +208,10 @@ Rendered at the very end of the list. Can be a React Component Class, a render f
 
 ### `legacyImplementation`
 
+Uses legacy `MetroListView` instead of default `VirtualizedSectionList`.
+
+May not have full feature parity and is meant for debugging and performance comparison.
+
 | Type      | Required |
 | --------- | -------- |
 | [boolean] | No       |
