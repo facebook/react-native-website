@@ -69,7 +69,7 @@ class Versions extends React.Component {
     return (
       <div className="pageContainer">
         <Container className="mainContainer documentContainer postContainer">
-          <h1>React Native Versions</h1>
+          <h1>React Native versions</h1>
           <p>
             Open source React Native releases follow a monthly release train
             that is coordinated on GitHub through the
