@@ -18,7 +18,7 @@ These members took a few substantial steps towards making the whole community mo
 
 ## [`react-native-releases`](https://github.com/react-native-community/react-native-releases) 📬
 
-This repository, started around Feb, serves the dual purpose of allowing everyone to keep up the new releases in a more collaborative manner and opened the conversation of what would be part of a certain release to whoever wanted to suggest a cherry-pick (like for [0.57.8](https://github.com/react-native-community/react-native-releases/issues/71) and all its previous versions).
+This repository, created in January, serves the dual purpose of allowing everyone to keep up the new releases in a more collaborative manner and opened the conversation of what would be part of a certain release to whomever wanted to suggest a cherry-pick (like for [0.57.8](https://github.com/react-native-community/react-native-releases/issues/71) and all its previous versions).
 
 This has been the driving force behind moving away from a monthly release cycle, and the "long term support" approach currently used for version 0.57.x.
 
