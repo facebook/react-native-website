@@ -8,7 +8,7 @@ authorTwitter: kelset
 category: announcements
 ---
 
-This year we made a large number of changes about how we develop and communicate about React Native; we hope that in two years from now we can look back and see that this shift was a turning point for React Native.
+In 2018 the React Native Community made a number of changes about how we develop and communicate about React Native. We believe that a few years from now we will look back and see that this shift was a turning point for React Native.
 
 A lot of people are excited about the rewrite of React Native's architecture, widely known as [Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4). Among other things, this will fix fundamental flaws in React Native's architecture and will set up React Native for success in the future together with [JSI and TurboModules](https://github.com/react-native-community/discussions-and-proposals/issues/40).
 
