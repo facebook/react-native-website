@@ -30,11 +30,9 @@ This repository, created in July, expanded on the idea of a more open environmen
 
 This experiment immediately found its role in the React Native lifecycle. The Facebook team is now using the community RFC process to discuss what could [be improved in React Native](https://github.com/react-native-community/discussions-and-proposals/issues/64), and coordinate the efforts around the [Lean Core project](https://github.com/react-native-community/discussions-and-proposals/issues/6) - among other interesting discussions.
 
-But we are far from done.
+## What awaits ahead 🎓
 
-### What awaits ahead 🎓
-
-Over the past 6-8 months, the [React Native Community GitHub organization](https://github.com/react-native-community) was created and used by core contributors to take more ownership over the development of React Native, and enhance the collaboration with Facebook. But this always lacked the formal structure that similar projects may have in place. 
+Over the past 6-8 months, the [React Native Community GitHub organization](https://github.com/react-native-community) was created and used by core contributors to take more ownership over the development of React Native, and enhance the collaboration with Facebook. But this always lacked the formal structure that similar projects may have in place.
 
 This organization can set the example for everyone in the larger developer community by enforcing a set of standards for all the packages/repos hosted in it, providing a common place for all the maintainers to help each other and providing quality code.
 
@@ -46,6 +44,6 @@ We are confident that with these changes, the community will become more collabo
 
 I hope you are as excited as we are about the future of this community. We're excited to see all of you involved either in the conversations happening in the repositories listed above or via the awesome code you’ll produce.
 
-We are aware that our approach to communicate these efforts has not been as effective as we liked, and in an attempt to give you all an easier time keeping up with everything going on in the React Native Community (from releases to active discussions) we created a new twitter account that you can rely on [@ReactNativeComm](https://twitter.com/ReactNativeComm) (if you are not on it remember that you can always watch repositories via GitHub). It will become more actively starting 2019, but feel free to start following it right away 🐣
+We are aware that our approach to communicate these efforts has not been as effective as we liked, and in an attempt to give you all an easier time keeping up with everything going on in the React Native Community (from releases to active discussions) we created a new twitter account that you can rely on [@ReactNativeComm](https://twitter.com/ReactNativeComm) (if you are not on it remember that you can always watch repositories via GitHub).
 
 Happy holidays & new year to you all 🎅
