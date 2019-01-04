@@ -44,7 +44,7 @@ We are confident that with these changes, the community will become more collabo
 
 ----
 
-I hope you are as excited as I am in looking at the future of this community, and that I will see all of you involved either in the conversations happening in the repositories listed above - or via the awesome code you’ll produce.
+I hope you are as excited as we are about the future of this community. We're excited to see all of you involved either in the conversations happening in the repositories listed above or via the awesome code you’ll produce.
 
 We are aware that our approach to communicate these efforts has not been as effective as we liked, and in an attempt to give you all an easier time keeping up with everything going on in the React Native Community (from releases to active discussions) we created a new twitter account that you can rely on [@ReactNativeComm](https://twitter.com/ReactNativeComm) (if you are not on it remember that you can always watch repositories via GitHub). It will become more actively starting 2019, but feel free to start following it right away 🐣
 
