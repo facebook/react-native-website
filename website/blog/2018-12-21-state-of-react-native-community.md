@@ -14,7 +14,7 @@ A lot of people are excited about the rewrite of React Native's architecture, wi
 
 The biggest shift in 2018 was to empower the React Native Community. From the beginning, Facebook encouraged developers from all around the world to participate in React Native's open source project. Since then, a number of core contributors emerged to handle, among other things, the release process.
 
-This year, these members took a few substantial steps towards making the whole community more able to shape the future of this project; two repositories have been created throughout the year precisely with this goal in mind:
+These members took a few substantial steps towards making the whole community more empowered to shape the future of this project. They have created two repositories with this goal in mind:
 
 ## [`react-native-releases`](https://github.com/react-native-community/react-native-releases) 📬
 
