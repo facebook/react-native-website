@@ -12,7 +12,7 @@ In 2018 the React Native Community made a number of changes about how we develop
 
 A lot of people are excited about the rewrite of React Native's architecture, widely known as [Fabric](https://github.com/react-native-community/discussions-and-proposals/issues/4). Among other things, this will fix fundamental limitations in React Native's architecture and will set up React Native for success in the future together with [JSI and TurboModules](https://github.com/react-native-community/discussions-and-proposals/issues/40).
 
-The biggest shift initiated in 2018 was to empower the React Native Community: from the beginning Facebook encouraged developers from all around the world to participate in React Native's open source project. Since then, a number of core contributors emerged who handle, among other things, the release process.
+The biggest shift in 2018 was to empower the React Native Community. From the beginning, Facebook encouraged developers from all around the world to participate in React Native's open source project. Since then, a number of core contributors emerged to handle, among other things, the release process.
 
 This year, these members took a few substantial steps towards making the whole community more able to shape the future of this project; two repositories have been created throughout the year precisely with this goal in mind:
 
