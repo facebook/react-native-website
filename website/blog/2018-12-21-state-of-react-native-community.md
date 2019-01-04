@@ -40,7 +40,7 @@ This organization can set the example for everyone in the larger developer commu
 
 We are planning, for the early 2019, to have this new set of guidelines in place - you can let us know what you think in the [dedicated discussion](https://github.com/react-native-community/discussions-and-proposals/issues/63), and in the manifesto proposal that will be written soon.
 
-With this last founding stone, we are confident that the community will become more inclusive and when 1.0 will be reached, we will all be able to write (even more) awesome apps, capable of leveraging this joined effort 🤗
+We are confident that with these changes, the community will become more collaborative so that when we reach 1.0, we will all continue to write (even more) awesome apps by leveraging this joined effort 🤗
 
 ----
 
