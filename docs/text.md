@@ -226,6 +226,7 @@ We believe that this more constrained way to style text will yield better apps:
 * [`onPress`](text.md#onpress)
 * [`pressRetentionOffset`](text.md#pressretentionoffset)
 * [`allowFontScaling`](text.md#allowfontscaling)
+* [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
 * [`style`](text.md#style)
 * [`testID`](text.md#testid)
 * [`disabled`](text.md#disabled)
@@ -377,6 +378,20 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `maxFontSizeMultiplier`
+
+Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+
+* `null/undefined` (default): inherit from the parent node or the global default (0)
+* `0`: no max, ignore parent/global default
+* `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
 
 ---
 
