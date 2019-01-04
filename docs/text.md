@@ -522,3 +522,7 @@ When `true`, no visual change is made when text is pressed down. By default, a g
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+# Known issues
+
+* [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute
