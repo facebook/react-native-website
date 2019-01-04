@@ -34,7 +34,7 @@ But we are far from done.
 
 ### What awaits ahead 🎓
 
-As explained above, over the past 6-8 months, the [React Native Community organisation](https://github.com/react-native-community) has been used by core contributors to take more ownership over the development of React Native, and enhance the collaboration with Facebook. But this always lacked the formal structure that similar projects may have in place. 
+Over the past 6-8 months, the [React Native Community GitHub organization](https://github.com/react-native-community) was created and used by core contributors to take more ownership over the development of React Native, and enhance the collaboration with Facebook. But this always lacked the formal structure that similar projects may have in place. 
 
 By enforcing a set of standards for all the packages/repos hosted in it, providing a common place for all the maintainers to help each other and providing quality code, this organisation can set the example for everyone in the larger developer community.
 
