@@ -309,7 +309,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 * `Android SDK`
 * `Android SDK Platform`
-* `Performance (Intel ® HAXM)`
+* `Performance (Intel ® HAXM)` ([See here for AMD](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
 * `Android Virtual Device`
 
 <block class="native linux android" />
