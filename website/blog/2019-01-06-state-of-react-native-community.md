@@ -40,7 +40,7 @@ If you are not on that social network, remember that you can always watch reposi
 
 Over the past 7-8 months, core contributors enhanced the [React Native Community GitHub organization](https://github.com/react-native-community) to take more ownership over the development of React Native, and enhance collaboration with Facebook. But this always lacked the formal structure that similar projects may have in place.
 
-This organization can set the example for everyone in the larger developer community by enforcing a set of standards for all the packages/repos hosted in it, providing a single place for maintainers to help each other andcontribute quality code that conforms to community-agreed standards.
+This organization can set the example for everyone in the larger developer community by enforcing a set of standards for all the packages/repos hosted in it, providing a single place for maintainers to help each other and contribute quality code that conforms to community-agreed standards.
 
 In early 2019, we will have this new set of guidelines in place. Let us know what you think in the [dedicated discussion](https://github.com/react-native-community/discussions-and-proposals/issues/63).
 
