@@ -62,7 +62,7 @@ And then in your AppDelegate implementation add the following:
 
 ### Methods
 
-* [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
+* [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
 * [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
 * [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
 * [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
