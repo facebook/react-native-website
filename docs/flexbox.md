@@ -11,7 +11,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 #### Flex Direction
 
-Adding `flexDirection` to a component's `style` determines the **primary axis** of its layout. Should the children be organized horizontally (`row`) or vertically (`column`)? The default is `column`.
+Adding `flexDirection` to a component's `style` determines the **primary axis** of its layout. Should the children be organized horizontally (`row`) or vertically (`column`)? The default is `row`.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
