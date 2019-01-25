@@ -8,7 +8,7 @@ title: AlertIOS
 Creating an iOS alert:
 
 ```javascript
-AlertIOS.alert('Sync Complete', 'All your data are belong to us.');
+AlertIOS.alert('Sync Complete', 'All your data belongs to us.');
 ```
 
 Creating an iOS prompt:
