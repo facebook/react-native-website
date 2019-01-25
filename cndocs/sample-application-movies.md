@@ -296,10 +296,14 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
         data={this.state.data}
         renderItem={this.renderMovie}
         style={styles.list}
+        keyExtractor={item => item.id}
       />
     );
   }
 ```
+
+> keyExtractor
+> 此函数用于为给定的item生成一个不重复的key。Key的作用是使React能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取item.key作为key值。若item.key也不存在，则使用数组下标。
 
 你会注意到我们现在用到了`this.state`中的`data`。下一步就是在`constructor`生成的初始状态中添加一个空白的`data`。另外，我们现在要把数据存储在`data`中了，所以不再另外用`this.state.movies`来保存数据。我们可以在 state 里用一个布尔型的属性(`this.state.loaded`)来判断数据加载是否已经完成了。
 
@@ -419,6 +423,7 @@ export default class SampleAppMovies extends Component {
         data={this.state.data}
         renderItem={this.renderMovie}
         style={styles.list}
+        keyExtractor={item => item.id}
       />
     );
   }
