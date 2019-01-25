@@ -114,6 +114,7 @@ dependencies {
 * [`onPartialLoad`](image.md#onpartialload)
 * [`onProgress`](image.md#onprogress)
 * [`fadeDuration`](image.md#fadeduration)
+* [`progressiveRenderingEnabled`](image.md#progressiverenderingenabled)
 
 ### Methods
 
@@ -391,6 +392,8 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 | -------- | -------- | -------- |
 | function | No       | iOS      |
 
+---
+
 ### `fadeDuration`
 
 Android only. By default, it is 300ms.
@@ -398,6 +401,16 @@ Android only. By default, it is 300ms.
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | Android  |
+
+---
+
+### `progressiveRenderingEnabled`
+
+Android only. When true, enables progressive jpeg streaming. https://frescolib.org/docs/progressive-jpegs.html
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| bool   | No       | Android  |
 
 ## Methods
 

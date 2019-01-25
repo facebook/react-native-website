@@ -315,10 +315,14 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 ### `loop()`
 
 ```javascript
-static loop(animation)
+static loop(animation, config?)
 ```
 
-Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Can specify number of times to loop using the key `iterations` in the config. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+
+Config is an object that may have the following options:
+
+* `iterations`: Number of times the animation should loop. Default `-1` (infinite).
 
 ---
 

@@ -150,7 +150,6 @@
     "Community": "Community",
     "Blog": "Blog",
     "GitHub": "GitHub",
-    "React": "React",
     "The Basics": "The Basics",
     "Guides": "Guides",
     "Guides (iOS)": "Guides (iOS)",
@@ -160,8 +159,10 @@
     "APIs": "APIs"
   },
   "pages-strings": {
-    "Help Translate|recruit community translators for your project": "Help Translate",
+    "Help Translate|recruit community translators for your project":
+      "Help Translate",
     "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
+    "Translate this Doc|recruitment message asking to translate the docs":
+      "Translate"
   }
 }

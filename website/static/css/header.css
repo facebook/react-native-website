@@ -1,0 +1,13 @@
+.fixedHeaderContainer header h3 {
+  font-size: 14px;
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.fixedHeaderContainer header h3:hover {
+  opacity: 0.8;
+}
+
+li.navSearchWrapper {
+  font-size: 16px;
+}

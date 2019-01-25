@@ -313,10 +313,14 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 ### `loop()`
 
 ```javascript
-static loop(animation)
+static loop(animation, config?)
 ```
 
-Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Can specify number of times to loop using the key 'iterations' in the config. Will loop without blocking the UI thread if the child animation is set to 'useNativeDriver'.
+Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`.
+
+Config is an object that may have the following options:
+
+* `iterations`: Number of times the animation should loop. Default `-1` (infinite).
 
 ---
 

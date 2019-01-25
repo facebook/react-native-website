@@ -4,7 +4,7 @@
 
 @media only screen and (max-device-width: 840px) {
   .showcaseSection .inner-content {
-    width: 100%; 
+    width: 100%;
   }
 }
 
@@ -46,13 +46,19 @@
 
 .showcase {
   margin: 30px auto 30px auto;
-  width: 50%;
+  width: 100%;
   display: inline-block;
   text-align: center;
   vertical-align: top;
 }
 
-@media only screen and (min-device-width: 1024px) {
+@media only screen and (min-width: 600px) {
+  .showcase {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 960px) {
   .showcase {
     width: 25%;
   }
@@ -80,6 +86,7 @@
 @media only screen and (min-device-width: 736px) {
   .showcaseSection .showcase img {
     width: 100px;
+    max-height: 100px;
   }
 }
 

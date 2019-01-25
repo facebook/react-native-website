@@ -72,7 +72,7 @@ Add `gradle-download-task` as dependency in `android/build.gradle`:
 ```gradle
 ...
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.1.4'
         classpath 'de.undercouch:gradle-download-task:3.1.2'
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -100,7 +100,7 @@ Modify your `android/app/build.gradle` to use the `:ReactAndroid` project instea
 ...
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.0.2'
+    implementation 'com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}'
 
     implementation project(':ReactAndroid')
 

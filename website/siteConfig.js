@@ -27,7 +27,6 @@ const siteConfig = {
     {blog: true, label: 'Blog'},
     {search: true},
     {href: repoUrl, label: 'GitHub'},
-    {href: 'https://reactjs.org/', label: 'React'},
   ],
   headerIcon: 'img/header_logo.png',
   footerIcon: 'img/header_logo.png',
