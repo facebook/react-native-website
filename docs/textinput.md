@@ -419,9 +419,9 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 * `0`: no max, ignore parent/global default
 * `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
