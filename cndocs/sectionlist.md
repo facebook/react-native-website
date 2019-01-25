@@ -236,7 +236,7 @@ The render function will be passed an object with the following keys:
 
 ### `onRefresh`
 
-如果设置了此选项，则会在列表头部添加一个标准的[`RefreshControl`](refreshcontrol.md)控件，以便实现“下拉刷新”的功能。同时你需要正确设置`refreshing`属性。
+如果设置了此选项，则会在列表头部添加一个标准的[`RefreshControl`](refreshcontrol.md)控件，以便实现“下拉刷新”的功能。同时你需要正确设置`refreshing`属性。如果你想把刷新控件往下移动一些（比如100个pt），可以设置`progressViewOffset={100}`。
 
 | 类型         | 必填 |
 | ------------ | ---- |

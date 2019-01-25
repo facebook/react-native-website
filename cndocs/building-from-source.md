@@ -67,7 +67,7 @@ npm install --save github:facebook/react-native#master
 ```gradle
 ...
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.android.tools.build:gradle:3.1.4'
         classpath 'de.undercouch:gradle-download-task:3.1.2'
 
         // 注意：不要把你的应用的依赖放在这里；
@@ -95,7 +95,7 @@ project(':ReactAndroid').projectDir = new File(
 ...
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.0.2'
+    implementation 'com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}'
 
     implementation project(':ReactAndroid')
 

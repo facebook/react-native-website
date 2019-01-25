@@ -152,8 +152,8 @@ Set to `false` to remove extra font padding intended to make space for certain a
 ### `letterSpacing`
 
 | 类型   | 必填 | 平台 |
-| ------ | -------- | -------- |
-| number | 否       | iOS      |
+| ------ | -------- | ------------------- |
+| number | 否       | iOS, Android >= 5.0 |
 
 ---
 

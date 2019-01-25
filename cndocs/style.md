@@ -18,16 +18,16 @@ export default class LotsOfStyles extends Component {
     return (
       <View>
         <Text style={styles.red}>just red</Text>
-        <Text style={styles.bigblue}>just bigblue</Text>
-        <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
-        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+        <Text style={styles.bigBlue}>just bigBlue</Text>
+        <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
+        <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  bigblue: {
+  bigBlue: {
     color: 'blue',
     fontWeight: 'bold',
     fontSize: 30,

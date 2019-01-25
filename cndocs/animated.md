@@ -326,10 +326,14 @@ static stagger(time, animations)
 ### `loop()`
 
 ```javascript
-static loop(animation)
+static loop(animation, config?)
 ```
 
-无限循环一个指定的动画，从头到尾周而复始。Can specify number of times to loop using the key `iterations` in the config. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+无限循环一个指定的动画，从头到尾周而复始。Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+ 
+ Config is an object that may have the following options:
+ 
+ * `iterations`: Number of times the animation should loop. Default `-1` (infinite).
 
 ---
 

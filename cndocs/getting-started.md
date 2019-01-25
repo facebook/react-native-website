@@ -326,7 +326,7 @@ React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高�
 
 - `Android SDK`
 - `Android SDK Platform`
-- `Performance (Intel ® HAXM)`
+- `Performance (Intel ® HAXM)` ([AMD 处理器看这里](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
 - `Android Virtual Device`
 
 <block class="native linux android" />
@@ -425,6 +425,18 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk
 你可以在 Android Studio 的"Preferences"菜单中查看 SDK 的真实路径，具体是**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
 你需要关闭现有的命令符提示窗口然后重新打开，这样新的环境变量才能生效。
+
+#### 4. 把 platform-tools 目录添加到环境变量 Path 中
+
+打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` -> `高级` -> `环境变量`，选中**Path**变量，然后点击**编辑**。点击**新建**然后把 platform-tools 目录路径添加进去。
+
+此目录的默认路径为：
+
+```powershell
+c:\Users\你的用户名\AppData\Local\Android\Sdk\platform-tools
+```
+
+ <block class="native linux android" />
 
 <block class="native linux android" />
 
