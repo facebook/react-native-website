@@ -109,7 +109,7 @@ Then run the following commands to create a new React Native project called "Awe
 expo init AwesomeProject
 
 cd AwesomeProject
-npm start
+npm start #you can also use: expo start
 ```
 
 This will start a development server for you.
@@ -310,7 +310,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 * `Android SDK`
 * `Android SDK Platform`
-* `Performance (Intel ® HAXM)`
+* `Performance (Intel ® HAXM)` ([See here for AMD](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
 * `Android Virtual Device`
 
 <block class="native linux android" />
@@ -406,6 +406,16 @@ You can find the actual location of the SDK in the Android Studio "Preferences" 
 
 Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
 
+#### 4. Add platform-tools to Path
+
+Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
+
+The default location for this folder is:
+
+```powershell
+c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+```
+
 <block class="native linux android" />
 
 ### Watchman
@@ -436,7 +446,7 @@ Use the React Native command line interface to generate a new React Native proje
 react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
+This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 <block class="native mac windows linux android" />
 
