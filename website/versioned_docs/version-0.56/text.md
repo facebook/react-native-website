@@ -84,8 +84,6 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 9-17: bold, red
 ```
 
-> In order to use this feature, you must give the view a `width` and a `height`.
-
 ## Containers
 
 The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
