@@ -84,30 +84,6 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 9-17: bold, red
 ```
 
-## Nested views (iOS only)
-
-On iOS, you can nest views within your Text component. Here's an example:
-
-```ReactNativeWebPlayer
-import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
-
-export default class BlueIsCool extends Component {
-  render() {
-    return (
-      <Text>
-        There is a blue square
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-        in between my text.
-      </Text>
-    );
-  }
-}
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BlueIsCool);
-```
-
 > In order to use this feature, you must give the view a `width` and a `height`.
 
 ## Containers
