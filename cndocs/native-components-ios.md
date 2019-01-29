@@ -40,9 +40,9 @@ RCT_EXPORT_MODULE()
 @end
 ```
 
-**注意：** 请不要在`-view`中给`UIView`实例设置`frame`或是`backgroundColor`属性。为了和 JavaScript 端的布局属性一致，React Native 会覆盖你所设置的值。 If you need this granularity of control it might be better to wrap the `UIView` instance you want to style in another `UIView` and return the wrapper `UIView` instead. See [Issue 2948](https://github.com/facebook/react-native/issues/2948) for more context.
+**注意：** 请不要在`-view`中给`UIView`实例设置`frame`或是`backgroundColor`属性。为了和 JavaScript 端的布局属性一致，React Native 会覆盖你所设置的值。 如果您需要这种粒度的操作的话，比较好的方法是用另一个`UIView`来封装你想操作的`UIView`实例，并返回外层的`UIView`。请参阅[Issue 2948](https://github.com/facebook/react-native/issues/2948)获取更多信息。
 
-> In the example above, we prefixed our class name with `RNT`. Prefixes are used to avoid name collisions with other frameworks. Apple frameworks use two-letter prefixes, and React Native uses `RCT` as a prefix. In order to avoid name collisions, we recommend using a three-letter prefix other than `RCT` in your own classes.
+> 在上例中，我们的类名使用了`RNT`前缀以避免与其它框架产生命名冲突。苹果自有框架使用了两个字符的前缀，而React Native则使用`RCT`作为前缀。为避免命名冲突，我们建议您在自己的类中使用`RNT`以外的其它三字符前缀。
 
 接下来你需要一些 Javascript 代码来让这个视图变成一个可用的 React 组件：
 
