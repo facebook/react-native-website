@@ -64,7 +64,7 @@ title: PushNotificationIOS
 
 ### 查看方法
 
-* [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
+* [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
 * [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
 * [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
 * [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)

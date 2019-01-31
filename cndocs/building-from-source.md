@@ -11,9 +11,9 @@ title: 从源代码编译React Native
 
 在 Android Studio 的 SDK Manager 中安装以下组件：
 
-- Android SDK version 26 (编译 SDK 版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
-- SDK build tools version 26.0.3(编译工具版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
-- Android Support Repository >= 26
+- Android SDK version 28 (编译 SDK 版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
+- SDK build tools version 28.0.3(编译工具版本号在[build.gradle](https://github.com/facebook/react-native/blob/master/ReactAndroid/build.gradle)中可以找到)
+- Android Support Repository >= 28
 - Android NDK(下载及安装指南请看后文)
 
 #### 将 Gradle 指向你的安卓 SDK：
@@ -26,11 +26,11 @@ title: 从源代码编译React Native
 - zsh: `.zprofile` 或 `.zshrc`
 - ksh: `.profile` 或 `$ENV`
 
-在配置文件中加入：
+在配置文件中加入（请填写自己的实际路径）：
 
 ```
 export ANDROID_SDK=/Users/your_unix_name/android-sdk-macosx
-export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r17b
+export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r17c
 ```
 
 **第二步：** 在项目目录的 android 目录下创建`local.properties`文件。添加以下内容：（注意：windows 下路径需要使用反双斜杠）
@@ -39,12 +39,12 @@ export ANDROID_NDK=/Users/your_unix_name/android-ndk/android-ndk-r17b
 ndk.dir=指向android ndk目录的绝对路径
 ```
 
-#### Android NDK r17b 的下载链接（0.57 之前使用 r10e 版本）
+#### Android NDK 的下载链接（0.57 之前使用 r10e 版本）
 
-1.  Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-darwin-x86_64.zip
-2.  Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-linux-x86_64.zip
-3.  Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86_64.zip
-4.  Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r17b-windows-x86.zip
+1.  Mac OS (64-bit) - http://dl.google.com/android/repository/android-ndk-r17c-darwin-x86_64.zip
+2.  Linux (64-bit) - http://dl.google.com/android/repository/android-ndk-r17c-linux-x86_64.zip
+3.  Windows (64-bit) - http://dl.google.com/android/repository/android-ndk-r17c-windows-x86_64.zip
+4.  Windows (32-bit) - http://dl.google.com/android/repository/android-ndk-r17c-windows-x86.zip
 
 安装说明请参考[官方文档](https://developer.android.com/ndk/index.html)。
 
@@ -67,8 +67,8 @@ npm install --save github:facebook/react-native#master
 ```gradle
 ...
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.4'
-        classpath 'de.undercouch:gradle-download-task:3.1.2'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'de.undercouch:gradle-download-task:3.4.3'
 
         // 注意：不要把你的应用的依赖放在这里；
         // 它们应该放在各自模块的build.gradle文件中
