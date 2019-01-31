@@ -345,7 +345,7 @@ React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高�
 
 #### 2. 安装 Android SDK
 
-Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 8.1 (Oreo)`版本的 SDK。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
+Android Studio 默认会安装最新版本的 Android SDK。目前编译 React Native 应用需要的是`Android 9 (Pie)`版本的 SDK（注意 SDK 版本不等于终端系统版本，RN 目前支持 android4.1 以上设备）。你可以在 Android Studio 的 SDK Manager 中选择安装各版本的 SDK。
 
 你可以在 Android Studio 的欢迎界面中找到 SDK Manager。点击"Configure"，然后就能看到"SDK Manager"。
 
@@ -361,12 +361,12 @@ Android Studio 默认会安装最新版本的 Android SDK。目前编译 React N
 
 > SDK Manager 还可以在 Android Studio 的"Preferences"菜单中找到。具体路径是**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
-在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 8.1 (Oreo)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
+在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 9 (Pie)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
 
-- `Android SDK Platform 27`
+- `Android SDK Platform 28`
 - `Intel x86 Atom_64 System Image`（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）
 
-然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`27.0.3`版本。你可以同时安装多个其他版本。
+然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`28.0.3`版本。你可以同时安装多个其他版本。
 
 最后点击"Apply"来下载和安装这些组件。
 
@@ -494,7 +494,7 @@ react-native init AwesomeProject
 
 ![Android Studio AVD Manager](assets/GettingStartedAndroidStudioAVD.png)
 
-如果你刚刚才安装 Android Studio，那么可能需要先[创建一个虚拟设备](https://developer.android.com/studio/run/managing-avds.html)。点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"，然后选择**Oreo** API Level 27 image.
+如果你刚刚才安装 Android Studio，那么可能需要先[创建一个虚拟设备](https://developer.android.com/studio/run/managing-avds.html)。点击"Create Virtual Device..."，然后选择所需的设备类型并点击"Next"，然后选择**Pie** API Level 28 image.
 
 > 译注：请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
