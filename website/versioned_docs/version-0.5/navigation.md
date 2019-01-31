@@ -25,12 +25,14 @@ npm install --save react-navigation
 Then you can quickly create an app with a home screen and a profile screen:
 
 ```javascript
-import {createStackNavigator} from 'react-navigation';
+import {createStackNavigator, createAppNavigator} from 'react-navigation';
 
-const App = createStackNavigator({
+const MainNavigator = createStackNavigator({
   Home: {screen: HomeScreen},
   Profile: {screen: ProfileScreen},
 });
+
+const App = createAppNavigator(MainNavigator);
 
 export default App;
 ```
