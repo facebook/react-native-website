@@ -57,8 +57,7 @@
       "contributing",
       "maintainers",
       "building-from-source",
-      "testing",
-      "understanding-cli"
+      "testing"
     ],
     "Components": [
       "activityindicator",
