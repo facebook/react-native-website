@@ -41,7 +41,7 @@ Done! All libraries with native dependencies should be successfully linked to yo
 
 #### Step 1
 
-If the library has native code, there must be a `.xcodeproj` file inside it's folder. Drag this file to your project on Xcode (usually under the `Libraries` group on Xcode);
+If the library has native code, there must be an `.xcodeproj` file inside its folder. Drag this file to your project on Xcode (usually under the `Libraries` group on Xcode);
 
 ![](/react-native/docs/assets/AddToLibraries.png)
 
