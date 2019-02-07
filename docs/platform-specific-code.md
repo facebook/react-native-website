@@ -98,7 +98,7 @@ BigButton.android.js
 You can then require the component as follows:
 
 ```javascript
-const BigButton = require('./BigButton');
+import BigButton from './BigButton';
 ```
 
 React Native will automatically pick up the right file based on the running platform.
@@ -117,7 +117,7 @@ Container.native.js # picked up by the React Native bundler for both Android and
 You can still require it without the `.native` extension, as follows:
 
 ```javascript
-const Container = require('./Container');
+import Container from './Container';
 ```
 
 **Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.
