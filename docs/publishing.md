@@ -1,5 +1,5 @@
 ---
-id: publishing-fork
+id: publishing-forks
 title: Publish your own version of react native
 ---
 
