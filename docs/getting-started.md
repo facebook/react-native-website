@@ -96,7 +96,7 @@ This page will help you install and build your first React Native app. If you al
 
 [Expo](https://expo.io) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
 
-Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
+Assuming that you have [Node 8+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
 npm install -g expo-cli
@@ -108,7 +108,7 @@ Then run the following commands to create a new React Native project called "Awe
 expo init AwesomeProject
 
 cd AwesomeProject
-npm start
+npm start #you can also use: expo start
 ```
 
 This will start a development server for you.
@@ -309,7 +309,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 * `Android SDK`
 * `Android SDK Platform`
-* `Performance (Intel ® HAXM)`
+* `Performance (Intel ® HAXM)` ([See here for AMD](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
 * `Android Virtual Device`
 
 <block class="native linux android" />
@@ -328,7 +328,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 #### 2. Install the Android SDK
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 8.1 (Oreo)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 9 (Pie)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
 
 The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Click on "Configure", then select "SDK Manager".
 
@@ -344,12 +344,12 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 > The SDK Manager can also be found within the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
-Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 8.1 (Oreo)` entry, then make sure the following items are checked:
+Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 9 (Pie)` entry, then make sure the following items are checked:
 
-* `Android SDK Platform 27`
+* `Android SDK Platform 28`
 * `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
 
-Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `27.0.3` is selected.
+Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `28.0.3` is selected.
 
 Finally, click "Apply" to download and install the Android SDK and related build tools.
 
@@ -405,6 +405,16 @@ You can find the actual location of the SDK in the Android Studio "Preferences" 
 
 Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
 
+#### 4. Add platform-tools to Path
+
+Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
+
+The default location for this folder is:
+
+```powershell
+c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+```
+
 <block class="native linux android" />
 
 ### Watchman
@@ -423,7 +433,7 @@ Use the React Native command line interface to generate a new React Native proje
 react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
+This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 <block class="native mac windows linux android" />
 
@@ -435,7 +445,7 @@ Use the React Native command line interface to generate a new React Native proje
 react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)).
+This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 <block class="native mac windows linux android" />
 
@@ -455,7 +465,7 @@ If you use Android Studio to open `./AwesomeProject/android`, you can see the li
 
 ![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
 
-If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Oreo** API Level 27 image.
+If you have just installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Pie** API Level 28 image.
 
 <block class="native linux android" />
 

@@ -11,7 +11,7 @@ Note that you must specify some width and height style attributes.
 
 ## Example
 
-```
+```javascript
 return (
   <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>

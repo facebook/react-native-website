@@ -16,35 +16,36 @@ title: PermissionsAndroid
 
 `PermissionsAndroid` provides access to Android M's new permissions model. The so-called "normal" permissions are granted by default when the application is installed as long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
 
-On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` and `request` should always resolve to `PermissionsAndroid.RESULTS.GRANTED`.
+On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` should always result to `true` and `request` should always resolve to `PermissionsAndroid.RESULTS.GRANTED`.
 
 If a user has previously turned off a permission that you prompt for, the OS will advise your app to show a rationale for needing the permission. The optional `rationale` argument will show a dialog prompt only if necessary - otherwise the normal permission prompt will appear.
 
 ### Example
 
-```
-import { PermissionsAndroid } from 'react-native';
+```javascript
+import {PermissionsAndroid} from 'react-native';
 
 async function requestCameraPermission() {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
-        'title': 'Cool Photo App Camera Permission',
-        'message': 'Cool Photo App needs access to your camera ' +
-                   'so you can take awesome pictures.',
-        'buttonNeutral': "Ask Me Later",
-        'buttonNegative':"Cancel",
-        'buttonPositive': "OK"
-      }
-    )
+        title: 'Cool Photo App Camera Permission',
+        message:
+          'Cool Photo App needs access to your camera ' +
+          'so you can take awesome pictures.',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
+    );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera")
+      console.log('You can use the camera');
     } else {
-      console.log("Camera permission denied")
+      console.log('Camera permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
 }
 ```
@@ -164,4 +165,4 @@ Prompts the user to enable multiple permissions in the same dialog and returns a
 
 | Name        | Type  | Required | Description                     |
 | ----------- | ----- | -------- | ------------------------------- |
-| permissions | array | Yes      | Array of permission to request. |
+| permissions | array | Yes      | Array of permissions to request. |

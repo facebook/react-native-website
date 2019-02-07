@@ -97,6 +97,7 @@ Note that on Android performing text selection in input can change app's activit
 
 - [`allowFontScaling`](textinput.md#allowfontscaling)
 - [`autoCapitalize`](textinput.md#autocapitalize)
+- [`autoComplete`](textinput.md#autocomplete)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
@@ -113,6 +114,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`inlineImagePadding`](textinput.md#inlineimagepadding)
 - [`keyboardAppearance`](textinput.md#keyboardappearance)
 - [`keyboardType`](textinput.md#keyboardtype)
+- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
 - [`maxLength`](textinput.md#maxlength)
 - [`multiline`](textinput.md#multiline)
 - [`numberOfLines`](textinput.md#numberoflines)
@@ -177,6 +179,32 @@ Can tell `TextInput` to automatically capitalize certain characters. This proper
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
 | enum('none', 'sentences', 'words', 'characters') | No       |
+
+---
+
+### `autoComplete`
+
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
+
+Possible values for `autoComplete` are:
+
+* `off`
+* `username`
+* `password`
+* `email`
+* `name`
+* `tel`
+* `street-address`
+* `postal-code`
+* `cc-number`
+* `cc-csc`
+* `cc-exp`
+* `cc-exp-month`
+* `cc-exp-year`
+
+| Type                                                                                                                                                         | Required | Platform |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
+| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | No       | Android  |
 
 ---
 
@@ -351,6 +379,8 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
+See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+
 The following values work across platforms:
 
 * `default`
@@ -383,6 +413,20 @@ The following values work on Android only:
 
 ---
 
+### `maxFontSizeMultiplier`
+
+Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+
+* `null/undefined` (default): inherit from the parent node or the global default (0)
+* `0`: no max, ignore parent/global default
+* `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
+
+---
+
 ### `maxLength`
 
 Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
@@ -395,7 +439,7 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`.
+If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
 
 | Type | Required |
 | ---- | -------- |
@@ -425,7 +469,7 @@ Callback that is called when the text input is blurred.
 
 ### `onChange`
 
-Callback that is called when the text input's text changes.
+Callback that is called when the text input's text changes. This will be called with `{ nativeEvent: { eventCount, target, text} }`
 
 | Type     | Required |
 | -------- | -------- |
@@ -435,7 +479,7 @@ Callback that is called when the text input's text changes.
 
 ### `onChangeText`
 
-Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.
+Callback that is called when the text input's text changes. Changed text is passed as a single string argument to the callback handler.
 
 | Type     | Required |
 | -------- | -------- |
@@ -467,7 +511,7 @@ Callback that is called when text input ends.
 
 ### `onFocus`
 
-Callback that is called when the text input is focused.
+Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -487,7 +531,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{x, y, width, height}`.
+Invoked on mount and layout changes with `{ nativeEvent: {layout: {x, y, width, height}, target } }`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -784,7 +828,12 @@ Removes all text from the `TextInput`.
 ### `isFocused()`
 
 ```javascript
-isFocused():
+isFocused();
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.
+
+# Known issues
+
+* [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
+* [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.

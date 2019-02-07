@@ -9,7 +9,7 @@ To update the data in the datasource, use `cloneWithRows` (or `cloneWithRowsAndS
 
 In this example, a component receives data in chunks, handled by `_onDataArrived`, which concats the new data onto the old data and updates the data source. We use `concat` to create a new array - mutating `this._data`, e.g. with `this._data.push(newRowData)`, would be an error. `_rowHasChanged` understands the shape of the row data and knows how to efficiently compare it.
 
-```
+```javascript
 getInitialState: function() {
   var ds = new ListView.DataSource({rowHasChanged: this._rowHasChanged});
   return {ds};

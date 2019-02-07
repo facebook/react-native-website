@@ -24,34 +24,32 @@ npm install --save react-navigation
 
 Then you can quickly create an app with a home screen and a profile screen:
 
-```
-import {
-  createStackNavigator,
-} from 'react-navigation';
+```javascript
+import {createStackNavigator, createAppNavigator} from 'react-navigation';
 
-const App = createStackNavigator({
-  Home: { screen: HomeScreen },
-  Profile: { screen: ProfileScreen },
+const MainNavigator = createStackNavigator({
+  Home: {screen: HomeScreen},
+  Profile: {screen: ProfileScreen},
 });
+
+const App = createAppNavigator(MainNavigator);
 
 export default App;
 ```
 
 Each screen component can set navigation options such as the header title. It can use action creators on the `navigation` prop to link to other screens:
 
-```
+```javascript
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome',
   };
   render() {
-    const { navigate } = this.props.navigation;
+    const {navigate} = this.props.navigation;
     return (
       <Button
         title="Go to Jane's profile"
-        onPress={() =>
-          navigate('Profile', { name: 'Jane' })
-        }
+        onPress={() => navigate('Profile', {name: 'Jane'})}
       />
     );
   }

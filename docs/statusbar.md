@@ -9,17 +9,14 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```
- <View>
-   <StatusBar
-     backgroundColor="blue"
-     barStyle="light-content"
-   />
-   <View>
-     <StatusBar hidden={route.statusBarHidden} />
-     ...
-   </View>
- </View>
+```javascript
+<View>
+  <StatusBar backgroundColor="blue" barStyle="light-content" />
+  <View>
+    <StatusBar hidden={route.statusBarHidden} />
+    ...
+  </View>
+</View>
 ```
 
 ### Imperative API

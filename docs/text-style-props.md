@@ -151,9 +151,9 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `letterSpacing`
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   | Required | Platform            |
+| ------ | -------- | ------------------- |
+| number | No       | iOS, Android >= 5.0 |
 
 ---
 

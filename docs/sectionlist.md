@@ -64,12 +64,12 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 Required props:
 
 * [`sections`](sectionlist.md#sections)
+* [`renderItem`](sectionlist.md#renderitem)
 
 Optional props:
 
 * [`initialNumToRender`](sectionlist.md#initialnumtorender)
 * [`keyExtractor`](sectionlist.md#keyextractor)
-* [`renderItem`](sectionlist.md#renderitem)
 * [`onEndReached`](sectionlist.md#onendreached)
 * [`extraData`](sectionlist.md#extradata)
 * [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
@@ -236,7 +236,7 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 ### `onRefresh`
 
-If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
+If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly. To offset the RefreshControl from the top (e.g. by 100 pts), use `progressViewOffset={100}`.
 
 | Type         | Required |
 | ------------ | -------- |

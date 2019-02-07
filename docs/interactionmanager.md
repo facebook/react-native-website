@@ -7,7 +7,7 @@ InteractionManager allows long-running work to be scheduled after any interactio
 
 Applications can schedule tasks to run after interactions with the following:
 
-```
+```javascript
 InteractionManager.runAfterInteractions(() => {
   // ...long-running synchronous task...
 });
@@ -23,7 +23,7 @@ The touch handling system considers one or more active touches to be an 'interac
 
 InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
 
-```
+```javascript
 var handle = InteractionManager.createInteractionHandle();
 // run animation... (`runAfterInteractions` tasks are queued)
 // later, on animation completion:

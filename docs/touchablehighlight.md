@@ -11,7 +11,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 
 Example:
 
-```
+```javascript
 renderButton: function() {
   return (
     <TouchableHighlight onPress={this._onPressButton}>
@@ -110,7 +110,7 @@ AppRegistry.registerComponent('App', () => App)
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is active. The value should be between 0 and 1. Defaults to 0.85.
+Determines what the opacity of the wrapped view should be when touch is active. The value should be between 0 and 1. Defaults to 0.85. Requires `underlayColor` to be set.
 
 | Type   | Required |
 | ------ | -------- |

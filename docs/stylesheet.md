@@ -7,7 +7,7 @@ A StyleSheet is an abstraction similar to CSS StyleSheets
 
 Create a new StyleSheet:
 
-```
+```javascript
 const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 Use a StyleSheet:
 
-```
+```javascript
 <View style={styles.container}>
   <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
 </View>
@@ -120,7 +120,7 @@ var styles = StyleSheet.create({
 });
 
 StyleSheet.flatten(styles.listItem);
-// return { flex: 1, fontSize: 16, color: 'white' }
+// returns { flex: 1, fontSize: 16, color: 'white' }
 // Simply styles.listItem would return its ID (number)
 ```
 
@@ -147,18 +147,12 @@ A line with hairline width may not be visible if your simulator is downscaled.
 
 ### `absoluteFill`
 
-A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles.
-
----
-
-### `absoluteFillObject`
-
-Sometimes you may want absoluteFill but with a couple tweaks - absoluteFillObject can be used to create a customized entry in a StyleSheet, e.g.:
+A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
 
 ```javascript
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     top: 10,
     backgroundColor: 'transparent',
   },

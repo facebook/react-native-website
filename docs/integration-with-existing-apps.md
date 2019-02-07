@@ -560,7 +560,7 @@ You can examine the code that added the React Native screen to our sample app on
 
 Add the React Native dependency to your app's `build.gradle` file:
 
-```
+```gradle
 dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     ...
@@ -572,7 +572,7 @@ dependencies {
 
 Add an entry for the local React Native maven directory to `build.gradle`. Be sure to add it to the "allprojects" block, above other maven repositories:
 
-```
+```gradle
 allprojects {
     repositories {
         maven {
@@ -598,6 +598,51 @@ If you need to access to the `DevSettingsActivity` add to your `AndroidManifest.
     <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
 
 This is only used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
+
+### Network Security Config (API level 28+)
+
+> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. These changes add domain rules that specifically allow cleartext traffic to the packager IPs. 
+
+#### 1. Create the following resource files
+
+`app/src/debug/res/xml/network_security_config.xml`:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <!-- allow cleartext traffic for React Native packager ips in debug -->
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="false">localhost</domain>
+    <domain includeSubdomains="false">10.0.2.2</domain>
+    <domain includeSubdomains="false">10.0.3.2</domain>
+  </domain-config>
+</network-security-config>
+```
+
+`app/src/release/res/xml/network_security_config.xml`:
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <!-- deny cleartext traffic for React Native packager ips in release -->
+  <domain-config cleartextTrafficPermitted="false">
+    <domain includeSubdomains="false">localhost</domain>
+    <domain includeSubdomains="false">10.0.2.2</domain>
+    <domain includeSubdomains="false">10.0.3.2</domain>
+  </domain-config>
+</network-security-config>
+```
+
+#### 2. Apply the config to your `AndroidManifest.xml`
+
+```xml
+<!-- ... -->
+<application
+  android:networkSecurityConfig="@xml/network_security_config">
+  <!-- ... -->
+</application>
+<!-- ... -->
+```
+
+To learn more about Network Security Config and the cleartext traffic policy [see this link](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted).
 
 ### Code integration
 
