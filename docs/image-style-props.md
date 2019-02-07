@@ -141,7 +141,7 @@ When the image has rounded corners, specifying an overlayColor will cause the re
 
 A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
-For details of how this works under the hood, see http://frescolib.org/rounded-corners-and-circles.md
+For details of how this works under the hood, see https://frescolib.org/docs/rounded-corners-and-circles.html
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
