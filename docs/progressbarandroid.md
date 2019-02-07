@@ -7,14 +7,9 @@ Android-only React component used to indicate that the app is loading or there i
 
 Example:
 
-```
-import React, { Component } from "react";
-import {
-  ProgressBarAndroid,
-  AppRegistry,
-  StyleSheet,
-  View
-} from "react-native";
+```javascript
+import React, {Component} from 'react';
+import {ProgressBarAndroid, AppRegistry, StyleSheet, View} from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -36,12 +31,12 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-evenly",
-    padding: 10
-  }
+    justifyContent: 'space-evenly',
+    padding: 10,
+  },
 });
 
-AppRegistry.registerComponent("App", () => App);
+AppRegistry.registerComponent('App', () => App);
 ```
 
 ### Props

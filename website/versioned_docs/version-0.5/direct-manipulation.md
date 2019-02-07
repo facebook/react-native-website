@@ -55,7 +55,7 @@ render() {
 
 This is computationally intensive compared to the original example - React needs to re-render the component hierarchy each time the opacity changes, even though other properties of the view and its children haven't changed. Usually this overhead isn't a concern but when performing continuous animations and responding to gestures, judiciously optimizing your components can improve your animations' fidelity.
 
-If you look at the implementation of `setNativeProps` in [NativeMethodsMixin.js](https://github.com/facebook/react/blob/master/src/renderers/native/NativeMethodsMixin.js) you will notice that it is a wrapper around `RCTUIManager.updateView` - this is the exact same function call that results from re-rendering - see [receiveComponent in ReactNativeBaseComponent.js](https://github.com/facebook/react/blob/master/src/renderers/native/ReactNativeBaseComponent.js).
+If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](https://github.com/facebook/react-native/blob/master/Libraries/Renderer/oss/ReactNativeRenderer-prod.js) you will notice that it is a wrapper around `RCTUIManager.updateView` - this is the exact same function call that results from re-rendering - see [receiveComponent in ReactNativeBaseComponent.js](https://github.com/facebook/react/blob/master/src/renderers/native/ReactNativeBaseComponent.js).
 
 ## Composite components and setNativeProps
 
@@ -121,7 +121,7 @@ export default class App extends React.Component {
 }
 ```
 
-You can now use `MyButton` inside of `TouchableOpacity`! A sidenote for clarity: we used the [ref callback](https://facebook.github.io/react/more-about-refs.md#the-ref-callback-attribute) syntax here, rather than the traditional string-based ref.
+You can now use `MyButton` inside of `TouchableOpacity`! A sidenote for clarity: we used the [ref callback](https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element) syntax here, rather than the traditional string-based ref.
 
 You may have noticed that we passed all of the props down to the child view using `{...this.props}`. The reason for this is that `TouchableOpacity` is actually a composite component, and so in addition to depending on `setNativeProps` on its child, it also requires that the child perform touch handling. To do this, it passes on [various props](view.md#onmoveshouldsetresponder) that call back to the `TouchableOpacity` component. `TouchableHighlight`, in contrast, is backed by a native view and only requires that we implement `setNativeProps`.
 
@@ -192,7 +192,11 @@ Determines the location of the given view in the window and returns the values v
 
 Like `measure()`, but measures the view relative an ancestor, specified as `relativeToNativeNode`. This means that the returned x, y are relative to the origin x, y of the ancestor view.
 
-As always, to obtain a native node handle for a component, you can use `ReactNative.findNodeHandle(component)`.
+As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
+
+```javascript
+import {findNodeHandle} from 'react-native';
+```
 
 ### focus()
 

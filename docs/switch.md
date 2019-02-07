@@ -7,17 +7,16 @@ Renders a boolean input.
 
 This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
 
-@keyword checkbox @keyword toggle
-
 ### Props
 
 * [View props...](view.md#props)
 
 - [`disabled`](switch.md#disabled)
-- [`onTintColor`](switch.md#ontintcolor)
+- [`trackColor`](switch.md#trackcolor)
+- [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
 - [`onValueChange`](switch.md#onvaluechange)
 - [`testID`](switch.md#testid)
-- [`thumbTintColor`](switch.md#thumbtintcolor)
+- [`thumbColor`](switch.md#thumbcolor)
 - [`tintColor`](switch.md#tintcolor)
 - [`value`](switch.md#value)
 
@@ -37,9 +36,21 @@ If true the user won't be able to toggle the switch. Default value is false.
 
 ---
 
-### `onTintColor`
+### `trackColor`
 
-Background color when the switch is turned on.
+Custom colors for the switch track.
+
+_iOS_: When the switch value is false, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
+
+| Type                                                          | Required |
+| ------------------------------------------------------------- | -------- |
+| object: {false: [color](colors.md), true: [color](colors.md)} | No       |
+
+---
+
+### `ios_backgroundColor`
+
+On iOS, custom color for the background. This background color can be seen either when the switch value is false or when the switch is disabled (and the switch is translucent).
 
 | Type               | Required |
 | ------------------ | -------- |
@@ -67,7 +78,7 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `thumbTintColor`
+### `thumbColor`
 
 Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
 
@@ -78,6 +89,8 @@ Color of the foreground switch grip. If this is set on iOS, the switch grip will
 ---
 
 ### `tintColor`
+
+`tintColor` is deprecated, use `trackColor` instead.
 
 Border color on iOS and background color on Android when the switch is turned off.
 

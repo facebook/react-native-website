@@ -7,13 +7,15 @@ The Geolocation API extends the [Geolocation web spec](https://developer.mozilla
 
 As a browser polyfill, this API is available through the `navigator.geolocation` global - you do not need to `import` it.
 
+On Android, this uses the [android.location API](https://developer.android.com/reference/android/location/package-summary). This API is not recommended by Google because it is less accurate and slower than the recommended [Google Location Services API](https://developer.android.com/training/location/). In order to use it with React Native, use the [react-native-geolocation-service](https://github.com/Agontuk/react-native-geolocation-service) module.
+
 ### Configuration and Permissions
 
 <div class="banner-crna-ejected">
   <h3>Projects with Native Code Only</h3>
   <p>
     This section only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
+    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
@@ -61,7 +63,7 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 ### `setRNConfiguration()`
 
 ```javascript
-Geolocation.setRNConfiguration(config);
+geolocation.setRNConfiguration(config);
 ```
 
 Sets configuration options that will be used in all location requests.
@@ -81,7 +83,7 @@ Supported options:
 ### `requestAuthorization()`
 
 ```javascript
-Geolocation.requestAuthorization();
+geolocation.requestAuthorization();
 ```
 
 Request suitable Location permission based on the key configured on pList. If NSLocationAlwaysUsageDescription is set, it will request Always authorization, although if NSLocationWhenInUseUsageDescription is set, it will request InUse authorization.
@@ -91,7 +93,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```javascript
-Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
+geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ```
 
 Invokes the success callback once with the latest location info.
@@ -106,16 +108,16 @@ Invokes the success callback once with the latest location info.
 
 Supported options:
 
-* `timeout` (ms)
-* `maximumAge` (ms) - Defaults to INFINITY.
-* `enableHighAccuracy` (bool) - On Android, if the location is cached this can return almost immediately, or it will request an update which might take a while.
+* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
+* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
 
 ---
 
 ### `watchPosition()`
 
 ```javascript
-Geolocation.watchPosition(success, [error], [options]);
+geolocation.watchPosition(success, [error], [options]);
 ```
 
 Invokes the success callback whenever the location changes. Returns a `watchId` (number).
@@ -130,18 +132,18 @@ Invokes the success callback whenever the location changes. Returns a `watchId` 
 
 Supported options:
 
-* `timeout` (ms)
-* `maximumAge` (ms) - Defaults to INFINITY.
-* `enableHighAccuracy` (bool)
-* `distanceFilter` (m)
-* `useSignificantChanges` (bool)
+* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
+* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
+* `distanceFilter` (m) - The minimum distance from the previous location to exceed before returning a new location. Set to 0 to not filter locations. Defaults to 100m.
+* `useSignificantChanges` (bool) - Uses the battery-efficient native significant changes APIs to return locations. Locations will only be returned when the device detects a significant distance has been breached. Defaults to FALSE.
 
 ---
 
 ### `clearWatch()`
 
 ```javascript
-Geolocation.clearWatch(watchID);
+geolocation.clearWatch(watchID);
 ```
 
 **Parameters:**
@@ -155,7 +157,7 @@ Geolocation.clearWatch(watchID);
 ### `stopObserving()`
 
 ```javascript
-Geolocation.stopObserving();
+geolocation.stopObserving();
 ```
 
 Stops observing for device location changes. In addition, it removes all listeners previously registered.

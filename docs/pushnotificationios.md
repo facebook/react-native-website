@@ -7,7 +7,7 @@ title: PushNotificationIOS
   <h3>Projects with Native Code Only</h3>
   <p>
     This section only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
+    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
@@ -31,7 +31,7 @@ At the top of your `AppDelegate.m`:
 
 And then in your AppDelegate implementation add the following:
 
-```
+```objectivec
  // Required to register for notifications
  - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
  {
@@ -62,7 +62,7 @@ And then in your AppDelegate implementation add the following:
 
 ### Methods
 
-* [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
+* [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
 * [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
 * [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
 * [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
@@ -475,4 +475,4 @@ Gets the badge count number from the `aps` object
 getData();
 ```
 
-Gets the data object on the notif
+Gets the data object on the notification

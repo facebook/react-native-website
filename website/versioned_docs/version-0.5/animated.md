@@ -14,7 +14,7 @@ Animated.timing(
   this.state.fadeAnim, // The value to drive
   {
     toValue: 1, // Animate to final value of 1
-  }
+  },
 ).start(); // Start the animation
 ```
 
@@ -254,7 +254,7 @@ Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an a
 Other configuration options are as follows:
 
 * `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
-* `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
+* `overshootClamping`: Boolean indicating whether the spring should be clamped and not bounce. Default false.
 * `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
 * `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
 * `delay`: Start the animation after delay (milliseconds). Default 0.
@@ -420,16 +420,21 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 ### `loop()`
 
 ```javascript
-Animated.loop(animation);
+Animated.loop(animation, [config]);
 ```
 
-Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Can specify number of times to loop using the key `iterations` in the config. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
 
 **Parameters:**
 
 | Name      | Type      | Required | Description        |
 | --------- | --------- | -------- | ------------------ |
 | animation | animation | Yes      | Animation to loop. |
+| config    | object    | No       | See below.         |
+
+Config is an object that may have the following options:
+
+* `iterations`: Number of times the animation should loop. Default `-1` (infinite).
 
 ---
 

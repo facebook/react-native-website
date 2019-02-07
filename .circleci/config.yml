@@ -52,8 +52,14 @@ jobs:
           at: ~/react-native-website
       - run: yarn ci-check
       - run: yarn test
+      - run:
+          name: Check for missing index.html (build errors)
+          command: |
+            if [ ! -f build/react-native/index.html ]; then
+              exit 1;
+            fi
 
-  # Deploys website 
+  # Deploys website
   deploy_website:
     <<: *defaults
     working_directory: ~/react-native-website/website
@@ -88,7 +94,7 @@ workflows:
       - test_website:
           requires:
             - checkout_code
-    
+
   # If we are on master, deploy docs
   deploy:
     jobs:

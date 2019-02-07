@@ -28,7 +28,7 @@ Text to display for this item.
 
 ### `color`
 
-The value to be passed to picker's `onValueChange` callback when this item is selected. Can be a string or an integer.
+Color of this item's text.
 
 | Type               | Required |
 | ------------------ | -------- |
@@ -44,7 +44,7 @@ Used to locate the item in end-to-end tests.
 
 ### `value`
 
-Color of this item's text.
+The value to be passed to picker's `onValueChange` callback when this item is selected. Can be a string or an integer.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

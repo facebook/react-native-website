@@ -19,6 +19,7 @@ You can also use the `@2x` and `@3x` suffixes to provide images for different sc
 .
 ├── button.js
 └── img
+    ├── check.png
     ├── check@2x.png
     └── check@3x.png
 ```
@@ -64,9 +65,9 @@ Note that image sources required this way include size (width, height) info for 
 
 ## Static Non-Image Resources
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) for the full list.
+The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
 
-You can add support for other types by creating a packager config file (see the [packager config file](https://github.com/facebook/metro/blob/master/packages/metro/src/defaults.js#L14-L44) for the full list of configuration options).
+You can add support for other types by creating a packager config file (see the [packager config file](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) for the full list of configuration options).
 
 A caveat is that videos must use absolute positioning instead of `flexGrow`, since size info is not currently passed for non-image assets. This limitation doesn't occur for videos that are linked directly into Xcode or the Assets folder for Android.
 
@@ -131,7 +132,7 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
   style={{
     width: 51,
     height: 51,
-    resizeMode: Image.resizeMode.contain,
+    resizeMode: 'contain',
   }}
   source={{
     uri:
@@ -195,15 +196,17 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
-You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [source code](https://github.com/facebook/react-native/blob/master/Libraries/Image/ImageBackground.js) for more insight, and create your own custom component when needed.
+You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
 
 ```javascript
 return (
-  <ImageBackground source={...}>
+  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>
   </ImageBackground>
 );
 ```
+
+Note that you must specify some width and height style attributes.
 
 ## iOS Border Radius Styles
 

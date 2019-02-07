@@ -9,7 +9,7 @@ It is important all children are `<View>`s and not composite components. You can
 
 Example:
 
-```
+```javascript
 render: function() {
   return (
     <ViewPagerAndroid
@@ -43,16 +43,16 @@ var styles = {
 
 * [View props...](view.md#props)
 
-- [`initialPage`](viewpagerandroid.md#initialpage)
-- [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
-- [`onPageScroll`](viewpagerandroid.md#onpagescroll)
-- [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
-- [`onPageSelected`](viewpagerandroid.md#onpageselected)
-- [`pageMargin`](viewpagerandroid.md#pagemargin)
-- [`peekEnabled`](viewpagerandroid.md#peekenabled)
-- [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
-- [`setPage`](viewpagerandroid.md#setpage)
-- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
+* [`initialPage`](viewpagerandroid.md#initialpage)
+* [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
+* [`onPageScroll`](viewpagerandroid.md#onpagescroll)
+* [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
+* [`onPageSelected`](viewpagerandroid.md#onpageselected)
+* [`pageMargin`](viewpagerandroid.md#pagemargin)
+* [`peekEnabled`](viewpagerandroid.md#peekenabled)
+* [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
+* [`setPage`](viewpagerandroid.md#setpage)
+* [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
 
 ### Type Definitions
 
@@ -89,10 +89,10 @@ Determines whether the keyboard gets dismissed in response to a drag.
 
 ### `onPageScroll`
 
-Executed when transitioning between pages (ether because of animation for the requested page change or when user is swiping/dragging between pages) The `event.nativeEvent` object for this callback will carry following data:
+Executed when transitioning between pages (either because of animation for the requested page change or when user is swiping/dragging between pages) The `event.nativeEvent` object for this callback will carry following data:
 
 * position - index of first page from the left that is currently visible
-* offset - value from range [0,1) describing stage between page transitions. Value x means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
+* offset - value from range [0, 1] describing stage between page transitions. Value x means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
 
 | Type     | Required |
 | -------- | -------- |
@@ -106,7 +106,7 @@ Function called when the page scrolling state has changed. The page scrolling st
 
 * idle, meaning there is no interaction with the page scroller happening at the time
 * dragging, meaning there is currently an interaction with the page scroller
-* settling, meaning that there was an interaction with the page scroller, and the page scroller is now finishing it's closing or opening animation
+* settling, meaning that there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation
 
 | Type     | Required |
 | -------- | -------- |
@@ -162,21 +162,21 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 * position - index of page that will be selected
 
-| Type     | Required |
-| -------- | -------- |
-| Number   | Yes      |
+| Type   | Required |
+| ------ | -------- |
+| Number | Yes      |
 
 ---
 
 ### `setPageWithoutAnimation`
 
-A helper function to scroll to a specific page in the ViewPager. The transition between pages will *not* be animated.
+A helper function to scroll to a specific page in the ViewPager. The transition between pages will _not_ be animated.
 
 * position - index of page that will be selected
 
-| Type     | Required |
-| -------- | -------- |
-| Number   | Yes      |
+| Type   | Required |
+| ------ | -------- |
+| Number | Yes      |
 
 ## Type Definitions
 

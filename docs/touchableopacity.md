@@ -9,7 +9,7 @@ Opacity is controlled by wrapping the children in an Animated.View, which is add
 
 Example:
 
-```
+```javascript
 renderButton: function() {
   return (
     <TouchableOpacity onPress={this._onPressButton}>
@@ -92,6 +92,7 @@ AppRegistry.registerComponent('App', () => App)
 
 * [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
+- [`style`](touchableopacity.md#style)
 - [`activeOpacity`](touchableopacity.md#activeopacity)
 - [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
 - [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
@@ -105,6 +106,14 @@ AppRegistry.registerComponent('App', () => App)
 # Reference
 
 ## Props
+
+### `style`
+
+| Type       | Required |
+| ---------- | -------- |
+| View.style | No       |
+
+---
 
 ### `activeOpacity`
 

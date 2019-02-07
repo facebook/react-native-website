@@ -11,21 +11,27 @@ On iOS, `AsyncStorage` is backed by native code that stores small values in a se
 
 The `AsyncStorage` JavaScript code is a simple facade that provides a clear JavaScript API, real `Error` objects, and simple non-multi functions. Each method in the API returns a `Promise` object.
 
+Importing the `AsyncStorage` library:
+
+```javascript
+import {AsyncStorage} from 'react-native';
+```
+
 Persisting data:
 
-```
+```javascript
 _storeData = async () => {
   try {
     await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
   } catch (error) {
     // Error saving data
   }
-}
+};
 ```
 
 Fetching data:
 
-```
+```javascript
 _retrieveData = async () => {
   try {
     const value = await AsyncStorage.getItem('TASKS');
@@ -33,10 +39,10 @@ _retrieveData = async () => {
       // We have data!!
       console.log(value);
     }
-   } catch (error) {
-     // Error retrieving data
-   }
-}
+  } catch (error) {
+    // Error retrieving data
+  }
+};
 ```
 
 ### Methods
@@ -186,7 +192,7 @@ Gets _all_ keys known to your app; for all callers, libraries, etc. Returns a `P
 
 | Name     | Type                                           | Required | Description                                                |
 | -------- | ---------------------------------------------- | -------- | ---------------------------------------------------------- |
-| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called the keys found and any error. |
+| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called with all keys found and any error. |
 
 ---
 

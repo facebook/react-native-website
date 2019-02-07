@@ -8,6 +8,10 @@ Sometimes an app needs access to a platform API that React Native doesn't have a
 
 We designed React Native such that it is possible for you to write real native code and have access to the full power of the platform. This is a more advanced feature and we don't expect it to be part of the usual development process, however it is essential that it exists. If React Native doesn't support a native feature that you need, you should be able to build it yourself.
 
+## Native Module Setup
+
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
+
 ### Enable Gradle
 
 If you plan to make changes in Java code, we recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) to speed up builds.
@@ -18,8 +22,12 @@ This guide will use the [Toast](http://developer.android.com/reference/android/w
 
 We start by creating a native module. A native module is a Java class that usually extends the `ReactContextBaseJavaModule` class and implements the functionality required by the JavaScript. Our goal here is to be able to write `ToastExample.show('Awesome', ToastExample.SHORT);` from JavaScript to display a short toast on the screen.
 
+create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+
 ```java
-package com.facebook.react.modules.toast;
+// ToastModule.java
+
+package com.your-app-name;
 
 import android.widget.Toast;
 
@@ -94,8 +102,12 @@ Read more about [ReadableMap](https://github.com/facebook/react-native/blob/mast
 
 The last step within Java is to register the Module; this happens in the `createNativeModules` of your apps package. If a module is not registered it will not be available from JavaScript.
 
+create a new Java Class named `CustomToastPackage.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+
 ```java
-package com.facebook.react.modules.toast;
+// CustomToastPackage.java
+
+package com.your-app-name;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -106,7 +118,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class AnExampleReactPackage implements ReactPackage {
+public class CustomToastPackage implements ReactPackage {
 
   @Override
   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
@@ -129,10 +141,16 @@ public class AnExampleReactPackage implements ReactPackage {
 The package needs to be provided in the `getPackages` method of the `MainApplication.java` file. This file exists under the android folder in your react-native application directory. The path to this file is: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
+// MainApplication.java
+
+...
+import com.your-app-name.CustomToastPackage; // <-- Add this line with your package name.
+...
+
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new AnExampleReactPackage()); // <-- Add this line with your package name.
+            new CustomToastPackage()); // <-- Add this line with your package name.
 }
 ```
 
@@ -204,7 +222,7 @@ UIManager.measureLayout(
   },
   (x, y, width, height) => {
     console.log(x + ':' + y + ':' + width + ':' + height);
-  }
+  },
 );
 ```
 
@@ -256,7 +274,7 @@ async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
       100,
-      100
+      100,
     );
 
     console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);

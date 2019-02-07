@@ -7,12 +7,12 @@ It is a component to solve the common problem of views that need to move out of 
 
 Example usage:
 
-```
-import { KeyboardAvoidingView } from 'react-native';
+```javascript
+import {KeyboardAvoidingView} from 'react-native';
 
 <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
   ... your UI ...
-</KeyboardAvoidingView>
+</KeyboardAvoidingView>;
 ```
 
 ### Example
@@ -27,12 +27,6 @@ import { KeyboardAvoidingView } from 'react-native';
 - [`behavior`](keyboardavoidingview.md#behavior)
 - [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
 - [`enabled`](keyboardavoidingview.md#enabled)
-
-### Methods
-
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
 
 ---
 
@@ -72,32 +66,8 @@ The style of the content container(View) when behavior is 'position'.
 
 ### `enabled`
 
-Enabled or disabled KeyboardAvoidingView.
+Enabled or disabled KeyboardAvoidingView. The default is `true`.
 
-| Type       | Required |
-| ---------- | -------- |
-| boolean    | Yes      |
-
-## Methods
-
-### `relativeKeyboardHeight()`
-
-```javascript
-relativeKeyboardHeight(keyboardFrame: object):
-```
-
----
-
-### `onKeyboardChange()`
-
-```javascript
-onKeyboardChange((event: object));
-```
-
----
-
-### `onLayout()`
-
-```javascript
-onLayout((event: ViewLayoutEvent));
-```
+| Type    | Required |
+| ------- | -------- |
+| boolean | No       |

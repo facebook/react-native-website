@@ -7,7 +7,7 @@ title: AppRegistry
   <h3>Project with Native Code Required</h3>
   <p>
     This API only works in projects made with <code>react-native init</code>
-    or in those made with Create React Native App which have since ejected. For
+    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
@@ -18,7 +18,7 @@ title: AppRegistry
 
 To "stop" an application when a view should be destroyed, call `AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was passed into `runApplication`. These should always be used as a pair.
 
-`AppRegistry` should be `require`d early in the `require` sequence to make sure the JS execution environment is setup before other modules are `require`d.
+`AppRegistry` should be required early in the `require` sequence to make sure the JS execution environment is setup before other modules are required.
 
 ### Methods
 

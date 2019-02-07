@@ -33,7 +33,8 @@
       "version-0.50-integration-with-existing-apps",
       "version-0.50-running-on-device",
       "version-0.50-upgrading",
-      "version-0.50-troubleshooting"
+      "version-0.50-troubleshooting",
+      "version-0.50-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.50-native-modules-ios",
@@ -48,7 +49,8 @@
       "version-0.50-native-modules-android",
       "version-0.50-native-components-android",
       "version-0.50-headless-js-android",
-      "version-0.50-signed-apk-android"
+      "version-0.50-signed-apk-android",
+      "version-0.50-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.50-contributing",
@@ -64,6 +66,7 @@
       "version-0.50-drawerlayoutandroid",
       "version-0.50-flatlist",
       "version-0.50-image",
+      "version-0.50-imagebackground",
       "version-0.50-keyboardavoidingview",
       "version-0.50-listview",
       "version-0.50-maskedviewios",

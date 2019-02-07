@@ -16,8 +16,10 @@ body {
   }
 }
 
-.docsNavContainer {
-  width: 240px;
+@media only screen and (min-width: 736px) {
+  .docsNavContainer {
+    width: 240px;
+  }
 }
 
 .mainContainer h1,
@@ -31,15 +33,6 @@ body {
 
 a {
   color: $secondaryColor;
-  text-decoration: none !important;
-}
-
-.navGroup {
-  background-color: #eaf2f5 !important;
-}
-
-.navitemactive {
-  color: $secondaryColor !important;
 }
 
 input#search_input_react {
@@ -153,7 +146,10 @@ code {
 
 p {
   font-size: 18px;
-  line-height: 1.4;
+}
+
+li {
+  font-size: 18px;
 }
 
 .big-button {
@@ -170,12 +166,13 @@ p {
   text-decoration: none;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .big-button:hover {
-  background: $tintColor;
+  background: #047598;
   color: #fff;
+  transform: scale(1.05);
 }
 
 .big-button a {
@@ -208,7 +205,6 @@ p {
 
 .hljs {
   line-height: 20px;
-  border-left: 4px solid #05a5d1;
   background-color: rgba(5, 165, 209, 0.05);
 }
 

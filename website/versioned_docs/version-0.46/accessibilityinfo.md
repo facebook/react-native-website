@@ -17,7 +17,7 @@ class ScreenReaderStatusExample extends React.Component {
   componentDidMount() {
     AccessibilityInfo.addEventListener(
       'change',
-      this._handleScreenReaderToggled
+      this._handleScreenReaderToggled,
     );
     AccessibilityInfo.fetch().done((isEnabled) => {
       this.setState({
@@ -29,7 +29,7 @@ class ScreenReaderStatusExample extends React.Component {
   componentWillUnmount() {
     AccessibilityInfo.removeEventListener(
       'change',
-      this._handleScreenReaderToggled
+      this._handleScreenReaderToggled,
     );
   }
 

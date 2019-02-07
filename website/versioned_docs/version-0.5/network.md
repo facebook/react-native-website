@@ -61,7 +61,7 @@ You can also use the proposed ES2017 `async`/`await` syntax in a React Native ap
 async function getMoviesFromApi() {
   try {
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json'
+      'https://facebook.github.io/react-native/movies.json',
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -119,7 +119,7 @@ export default class FetchExample extends React.Component {
         <FlatList
           data={this.state.dataSource}
           renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-          keyExtractor={(item, index) => index}
+          keyExtractor={({id}, index) => id}
         />
       </View>
     );

@@ -65,6 +65,9 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 - [`scrollsToTop`](scrollview.md#scrollstotop)
 - [`snapToAlignment`](scrollview.md#snaptoalignment)
 - [`snapToInterval`](scrollview.md#snaptointerval)
+- [`snapToOffsets`](scrollview.md#snaptooffsets)
+- [`snapToStart`](scrollview.md#snaptostart)
+- [`snapToEnd`](scrollview.md#snaptoend)
 - [`zoomScale`](scrollview.md#zoomscale)
 - [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
@@ -439,12 +442,12 @@ Used to manually set the starting scroll offset. The default value is `{x: 0, y:
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively.
 
-* `'normal'`: 0.998 (the default)
-* `'fast'`: 0.99
+* `'normal'`: 0.998 on iOS, 0.985 on Android (the default)
+* `'fast'`: 0.99 on iOS, 0.9 on Android
 
-| Type                            | Required | Platform |
-| ------------------------------- | -------- | -------- |
-| enum('fast', 'normal'), ,number | No       | iOS      |
+| Type                            | Required |
+| ------------------------------- | -------- |
+| enum('fast', 'normal'), ,number | No       |
 
 ---
 
@@ -550,11 +553,39 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 
 When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop.
 
-Note: Vertical snapToInterval is not supported on Android.
-
 | Type   | Required |
 | ------ | -------- |
 | number | No       |
+
+---
+
+### `snapToOffsets`
+
+When set, causes the scroll view to stop at the defined offsets. This can be used for paginating through variously sized children that have lengths smaller than the scroll view. Typically used in combination with `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` and `snapToInterval` props.
+
+| Type            | Required |
+| --------------- | -------- |
+| array of number | No       |
+
+---
+
+### `snapToStart`
+
+Use in conjuction with `snapToOffsets`. By default, the beginning of the list counts as a snap offset. Set `snapToStart` to false to disable this behavior and allow the list to scroll freely between its start and the first `snapToOffsets` offset. The default value is true.
+
+| Type    | Required |
+| ------- | -------- |
+| boolean | No       |
+
+---
+
+### `snapToEnd`
+
+Use in conjuction with `snapToOffsets`. By default, the end of the list counts as a snap offset. Set `snapToEnd` to false to disable this behavior and allow the list to scroll freely between its end and the last `snapToOffsets` offset. The default value is true.
+
+| Type    | Required |
+| ------- | -------- |
+| boolean | No       |
 
 ---
 
@@ -581,14 +612,17 @@ Enables nested scrolling for Android API level 21+. Nested scrolling is supporte
 ### `scrollTo()`
 
 ```javascript
-scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
+scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean), ([duration]: number));
 ```
-
-Scrolls to a given x, y offset, either immediately or with a smooth animation.
+Scrolls to a given x, y offset, either immediately, with a smooth animation, or, for Android only, a custom animation duration time.
 
 Example:
 
 `scrollTo({x: 0, y: 0, animated: true})`
+
+Example with duration (Android only):
+
+`scrollTo({x: 0, y: 0, duration: 500})`
 
 Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 
@@ -597,12 +631,12 @@ Note: The weird function signature is due to the fact that, for historical reaso
 ### `scrollToEnd()`
 
 ```javascript
-scrollToEnd(([options]: object));
+scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
-Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. If no options are passed, `animated` defaults to true.
+Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({duration: 500})` for a controlled duration scroll. If no options are passed, `animated` defaults to true.
 
 ---
 

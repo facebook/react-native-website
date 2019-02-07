@@ -3,14 +3,24 @@ title: Using TypeScript with React Native
 author: Ash Furrow
 authorTitle: Software Engineer at Artsy
 authorURL: https://github.com/ashfurrow
-authorImage: https://avatars2.githubusercontent.com/u/498212?s=460&v=4
+authorImageURL: https://avatars2.githubusercontent.com/u/498212?s=460&v=4
 authorTwitter: ashfurrow
 category: engineering
 ---
 
 JavaScript! We all love it. But some of us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org), but React Native supports [Flow](https://flow.org) out of the box. Which you prefer is a matter of preference, they each have their own approach on how to add the magic of types to JavaScript. Today, we're going to look at how to use TypeScript in React Native apps.
 
-We'll be using Microsoft's [TypeScript-React-Native-Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter) repo as a guide.
+This post uses Microsoft's [TypeScript-React-Native-Starter](https://github.com/Microsoft/TypeScript-React-Native-Starter) repo as a guide.
+
+**Update**: Since this blog post was written, [Babel 7 was released with integrated TypeScript support](https://blogs.msdn.microsoft.com/typescript/2018/08/27/typescript-and-babel-7/). Babel 7 replaces all the set up described in this blog post with just one command:
+
+```sh
+react-native init MyAwesomeProject --template typescript
+```
+
+However, there _are_ some limitations to Babel's TypeScript support, which the blog post above goes into in detail. The steps outlined in _this_ post still work, and Artsy is still using [react-native-typescript-transformer](https://github.com/ds300/react-native-typescript-transformer) in production, but the fastest way to get up and running with React Native and TypeScript is using the above command. You can always switch later if you have to.
+
+In any case, have fun! The original blog post continues below.
 
 ## Prerequisites
 
@@ -182,13 +192,15 @@ export class Hello extends React.Component<Props, State> {
     }
 
     this.state = {
-      enthusiasmLevel: props.enthusiasmLevel || 1
+      enthusiasmLevel: props.enthusiasmLevel || 1,
     };
   }
 
-  onIncrement = () => this.setState({ enthusiasmLevel: this.state.enthusiasmLevel + 1 });
-  onDecrement = () => this.setState({ enthusiasmLevel: this.state.enthusiasmLevel - 1 });
-  getExclamationMarks = (numChars: number) => Array(numChars + 1).join("!")
+  onIncrement = () =>
+    this.setState({enthusiasmLevel: this.state.enthusiasmLevel + 1});
+  onDecrement = () =>
+    this.setState({enthusiasmLevel: this.state.enthusiasmLevel - 1});
+  getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
 
   render() {
     return (

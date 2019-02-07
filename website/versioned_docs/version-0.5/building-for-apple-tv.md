@@ -1,6 +1,6 @@
 ---
 id: version-0.5-building-for-apple-tv
-title: Building For Apple TV
+title: Building For TV Devices
 original_id: building-for-apple-tv
 ---
 
@@ -140,19 +140,19 @@ var running_on_android_tv = Platform.isTV;
 
 * _Common codebase_: Since tvOS and iOS share most Objective-C and JavaScript code in common, most documentation for iOS applies equally to tvOS.
 
-* _Access to touchable controls_: When running on Apple TV, the native view class is `RCTTVView`, which has additional methods to make use of the tvOS focus engine. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight` and `TouchableOpacity` will "just work". In particular:
+* _Access to touchable controls_: When running on Apple TV, the native view class is `RCTTVView`, which has additional methods to make use of the tvOS focus engine. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableWithoutFeedback`, `TouchableHighlight` and `TouchableOpacity` will "just work". In particular:
 
-  * `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
-  * `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus
-  * `touchableHandlePress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
+  * `onFocus` will be executed when the touchable view goes into focus
+  * `onBlur` will be executed when the touchable view goes out of focus
+  * `onPress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
 
 <block class="android" />
 
-* _Access to touchable controls_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
+* _Access to touchable controls_: When running on Android TV the Android framework will automatically apply a directional navigation scheme based on relative position of focusable elements in your views. The `Touchable` mixin has code added to detect focus changes and use existing methods to style the components properly and initiate the proper actions when the view is selected using the TV remote, so `TouchableWithoutFeedback`, `TouchableHighlight`, `TouchableOpacity` and `TouchableNativeFeedback` will "just work". In particular:
 
-  * `touchableHandleActivePressIn` will be executed when the touchable view goes into focus
-  * `touchableHandleActivePressOut` will be executed when the touchable view goes out of focus
-  * `touchableHandlePress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
+  * `onFocus` will be executed when the touchable view goes into focus
+  * `onBlur` will be executed when the touchable view goes out of focus
+  * `onPress` will be executed when the touchable view is actually selected by pressing the "select" button on the TV remote.
 
 <block class="ios" />
 
@@ -166,10 +166,6 @@ var running_on_android_tv = Platform.isTV;
 
 ```javascript
 var TVEventHandler = require('TVEventHandler');
-
-.
-.
-.
 
 class Game2048 extends React.Component {
   _tvEventHandler: any;
@@ -219,7 +215,7 @@ class Game2048 extends React.Component {
 
 <block class="android" />
 
-* _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, make a long press on the play/pause button on the remote. (Please do not shake the Android TV device, that will not work :) )
+* _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, press the menu button or long press the fast-forward button on the remote. (Please do not shake the Android TV device, that will not work :) )
 
 <block class="ios" />
 

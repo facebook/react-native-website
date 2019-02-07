@@ -75,9 +75,9 @@ The style of the content container(View) when behavior is 'position'.
 
 Enabled or disabled KeyboardAvoidingView.
 
-| Type       | Required |
-| ---------- | -------- |
-| boolean    | Yes      |
+| Type    | Required |
+| ------- | -------- |
+| boolean | Yes      |
 
 ## Methods
 

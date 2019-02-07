@@ -550,9 +550,9 @@ When `snapToInterval` is set, `snapToAlignment` will define the relationship of 
 
 When set, causes the scroll view to stop at multiples of the value of `snapToInterval`. This can be used for paginating through children that have lengths smaller than the scroll view. Typically used in combination with `snapToAlignment` and `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` prop.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 

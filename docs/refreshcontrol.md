@@ -8,6 +8,8 @@ This component is used inside a ScrollView or ListView to add pull to refresh fu
 ### Usage example
 
 ```javascript
+import { ScrollView, RefreshControl } from 'react-native';
+
 class RefreshableList extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class RefreshableList extends Component {
     };
   }
 
-  _onRefresh() {
+  _onRefresh = () => {
     this.setState({refreshing: true});
     fetchData().then(() => {
       this.setState({refreshing: false});
@@ -25,17 +27,15 @@ class RefreshableList extends Component {
 
   render() {
     return (
-      <ListView
+      <ScrollView
         refreshControl={
           <RefreshControl
             refreshing={this.state.refreshing}
-            onRefresh={this._onRefresh.bind(this)}
+            onRefresh={this._onRefresh}
           />
         }
         ...
-      >
-      ...
-      </ListView>
+      />
     );
   }
   ...

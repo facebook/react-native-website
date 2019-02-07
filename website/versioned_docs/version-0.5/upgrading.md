@@ -6,18 +6,18 @@ original_id: upgrading
 
 Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you. The instructions are a bit different depending on whether you used `create-react-native-app` or `react-native init` to create your project.
 
-## Create React Native App projects
+## Expo projects
 
-Upgrading your Create React Native App project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
+Upgrading your Expo project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this list](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
 
-See the [CRNA user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#updating-to-new-releases) for up-to-date information about upgrading your project.
+See the [Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) for up-to-date information about upgrading your project.
 
 ## Projects built with native code
 
 <div class="banner-crna-ejected">
   <h3>Projects with Native Code Only</h3>
   <p>
-    This section only applies to projects made with <code>react-native init</code> or to those made with Create React Native App which have since ejected. For more information about ejecting, please see the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on the Create React Native App repository.
+    This section only applies to projects made with <code>react-native init</code> or to those made with <code>expo init</code> or Create React Native App which have since ejected. For more information about ejecting, please see the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on the Create React Native App repository.
   </p>
 </div>
 
@@ -52,7 +52,15 @@ Run the following command to start the process of upgrading to the latest versio
 $ react-native-git-upgrade
 ```
 
-> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y`
+> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y.Z`
+
+Upon completion, run the following command to find your corresponding git patch file.
+
+```
+$ ls $TMPDIR/react-native-git-upgrade
+```
+
+To apply the git patch, run `git apply <path to patch>` inside your project folder.
 
 The templates are upgraded in a optimized way. You still may encounter conflicts but only where the Git 3-way merge have failed, depending on the version and how you modified your sources.
 
@@ -128,4 +136,4 @@ This will check your files against the latest template and perform the following
 
 ## Manual Upgrades
 
-Some upgrades require manual steps, e.g. 0.13 to 0.14, or 0.28 to 0.29. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
+Some upgrades require manual steps, e.g. 0.28 to 0.29, or 0.56 to 0.57. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.

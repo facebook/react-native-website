@@ -14,7 +14,7 @@ Animated.timing(
   this.state.fadeAnim, // The value to drive
   {
     toValue: 1, // Animate to final value of 1
-  }
+  },
 ).start(); // Start the animation
 ```
 
@@ -298,10 +298,14 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 ### `loop()`
 
 ```javascript
-static loop(animation)
+static loop(animation, config?)
 ```
 
-Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Can specify number of times to loop using the key 'iterations' in the config. Will loop without blocking the UI thread if the child animation is set to 'useNativeDriver'.
+Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`.
+
+Config is an object that may have the following options:
+
+* `iterations`: Number of times the animation should loop. Default `-1` (infinite).
 
 ---
 
@@ -541,7 +545,7 @@ class DraggableView extends React.Component {
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}} // Back to zero
+          {toValue: {x: 0, y: 0}}, // Back to zero
         ).start();
       },
     });

@@ -7,41 +7,45 @@ title: PermissionsAndroid
   <h3>Project with Native Code Required</h3>
   <p>
     This API only works in projects made with <code>react-native init</code>
-    or in those made with Create React Native App which have since ejected. For
+    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
     the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
     the Create React Native App repository.
   </p>
 </div>
 
-`PermissionsAndroid` provides access to Android M's new permissions model. Some permissions are granted by default when the application is installed so long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
+`PermissionsAndroid` provides access to Android M's new permissions model. The so-called "normal" permissions are granted by default when the application is installed as long as they appear in `AndroidManifest.xml`. However, "dangerous" permissions require a dialog prompt. You should use this module for those permissions.
 
-On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` and `request` should always be true.
+On devices before SDK version 23, the permissions are automatically granted if they appear in the manifest, so `check` should always result to `true` and `request` should always resolve to `PermissionsAndroid.RESULTS.GRANTED`.
 
 If a user has previously turned off a permission that you prompt for, the OS will advise your app to show a rationale for needing the permission. The optional `rationale` argument will show a dialog prompt only if necessary - otherwise the normal permission prompt will appear.
 
 ### Example
 
-```
-import { PermissionsAndroid } from 'react-native';
+```javascript
+import {PermissionsAndroid} from 'react-native';
 
 async function requestCameraPermission() {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
-        'title': 'Cool Photo App Camera Permission',
-        'message': 'Cool Photo App needs access to your camera ' +
-                   'so you can take awesome pictures.'
-      }
-    )
+        title: 'Cool Photo App Camera Permission',
+        message:
+          'Cool Photo App needs access to your camera ' +
+          'so you can take awesome pictures.',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      },
+    );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log("You can use the camera")
+      console.log('You can use the camera');
     } else {
-      console.log("Camera permission denied")
+      console.log('Camera permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
 }
 ```
@@ -132,10 +136,20 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 
 **Parameters:**
 
-| Name       | Type   | Required | Description                          |
-| ---------- | ------ | -------- | ------------------------------------ |
-| permission | string | Yes      | The permission to request.           |
-| rationale  | object | No       | Object with a `title` and `message`. |
+| Name       | Type   | Required | Description                |
+| ---------- | ------ | -------- | -------------------------- |
+| permission | string | Yes      | The permission to request. |
+| rationale  | object | No       | See `rationale` below.     |
+
+**Rationale:**
+
+| Name           | Type   | Required | Description                      |
+| -------------- | ------ | -------- | -------------------------------- |
+| title          | string | Yes      | The title of the dialog.         |
+| message        | string | Yes      | The message of the dialog.       |
+| buttonPositive | string | Yes      | The text of the positive button. |
+| buttonNegative | string | No       | The text of the negative button. |
+| buttonNeutral  | string | No       | The text of the neutral button.  |
 
 ---
 
@@ -151,4 +165,4 @@ Prompts the user to enable multiple permissions in the same dialog and returns a
 
 | Name        | Type  | Required | Description                     |
 | ----------- | ----- | -------- | ------------------------------- |
-| permissions | array | Yes      | Array of permission to request. |
+| permissions | array | Yes      | Array of permissions to request. |

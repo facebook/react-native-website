@@ -96,28 +96,24 @@ The final Java step is to register the ViewManager to the application, this happ
 
 ## 5. Implement the JavaScript module
 
-The very final step is to create the JavaScript module that defines the interface layer between Java and JavaScript for the users of your new view. Much of the effort is handled by internal React code in Java and JavaScript and all that is left for you is to describe the `propTypes`.
+The very final step is to create the JavaScript module that defines the interface layer between Java and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments).
 
 ```javascript
 // ImageView.js
 
-import PropTypes from 'prop-types';
-import {requireNativeComponent, ViewPropTypes} from 'react-native';
+import {requireNativeComponent} from 'react-native';
 
-var iface = {
-  name: 'ImageView',
-  propTypes: {
-    src: PropTypes.string,
-    borderRadius: PropTypes.number,
-    resizeMode: PropTypes.oneOf(['cover', 'contain', 'stretch']),
-    ...ViewPropTypes, // include the default view properties
-  },
-};
-
-module.exports = requireNativeComponent('RCTImageView', iface);
+/**
+ * Composes `View`.
+ *
+ * - src: string
+ * - borderRadius: number
+ * - resizeMode: 'cover' | 'contain' | 'stretch'
+ */
+module.exports = requireNativeComponent('RCTImageView');
 ```
 
-`requireNativeComponent` commonly takes two parameters, the first is the name of the native view and the second is an object that describes the component interface. The component interface should declare a friendly `name` for use in debug messages and must declare the `propTypes` reflected by the Native View. The `propTypes` are used for checking the validity of a user's use of the native view. Note that if you need your JavaScript component to do more than just specify a name and propTypes, like do custom event handling, you can wrap the native component in a normal react component. In that case, you want to pass in the wrapper component instead of `iface` to `requireNativeComponent`. This is illustrated in the `MyCustomView` example below.
+The `requireNativeComponent` function takes the name of the native view. Note that if your component needs to do anything more sophisticated (e.g. custom event handling), you should wrap the native component in another React component. This is illustrated in the `MyCustomView` example below.
 
 # Events
 
@@ -183,9 +179,5 @@ MyCustomView.propTypes = {
   ...
 };
 
-var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`, MyCustomView, {
-  nativeOnly: {onChange: true}
-});
+var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 ```
-
-Note the use of `nativeOnly` above. Sometimes you'll have some special properties that you need to expose for the native component, but don't actually want them as part of the API for the associated React component. For example, `Switch` has a custom `onChange` handler for the raw native event, and exposes an `onValueChange` handler property that is invoked with just the boolean value rather than the raw event (similar to `onChangeMessage` in the example above). Since you don't want these native only properties to be part of the API, you don't want to put them in `propTypes`, but if you don't you'll get an error. The solution is simply to call them out via the `nativeOnly` option.

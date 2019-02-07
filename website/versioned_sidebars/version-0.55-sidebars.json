@@ -34,7 +34,8 @@
       "version-0.55-building-for-apple-tv",
       "version-0.55-running-on-device",
       "version-0.55-upgrading",
-      "version-0.55-troubleshooting"
+      "version-0.55-troubleshooting",
+      "version-0.55-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.55-native-modules-ios",
@@ -48,7 +49,8 @@
       "version-0.55-native-modules-android",
       "version-0.55-native-components-android",
       "version-0.55-headless-js-android",
-      "version-0.55-signed-apk-android"
+      "version-0.55-signed-apk-android",
+      "version-0.55-removing-default-permissions"
     ],
     "Contributing": [
       "version-0.55-contributing",
@@ -64,6 +66,7 @@
       "version-0.55-drawerlayoutandroid",
       "version-0.55-flatlist",
       "version-0.55-image",
+      "version-0.55-imagebackground",
       "version-0.55-inputaccessoryview",
       "version-0.55-keyboardavoidingview",
       "version-0.55-listview",

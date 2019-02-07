@@ -30,7 +30,7 @@ You have gathered all the information required to open a new issue, and you are 
 
 * **Is this issue a request for help?**
 
-  Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers should encourage contributors to ask on Stack Overflow, before closing the issue. Feel free to also answer some [questions on Stack Overflow](stackoverflow.com/questions/tagged/react-native), you'll get rep!
+  Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers should encourage contributors to ask on Stack Overflow, before closing the issue. Feel free to also answer some [questions on Stack Overflow](https://stackoverflow.com/tags/react-native), you'll get rep!
 
 * **Was the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md) used to fill out the issue? Did the author answer Yes to both questions at the top?**
 
@@ -82,7 +82,7 @@ You can generally figure out who may be relevant for a given issue by looking at
 
 ### Stale issues
 
-Issues in the "Needs more information" state may be closed after a week with no followup from the author. Issues that have have had no activity in the last two months may be closed periodically. If your issue gets closed in this manner, it's nothing personal. If you strongly believe that the issue should remain open, just let us know why.
+Issues in the "Needs more information" state may be closed after a week with no followup from the author. Issues that have had no activity in the last two months may be closed periodically. If your issue gets closed in this manner, it's nothing personal. If you strongly believe that the issue should remain open, just let us know why.
 
 Simply commenting that the issue still exists is not very compelling (it's rare for critical, release blocking issues to have no activity for two months!). In order to make a good case for reopening the issue, you may need to do a bit of work:
 

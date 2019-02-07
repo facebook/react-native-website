@@ -20,7 +20,7 @@ class FadeInView extends React.Component {
     Animated.timing(
       // Uses easing functions
       this.state.fadeAnim, // The value to drive
-      {toValue: 1} // Configuration
+      {toValue: 1}, // Configuration
     ).start(); // Don't forget start!
   }
   render() {
@@ -401,7 +401,7 @@ class DraggableView extends React.Component {
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}} // Back to zero
+          {toValue: {x: 0, y: 0}}, // Back to zero
         ).start();
       },
     });

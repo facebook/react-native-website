@@ -9,7 +9,7 @@ There will be no effect on devices that do not support Vibration, eg. the simula
 
 **Note for Android:** add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
 
-Since the **vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
+**The vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
 
 In iOS, invoking `vibrate(duration)` will just ignore the duration and vibrate for a fixed time. While the `pattern` array is used to define the duration between each vibration. See below example for more.
 
@@ -17,23 +17,23 @@ Repeatable vibration is also supported, the vibration will repeat with defined p
 
 Example:
 
-```
-const DURATION = 10000
-const PATTERN = [1000, 2000, 3000]
+```javascript
+const DURATION = 10000;
+const PATTERN = [1000, 2000, 3000];
 
-Vibration.vibrate(DURATION)
+Vibration.vibrate(DURATION);
 // Android: vibrate for 10s
 // iOS: duration is not configurable, vibrate for fixed time (about 500ms)
 
-Vibration.vibrate(PATTERN)
+Vibration.vibrate(PATTERN);
 // Android: wait 1s -> vibrate 2s -> wait 3s
 // iOS: wait 1s -> vibrate -> wait 2s -> vibrate -> wait 3s -> vibrate
 
-Vibration.vibrate(PATTERN, true)
+Vibration.vibrate(PATTERN, true);
 // Android: wait 1s -> vibrate 2s -> wait 3s -> wait 1s -> vibrate 2s -> wait 3s -> ...
 // iOS: wait 1s -> vibrate -> wait 2s -> vibrate -> wait 3s -> vibrate -> wait 1s -> vibrate -> wait 2s -> vibrate -> wait 3s -> vibrate -> ...
 
-Vibration.cancel()
+Vibration.cancel();
 // Android: vibration stopped
 // iOS: vibration stopped
 ```

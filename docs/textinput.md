@@ -97,13 +97,14 @@ Note that on Android performing text selection in input can change app's activit
 
 - [`allowFontScaling`](textinput.md#allowfontscaling)
 - [`autoCapitalize`](textinput.md#autocapitalize)
+- [`autoComplete`](textinput.md#autocomplete)
 - [`autoCorrect`](textinput.md#autocorrect)
 - [`autoFocus`](textinput.md#autofocus)
 - [`blurOnSubmit`](textinput.md#bluronsubmit)
 - [`caretHidden`](textinput.md#carethidden)
 - [`clearButtonMode`](textinput.md#clearbuttonmode)
 - [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`contextMenuHidden`](textinput.md#contextMenuHidden)
+- [`contextMenuHidden`](textinput.md#contextmenuhidden)
 - [`dataDetectorTypes`](textinput.md#datadetectortypes)
 - [`defaultValue`](textinput.md#defaultvalue)
 - [`disableFullscreenUI`](textinput.md#disablefullscreenui)
@@ -113,6 +114,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`inlineImagePadding`](textinput.md#inlineimagepadding)
 - [`keyboardAppearance`](textinput.md#keyboardappearance)
 - [`keyboardType`](textinput.md#keyboardtype)
+- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
 - [`maxLength`](textinput.md#maxlength)
 - [`multiline`](textinput.md#multiline)
 - [`numberOfLines`](textinput.md#numberoflines)
@@ -131,6 +133,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
+- [`scrollEnabled`](textinput.md#scrollenabled)
 - [`secureTextEntry`](textinput.md#securetextentry)
 - [`selection`](textinput.md#selection)
 - [`selectionColor`](textinput.md#selectioncolor)
@@ -166,7 +169,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `autoCapitalize`
 
-Can tell `TextInput` to automatically capitalize certain characters.
+Can tell `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
 
 * `characters`: all characters.
 * `words`: first letter of each word.
@@ -176,6 +179,32 @@ Can tell `TextInput` to automatically capitalize certain characters.
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
 | enum('none', 'sentences', 'words', 'characters') | No       |
+
+---
+
+### `autoComplete`
+
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
+
+Possible values for `autoComplete` are:
+
+* `off`
+* `username`
+* `password`
+* `email`
+* `name`
+* `tel`
+* `street-address`
+* `postal-code`
+* `cc-number`
+* `cc-csc`
+* `cc-exp`
+* `cc-exp-month`
+* `cc-exp-year`
+
+| Type                                                                                                                                                         | Required | Platform |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
+| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | No       | Android  |
 
 ---
 
@@ -221,7 +250,7 @@ If `true`, caret is hidden. The default value is `false`.
 
 ### `clearButtonMode`
 
-When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component.
+When the clear button should appear on the right side of the text view. This property is supported only for single-line TextInput component. The default value is `never`.
 
 | Type                                                       | Required | Platform |
 | ---------------------------------------------------------- | -------- | -------- |
@@ -353,6 +382,8 @@ Determines which keyboard to open, e.g.`numeric`.
 The following values work across platforms:
 
 * `default`
+* `number-pad`
+* `decimal-pad`
 * `numeric`
 * `email-address`
 * `phone-pad`
@@ -364,9 +395,7 @@ The following values work on iOS only:
 * `ascii-capable`
 * `numbers-and-punctuation`
 * `url`
-* `number-pad`
 * `name-phone-pad`
-* `decimal-pad`
 * `twitter`
 * `web-search`
 
@@ -382,6 +411,20 @@ The following values work on Android only:
 
 ---
 
+### `maxFontSizeMultiplier`
+
+Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+
+* `null/undefined` (default): inherit from the parent node or the global default (0)
+* `0`: no max, ignore parent/global default
+* `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
+
+---
+
 ### `maxLength`
 
 Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
@@ -394,7 +437,7 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`.
+If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
 
 | Type | Required |
 | ---- | -------- |
@@ -424,7 +467,7 @@ Callback that is called when the text input is blurred.
 
 ### `onChange`
 
-Callback that is called when the text input's text changes.
+Callback that is called when the text input's text changes. This will be called with `{ nativeEvent: { eventCount, target, text} }`
 
 | Type     | Required |
 | -------- | -------- |
@@ -434,7 +477,7 @@ Callback that is called when the text input's text changes.
 
 ### `onChangeText`
 
-Callback that is called when the text input's text changes. Changed text is passed as an argument to the callback handler.
+Callback that is called when the text input's text changes. Changed text is passed as a single string argument to the callback handler.
 
 | Type     | Required |
 | -------- | -------- |
@@ -466,7 +509,7 @@ Callback that is called when text input ends.
 
 ### `onFocus`
 
-Callback that is called when the text input is focused.
+Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -486,7 +529,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{x, y, width, height}`.
+Invoked on mount and layout changes with `{ nativeEvent: {layout: {x, y, width, height}, target } }`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -592,9 +635,19 @@ The following values work on iOS only:
 
 ---
 
+### `scrollEnabled`
+
+If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
 ### `secureTextEntry`
 
-If `true`, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is `false`. Does not work with 'multiline={true}'.
+If `true`, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is `false`. Does not work with `multiline={true}`.
 
 | Type | Required |
 | ---- | -------- |
@@ -666,6 +719,8 @@ Give the keyboard and the system information about the expected semantic meaning
 
 For iOS 11+ you can set `textContentType` to `username` or `password` to enable autofill of login details from the device keychain.
 
+For iOS 12+ `newPassword` can be used to indicate a new password input the user may want to save in the keychain, and `oneTimeCode` can be used to indicate that a field can be autofilled by a code arriving in an SMS.
+
 To disable autofill, set `textContentType` to `none`.
 
 Possible values for `textContentType` are:
@@ -696,9 +751,11 @@ Possible values for `textContentType` are:
 * `telephoneNumber`
 * `username`
 * `password`
+* `newPassword`
+* `oneTimeCode`
 
-| Type                                                                                                                                                     | Required | Platform |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
+| Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
 
 ---
@@ -769,7 +826,12 @@ Removes all text from the `TextInput`.
 ### `isFocused()`
 
 ```javascript
-isFocused():
+isFocused();
 ```
 
 Returns `true` if the input is currently focused; `false` otherwise.
+
+# Known issues
+
+* [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
+* [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.

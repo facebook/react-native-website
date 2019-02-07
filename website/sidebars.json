@@ -34,7 +34,9 @@
       "building-for-apple-tv",
       "running-on-device",
       "upgrading",
-      "troubleshooting"
+      "troubleshooting",
+      "native-modules-setup",
+      "out-of-tree-platforms"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -48,14 +50,14 @@
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
-      "signed-apk-android"
+      "signed-apk-android",
+      "removing-default-permissions"
     ],
     "Contributing": [
       "contributing",
       "maintainers",
       "building-from-source",
-      "testing",
-      "understanding-cli"
+      "testing"
     ],
     "Components": [
       "activityindicator",
@@ -64,12 +66,12 @@
       "drawerlayoutandroid",
       "flatlist",
       "image",
+      "imagebackground",
       "inputaccessoryview",
       "keyboardavoidingview",
       "listview",
       "maskedviewios",
       "modal",
-      "navigatorios",
       "picker",
       "pickerios",
       "progressbarandroid",
@@ -83,8 +85,6 @@
       "snapshotviewios",
       "statusbar",
       "switch",
-      "tabbarios",
-      "tabbarios-item",
       "text",
       "textinput",
       "toolbarandroid",
