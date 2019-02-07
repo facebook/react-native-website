@@ -180,18 +180,12 @@ ws.onclose = (e) => {
 };
 ```
 
-## Known Issues with fetch and cookie based authentication
+## Known Issues with `fetch` and cookie based authentication
 
 The following options are currently not working with `fetch`
 - `redirect:manual`
 - `credentials:omit`
 
-Having same name headers on Android will result in only the latest one being present. A temporary solution (with unknown consequences) is found here https://github.com/facebook/react-native/issues/18837#issuecomment-398779994.
-
-Cookie based authentication is at this moment unstable. You can view some of the issues raised here. https://github.com/facebook/react-native/issues/23185
-
-As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is for example a result of an expired session.
-
-## High Five!
-
-If you've gotten here by reading linearly through the tutorial, then you are a pretty impressive human being. Congratulations. Next, you might want to check out [all the cool stuff the community does with React Native](more-resources.md).
+* Having same name headers on Android will result in only the latest one being present. A temporary solution can be found here: https://github.com/facebook/react-native/issues/18837#issuecomment-398779994.
+* Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/facebook/react-native/issues/23185
+* As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is the result of an expired session.
