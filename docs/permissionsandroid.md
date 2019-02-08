@@ -163,6 +163,6 @@ Prompts the user to enable multiple permissions in the same dialog and returns a
 
 **Parameters:**
 
-| Name        | Type  | Required | Description                     |
-| ----------- | ----- | -------- | ------------------------------- |
+| Name        | Type  | Required | Description                      |
+| ----------- | ----- | -------- | -------------------------------- |
 | permissions | array | Yes      | Array of permissions to request. |

@@ -601,11 +601,12 @@ This is only used in dev mode when reloading JavaScript from the development ser
 
 ### Network Security Config (API level 28+)
 
-> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. These changes add domain rules that specifically allow cleartext traffic to the packager IPs. 
+> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. These changes add domain rules that specifically allow cleartext traffic to the packager IPs.
 
 #### 1. Create the following resource files
 
 `app/src/debug/res/xml/network_security_config.xml`:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
@@ -619,6 +620,7 @@ This is only used in dev mode when reloading JavaScript from the development ser
 ```
 
 `app/src/release/res/xml/network_security_config.xml`:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>

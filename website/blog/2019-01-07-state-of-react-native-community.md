@@ -46,7 +46,7 @@ In early 2019, we will have this new set of guidelines in place. Let us know wha
 
 We are confident that with these changes, the community will become more collaborative so that when we reach 1.0, we will all continue to write (even more) awesome apps by leveraging this joint effort 🤗
 
-----
+---
 
 I hope you are as excited as we are about the future of this community. We're excited to see all of you involved either in the conversations happening in the repositories listed above or via the awesome code you’ll produce.
 

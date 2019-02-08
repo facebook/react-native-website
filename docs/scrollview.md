@@ -612,8 +612,15 @@ Enables nested scrolling for Android API level 21+. Nested scrolling is supporte
 ### `scrollTo()`
 
 ```javascript
-scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean), ([duration]: number));
+scrollTo(
+  ([y]: number),
+  object,
+  ([x]: number),
+  ([animated]: boolean),
+  ([duration]: number),
+);
 ```
+
 Scrolls to a given x, y offset, either immediately, with a smooth animation, or, for Android only, a custom animation duration time.
 
 Example:
