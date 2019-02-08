@@ -47,11 +47,11 @@ To edit the internals of how the site is built, you may want to get familiarized
 with how the site is built. The React Native website is a static site generated
 using [Docusaurus](https://docusaurus.io). The website configuration can be
 found in the 'website/' directory. Visit the Docusaurus website to learn more
-about all the avaible configuration options.
+about all the available configuration options.
 
 ## Directory Structure
 
-The following is a high level overview of relevant files and folders.
+The following is a high-level overview of relevant files and folders.
 
 ```
 react-native-website/

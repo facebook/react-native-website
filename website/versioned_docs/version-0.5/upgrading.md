@@ -120,7 +120,7 @@ $ npm install --save react@R
 
 The new npm package may contain updates to the files that are normally generated when you run `react-native init`, like the iOS and the Android sub-projects.
 
-You may consult [rn-diff](https://github.com/ncuillery/rn-diff) to see if there were changes in the project template files. In case there weren't any, simply rebuild the project and continue developing. In case of minor changes, you may update your project manually and rebuild.
+You may consult [rn-diff-purge](https://github.com/pvinis/rn-diff-purge) to see if there were changes in the project template files. In case there weren't any, simply rebuild the project and continue developing. In case of minor changes, you may update your project manually and rebuild.
 
 If there were major changes, run this in a terminal to get these:
 

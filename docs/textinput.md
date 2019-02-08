@@ -379,6 +379,8 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
+See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+
 The following values work across platforms:
 
 * `default`
@@ -419,9 +421,9 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 * `0`: no max, ignore parent/global default
 * `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
