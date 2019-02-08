@@ -371,7 +371,9 @@ If `true`, context menu is hidden. The default value is `false`.
 
 ### `keyboardType`
 
-决定弹出的何种软键盘的，譬如`numeric`（纯数字键盘）。
+决定弹出何种软键盘类型，譬如`numeric`（纯数字键盘）。
+
+See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
 
 这些值在所有平台都可用：
 

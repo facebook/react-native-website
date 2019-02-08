@@ -19,7 +19,7 @@ original_id: building-from-source
 - Android Support Repository >= 28
 - Android NDK(下载及安装指南请看后文)
 
-#### 将 Gradle 指向你的安卓 SDK：
+#### [将 Gradle 指向你的安卓 SDK](#gradle-android-sdk)：
 
 **第一步：** 在命令行配置文件中设置环境变量。
 
@@ -137,18 +137,6 @@ gradle.projectsLoaded {
 }
 ```
 
-### 针对 Maven/Nexus 部署的编译
-
-If you find that you need to push up a locally compiled React Native .aar and related files to a remote Nexus repository, you can.
-
-Start by following the `Point Gradle to your Android SDK` section of this page. Once you do this, assuming you have Gradle configured properly, you can then run the following command from the root of your React Native checkout to build and package all required files:
-
-```
-./gradlew ReactAndroid:installArchives
-```
-
-This will package everything that would typically be included in the `android` directory of your `node_modules/react-native/` installation in the root directory of your React Native checkout.
-
 ### Troubleshooting
 
 Gradle build fails in `ndk-build`. See the section about `local.properties` file above.
@@ -156,3 +144,7 @@ Gradle build fails in `ndk-build`. See the section about `local.properties` file
 ## Testing your Changes
 
 If you made changes to React Native and submit a pull request, all tests will run on your pull request automatically. To run the tests locally, see [Running Tests](testing.md).
+
+## Making your changes available
+
+See the [Publishing your own version of react native](publishing.md) for several options to make your changes available for your and other app projects.

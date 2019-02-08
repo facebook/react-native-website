@@ -607,6 +607,53 @@ allprojects {
 
 开发者菜单一般仅用于在开发时从 Packager 服务器刷新 JavaScript 代码，所以在正式发布时你可以去掉这一权限。
 
+### Network Security Config (API level 28+)
+
+> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. These changes add domain rules that specifically allow cleartext traffic to the packager IPs.
+
+#### 1. Create the following resource files
+
+`app/src/debug/res/xml/network_security_config.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <!-- allow cleartext traffic for React Native packager ips in debug -->
+  <domain-config cleartextTrafficPermitted="true">
+    <domain includeSubdomains="false">localhost</domain>
+    <domain includeSubdomains="false">10.0.2.2</domain>
+    <domain includeSubdomains="false">10.0.3.2</domain>
+  </domain-config>
+</network-security-config>
+```
+
+`app/src/release/res/xml/network_security_config.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+  <!-- deny cleartext traffic for React Native packager ips in release -->
+  <domain-config cleartextTrafficPermitted="false">
+    <domain includeSubdomains="false">localhost</domain>
+    <domain includeSubdomains="false">10.0.2.2</domain>
+    <domain includeSubdomains="false">10.0.3.2</domain>
+  </domain-config>
+</network-security-config>
+```
+
+#### 2. Apply the config to your `AndroidManifest.xml`
+
+```xml
+<!-- ... -->
+<application
+  android:networkSecurityConfig="@xml/network_security_config">
+  <!-- ... -->
+</application>
+<!-- ... -->
+```
+
+To learn more about Network Security Config and the cleartext traffic policy [see this link](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted).
+
 ### 代码集成
 
 Now we will actually modify the native Android application to integrate React Native.

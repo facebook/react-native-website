@@ -17,34 +17,34 @@ React Native 提供了和 web 标准一致的[Fetch API](https://developer.mozil
 要从任意地址获取内容的话，只需简单地将网址作为参数传递给 fetch 方法即可（fetch 这个词本身也就是`获取`的意思）：
 
 ```javascript
-fetch("https://mywebsite.com/mydata.json");
+fetch('https://mywebsite.com/mydata.json');
 ```
 
 Fetch 还有可选的第二个参数，可以用来定制 HTTP 请求一些参数。你可以指定 header 参数，或是指定使用 POST 方法，又或是提交数据等等：
 
 ```javascript
-fetch("https://mywebsite.com/endpoint/", {
-  method: "POST",
+fetch('https://mywebsite.com/endpoint/', {
+  method: 'POST',
   headers: {
-    Accept: "application/json",
-    "Content-Type": "application/json"
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    firstParam: "yourValue",
-    secondParam: "yourOtherValue"
-  })
+    firstParam: 'yourValue',
+    secondParam: 'yourOtherValue',
+  }),
 });
 ```
 
 提交数据的格式关键取决于 headers 中的`Content-Type`。`Content-Type`有很多种，对应 body 的格式也有区别。到底应该采用什么样的`Content-Type`取决于服务器端，所以请和服务器端的开发人员沟通确定清楚。常用的'Content-Type'除了上面的'application/json'，还有传统的网页表单形式，示例如下：
 
 ```js
-fetch("https://mywebsite.com/endpoint/", {
-  method: "POST",
+fetch('https://mywebsite.com/endpoint/', {
+  method: 'POST',
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
+    'Content-Type': 'application/x-www-form-urlencoded',
   },
-  body: "key1=value1&key2=value2"
+  body: 'key1=value1&key2=value2',
 });
 ```
 
@@ -60,12 +60,12 @@ fetch("https://mywebsite.com/endpoint/", {
 
 ```javascript
 function getMoviesFromApiAsync() {
-  return fetch("https://facebook.github.io/react-native/movies.json")
-    .then(response => response.json())
-    .then(responseJson => {
+  return fetch('https://facebook.github.io/react-native/movies.json')
+    .then((response) => response.json())
+    .then((responseJson) => {
       return responseJson.movies;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 }
@@ -79,7 +79,7 @@ async function getMoviesFromApi() {
   try {
     // 注意这里的await语句，其所在的函数必须有async关键字声明
     let response = await fetch(
-      "https://facebook.github.io/react-native/movies.json"
+      'https://facebook.github.io/react-native/movies.json',
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -153,19 +153,19 @@ React Native 中已经内置了[XMLHttpRequest API](https://developer.mozilla.or
 
 ```javascript
 var request = new XMLHttpRequest();
-request.onreadystatechange = e => {
+request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
     return;
   }
 
   if (request.status === 200) {
-    console.log("success", request.responseText);
+    console.log('success', request.responseText);
   } else {
-    console.warn("error");
+    console.warn('error');
   }
 };
 
-request.open("GET", "https://mywebsite.com/endpoint/");
+request.open('GET', 'https://mywebsite.com/endpoint/');
 request.send();
 ```
 
@@ -176,24 +176,24 @@ request.send();
 React Native 还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个 TCP 连接上提供全双工的通信信道。
 
 ```javascript
-var ws = new WebSocket("ws://host.com/path");
+var ws = new WebSocket('ws://host.com/path');
 
 ws.onopen = () => {
   // connection opened
-  ws.send("something"); // send a message
+  ws.send('something'); // send a message
 };
 
-ws.onmessage = e => {
+ws.onmessage = (e) => {
   // a message was received
   console.log(e.data);
 };
 
-ws.onerror = e => {
+ws.onerror = (e) => {
   // an error occurred
   console.log(e.message);
 };
 
-ws.onclose = e => {
+ws.onclose = (e) => {
   // connection closed
   console.log(e.code, e.reason);
 };
@@ -202,3 +202,14 @@ ws.onclose = e => {
 ## High Five!
 
 现在你的应用已经可以从各种渠道获取数据了，那么接下来面临的问题多半就是如何在不同的页面间组织和串联内容了。要管理页面的跳转，你需要学习[使用导航器跳转页面](navigation.md)。
+
+## Known Issues with `fetch` and cookie based authentication
+
+The following options are currently not working with `fetch`
+
+- `redirect:manual`
+- `credentials:omit`
+
+* Having same name headers on Android will result in only the latest one being present. A temporary solution can be found here: https://github.com/facebook/react-native/issues/18837#issuecomment-398779994.
+* Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/facebook/react-native/issues/23185
+* As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is the result of an expired session.
