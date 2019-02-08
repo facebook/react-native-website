@@ -23,7 +23,10 @@ const fs = require('fs-extra');
 const versions = require('./versions.json');
 
 const filterWantedVersions = version =>
-  version === '0.5' || (version.length > 3 && +version >= 0.56);
+  +version === 0.5 ||
+  ((version.length > 3 && +version >= 0.56) ||
+    +version === 0.46 ||
+    version === '0.50');
 
 fs.writeFileSync(
   './versions.json',
