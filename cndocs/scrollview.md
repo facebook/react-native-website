@@ -606,26 +606,36 @@ Use in conjuction with `snapToOffsets`. By default, the end of the list counts a
 ### `scrollTo()`
 
 ```javascript
-scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
+scrollTo(
+  ([y]: number),
+  object,
+  ([x]: number),
+  ([animated]: boolean),
+  ([duration]: number),
+);
 ```
 
-滚动到指定的x, y偏移处。第三个参数为是否启用平滑滚动动画。
+滚动到指定的x, y偏移处。第三个参数为是否启用平滑滚动动画。还有一个duration参数则是仅限android可以使用的滚动持续时间。
 
 示例：
 
 `scrollTo({x: 0, y: 0, animated: true})`
+
+指定滚动持续时间的示例(仅限Android):
+
+ `scrollTo({x: 0, y: 0, duration: 500})`
 
 ---
 
 ### `scrollToEnd()`
 
 ```javascript
-scrollToEnd(([options]: object));
+scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
 滚动到视图底部（水平方向的视图则滚动到最右边）。
 
-加上动画参数`scrollToEnd({animated: true})`则启用平滑滚动动画，或是调用`scrollToEnd({animated: false})`来立即跳转。如果不使用参数，则`animated`选项默认启用。
+加上动画参数`scrollToEnd({animated: true})`则启用平滑滚动动画，或是调用`scrollToEnd({animated: false})`来立即跳转。For Android, you may specify a duration, e.g. `scrollToEnd({duration: 500})` for a controlled duration scroll。如果不使用参数，则`animated`选项默认启用。
 
 ---
 

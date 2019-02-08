@@ -38,7 +38,8 @@
       "native-modules-setup",
       "out-of-tree-platforms",
       "building-from-source",
-      "understanding-cli"
+      "publishing-forks",
+      "testing"
     ],
     "使用指南(iOS)": [
       "native-modules-ios",
@@ -66,7 +67,6 @@
       "keyboardavoidingview",
       "maskedviewios",
       "modal",
-      "navigatorios",
       "picker",
       "pickerios",
       "progressbarandroid",
@@ -80,8 +80,6 @@
       "snapshotviewios",
       "statusbar",
       "switch",
-      "tabbarios",
-      "tabbarios-item",
       "text",
       "textinput",
       "toolbarandroid",

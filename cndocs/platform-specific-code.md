@@ -98,9 +98,24 @@ BigButton.android.js
 然后去掉平台扩展名直接引用：
 
 ```javascript
-const BigButton = require("./BigButton");
+import BigButton from './BigButton';
 ```
 
 React Native 会根据运行平台的不同自动引入正确对应的组件。
 
 如果你还希望在 web 端复用 React Native 的代码，那么还可以使用`.native.js`的扩展名。此时 iOS 和 Android 会使用`BigButton.native.js`文件，而 web 端会使用`BigButton.js`。（注意目前官方并没有直接提供 web 端的支持，请在社区搜索第三方方案）。
+
+For example, say you have the following files in your project:
+
+ ```sh
+Container.js # picked up by Webpack, Rollup or any other Web bundler
+Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
+```
+
+ You can still require it without the `.native` extension, as follows:
+
+ ```javascript
+import Container from './Container';
+```
+
+ **Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.

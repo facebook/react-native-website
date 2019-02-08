@@ -121,11 +121,9 @@ If this is your first time running an app on your iOS device, you may need to re
 
 Register for an [Apple developer account](https://developer.apple.com/) if you don't have one yet.
 
-Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown.
+Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
 
 ![](assets/RunningOnDeviceCodeSigning.png)
-
-Repeat this step for the Tests target in your project.
 
 ### 3. 编译并运行应用
 
