@@ -282,5 +282,15 @@
     "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
     "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": false
+  },
+  {
+    "name": "ecbo cloak",
+    "icon": "ecbocloak.png",
+    "linkAppStore": "https://itunes.apple.com/us/app/ecbo-cloak/id1443707795",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=io.ecbo.cloak",
+    "infoLink": "https://cloak.ecbo.io/en",
+    "infoTitle": "Easy Luggage Storage App",
+    "pinned": false
   }
 ]
