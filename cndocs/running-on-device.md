@@ -72,9 +72,9 @@ title: 在设备上运行
   }
 </style>
 
-It's always a good idea to test your app on an actual device before releasing it to your users. This document will guide you through the necessary steps to run your React Native app on a device and to get it ready for production.
+在真机上测试app后再将其发布给用户总是好的。本文档将指导你通过必须的步骤在设备上运行React Native app，为生产做准备。
 
-If you used Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
+如果使用Create React Native App来建立工程，可以通过Expo App扫描QR代码在设备上预览app。为了在设备上编译和运行app，需要逐出并从[搭建开发环境](getting-started.md)安装原生代码依赖。
 
 <div class="toggler">
 
@@ -113,21 +113,24 @@ A Mac is required in order to build your app for iOS devices. Alternatively, you
 
 ### 1. 通过 USB 数据线连接设备
 
-Connect your iOS device to your Mac using a USB to Lightning cable. Navigate to the `ios` folder in your project, then open the `.xcodeproj` file, or if you are using CocoaPods open `.xcworkspace`, within it using Xcode.
+使用USB闪电数据线连接iOS设备到Mac。导航到工程的`ios`文件夹，然后用Xcode打开`.xcodeproj`文件，如果使用CocoaPods打开`.xcworkspace`。
 
-If this is your first time running an app on your iOS device, you may need to register your device for development. Open the **Product** menu from Xcode's menubar, then go to **Destination**. Look for and select your device from the list. Xcode will then register your device for development.
+
+如果这是第一次在iOS设备上运行app，需要注册开发设备。从Xcode菜单栏打开**Product**菜单，然后前往**Destination**。从列表中查找并选择设备。Xcode 将注册为开发设备。
+
+
 
 ### 2. 配置代码签名
 
-Register for an [Apple developer account](https://developer.apple.com/) if you don't have one yet.
+如果没有[Apple developer account](https://developer.apple.com/)，先注册。
 
-Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
+在Xcode Project导航中选择project，然后选择main target（它应该和project共享同样的名字）。查找"General"标签。前往"Signing"并确保在"Team"下拉下选择了开发者账号或团队。tests target（以Tests结束，在main target下面）所做相同。
 
 ![](assets/RunningOnDeviceCodeSigning.png)
 
 ### 3. 编译并运行应用
 
-If everything is set up correctly, your device will be listed as the build target in the Xcode toolbar, and it will also appear in the Devices pane (`⇧⌘2`). You can now press the **Build and run** button (`⌘R`) or select **Run** from the **Product** menu. Your app will launch on your device shortly.
+如果一切设置正确，设备会在Xcode toolbar 中被列为build target，也会出现在设备面板里(`⇧⌘2`)。现在可以按下 **Build and run** 按钮(`⌘R`)或从**Product**菜单中选择**Run**。app会立刻启动在设备上。
 
 ![](assets/RunningOnDeviceReady.png)
 
@@ -225,7 +228,7 @@ emulator-5554 offline   # Google emulator
 
 ## 从设备上访问开发服务器
 
-在启用开发服务器的情况下，你可以快速的迭代修改应用，然后在设备上立即查看结果。You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Developer menu](debugging.md#accessing-the-in-app-developer-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
+在启用开发服务器的情况下，你可以快速的迭代修改应用，然后在设备上立即查看结果。只需要在和电脑同样的Wi-Fi网络。摇晃设备打开[Developer menu](debugging.md#accessing-the-in-app-developer-menu)，然后enable Live Reload。当JavaScript代码改变时app会重载。
 
 ![](assets/DeveloperMenu.png)
 
@@ -233,40 +236,47 @@ emulator-5554 offline   # Google emulator
 
 > If you have any issues, ensure that your Mac and device are on the same network and can reach each other. Many open wireless networks with captive portals are configured to prevent devices from reaching other devices on the network. You may use your device's Personal Hotspot feature in this case.
 
-When trying to connect to the development server you might get a [red screen with an error](debugging.md#in-app-errors-and-warnings) saying:
+当尝试连接到开发服务器时，可能得到一个[红屏报错](debugging.md#in-app-errors-and-warnings)说：
+
 
 > Connection to [http://localhost:8081/debugger-proxy?role=client]() timed out. Are you running node proxy? If you are running on the device, check if you have the right IP address in `RCTWebSocketExecutor.m`.
 
-To solve this issue check the following points.
+解决这个问题检查以下几点。
 
-#### 1. Wi-Fi network.
+#### 1. Wi-Fi 网络
 
-Make sure your laptop and your phone are on the **same** Wi-Fi network.
+确保笔记本电脑和电话在**同一个**Wi-Fi网络。
 
-#### 2. IP address
+#### 2. IP 地址
 
-Make sure that the build script detected the IP address of your machine correctly (e.g. 10.0.1.123).
+确保编译脚本正确检测到机器的IP地址(e.g. 10.0.1.123)。
 
 ![](assets/XcodeBuildIP.png)
 
-Open the **Report navigator** tab, select the last **Build** and search for `xip.io`. The IP address which gets embedded in the app should match your machines IP address plus the domain `.xip.io` (e.g. 10.0.1.123.xip.io)
+打开**Report navigator**标签，选择最近的**Build**然后搜索`xip.io`。这个内嵌到app的IP地址应该匹配机器IP地址加上域名 `.xip.io`（例如10.0.1.123.xip.io）
 
-#### 3. Network/router configuration
 
-React Native uses the wildcard DNS service **xip.io** to address your device, as Apple ATS prohibits URLs with IP addresses instead of domain names, and developers' networks are often not set up to resolve local hostnames. Some routers have security features to prevent DNS Servers from resolving to anything in the local IP range.
+#### 3. 网络/路由配置
 
-Now check if you are able to resolve the xip.io address, by running `nslookup`.
+React Native 使用通配符DNS服务 **xip.io** 处理设备，用IP地址代替域名作为Apple ATS 禁止URLs，开发者的网络通常不是建立来解析本地主机名的。一些有安全特性的路由器阻止DNS服务器在本地IP范围内解析任何东西。
+
+通过运行`nsloop`检查能否解析xip.io地址。
+
 
 ```bash
 $ nslookup 10.0.1.123.xip.io
 ```
 
 If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it.
+如果不能解析本地IP地址，则**xip.io**服务器下了或可能是路由器阻止了它。
+
 
 To still use xip.io behind your router:
 
-- configure your phone to use Google DNS (8.8.8.8)
-- disable the appropriate security feature in your router
+- 用Google DNS (8.8.8.8) 配置电话
+
+- 禁用路由器中适当的安全特性
+
 
 <block class="mac windows linux android" />
 
@@ -319,29 +329,32 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 <block class="mac ios" />
 
-## Building your app for production
+## 为生产编译app
 
-You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account.
+已经用React Native编译了一个伟大的app，现在渴望在App Store发布。其过程和任何其它原生iOS app一样，有一些额外的注意事项要考虑。
 
 ### 1. Enable App Transport Security
 
-App Transport Security is a security feature introduced in iOS 9 that rejects all HTTP requests that are not sent over HTTPS. This can result in HTTP traffic being blocked, including the developer React Native server. ATS is disabled for `localhost` by default in React Native projects in order to make development easier.
+App Transport Security 是iOS 9引入的一项安全特性，拒绝不通过HTTPS发送的所有HTTP请求。这会导致HTTP传输阻塞，包括开发者React Native服务器。为了使开发容易，在React Native projects里ATS默认为`localhost`禁用。
 
 You should re-enable ATS prior to building your app for production by removing the `localhost` entry from the `NSExceptionDomains` dictionary in your `Info.plist` file in the `ios/` folder. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
 
 > If your application needs to access HTTP resources on production, see [this post](http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/) to learn how to configure ATS on your project.
 
-### 2. Configure release scheme
+### 2. 配置release scheme
 
-Building an app for distribution in the App Store requires using the `Release` scheme in Xcode. Apps built for `Release` will automatically disable the in-app Developer menu, which will prevent your users from inadvertently accessing the menu in production. It will also bundle the JavaScript locally, so you can put the app on a device and test whilst not connected to the computer.
+需要在Xcode使用`Release` scheme编译在App Store发布的app。 `Release`编译的Apps将自动禁用app内开发者菜单,这将阻止用户无意地访问生产下的菜单。这也将本地打包JavaScript，所以可以将app安装在设备上，在没有连接电脑的时候测试。
 
-To configure your app to be built using the `Release` scheme, go to **Product** → **Scheme** → **Edit Scheme**. Select the **Run** tab in the sidebar, then set the Build Configuration dropdown to `Release`.
+
+配置app为用`Release` scheme编译，前往**Product** → **Scheme** → **Edit Scheme**。选择侧边栏的**Run**标签，然后设置下拉的Build Configuration为`Release`。
+
 
 ![](assets/ConfigureReleaseScheme.png)
 
-### 3. Configure app to use static bundle
+### 3. 配置app使用静态包
 
-During the development process, React Native has loaded your JavaScript code dynamically at runtime. For a production build, you want to pre-package the JavaScript bundle and distribute it inside your application.
+在开发过程中，React Native已经在运行时动态地加载了JavaScript代码。对于生产编译，要预先打包JavaScript包并将其分发在应用内。
+
 
 > Note: The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
 
@@ -351,9 +364,10 @@ During the development process, React Native has loaded your JavaScript code dyn
  fi
 ```
 
-#### Pro Tip
+#### 专业技巧
 
-As your App Bundle grows in size, you may start to see a white screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
+随着App包大小的增长，可能开始在闪屏和根应用视图显示之间看到白屏闪现。如果是这样，为了在转换期间保持闪屏显示，可以添加下列代码到`AppDelegate.m`。
+
 
 ```objc
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
@@ -362,9 +376,9 @@ As your App Bundle grows in size, you may start to see a white screen flash betw
   rootView.loadingView = launchScreenView;
 ```
 
-### 4. Build app for release
+### 4. 编译发布app 
 
-You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
+现在可以通过点击`⌘B`或从菜单栏选择 **Product** → **Build** 编译发布app。一旦编译发布，就能够向beta测试者发布app，提交app到App Store。
 
 > You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `react-native run-ios --configuration Release`).
 
