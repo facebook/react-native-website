@@ -47,7 +47,6 @@ Code quality:
 
 * [`hairlineWidth`](stylesheet.md#hairlinewidth)
 * [`absoluteFill`](stylesheet.md#absolutefill)
-* [`absoluteFillObject`](stylesheet.md#absolutefillobject)
 
 ---
 
