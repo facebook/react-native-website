@@ -108,7 +108,7 @@ The `<Text>` element is special relative to layout: everything inside is no long
 // |First part and|
 // |second part   |
 
-// the will will flow in its own block
+// otherwise, the text will flow in its own block
 // |First part |
 // |and        |
 // |second part|
