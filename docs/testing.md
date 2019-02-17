@@ -13,7 +13,7 @@ Whenever you are fixing a bug or adding new functionality to React Native, you s
 * [Android](testing.md#android)
 * [iOS](testing.md#ios)
 * [Apple TV](testing.md#apple-tv)
-* [End-to-end tests](testing.md#end-to-end-tests)
+* [Manual end-to-end tests](testing.md#manual-end-to-end-tests)
 * [Updating the Documentation](testing.md#updating-the-documentation)
 
 ## JavaScript
@@ -128,9 +128,9 @@ You can run Apple TV unit and integration tests locally by running the following
     $ cd react-native
     $ ./scripts/objc-test-tvos.sh (make sure the line `TEST="test"` is uncommented)
 
-## End-to-end tests
+## Manual end-to-end tests
 
-Finally, make sure end-to-end tests run successfully by executing the following script:
+Finally, make sure manual end-to-end tests run successfully by executing the following script:
 
     $ cd react-native
     $ ./scripts/test-manual-e2e.sh
