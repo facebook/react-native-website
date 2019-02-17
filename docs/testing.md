@@ -117,7 +117,7 @@ You can run Detox end-to-end tests locally by [installing the Detox CLI](https:/
     $ npm run build-ios-e2e
     $ npm run test-ios-e2e
 
-If you work on a component or API that isn't convered by a Detox test, please consider adding one. Detox tests are stored under `RNTester/e2e/__tests__`.
+If you work on a component or API that isn't convered by a Detox test, please consider adding one. Detox tests are stored under [`RNTester/e2e/__tests__`](https://github.com/facebook/react-native/tree/master/RNTester/e2e/__tests__).
 
 ## Apple TV
 
