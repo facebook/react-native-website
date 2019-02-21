@@ -1,5 +1,5 @@
 ---
-title: Hooks are Here
+title: Releasing React Native 0.59
 author: Ryan Turner
 authorTitle: Core Maintainer & React Native Developer
 authorURL: https://github.com/turnrye
