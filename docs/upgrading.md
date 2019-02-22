@@ -3,7 +3,7 @@ id: upgrading
 title: Upgrading to new React Native versions
 ---
 
-Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you. The instructions are a bit different depending on whether you used `create-react-native-app` or `react-native init` to create your project.
+Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you.
 
 ## Expo projects
 
@@ -11,16 +11,9 @@ Upgrading your Expo project to a new version of React Native requires updating t
 
 See the [Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) for up-to-date information about upgrading your project.
 
-## Projects built with native code
+## React Native projects
 
-<div class="banner-crna-ejected">
-  <h3>Projects with Native Code Only</h3>
-  <p>
-    This section only applies to projects made with <code>react-native init</code> or to those made with <code>expo init</code> or Create React Native App which have since ejected. For more information about ejecting, please see the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on the Create React Native App repository.
-  </p>
-</div>
-
-Because React Native projects built with native code are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. Here's what you need to do to upgrade from an older version of React Native.
+Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. Here's what you need to do to upgrade from an older version of React Native.
 
 ### Upgrade based on Git
 
@@ -28,7 +21,7 @@ The [React Native CLI](https://github.com/react-native-community/react-native-cl
 
 #### 1. Make sure your project uses Git
 
-> This step applies only to projects that don't use Git. Skip it if your use it.
+> This step applies only to projects that don't use Git. Skip it if yours use it.
 
 While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `react-native upgrade`. Git will also need to be available in the `PATH`. If your project doesn't use Git, initialize it and commit:
 
