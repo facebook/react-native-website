@@ -115,6 +115,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`inlineImagePadding`](textinput.md#inlineimagepadding)
 - [`keyboardAppearance`](textinput.md#keyboardappearance)
 - [`keyboardType`](textinput.md#keyboardtype)
+- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
 - [`maxLength`](textinput.md#maxlength)
 - [`multiline`](textinput.md#multiline)
 - [`numberOfLines`](textinput.md#numberoflines)
@@ -183,28 +184,30 @@ Can tell `TextInput` to automatically capitalize certain characters. This proper
 ---
 
 ### `autoComplete`
- Specifies autocomplete hints for the system, so it can provide autofill.
- On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
 
- Possible values for `autoComplete` are:
- * `off`
- * `username`
- * `password`
- * `email`
- * `name`
- * `tel`
- * `street-address`
- * `postal-code`
- * `cc-number`
- * `cc-csc`
- * `cc-exp`
- * `cc-exp-month`
- * `cc-exp-year`
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
 
- | Type                                                                                                                                                     | Required | Platform |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | No       | Android      |
- ---
+Possible values for `autoComplete` are:
+
+* `off`
+* `username`
+* `password`
+* `email`
+* `name`
+* `tel`
+* `street-address`
+* `postal-code`
+* `cc-number`
+* `cc-csc`
+* `cc-exp`
+* `cc-exp-month`
+* `cc-exp-year`
+
+| Type                                                                                                                                                         | Required | Platform |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
+| enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | No       | Android  |
+
+---
 
 ### `autoCorrect`
 
@@ -393,6 +396,8 @@ Determines the color of the keyboard.
 
 Determines which keyboard to open, e.g.`numeric`.
 
+See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-guide-to-react-native-textinput-keyboardtype-options/).
+
 The following values work across platforms:
 
 * `default`
@@ -425,6 +430,20 @@ The following values work on Android only:
 
 ---
 
+### `maxFontSizeMultiplier`
+
+Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+
+* `null/undefined` (default): inherit from the parent node or the global default (0)
+* `0`: no max, ignore parent/global default
+* `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
 ### `maxLength`
 
 Limits the maximum number of characters that can be entered. Use this instead of implementing the logic in JS to avoid flicker.
@@ -437,7 +456,7 @@ Limits the maximum number of characters that can be entered. Use this instead of
 
 ### `multiline`
 
-If `true`, the text input can be multiple lines. The default value is `false`.
+If `true`, the text input can be multiple lines. The default value is `false`. It is important to note that this aligns the text to the top on iOS, and centers it on Android. Use with `textAlignVertical` set to `top` for the same behavior in both platforms.
 
 | Type | Required |
 | ---- | -------- |
@@ -559,7 +578,7 @@ Callback that is called when the text input selection is changed. This will be c
 
 ### `onSubmitEditing`
 
-Callback that is called when the text input's submit button is pressed. Invalid if `multiline={true}` is specified.
+Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`. Invalid if `multiline={true}` is specified.
 
 | Type     | Required |
 | -------- | -------- |

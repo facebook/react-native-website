@@ -8,7 +8,7 @@
 const RemarkablePlugins = require('./core/RemarkablePlugins');
 
 const users = require('./showcase.json');
-const defaultVersionShown = '0.57';
+const defaultVersionShown = '0.58';
 const baseUrl = '/react-native/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
@@ -27,7 +27,6 @@ const siteConfig = {
     {blog: true, label: 'Blog'},
     {search: true},
     {href: repoUrl, label: 'GitHub'},
-    {href: 'https://reactjs.org/', label: 'React'},
   ],
   headerIcon: 'img/header_logo.png',
   footerIcon: 'img/header_logo.png',

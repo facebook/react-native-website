@@ -80,7 +80,6 @@
     "native-modules-setup": "Native Modules Setup",
     "navigation": "Navigating Between Screens",
     "navigator": "Navigator (Legacy Custom Component)",
-    "navigatorios": "NavigatorIOS",
     "netinfo": "NetInfo",
     "network": "Networking",
     "out-of-tree-platforms": "Out-of-Tree Platforms",
@@ -118,8 +117,6 @@
     "stylesheet": "StyleSheet",
     "switch": "Switch",
     "systrace": "Systrace",
-    "tabbarios-item": "TabBarIOS.Item",
-    "tabbarios": "TabBarIOS",
     "testing": "Testing your Changes",
     "text-style-props": "Text Style Props",
     "text": "Text",
@@ -135,7 +132,6 @@
     "transforms": "Transforms",
     "troubleshooting": "Troubleshooting",
     "tutorial": "Learn the Basics",
-    "understanding-cli": "Understanding the CLI",
     "upgrading": "Upgrading to new React Native versions",
     "using-a-listview": "Using List Views",
     "using-a-scrollview": "Using a ScrollView",
@@ -150,7 +146,6 @@
     "Community": "Community",
     "Blog": "Blog",
     "GitHub": "GitHub",
-    "React": "React",
     "The Basics": "The Basics",
     "Guides": "Guides",
     "Guides (iOS)": "Guides (iOS)",
@@ -160,8 +155,10 @@
     "APIs": "APIs"
   },
   "pages-strings": {
-    "Help Translate|recruit community translators for your project": "Help Translate",
+    "Help Translate|recruit community translators for your project":
+      "Help Translate",
     "Edit this Doc|recruitment message asking to edit the doc source": "Edit",
-    "Translate this Doc|recruitment message asking to translate the docs": "Translate"
+    "Translate this Doc|recruitment message asking to translate the docs":
+      "Translate"
   }
 }

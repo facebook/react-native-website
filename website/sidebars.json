@@ -57,8 +57,8 @@
       "contributing",
       "maintainers",
       "building-from-source",
-      "testing",
-      "understanding-cli"
+      "publishing-forks",
+      "testing"
     ],
     "Components": [
       "activityindicator",
@@ -73,7 +73,6 @@
       "listview",
       "maskedviewios",
       "modal",
-      "navigatorios",
       "picker",
       "pickerios",
       "progressbarandroid",
@@ -87,8 +86,6 @@
       "snapshotviewios",
       "statusbar",
       "switch",
-      "tabbarios",
-      "tabbarios-item",
       "text",
       "textinput",
       "toolbarandroid",

@@ -121,7 +121,7 @@ If this is your first time running an app on your iOS device, you may need to re
 
 Register for an [Apple developer account](https://developer.apple.com/) if you don't have one yet.
 
-Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown.
+Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
 
 ![](/react-native/docs/assets/RunningOnDeviceCodeSigning.png)
 
@@ -348,31 +348,7 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 ![](/react-native/docs/assets/ConfigureReleaseScheme.png)
 
-### 3. Configure app to use static bundle
-
-During the development process, React Native has loaded your JavaScript code dynamically at runtime. For a production build, you want to pre-package the JavaScript bundle and distribute it inside your application. Doing this requires a code change in your code so that it knows to load the static bundle.
-
-In `AppDelegate.m`, change `jsCodeLocation` to point to the static bundle if you're not in debug mode.
-
-```objc
-#ifdef DEBUG
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
-#else
-  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-#endif
-```
-
-This will now reference the `main.jsbundle` resource file that is created during the `Bundle React Native code and images` Build Phase in Xcode.
-
-> Note: The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
-
-```shell
- if [ "${CONFIGURATION}" == "Debug" ]; then
-  export SKIP_BUNDLING=true
- fi
-```
-
-#### Pro Tip
+#### Pro Tips
 
 As your App Bundle grows in size, you may start to see a white screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
 
@@ -383,7 +359,15 @@ As your App Bundle grows in size, you may start to see a white screen flash betw
   rootView.loadingView = launchScreenView;
 ```
 
-### 4. Build app for release
+The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
+
+```shell
+ if [ "${CONFIGURATION}" == "Debug" ]; then
+  export SKIP_BUNDLING=true
+ fi
+```
+
+### 3. Build app for release
 
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 

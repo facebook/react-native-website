@@ -1,6 +1,7 @@
 ---
-id: navigatorios
+id: version-0.58-navigatorios
 title: NavigatorIOS
+original_id: navigatorios
 ---
 
 `NavigatorIOS` is a wrapper around [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/), enabling you to implement a navigation stack. It works exactly the same as it would on a native app using `UINavigationController`, providing the same animations and behavior from UIKit.

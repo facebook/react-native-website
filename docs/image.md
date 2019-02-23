@@ -408,9 +408,9 @@ Android only. By default, it is 300ms.
 
 Android only. When true, enables progressive jpeg streaming. https://frescolib.org/docs/progressive-jpegs.html
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| bool   | No       | Android  |
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ## Methods
 

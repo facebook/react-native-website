@@ -83,32 +83,6 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 9-17: bold, red
 ```
 
-## Nested views (iOS only)
-
-On iOS, you can nest views within your Text component. Here's an example:
-
-```ReactNativeWebPlayer
-import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
-
-export default class BlueIsCool extends Component {
-  render() {
-    return (
-      <Text>
-        There is a blue square
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-        in between my text.
-      </Text>
-    );
-  }
-}
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BlueIsCool);
-```
-
-> In order to use this feature, you must give the view a `width` and a `height`.
-
 ## Containers
 
 The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
@@ -134,7 +108,7 @@ The `<Text>` element is special relative to layout: everything inside is no long
 // |First part and|
 // |second part   |
 
-// the will will flow in its own block
+// otherwise, the text will flow in its own block
 // |First part |
 // |and        |
 // |second part|
@@ -226,6 +200,7 @@ We believe that this more constrained way to style text will yield better apps:
 * [`onPress`](text.md#onpress)
 * [`pressRetentionOffset`](text.md#pressretentionoffset)
 * [`allowFontScaling`](text.md#allowfontscaling)
+* [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
 * [`style`](text.md#style)
 * [`testID`](text.md#testid)
 * [`disabled`](text.md#disabled)
@@ -380,6 +355,20 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ---
 
+### `maxFontSizeMultiplier`
+
+Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+
+* `null/undefined` (default): inherit from the parent node or the global default (0)
+* `0`: no max, ignore parent/global default
+* `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
 ### `style`
 
 | Type  | Required |
@@ -507,3 +496,7 @@ When `true`, no visual change is made when text is pressed down. By default, a g
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+# Known issues
+
+* [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute

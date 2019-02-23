@@ -190,9 +190,9 @@ Gets _all_ keys known to your app; for all callers, libraries, etc. Returns a `P
 
 **Parameters:**
 
-| Name     | Type                                           | Required | Description                                                |
-| -------- | ---------------------------------------------- | -------- | ---------------------------------------------------------- |
-| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called the keys found and any error. |
+| Name     | Type                                           | Required | Description                                                     |
+| -------- | ---------------------------------------------- | -------- | --------------------------------------------------------------- |
+| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called with all keys found and any error. |
 
 ---
 

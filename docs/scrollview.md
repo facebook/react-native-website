@@ -612,14 +612,24 @@ Enables nested scrolling for Android API level 21+. Nested scrolling is supporte
 ### `scrollTo()`
 
 ```javascript
-scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
+scrollTo(
+  ([y]: number),
+  object,
+  ([x]: number),
+  ([animated]: boolean),
+  ([duration]: number),
+);
 ```
 
-Scrolls to a given x, y offset, either immediately or with a smooth animation.
+Scrolls to a given x, y offset, either immediately, with a smooth animation, or, for Android only, a custom animation duration time.
 
 Example:
 
 `scrollTo({x: 0, y: 0, animated: true})`
+
+Example with duration (Android only):
+
+`scrollTo({x: 0, y: 0, duration: 500})`
 
 Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 
@@ -628,12 +638,12 @@ Note: The weird function signature is due to the fact that, for historical reaso
 ### `scrollToEnd()`
 
 ```javascript
-scrollToEnd(([options]: object));
+scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
-Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. If no options are passed, `animated` defaults to true.
+Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({duration: 500})` for a controlled duration scroll. If no options are passed, `animated` defaults to true.
 
 ---
 
