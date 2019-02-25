@@ -9,7 +9,7 @@ Let's do this thing.
 
 ## Hello World
 
-In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello world". Here it is:
+In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -19,7 +19,7 @@ export default class HelloWorldApp extends Component {
   render() {
     return (
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello world!</Text>
+        <Text>Hello, world!</Text>
       </View>
     );
   }
