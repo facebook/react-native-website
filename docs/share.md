@@ -78,7 +78,7 @@ import {Share, Button} from 'react-native'
 
 class ShareExample extends Component {
 
-  async onShare = () => {
+  onShare = async () => {
     try {
       const result = await Share.share({
         message:
