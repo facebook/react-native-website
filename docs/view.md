@@ -55,6 +55,7 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 * [`onAccessibilityTap`](view.md#onaccessibilitytap)
 * [`onLayout`](view.md#onlayout)
 * [`onMagicTap`](view.md#onmagictap)
+* [`onAccessibilityEscape`](view.md#onaccessibilityescape)
 * [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
 * [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
 * [`onResponderGrant`](view.md#onrespondergrant)
@@ -174,6 +175,16 @@ This event is fired immediately once the layout has been calculated, but the new
 ### `onMagicTap`
 
 When `accessible` is `true`, the system will invoke this function when the user performs the magic tap gesture.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onAccessibilityEscape`
+
+When `accessible` is `true`, the system will invoke this function when the user performs the escape gesture.
 
 | Type     | Required |
 | -------- | -------- |
