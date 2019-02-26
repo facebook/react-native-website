@@ -438,6 +438,7 @@ Rendering offscreen to preserve correct alpha behavior is extremely expensive an
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | Android  |
+| bool | No       | iOS      |
 
 ---
 
