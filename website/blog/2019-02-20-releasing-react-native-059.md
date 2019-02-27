@@ -63,10 +63,10 @@ Logs are formatted much better now. Commands now run nearly instantly &mdash; yo
 
 ## 🔨 Breaking Changes
 
-TODO
+`react-native-git-upgrade` was outdated and troublesome, so we killed it. Please use `react-native upgrade` from now on.
 
 ## 🤗 Thanks
 
-While these are the highlights that we noted, there are many others to be excited about: TODO. To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out. Better yet, we have even more improvements coming throughout the rest of the year. Stay tuned!
+While these are the highlights that we noted, there are many others to be excited about: TODO. @To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out. Better yet, we have even more improvements coming throughout the rest of the year. Stay tuned!
 
 [Ryan](https://github.com/turnrye) and the whole [React Native core team](https://twitter.com/reactnative)
