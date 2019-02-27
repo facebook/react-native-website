@@ -504,7 +504,7 @@ You can provide one state, no state, or both states. The states must be passed i
 
 Possible values for `AccessibilityStates` are:
 
-* `'selected'` - The element is in a selcted state.
+* `'selected'` - The element is in a selected state.
 * `'disabled'` - The element is in a disabled state.
 
 | Type                        | Required |
