@@ -393,7 +393,7 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 
 * **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
+  Specifies text alignment. The value 'justify' is only supported on iOS and Android Oreo (8.0) or above (API level >= 26). For lower android version it will fallback to `left`.
 
 * **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 
