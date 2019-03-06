@@ -21,7 +21,7 @@ This guide will use the [Toast](http://developer.android.com/reference/android/w
 
 We start by creating a native module. A native module is a Java class that usually extends the `ReactContextBaseJavaModule` class and implements the functionality required by the JavaScript. Our goal here is to be able to write `ToastExample.show('Awesome', ToastExample.SHORT);` from JavaScript to display a short toast on the screen.
 
-create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+Create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
 
 ```java
 // ToastModule.java
@@ -155,6 +155,8 @@ protected List<ReactPackage> getPackages() {
 
 To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
 
+Create a new JavaScript file named `ToastExample.js` with the content below:
+
 ```javascript
 /**
  * This exposes the native ToastExample module as a JS module. This has a
@@ -175,6 +177,8 @@ import ToastExample from './ToastExample';
 
 ToastExample.show('Awesome', ToastExample.SHORT);
 ```
+
+Please make sure this JavasScript file to be the same hierarchy as `ToastExample.js`.
 
 ## Beyond Toasts
 
