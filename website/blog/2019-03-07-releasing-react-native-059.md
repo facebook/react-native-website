@@ -2,7 +2,7 @@
 title: Releasing React Native 0.59
 author: Ryan Turner
 authorTitle: Core Maintainer & React Native Developer
-authorURL: https://github.com/turnrye
+authorURL: https://twitter.com/turnrye
 authorImageURL: https://avatars0.githubusercontent.com/u/701035?s=460&v=4
 authorTwitter: turnrye
 category: announcements
@@ -34,7 +34,7 @@ We want to help people have performant React Native apps by default and are work
 
 ![source of the `metro.config.js` file in the 0.59 template, demonstrating where to enable `inlineRequires`](/react-native/blog/assets/inline-requires.png)
 
-We need the community to let us know how it works before we turn it on by default. When you upgrade to 0.59, there will be a new `metro.config.js` file; flip the `inlineRequires` and `experimentalImportSupport` options and give us [your feedback](https://twitter.com/hashtag/inline-requires)! Read more about inline requires [in the performance docs](https://facebook.github.io/react-native/docs/0.56/performance#inline-requires) to benchmark your app.
+We need the community to let us know how it works before we turn it on by default. When you upgrade to 0.59, there will be a new `metro.config.js` file; flip the options to true and give us [your feedback](https://twitter.com/hashtag/inline-requires)! Read more about inline requires [in the performance docs](https://facebook.github.io/react-native/docs/0.56/performance#inline-requires) to benchmark your app.
 
 ## 🚅 Lean core is underway
 
@@ -63,10 +63,12 @@ Logs are formatted much better now. Commands now run nearly instantly &mdash; yo
 
 ## 🔨 Breaking Changes
 
-`react-native-git-upgrade` was outdated and troublesome, so we killed it. Please use `react-native upgrade` from now on.
+`react-native-git-upgrade` was outdated and troublesome, so we killed it. Please use `react-native upgrade` from now on. It makes use of [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) under the covers.
 
 ## 🤗 Thanks
 
-While these are the highlights that we noted, there are many others to be excited about: TODO. @To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out. Better yet, we have even more improvements coming throughout the rest of the year. Stay tuned!
+Lots of new contributors helped with [enabling generation of native code from flow types](https://github.com/facebook/react-native/issues/22990) and [resolving Xcode warnings](https://github.com/facebook/react-native/issues/22609) - these are a great way to learn how Rect Native works and contributing to the greater good. Thank you! Look out for similar issues in the future.
+
+While these are the highlights that we noted, there are many others to be excited about. To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out. Better yet, we have even more improvements coming throughout the rest of the year. Stay tuned!
 
 [Ryan](https://github.com/turnrye) and the whole [React Native core team](https://twitter.com/reactnative)
