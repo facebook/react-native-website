@@ -40,7 +40,7 @@ We need the community to let us know how it works before we turn it on by defaul
 
 React Native is a large and complex project with a complicated repository. This makes the codebase less approachable to contributors, difficult to test, and bloated as a dev dependency. [Lean Core](https://github.com/react-native-community/discussions-and-proposals/issues/6) is our effort to address these issues by migrating code to separate libraries for better management. The past few releases have seen the first steps of this, but [let's get serious](https://www.youtube.com/watch?v=FMLKb4or8yg).
 
-You may notice that additional components are now officially deprecated. This is great news, as there are now owners for these features actively maintaining them. Heed the warning messages and migrate to the new libraries for these features, because in 0.60 they will be removed. Below is a table indicating the component, its status, and where you may migrate your use to.
+You may notice that additional components are now officially deprecated. This is great news, as there are now owners for these features actively maintaining them. Heed the warning messages and migrate to the new libraries for these features, because in they will be removed in a future release. Below is a table indicating the component, its status, and where you may migrate your use to.
 
 | Component            | Deprecated? | New home                                                                                                                                                 |
 | -------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -55,7 +55,7 @@ Over the coming months, there will be many more components following this path t
 
 ## 👩🏽‍💻 CLI improvements
 
-React Native's command like tools are developer's entrypoint to the ecosystem, but they had long-standing issues and lacked official support. The CLI tools have been moved to a [new repository](https://github.com/react-native-community/react-native-cli), and a [dedicated group of maintainers](https://blog.callstack.io/the-react-native-cli-has-a-new-home-79b63838f0e6) have already made some exciting improvements.
+React Native's command line tools are developer's entry point to the ecosystem, but they had long-standing issues and lacked official support. The CLI tools have been moved to a [new repository](https://github.com/react-native-community/react-native-cli), and a [dedicated group of maintainers](https://blog.callstack.io/the-react-native-cli-has-a-new-home-79b63838f0e6) have already made some exciting improvements.
 
 Logs are formatted much better now. Commands now run nearly instantly &mdash; you'll immediately notice a difference:
 
@@ -69,6 +69,8 @@ Logs are formatted much better now. Commands now run nearly instantly &mdash; yo
 
 Lots of new contributors helped with [enabling generation of native code from flow types](https://github.com/facebook/react-native/issues/22990) and [resolving Xcode warnings](https://github.com/facebook/react-native/issues/22609) - these are a great way to learn how Rect Native works and contributing to the greater good. Thank you! Look out for similar issues in the future.
 
-While these are the highlights that we noted, there are many others to be excited about. To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out. Better yet, we have even more improvements coming throughout the rest of the year. Stay tuned!
+While these are the highlights that we noted, there are many others to be excited about. To see all of the updates, take a look at the [changelog](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). 0.59 is a huge release – we can't wait for you to try it out.
+
+We have even more improvements coming throughout the rest of the year. Stay tuned!
 
 [Ryan](https://github.com/turnrye) and the whole [React Native core team](https://twitter.com/reactnative)
