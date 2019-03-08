@@ -73,16 +73,17 @@ _iOS Only_. The dialog has been dismissed.
 ## Basic Example
 
 ```javascript
-import React, {Component} from 'react';
-import {Share, Button} from 'react-native';
+import React, { Component } from 'react'
+import { Share, Button, View, StyleSheet } from 'react-native'
 
-class ShareExample extends Component {
+export default class ShareExample extends Component {
+
   onShare = async () => {
     try {
       const result = await Share.share({
         message:
           'React Native | A framework for building native apps using React',
-      });
+      })
 
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -99,7 +100,25 @@ class ShareExample extends Component {
   };
 
   render() {
-    return <Button onPress={this.onShare} title="Share" />;
+    return (
+      <View style={styles.container}>
+        <Button
+          title="Share"
+          onPress={this.onShare}
+        />
+      </View>
+    );
   }
+
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
+})
 ```
