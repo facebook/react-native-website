@@ -65,6 +65,8 @@ Logs are formatted much better now. Commands now run nearly instantly &mdash; yo
 
 `react-native-git-upgrade` was outdated and troublesome, so we killed it. Please use `react-native upgrade` from now on. It makes use of [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) under the covers.
 
+Android also was cleaned up according to Google's recommendations, which resulted in potential breakage of existing apps (presented as a runtime crash `You need to use a Theme.AppCompat theme (or descendant) with this activity.`). In `AndroidManifest.xml`, make sure that the `android:theme` value is an `AppCompat` theme like `@style/Theme.AppCompat.Light.NoActionBar`.
+
 ## 🤗 Thanks
 
 Lots of new contributors helped with [enabling generation of native code from flow types](https://github.com/facebook/react-native/issues/22990) and [resolving Xcode warnings](https://github.com/facebook/react-native/issues/22609) - these are a great way to learn how Rect Native works and contributing to the greater good. Thank you! Look out for similar issues in the future.
