@@ -31,7 +31,7 @@ Exposing a view is simple:
 
 @implementation RNTMapManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNTMap)
 
 - (UIView *)view
 {

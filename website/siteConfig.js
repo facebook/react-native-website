@@ -8,7 +8,7 @@
 const RemarkablePlugins = require('./core/RemarkablePlugins');
 
 const users = require('./showcase.json');
-const defaultVersionShown = '0.58';
+const defaultVersionShown = '0.59';
 const baseUrl = '/react-native/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
