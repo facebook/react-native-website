@@ -61,11 +61,15 @@ Logs are formatted much better now. Commands now run nearly instantly &mdash; yo
 
 ![0.58's CLI is slow to start](/react-native/blog/assets/0.58-cli-speed.png)![0.58's CLI is nearly instantaneous](/react-native/blog/assets/0.59-cli-speed.png)
 
+## 🚀 Upgrading to 0.59
+
+We heard your feedback regarding the [React Native upgrade process](https://github.com/react-native-community/discussions-and-proposals/issues/68) and we are taking steps to improve the experience in [future releases](https://github.com/react-native-community/discussions-and-proposals/issues/64#issuecomment-444775432). To upgrade to 0.59, we recommend using [`rn-diff-purge`](https://github.com/react-native-community/rn-diff-purge) to determine what has changed between your current React Native version and 0.59, then applying those changes manually. Once you've upgraded your project to 0.59, you will be able to use the newly improved `react-native upgrade` command (based on `rn-diff-purge`!) to upgrade to 0.60 and beyond as newer releases become available.
+
 ## 🔨 Breaking Changes
 
-`react-native-git-upgrade` was outdated and troublesome, so we killed it. Please use `react-native upgrade` from now on. It makes use of [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) under the covers.
+Android support in 0.59 has been cleaned up following Google's latest recommendations, which may result in potential breakage of existing apps. This issue might present as a runtime crash and a message, "You need to use a Theme.AppCompat theme (or descendant) with this activity". We recommend updating your project's `AndroidManifest.xml` file, making sure that the `android:theme` value is an `AppCompat` theme (such as `@style/Theme.AppCompat.Light.NoActionBar`).
 
-Android also was cleaned up according to Google's recommendations, which resulted in potential breakage of existing apps (presented as a runtime crash `You need to use a Theme.AppCompat theme (or descendant) with this activity.`). In `AndroidManifest.xml`, make sure that the `android:theme` value is an `AppCompat` theme like `@style/Theme.AppCompat.Light.NoActionBar`.
+The `react-native-git-upgrade` command has been removed in 0.59, in favor of the newly improved `react-native upgrade` command.
 
 ## 🤗 Thanks
 
