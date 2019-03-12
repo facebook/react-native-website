@@ -84,11 +84,9 @@ title: Getting Started
 
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
 
-<strong>If you are coming from a web background</strong>, the easiest way to get started with React Native is with Expo tools because they allow you to start a project without installing and configuring Xcode or Android Studio. Expo CLI sets up a development environment on your local machine, and you can use [Snack](https://snack.expo.io/) to try React Native out directly in your web browser. The estimated time to a "Hello World" app is between 1 and 10 minutes.
+<strong>If you are coming from a web background</strong>, the easiest way to get started with React Native is with Expo tools because they allow you to start a project without installing and configuring Xcode or Android Studio. Expo CLI sets up a development environment on your local machine and you can be writing a React Native app within minutes. For instant development, you can use [Snack](https://snack.expo.io/) to try React Native out directly in your web browser.
 
-<strong>If you are familiar with native development</strong>, you will likely want to use React Native CLI. It requires Xcode or Android Studio to get started. The estimated time to a "Hello World" app between 5 minutes to 1+ hours, depending on whether you have already installed native build tools.
-
-It's easy to move from one CLI tool to another, so don't stress your decision too much &mdash; this "Getting Started" page isn't going anywhere.
+<strong>If you are familiar with native development</strong>, you will likely want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
 <div class="toggler">
   <ul role="tablist" >
