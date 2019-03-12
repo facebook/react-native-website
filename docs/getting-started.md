@@ -4,6 +4,9 @@ title: Getting Started
 ---
 
 <style>
+  .toggler {
+    margin-top: 2em;
+  }
   .toggler li {
     display: inline-block;
     position: relative;
@@ -39,7 +42,7 @@ title: Getting Started
       display: block;
       border-bottom-color: #05A5D1;
       border-radius: 3px;
-      margin: 2px 0px 2px 0px;
+      margin: 2px 0px 2px 0px !important;
     }
     .toggler ul {
       border-bottom: 0;
@@ -81,21 +84,24 @@ title: Getting Started
 
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
 
+<strong>If you are coming from a web background</strong>, the easiest way to get started with React Native is with Expo tools because they allow you to start a project without installing and configuring Xcode or Android Studio. Expo CLI sets up a development environment on your local machine, and you can use [Snack](https://snack.expo.io/) to try React Native out directly in your web browser. The estimated time to a "Hello World" app is between 1 and 10 minutes.
+
+<strong>If you are familiar with native development</strong>, you will likely want to use React Native CLI. It requires Xcode or Android Studio to get started. The estimated time to a "Hello World" app between 5 minutes to 1+ hours, depending on whether you have already installed native build tools.
+
+It's easy to move from one CLI tool to another, so don't stress your decision too much &mdash; this "Getting Started" page isn't going anywhere.
+
 <div class="toggler">
   <ul role="tablist" >
     <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
-      Quick Start
+      Expo CLI Quickstart
     </li>
     <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="-1" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
-      Building Projects with Native Code
+      React Native CLI Quickstart
     </li>
   </ul>
 </div>
 
 <block class="quickstart mac windows linux ios android" />
-
-[Expo](https://expo.io) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
-
 Assuming that you have [Node 8+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
@@ -108,7 +114,7 @@ Then run the following commands to create a new React Native project called "Awe
 expo init AwesomeProject
 
 cd AwesomeProject
-npm start #you can also use: expo start
+npm start # you can also use: expo start
 ```
 
 This will start a development server for you.
@@ -130,6 +136,8 @@ Congratulations! You've successfully run and modified your first React Native ap
 ## Now what?
 
 Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
+
+These tools help you get started quickly, but before committing to building your app with Expo CLI, [read about the limitations](https://docs.expo.io/versions/latest/introduction/why-not-expo/).
 
 If you have a problem with Expo, before creating a new issue, please see if there's an existing issue about it:
 
