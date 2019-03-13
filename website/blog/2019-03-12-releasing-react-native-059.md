@@ -40,7 +40,7 @@ We need the community to let us know how it works before we turn it on by defaul
 
 React Native is a large and complex project with a complicated repository. This makes the codebase less approachable to contributors, difficult to test, and bloated as a dev dependency. [Lean Core](https://github.com/react-native-community/discussions-and-proposals/issues/6) is our effort to address these issues by migrating code to separate libraries for better management. The past few releases have seen the first steps of this, but [let's get serious](https://www.youtube.com/watch?v=FMLKb4or8yg).
 
-You may notice that additional components are now officially deprecated. This is great news, as there are now owners for these features actively maintaining them. Heed the warning messages and migrate to the new libraries for these features, because in they will be removed in a future release. Below is a table indicating the component, its status, and where you may migrate your use to.
+You may notice that additional components are now officially deprecated. This is great news, as there are now owners for these features actively maintaining them. Heed the warning messages and migrate to the new libraries for these features, because they will be removed in a future release. Below is a table indicating the component, its status, and where you may migrate your use to.
 
 | Component            | Deprecated? | New home                                                                                                                                                 |
 | -------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
