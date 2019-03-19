@@ -351,22 +351,9 @@ You should re-enable ATS prior to building your app for production by removing t
 
 ![](assets/ConfigureReleaseScheme.png)
 
-### 3. 配置app使用静态包
+#### 关于启动屏的优化技巧
 
-在开发过程中，React Native已经在运行时动态地加载了JavaScript代码。对于生产编译，要预先打包JavaScript包并将其分发在应用内。
-
-
-> Note: The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
-
-```shell
- if [ "${CONFIGURATION}" == "Debug" ]; then
-  export SKIP_BUNDLING=true
- fi
-```
-
-#### 专业技巧
-
-随着App包大小的增长，可能开始在闪屏和根应用视图显示之间看到白屏闪现。如果是这样，为了在转换期间保持闪屏显示，可以添加下列代码到`AppDelegate.m`。
+随着App包大小的增长，可能开始在启动屏(splash)和根应用视图显示之间看到白屏闪现。如果是这样，为了在转换期间保持启动屏显示，可以添加下列代码到`AppDelegate.m`。
 
 
 ```objc
@@ -376,7 +363,15 @@ You should re-enable ATS prior to building your app for production by removing t
   rootView.loadingView = launchScreenView;
 ```
 
-### 4. 编译发布app 
+The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
+
+```shell
+ if [ "${CONFIGURATION}" == "Debug" ]; then
+  export SKIP_BUNDLING=true
+ fi
+```
+
+### 3. 编译发布app 
 
 现在可以通过点击`⌘B`或从菜单栏选择 **Product** → **Build** 编译发布app。一旦编译发布，就能够向beta测试者发布app，提交app到App Store。
 

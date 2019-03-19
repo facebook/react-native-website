@@ -102,6 +102,7 @@ export default class UselessTextInputMultiline extends Component {
 - [`disableFullscreenUI`](textinput.md#disablefullscreenui)
 - [`editable`](textinput.md#editable)
 - [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+- [`importantForAutofill`](textinput.md#importantForAutofill)
 - [`inlineImageLeft`](textinput.md#inlineimageleft)
 - [`inlineImagePadding`](textinput.md#inlineimagepadding)
 - [`keyboardAppearance`](textinput.md#keyboardappearance)
@@ -330,6 +331,22 @@ If `true`, context menu is hidden. The default value is `false`.
 
 ---
 
+### `importantForAutofill`
+
+Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+
+* `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
+* `no`: This view isn't important for autofill.
+* `noExcludeDescendants`: This view and its children aren't important for autofill.
+* `yes`: This view is important for autofill.
+* `yesExcludeDescendants`: This view is important for autofill, but its children aren't important for autofill.
+
+| Type                                                                       | Required | Platform |
+| -------------------------------------------------------------------------- | -------- | -------- |
+| enum('auto', 'no', 'noExcludeDescendants', 'yes', 'yesExcludeDescendants') | No       | Android  |
+
+---
+
 ### `inlineImageLeft`
 
 指定一个图片放置在左侧。图片必须放置在`/android/app/src/main/res/drawable`目录下，经过编译后按如下形式引用（无路径无后缀）：
@@ -534,7 +551,7 @@ Only called for multiline text inputs.
 
 ### `onSubmitEditing`
 
-此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数。如果`multiline={true}`，此属性不可用。
+此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数，所传参数为`{nativeEvent: {text, eventCount, target}}`。如果`multiline={true}`，此属性不可用。
 
 | 类型     | 必填 |
 | -------- | ---- |

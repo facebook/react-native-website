@@ -9,7 +9,7 @@ React Native 看起来很像 React，只不过其基础组件是原生组件而�
 
 ## Hello World
 
-根据历史悠久的“传统”，我们也来写一个“Hello World”：
+根据历史悠久的“传统”，我们也来写一个“Hello, world!”：
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -19,7 +19,7 @@ export default class HelloWorldApp extends Component {
   render() {
     return (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text>Hello world!</Text>
+          <Text>Hello, world!</Text>
         </View>
     );
   }

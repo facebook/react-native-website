@@ -108,6 +108,7 @@ dependencies {
 ### 查看方法
 
 * [`getSize`](image.md#getsize)
+* [`getSizeWithHeaders`](image.md#getsizewithheaders)
 * [`prefetch`](image.md#prefetch)
 * [`abortPrefetch`](image.md#abortprefetch)
 * [`queryCache`](image.md#querycache)
@@ -421,6 +422,29 @@ Image.getSize(uri, success, [failure]);
 | uri     | string   | 是   | 图片地址                         |
 | success | function | 是   | 成功的回调函数，返回图片宽高数据 |
 | failure | function | 否   | 失败的回调函数                   |
+
+---
+
+### `getSizeWithHeaders()`
+
+```javascript
+Image.getSizeWithHeaders(uri, headers, success, [failure]);
+```
+
+Retrieve the width and height (in pixels) of an image prior to displaying it with the ability to provide the headers for the request. This method can fail if the image cannot be found, or fails to download.
+
+In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
+
+Does not work for static image resources.
+
+**Parameters:**
+
+| Name    | Type     | Required | Description                                                                                          |
+| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| uri     | string   | Yes      | The location of the image.                                                                           |
+| headers | object   | Yes      | The headers for the request.                                                                         |
+| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
 
 ---
 

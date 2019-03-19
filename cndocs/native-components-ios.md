@@ -30,7 +30,7 @@ title: 原生UI组件
 
 @implementation RNTMapManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNTMap)
 
 - (UIView *)view
 {
@@ -42,7 +42,7 @@ RCT_EXPORT_MODULE()
 
 **注意：** 请不要在`-view`中给`UIView`实例设置`frame`或是`backgroundColor`属性。为了和 JavaScript 端的布局属性一致，React Native 会覆盖你所设置的值。 如果您需要这种粒度的操作的话，比较好的方法是用另一个`UIView`来封装你想操作的`UIView`实例，并返回外层的`UIView`。请参阅[Issue 2948](https://github.com/facebook/react-native/issues/2948)获取更多信息。
 
-> 在上例中，我们的类名使用了`RNT`前缀以避免与其它框架产生命名冲突。苹果自有框架使用了两个字符的前缀，而React Native则使用`RCT`作为前缀。为避免命名冲突，我们建议您在自己的类中使用`RNT`以外的其它三字符前缀。
+> 在上例中，我们的类名使用了`RNT`前缀以避免与其它框架产生命名冲突。苹果自有框架使用了两个字符的前缀，而 React Native 则使用`RCT`作为前缀。为避免命名冲突，我们建议您在自己的类中使用`RNT`以外的其它三字符前缀。
 
 接下来你需要一些 Javascript 代码来让这个视图变成一个可用的 React 组件：
 
@@ -65,7 +65,7 @@ render() {
 }
 ```
 
-请确认此处使用了 `RNTMap` 。我们在此对manager使用了require操作，以暴露manager的视图，并于Javascript中使用。
+请确认此处使用了 `RNTMap` 。我们在此对 manager 使用了 require 操作，以暴露 manager 的视图，并于 Javascript 中使用。
 
 **注意：** 在渲染时，不要忘记布局视图，否则您只能面对一个空荡荡的屏幕。
 
@@ -136,7 +136,7 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 
 这段代码比刚才的一个简单的`BOOL`要复杂的多了。现在我们多了一个需要做类型转换的`MKCoordinateRegion`类型，还添加了一部分自定义的代码，这样当我们在 JS 里改变地图的可视区域的时候，视角会平滑地移动过去。在我们提供的函数体内，`json`代表了 JS 中传递的尚未解析的原始值。函数里还有一个`view`变量，使得我们可以访问到对应的视图实例。最后，还有一个`defaultView`对象，这样当 JS 给我们发送 null 的时候，可以把视图的这个属性重置回默认值。
 
-你可以为视图编写任何你所需要的转换函数——下面就是用 `RCTConvert` 实现的 `MKCoordinateRegion`。它使用了ReactNative中已经存在的 `RCTConvert+CoreLocation`:
+你可以为视图编写任何你所需要的转换函数——下面就是用 `RCTConvert` 实现的 `MKCoordinateRegion`。它使用了 ReactNative 中已经存在的 `RCTConvert+CoreLocation`:
 
 ```objectivec
 // RNTMapManager.m
@@ -250,7 +250,7 @@ var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
 
 现在我们已经有了一个原生地图组件，并且从 JS 可以很容易的控制它了。不过我们怎么才能处理来自用户的事件，譬如缩放操作或者拖动来改变可视区域？
 
-截至目前，我们从manager的 `-(UIView *)view` 方法返回了 `MKMapView` 实例。我们没法直接为 `MKMapView` 添加新的属性，所以我们只能创建一个 `MKMapView` 的子类用于我们自己的视图中。我们可以在这个子类中添加 `onRegionChange` 回调方法：
+截至目前，我们从 manager 的 `-(UIView *)view` 方法返回了 `MKMapView` 实例。我们没法直接为 `MKMapView` 添加新的属性，所以我们只能创建一个 `MKMapView` 的子类用于我们自己的视图中。我们可以在这个子类中添加 `onRegionChange` 回调方法：
 
 ```objectivec
 // RNTMapView.h
@@ -274,7 +274,7 @@ var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
 @end
 ```
 
-需要注意的是，所有 `RCTBubblingEventBlock` 必须以 `on` 开头。然后在 `RNTMapManager`上声明一个事件处理函数属性，将其作为所暴露出来的所有视图的委托，并调用本地视图的事件处理将事件转发至JS。
+需要注意的是，所有 `RCTBubblingEventBlock` 必须以 `on` 开头。然后在 `RNTMapManager`上声明一个事件处理函数属性，将其作为所暴露出来的所有视图的委托，并调用本地视图的事件处理将事件转发至 JS。
 
 ```objectivec{9,17,31-48}
 // RNTMapManager.m

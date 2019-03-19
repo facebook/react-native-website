@@ -7,6 +7,73 @@ title: 更新
 
 > 译注：[英文更新日志点这里查看](https://github.com/facebook/react-native/releases)，[中文更新日志点这里查看](http://bbs.reactnative.cn/category/1)
 
+## 如果你当前的版本大于等于 0.59：
+
+### Upgrade based on Git
+
+The [React Native CLI](https://github.com/react-native-community/react-native-cli) comes with `upgrade` command that provides a one-step operation to upgrade the source files with a minimum of conflicts, thanks to the [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) project.
+
+#### 1. Make sure your project uses Git
+
+> This step applies only to projects that don't use Git. Skip it if yours use it.
+
+While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `react-native upgrade`. Git will also need to be available in the `PATH`. If your project doesn't use Git, initialize it and commit:
+
+```sh
+git init
+git add .
+git commit -m "upgrade RN"
+```
+
+After the upgrade is done and conflicts resolved, you can remove the `.git` directory.
+
+#### 2. Run the `upgrade` command
+
+Run the following command to start the process of upgrading to the latest version:
+
+```sh
+react-native upgrade
+```
+
+You may specify a React Native version by passing an argument, e.g. to upgrade to `0.59.0-rc.0` run:
+
+```sh
+react-native upgrade 0.59.0-rc.0
+```
+
+The project is upgraded using `git apply` with 3-way merge. That's why it may happen you'll need to resolve some conflicts.
+
+#### 4. Resolve the conflicts
+
+Conflicted files include delimiters which make very clear where the changes come from. For example:
+
+```
+13B07F951A680F5B00A75B9A /* Release */ = {
+  isa = XCBuildConfiguration;
+  buildSettings = {
+    ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+<<<<<<< ours
+    CODE_SIGN_IDENTITY = "iPhone Developer";
+    FRAMEWORK_SEARCH_PATHS = (
+      "$(inherited)",
+      "$(PROJECT_DIR)/HockeySDK.embeddedframework",
+      "$(PROJECT_DIR)/HockeySDK-iOS/HockeySDK.embeddedframework",
+    );
+=======
+    CURRENT_PROJECT_VERSION = 1;
+>>>>>>> theirs
+    HEADER_SEARCH_PATHS = (
+      "$(inherited)",
+      /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+      "$(SRCROOT)/../node_modules/react-native/React/**",
+      "$(SRCROOT)/../node_modules/react-native-code-push/ios/CodePush/**",
+    );
+```
+
+You can think of "ours" as "your team" and "theirs" as "the React Native dev team".
+
+### 如果你当前的版本低于 0.59， 或者想降级到 0.59 以下， 或上述升级方法对你无效：
+
 #### 1. 更新`react-native`的 node 依赖包
 
 请使用`npm info react-native`命令查看其当前最新版本。

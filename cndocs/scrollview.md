@@ -21,6 +21,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 
 - [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
 - [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
+- [`disableScrollViewPanResponder`](scrollview.md#disablescrollviewpanresponder)
 - [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
 - [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
 - [`onContentSizeChange`](scrollview.md#oncontentsizechange)
@@ -110,6 +111,16 @@ const styles = StyleSheet.create({
 | 类型                                 | 必填 |
 | ------------------------------------ | ---- |
 | StyleSheetPropType(View Style props) | 否   |
+
+---
+
+### `disableScrollViewPanResponder`
+
+When true, the default JS pan responder on the ScrollView is disabled, and full control over touches inside the ScrollView is left to its child components. This is particularly useful if `snapToInterval` is enabled, since it does not follow typical touch patterns. Do not use this on regular ScrollView use cases without `snapToInterval` as it may cause unexpected touches to occur while scrolling. The default value is false.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 

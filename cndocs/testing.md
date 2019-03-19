@@ -9,12 +9,12 @@ The React Native repo has several tests you can run to verify you haven't caused
 
 Whenever you are fixing a bug or adding new functionality to React Native, you should add a test that covers it. Depending on the change you're making, there are different types of tests that may be appropriate.
 
-* [JavaScript](testing.md#javascript)
-* [Android](testing.md#android)
-* [iOS](testing.md#ios)
-* [Apple TV](testing.md#apple-tv)
-* [End-to-end tests](testing.md#end-to-end-tests)
-* [Website](testing.md#website)
+- [JavaScript](testing.md#javascript)
+- [Android](testing.md#android)
+- [iOS](testing.md#ios)
+- [Apple TV](testing.md#apple-tv)
+- [Manual end-to-end tests](testing.md#manual-end-to-end-tests)
+- [Website](testing.md#website)
 
 ## JavaScript
 
@@ -90,9 +90,9 @@ The tests themselves are written in JS, and must call `TestModule.markTestComple
 
 See the following for example usage and integration points:
 
-* [`IntegrationTestHarnessTest.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestHarnessTest.js)
-* [`RNTesterIntegrationTests.m`](https://github.com/facebook/react-native/blob/master/RNTester/RNTesterIntegrationTests/RNTesterIntegrationTests.m)
-* [`IntegrationTestsApp.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestsApp.js)
+- [`IntegrationTestHarnessTest.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestHarnessTest.js)
+- [`RNTesterIntegrationTests.m`](https://github.com/facebook/react-native/blob/master/RNTester/RNTesterIntegrationTests/RNTesterIntegrationTests.m)
+- [`IntegrationTestsApp.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestsApp.js)
 
 You can run integration tests locally with cmd+U in the IntegrationTest and RNTester apps in Xcode, or by running the following in the command line on macOS:
 
@@ -107,6 +107,18 @@ A common type of integration test is the snapshot test. These tests render a com
 
 If you make a change that affects a snapshot test in a PR, such as adding a new example case to one of the examples that is snapshotted, you'll need to re-record the snapshot reference image. To do this, simply change to `_runner.recordMode = YES;` in [RNTester/RNTesterSnapshotTests.m](https://github.com/facebook/react-native/blob/master/RNTester/RNTesterIntegrationTests/RNTesterSnapshotTests.m#L42), re-run the failing tests, then flip record back to `NO` and submit/update your PR and wait to see if the Circle build passes.
 
+### Automated End-to-End Tests
+
+End-to-end tests written in [Detox](https://github.com/wix/Detox) confirm that React Native components and APIs function correctly in the context of a running app. They run the RNTester app in the simulator and simulate a user interacting with the app.
+
+You can run Detox end-to-end tests locally by [installing the Detox CLI](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md#step-1-install-dependencies) on macOS, then running the following in the command line:
+
+    $ cd react-native
+    $ npm run build-ios-e2e
+    $ npm run test-ios-e2e
+
+If you work on a component or API that isn't convered by a Detox test, please consider adding one. Detox tests are stored under [`RNTester/e2e/__tests__`](https://github.com/facebook/react-native/tree/master/RNTester/e2e/__tests__).
+
 ## Apple TV
 
 The same tests discussed above for iOS will also run on tvOS. In the RNTester Xcode project, select the RNTester-tvOS target, and you can follow the same steps above to run the tests in Xcode.
@@ -116,9 +128,9 @@ You can run Apple TV unit and integration tests locally by running the following
     $ cd react-native
     $ ./scripts/objc-test-tvos.sh (make sure the line `TEST="test"` is uncommented)
 
-## End-to-end tests
+## Manual end-to-end tests
 
-Finally, make sure end-to-end tests run successfully by executing the following script:
+Finally, make sure manual end-to-end tests run successfully by executing the following script:
 
     $ cd react-native
     $ ./scripts/test-manual-e2e.sh

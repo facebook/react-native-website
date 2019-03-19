@@ -52,6 +52,7 @@ class ViewColoredBoxesWithText extends Component {
 * [`onAccessibilityTap`](view.md#onaccessibilitytap)
 * [`onLayout`](view.md#onlayout)
 * [`onMagicTap`](view.md#onmagictap)
+* [`onAccessibilityEscape`](view.md#onaccessibilityescape)
 * [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
 * [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
 * [`onResponderGrant`](view.md#onrespondergrant)
@@ -176,6 +177,16 @@ An accessibility hint helps users understand what will happen when they perform 
 | 类型     | 必填 |
 | -------- | ---- |
 | function | 否   |
+
+---
+
+### `onAccessibilityEscape`
+
+When `accessible` is `true`, the system will invoke this function when the user performs the escape gesture.
+
+| 类型     | 必填 |
+| -------- | ---- |
+| function | No   |
 
 ---
 
