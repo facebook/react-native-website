@@ -376,8 +376,6 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 | ----- | -------- |
 | style | No       |
 
-* [View Style Props...](view-style-props.md#style)
-
 * **`textShadowOffset`**: object: {width: number,height: number}
 
 * **`color`**: [color](colors.md)
