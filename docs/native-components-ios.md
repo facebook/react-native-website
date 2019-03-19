@@ -52,7 +52,7 @@ Then you just need a little bit of JavaScript to make this a usable React compon
 import { requireNativeComponent } from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
-module.exports = requireNativeComponent('RNTMap', null);
+module.exports = requireNativeComponent('RNTMap');
 
 // MyApp.js
 
