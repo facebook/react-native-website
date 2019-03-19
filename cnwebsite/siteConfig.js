@@ -14,7 +14,7 @@ const RemarkablePlugins = require('./core/RemarkablePlugins');
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const bbsUrl = 'http://bbs.reactnative.cn';
-const defaultVersionShown = '0.58';
+const defaultVersionShown = '0.59';
 const siteConfig = {
   adData: {
     banner: {
