@@ -8,7 +8,7 @@ Though you may have installed the `react-native-cli` via npm as a separate modul
 
 # The local CLI
 
-React Native has a [`local-cli`](https://github.com/facebook/react-native/tree/master/local-cli) folder with a file named [`cliEntry.js`](https://github.com/facebook/react-native/blob/master/local-cli/cliEntry.js). Here, the commands are read from `commands.js` and added as possible CLI commands. _E.G._ the `react-native link` command, exists in the [`react-native/local-cli/link`](https://github.com/facebook/react-native/blob/master/local-cli/link/) folder, and is required in `commands.js`, which will register it as a documented command to be exposed to the CLI.
+React Native has a [`local-cli`](https://github.com/facebook/react-native/tree/master/local-cli) folder with a file named [`cli.js`](https://github.com/facebook/react-native/blob/master/local-cli/cli.js). Here, the commands are read from `commands.js` and added as possible CLI commands. _E.G._ the `react-native link` command, exists in the [`react-native/local-cli/link`](https://github.com/facebook/react-native/blob/master/local-cli/link/) folder, and is required in `commands.js`, which will register it as a documented command to be exposed to the CLI.
 
 # Command definitions
 

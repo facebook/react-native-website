@@ -745,6 +745,7 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
         mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
+                .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
                 .addPackage(new MainReactPackage())
