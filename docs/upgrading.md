@@ -115,9 +115,9 @@ $ react-native upgrade
 
 This will check your files against the latest template and perform the following:
 
-- If there is a new file in the template, it is simply created.
-- If a file in the template is identical to your file, it is skipped.
-- If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
+* If there is a new file in the template, it is simply created.
+* If a file in the template is identical to your file, it is skipped.
+* If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
 
 ## Manual Upgrades
 

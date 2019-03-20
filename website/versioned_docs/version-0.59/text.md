@@ -1,6 +1,7 @@
 ---
-id: text
+id: version-0.59-text
 title: Text
+original_id: text
 ---
 
 A React component for displaying text.
@@ -393,7 +394,7 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 
 * **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on iOS and Android Oreo (8.0) or above (API level >= 26). For lower android version it will fallback to `left`.
+  Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
 
 * **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 
