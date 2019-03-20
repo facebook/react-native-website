@@ -134,6 +134,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
+- [`rejectResponderTermination`](textinput.md#rejectResponderTermination)
 - [`scrollEnabled`](textinput.md#scrollenabled)
 - [`secureTextEntry`](textinput.md#securetextentry)
 - [`selection`](textinput.md#selection)
@@ -651,6 +652,18 @@ The following values work on iOS only:
 | Type                                                                                                                              | Required |
 | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No       |
+
+### `rejectResponderTermination`
+
+Determines how the return key should look. On Android you can also use `returnKeyLabel`.
+
+_iOS Only_
+
+If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
