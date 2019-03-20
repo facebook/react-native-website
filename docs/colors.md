@@ -77,7 +77,6 @@ You can also use color names as values. React Native follows the [CSS3 specifica
 * <color deeppink /> deeppink (#ff1493)
 * <color deepskyblue /> deepskyblue (#00bfff)
 * <color dimgray /> dimgray (#696969)
-* <color dimgrey /> dimgrey (#696969)
 * <color dodgerblue /> dodgerblue (#1e90ff)
 * <color firebrick /> firebrick (#b22222)
 * <color floralwhite /> floralwhite (#fffaf0)
