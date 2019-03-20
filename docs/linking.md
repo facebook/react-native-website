@@ -120,13 +120,13 @@ Linking.canOpenURL(url)
 
 ### Methods
 
-- [`constructor`](linking.md#constructor)
-- [`addEventListener`](linking.md#addeventlistener)
-- [`removeEventListener`](linking.md#removeeventlistener)
-- [`openURL`](linking.md#openurl)
-- [`canOpenURL`](linking.md#canopenurl)
-- [`openSettings`](linking.md#opensettings)
-- [`getInitialURL`](linking.md#getinitialurl)
+* [`constructor`](linking.md#constructor)
+* [`addEventListener`](linking.md#addeventlistener)
+* [`removeEventListener`](linking.md#removeeventlistener)
+* [`openURL`](linking.md#openurl)
+* [`canOpenURL`](linking.md#canopenurl)
+* [`openSettings`](linking.md#opensettings)
+* [`getInitialURL`](linking.md#getinitialurl)
 
 ---
 
