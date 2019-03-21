@@ -72,7 +72,7 @@ It is fine to update properties anytime. However, updates have to be performed o
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
 
-> **_Note:_** Currently, JS functions `componentWillReceiveProps` and `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentWillMount` function.
+> **_Note:_** Currently, JS function `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentDidMount` function.
 
 ### Passing properties from React Native to native
 
