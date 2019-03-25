@@ -26,7 +26,7 @@ export default class Bananas extends Component {
 }
 ```
 
-译注：在 iOS 上使用 http 链接的图片地址可能不会显示，参见[这篇说明修改](https://segmentfault.com/a/1190000002933776)。
+译注：在 iOS 上使用 http 链接的图片地址可能不会显示，参见[这篇说明修改](https://segmentfault.com/a/1190000002933776)。从 Android9 开始，也会默认阻止 http 请求，请参考[相关配置](https://blog.csdn.net/qq_40347548/article/details/86766932)
 
 请注意`{pic}`外围有一层括号，我们需要用括号来把`pic`这个变量嵌入到 JSX 语句中。括号的意思是括号内部为一个 js 变量或表达式，需要执行后取值。因此我们可以把任意合法的 JavaScript 表达式通过括号嵌入到 JSX 语句中。
 

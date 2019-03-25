@@ -46,6 +46,7 @@ var MOCKED_MOVIES_DATA = [
 ```
 
 > 译注：在 iOS 上使用 http 链接的图片地址可能不会显示，参见[这篇说明修改](https://segmentfault.com/a/1190000002933776)。
+> 从 Android9 开始，也会默认阻止 http 请求，请参考[相关配置](https://blog.csdn.net/qq_40347548/article/details/86766932)
 
 ### 展现一个电影
 

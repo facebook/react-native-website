@@ -145,7 +145,7 @@ export default class FetchExample extends React.Component {
 }
 ```
 
-> 默认情况下，iOS 会阻止所有非 https 的请求。如果你请求的接口是 http 协议，那么首先需要添加一个 App Transport Security 的例外，详细可参考[这篇帖子](https://segmentfault.com/a/1190000002933776)。
+> 默认情况下，iOS 会阻止所有非 https 的请求。如果你请求的接口是 http 协议，那么首先需要添加一个 App Transport Security 的例外，详细可参考[这篇帖子](https://segmentfault.com/a/1190000002933776)。从 Android9 开始，也会默认阻止 http 请求，请参考[相关配置](https://blog.csdn.net/qq_40347548/article/details/86766932)
 
 ### 使用其他的网络库
 
