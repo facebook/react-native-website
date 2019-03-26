@@ -35,7 +35,7 @@ This is a shortcut for `rgba(0,0,0,0)`:
 
 You can also use color names as values. React Native follows the [CSS3 specification](http://www.w3.org/TR/css3-color/#svg-color):
 
-* <color aliceblue /> aliceblue (#f0f8ff)
+* ![#f0f8ff](https://placehold.it/15/f0f8ff/000000?text=+) <color aliceblue /> aliceblue (#f0f8ff)
 * <color antiquewhite /> antiquewhite (#faebd7)
 * <color aqua /> aqua (#00ffff)
 * <color aquamarine /> aquamarine (#7fffd4)
@@ -152,7 +152,7 @@ You can also use color names as values. React Native follows the [CSS3 specifica
 * <color plum /> plum (#dda0dd)
 * <color powderblue /> powderblue (#b0e0e6)
 * <color purple /> purple (#800080)
-* <color rebeccapurple /> rebeccapurple (#663399)
+* ![#663399](https://placehold.it/15/663399/000000?text=+) <color rebeccapurple /> rebeccapurple (#663399)
 * <color red /> red (#ff0000)
 * <color rosybrown /> rosybrown (#bc8f8f)
 * <color royalblue /> royalblue (#4169e1)
