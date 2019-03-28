@@ -12,6 +12,19 @@ const Container = CompLibrary.Container;
 
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 
+class Button extends React.Component {
+  render() {
+    return (
+      <a
+        className="big-button"
+        href={this.props.href}
+        target={this.props.target}>
+        {this.props.children}
+      </a>
+    );
+  }
+}
+
 class Upgrade extends React.Component {
   render() {
     return (
@@ -29,6 +42,9 @@ class Upgrade extends React.Component {
           <h3>What type of project do you have?</h3>
           <h3>What are some of your app dependencies?</h3>
           <h3>How would you like to update?</h3>
+          <div className="buttons-unit">
+            <Button>Show me how to update!</Button>
+          </div>
         </Container>
       </div>
     );
