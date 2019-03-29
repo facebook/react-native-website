@@ -126,7 +126,7 @@ How many items to render in the initial batch. This should be enough to fill the
 
 ### `keyExtractor`
 
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks item.key, then falls back to using the index, like react does. Note that this sets keys for each item, but each overall section still needs its own key.
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the React key to track item re-ordering. The default extractor checks item.key, then falls back to using the index, like React does. Note that this sets keys for each item, but each overall section still needs its own key.
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |
