@@ -14,7 +14,7 @@ const siteConfig = require(process.cwd() + '/siteConfig.js');
 const versions = require(process.cwd() + '/versions.json');
 
 const formConfig = {
-  projectTypes: ['React Native', 'Expo'],
+  projectTypes: ['React Native'],
   upgradeTypes: ['React Native CLI', 'Automated', 'Manually'],
 };
 
@@ -79,7 +79,16 @@ class Upgrade extends React.Component {
             you.
           </p>
           <h2>Select the options matching your project</h2>
+          <p>
+            Finding the best way to upgrade can be a challenge. So, we built a
+            tool to make it easier that helps you upgrade with ease.
+          </p>
           <h3>React Native Version</h3>
+          <p>
+            Select which version you are coming from and which version you want
+            to upgrade to. We auto-selected version{' '}
+            {siteConfig.defaultVersionShown} for your convenience.
+          </p>
           <Select
             options={versions}
             selected={fromVersion}
@@ -92,6 +101,11 @@ class Upgrade extends React.Component {
             onChange={version => this.setState({toVersion: version})}
           />
           <h3>What type of project do you have?</h3>
+          <p>
+            Select what type of React Native project you're using. Eventually we
+            will support Expo and ejected Expo projects but for now we only
+            allow for React Native.
+          </p>
           <RadioGroup
             name="projectType"
             values={formConfig.projectTypes}
@@ -106,7 +120,7 @@ class Upgrade extends React.Component {
             onChange={type => this.setState({upgradeType: type})}
           />
           <div className="buttons-unit">
-            <Button>Show me how to update!</Button>
+            <Button>Show me how to upgrade!</Button>
           </div>
         </Container>
       </div>
