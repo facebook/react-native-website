@@ -13,18 +13,11 @@ const Container = CompLibrary.Container;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 const versions = require(process.cwd() + '/versions.json');
 
-class Button extends React.Component {
-  render() {
-    return (
-      <a
-        className="big-button"
-        href={this.props.href}
-        target={this.props.target}>
-        {this.props.children}
-      </a>
-    );
-  }
-}
+const Button = props => (
+  <a className="big-button" href={props.href} target={props.target}>
+    {props.children}
+  </a>
+);
 
 class Select extends React.Component {
   renderOption(option) {
