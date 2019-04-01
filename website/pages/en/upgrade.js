@@ -104,7 +104,7 @@ class Upgrade extends React.Component {
           <p>
             Select what type of React Native project you're using. Eventually we
             will support Expo and ejected Expo projects but for now we only
-            allow for React Native.
+            allow for React Native ones.
           </p>
           <RadioGroup
             name="projectType"
