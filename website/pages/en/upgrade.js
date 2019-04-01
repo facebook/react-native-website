@@ -37,10 +37,15 @@ const Select = ({selected, options, onChange}) => {
   );
 };
 
-const RadioGroup = ({name, values}) => {
+const RadioGroup = ({name, values, selected}) => {
   const renderRadio = value => (
     <div key={value}>
-      <input type="radio" name={name} value={value} />
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        checked={value === selected}
+      />
       <span>{value}</span>
     </div>
   );
@@ -60,7 +65,7 @@ class Upgrade extends React.Component {
   }
 
   render() {
-    const {fromVersion, toVersion} = this.state;
+    const {fromVersion, toVersion, projectType, upgradeType} = this.state;
 
     return (
       <div className="pageContainer">
@@ -86,9 +91,17 @@ class Upgrade extends React.Component {
             onChange={version => this.setState({toVersion: version})}
           />
           <h3>What type of project do you have?</h3>
-          <RadioGroup name="projectType" values={formConfig.projectTypes} />
+          <RadioGroup
+            name="projectType"
+            values={formConfig.projectTypes}
+            selected={this.state.projectType}
+          />
           <h3>How would you like to update?</h3>
-          <RadioGroup name="projectType" values={formConfig.upgradeTypes} />
+          <RadioGroup
+            name="upgradeType"
+            values={formConfig.upgradeTypes}
+            selected={upgradeType}
+          />
           <div className="buttons-unit">
             <Button>Show me how to update!</Button>
           </div>
