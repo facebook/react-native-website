@@ -18,32 +18,28 @@ const formConfig = {
   upgradeTypes: ['React Native CLI', 'Automated', 'Manually'],
 };
 
-const Button = ({href, target, children}) => (
-  <a className="big-button" href={href} target={target}>
+const Button = ({onClick, children}) => (
+  <a className="big-button" onClick={onClick}>
     {children}
   </a>
 );
 
-class Select extends React.Component {
-  renderOption(option) {
-    return (
-      <option key={option} value={option}>
-        {option}
-      </option>
-    );
-  }
-  render() {
-    return (
-      <select value={this.props.selected}>
-        {this.props.options.map(option => this.renderOption(option))}
-      </select>
-    );
-  }
-}
+const Select = ({selected, options, onChange}) => {
+  const renderOption = option => (
+    <option key={option} value={option}>
+      {option}
+    </option>
+  );
+  return (
+    <select value={selected} onChange={onChange}>
+      {options.map(option => renderOption(option))}
+    </select>
+  );
+};
 
 const RadioGroup = ({name, values}) => {
   const renderRadio = value => (
-    <div>
+    <div key={value}>
       <input type="radio" name={name} value={value} />
       <span>{value}</span>
     </div>
@@ -78,9 +74,17 @@ class Upgrade extends React.Component {
           </p>
           <h2>Select the options matching your project</h2>
           <h3>React Native Version</h3>
-          <Select options={versions} selected={fromVersion} />
+          <Select
+            options={versions}
+            selected={fromVersion}
+            onChange={version => this.setState({fromVersion: version})}
+          />
           to
-          <Select options={versions} selected={toVersion} />
+          <Select
+            options={versions}
+            selected={toVersion}
+            onChange={version => this.setState({toVersion: version})}
+          />
           <h3>What type of project do you have?</h3>
           <RadioGroup name="projectType" values={formConfig.projectTypes} />
           <h3>How would you like to update?</h3>
