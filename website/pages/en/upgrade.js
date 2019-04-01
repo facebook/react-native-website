@@ -53,12 +53,15 @@ const RadioGroup = ({name, values}) => {
 };
 
 class Upgrade extends React.Component {
-  state = {
-    projectType: 'React Native',
-    upgradeType: 'React Native CLI',
-    fromVersion: '0.58',
-    toVersion: siteConfig.defaultVersionShown,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      projectType: 'React Native',
+      upgradeType: 'React Native CLI',
+      fromVersion: '0.58',
+      toVersion: siteConfig.defaultVersionShown,
+    };
+  }
 
   render() {
     const {fromVersion, toVersion} = this.state;
