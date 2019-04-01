@@ -13,9 +13,14 @@ const Container = CompLibrary.Container;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 const versions = require(process.cwd() + '/versions.json');
 
-const Button = props => (
-  <a className="big-button" href={props.href} target={props.target}>
-    {props.children}
+const formConfig = {
+  projectTypes: ['React Native', 'Expo'],
+  upgradeTypes: ['React Native CLI', 'Automated', 'Manually'],
+};
+
+const Button = ({href, target, children}) => (
+  <a className="big-button" href={href} target={target}>
+    {children}
   </a>
 );
 
@@ -29,15 +34,35 @@ class Select extends React.Component {
   }
   render() {
     return (
-      <select selected={this.props.selected}>
+      <select value={this.props.selected}>
         {this.props.options.map(option => this.renderOption(option))}
       </select>
     );
   }
 }
 
+const RadioGroup = ({name, values}) => {
+  const renderRadio = value => (
+    <div>
+      <input type="radio" name={name} value={value} />
+      <span>{value}</span>
+    </div>
+  );
+
+  return <div>{values.map(value => renderRadio(value))}</div>;
+};
+
 class Upgrade extends React.Component {
+  state = {
+    projectType: 'React Native',
+    upgradeType: 'React Native CLI',
+    fromVersion: '0.58',
+    toVersion: siteConfig.defaultVersionShown,
+  };
+
   render() {
+    const {fromVersion, toVersion} = this.state;
+
     return (
       <div className="pageContainer">
         <Container className="mainContainer documentContainer postContainer">
@@ -50,15 +75,13 @@ class Upgrade extends React.Component {
           </p>
           <h2>Select the options matching your project</h2>
           <h3>React Native Version</h3>
-          <Select options={versions} />
+          <Select options={versions} selected={fromVersion} />
           to
-          <Select
-            options={versions}
-            selected={siteConfig.defaultVersionShown}
-          />
+          <Select options={versions} selected={toVersion} />
           <h3>What type of project do you have?</h3>
-          <h3>What are some of your app dependencies?</h3>
+          <RadioGroup name="projectType" values={formConfig.projectTypes} />
           <h3>How would you like to update?</h3>
+          <RadioGroup name="projectType" values={formConfig.upgradeTypes} />
           <div className="buttons-unit">
             <Button>Show me how to update!</Button>
           </div>
