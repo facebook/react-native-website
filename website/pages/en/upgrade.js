@@ -112,7 +112,7 @@ class Upgrade extends React.Component {
             selected={this.state.projectType}
             onChange={type => this.setState({upgradeType: type})}
           />
-          <h3>How would you like to update?</h3>
+          <h3>How would you like to upgrade?</h3>
           <RadioGroup
             name="upgradeType"
             values={formConfig.upgradeTypes}
