@@ -40,14 +40,16 @@ const Select = ({selected, options, onChange}) => {
 const RadioGroup = ({name, values, selected, onChange}) => {
   const renderRadio = value => (
     <div key={value}>
-      <input
-        type="radio"
-        name={name}
-        value={value}
-        checked={value === selected}
-        onChange={onChange}
-      />
-      <span>{value}</span>
+      <label>
+        <input
+          type="radio"
+          name={name}
+          value={value}
+          checked={value === selected}
+          onChange={onChange}
+        />
+        {value}
+      </label>
     </div>
   );
 
