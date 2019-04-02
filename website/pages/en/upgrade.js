@@ -6,6 +6,7 @@
  */
 
 const React = require('react');
+const fs = require('fs');
 
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
@@ -16,6 +17,30 @@ const versions = require(process.cwd() + '/versions.json');
 const formConfig = {
   projectTypes: ['React Native'],
   upgradeTypes: ['React Native CLI', 'Automated', 'Manually'],
+};
+
+// TODO: consider moving the below functions somewhere else
+
+const clearVersionFolderName = version =>
+  parseFloat(version.replace('version-0.', ''));
+const clearVersion = version => parseFloat(fromVersion.replace('0.', ''));
+
+const getUpgradeInstructions = ({fromVersion, toVersion}) => {
+  const versions = fs
+    .readdirSync('./versioned_docs')
+    .filter(
+      version =>
+        clearVersionFolderName(version) > clearVersion(fromVersion) &&
+        clearVersionFolderName(version) < clearVersion(toVersion)
+    );
+
+  console.log({versions});
+
+  const instructions = versions.map(version =>
+    require(`${process.cwd()}/versioned_docs/${version}/upgradeInstructions.json`)
+  );
+
+  console.log({instructions});
 };
 
 const Button = ({onClick, children}) => (
@@ -65,6 +90,17 @@ class Upgrade extends React.Component {
       fromVersion: '0.58',
       toVersion: siteConfig.defaultVersionShown,
     };
+  }
+
+  handleShowUpgradeInstructions(event) {
+    event.preventDefault();
+
+    getUpgradeInstructions({
+      fromVersion: this.state.fromVersion,
+      toVersion: this.state.toVersion,
+    });
+
+    // TODO: show in the page
   }
 
   render() {
@@ -122,7 +158,9 @@ class Upgrade extends React.Component {
             onChange={type => this.setState({upgradeType: type})}
           />
           <div className="buttons-unit">
-            <Button>Show me how to upgrade!</Button>
+            <Button onClick={this.handleShowUpgradeInstructions}>
+              Show me how to upgrade!
+            </Button>
           </div>
         </Container>
       </div>
