@@ -10,7 +10,7 @@ It is important all children are `<View>`s and not composite components. You can
 Example:
 
 ```javascript
-render: function() {
+render() {
   return (
     <ViewPagerAndroid
       style={styles.viewPager}
@@ -27,7 +27,7 @@ render: function() {
 
 ...
 
-var styles = {
+const styles = {
   ...
   viewPager: {
     flex: 1
