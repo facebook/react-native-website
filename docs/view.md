@@ -116,9 +116,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type | Required |
-| ---- | -------- |
-| node | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 

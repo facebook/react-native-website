@@ -144,7 +144,7 @@ Go to the root directory for your project and create a new `package.json` file w
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "yarn react-native start"
   }
 }
 ```

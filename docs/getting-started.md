@@ -100,7 +100,7 @@ This page will help you install and build your first React Native app. If you al
 </div>
 
 <block class="quickstart mac windows linux ios android" />
-Assuming that you have [Node 8+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
+Assuming that you have [Node 10+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
 npm install -g expo-cli
@@ -441,6 +441,18 @@ react-native init AwesomeProject
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
+### [Optional] Using a specific version
+
+If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+
+```
+react-native init AwesomeProject --version X.XX.X
+```
+
+```
+react-native init AwesomeProject --version react-native@next
+```
+
 <block class="native mac windows linux android" />
 
 ## Creating a new application
@@ -452,6 +464,18 @@ react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+
+### [Optional] Using a specific version
+
+If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+
+```
+react-native init AwesomeProject --version X.XX.X
+```
+
+```
+react-native init AwesomeProject --version react-native@next
+```
 
 <block class="native mac windows linux android" />
 

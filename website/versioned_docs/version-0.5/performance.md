@@ -391,7 +391,7 @@ project.ext.react = [
 
 Finally, you can update "start" under "scripts" on your package.json to use the config:
 
-`"start": "node node_modules/react-native/local-cli/cli.js start --config ../../../../packager/config.js",`
+`"start": "yarn react-native start --config packager/config.js",`
 
 Start your package server with `npm start`. Note that when the dev packager is automatically launched via xcode and `react-native run-android`, etc, it does not use `npm start`, so it won't use the config.
 

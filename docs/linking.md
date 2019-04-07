@@ -125,6 +125,7 @@ Linking.canOpenURL(url)
 * [`removeEventListener`](linking.md#removeeventlistener)
 * [`openURL`](linking.md#openurl)
 * [`canOpenURL`](linking.md#canopenurl)
+* [`openSettings`](linking.md#opensettings)
 * [`getInitialURL`](linking.md#getinitialurl)
 
 ---
@@ -204,6 +205,16 @@ The method returns a `Promise` object. When it is determined whether or not the 
 > For web URLs, the protocol ("http://", "https://") must be set accordingly!
 
 > As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
+
+---
+
+### `openSettings()`
+
+```javascript
+openSettings();
+```
+
+Open the Settings app and displays the app’s custom settings, if it has any.
 
 ---
 
