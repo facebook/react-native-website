@@ -326,9 +326,9 @@ More details about `resize` and `scale` can be found at http://frescolib.org/doc
 
 The text that's read by the screen reader when the user interacts with the image.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| node | No       | iOS      |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
 
 ---
 
