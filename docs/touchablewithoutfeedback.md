@@ -5,7 +5,23 @@ title: TouchableWithoutFeedback
 
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
 
-TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View.
+`TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
+
+### Usage Example
+
+```javascript
+function MyComponent(props) {
+    return (
+        <View {...props} style={{ flex: 1, backgroundColour: "#fff" }}>
+            <Text>My Component</Text>
+        </View>
+    );
+}
+
+<TouchableWithoutFeedback onPress={() => alert("Pressed!")}>
+    <MyComponent />
+</TouchableWithoutFeedback>
+```
 
 ### Props
 
