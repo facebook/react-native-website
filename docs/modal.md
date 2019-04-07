@@ -192,4 +192,4 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 ### `animated`
 
-Deprecated. Use the `animationType` prop instead.
+> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.

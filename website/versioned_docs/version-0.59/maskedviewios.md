@@ -1,6 +1,7 @@
 ---
-id: maskedviewios
+id: version-0.59-maskedviewios
 title: MaskedViewIOS
+original_id: maskedviewios
 ---
 
 > **Deprecated.** Use [react-native-community/react-native-masked-view](https://github.com/react-native-community/react-native-masked-view) instead.

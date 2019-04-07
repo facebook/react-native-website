@@ -488,7 +488,7 @@ If true, use WKWebView instead of UIWebView.
 
 ### `url`
 
-**Deprecated.** Use the `source` prop instead.
+> **Deprecated.** Use the [`source`](webview.md#source) prop instead.
 
 | Type   | Required |
 | ------ | -------- |
@@ -498,7 +498,7 @@ If true, use WKWebView instead of UIWebView.
 
 ### `html`
 
-**Deprecated.** Use the `source` prop instead.
+> **Deprecated.** Use the [`source`](webview.md#source) prop instead.
 
 | Type   | Required |
 | ------ | -------- |
