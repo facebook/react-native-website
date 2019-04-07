@@ -135,7 +135,7 @@ Note that on Android performing text selection in input can change app's activit
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
-- [`rejectResponderTermination`](textinput.md#rejectResponderTermination)
+- [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
 - [`scrollEnabled`](textinput.md#scrollenabled)
 - [`secureTextEntry`](textinput.md#securetextentry)
 - [`selection`](textinput.md#selection)

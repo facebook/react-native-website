@@ -322,7 +322,7 @@ var ScrollResponderMixin = {
   mixins: [Subscribable.Mixin],
 
 
-  componentWillMount: function() {
+  componentDidMount() {
     ...
     this.addListenerOn(DeviceEventEmitter,
                        'keyboardWillShow',
@@ -339,10 +339,15 @@ You can also directly use the `DeviceEventEmitter` module to listen for events.
 
 ```javascript
 ...
-componentWillMount: function() {
-  DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
-    // handle event.
+componentDidMount() {
+  this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
+    // handle event
   });
+}
+
+componentWillUnmount() {
+  // When you want to stop listening to new events, simply call .remove() on the subscription
+  this.subscription.remove();
 }
 ...
 ```

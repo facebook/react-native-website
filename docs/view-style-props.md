@@ -139,6 +139,8 @@ title: View Style Props
 
 ### `borderRadius`
 
+If the rounded border is not visible, try applying `overflow: 'hidden'` as well.
+
 | Type   | Required |
 | ------ | -------- |
 | number | No       |
