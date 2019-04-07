@@ -27,13 +27,13 @@ renderButton: function() {
 
 ### Props
 
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
-- [`activeOpacity`](touchableopacity.md#activeopacity)
+* [`activeOpacity`](touchableopacity.md#activeopacity)
 
 ### Methods
 
-* [`setOpacityTo`](touchableopacity.md#setopacityto)
+- [`setOpacityTo`](touchableopacity.md#setopacityto)
 
 ---
 

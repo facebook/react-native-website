@@ -27,20 +27,20 @@ renderImages: function() {
 
 ### Props
 
-* [`capInsets`](image.md#capinsets)
-* [`onLayout`](image.md#onlayout)
-* [`source`](image.md#source)
-* [`style`](image.md#style)
-* [`testID`](image.md#testid)
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`resizeMode`](image.md#resizemode)
-* [`defaultSource`](image.md#defaultsource)
-* [`onError`](image.md#onerror)
-* [`onLoad`](image.md#onload)
-* [`onLoadEnd`](image.md#onloadend)
-* [`onLoadStart`](image.md#onloadstart)
-* [`onProgress`](image.md#onprogress)
+- [`capInsets`](image.md#capinsets)
+- [`onLayout`](image.md#onlayout)
+- [`source`](image.md#source)
+- [`style`](image.md#style)
+- [`testID`](image.md#testid)
+- [`accessibilityLabel`](image.md#accessibilitylabel)
+- [`accessible`](image.md#accessible)
+- [`resizeMode`](image.md#resizemode)
+- [`defaultSource`](image.md#defaultsource)
+- [`onError`](image.md#onerror)
+- [`onLoad`](image.md#onload)
+- [`onLoadEnd`](image.md#onloadend)
+- [`onLoadStart`](image.md#onloadstart)
+- [`onProgress`](image.md#onprogress)
 
 ---
 
@@ -84,25 +84,25 @@ Invoked on mount and layout changes with `{nativeEvent: {layout: {x, y, width, h
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`backgroundColor`**: string
+- **`backgroundColor`**: string
 
-* **`borderColor`**: string
+- **`borderColor`**: string
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`resizeMode`**: Object.keys(ImageResizeMode)
+- **`resizeMode`**: Object.keys(ImageResizeMode)
 
-* **`tintColor`**: string
+- **`tintColor`**: string
 
 ---
 

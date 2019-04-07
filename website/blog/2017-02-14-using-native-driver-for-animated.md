@@ -26,11 +26,11 @@ First, let's check out how animations currently work using Animated with the JS 
 
 Here's a breakdown of the steps for an animation and where it happens:
 
-* JS: The animation driver uses `requestAnimationFrame` to execute on every frame and update the value it drives using the new value it calculates based on the animation curve.
-* JS: Intermediate values are calculated and passed to a props node that is attached to a `View`.
-* JS: The `View` is updated using `setNativeProps`.
-* JS to Native bridge.
-* Native: The `UIView` or `android.View` is updated.
+- JS: The animation driver uses `requestAnimationFrame` to execute on every frame and update the value it drives using the new value it calculates based on the animation curve.
+- JS: Intermediate values are calculated and passed to a props node that is attached to a `View`.
+- JS: The `View` is updated using `setNativeProps`.
+- JS to Native bridge.
+- Native: The `UIView` or `android.View` is updated.
 
 As you can see, most of the work happens on the JS thread. If it is blocked the animation will skip frames. It also needs to go through the JS to Native bridge on every frame to update native views.
 
@@ -97,9 +97,9 @@ NativeAnimatedModule.startAnimation({
 
 And now here's the breakdown of what happens when the animation runs:
 
-* Native: The native animation driver uses `CADisplayLink` or `android.view.Choreographer` to execute on every frame and update the value it drives using the new value it calculates based on the animation curve.
-* Native: Intermediate values are calculated and passed to a props node that is attached to a native view.
-* Native: The `UIView` or `android.View` is updated.
+- Native: The native animation driver uses `CADisplayLink` or `android.view.Choreographer` to execute on every frame and update the value it drives using the new value it calculates based on the animation curve.
+- Native: Intermediate values are calculated and passed to a props node that is attached to a native view.
+- Native: The `UIView` or `android.View` is updated.
 
 As you can see, no more JS thread and no more bridge which means faster animations! 🎉🎉
 

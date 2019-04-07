@@ -6,8 +6,8 @@ original_id: vibration
 
 ### Methods
 
-* [`vibrate`](vibration.md#vibrate)
-* [`cancel`](vibration.md#cancel)
+- [`vibrate`](vibration.md#vibrate)
+- [`cancel`](vibration.md#cancel)
 
 ---
 

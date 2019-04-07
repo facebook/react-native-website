@@ -5,18 +5,18 @@ title: Systrace
 
 ### Methods
 
-* [`installReactHook`](systrace.md#installreacthook)
-* [`setEnabled`](systrace.md#setenabled)
-* [`isEnabled`](systrace.md#isenabled)
-* [`beginEvent`](systrace.md#beginevent)
-* [`endEvent`](systrace.md#endevent)
-* [`beginAsyncEvent`](systrace.md#beginasyncevent)
-* [`endAsyncEvent`](systrace.md#endasyncevent)
-* [`counterEvent`](systrace.md#counterevent)
-* [`attachToRelayProfiler`](systrace.md#attachtorelayprofiler)
-* [`swizzleJSON`](systrace.md#swizzlejson)
-* [`measureMethods`](systrace.md#measuremethods)
-* [`measure`](systrace.md#measure)
+- [`installReactHook`](systrace.md#installreacthook)
+- [`setEnabled`](systrace.md#setenabled)
+- [`isEnabled`](systrace.md#isenabled)
+- [`beginEvent`](systrace.md#beginevent)
+- [`endEvent`](systrace.md#endevent)
+- [`beginAsyncEvent`](systrace.md#beginasyncevent)
+- [`endAsyncEvent`](systrace.md#endasyncevent)
+- [`counterEvent`](systrace.md#counterevent)
+- [`attachToRelayProfiler`](systrace.md#attachtorelayprofiler)
+- [`swizzleJSON`](systrace.md#swizzlejson)
+- [`measureMethods`](systrace.md#measuremethods)
+- [`measure`](systrace.md#measure)
 
 ---
 

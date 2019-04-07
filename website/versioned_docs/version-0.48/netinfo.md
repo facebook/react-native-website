@@ -29,25 +29,25 @@ NetInfo.addEventListener(
 
 Cross platform values for `ConnectionType`:
 
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cellular` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
+- `none` - device is offline
+- `wifi` - device is online and connected via wifi, or is the iOS simulator
+- `cellular` - device is connected via Edge, 3G, WiMax, or LTE
+- `unknown` - error case and the network status is unknown
 
 Android-only values for `ConnectionType`:
 
-* `bluetooth` - device is connected via Bluetooth
-* `ethernet` - device is connected via Ethernet
-* `wimax` - device is connected via WiMAX
+- `bluetooth` - device is connected via Bluetooth
+- `ethernet` - device is connected via Ethernet
+- `wimax` - device is connected via WiMAX
 
 ### EffectiveConnectionType enum
 
 Cross platform values for `EffectiveConnectionType`:
 
-* `2g`
-* `3g`
-* `4g`
-* `unknown`
+- `2g`
+- `3g`
+- `4g`
+- `unknown`
 
 ### Android
 
@@ -96,40 +96,40 @@ The following connectivity types are deprecated. They're used by the deprecated 
 
 iOS connectivity types (deprecated):
 
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cell` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
+- `none` - device is offline
+- `wifi` - device is online and connected via wifi, or is the iOS simulator
+- `cell` - device is connected via Edge, 3G, WiMax, or LTE
+- `unknown` - error case and the network status is unknown
 
 Android connectivity types (deprecated).
 
-* `NONE` - device is offline
-* `BLUETOOTH` - The Bluetooth data connection.
-* `DUMMY` - Dummy data connection.
-* `ETHERNET` - The Ethernet data connection.
-* `MOBILE` - The Mobile data connection.
-* `MOBILE_DUN` - A DUN-specific Mobile data connection.
-* `MOBILE_HIPRI` - A High Priority Mobile data connection.
-* `MOBILE_MMS` - An MMS-specific Mobile data connection.
-* `MOBILE_SUPL` - A SUPL-specific Mobile data connection.
-* `VPN` - A virtual network using one or more native bearers. Requires API Level 21
-* `WIFI` - The WIFI data connection.
-* `WIMAX` - The WiMAX data connection.
-* `UNKNOWN` - Unknown data connection.
+- `NONE` - device is offline
+- `BLUETOOTH` - The Bluetooth data connection.
+- `DUMMY` - Dummy data connection.
+- `ETHERNET` - The Ethernet data connection.
+- `MOBILE` - The Mobile data connection.
+- `MOBILE_DUN` - A DUN-specific Mobile data connection.
+- `MOBILE_HIPRI` - A High Priority Mobile data connection.
+- `MOBILE_MMS` - An MMS-specific Mobile data connection.
+- `MOBILE_SUPL` - A SUPL-specific Mobile data connection.
+- `VPN` - A virtual network using one or more native bearers. Requires API Level 21
+- `WIFI` - The WIFI data connection.
+- `WIMAX` - The WiMAX data connection.
+- `UNKNOWN` - Unknown data connection.
 
 The rest of the connectivity types are hidden by the Android API, but can be used if necessary.
 
 ### Methods
 
-* [`addEventListener`](netinfo.md#addeventlistener)
-* [`removeEventListener`](netinfo.md#removeeventlistener)
-* [`fetch`](netinfo.md#fetch)
-* [`getConnectionInfo`](netinfo.md#getconnectioninfo)
-* [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+- [`addEventListener`](netinfo.md#addeventlistener)
+- [`removeEventListener`](netinfo.md#removeeventlistener)
+- [`fetch`](netinfo.md#fetch)
+- [`getConnectionInfo`](netinfo.md#getconnectioninfo)
+- [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
 
 ### Properties
 
-* [`isConnected`](netinfo.md#isconnected)
+- [`isConnected`](netinfo.md#isconnected)
 
 ---
 
@@ -145,10 +145,10 @@ static addEventListener(eventName, handler)
 
 Adds an event handler. Supported events:
 
-* `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
-  * `type`: A `ConnectionType` (listed above)
-  * `effectiveType`: An `EffectiveConnectionType` (listed above)
-* `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
+- `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
+  - `type`: A `ConnectionType` (listed above)
+  - `effectiveType`: An `EffectiveConnectionType` (listed above)
+- `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
 
 ---
 

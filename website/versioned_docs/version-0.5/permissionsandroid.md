@@ -50,12 +50,12 @@ async function requestCameraPermission() {
 
 ### Methods
 
-* [`constructor`](permissionsandroid.md#constructor)
-* [`check`](permissionsandroid.md#check)
-* [`request`](permissionsandroid.md#request)
-* [`requestMultiple`](permissionsandroid.md#requestmultiple)
-* [`requestPermission`](permissionsandroid.md#requestpermission)
-* [`checkPermission`](permissionsandroid.md#checkpermission)
+- [`constructor`](permissionsandroid.md#constructor)
+- [`check`](permissionsandroid.md#check)
+- [`request`](permissionsandroid.md#request)
+- [`requestMultiple`](permissionsandroid.md#requestmultiple)
+- [`requestPermission`](permissionsandroid.md#requestpermission)
+- [`checkPermission`](permissionsandroid.md#checkpermission)
 
 ---
 

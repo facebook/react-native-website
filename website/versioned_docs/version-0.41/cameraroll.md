@@ -12,9 +12,9 @@ The user's permission is required in order to access the Camera Roll on devices 
 
 ### Methods
 
-* [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
-* [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
-* [`getPhotos`](cameraroll.md#getphotos)
+- [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
+- [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
+- [`getPhotos`](cameraroll.md#getphotos)
 
 ---
 

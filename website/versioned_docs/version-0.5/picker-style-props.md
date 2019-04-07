@@ -8,8 +8,8 @@ original_id: picker-style-props
 
 ### Props
 
-* [View Style Props...](view-style-props.md)
-* [`color`](picker-style-props.md#color)
+- [View Style Props...](view-style-props.md)
+- [`color`](picker-style-props.md#color)
 
 ---
 

@@ -10,16 +10,16 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`disabled`](switch.md#disabled)
-- [`trackColor`](switch.md#trackcolor)
-- [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
-- [`onValueChange`](switch.md#onvaluechange)
-- [`testID`](switch.md#testid)
-- [`thumbColor`](switch.md#thumbcolor)
-- [`tintColor`](switch.md#tintcolor)
-- [`value`](switch.md#value)
+* [`disabled`](switch.md#disabled)
+* [`trackColor`](switch.md#trackcolor)
+* [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
+* [`onValueChange`](switch.md#onvaluechange)
+* [`testID`](switch.md#testid)
+* [`thumbColor`](switch.md#thumbcolor)
+* [`tintColor`](switch.md#tintcolor)
+* [`value`](switch.md#value)
 
 ---
 

@@ -11,12 +11,12 @@ This exposes the native ToastAndroid module as a JS module. This has a function 
 
 ### Methods
 
-* [`show`](toastandroid.md#show)
+- [`show`](toastandroid.md#show)
 
 ### Properties
 
-* [`SHORT`](toastandroid.md#short)
-* [`LONG`](toastandroid.md#long)
+- [`SHORT`](toastandroid.md#short)
+- [`LONG`](toastandroid.md#long)
 
 ---
 

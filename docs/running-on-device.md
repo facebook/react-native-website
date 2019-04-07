@@ -267,8 +267,8 @@ If it doesn't resolve your local IP address either the **xip.io** service is dow
 
 To still use xip.io behind your router:
 
-* configure your phone to use Google DNS (8.8.8.8)
-* disable the appropriate security feature in your router
+- configure your phone to use Google DNS (8.8.8.8)
+- disable the appropriate security feature in your router
 
 <block class="mac windows linux android" />
 

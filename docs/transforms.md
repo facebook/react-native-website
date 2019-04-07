@@ -5,14 +5,14 @@ title: Transforms
 
 ### Props
 
-* [`decomposedMatrix`](transforms.md#decomposedmatrix)
-* [`rotation`](transforms.md#rotation)
-* [`scaleX`](transforms.md#scalex)
-* [`scaleY`](transforms.md#scaley)
-* [`transform`](transforms.md#transform)
-* [`transformMatrix`](transforms.md#transformmatrix)
-* [`translateX`](transforms.md#translatex)
-* [`translateY`](transforms.md#translatey)
+- [`decomposedMatrix`](transforms.md#decomposedmatrix)
+- [`rotation`](transforms.md#rotation)
+- [`scaleX`](transforms.md#scalex)
+- [`scaleY`](transforms.md#scaley)
+- [`transform`](transforms.md#transform)
+- [`transformMatrix`](transforms.md#transformmatrix)
+- [`translateX`](transforms.md#translatex)
+- [`translateY`](transforms.md#translatey)
 
 ---
 

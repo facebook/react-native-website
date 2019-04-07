@@ -33,22 +33,22 @@ onActionSelected: function(position) {
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`overflowIcon`](toolbarandroid.md#overflowicon)
-- [`actions`](toolbarandroid.md#actions)
-- [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
-- [`logo`](toolbarandroid.md#logo)
-- [`navIcon`](toolbarandroid.md#navicon)
-- [`onActionSelected`](toolbarandroid.md#onactionselected)
-- [`onIconClicked`](toolbarandroid.md#oniconclicked)
-- [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
-- [`rtl`](toolbarandroid.md#rtl)
-- [`subtitle`](toolbarandroid.md#subtitle)
-- [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-- [`testID`](toolbarandroid.md#testid)
-- [`title`](toolbarandroid.md#title)
-- [`titleColor`](toolbarandroid.md#titlecolor)
+* [`overflowIcon`](toolbarandroid.md#overflowicon)
+* [`actions`](toolbarandroid.md#actions)
+* [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
+* [`logo`](toolbarandroid.md#logo)
+* [`navIcon`](toolbarandroid.md#navicon)
+* [`onActionSelected`](toolbarandroid.md#onactionselected)
+* [`onIconClicked`](toolbarandroid.md#oniconclicked)
+* [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
+* [`rtl`](toolbarandroid.md#rtl)
+* [`subtitle`](toolbarandroid.md#subtitle)
+* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
+* [`testID`](toolbarandroid.md#testid)
+* [`title`](toolbarandroid.md#title)
+* [`titleColor`](toolbarandroid.md#titlecolor)
 
 ---
 
@@ -72,10 +72,10 @@ Sets possible actions on the toolbar as part of the action menu. These are displ
 
 This property takes an array of objects, where each object has the following keys:
 
-* `title`: **required**, the title of this action
-* `icon`: the icon for this action, e.g. `require('./some_icon.png')`
-* `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
-* `showWithText`: boolean, whether to show text alongside the icon or not
+- `title`: **required**, the title of this action
+- `icon`: the icon for this action, e.g. `require('./some_icon.png')`
+- `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
+- `showWithText`: boolean, whether to show text alongside the icon or not
 
 | Type                                                                                                                  | Required |
 | --------------------------------------------------------------------------------------------------------------------- | -------- |

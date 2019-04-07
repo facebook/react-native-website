@@ -82,14 +82,14 @@ AlertIOS.prompt(
 
 ### Methods
 
-* [`alert`](alertios.md#alert)
-* [`prompt`](alertios.md#prompt)
+- [`alert`](alertios.md#alert)
+- [`prompt`](alertios.md#prompt)
 
 ### Type Definitions
 
-* [`AlertType`](alertios.md#alerttype)
-* [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
-* [`ButtonsArray`](alertios.md#buttonsarray)
+- [`AlertType`](alertios.md#alerttype)
+- [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
+- [`ButtonsArray`](alertios.md#buttonsarray)
 
 ---
 

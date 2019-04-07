@@ -23,20 +23,20 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ### Methods
 
-* [`registerConfig`](appregistry.md#registerconfig)
-* [`registerComponent`](appregistry.md#registercomponent)
-* [`registerRunnable`](appregistry.md#registerrunnable)
-* [`registerSection`](appregistry.md#registersection)
-* [`getAppKeys`](appregistry.md#getappkeys)
-* [`getSectionKeys`](appregistry.md#getsectionkeys)
-* [`getSections`](appregistry.md#getsections)
-* [`getRunnable`](appregistry.md#getrunnable)
-* [`getRegistry`](appregistry.md#getregistry)
-* [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
-* [`runApplication`](appregistry.md#runapplication)
-* [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-* [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-* [`startHeadlessTask`](appregistry.md#startheadlesstask)
+- [`registerConfig`](appregistry.md#registerconfig)
+- [`registerComponent`](appregistry.md#registercomponent)
+- [`registerRunnable`](appregistry.md#registerrunnable)
+- [`registerSection`](appregistry.md#registersection)
+- [`getAppKeys`](appregistry.md#getappkeys)
+- [`getSectionKeys`](appregistry.md#getsectionkeys)
+- [`getSections`](appregistry.md#getsections)
+- [`getRunnable`](appregistry.md#getrunnable)
+- [`getRegistry`](appregistry.md#getregistry)
+- [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
+- [`runApplication`](appregistry.md#runapplication)
+- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
+- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
+- [`startHeadlessTask`](appregistry.md#startheadlesstask)
 
 ---
 

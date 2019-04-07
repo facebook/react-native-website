@@ -7,11 +7,11 @@ By default, some permissions are added to your Android APK.
 
 The default permissions that get added are:
 
-* android.permission.INTERNET - Required for debug mode.
-* android.permission.SYSTEM_ALERT_WINDOW - Required for debug mode.
-* android.permission.READ_PHONE_STATE - Not required for debug or production.
-* android.permission.WRITE_EXTERNAL_STORAGE - Not required for debug or production.
-* android.permission.READ_EXTERNAL_STORAGE - Not required for debug or production.
+- android.permission.INTERNET - Required for debug mode.
+- android.permission.SYSTEM_ALERT_WINDOW - Required for debug mode.
+- android.permission.READ_PHONE_STATE - Not required for debug or production.
+- android.permission.WRITE_EXTERNAL_STORAGE - Not required for debug or production.
+- android.permission.READ_EXTERNAL_STORAGE - Not required for debug or production.
 
 1. Let's start by removing `READ_PHONE_STATE`, `WRITE_EXTERNAL_STORAGE`, and `READ_EXTERNAL_STORAGE` from both production and debug APKs, as it is not required in either. These storage permissions are still not needed if `AsyncStorage` module is in use, so it is safe to remove from both production and debug.
 2. Open your `android/app/src/main/AndroidManifest.xml` file.

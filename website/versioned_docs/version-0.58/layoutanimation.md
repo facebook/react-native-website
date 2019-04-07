@@ -14,18 +14,18 @@ Note that in order to get this to work on **Android** you need to set the follow
 
 ### Methods
 
-* [`configureNext`](layoutanimation.md#configurenext)
-* [`create`](layoutanimation.md#create)
-* [`checkConfig`](layoutanimation.md#checkconfig)
+- [`configureNext`](layoutanimation.md#configurenext)
+- [`create`](layoutanimation.md#create)
+- [`checkConfig`](layoutanimation.md#checkconfig)
 
 ### Properties
 
-* [`Types`](layoutanimation.md#types)
-* [`Properties`](layoutanimation.md#properties)
-* [`Presets`](layoutanimation.md#presets)
-* [`easeInEaseOut`](layoutanimation.md#easeineaseout)
-* [`linear`](layoutanimation.md#linear)
-* [`spring`](layoutanimation.md#spring)
+- [`Types`](layoutanimation.md#types)
+- [`Properties`](layoutanimation.md#properties)
+- [`Presets`](layoutanimation.md#presets)
+- [`easeInEaseOut`](layoutanimation.md#easeineaseout)
+- [`linear`](layoutanimation.md#linear)
+- [`spring`](layoutanimation.md#spring)
 
 ---
 
@@ -50,9 +50,9 @@ Schedules an animation to happen on the next layout.
 
 ##### config
 
-* `duration` in milliseconds
-* `create`, config for animating in new views (see `Anim` type)
-* `update`, config for animating views that have been updated (see `Anim` type)
+- `duration` in milliseconds
+- `create`, config for animating in new views (see `Anim` type)
+- `update`, config for animating views that have been updated (see `Anim` type)
 
 ---
 

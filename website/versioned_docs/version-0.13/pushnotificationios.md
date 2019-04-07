@@ -10,22 +10,22 @@ To get up and running, [configure your notifications with Apple](https://develop
 
 ### Methods
 
-* [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
-* [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
-* [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-* [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-* [`addEventListener`](pushnotificationios.md#addeventlistener)
-* [`requestPermissions`](pushnotificationios.md#requestpermissions)
-* [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
-* [`checkPermissions`](pushnotificationios.md#checkpermissions)
-* [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-* [`popInitialNotification`](pushnotificationios.md#popinitialnotification)
-* [`constructor`](pushnotificationios.md#constructor)
-* [`getMessage`](pushnotificationios.md#getmessage)
-* [`getSound`](pushnotificationios.md#getsound)
-* [`getAlert`](pushnotificationios.md#getalert)
-* [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-* [`getData`](pushnotificationios.md#getdata)
+- [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
+- [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
+- [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
+- [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
+- [`addEventListener`](pushnotificationios.md#addeventlistener)
+- [`requestPermissions`](pushnotificationios.md#requestpermissions)
+- [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
+- [`checkPermissions`](pushnotificationios.md#checkpermissions)
+- [`removeEventListener`](pushnotificationios.md#removeeventlistener)
+- [`popInitialNotification`](pushnotificationios.md#popinitialnotification)
+- [`constructor`](pushnotificationios.md#constructor)
+- [`getMessage`](pushnotificationios.md#getmessage)
+- [`getSound`](pushnotificationios.md#getsound)
+- [`getAlert`](pushnotificationios.md#getalert)
+- [`getBadgeCount`](pushnotificationios.md#getbadgecount)
+- [`getData`](pushnotificationios.md#getdata)
 
 ---
 
@@ -43,7 +43,7 @@ Schedules the localNotification for immediate presentation.
 
 details is an object containing:
 
-* `alertBody` : The message displayed in the notification alert.
+- `alertBody` : The message displayed in the notification alert.
 
 ---
 
@@ -57,8 +57,8 @@ Schedules the localNotification for future presentation.
 
 details is an object containing:
 
-* `fireDate` : The date and time when the system should deliver the notification.
-* `alertBody` : The message displayed in the notification alert.
+- `fireDate` : The date and time when the system should deliver the notification.
+- `alertBody` : The message displayed in the notification alert.
 
 ---
 
@@ -92,8 +92,8 @@ Attaches a listener to remote notification events while the app is running in th
 
 Valid events are:
 
-* `notification` : Fired when a remote notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
-* `register`: Fired when the user registers for remote notifications. The handler will be invoked with a hex string representing the deviceToken.
+- `notification` : Fired when a remote notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
+- `register`: Fired when the user registers for remote notifications. The handler will be invoked with a hex string representing the deviceToken.
 
 ---
 
@@ -105,9 +105,9 @@ static requestPermissions(permissions?)
 
 Requests notification permissions from iOS, prompting the user's dialog box. By default, it will request all notification permissions, but a subset of these can be requested by passing a map of requested permissions. The following permissions are supported:
 
-* `alert`
-* `badge`
-* `sound`
+- `alert`
+- `badge`
+- `sound`
 
 If a map is provided to the method, only the permissions with truthy values will be requested.
 
@@ -133,9 +133,9 @@ static checkPermissions(callback)
 
 See what push permissions are currently enabled. `callback` will be invoked with a `permissions` object:
 
-* `alert` :boolean
-* `badge` :boolean
-* `sound` :boolean
+- `alert` :boolean
+- `badge` :boolean
+- `sound` :boolean
 
 ---
 

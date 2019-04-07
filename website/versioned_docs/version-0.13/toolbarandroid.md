@@ -33,16 +33,16 @@ onActionSelected: function(position) {
 
 ### Props
 
-* [`actions`](toolbarandroid.md#actions)
-* [`logo`](toolbarandroid.md#logo)
-* [`navIcon`](toolbarandroid.md#navicon)
-* [`onActionSelected`](toolbarandroid.md#onactionselected)
-* [`onIconClicked`](toolbarandroid.md#oniconclicked)
-* [`subtitle`](toolbarandroid.md#subtitle)
-* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-* [`testID`](toolbarandroid.md#testid)
-* [`title`](toolbarandroid.md#title)
-* [`titleColor`](toolbarandroid.md#titlecolor)
+- [`actions`](toolbarandroid.md#actions)
+- [`logo`](toolbarandroid.md#logo)
+- [`navIcon`](toolbarandroid.md#navicon)
+- [`onActionSelected`](toolbarandroid.md#onactionselected)
+- [`onIconClicked`](toolbarandroid.md#oniconclicked)
+- [`subtitle`](toolbarandroid.md#subtitle)
+- [`subtitleColor`](toolbarandroid.md#subtitlecolor)
+- [`testID`](toolbarandroid.md#testid)
+- [`title`](toolbarandroid.md#title)
+- [`titleColor`](toolbarandroid.md#titlecolor)
 
 ---
 
@@ -56,10 +56,10 @@ Sets possible actions on the toolbar as part of the action menu. These are displ
 
 This property takes an array of objects, where each object has the following keys:
 
-* `title`: **required**, the title of this action
-* `icon`: the icon for this action, e.g. `require('image!some_icon')`
-* `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
-* `showWithText`: boolean, whether to show text alongside the icon or not
+- `title`: **required**, the title of this action
+- `icon`: the icon for this action, e.g. `require('image!some_icon')`
+- `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
+- `showWithText`: boolean, whether to show text alongside the icon or not
 
 | Type                                                                                                                  | Required |
 | --------------------------------------------------------------------------------------------------------------------- | -------- |

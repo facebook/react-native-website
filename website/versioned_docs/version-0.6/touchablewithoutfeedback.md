@@ -8,14 +8,14 @@ Do not use unless you have a very good reason. All the elements that respond to 
 
 ### Props
 
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+- [`accessible`](touchablewithoutfeedback.md#accessible)
+- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+- [`onPress`](touchablewithoutfeedback.md#onpress)
+- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
 
 ---
 

@@ -32,11 +32,11 @@ We’re working on many new and exciting features that will continue to improve 
 
 Build.com allows each dev to choose the tools that best suit them.
 
-* IDEs include Atom, IntelliJ, VS Code, Sublime, Eclipse, etc.
-* For Unit testing, developers are responsible for creating Jest unit tests for any new components and we’re working to increase the coverage of older parts of the app using `jest-coverage-ratchet`.
-* We use Jenkins to build out our beta and release candidates. This process works well for us but still requires significant work to create the release notes and other artifacts.
-* Integration Testing include a shared pool of testers that work across desktop, mobile and web. Our automation engineer is building out our suite of automated integration tests using Java and Appium.
-* Other parts of the workflow include a detailed eslint configuration, custom rules that enforce properties needed for testing, and pre-push hooks that block offending changes.
+- IDEs include Atom, IntelliJ, VS Code, Sublime, Eclipse, etc.
+- For Unit testing, developers are responsible for creating Jest unit tests for any new components and we’re working to increase the coverage of older parts of the app using `jest-coverage-ratchet`.
+- We use Jenkins to build out our beta and release candidates. This process works well for us but still requires significant work to create the release notes and other artifacts.
+- Integration Testing include a shared pool of testers that work across desktop, mobile and web. Our automation engineer is building out our suite of automated integration tests using Java and Appium.
+- Other parts of the workflow include a detailed eslint configuration, custom rules that enforce properties needed for testing, and pre-push hooks that block offending changes.
 
 ## Libraries Used in the App
 
@@ -44,8 +44,8 @@ The Build.com app relies on a number of common open source libraries including: 
 
 We're in the process of adding static typing via TypeScript and looking into optional chaining. These features could help us with solving a couple classes of bugs that we still see:
 
-* Data that is the wrong type
-* Data that is undefined because an object didn’t contain what we expected
+- Data that is the wrong type
+- Data that is undefined because an object didn’t contain what we expected
 
 ## Open Source Contributions
 
@@ -53,9 +53,9 @@ Since we rely so heavily on open source, our team is committed to contributing b
 
 We’ve released and maintained a number of React Native libraries:
 
-* `react-native-polyfill`
-* `react-native-simple-store`
-* `react-native-contact-picker`
+- `react-native-polyfill`
+- `react-native-simple-store`
+- `react-native-contact-picker`
 
 We have also contributed to a long list of libraries including: React and React Native, `react-native-schemes-manager`, `react-native-swipeable`, `react-native-gallery`, `react-native-view-transformer`, `react-native-navigation`.
 
@@ -75,8 +75,8 @@ Another big challenge has been with bridge modules. When we first started, a lot
 
 As React Native continues to grow, our wishlist to our community include:
 
-* Stabilize and improve the navigation libraries
-* Maintain support for libraries in the React Native ecosystem
-* Improve the experience for adding native libraries and bridge modules to a project
+- Stabilize and improve the navigation libraries
+- Maintain support for libraries in the React Native ecosystem
+- Improve the experience for adding native libraries and bridge modules to a project
 
 Companies and individuals in the React Native community have been great about volunteering their time and effort to improve the tools that we all use. If you haven’t gotten involved in open source, I hope you’ll take a look at improving the code or documentation for some of the libraries that you use. There are a lot of articles to help you get started and it may be a lot easier than you think!

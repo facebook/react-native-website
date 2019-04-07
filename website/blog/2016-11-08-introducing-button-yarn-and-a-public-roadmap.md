@@ -10,9 +10,9 @@ category: announcements
 
 We have heard from many people that there is so much work happening with React Native, it can be tough to keep track of what's going on. To help communicate what work is in progress, we are now publishing a [roadmap for React Native](https://github.com/facebook/react-native/wiki/Roadmap). At a high level, this work can be broken down into three priorities:
 
-* **Core Libraries**. Adding more functionality to the most useful components and APIs.
-* **Stability**. Improve the underlying infrastructure to reduce bugs and improve code quality.
-* **Developer Experience**. Help React Native developers move faster
+- **Core Libraries**. Adding more functionality to the most useful components and APIs.
+- **Stability**. Improve the underlying infrastructure to reduce bugs and improve code quality.
+- **Developer Experience**. Help React Native developers move faster
 
 If you have suggestions for features that you think would be valuable on the roadmap, check out [Canny](https://react-native.canny.io/feature-requests), where you can suggest new features and discuss existing proposals.
 

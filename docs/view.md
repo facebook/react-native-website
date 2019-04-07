@@ -34,55 +34,55 @@ class ViewColoredBoxesWithText extends Component {
 
 For `View` responder props (e.g., `onResponderMove`), the synthetic touch event passed to them are of the following form:
 
-* `nativeEvent`
-  * `changedTouches` - Array of all touch events that have changed since the last event.
-  * `identifier` - The ID of the touch.
-  * `locationX` - The X position of the touch, relative to the element.
-  * `locationY` - The Y position of the touch, relative to the element.
-  * `pageX` - The X position of the touch, relative to the root element.
-  * `pageY` - The Y position of the touch, relative to the root element.
-  * `target` - The node id of the element receiving the touch event.
-  * `timestamp` - A time identifier for the touch, useful for velocity calculation.
-  * `touches` - Array of all current touches on the screen.
+- `nativeEvent`
+  - `changedTouches` - Array of all touch events that have changed since the last event.
+  - `identifier` - The ID of the touch.
+  - `locationX` - The X position of the touch, relative to the element.
+  - `locationY` - The Y position of the touch, relative to the element.
+  - `pageX` - The X position of the touch, relative to the root element.
+  - `pageY` - The Y position of the touch, relative to the root element.
+  - `target` - The node id of the element receiving the touch event.
+  - `timestamp` - A time identifier for the touch, useful for velocity calculation.
+  - `touches` - Array of all current touches on the screen.
 
 ### Props
 
-* [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
-* [`accessibilityLabel`](view.md#accessibilitylabel)
-* [`accessibilityHint`](view.md#accessibilityhint)
-* [`hitSlop`](view.md#hitslop)
-* [`nativeID`](view.md#nativeid)
-* [`onAccessibilityTap`](view.md#onaccessibilitytap)
-* [`onLayout`](view.md#onlayout)
-* [`onMagicTap`](view.md#onmagictap)
-* [`onAccessibilityEscape`](view.md#onaccessibilityescape)
-* [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
-* [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
-* [`onResponderGrant`](view.md#onrespondergrant)
-* [`onResponderMove`](view.md#onrespondermove)
-* [`onResponderReject`](view.md#onresponderreject)
-* [`onResponderRelease`](view.md#onresponderrelease)
-* [`onResponderTerminate`](view.md#onresponderterminate)
-* [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
-* [`accessible`](view.md#accessible)
-* [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
-* [`pointerEvents`](view.md#pointerevents)
-* [`removeClippedSubviews`](view.md#removeclippedsubviews)
-* [`style`](view.md#style)
-* [`testID`](view.md#testid)
-* [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
-* [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
-* [`collapsable`](view.md#collapsable)
-* [`importantForAccessibility`](view.md#importantforaccessibility)
-* [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
-* [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
-* [`accessibilityRole`](view.md#accessibilityrole)
-* [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityTraits`](view.md#accessibilitytraits)
-* [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-* [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
-* [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
-* [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
+- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
+- [`accessibilityLabel`](view.md#accessibilitylabel)
+- [`accessibilityHint`](view.md#accessibilityhint)
+- [`hitSlop`](view.md#hitslop)
+- [`nativeID`](view.md#nativeid)
+- [`onAccessibilityTap`](view.md#onaccessibilitytap)
+- [`onLayout`](view.md#onlayout)
+- [`onMagicTap`](view.md#onmagictap)
+- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
+- [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
+- [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
+- [`onResponderGrant`](view.md#onrespondergrant)
+- [`onResponderMove`](view.md#onrespondermove)
+- [`onResponderReject`](view.md#onresponderreject)
+- [`onResponderRelease`](view.md#onresponderrelease)
+- [`onResponderTerminate`](view.md#onresponderterminate)
+- [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
+- [`accessible`](view.md#accessible)
+- [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
+- [`pointerEvents`](view.md#pointerevents)
+- [`removeClippedSubviews`](view.md#removeclippedsubviews)
+- [`style`](view.md#style)
+- [`testID`](view.md#testid)
+- [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
+- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
+- [`collapsable`](view.md#collapsable)
+- [`importantForAccessibility`](view.md#importantforaccessibility)
+- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
+- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityTraits`](view.md#accessibilitytraits)
+- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
+- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
+- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
+- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
 
@@ -314,9 +314,9 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 Controls whether the `View` can be the target of touch events.
 
-* `'auto'`: The View can be the target of touch events.
-* `'none'`: The View is never the target of touch events.
-* `'box-none'`: The View is never the target of touch events but it's subviews can be. It behaves like if the view had the following classes in CSS:
+- `'auto'`: The View can be the target of touch events.
+- `'none'`: The View is never the target of touch events.
+- `'box-none'`: The View is never the target of touch events but it's subviews can be. It behaves like if the view had the following classes in CSS:
 
 ```
 .box-none {
@@ -327,7 +327,7 @@ Controls whether the `View` can be the target of touch events.
 }
 ```
 
-* `'box-only'`: The view can be the target of touch events but it's subviews cannot be. It behaves like if the view had the following classes in CSS:
+- `'box-only'`: The view can be the target of touch events but it's subviews cannot be. It behaves like if the view had the following classes in CSS:
 
 ```
 .box-only {
@@ -384,10 +384,10 @@ Indicates to accessibility services to treat UI component like a native one. Wor
 
 Possible values are one of:
 
-* `'none'`
-* `'button'`
-* `'radiobutton_checked'`
-* `'radiobutton_unchecked'`
+- `'none'`
+- `'button'`
+- `'radiobutton_checked'`
+- `'radiobutton_unchecked'`
 
 | Type                        | Required | Platform |
 | --------------------------- | -------- | -------- |
@@ -399,9 +399,9 @@ Possible values are one of:
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. Possible values:
 
-* `'none'` - Accessibility services should not announce changes to this view.
-* `'polite'`- Accessibility services should announce changes to this view.
-* `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
+- `'none'` - Accessibility services should not announce changes to this view.
+- `'polite'`- Accessibility services should announce changes to this view.
+- `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
 See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
@@ -427,10 +427,10 @@ Controls how view is important for accessibility which is if it fires accessibil
 
 Possible values:
 
-* `'auto'` - The system determines whether the view is important for accessibility - default (recommended).
-* `'yes'` - The view is important for accessibility.
-* `'no'` - The view is not important for accessibility.
-* `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
+- `'auto'` - The system determines whether the view is important for accessibility - default (recommended).
+- `'yes'` - The view is important for accessibility.
+- `'no'` - The view is not important for accessibility.
+- `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
 
 See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
@@ -472,17 +472,17 @@ Tells the screen reader to treat the currently focused on element as having a sp
 
 Possible values for `AccessibilityRole` is one of:
 
-* `'none'` - The element has no role.
-* `'button'` - The element should be treated as a button.
-* `'link'` - The element should be treated as a link.
-* `'header'` - The element is a header that divides content into sections.
-* `'search'` - The element should be treated as a search field.
-* `'image'` - The element should be treated as an image.
-* `'key'` - The element should be treated like a keyboard key.
-* `'text'` - The element should be treated as text.
-* `'summary'` - The element provides app summary information.
-* `'imagebutton'` - The element has the role of both an image and also a button.
-* `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - The element has no role.
+- `'button'` - The element should be treated as a button.
+- `'link'` - The element should be treated as a link.
+- `'header'` - The element is a header that divides content into sections.
+- `'search'` - The element should be treated as a search field.
+- `'image'` - The element should be treated as an image.
+- `'key'` - The element should be treated like a keyboard key.
+- `'text'` - The element should be treated as text.
+- `'summary'` - The element provides app summary information.
+- `'imagebutton'` - The element has the role of both an image and also a button.
+- `'adjustable'` - The element allows adjustment over a range of values.
 
 On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
@@ -504,8 +504,8 @@ You can provide one state, no state, or both states. The states must be passed i
 
 Possible values for `AccessibilityStates` are:
 
-* `'selected'` - The element is in a selected state.
-* `'disabled'` - The element is in a disabled state.
+- `'selected'` - The element is in a selected state.
+- `'disabled'` - The element is in a disabled state.
 
 | Type                        | Required |
 | --------------------------- | -------- |
@@ -523,23 +523,23 @@ You can provide one trait or an array of many traits.
 
 Possible values for `AccessibilityTraits` are:
 
-* `'none'` - The element has no traits.
-* `'button'` - The element should be treated as a button.
-* `'link'` - The element should be treated as a link.
-* `'header'` - The element is a header that divides content into sections.
-* `'search'` - The element should be treated as a search field.
-* `'image'` - The element should be treated as an image.
-* `'selected'` - The element is selected.
-* `'plays'` - The element plays sound.
-* `'key'` - The element should be treated like a keyboard key.
-* `'text'` - The element should be treated as text.
-* `'summary'` - The element provides app summary information.
-* `'disabled'` - The element is disabled.
-* `'frequentUpdates'` - The element frequently changes its value.
-* `'startsMedia'` - The element starts a media session.
-* `'adjustable'` - The element allows adjustment over a range of values.
-* `'allowsDirectInteraction'` - The element allows direct touch interaction for VoiceOver users.
-* `'pageTurn'` - Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
+- `'none'` - The element has no traits.
+- `'button'` - The element should be treated as a button.
+- `'link'` - The element should be treated as a link.
+- `'header'` - The element is a header that divides content into sections.
+- `'search'` - The element should be treated as a search field.
+- `'image'` - The element should be treated as an image.
+- `'selected'` - The element is selected.
+- `'plays'` - The element plays sound.
+- `'key'` - The element should be treated like a keyboard key.
+- `'text'` - The element should be treated as text.
+- `'summary'` - The element provides app summary information.
+- `'disabled'` - The element is disabled.
+- `'frequentUpdates'` - The element frequently changes its value.
+- `'startsMedia'` - The element starts a media session.
+- `'adjustable'` - The element allows adjustment over a range of values.
+- `'allowsDirectInteraction'` - The element allows direct touch interaction for VoiceOver users.
+- `'pageTurn'` - Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
 
 See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 

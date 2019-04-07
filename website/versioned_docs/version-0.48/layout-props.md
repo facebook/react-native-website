@@ -6,51 +6,51 @@ original_id: layout-props
 
 ### Props
 
-* [`marginHorizontal`](layout-props.md#marginhorizontal)
-* [`alignContent`](layout-props.md#aligncontent)
-* [`alignSelf`](layout-props.md#alignself)
-* [`aspectRatio`](layout-props.md#aspectratio)
-* [`borderBottomWidth`](layout-props.md#borderbottomwidth)
-* [`borderLeftWidth`](layout-props.md#borderleftwidth)
-* [`borderRightWidth`](layout-props.md#borderrightwidth)
-* [`borderTopWidth`](layout-props.md#bordertopwidth)
-* [`borderWidth`](layout-props.md#borderwidth)
-* [`bottom`](layout-props.md#bottom)
-* [`display`](layout-props.md#display)
-* [`flex`](layout-props.md#flex)
-* [`flexBasis`](layout-props.md#flexbasis)
-* [`flexDirection`](layout-props.md#flexdirection)
-* [`flexGrow`](layout-props.md#flexgrow)
-* [`flexShrink`](layout-props.md#flexshrink)
-* [`flexWrap`](layout-props.md#flexwrap)
-* [`height`](layout-props.md#height)
-* [`justifyContent`](layout-props.md#justifycontent)
-* [`left`](layout-props.md#left)
-* [`margin`](layout-props.md#margin)
-* [`marginBottom`](layout-props.md#marginbottom)
-* [`alignItems`](layout-props.md#alignitems)
-* [`marginLeft`](layout-props.md#marginleft)
-* [`marginRight`](layout-props.md#marginright)
-* [`marginTop`](layout-props.md#margintop)
-* [`marginVertical`](layout-props.md#marginvertical)
-* [`maxHeight`](layout-props.md#maxheight)
-* [`maxWidth`](layout-props.md#maxwidth)
-* [`minHeight`](layout-props.md#minheight)
-* [`minWidth`](layout-props.md#minwidth)
-* [`overflow`](layout-props.md#overflow)
-* [`padding`](layout-props.md#padding)
-* [`paddingBottom`](layout-props.md#paddingbottom)
-* [`paddingHorizontal`](layout-props.md#paddinghorizontal)
-* [`paddingLeft`](layout-props.md#paddingleft)
-* [`paddingRight`](layout-props.md#paddingright)
-* [`paddingTop`](layout-props.md#paddingtop)
-* [`paddingVertical`](layout-props.md#paddingvertical)
-* [`position`](layout-props.md#position)
-* [`right`](layout-props.md#right)
-* [`top`](layout-props.md#top)
-* [`width`](layout-props.md#width)
-* [`zIndex`](layout-props.md#zindex)
-* [`direction`](layout-props.md#direction)
+- [`marginHorizontal`](layout-props.md#marginhorizontal)
+- [`alignContent`](layout-props.md#aligncontent)
+- [`alignSelf`](layout-props.md#alignself)
+- [`aspectRatio`](layout-props.md#aspectratio)
+- [`borderBottomWidth`](layout-props.md#borderbottomwidth)
+- [`borderLeftWidth`](layout-props.md#borderleftwidth)
+- [`borderRightWidth`](layout-props.md#borderrightwidth)
+- [`borderTopWidth`](layout-props.md#bordertopwidth)
+- [`borderWidth`](layout-props.md#borderwidth)
+- [`bottom`](layout-props.md#bottom)
+- [`display`](layout-props.md#display)
+- [`flex`](layout-props.md#flex)
+- [`flexBasis`](layout-props.md#flexbasis)
+- [`flexDirection`](layout-props.md#flexdirection)
+- [`flexGrow`](layout-props.md#flexgrow)
+- [`flexShrink`](layout-props.md#flexshrink)
+- [`flexWrap`](layout-props.md#flexwrap)
+- [`height`](layout-props.md#height)
+- [`justifyContent`](layout-props.md#justifycontent)
+- [`left`](layout-props.md#left)
+- [`margin`](layout-props.md#margin)
+- [`marginBottom`](layout-props.md#marginbottom)
+- [`alignItems`](layout-props.md#alignitems)
+- [`marginLeft`](layout-props.md#marginleft)
+- [`marginRight`](layout-props.md#marginright)
+- [`marginTop`](layout-props.md#margintop)
+- [`marginVertical`](layout-props.md#marginvertical)
+- [`maxHeight`](layout-props.md#maxheight)
+- [`maxWidth`](layout-props.md#maxwidth)
+- [`minHeight`](layout-props.md#minheight)
+- [`minWidth`](layout-props.md#minwidth)
+- [`overflow`](layout-props.md#overflow)
+- [`padding`](layout-props.md#padding)
+- [`paddingBottom`](layout-props.md#paddingbottom)
+- [`paddingHorizontal`](layout-props.md#paddinghorizontal)
+- [`paddingLeft`](layout-props.md#paddingleft)
+- [`paddingRight`](layout-props.md#paddingright)
+- [`paddingTop`](layout-props.md#paddingtop)
+- [`paddingVertical`](layout-props.md#paddingvertical)
+- [`position`](layout-props.md#position)
+- [`right`](layout-props.md#right)
+- [`top`](layout-props.md#top)
+- [`width`](layout-props.md#width)
+- [`zIndex`](layout-props.md#zindex)
+- [`direction`](layout-props.md#direction)
 
 ---
 
@@ -92,11 +92,11 @@ Setting `marginHorizontal` has the same effect as setting both `marginLeft` and 
 
 Aspect ratio control the size of the undefined dimension of a node. Aspect ratio is a non-standard property only available in react native and not CSS.
 
-* On a node with a set width/height aspect ratio control the size of the unset dimension
-* On a node with a set flex basis aspect ratio controls the size of the node in the cross axis if unset
-* On a node with a measure function aspect ratio works as though the measure function measures the flex basis
-* On a node with flex grow/shrink aspect ratio controls the size of the node in the cross axis if unset
-* Aspect ratio takes min/max dimensions into account
+- On a node with a set width/height aspect ratio control the size of the unset dimension
+- On a node with a set flex basis aspect ratio controls the size of the node in the cross axis if unset
+- On a node with a measure function aspect ratio works as though the measure function measures the flex basis
+- On a node with flex grow/shrink aspect ratio controls the size of the node in the cross axis if unset
+- Aspect ratio takes min/max dimensions into account
 
 | Type   | Required |
 | ------ | -------- |

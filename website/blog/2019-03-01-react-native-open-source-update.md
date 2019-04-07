@@ -38,16 +38,16 @@ In December, we asked the community what they [disliked about React Native](http
 
 One of the highest voted problems was the developer experience of upgrading to newer versions of React Native. Unfortunately, this is not something that we experience ourselves because we run React Native from master. Thankfully, members from the community already stepped up to address this problem:
 
-* [Michał Pierzchała](https://github.com/thymikee) from Callstack [improved react-native upgrade](https://github.com/react-native-community/react-native-cli/pull/176/files) by using [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) under the hood. We also updated the website to remove outdated upgrade instructions.
-* [We plan on recommending CocoaPods by default for iOS projects](https://github.com/facebook/react-native/pull/23563) which will reduce churn in project files when upgrading React Native. This will make it easier for people to install and link third-party modules which is even more important in the context of Lean Core as we expect projects to link more modules by default.
+- [Michał Pierzchała](https://github.com/thymikee) from Callstack [improved react-native upgrade](https://github.com/react-native-community/react-native-cli/pull/176/files) by using [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) under the hood. We also updated the website to remove outdated upgrade instructions.
+- [We plan on recommending CocoaPods by default for iOS projects](https://github.com/facebook/react-native/pull/23563) which will reduce churn in project files when upgrading React Native. This will make it easier for people to install and link third-party modules which is even more important in the context of Lean Core as we expect projects to link more modules by default.
 
 ### 0.59 Release
 
 Without the help of the React Native community, especially [Mike Grabowski](https://github.com/grabbou) and [Lorenzo Sciandra](https://github.com/kelset), we would not be able to ship releases. We want to improve the release management process and plan to be more involved from now on:
 
-* We will work with community members to create a blog post for each major release.
-* We will show breaking changes directly in the CLI when people upgrade to new versions.
-* We will reduce the time it takes to make a release. We are exploring ways to increase automated testing and also creating an improved manual test plan.
+- We will work with community members to create a blog post for each major release.
+- We will show breaking changes directly in the CLI when people upgrade to new versions.
+- We will reduce the time it takes to make a release. We are exploring ways to increase automated testing and also creating an improved manual test plan.
 
 Many of these plans will be incorporated in the upcoming [React Native 0.59 release](https://github.com/facebook/react-native/releases/tag/v0.59.0-rc.3). 0.59 will ship with React Hooks, a new 64-bit version of JavaScriptCore for Android, and many performance and functionality improvements. It is currently published as a release candidate and is expected to be stable within the next two weeks.
 

@@ -45,10 +45,10 @@ class Example extends Component {
 
 ### Methods
 
-* [`addListener`](keyboard.md#addlistener)
-* [`removeListener`](keyboard.md#removelistener)
-* [`removeAllListeners`](keyboard.md#removealllisteners)
-* [`dismiss`](keyboard.md#dismiss)
+- [`addListener`](keyboard.md#addlistener)
+- [`removeListener`](keyboard.md#removelistener)
+- [`removeAllListeners`](keyboard.md#removealllisteners)
+- [`dismiss`](keyboard.md#dismiss)
 
 ---
 
@@ -68,12 +68,12 @@ This function then returns the reference to the listener.
 
 @param {string} eventName The `nativeEvent` is the string that identifies the event you're listening for. This can be any of the following:
 
-* `keyboardWillShow`
-* `keyboardDidShow`
-* `keyboardWillHide`
-* `keyboardDidHide`
-* `keyboardWillChangeFrame`
-* `keyboardDidChangeFrame`
+- `keyboardWillShow`
+- `keyboardDidShow`
+- `keyboardWillHide`
+- `keyboardDidHide`
+- `keyboardWillChangeFrame`
+- `keyboardDidChangeFrame`
 
 Note that if you set `android:windowSoftInputMode` to `adjustResize` or `adjustNothing`, only `keyboardDidShow` and `keyboardDidHide` events will be available on Android. `keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
 

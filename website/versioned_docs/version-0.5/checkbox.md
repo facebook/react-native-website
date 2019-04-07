@@ -12,12 +12,12 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ### Props
 
-* [View props...](view.md#props)
-* [`disabled`](checkbox.md#disabled)
-* [`onChange`](checkbox.md#onchange)
-* [`onValueChange`](checkbox.md#onvaluechange)
-* [`testID`](checkbox.md#testid)
-* [`value`](checkbox.md#value)
+- [View props...](view.md#props)
+- [`disabled`](checkbox.md#disabled)
+- [`onChange`](checkbox.md#onchange)
+- [`onValueChange`](checkbox.md#onvaluechange)
+- [`testID`](checkbox.md#testid)
+- [`value`](checkbox.md#value)
 
 ---
 

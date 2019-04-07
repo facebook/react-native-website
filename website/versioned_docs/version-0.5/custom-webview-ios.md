@@ -36,8 +36,8 @@ For the view, you'll need to make a subclass of `RCTWebView`.
 
 For the view manager, you need to make a subclass `RCTWebViewManager`. You must still include:
 
-* `(UIView *)view` that returns your custom view
-* The `RCT_EXPORT_MODULE()` tag
+- `(UIView *)view` that returns your custom view
+- The `RCT_EXPORT_MODULE()` tag
 
 ```objc
 // RCTCustomWebViewManager.h
@@ -140,8 +140,8 @@ Once these are exposed, you can reference them in your custom web view class.
 
 To use your custom web view, you'll need to create a class for it. Your class must:
 
-* Export all the prop types from `WebView.propTypes`
-* Return a `WebView` component with the prop `nativeConfig.component` set to your native component (see below)
+- Export all the prop types from `WebView.propTypes`
+- Return a `WebView` component with the prop `nativeConfig.component` set to your native component (see below)
 
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 

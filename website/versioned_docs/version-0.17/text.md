@@ -33,14 +33,14 @@ var styles = StyleSheet.create({
 
 ### Props
 
-* [`accessible`](text.md#accessible)
-* [`allowFontScaling`](text.md#allowfontscaling)
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onPress`](text.md#onpress)
-* [`style`](text.md#style)
-* [`testID`](text.md#testid)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
+- [`accessible`](text.md#accessible)
+- [`allowFontScaling`](text.md#allowfontscaling)
+- [`numberOfLines`](text.md#numberoflines)
+- [`onLayout`](text.md#onlayout)
+- [`onPress`](text.md#onpress)
+- [`style`](text.md#style)
+- [`testID`](text.md#testid)
+- [`suppressHighlighting`](text.md#suppresshighlighting)
 
 ---
 
@@ -104,35 +104,35 @@ This function is called on press.
 | ----- | -------- |
 | style | No       |
 
-* [View Style Props...](view-style-props.md#style)
+- [View Style Props...](view-style-props.md#style)
 
-* **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
+- **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
   Specifies text alignment. The value 'justify' is only supported on iOS.
 
-* **`color`**: string
+- **`color`**: string
 
-* **`fontSize`**: number
+- **`fontSize`**: number
 
-* **`fontStyle`**: enum('normal', 'italic')
+- **`fontStyle`**: enum('normal', 'italic')
 
-* **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
+- **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
   Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-* **`lineHeight`**: number
+- **`lineHeight`**: number
 
-* **`fontFamily`**: string
+- **`fontFamily`**: string
 
-* **`letterSpacing`**: number (_iOS_)
+- **`letterSpacing`**: number (_iOS_)
 
-* **`textDecorationColor`**: string (_iOS_)
+- **`textDecorationColor`**: string (_iOS_)
 
-* **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through') (_iOS_)
+- **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through') (_iOS_)
 
-* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+- **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
 
-* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
+- **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 
 ---
 

@@ -12,14 +12,14 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ### Methods
 
-* [`registerConfig`](appregistry.md#registerconfig)
-* [`registerComponent`](appregistry.md#registercomponent)
-* [`registerRunnable`](appregistry.md#registerrunnable)
-* [`getAppKeys`](appregistry.md#getappkeys)
-* [`runApplication`](appregistry.md#runapplication)
-* [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-* [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-* [`startHeadlessTask`](appregistry.md#startheadlesstask)
+- [`registerConfig`](appregistry.md#registerconfig)
+- [`registerComponent`](appregistry.md#registercomponent)
+- [`registerRunnable`](appregistry.md#registerrunnable)
+- [`getAppKeys`](appregistry.md#getappkeys)
+- [`runApplication`](appregistry.md#runapplication)
+- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
+- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
+- [`startHeadlessTask`](appregistry.md#startheadlesstask)
 
 ---
 

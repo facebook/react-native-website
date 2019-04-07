@@ -24,18 +24,18 @@ _onDataArrived(newData) {
 
 ### Methods
 
-* [`constructor`](listviewdatasource.md#constructor)
-* [`cloneWithRows`](listviewdatasource.md#clonewithrows)
-* [`cloneWithRowsAndSections`](listviewdatasource.md#clonewithrowsandsections)
-* [`getRowCount`](listviewdatasource.md#getrowcount)
-* [`getRowAndSectionCount`](listviewdatasource.md#getrowandsectioncount)
-* [`rowShouldUpdate`](listviewdatasource.md#rowshouldupdate)
-* [`getRowData`](listviewdatasource.md#getrowdata)
-* [`getRowIDForFlatIndex`](listviewdatasource.md#getrowidforflatindex)
-* [`getSectionIDForFlatIndex`](listviewdatasource.md#getsectionidforflatindex)
-* [`getSectionLengths`](listviewdatasource.md#getsectionlengths)
-* [`sectionHeaderShouldUpdate`](listviewdatasource.md#sectionheadershouldupdate)
-* [`getSectionHeaderData`](listviewdatasource.md#getsectionheaderdata)
+- [`constructor`](listviewdatasource.md#constructor)
+- [`cloneWithRows`](listviewdatasource.md#clonewithrows)
+- [`cloneWithRowsAndSections`](listviewdatasource.md#clonewithrowsandsections)
+- [`getRowCount`](listviewdatasource.md#getrowcount)
+- [`getRowAndSectionCount`](listviewdatasource.md#getrowandsectioncount)
+- [`rowShouldUpdate`](listviewdatasource.md#rowshouldupdate)
+- [`getRowData`](listviewdatasource.md#getrowdata)
+- [`getRowIDForFlatIndex`](listviewdatasource.md#getrowidforflatindex)
+- [`getSectionIDForFlatIndex`](listviewdatasource.md#getsectionidforflatindex)
+- [`getSectionLengths`](listviewdatasource.md#getsectionlengths)
+- [`sectionHeaderShouldUpdate`](listviewdatasource.md#sectionheadershouldupdate)
+- [`getSectionHeaderData`](listviewdatasource.md#getsectionheaderdata)
 
 ---
 
@@ -65,10 +65,10 @@ or
 
 The constructor takes in a params argument that can contain any of the following:
 
-* getRowData(dataBlob, sectionID, rowID);
-* getSectionHeaderData(dataBlob, sectionID);
-* rowHasChanged(prevRowData, nextRowData);
-* sectionHeaderHasChanged(prevSectionData, nextSectionData);
+- getRowData(dataBlob, sectionID, rowID);
+- getSectionHeaderData(dataBlob, sectionID);
+- rowHasChanged(prevRowData, nextRowData);
+- sectionHeaderHasChanged(prevSectionData, nextSectionData);
 
 ---
 
