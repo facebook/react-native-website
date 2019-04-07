@@ -211,7 +211,7 @@ Reverses the direction of scroll. Uses scale transforms of `-1`.
 (item: object, index: number) => string;
 ```
 
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks item.key, then falls back to using the index, like react does. Note that this sets keys for each item, but each overall section still needs its own key.
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like react does. Note that this sets keys for each item, but each overall section still needs its own key.
 
 | Type     | Required |
 | -------- | -------- |
