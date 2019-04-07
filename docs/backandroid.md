@@ -7,9 +7,9 @@ title: BackAndroid
 
 ### Methods
 
-* [`exitApp`](backandroid.md#exitapp)
-* [`addEventListener`](backandroid.md#addeventlistener)
-* [`removeEventListener`](backandroid.md#removeeventlistener)
+- [`exitApp`](backandroid.md#exitapp)
+- [`addEventListener`](backandroid.md#addeventlistener)
+- [`removeEventListener`](backandroid.md#removeeventlistener)
 
 ---
 

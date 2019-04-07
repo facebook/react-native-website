@@ -6,16 +6,16 @@ original_id: text-style-props
 
 ### Props
 
-* [`color`](text-style-props.md#color)
-* [`containerBackgroundColor`](text-style-props.md#containerbackgroundcolor)
-* [`fontFamily`](text-style-props.md#fontfamily)
-* [`fontSize`](text-style-props.md#fontsize)
-* [`fontStyle`](text-style-props.md#fontstyle)
-* [`fontWeight`](text-style-props.md#fontweight)
-* [`letterSpacing`](text-style-props.md#letterspacing)
-* [`lineHeight`](text-style-props.md#lineheight)
-* [`textAlign`](text-style-props.md#textalign)
-* [`writingDirection`](text-style-props.md#writingdirection)
+- [`color`](text-style-props.md#color)
+- [`containerBackgroundColor`](text-style-props.md#containerbackgroundcolor)
+- [`fontFamily`](text-style-props.md#fontfamily)
+- [`fontSize`](text-style-props.md#fontsize)
+- [`fontStyle`](text-style-props.md#fontstyle)
+- [`fontWeight`](text-style-props.md#fontweight)
+- [`letterSpacing`](text-style-props.md#letterspacing)
+- [`lineHeight`](text-style-props.md#lineheight)
+- [`textAlign`](text-style-props.md#textalign)
+- [`writingDirection`](text-style-props.md#writingdirection)
 
 ---
 

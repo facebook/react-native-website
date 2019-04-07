@@ -24,9 +24,9 @@ Make sure you have the following installed:
 
 Note: Files may vary based on shell flavor. See below for examples from common shells.
 
-* bash: `.bash_profile` or `.bashrc`
-* zsh: `.zprofile` or `.zshrc`
-* ksh: `.profile` or `$ENV`
+- bash: `.bash_profile` or `.bashrc`
+- zsh: `.zprofile` or `.zshrc`
+- ksh: `.profile` or `$ENV`
 
 Example:
 

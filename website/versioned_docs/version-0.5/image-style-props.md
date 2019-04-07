@@ -6,13 +6,13 @@ original_id: image-style-props
 
 ### Props
 
-* [`backgroundColor`](image-style-props.md#backgroundcolor)
-* [`borderColor`](image-style-props.md#bordercolor)
-* [`borderRadius`](image-style-props.md#borderradius)
-* [`borderWidth`](image-style-props.md#borderwidth)
-* [`opacity`](image-style-props.md#opacity)
-* [`resizeMode`](image-style-props.md#resizemode)
-* [`tintColor`](image-style-props.md#tintcolor)
+- [`backgroundColor`](image-style-props.md#backgroundcolor)
+- [`borderColor`](image-style-props.md#bordercolor)
+- [`borderRadius`](image-style-props.md#borderradius)
+- [`borderWidth`](image-style-props.md#borderwidth)
+- [`opacity`](image-style-props.md#opacity)
+- [`resizeMode`](image-style-props.md#resizemode)
+- [`tintColor`](image-style-props.md#tintcolor)
 
 ---
 

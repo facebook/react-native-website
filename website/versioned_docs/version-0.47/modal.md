@@ -59,16 +59,16 @@ class ModalExample extends Component {
 
 ### Props
 
-* [`animationType`](modal.md#animationtype)
-* [`onShow`](modal.md#onshow)
-* [`transparent`](modal.md#transparent)
-* [`visible`](modal.md#visible)
-* [`hardwareAccelerated`](modal.md#hardwareaccelerated)
-* [`onRequestClose`](modal.md#onrequestclose)
-* [`onOrientationChange`](modal.md#onorientationchange)
-* [`presentationStyle`](modal.md#presentationstyle)
-* [`supportedOrientations`](modal.md#supportedorientations)
-* [`animated`](modal.md#animated)
+- [`animationType`](modal.md#animationtype)
+- [`onShow`](modal.md#onshow)
+- [`transparent`](modal.md#transparent)
+- [`visible`](modal.md#visible)
+- [`hardwareAccelerated`](modal.md#hardwareaccelerated)
+- [`onRequestClose`](modal.md#onrequestclose)
+- [`onOrientationChange`](modal.md#onorientationchange)
+- [`presentationStyle`](modal.md#presentationstyle)
+- [`supportedOrientations`](modal.md#supportedorientations)
+- [`animated`](modal.md#animated)
 
 ---
 
@@ -80,9 +80,9 @@ class ModalExample extends Component {
 
 The `animationType` prop controls how the modal animates.
 
-* `slide` slides in from the bottom
-* `fade` fades into view
-* `none` appears without an animation
+- `slide` slides in from the bottom
+- `fade` fades into view
+- `none` appears without an animation
 
 Default is set to `none`.
 
@@ -156,10 +156,10 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
 
-* `fullScreen` covers the screen completely
-* `pageSheet` covers portrait-width view centered (only on larger devices)
-* `formSheet` covers narrow-width view centered (only on larger devices)
-* `overFullScreen` covers the screen completely, but allows transparency
+- `fullScreen` covers the screen completely
+- `pageSheet` covers portrait-width view centered (only on larger devices)
+- `formSheet` covers narrow-width view centered (only on larger devices)
+- `overFullScreen` covers the screen completely, but allows transparency
 
 Default is set to `overFullScreen` or `fullScreen` depending on `transparent` property.
 

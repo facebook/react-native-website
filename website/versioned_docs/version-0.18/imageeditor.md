@@ -6,7 +6,7 @@ original_id: imageeditor
 
 ### Methods
 
-* [`cropImage`](imageeditor.md#cropimage)
+- [`cropImage`](imageeditor.md#cropimage)
 
 ---
 

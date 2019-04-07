@@ -10,30 +10,30 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 
 ### Props
 
-* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-* [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
-* [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
-* [`accessibilityRole`](view.md#accessibilityrole)
-* [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`onBlur`](touchablewithoutfeedback.md#onblur)
-* [`onFocus`](touchablewithoutfeedback.md#onfocus)
-* [`onLayout`](touchablewithoutfeedback.md#onlayout)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`hitSlop`](touchablewithoutfeedback.md#hitslop)
+- [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+- [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
+- [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
+- [`accessible`](touchablewithoutfeedback.md#accessible)
+- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+- [`disabled`](touchablewithoutfeedback.md#disabled)
+- [`onBlur`](touchablewithoutfeedback.md#onblur)
+- [`onFocus`](touchablewithoutfeedback.md#onfocus)
+- [`onLayout`](touchablewithoutfeedback.md#onlayout)
+- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+- [`onPress`](touchablewithoutfeedback.md#onpress)
+- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
 
 ### Type Definitions
 
-* [`Event`](touchablewithoutfeedback.md#event)
+- [`Event`](touchablewithoutfeedback.md#event)
 
 ---
 

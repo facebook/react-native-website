@@ -6,22 +6,22 @@ original_id: text-style-props
 
 ### Props
 
-* [`textShadowColor`](text-style-props.md#textshadowcolor)
-* [`color`](text-style-props.md#color)
-* [`fontSize`](text-style-props.md#fontsize)
-* [`fontStyle`](text-style-props.md#fontstyle)
-* [`fontWeight`](text-style-props.md#fontweight)
-* [`lineHeight`](text-style-props.md#lineheight)
-* [`textAlign`](text-style-props.md#textalign)
-* [`textDecorationLine`](text-style-props.md#textdecorationline)
-* [`fontFamily`](text-style-props.md#fontfamily)
-* [`textShadowOffset`](text-style-props.md#textshadowoffset)
-* [`textShadowRadius`](text-style-props.md#textshadowradius)
-* [`textAlignVertical`](text-style-props.md#textalignvertical)
-* [`letterSpacing`](text-style-props.md#letterspacing)
-* [`textDecorationColor`](text-style-props.md#textdecorationcolor)
-* [`textDecorationStyle`](text-style-props.md#textdecorationstyle)
-* [`writingDirection`](text-style-props.md#writingdirection)
+- [`textShadowColor`](text-style-props.md#textshadowcolor)
+- [`color`](text-style-props.md#color)
+- [`fontSize`](text-style-props.md#fontsize)
+- [`fontStyle`](text-style-props.md#fontstyle)
+- [`fontWeight`](text-style-props.md#fontweight)
+- [`lineHeight`](text-style-props.md#lineheight)
+- [`textAlign`](text-style-props.md#textalign)
+- [`textDecorationLine`](text-style-props.md#textdecorationline)
+- [`fontFamily`](text-style-props.md#fontfamily)
+- [`textShadowOffset`](text-style-props.md#textshadowoffset)
+- [`textShadowRadius`](text-style-props.md#textshadowradius)
+- [`textAlignVertical`](text-style-props.md#textalignvertical)
+- [`letterSpacing`](text-style-props.md#letterspacing)
+- [`textDecorationColor`](text-style-props.md#textdecorationcolor)
+- [`textDecorationStyle`](text-style-props.md#textdecorationstyle)
+- [`writingDirection`](text-style-props.md#writingdirection)
 
 ---
 

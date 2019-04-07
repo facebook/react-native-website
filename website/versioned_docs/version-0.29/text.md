@@ -53,17 +53,17 @@ AppRegistry.registerComponent('TextInANest', () => TextInANest);
 
 ### Props
 
-* [`onPress`](text.md#onpress)
-* [`accessible`](text.md#accessible)
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onLongPress`](text.md#onlongpress)
-* [`lineBreakMode`](text.md#linebreakmode)
-* [`style`](text.md#style)
-* [`testID`](text.md#testid)
-* [`selectable`](text.md#selectable)
-* [`allowFontScaling`](text.md#allowfontscaling)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
+- [`onPress`](text.md#onpress)
+- [`accessible`](text.md#accessible)
+- [`numberOfLines`](text.md#numberoflines)
+- [`onLayout`](text.md#onlayout)
+- [`onLongPress`](text.md#onlongpress)
+- [`lineBreakMode`](text.md#linebreakmode)
+- [`style`](text.md#style)
+- [`testID`](text.md#testid)
+- [`selectable`](text.md#selectable)
+- [`allowFontScaling`](text.md#allowfontscaling)
+- [`suppressHighlighting`](text.md#suppresshighlighting)
 
 ---
 
@@ -135,10 +135,10 @@ e.g., `onLongPress={this.increaseSize}>``
 
 Line Break mode. This can be one of the following values:
 
-* `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
-* `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
-* `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
-* `clip` - Lines are not drawn past the edge of the text container.
+- `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
+- `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
+- `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
+- `clip` - Lines are not drawn past the edge of the text container.
 
 The default is `tail`.
 
@@ -158,43 +158,43 @@ The default is `tail`.
 | ----- | -------- |
 | style | No       |
 
-* [View Style Props...](view-style-props.md#style)
+- [View Style Props...](view-style-props.md#style)
 
-* **`textShadowColor`**: [color](colors.md)
+- **`textShadowColor`**: [color](colors.md)
 
-* **`color`**: [color](colors.md)
+- **`color`**: [color](colors.md)
 
-* **`fontSize`**: number
+- **`fontSize`**: number
 
-* **`fontStyle`**: enum('normal', 'italic')
+- **`fontStyle`**: enum('normal', 'italic')
 
-* **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
+- **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
   Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-* **`lineHeight`**: number
+- **`lineHeight`**: number
 
-* **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
+- **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
   Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
 
-* **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
+- **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 
-* **`fontFamily`**: string
+- **`fontFamily`**: string
 
-* **`textShadowOffset`**: object: {width: number,height: number}
+- **`textShadowOffset`**: object: {width: number,height: number}
 
-* **`textShadowRadius`**: number
+- **`textShadowRadius`**: number
 
-* **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
+- **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
 
-* **`letterSpacing`**: number (_iOS_)
+- **`letterSpacing`**: number (_iOS_)
 
-* **`textDecorationColor`**: [color](colors.md) (_iOS_)
+- **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
-* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+- **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
 
-* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
+- **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 
 ---
 

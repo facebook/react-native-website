@@ -96,33 +96,33 @@ dependencies {
 
 ### Props
 
-* [`style`](image.md#style)
-* [`blurRadius`](image.md#blurradius)
-* [`onLayout`](image.md#onlayout)
-* [`onLoad`](image.md#onload)
-* [`onLoadEnd`](image.md#onloadend)
-* [`onLoadStart`](image.md#onloadstart)
-* [`resizeMode`](image.md#resizemode)
-* [`source`](image.md#source)
-* [`loadingIndicatorSource`](image.md#loadingindicatorsource)
-* [`onError`](image.md#onerror)
-* [`testID`](image.md#testid)
-* [`resizeMethod`](image.md#resizemethod)
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`capInsets`](image.md#capinsets)
-* [`defaultSource`](image.md#defaultsource)
-* [`onPartialLoad`](image.md#onpartialload)
-* [`onProgress`](image.md#onprogress)
-* [`fadeDuration`](image.md#fadeduration)
+- [`style`](image.md#style)
+- [`blurRadius`](image.md#blurradius)
+- [`onLayout`](image.md#onlayout)
+- [`onLoad`](image.md#onload)
+- [`onLoadEnd`](image.md#onloadend)
+- [`onLoadStart`](image.md#onloadstart)
+- [`resizeMode`](image.md#resizemode)
+- [`source`](image.md#source)
+- [`loadingIndicatorSource`](image.md#loadingindicatorsource)
+- [`onError`](image.md#onerror)
+- [`testID`](image.md#testid)
+- [`resizeMethod`](image.md#resizemethod)
+- [`accessibilityLabel`](image.md#accessibilitylabel)
+- [`accessible`](image.md#accessible)
+- [`capInsets`](image.md#capinsets)
+- [`defaultSource`](image.md#defaultsource)
+- [`onPartialLoad`](image.md#onpartialload)
+- [`onProgress`](image.md#onprogress)
+- [`fadeDuration`](image.md#fadeduration)
 
 ### Methods
 
-* [`getSize`](image.md#getsize)
-* [`prefetch`](image.md#prefetch)
-* [`abortPrefetch`](image.md#abortprefetch)
-* [`queryCache`](image.md#querycache)
-* [`resolveAssetSource`](image.md#resolveassetsource)
+- [`getSize`](image.md#getsize)
+- [`prefetch`](image.md#prefetch)
+- [`abortPrefetch`](image.md#abortprefetch)
+- [`queryCache`](image.md#querycache)
+- [`resolveAssetSource`](image.md#resolveassetsource)
 
 ---
 
@@ -138,46 +138,46 @@ dependencies {
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Shadow Props...](shadow-props.md#props)
+- [Shadow Props...](shadow-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`borderTopRightRadius`**: number
+- **`borderTopRightRadius`**: number
 
-* **`backfaceVisibility`**: enum('visible', 'hidden')
+- **`backfaceVisibility`**: enum('visible', 'hidden')
 
-* **`borderBottomLeftRadius`**: number
+- **`borderBottomLeftRadius`**: number
 
-* **`borderBottomRightRadius`**: number
+- **`borderBottomRightRadius`**: number
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderTopLeftRadius`**: number
+- **`borderTopLeftRadius`**: number
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`resizeMode`**: Object.keys(ImageResizeMode)
+- **`resizeMode`**: Object.keys(ImageResizeMode)
 
-* **`tintColor`**: [color](colors.md)
+- **`tintColor`**: [color](colors.md)
 
   Changes the color of all the non-transparent pixels to the tintColor.
 
-* **`overlayColor`**: string (_Android_)
+- **`overlayColor`**: string (_Android_)
 
   When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 
-  * Certain resize modes, such as 'contain'
-  * Animated GIFs
+  - Certain resize modes, such as 'contain'
+  - Animated GIFs
 
   A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
@@ -241,15 +241,15 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 Determines how to resize the image when the frame doesn't match the raw image dimensions.
 
-* `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
+- `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
-* `contain`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
+- `contain`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
 
-* `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
+- `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-* `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio, unless it is larger than the view, in which case it will be scaled down uniformly so that it is contained in the view.
+- `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio, unless it is larger than the view, in which case it will be scaled down uniformly so that it is contained in the view.
 
-* `center`: Center the image in the view along both dimensions. If the image is larger than the view, scale it down uniformly so that it is contained in the view.
+- `center`: Center the image in the view along both dimensions. If the image is larger than the view, scale it down uniformly so that it is contained in the view.
 
 | Type                                                    | Required |
 | ------------------------------------------------------- | -------- |
@@ -307,11 +307,11 @@ A unique identifier for this element to be used in UI Automation testing scripts
 
 The mechanism that should be used to resize the image when the image's dimensions differ from the image view's dimensions. Defaults to `auto`.
 
-* `auto`: Use heuristics to pick between `resize` and `scale`.
+- `auto`: Use heuristics to pick between `resize` and `scale`.
 
-* `resize`: A software operation which changes the encoded image in memory before it gets decoded. This should be used instead of `scale` when the image is much larger than the view.
+- `resize`: A software operation which changes the encoded image in memory before it gets decoded. This should be used instead of `scale` when the image is much larger than the view.
 
-* `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
+- `scale`: The image gets drawn downscaled or upscaled. Compared to `resize`, `scale` is faster (usually hardware accelerated) and produces higher quality images. This should be used if the image is smaller than the view. It should also be used if the image is slightly bigger than the view.
 
 More details about `resize` and `scale` can be found at http://frescolib.org/docs/resizing.html.
 
@@ -362,13 +362,13 @@ A static image to display while loading the image source.
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
-* `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
-* `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
-* `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
+- `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
+- `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
+- `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
 
 If passing a number:
 
-* `number` - Opaque type returned by something like `require('./image.jpg')`.
+- `number` - Opaque type returned by something like `require('./image.jpg')`.
 
 > **Note:** On Android, the default source prop is ignored on debug builds.
 

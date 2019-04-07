@@ -12,18 +12,18 @@ You can find a visualization of some common easing functions at http://easings.n
 
 The `Easing` module provides several predefined animations through the following methods:
 
-* [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
-* [`bounce`](easing.md#bounce) provides a bouncing animation
-* [`ease`](easing.md#ease) provides a simple inertial animation
-* [`elastic`](easing.md#elastic) provides a simple spring interaction
+- [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
+- [`bounce`](easing.md#bounce) provides a bouncing animation
+- [`ease`](easing.md#ease) provides a simple inertial animation
+- [`elastic`](easing.md#elastic) provides a simple spring interaction
 
 ### Standard functions
 
 Three standard easing functions are provided:
 
-* [`linear`](easing.md#linear)
-* [`quad`](easing.md#quad)
-* [`cubic`](easing.md#cubic)
+- [`linear`](easing.md#linear)
+- [`quad`](easing.md#quad)
+- [`cubic`](easing.md#cubic)
 
 The [`poly`](easing.md#poly) function can be used to implement quartic, quintic, and other higher power functions.
 
@@ -31,36 +31,36 @@ The [`poly`](easing.md#poly) function can be used to implement quartic, quintic,
 
 Additional mathematical functions are provided by the following methods:
 
-* [`bezier`](easing.md#bezier) provides a cubic bezier curve
-* [`circle`](easing.md#circle) provides a circular function
-* [`sin`](easing.md#sin) provides a sinusoidal function
-* [`exp`](easing.md#exp) provides an exponential function
+- [`bezier`](easing.md#bezier) provides a cubic bezier curve
+- [`circle`](easing.md#circle) provides a circular function
+- [`sin`](easing.md#sin) provides a sinusoidal function
+- [`exp`](easing.md#exp) provides an exponential function
 
 The following helpers are used to modify other easing functions.
 
-* [`in`](easing.md#in) runs an easing function forwards
-* [`inOut`](easing.md#inout) makes any easing function symmetrical
-* [`out`](easing.md#out) runs an easing function backwards
+- [`in`](easing.md#in) runs an easing function forwards
+- [`inOut`](easing.md#inout) makes any easing function symmetrical
+- [`out`](easing.md#out) runs an easing function backwards
 
 ### Methods
 
-* [`step0`](easing.md#step0)
-* [`step1`](easing.md#step1)
-* [`linear`](easing.md#linear)
-* [`ease`](easing.md#ease)
-* [`quad`](easing.md#quad)
-* [`cubic`](easing.md#cubic)
-* [`poly`](easing.md#poly)
-* [`sin`](easing.md#sin)
-* [`circle`](easing.md#circle)
-* [`exp`](easing.md#exp)
-* [`elastic`](easing.md#elastic)
-* [`back`](easing.md#back)
-* [`bounce`](easing.md#bounce)
-* [`bezier`](easing.md#bezier)
-* [`in`](easing.md#in)
-* [`out`](easing.md#out)
-* [`inOut`](easing.md#inout)
+- [`step0`](easing.md#step0)
+- [`step1`](easing.md#step1)
+- [`linear`](easing.md#linear)
+- [`ease`](easing.md#ease)
+- [`quad`](easing.md#quad)
+- [`cubic`](easing.md#cubic)
+- [`poly`](easing.md#poly)
+- [`sin`](easing.md#sin)
+- [`circle`](easing.md#circle)
+- [`exp`](easing.md#exp)
+- [`elastic`](easing.md#elastic)
+- [`back`](easing.md#back)
+- [`bounce`](easing.md#bounce)
+- [`bezier`](easing.md#bezier)
+- [`in`](easing.md#in)
+- [`out`](easing.md#out)
+- [`inOut`](easing.md#inout)
 
 ---
 
@@ -208,7 +208,7 @@ Use with `Animated.parallel()` to create a simple effect where the object animat
 
 Wolfram Plot:
 
-* http://tiny.cc/back_default (s = 1.70158, default)
+- http://tiny.cc/back_default (s = 1.70158, default)
 
 ---
 

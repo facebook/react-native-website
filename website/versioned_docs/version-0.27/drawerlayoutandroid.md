@@ -31,24 +31,24 @@ render: function() {
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
-- [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
-- [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
-- [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
-- [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
-- [`drawerLockMode`](drawerlayoutandroid.md#drawerlockmode)
-- [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
-- [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
-- [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
-- [`drawerBackgroundColor`](drawerlayoutandroid.md#drawerbackgroundcolor)
-- [`statusBarBackgroundColor`](drawerlayoutandroid.md#statusbarbackgroundcolor)
+* [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
+* [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
+* [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
+* [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
+* [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
+* [`drawerLockMode`](drawerlayoutandroid.md#drawerlockmode)
+* [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
+* [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
+* [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
+* [`drawerBackgroundColor`](drawerlayoutandroid.md#drawerbackgroundcolor)
+* [`statusBarBackgroundColor`](drawerlayoutandroid.md#statusbarbackgroundcolor)
 
 ### Methods
 
-* [`openDrawer`](drawerlayoutandroid.md#opendrawer)
-* [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
+- [`openDrawer`](drawerlayoutandroid.md#opendrawer)
+- [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
 
 ---
 
@@ -100,8 +100,8 @@ Specifies the width of the drawer, more precisely the width of the view that be 
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'on-drag', the keyboard is dismissed when a drag begins.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'on-drag', the keyboard is dismissed when a drag begins.
 
 | Type                    | Required |
 | ----------------------- | -------- |
@@ -113,9 +113,9 @@ Determines whether the keyboard gets dismissed in response to a drag.
 
 Specifies the lock mode of the drawer. The drawer can be locked in 3 states:
 
-* unlocked (default), meaning that the drawer will respond (open/close) to touch gestures.
-* locked-closed, meaning that the drawer will stay closed and not respond to gestures.
-* locked-open, meaning that the drawer will stay opened and not respond to gestures. The drawer may still be opened and closed programmatically (`openDrawer`/`closeDrawer`).
+- unlocked (default), meaning that the drawer will respond (open/close) to touch gestures.
+- locked-closed, meaning that the drawer will stay closed and not respond to gestures.
+- locked-open, meaning that the drawer will stay opened and not respond to gestures. The drawer may still be opened and closed programmatically (`openDrawer`/`closeDrawer`).
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -147,9 +147,9 @@ Function called whenever there is an interaction with the navigation view.
 
 Function called when the drawer state has changed. The drawer can be in 3 states:
 
-* idle, meaning there is no interaction with the navigation view happening at the time
-* dragging, meaning there is currently an interaction with the navigation view
-* settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing its closing or opening animation
+- idle, meaning there is no interaction with the navigation view happening at the time
+- dragging, meaning there is currently an interaction with the navigation view
+- settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing its closing or opening animation
 
 | Type     | Required |
 | -------- | -------- |

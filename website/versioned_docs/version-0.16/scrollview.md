@@ -12,49 +12,49 @@ Doesn't yet support other contained responders from blocking this scroll view fr
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`contentInset`](scrollview.md#contentinset)
-- [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
-- [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
-- [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
-- [`onContentSizeChange`](scrollview.md#oncontentsizechange)
-- [`onScroll`](scrollview.md#onscroll)
-- [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
-- [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
-- [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
-- [`style`](scrollview.md#style)
-- [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
-- [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
-- [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
-- [`bounces`](scrollview.md#bounces)
-- [`bouncesZoom`](scrollview.md#bounceszoom)
-- [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
-- [`centerContent`](scrollview.md#centercontent)
-- [`horizontal`](scrollview.md#horizontal)
-- [`contentOffset`](scrollview.md#contentoffset)
-- [`decelerationRate`](scrollview.md#decelerationrate)
-- [`directionalLockEnabled`](scrollview.md#directionallockenabled)
-- [`maximumZoomScale`](scrollview.md#maximumzoomscale)
-- [`minimumZoomScale`](scrollview.md#minimumzoomscale)
-- [`onRefreshStart`](scrollview.md#onrefreshstart)
-- [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
-- [`pagingEnabled`](scrollview.md#pagingenabled)
-- [`scrollEnabled`](scrollview.md#scrollenabled)
-- [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
-- [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
-- [`scrollsToTop`](scrollview.md#scrollstotop)
-- [`snapToAlignment`](scrollview.md#snaptoalignment)
-- [`snapToInterval`](scrollview.md#snaptointerval)
-- [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
-- [`zoomScale`](scrollview.md#zoomscale)
+* [`contentInset`](scrollview.md#contentinset)
+* [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
+* [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
+* [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
+* [`onContentSizeChange`](scrollview.md#oncontentsizechange)
+* [`onScroll`](scrollview.md#onscroll)
+* [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
+* [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
+* [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
+* [`style`](scrollview.md#style)
+* [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
+* [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
+* [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
+* [`bounces`](scrollview.md#bounces)
+* [`bouncesZoom`](scrollview.md#bounceszoom)
+* [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
+* [`centerContent`](scrollview.md#centercontent)
+* [`horizontal`](scrollview.md#horizontal)
+* [`contentOffset`](scrollview.md#contentoffset)
+* [`decelerationRate`](scrollview.md#decelerationrate)
+* [`directionalLockEnabled`](scrollview.md#directionallockenabled)
+* [`maximumZoomScale`](scrollview.md#maximumzoomscale)
+* [`minimumZoomScale`](scrollview.md#minimumzoomscale)
+* [`onRefreshStart`](scrollview.md#onrefreshstart)
+* [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
+* [`pagingEnabled`](scrollview.md#pagingenabled)
+* [`scrollEnabled`](scrollview.md#scrollenabled)
+* [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
+* [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
+* [`scrollsToTop`](scrollview.md#scrollstotop)
+* [`snapToAlignment`](scrollview.md#snaptoalignment)
+* [`snapToInterval`](scrollview.md#snaptointerval)
+* [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
+* [`zoomScale`](scrollview.md#zoomscale)
 
 ### Methods
 
-* [`endRefreshing`](scrollview.md#endrefreshing)
-* [`scrollTo`](scrollview.md#scrollto)
-* [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
-* [`handleScroll`](scrollview.md#handlescroll)
+- [`endRefreshing`](scrollview.md#endrefreshing)
+- [`scrollTo`](scrollview.md#scrollto)
+- [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
+- [`handleScroll`](scrollview.md#handlescroll)
 
 ---
 
@@ -88,9 +88,9 @@ return ( <ScrollView contentContainerStyle={styles.contentContainer}> </ScrollVi
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'on-drag', the keyboard is dismissed when a drag begins.
-* 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'on-drag', the keyboard is dismissed when a drag begins.
+- 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -164,59 +164,59 @@ When true, shows a vertical scroll indicator.
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`borderStyle`**: enum('solid', 'dotted', 'dashed')
+- **`borderStyle`**: enum('solid', 'dotted', 'dashed')
 
-* **`backfaceVisibility`**: enum('visible', 'hidden')
+- **`backfaceVisibility`**: enum('visible', 'hidden')
 
-* **`borderBottomColor`**: string
+- **`borderBottomColor`**: string
 
-* **`borderBottomLeftRadius`**: number
+- **`borderBottomLeftRadius`**: number
 
-* **`borderBottomRightRadius`**: number
+- **`borderBottomRightRadius`**: number
 
-* **`borderBottomWidth`**: number
+- **`borderBottomWidth`**: number
 
-* **`borderColor`**: string
+- **`borderColor`**: string
 
-* **`borderLeftColor`**: string
+- **`borderLeftColor`**: string
 
-* **`borderLeftWidth`**: number
+- **`borderLeftWidth`**: number
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderRightColor`**: string
+- **`borderRightColor`**: string
 
-* **`borderRightWidth`**: number
+- **`borderRightWidth`**: number
 
-* **`backgroundColor`**: string
+- **`backgroundColor`**: string
 
-* **`borderTopColor`**: string
+- **`borderTopColor`**: string
 
-* **`borderTopLeftRadius`**: number
+- **`borderTopLeftRadius`**: number
 
-* **`borderTopRightRadius`**: number
+- **`borderTopRightRadius`**: number
 
-* **`borderTopWidth`**: number
+- **`borderTopWidth`**: number
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`shadowColor`**: string
+- **`shadowColor`**: string
 
-* **`shadowOffset`**: object: {width: number,height: number}
+- **`shadowOffset`**: object: {width: number,height: number}
 
-* **`shadowOpacity`**: number
+- **`shadowOpacity`**: number
 
-* **`shadowRadius`**: number
+- **`shadowRadius`**: number
 
-* **`elevation`**: number (_Android_)
+- **`elevation`**: number (_Android_)
 
   (Android-only) Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 
@@ -316,8 +316,8 @@ Used to manually set the starting scroll offset. The default value is `{x: 0, y:
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. Reasonable choices include
 
-* Normal: 0.998 (the default)
-* Fast: 0.9
+- Normal: 0.998 (the default)
+- Fast: 0.9
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -435,9 +435,9 @@ When true, the scroll view scrolls to top when the status bar is tapped. The def
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the the snapping to the scroll view.
 
-* `start` (the default) will align the snap at the left (horizontal) or top (vertical)
-* `center` will align the snap in the center
-* `end` will align the snap at the right (horizontal) or bottom (vertical)
+- `start` (the default) will align the snap at the left (horizontal) or top (vertical)
+- `center` will align the snap in the center
+- `end` will align the snap at the right (horizontal) or bottom (vertical)
 
 | Type                           | Required | Platform |
 | ------------------------------ | -------- | -------- |

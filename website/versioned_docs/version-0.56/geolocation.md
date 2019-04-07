@@ -46,12 +46,12 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 
 ### Methods
 
-* [`setRNConfiguration`](geolocation.md#setrnconfiguration)
-* [`requestAuthorization`](geolocation.md#requestauthorization)
-* [`getCurrentPosition`](geolocation.md#getcurrentposition)
-* [`watchPosition`](geolocation.md#watchposition)
-* [`clearWatch`](geolocation.md#clearwatch)
-* [`stopObserving`](geolocation.md#stopobserving)
+- [`setRNConfiguration`](geolocation.md#setrnconfiguration)
+- [`requestAuthorization`](geolocation.md#requestauthorization)
+- [`getCurrentPosition`](geolocation.md#getcurrentposition)
+- [`watchPosition`](geolocation.md#watchposition)
+- [`clearWatch`](geolocation.md#clearwatch)
+- [`stopObserving`](geolocation.md#stopobserving)
 
 ---
 
@@ -75,7 +75,7 @@ Sets configuration options that will be used in all location requests.
 
 Supported options:
 
-* `skipPermissionRequests` (boolean, iOS-only) - Defaults to `false`. If `true`, you must request permissions before using Geolocation APIs.
+- `skipPermissionRequests` (boolean, iOS-only) - Defaults to `false`. If `true`, you must request permissions before using Geolocation APIs.
 
 ---
 
@@ -107,9 +107,9 @@ Invokes the success callback once with the latest location info.
 
 Supported options:
 
-* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
-* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
-* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
+- `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+- `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
+- `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
 
 ---
 
@@ -131,11 +131,11 @@ Invokes the success callback whenever the location changes. Returns a `watchId` 
 
 Supported options:
 
-* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
-* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
-* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
-* `distanceFilter` (m) - The minimum distance from the previous location to exceed before returning a new location. Set to 0 to not filter locations. Defaults to 100m.
-* `useSignificantChanges` (bool) - Uses the battery-efficient native significant changes APIs to return locations. Locations will only be returned when the device detects a significant distance has been breached. Defaults to FALSE.
+- `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+- `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. Defaults to INFINITY.
+- `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
+- `distanceFilter` (m) - The minimum distance from the previous location to exceed before returning a new location. Set to 0 to not filter locations. Defaults to 100m.
+- `useSignificantChanges` (bool) - Uses the battery-efficient native significant changes APIs to return locations. Locations will only be returned when the device detects a significant distance has been breached. Defaults to FALSE.
 
 ---
 

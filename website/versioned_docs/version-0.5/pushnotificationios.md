@@ -10,19 +10,19 @@ To get up and running, [configure your notifications with Apple](https://develop
 
 ### Methods
 
-* [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-* [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-* [`addEventListener`](pushnotificationios.md#addeventlistener)
-* [`requestPermissions`](pushnotificationios.md#requestpermissions)
-* [`checkPermissions`](pushnotificationios.md#checkpermissions)
-* [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-* [`popInitialNotification`](pushnotificationios.md#popinitialnotification)
-* [`constructor`](pushnotificationios.md#constructor)
-* [`getMessage`](pushnotificationios.md#getmessage)
-* [`getSound`](pushnotificationios.md#getsound)
-* [`getAlert`](pushnotificationios.md#getalert)
-* [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-* [`getData`](pushnotificationios.md#getdata)
+- [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
+- [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
+- [`addEventListener`](pushnotificationios.md#addeventlistener)
+- [`requestPermissions`](pushnotificationios.md#requestpermissions)
+- [`checkPermissions`](pushnotificationios.md#checkpermissions)
+- [`removeEventListener`](pushnotificationios.md#removeeventlistener)
+- [`popInitialNotification`](pushnotificationios.md#popinitialnotification)
+- [`constructor`](pushnotificationios.md#constructor)
+- [`getMessage`](pushnotificationios.md#getmessage)
+- [`getSound`](pushnotificationios.md#getsound)
+- [`getAlert`](pushnotificationios.md#getalert)
+- [`getBadgeCount`](pushnotificationios.md#getbadgecount)
+- [`getData`](pushnotificationios.md#getdata)
 
 ---
 
@@ -80,9 +80,9 @@ static checkPermissions(callback)
 
 See what push permissions are currently enabled. `callback` will be invoked with a `permissions` object:
 
-* `alert` :boolean
-* `badge` :boolean
-* `sound` :boolean
+- `alert` :boolean
+- `badge` :boolean
+- `sound` :boolean
 
 ---
 

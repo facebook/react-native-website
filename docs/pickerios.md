@@ -5,11 +5,11 @@ title: PickerIOS
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`itemStyle`](pickerios.md#itemstyle)
-- [`onValueChange`](pickerios.md#onvaluechange)
-- [`selectedValue`](pickerios.md#selectedvalue)
+* [`itemStyle`](pickerios.md#itemstyle)
+* [`onValueChange`](pickerios.md#onvaluechange)
+* [`selectedValue`](pickerios.md#selectedvalue)
 
 ---
 

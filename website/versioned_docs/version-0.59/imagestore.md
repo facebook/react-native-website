@@ -8,10 +8,10 @@ original_id: imagestore
 
 ### Methods
 
-* [`hasImageForTag`](imagestore.md#hasimagefortag)
-* [`removeImageForTag`](imagestore.md#removeimagefortag)
-* [`addImageFromBase64`](imagestore.md#addimagefrombase64)
-* [`getBase64ForTag`](imagestore.md#getbase64fortag)
+- [`hasImageForTag`](imagestore.md#hasimagefortag)
+- [`removeImageForTag`](imagestore.md#removeimagefortag)
+- [`addImageFromBase64`](imagestore.md#addimagefrombase64)
+- [`getBase64ForTag`](imagestore.md#getbase64fortag)
 
 ---
 

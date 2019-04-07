@@ -8,9 +8,9 @@ Deprecated. Use `StatusBar` instead.
 
 ### Methods
 
-* [`setStyle`](statusbarios.md#setstyle)
-* [`setHidden`](statusbarios.md#sethidden)
-* [`setNetworkActivityIndicatorVisible`](statusbarios.md#setnetworkactivityindicatorvisible)
+- [`setStyle`](statusbarios.md#setstyle)
+- [`setHidden`](statusbarios.md#sethidden)
+- [`setNetworkActivityIndicatorVisible`](statusbarios.md#setnetworkactivityindicatorvisible)
 
 ---
 

@@ -27,20 +27,20 @@ renderImages: function() {
 
 ### Props
 
-* [`testID`](image.md#testid)
-* [`onLayout`](image.md#onlayout)
-* [`onLoadEnd`](image.md#onloadend)
-* [`onLoadStart`](image.md#onloadstart)
-* [`resizeMode`](image.md#resizemode)
-* [`source`](image.md#source)
-* [`style`](image.md#style)
-* [`onLoad`](image.md#onload)
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`capInsets`](image.md#capinsets)
-* [`defaultSource`](image.md#defaultsource)
-* [`onError`](image.md#onerror)
-* [`onProgress`](image.md#onprogress)
+- [`testID`](image.md#testid)
+- [`onLayout`](image.md#onlayout)
+- [`onLoadEnd`](image.md#onloadend)
+- [`onLoadStart`](image.md#onloadstart)
+- [`resizeMode`](image.md#resizemode)
+- [`source`](image.md#source)
+- [`style`](image.md#style)
+- [`onLoad`](image.md#onload)
+- [`accessibilityLabel`](image.md#accessibilitylabel)
+- [`accessible`](image.md#accessible)
+- [`capInsets`](image.md#capinsets)
+- [`defaultSource`](image.md#defaultsource)
+- [`onError`](image.md#onerror)
+- [`onProgress`](image.md#onprogress)
 
 ---
 
@@ -120,27 +120,27 @@ Determines how to resize the image when the frame doesn't match the raw image di
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`backfaceVisibility`**: enum('visible', 'hidden')
+- **`backfaceVisibility`**: enum('visible', 'hidden')
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`resizeMode`**: Object.keys(ImageResizeMode)
+- **`resizeMode`**: Object.keys(ImageResizeMode)
 
-* **`tintColor`**: [color](colors.md)
+- **`tintColor`**: [color](colors.md)
 
 ---
 

@@ -94,65 +94,65 @@ Note that on Android performing text selection in input can change app's activit
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`allowFontScaling`](textinput.md#allowfontscaling)
-- [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoComplete`](textinput.md#autocomplete)
-- [`autoCorrect`](textinput.md#autocorrect)
-- [`autoFocus`](textinput.md#autofocus)
-- [`blurOnSubmit`](textinput.md#bluronsubmit)
-- [`caretHidden`](textinput.md#carethidden)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`contextMenuHidden`](textinput.md#contextmenuhidden)
-- [`dataDetectorTypes`](textinput.md#datadetectortypes)
-- [`defaultValue`](textinput.md#defaultvalue)
-- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
-- [`editable`](textinput.md#editable)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`importantForAutofill`](textinput.md#importantForAutofill)
-- [`inlineImageLeft`](textinput.md#inlineimageleft)
-- [`inlineImagePadding`](textinput.md#inlineimagepadding)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`keyboardType`](textinput.md#keyboardtype)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`maxLength`](textinput.md#maxlength)
-- [`multiline`](textinput.md#multiline)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`onBlur`](textinput.md#onblur)
-- [`onChange`](textinput.md#onchange)
-- [`onChangeText`](textinput.md#onchangetext)
-- [`onContentSizeChange`](textinput.md#oncontentsizechange)
-- [`onEndEditing`](textinput.md#onendediting)
-- [`onFocus`](textinput.md#onfocus)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`onLayout`](textinput.md#onlayout)
-- [`onScroll`](textinput.md#onscroll)
-- [`onSelectionChange`](textinput.md#onselectionchange)
-- [`onSubmitEditing`](textinput.md#onsubmitediting)
-- [`placeholder`](textinput.md#placeholder)
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-- [`returnKeyLabel`](textinput.md#returnkeylabel)
-- [`returnKeyType`](textinput.md#returnkeytype)
-- [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
-- [`scrollEnabled`](textinput.md#scrollenabled)
-- [`secureTextEntry`](textinput.md#securetextentry)
-- [`selection`](textinput.md#selection)
-- [`selectionColor`](textinput.md#selectioncolor)
-- [`selectionState`](textinput.md#selectionstate)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-- [`spellCheck`](textinput.md#spellcheck)
-- [`textContentType`](textinput.md#textcontenttype)
-- [`style`](textinput.md#style)
-- [`textBreakStrategy`](textinput.md#textbreakstrategy)
-- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`value`](textinput.md#value)
+* [`allowFontScaling`](textinput.md#allowfontscaling)
+* [`autoCapitalize`](textinput.md#autocapitalize)
+* [`autoComplete`](textinput.md#autocomplete)
+* [`autoCorrect`](textinput.md#autocorrect)
+* [`autoFocus`](textinput.md#autofocus)
+* [`blurOnSubmit`](textinput.md#bluronsubmit)
+* [`caretHidden`](textinput.md#carethidden)
+* [`clearButtonMode`](textinput.md#clearbuttonmode)
+* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
+* [`contextMenuHidden`](textinput.md#contextmenuhidden)
+* [`dataDetectorTypes`](textinput.md#datadetectortypes)
+* [`defaultValue`](textinput.md#defaultvalue)
+* [`disableFullscreenUI`](textinput.md#disablefullscreenui)
+* [`editable`](textinput.md#editable)
+* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+* [`importantForAutofill`](textinput.md#importantForAutofill)
+* [`inlineImageLeft`](textinput.md#inlineimageleft)
+* [`inlineImagePadding`](textinput.md#inlineimagepadding)
+* [`keyboardAppearance`](textinput.md#keyboardappearance)
+* [`keyboardType`](textinput.md#keyboardtype)
+* [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
+* [`maxLength`](textinput.md#maxlength)
+* [`multiline`](textinput.md#multiline)
+* [`numberOfLines`](textinput.md#numberoflines)
+* [`onBlur`](textinput.md#onblur)
+* [`onChange`](textinput.md#onchange)
+* [`onChangeText`](textinput.md#onchangetext)
+* [`onContentSizeChange`](textinput.md#oncontentsizechange)
+* [`onEndEditing`](textinput.md#onendediting)
+* [`onFocus`](textinput.md#onfocus)
+* [`onKeyPress`](textinput.md#onkeypress)
+* [`onLayout`](textinput.md#onlayout)
+* [`onScroll`](textinput.md#onscroll)
+* [`onSelectionChange`](textinput.md#onselectionchange)
+* [`onSubmitEditing`](textinput.md#onsubmitediting)
+* [`placeholder`](textinput.md#placeholder)
+* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+* [`returnKeyLabel`](textinput.md#returnkeylabel)
+* [`returnKeyType`](textinput.md#returnkeytype)
+* [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
+* [`scrollEnabled`](textinput.md#scrollenabled)
+* [`secureTextEntry`](textinput.md#securetextentry)
+* [`selection`](textinput.md#selection)
+* [`selectionColor`](textinput.md#selectioncolor)
+* [`selectionState`](textinput.md#selectionstate)
+* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`spellCheck`](textinput.md#spellcheck)
+* [`textContentType`](textinput.md#textcontenttype)
+* [`style`](textinput.md#style)
+* [`textBreakStrategy`](textinput.md#textbreakstrategy)
+* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+* [`value`](textinput.md#value)
 
 ### Methods
 
-* [`clear`](textinput.md#clear)
-* [`isFocused`](textinput.md#isfocused)
+- [`clear`](textinput.md#clear)
+- [`isFocused`](textinput.md#isfocused)
 
 ---
 
@@ -174,10 +174,10 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 Can tell `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
 
-* `characters`: all characters.
-* `words`: first letter of each word.
-* `sentences`: first letter of each sentence (_default_).
-* `none`: don't auto capitalize anything.
+- `characters`: all characters.
+- `words`: first letter of each word.
+- `sentences`: first letter of each sentence (_default_).
+- `none`: don't auto capitalize anything.
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -191,19 +191,19 @@ Specifies autocomplete hints for the system, so it can provide autofill. On Andr
 
 Possible values for `autoComplete` are:
 
-* `off`
-* `username`
-* `password`
-* `email`
-* `name`
-* `tel`
-* `street-address`
-* `postal-code`
-* `cc-number`
-* `cc-csc`
-* `cc-exp`
-* `cc-exp-month`
-* `cc-exp-year`
+- `off`
+- `username`
+- `password`
+- `email`
+- `name`
+- `tel`
+- `street-address`
+- `postal-code`
+- `cc-number`
+- `cc-csc`
+- `cc-exp`
+- `cc-exp-month`
+- `cc-exp-year`
 
 | Type                                                                                                                                                         | Required | Platform |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- |
@@ -289,12 +289,12 @@ You can provide one type or an array of many types.
 
 Possible values for `dataDetectorTypes` are:
 
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
+- `'phoneNumber'`
+- `'link'`
+- `'address'`
+- `'calendarEvent'`
+- `'none'`
+- `'all'`
 
 | Type                                                                                                                                                     | Required | Platform |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
@@ -346,11 +346,11 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
 
-* `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
-* `no`: This view isn't important for autofill.
-* `noExcludeDescendants`: This view and its children aren't important for autofill.
-* `yes`: This view is important for autofill.
-* `yesExcludeDescendants`: This view is important for autofill, but its children aren't important for autofill.
+- `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
+- `no`: This view isn't important for autofill.
+- `noExcludeDescendants`: This view and its children aren't important for autofill.
+- `yes`: This view is important for autofill.
+- `yesExcludeDescendants`: This view is important for autofill, but its children aren't important for autofill.
 
 | Type                                                                       | Required | Platform |
 | -------------------------------------------------------------------------- | -------- | -------- |
@@ -402,29 +402,29 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 The following values work across platforms:
 
-* `default`
-* `number-pad`
-* `decimal-pad`
-* `numeric`
-* `email-address`
-* `phone-pad`
+- `default`
+- `number-pad`
+- `decimal-pad`
+- `numeric`
+- `email-address`
+- `phone-pad`
 
 _iOS Only_
 
 The following values work on iOS only:
 
-* `ascii-capable`
-* `numbers-and-punctuation`
-* `url`
-* `name-phone-pad`
-* `twitter`
-* `web-search`
+- `ascii-capable`
+- `numbers-and-punctuation`
+- `url`
+- `name-phone-pad`
+- `twitter`
+- `web-search`
 
 _Android Only_
 
 The following values work on Android only:
 
-* `visible-password`
+- `visible-password`
 
 | Type                                                                                                                                                                                                    | Required |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -436,9 +436,9 @@ The following values work on Android only:
 
 Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
 
-* `null/undefined` (default): inherit from the parent node or the global default (0)
-* `0`: no max, ignore parent/global default
-* `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+- `null/undefined` (default): inherit from the parent node or the global default (0)
+- `0`: no max, ignore parent/global default
+- `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
 
 | Type   | Required |
 | ------ | -------- |
@@ -626,29 +626,29 @@ _Cross platform_
 
 The following values work across platforms:
 
-* `done`
-* `go`
-* `next`
-* `search`
-* `send`
+- `done`
+- `go`
+- `next`
+- `search`
+- `send`
 
 _Android Only_
 
 The following values work on Android only:
 
-* `none`
-* `previous`
+- `none`
+- `previous`
 
 _iOS Only_
 
 The following values work on iOS only:
 
-* `default`
-* `emergency-call`
-* `google`
-* `join`
-* `route`
-* `yahoo`
+- `default`
+- `emergency-call`
+- `google`
+- `join`
+- `route`
+- `yahoo`
 
 | Type                                                                                                                              | Required |
 | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -714,9 +714,9 @@ An instance of `DocumentSelectionState`, this is some state that is responsible 
 
 Some functionality that can be performed with this instance is:
 
-* `blur()`
-* `focus()`
-* `update()`
+- `blur()`
+- `focus()`
+- `update()`
 
 > You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
 
@@ -758,34 +758,34 @@ To disable autofill, set `textContentType` to `none`.
 
 Possible values for `textContentType` are:
 
-* `none`
-* `URL`
-* `addressCity`
-* `addressCityAndState`
-* `addressState`
-* `countryName`
-* `creditCardNumber`
-* `emailAddress`
-* `familyName`
-* `fullStreetAddress`
-* `givenName`
-* `jobTitle`
-* `location`
-* `middleName`
-* `name`
-* `namePrefix`
-* `nameSuffix`
-* `nickname`
-* `organizationName`
-* `postalCode`
-* `streetAddressLine1`
-* `streetAddressLine2`
-* `sublocality`
-* `telephoneNumber`
-* `username`
-* `password`
-* `newPassword`
-* `oneTimeCode`
+- `none`
+- `URL`
+- `addressCity`
+- `addressCityAndState`
+- `addressState`
+- `countryName`
+- `creditCardNumber`
+- `emailAddress`
+- `familyName`
+- `fullStreetAddress`
+- `givenName`
+- `jobTitle`
+- `location`
+- `middleName`
+- `name`
+- `namePrefix`
+- `nameSuffix`
+- `nickname`
+- `organizationName`
+- `postalCode`
+- `streetAddressLine1`
+- `streetAddressLine2`
+- `sublocality`
+- `telephoneNumber`
+- `username`
+- `password`
+- `newPassword`
+- `oneTimeCode`
 
 | Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
@@ -797,14 +797,14 @@ Possible values for `textContentType` are:
 
 Note that not all Text styles are supported, an incomplete list of what is not supported includes:
 
-* `borderLeftWidth`
-* `borderTopWidth`
-* `borderRightWidth`
-* `borderBottomWidth`
-* `borderTopLeftRadius`
-* `borderTopRightRadius`
-* `borderBottomRightRadius`
-* `borderBottomLeftRadius`
+- `borderLeftWidth`
+- `borderTopWidth`
+- `borderRightWidth`
+- `borderBottomWidth`
+- `borderTopLeftRadius`
+- `borderTopRightRadius`
+- `borderBottomRightRadius`
+- `borderBottomLeftRadius`
 
 see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more detail.
 
@@ -866,5 +866,5 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 # Known issues
 
-* [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
-* [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.
+- [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
+- [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.

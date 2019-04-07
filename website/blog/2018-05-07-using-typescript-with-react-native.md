@@ -41,11 +41,11 @@ cd MyAwesomeProject
 
 The next step is to add TypeScript to your project. The following commands will:
 
-* add TypeScript to your project
-* add [React Native TypeScript Transformer](https://github.com/ds300/react-native-typescript-transformer) to your project
-* initialize an empty TypeScript config file, which we'll configure next
-* add an empty React Native TypeScript Transformer config file, which we'll configure next
-* adds [typings](https://github.com/DefinitelyTyped/DefinitelyTyped) for React and React Native
+- add TypeScript to your project
+- add [React Native TypeScript Transformer](https://github.com/ds300/react-native-typescript-transformer) to your project
+- initialize an empty TypeScript config file, which we'll configure next
+- add an empty React Native TypeScript Transformer config file, which we'll configure next
+- adds [typings](https://github.com/DefinitelyTyped/DefinitelyTyped) for React and React Native
 
 Okay, let's go ahead and run these.
 
@@ -261,8 +261,8 @@ const styles = StyleSheet.create({
 
 Whoa! That's a lot, but let's break it down:
 
-* Instead of rendering HTML elements like `div`, `span`, `h1`, etc., we're rendering components like `View` and `Button`. These are native components that work across different platforms.
-* Styling is specified using the `StyleSheet.create` function that React Native gives us. React's stylesheets allow us to control our layout using Flexbox, and style using other constructs similar to those in CSS.
+- Instead of rendering HTML elements like `div`, `span`, `h1`, etc., we're rendering components like `View` and `Button`. These are native components that work across different platforms.
+- Styling is specified using the `StyleSheet.create` function that React Native gives us. React's stylesheets allow us to control our layout using Flexbox, and style using other constructs similar to those in CSS.
 
 ## Adding a Component Test
 

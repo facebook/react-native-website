@@ -8,10 +8,10 @@ Individual selectable item in a [Picker](picker.md).
 
 ### Props
 
-* [`label`](picker-item.md#label)
-* [`color`](picker-item.md#color)
-* [`testID`](picker-item.md#testid)
-* [`value`](picker-item.md#value)
+- [`label`](picker-item.md#label)
+- [`color`](picker-item.md#color)
+- [`testID`](picker-item.md#testid)
+- [`value`](picker-item.md#value)
 
 ---
 

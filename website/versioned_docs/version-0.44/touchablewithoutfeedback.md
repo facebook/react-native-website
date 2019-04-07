@@ -10,20 +10,20 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 
 ### Props
 
-* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-* [`onLayout`](touchablewithoutfeedback.md#onlayout)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`hitSlop`](touchablewithoutfeedback.md#hitslop)
+- [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+- [`accessible`](touchablewithoutfeedback.md#accessible)
+- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+- [`disabled`](touchablewithoutfeedback.md#disabled)
+- [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
+- [`onLayout`](touchablewithoutfeedback.md#onlayout)
+- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+- [`onPress`](touchablewithoutfeedback.md#onpress)
+- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
 
 ---
 

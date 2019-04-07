@@ -8,10 +8,10 @@ original_id: settings
 
 ### Methods
 
-* [`get`](settings.md#get)
-* [`set`](settings.md#set)
-* [`watchKeys`](settings.md#watchkeys)
-* [`clearWatch`](settings.md#clearwatch)
+- [`get`](settings.md#get)
+- [`set`](settings.md#set)
+- [`watchKeys`](settings.md#watchkeys)
+- [`clearWatch`](settings.md#clearwatch)
 
 ---
 

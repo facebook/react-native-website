@@ -8,8 +8,8 @@ original_id: cameraroll
 
 ### Methods
 
-* [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
-* [`getPhotos`](cameraroll.md#getphotos)
+- [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
+- [`getPhotos`](cameraroll.md#getphotos)
 
 ---
 
@@ -29,9 +29,9 @@ On Android, the tag is a local URI, such as `"file:///sdcard/img.png"`.
 
 On iOS, the tag can be one of the following:
 
-* local URI
-* assets-library tag
-* a tag not matching any of the above, which means the image data will be stored in memory (and consume memory as long as the process is alive)
+- local URI
+- assets-library tag
+- a tag not matching any of the above, which means the image data will be stored in memory (and consume memory as long as the process is alive)
 
 Returns a Promise which when resolved will be passed the new URI.
 

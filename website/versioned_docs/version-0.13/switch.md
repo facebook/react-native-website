@@ -8,13 +8,13 @@ Universal two-state toggle component.
 
 ### Props
 
-* [`disabled`](switch.md#disabled)
-* [`onValueChange`](switch.md#onvaluechange)
-* [`testID`](switch.md#testid)
-* [`value`](switch.md#value)
-* [`onTintColor`](switch.md#ontintcolor)
-* [`thumbTintColor`](switch.md#thumbtintcolor)
-* [`tintColor`](switch.md#tintcolor)
+- [`disabled`](switch.md#disabled)
+- [`onValueChange`](switch.md#onvaluechange)
+- [`testID`](switch.md#testid)
+- [`value`](switch.md#value)
+- [`onTintColor`](switch.md#ontintcolor)
+- [`thumbTintColor`](switch.md#thumbtintcolor)
+- [`tintColor`](switch.md#tintcolor)
 
 ---
 

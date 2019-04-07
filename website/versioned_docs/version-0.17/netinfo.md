@@ -27,10 +27,10 @@ NetInfo.addEventListener(
 
 Asynchronously determine if the device is online and on a cellular network.
 
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cell` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
+- `none` - device is offline
+- `wifi` - device is online and connected via wifi, or is the iOS simulator
+- `cell` - device is connected via Edge, 3G, WiMax, or LTE
+- `unknown` - error case and the network status is unknown
 
 ### Android
 
@@ -40,19 +40,19 @@ To request network info, you need to add the following line to your app's `Andro
 
 Android Connectivity Types.
 
-* `NONE` - device is offline
-* `BLUETOOTH` - The Bluetooth data connection.
-* `DUMMY` - Dummy data connection.
-* `ETHERNET` - The Ethernet data connection.
-* `MOBILE` - The Mobile data connection.
-* `MOBILE_DUN` - A DUN-specific Mobile data connection.
-* `MOBILE_HIPRI` - A High Priority Mobile data connection.
-* `MOBILE_MMS` - An MMS-specific Mobile data connection.
-* `MOBILE_SUPL` - A SUPL-specific Mobile data connection.
-* `VPN` - A virtual network using one or more native bearers. Requires API Level 21
-* `WIFI` - The WIFI data connection.
-* `WIMAX` - The WiMAX data connection.
-* `UNKNOWN` - Unknown data connection.
+- `NONE` - device is offline
+- `BLUETOOTH` - The Bluetooth data connection.
+- `DUMMY` - Dummy data connection.
+- `ETHERNET` - The Ethernet data connection.
+- `MOBILE` - The Mobile data connection.
+- `MOBILE_DUN` - A DUN-specific Mobile data connection.
+- `MOBILE_HIPRI` - A High Priority Mobile data connection.
+- `MOBILE_MMS` - An MMS-specific Mobile data connection.
+- `MOBILE_SUPL` - A SUPL-specific Mobile data connection.
+- `VPN` - A virtual network using one or more native bearers. Requires API Level 21
+- `WIFI` - The WIFI data connection.
+- `WIMAX` - The WiMAX data connection.
+- `UNKNOWN` - Unknown data connection.
 
 The rest ConnectivityStates are hidden by the Android API, but can be used if necessary.
 
@@ -89,14 +89,14 @@ NetInfo.isConnected.addEventListener(
 
 ### Methods
 
-* [`addEventListener`](netinfo.md#addeventlistener)
-* [`removeEventListener`](netinfo.md#removeeventlistener)
-* [`fetch`](netinfo.md#fetch)
-* [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+- [`addEventListener`](netinfo.md#addeventlistener)
+- [`removeEventListener`](netinfo.md#removeeventlistener)
+- [`fetch`](netinfo.md#fetch)
+- [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
 
 ### Properties
 
-* [`isConnected`](netinfo.md#isconnected)
+- [`isConnected`](netinfo.md#isconnected)
 
 ---
 

@@ -68,29 +68,29 @@ Note that `Animated` is designed to be fully serializable so that animations can
 
 ### Methods
 
-* [`decay`](animated.md#decay)
-* [`timing`](animated.md#timing)
-* [`spring`](animated.md#spring)
-* [`add`](animated.md#add)
-* [`multiply`](animated.md#multiply)
-* [`modulo`](animated.md#modulo)
-* [`delay`](animated.md#delay)
-* [`sequence`](animated.md#sequence)
-* [`parallel`](animated.md#parallel)
-* [`stagger`](animated.md#stagger)
-* [`event`](animated.md#event)
-* [`createAnimatedComponent`](animated.md#createanimatedcomponent)
+- [`decay`](animated.md#decay)
+- [`timing`](animated.md#timing)
+- [`spring`](animated.md#spring)
+- [`add`](animated.md#add)
+- [`multiply`](animated.md#multiply)
+- [`modulo`](animated.md#modulo)
+- [`delay`](animated.md#delay)
+- [`sequence`](animated.md#sequence)
+- [`parallel`](animated.md#parallel)
+- [`stagger`](animated.md#stagger)
+- [`event`](animated.md#event)
+- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
 
 ### Properties
 
-* [`Value`](animated.md#value)
-* [`ValueXY`](animated.md#valuexy)
+- [`Value`](animated.md#value)
+- [`ValueXY`](animated.md#valuexy)
 
 ### Classes
 
-* [`AnimatedValue`](animated.md#animatedvalue)
-* [`AnimatedValueXY`](animated.md#animatedvaluexy)
-* [`AnimatedProps`](animated.md#animatedprops)
+- [`AnimatedValue`](animated.md#animatedvalue)
+- [`AnimatedValueXY`](animated.md#animatedvaluexy)
+- [`AnimatedProps`](animated.md#animatedprops)
 
 ---
 

@@ -6,9 +6,9 @@ original_id: tabbarios
 
 ### Props
 
-* [`barTintColor`](tabbarios.md#bartintcolor)
-* [`style`](tabbarios.md#style)
-* [`tintColor`](tabbarios.md#tintcolor)
+- [`barTintColor`](tabbarios.md#bartintcolor)
+- [`style`](tabbarios.md#style)
+- [`tintColor`](tabbarios.md#tintcolor)
 
 ---
 

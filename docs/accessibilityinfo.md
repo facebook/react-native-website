@@ -71,16 +71,16 @@ class AccessibilityStatusExample extends React.Component {
 
 ### Methods
 
-* [`isBoldTextEnabled`](accessibilityinfo.md#isBoldTextEnabled)
-* [`isGrayscaleEnabled`](accessibilityinfo.md#isGrayscaleEnabled)
-* [`isInvertColorsEnabled`](accessibilityinfo.md#isInvertColorsEnabled)
-* [`isReduceMotionEnabled`](accessibilityinfo.md#isReduceMotionEnabled)
-* [`isReduceTransparencyEnabled`](accessibilityinfo.md#isReduceTransparencyEnabled)
-* [`isScreenReaderEnabled`](accessibilityinfo.md#isScreenReaderEnabled)
-* [`addEventListener`](accessibilityinfo.md#addeventlistener)
-* [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
-* [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
-* [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
+- [`isBoldTextEnabled`](accessibilityinfo.md#isBoldTextEnabled)
+- [`isGrayscaleEnabled`](accessibilityinfo.md#isGrayscaleEnabled)
+- [`isInvertColorsEnabled`](accessibilityinfo.md#isInvertColorsEnabled)
+- [`isReduceMotionEnabled`](accessibilityinfo.md#isReduceMotionEnabled)
+- [`isReduceTransparencyEnabled`](accessibilityinfo.md#isReduceTransparencyEnabled)
+- [`isScreenReaderEnabled`](accessibilityinfo.md#isScreenReaderEnabled)
+- [`addEventListener`](accessibilityinfo.md#addeventlistener)
+- [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
+- [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
+- [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
 
 ---
 
@@ -146,15 +146,15 @@ static addEventListener(eventName, handler)
 
 Add an event handler. Supported events:
 
-* `boldTextChanged`: iOS-only event. Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.
-* `grayscaleChanged`: iOS-only event. Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.
-* `invertColorsChanged`: iOS-only event. Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.
-* `reduceMotionChanged`: Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.
-* `screenReaderChanged`: Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.
-* `reduceTransparencyChanged`: iOS-only event. Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.
-* `announcementFinished`: iOS-only event. Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:
-  * `announcement`: The string announced by the screen reader.
-  * `success`: A boolean indicating whether the announcement was successfully made.
+- `boldTextChanged`: iOS-only event. Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.
+- `grayscaleChanged`: iOS-only event. Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.
+- `invertColorsChanged`: iOS-only event. Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.
+- `reduceMotionChanged`: Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.
+- `screenReaderChanged`: Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.
+- `reduceTransparencyChanged`: iOS-only event. Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.
+- `announcementFinished`: iOS-only event. Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:
+  - `announcement`: The string announced by the screen reader.
+  - `success`: A boolean indicating whether the announcement was successfully made.
 
 ---
 

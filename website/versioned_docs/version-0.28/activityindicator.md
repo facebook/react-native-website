@@ -8,12 +8,12 @@ Displays a circular loading indicator.
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`animating`](activityindicator.md#animating)
-- [`color`](activityindicator.md#color)
-- [`size`](activityindicator.md#size)
-- [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
+* [`animating`](activityindicator.md#animating)
+* [`color`](activityindicator.md#color)
+* [`size`](activityindicator.md#size)
+* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
 
 ---
 

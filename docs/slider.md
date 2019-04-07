@@ -9,24 +9,24 @@ A component used to select a single value from a range of values.
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`style`](slider.md#style)
-- [`disabled`](slider.md#disabled)
-- [`maximumValue`](slider.md#maximumvalue)
-- [`minimumTrackTintColor`](slider.md#minimumtracktintcolor)
-- [`minimumValue`](slider.md#minimumvalue)
-- [`onSlidingComplete`](slider.md#onslidingcomplete)
-- [`onValueChange`](slider.md#onvaluechange)
-- [`step`](slider.md#step)
-- [`maximumTrackTintColor`](slider.md#maximumtracktintcolor)
-- [`testID`](slider.md#testid)
-- [`value`](slider.md#value)
-- [`thumbTintColor`](slider.md#thumbtintcolor)
-- [`maximumTrackImage`](slider.md#maximumtrackimage)
-- [`minimumTrackImage`](slider.md#minimumtrackimage)
-- [`thumbImage`](slider.md#thumbimage)
-- [`trackImage`](slider.md#trackimage)
+* [`style`](slider.md#style)
+* [`disabled`](slider.md#disabled)
+* [`maximumValue`](slider.md#maximumvalue)
+* [`minimumTrackTintColor`](slider.md#minimumtracktintcolor)
+* [`minimumValue`](slider.md#minimumvalue)
+* [`onSlidingComplete`](slider.md#onslidingcomplete)
+* [`onValueChange`](slider.md#onvaluechange)
+* [`step`](slider.md#step)
+* [`maximumTrackTintColor`](slider.md#maximumtracktintcolor)
+* [`testID`](slider.md#testid)
+* [`value`](slider.md#value)
+* [`thumbTintColor`](slider.md#thumbtintcolor)
+* [`maximumTrackImage`](slider.md#maximumtrackimage)
+* [`minimumTrackImage`](slider.md#minimumtrackimage)
+* [`thumbImage`](slider.md#thumbimage)
+* [`trackImage`](slider.md#trackimage)
 
 ---
 

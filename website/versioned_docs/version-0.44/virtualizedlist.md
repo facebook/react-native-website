@@ -10,10 +10,10 @@ Virtualization massively improves memory consumption and performance of large li
 
 Some caveats:
 
-* Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-* This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate ands momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-* By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate ands momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 NOTE: `LayoutAnimation` and sticky section headers both have bugs when used with this and are therefore not officially supported yet.
 
@@ -21,41 +21,41 @@ NOTE: `removeClippedSubviews` might not be necessary and may cause bugs. If you 
 
 ### Props
 
-* [`windowSize`](virtualizedlist.md#windowsize)
-* [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
-* [`getItem`](virtualizedlist.md#getitem)
-* [`getItemCount`](virtualizedlist.md#getitemcount)
-* [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
-* [`keyExtractor`](virtualizedlist.md#keyextractor)
-* [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
-* [`renderItem`](virtualizedlist.md#renderitem)
-* [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
-* [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
-* [`getItemLayout`](virtualizedlist.md#getitemlayout)
-* [`debug`](virtualizedlist.md#debug)
-* [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
-* [`onLayout`](virtualizedlist.md#onlayout)
-* [`onRefresh`](virtualizedlist.md#onrefresh)
-* [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
-* [`refreshing`](virtualizedlist.md#refreshing)
-* [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
-* [`horizontal`](virtualizedlist.md#horizontal)
-* [`data`](virtualizedlist.md#data)
-* [`extraData`](virtualizedlist.md#extradata)
-* [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
-* [`onEndReached`](virtualizedlist.md#onendreached)
+- [`windowSize`](virtualizedlist.md#windowsize)
+- [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
+- [`getItem`](virtualizedlist.md#getitem)
+- [`getItemCount`](virtualizedlist.md#getitemcount)
+- [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
+- [`keyExtractor`](virtualizedlist.md#keyextractor)
+- [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
+- [`renderItem`](virtualizedlist.md#renderitem)
+- [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
+- [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
+- [`getItemLayout`](virtualizedlist.md#getitemlayout)
+- [`debug`](virtualizedlist.md#debug)
+- [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
+- [`onLayout`](virtualizedlist.md#onlayout)
+- [`onRefresh`](virtualizedlist.md#onrefresh)
+- [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
+- [`refreshing`](virtualizedlist.md#refreshing)
+- [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
+- [`horizontal`](virtualizedlist.md#horizontal)
+- [`data`](virtualizedlist.md#data)
+- [`extraData`](virtualizedlist.md#extradata)
+- [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
+- [`onEndReached`](virtualizedlist.md#onendreached)
 
 ### Methods
 
-* [`scrollToEnd`](virtualizedlist.md#scrolltoend)
-* [`scrollToIndex`](virtualizedlist.md#scrolltoindex)
-* [`scrollToItem`](virtualizedlist.md#scrolltoitem)
-* [`scrollToOffset`](virtualizedlist.md#scrolltooffset)
-* [`recordInteraction`](virtualizedlist.md#recordinteraction)
+- [`scrollToEnd`](virtualizedlist.md#scrolltoend)
+- [`scrollToIndex`](virtualizedlist.md#scrolltoindex)
+- [`scrollToItem`](virtualizedlist.md#scrolltoitem)
+- [`scrollToOffset`](virtualizedlist.md#scrolltooffset)
+- [`recordInteraction`](virtualizedlist.md#recordinteraction)
 
 ### Type Definitions
 
-* [`Props`](virtualizedlist.md#props)
+- [`Props`](virtualizedlist.md#props)
 
 ---
 

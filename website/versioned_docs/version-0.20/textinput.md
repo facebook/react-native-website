@@ -20,46 +20,46 @@ Note that some props are only available with `multiline={true/false}`:
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`placeholder`](textinput.md#placeholder)
-- [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoFocus`](textinput.md#autofocus)
-- [`defaultValue`](textinput.md#defaultvalue)
-- [`editable`](textinput.md#editable)
-- [`keyboardType`](textinput.md#keyboardtype)
-- [`maxLength`](textinput.md#maxlength)
-- [`multiline`](textinput.md#multiline)
-- [`onBlur`](textinput.md#onblur)
-- [`onChange`](textinput.md#onchange)
-- [`onChangeText`](textinput.md#onchangetext)
-- [`onEndEditing`](textinput.md#onendediting)
-- [`onFocus`](textinput.md#onfocus)
-- [`onLayout`](textinput.md#onlayout)
-- [`onSelectionChange`](textinput.md#onselectionchange)
-- [`onSubmitEditing`](textinput.md#onsubmitediting)
-- [`autoCorrect`](textinput.md#autocorrect)
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-- [`secureTextEntry`](textinput.md#securetextentry)
-- [`selectionColor`](textinput.md#selectioncolor)
-- [`style`](textinput.md#style)
-- [`value`](textinput.md#value)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`blurOnSubmit`](textinput.md#bluronsubmit)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`returnKeyType`](textinput.md#returnkeytype)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-- [`selectionState`](textinput.md#selectionstate)
+* [`placeholder`](textinput.md#placeholder)
+* [`autoCapitalize`](textinput.md#autocapitalize)
+* [`autoFocus`](textinput.md#autofocus)
+* [`defaultValue`](textinput.md#defaultvalue)
+* [`editable`](textinput.md#editable)
+* [`keyboardType`](textinput.md#keyboardtype)
+* [`maxLength`](textinput.md#maxlength)
+* [`multiline`](textinput.md#multiline)
+* [`onBlur`](textinput.md#onblur)
+* [`onChange`](textinput.md#onchange)
+* [`onChangeText`](textinput.md#onchangetext)
+* [`onEndEditing`](textinput.md#onendediting)
+* [`onFocus`](textinput.md#onfocus)
+* [`onLayout`](textinput.md#onlayout)
+* [`onSelectionChange`](textinput.md#onselectionchange)
+* [`onSubmitEditing`](textinput.md#onsubmitediting)
+* [`autoCorrect`](textinput.md#autocorrect)
+* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+* [`secureTextEntry`](textinput.md#securetextentry)
+* [`selectionColor`](textinput.md#selectioncolor)
+* [`style`](textinput.md#style)
+* [`value`](textinput.md#value)
+* [`numberOfLines`](textinput.md#numberoflines)
+* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+* [`blurOnSubmit`](textinput.md#bluronsubmit)
+* [`clearButtonMode`](textinput.md#clearbuttonmode)
+* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
+* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+* [`keyboardAppearance`](textinput.md#keyboardappearance)
+* [`onKeyPress`](textinput.md#onkeypress)
+* [`returnKeyType`](textinput.md#returnkeytype)
+* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`selectionState`](textinput.md#selectionstate)
 
 ### Methods
 
-* [`isFocused`](textinput.md#isfocused)
-* [`clear`](textinput.md#clear)
+- [`isFocused`](textinput.md#isfocused)
+- [`clear`](textinput.md#clear)
 
 ---
 
@@ -81,10 +81,10 @@ The string that will be rendered before text input has been entered
 
 Can tell TextInput to automatically capitalize certain characters.
 
-* characters: all characters,
-* words: first letter of each word
-* sentences: first letter of each sentence (default)
-* none: don't auto capitalize anything
+- characters: all characters,
+- words: first letter of each word
+- sentences: first letter of each sentence (default)
+- none: don't auto capitalize anything
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -128,9 +128,9 @@ Determines which keyboard to open, e.g.`numeric`.
 
 The following values work across platforms:
 
-* default
-* numeric
-* email-address
+- default
+- numeric
+- email-address
 
 | Type                                                                                                                                                                                | Required |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |

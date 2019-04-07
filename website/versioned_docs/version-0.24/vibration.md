@@ -14,8 +14,8 @@ Vibration patterns are currently unsupported.
 
 ### Methods
 
-* [`vibrate`](vibration.md#vibrate)
-* [`cancel`](vibration.md#cancel)
+- [`vibrate`](vibration.md#vibrate)
+- [`cancel`](vibration.md#cancel)
 
 ---
 

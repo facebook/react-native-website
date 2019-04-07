@@ -32,44 +32,44 @@ Note that some props are only available with `multiline={true/false}`:
 
 ### Props
 
-* [`secureTextEntry`](textinput.md#securetextentry)
-* [`autoCapitalize`](textinput.md#autocapitalize)
-* [`autoFocus`](textinput.md#autofocus)
-* [`defaultValue`](textinput.md#defaultvalue)
-* [`editable`](textinput.md#editable)
-* [`keyboardType`](textinput.md#keyboardtype)
-* [`multiline`](textinput.md#multiline)
-* [`onBlur`](textinput.md#onblur)
-* [`onChange`](textinput.md#onchange)
-* [`onChangeText`](textinput.md#onchangetext)
-* [`onEndEditing`](textinput.md#onendediting)
-* [`onFocus`](textinput.md#onfocus)
-* [`onLayout`](textinput.md#onlayout)
-* [`onSubmitEditing`](textinput.md#onsubmitediting)
-* [`placeholder`](textinput.md#placeholder)
-* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-* [`autoCorrect`](textinput.md#autocorrect)
-* [`style`](textinput.md#style)
-* [`testID`](textinput.md#testid)
-* [`value`](textinput.md#value)
-* [`numberOfLines`](textinput.md#numberoflines)
-* [`textAlign`](textinput.md#textalign)
-* [`textAlignVertical`](textinput.md#textalignvertical)
-* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-* [`blurOnSubmit`](textinput.md#bluronsubmit)
-* [`clearButtonMode`](textinput.md#clearbuttonmode)
-* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-* [`maxLength`](textinput.md#maxlength)
-* [`onKeyPress`](textinput.md#onkeypress)
-* [`returnKeyType`](textinput.md#returnkeytype)
-* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-* [`selectionState`](textinput.md#selectionstate)
+- [`secureTextEntry`](textinput.md#securetextentry)
+- [`autoCapitalize`](textinput.md#autocapitalize)
+- [`autoFocus`](textinput.md#autofocus)
+- [`defaultValue`](textinput.md#defaultvalue)
+- [`editable`](textinput.md#editable)
+- [`keyboardType`](textinput.md#keyboardtype)
+- [`multiline`](textinput.md#multiline)
+- [`onBlur`](textinput.md#onblur)
+- [`onChange`](textinput.md#onchange)
+- [`onChangeText`](textinput.md#onchangetext)
+- [`onEndEditing`](textinput.md#onendediting)
+- [`onFocus`](textinput.md#onfocus)
+- [`onLayout`](textinput.md#onlayout)
+- [`onSubmitEditing`](textinput.md#onsubmitediting)
+- [`placeholder`](textinput.md#placeholder)
+- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+- [`autoCorrect`](textinput.md#autocorrect)
+- [`style`](textinput.md#style)
+- [`testID`](textinput.md#testid)
+- [`value`](textinput.md#value)
+- [`numberOfLines`](textinput.md#numberoflines)
+- [`textAlign`](textinput.md#textalign)
+- [`textAlignVertical`](textinput.md#textalignvertical)
+- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+- [`blurOnSubmit`](textinput.md#bluronsubmit)
+- [`clearButtonMode`](textinput.md#clearbuttonmode)
+- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
+- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+- [`maxLength`](textinput.md#maxlength)
+- [`onKeyPress`](textinput.md#onkeypress)
+- [`returnKeyType`](textinput.md#returnkeytype)
+- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+- [`selectionState`](textinput.md#selectionstate)
 
 ### Methods
 
-* [`isFocused`](textinput.md#isfocused)
-* [`clear`](textinput.md#clear)
+- [`isFocused`](textinput.md#isfocused)
+- [`clear`](textinput.md#clear)
 
 ---
 
@@ -91,10 +91,10 @@ If true, the text input obscures the text entered so that sensitive text like pa
 
 Can tell TextInput to automatically capitalize certain characters.
 
-* characters: all characters,
-* words: first letter of each word
-* sentences: first letter of each sentence (default)
-* none: don't auto capitalize anything
+- characters: all characters,
+- words: first letter of each word
+- sentences: first letter of each sentence (default)
+- none: don't auto capitalize anything
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -138,9 +138,9 @@ Determines which keyboard to open, e.g.`numeric`.
 
 The following values work across platforms:
 
-* default
-* numeric
-* email-address
+- default
+- numeric
+- email-address
 
 | Type                                                                                                                                                                                | Required |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |

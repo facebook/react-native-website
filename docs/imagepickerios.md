@@ -5,10 +5,10 @@ title: ImagePickerIOS
 
 ### Methods
 
-* [`canRecordVideos`](imagepickerios.md#canrecordvideos)
-* [`canUseCamera`](imagepickerios.md#canusecamera)
-* [`openCameraDialog`](imagepickerios.md#opencameradialog)
-* [`openSelectDialog`](imagepickerios.md#openselectdialog)
+- [`canRecordVideos`](imagepickerios.md#canrecordvideos)
+- [`canUseCamera`](imagepickerios.md#canusecamera)
+- [`openCameraDialog`](imagepickerios.md#opencameradialog)
+- [`openSelectDialog`](imagepickerios.md#openselectdialog)
 
 ---
 
@@ -48,11 +48,11 @@ static openCameraDialog(config, successCallback, cancelCallback)
 
 `config` is an object containing:
 
-* `videoMode` : An optional boolean value that defaults to false.
+- `videoMode` : An optional boolean value that defaults to false.
 
 `successCallback` is an optional callback function that's invoked when the select dialog is opened successfully. It will include the following data:
 
-* `[string, number, number]`
+- `[string, number, number]`
 
 `cancelCallback` is an optional callback function that's invoked when the camera dialog is canceled.
 
@@ -74,11 +74,11 @@ static openSelectDialog(config, successCallback, cancelCallback)
 
 `config` is an object containing:
 
-* `showImages` : An optional boolean value that defaults to false.
-* `showVideos`: An optional boolean value that defaults to false.
+- `showImages` : An optional boolean value that defaults to false.
+- `showVideos`: An optional boolean value that defaults to false.
 
 `successCallback` is an optional callback function that's invoked when the select dialog is opened successfully. It will include the following data:
 
-* `[string, number, number]`
+- `[string, number, number]`
 
 `cancelCallback` is an optional callback function that's invoked when the select dialog is canceled.

@@ -8,42 +8,42 @@ Renders a native WebView.
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`source`](webview.md#source)
-- [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`injectedJavaScript`](webview.md#injectedjavascript)
-- [`onError`](webview.md#onerror)
-- [`onLoad`](webview.md#onload)
-- [`onLoadEnd`](webview.md#onloadend)
-- [`onLoadStart`](webview.md#onloadstart)
-- [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-- [`renderError`](webview.md#rendererror)
-- [`renderLoading`](webview.md#renderloading)
-- [`contentInset`](webview.md#contentinset)
-- [`startInLoadingState`](webview.md#startinloadingstate)
-- [`style`](webview.md#style)
-- [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-- [`domStorageEnabled`](webview.md#domstorageenabled)
-- [`javaScriptEnabled`](webview.md#javascriptenabled)
-- [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-- [`bounces`](webview.md#bounces)
-- [`decelerationRate`](webview.md#decelerationrate)
-- [`scrollEnabled`](webview.md#scrollenabled)
-- [`url`](webview.md#url)
-- [`html`](webview.md#html)
+* [`source`](webview.md#source)
+* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
+* [`scalesPageToFit`](webview.md#scalespagetofit)
+* [`injectedJavaScript`](webview.md#injectedjavascript)
+* [`onError`](webview.md#onerror)
+* [`onLoad`](webview.md#onload)
+* [`onLoadEnd`](webview.md#onloadend)
+* [`onLoadStart`](webview.md#onloadstart)
+* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+* [`renderError`](webview.md#rendererror)
+* [`renderLoading`](webview.md#renderloading)
+* [`contentInset`](webview.md#contentinset)
+* [`startInLoadingState`](webview.md#startinloadingstate)
+* [`style`](webview.md#style)
+* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
+* [`domStorageEnabled`](webview.md#domstorageenabled)
+* [`javaScriptEnabled`](webview.md#javascriptenabled)
+* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+* [`bounces`](webview.md#bounces)
+* [`decelerationRate`](webview.md#decelerationrate)
+* [`scrollEnabled`](webview.md#scrollenabled)
+* [`url`](webview.md#url)
+* [`html`](webview.md#html)
 
 ### Methods
 
-* [`goForward`](webview.md#goforward)
-* [`goBack`](webview.md#goback)
-* [`reload`](webview.md#reload)
-* [`updateNavigationState`](webview.md#updatenavigationstate)
-* [`getWebViewHandle`](webview.md#getwebviewhandle)
-* [`onLoadingStart`](webview.md#onloadingstart)
-* [`onLoadingError`](webview.md#onloadingerror)
-* [`onLoadingFinish`](webview.md#onloadingfinish)
+- [`goForward`](webview.md#goforward)
+- [`goBack`](webview.md#goback)
+- [`reload`](webview.md#reload)
+- [`updateNavigationState`](webview.md#updatenavigationstate)
+- [`getWebViewHandle`](webview.md#getwebviewhandle)
+- [`onLoadingStart`](webview.md#onloadingstart)
+- [`onLoadingError`](webview.md#onloadingerror)
+- [`onLoadingFinish`](webview.md#onloadingfinish)
 
 ---
 
@@ -233,8 +233,8 @@ Determines whether HTML5 videos play inline or use the native full-screen contro
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively.
 
-* Normal: 0.998
-* Fast: 0.9 (the default for iOS WebView)
+- Normal: 0.998
+- Fast: 0.9 (the default for iOS WebView)
 
 | Type                                  | Required | Platform |
 | ------------------------------------- | -------- | -------- |

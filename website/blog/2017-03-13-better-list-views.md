@@ -53,20 +53,20 @@ The implementation behind the scenes with a more flexible API. Especially handy 
 
 Lists are used in many contexts, so we packed the new components full of features to handle the majority of use cases out of the box:
 
-* Scroll loading (`onEndReached`).
-* Pull to refresh (`onRefresh` / `refreshing`).
-* [Configurable](https://github.com/facebook/react-native/blob/master/Libraries/CustomComponents/Lists/ViewabilityHelper.js) viewability (VPV) callbacks (`onViewableItemsChanged` / `viewabilityConfig`).
-* Horizontal mode (`horizontal`).
-* Intelligent item and section separators.
-* Multi-column support (`numColumns`)
-* `scrollToEnd`, `scrollToIndex`, and `scrollToItem`
-* Better Flow typing.
+- Scroll loading (`onEndReached`).
+- Pull to refresh (`onRefresh` / `refreshing`).
+- [Configurable](https://github.com/facebook/react-native/blob/master/Libraries/CustomComponents/Lists/ViewabilityHelper.js) viewability (VPV) callbacks (`onViewableItemsChanged` / `viewabilityConfig`).
+- Horizontal mode (`horizontal`).
+- Intelligent item and section separators.
+- Multi-column support (`numColumns`)
+- `scrollToEnd`, `scrollToIndex`, and `scrollToItem`
+- Better Flow typing.
 
 ### Some Caveats
 
-* The internal state of item subtrees is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- The internal state of item subtrees is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
 
-* These components are based on `PureComponent` which means that they will not re-render if `props` remains shallow-equal. Make sure that everything your `renderItem` function depends on directly is passed as a prop that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state. For example:
+- These components are based on `PureComponent` which means that they will not re-render if `props` remains shallow-equal. Make sure that everything your `renderItem` function depends on directly is passed as a prop that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state. For example:
 
   ```javascript
   <FlatList
@@ -95,9 +95,9 @@ Lists are used in many contexts, so we packed the new components full of feature
   />
   ```
 
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 
-* By default, these new lists look for a `key` prop on each item and use that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- By default, these new lists look for a `key` prop on each item and use that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 ## Performance
 
@@ -119,8 +119,8 @@ There are also a bunch of parameters you can tweak if you have an unusual use ca
 
 ## Future Work
 
-* Migration of existing surfaces (ultimately deprecation of `ListView`).
-* More features as we see/hear the need (let us know!).
-* Sticky section header support.
-* More performance optimizations.
-* Support functional item components with state.
+- Migration of existing surfaces (ultimately deprecation of `ListView`).
+- More features as we see/hear the need (let us know!).
+- Sticky section header support.
+- More performance optimizations.
+- Support functional item components with state.

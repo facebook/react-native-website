@@ -6,16 +6,16 @@ original_id: sectionlist
 
 A performant interface for rendering sectioned lists, supporting the most handy features:
 
-* Fully cross-platform.
-* Configurable viewability callbacks.
-* List header support.
-* List footer support.
-* Item separator support.
-* Section header support.
-* Section separator support.
-* Heterogeneous data and item rendering support.
-* Pull to Refresh.
-* Scroll loading.
+- Fully cross-platform.
+- Configurable viewability callbacks.
+- List header support.
+- List footer support.
+- Item separator support.
+- Section header support.
+- Section separator support.
+- Heterogeneous data and item rendering support.
+- Pull to Refresh.
+- Scroll loading.
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
@@ -43,45 +43,45 @@ Simple Examples:
 
 This is a convenience wrapper around [`VirtualizedList`](virtualizedlist.md), and thus inherits its props (as well as those of `ScrollView`) that aren't explicitly listed here, along with the following caveats:
 
-* Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-* This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-* By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 ### Props
 
-* [`ScrollView` props...](scrollview.md#props)
-* [`VirtualizedList` props...](virtualizedlist.md#props)
-* [`sections`](virtualizedlist.md#sections)
-* [`renderItem`](virtualizedlist.md#renderitem)
-* [`ItemSeparatorComponent`](virtualizedlist.md#itemseparatorcomponent)
-* [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
-* [`ListFooterComponent`](virtualizedlist.md#listfootercomponent) SectionSeparatorComponent
-* [`extradata`](virtualizedlist.md#extradata)
-* [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
-* [`inverted`](virtualizedlist.md#inverted)
-* [`keyExtractor`](virtualizedlist.md#keyextractor)
-* [`onEndReached`](virtualizedlist.md#onendreached)
-* [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
-* [`onRefresh`](virtualizedlist.md#onrefresh)
-* [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
-* [`refreshing`](virtualizedlist.md#refreshing)
-* [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
-* [`renderSectionHeader`](virtualizedlist.md#removeclippedsubviews)
-* [`renderSectionFooter`](virtualizedlist.md#rendersectionfooter)
-* [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
-* [`legacyImplementation`](virtualizedlist.md#legacyimplementation)
+- [`ScrollView` props...](scrollview.md#props)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
+- [`sections`](virtualizedlist.md#sections)
+- [`renderItem`](virtualizedlist.md#renderitem)
+- [`ItemSeparatorComponent`](virtualizedlist.md#itemseparatorcomponent)
+- [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
+- [`ListFooterComponent`](virtualizedlist.md#listfootercomponent) SectionSeparatorComponent
+- [`extradata`](virtualizedlist.md#extradata)
+- [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
+- [`inverted`](virtualizedlist.md#inverted)
+- [`keyExtractor`](virtualizedlist.md#keyextractor)
+- [`onEndReached`](virtualizedlist.md#onendreached)
+- [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
+- [`onRefresh`](virtualizedlist.md#onrefresh)
+- [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
+- [`refreshing`](virtualizedlist.md#refreshing)
+- [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
+- [`renderSectionHeader`](virtualizedlist.md#removeclippedsubviews)
+- [`renderSectionFooter`](virtualizedlist.md#rendersectionfooter)
+- [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
+- [`legacyImplementation`](virtualizedlist.md#legacyimplementation)
 
 ### Methods
 
-* [`scrollToLocation`](sectionlist.md#scrolltolocation)
-* [`recordInteraction`](sectionlist.md#recordinteraction)
-* [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
+- [`scrollToLocation`](sectionlist.md#scrolltolocation)
+- [`recordInteraction`](sectionlist.md#recordinteraction)
+- [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
 
 ### Type Definitions
 
-* [`SectionBase`](sectionlist.md#sectionbase)
-* [`Props`](sectionlist.md#props)
+- [`SectionBase`](sectionlist.md#sectionbase)
+- [`Props`](sectionlist.md#props)
 
 ---
 

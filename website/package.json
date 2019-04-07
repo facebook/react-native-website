@@ -20,12 +20,9 @@
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
     "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
-    "format:markdown":
-      "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
-    "nit:source":
-      "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown":
-      "prettier  --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "format:markdown": "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:source": "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
+    "nit:markdown": "prettier  --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "sync-guides": "node sync-guides.js",
@@ -46,9 +43,9 @@
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
     "glob-promise": "^3.3.0",
-    "husky": "^1.1.3",
+    "husky": "^1.3.1",
     "path": "^0.12.7",
-    "prettier": "1.9.1",
-    "pretty-quick": "^1.8.0"
+    "prettier": "1.16.4",
+    "pretty-quick": "^1.10.0"
   }
 }

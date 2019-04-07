@@ -82,11 +82,11 @@ Linking.canOpenURL(url).then(supported => {
 
 ### Methods
 
-* [`addEventListener`](linking.md#addeventlistener)
-* [`removeEventListener`](linking.md#removeeventlistener)
-* [`openURL`](linking.md#openurl)
-* [`canOpenURL`](linking.md#canopenurl)
-* [`getInitialURL`](linking.md#getinitialurl)
+- [`addEventListener`](linking.md#addeventlistener)
+- [`removeEventListener`](linking.md#removeeventlistener)
+- [`openURL`](linking.md#openurl)
+- [`canOpenURL`](linking.md#canopenurl)
+- [`getInitialURL`](linking.md#getinitialurl)
 
 ---
 

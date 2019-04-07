@@ -6,10 +6,10 @@ original_id: snapshotviewios
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`onSnapshotReady`](snapshotviewios.md#onsnapshotready)
-- [`testIdentifier`](snapshotviewios.md#testidentifier)
+* [`onSnapshotReady`](snapshotviewios.md#onsnapshotready)
+* [`testIdentifier`](snapshotviewios.md#testidentifier)
 
 ---
 

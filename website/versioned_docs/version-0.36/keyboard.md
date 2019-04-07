@@ -45,10 +45,10 @@ class Example extends Component {
 
 ### Methods
 
-* [`addListener`](keyboard.md#addlistener)
-* [`removeListener`](keyboard.md#removelistener)
-* [`removeAllListeners`](keyboard.md#removealllisteners)
-* [`dismiss`](keyboard.md#dismiss)
+- [`addListener`](keyboard.md#addlistener)
+- [`removeListener`](keyboard.md#removelistener)
+- [`removeAllListeners`](keyboard.md#removealllisteners)
+- [`dismiss`](keyboard.md#dismiss)
 
 ---
 
@@ -68,12 +68,12 @@ This function then returns the reference to the listener.
 
 @param {string} eventName The `nativeEvent` is the string that identifies the event you're listening for. This can be any of the following:
 
-* `keyboardWillShow`
-* `keyboardDidShow`
-* `keyboardWillHide`
-* `keyboardDidHide`
-* `keyboardWillChangeFrame`
-* `keyboardDidChangeFrame`
+- `keyboardWillShow`
+- `keyboardDidShow`
+- `keyboardWillHide`
+- `keyboardDidHide`
+- `keyboardWillChangeFrame`
+- `keyboardDidChangeFrame`
 
 @param {function} callback function to be called when the event fires.
 

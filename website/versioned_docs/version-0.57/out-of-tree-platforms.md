@@ -6,10 +6,10 @@ original_id: out-of-tree-platforms
 
 React Native is not just for Android and iOS - there are community-supported projects that bring it to other platforms, such as:
 
-* [React Native Windows](https://github.com/Microsoft/react-native-windows) - React Native support for Microsoft's Universal Windows Platform (UWP) and the Windows Presentation Foundation (WPF)
-* [React Native DOM](https://github.com/vincentriemer/react-native-dom) - An experimental, comprehensive port of React Native to the web. (Not to be confused with [React Native Web](https://github.com/necolas/react-native-web), which has different goals)
-* [React Native Desktop](https://github.com/status-im/react-native-desktop) - A project aiming to bring React Native to the Desktop with Qt's QML. A fork of [React Native Ubuntu](https://github.com/CanonicalLtd/react-native/), which is no longer maintained.
-* [React Native macOS](https://github.com/ptmt/react-native-macos) - An experimental React Native fork targeting macOS and Cocoa
+- [React Native Windows](https://github.com/Microsoft/react-native-windows) - React Native support for Microsoft's Universal Windows Platform (UWP) and the Windows Presentation Foundation (WPF)
+- [React Native DOM](https://github.com/vincentriemer/react-native-dom) - An experimental, comprehensive port of React Native to the web. (Not to be confused with [React Native Web](https://github.com/necolas/react-native-web), which has different goals)
+- [React Native Desktop](https://github.com/status-im/react-native-desktop) - A project aiming to bring React Native to the Desktop with Qt's QML. A fork of [React Native Ubuntu](https://github.com/CanonicalLtd/react-native/), which is no longer maintained.
+- [React Native macOS](https://github.com/ptmt/react-native-macos) - An experimental React Native fork targeting macOS and Cocoa
 
 ## Creating your own React Native platform
 

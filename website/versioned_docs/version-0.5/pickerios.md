@@ -6,10 +6,10 @@ original_id: pickerios
 
 ### Props
 
-* [View props...](view.md#props)
-* [`itemStyle`](pickerios.md#itemstyle)
-* [`onValueChange`](pickerios.md#onvaluechange)
-* [`selectedValue`](pickerios.md#selectedvalue)
+- [View props...](view.md#props)
+- [`itemStyle`](pickerios.md#itemstyle)
+- [`onValueChange`](pickerios.md#onvaluechange)
+- [`selectedValue`](pickerios.md#selectedvalue)
 
 ---
 

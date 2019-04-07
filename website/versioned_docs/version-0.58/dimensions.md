@@ -6,10 +6,10 @@ original_id: dimensions
 
 ### Methods
 
-* [`set`](dimensions.md#set)
-* [`get`](dimensions.md#get)
-* [`addEventListener`](dimensions.md#addeventlistener)
-* [`removeEventListener`](dimensions.md#removeeventlistener)
+- [`set`](dimensions.md#set)
+- [`get`](dimensions.md#get)
+- [`addEventListener`](dimensions.md#addeventlistener)
+- [`removeEventListener`](dimensions.md#removeeventlistener)
 
 ---
 
@@ -55,7 +55,7 @@ static addEventListener(type, handler)
 
 Add an event handler. Supported events:
 
-* `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is an object with `window` and `screen` properties whose values are the same as the return values of `Dimensions.get('window')` and `Dimensions.get('screen')`, respectively.
+- `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is an object with `window` and `screen` properties whose values are the same as the return values of `Dimensions.get('window')` and `Dimensions.get('screen')`, respectively.
 
 ---
 
