@@ -92,9 +92,7 @@ Sometimes, if we do an action in the same frame that we are adjusting the opacit
 
 ```javascript
 handleOnPress() {
-  // Always use TimerMixin with requestAnimationFrame, setTimeout and
-  // setInterval
-  this.requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
     this.doExpensiveAction();
   });
 }
