@@ -69,16 +69,18 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 - [`pointerEvents`](view.md#pointerevents)
 - [`removeClippedSubviews`](view.md#removeclippedsubviews)
 - [`style`](view.md#style)
-- [`testID`](view.md#testid)
-- [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
+- [`testID`](view.md#testid) <<<<<<< Updated upstream
+- # [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
+  > > > > > > > Stashed changes
 - [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
 - [`collapsable`](view.md#collapsable)
 - [`importantForAccessibility`](view.md#importantforaccessibility)
 - [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
 - [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 - [`accessibilityRole`](view.md#accessibilityrole)
-- [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityTraits`](view.md#accessibilitytraits)
+- [`accessibilityStates`](view.md#accessibilitystates) <<<<<<< Updated upstream
+- # [`accessibilityTraits`](view.md#accessibilitytraits)
+  > > > > > > > Stashed changes
 - [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
 - [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 - [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
@@ -376,25 +378,6 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `accessibilityComponentType`
-
-_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-Indicates to accessibility services to treat UI component like a native one. Works for Android only.
-
-Possible values are one of:
-
-- `'none'`
-- `'button'`
-- `'radiobutton_checked'`
-- `'radiobutton_unchecked'`
-
-| Type                        | Required | Platform |
-| --------------------------- | -------- | -------- |
-| AccessibilityComponentTypes | No       | Android  |
-
----
-
 ### `accessibilityLiveRegion`
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. Possible values:
@@ -466,8 +449,6 @@ On Android, this is useful for animations and interactions that only modify opac
 
 ### `accessibilityRole`
 
-_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
-
 Tells the screen reader to treat the currently focused on element as having a specific role.
 
 Possible values for `AccessibilityRole` is one of:
@@ -496,8 +477,6 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 ### `accessibilityStates`
 
-_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
-
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
 You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
@@ -510,42 +489,6 @@ Possible values for `AccessibilityStates` are:
 | Type                        | Required |
 | --------------------------- | -------- |
 | array of AccessibilitStates | No       |
-
----
-
-### `accessibilityTraits`
-
-_> Note: `accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-Provides additional traits to screen reader. By default no traits are provided unless specified otherwise in element.
-
-You can provide one trait or an array of many traits.
-
-Possible values for `AccessibilityTraits` are:
-
-- `'none'` - The element has no traits.
-- `'button'` - The element should be treated as a button.
-- `'link'` - The element should be treated as a link.
-- `'header'` - The element is a header that divides content into sections.
-- `'search'` - The element should be treated as a search field.
-- `'image'` - The element should be treated as an image.
-- `'selected'` - The element is selected.
-- `'plays'` - The element plays sound.
-- `'key'` - The element should be treated like a keyboard key.
-- `'text'` - The element should be treated as text.
-- `'summary'` - The element provides app summary information.
-- `'disabled'` - The element is disabled.
-- `'frequentUpdates'` - The element frequently changes its value.
-- `'startsMedia'` - The element starts a media session.
-- `'adjustable'` - The element allows adjustment over a range of values.
-- `'allowsDirectInteraction'` - The element allows direct touch interaction for VoiceOver users.
-- `'pageTurn'` - Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
-
-See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
-
-| Type                                               | Required | Platform |
-| -------------------------------------------------- | -------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | No       | iOS      |
 
 ---
 
