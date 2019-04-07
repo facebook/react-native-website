@@ -1,6 +1,7 @@
 ---
-id: viewpagerandroid
+id: version-0.59-viewpagerandroid
 title: ViewPagerAndroid
+original_id: viewpagerandroid
 ---
 
 > **Deprecated.** Use [react-native-community/react-native-viewpager](https://github.com/react-native-community/react-native-viewpager) instead.

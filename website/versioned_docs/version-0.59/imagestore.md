@@ -1,6 +1,7 @@
 ---
-id: imagestore
+id: version-0.59-imagestore
 title: ImageStore
+original_id: imagestore
 ---
 
 > **Deprecated.** Use [expo-file-system](https://github.com/expo/expo/tree/master/packages/expo-file-system) or [react-native-fs](https://github.com/itinance/react-native-fs) instead.

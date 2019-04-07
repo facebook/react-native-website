@@ -1,6 +1,7 @@
 ---
-id: netinfo
+id: version-0.59-netinfo
 title: NetInfo
+original_id: netinfo
 ---
 
 > **Deprecated.** Use [react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo) instead.
