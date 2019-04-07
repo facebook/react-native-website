@@ -11,16 +11,16 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 ```javascript
 function MyComponent(props) {
-    return (
-        <View {...props} style={{ flex: 1, backgroundColour: "#fff" }}>
-            <Text>My Component</Text>
-        </View>
-    );
+  return (
+    <View {...props} style={{flex: 1, backgroundColour: '#fff'}}>
+      <Text>My Component</Text>
+    </View>
+  );
 }
 
-<TouchableWithoutFeedback onPress={() => alert("Pressed!")}>
-    <MyComponent />
-</TouchableWithoutFeedback>
+<TouchableWithoutFeedback onPress={() => alert('Pressed!')}>
+  <MyComponent />
+</TouchableWithoutFeedback>;
 ```
 
 ### Props
