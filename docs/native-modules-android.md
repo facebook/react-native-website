@@ -340,9 +340,14 @@ You can also directly use the `DeviceEventEmitter` module to listen for events.
 ```javascript
 ...
 componentDidMount() {
-  DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
-    // handle event.
+  this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
+    // handle event
   });
+}
+
+componentWillUnmount() {
+  // When you want to stop listening to new events, simply call .remove() on the subscription
+  this.subscription.remove();
 }
 ...
 ```
