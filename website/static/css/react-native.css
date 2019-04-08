@@ -124,10 +124,6 @@ code {
   }
 }
 
-.hide {
-  display: none;
-}
-
 .wrapper {
   max-width: 1200px;
 }
@@ -171,7 +167,6 @@ li {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
   transition: background 0.3s, color 0.3s, transform 0.3s;
-  cursor: pointer;
 }
 
 .big-button:hover {
