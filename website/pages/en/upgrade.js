@@ -25,12 +25,6 @@ const Link = ({href, children, id, target}) => (
   </a>
 );
 
-const Button = ({onClick, children, id}) => (
-  <a className="big-button" onClick={onClick} id={id}>
-    {children}
-  </a>
-);
-
 const Select = ({selected, options, onChange, id}) => {
   const renderOption = option => (
     <option key={option} value={option}>
@@ -53,30 +47,38 @@ const Upgrade = () => (
         APIs, views, developer tools and other goodies. Upgrading requires a
         small amount of effort, but we try to make it easy for you.
       </p>
-      <h2>Select the options matching your project</h2>
+      <h2>Manual Upgrades</h2>
       <p>
-        Finding the best way to upgrade can be a challenge. So, we built a tool
-        to make it easier that helps you upgrade with ease.
+        Some people have more success manually upgrading React Native. So, we
+        built a tool to help you upgrade manually.
       </p>
-      <h3>React Native Version</h3>
+      <h3>Select the options matching your project</h3>
       <p>
         Select which version you are coming from and which version you want to
         upgrade to. We auto-selected version {fromVersion} for your convenience.
       </p>
       <Select options={versions} selected={fromVersion} id="fromSelect" />
-      to
+      {' to '}
       <Select options={versions} selected={toVersion} id="toSelect" />
-      <div className="buttons-unit">
-        <Button id="upgradeButton">Show me how to upgrade!</Button>
-      </div>
-      <div id="results" className="hide">
-        <Link id="diffLink" target="_blank">
-          Diff here
-        </Link>
-        <br />
-        <Link id="patchLink" target="_blank">
-          Patch here
-        </Link>
+      <div id="results">
+        <h3>
+          Manual Upgrade from <span id="fromVersion" /> to{' '}
+          <span id="toVersion" />
+        </h3>
+        <p>
+          Click on one of these links to see what you need to change to upgrade
+          manually from the versions you selected above.
+        </p>
+        <p>
+          <Link id="diffLink" target="_blank">
+            View Diff →
+          </Link>
+        </p>
+        <p>
+          <Link id="patchLink" target="_blank">
+            View Patch →
+          </Link>
+        </p>
       </div>
     </Container>
     <script
@@ -86,9 +88,6 @@ const Upgrade = () => (
           // see: https://github.com/facebook/Docusaurus/issues/582#issuecomment-382488782
 
           function showInstructions() {
-            var results = document.getElementById('results');
-            results.style.display = "block";
-
             var fromSelect = document.getElementById('fromSelect');
             var fromVersion = fromSelect.options[fromSelect.selectedIndex].value;
 
@@ -103,9 +102,20 @@ const Upgrade = () => (
 
             var patchLinkElement = document.getElementById('patchLink');
             patchLinkElement.href = patchLink;
+
+            var fromVersionElement = document.getElementById('fromVersion');
+            fromVersionElement.textContent = fromVersion;
+            var toVersionElement = document.getElementById('toVersion');
+            toVersionElement.textContent = toVersion;
           }
-          var button = document.getElementById('upgradeButton');
-          button.onclick = showInstructions;
+
+          var fromSelect = document.getElementById('fromSelect');
+          fromSelect.onchange = showInstructions;
+
+          var toSelect = document.getElementById('toSelect');
+          toSelect.onchange = showInstructions;
+
+          showInstructions();
         `,
       }}
     />
