@@ -94,8 +94,8 @@ const Upgrade = () => (
             var toSelect = document.getElementById('toSelect');
             var toVersion = toSelect.options[toSelect.selectedIndex].value;
 
-            var diffLink = "https://github.com/pvinis/rn-diff-purge/compare/version/${fromVersion}..version/${toVersion}";
-            var patchLink = "https://raw.githubusercontent.com/pvinis/rn-diff-purge/master/diffs/${fromVersion}..${toVersion}.diff";
+            var diffLink = "https://github.com/react-native-community/rn-diff-purge/compare/release/${fromVersion}..release/${toVersion}";
+            var patchLink = "https://raw.githubusercontent.com/react-native-community/rn-diff-purge/diffs/diffs/${fromVersion}..${toVersion}.diff";
             
             var diffLinkElement = document.getElementById('diffLink');
             diffLinkElement.href = diffLink;
