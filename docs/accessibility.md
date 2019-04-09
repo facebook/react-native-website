@@ -244,8 +244,31 @@ In the above example we've created a custom radio button that now behaves like a
 
 ## Testing VoiceOver Support (iOS)
 
-To enable VoiceOver, go to the Settings app on your iOS device. Tap General, then Accessibility. There you will find many tools that people use to make their devices more usable, such as bolder text, increased contrast, and VoiceOver.
+To enable VoiceOver, go to the Settings app on your iOS device (it's not available for simulator). Tap General, then Accessibility. There you will find many tools that people use to make their devices more usable, such as bolder text, increased contrast, and VoiceOver.
 
 To enable VoiceOver, tap on VoiceOver under "Vision" and toggle the switch that appears at the top.
 
 At the very bottom of the Accessibility settings, there is an "Accessibility Shortcut". You can use this to toggle VoiceOver by triple clicking the Home button.
+
+## Testing TalkBack Support (Android)
+
+To enable TalkBack, go to the Settings app on your Android device or emulator. Tap Accessibility, then TalkBack. Toggle the "Use service" switch to enable or disable it.
+
+P.S. Android emulator doesn’t have TalkBack by default. To install it:
+
+1. Download TalkBack file here: https://google-talkback.en.uptodown.com/android
+2. Drag the downloaded `.apk` file into the emulator
+
+You can use the volume key shortcut to toggle TalkBack. To turn on the volume key shortcut, go to the Settings app, then Accessibility. At the top, turn on Volume key shortcut.
+
+To use the volume key shortcut, press both volume keys for 3 seconds to start an accessibility tool.
+
+Additionally, if you prefer, you can toggle TalkBack via command line with:
+
+```
+# disable
+adb shell settings put secure enabled_accessibility_services com.android.talkback/com.google.android.marvin.talkback.TalkBackService
+
+# enable
+adb shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService
+```
