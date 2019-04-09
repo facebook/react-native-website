@@ -166,7 +166,7 @@ Set the status bar style
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
-Control the visibility of the network activity indicator
+Control the visibility of the network activity indicator. iOS-only.
 
 **Parameters:**
 
@@ -182,7 +182,7 @@ Control the visibility of the network activity indicator
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
 
-Set the background color for the status bar
+Set the background color for the status bar. Android-only
 
 **Parameters:**
 
@@ -199,7 +199,7 @@ Set the background color for the status bar
 static setTranslucent(translucent: boolean)
 ```
 
-Control the translucency of the status bar
+Control the translucency of the status bar. Android-only.
 
 **Parameters:**
 
