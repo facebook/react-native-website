@@ -254,7 +254,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 (data, index) => {length: number, offset: number, index: number}
 ```
 
-`getItemLayout` is an optional optimization that let us skip the measurement of dynamic content if you know the height of items ahead of time. `getItemLayout` is both efficient and easy to use if you have fixed height items, for example:
+`getItemLayout` is an optional optimization that allows skipping the measurement of dynamic content if you know the size (height or width) of items ahead of time. `getItemLayout` is both efficient and easy to use if you have fixed size items, for example:
 
 ```javascript
   getItemLayout={(data, index) => (
