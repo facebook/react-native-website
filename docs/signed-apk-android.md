@@ -29,7 +29,7 @@ Navigate to that directory by using the command `$ cd /your/jdk/path` and use th
 
 _Note: Remember to keep your keystore file private and never commit it to version control._
 
-### Setting up gradle variables
+### Setting up Gradle variables
 
 1. Place the `my-release-key.keystore` file under the `android/app` directory in your project folder.
 2. Edit the file `~/.gradle/gradle.properties` or `android/gradle.properties`, and add the following (replace `*****` with the correct keystore password, alias and key password),
@@ -41,7 +41,7 @@ MYAPP_RELEASE_STORE_PASSWORD=*****
 MYAPP_RELEASE_KEY_PASSWORD=*****
 ```
 
-These are going to be global gradle variables, which we can later use in our gradle config to sign our app.
+These are going to be global Gradle variables, which we can later use in our Gradle config to sign our app.
 
 > **Note about saving the keystore:**
 
@@ -49,7 +49,7 @@ These are going to be global gradle variables, which we can later use in our gra
 
 _Note about security: If you are not keen on storing your passwords in plaintext, and you are running OSX, you can also [store your credentials in the Keychain Access app](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/). Then you can skip the two last rows in `~/.gradle/gradle.properties`._
 
-### Adding signing config to your app's gradle config
+### Adding signing config to your app's Gradle config
 
 Edit the file `android/app/build.gradle` in your project folder, and add the signing config,
 
