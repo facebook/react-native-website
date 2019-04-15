@@ -15,11 +15,11 @@ This command prompts you for passwords for the keystore and key and for the Dist
 
 The keystore contains a single key, valid for 10000 days. The alias is a name that you will use later when signing your app, so remember to take note of the alias.
 
-On Mac, if you're not sure where your jdk bin folder is, then perform the following command to find it:
+On Mac, if you're not sure where your JDK bin folder is, then perform the following command to find it:
 
     $ /usr/libexec/java_home
 
-It will output the directory of the jdk, which will look something like this:
+It will output the directory of the JDK, which will look something like this:
 
     /Library/Java/JavaVirtualMachines/jdkX.X.X_XXX.jdk/Contents/Home
 
@@ -29,7 +29,7 @@ Navigate to that directory by using the command `$ cd /your/jdk/path` and use th
 
 _Note: Remember to keep your keystore file private and never commit it to version control._
 
-### Setting up gradle variables
+### Setting up Gradle variables
 
 1. Place the `my-release-key.keystore` file under the `android/app` directory in your project folder.
 2. Edit the file `~/.gradle/gradle.properties` or `android/gradle.properties`, and add the following (replace `*****` with the correct keystore password, alias and key password),
@@ -41,7 +41,7 @@ MYAPP_RELEASE_STORE_PASSWORD=*****
 MYAPP_RELEASE_KEY_PASSWORD=*****
 ```
 
-These are going to be global gradle variables, which we can later use in our gradle config to sign our app.
+These are going to be global Gradle variables, which we can later use in our Gradle config to sign our app.
 
 > **Note about saving the keystore:**
 
@@ -49,7 +49,7 @@ These are going to be global gradle variables, which we can later use in our gra
 
 _Note about security: If you are not keen on storing your passwords in plaintext, and you are running OSX, you can also [store your credentials in the Keychain Access app](https://pilloxa.gitlab.io/posts/safer-passwords-in-gradle/). Then you can skip the two last rows in `~/.gradle/gradle.properties`._
 
-### Adding signing config to your app's gradle config
+### Adding signing config to your app's Gradle config
 
 Edit the file `android/app/build.gradle` in your project folder, and add the signing config,
 
