@@ -65,7 +65,7 @@ export default class UselessTextInputMultiline extends Component {
   render() {
     return (
      <View style={{
-       backgroundColor: this.state.text,
+       backgroundColor: '#FFFFFF',
        borderBottomColor: '#000000',
        borderBottomWidth: 1 }}
      >
