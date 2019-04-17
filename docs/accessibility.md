@@ -75,8 +75,6 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 #### accessibilityRole (iOS, Android)
 
-> **Note:** Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
 Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. To use, set the `accessibilityRole` property to one of the following strings:
 
 - **none** Used when the element has no role.
@@ -93,40 +91,12 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 
 #### accessibilityStates (iOS, Android)
 
-> **Note:** > `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
 Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
 
 - **selected** Used when the element is in a selected state. For example, a button is selected.
 - **disabled** Used when the element is disabled and cannot be interacted with.
 
 To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
-
-#### accessibilityTraits (iOS)
-
-> **Note:** `accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-Accessibility traits tell a person using VoiceOver what kind of element they have selected. Is this element a label? A button? A header? These questions are answered by `accessibilityTraits`.
-
-To use, set the `accessibilityTraits` property to one of (or an array of) accessibility trait strings:
-
-- **none** Used when the element has no traits.
-- **button** Used when the element should be treated as a button.
-- **link** Used when the element should be treated as a link.
-- **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
-- **search** Used when the text field element should also be treated as a search field.
-- **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
-- **selected** Used when the element is selected. For example, a selected row in a table or a selected button within a segmented control.
-- **plays** Used when the element plays its own sound when activated.
-- **key** Used when the element acts as a keyboard key.
-- **text** Used when the element should be treated as static text that cannot change.
-- **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches. For example, when Weather first launches, the element with today's weather conditions is marked with this trait.
-- **disabled** Used when the control is not enabled and does not respond to user input.
-- **frequentUpdates** Used when the element frequently updates its label or value, but too often to send notifications. Allows an accessibility client to poll for changes. A stopwatch would be an example.
-- **startsMedia** Used when activating an element starts a media session (e.g. playing a movie, recording audio) that should not be interrupted by output from an assistive technology, like VoiceOver.
-- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
-- **allowsDirectInteraction** Used when an element allows direct touch interaction for VoiceOver users (for example, a view representing a piano keyboard).
-- **pageTurn** Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
 
 #### accessibilityViewIsModal (iOS)
 
@@ -151,23 +121,6 @@ Assign this property to a custom function which will be called when someone perf
 #### onAccessibilityEscape (iOS)
 
 Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
-
-#### accessibilityComponentType (Android)
-
-> **Note:** > `accessibilityComponentType` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
-
-```javascript
-<TouchableWithoutFeedback accessibilityComponentType=”button”
-  onPress={this._onPress}>
-  <View style={styles.button}>
-    <Text style={styles.buttonText}>Press me!</Text>
-  </View>
-</TouchableWithoutFeedback>
-```
-
-In the above example, the TouchableWithoutFeedback is being announced by TalkBack as a native Button.
 
 #### accessibilityLiveRegion (Android)
 
