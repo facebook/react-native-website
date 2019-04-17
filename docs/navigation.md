@@ -18,6 +18,16 @@ The first step is to install in your project:
 ```
 npm install --save react-navigation
 ```
+The second step is to install react-native-gesture-handler
+```
+yarn add react-native-gesture-handler
+# or with npm
+# npm install --save react-native-gesture-handler
+```
+Now we need to link our react-native to react-native-gesture-handler
+```
+react-native link react-native-gesture-handler
+```
 
 Then you can quickly create an app with a home screen and a profile screen:
 
