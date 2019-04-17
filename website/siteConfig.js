@@ -25,6 +25,7 @@ const siteConfig = {
     {doc: 'getting-started', label: 'Docs'},
     {page: 'help', label: 'Community'},
     {blog: true, label: 'Blog'},
+    {page: 'upgrade', label: 'Upgrading'},
     {search: true},
     {href: repoUrl, label: 'GitHub'},
   ],
