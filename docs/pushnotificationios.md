@@ -86,6 +86,8 @@ And then in your AppDelegate implementation add the following:
 }
 ```
 
+Then enable Background Modes/Remote notifications to be able to use remote notifications properly. The easiest way to do this is via the project settings. Navigate to Targets -> Your App -> Capabilities -> Background Modes and check Remote notifications. This will automatically enable the required settings.
+
 ### Methods
 
 - [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
