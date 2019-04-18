@@ -69,18 +69,14 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 - [`pointerEvents`](view.md#pointerevents)
 - [`removeClippedSubviews`](view.md#removeclippedsubviews)
 - [`style`](view.md#style)
-- [`testID`](view.md#testid) <<<<<<< Updated upstream
-- # [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
-  > > > > > > > Stashed changes
+- [`testID`](view.md#testid)
 - [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
 - [`collapsable`](view.md#collapsable)
 - [`importantForAccessibility`](view.md#importantforaccessibility)
 - [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
 - [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 - [`accessibilityRole`](view.md#accessibilityrole)
-- [`accessibilityStates`](view.md#accessibilitystates) <<<<<<< Updated upstream
-- # [`accessibilityTraits`](view.md#accessibilitytraits)
-  > > > > > > > Stashed changes
+- [`accessibilityStates`](view.md#accessibilitystates)
 - [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
 - [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 - [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
