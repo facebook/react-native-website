@@ -189,7 +189,7 @@ Determines the location of the given view in the window and returns the values v
 
 ### measureLayout(relativeToNativeNode, onSuccess, onFail)
 
-Like `measure()`, but measures the view relative an ancestor, specified as `relativeToNativeNode`. This means that the returned x, y are relative to the origin x, y of the ancestor view.
+Like `measure()`, but measures the view relative to an ancestor, specified as `relativeToNativeNode`. This means that the returned x, y are relative to the origin x, y of the ancestor view.
 
 As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
 
