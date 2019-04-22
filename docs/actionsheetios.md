@@ -27,8 +27,8 @@ Display an iOS action sheet. The `options` object must contain one or more of:
 - `destructiveButtonIndex` (int) - index of destructive button in `options`
 - `title` (string) - a title to show above the action sheet
 - `message` (string) - a message to show below the title
-- `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
 - `anchor` (number) - the node to which the action sheet should be anchored (used for iPad)
+- `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
 
 The 'callback' function takes one parameter, the zero-based index of the selected item.
 
