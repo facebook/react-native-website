@@ -26,7 +26,7 @@ One of the more visible community contributions was [the updated “RedBox” sc
 
 ### Lean Core
 
-React Native currently has a very wide surface area with many unmaintained abstractions that we do not use a lot at Facebook. We are working on reducing the surface area in order to make React Native smaller and allow the community to take better care of abstractions that are mostly unused used at Facebook.
+React Native currently has a very wide surface area with many unmaintained abstractions that we do not use a lot at Facebook. We are working on reducing the surface area in order to make React Native smaller and allow the community to take better care of abstractions that are mostly unused at Facebook.
 
 In the first milestone, [we asked the community for help on the Lean Core project](https://twitter.com/reactnative/status/1093171521114247171). The response was overwhelming and we could barely keep up with all the progress. [Check out all the work completed in less than a month](https://github.com/facebook/react-native/issues/23313)!
 
