@@ -72,7 +72,7 @@ Whether to show the indicator (true, the default) or hide it (false).
 
 ### `color`
 
-The foreground color of the spinner (default is gray).
+The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
 
 | Type               | Required |
 | ------------------ | -------- |
