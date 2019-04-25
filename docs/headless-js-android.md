@@ -10,7 +10,9 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 A task is a simple async function that you register on `AppRegistry`, similar to registering React applications:
 
 ```javascript
-AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
+import SomeTask from "./tasks/SomeTask";
+
+AppRegistry.registerHeadlessTask('SomeTaskName', () => SomeTask);
 ```
 
 Then, in `SomeTaskName.js`:
