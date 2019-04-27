@@ -319,6 +319,19 @@ console.log(CalendarManager.firstDayOfTheWeek);
 
 但是注意这个常量仅仅在初始化的时候导出了一次，所以即使你在运行期间改变`constantToExport`返回的值，也不会影响到 JavaScript 环境下所得到的结果。
 
+### Implementing `+ requiresMainQueueSetup`
+
+If you override `- constantsToExport` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup`:
+
+```objectivec
++ (BOOL)requiresMainQueueSetup
+{
+  return YES;  // only do this if your module initialization relies on calling UIKit!
+}
+```
+
+If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with `NO`.
+
 ### 枚举常量
 
 用`NS_ENUM`定义的枚举类型必须要先扩展对应的 RCTConvert 方法才可以作为函数参数传递。

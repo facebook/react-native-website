@@ -6,6 +6,8 @@ original_id: maskedviewios
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
+> **Deprecated.** Use [react-native-community/react-native-masked-view](https://github.com/react-native-community/react-native-masked-view) instead.
+
 渲染一个带蒙版的视图。蒙版元素在`maskElement`这个 prop 中指定。
 
 ## 示例

@@ -159,7 +159,7 @@ static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
-显示／隐藏网络活动指示器
+显示／隐藏网络活动指示器。仅限iOS。
 
 **参数：**
 
@@ -175,7 +175,7 @@ static setNetworkActivityIndicatorVisible(visible: boolean)
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
 
-设置状态栏的背景色
+设置状态栏的背景色。仅限Android。
 
 **参数：**
 
@@ -192,7 +192,7 @@ static setBackgroundColor(color: string, [animated]: boolean)
 static setTranslucent(translucent: boolean)
 ```
 
-指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
+指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。仅限Android。
 
 **参数：**
 

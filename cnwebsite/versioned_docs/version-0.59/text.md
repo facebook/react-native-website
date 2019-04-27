@@ -4,7 +4,7 @@ title: Text
 original_id: text
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.60%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.40%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.67%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.33%)
 
 一个用于显示文本的React组件，并且它也支持嵌套、样式，以及触摸处理。
 
@@ -226,6 +226,7 @@ React Native实际上还是有一部分样式继承的实现，不过仅限于�
 * [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
 * [`minimumFontScale`](text.md#minimumfontscale)
 * [`suppressHighlighting`](text.md#suppresshighlighting)
+- [`dataDetectorType`](text.md#datadetectortype)
 
 ---
 
@@ -259,7 +260,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 | 类型 | 必填 |
 | ---- | ---- |
-| node | 否   |
+| string | 否   |
 
 ---
 
@@ -500,3 +501,29 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
+
+---
+
+### `dataDetectorType`
+
+Determines the types of data converted to clickable URLs in the text element. By default no data types are detected.
+
+You can provide only one type.
+
+Possible values for `dataDetectorType` are:
+
+- `'phoneNumber'`
+- `'link'`
+- `'email'`
+- `'none'`
+- `'all'`
+
+| Type                                                | Required | Platform |
+| --------------------------------------------------- | -------- | -------- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
+
+---
+
+# Known issues
+
+- [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute

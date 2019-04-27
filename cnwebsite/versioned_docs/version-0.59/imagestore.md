@@ -6,6 +6,8 @@ original_id: imagestore
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
+> **Deprecated.** Use [expo-file-system](https://github.com/expo/expo/tree/master/packages/expo-file-system) or [react-native-fs](https://github.com/itinance/react-native-fs) instead.
+
 ### 方法
 
 * [`hasImageForTag`](imagestore.md#hasimagefortag)

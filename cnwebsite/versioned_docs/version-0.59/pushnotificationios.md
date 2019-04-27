@@ -65,6 +65,34 @@ original_id: pushnotificationios
  }
 ```
 
+To show notifications while being in the foreground (available starting from iOS 10) add the following lines:
+
+At the top of your `AppDelegate.m`:
+
+`#import <UserNotifications/UserNotifications.h>`
+
+And then in your AppDelegate implementation add the following:
+
+```objectivec
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+  ...
+  // Define UNUserNotificationCenter
+  UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+  center.delegate = self;
+
+  return YES;
+}
+
+//Called when a notification is delivered to a foreground app.
+-(void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions options))completionHandler
+{
+  completionHandler(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge);
+}
+```
+
+Then enable Background Modes/Remote notifications to be able to use remote notifications properly. The easiest way to do this is via the project settings. Navigate to Targets -> Your App -> Capabilities -> Background Modes and check Remote notifications. This will automatically enable the required settings.
+
 ### 查看方法
 
 * [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)

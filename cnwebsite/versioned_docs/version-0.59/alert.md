@@ -72,5 +72,5 @@ Alert.alert(
 ### `alert()`
 
 ```javascript
-static alert(title, message?, buttons?, options?, type?)
+static alert(title, message?, buttons?, options?)
 ```

@@ -32,7 +32,7 @@ ES5
 
 ES6
 
-- [箭头函数 Arrow functions](http://babeljs.io/docs/learn-es2015/#arrows): `<C onPress={() => this.setState({pressed: true})}`
+- [箭头函数 Arrow functions](http://babeljs.io/docs/learn-es2015/#arrows): `<C onPress={() => this.setState({pressed: true})} />`
 - [块级作用域 Block scoping](https://babeljs.io/docs/learn-es2015/#let-const): `let greeting = 'hi';`
 - [数组的扩展运算 Call spread](http://babeljs.io/docs/learn-es2015/#default-rest-spread): `Math.max(...array);`
 - [类 Classes](http://babeljs.io/docs/learn-es2015/#classes): `class C extends React.Component { render() { return <View />; } }`
@@ -49,7 +49,7 @@ ES6
 ES8
 
 - [参数列表末尾允许放置逗号 Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) { }`
-- [异步函数 Async Functions](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); }`;
+- [异步函数 Async Functions](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); };`
 
 Stage 3
 

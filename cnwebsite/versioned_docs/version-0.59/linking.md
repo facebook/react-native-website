@@ -4,7 +4,7 @@ title: Linking
 original_id: linking
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.10%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(1.90%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.19%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(1.81%)
 
 <div class="banner-crna-ejected">
   <h3>仅用在原生代码的项目</h3>
@@ -70,8 +70,8 @@ componentDidMount() {
 如果你的 app 用了 [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html)，需要正确的把下述代码添加进去：
 
 ```
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
+  restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
 {
  return [RCTLinkingManager application:application
                   continueUserActivity:userActivity
@@ -120,6 +120,7 @@ Linking.canOpenURL(url).then(supported => {
 * [`removeEventListener`](linking.md#removeeventlistener)
 * [`openURL`](linking.md#openurl)
 * [`canOpenURL`](linking.md#canopenurl)
+* [`openSettings`](linking.md#opensettings)
 * [`getInitialURL`](linking.md#getinitialurl)
 
 ---
@@ -199,6 +200,16 @@ canOpenURL(url);
 > 对于 web 链接来说，协议头("http://", "https://")不能省略！
 
 > 对于 iOS 9 来说，你需要在`Info.plist`中添加`LSApplicationQueriesSchemes`字段，否则`canOpenURL`可能一直返回 false。
+
+---
+
+### `openSettings()`
+
+ ```javascript
+openSettings();
+```
+
+Open the Settings app and displays the app’s custom settings, if it has any.
 
 ---
 

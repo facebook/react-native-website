@@ -4,7 +4,7 @@ title: View
 original_id: view
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(88.89%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(11.11%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(91.59%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(8.41%)
 
 作为创建 UI 时最基础的组件，View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，View 都会直接对应一个平台的原生视图，无论它是 UIView、div还是 android.view.View。下面的例子创建了一个 View，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
 
@@ -70,7 +70,6 @@ class ViewColoredBoxesWithText extends Component {
 * [`removeClippedSubviews`](view.md#removeclippedsubviews)
 * [`style`](view.md#style)
 * [`testID`](view.md#testid)
-* [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
 * [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
 * [`collapsable`](view.md#collapsable)
 * [`importantForAccessibility`](view.md#importantforaccessibility)
@@ -78,7 +77,6 @@ class ViewColoredBoxesWithText extends Component {
 * [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 * [`accessibilityRole`](view.md#accessibilityrole)
 * [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityTraits`](view.md#accessibilitytraits)
 * [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
 * [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 * [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
@@ -376,25 +374,6 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 ---
 
-### `accessibilityComponentType`
-
-_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-使无障碍服务对这个 UI 组件与原生组件一致处理。仅对 Android 平台有效。
-
-可用的值为:
-
-* `'none'`
-* `'button'`
-* `'radiobutton_checked'`
-* `'radiobutton_unchecked'`
-
-| 类型                        | 必填 | 平台    |
-| --------------------------- | ---- | ------- |
-| AccessibilityComponentTypes | 否   | Android |
-
----
-
 ### `accessibilityLiveRegion`
 
 告知无障碍服务当此视图更新时，是否要通知用户。只对 Android API >= 19 的设备有效。可用的值为:
@@ -466,8 +445,6 @@ _> Note: `accessibilityComponentType`will soon be deprecated. When possible, use
 
 ### `accessibilityRole`
 
-_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
-
 Tells the screen reader to treat the currently focused on element as having a specific role.
 
 Possible values for `AccessibilityRole` is one of:
@@ -497,8 +474,6 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 ### `accessibilityStates`
 
-_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
-
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
 You can provide one state, no state, or both states. The states must be passed in through an array.
@@ -511,40 +486,6 @@ Possible values for `AccessibilityStates` are:
 | 类型                        | 必填 |
 | --------------------------- | ---- |
 | array of AccessibilitStates | 否   |
-
----
-
-### `accessibilityTraits`
-
-为读屏器提供更多属性。除非在元素里指定，默认情况下不提供任何属性。
-
-你可以提供单个特性或者用数组指定多个特性
-
-可用的`AccessibilityTraits`值:
-
-* `'none'` - 元素没有特性。
-* `'button'` - 元素应该被当作按钮。
-* `'link'` - 元素应该被当作链接。
-* `'header'` - 元素是分段的头部.
-* `'search'` - 元素应该被当作搜索字段。
-* `'image'` - 元素被当作图片。
-* `'selected'` - 元素被当作选择框。
-* `'plays'` - 元素播放声音。
-* `'key'` - 元素应该像键盘上的一个按键一样对待。
-* `'text'` - 元素应该像文本一样对待。
-* `'summary'` - 元素提供 app 摘要信息。
-* `'disabled'` - 元素失效了。
-* `'frequentUpdates'` - 元素频繁的更改它的值。
-* `'startsMedia'` - 元素开启了一个媒体会话。
-* `'adjustable'` - 元素允许范围值调节。
-* `'allowsDirectInteraction'` -元素允许语音辅助用户直接触摸。
-* `'pageTurn'` - 当读完元素内容时通知语音辅助用户应该跳转到下一页。
-
-阅读 [Accessibility guide](accessibility.md#accessibilitytraits-ios) 获取更多信息。
-
-| 类型                                               | 必填 | 平台 |
-| -------------------------------------------------- | ---- | ---- |
-| AccessibilityTraits, ,array of AccessibilityTraits | 否   | iOS  |
 
 ---
 

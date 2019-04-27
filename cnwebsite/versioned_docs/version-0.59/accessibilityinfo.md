@@ -11,42 +11,60 @@ original_id: accessibilityinfo
 下面是一个使用`AccessibilityInfo`的小例子:
 
 ```javascript
-class ScreenReaderStatusExample extends React.Component {
+class AccessibilityStatusExample extends React.Component {
   state = {
-    screenReaderEnabled: false
+    reduceMotionEnabled: false,
+    screenReaderEnabled: false,
   };
 
   componentDidMount() {
     AccessibilityInfo.addEventListener(
-      "change",
-      this._handleScreenReaderToggled
+      'reduceMotionChanged',
+      this._handleReduceMotionToggled,
     );
-    AccessibilityInfo.fetch().then(isEnabled => {
-      this.setState({
-        screenReaderEnabled: isEnabled
-      });
+    AccessibilityInfo.addEventListener(
+      'screenReaderChanged',
+      this._handleScreenReaderToggled,
+    );
+
+    AccessibilityInfo.isReduceMotionEnabled().then((reduceMotionEnabled) => {
+      this.setState({reduceMotionEnabled});
+    });
+    AccessibilityInfo.isScreenReaderEnabled().then((screenReaderEnabled) => {
+      this.setState({screenReaderEnabled});
     });
   }
 
   componentWillUnmount() {
     AccessibilityInfo.removeEventListener(
-      "change",
-      this._handleScreenReaderToggled
+      'reduceMotionChanged',
+      this._handleReduceMotionToggled,
+    );
+
+    AccessibilityInfo.removeEventListener(
+      'screenReaderChanged',
+      this._handleScreenReaderToggled,
     );
   }
 
-  _handleScreenReaderToggled = isEnabled => {
-    this.setState({
-      screenReaderEnabled: isEnabled
-    });
+  _handleReduceMotionToggled = (reduceMotionEnabled) => {
+    this.setState({reduceMotionEnabled});
+  };
+
+  _handleScreenReaderToggled = (screenReaderEnabled) => {
+    this.setState({screenReaderEnabled});
   };
 
   render() {
     return (
       <View>
         <Text>
-          The screen reader is{" "}
-          {this.state.screenReaderEnabled ? "enabled" : "disabled"}.
+          The reduce motion is{' '}
+          {this.state.reduceMotionEnabled ? 'enabled' : 'disabled'}.
+        </Text>
+        <Text>
+          The screen reader is{' '}
+          {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
         </Text>
       </View>
     );
@@ -56,7 +74,12 @@ class ScreenReaderStatusExample extends React.Component {
 
 ### 查看方法
 
-- [`fetch`](accessibilityinfo.md#fetch)
+- [`isBoldTextEnabled`](accessibilityinfo.md#isBoldTextEnabled)
+- [`isGrayscaleEnabled`](accessibilityinfo.md#isGrayscaleEnabled)
+- [`isInvertColorsEnabled`](accessibilityinfo.md#isInvertColorsEnabled)
+- [`isReduceMotionEnabled`](accessibilityinfo.md#isReduceMotionEnabled)
+- [`isReduceTransparencyEnabled`](accessibilityinfo.md#isReduceTransparencyEnabled)
+- [`isScreenReaderEnabled`](accessibilityinfo.md#isScreenReaderEnabled)
 - [`addEventListener`](accessibilityinfo.md#addeventlistener)
 - [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
 - [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
@@ -68,10 +91,50 @@ class ScreenReaderStatusExample extends React.Component {
 
 ## 方法
 
-### `fetch()`
+### `isBoldTextEnabled()`
 
 ```javascript
-static fetch()
+static isBoldTextEnabled()
+```
+
+iOS-Only. Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
+
+### `isGrayscaleEnabled()`
+
+```javascript
+static isGrayscaleEnabled()
+```
+
+Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
+
+### `isInvertColorsEnabled()`
+
+```javascript
+static isInvertColorsEnabled()
+```
+
+Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
+
+### `isReduceMotionEnabled()`
+
+```javascript
+static isReduceMotionEnabled()
+```
+
+Query whether reduce motion is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when reduce motion is enabled and `false` otherwise.
+
+### `isReduceTransparencyEnabled()`
+
+```javascript
+static isReduceTransparencyEnabled()
+```
+
+Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
+
+### `isScreenReaderEnabled()`
+
+```javascript
+static isScreenReaderEnabled()
 ```
 
 查询读屏应用当前是否开启。返回值为一个 promise，最终解析值为一个布尔值。`true`表示开启状态，`false`反之。
@@ -86,7 +149,12 @@ static addEventListener(eventName, handler)
 
 添加一个监听函数，支持的事件类型如下：
 
-- `change`: 读屏应用状态改变时触发。传递给监听函数的参数为布尔值，`true`表示开启状态，`false`反之。
+- `boldTextChanged`: iOS-only event. Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.
+- `grayscaleChanged`: iOS-only event. Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.
+- `invertColorsChanged`: iOS-only event. Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.
+- `reduceMotionChanged`: Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.
+- `screenReaderChanged`: 读屏应用状态改变时触发。传递给监听函数的参数为布尔值，`true`表示开启状态，`false`反之。
+- `reduceTransparencyChanged`: iOS-only event. Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.
 - `announcementFinished`: 仅 iOS 可用。在读屏软件完成一次朗读后触发。传递给监听函数的参数为一个字典，包含以下两个字段：
   - `announcement`: 读屏软件所读的字符串。
   - `success`: 此次朗读是否成功完成。

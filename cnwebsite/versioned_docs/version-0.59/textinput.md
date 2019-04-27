@@ -128,6 +128,7 @@ export default class UselessTextInputMultiline extends Component {
 - [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`returnKeyLabel`](textinput.md#returnkeylabel)
 - [`returnKeyType`](textinput.md#returnkeytype)
+- [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
 - [`scrollEnabled`](textinput.md#scrollenabled)
 - [`secureTextEntry`](textinput.md#securetextentry)
 - [`selection`](textinput.md#selection)
@@ -544,7 +545,7 @@ Only called for multiline text inputs.
 
 ### `onSelectionChange`
 
-长按选择文本时，选择范围变化时调用此函数，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。
+长按选择文本时，选择范围变化时调用此函数，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。需要设置`multiline={true}`。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -621,6 +622,20 @@ Sets the return key to the label. Use it instead of `returnKeyType`.
 | 类型                                                                                                                              | 必填 |
 | --------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No   |
+
+---
+
+### `rejectResponderTermination`
+
+Determines how the return key should look. On Android you can also use `returnKeyLabel`.
+
+_iOS Only_
+
+If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 

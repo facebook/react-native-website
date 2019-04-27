@@ -386,7 +386,7 @@ project.ext.react = [
 
 最后，在 package.json 的“scripts”下修改“start”命令来启用配置文件：
 
-`"start": "node node_modules/react-native/local-cli/cli.js start --config ../../../../packager/config.js",`
+`"start": "yarn react-native start packager/config.js",`
 
 此时用`npm start`启动你的 packager 服务即会加载配置文件。请注意，如果你仍然通过 xcode 或是 react-native run-android 等方式自动启动 packager 服务，则由于没有使用上面的参数，不会加载配置文件。
 
