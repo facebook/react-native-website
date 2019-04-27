@@ -6,8 +6,8 @@ original_id: actionsheetios
 
 ### Methods
 
-* [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-* [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
+- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
+- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
 
 ---
 

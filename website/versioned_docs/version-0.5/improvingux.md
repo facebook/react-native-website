@@ -8,11 +8,11 @@ original_id: improvingux
 
 Entering text on touch phone is a challenge - small screen, software keyboard. But based on what kind of data you need, you can make it easier by properly configuring the text inputs:
 
-* Focus the first field automatically
-* Use placeholder text as an example of expected data format
-* Enable or disable autocapitalization and autocorrect
-* Choose keyboard type (e.g. email, numeric)
-* Make sure the return button focuses the next field or submits the form
+- Focus the first field automatically
+- Use placeholder text as an example of expected data format
+- Enable or disable autocapitalization and autocorrect
+- Choose keyboard type (e.g. email, numeric)
+- Make sure the return button focuses the next field or submits the form
 
 Check out [`TextInput` docs](textinput.md) for more configuration options.
 

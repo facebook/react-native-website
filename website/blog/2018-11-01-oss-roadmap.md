@@ -14,15 +14,15 @@ This year, the React Native team has focused on a large scale [re-architecture o
 
 Our vision for React Native is...
 
-* **A healthy GitHub repository.** Issues and pull requests get handled within a reasonable period of time.
-  * Increased test coverage.
-  * Commits that sync out from the Facebook code repository should not break open source tests.
-  * A higher scale of meaningful community contributions.
-* **Stable APIs,** making it easier to interface with open source dependencies.
-  * Facebook uses the same public API as open source
-  * React Native releases that follow semantic versioning.
-* **A vibrant eco-system.** High quality ViewManagers, native modules, and multiple platform support maintained by the community.
-* **Excellent documentation.** Focus on helping users create high quality experiences, and up-to-date API reference docs.
+- **A healthy GitHub repository.** Issues and pull requests get handled within a reasonable period of time.
+  - Increased test coverage.
+  - Commits that sync out from the Facebook code repository should not break open source tests.
+  - A higher scale of meaningful community contributions.
+- **Stable APIs,** making it easier to interface with open source dependencies.
+  - Facebook uses the same public API as open source
+  - React Native releases that follow semantic versioning.
+- **A vibrant eco-system.** High quality ViewManagers, native modules, and multiple platform support maintained by the community.
+- **Excellent documentation.** Focus on helping users create high quality experiences, and up-to-date API reference docs.
 
 We have identified the following focus areas to help us achieve this vision.
 
@@ -38,10 +38,10 @@ The React Native development experience for product teams at Facebook can be qui
 
 We'll work on releasing some of these internal tools. We'll also improve support for tools popular with the open source community. Here's a non-exhaustive list of projects we'll tackle:
 
-* Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release. We'll be covering what JSI is in a future post, in the meantime you can learn more about JSI from [Parashuram's talk at React Conf](https://www.youtube.com/watch?v=UcqRXTriUVI).
-* Support 64-bit libraries on Android.
-* Enable debugging under the new architecture.
-* Improve support for CocoaPods, Gradle, Maven, and new Xcode build system.
+- Open source JSI and enable the community to bring their own JavaScript VMs, replacing the existing JavaScriptCore from RN's initial release. We'll be covering what JSI is in a future post, in the meantime you can learn more about JSI from [Parashuram's talk at React Conf](https://www.youtube.com/watch?v=UcqRXTriUVI).
+- Support 64-bit libraries on Android.
+- Enable debugging under the new architecture.
+- Improve support for CocoaPods, Gradle, Maven, and new Xcode build system.
 
 ## ✅ Testing Infrastructure
 

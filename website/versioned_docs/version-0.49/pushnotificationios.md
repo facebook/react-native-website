@@ -21,8 +21,8 @@ To get up and running, [configure your notifications with Apple](https://develop
 
 [Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library
 
-* Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
-* Add the following to `Link Binary With Libraries`: `libRCTPushNotification.a`
+- Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
+- Add the following to `Link Binary With Libraries`: `libRCTPushNotification.a`
 
 Finally, to enable support for `notification` and `register` events you need to augment your AppDelegate.
 
@@ -63,31 +63,31 @@ And then in your AppDelegate implementation add the following:
 
 ### Methods
 
-* [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
-* [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
-* [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
-* [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
-* [`getDeliveredNotifications`](pushnotificationios.md#getdeliverednotifications)
-* [`removeDeliveredNotifications`](pushnotificationios.md#removedeliverednotifications)
-* [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-* [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-* [`cancelLocalNotifications`](pushnotificationios.md#cancellocalnotifications)
-* [`getScheduledLocalNotifications`](pushnotificationios.md#getscheduledlocalnotifications)
-* [`addEventListener`](pushnotificationios.md#addeventlistener)
-* [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-* [`requestPermissions`](pushnotificationios.md#requestpermissions)
-* [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
-* [`checkPermissions`](pushnotificationios.md#checkpermissions)
-* [`getInitialNotification`](pushnotificationios.md#getinitialnotification)
-* [`constructor`](pushnotificationios.md#constructor)
-* [`finish`](pushnotificationios.md#finish)
-* [`getMessage`](pushnotificationios.md#getmessage)
-* [`getSound`](pushnotificationios.md#getsound)
-* [`getCategory`](pushnotificationios.md#getcategory)
-* [`getAlert`](pushnotificationios.md#getalert)
-* [`getContentAvailable`](pushnotificationios.md#getcontentavailable)
-* [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-* [`getData`](pushnotificationios.md#getdata)
+- [`presentLocalNotification`](pushnotificationios.md#presentLocalNotification)
+- [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
+- [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
+- [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
+- [`getDeliveredNotifications`](pushnotificationios.md#getdeliverednotifications)
+- [`removeDeliveredNotifications`](pushnotificationios.md#removedeliverednotifications)
+- [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
+- [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
+- [`cancelLocalNotifications`](pushnotificationios.md#cancellocalnotifications)
+- [`getScheduledLocalNotifications`](pushnotificationios.md#getscheduledlocalnotifications)
+- [`addEventListener`](pushnotificationios.md#addeventlistener)
+- [`removeEventListener`](pushnotificationios.md#removeeventlistener)
+- [`requestPermissions`](pushnotificationios.md#requestpermissions)
+- [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
+- [`checkPermissions`](pushnotificationios.md#checkpermissions)
+- [`getInitialNotification`](pushnotificationios.md#getinitialnotification)
+- [`constructor`](pushnotificationios.md#constructor)
+- [`finish`](pushnotificationios.md#finish)
+- [`getMessage`](pushnotificationios.md#getmessage)
+- [`getSound`](pushnotificationios.md#getsound)
+- [`getCategory`](pushnotificationios.md#getcategory)
+- [`getAlert`](pushnotificationios.md#getalert)
+- [`getContentAvailable`](pushnotificationios.md#getcontentavailable)
+- [`getBadgeCount`](pushnotificationios.md#getbadgecount)
+- [`getData`](pushnotificationios.md#getdata)
 
 ---
 
@@ -107,13 +107,13 @@ Schedules the localNotification for immediate presentation.
 
 details is an object containing:
 
-* `alertBody` : The message displayed in the notification alert.
-* `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
-* `soundName` : The sound played when the notification is fired (optional).
-* `isSilent` : If true, the notification will appear without sound (optional).
-* `category` : The category of this notification, required for actionable notifications (optional).
-* `userInfo` : An optional object containing additional notification data.
-* `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
+- `alertBody` : The message displayed in the notification alert.
+- `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
+- `soundName` : The sound played when the notification is fired (optional).
+- `isSilent` : If true, the notification will appear without sound (optional).
+- `category` : The category of this notification, required for actionable notifications (optional).
+- `userInfo` : An optional object containing additional notification data.
+- `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
 
 ---
 
@@ -127,16 +127,16 @@ Schedules the localNotification for future presentation.
 
 details is an object containing:
 
-* `fireDate` : The date and time when the system should deliver the notification.
-* `alertTitle` : The text displayed as the title of the notification alert.
-* `alertBody` : The message displayed in the notification alert.
-* `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
-* `soundName` : The sound played when the notification is fired (optional).
-* `isSilent` : If true, the notification will appear without sound (optional).
-* `category` : The category of this notification, required for actionable notifications (optional).
-* `userInfo` : An optional object containing additional notification data.
-* `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. Setting the number to 0 removes the icon badge.
-* `repeatInterval` : The interval to repeat as a string. Possible values: `minute`, `hour`, `day`, `week`, `month`, `year`.
+- `fireDate` : The date and time when the system should deliver the notification.
+- `alertTitle` : The text displayed as the title of the notification alert.
+- `alertBody` : The message displayed in the notification alert.
+- `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
+- `soundName` : The sound played when the notification is fired (optional).
+- `isSilent` : If true, the notification will appear without sound (optional).
+- `category` : The category of this notification, required for actionable notifications (optional).
+- `userInfo` : An optional object containing additional notification data.
+- `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. Setting the number to 0 removes the icon badge.
+- `repeatInterval` : The interval to repeat as a string. Possible values: `minute`, `hour`, `day`, `week`, `month`, `year`.
 
 ---
 
@@ -172,12 +172,12 @@ Provides you with a list of the app’s notifications that are still displayed i
 
 A delivered notification is an object containing:
 
-* `identifier` : The identifier of this notification.
-* `title` : The title of this notification.
-* `body` : The body of this notification.
-* `category` : The category of this notification, if has one.
-* `userInfo` : An optional object containing additional notification data.
-* `thread-id` : The thread identifier of this notification, if has one.
+- `identifier` : The identifier of this notification.
+- `title` : The title of this notification.
+- `body` : The body of this notification.
+- `category` : The category of this notification, if has one.
+- `userInfo` : An optional object containing additional notification data.
+- `thread-id` : The thread identifier of this notification, if has one.
 
 ---
 
@@ -245,10 +245,10 @@ Attaches a listener to remote or local notification events while the app is runn
 
 Valid events are:
 
-* `notification` : Fired when a remote notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
-* `localNotification` : Fired when a local notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
-* `register`: Fired when the user registers for remote notifications. The handler will be invoked with a hex string representing the deviceToken.
-* `registrationError`: Fired when the user fails to register for remote notifications. Typically occurs when APNS is having issues, or the device is a simulator. The handler will be invoked with {message: string, code: number, details: any}.
+- `notification` : Fired when a remote notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
+- `localNotification` : Fired when a local notification is received. The handler will be invoked with an instance of `PushNotificationIOS`.
+- `register`: Fired when the user registers for remote notifications. The handler will be invoked with a hex string representing the deviceToken.
+- `registrationError`: Fired when the user fails to register for remote notifications. Typically occurs when APNS is having issues, or the device is a simulator. The handler will be invoked with {message: string, code: number, details: any}.
 
 ---
 
@@ -270,9 +270,9 @@ static requestPermissions(permissions?)
 
 Requests notification permissions from iOS, prompting the user's dialog box. By default, it will request all notification permissions, but a subset of these can be requested by passing a map of requested permissions. The following permissions are supported:
 
-* `alert`
-* `badge`
-* `sound`
+- `alert`
+- `badge`
+- `sound`
 
 If a map is provided to the method, only the permissions with truthy values will be requested.
 
@@ -300,9 +300,9 @@ static checkPermissions(callback)
 
 See what push permissions are currently enabled. `callback` will be invoked with a `permissions` object:
 
-* `alert` :boolean
-* `badge` :boolean
-* `sound` :boolean
+- `alert` :boolean
+- `badge` :boolean
+- `sound` :boolean
 
 ---
 

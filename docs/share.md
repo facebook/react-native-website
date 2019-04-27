@@ -5,9 +5,9 @@ title: Share
 
 ### Methods
 
-* [`share`](share.md#share)
-* [`sharedAction`](share.md#sharedaction)
-* [`dismissedAction`](share.md#dismissedaction)
+- [`share`](share.md#share)
+- [`sharedAction`](share.md#sharedaction)
+- [`dismissedAction`](share.md#dismissedaction)
 
 ---
 
@@ -29,12 +29,12 @@ In Android, Returns a Promise which always be resolved with action being `Share.
 
 ### Content
 
-* `message` - a message to share
-* `title` - title of the message
+- `message` - a message to share
+- `title` - title of the message
 
 #### iOS
 
-* `url` - an URL to share
+- `url` - an URL to share
 
 At least one of URL and message is required.
 
@@ -42,13 +42,13 @@ At least one of URL and message is required.
 
 #### iOS
 
-* `subject` - a subject to share via email
-* `excludedActivityTypes`
-* `tintColor`
+- `subject` - a subject to share via email
+- `excludedActivityTypes`
+- `tintColor`
 
 #### Android
 
-* `dialogTitle`
+- `dialogTitle`
 
 ---
 

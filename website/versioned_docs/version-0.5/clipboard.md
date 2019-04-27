@@ -8,8 +8,8 @@ original_id: clipboard
 
 ### Methods
 
-* [`getString`](clipboard.md#getstring)
-* [`setString`](clipboard.md#setstring)
+- [`getString`](clipboard.md#getstring)
+- [`setString`](clipboard.md#setstring)
 
 ---
 

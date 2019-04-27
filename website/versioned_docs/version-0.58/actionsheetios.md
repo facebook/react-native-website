@@ -6,8 +6,8 @@ original_id: actionsheetios
 
 ### Methods
 
-* [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-* [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
+- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
+- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
 
 ---
 
@@ -23,12 +23,12 @@ static showActionSheetWithOptions(options, callback)
 
 Display an iOS action sheet. The `options` object must contain one or more of:
 
-* `options` (array of strings) - a list of button titles (required)
-* `cancelButtonIndex` (int) - index of cancel button in `options`
-* `destructiveButtonIndex` (int) - index of destructive button in `options`
-* `title` (string) - a title to show above the action sheet
-* `message` (string) - a message to show below the title
-* `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
+- `options` (array of strings) - a list of button titles (required)
+- `cancelButtonIndex` (int) - index of cancel button in `options`
+- `destructiveButtonIndex` (int) - index of destructive button in `options`
+- `title` (string) - a title to show above the action sheet
+- `message` (string) - a message to show below the title
+- `tintColor` (string) - the [color](colors.md) used for non-destructive button titles
 
 The 'callback' function takes one parameter, the zero-based index of the selected item.
 
@@ -59,10 +59,10 @@ static showShareActionSheetWithOptions(options, failureCallback, successCallback
 
 Display the iOS share sheet. The `options` object should contain one or both of `message` and `url` and can additionally have a `subject` or `excludedActivityTypes`:
 
-* `url` (string) - a URL to share
-* `message` (string) - a message to share
-* `subject` (string) - a subject for the message
-* `excludedActivityTypes` (array) - the activities to exclude from the ActionSheet
+- `url` (string) - a URL to share
+- `message` (string) - a message to share
+- `subject` (string) - a subject for the message
+- `excludedActivityTypes` (array) - the activities to exclude from the ActionSheet
 
 NOTE: if `url` points to a local file, or is a base64-encoded uri, the file it points to will be loaded and shared directly. In this way, you can share images, videos, PDF files, etc.
 
@@ -70,5 +70,5 @@ The 'failureCallback' function takes one parameter, an error object. The only pr
 
 The 'successCallback' function takes two parameters:
 
-* a boolean value signifying success or failure
-* a string that, in the case of success, indicates the method of sharing
+- a boolean value signifying success or failure
+- a string that, in the case of success, indicates the method of sharing

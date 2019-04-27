@@ -24,14 +24,14 @@ We recommend using the [`Alert.alert`](alert.md) method for cross-platform suppo
 
 ### Methods
 
-* [`alert`](alertios.md#alert)
-* [`prompt`](alertios.md#prompt)
+- [`alert`](alertios.md#alert)
+- [`prompt`](alertios.md#prompt)
 
 ### Type Definitions
 
-* [`AlertType`](alertios.md#alerttype)
-* [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
-* [`ButtonsArray`](alertios.md#buttonsarray)
+- [`AlertType`](alertios.md#alerttype)
+- [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
+- [`ButtonsArray`](alertios.md#buttonsarray)
 
 ---
 
@@ -138,9 +138,9 @@ AlertIOS.prompt(
 
 An Alert button type
 
-| Type  |
-| ----- |
-| $Enum |
+| Type   |
+| ------ |
+| \$Enum |
 
 **Constants:**
 
@@ -157,9 +157,9 @@ An Alert button type
 
 An Alert button style
 
-| Type  |
-| ----- |
-| $Enum |
+| Type   |
+| ------ |
+| \$Enum |
 
 **Constants:**
 

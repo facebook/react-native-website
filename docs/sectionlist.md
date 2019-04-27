@@ -5,16 +5,16 @@ title: SectionList
 
 A performant interface for rendering sectioned lists, supporting the most handy features:
 
-* Fully cross-platform.
-* Configurable viewability callbacks.
-* List header support.
-* List footer support.
-* Item separator support.
-* Section header support.
-* Section separator support.
-* Heterogeneous data and item rendering support.
-* Pull to Refresh.
-* Scroll loading.
+- Fully cross-platform.
+- Configurable viewability callbacks.
+- List header support.
+- List footer support.
+- Item separator support.
+- Section header support.
+- Section separator support.
+- Heterogeneous data and item rendering support.
+- Pull to Refresh.
+- Scroll loading.
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
@@ -52,51 +52,51 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
 
-* Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-* This is a `PureComponent` which means that it will not re-render if `props` remain shallow- equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-* By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 ### Props
 
-* [`ScrollView` props...](scrollview.md#props)
+- [`ScrollView` props...](scrollview.md#props)
 
 Required props:
 
-* [`sections`](sectionlist.md#sections)
-* [`renderItem`](sectionlist.md#renderitem)
+- [`sections`](sectionlist.md#sections)
+- [`renderItem`](sectionlist.md#renderitem)
 
 Optional props:
 
-* [`initialNumToRender`](sectionlist.md#initialnumtorender)
-* [`keyExtractor`](sectionlist.md#keyextractor)
-* [`onEndReached`](sectionlist.md#onendreached)
-* [`extraData`](sectionlist.md#extradata)
-* [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-* [`inverted`](sectionlist.md#inverted)
-* [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-* [`legacyImplementation`](sectionlist.md#legacyimplementation)
-* [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-* [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-* [`onRefresh`](sectionlist.md#onrefresh)
-* [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-* [`refreshing`](sectionlist.md#refreshing)
-* [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-* [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-* [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-* [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-* [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-* [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
+- [`initialNumToRender`](sectionlist.md#initialnumtorender)
+- [`keyExtractor`](sectionlist.md#keyextractor)
+- [`onEndReached`](sectionlist.md#onendreached)
+- [`extraData`](sectionlist.md#extradata)
+- [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
+- [`inverted`](sectionlist.md#inverted)
+- [`ListFooterComponent`](sectionlist.md#listfootercomponent)
+- [`legacyImplementation`](sectionlist.md#legacyimplementation)
+- [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
+- [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
+- [`onRefresh`](sectionlist.md#onrefresh)
+- [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
+- [`refreshing`](sectionlist.md#refreshing)
+- [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
+- [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
+- [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
+- [`renderSectionHeader`](sectionlist.md#rendersectionheader)
+- [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
+- [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
 
 ### Methods
 
-* [`scrollToLocation`](sectionlist.md#scrolltolocation)
-* [`recordInteraction`](sectionlist.md#recordinteraction)
-* [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
+- [`scrollToLocation`](sectionlist.md#scrolltolocation)
+- [`recordInteraction`](sectionlist.md#recordinteraction)
+- [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
 
 ### Type Definitions
 
-* [`Section`](sectionlist.md#section)
+- [`Section`](sectionlist.md#section)
 
 ---
 
@@ -126,7 +126,7 @@ How many items to render in the initial batch. This should be enough to fill the
 
 ### `keyExtractor`
 
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks item.key, then falls back to using the index, like react does. Note that this sets keys for each item, but each overall section still needs its own key.
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the React key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does. Note that this sets keys for each item, but each overall section still needs its own key.
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |
@@ -144,15 +144,15 @@ Default renderer for every item in every section. Can be over-ridden on a per-se
 
 The render function will be passed an object with the following keys:
 
-* 'item' (object) - the item object as specified in this section's `data` key
-* 'index' (number) - Item's index within the section.
-* 'section' (object) - The full section object as specified in `sections`.
-* 'separators' (object) - An object with the following keys:
-  * 'highlight' (function) - `() => void`
-  * 'unhighlight' (function) - `() => void`
-  * 'updateProps' (function) - `(select, newProps) => void`
-    * 'select' (enum) - possible values are 'leading', 'trailing'
-    * 'newProps' (object)
+- 'item' (object) - the item object as specified in this section's `data` key
+- 'index' (number) - Item's index within the section.
+- 'section' (object) - The full section object as specified in `sections`.
+- 'separators' (object) - An object with the following keys:
+  - 'highlight' (function) - `() => void`
+  - 'unhighlight' (function) - `() => void`
+  - 'updateProps' (function) - `(select, newProps) => void`
+    - 'select' (enum) - possible values are 'leading', 'trailing'
+    - 'newProps' (object)
 
 ---
 
@@ -178,7 +178,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `ItemSeparatorComponent`
 
-Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Separator]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
+Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Section]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
 | Type                           | Required |
 | ------------------------------ | -------- |
@@ -254,8 +254,8 @@ Called when the viewability of rows changes, as defined by the `viewabilityConfi
 
 The function will be passed an object with the following keys:
 
-* 'viewableItems' (array of `ViewToken`s)
-* 'changed' (array of `ViewToken`s)
+- 'viewableItems' (array of `ViewToken`s)
+- 'changed' (array of `ViewToken`s)
 
 The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
@@ -323,7 +323,7 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 
 ### `SectionSeparatorComponent`
 
-Rendered at the top and bottom of each section (note this is different from `ItemSeparatorComponent` which is only rendered between items). These are intended to separate sections from the headers above and below and typically have the same highlight response as `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Separator]`, and any custom props from `separators.updateProps`.
+Rendered at the top and bottom of each section (note this is different from `ItemSeparatorComponent` which is only rendered between items). These are intended to separate sections from the headers above and below and typically have the same highlight response as `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Section]`, and any custom props from `separators.updateProps`.
 
 | Type              | Required |
 | ----------------- | -------- |
@@ -359,11 +359,11 @@ Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the 
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'itemIndex' (number) - Index within section for the item to scroll to. Required.
-* 'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
-* 'viewOffset' (number) - A fixed number of pixels to offset the final target position, e.g. to compensate for sticky headers.
-* 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'itemIndex' (number) - Index within section for the item to scroll to. Required.
+- 'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
+- 'viewOffset' (number) - A fixed number of pixels to offset the final target position, e.g. to compensate for sticky headers.
+- 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---
 

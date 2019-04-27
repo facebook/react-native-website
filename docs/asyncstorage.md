@@ -3,6 +3,8 @@ id: asyncstorage
 title: AsyncStorage
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
+
 `AsyncStorage` is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
 It is recommended that you use an abstraction on top of `AsyncStorage` instead of `AsyncStorage` directly for anything more than light usage since it operates globally.
@@ -47,17 +49,17 @@ _retrieveData = async () => {
 
 ### Methods
 
-* [`getItem`](asyncstorage.md#getitem)
-* [`setItem`](asyncstorage.md#setitem)
-* [`removeItem`](asyncstorage.md#removeitem)
-* [`mergeItem`](asyncstorage.md#mergeitem)
-* [`clear`](asyncstorage.md#clear)
-* [`getAllKeys`](asyncstorage.md#getallkeys)
-* [`flushGetRequests`](asyncstorage.md#flushgetrequests)
-* [`multiGet`](asyncstorage.md#multiget)
-* [`multiSet`](asyncstorage.md#multiset)
-* [`multiRemove`](asyncstorage.md#multiremove)
-* [`multiMerge`](asyncstorage.md#multimerge)
+- [`getItem`](asyncstorage.md#getitem)
+- [`setItem`](asyncstorage.md#setitem)
+- [`removeItem`](asyncstorage.md#removeitem)
+- [`mergeItem`](asyncstorage.md#mergeitem)
+- [`clear`](asyncstorage.md#clear)
+- [`getAllKeys`](asyncstorage.md#getallkeys)
+- [`flushGetRequests`](asyncstorage.md#flushgetrequests)
+- [`multiGet`](asyncstorage.md#multiget)
+- [`multiSet`](asyncstorage.md#multiset)
+- [`multiRemove`](asyncstorage.md#multiremove)
+- [`multiMerge`](asyncstorage.md#multimerge)
 
 ---
 

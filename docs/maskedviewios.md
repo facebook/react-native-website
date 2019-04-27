@@ -3,6 +3,8 @@ id: maskedviewios
 title: MaskedViewIOS
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-masked-view](https://github.com/react-native-community/react-native-masked-view) instead.
+
 Renders the child view with a mask specified in the `maskElement` prop.
 
 ## Example
@@ -54,9 +56,9 @@ The following image demonstrates that you can put almost anything behind the mas
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`maskElement`](maskedviewios.md#maskelement)
+* [`maskElement`](maskedviewios.md#maskelement)
 
 ---
 

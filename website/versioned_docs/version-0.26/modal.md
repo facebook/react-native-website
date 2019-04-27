@@ -12,12 +12,12 @@ In apps written with React Native from the root view down, you should use Naviga
 
 ### Props
 
-* [`animationType`](modal.md#animationtype)
-* [`onRequestClose`](modal.md#onrequestclose)
-* [`onShow`](modal.md#onshow)
-* [`transparent`](modal.md#transparent)
-* [`visible`](modal.md#visible)
-* [`animated`](modal.md#animated)
+- [`animationType`](modal.md#animationtype)
+- [`onRequestClose`](modal.md#onrequestclose)
+- [`onShow`](modal.md#onshow)
+- [`transparent`](modal.md#transparent)
+- [`visible`](modal.md#visible)
+- [`animated`](modal.md#animated)
 
 ---
 

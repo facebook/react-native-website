@@ -80,17 +80,17 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. To use, set the `accessibilityRole` property to one of the following strings:
 
-* **none** Used when the element has no role.
-* **button** Used when the element should be treated as a button.
-* **link** Used when the element should be treated as a link.
-* **search** Used when the text field element should also be treated as a search field.
-* **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
-* **keyboardkey** Used when the element acts as a keyboard key.
-* **text** Used when the element should be treated as static text that cannot change.
-* **adjustable** Used when an element can be "adjusted" (e.g. a slider).
-* **imagebutton** Used when the element should be treated as a button and is also an image.
-* **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
-* **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- **none** Used when the element has no role.
+- **button** Used when the element should be treated as a button.
+- **link** Used when the element should be treated as a link.
+- **search** Used when the text field element should also be treated as a search field.
+- **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
+- **keyboardkey** Used when the element acts as a keyboard key.
+- **text** Used when the element should be treated as static text that cannot change.
+- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
+- **imagebutton** Used when the element should be treated as a button and is also an image.
+- **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
 
 #### accessibilityStates (iOS, Android)
 
@@ -98,8 +98,8 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 
 Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
 
-* **selected** Used when the element is in a selected state. For example, a button is selected.
-* **disabled** Used when the element is disabled and cannot be interacted with.
+- **selected** Used when the element is in a selected state. For example, a button is selected.
+- **disabled** Used when the element is disabled and cannot be interacted with.
 
 To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
 
@@ -111,23 +111,23 @@ Accessibility traits tell a person using VoiceOver what kind of element they hav
 
 To use, set the `accessibilityTraits` property to one of (or an array of) accessibility trait strings:
 
-* **none** Used when the element has no traits.
-* **button** Used when the element should be treated as a button.
-* **link** Used when the element should be treated as a link.
-* **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
-* **search** Used when the text field element should also be treated as a search field.
-* **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
-* **selected** Used when the element is selected. For example, a selected row in a table or a selected button within a segmented control.
-* **plays** Used when the element plays its own sound when activated.
-* **key** Used when the element acts as a keyboard key.
-* **text** Used when the element should be treated as static text that cannot change.
-* **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches. For example, when Weather first launches, the element with today's weather conditions is marked with this trait.
-* **disabled** Used when the control is not enabled and does not respond to user input.
-* **frequentUpdates** Used when the element frequently updates its label or value, but too often to send notifications. Allows an accessibility client to poll for changes. A stopwatch would be an example.
-* **startsMedia** Used when activating an element starts a media session (e.g. playing a movie, recording audio) that should not be interrupted by output from an assistive technology, like VoiceOver.
-* **adjustable** Used when an element can be "adjusted" (e.g. a slider).
-* **allowsDirectInteraction** Used when an element allows direct touch interaction for VoiceOver users (for example, a view representing a piano keyboard).
-* **pageTurn** Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
+- **none** Used when the element has no traits.
+- **button** Used when the element should be treated as a button.
+- **link** Used when the element should be treated as a link.
+- **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- **search** Used when the text field element should also be treated as a search field.
+- **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
+- **selected** Used when the element is selected. For example, a selected row in a table or a selected button within a segmented control.
+- **plays** Used when the element plays its own sound when activated.
+- **key** Used when the element acts as a keyboard key.
+- **text** Used when the element should be treated as static text that cannot change.
+- **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches. For example, when Weather first launches, the element with today's weather conditions is marked with this trait.
+- **disabled** Used when the control is not enabled and does not respond to user input.
+- **frequentUpdates** Used when the element frequently updates its label or value, but too often to send notifications. Allows an accessibility client to poll for changes. A stopwatch would be an example.
+- **startsMedia** Used when activating an element starts a media session (e.g. playing a movie, recording audio) that should not be interrupted by output from an assistive technology, like VoiceOver.
+- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
+- **allowsDirectInteraction** Used when an element allows direct touch interaction for VoiceOver users (for example, a view representing a piano keyboard).
+- **pageTurn** Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
 
 #### accessibilityViewIsModal (iOS)
 
@@ -174,9 +174,9 @@ In the above example, the TouchableWithoutFeedback is being announced by TalkBac
 
 When components dynamically change, we want TalkBack to alert the end user. This is made possible by the ‘accessibilityLiveRegion’ property. It can be set to ‘none’, ‘polite’ and ‘assertive’:
 
-* **none** Accessibility services should not announce changes to this view.
-* **polite** Accessibility services should announce changes to this view.
-* **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
+- **none** Accessibility services should not announce changes to this view.
+- **polite** Accessibility services should announce changes to this view.
+- **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
 ```javascript
 <TouchableWithoutFeedback onPress={this._addOne}>

@@ -33,14 +33,14 @@ var styles = StyleSheet.create({
 
 ### Props
 
-* [`accessible`](text.md#accessible)
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onPress`](text.md#onpress)
-* [`style`](text.md#style)
-* [`testID`](text.md#testid)
-* [`allowFontScaling`](text.md#allowfontscaling)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
+- [`accessible`](text.md#accessible)
+- [`numberOfLines`](text.md#numberoflines)
+- [`onLayout`](text.md#onlayout)
+- [`onPress`](text.md#onpress)
+- [`style`](text.md#style)
+- [`testID`](text.md#testid)
+- [`allowFontScaling`](text.md#allowfontscaling)
+- [`suppressHighlighting`](text.md#suppresshighlighting)
 
 ---
 
@@ -94,43 +94,43 @@ This function is called on press.
 | ----- | -------- |
 | style | No       |
 
-* [View Style Props...](view-style-props.md#style)
+- [View Style Props...](view-style-props.md#style)
 
-* **`textShadowOffset`**: object: {width: number,height: number}
+- **`textShadowOffset`**: object: {width: number,height: number}
 
-* **`color`**: [color](colors.md)
+- **`color`**: [color](colors.md)
 
-* **`fontSize`**: number
+- **`fontSize`**: number
 
-* **`fontStyle`**: enum('normal', 'italic')
+- **`fontStyle`**: enum('normal', 'italic')
 
-* **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
+- **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
   Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-* **`lineHeight`**: number
+- **`lineHeight`**: number
 
-* **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
+- **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
   Specifies text alignment. The value 'justify' is only supported on iOS.
 
-* **`textShadowColor`**: [color](colors.md)
+- **`textShadowColor`**: [color](colors.md)
 
-* **`fontFamily`**: string
+- **`fontFamily`**: string
 
-* **`textShadowRadius`**: number
+- **`textShadowRadius`**: number
 
-* **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
+- **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
 
-* **`letterSpacing`**: number (_iOS_)
+- **`letterSpacing`**: number (_iOS_)
 
-* **`textDecorationColor`**: [color](colors.md) (_iOS_)
+- **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
-* **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through') (_iOS_)
+- **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through') (_iOS_)
 
-* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
+- **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
 
-* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
+- **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
 
 ---
 

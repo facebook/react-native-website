@@ -24,8 +24,8 @@ Refer to the [Animations](animations.md#animated-api) guide to see additional ex
 
 There are two value types you can use with `Animated`:
 
-* [`Animated.Value()`](animated.md#value) for single values
-* [`Animated.ValueXY()`](animated.md#valuexy) for vectors
+- [`Animated.Value()`](animated.md#value) for single values
+- [`Animated.ValueXY()`](animated.md#valuexy) for vectors
 
 `Animated.Value` can bind to style properties or other props, and can be interpolated as well. A single `Animated.Value` can drive any number of properties.
 
@@ -33,9 +33,9 @@ There are two value types you can use with `Animated`:
 
 `Animated` provides three types of animation types. Each animation type provides a particular animation curve that controls how your values animate from their initial value to the final value:
 
-* [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
-* [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
-* [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
+- [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
+- [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
+- [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
 
 In most cases, you will be using `timing()`. By default, it uses a symmetric easeInOut curve that conveys the gradual acceleration of an object to full speed and concludes by gradually decelerating to a stop.
 
@@ -53,23 +53,23 @@ You can use the native driver by specifying `useNativeDriver: true` in your anim
 
 Only animatable components can be animated. These special components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
 
-* [`createAnimatedComponent()`](animated.md#createanimatedcomponent) can be used to make a component animatable.
+- [`createAnimatedComponent()`](animated.md#createanimatedcomponent) can be used to make a component animatable.
 
 `Animated` exports the following animatable components using the above wrapper:
 
-* `Animated.Image`
-* `Animated.ScrollView`
-* `Animated.Text`
-* `Animated.View`
+- `Animated.Image`
+- `Animated.ScrollView`
+- `Animated.Text`
+- `Animated.View`
 
 ### Composing animations
 
 Animations can also be combined in complex ways using composition functions:
 
-* [`Animated.delay()`](animated.md#delay) starts an animation after a given delay.
-* [`Animated.parallel()`](animated.md#parallel) starts a number of animations at the same time.
-* [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
-* [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
+- [`Animated.delay()`](animated.md#delay) starts an animation after a given delay.
+- [`Animated.parallel()`](animated.md#parallel) starts a number of animations at the same time.
+- [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
+- [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
 
 Animations can also be chained together simply by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](animations.md#tracking-dynamic-values) in the Animations guide.
 
@@ -79,16 +79,16 @@ By default, if one animation is stopped or interrupted, then all other animation
 
 You can combine two animated values via addition, multiplication, division, or modulo to make a new animated value:
 
-* [`Animated.add()`](animated.md#add)
-* [`Animated.divide()`](animated.md#divide)
-* [`Animated.modulo()`](animated.md#modulo)
-* [`Animated.multiply()`](animated.md#multiply)
+- [`Animated.add()`](animated.md#add)
+- [`Animated.divide()`](animated.md#divide)
+- [`Animated.modulo()`](animated.md#modulo)
+- [`Animated.multiply()`](animated.md#multiply)
 
 ### Interpolation
 
 The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses lineal interpolation by default but also supports easing functions.
 
-* [`interpolate()`](animated.md#interpolate)
+- [`interpolate()`](animated.md#interpolate)
 
 Read more about interpolation in the [Animation](animations.md#interpolation) guide.
 
@@ -96,7 +96,7 @@ Read more about interpolation in the [Animation](animations.md#interpolation) gu
 
 Gestures, like panning or scrolling, and other events can map directly to animated values using `Animated.event()`. This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
 
-* [`Animated.event()`](animated.md#event)
+- [`Animated.event()`](animated.md#event)
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
@@ -114,33 +114,33 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 ### Methods
 
-* [`decay`](animated.md#decay)
-* [`timing`](animated.md#timing)
-* [`spring`](animated.md#spring)
-* [`add`](animated.md#add)
-* [`divide`](animated.md#divide)
-* [`multiply`](animated.md#multiply)
-* [`modulo`](animated.md#modulo)
-* [`diffClamp`](animated.md#diffclamp)
-* [`delay`](animated.md#delay)
-* [`sequence`](animated.md#sequence)
-* [`parallel`](animated.md#parallel)
-* [`stagger`](animated.md#stagger)
-* [`event`](animated.md#event)
-* [`createAnimatedComponent`](animated.md#createanimatedcomponent)
+- [`decay`](animated.md#decay)
+- [`timing`](animated.md#timing)
+- [`spring`](animated.md#spring)
+- [`add`](animated.md#add)
+- [`divide`](animated.md#divide)
+- [`multiply`](animated.md#multiply)
+- [`modulo`](animated.md#modulo)
+- [`diffClamp`](animated.md#diffclamp)
+- [`delay`](animated.md#delay)
+- [`sequence`](animated.md#sequence)
+- [`parallel`](animated.md#parallel)
+- [`stagger`](animated.md#stagger)
+- [`event`](animated.md#event)
+- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
 
 ### Properties
 
-* [`Value`](animated.md#value)
-* [`ValueXY`](animated.md#valuexy)
-* [`Interpolation`](animated.md#interpolation)
+- [`Value`](animated.md#value)
+- [`ValueXY`](animated.md#valuexy)
+- [`Interpolation`](animated.md#interpolation)
 
 ### Classes
 
-* [`AnimatedValue`](animated.md#animatedvalue)
-* [`AnimatedValueXY`](animated.md#animatedvaluexy)
-* [`AnimatedInterpolation`](animated.md#animatedinterpolation)
-* [`AnimatedProps`](animated.md#animatedprops)
+- [`AnimatedValue`](animated.md#animatedvalue)
+- [`AnimatedValueXY`](animated.md#animatedvaluexy)
+- [`AnimatedInterpolation`](animated.md#animatedinterpolation)
+- [`AnimatedProps`](animated.md#animatedprops)
 
 ---
 
@@ -158,9 +158,9 @@ Animates a value from an initial velocity to zero based on a decay coefficient.
 
 Config is an object that may have the following options:
 
-* `velocity`: Initial velocity. Required.
-* `deceleration`: Rate of decay. Default 0.997.
-* `useNativeDriver`: Uses the native driver when true. Default false.
+- `velocity`: Initial velocity. Required.
+- `deceleration`: Rate of decay. Default 0.997.
+- `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
@@ -174,10 +174,10 @@ Animates a value along a timed easing curve. The [`Easing`](easing.md) module ha
 
 Config is an object that may have the following options:
 
-* `duration`: Length of animation (milliseconds). Default 500.
-* `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
-* `delay`: Start the animation after delay (milliseconds). Default 0.
-* `useNativeDriver`: Uses the native driver when true. Default false.
+- `duration`: Length of animation (milliseconds). Default 500.
+- `easing`: Easing function to define curve. Default is `Easing.inOut(Easing.ease)`.
+- `delay`: Start the animation after delay (milliseconds). Default 0.
+- `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
@@ -191,9 +191,9 @@ Spring animation based on Rebound and [Origami](https://facebook.github.io/origa
 
 Config is an object that may have the following options:
 
-* `friction`: Controls "bounciness"/overshoot. Default 7.
-* `tension`: Controls speed. Default 40.
-* `useNativeDriver`: Uses the native driver when true. Default false.
+- `friction`: Controls "bounciness"/overshoot. Default 7.
+- `tension`: Controls speed. Default 40.
+- `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 
@@ -311,8 +311,8 @@ Takes an array of mappings and extracts values from each arg accordingly, then c
 
 Config is an object that may have the following options:
 
-* `listener`: Optional async listener.
-* `useNativeDriver`: Uses the native driver when true. Default false.
+- `listener`: Optional async listener.
+- `useNativeDriver`: Uses the native driver when true. Default false.
 
 ---
 

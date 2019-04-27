@@ -6,12 +6,12 @@ original_id: tabbarios
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`barTintColor`](tabbarios.md#bartintcolor)
-- [`style`](tabbarios.md#style)
-- [`tintColor`](tabbarios.md#tintcolor)
-- [`translucent`](tabbarios.md#translucent)
+* [`barTintColor`](tabbarios.md#bartintcolor)
+* [`style`](tabbarios.md#style)
+* [`tintColor`](tabbarios.md#tintcolor)
+* [`translucent`](tabbarios.md#translucent)
 
 ---
 

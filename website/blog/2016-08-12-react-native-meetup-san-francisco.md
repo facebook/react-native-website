@@ -15,15 +15,15 @@ Last week I had the opportunity to attend the [React Native Meetup](http://www.m
 
 I was particularly interested in learning more about how React and React Native are used at companies like Zynga, Netflix, and Airbnb. The agenda for the night would be as follows:
 
-* Rapid Prototyping in React
-* Designing APIs for React Native
-* Bridging the Gap: Using React Native in Existing Codebases
+- Rapid Prototyping in React
+- Designing APIs for React Native
+- Bridging the Gap: Using React Native in Existing Codebases
 
 But first, the event started off with a quick introduction and a brief recap of recent news:
 
-* Did you know that React Native is now the [top Java repository on GitHub](https://twitter.com/jamespearce/status/759637111880359937)?
-* [rnpm](https://github.com/rnpm/rnpm) is now part of React Native core! You can now use `react-native link` in place of `rnpm link` to [install libraries with native dependencies](https://facebook.github.io/react-native/linking-libraries-ios.md).
-* The React Native Meetup community is growing fast! There are now over 4,800 developers across a variety of React Native meetup groups all over the globe.
+- Did you know that React Native is now the [top Java repository on GitHub](https://twitter.com/jamespearce/status/759637111880359937)?
+- [rnpm](https://github.com/rnpm/rnpm) is now part of React Native core! You can now use `react-native link` in place of `rnpm link` to [install libraries with native dependencies](https://facebook.github.io/react-native/linking-libraries-ios.md).
+- The React Native Meetup community is growing fast! There are now over 4,800 developers across a variety of React Native meetup groups all over the globe.
 
 If [one of these meetups](http://www.meetup.com/find/?allMeetups=false&keywords=react+native&radius=Infinity&userFreeform=San+Francisco%2C+CA&mcId=z94105&mcName=San+Francisco%2C+CA&sort=recommended&eventFilter=mysugg) is held near you, I highly recommend attending!
 
@@ -35,8 +35,8 @@ The first round of news was followed by a quick introduction by Zynga, our hosts
 
 Up next, the first featured talk of the evening. [Clarence Leung](https://twitter.com/clarler), Senior Software Engineer at Netflix, presented his talk on Designing APIs for React Native. First he noted the two main types of libraries one may work on: components such as tab bars and date pickers, and libraries that provide access to native services such as the camera roll or in-app payments. There are two ways one may approach when building a library for use in React Native:
 
-* Provide platform-specific components
-* A cross-platform library with a similar API for both iOS and Android
+- Provide platform-specific components
+- A cross-platform library with a similar API for both iOS and Android
 
 Each approach has its own considerations, and it’s up to you to determine what works best for your needs.
 
@@ -84,18 +84,18 @@ They decided that they needed their own library. The library is called `airbnb-n
 
 I won’t go into much detail into the library’s API, but here are some of the key takeaways:
 
-* One must preregister scenes ahead of time
-* Each scene is displayed within its own `RCTRootView`. They are presented natively on each platform (e.g. `UINavigationController`s are used on iOS).
-* The main `ScrollView` in a scene should be wrapped in a `ScrollScene` component. Doing so allows you to take advantage of native behaviors such as tapping on the status bar to scroll to the top on iOS.
-* Transitions between scenes are handled natively, no need to worry about performance.
-* The Android back button is automatically supported.
-* They can take advantage of View Controller based navigation bar styling via a Navigator.Config UI-less component.
+- One must preregister scenes ahead of time
+- Each scene is displayed within its own `RCTRootView`. They are presented natively on each platform (e.g. `UINavigationController`s are used on iOS).
+- The main `ScrollView` in a scene should be wrapped in a `ScrollScene` component. Doing so allows you to take advantage of native behaviors such as tapping on the status bar to scroll to the top on iOS.
+- Transitions between scenes are handled natively, no need to worry about performance.
+- The Android back button is automatically supported.
+- They can take advantage of View Controller based navigation bar styling via a Navigator.Config UI-less component.
 
 There’s also some considerations to keep in mind:
 
-* The navigation bar is not easily customized in JavaScript, as it is a native component. This is intentional, as using native navigation bars is a hard requirement for this type of library.
-* ScreenProps must be serialized/de-serialized whenever they're sent through the bridge, so care must be taken if sending too much data here.
-* Navigation state is owned by the native app (also a hard requirement for the library), so things like Redux cannot manipulate navigation state.
+- The navigation bar is not easily customized in JavaScript, as it is a native component. This is intentional, as using native navigation bars is a hard requirement for this type of library.
+- ScreenProps must be serialized/de-serialized whenever they're sent through the bridge, so care must be taken if sending too much data here.
+- Navigation state is owned by the native app (also a hard requirement for the library), so things like Redux cannot manipulate navigation state.
 
 Leland's talk was also followed by a Q&A session. Overall, Airbnb is satisfied with React Native. They’re interested in using Code Push to fix any issues without going through the App Store, and their engineers love Live Reload, as they don't have to wait for the native app to be rebuilt after every minor change.
 
@@ -103,9 +103,9 @@ Leland's talk was also followed by a Q&A session. Overall, Airbnb is satisfied w
 
 The event ended with some additional React Native news:
 
-* Deco announced their [React Native Showcase](https://www.decosoftware.com/showcase), and invited everyone to add their app to the list.
-* The recent [documentation overhaul](https://facebook.github.io/react-native/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
-* Devin Abbott, one of the creators of Deco IDE, will be teaching an introductory [React Native course](https://www.decosoftware.com/course).
+- Deco announced their [React Native Showcase](https://www.decosoftware.com/showcase), and invited everyone to add their app to the list.
+- The recent [documentation overhaul](https://facebook.github.io/react-native/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
+- Devin Abbott, one of the creators of Deco IDE, will be teaching an introductory [React Native course](https://www.decosoftware.com/course).
 
 ![](/react-native/blog/assets/rnmsf-august-2016-docs.jpg)
 

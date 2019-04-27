@@ -34,55 +34,53 @@ class ViewColoredBoxesWithText extends Component {
 
 For `View` responder props (e.g., `onResponderMove`), the synthetic touch event passed to them are of the following form:
 
-* `nativeEvent`
-  * `changedTouches` - Array of all touch events that have changed since the last event.
-  * `identifier` - The ID of the touch.
-  * `locationX` - The X position of the touch, relative to the element.
-  * `locationY` - The Y position of the touch, relative to the element.
-  * `pageX` - The X position of the touch, relative to the root element.
-  * `pageY` - The Y position of the touch, relative to the root element.
-  * `target` - The node id of the element receiving the touch event.
-  * `timestamp` - A time identifier for the touch, useful for velocity calculation.
-  * `touches` - Array of all current touches on the screen.
+- `nativeEvent`
+  - `changedTouches` - Array of all touch events that have changed since the last event.
+  - `identifier` - The ID of the touch.
+  - `locationX` - The X position of the touch, relative to the element.
+  - `locationY` - The Y position of the touch, relative to the element.
+  - `pageX` - The X position of the touch, relative to the root element.
+  - `pageY` - The Y position of the touch, relative to the root element.
+  - `target` - The node id of the element receiving the touch event.
+  - `timestamp` - A time identifier for the touch, useful for velocity calculation.
+  - `touches` - Array of all current touches on the screen.
 
 ### Props
 
-* [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
-* [`accessibilityLabel`](view.md#accessibilitylabel)
-* [`accessibilityHint`](view.md#accessibilityhint)
-* [`hitSlop`](view.md#hitslop)
-* [`nativeID`](view.md#nativeid)
-* [`onAccessibilityTap`](view.md#onaccessibilitytap)
-* [`onLayout`](view.md#onlayout)
-* [`onMagicTap`](view.md#onmagictap)
-* [`onAccessibilityEscape`](view.md#onaccessibilityescape)
-* [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
-* [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
-* [`onResponderGrant`](view.md#onrespondergrant)
-* [`onResponderMove`](view.md#onrespondermove)
-* [`onResponderReject`](view.md#onresponderreject)
-* [`onResponderRelease`](view.md#onresponderrelease)
-* [`onResponderTerminate`](view.md#onresponderterminate)
-* [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
-* [`accessible`](view.md#accessible)
-* [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
-* [`pointerEvents`](view.md#pointerevents)
-* [`removeClippedSubviews`](view.md#removeclippedsubviews)
-* [`style`](view.md#style)
-* [`testID`](view.md#testid)
-* [`accessibilityComponentType`](view.md#accessibilitycomponenttype)
-* [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
-* [`collapsable`](view.md#collapsable)
-* [`importantForAccessibility`](view.md#importantforaccessibility)
-* [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
-* [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
-* [`accessibilityRole`](view.md#accessibilityrole)
-* [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityTraits`](view.md#accessibilitytraits)
-* [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-* [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
-* [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
-* [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
+- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
+- [`accessibilityLabel`](view.md#accessibilitylabel)
+- [`accessibilityHint`](view.md#accessibilityhint)
+- [`hitSlop`](view.md#hitslop)
+- [`nativeID`](view.md#nativeid)
+- [`onAccessibilityTap`](view.md#onaccessibilitytap)
+- [`onLayout`](view.md#onlayout)
+- [`onMagicTap`](view.md#onmagictap)
+- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
+- [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
+- [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
+- [`onResponderGrant`](view.md#onrespondergrant)
+- [`onResponderMove`](view.md#onrespondermove)
+- [`onResponderReject`](view.md#onresponderreject)
+- [`onResponderRelease`](view.md#onresponderrelease)
+- [`onResponderTerminate`](view.md#onresponderterminate)
+- [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
+- [`accessible`](view.md#accessible)
+- [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
+- [`pointerEvents`](view.md#pointerevents)
+- [`removeClippedSubviews`](view.md#removeclippedsubviews)
+- [`style`](view.md#style)
+- [`testID`](view.md#testid)
+- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
+- [`collapsable`](view.md#collapsable)
+- [`importantForAccessibility`](view.md#importantforaccessibility)
+- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
+- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
+- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
+- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
+- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
 
@@ -116,9 +114,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type | Required |
-| ---- | -------- |
-| node | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
@@ -314,9 +312,9 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 Controls whether the `View` can be the target of touch events.
 
-* `'auto'`: The View can be the target of touch events.
-* `'none'`: The View is never the target of touch events.
-* `'box-none'`: The View is never the target of touch events but it's subviews can be. It behaves like if the view had the following classes in CSS:
+- `'auto'`: The View can be the target of touch events.
+- `'none'`: The View is never the target of touch events.
+- `'box-none'`: The View is never the target of touch events but it's subviews can be. It behaves like if the view had the following classes in CSS:
 
 ```
 .box-none {
@@ -327,7 +325,7 @@ Controls whether the `View` can be the target of touch events.
 }
 ```
 
-* `'box-only'`: The view can be the target of touch events but it's subviews cannot be. It behaves like if the view had the following classes in CSS:
+- `'box-only'`: The view can be the target of touch events but it's subviews cannot be. It behaves like if the view had the following classes in CSS:
 
 ```
 .box-only {
@@ -376,32 +374,13 @@ Used to locate this view in end-to-end tests.
 
 ---
 
-### `accessibilityComponentType`
-
-_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-Indicates to accessibility services to treat UI component like a native one. Works for Android only.
-
-Possible values are one of:
-
-* `'none'`
-* `'button'`
-* `'radiobutton_checked'`
-* `'radiobutton_unchecked'`
-
-| Type                        | Required | Platform |
-| --------------------------- | -------- | -------- |
-| AccessibilityComponentTypes | No       | Android  |
-
----
-
 ### `accessibilityLiveRegion`
 
 Indicates to accessibility services whether the user should be notified when this view changes. Works for Android API >= 19 only. Possible values:
 
-* `'none'` - Accessibility services should not announce changes to this view.
-* `'polite'`- Accessibility services should announce changes to this view.
-* `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
+- `'none'` - Accessibility services should not announce changes to this view.
+- `'polite'`- Accessibility services should announce changes to this view.
+- `'assertive'` - Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
 See the [Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) for reference.
 
@@ -427,10 +406,10 @@ Controls how view is important for accessibility which is if it fires accessibil
 
 Possible values:
 
-* `'auto'` - The system determines whether the view is important for accessibility - default (recommended).
-* `'yes'` - The view is important for accessibility.
-* `'no'` - The view is not important for accessibility.
-* `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
+- `'auto'` - The system determines whether the view is important for accessibility - default (recommended).
+- `'yes'` - The view is important for accessibility.
+- `'no'` - The view is not important for accessibility.
+- `'no-hide-descendants'` - The view is not important for accessibility, nor are any of its descendant views.
 
 See the [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility) for reference.
 
@@ -466,23 +445,21 @@ On Android, this is useful for animations and interactions that only modify opac
 
 ### `accessibilityRole`
 
-_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
-
 Tells the screen reader to treat the currently focused on element as having a specific role.
 
 Possible values for `AccessibilityRole` is one of:
 
-* `'none'` - The element has no role.
-* `'button'` - The element should be treated as a button.
-* `'link'` - The element should be treated as a link.
-* `'header'` - The element is a header that divides content into sections.
-* `'search'` - The element should be treated as a search field.
-* `'image'` - The element should be treated as an image.
-* `'key'` - The element should be treated like a keyboard key.
-* `'text'` - The element should be treated as text.
-* `'summary'` - The element provides app summary information.
-* `'imagebutton'` - The element has the role of both an image and also a button.
-* `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - The element has no role.
+- `'button'` - The element should be treated as a button.
+- `'link'` - The element should be treated as a link.
+- `'header'` - The element is a header that divides content into sections.
+- `'search'` - The element should be treated as a search field.
+- `'image'` - The element should be treated as an image.
+- `'key'` - The element should be treated like a keyboard key.
+- `'text'` - The element should be treated as text.
+- `'summary'` - The element provides app summary information.
+- `'imagebutton'` - The element has the role of both an image and also a button.
+- `'adjustable'` - The element allows adjustment over a range of values.
 
 On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
@@ -496,56 +473,18 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 ### `accessibilityStates`
 
-_> Note: `AccessibilityRole` and `AccessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`._
-
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
 You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
 
 Possible values for `AccessibilityStates` are:
 
-* `'selected'` - The element is in a selected state.
-* `'disabled'` - The element is in a disabled state.
+- `'selected'` - The element is in a selected state.
+- `'disabled'` - The element is in a disabled state.
 
 | Type                        | Required |
 | --------------------------- | -------- |
 | array of AccessibilitStates | No       |
-
----
-
-### `accessibilityTraits`
-
-_> Note: `accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-Provides additional traits to screen reader. By default no traits are provided unless specified otherwise in element.
-
-You can provide one trait or an array of many traits.
-
-Possible values for `AccessibilityTraits` are:
-
-* `'none'` - The element has no traits.
-* `'button'` - The element should be treated as a button.
-* `'link'` - The element should be treated as a link.
-* `'header'` - The element is a header that divides content into sections.
-* `'search'` - The element should be treated as a search field.
-* `'image'` - The element should be treated as an image.
-* `'selected'` - The element is selected.
-* `'plays'` - The element plays sound.
-* `'key'` - The element should be treated like a keyboard key.
-* `'text'` - The element should be treated as text.
-* `'summary'` - The element provides app summary information.
-* `'disabled'` - The element is disabled.
-* `'frequentUpdates'` - The element frequently changes its value.
-* `'startsMedia'` - The element starts a media session.
-* `'adjustable'` - The element allows adjustment over a range of values.
-* `'allowsDirectInteraction'` - The element allows direct touch interaction for VoiceOver users.
-* `'pageTurn'` - Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
-
-See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
-
-| Type                                               | Required | Platform |
-| -------------------------------------------------- | -------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | No       | iOS      |
 
 ---
 

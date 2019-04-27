@@ -59,15 +59,15 @@ class ModalExample extends Component {
 
 ### Props
 
-* [`animationType`](modal.md#animationtype)
-* [`onShow`](modal.md#onshow)
-* [`transparent`](modal.md#transparent)
-* [`visible`](modal.md#visible)
-* [`hardwareAccelerated`](modal.md#hardwareaccelerated)
-* [`onRequestClose`](modal.md#onrequestclose)
-* [`onOrientationChange`](modal.md#onorientationchange)
-* [`supportedOrientations`](modal.md#supportedorientations)
-* [`animated`](modal.md#animated)
+- [`animationType`](modal.md#animationtype)
+- [`onShow`](modal.md#onshow)
+- [`transparent`](modal.md#transparent)
+- [`visible`](modal.md#visible)
+- [`hardwareAccelerated`](modal.md#hardwareaccelerated)
+- [`onRequestClose`](modal.md#onrequestclose)
+- [`onOrientationChange`](modal.md#onorientationchange)
+- [`supportedOrientations`](modal.md#supportedorientations)
+- [`animated`](modal.md#animated)
 
 ---
 
@@ -79,9 +79,9 @@ class ModalExample extends Component {
 
 The `animationType` prop controls how the modal animates.
 
-* `slide` slides in from the bottom
-* `fade` fades into view
-* `none` appears without an animation
+- `slide` slides in from the bottom
+- `fade` fades into view
+- `none` appears without an animation
 
 Default is set to `none`.
 

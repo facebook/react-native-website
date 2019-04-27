@@ -53,19 +53,19 @@ AppRegistry.registerComponent('TextInANest', () => TextInANest);
 
 ### Props
 
-* [`style`](text.md#style)
-* [`accessible`](text.md#accessible)
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onLongPress`](text.md#onlongpress)
-* [`onPress`](text.md#onpress)
-* [`ellipsizeMode`](text.md#ellipsizemode)
-* [`testID`](text.md#testid)
-* [`selectable`](text.md#selectable)
-* [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-* [`allowFontScaling`](text.md#allowfontscaling)
-* [`minimumFontScale`](text.md#minimumfontscale)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
+- [`style`](text.md#style)
+- [`accessible`](text.md#accessible)
+- [`numberOfLines`](text.md#numberoflines)
+- [`onLayout`](text.md#onlayout)
+- [`onLongPress`](text.md#onlongpress)
+- [`onPress`](text.md#onpress)
+- [`ellipsizeMode`](text.md#ellipsizemode)
+- [`testID`](text.md#testid)
+- [`selectable`](text.md#selectable)
+- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
+- [`allowFontScaling`](text.md#allowfontscaling)
+- [`minimumFontScale`](text.md#minimumfontscale)
+- [`suppressHighlighting`](text.md#suppresshighlighting)
 
 ---
 
@@ -79,48 +79,48 @@ AppRegistry.registerComponent('TextInANest', () => TextInANest);
 | ----- | -------- |
 | style | No       |
 
-* [View Style Props...](view-style-props.md#style)
+- [View Style Props...](view-style-props.md#style)
 
-* **`textDecorationLine`**: ReactPropTypes.oneOf( ['none' /*default*/, 'underline', 'line-through', 'underline line-through'] )
+- **`textDecorationLine`**: ReactPropTypes.oneOf( ['none' /*default*/, 'underline', 'line-through', 'underline line-through'] )
 
-* **`color`**: [color](colors.md)
+- **`color`**: [color](colors.md)
 
-* **`fontSize`**: ReactPropTypes.number
+- **`fontSize`**: ReactPropTypes.number
 
-* **`fontStyle`**: ReactPropTypes.oneOf(['normal', 'italic'])
+- **`fontStyle`**: ReactPropTypes.oneOf(['normal', 'italic'])
 
-* **`fontVariant`**: ReactPropTypes.arrayOf( ReactPropTypes.oneOf([ 'small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums', ]) )
+- **`fontVariant`**: ReactPropTypes.arrayOf( ReactPropTypes.oneOf([ 'small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums', ]) )
 
-* **`fontWeight`**: ReactPropTypes.oneOf( ['normal' /*default*/, 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900'] )
+- **`fontWeight`**: ReactPropTypes.oneOf( ['normal' /*default*/, 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900'] )
 
       Specifies font weight. The values 'normal' and 'bold' are supported for
       most fonts. Not all fonts have a variant for each of the numeric values,
       in that case the closest one is chosen.
 
-* **`lineHeight`**: ReactPropTypes.number
+- **`lineHeight`**: ReactPropTypes.number
 
-* **`textAlign`**: ReactPropTypes.oneOf( ['auto' /*default*/, 'left', 'right', 'center', 'justify'] )
+- **`textAlign`**: ReactPropTypes.oneOf( ['auto' /*default*/, 'left', 'right', 'center', 'justify'] )
 
       Specifies text alignment. The value 'justify' is only supported on iOS and
       fallbacks to `left` on Android.
 
-* **`fontFamily`**: ReactPropTypes.string
+- **`fontFamily`**: ReactPropTypes.string
 
-* **`textShadowColor`**: [color](colors.md)
+- **`textShadowColor`**: [color](colors.md)
 
-* **`textShadowOffset`**: ReactPropTypes.shape( {width: ReactPropTypes.number, height: ReactPropTypes.number} )
+- **`textShadowOffset`**: ReactPropTypes.shape( {width: ReactPropTypes.number, height: ReactPropTypes.number} )
 
-* **`textShadowRadius`**: ReactPropTypes.number
+- **`textShadowRadius`**: ReactPropTypes.number
 
-* **`textAlignVertical`**: ReactPropTypes.oneOf( ['auto' /*default*/, 'top', 'bottom', 'center'] ) (_Android_)
+- **`textAlignVertical`**: ReactPropTypes.oneOf( ['auto' /*default*/, 'top', 'bottom', 'center'] ) (_Android_)
 
-* **`letterSpacing`**: ReactPropTypes.number (_iOS_)
+- **`letterSpacing`**: ReactPropTypes.number (_iOS_)
 
-* **`textDecorationColor`**: [color](colors.md) (_iOS_)
+- **`textDecorationColor`**: [color](colors.md) (_iOS_)
 
-* **`textDecorationStyle`**: ReactPropTypes.oneOf( ['solid' /*default*/, 'double', 'dotted','dashed'] ) (_iOS_)
+- **`textDecorationStyle`**: ReactPropTypes.oneOf( ['solid' /*default*/, 'double', 'dotted','dashed'] ) (_iOS_)
 
-* **`writingDirection`**: ReactPropTypes.oneOf( ['auto' /*default*/, 'ltr', 'rtl'] ) (_iOS_)
+- **`writingDirection`**: ReactPropTypes.oneOf( ['auto' /*default*/, 'ltr', 'rtl'] ) (_iOS_)
 
 ---
 
@@ -188,10 +188,10 @@ e.g., `onPress={() => console.log('1st')}``
 
 This can be one of the following values:
 
-* `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
-* `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
-* `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
-* `clip` - Lines are not drawn past the edge of the text container.
+- `head` - The line is displayed so that the end fits in the container and the missing text at the beginning of the line is indicated by an ellipsis glyph. e.g., "...wxyz"
+- `middle` - The line is displayed so that the beginning and end fit in the container and the missing text in the middle is indicated by an ellipsis glyph. "ab...yz"
+- `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
+- `clip` - Lines are not drawn past the edge of the text container.
 
 The default is `tail`.
 

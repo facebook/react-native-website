@@ -12,16 +12,16 @@ This JS code is a simple facade over the native iOS implementation to provide a 
 
 ### Methods
 
-* [`getItem`](asyncstorage.md#getitem)
-* [`setItem`](asyncstorage.md#setitem)
-* [`removeItem`](asyncstorage.md#removeitem)
-* [`mergeItem`](asyncstorage.md#mergeitem)
-* [`clear`](asyncstorage.md#clear)
-* [`getAllKeys`](asyncstorage.md#getallkeys)
-* [`multiGet`](asyncstorage.md#multiget)
-* [`multiSet`](asyncstorage.md#multiset)
-* [`multiRemove`](asyncstorage.md#multiremove)
-* [`multiMerge`](asyncstorage.md#multimerge)
+- [`getItem`](asyncstorage.md#getitem)
+- [`setItem`](asyncstorage.md#setitem)
+- [`removeItem`](asyncstorage.md#removeitem)
+- [`mergeItem`](asyncstorage.md#mergeitem)
+- [`clear`](asyncstorage.md#clear)
+- [`getAllKeys`](asyncstorage.md#getallkeys)
+- [`multiGet`](asyncstorage.md#multiget)
+- [`multiSet`](asyncstorage.md#multiset)
+- [`multiRemove`](asyncstorage.md#multiremove)
+- [`multiMerge`](asyncstorage.md#multimerge)
 
 ---
 

@@ -44,12 +44,12 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 
 ### Methods
 
-* [`setRNConfiguration`](geolocation.md#setrnconfiguration)
-* [`requestAuthorization`](geolocation.md#requestauthorization)
-* [`getCurrentPosition`](geolocation.md#getcurrentposition)
-* [`watchPosition`](geolocation.md#watchposition)
-* [`clearWatch`](geolocation.md#clearwatch)
-* [`stopObserving`](geolocation.md#stopobserving)
+- [`setRNConfiguration`](geolocation.md#setrnconfiguration)
+- [`requestAuthorization`](geolocation.md#requestauthorization)
+- [`getCurrentPosition`](geolocation.md#getcurrentposition)
+- [`watchPosition`](geolocation.md#watchposition)
+- [`clearWatch`](geolocation.md#clearwatch)
+- [`stopObserving`](geolocation.md#stopobserving)
 
 ---
 
@@ -69,7 +69,7 @@ Sets configuration options that will be used in all location requests.
 
 #### iOS
 
-* `skipPermissionRequests` - defaults to `false`, if `true` you must request permissions before using Geolocation APIs.
+- `skipPermissionRequests` - defaults to `false`, if `true` you must request permissions before using Geolocation APIs.
 
 ---
 

@@ -143,7 +143,7 @@ Go to the root directory for your project and create a new `package.json` file w
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "yarn react-native start"
   }
 }
 ```
@@ -599,50 +599,22 @@ If you need to access to the `DevSettingsActivity` add to your `AndroidManifest.
 
 This is only used in dev mode when reloading JavaScript from the development server, so you can strip this in release builds if you need to.
 
-### Network Security Config (API level 28+)
+### Cleartext Traffic (API level 28+)
 
-> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. These changes add domain rules that specifically allow cleartext traffic to the packager IPs.
+> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. The changes below allow cleartext traffic in debug builds.
 
-#### 1. Create the following resource files
-
-`app/src/debug/res/xml/network_security_config.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<network-security-config>
-  <!-- allow cleartext traffic for React Native packager ips in debug -->
-  <domain-config cleartextTrafficPermitted="true">
-    <domain includeSubdomains="false">localhost</domain>
-    <domain includeSubdomains="false">10.0.2.2</domain>
-    <domain includeSubdomains="false">10.0.3.2</domain>
-  </domain-config>
-</network-security-config>
-```
-
-`app/src/release/res/xml/network_security_config.xml`:
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<network-security-config>
-  <!-- deny cleartext traffic for React Native packager ips in release -->
-  <domain-config cleartextTrafficPermitted="false">
-    <domain includeSubdomains="false">localhost</domain>
-    <domain includeSubdomains="false">10.0.2.2</domain>
-    <domain includeSubdomains="false">10.0.3.2</domain>
-  </domain-config>
-</network-security-config>
-```
-
-#### 2. Apply the config to your `AndroidManifest.xml`
+#### 1. Apply the `usesCleartextTraffic` option to your Debug `AndroidManifest.xml`
 
 ```xml
 <!-- ... -->
 <application
-  android:networkSecurityConfig="@xml/network_security_config">
+  android:usesCleartextTraffic="true" tools:targetApi="28" >
   <!-- ... -->
 </application>
 <!-- ... -->
 ```
+
+This is not required for Release builds.
 
 To learn more about Network Security Config and the cleartext traffic policy [see this link](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted).
 

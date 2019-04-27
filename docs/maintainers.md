@@ -11,8 +11,8 @@ So you have read through the [contributor's guide](contributing.md) and you're g
 
 We see dozens of new issues being created every day. In order to help maintainers focus on what is actionable, maintainers ask contributors to do a bit of work prior to opening a new issue:
 
-* New issues should follow the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md).
-* Issues should provide clear, easy to follow steps alongside sample code to reproduce the issue. Ideally, provide a [Snack](http://snack.expo.io/).
+- New issues should follow the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md).
+- Issues should provide clear, easy to follow steps alongside sample code to reproduce the issue. Ideally, provide a [Snack](http://snack.expo.io/).
 
 Issues that do not meet the above criteria can be closed immediately, with a link to the [contributor's guide](contributing.md).
 
@@ -20,7 +20,7 @@ Issues that do not meet the above criteria can be closed immediately, with a lin
 
 You have gathered all the information required to open a new issue, and you are confident it meets the [contributor guidelines](contributing.md). Once you post an issue, this is what our maintainers will consider when deciding how to move forward:
 
-* **Is this issue a feature request?**
+- **Is this issue a feature request?**
 
   Some features may not be a good fit for the core React Native library. This is usually the case for \*_new modules_ that Facebook does not use in production. In this case, a maintainer will explain that this should be released to npm as a separate module, allowing users to easily pull in the module in their projects.
 
@@ -28,19 +28,19 @@ You have gathered all the information required to open a new issue, and you are 
 
   An exception can be made for proposals and long-running discussions, though these should be rare. If you have been contributing to the project long enough, you will probably already have access to the [React Native Core Contributors](https://www.facebook.com/groups/reactnativeoss/) Facebook Group, where this sort of discussion is usually held.
 
-* **Is this issue a request for help?**
+- **Is this issue a request for help?**
 
   Questions should absolutely be asked on Stack Overflow rather than GitHub. Maintainers should encourage contributors to ask on Stack Overflow, before closing the issue. Feel free to also answer some [questions on Stack Overflow](https://stackoverflow.com/tags/react-native), you'll get rep!
 
-* **Was the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md) used to fill out the issue? Did the author answer Yes to both questions at the top?**
+- **Was the [Issue Template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md) used to fill out the issue? Did the author answer Yes to both questions at the top?**
 
   If not, the maintainer will ask you to provide more information by filling out the issue template, then they will close the issue.
 
-* **Is the issue a duplicate of an existing, open issue?**
+- **Is the issue a duplicate of an existing, open issue?**
 
   A maintainer will add a comment, `Duplicate of #123`, which will mark the issue as a duplicate of issue #123. They will then close the issue.
 
-* **Does the issue include a Snack or list of steps to reproduce the issue?**
+- **Does the issue include a Snack or list of steps to reproduce the issue?**
 
   Issues should be relatively easy to reproduce. Sometimes the issue affects a particular app but a minimal repro is not provided, perhaps a crash is seen in the logs and the author is not sure where its coming from, maybe the issue is sporadic.
 
@@ -48,21 +48,21 @@ You have gathered all the information required to open a new issue, and you are 
 
   Exceptions can be made if multiple people appear to be affected by the issue, especially right after a new React Native release is cut.
 
-* **Is the issue for an old release of React Native?**
+- **Is the issue for an old release of React Native?**
 
   If so, expect to be asked if the issue can be reproduced in the latest release candidate.
 
-* **Can the issue be reliably reproduced?**
+- **Can the issue be reliably reproduced?**
 
   Transient issues or issues that only occur on a specific project but a minimum repro is not provided may be closed.
 
-* **Does the issue need more information?**
+- **Does the issue need more information?**
 
   Some issues need additional information in order to reproduce them. Maintainers should explain what additional information is needed, after adding the 'Needs more information' label.
 
   Issues with the 'Needs more information' label that have been open for more than a week without a response from the author can be closed.
 
-* **Has the issue been resolved already in the comments?**
+- **Has the issue been resolved already in the comments?**
 
   Sometimes another contributor has already provided a solution in the comments. Maintainers may close the issue in this case.
 
@@ -86,9 +86,9 @@ Issues in the "Needs more information" state may be closed after a week with no 
 
 Simply commenting that the issue still exists is not very compelling (it's rare for critical, release blocking issues to have no activity for two months!). In order to make a good case for reopening the issue, you may need to do a bit of work:
 
-* Can the issue be reproduced on the latest release candidate? Post a comment with the version you tested.
-* If so, is there any information missing from the bug report? Post a comment with all the information required by the [issue template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md).
-* Is there a pull request that addressed this issue? Post a comment with the PR number so we can follow up.
+- Can the issue be reproduced on the latest release candidate? Post a comment with the version you tested.
+- If so, is there any information missing from the bug report? Post a comment with all the information required by the [issue template](https://github.com/facebook/react-native/blob/master/.github/ISSUE_TEMPLATE.md).
+- Is there a pull request that addressed this issue? Post a comment with the PR number so we can follow up.
 
 A couple of contributors making a good case may be all that is needed to reopen the issue.
 
@@ -106,35 +106,35 @@ Reviewing a PR can sometimes require more time from a maintainer than it took yo
 
 Once you open a pull request, this is how you can expect maintainers to review it:
 
-* **Is the pull request missing information?**
+- **Is the pull request missing information?**
 
   A test plan is required! Add the labels 'Needs revision' and 'Needs response from author'. You can then follow up with a response like:
 
   > Hey @author, thanks for sending the pull request. Can you please add all the info specified in the [template](https://github.com/facebook/react-native/blob/master/.github/PULL_REQUEST_TEMPLATE.md)? This is necessary for people to be able to understand and review your pull request.
 
-* **Does the code style match the [Style guide](contributing.md#style-guide)?**
+- **Does the code style match the [Style guide](contributing.md#style-guide)?**
 
   If not, link to the style guide and add the label 'Needs revision'.
 
-* **Does the pull request add a completely new feature we don't want to add to the core and maintain?**
+- **Does the pull request add a completely new feature we don't want to add to the core and maintain?**
 
   Ask the author to release it a separate npm module and close the pull request.
 
-* **Does the pull request do several unrelated things at the same time?**
+- **Does the pull request do several unrelated things at the same time?**
 
   Ask the author to split it.
 
-* **Is the pull request old and need rebasing?**
+- **Is the pull request old and need rebasing?**
 
   Ask the author "Can you rebase please?" and add the label 'Needs response from author'.
 
-* **Is a pull request waiting for a response from author?**
+- **Is a pull request waiting for a response from author?**
 
   Pull requests like these usually have the label 'Needs response from author'. If there has been no reply in the last 30 days, close it with a response like the following:
 
   > Thanks for making the pull request, but we are closing it due to inactivity. If you want to get your proposed changes merged, please rebase your branch with master and send a new pull request.
 
-* **Is the pull request old and waiting for review?**
+- **Is the pull request old and waiting for review?**
 
   Review it or cc someone who might be able to review. Finding the right person to review a pull request can sometimes be tricky. A pull request may simultaneously touch iOS, Java, and JavaScript code. If a pull request has been waiting for review for a while, you can help out by looking at the blame history for the files you're touching. Is there anyone that appears to be knowledgeable in the part of the codebase the PR is touching?
 
@@ -142,10 +142,10 @@ Once you open a pull request, this is how you can expect maintainers to review i
 
 Sometimes a maintainer may decide that a pull request will not be accepted. Maybe the pull request is out of scope for the project, or the idea is good but the implementation is poor. Whatever the reason, when closing a pull request maintainers should keep the conversation friendly:
 
-* **Thank** them for their contribution.
-* **Explain why** it doesn't fit into the scope of the project.
-* **Link to relevant documentation**, if you have it.
-* **Close** the request.
+- **Thank** them for their contribution.
+- **Explain why** it doesn't fit into the scope of the project.
+- **Link to relevant documentation**, if you have it.
+- **Close** the request.
 
 ## Defusing situations
 

@@ -268,8 +268,8 @@ If it doesn't resolve your local IP address either the **xip.io** service is dow
 
 To still use xip.io behind your router:
 
-* configure your phone to use Google DNS (8.8.8.8)
-* disable the appropriate security feature in your router
+- configure your phone to use Google DNS (8.8.8.8)
+- disable the appropriate security feature in your router
 
 <block class="mac windows linux android" />
 
@@ -332,6 +332,8 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 ## Building your app for production
 
 You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account.
+
+> If you are using Expo then read the Expo Guide for [Building Standalone Apps](https://docs.expo.io/versions/latest/distribution/building-standalone-apps/).
 
 ### 1. Enable App Transport Security
 

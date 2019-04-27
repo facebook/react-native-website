@@ -48,11 +48,11 @@ AppRegistry.registerComponent('App', () => App)
 
 ### Props
 
-* [`View` props...](view.md#props)
-* [`animating`](activityindicator.md#animating)
-* [`color`](activityindicator.md#color)
-* [`size`](activityindicator.md#size)
-* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
+- [`View` props...](view.md#props)
+- [`animating`](activityindicator.md#animating)
+- [`color`](activityindicator.md#color)
+- [`size`](activityindicator.md#size)
+- [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
 
 ---
 

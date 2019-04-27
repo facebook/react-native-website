@@ -27,25 +27,25 @@ renderImages: function() {
 
 ### Props
 
-* [`testID`](image.md#testid)
-* [`onLayout`](image.md#onlayout)
-* [`onLoadEnd`](image.md#onloadend)
-* [`onLoadStart`](image.md#onloadstart)
-* [`resizeMode`](image.md#resizemode)
-* [`source`](image.md#source)
-* [`style`](image.md#style)
-* [`onLoad`](image.md#onload)
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`blurRadius`](image.md#blurradius)
-* [`capInsets`](image.md#capinsets)
-* [`defaultSource`](image.md#defaultsource)
-* [`onError`](image.md#onerror)
-* [`onProgress`](image.md#onprogress)
+- [`testID`](image.md#testid)
+- [`onLayout`](image.md#onlayout)
+- [`onLoadEnd`](image.md#onloadend)
+- [`onLoadStart`](image.md#onloadstart)
+- [`resizeMode`](image.md#resizemode)
+- [`source`](image.md#source)
+- [`style`](image.md#style)
+- [`onLoad`](image.md#onload)
+- [`accessibilityLabel`](image.md#accessibilitylabel)
+- [`accessible`](image.md#accessible)
+- [`blurRadius`](image.md#blurradius)
+- [`capInsets`](image.md#capinsets)
+- [`defaultSource`](image.md#defaultsource)
+- [`onError`](image.md#onerror)
+- [`onProgress`](image.md#onprogress)
 
 ### Methods
 
-* [`getSize`](image.md#getsize)
+- [`getSize`](image.md#getsize)
 
 ---
 
@@ -125,40 +125,40 @@ Determines how to resize the image when the frame doesn't match the raw image di
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Shadow Props...](shadow-props.md#props)
+- [Shadow Props...](shadow-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`backfaceVisibility`**: enum('visible', 'hidden')
+- **`backfaceVisibility`**: enum('visible', 'hidden')
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`resizeMode`**: Object.keys(ImageResizeMode)
+- **`resizeMode`**: Object.keys(ImageResizeMode)
 
-* **`overlayColor`**: string (_Android_)
+- **`overlayColor`**: string (_Android_)
 
   When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 
-  * Certain resize modes, such as 'contain'
-  * Animated GIFs
+  - Certain resize modes, such as 'contain'
+  - Animated GIFs
 
   A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
   For details of how this works under the hood, see http://frescolib.org/rounded-corners-and-circles.md
 
-- **`tintColor`**: [color](colors.md) (_iOS_)
+* **`tintColor`**: [color](colors.md) (_iOS_)
 
   iOS-Specific style to "tint" an image. Changes the color of all the non-transparent pixels to the tintColor.
 

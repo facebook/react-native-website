@@ -3,6 +3,8 @@ id: netinfo
 title: NetInfo
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo) instead.
+
 NetInfo exposes info about online/offline status
 
 ```javascript
@@ -35,25 +37,25 @@ NetInfo.addEventListener('connectionChange', handleFirstConnectivityChange);
 
 Cross platform values for `ConnectionType`:
 
-* `none` - device is offline
-* `wifi` - device is online and connected via wifi, or is the iOS simulator
-* `cellular` - device is connected via Edge, 3G, WiMax, or LTE
-* `unknown` - error case and the network status is unknown
+- `none` - device is offline
+- `wifi` - device is online and connected via wifi, or is the iOS simulator
+- `cellular` - device is connected via Edge, 3G, WiMax, or LTE
+- `unknown` - error case and the network status is unknown
 
 Android-only values for `ConnectionType`:
 
-* `bluetooth` - device is connected via Bluetooth
-* `ethernet` - device is connected via Ethernet
-* `wimax` - device is connected via WiMAX
+- `bluetooth` - device is connected via Bluetooth
+- `ethernet` - device is connected via Ethernet
+- `wimax` - device is connected via WiMAX
 
 ### EffectiveConnectionType enum
 
 Cross platform values for `EffectiveConnectionType`:
 
-* `2g`
-* `3g`
-* `4g`
-* `unknown`
+- `2g`
+- `3g`
+- `4g`
+- `unknown`
 
 ### Android
 
@@ -63,14 +65,14 @@ To request network info, you need to add the following line to your app's `Andro
 
 ### Methods
 
-* [`addEventListener`](netinfo.md#addeventlistener)
-* [`removeEventListener`](netinfo.md#removeeventlistener)
-* [`getConnectionInfo`](netinfo.md#getconnectioninfo)
-* [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+- [`addEventListener`](netinfo.md#addeventlistener)
+- [`removeEventListener`](netinfo.md#removeeventlistener)
+- [`getConnectionInfo`](netinfo.md#getconnectioninfo)
+- [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
 
 ### Properties
 
-* [`isConnected`](netinfo.md#isconnected)
+- [`isConnected`](netinfo.md#isconnected)
 
 ---
 
@@ -95,10 +97,10 @@ Adds an event handler.
 
 Supported events:
 
-* `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
-  * `type`: A `ConnectionType` (listed above)
-  * `effectiveType`: An `EffectiveConnectionType` (listed above)
-* `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
+- `connectionChange`: Fires when the network status changes. The argument to the event handler is an object with keys:
+  - `type`: A `ConnectionType` (listed above)
+  - `effectiveType`: An `EffectiveConnectionType` (listed above)
+- `change`: This event is deprecated. Listen to `connectionChange` instead. Fires when the network status changes. The argument to the event handler is one of the deprecated connectivity types listed above.
 
 ---
 

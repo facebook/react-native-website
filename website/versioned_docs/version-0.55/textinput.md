@@ -94,59 +94,59 @@ Note that on Android performing text selection in input can change app's activit
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`allowFontScaling`](textinput.md#allowfontscaling)
-- [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoCorrect`](textinput.md#autocorrect)
-- [`autoFocus`](textinput.md#autofocus)
-- [`blurOnSubmit`](textinput.md#bluronsubmit)
-- [`caretHidden`](textinput.md#carethidden)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`contextMenuHidden`](textinput.md#contextMenuHidden)
-- [`dataDetectorTypes`](textinput.md#datadetectortypes)
-- [`defaultValue`](textinput.md#defaultvalue)
-- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
-- [`editable`](textinput.md#editable)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`inlineImageLeft`](textinput.md#inlineimageleft)
-- [`inlineImagePadding`](textinput.md#inlineimagepadding)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`keyboardType`](textinput.md#keyboardtype)
-- [`maxLength`](textinput.md#maxlength)
-- [`multiline`](textinput.md#multiline)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`onBlur`](textinput.md#onblur)
-- [`onChange`](textinput.md#onchange)
-- [`onChangeText`](textinput.md#onchangetext)
-- [`onContentSizeChange`](textinput.md#oncontentsizechange)
-- [`onEndEditing`](textinput.md#onendediting)
-- [`onFocus`](textinput.md#onfocus)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`onLayout`](textinput.md#onlayout)
-- [`onScroll`](textinput.md#onscroll)
-- [`onSelectionChange`](textinput.md#onselectionchange)
-- [`onSubmitEditing`](textinput.md#onsubmitediting)
-- [`placeholder`](textinput.md#placeholder)
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-- [`returnKeyLabel`](textinput.md#returnkeylabel)
-- [`returnKeyType`](textinput.md#returnkeytype)
-- [`secureTextEntry`](textinput.md#securetextentry)
-- [`selection`](textinput.md#selection)
-- [`selectionColor`](textinput.md#selectioncolor)
-- [`selectionState`](textinput.md#selectionstate)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-- [`spellCheck`](textinput.md#spellcheck)
-- [`style`](textinput.md#style)
-- [`textBreakStrategy`](textinput.md#textbreakstrategy)
-- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`value`](textinput.md#value)
+* [`allowFontScaling`](textinput.md#allowfontscaling)
+* [`autoCapitalize`](textinput.md#autocapitalize)
+* [`autoCorrect`](textinput.md#autocorrect)
+* [`autoFocus`](textinput.md#autofocus)
+* [`blurOnSubmit`](textinput.md#bluronsubmit)
+* [`caretHidden`](textinput.md#carethidden)
+* [`clearButtonMode`](textinput.md#clearbuttonmode)
+* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
+* [`contextMenuHidden`](textinput.md#contextMenuHidden)
+* [`dataDetectorTypes`](textinput.md#datadetectortypes)
+* [`defaultValue`](textinput.md#defaultvalue)
+* [`disableFullscreenUI`](textinput.md#disablefullscreenui)
+* [`editable`](textinput.md#editable)
+* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+* [`inlineImageLeft`](textinput.md#inlineimageleft)
+* [`inlineImagePadding`](textinput.md#inlineimagepadding)
+* [`keyboardAppearance`](textinput.md#keyboardappearance)
+* [`keyboardType`](textinput.md#keyboardtype)
+* [`maxLength`](textinput.md#maxlength)
+* [`multiline`](textinput.md#multiline)
+* [`numberOfLines`](textinput.md#numberoflines)
+* [`onBlur`](textinput.md#onblur)
+* [`onChange`](textinput.md#onchange)
+* [`onChangeText`](textinput.md#onchangetext)
+* [`onContentSizeChange`](textinput.md#oncontentsizechange)
+* [`onEndEditing`](textinput.md#onendediting)
+* [`onFocus`](textinput.md#onfocus)
+* [`onKeyPress`](textinput.md#onkeypress)
+* [`onLayout`](textinput.md#onlayout)
+* [`onScroll`](textinput.md#onscroll)
+* [`onSelectionChange`](textinput.md#onselectionchange)
+* [`onSubmitEditing`](textinput.md#onsubmitediting)
+* [`placeholder`](textinput.md#placeholder)
+* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+* [`returnKeyLabel`](textinput.md#returnkeylabel)
+* [`returnKeyType`](textinput.md#returnkeytype)
+* [`secureTextEntry`](textinput.md#securetextentry)
+* [`selection`](textinput.md#selection)
+* [`selectionColor`](textinput.md#selectioncolor)
+* [`selectionState`](textinput.md#selectionstate)
+* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`spellCheck`](textinput.md#spellcheck)
+* [`style`](textinput.md#style)
+* [`textBreakStrategy`](textinput.md#textbreakstrategy)
+* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+* [`value`](textinput.md#value)
 
 ### Methods
 
-* [`clear`](textinput.md#clear)
-* [`isFocused`](textinput.md#isfocused)
+- [`clear`](textinput.md#clear)
+- [`isFocused`](textinput.md#isfocused)
 
 ---
 
@@ -168,10 +168,10 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 Can tell `TextInput` to automatically capitalize certain characters.
 
-* `characters`: all characters.
-* `words`: first letter of each word.
-* `sentences`: first letter of each sentence (_default_).
-* `none`: don't auto capitalize anything.
+- `characters`: all characters.
+- `words`: first letter of each word.
+- `sentences`: first letter of each sentence (_default_).
+- `none`: don't auto capitalize anything.
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -257,12 +257,12 @@ You can provide one type or an array of many types.
 
 Possible values for `dataDetectorTypes` are:
 
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
+- `'phoneNumber'`
+- `'link'`
+- `'address'`
+- `'calendarEvent'`
+- `'none'`
+- `'all'`
 
 | Type                                                                                                                                                     | Required | Platform |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
@@ -352,29 +352,29 @@ Determines which keyboard to open, e.g.`numeric`.
 
 The following values work across platforms:
 
-* `default`
-* `numeric`
-* `email-address`
-* `phone-pad`
+- `default`
+- `numeric`
+- `email-address`
+- `phone-pad`
 
 _iOS Only_
 
 The following values work on iOS only:
 
-* `ascii-capable`
-* `numbers-and-punctuation`
-* `url`
-* `number-pad`
-* `name-phone-pad`
-* `decimal-pad`
-* `twitter`
-* `web-search`
+- `ascii-capable`
+- `numbers-and-punctuation`
+- `url`
+- `number-pad`
+- `name-phone-pad`
+- `decimal-pad`
+- `twitter`
+- `web-search`
 
 _Android Only_
 
 The following values work on Android only:
 
-* `visible-password`
+- `visible-password`
 
 | Type                                                                                                                                                                                                    | Required |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -562,29 +562,29 @@ _Cross platform_
 
 The following values work across platforms:
 
-* `done`
-* `go`
-* `next`
-* `search`
-* `send`
+- `done`
+- `go`
+- `next`
+- `search`
+- `send`
 
 _Android Only_
 
 The following values work on Android only:
 
-* `none`
-* `previous`
+- `none`
+- `previous`
 
 _iOS Only_
 
 The following values work on iOS only:
 
-* `default`
-* `emergency-call`
-* `google`
-* `join`
-* `route`
-* `yahoo`
+- `default`
+- `emergency-call`
+- `google`
+- `join`
+- `route`
+- `yahoo`
 
 | Type                                                                                                                              | Required |
 | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -628,9 +628,9 @@ An instance of `DocumentSelectionState`, this is some state that is responsible 
 
 Some functionality that can be performed with this instance is:
 
-* `blur()`
-* `focus()`
-* `update()`
+- `blur()`
+- `focus()`
+- `update()`
 
 > You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
 
@@ -664,14 +664,14 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 
 Note that not all Text styles are supported, an incomplete list of what is not supported includes:
 
-* `borderLeftWidth`
-* `borderTopWidth`
-* `borderRightWidth`
-* `borderBottomWidth`
-* `borderTopLeftRadius`
-* `borderTopRightRadius`
-* `borderBottomRightRadius`
-* `borderBottomLeftRadius`
+- `borderLeftWidth`
+- `borderTopWidth`
+- `borderRightWidth`
+- `borderBottomWidth`
+- `borderTopLeftRadius`
+- `borderTopRightRadius`
+- `borderBottomRightRadius`
+- `borderBottomLeftRadius`
 
 see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more detail.
 

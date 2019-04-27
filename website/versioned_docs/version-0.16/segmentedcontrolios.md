@@ -8,15 +8,15 @@ Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`enabled`](segmentedcontrolios.md#enabled)
-- [`momentary`](segmentedcontrolios.md#momentary)
-- [`onChange`](segmentedcontrolios.md#onchange)
-- [`onValueChange`](segmentedcontrolios.md#onvaluechange)
-- [`selectedIndex`](segmentedcontrolios.md#selectedindex)
-- [`tintColor`](segmentedcontrolios.md#tintcolor)
-- [`values`](segmentedcontrolios.md#values)
+* [`enabled`](segmentedcontrolios.md#enabled)
+* [`momentary`](segmentedcontrolios.md#momentary)
+* [`onChange`](segmentedcontrolios.md#onchange)
+* [`onValueChange`](segmentedcontrolios.md#onvaluechange)
+* [`selectedIndex`](segmentedcontrolios.md#selectedindex)
+* [`tintColor`](segmentedcontrolios.md#tintcolor)
+* [`values`](segmentedcontrolios.md#values)
 
 ---
 

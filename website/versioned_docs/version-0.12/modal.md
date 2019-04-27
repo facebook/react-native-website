@@ -6,9 +6,9 @@ original_id: modal
 
 ### Props
 
-* [`animated`](modal.md#animated)
-* [`onDismiss`](modal.md#ondismiss)
-* [`transparent`](modal.md#transparent)
+- [`animated`](modal.md#animated)
+- [`onDismiss`](modal.md#ondismiss)
+- [`transparent`](modal.md#transparent)
 
 ---
 

@@ -26,42 +26,42 @@ You can use this component to navigate back and forth in the web view's history 
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`source`](webview.md#source)
-- [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-- [`injectedJavaScript`](webview.md#injectedjavascript)
-- [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-- [`onError`](webview.md#onerror)
-- [`onLoad`](webview.md#onload)
-- [`onLoadEnd`](webview.md#onloadend)
-- [`onLoadStart`](webview.md#onloadstart)
-- [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-- [`renderError`](webview.md#rendererror)
-- [`renderLoading`](webview.md#renderloading)
-- [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`contentInset`](webview.md#contentinset)
-- [`startInLoadingState`](webview.md#startinloadingstate)
-- [`style`](webview.md#style)
-- [`decelerationRate`](webview.md#decelerationrate)
-- [`domStorageEnabled`](webview.md#domstorageenabled)
-- [`javaScriptEnabled`](webview.md#javascriptenabled)
-- [`userAgent`](webview.md#useragent)
-- [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-- [`bounces`](webview.md#bounces)
-- [`dataDetectorTypes`](webview.md#datadetectortypes)
-- [`scrollEnabled`](webview.md#scrollenabled)
-- [`url`](webview.md#url)
-- [`html`](webview.md#html)
+* [`source`](webview.md#source)
+* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
+* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
+* [`injectedJavaScript`](webview.md#injectedjavascript)
+* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
+* [`onError`](webview.md#onerror)
+* [`onLoad`](webview.md#onload)
+* [`onLoadEnd`](webview.md#onloadend)
+* [`onLoadStart`](webview.md#onloadstart)
+* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+* [`renderError`](webview.md#rendererror)
+* [`renderLoading`](webview.md#renderloading)
+* [`scalesPageToFit`](webview.md#scalespagetofit)
+* [`contentInset`](webview.md#contentinset)
+* [`startInLoadingState`](webview.md#startinloadingstate)
+* [`style`](webview.md#style)
+* [`decelerationRate`](webview.md#decelerationrate)
+* [`domStorageEnabled`](webview.md#domstorageenabled)
+* [`javaScriptEnabled`](webview.md#javascriptenabled)
+* [`userAgent`](webview.md#useragent)
+* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+* [`bounces`](webview.md#bounces)
+* [`dataDetectorTypes`](webview.md#datadetectortypes)
+* [`scrollEnabled`](webview.md#scrollenabled)
+* [`url`](webview.md#url)
+* [`html`](webview.md#html)
 
 ### Methods
 
-* [`goForward`](webview.md#goforward)
-* [`goBack`](webview.md#goback)
-* [`reload`](webview.md#reload)
-* [`stopLoading`](webview.md#stoploading)
-* [`getWebViewHandle`](webview.md#getwebviewhandle)
+- [`goForward`](webview.md#goforward)
+- [`goBack`](webview.md#goback)
+- [`reload`](webview.md#reload)
+- [`stopLoading`](webview.md#stoploading)
+- [`getWebViewHandle`](webview.md#getwebviewhandle)
 
 ---
 
@@ -233,8 +233,8 @@ The style to apply to the `WebView`.
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use the string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively:
 
-* normal: 0.998
-* fast: 0.99 (the default for iOS web view)
+- normal: 0.998
+- fast: 0.99 (the default for iOS web view)
 
 | Type                                  | Required | Platform |
 | ------------------------------------- | -------- | -------- |
@@ -302,12 +302,12 @@ You can provide one type or an array of many types.
 
 Possible values for `dataDetectorTypes` are:
 
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
+- `'phoneNumber'`
+- `'link'`
+- `'address'`
+- `'calendarEvent'`
+- `'none'`
+- `'all'`
 
 | Type                                                                                                                                                     | Required | Platform |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |

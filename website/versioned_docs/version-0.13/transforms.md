@@ -6,8 +6,8 @@ original_id: transforms
 
 ### Props
 
-* [`transform`](transforms.md#transform)
-* [`transformMatrix`](transforms.md#transformmatrix)
+- [`transform`](transforms.md#transform)
+- [`transformMatrix`](transforms.md#transformmatrix)
 
 ---
 

@@ -47,16 +47,16 @@ const styles = StyleSheet.create({
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`date`](datepickerios.md#date)
-- [`onDateChange`](datepickerios.md#ondatechange)
-- [`maximumDate`](datepickerios.md#maximumdate)
-- [`minimumDate`](datepickerios.md#minimumdate)
-- [`minuteInterval`](datepickerios.md#minuteinterval)
-- [`mode`](datepickerios.md#mode)
-- [`locale`](datepickerios.md#locale)
-- [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
+* [`date`](datepickerios.md#date)
+* [`onDateChange`](datepickerios.md#ondatechange)
+* [`maximumDate`](datepickerios.md#maximumdate)
+* [`minimumDate`](datepickerios.md#minimumdate)
+* [`minuteInterval`](datepickerios.md#minuteinterval)
+* [`mode`](datepickerios.md#mode)
+* [`locale`](datepickerios.md#locale)
+* [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
 ---
 

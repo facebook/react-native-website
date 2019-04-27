@@ -26,15 +26,15 @@ renderButton: function() {
 
 ### Props
 
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
-- [`background`](touchablenativefeedback.md#background)
+* [`background`](touchablenativefeedback.md#background)
 
 ### Methods
 
-* [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
-* [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
-* [`Ripple`](touchablenativefeedback.md#ripple)
+- [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
+- [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
+- [`Ripple`](touchablenativefeedback.md#ripple)
 
 ---
 

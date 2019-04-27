@@ -8,15 +8,15 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`date`](datepickerios.md#date)
-- [`maximumDate`](datepickerios.md#maximumdate)
-- [`minimumDate`](datepickerios.md#minimumdate)
-- [`minuteInterval`](datepickerios.md#minuteinterval)
-- [`mode`](datepickerios.md#mode)
-- [`onDateChange`](datepickerios.md#ondatechange)
-- [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
+* [`date`](datepickerios.md#date)
+* [`maximumDate`](datepickerios.md#maximumdate)
+* [`minimumDate`](datepickerios.md#minimumdate)
+* [`minuteInterval`](datepickerios.md#minuteinterval)
+* [`mode`](datepickerios.md#mode)
+* [`onDateChange`](datepickerios.md#ondatechange)
+* [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
 ---
 

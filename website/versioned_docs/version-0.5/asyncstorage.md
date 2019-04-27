@@ -27,7 +27,7 @@ Fetching data:
 ```javascript
 try {
   const value = await AsyncStorage.getItem('@MySuperStore:key');
-  if (value !== null){
+  if (value !== null) {
     // We have data!!
     console.log(value);
   }
@@ -144,22 +144,22 @@ AsyncStorage.multiRemove(keys, (err) => {
 
 ### Methods
 
-* [`getItem`](asyncstorage.md#getitem)
-* [`setItem`](asyncstorage.md#setitem)
-* [`removeItem`](asyncstorage.md#removeitem)
-* [`mergeItem`](asyncstorage.md#mergeitem)
-* [`clear`](asyncstorage.md#clear)
-* [`getAllKeys`](asyncstorage.md#getallkeys)
+- [`getItem`](asyncstorage.md#getitem)
+- [`setItem`](asyncstorage.md#setitem)
+- [`removeItem`](asyncstorage.md#removeitem)
+- [`mergeItem`](asyncstorage.md#mergeitem)
+- [`clear`](asyncstorage.md#clear)
+- [`getAllKeys`](asyncstorage.md#getallkeys)
 
 The following batched functions are useful for executing a lot of operations at once, allowing for native optimizations and provide the convenience of a single callback after all operations are complete.
 
 These functions return arrays of errors, potentially one for every key. For key-specific errors, the Error object will have a key property to indicate which key caused the error.
 
-* [`flushGetRequests`](asyncstorage.md#flushgetrequests)
-* [`multiGet`](asyncstorage.md#multiget)
-* [`multiSet`](asyncstorage.md#multiset)
-* [`multiRemove`](asyncstorage.md#multiremove)
-* [`multiMerge`](asyncstorage.md#multimerge)
+- [`flushGetRequests`](asyncstorage.md#flushgetrequests)
+- [`multiGet`](asyncstorage.md#multiget)
+- [`multiSet`](asyncstorage.md#multiset)
+- [`multiRemove`](asyncstorage.md#multiremove)
+- [`multiMerge`](asyncstorage.md#multimerge)
 
 ---
 

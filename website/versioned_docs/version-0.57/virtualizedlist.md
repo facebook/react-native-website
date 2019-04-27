@@ -10,55 +10,55 @@ Virtualization massively improves memory consumption and performance of large li
 
 Some caveats:
 
-* Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-* This is a `PureComponent` which means that it will not re-render if `props` remain shallow- equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-* By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 ### Props
 
-* [`ScrollView` props...](scrollview.md#props)
-* [`renderItem`](virtualizedlist.md#renderitem)
-* [`data`](virtualizedlist.md#data)
-* [`getItem`](virtualizedlist.md#getitem)
-* [`getItemCount`](virtualizedlist.md#getitemcount)
-* [`debug`](virtualizedlist.md#debug)
-* [`extraData`](virtualizedlist.md#extradata)
-* [`getItemLayout`](virtualizedlist.md#getitemlayout)
-* [`initialScrollIndex`](virtualizedlist.md#initialscrollindex)
-* [`inverted`](virtualizedlist.md#inverted)
-* [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
-* [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
-* [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
-* [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
-* [`onEndReached`](virtualizedlist.md#onendreached)
-* [`onLayout`](virtualizedlist.md#onlayout)
-* [`onRefresh`](virtualizedlist.md#onrefresh)
-* [`onScrollToIndexFailed`](virtualizedlist.md#onscrolltoindexfailed)
-* [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
-* [`refreshing`](virtualizedlist.md#refreshing)
-* [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
-* [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
-* [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
-* [`viewabilityConfigCallbackPairs`](virtualizedlist.md#viewabilityconfigcallbackpairs)
-* [`horizontal`](virtualizedlist.md#horizontal)
-* [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
-* [`keyExtractor`](virtualizedlist.md#keyextractor)
-* [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
-* [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
-* [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
-* [`windowSize`](virtualizedlist.md#windowsize)
-* [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
-* [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
+- [`ScrollView` props...](scrollview.md#props)
+- [`renderItem`](virtualizedlist.md#renderitem)
+- [`data`](virtualizedlist.md#data)
+- [`getItem`](virtualizedlist.md#getitem)
+- [`getItemCount`](virtualizedlist.md#getitemcount)
+- [`debug`](virtualizedlist.md#debug)
+- [`extraData`](virtualizedlist.md#extradata)
+- [`getItemLayout`](virtualizedlist.md#getitemlayout)
+- [`initialScrollIndex`](virtualizedlist.md#initialscrollindex)
+- [`inverted`](virtualizedlist.md#inverted)
+- [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
+- [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
+- [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
+- [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
+- [`onEndReached`](virtualizedlist.md#onendreached)
+- [`onLayout`](virtualizedlist.md#onlayout)
+- [`onRefresh`](virtualizedlist.md#onrefresh)
+- [`onScrollToIndexFailed`](virtualizedlist.md#onscrolltoindexfailed)
+- [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
+- [`refreshing`](virtualizedlist.md#refreshing)
+- [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
+- [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
+- [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
+- [`viewabilityConfigCallbackPairs`](virtualizedlist.md#viewabilityconfigcallbackpairs)
+- [`horizontal`](virtualizedlist.md#horizontal)
+- [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
+- [`keyExtractor`](virtualizedlist.md#keyextractor)
+- [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
+- [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
+- [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
+- [`windowSize`](virtualizedlist.md#windowsize)
+- [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
+- [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
 
 ### Methods
 
-* [`scrollToEnd`](virtualizedlist.md#scrolltoend)
-* [`scrollToIndex`](virtualizedlist.md#scrolltoindex)
-* [`scrollToItem`](virtualizedlist.md#scrolltoitem)
-* [`scrollToOffset`](virtualizedlist.md#scrolltooffset)
-* [`recordInteraction`](virtualizedlist.md#recordinteraction)
-* [`flashScrollIndicators`](virtualizedlist.md#flashscrollindicators)
+- [`scrollToEnd`](virtualizedlist.md#scrolltoend)
+- [`scrollToIndex`](virtualizedlist.md#scrolltoindex)
+- [`scrollToItem`](virtualizedlist.md#scrolltoitem)
+- [`scrollToOffset`](virtualizedlist.md#scrolltooffset)
+- [`recordInteraction`](virtualizedlist.md#recordinteraction)
+- [`flashScrollIndicators`](virtualizedlist.md#flashscrollindicators)
 
 ---
 
