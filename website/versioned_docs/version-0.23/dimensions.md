@@ -6,8 +6,8 @@ original_id: dimensions
 
 ### Methods
 
-* [`set`](dimensions.md#set)
-* [`get`](dimensions.md#get)
+- [`set`](dimensions.md#set)
+- [`get`](dimensions.md#get)
 
 ---
 

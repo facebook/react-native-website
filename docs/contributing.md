@@ -57,13 +57,13 @@ You can contribute by visiting the [discussions and proposals repository](https:
 
 There are many ways to contribute to React Native, and many of them do not involve writing any code. Here's a few ideas to get started:
 
-* Simply start using React Native. Go through the [Getting Started](getting-started.md) guide. Does everything work as expected? If not, we're always looking for improvements.
-* Look through the [open issues](https://github.com/facebook/react-native/issues). Provide workarounds, ask for clarification, or suggest labels. Active community members can get access to our issue management tools, unlocking the ability to label, close, or re-open issues.
-* If you find an issue you would like to fix, open a pull request. Issues tagged as [_Good first issue_](https://github.com/facebook/react-native/labels/Good%20first%20issue) are a good place to get started.
-* Read through the docs. If you find anything that is confusing or can be improved, you can make edits by clicking "Edit" at the top of most docs.
-* Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
-* Before opening your pull request, make sure you have fully tested your changes. Test your changes locally and by running the various tests provided.
-* Check out the [Testing your changes guide](https://facebook.github.io/react-native/docs/testing.html) to find out about the numerous tests which has been provided to help ensure that any new changes wont cause a regression.
+- Simply start using React Native. Go through the [Getting Started](getting-started.md) guide. Does everything work as expected? If not, we're always looking for improvements.
+- Look through the [open issues](https://github.com/facebook/react-native/issues). Provide workarounds, ask for clarification, or suggest labels. Active community members can get access to our issue management tools, unlocking the ability to label, close, or re-open issues.
+- If you find an issue you would like to fix, open a pull request. Issues tagged as [_Good first issue_](https://github.com/facebook/react-native/labels/Good%20first%20issue) are a good place to get started.
+- Read through the docs. If you find anything that is confusing or can be improved, you can make edits by clicking "Edit" at the top of most docs.
+- Browse [Stack Overflow](https://stackoverflow.com/questions/tagged/react-native) and answer questions. This will help you get familiarized with common pitfalls or misunderstandings, which can be useful when contributing updates to the documentation.
+- Before opening your pull request, make sure you have fully tested your changes. Test your changes locally and by running the various tests provided.
+- Check out the [Testing your changes guide](https://facebook.github.io/react-native/docs/testing.html) to find out about the numerous tests which has been provided to help ensure that any new changes wont cause a regression.
 
 Core contributors to React Native meet regularly and post their meeting notes [online](https://github.com/react-native-community/discussions-and-proposals/tree/master/core-meetings). You can also find ad hoc discussions at [https://discuss.reactjs.org/](https://discuss.reactjs.org/).
 
@@ -109,38 +109,38 @@ A changelog entry has the following format:
 [CATEGORY] [TYPE] - Message
 ```
 
-* `CATEGORY` may be:
+- `CATEGORY` may be:
 
-  * [General]
-  * [iOS]
-  * [Android]
+  - [General]
+  - [iOS]
+  - [Android]
 
-* `TYPE` may be:
+- `TYPE` may be:
 
-  * [Added] for new features.
-  * [Changed] for changes in existing functionality.
-  * [Deprecated] for soon-to-be removed features.
-  * [Removed] for now removed features.
-  * [Fixed] for any bug fixes.
-  * [Security] in case of vulnerabilities.
+  - [Added] for new features.
+  - [Changed] for changes in existing functionality.
+  - [Deprecated] for soon-to-be removed features.
+  - [Removed] for now removed features.
+  - [Fixed] for any bug fixes.
+  - [Security] in case of vulnerabilities.
 
-* `MESSAGE` may answer "what and why" on a feature level. Use this to briefly tell React Native users about notable changes.
+- `MESSAGE` may answer "what and why" on a feature level. Use this to briefly tell React Native users about notable changes.
 
 For more detail, see [How do I make a good changelog?](https://keepachangelog.com/en/1.0.0/#how)
 
 #### Changelog Examples
 
-* [General][added] - Add snapToOffsets prop to ScrollView component
-* [General][fixed] - Fix various issues in snapToInterval on ScrollView component
-* [iOS][fixed] - Fix crash in RCTImagePicker
+- [General][added] - Add snapToOffsets prop to ScrollView component
+- [General][fixed] - Fix various issues in snapToInterval on ScrollView component
+- [iOS][fixed] - Fix crash in RCTImagePicker
 
 ### Test plan
 
 A good test plan has the exact commands you ran and their output, provides screenshots or videos if the pull request changes UI or updates the website.
 
-* If you've added code that should be tested, add tests!
-* If you've changed APIs, update the documentation via an additional PR to the [react-native-website](https://github.com/facebook/react-native-website) repo.
-* If you've updated the docs, verify the website locally and submit screenshots if applicable (see the [react-native-website](https://github.com/facebook/react-native-website) README).
+- If you've added code that should be tested, add tests!
+- If you've changed APIs, update the documentation via an additional PR to the [react-native-website](https://github.com/facebook/react-native-website) repo.
+- If you've updated the docs, verify the website locally and submit screenshots if applicable (see the [react-native-website](https://github.com/facebook/react-native-website) README).
 
 See [What is a Test Plan?](https://medium.com/@martinkonicek/what-is-a-test-plan-8bfc840ec171#.y9lcuqqi9) to learn more.
 
@@ -152,17 +152,17 @@ However, there are still some styles that the linter cannot pick up, notably in 
 
 **Objective-C:**
 
-* Space after `@property` declarations
-* Brackets on _every_ `if`, on the _same_ line
-* `- method`, `@interface`, and `@implementation` brackets on the following line
-* _Try_ to keep it around 80 characters line length (sometimes it's just not possible...)
-* `*` operator goes with the variable name (e.g. `NSObject *variableName;`)
+- Space after `@property` declarations
+- Brackets on _every_ `if`, on the _same_ line
+- `- method`, `@interface`, and `@implementation` brackets on the following line
+- _Try_ to keep it around 80 characters line length (sometimes it's just not possible...)
+- `*` operator goes with the variable name (e.g. `NSObject *variableName;`)
 
 **Java:**
 
-* If a method call spans multiple lines closing bracket is on the same line as the last argument.
-* If a method header doesn't fit on one line each argument goes on a separate line.
-* 100 character line length
+- If a method call spans multiple lines closing bracket is on the same line as the last argument.
+- If a method header doesn't fit on one line each argument goes on a separate line.
+- 100 character line length
 
 ## License
 

@@ -25,13 +25,13 @@ import { Button } from 'react-native';
 
 ### Props
 
-* [`onPress`](button.md#onpress)
-* [`title`](button.md#title)
-* [`accessibilityLabel`](button.md#accessibilitylabel)
-* [`color`](button.md#color)
-* [`disabled`](button.md#disabled)
-* [`testID`](button.md#testid)
-* [`hasTVPreferredFocus`](button.md#hastvpreferredfocus)
+- [`onPress`](button.md#onpress)
+- [`title`](button.md#title)
+- [`accessibilityLabel`](button.md#accessibilitylabel)
+- [`color`](button.md#color)
+- [`disabled`](button.md#disabled)
+- [`testID`](button.md#testid)
+- [`hasTVPreferredFocus`](button.md#hastvpreferredfocus)
 
 ---
 

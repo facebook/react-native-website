@@ -66,26 +66,26 @@ AppRegistry.registerComponent(
 
 ### Props
 
-* [`testID`](image.md#testid)
-* [`onLayout`](image.md#onlayout)
-* [`onLoadEnd`](image.md#onloadend)
-* [`onLoadStart`](image.md#onloadstart)
-* [`resizeMode`](image.md#resizemode)
-* [`source`](image.md#source)
-* [`style`](image.md#style)
-* [`onLoad`](image.md#onload)
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`blurRadius`](image.md#blurradius)
-* [`capInsets`](image.md#capinsets)
-* [`defaultSource`](image.md#defaultsource)
-* [`onError`](image.md#onerror)
-* [`onProgress`](image.md#onprogress)
+- [`testID`](image.md#testid)
+- [`onLayout`](image.md#onlayout)
+- [`onLoadEnd`](image.md#onloadend)
+- [`onLoadStart`](image.md#onloadstart)
+- [`resizeMode`](image.md#resizemode)
+- [`source`](image.md#source)
+- [`style`](image.md#style)
+- [`onLoad`](image.md#onload)
+- [`accessibilityLabel`](image.md#accessibilitylabel)
+- [`accessible`](image.md#accessible)
+- [`blurRadius`](image.md#blurradius)
+- [`capInsets`](image.md#capinsets)
+- [`defaultSource`](image.md#defaultsource)
+- [`onError`](image.md#onerror)
+- [`onProgress`](image.md#onprogress)
 
 ### Methods
 
-* [`getSize`](image.md#getsize)
-* [`prefetch`](image.md#prefetch)
+- [`getSize`](image.md#getsize)
+- [`prefetch`](image.md#prefetch)
 
 ---
 
@@ -139,13 +139,13 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 Determines how to resize the image when the frame doesn't match the raw image dimensions.
 
-* `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
+- `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
-* `contain`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
+- `contain`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding).
 
-* `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
+- `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-* `repeat`: Repeat the image to cover the frame of the view. The image will keep it's size and aspect ratio. (iOS only)
+- `repeat`: Repeat the image to cover the frame of the view. The image will keep it's size and aspect ratio. (iOS only)
 
 | Type                                                       | Required |
 | ---------------------------------------------------------- | -------- |
@@ -171,46 +171,46 @@ The image source (either a remote URL or a local file resource).
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Shadow Props...](shadow-props.md#props)
+- [Shadow Props...](shadow-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`borderTopRightRadius`**: ReactPropTypes.number
+- **`borderTopRightRadius`**: ReactPropTypes.number
 
-* **`backfaceVisibility`**: ReactPropTypes.oneOf(['visible', 'hidden'])
+- **`backfaceVisibility`**: ReactPropTypes.oneOf(['visible', 'hidden'])
 
-* **`borderBottomLeftRadius`**: ReactPropTypes.number
+- **`borderBottomLeftRadius`**: ReactPropTypes.number
 
-* **`borderBottomRightRadius`**: ReactPropTypes.number
+- **`borderBottomRightRadius`**: ReactPropTypes.number
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderRadius`**: ReactPropTypes.number
+- **`borderRadius`**: ReactPropTypes.number
 
-* **`borderTopLeftRadius`**: ReactPropTypes.number
+- **`borderTopLeftRadius`**: ReactPropTypes.number
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderWidth`**: ReactPropTypes.number
+- **`borderWidth`**: ReactPropTypes.number
 
-* **`opacity`**: ReactPropTypes.number
+- **`opacity`**: ReactPropTypes.number
 
-* **`overflow`**: ReactPropTypes.oneOf(['visible', 'hidden'])
+- **`overflow`**: ReactPropTypes.oneOf(['visible', 'hidden'])
 
-* **`resizeMode`**: ReactPropTypes.oneOf(Object.keys(ImageResizeMode))
+- **`resizeMode`**: ReactPropTypes.oneOf(Object.keys(ImageResizeMode))
 
-* **`tintColor`**: [color](colors.md)
+- **`tintColor`**: [color](colors.md)
 
   Changes the color of all the non-transparent pixels to the tintColor.
 
-* **`overlayColor`**: ReactPropTypes.string (_Android_)
+- **`overlayColor`**: ReactPropTypes.string (_Android_)
 
   When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 
-  * Certain resize modes, such as 'contain'
-  * Animated GIFs
+  - Certain resize modes, such as 'contain'
+  - Animated GIFs
 
   A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 
@@ -272,10 +272,10 @@ When the image is resized, the corners of the size specified by `capInsets` will
 
 A static image to display while loading the image source.
 
-* `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
-* `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
-* `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
-* `number` - Opaque type returned by something like `require('./image.jpg')`.
+- `uri` - a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource (which should be wrapped in the `require('./path/to/image.png')` function).
+- `width`, `height` - can be specified if known at build time, in which case these will be used to set the default `<Image/>` component dimensions.
+- `scale` - used to indicate the scale factor of the image. Defaults to 1.0 if unspecified, meaning that one image pixel equates to one display point / DIP.
+- `number` - Opaque type returned by something like `require('./image.jpg')`.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

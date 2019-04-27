@@ -39,23 +39,23 @@ var styles = {
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`initialPage`](viewpagerandroid.md#initialpage)
-- [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
-- [`onPageScroll`](viewpagerandroid.md#onpagescroll)
-- [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
-- [`onPageSelected`](viewpagerandroid.md#onpageselected)
-- [`pageMargin`](viewpagerandroid.md#pagemargin)
+* [`initialPage`](viewpagerandroid.md#initialpage)
+* [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
+* [`onPageScroll`](viewpagerandroid.md#onpagescroll)
+* [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
+* [`onPageSelected`](viewpagerandroid.md#onpageselected)
+* [`pageMargin`](viewpagerandroid.md#pagemargin)
 
 ### Methods
 
-* [`setPage`](viewpagerandroid.md#setpage)
-* [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
+- [`setPage`](viewpagerandroid.md#setpage)
+- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
 
 ### Type Definitions
 
-* [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
+- [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
 
 ---
 
@@ -77,8 +77,8 @@ Index of initial page that should be selected. Use `setPage` method to update th
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'on-drag', the keyboard is dismissed when a drag begins.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'on-drag', the keyboard is dismissed when a drag begins.
 
 | Type                    | Required |
 | ----------------------- | -------- |
@@ -90,8 +90,8 @@ Determines whether the keyboard gets dismissed in response to a drag.
 
 Executed when transitioning between pages (ether because of animation for the requested page change or when user is swiping/dragging between pages) The `event.nativeEvent` object for this callback will carry following data:
 
-* position - index of first page from the left that is currently visible
-* offset - value from range [0,1) describing stage between page transitions. Value x means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
+- position - index of first page from the left that is currently visible
+- offset - value from range [0,1) describing stage between page transitions. Value x means that (1 - x) fraction of the page at "position" index is visible, and x fraction of the next page is visible.
 
 | Type     | Required |
 | -------- | -------- |
@@ -103,9 +103,9 @@ Executed when transitioning between pages (ether because of animation for the re
 
 Function called when the page scrolling state has changed. The page scrolling state can be in 3 states:
 
-* idle, meaning there is no interaction with the page scroller happening at the time
-* dragging, meaning there is currently an interaction with the page scroller
-* settling, meaning that there was an interaction with the page scroller, and the page scroller is now finishing it's closing or opening animation
+- idle, meaning there is no interaction with the page scroller happening at the time
+- dragging, meaning there is currently an interaction with the page scroller
+- settling, meaning that there was an interaction with the page scroller, and the page scroller is now finishing it's closing or opening animation
 
 | Type     | Required |
 | -------- | -------- |
@@ -117,7 +117,7 @@ Function called when the page scrolling state has changed. The page scrolling st
 
 This callback will be called once ViewPager finish navigating to selected page (when user swipes between pages). The `event.nativeEvent` object passed to this callback will have following fields:
 
-* position - index of page that has been selected
+- position - index of page that has been selected
 
 | Type     | Required |
 | -------- | -------- |
@@ -157,9 +157,9 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 ### ViewPagerScrollState
 
-| Type  |
-| ----- |
-| $Enum |
+| Type   |
+| ------ |
+| \$Enum |
 
 **Constants:**
 

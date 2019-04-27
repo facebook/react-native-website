@@ -22,23 +22,23 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ### Methods
 
-* [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
-* [`registerConfig`](appregistry.md#registerconfig)
-* [`registerComponent`](appregistry.md#registercomponent)
-* [`registerRunnable`](appregistry.md#registerrunnable)
-* [`registerSection`](appregistry.md#registersection)
-* [`getAppKeys`](appregistry.md#getappkeys)
-* [`getSectionKeys`](appregistry.md#getsectionkeys)
-* [`getSections`](appregistry.md#getsections)
-* [`getRunnable`](appregistry.md#getrunnable)
-* [`getRegistry`](appregistry.md#getregistry)
-* [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
-* [`runApplication`](appregistry.md#runapplication)
-* [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-* [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-* [`registerCancellableHeadlessTask`](appregistry.md#registercancellableheadlesstask)
-* [`startHeadlessTask`](appregistry.md#startheadlesstask)
-* [`cancelHeadlessTask`](appregistry.md#cancelheadlesstask)
+- [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
+- [`registerConfig`](appregistry.md#registerconfig)
+- [`registerComponent`](appregistry.md#registercomponent)
+- [`registerRunnable`](appregistry.md#registerrunnable)
+- [`registerSection`](appregistry.md#registersection)
+- [`getAppKeys`](appregistry.md#getappkeys)
+- [`getSectionKeys`](appregistry.md#getsectionkeys)
+- [`getSections`](appregistry.md#getsections)
+- [`getRunnable`](appregistry.md#getrunnable)
+- [`getRegistry`](appregistry.md#getregistry)
+- [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
+- [`runApplication`](appregistry.md#runapplication)
+- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
+- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
+- [`registerCancellableHeadlessTask`](appregistry.md#registercancellableheadlesstask)
+- [`startHeadlessTask`](appregistry.md#startheadlesstask)
+- [`cancelHeadlessTask`](appregistry.md#cancelheadlesstask)
 
 ---
 
@@ -166,7 +166,7 @@ Register a headless task. A headless task is a bit of code that runs without a U
 static registerCancellableHeadlessTask(taskKey, taskProvider, taskCancelProvider)
 ```
 
-## Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. @param taskCancelProvider a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.
+Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. @param taskCancelProvider a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.
 
 ### `startHeadlessTask()`
 

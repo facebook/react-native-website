@@ -50,15 +50,15 @@ var MyView = React.createClass({
 
 A navigation object contains the following functions:
 
-* `push(route)` - Navigate forward to a new route
-* `pop()` - Go back one page
-* `popN(n)` - Go back N pages at once. When N=1, behavior matches `pop()`
-* `replace(route)` - Replace the route for the current page and immediately load the view for the new route
-* `replacePrevious(route)` - Replace the route/view for the previous page
-* `replacePreviousAndPop(route)` - Replaces the previous route/view and transitions back to it
-* `resetTo(route)` - Replaces the top item and popToTop
-* `popToRoute(route)` - Go back to the item for a particular route object
-* `popToTop()` - Go back to the top item
+- `push(route)` - Navigate forward to a new route
+- `pop()` - Go back one page
+- `popN(n)` - Go back N pages at once. When N=1, behavior matches `pop()`
+- `replace(route)` - Replace the route for the current page and immediately load the view for the new route
+- `replacePrevious(route)` - Replace the route/view for the previous page
+- `replacePreviousAndPop(route)` - Replaces the previous route/view and transitions back to it
+- `resetTo(route)` - Replaces the top item and popToTop
+- `popToRoute(route)` - Go back to the item for a particular route object
+- `popToTop()` - Go back to the top item
 
 Navigator functions are also available on the NavigatorIOS component:
 
@@ -78,29 +78,29 @@ var MyView = React.createClass({
 
 ### Props
 
-* [`initialRoute`](navigatorios.md#initialroute)
-* [`barTintColor`](navigatorios.md#bartintcolor)
-* [`itemWrapperStyle`](navigatorios.md#itemwrapperstyle)
-* [`navigationBarHidden`](navigatorios.md#navigationbarhidden)
-* [`shadowHidden`](navigatorios.md#shadowhidden)
-* [`tintColor`](navigatorios.md#tintcolor)
-* [`titleTextColor`](navigatorios.md#titletextcolor)
-* [`translucent`](navigatorios.md#translucent)
+- [`initialRoute`](navigatorios.md#initialroute)
+- [`barTintColor`](navigatorios.md#bartintcolor)
+- [`itemWrapperStyle`](navigatorios.md#itemwrapperstyle)
+- [`navigationBarHidden`](navigatorios.md#navigationbarhidden)
+- [`shadowHidden`](navigatorios.md#shadowhidden)
+- [`tintColor`](navigatorios.md#tintcolor)
+- [`titleTextColor`](navigatorios.md#titletextcolor)
+- [`translucent`](navigatorios.md#translucent)
 
 ### Methods
 
-* [`push`](navigatorios.md#push)
-* [`popN`](navigatorios.md#popn)
-* [`pop`](navigatorios.md#pop)
-* [`replaceAtIndex`](navigatorios.md#replaceatindex)
-* [`replace`](navigatorios.md#replace)
-* [`replacePrevious`](navigatorios.md#replaceprevious)
-* [`popToTop`](navigatorios.md#poptotop)
-* [`popToRoute`](navigatorios.md#poptoroute)
-* [`replacePreviousAndPop`](navigatorios.md#replacepreviousandpop)
-* [`resetTo`](navigatorios.md#resetto)
-* [`handleNavigationComplete`](navigatorios.md#handlenavigationcomplete)
-* [`renderNavigationStackItems`](navigatorios.md#rendernavigationstackitems)
+- [`push`](navigatorios.md#push)
+- [`popN`](navigatorios.md#popn)
+- [`pop`](navigatorios.md#pop)
+- [`replaceAtIndex`](navigatorios.md#replaceatindex)
+- [`replace`](navigatorios.md#replace)
+- [`replacePrevious`](navigatorios.md#replaceprevious)
+- [`popToTop`](navigatorios.md#poptotop)
+- [`popToRoute`](navigatorios.md#poptoroute)
+- [`replacePreviousAndPop`](navigatorios.md#replacepreviousandpop)
+- [`resetTo`](navigatorios.md#resetto)
+- [`handleNavigationComplete`](navigatorios.md#handlenavigationcomplete)
+- [`renderNavigationStackItems`](navigatorios.md#rendernavigationstackitems)
 
 ---
 

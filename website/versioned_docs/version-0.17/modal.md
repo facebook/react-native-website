@@ -14,10 +14,10 @@ This component is only available in iOS at this time.
 
 ### Props
 
-* [`animated`](modal.md#animated)
-* [`onDismiss`](modal.md#ondismiss)
-* [`transparent`](modal.md#transparent)
-* [`visible`](modal.md#visible)
+- [`animated`](modal.md#animated)
+- [`onDismiss`](modal.md#ondismiss)
+- [`transparent`](modal.md#transparent)
+- [`visible`](modal.md#visible)
 
 ---
 

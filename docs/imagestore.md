@@ -3,12 +3,14 @@ id: imagestore
 title: ImageStore
 ---
 
+> **Deprecated.** Use [expo-file-system](https://github.com/expo/expo/tree/master/packages/expo-file-system) or [react-native-fs](https://github.com/itinance/react-native-fs) instead.
+
 ### Methods
 
-* [`hasImageForTag`](imagestore.md#hasimagefortag)
-* [`removeImageForTag`](imagestore.md#removeimagefortag)
-* [`addImageFromBase64`](imagestore.md#addimagefrombase64)
-* [`getBase64ForTag`](imagestore.md#getbase64fortag)
+- [`hasImageForTag`](imagestore.md#hasimagefortag)
+- [`removeImageForTag`](imagestore.md#removeimagefortag)
+- [`addImageFromBase64`](imagestore.md#addimagefrombase64)
+- [`getBase64ForTag`](imagestore.md#getbase64fortag)
 
 ---
 

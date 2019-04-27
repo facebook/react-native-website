@@ -47,12 +47,12 @@ AppRegistry.registerComponent('App', () => App)
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`animating`](activityindicator.md#animating)
-- [`color`](activityindicator.md#color)
-- [`size`](activityindicator.md#size)
-- [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
+* [`animating`](activityindicator.md#animating)
+* [`color`](activityindicator.md#color)
+* [`size`](activityindicator.md#size)
+* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
 
 ---
 
@@ -72,7 +72,7 @@ Whether to show the indicator (true, the default) or hide it (false).
 
 ### `color`
 
-The foreground color of the spinner (default is gray).
+The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
 
 | Type               | Required |
 | ------------------ | -------- |

@@ -22,4 +22,4 @@ Simply wrap your top level view with a `SafeAreaView` with a `flex: 1` style app
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)

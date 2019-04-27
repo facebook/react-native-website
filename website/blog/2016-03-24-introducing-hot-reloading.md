@@ -12,9 +12,9 @@ React Native's goal is to give you the best possible developer experience. A big
 
 We got close to this ideal via three main features:
 
-* Use JavaScript as the language doesn't have a long compilation cycle time.
-* Implement a tool called Packager that transforms es6/flow/jsx files into normal JavaScript that the VM can understand. It was designed as a server that keeps intermediate state in memory to enable fast incremental changes and uses multiple cores.
-* Build a feature called Live Reload that reloads the app on save.
+- Use JavaScript as the language doesn't have a long compilation cycle time.
+- Implement a tool called Packager that transforms es6/flow/jsx files into normal JavaScript that the VM can understand. It was designed as a server that keeps intermediate state in memory to enable fast incremental changes and uses multiple cores.
+- Build a feature called Live Reload that reloads the app on save.
 
 At this point, the bottleneck for developers is no longer the time it takes to reload the app but losing the state of your app. A common scenario is to work on a feature that is multiple screens away from the launch screen. Every time you reload, you've got to click on the same path again and again to get back to your feature, making the cycle multiple-seconds long.
 
@@ -32,8 +32,8 @@ If you look closely, you can notice that it is possible to recover from a red bo
 
 Hot reloading is available as of 0.22, you can enable it:
 
-* Open the developer menu
-* Tap on "Enable Hot Reloading"
+- Open the developer menu
+- Tap on "Enable Hot Reloading"
 
 ## Implementation in a nutshell
 

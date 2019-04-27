@@ -23,15 +23,15 @@ renderButton: function() {
 
 ### Props
 
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
-- [`activeOpacity`](touchablehighlight.md#activeopacity)
-- [`style`](touchablehighlight.md#style)
-- [`underlayColor`](touchablehighlight.md#underlaycolor)
+* [`activeOpacity`](touchablehighlight.md#activeopacity)
+* [`style`](touchablehighlight.md#style)
+* [`underlayColor`](touchablehighlight.md#underlaycolor)
 
 ### Methods
 
-* [`computeSyntheticState`](touchablehighlight.md#computesyntheticstate)
+- [`computeSyntheticState`](touchablehighlight.md#computesyntheticstate)
 
 ---
 

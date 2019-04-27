@@ -52,9 +52,9 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 ### Props
 
-* [`backgroundColor`](inputaccessoryview.md#backgroundcolor)
-* [`nativeID`](inputaccessoryview.md#nativeid)
-* [`style`](inputaccessoryview.md#style)
+- [`backgroundColor`](inputaccessoryview.md#backgroundcolor)
+- [`nativeID`](inputaccessoryview.md#nativeid)
+- [`style`](inputaccessoryview.md#style)
 
 ---
 

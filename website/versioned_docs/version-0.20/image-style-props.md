@@ -6,16 +6,16 @@ original_id: image-style-props
 
 ### Props
 
-* [`backfaceVisibility`](image-style-props.md#backfacevisibility)
-* [`backgroundColor`](image-style-props.md#backgroundcolor)
-* [`borderColor`](image-style-props.md#bordercolor)
-* [`borderRadius`](image-style-props.md#borderradius)
-* [`borderWidth`](image-style-props.md#borderwidth)
-* [`opacity`](image-style-props.md#opacity)
-* [`overflow`](image-style-props.md#overflow)
-* [`resizeMode`](image-style-props.md#resizemode)
-* [`overlayColor`](image-style-props.md#overlaycolor)
-* [`tintColor`](image-style-props.md#tintcolor)
+- [`backfaceVisibility`](image-style-props.md#backfacevisibility)
+- [`backgroundColor`](image-style-props.md#backgroundcolor)
+- [`borderColor`](image-style-props.md#bordercolor)
+- [`borderRadius`](image-style-props.md#borderradius)
+- [`borderWidth`](image-style-props.md#borderwidth)
+- [`opacity`](image-style-props.md#opacity)
+- [`overflow`](image-style-props.md#overflow)
+- [`resizeMode`](image-style-props.md#resizemode)
+- [`overlayColor`](image-style-props.md#overlaycolor)
+- [`tintColor`](image-style-props.md#tintcolor)
 
 ---
 
@@ -91,8 +91,8 @@ original_id: image-style-props
 
 When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
 
-* Certain resize modes, such as 'contain'
-* Animated GIFs
+- Certain resize modes, such as 'contain'
+- Animated GIFs
 
 A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
 

@@ -30,10 +30,10 @@ In React Native, everything in JavaScript and within the layout engine works wit
 
 ### Methods
 
-* [`get`](pixelratio.md#get)
-* [`getFontScale`](pixelratio.md#getfontscale)
-* [`getPixelSizeForLayoutSize`](pixelratio.md#getpixelsizeforlayoutsize)
-* [`roundToNearestPixel`](pixelratio.md#roundtonearestpixel)
+- [`get`](pixelratio.md#get)
+- [`getFontScale`](pixelratio.md#getfontscale)
+- [`getPixelSizeForLayoutSize`](pixelratio.md#getpixelsizeforlayoutsize)
+- [`roundToNearestPixel`](pixelratio.md#roundtonearestpixel)
 
 ---
 
@@ -49,25 +49,25 @@ static get()
 
 Returns the device pixel density. Some examples:
 
-* PixelRatio.get() === 1
-  * [mdpi Android devices](https://material.io/tools/devices/)
-* PixelRatio.get() === 1.5
-  * [hdpi Android devices](https://material.io/tools/devices/)
-* PixelRatio.get() === 2
-  * iPhone 4, 4S
-  * iPhone 5, 5C, 5S
-  * iPhone 6, 7, 8
-  * iPhone XR
-  * [xhdpi Android devices](https://material.io/tools/devices/)
-* PixelRatio.get() === 3
-  * iPhone 6 Plus, 7 Plus, 8 Plus
-  * iPhone X, XS, XS Max
-  * Pixel, Pixel 2
-  * [xxhdpi Android devices](https://material.io/tools/devices/)
-* PixelRatio.get() === 3.5
-  * Nexus 6
-  * Pixel XL, Pixel 2 XL
-  * [xxxhdpi Android devices](https://material.io/tools/devices/)
+- PixelRatio.get() === 1
+  - [mdpi Android devices](https://material.io/tools/devices/)
+- PixelRatio.get() === 1.5
+  - [hdpi Android devices](https://material.io/tools/devices/)
+- PixelRatio.get() === 2
+  - iPhone 4, 4S
+  - iPhone 5, 5C, 5S
+  - iPhone 6, 7, 8
+  - iPhone XR
+  - [xhdpi Android devices](https://material.io/tools/devices/)
+- PixelRatio.get() === 3
+  - iPhone 6 Plus, 7 Plus, 8 Plus
+  - iPhone X, XS, XS Max
+  - Pixel, Pixel 2
+  - [xxhdpi Android devices](https://material.io/tools/devices/)
+- PixelRatio.get() === 3.5
+  - Nexus 6
+  - Pixel XL, Pixel 2 XL
+  - [xxxhdpi Android devices](https://material.io/tools/devices/)
 
 ---
 

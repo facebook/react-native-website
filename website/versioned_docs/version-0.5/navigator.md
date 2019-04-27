@@ -126,33 +126,33 @@ In the above example, the newly pushed scene will float up from the bottom. See 
 
 ### Props
 
-* [`configureScene`](navigator.md#configurescene)
-* [`initialRoute`](navigator.md#initialroute)
-* [`initialRouteStack`](navigator.md#initialroutestack)
-* [`navigationBar`](navigator.md#navigationbar)
-* [`navigator`](navigator.md#navigator)
-* [`onDidFocus`](navigator.md#ondidfocus)
-* [`onWillFocus`](navigator.md#onwillfocus)
-* [`renderScene`](navigator.md#renderscene)
-* [`sceneStyle`](navigator.md#scenestyle)
+- [`configureScene`](navigator.md#configurescene)
+- [`initialRoute`](navigator.md#initialroute)
+- [`initialRouteStack`](navigator.md#initialroutestack)
+- [`navigationBar`](navigator.md#navigationbar)
+- [`navigator`](navigator.md#navigator)
+- [`onDidFocus`](navigator.md#ondidfocus)
+- [`onWillFocus`](navigator.md#onwillfocus)
+- [`renderScene`](navigator.md#renderscene)
+- [`sceneStyle`](navigator.md#scenestyle)
 
 ### Methods
 
-* [`immediatelyResetRouteStack`](navigator.md#immediatelyresetroutestack)
-* [`jumpTo`](navigator.md#jumpto)
-* [`jumpForward`](navigator.md#jumpforward)
-* [`jumpBack`](navigator.md#jumpback)
-* [`push`](navigator.md#push)
-* [`popN`](navigator.md#popn)
-* [`pop`](navigator.md#pop)
-* [`replaceAtIndex`](navigator.md#replaceatindex)
-* [`replace`](navigator.md#replace)
-* [`replacePrevious`](navigator.md#replaceprevious)
-* [`popToTop`](navigator.md#poptotop)
-* [`popToRoute`](navigator.md#poptoroute)
-* [`replacePreviousAndPop`](navigator.md#replacepreviousandpop)
-* [`resetTo`](navigator.md#resetto)
-* [`getCurrentRoutes`](navigator.md#getcurrentroutes)
+- [`immediatelyResetRouteStack`](navigator.md#immediatelyresetroutestack)
+- [`jumpTo`](navigator.md#jumpto)
+- [`jumpForward`](navigator.md#jumpforward)
+- [`jumpBack`](navigator.md#jumpback)
+- [`push`](navigator.md#push)
+- [`popN`](navigator.md#popn)
+- [`pop`](navigator.md#pop)
+- [`replaceAtIndex`](navigator.md#replaceatindex)
+- [`replace`](navigator.md#replace)
+- [`replacePrevious`](navigator.md#replaceprevious)
+- [`popToTop`](navigator.md#poptotop)
+- [`popToRoute`](navigator.md#poptoroute)
+- [`replacePreviousAndPop`](navigator.md#replacepreviousandpop)
+- [`resetTo`](navigator.md#resetto)
+- [`getCurrentRoutes`](navigator.md#getcurrentroutes)
 
 ---
 
@@ -172,18 +172,18 @@ The function should return a scene configuration object.
 
 Available scene configuration options are:
 
-* Navigator.SceneConfigs.PushFromRight (default)
-* Navigator.SceneConfigs.FloatFromRight
-* Navigator.SceneConfigs.FloatFromLeft
-* Navigator.SceneConfigs.FloatFromBottom
-* Navigator.SceneConfigs.FloatFromBottomAndroid
-* Navigator.SceneConfigs.FadeAndroid
-* Navigator.SceneConfigs.SwipeFromLeft
-* Navigator.SceneConfigs.HorizontalSwipeJump
-* Navigator.SceneConfigs.HorizontalSwipeJumpFromRight
-* Navigator.SceneConfigs.HorizontalSwipeJumpFromLeft
-* Navigator.SceneConfigs.VerticalUpSwipeJump
-* Navigator.SceneConfigs.VerticalDownSwipeJump
+- Navigator.SceneConfigs.PushFromRight (default)
+- Navigator.SceneConfigs.FloatFromRight
+- Navigator.SceneConfigs.FloatFromLeft
+- Navigator.SceneConfigs.FloatFromBottom
+- Navigator.SceneConfigs.FloatFromBottomAndroid
+- Navigator.SceneConfigs.FadeAndroid
+- Navigator.SceneConfigs.SwipeFromLeft
+- Navigator.SceneConfigs.HorizontalSwipeJump
+- Navigator.SceneConfigs.HorizontalSwipeJumpFromRight
+- Navigator.SceneConfigs.HorizontalSwipeJumpFromLeft
+- Navigator.SceneConfigs.VerticalUpSwipeJump
+- Navigator.SceneConfigs.VerticalDownSwipeJump
 
 | Type     | Required |
 | -------- | -------- |

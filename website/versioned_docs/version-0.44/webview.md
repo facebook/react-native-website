@@ -26,37 +26,37 @@ You can use this component to navigate back and forth in the web view's history 
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-- [`injectJavaScript`](webview.md#injectjavascript)
-- [`injectedJavaScript`](webview.md#injectedjavascript)
-- [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-- [`onError`](webview.md#onerror)
-- [`onLoad`](webview.md#onload)
-- [`onLoadEnd`](webview.md#onloadend)
-- [`onLoadStart`](webview.md#onloadstart)
-- [`onMessage`](webview.md#onmessage)
-- [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-- [`renderError`](webview.md#rendererror)
-- [`renderLoading`](webview.md#renderloading)
-- [`contentInset`](webview.md#contentinset)
-- [`source`](webview.md#source)
-- [`startInLoadingState`](webview.md#startinloadingstate)
-- [`style`](webview.md#style)
-- [`decelerationRate`](webview.md#decelerationrate)
-- [`domStorageEnabled`](webview.md#domstorageenabled)
-- [`javaScriptEnabled`](webview.md#javascriptenabled)
-- [`mixedContentMode`](webview.md#mixedcontentmode)
-- [`userAgent`](webview.md#useragent)
-- [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-- [`bounces`](webview.md#bounces)
-- [`dataDetectorTypes`](webview.md#datadetectortypes)
-- [`scrollEnabled`](webview.md#scrollenabled)
-- [`url`](webview.md#url)
-- [`html`](webview.md#html)
+* [`scalesPageToFit`](webview.md#scalespagetofit)
+* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
+* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
+* [`injectJavaScript`](webview.md#injectjavascript)
+* [`injectedJavaScript`](webview.md#injectedjavascript)
+* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
+* [`onError`](webview.md#onerror)
+* [`onLoad`](webview.md#onload)
+* [`onLoadEnd`](webview.md#onloadend)
+* [`onLoadStart`](webview.md#onloadstart)
+* [`onMessage`](webview.md#onmessage)
+* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+* [`renderError`](webview.md#rendererror)
+* [`renderLoading`](webview.md#renderloading)
+* [`contentInset`](webview.md#contentinset)
+* [`source`](webview.md#source)
+* [`startInLoadingState`](webview.md#startinloadingstate)
+* [`style`](webview.md#style)
+* [`decelerationRate`](webview.md#decelerationrate)
+* [`domStorageEnabled`](webview.md#domstorageenabled)
+* [`javaScriptEnabled`](webview.md#javascriptenabled)
+* [`mixedContentMode`](webview.md#mixedcontentmode)
+* [`userAgent`](webview.md#useragent)
+* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+* [`bounces`](webview.md#bounces)
+* [`dataDetectorTypes`](webview.md#datadetectortypes)
+* [`scrollEnabled`](webview.md#scrollenabled)
+* [`url`](webview.md#url)
+* [`html`](webview.md#html)
 
 ---
 
@@ -250,8 +250,8 @@ The style to apply to the `WebView`.
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use the string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively:
 
-* normal: 0.998
-* fast: 0.99 (the default for iOS web view)
+- normal: 0.998
+- fast: 0.99 (the default for iOS web view)
 
 | Type                                  | Required | Platform |
 | ------------------------------------- | -------- | -------- |
@@ -285,9 +285,9 @@ Specifies the mixed content mode. i.e WebView will allow a secure origin to load
 
 Possible values for `mixedContentMode` are:
 
-* `'never'` (default) - WebView will not allow a secure origin to load content from an insecure origin.
-* `'always'` - WebView will allow a secure origin to load content from any other origin, even if that origin is insecure.
-* `'compatibility'` - WebView will attempt to be compatible with the approach of a modern web browser with regard to mixed content.
+- `'never'` (default) - WebView will not allow a secure origin to load content from an insecure origin.
+- `'always'` - WebView will allow a secure origin to load content from any other origin, even if that origin is insecure.
+- `'compatibility'` - WebView will attempt to be compatible with the approach of a modern web browser with regard to mixed content.
 
 | Type                                     | Required | Platform |
 | ---------------------------------------- | -------- | -------- |
@@ -335,12 +335,12 @@ You can provide one type or an array of many types.
 
 Possible values for `dataDetectorTypes` are:
 
-* `'phoneNumber'`
-* `'link'`
-* `'address'`
-* `'calendarEvent'`
-* `'none'`
-* `'all'`
+- `'phoneNumber'`
+- `'link'`
+- `'address'`
+- `'calendarEvent'`
+- `'none'`
+- `'all'`
 
 | Type                                                                                                                                                     | Required | Platform |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |

@@ -36,8 +36,8 @@ The alpha channel of the view rendered by the `maskElement` prop determines how 
 
 ### Props
 
-* [View props...](view.md#props)
-* [`maskElement`](maskedviewios.md#maskelement)
+- [View props...](view.md#props)
+- [`maskElement`](maskedviewios.md#maskelement)
 
 ---
 

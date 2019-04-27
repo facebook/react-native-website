@@ -12,14 +12,14 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ### Props
 
-* [View props...](view.md#props)
-* [`disabled`](switch.md#disabled)
-* [`onTintColor`](switch.md#ontintcolor)
-* [`onValueChange`](switch.md#onvaluechange)
-* [`testID`](switch.md#testid)
-* [`thumbTintColor`](switch.md#thumbtintcolor)
-* [`tintColor`](switch.md#tintcolor)
-* [`value`](switch.md#value)
+- [View props...](view.md#props)
+- [`disabled`](switch.md#disabled)
+- [`onTintColor`](switch.md#ontintcolor)
+- [`onValueChange`](switch.md#onvaluechange)
+- [`testID`](switch.md#testid)
+- [`thumbTintColor`](switch.md#thumbtintcolor)
+- [`tintColor`](switch.md#tintcolor)
+- [`value`](switch.md#value)
 
 ---
 

@@ -21,62 +21,62 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
-- [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
-- [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
-- [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
-- [`onContentSizeChange`](scrollview.md#oncontentsizechange)
-- [`onMomentumScrollBegin`](scrollview.md#onmomentumscrollbegin)
-- [`onMomentumScrollEnd`](scrollview.md#onmomentumscrollend)
-- [`onScroll`](scrollview.md#onscroll)
-- [`onScrollBeginDrag`](scrollview.md#onscrollbegindrag)
-- [`onScrollEndDrag`](scrollview.md#onscrollenddrag)
-- [`pagingEnabled`](scrollview.md#pagingenabled)
-- [`refreshControl`](scrollview.md#refreshcontrol)
-- [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
-- [`scrollEnabled`](scrollview.md#scrollenabled)
-- [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
-- [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
-- [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
-- [`endFillColor`](scrollview.md#endfillcolor)
-- [`overScrollMode`](scrollview.md#overscrollmode)
-- [`scrollPerfTag`](scrollview.md#scrollperftag)
-- [`DEPRECATED_sendUpdatedChildFrames`](scrollview.md#deprecated-sendupdatedchildframes)
-- [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
-- [`horizontal`](scrollview.md#horizontal)
-- [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
-- [`bounces`](scrollview.md#bounces)
-- [`bouncesZoom`](scrollview.md#bounceszoom)
-- [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
-- [`centerContent`](scrollview.md#centercontent)
-- [`contentInset`](scrollview.md#contentinset)
-- [`contentInsetAdjustmentBehavior`](scrollview.md#contentinsetadjustmentbehavior)
-- [`contentOffset`](scrollview.md#contentoffset)
-- [`decelerationRate`](scrollview.md#decelerationrate)
-- [`directionalLockEnabled`](scrollview.md#directionallockenabled)
-- [`indicatorStyle`](scrollview.md#indicatorstyle)
-- [`maximumZoomScale`](scrollview.md#maximumzoomscale)
-- [`minimumZoomScale`](scrollview.md#minimumzoomscale)
-- [`pinchGestureEnabled`](scrollview.md#pinchgestureenabled)
-- [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
-- [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
-- [`scrollsToTop`](scrollview.md#scrollstotop)
-- [`snapToAlignment`](scrollview.md#snaptoalignment)
-- [`snapToInterval`](scrollview.md#snaptointerval)
-- [`snapToOffsets`](scrollview.md#snaptooffsets)
-- [`snapToStart`](scrollview.md#snaptostart)
-- [`snapToEnd`](scrollview.md#snaptoend)
-- [`zoomScale`](scrollview.md#zoomscale)
-- [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
+* [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
+* [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
+* [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
+* [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
+* [`onContentSizeChange`](scrollview.md#oncontentsizechange)
+* [`onMomentumScrollBegin`](scrollview.md#onmomentumscrollbegin)
+* [`onMomentumScrollEnd`](scrollview.md#onmomentumscrollend)
+* [`onScroll`](scrollview.md#onscroll)
+* [`onScrollBeginDrag`](scrollview.md#onscrollbegindrag)
+* [`onScrollEndDrag`](scrollview.md#onscrollenddrag)
+* [`pagingEnabled`](scrollview.md#pagingenabled)
+* [`refreshControl`](scrollview.md#refreshcontrol)
+* [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
+* [`scrollEnabled`](scrollview.md#scrollenabled)
+* [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
+* [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
+* [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
+* [`endFillColor`](scrollview.md#endfillcolor)
+* [`overScrollMode`](scrollview.md#overscrollmode)
+* [`scrollPerfTag`](scrollview.md#scrollperftag)
+* [`DEPRECATED_sendUpdatedChildFrames`](scrollview.md#deprecated-sendupdatedchildframes)
+* [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
+* [`horizontal`](scrollview.md#horizontal)
+* [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
+* [`bounces`](scrollview.md#bounces)
+* [`bouncesZoom`](scrollview.md#bounceszoom)
+* [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
+* [`centerContent`](scrollview.md#centercontent)
+* [`contentInset`](scrollview.md#contentinset)
+* [`contentInsetAdjustmentBehavior`](scrollview.md#contentinsetadjustmentbehavior)
+* [`contentOffset`](scrollview.md#contentoffset)
+* [`decelerationRate`](scrollview.md#decelerationrate)
+* [`directionalLockEnabled`](scrollview.md#directionallockenabled)
+* [`indicatorStyle`](scrollview.md#indicatorstyle)
+* [`maximumZoomScale`](scrollview.md#maximumzoomscale)
+* [`minimumZoomScale`](scrollview.md#minimumzoomscale)
+* [`pinchGestureEnabled`](scrollview.md#pinchgestureenabled)
+* [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
+* [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
+* [`scrollsToTop`](scrollview.md#scrollstotop)
+* [`snapToAlignment`](scrollview.md#snaptoalignment)
+* [`snapToInterval`](scrollview.md#snaptointerval)
+* [`snapToOffsets`](scrollview.md#snaptooffsets)
+* [`snapToStart`](scrollview.md#snaptostart)
+* [`snapToEnd`](scrollview.md#snaptoend)
+* [`zoomScale`](scrollview.md#zoomscale)
+* [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
 
 ### Methods
 
-* [`scrollTo`](scrollview.md#scrollto)
-* [`scrollToEnd`](scrollview.md#scrolltoend)
-* [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
-* [`flashScrollIndicators`](scrollview.md#flashscrollindicators)
+- [`scrollTo`](scrollview.md#scrollto)
+- [`scrollToEnd`](scrollview.md#scrolltoend)
+- [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
+- [`flashScrollIndicators`](scrollview.md#flashscrollindicators)
 
 ---
 
@@ -133,12 +133,12 @@ Determines whether the keyboard gets dismissed in response to a drag.
 
 _Cross platform_
 
-* `'none'` (the default), drags do not dismiss the keyboard.
-* `'on-drag'`, the keyboard is dismissed when a drag begins.
+- `'none'` (the default), drags do not dismiss the keyboard.
+- `'on-drag'`, the keyboard is dismissed when a drag begins.
 
 _iOS Only_
 
-* `'interactive'`, the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
+- `'interactive'`, the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -150,11 +150,11 @@ _iOS Only_
 
 Determines when the keyboard should stay visible after a tap.
 
-* `'never'` (the default), tapping outside of the focused text input when the keyboard is up dismisses the keyboard. When this happens, children won't receive the tap.
-* `'always'`, the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
-* `'handled'`, the keyboard will not dismiss automatically when the tap was handled by a children, (or captured by an ancestor).
-* `false`, deprecated, use 'never' instead
-* `true`, deprecated, use 'always' instead
+- `'never'` (the default), tapping outside of the focused text input when the keyboard is up dismisses the keyboard. When this happens, children won't receive the tap.
+- `'always'`, the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
+- `'handled'`, the keyboard will not dismiss automatically when the tap was handled by a children, (or captured by an ancestor).
+- `false`, deprecated, use 'never' instead
+- `true`, deprecated, use 'always' instead
 
 | Type                                            | Required |
 | ----------------------------------------------- | -------- |
@@ -318,9 +318,9 @@ Used to override default value of overScroll mode.
 
 Possible values:
 
-* `'auto'` - Default value, allow a user to over-scroll this view only if the content is large enough to meaningfully scroll.
-* `'always'` - Always allow a user to over-scroll this view.
-* `'never'` - Never allow a user to over-scroll this view.
+- `'auto'` - Default value, allow a user to over-scroll this view only if the content is large enough to meaningfully scroll.
+- `'always'` - Always allow a user to over-scroll this view.
+- `'never'` - Never allow a user to over-scroll this view.
 
 | Type                            | Required | Platform |
 | ------------------------------- | -------- | -------- |
@@ -452,8 +452,8 @@ Used to manually set the starting scroll offset. The default value is `{x: 0, y:
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively.
 
-* `'normal'`: 0.998 on iOS, 0.985 on Android (the default)
-* `'fast'`: 0.99 on iOS, 0.9 on Android
+- `'normal'`: 0.998 on iOS, 0.985 on Android (the default)
+- `'fast'`: 0.99 on iOS, 0.9 on Android
 
 | Type                            | Required |
 | ------------------------------- | -------- |
@@ -475,9 +475,9 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 The style of the scroll indicators.
 
-* `'default'` (the default), same as `black`.
-* `'black'`, scroll indicator is black. This style is good against a light background.
-* `'white'`, scroll indicator is white. This style is good against a dark background.
+- `'default'` (the default), same as `black`.
+- `'black'`, scroll indicator is black. This style is good against a light background.
+- `'white'`, scroll indicator is white. This style is good against a dark background.
 
 | Type                              | Required | Platform |
 | --------------------------------- | -------- | -------- |
@@ -549,9 +549,9 @@ When true, the scroll view scrolls to top when the status bar is tapped. The def
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the snapping to the scroll view.
 
-* `'start'` (the default) will align the snap at the left (horizontal) or top (vertical)
-* `'center'` will align the snap in the center
-* `'end'` will align the snap at the right (horizontal) or bottom (vertical)
+- `'start'` (the default) will align the snap at the left (horizontal) or top (vertical)
+- `'center'` will align the snap in the center
+- `'end'` will align the snap at the right (horizontal) or bottom (vertical)
 
 | Type                           | Required |
 | ------------------------------ | -------- |

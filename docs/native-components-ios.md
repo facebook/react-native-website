@@ -15,9 +15,9 @@ Native views are created and manipulated by subclasses of `RCTViewManager`. Thes
 
 Exposing a view is simple:
 
-* Subclass `RCTViewManager` to create a manager for your component.
-* Add the `RCT_EXPORT_MODULE()` marker macro.
-* Implement the `-(UIView *)view` method.
+- Subclass `RCTViewManager` to create a manager for your component.
+- Add the `RCT_EXPORT_MODULE()` marker macro.
+- Implement the `-(UIView *)view` method.
 
 ```objectivec
 // RNTMapManager.m
@@ -52,7 +52,7 @@ Then you just need a little bit of JavaScript to make this a usable React compon
 import { requireNativeComponent } from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
-module.exports = requireNativeComponent('RNTMap', null);
+module.exports = requireNativeComponent('RNTMap');
 
 // MyApp.js
 
@@ -378,7 +378,7 @@ class MyApp extends React.Component {
         onRegionChange={this.onRegionChange}
       />
     );
-  }  
+  }
 }
 ```
 

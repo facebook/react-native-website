@@ -7,10 +7,10 @@ Timers are an important part of an application and React Native implements the [
 
 ## Timers
 
-* setTimeout, clearTimeout
-* setInterval, clearInterval
-* setImmediate, clearImmediate
-* requestAnimationFrame, cancelAnimationFrame
+- setTimeout, clearTimeout
+- setInterval, clearInterval
+- setImmediate, clearImmediate
+- requestAnimationFrame, cancelAnimationFrame
 
 `requestAnimationFrame(fn)` is not the same as `setTimeout(fn, 0)` - the former will fire after all the frame has flushed, whereas the latter will fire as quickly as possible (over 1000x per second on a iPhone 5S).
 
@@ -32,9 +32,9 @@ InteractionManager.runAfterInteractions(() => {
 
 Compare this to other scheduling alternatives:
 
-* requestAnimationFrame(): for code that animates a view over time.
-* setImmediate/setTimeout/setInterval(): run code later, note this may delay animations.
-* runAfterInteractions(): run code later, without delaying active animations.
+- requestAnimationFrame(): for code that animates a view over time.
+- setImmediate/setTimeout/setInterval(): run code later, note this may delay animations.
+- runAfterInteractions(): run code later, without delaying active animations.
 
 The touch handling system considers one or more active touches to be an 'interaction' and will delay `runAfterInteractions()` callbacks until all touches have ended or been cancelled.
 

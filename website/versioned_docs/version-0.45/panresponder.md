@@ -16,29 +16,29 @@ onPanResponderMove: (event, gestureState) => {}
 
 A native event is a synthetic touch event with the following form:
 
-* `nativeEvent`
-  * `changedTouches` - Array of all touch events that have changed since the last event
-  * `identifier` - The ID of the touch
-  * `locationX` - The X position of the touch, relative to the element
-  * `locationY` - The Y position of the touch, relative to the element
-  * `pageX` - The X position of the touch, relative to the root element
-  * `pageY` - The Y position of the touch, relative to the root element
-  * `target` - The node id of the element receiving the touch event
-  * `timestamp` - A time identifier for the touch, useful for velocity calculation
-  * `touches` - Array of all current touches on the screen
+- `nativeEvent`
+  - `changedTouches` - Array of all touch events that have changed since the last event
+  - `identifier` - The ID of the touch
+  - `locationX` - The X position of the touch, relative to the element
+  - `locationY` - The Y position of the touch, relative to the element
+  - `pageX` - The X position of the touch, relative to the root element
+  - `pageY` - The Y position of the touch, relative to the root element
+  - `target` - The node id of the element receiving the touch event
+  - `timestamp` - A time identifier for the touch, useful for velocity calculation
+  - `touches` - Array of all current touches on the screen
 
 A `gestureState` object has the following:
 
-* `stateID` - ID of the gestureState- persisted as long as there at least one touch on screen
-* `moveX` - the latest screen coordinates of the recently-moved touch
-* `moveY` - the latest screen coordinates of the recently-moved touch
-* `x0` - the screen coordinates of the responder grant
-* `y0` - the screen coordinates of the responder grant
-* `dx` - accumulated distance of the gesture since the touch started
-* `dy` - accumulated distance of the gesture since the touch started
-* `vx` - current velocity of the gesture
-* `vy` - current velocity of the gesture
-* `numberActiveTouches` - Number of touches currently on screen
+- `stateID` - ID of the gestureState- persisted as long as there at least one touch on screen
+- `moveX` - the latest screen coordinates of the recently-moved touch
+- `moveY` - the latest screen coordinates of the recently-moved touch
+- `x0` - the screen coordinates of the responder grant
+- `y0` - the screen coordinates of the responder grant
+- `dx` - accumulated distance of the gesture since the touch started
+- `dy` - accumulated distance of the gesture since the touch started
+- `vx` - current velocity of the gesture
+- `vy` - current velocity of the gesture
+- `numberActiveTouches` - Number of touches currently on screen
 
 ### Basic Usage
 
@@ -93,7 +93,7 @@ To see it in action, try the [PanResponder example in RNTester](https://github.c
 
 ### Methods
 
-* [`create`](panresponder.md#create)
+- [`create`](panresponder.md#create)
 
 ---
 
@@ -109,19 +109,19 @@ static create(config)
 
 @param {object} config Enhanced versions of all of the responder callbacks that provide not only the typical `ResponderSyntheticEvent`, but also the `PanResponder` gesture state. Simply replace the word `Responder` with `PanResponder` in each of the typical `onResponder*` callbacks. For example, the `config` object would look like:
 
-* `onMoveShouldSetPanResponder: (e, gestureState) => {...}`
-* `onMoveShouldSetPanResponderCapture: (e, gestureState) => {...}`
-* `onStartShouldSetPanResponder: (e, gestureState) => {...}`
-* `onStartShouldSetPanResponderCapture: (e, gestureState) => {...}`
-* `onPanResponderReject: (e, gestureState) => {...}`
-* `onPanResponderGrant: (e, gestureState) => {...}`
-* `onPanResponderStart: (e, gestureState) => {...}`
-* `onPanResponderEnd: (e, gestureState) => {...}`
-* `onPanResponderRelease: (e, gestureState) => {...}`
-* `onPanResponderMove: (e, gestureState) => {...}`
-* `onPanResponderTerminate: (e, gestureState) => {...}`
-* `onPanResponderTerminationRequest: (e, gestureState) => {...}`
-* `onShouldBlockNativeResponder: (e, gestureState) => {...}`
+- `onMoveShouldSetPanResponder: (e, gestureState) => {...}`
+- `onMoveShouldSetPanResponderCapture: (e, gestureState) => {...}`
+- `onStartShouldSetPanResponder: (e, gestureState) => {...}`
+- `onStartShouldSetPanResponderCapture: (e, gestureState) => {...}`
+- `onPanResponderReject: (e, gestureState) => {...}`
+- `onPanResponderGrant: (e, gestureState) => {...}`
+- `onPanResponderStart: (e, gestureState) => {...}`
+- `onPanResponderEnd: (e, gestureState) => {...}`
+- `onPanResponderRelease: (e, gestureState) => {...}`
+- `onPanResponderMove: (e, gestureState) => {...}`
+- `onPanResponderTerminate: (e, gestureState) => {...}`
+- `onPanResponderTerminationRequest: (e, gestureState) => {...}`
+- `onShouldBlockNativeResponder: (e, gestureState) => {...}`
 
 In general, for events that have capture equivalents, we update the gestureState once in the capture phase and can use it in the bubble phase as well.
 

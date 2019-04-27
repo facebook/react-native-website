@@ -6,16 +6,16 @@ original_id: keyboardavoidingview
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`behavior`](keyboardavoidingview.md#behavior)
-- [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
+* [`behavior`](keyboardavoidingview.md#behavior)
+* [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
 
 ### Methods
 
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
+- [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
+- [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
+- [`onLayout`](keyboardavoidingview.md#onlayout)
 
 ---
 

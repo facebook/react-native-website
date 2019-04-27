@@ -33,21 +33,21 @@ var styles = StyleSheet.create({
 
 ### Props
 
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onPress`](text.md#onpress)
-* [`style`](text.md#style)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
-* [`testID`](text.md#testid)
+- [`numberOfLines`](text.md#numberoflines)
+- [`onLayout`](text.md#onlayout)
+- [`onPress`](text.md#onpress)
+- [`style`](text.md#style)
+- [`suppressHighlighting`](text.md#suppresshighlighting)
+- [`testID`](text.md#testid)
 
 ### Methods
 
-* [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-* [`handleResponderTerminationRequest`](text.md#handleresponderterminationrequest)
-* [`handleResponderGrant`](text.md#handlerespondergrant)
-* [`handleResponderMove`](text.md#handlerespondermove)
-* [`handleResponderRelease`](text.md#handleresponderrelease)
-* [`handleResponderTerminate`](text.md#handleresponderterminate)
+- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
+- [`handleResponderTerminationRequest`](text.md#handleresponderterminationrequest)
+- [`handleResponderGrant`](text.md#handlerespondergrant)
+- [`handleResponderMove`](text.md#handlerespondermove)
+- [`handleResponderRelease`](text.md#handleresponderrelease)
+- [`handleResponderTerminate`](text.md#handleresponderterminate)
 
 ---
 
@@ -93,25 +93,25 @@ This function is called on press. Text intrinsically supports press handling wit
 | ----- | -------- |
 | style | No       |
 
-* [View Style Props...](view-style-props.md#style)
+- [View Style Props...](view-style-props.md#style)
 
-* **`color`**: string
+- **`color`**: string
 
-* **`fontFamily`**: string
+- **`fontFamily`**: string
 
-* **`fontSize`**: number
+- **`fontSize`**: number
 
-* **`fontStyle`**: enum('normal', 'italic')
+- **`fontStyle`**: enum('normal', 'italic')
 
-* **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
+- **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
 
-* **`letterSpacing`**: number
+- **`letterSpacing`**: number
 
-* **`lineHeight`**: number
+- **`lineHeight`**: number
 
-* **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
+- **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-* **`writingDirection`**: enum('auto', 'ltr', 'rtl')
+- **`writingDirection`**: enum('auto', 'ltr', 'rtl')
 
 ---
 

@@ -12,9 +12,9 @@ In apps written with React Native from the root view down, you should use Naviga
 
 ### Props
 
-* [`animated`](modal.md#animated)
-* [`onDismiss`](modal.md#ondismiss)
-* [`transparent`](modal.md#transparent)
+- [`animated`](modal.md#animated)
+- [`onDismiss`](modal.md#ondismiss)
+- [`transparent`](modal.md#transparent)
 
 ---
 

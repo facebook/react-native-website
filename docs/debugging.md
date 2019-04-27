@@ -29,8 +29,8 @@ You may even go a step further and keep your app running as new versions of your
 
 You will need to rebuild your app for changes to take effect in certain situations:
 
-* You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
-* You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
+- You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
+- You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
 
 ## In-app Errors and Warnings
 
@@ -77,9 +77,9 @@ The debugger will receive a list of all project roots, separated by a space. For
 
 You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
 
-* Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
-* Select your app's JSContext: `Develop → Simulator → JSContext`
-* Safari's Web Inspector should open which has a Console and a Debugger
+- Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
+- Select your app's JSContext: `Develop → Simulator → JSContext`
+- Safari's Web Inspector should open which has a Console and a Debugger
 
 However, there are some disadvantages:
 

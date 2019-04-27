@@ -9,12 +9,12 @@ The React Native repo has several tests you can run to verify you haven't caused
 
 Whenever you are fixing a bug or adding new functionality to React Native, you should add a test that covers it. Depending on the change you're making, there are different types of tests that may be appropriate.
 
-* [JavaScript](testing.md#javascript)
-* [Android](testing.md#android)
-* [iOS](testing.md#ios)
-* [Apple TV](testing.md#apple-tv)
-* [Manual end-to-end tests](testing.md#manual-end-to-end-tests)
-* [Updating the Documentation](testing.md#updating-the-documentation)
+- [JavaScript](testing.md#javascript)
+- [Android](testing.md#android)
+- [iOS](testing.md#ios)
+- [Apple TV](testing.md#apple-tv)
+- [Manual end-to-end tests](testing.md#manual-end-to-end-tests)
+- [Updating the Documentation](testing.md#updating-the-documentation)
 
 ## JavaScript
 
@@ -90,9 +90,9 @@ The tests themselves are written in JS, and must call `TestModule.markTestComple
 
 See the following for example usage and integration points:
 
-* [`IntegrationTestHarnessTest.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestHarnessTest.js)
-* [`RNTesterIntegrationTests.m`](https://github.com/facebook/react-native/blob/master/RNTester/RNTesterIntegrationTests/RNTesterIntegrationTests.m)
-* [`IntegrationTestsApp.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestsApp.js)
+- [`IntegrationTestHarnessTest.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestHarnessTest.js)
+- [`RNTesterIntegrationTests.m`](https://github.com/facebook/react-native/blob/master/RNTester/RNTesterIntegrationTests/RNTesterIntegrationTests.m)
+- [`IntegrationTestsApp.js`](https://github.com/facebook/react-native/blob/master/IntegrationTests/IntegrationTestsApp.js)
 
 You can run integration tests locally with cmd+U in the IntegrationTest and RNTester apps in Xcode, or by running the following in the command line on macOS:
 

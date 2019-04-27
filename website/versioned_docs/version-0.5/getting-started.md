@@ -101,7 +101,7 @@ This page will help you install and build your first React Native app. If you al
 </div>
 
 <block class="quickstart mac windows linux ios android" />
-Assuming that you have [Node 8+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
+Assuming that you have [Node 10+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
 npm install -g expo-cli
@@ -140,8 +140,8 @@ These tools help you get started quickly, but before committing to building your
 
 If you have a problem with Expo, before creating a new issue, please see if there's an existing issue about it:
 
-* in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
-* in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
+- in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
+- in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -314,16 +314,16 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <block class="native mac windows android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Performance (Intel ® HAXM)` ([See here for AMD](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Performance (Intel ® HAXM)` ([See here for AMD](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
+- `Android Virtual Device`
 
 <block class="native linux android" />
 
-* `Android SDK`
-* `Android SDK Platform`
-* `Android Virtual Device`
+- `Android SDK`
+- `Android SDK Platform`
+- `Android Virtual Device`
 
 <block class="native mac windows linux android" />
 
@@ -353,8 +353,8 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 Select the "SDK Platforms" tab from within the SDK Manager, then check the box next to "Show Package Details" in the bottom right corner. Look for and expand the `Android 9 (Pie)` entry, then make sure the following items are checked:
 
-* `Android SDK Platform 28`
-* `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
+- `Android SDK Platform 28`
+- `Intel x86 Atom_64 System Image` or `Google APIs Intel x86 Atom System Image`
 
 Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `28.0.3` is selected.
 
@@ -442,6 +442,18 @@ react-native init AwesomeProject
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
+### [Optional] Using a specific version
+
+If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+
+```
+react-native init AwesomeProject --version X.XX.X
+```
+
+```
+react-native init AwesomeProject --version react-native@next
+```
+
 <block class="native mac windows linux android" />
 
 ## Creating a new application
@@ -453,6 +465,18 @@ react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+
+### [Optional] Using a specific version
+
+If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+
+```
+react-native init AwesomeProject --version X.XX.X
+```
+
+```
+react-native init AwesomeProject --version react-native@next
+```
 
 <block class="native mac windows linux android" />
 
@@ -548,13 +572,13 @@ Now that you have successfully run the app, let's modify it.
 
 <block class="native mac ios" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Hit `⌘R` in your iOS Simulator to reload the app and see your changes!
 
 <block class="native mac android" />
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Press the `R` key twice or select `Reload` from the Developer Menu (`⌘M`) to see your changes!
 
 <block class="native windows linux android" />
 
@@ -562,8 +586,8 @@ Now that you have successfully run the app, let's modify it.
 
 Now that you have successfully run the app, let's modify it.
 
-* Open `App.js` in your text editor of choice and edit some lines.
-* Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
+- Open `App.js` in your text editor of choice and edit some lines.
+- Press the `R` key twice or select `Reload` from the Developer Menu (`Ctrl + M`) to see your changes!
 
 <block class="native mac ios android" />
 
@@ -585,9 +609,9 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 
@@ -595,9 +619,9 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 ## Now what?
 
-* Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
-* If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
 

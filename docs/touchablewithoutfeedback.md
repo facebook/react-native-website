@@ -5,35 +5,51 @@ title: TouchableWithoutFeedback
 
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
 
-TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View.
+`TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
+
+### Usage Example
+
+```javascript
+function MyComponent(props) {
+  return (
+    <View {...props} style={{flex: 1, backgroundColour: '#fff'}}>
+      <Text>My Component</Text>
+    </View>
+  );
+}
+
+<TouchableWithoutFeedback onPress={() => alert('Pressed!')}>
+  <MyComponent />
+</TouchableWithoutFeedback>;
+```
 
 ### Props
 
-* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-* [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
-* [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
-* [`accessibilityRole`](view.md#accessibilityrole)
-* [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-* [`onBlur`](touchablewithoutfeedback.md#onblur)
-* [`onFocus`](touchablewithoutfeedback.md#onfocus)
-* [`onLayout`](touchablewithoutfeedback.md#onlayout)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
-* [`testID`](touchablewithoutfeedback.md#testid)
+- [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+- [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
+- [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
+- [`accessible`](touchablewithoutfeedback.md#accessible)
+- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+- [`disabled`](touchablewithoutfeedback.md#disabled)
+- [`hitSlop`](touchablewithoutfeedback.md#hitslop)
+- [`onBlur`](touchablewithoutfeedback.md#onblur)
+- [`onFocus`](touchablewithoutfeedback.md#onfocus)
+- [`onLayout`](touchablewithoutfeedback.md#onlayout)
+- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+- [`onPress`](touchablewithoutfeedback.md#onpress)
+- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`testID`](touchablewithoutfeedback.md#testid)
 
 ### Type Definitions
 
-* [`Event`](touchablewithoutfeedback.md#event)
+- [`Event`](touchablewithoutfeedback.md#event)
 
 ---
 
@@ -65,9 +81,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type | Required |
-| ---- | -------- |
-| node | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 

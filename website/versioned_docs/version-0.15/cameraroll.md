@@ -8,8 +8,8 @@ original_id: cameraroll
 
 ### Methods
 
-* [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
-* [`getPhotos`](cameraroll.md#getphotos)
+- [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
+- [`getPhotos`](cameraroll.md#getphotos)
 
 ---
 
@@ -31,9 +31,9 @@ The CameraRoll API is not yet implemented for Android.
 
 On iOS, the tag can be one of the following:
 
-* local URI
-* assets-library tag
-* a tag not maching any of the above, which means the image data will be stored in memory (and consume memory as long as the process is alive)
+- local URI
+- assets-library tag
+- a tag not maching any of the above, which means the image data will be stored in memory (and consume memory as long as the process is alive)
 
 @param successCallback Invoked with the value of `tag` on success. @param errorCallback Invoked with error message on error.
 

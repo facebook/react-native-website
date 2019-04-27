@@ -27,13 +27,13 @@ renderButton: function() {
 
 ### Props
 
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
-- [`activeOpacity`](touchablehighlight.md#activeopacity)
-- [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
-- [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
-- [`style`](touchablehighlight.md#style)
-- [`underlayColor`](touchablehighlight.md#underlaycolor)
+* [`activeOpacity`](touchablehighlight.md#activeopacity)
+* [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
+* [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
+* [`style`](touchablehighlight.md#style)
+* [`underlayColor`](touchablehighlight.md#underlaycolor)
 
 ---
 

@@ -6,15 +6,15 @@ original_id: image-style-props
 
 ### Props
 
-* [`backfaceVisibility`](image-style-props.md#backfacevisibility)
-* [`backgroundColor`](image-style-props.md#backgroundcolor)
-* [`borderColor`](image-style-props.md#bordercolor)
-* [`borderRadius`](image-style-props.md#borderradius)
-* [`borderWidth`](image-style-props.md#borderwidth)
-* [`opacity`](image-style-props.md#opacity)
-* [`overflow`](image-style-props.md#overflow)
-* [`resizeMode`](image-style-props.md#resizemode)
-* [`tintColor`](image-style-props.md#tintcolor)
+- [`backfaceVisibility`](image-style-props.md#backfacevisibility)
+- [`backgroundColor`](image-style-props.md#backgroundcolor)
+- [`borderColor`](image-style-props.md#bordercolor)
+- [`borderRadius`](image-style-props.md#borderradius)
+- [`borderWidth`](image-style-props.md#borderwidth)
+- [`opacity`](image-style-props.md#opacity)
+- [`overflow`](image-style-props.md#overflow)
+- [`resizeMode`](image-style-props.md#resizemode)
+- [`tintColor`](image-style-props.md#tintcolor)
 
 ---
 

@@ -73,8 +73,8 @@ If you're targeting iOS 8.x or older, you can use the following code instead:
 If your app is using [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html), you'll need to add the following code as well:
 
 ```objectivec
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
+ restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
 {
  return [RCTLinkingManager application:application
                   continueUserActivity:userActivity
@@ -120,12 +120,13 @@ Linking.canOpenURL(url)
 
 ### Methods
 
-* [`constructor`](linking.md#constructor)
-* [`addEventListener`](linking.md#addeventlistener)
-* [`removeEventListener`](linking.md#removeeventlistener)
-* [`openURL`](linking.md#openurl)
-* [`canOpenURL`](linking.md#canopenurl)
-* [`getInitialURL`](linking.md#getinitialurl)
+- [`constructor`](linking.md#constructor)
+- [`addEventListener`](linking.md#addeventlistener)
+- [`removeEventListener`](linking.md#removeeventlistener)
+- [`openURL`](linking.md#openurl)
+- [`canOpenURL`](linking.md#canopenurl)
+- [`openSettings`](linking.md#opensettings)
+- [`getInitialURL`](linking.md#getinitialurl)
 
 ---
 
@@ -204,6 +205,16 @@ The method returns a `Promise` object. When it is determined whether or not the 
 > For web URLs, the protocol ("http://", "https://") must be set accordingly!
 
 > As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
+
+---
+
+### `openSettings()`
+
+```javascript
+openSettings();
+```
+
+Open the Settings app and displays the app’s custom settings, if it has any.
 
 ---
 

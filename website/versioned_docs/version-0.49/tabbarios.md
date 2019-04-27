@@ -6,16 +6,16 @@ original_id: tabbarios
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`barStyle`](tabbarios.md#barstyle)
-- [`barTintColor`](tabbarios.md#bartintcolor)
-- [`itemPositioning`](tabbarios.md#itempositioning)
-- [`style`](tabbarios.md#style)
-- [`tintColor`](tabbarios.md#tintcolor)
-- [`translucent`](tabbarios.md#translucent)
-- [`unselectedItemTintColor`](tabbarios.md#unselecteditemtintcolor)
-- [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
+* [`barStyle`](tabbarios.md#barstyle)
+* [`barTintColor`](tabbarios.md#bartintcolor)
+* [`itemPositioning`](tabbarios.md#itempositioning)
+* [`style`](tabbarios.md#style)
+* [`tintColor`](tabbarios.md#tintcolor)
+* [`translucent`](tabbarios.md#translucent)
+* [`unselectedItemTintColor`](tabbarios.md#unselecteditemtintcolor)
+* [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
 
 ---
 
@@ -47,9 +47,9 @@ Background color of the tab bar
 
 Specifies tab bar item positioning. Available values are:
 
-* fill - distributes items across the entire width of the tab bar
-* center - centers item in the available tab bar space
-* auto (default) - distributes items dynamically according to the user interface idiom. In a horizontally compact environment (e.g. iPhone 5) this value defaults to `fill`, in a horizontally regular one (e.g. iPad) it defaults to center.
+- fill - distributes items across the entire width of the tab bar
+- center - centers item in the available tab bar space
+- auto (default) - distributes items dynamically according to the user interface idiom. In a horizontally compact environment (e.g. iPhone 5) this value defaults to `fill`, in a horizontally regular one (e.g. iPad) it defaults to center.
 
 | Type                           | Required |
 | ------------------------------ | -------- |

@@ -8,16 +8,16 @@ This component is used inside a ScrollView to add pull to refresh functionality.
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`onRefresh`](refreshcontrol.md#onrefresh)
-- [`refreshing`](refreshcontrol.md#refreshing)
-- [`colors`](refreshcontrol.md#colors)
-- [`enabled`](refreshcontrol.md#enabled)
-- [`progressBackgroundColor`](refreshcontrol.md#progressbackgroundcolor)
-- [`size`](refreshcontrol.md#size)
-- [`tintColor`](refreshcontrol.md#tintcolor)
-- [`title`](refreshcontrol.md#title)
+* [`onRefresh`](refreshcontrol.md#onrefresh)
+* [`refreshing`](refreshcontrol.md#refreshing)
+* [`colors`](refreshcontrol.md#colors)
+* [`enabled`](refreshcontrol.md#enabled)
+* [`progressBackgroundColor`](refreshcontrol.md#progressbackgroundcolor)
+* [`size`](refreshcontrol.md#size)
+* [`tintColor`](refreshcontrol.md#tintcolor)
+* [`title`](refreshcontrol.md#title)
 
 ---
 
