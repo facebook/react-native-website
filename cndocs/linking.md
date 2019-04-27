@@ -67,8 +67,8 @@ componentDidMount() {
 如果你的 app 用了 [Universal Links](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/AppSearch/UniversalLinks.html)，需要正确的把下述代码添加进去：
 
 ```
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity
- restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity
+  restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler
 {
  return [RCTLinkingManager application:application
                   continueUserActivity:userActivity
@@ -117,6 +117,7 @@ Linking.canOpenURL(url).then(supported => {
 * [`removeEventListener`](linking.md#removeeventlistener)
 * [`openURL`](linking.md#openurl)
 * [`canOpenURL`](linking.md#canopenurl)
+* [`openSettings`](linking.md#opensettings)
 * [`getInitialURL`](linking.md#getinitialurl)
 
 ---
@@ -196,6 +197,16 @@ canOpenURL(url);
 > 对于 web 链接来说，协议头("http://", "https://")不能省略！
 
 > 对于 iOS 9 来说，你需要在`Info.plist`中添加`LSApplicationQueriesSchemes`字段，否则`canOpenURL`可能一直返回 false。
+
+---
+
+### `openSettings()`
+
+ ```javascript
+openSettings();
+```
+
+Open the Settings app and displays the app’s custom settings, if it has any.
 
 ---
 

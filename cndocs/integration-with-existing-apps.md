@@ -143,7 +143,7 @@ title: 集成到现有原生应用
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start"
+    "start": "yarn react-native start"
   }
 }
 ```

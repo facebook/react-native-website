@@ -3,6 +3,8 @@ id: netinfo
 title: NetInfo
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo) instead.
+
 通过NetInfo模块可以获取设备当前的联网状态。
 
 ```

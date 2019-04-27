@@ -3,6 +3,8 @@ id: maskedviewios
 title: MaskedViewIOS
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-masked-view](https://github.com/react-native-community/react-native-masked-view) instead.
+
 渲染一个带蒙版的视图。蒙版元素在`maskElement`这个 prop 中指定。
 
 ## 示例

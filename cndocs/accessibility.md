@@ -77,58 +77,28 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 #### 无障碍角色 accessibilityRole (iOS, Android)
 
-> **Note:** Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
 Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. To use, set the `accessibilityRole` property to one of the following strings:
-
-- **none** Used when the element has no role.
-- **button** Used when the element should be treated as a button.
-- **link** Used when the element should be treated as a link.
-- **search** Used when the text field element should also be treated as a search field.
-- **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
-- **keyboardkey** Used when the element acts as a keyboard key.
-- **text** Used when the element should be treated as static text that cannot change.
-- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
-- **imagebutton** Used when the element should be treated as a button and is also an image.
-- **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
-- **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
-
-#### 无障碍状态 accessibilityStates (iOS, Android)
-
-> **Note:** > `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
-
-- **selected** Used when the element is in a selected state. For example, a button is selected.
-- **disabled** Used when the element is disabled and cannot be interacted with.
-
-To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
-
-#### 无障碍元素特性 accessibilityTraits (iOS)
-
-> **注意：** `accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-无障碍元素特性可以使 VoiceOver 的用户知道自己选中的是什么类型的元素。是文本标签？是按钮？还是头部？`accessibilityTraits`回答了这一问题。
-
-设定`accessibilityTraits`属性并赋予以下一个或多个（以数组的形式）特性字符串即可启用无障碍元素特性：
 
 - **none** 无特性元素。
 - **button** 具有按钮特性。
 - **link** 具有链接特性。
-- **header** 作为内容区域的头部（比如导航栏的标题）。
 - **search** 用作搜索框的文本框。
 - **image** 具有图片特性。可以和按钮或链接等连用。
-- **selected** 元素被选中时使用。比如表格中被选中的一行或是[segmented control](segmentedcontrolios.html)中被选中的一个按钮。
-- **plays** 在元素被点击后播放音效时使用。
-- **key** 元素作为虚拟键盘的一个键使用。
+- **keyboardkey** 元素作为虚拟键盘的一个键使用。
 - **text** 具有不可修改的文本的特性。
-- **summary** 在 App 冷启动（指完全退出后台后再进入）时提供当前的简要总结信息的元素。比如当天气应用冷启动时，显示当前天气情况的元素就会被标记为**summary**。
-- **disabled** 在元素被禁用，不接受用户输入时使用。
-- **frequentUpdates** 有些元素会频繁更新其标签或值，但我们又不希望太频繁地接受到通知，那么就使用这一特性标记。这一特性标记会使无障碍功能的客户端隔一段时间后再去检查变化（避免频繁打扰用户）。秒表就是个典型的例子。
-- **startsMedia** 在元素启动一个多媒体会话时使用（比如播放电影或是录音），此时不应该被 VoiceOver 这样的辅助技术打断。
 - **adjustable** 元素具有可调整的特性（比如一个滑块）。
-- **allowsDirectInteraction** 在元素可以接受 VoiceOver 用户的直接触摸交互时使用（比如展示钢琴键盘的视图）。
-- **pageTurn** 用于通知 VoiceOver 当前页面已经阅读完毕，可以滚动到下一个页面了。
+- **imagebutton** Used when the element should be treated as a button and is also an image.
+- **header** 作为内容区域的头部（比如导航栏的标题）。
+- **summary** 在 App 冷启动（指完全退出后台后再进入）时提供当前的简要总结信息的元素。比如当天气应用冷启动时，显示当前天气情况的元素就会被标记为**summary**。
+
+#### 无障碍状态 accessibilityStates (iOS, Android)
+
+Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
+
+- **selected** 元素被选中时使用。比如表格中被选中的一行或是[segmented control](segmentedcontrolios.html)中被选中的一个按钮。
+- **disabled** 在元素被禁用，不接受用户输入时使用。
+
+To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
 
 #### accessibilityViewIsModal (iOS)
 
@@ -153,23 +123,6 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 #### onAccessibilityEscape (iOS)
 
 Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
-
-#### 无障碍组件类型 accessibilityComponentType (Android)
-
-> **注意：** > `accessibilityComponentType` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-在某些情况下，我们也希望告知用户他选中的组件的类型（比如是个按钮）。如果我们使用的是原生按钮，这一行为会自动进行。但既然我们主要是使用 javascript，则还需要为 Android 的 TalkBack 技术提供更多信息。要实现这一点，就必须为所有 UI 组件指定`accessibilityComponentType`属性。比如可以指定`button`，`radiobutton_checked`以及`radiobutton_unchecked`等值。
-
-```javascript
-<TouchableWithoutFeedback accessibilityComponentType=”button”
-  onPress={this._onPress}>
-  <View style={styles.button}>
-    <Text style={styles.buttonText}>Press me!</Text>
-  </View>
-</TouchableWithoutFeedback>
-```
-
-上面这个例子里，TouchableWithoutFeedback 在 TalkBack 中被声明为一个原生按钮。
 
 #### 无障碍的动态区域 accessibilityLiveRegion (Android)
 
@@ -199,11 +152,11 @@ Assign this property to a custom function which will be called when someone perf
 ```javascript
 <View style={styles.container}>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'green'}} importantForAccessibility=”yes”>
+    backgroundColor: 'green'}} importantForAccessibility='yes'>
     <Text> First layout </Text>
   </View>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'yellow'}} importantForAccessibility=”no-hide-descendant”>
+    backgroundColor: 'yellow'}} importantForAccessibility='no-hide-descendant'>
     <Text> Second layout </Text>
   </View>
 </View>
@@ -246,8 +199,30 @@ _onPress: function() {
 
 ## 测试 VoiceOver (iOS)
 
-要开启 VoiceOver 功能，先打开 iOS 设备的设置选项。点击“通用”，然后是“辅助选项”，你会看到很多为残障人群使用手机减少障碍的工具，比如更大的字体、更高的对比度以及 VoiceOver。
+要开启 VoiceOver 功能，先打开 iOS 设备的设置选项（注意模拟器上没法测试）。点击“通用”，然后是“辅助选项”，你会看到很多为残障人群使用手机减少障碍的工具，比如更大的字体、更高的对比度以及 VoiceOver。
 
 在“视觉”菜单下点击 VoiceOver，将开关置为打开状态即可启用。
 
 在辅助选项的最底部，有一个“辅助选项快捷键”，开启之后可以通过点击三次 Home 按钮来快速关闭或打开 VoiceOver 工具。
+
+## Testing TalkBack Support (Android)
+
+To enable TalkBack, go to the Settings app on your Android device or emulator. Tap Accessibility, then TalkBack. Toggle the "Use service" switch to enable or disable it.
+
+P.S. Android emulator doesn’t have TalkBack by default. To install it:
+
+1. Download TalkBack file here: https://google-talkback.en.uptodown.com/android
+2. Drag the downloaded `.apk` file into the emulator
+
+You can use the volume key shortcut to toggle TalkBack. To turn on the volume key shortcut, go to the Settings app, then Accessibility. At the top, turn on Volume key shortcut.
+
+To use the volume key shortcut, press both volume keys for 3 seconds to start an accessibility tool.
+
+Additionally, if you prefer, you can toggle TalkBack via command line with:
+
+```
+# disable
+adb shell settings put secure enabled_accessibility_services com.android.talkback/com.google.android.marvin.talkback.TalkBackService
+ # enable
+adb shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService
+```

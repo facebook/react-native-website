@@ -36,7 +36,7 @@ import { Text, View } from 'react-native';
 class Greeting extends Component {
   render() {
     return (
-      <View style={{alignItems: 'center'}}>
+      <View style={{alignItems: 'center', marginTop: 50}}>
         <Text>Hello {this.props.name}!</Text>
       </View>
     );

@@ -3,6 +3,8 @@ id: viewpagerandroid
 title: ViewPagerAndroid
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
+
 一个允许在子视图之间左右翻页的容器。每一个 ViewPagerAndroid 的子容器会被视作一个单独的页，并且会被拉伸填满 ViewPagerAndroid。
 
 注意所有的子视图都必须是纯 View，而不能是自定义的复合容器。你可以给每个子视图设置样式属性譬如 padding 或 backgroundColor。
@@ -10,7 +12,7 @@ title: ViewPagerAndroid
 例如:
 
 ```
-render: function() {
+render() {
   return (
     <ViewPagerAndroid
       style={styles.viewPager}
@@ -27,7 +29,7 @@ render: function() {
 
 ...
 
-var styles = {
+const styles = {
   ...
   viewPager: {
     flex: 1

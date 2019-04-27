@@ -3,6 +3,8 @@ id: slider
 title: Slider
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider) instead.
+
 用于选择一个范围值的组件。
 
 ### 查看Props

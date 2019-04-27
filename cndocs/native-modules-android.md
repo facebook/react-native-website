@@ -166,7 +166,7 @@ protected List<ReactPackage> getPackages() {
 import { NativeModules } from "react-native";
 // 下一句中的ToastExample即对应上文
 // public String getName()中返回的字符串
-module.exports = NativeModules.ToastExample;
+export default NativeModules.ToastExample;
 ```
 
 现在，在别处的 JavaScript 代码中可以这样调用你的方法：
@@ -319,10 +319,14 @@ JavaScript 模块可以通过使用`DeviceEventEmitter`模块来监听事件：
 import { DeviceEventEmitter } from 'react-native';
 
 // ...
-componentWillMount() {
+componentDidMount() {
   DeviceEventEmitter.addListener('keyboardWillShow', (e: Event) => {
     // handle event.
   });
+}
+componentWillUnmount() {
+  // When you want to stop listening to new events, simply call .remove() on the subscription
+  this.subscription.remove();
 }
 ```
 
