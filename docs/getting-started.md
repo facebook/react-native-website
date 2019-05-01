@@ -528,7 +528,7 @@ You should see your new app running in the iOS Simulator shortly.
 
 ![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode or [Nuclide](https://nuclide.io/).
+`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
@@ -559,7 +559,7 @@ If everything is set up correctly, you should see your new app running in your A
 
 <block class="native mac windows linux android" />
 
-`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio or [Nuclide](https://nuclide.io/).
+`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
