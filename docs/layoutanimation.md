@@ -15,7 +15,6 @@ Note that in order to get this to work on **Android** you need to set the follow
 
 - [`configureNext`](layoutanimation.md#configurenext)
 - [`create`](layoutanimation.md#create)
-- [`checkConfig`](layoutanimation.md#checkconfig)
 
 ### Properties
 
@@ -62,14 +61,6 @@ static create(duration, type, creationProp)
 ```
 
 Helper for creating a config for `configureNext`.
-
----
-
-### `checkConfig()`
-
-```javascript
-static checkConfig(config, location, name)
-```
 
 ## Properties
 
