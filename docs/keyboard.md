@@ -17,11 +17,11 @@ class Example extends Component {
   componentDidMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
-      this._keyboardDidShow,
+      this._keyboardDidShow
     );
     this.keyboardDidHideListener = Keyboard.addListener(
       'keyboardDidHide',
-      this._keyboardDidHide,
+      this._keyboardDidHide
     );
   }
 
