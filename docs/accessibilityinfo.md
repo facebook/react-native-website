@@ -174,7 +174,7 @@ Set accessibility focus to a React component. On Android, this is equivalent to 
 static announceForAccessibility(announcement)
 ```
 
-iOS-Only. Post a string to be announced by the screen reader.
+Post a string to be announced by the screen reader.
 
 ---
 
