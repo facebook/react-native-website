@@ -235,7 +235,7 @@ It is very important to highlight that the callback is not invoked immediately a
 
 ### Promises
 
-Native modules can also fulfill a promise, which can simplify your code, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
+Native modules can also fulfill a promise, which can simplify your JavaScript, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
 
 Refactoring the above code to use a promise instead of callbacks looks like this:
 
