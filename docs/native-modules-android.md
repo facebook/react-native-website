@@ -178,7 +178,7 @@ import ToastExample from './ToastExample';
 ToastExample.show('Awesome', ToastExample.SHORT);
 ```
 
-Please make sure this JavasScript file to be the same hierarchy as `ToastExample.js`.
+Please make sure this JavaScript is in the same hierarchy as `ToastExample.js`.
 
 ## Beyond Toasts
 
