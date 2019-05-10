@@ -52,13 +52,6 @@
       "version-0.53-signed-apk-android",
       "version-0.53-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.53-contributing",
-      "version-0.53-maintainers",
-      "version-0.53-building-from-source",
-      "version-0.53-testing",
-      "version-0.53-understanding-cli"
-    ],
     "Components": [
       "version-0.53-activityindicator",
       "version-0.53-button",

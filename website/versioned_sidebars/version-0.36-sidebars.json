@@ -52,13 +52,6 @@
       "version-0.36-signed-apk-android",
       "version-0.36-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.36-contributing",
-      "version-0.36-maintainers",
-      "version-0.36-building-from-source",
-      "version-0.36-testing",
-      "version-0.36-understanding-cli"
-    ],
     "Components": [
       "version-0.36-activityindicator",
       "version-0.36-datepickerios",

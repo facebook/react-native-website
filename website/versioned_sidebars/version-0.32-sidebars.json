@@ -52,13 +52,6 @@
       "version-0.32-signed-apk-android",
       "version-0.32-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.32-contributing",
-      "version-0.32-maintainers",
-      "version-0.32-building-from-source",
-      "version-0.32-testing",
-      "version-0.32-understanding-cli"
-    ],
     "Components": [
       "version-0.32-activityindicator",
       "version-0.32-datepickerios",

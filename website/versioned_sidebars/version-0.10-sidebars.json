@@ -52,13 +52,6 @@
       "version-0.10-signed-apk-android",
       "version-0.10-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.10-contributing",
-      "version-0.10-maintainers",
-      "version-0.10-testing",
-      "version-0.10-building-from-source",
-      "version-0.10-understanding-cli"
-    ],
     "Components": [
       "version-0.10-datepickerios",
       "version-0.10-image",

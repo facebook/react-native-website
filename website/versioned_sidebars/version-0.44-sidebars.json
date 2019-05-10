@@ -52,13 +52,6 @@
       "version-0.44-signed-apk-android",
       "version-0.44-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.44-contributing",
-      "version-0.44-maintainers",
-      "version-0.44-building-from-source",
-      "version-0.44-testing",
-      "version-0.44-understanding-cli"
-    ],
     "Components": [
       "version-0.44-activityindicator",
       "version-0.44-button",
