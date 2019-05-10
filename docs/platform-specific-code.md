@@ -84,6 +84,28 @@ if (majorVersionIOS <= 9) {
 }
 ```
 
+### Detecting Dark Theme on Android
+
+On Android Q there is now a system wide light and dark theme, and users expect applications to respond to this setting. Native applications achieve this using an inherited theme. On React Native, the application can read the status in order to modify styles. For brevity, the example below does not provide the user the in-app option to override the system theme; see [Android's suggested user experience](https://developer.android.com/preview/features/darktheme#changing_themes_in-app).
+
+```javascript
+import {Platform} from 'react-native';
+
+const isNightMode = Platform.nightMode === "yes";
+
+const themeColors = {
+  background: isNightMode ? '#121212' : '#ffffff',
+  onPrimary: isNightMode ? '#ffffff' : '#000000'
+};
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: themeColors.background,
+    color: themeColors.onPrimary
+  }
+});
+```
+
 ## Platform-specific extensions
 
 When your platform-specific code is more complex, you should consider splitting the code out into separate files. React Native will detect when a file has a `.ios.` or `.android.` extension and load the relevant platform file when required from other components.
