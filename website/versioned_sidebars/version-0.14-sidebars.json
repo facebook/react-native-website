@@ -52,13 +52,6 @@
       "version-0.14-signed-apk-android",
       "version-0.14-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.14-contributing",
-      "version-0.14-maintainers",
-      "version-0.14-building-from-source",
-      "version-0.14-testing",
-      "version-0.14-understanding-cli"
-    ],
     "Components": [
       "version-0.14-datepickerios",
       "version-0.14-drawerlayoutandroid",

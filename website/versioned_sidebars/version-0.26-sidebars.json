@@ -52,13 +52,6 @@
       "version-0.26-signed-apk-android",
       "version-0.26-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.26-contributing",
-      "version-0.26-maintainers",
-      "version-0.26-building-from-source",
-      "version-0.26-testing",
-      "version-0.26-understanding-cli"
-    ],
     "Components": [
       "version-0.26-datepickerios",
       "version-0.26-drawerlayoutandroid",

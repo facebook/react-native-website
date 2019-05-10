@@ -52,13 +52,6 @@
       "version-0.22-signed-apk-android",
       "version-0.22-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.22-contributing",
-      "version-0.22-maintainers",
-      "version-0.22-building-from-source",
-      "version-0.22-testing",
-      "version-0.22-understanding-cli"
-    ],
     "Components": [
       "version-0.22-datepickerios",
       "version-0.22-drawerlayoutandroid",

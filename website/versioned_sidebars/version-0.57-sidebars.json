@@ -53,13 +53,6 @@
       "version-0.57-signed-apk-android",
       "version-0.57-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.57-contributing",
-      "version-0.57-maintainers",
-      "version-0.57-building-from-source",
-      "version-0.57-testing",
-      "version-0.57-understanding-cli"
-    ],
     "Components": [
       "version-0.57-activityindicator",
       "version-0.57-button",

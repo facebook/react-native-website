@@ -43,10 +43,5 @@
   "native-components-android",
   "headless-js-android",
   "signed-apk-android",
-  "removing-default-permissions",
-  "contributing",
-  "maintainers",
-  "building-from-source",
-  "testing",
-  "understanding-cli"
+  "removing-default-permissions"
 ]

@@ -52,13 +52,6 @@
       "version-0.18-signed-apk-android",
       "version-0.18-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.18-contributing",
-      "version-0.18-maintainers",
-      "version-0.18-building-from-source",
-      "version-0.18-testing",
-      "version-0.18-understanding-cli"
-    ],
     "Components": [
       "version-0.18-datepickerios",
       "version-0.18-drawerlayoutandroid",
