@@ -2102,9 +2102,6 @@
       "version-0.5/version-0.5-building-for-apple-tv": {
         "title": "Building For TV Devices"
       },
-      "version-0.5/version-0.5-building-from-source": {
-        "title": "Building React Native from source"
-      },
       "version-0.5/version-0.5-button": {
         "title": "Button"
       },
@@ -2128,9 +2125,6 @@
       },
       "version-0.5/version-0.5-components-and-apis": {
         "title": "Components and APIs"
-      },
-      "version-0.5/version-0.5-contributing": {
-        "title": "How to Contribute"
       },
       "version-0.5/version-0.5-custom-webview-android": {
         "title": "Custom WebView"
@@ -2239,9 +2233,6 @@
       },
       "version-0.5/version-0.5-listviewdatasource": {
         "title": "ListViewDataSource"
-      },
-      "version-0.5/version-0.5-maintainers": {
-        "title": "What to Expect from Maintainers"
       },
       "version-0.5/version-0.5-maskedviewios": {
         "title": "MaskedViewIOS"
@@ -2386,9 +2377,6 @@
       },
       "version-0.5/version-0.5-tabbarios": {
         "title": "TabBarIOS"
-      },
-      "version-0.5/version-0.5-testing": {
-        "title": "Testing your Changes"
       },
       "version-0.5/version-0.5-text-style-props": {
         "title": "Text Style Props"
