@@ -146,7 +146,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 ### Running your app on a simulator or virtual device
 
-Expo CLI makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for building projects with native code to learn how to install Xcode or set up your Android development environment.
+Expo CLI makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for "React Native CLI Quickstart" to learn how to install Xcode or set up your Android development environment.
 
 Once you've set these up, you can launch your app on an Android Virtual Device by running `npm run android`, or on the iOS Simulator by running `npm run ios` (macOS only).
 
@@ -154,11 +154,11 @@ Once you've set these up, you can launch your app on an Android Virtual Device b
 
 Because you don't build any native code when using Expo to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
 
-If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/expokit/eject)" eventually to create your own native builds. If you do eject, the "Building Projects with Native Code" instructions will be required to continue working on your project.
+If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/expokit/eject)" eventually to create your own native builds. If you do eject, the "React Native CLI Quickstart" instructions will be required to continue working on your project.
 
 Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported.
 
-If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Native.
+If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
 
 <block class="native mac windows linux ios android" />
 
