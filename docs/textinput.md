@@ -655,11 +655,11 @@ The following values work on iOS only:
 
 ### `rejectResponderTermination`
 
-Determines how the return key should look. On Android you can also use `returnKeyLabel`.
-
 _iOS Only_
 
 If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default.
+If `false`, TextInput always asks to handle the input (except when disabled).
+The default value is `true`.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
