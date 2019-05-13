@@ -75,7 +75,7 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 #### accessibilityRole (iOS, Android)
 
-Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. To use, set the `accessibilityRole` property to one of the following strings:
+Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the purpose or role of a given element. To use, set the `accessibilityRole` property to one of the following strings:
 
 - **none** Used when the element has no role.
 - **button** Used when the element should be treated as a button.
@@ -88,15 +88,36 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- **alert** Used when an element contains important text to be presented to the user.
+- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
+- **menu** Used when the component is a menu of choices.
+- **menubar** Used when a component is a container of multiple menus.
+- **menuitem** Used to represent an item within a menu.
+- **progressbar** Used to represent a component which indicates progress of a task.
+- **radio** Used to represent a radio button.
+- **radiogroup** Used to represent a group of radio buttons.
+- **scrollbar** Used to represent a scroll bar.
+- **spinbutton** Used to represent a button which opens a list of choices.
+- **switch** Used to represent a switch which can be turned on and off.
+- **tab** Used to represent a tab.
+- **tablist** Used to represent a list of tabs.
+- **timer** Used to represent a timer.
+- **toolbar** Used to represent a tool bar (a container of action buttons or components).
 
 #### accessibilityStates (iOS, Android)
 
-Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
+Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of an element. The state of the element can be set either to `selected` or `disabled` or both:
 
 - **selected** Used when the element is in a selected state. For example, a button is selected.
 - **disabled** Used when the element is disabled and cannot be interacted with.
+- **checked** Used to indicate that a checkable element is currently checked.
+- **unchecked** Used to indicate that a checkable element is not currently checked.
+- **busy** Used to indicate that an element is currently busy.
+- **expanded** Used to indicate that an expandable element is currently expanded.
+- **collapsed** Used to indicate that an expandable element is currently collapsed.
 
-To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
+To use, set the `accessibilityStates` to an array containing the list of current states.
 
 #### accessibilityViewIsModal (iOS)
 
