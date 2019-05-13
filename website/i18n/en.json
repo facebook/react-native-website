@@ -47,9 +47,6 @@
       "asyncstorage": {
         "title": "AsyncStorage"
       },
-      "backandroid": {
-        "title": "BackAndroid"
-      },
       "backhandler": {
         "title": "BackHandler"
       },
@@ -152,9 +149,6 @@
       "images": {
         "title": "Images"
       },
-      "imagestore": {
-        "title": "ImageStore"
-      },
       "improvingux": {
         "title": "Improving User Experience"
       },
@@ -187,15 +181,6 @@
       },
       "linking": {
         "title": "Linking"
-      },
-      "listview": {
-        "title": "ListView"
-      },
-      "listviewdatasource": {
-        "title": "ListViewDataSource"
-      },
-      "maskedviewios": {
-        "title": "MaskedViewIOS"
       },
       "modal": {
         "title": "Modal"
@@ -311,9 +296,6 @@
       "slider": {
         "title": "Slider"
       },
-      "snapshotviewios": {
-        "title": "SnapshotViewIOS"
-      },
       "state": {
         "title": "State"
       },
@@ -388,9 +370,6 @@
       },
       "vibration": {
         "title": "Vibration"
-      },
-      "vibrationios": {
-        "title": "VibrationIOS"
       },
       "view-style-props": {
         "title": "View Style Props"
