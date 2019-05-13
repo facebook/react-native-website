@@ -14,17 +14,18 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
 
 class Blink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShowingText: true };
 
+    componentDidMount(){
     // Toggle the state every second
-    setInterval(() => (
-      this.setState(previousState => (
-        { isShowingText: !previousState.isShowingText }
-      ))
-    ), 1000);
-  }
+        setInterval(() => (
+          this.setState(previousState => (
+            { isShowingText: !previousState.isShowingText }
+          ))
+        ), 1000);
+     }
+     
+    //state object
+    state = { isShowingText: true };
 
   render() {
     if (!this.state.isShowingText) {
