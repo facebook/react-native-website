@@ -46,7 +46,7 @@ class Footer extends React.Component {
           <div>
             <h5>Community</h5>
             <a href={this.props.config.baseUrl + 'help.html'}>
-              Community Resources
+              The React Native Community
             </a>
             <a href={this.props.config.baseUrl + 'showcase.html'}>
               Who's using React Native?
@@ -54,12 +54,14 @@ class Footer extends React.Component {
             <a
               href="http://stackoverflow.com/questions/tagged/react-native"
               target="_blank">
-              Stack Overflow
+              Ask Questions on Stack Overflow
             </a>
-            <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Chat</a>
+            <a href="https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md">
+              Contributor Guide
+            </a>
           </div>
           <div>
-            <h5>More</h5>
+            <h5>More Resources</h5>
             <a href={this.props.config.baseUrl + 'blog/'}>Blog</a>
             <a href="https://twitter.com/reactnative" target="_blank">
               Twitter
