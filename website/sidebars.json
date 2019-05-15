@@ -86,8 +86,7 @@
       "touchablewithoutfeedback",
       "view",
       "viewpagerandroid",
-      "virtualizedlist",
-      "webview"
+      "virtualizedlist"
     ],
     "APIs": [
       "accessibilityinfo",
@@ -104,7 +103,6 @@
       "datepickerandroid",
       "dimensions",
       "easing",
-      "geolocation",
       "imageeditor",
       "imagepickerios",
       "image-style-props",
@@ -113,7 +111,6 @@
       "layout-props",
       "layoutanimation",
       "linking",
-      "netinfo",
       "panresponder",
       "permissionsandroid",
       "pixelratio",
