@@ -78,6 +78,9 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 
 ```gradle
 dependencies {
+  //Add fresco for gif support (if not included in your project)
+  implementation 'com.facebook.fresco:fresco:1.13.0'
+
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
   implementation 'com.facebook.fresco:animated-base-support:1.10.0'
 
