@@ -81,6 +81,14 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 - [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 - [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
 - [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
+- [`nextFocusDown`](view.md#nextfocusdown)
+- [`nextFocusForward`](view.md#nextfocusForward)
+- [`nextFocusLeft`](view.md#nextfocusleft)
+- [`nextFocusRight`](view.md#nextfocusright)
+- [`nextFocusUp`](view.md#nextfocusleft)
+- [`clickable`](view.md#clickable)
+
+
 
 ---
 
@@ -535,3 +543,74 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+
+---
+
+
+### `nextFocusDown`
+
+TV Next focus down
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+
+### `nextFocusForward`
+
+TV Next focus forward
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `nextFocusLeft`
+
+TV Next focus left
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `nextFocusRight`
+
+TV Next focus right
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `nextFocusUp`
+
+TV Next focus up
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `clickable`
+
+The action to perform when this `View` is clicked on by a non-touch click, eg. enter a key on a hardware keyboard.
+
+`View.props.clickable: () => void`
+
+| Type    | Required | Platform |
+| ------  | -------- | -------- |
+| boolean | No       | Android  |
+
