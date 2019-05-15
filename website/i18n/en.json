@@ -110,9 +110,6 @@
       "flexbox": {
         "title": "Layout with Flexbox"
       },
-      "geolocation": {
-        "title": "Geolocation"
-      },
       "gesture-responder-system": {
         "title": "Gesture Responder System"
       },
@@ -205,12 +202,6 @@
       },
       "navigation": {
         "title": "Navigating Between Screens"
-      },
-      "navigator": {
-        "title": "Navigator (Legacy Custom Component)"
-      },
-      "netinfo": {
-        "title": "NetInfo"
       },
       "network": {
         "title": "Networking"
@@ -382,9 +373,6 @@
       },
       "virtualizedlist": {
         "title": "VirtualizedList"
-      },
-      "webview": {
-        "title": "WebView"
       },
       "version-0.10/version-0.10-modal": {
         "title": "Modal"
