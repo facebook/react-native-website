@@ -28,6 +28,25 @@ class Button extends React.Component {
   }
 }
 
+// FIXME keep as an svg
+function Logo() {
+  return (
+    <svg
+      width={350}
+      height={350}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="-11.5 -10.23174 23 20.46348">
+      <title>React Logo</title>
+      <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
+      <g stroke="#61dafb" stroke-width="1" fill="none">
+        <ellipse rx="11" ry="4.2" />
+        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
+        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
+      </g>
+    </svg>
+  );
+}
+
 class HomeCallToAction extends React.Component {
   render() {
     return (
@@ -35,10 +54,10 @@ class HomeCallToAction extends React.Component {
         <Button
           href={siteConfig.baseUrl + 'docs/getting-started'}
           target="_self">
-          Get Started
+          Get started
         </Button>
         <Button href={siteConfig.baseUrl + 'docs/tutorial'} target="_self">
-          Learn the Basics
+          Learn basics
         </Button>
       </div>
     );
@@ -55,13 +74,20 @@ class HeaderHero extends React.Component {
   render() {
     return (
       <Hero>
-        <div className="text">React Native</div>
-        <div className="minitext">
-          Build native mobile apps using JavaScript and React
-        </div>
-        <div className="buttons-unit">
-          <HomeCallToAction />
-        </div>
+        <Container>
+          <div className="grid">
+            <div className="grid-column">
+              <div className="text">React Native</div>
+              <div className="tagline">Learn once, write anywhere.</div>
+              <div className="buttons-unit">
+                <HomeCallToAction />
+              </div>
+            </div>
+            <div className="grid-column image-cell">
+              <Logo />
+            </div>
+          </div>
+        </Container>
       </Hero>
     );
   }

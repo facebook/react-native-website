@@ -33,20 +33,39 @@
 }
 
 .hero {
-  background: #2d2d2d;
+  /* TODO get the actual colors */
+  background: #282c33;
   padding: 50px 0;
-  color: #fdf3e7;
-  text-align: center;
+}
+
+.hero .grid {
+  display: flex;
+}
+
+.hero .grid-column {
+  max-width: 450px;
+  width: 100%;
+}
+
+.hero .image-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero .text {
-  font-size: 300%;
-  text-align: center;
+  font-size: 96px;
+  color: #61dafb;
+  line-height: 1;
+  margin-bottom: 20px;
+  font-weight: 500;
 }
 
-.hero .minitext {
-  font-size: 24px;
-  text-align: center;
+.hero .tagline {
+  line-height: 1.3;
+  color: white;
+  font-size: 36px;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 680px) {
@@ -54,7 +73,7 @@
     font-size: 200%;
     text-align: center;
   }
-  .hero .minitext {
+  .hero .tagline {
     font-size: 18px;
     text-align: center;
   }

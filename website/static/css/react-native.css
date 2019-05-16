@@ -154,40 +154,39 @@ li {
 
 .big-button {
   text-align: center;
-  background: $secondaryColor;
-  color: #fafafa;
-  border-radius: 4px;
-  padding: 12px 16px;
+  /* TODO right colors */
+  background: #888888;
+  color: white;
+  /* border-radius: 4px; */
+  padding: 10px 24px;
   font-size: 18px;
   font-weight: 300;
-  margin: 0 12px;
+  /* margin: 0 12px; */
+  margin-right: 24px;
   display: inline-block;
-  color: #fafafa;
   text-decoration: none;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s, color 0.3s, transform 0.3s;
+  /* transition: background 0.3s, color 0.3s, transform 0.3s; */
 }
 
-.big-button:hover {
+/* .big-button:hover {
   background: #047598;
   color: #fff;
   transform: scale(1.05);
-}
+} */
 
 .big-button a {
   color: white;
 }
 
-.big-button:active {
+/* .big-button:active {
   background: #0485a9;
-}
+} */
 
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   .big-button {
-    font-size: 24px;
+    font-size: 16px;
   }
-}
+} */
 
 @media screen and (max-width: 373px) {
   .big-button {
