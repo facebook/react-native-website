@@ -59,6 +59,11 @@ const siteConfig = {
   gaTrackingId: 'UA-41298772-2',
   scripts: ['https://snack.expo.io/embed.js', baseUrl + 'js/codeblocks.js'],
   cleanUrl: true,
+  scrollToTop: true,
+  scrollToTopOptions: {
+    zIndex: 100,
+  },
+  docsSideNavCollapsible: true,
 };
 
 module.exports = siteConfig;
