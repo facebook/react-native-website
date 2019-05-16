@@ -21,8 +21,7 @@ below.
 **[Getting Started](https://facebook.github.io/react-native/docs/tutorial.html)**
 is relatively informal. Resist adding too much detail to the Quick Start. The
 native code instructions should contain the minimal set of steps to get to a
-working development environment, and is expected to contain a longer set of
-steps to get a working development environment. Whatever the case, it should be
+working development environment. Whatever the case, it should be
 possible for a beginner to mechanically follow every instruction, and still get
 to a working React Native app.
 
