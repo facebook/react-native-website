@@ -162,7 +162,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
@@ -180,7 +180,7 @@ The instructions are a bit different depending on your development operating sys
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
 
 <block class="native mac ios" />
 

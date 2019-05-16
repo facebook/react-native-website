@@ -2018,10 +2018,10 @@ dir-glob@2.0.0:
     arrify "^1.0.1"
     path-type "^3.0.0"
 
-docusaurus@1.8.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/docusaurus/-/docusaurus-1.8.0.tgz#d82eeb426c1f0fb69411f141fa9311213254ad1a"
-  integrity sha512-Hn+/simu3yiX+5ucqNvX6yTyXtH3BFu2UIeGiXcKiRG8Khos206SsQQ2B7DrBzeJ0duhPxi/I7zYMFyaF23UUQ==
+docusaurus@1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/docusaurus/-/docusaurus-1.9.0.tgz#cb670d70c7bdabd9d2f6e26cd697b50bb4f28bfe"
+  integrity sha512-FyZ7Bk82PB5cE3xWnO/lAH41T4UkY68ME+pHmhCXveZs+/cjaH5F7DZGlasf+JFeixYjnQvcHWc6ugw/cDB9Ig==
   dependencies:
     "@babel/core" "^7.0.0"
     "@babel/plugin-proposal-class-properties" "^7.0.0"
