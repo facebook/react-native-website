@@ -549,7 +549,7 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 
 ### `nextFocusDown`
 
-TV Next focus down
+Designates the next view to receive focus when the user navigates down
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -561,7 +561,7 @@ TV Next focus down
 
 ### `nextFocusForward`
 
-TV Next focus forward
+Designates the next view to receive focus when the user navigates forward
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -572,7 +572,7 @@ TV Next focus forward
 
 ### `nextFocusLeft`
 
-TV Next focus left
+Designates the next view to receive focus when the user navigates left
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -583,7 +583,7 @@ TV Next focus left
 
 ### `nextFocusRight`
 
-TV Next focus right
+Designates the next view to receive focus when the user navigates right
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -594,7 +594,7 @@ TV Next focus right
 
 ### `nextFocusUp`
 
-TV Next focus up
+Designates the next view to receive focus when the user navigates up
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
