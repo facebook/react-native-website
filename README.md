@@ -108,7 +108,7 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 1.  Save the files and check in the browser. Some changes may require a server restart.
 1.  Changes to /docs will only be visible in the latest version of the documentation (master).
 
-`open http://localhost:3000/react-native/versions.html`to see other versions.
+    `open http://localhost:3000/react-native/versions.html`to see other versions.
 
 ### Test the change
 
@@ -117,7 +117,7 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 ### Push it
 
 1.  Run `yarn prettier` to ensure your changes are consistent with other files in the repo.
-1.  `git add -A && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fixed header logo on Android`) to stage and commit your changes.
+1.  `git add -A && git commit -m "My message"` (replacing `My message` with a commit message, such as `Fixed header logo on     Android`) to stage and commit your changes.
 1.  `git push my-fork-name the-name-of-my-branch`
 1.  Go to the [react-native-website repo](https://github.com/facebook/react-native-website) and you should see recently pushed branches.
 1.  Follow GitHub's instructions.
