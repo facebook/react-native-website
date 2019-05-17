@@ -98,15 +98,8 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Props
 
-- [`ScrollView` props...](scrollview.md#props)
-- [`VirtualizedList` props...](virtualizedlist.md#props)
-- [`renderItem`](flatlist.md#renderitem)
-- [`data`](flatlist.md#data)
-- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-- [`ListFooterComponent`](flatlist.md#listfootercomponent)
-- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
 - [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
+- [`data`](flatlist.md#data)
 - [`extraData`](flatlist.md#extradata)
 - [`getItemLayout`](flatlist.md#getitemlayout)
 - [`horizontal`](flatlist.md#horizontal)
@@ -114,17 +107,25 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 - [`initialScrollIndex`](flatlist.md#initialscrollindex)
 - [`inverted`](flatlist.md#inverted)
 - [`keyExtractor`](flatlist.md#keyextractor)
+- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
+- [`legacyImplementation`](flatlist.md#legacyimplementation)
+- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
+- [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
 - [`numColumns`](flatlist.md#numcolumns)
 - [`onEndReached`](flatlist.md#onendreached)
 - [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
 - [`onRefresh`](flatlist.md#onrefresh)
 - [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
 - [`progressViewOffset`](flatlist.md#progressviewoffset)
-- [`legacyImplementation`](flatlist.md#legacyimplementation)
 - [`refreshing`](flatlist.md#refreshing)
+- [`renderItem`](flatlist.md#renderitem)
 - [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
+- [`ScrollView` props...](scrollview.md#props)
 - [`viewabilityConfig`](flatlist.md#viewabilityconfig)
 - [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
+
 
 ### Methods
 
