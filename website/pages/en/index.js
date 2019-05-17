@@ -1,6 +1,7 @@
 const React = require('react');
-const {css} = require('glamor');
 
+const CompLibrary = require('../../core/CompLibrary.js');
+const MarkdownBlock = CompLibrary.MarkdownBlock;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 
 function ActionButton({href, target, children}) {
@@ -64,10 +65,65 @@ function HeaderHero() {
   );
 }
 
+const features = [
+  {
+    title: 'Create native apps using React and JavaScript',
+    text:
+      'React Native lowers the barrier for creating native-quality apps using the world’s most popular programming language and one of the most popular user-interface libraries for it: [React](https://reactjs.org).\n\nReact offers a uni-directional declarative programming model that drastically reduces the complexity in building user interfaces.',
+    image: '',
+  },
+  {
+    title: 'View, Text, Image',
+    text:
+      'React Native provides platform-agnostic APIs, sharing ideas with how native developers have been writing apps for the last decade.\n\nYou can write components which wrap your existing native code, leaving you to interact with all APIs via React’s declarative UI paradigm and JavaScript.\n\nThis enables native app development for whole new teams of developers, and can let existing native teams work much faster.',
+    image: '',
+  },
+  {
+    title: 'Native Experience',
+    text:
+      'React components in React Native map directly to the platform’s native UI building blocks.\n\nYou can use React Native to augment your existing native code in Kotlin, Swift, Java, and Objective-C.\n\nNo web-views. Unless you want to show web pages.',
+    image: '',
+  },
+  {
+    title: 'Seamless cross-platform',
+    text:
+      'Ensure all your apps feel native on all platforms by easily creating platform-specific versions of a Component.\n\nThis technique is used to allow a single codebase to share a large amount of code across all platforms.',
+    image: '',
+  },
+];
+
+function Feature({title, text, image}) {
+  // TODO
+  return (
+    <header className="Feature">
+      <div className="grid">
+        <div className="column text">
+          <h2 className="heading">{title}</h2>
+          <MarkdownBlock>{text}</MarkdownBlock>
+        </div>
+        <div className="column image">
+          <img src={image} />
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Features() {
+  return (
+    <main>
+      {features.map(feature => (
+        <Feature key={feature.title} {...feature} />
+      ))}
+    </main>
+  );
+}
+
 module.exports = function Index() {
   return (
     <div>
       <HeaderHero />
+      <Features />
     </div>
   );
 };

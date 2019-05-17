@@ -27,6 +27,7 @@ html {
 
 .HeaderHero {
   width: 100%;
+  height: 450px;
   background: #282c33;
   padding: 50px 0;
 }
@@ -63,6 +64,64 @@ html {
 }
 
 .HeaderHero .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* TODO consolidate with HeaderHero */
+.Feature {
+  width: 100%;
+  height: 450px;
+  background: white;
+  padding: 50px 0;
+}
+
+.Feature:nth-child(odd) {
+  background: white;
+}
+
+.Feature:nth-child(even) {
+  background: #eeeeee;
+}
+
+.Feature .grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.Feature:nth-child(odd) .grid {
+  flex-direction: row-reverse;
+}
+
+.Feature:nth-child(even) .grid {
+  flex-direction: row;
+}
+
+.Feature .column {
+  max-width: 450px;
+  width: 100%;
+}
+
+.Feature:nth-child(odd) .text {
+  margin-left: 75px;
+}
+
+.Feature:nth-child(even) .text {
+  margin-right: 75px;
+}
+
+.Feature .heading {
+  font-size: 28px;
+  color: black;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.Feature .image {
   display: flex;
   align-items: center;
   justify-content: center;
