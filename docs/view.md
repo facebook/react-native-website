@@ -605,11 +605,8 @@ Designates the next view to receive focus when the user navigates up
 
 ### `clickable`
 
-The action to perform when this `View` is clicked on by a non-touch click, eg. enter a key on a hardware keyboard.
-
-`View.props.clickable: () => void`
+Determines whether this `View` is clickable or tappable for for accessibility hints.
 
 | Type    | Required | Platform |
 | ------  | -------- | -------- |
 | boolean | No       | Android  |
-
