@@ -47,15 +47,30 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 
 ### Props
 
-- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
-- [`accessibilityLabel`](view.md#accessibilitylabel)
+- [`accessible`](view.md#accessible)
+- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 - [`accessibilityHint`](view.md#accessibilityhint)
+- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
+- [`accessibilityLabel`](view.md#accessibilitylabel)
+- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
+- [`clickable`](view.md#clickable)
+- [`collapsable`](view.md#collapsable)
 - [`hitSlop`](view.md#hitslop)
+- [`importantForAccessibility`](view.md#importantforaccessibility)
 - [`nativeID`](view.md#nativeid)
+- [`nextFocusDown`](view.md#nextfocusdown)
+- [`nextFocusForward`](view.md#nextfocusForward)
+- [`nextFocusLeft`](view.md#nextfocusleft)
+- [`nextFocusRight`](view.md#nextfocusright)
+- [`nextFocusUp`](view.md#nextfocusleft)
+- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
+- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
 - [`onAccessibilityTap`](view.md#onaccessibilitytap)
 - [`onLayout`](view.md#onlayout)
 - [`onMagicTap`](view.md#onmagictap)
-- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
 - [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
 - [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
 - [`onResponderGrant`](view.md#onrespondergrant)
@@ -64,23 +79,15 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 - [`onResponderRelease`](view.md#onresponderrelease)
 - [`onResponderTerminate`](view.md#onresponderterminate)
 - [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
-- [`accessible`](view.md#accessible)
+- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
 - [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
 - [`pointerEvents`](view.md#pointerevents)
+- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 - [`removeClippedSubviews`](view.md#removeclippedsubviews)
+- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 - [`style`](view.md#style)
 - [`testID`](view.md#testid)
-- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
-- [`collapsable`](view.md#collapsable)
-- [`importantForAccessibility`](view.md#importantforaccessibility)
-- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
-- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
-- [`accessibilityRole`](view.md#accessibilityrole)
-- [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
-- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
-- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
+
 
 ---
 
@@ -535,3 +542,71 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+
+---
+
+
+### `nextFocusDown`
+
+Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+
+### `nextFocusForward`
+
+Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `nextFocusLeft`
+
+Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `nextFocusRight`
+
+Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `nextFocusUp`
+
+Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+
+---
+
+### `clickable`
+
+Determines whether this `View` is clickable or tappable for for accessibility hints.
+
+| Type    | Required | Platform |
+| ------  | -------- | -------- |
+| boolean | No       | Android  |
