@@ -549,7 +549,7 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 
 ### `nextFocusDown`
 
-Designates the next view to receive focus when the user navigates down
+Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -561,7 +561,7 @@ Designates the next view to receive focus when the user navigates down
 
 ### `nextFocusForward`
 
-Designates the next view to receive focus when the user navigates forward
+Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -572,7 +572,7 @@ Designates the next view to receive focus when the user navigates forward
 
 ### `nextFocusLeft`
 
-Designates the next view to receive focus when the user navigates left
+Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -583,7 +583,7 @@ Designates the next view to receive focus when the user navigates left
 
 ### `nextFocusRight`
 
-Designates the next view to receive focus when the user navigates right
+Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -594,7 +594,7 @@ Designates the next view to receive focus when the user navigates right
 
 ### `nextFocusUp`
 
-Designates the next view to receive focus when the user navigates up
+Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
