@@ -106,12 +106,14 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 - [`initialNumToRender`](flatlist.md#initialnumtorender)
 - [`initialScrollIndex`](flatlist.md#initialscrollindex)
 - [`inverted`](flatlist.md#inverted)
-- [`keyExtractor`](flatlist.md#keyextractor)
 - [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
+- [`keyExtractor`](flatlist.md#keyextractor)
 - [`legacyImplementation`](flatlist.md#legacyimplementation)
 - [`ListEmptyComponent`](flatlist.md#listemptycomponent)
 - [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
 - [`ListHeaderComponent`](flatlist.md#listheadercomponent)
+- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
 - [`numColumns`](flatlist.md#numcolumns)
 - [`onEndReached`](flatlist.md#onendreached)
 - [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
@@ -129,12 +131,14 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Methods
 
+- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`getScrollResponder`](flatlist.md#getScrollResponder)
+- [`getScrollableNode`](flatlist.md#getScrollableNode)
 - [`scrollToEnd`](flatlist.md#scrolltoend)
 - [`scrollToIndex`](flatlist.md#scrolltoindex)
 - [`scrollToItem`](flatlist.md#scrolltoitem)
 - [`scrollToOffset`](flatlist.md#scrolltooffset)
 - [`recordInteraction`](flatlist.md#recordinteraction)
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
 
 ---
 
@@ -219,6 +223,16 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| style object                 | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
@@ -226,6 +240,16 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for ListHeaderComponent
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| style object                 | No       |
 
 ---
 
@@ -607,3 +631,33 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getScrollResponder()`
+
+```javascript
+getScrollResponder();
+```
+
+Provides a handle to the underlying scroll responder.
+
+---
+
+### `getScrollableNode()`
+
+```javascript
+getScrollableNode();
+```
+
+Provides a handle to the underlying scroll node.
+
+---
+
+### `setNativeProps()`
+
+```javascript
+setNativeProps();
+```
+
+[`Direct Maniupation`](https://facebook.github.io/react-native/docs/direct-manipulation)
