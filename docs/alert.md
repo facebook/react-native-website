@@ -58,7 +58,6 @@ Alert.alert(
     },
     {text: 'OK', onPress: () => console.log('OK Pressed')},
   ],
-  // Cancelability by tapping outside the popup can be enabled on Android
   {cancelable: false},
 );
 ```
