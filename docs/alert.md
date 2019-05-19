@@ -38,7 +38,9 @@ On Android at most three buttons can be specified. Android has a concept of a ne
 - Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
 - Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
 
-By default alerts on Android are not dismissable by tapping outside of the alert box (since v0.60). To enable it, you can pass an optional `options` object with the `cancelable` property set to `true`. The dismissal event can be handled by adding an `onDismiss` callback property to `options`. Note: Alerts are never dismissable on iOS.
+By default alerts on Android can be dismissed by tapping outside of the alert box. This event can be handled by providing an optional options parameter, with an onDismiss callback property { onDismiss: () => {} }.
+
+Alternatively, the dismissing behavior can be disabled altogether by providing an optional options parameter with the cancelable property set to false i.e. { cancelable: false }
 
 Example usage:
 
@@ -57,7 +59,7 @@ Alert.alert(
     {text: 'OK', onPress: () => console.log('OK Pressed')},
   ],
   // Cancelability by tapping outside the popup can be enabled on Android
-  {cancelable: true, onDismiss: () => {}},
+  {cancelable: false},
 );
 ```
 
@@ -74,5 +76,5 @@ Alert.alert(
 ### `alert()`
 
 ```javascript
-static alert(title, message?, buttons?, options?)
+static alert(title, message?, buttons?, options? type?)
 ```
