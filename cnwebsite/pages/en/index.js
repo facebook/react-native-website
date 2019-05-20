@@ -66,6 +66,21 @@ class HeaderHero extends React.Component {
         <div className="buttons-unit">
           <HomeCallToAction />
         </div>
+
+        <div className="home-float-1">
+          <a href="https://www.kaikeba.com/market/web_site_vone" target="_blank" rel="noopener noreferrer">
+            <img src={siteConfig.baseUrl + 'img/ads/20190520144109.png'} />
+            <a href="javascript:;" className="home-float-close">×</a>
+          </a>
+        </div>
+
+        <script dangerouslySetInnerHTML={{
+          __html: `document.querySelector('.home-float-close').onclick = function() {
+            document.querySelector('.home-float-1').style.display = 'none';
+          }`
+        }}>
+          
+        </script>
       </Hero>
     );
   }
