@@ -651,13 +651,3 @@ getScrollableNode();
 ```
 
 Provides a handle to the underlying scroll node.
-
----
-
-### `setNativeProps()`
-
-```javascript
-setNativeProps();
-```
-
-[`Direct Maniupation`](https://facebook.github.io/react-native/docs/direct-manipulation)
