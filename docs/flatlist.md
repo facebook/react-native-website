@@ -98,42 +98,47 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Props
 
-- [`ScrollView` props...](scrollview.md#props)
-- [`VirtualizedList` props...](virtualizedlist.md#props)
-- [`renderItem`](flatlist.md#renderitem)
-- [`data`](flatlist.md#data)
-- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-- [`ListFooterComponent`](flatlist.md#listfootercomponent)
-- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
 - [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
+- [`data`](flatlist.md#data)
 - [`extraData`](flatlist.md#extradata)
 - [`getItemLayout`](flatlist.md#getitemlayout)
 - [`horizontal`](flatlist.md#horizontal)
 - [`initialNumToRender`](flatlist.md#initialnumtorender)
 - [`initialScrollIndex`](flatlist.md#initialscrollindex)
 - [`inverted`](flatlist.md#inverted)
+- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
 - [`keyExtractor`](flatlist.md#keyextractor)
+- [`legacyImplementation`](flatlist.md#legacyimplementation)
+- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
+- [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
+- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
+- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
 - [`numColumns`](flatlist.md#numcolumns)
 - [`onEndReached`](flatlist.md#onendreached)
 - [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
 - [`onRefresh`](flatlist.md#onrefresh)
 - [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
 - [`progressViewOffset`](flatlist.md#progressviewoffset)
-- [`legacyImplementation`](flatlist.md#legacyimplementation)
 - [`refreshing`](flatlist.md#refreshing)
+- [`renderItem`](flatlist.md#renderitem)
 - [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
+- [`ScrollView` props...](scrollview.md#props)
 - [`viewabilityConfig`](flatlist.md#viewabilityconfig)
 - [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
+
 
 ### Methods
 
+- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`getScrollResponder`](flatlist.md#getScrollResponder)
+- [`getScrollableNode`](flatlist.md#getScrollableNode)
 - [`scrollToEnd`](flatlist.md#scrolltoend)
 - [`scrollToIndex`](flatlist.md#scrolltoindex)
 - [`scrollToItem`](flatlist.md#scrolltoitem)
 - [`scrollToOffset`](flatlist.md#scrolltooffset)
 - [`recordInteraction`](flatlist.md#recordinteraction)
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
 
 ---
 
@@ -218,6 +223,16 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| style object                 | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
@@ -225,6 +240,16 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for ListHeaderComponent
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| style object                 | No       |
 
 ---
 
@@ -606,3 +631,23 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getScrollResponder()`
+
+```javascript
+getScrollResponder();
+```
+
+Provides a handle to the underlying scroll responder.
+
+---
+
+### `getScrollableNode()`
+
+```javascript
+getScrollableNode();
+```
+
+Provides a handle to the underlying scroll node.
