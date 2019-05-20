@@ -77,7 +77,11 @@ class HeaderHero extends React.Component {
         <script dangerouslySetInnerHTML={{
           __html: `document.querySelector('.home-float-close').onclick = function() {
             document.querySelector('.home-float-1').style.display = 'none';
-          }`
+          }
+          document.querySelector('.home-float-1').onclick = function() {
+            ga("send", "event", "ad-home-float-1", "clicked");
+          }
+          `
         }}>
           
         </script>
