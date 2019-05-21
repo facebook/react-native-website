@@ -190,6 +190,8 @@ We believe that this more constrained way to style text will yield better apps:
 
 - [`accessibilityHint`](text.md#accessibilityhint)
 - [`accessibilityLabel`](text.md#accessibilitylabel)
+- [`accessibilityRole`](text.md#accessibilityRole)
+- [`accessibilityStates`](text.md#accessibilityStates)
 - [`accessible`](text.md#accessible)
 - [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
 - [`allowFontScaling`](text.md#allowfontscaling)
@@ -202,7 +204,15 @@ We believe that this more constrained way to style text will yield better apps:
 - [`numberOfLines`](text.md#numberoflines)
 - [`onLayout`](text.md#onlayout)
 - [`onLongPress`](text.md#onlongpress)
+- [`onMoveShouldSetResponder`](text.md#onMoveShouldSetResponder)
 - [`onPress`](text.md#onpress)
+- [`onResponderGrant`](text.md#onResponderGrant)
+- [`onResponderMove`](text.md#onResponderMove)
+- [`onResponderRelease`](text.md#onResponderRelease)
+- [`onResponderTerminate`](text.md#onResponderTerminate)
+- [`onResponderTerminationRequest`](text.md#onResponderTerminationRequest)
+- [`onStartShouldSetResponder`](text.md#onStartShouldSetResponder)
+- [`onTextLayout`](text.md#onTextLayout)
 - [`pressRetentionOffset`](text.md#pressretentionoffset)
 - [`selectable`](text.md#selectable)
 - [`selectionColor`](text.md#selectioncolor)
@@ -234,6 +244,51 @@ Overrides the text that's read by the screen reader when the user interacts with
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
+
+---
+
+### `accessibilityRole`
+
+Tells the screen reader to treat the currently focused on element as having a specific role.
+
+Possible values for `AccessibilityRole` is one of:
+
+- `'none'` - The element has no role.
+- `'button'` - The element should be treated as a button.
+- `'link'` - The element should be treated as a link.
+- `'header'` - The element is a header that divides content into sections.
+- `'search'` - The element should be treated as a search field.
+- `'image'` - The element should be treated as an image.
+- `'key'` - The element should be treated like a keyboard key.
+- `'text'` - The element should be treated as text.
+- `'summary'` - The element provides app summary information.
+- `'imagebutton'` - The element has the role of both an image and also a button.
+- `'adjustable'` - The element allows adjustment over a range of values.
+
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+
+On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
+
+| Type              | Required |
+| ----------------- | -------- |
+| AccessibilityRole | No       |
+
+---
+
+### `accessibilityStates`
+
+Tells the screen reader to treat the currently focused on element as being in a specific state.
+
+You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
+
+Possible values for `AccessibilityStates` are:
+
+- `'selected'` - The element is in a selected state.
+- `'disabled'` - The element is in a disabled state.
+
+| Type                        | Required |
+| --------------------------- | -------- |
+| array of AccessibilitStates | No       |
 
 ---
 
@@ -388,6 +443,18 @@ e.g., `onLongPress={this.increaseSize}>`
 
 ---
 
+### `onMoveShouldSetResponder`
+
+Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
+
+`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `onPress`
 
 This function is called on press.
@@ -399,6 +466,82 @@ e.g., `onPress={() => console.log('1st')}`
 | function | No       |
 
 ---
+
+### `onResponderGrant`
+
+The View is now responding for touch events. This is the time to highlight and show the user what is happening.
+
+`View.props.onResponderGrant: (event) => {}`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onResponderMove`
+
+The user is moving their finger.
+
+`View.props.onResponderMove: (event) => {}`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onResponderRelease`
+
+Fired at the end of the touch.
+
+`View.props.onResponderRelease: (event) => {}`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onResponderTerminate`
+
+The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
+
+`View.props.onResponderTerminate: (event) => {}`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onResponderTerminationRequest`
+
+Some other `View` wants to become responder and is asking this `View` to release its responder. Returning `true` allows its release.
+
+`View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onStartShouldSetResponderCapture`
+
+If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
+
+`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onTextLayout`
+
+I don't know about this api
 
 ### `pressRetentionOffset`
 
