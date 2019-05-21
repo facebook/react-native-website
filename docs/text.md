@@ -188,44 +188,34 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### Props
 
-- [`selectable`](text.md#selectable)
 - [`accessibilityHint`](text.md#accessibilityhint)
 - [`accessibilityLabel`](text.md#accessibilitylabel)
 - [`accessible`](text.md#accessible)
+- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
+- [`allowFontScaling`](text.md#allowfontscaling)
+- [`dataDetectorType`](text.md#datadetectortype)
+- [`disabled`](text.md#disabled)
 - [`ellipsizeMode`](text.md#ellipsizemode)
+- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
+- [`minimumFontScale`](text.md#minimumfontscale)
 - [`nativeID`](text.md#nativeid)
 - [`numberOfLines`](text.md#numberoflines)
 - [`onLayout`](text.md#onlayout)
 - [`onLongPress`](text.md#onlongpress)
 - [`onPress`](text.md#onpress)
 - [`pressRetentionOffset`](text.md#pressretentionoffset)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`style`](text.md#style)
-- [`testID`](text.md#testid)
-- [`disabled`](text.md#disabled)
+- [`selectable`](text.md#selectable)
 - [`selectionColor`](text.md#selectioncolor)
-- [`textBreakStrategy`](text.md#textbreakstrategy)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`minimumFontScale`](text.md#minimumfontscale)
+- [`style`](text.md#style)
 - [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`dataDetectorType`](text.md#datadetectortype)
+- [`testID`](text.md#testid)
+- [`textBreakStrategy`](text.md#textbreakstrategy)
 
 ---
 
 # Reference
 
 ## Props
-
-### `selectable`
-
-Lets the user select text, to use the native copy and paste functionality.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
-
----
 
 ### `accessibilityHint`
 
@@ -259,6 +249,56 @@ See the [Accessibility guide](accessibility.md#accessible-ios-android) for more 
 
 ---
 
+### `adjustsFontSizeToFit`
+
+Specifies whether font should be scaled down automatically to fit given style constraints.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
+### `allowFontScaling`
+
+Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `dataDetectorType`
+
+Determines the types of data converted to clickable URLs in the text element. By default no data types are detected.
+
+You can provide only one type.
+
+Possible values for `dataDetectorType` are:
+
+- `'phoneNumber'`
+- `'link'`
+- `'email'`
+- `'none'`
+- `'all'`
+
+| Type                                                | Required | Platform |
+| --------------------------------------------------- | -------- | -------- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
+
+---
+
+### `disabled`
+
+Specifies the disabled state of the text view for testing purposes
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `ellipsizeMode`
 
 When `numberOfLines` is set, this prop defines how text will be truncated. `numberOfLines` must be set in conjunction with this prop.
@@ -275,6 +315,30 @@ The default is `tail`.
 | Type                                   | Required |
 | -------------------------------------- | -------- |
 | enum('head', 'middle', 'tail', 'clip') | No       |
+
+---
+
+### `maxFontSizeMultiplier`
+
+Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+
+- `null/undefined` (default): inherit from the parent node or the global default (0)
+- `0`: no max, ignore parent/global default
+- `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
+### `minimumFontScale`
+
+Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | iOS      |
 
 ---
 
@@ -346,9 +410,9 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 ---
 
-### `allowFontScaling`
+### `selectable`
 
-Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
+Lets the user select text, to use the native copy and paste functionality.
 
 | Type | Required |
 | ---- | -------- |
@@ -356,17 +420,13 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ---
 
-### `maxFontSizeMultiplier`
+### `selectionColor`
 
-Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
+The highlight color of the text.
 
-- `null/undefined` (default): inherit from the parent node or the global default (0)
-- `0`: no max, ignore parent/global default
-- `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type               | Required | Platform |
+| ------------------ | -------- | -------- |
+| [color](colors.md) | No       | Android  |
 
 ---
 
@@ -430,6 +490,16 @@ Specifies largest possible scale a font can reach when `allowFontScaling` is ena
 
 ---
 
+### `suppressHighlighting`
+
+When `true`, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
+
 ### `testID`
 
 Used to locate this view in end-to-end tests.
@@ -437,26 +507,6 @@ Used to locate this view in end-to-end tests.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
-
----
-
-### `disabled`
-
-Specifies the disabled state of the text view for testing purposes
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `selectionColor`
-
-The highlight color of the text.
-
-| Type               | Required | Platform |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | No       | Android  |
 
 ---
 
@@ -468,56 +518,6 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
 
----
-
-### `adjustsFontSizeToFit`
-
-Specifies whether font should be scaled down automatically to fit given style constraints.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
-### `minimumFontScale`
-
-Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
-
----
-
-### `suppressHighlighting`
-
-When `true`, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
 # Known issues
 
 - [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute
-
-### `dataDetectorType`
-
-Determines the types of data converted to clickable URLs in the text element. By default no data types are detected.
-
-You can provide only one type.
-
-Possible values for `dataDetectorType` are:
-
-- `'phoneNumber'`
-- `'link'`
-- `'email'`
-- `'none'`
-- `'all'`
-
-| Type                                                | Required | Platform |
-| --------------------------------------------------- | -------- | -------- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
-
----
