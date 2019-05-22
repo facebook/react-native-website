@@ -120,7 +120,8 @@ class Help extends React.Component {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             />
           </p>
-          <h2>Communities</h2>d<h3>Reactiflux Chat</h3>
+          <h2>Communities</h2>
+          <h3>Reactiflux Chat</h3>
           <p>
             If you need an answer right away, check out the{' '}
             <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Discord</a>{' '}
