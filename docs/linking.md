@@ -204,7 +204,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 | ---- | ------ | -------- | ---------------- |
 | url  | string | Yes      | The URL to open. |
 
-> For web URLs, the protocol ("http://", "https://") must be set accordingly! 
+> For web URLs, the protocol ("http://", "https://") must be set accordingly!
 
 > As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
 

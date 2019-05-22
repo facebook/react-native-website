@@ -88,7 +88,6 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 - [`style`](view.md#style)
 - [`testID`](view.md#testid)
 
-
 ---
 
 # Reference
@@ -543,9 +542,7 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
 
-
 ---
-
 
 ### `nextFocusDown`
 
@@ -555,9 +552,7 @@ Designates the next view to receive focus when the user navigates down. See the 
 | ------ | -------- | -------- |
 | number | No       | Android  |
 
-
 ---
-
 
 ### `nextFocusForward`
 
@@ -566,7 +561,6 @@ Designates the next view to receive focus when the user navigates forward. See t
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | Android  |
-
 
 ---
 
@@ -578,7 +572,6 @@ Designates the next view to receive focus when the user navigates left. See the 
 | ------ | -------- | -------- |
 | number | No       | Android  |
 
-
 ---
 
 ### `nextFocusRight`
@@ -588,7 +581,6 @@ Designates the next view to receive focus when the user navigates right. See the
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | Android  |
-
 
 ---
 
@@ -600,7 +592,6 @@ Designates the next view to receive focus when the user navigates up. See the [A
 | ------ | -------- | -------- |
 | number | No       | Android  |
 
-
 ---
 
 ### `clickable`
@@ -608,5 +599,5 @@ Designates the next view to receive focus when the user navigates up. See the [A
 Determines whether this `View` is clickable or tappable for for accessibility hints.
 
 | Type    | Required | Platform |
-| ------  | -------- | -------- |
+| ------- | -------- | -------- |
 | boolean | No       | Android  |

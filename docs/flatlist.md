@@ -128,7 +128,6 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 - [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
 - [`VirtualizedList` props...](virtualizedlist.md#props)
 
-
 ### Methods
 
 - [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
@@ -227,9 +226,9 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 Styling for internal View for ListFooterComponent
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| style object                 | No       |
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
 
 ---
 
@@ -247,9 +246,9 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 
 Styling for internal View for ListHeaderComponent
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| style object                 | No       |
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
 
 ---
 
