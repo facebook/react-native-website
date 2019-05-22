@@ -418,7 +418,7 @@ class MyNativeView extends React.Component<Props> {
   };
 
   render() {
-    return <NativeComponent ref={VIEWPAGER_REF} />;
+    return <NativeComponent ref={NATIVE_COMPONENT_REF} />;
   }
 }
 ```
