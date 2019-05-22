@@ -113,7 +113,7 @@ Note that on Android performing text selection in input can change app's activit
 * [`importantForAutofill`](textinput.md#importantForAutofill)
 * [`inlineImageLeft`](textinput.md#inlineimageleft)
 * [`inlineImagePadding`](textinput.md#inlineimagepadding)
-* [`inputAccessoryViewID`](textinput.md#inputAccessoryViewID)
+* [`inputAccessoryViewID`](textinput.md#inputaccessoryviewid)
 * [`keyboardAppearance`](textinput.md#keyboardappearance)
 * [`keyboardType`](textinput.md#keyboardtype)
 * [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
