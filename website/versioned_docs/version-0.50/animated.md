@@ -86,7 +86,7 @@ You can combine two animated values via addition, multiplication, division, or m
 
 ### Interpolation
 
-The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses lineal interpolation by default but also supports easing functions.
+The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses linear interpolation by default but also supports easing functions.
 
 - [`interpolate()`](animated.md#interpolate)
 
