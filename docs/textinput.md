@@ -113,6 +113,7 @@ Note that on Android performing text selection in input can change app's activit
 * [`importantForAutofill`](textinput.md#importantForAutofill)
 * [`inlineImageLeft`](textinput.md#inlineimageleft)
 * [`inlineImagePadding`](textinput.md#inlineimagepadding)
+* [`inputAccessoryViewID`](textinput.md#inlineimagepadding)
 * [`keyboardAppearance`](textinput.md#inputAccessoryViewID)
 * [`keyboardType`](textinput.md#keyboardtype)
 * [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
@@ -380,6 +381,16 @@ Padding between the inline image, if any, and the text input itself.
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | Android  |
+
+---
+
+### `inputAccessoryViewID`
+
+An optional identifier which links a custom [InputAccessoryView](inputaccessoryview.md) to this text input. The InputAccessoryView is rendered above the keyboard when this text input is focused.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
 
 ---
 
