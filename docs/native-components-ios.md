@@ -384,29 +384,29 @@ class MyApp extends React.Component {
 
 ## Handling multiple native views
 
-Sometimes you want to handle more than one view in view tree eg.
+Sometimes you want to handle more than one native view in view tree eg.
 
-```javascript
+```jsx
 <View>
   <MyNativeView />
   <MyNativeView />
 </View>
 ```
 
-Now UIManager does not know, which view should be handled in the above example. Below you will find a solution for this problem. Firstly define a reference to view in view tree:
+Now UIManager does not know, which view should be handled in the above example. Below you will find a solution for this problem. Firstly define a reference to the view in a view tree:
 
-```javascript
+```jsx
 <View>
-  <MyNativeView ref={mvn => {this.mvn = mvn;}}>/>
-  <MyNativeView ref={mvn2 => {this.mvn2 = mvn2;}}>/>
+  <MyNativeView ref={this.mvn = mvn}>/>
+  <MyNativeView ref={this.mvn2 = mvn2}>/>
 </View>
 ```
 
-Now the above component has reference to particular `MyNativeView`, which allows us to use its methods. This component is platform specific wrapper for `NativeComponent` and it is defined in `MyNativeView.ios.js` file. `MyNativeView` should contain methods, which will be called in Native Module called `RNCMyNativeViewManager`.
+Now the above component has reference to particular `MyNativeView`, which allows us to use its methods. This view component is platform specific wrapper for `NativeComponent` and it is defined in `MyNativeView.ios.js` file. `MyNativeView` should contain methods, which will be called in Native Module called `RNCMyNativeViewManager`.
 
-In `MyNativeView.ios.js`
+`MyNativeView.ios.js` contains code as follow:
 
-```javascript
+```jsx
 class MyNativeView extends React.Component<Props> {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
@@ -423,7 +423,7 @@ class MyNativeView extends React.Component<Props> {
 }
 ```
 
-exist method `callNativeMethod`, which is the wrapper method for the native method. This implementation uses UIManager, which will call a native method called `callNativeMethod`. The first parameter is reactTag, which will be used in Native Module, second defined, which method should be called on the native side and third parameter are params of native function. In this case, `callNativeMethod` does not pass any params.
+`MyNativeView` exposes a `callNativeMethod` method, which is the wrapper method for the native method. This implementation uses `UIManager`, which will call a native method called `callNativeMethod`. The first parameter is reactTag, which will be used in Native Module, second defines which method should be called on the native side and third parameter are params of native function. In this case, `callNativeMethod` does not pass any params.
 
 `RNCMyNativeViewManager.m`
 
@@ -445,7 +445,7 @@ RCT_EXPORT_METHOD(callNativeMethod:(nonnull NSNumber*) reactTag) {
 }
 ```
 
-The above implementation of the exported method use `uiManager` to find a particular view in view tree. Remember, that first parameter of an exported function must be `(nonnull NSNumber*) reactTag`, because the manager should know, which appropriate view should call method.
+The above implementation of the exported method use `UIManager` to find a particular view in view tree. Remember, that first parameter of an exported function must be `(nonnull NSNumber*) reactTag`, because the manager should know, which appropriate view should call method.
 
 ## Styles
 
