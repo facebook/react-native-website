@@ -97,7 +97,7 @@ Note that on Android performing text selection in input can change app's activit
 
 * [`allowFontScaling`](textinput.md#allowfontscaling)
 * [`autoCapitalize`](textinput.md#autocapitalize)
-* [`autoComplete`](textinput.md#autocomplete)
+* [`autoCompleteType`](textinput.md#autocompletetype)
 * [`autoCorrect`](textinput.md#autocorrect)
 * [`autoFocus`](textinput.md#autofocus)
 * [`blurOnSubmit`](textinput.md#bluronsubmit)
@@ -113,7 +113,7 @@ Note that on Android performing text selection in input can change app's activit
 * [`importantForAutofill`](textinput.md#importantForAutofill)
 * [`inlineImageLeft`](textinput.md#inlineimageleft)
 * [`inlineImagePadding`](textinput.md#inlineimagepadding)
-* [`keyboardAppearance`](textinput.md#keyboardappearance)
+* [`keyboardAppearance`](textinput.md#inputAccessoryViewID)
 * [`keyboardType`](textinput.md#keyboardtype)
 * [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
 * [`maxLength`](textinput.md#maxlength)
@@ -132,9 +132,9 @@ Note that on Android performing text selection in input can change app's activit
 * [`onSubmitEditing`](textinput.md#onsubmitediting)
 * [`placeholder`](textinput.md#placeholder)
 * [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+* [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
 * [`returnKeyLabel`](textinput.md#returnkeylabel)
 * [`returnKeyType`](textinput.md#returnkeytype)
-* [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
 * [`scrollEnabled`](textinput.md#scrollenabled)
 * [`secureTextEntry`](textinput.md#securetextentry)
 * [`selection`](textinput.md#selection)
@@ -142,9 +142,9 @@ Note that on Android performing text selection in input can change app's activit
 * [`selectionState`](textinput.md#selectionstate)
 * [`selectTextOnFocus`](textinput.md#selecttextonfocus)
 * [`spellCheck`](textinput.md#spellcheck)
-* [`textContentType`](textinput.md#textcontenttype)
 * [`style`](textinput.md#style)
 * [`textBreakStrategy`](textinput.md#textbreakstrategy)
+* [`textContentType`](textinput.md#textcontenttype)
 * [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
 * [`value`](textinput.md#value)
 
@@ -184,11 +184,11 @@ Can tell `TextInput` to automatically capitalize certain characters. This proper
 
 ---
 
-### `autoComplete`
+### `autoCompleteType`
 
-Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoCompleteType` to `off`.
 
-Possible values for `autoComplete` are:
+Possible values for `autoCompleteType` are:
 
 - `off`
 - `username`
@@ -657,9 +657,7 @@ The following values work on iOS only:
 
 _iOS Only_
 
-If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default.
-If `false`, TextInput always asks to handle the input (except when disabled).
-The default value is `true`.
+If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default. If `false`, TextInput always asks to handle the input (except when disabled). The default value is `true`.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
