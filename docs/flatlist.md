@@ -14,6 +14,7 @@ A performant interface for rendering simple, flat lists, supporting the most han
 - Pull to Refresh.
 - Scroll loading.
 - ScrollToIndex support.
+- Multiple column support.
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
@@ -25,6 +26,8 @@ Minimal Example:
   renderItem={({item}) => <Text>{item.key}</Text>}
 />
 ```
+
+To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
 More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
 
@@ -149,7 +152,7 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 ### `renderItem`
 
 ```javascript
-renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
+renderItem({item, index, separators});
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -160,6 +163,15 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 | -------- | -------- |
 | function | Yes      |
 
+- `item` (Object): The item from `data` being rendered.
+- `index` (number): The index corresponding to this item in the `data` array.
+- `separators` (Object)
+  - `highlight` (Function)
+  - `unhighlight` (Function)
+  - `updateProps` (Function)
+    - `select` (enum('leading', 'trailing'))
+    - `newProps` (Object)
+
 Example usage:
 
 ```javascript
@@ -168,7 +180,7 @@ Example usage:
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
   )}
   data={[{title: 'Title Text', key: 'item1'}]}
-  renderItem={({item, separators}) => (
+  renderItem={({item, index, separators}) => (
     <TouchableHighlight
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
