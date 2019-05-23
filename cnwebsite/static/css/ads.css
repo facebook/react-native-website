@@ -28,7 +28,6 @@
   }
 }
 
-
 @media only screen and (max-width: 750px) {
   .home-float-1 {
     width: 100px;
@@ -36,7 +35,6 @@
     top: 170px;
   }
 }
-
 
 @media only screen and (max-width: 680px) {
   .home-float-1 {
@@ -50,12 +48,30 @@
   }
 }
 
+.home-ads-1 {
+  display: none;
+}
+
+@media only screen and (max-width: 540px) {
+  .home-ads-1 {
+    display: block;
+    width: 100%;
+  }
+  .home-ads-1 a {
+    display: block;
+    line-height: 0;
+  }
+  .home-ads-1 img {
+    width: 100%;
+  }
+}
+
 .home-float-close {
   display: block;
   position: absolute;
   font-size: 20px;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
   line-height: 20px;
   color: white;
   right: 4px;

@@ -7,12 +7,12 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-const React = require("react");
-const CompLibrary = require("../../core/CompLibrary.js");
+const React = require('react');
+const CompLibrary = require('../../core/CompLibrary.js');
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 const Container = CompLibrary.Container;
 
-const siteConfig = require(process.cwd() + "/siteConfig.js");
+const siteConfig = require(process.cwd() + '/siteConfig.js');
 
 const pinnedApps = siteConfig.users.filter(app => {
   return app.pinned;
@@ -24,8 +24,7 @@ class Button extends React.Component {
       <a
         className="big-button"
         href={this.props.href}
-        target={this.props.target}
-      >
+        target={this.props.target}>
         {this.props.children}
       </a>
     );
@@ -37,12 +36,11 @@ class HomeCallToAction extends React.Component {
     return (
       <div>
         <Button
-          href={siteConfig.baseUrl + "docs/getting-started.html"}
-          target="_self"
-        >
+          href={siteConfig.baseUrl + 'docs/getting-started.html'}
+          target="_self">
           搭建环境
         </Button>
-        <Button href={siteConfig.baseUrl + "docs/tutorial.html"} target="_self">
+        <Button href={siteConfig.baseUrl + 'docs/tutorial.html'} target="_self">
           开始使用
         </Button>
       </div>
@@ -68,23 +66,28 @@ class HeaderHero extends React.Component {
         </div>
 
         <div className="home-float-1">
-          <a href="https://www.kaikeba.com/market/web_site_vone" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.kaikeba.com/market/web_site_vone"
+            target="_blank"
+            rel="noopener noreferrer">
             <img src={siteConfig.baseUrl + 'img/ads/20190520144109.png'} />
-            <a href="javascript:;" className="home-float-close">×</a>
+            <a href="javascript:;" className="home-float-close">
+              ×
+            </a>
           </a>
         </div>
 
-        <script dangerouslySetInnerHTML={{
-          __html: `document.querySelector('.home-float-close').onclick = function() {
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.querySelector('.home-float-close').onclick = function() {
             document.querySelector('.home-float-1').style.display = 'none';
           }
           document.querySelector('.home-float-1').onclick = function() {
             ga("send", "event", "ad-home-float-1", "clicked");
           }
-          `
-        }}>
-          
-        </script>
+          `,
+          }}
+        />
       </Hero>
     );
   }
@@ -111,8 +114,8 @@ class AppList extends React.Component {
 
   _renderAppIcon(app) {
     let imgSource = app.icon;
-    if (!app.icon.startsWith("http")) {
-      imgSource = siteConfig.baseUrl + "img/showcase/" + app.icon;
+    if (!app.icon.startsWith('http')) {
+      imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
     }
     return <img src={imgSource} alt={app.name} />;
   }
@@ -285,16 +288,16 @@ class MiniShowcase extends React.Component {
 
 const Banner = () => {
   const {
-    banner: { img, text, link, topicId, gainfo }
+    banner: {img, text, link, topicId, gainfo},
   } = siteConfig.adData;
   return (
     <div className="vip">
       <a
         target="_blank"
-        href={link || siteConfig.bbsUrl + "/topic/" + topicId}
+        href={link || siteConfig.bbsUrl + '/topic/' + topicId}
         // onClick={() => onAdClicked(gainfo)}
       >
-        <img title={text} src={siteConfig.baseUrl + "img" + img} />
+        <img title={text} src={siteConfig.baseUrl + 'img' + img} />
       </a>
     </div>
   );
@@ -304,6 +307,14 @@ class Index extends React.Component {
   render() {
     return (
       <div className="pageContainer">
+        <div className="home-ads-1">
+          <a
+            href="https://www.kaikeba.com/market/web_site_vone"
+            target="_blank"
+            rel="noopener noreferrer">
+            <img src={siteConfig.baseUrl + 'img/ads/20190523163421.png'} />
+          </a>
+        </div>
         <HeaderHero />
         {/* <Banner /> */}
         <Features />
