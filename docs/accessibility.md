@@ -75,7 +75,9 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 #### accessibilityRole (iOS, Android)
 
-Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the purpose or role of a given element. To use, set the `accessibilityRole` property to one of the following strings:
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
+
+`accessibilityRole` can be one of the following:
 
 - **none** Used when the element has no role.
 - **button** Used when the element should be treated as a button.
@@ -107,7 +109,9 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 
 #### accessibilityStates (iOS, Android)
 
-Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of an element. The state of the element can be set either to `selected` or `disabled` or both:
+Describes the current state of a component to the user of an assistive technology.
+
+`accessibilityStates` is an array of values, and may include any of the following:
 
 - **selected** Used when the element is in a selected state. For example, a button is selected.
 - **disabled** Used when the element is disabled and cannot be interacted with.
@@ -182,6 +186,59 @@ In the case of two overlapping UI components with the same parent, default acces
 ```
 
 In the above example, the yellow layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can easily use overlapping views with the same parent without confusing TalkBack.
+
+### Accessibility Actions
+
+Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. In order to support accessibility actions, a component must do two things:
+
+- Define the list of actions it supports via the `accessibilityActions` property.
+- Implement an `onAccessibilityAction` function to handle action requests.
+
+The `accessibilityActions` property should contain a list of action objects. Each action object should contain the following fields:
+
+| Name  | Type   | Required |
+| ----- | ------ | -------- |
+| name  | string | Yes      |
+| label | string | No       |
+
+Actions either represent standard actions, such as clicking a button or adjusting a slider, or custom actions specific to a given component such as deleting an email message. The `name` field is required for both standard and custom actions, but `label` is optional for standard actions.
+
+When adding support for standard actions, `name` must be one of the following:
+
+- `'magicTap'` - iOS only - While VoiceOver focus is on or inside the component, the user double tapped with two fingers.
+- `'escape'` - iOS only - While VoiceOver focus is on or inside the component, the user performed a two finger scrub gesture (left, right, left).
+- `'activate'` - Activate the component. Typically this should perform the same action as when the user touches or clicks the component when not using an assistive technology. This is generated when a screen reader user double taps the component.
+- `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume up button.
+- `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume down button.
+- `'longpress'` - Android only - This action is generated when the user places accessibility focus on the component and double tap and holds one finger on the screen. Typically, this should perform the same action as when the user holds down one finger on the component while not using an assistive technology.
+
+The `label` field is optional for standard actions, and is often unused by assistive technologies. For custom actions, it is a localized string containing a description of the action to be presented to the user.
+
+To handle action requests, a component must implement an `onAccessibilityAction` function. The only argument to this function is an event containing the name of the action to perform. The below example from RNTester shows how to create a component which defines and handles several custom actions.
+
+```javascript
+<View
+  accessible={true}
+  accessibilityActions={[
+    {name: 'cut', label: 'cut'},
+    {name: 'copy', label: 'copy'},
+    {name: 'paste', label: 'paste'},
+  ]}
+  onAccessibilityAction={(event) => {
+    switch (event.nativeEvent.actionName) {
+      case 'cut':
+        Alert.alert('Alert', 'cut action success');
+        break;
+      case 'copy':
+        Alert.alert('Alert', 'copy action success');
+        break;
+      case 'paste':
+        Alert.alert('Alert', 'paste action success');
+        break;
+    }
+  }}
+/>
+```
 
 ### Checking if a Screen Reader is Enabled
 

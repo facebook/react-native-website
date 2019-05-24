@@ -451,21 +451,37 @@ On Android, this is useful for animations and interactions that only modify opac
 
 ### `accessibilityRole`
 
-Tells the screen reader to treat the currently focused on element as having a specific role.
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
 
-Possible values for `AccessibilityRole` is one of:
+`accessibilityRole` can be one of the following:
 
-- `'none'` - The element has no role.
-- `'button'` - The element should be treated as a button.
-- `'link'` - The element should be treated as a link.
-- `'header'` - The element is a header that divides content into sections.
-- `'search'` - The element should be treated as a search field.
-- `'image'` - The element should be treated as an image.
-- `'key'` - The element should be treated like a keyboard key.
-- `'text'` - The element should be treated as text.
-- `'summary'` - The element provides app summary information.
-- `'imagebutton'` - The element has the role of both an image and also a button.
-- `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - Used when the element has no role.
+- `'button'` - Used when the element should be treated as a button.
+- `'link'` - Used when the element should be treated as a link.
+- `'search'` - Used when the text field element should also be treated as a search field.
+- `'image'` - Used when the element should be treated as an image. Can be combined with button or link, for example.
+- `'keyboardkey'` - Used when the element acts as a keyboard key.
+- `'text'` - Used when the element should be treated as static text that cannot change.
+- `'adjustable'` - Used when an element can be "adjusted" (e.g. a slider).
+- `'imagebutton'` - Used when the element should be treated as a button and is also an image.
+- `'header'` - Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- `'summary'` - Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- `'alert'` - Used when an element contains important text to be presented to the user.
+- `'checkbox'` - Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- `'combobox'` - Used when an element represents a combo box, which allows the user to select among several choices.
+- `'menu'` - Used when the component is a menu of choices.
+- `'menubar'` - Used when a component is a container of multiple menus.
+- `'menuitem'` - Used to represent an item within a menu.
+- `'progressbar'` - Used to represent a component which indicates progress of a task.
+- `'radio'` - Used to represent a radio button.
+- `'radiogroup'` - Used to represent a group of radio buttons.
+- `'scrollbar'` - Used to represent a scroll bar.
+- `'spinbutton'` - Used to represent a button which opens a list of choices.
+- `'switch'` - Used to represent a switch which can be turned on and off.
+- `'tab'` - Used to represent a tab.
+- `'tablist'` - Used to represent a list of tabs.
+- `'timer'` - Used to represent a timer.
+- `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
 
 On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
@@ -479,14 +495,17 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 ### `accessibilityStates`
 
-Tells the screen reader to treat the currently focused on element as being in a specific state.
+Describes the current state of a component to the user of an assistive technology.
 
-You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
+`accessibilityStates` is an array of values, and may include any of the following:
 
-Possible values for `AccessibilityStates` are:
-
-- `'selected'` - The element is in a selected state.
-- `'disabled'` - The element is in a disabled state.
+- `'selected'` - Used when the element is in a selected state. For example, a button is selected.
+- `'disabled'` - Used when the element is disabled and cannot be manipulated.
+- `'checked'` - Used to indicate that a checkable element is currently checked.
+- `'unchecked'` - Used to indicate that a checkable element is not currently checked.
+- `'busy'` - Used to indicate that an element is currently busy.
+- `'expanded'` - Used to indicate that an expandable element is currently expanded.
+- `'collapsed'` - Used to indicate that an expandable element is currently collapsed.
 
 | Type                        | Required |
 | --------------------------- | -------- |
