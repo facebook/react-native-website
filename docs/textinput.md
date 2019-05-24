@@ -147,6 +147,7 @@ Note that on Android performing text selection in input can change app's activit
 * [`textBreakStrategy`](textinput.md#textbreakstrategy)
 * [`textContentType`](textinput.md#textcontenttype)
 * [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+* [`showSoftInputOnFocus`](textinput.md#showsoftinputonfocus)
 * [`value`](textinput.md#value)
 
 ### Methods
@@ -841,6 +842,16 @@ The color of the `TextInput` underline.
 | Type               | Required | Platform |
 | ------------------ | -------- | -------- |
 | [color](colors.md) | No       | Android  |
+
+---
+
+### `showSoftInputOnFocus`
+
+When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
