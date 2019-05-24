@@ -23,7 +23,7 @@ class Blink extends Component {
           ))
         ), 1000);
      }
-     
+
     //state object
     state = { isShowingText: true };
 
