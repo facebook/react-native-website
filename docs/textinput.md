@@ -142,12 +142,12 @@ Note that on Android performing text selection in input can change app's activit
 * [`selectionColor`](textinput.md#selectioncolor)
 * [`selectionState`](textinput.md#selectionstate)
 * [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`showSoftInputOnFocus`](textinput.md#showsoftinputonfocus)
 * [`spellCheck`](textinput.md#spellcheck)
 * [`style`](textinput.md#style)
 * [`textBreakStrategy`](textinput.md#textbreakstrategy)
 * [`textContentType`](textinput.md#textcontenttype)
 * [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-* [`showSoftInputOnFocus`](textinput.md#showsoftinputonfocus)
 * [`value`](textinput.md#value)
 
 ### Methods
@@ -745,6 +745,16 @@ If `true`, all text will automatically be selected on focus.
 
 ---
 
+### `showSoftInputOnFocus`
+
+When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `spellCheck`
 
 If `false`, disables spell-check style (i.e. red underlines). The default value is inherited from `autoCorrect`.
@@ -842,16 +852,6 @@ The color of the `TextInput` underline.
 | Type               | Required | Platform |
 | ------------------ | -------- | -------- |
 | [color](colors.md) | No       | Android  |
-
----
-
-### `showSoftInputOnFocus`
-
-When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
 
 ---
 
