@@ -72,3 +72,26 @@ The 'successCallback' function takes two parameters:
 
 - a boolean value signifying success or failure
 - a string that, in the case of success, indicates the method of sharing
+
+```javascript
+showShareActionSheet = () => {
+    ActionSheetIOS.showShareActionSheetWithOptions({
+      url: this.props.url,
+      message: 'message to go with the shared url',
+      subject: 'a subject to go in the email heading',
+      excludedActivityTypes: [
+        'com.apple.UIKit.activity.PostToTwitter'
+      ]
+    },
+    (error) => alert(error),
+    (completed, method) => {
+      var text;
+      if (completed) {
+        text = `Shared via ${method}`;
+      } else {
+        text = 'You didn\'t share';
+      }
+      this.setState({text});
+    });
+  };
+```
