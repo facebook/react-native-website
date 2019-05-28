@@ -52,7 +52,9 @@
       "version-0.59-headless-js-android",
       "version-0.59-signed-apk-android",
       "version-0.59-removing-default-permissions"
-    ],
+    ]
+  },
+  "version-0.59-api": {
     "Components": [
       "version-0.59-activityindicator",
       "version-0.59-button",

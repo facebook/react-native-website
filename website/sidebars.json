@@ -52,7 +52,9 @@
       "headless-js-android",
       "signed-apk-android",
       "removing-default-permissions"
-    ],
+    ]
+  },
+  "api": {
     "Components": [
       "activityindicator",
       "button",
