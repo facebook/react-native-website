@@ -138,7 +138,7 @@ class HelloReactNative extends Component {
             <div className="blockContent">
               <h2>A React Native app is a real mobile app</h2>
               <MarkdownBlock>
-                The apps you are building with React Native aren't mobile web
+                The apps you are building with React Native are mobile web
                 apps because React Native uses the same fundamental UI building
                 blocks as regular iOS and Android apps. Instead of using Swift,
                 Kotlin or Java, you are putting those building blocks together
