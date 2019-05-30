@@ -306,7 +306,7 @@ See the [Accessibility guide](accessibility.md#accessible-ios-android) for more 
 
 ### `adjustsFontSizeToFit`
 
-Specifies whether font should be scaled down automatically to fit given style constraints.
+Specifies whether fonts should be scaled down automatically to fit given style constraints.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
