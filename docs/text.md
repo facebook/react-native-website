@@ -541,7 +541,7 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 ### `onTextLayout`
 
-I don't know about this api
+TODO.
 
 ### `pressRetentionOffset`
 
