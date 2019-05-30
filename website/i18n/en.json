@@ -3080,6 +3080,9 @@
       "version-0.59/version-0.59-image-style-props": {
         "title": "Image Style Props"
       },
+      "version-0.59/version-0.5-images": {
+        "title": "Images"
+      },
       "version-0.59/version-0.59-imagestore": {
         "title": "ImageStore"
       },
