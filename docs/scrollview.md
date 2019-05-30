@@ -22,7 +22,6 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 ### Props
 
 - [View props...](view.md#props)
-- [Touchable props...](#)
 
 * [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
 * [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
