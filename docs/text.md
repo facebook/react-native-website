@@ -191,7 +191,7 @@ We believe that this more constrained way to style text will yield better apps:
 - [`accessibilityHint`](text.md#accessibilityhint)
 - [`accessibilityLabel`](text.md#accessibilitylabel)
 - [`accessibilityRole`](text.md#accessibilityrole)
-- [`accessibilityStates`](text.md#accessibilitystates)
+- [`accessibilityState`](text.md#accessibilitystate)
 - [`accessible`](text.md#accessible)
 - [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
 - [`allowFontScaling`](text.md#allowfontscaling)
@@ -275,20 +275,20 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 ---
 
-### `accessibilityStates`
+### `accessibilityState`
 
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
-You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
+You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: `{selected: true, disabled: true}`.
 
-Possible values for `AccessibilityStates` are:
+Possible values for `AccessibilityState` are:
 
 - `'selected'` - The element is in a selected state.
 - `'disabled'` - The element is in a disabled state.
 
-| Type                        | Required |
-| --------------------------- | -------- |
-| array of AccessibilitStates | No       |
+| Type   | Required |
+| ------ | -------- |
+| object | No       |
 
 ---
 
