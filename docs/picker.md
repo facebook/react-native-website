@@ -19,7 +19,7 @@ Renders the native picker component on iOS and Android. Example:
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](picker.md#props)
 
 * [`onValueChange`](picker.md#onvaluechange)
 * [`selectedValue`](picker.md#selectedvalue)
