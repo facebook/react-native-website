@@ -142,6 +142,7 @@ Note that on Android performing text selection in input can change app's activit
 * [`selectionColor`](textinput.md#selectioncolor)
 * [`selectionState`](textinput.md#selectionstate)
 * [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`showSoftInputOnFocus`](textinput.md#showsoftinputonfocus)
 * [`spellCheck`](textinput.md#spellcheck)
 * [`style`](textinput.md#style)
 * [`textBreakStrategy`](textinput.md#textbreakstrategy)
@@ -741,6 +742,16 @@ If `true`, all text will automatically be selected on focus.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `showSoftInputOnFocus`
+
+When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 
