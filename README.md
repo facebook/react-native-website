@@ -84,7 +84,7 @@ Docusaurus keeps track of the list of versions for the site in the 'website/vers
 
 1.  `cd react-native-website` to go into the project root.
 1.  `cd website` to go into the website portion of the project.
-1.  Run `yarn version <version>` where `<version>` is the new version being released.
+1.  Run `yarn run version <newVersion>` where `<newVersion>` is the new version being released.
 
 ## Website configuration
 
