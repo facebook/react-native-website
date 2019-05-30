@@ -21,9 +21,9 @@ Here are a list of props that can help to improve the `FlatList`:
 
 ### removeClippedSubviews
 
-| Type    | Default Value |
-| ------- | ------------- |
-| Boolean | False         |
+| Type    | Default |
+| ------- | ------- |
+| Boolean | False   |
 
 If `true`, unmount components that are off of the window.
 
@@ -33,9 +33,9 @@ If `true`, unmount components that are off of the window.
 
 ### maxToRenderPerBatch
 
-| Type   | Default Value |
-| ------ | ------------- |
-| Number | 10            |
+| Type   | Default |
+| ------ | ------- |
+| Number | 10      |
 
 It is a `VirtualizedList` prop that can be passed directly to `FlatList`. Control the amount of items rendered per batch, which is the next chunk of items rendered on every scroll.
 
@@ -45,9 +45,9 @@ It is a `VirtualizedList` prop that can be passed directly to `FlatList`. Contro
 
 ### updateCellsBatchingPeriod
 
-| Type   | Default Value |
-| ------ | ------------- |
-| Number | 50            |
+| Type   | Default |
+| ------ | ------- |
+| Number | 50      |
 
 While `maxToRenderPerBatch` tells the amount of items rendered per batch, setting `updateCellsBatchingPeriod` tells to your `VirtualizedList` the delay in milliseconds between batch renders (how frequently your component will be rendering the windowed items).
 
@@ -57,9 +57,9 @@ While `maxToRenderPerBatch` tells the amount of items rendered per batch, settin
 
 ### initialNumToRender
 
-| Type   | Default Value |
-| ------ | ------------- |
-| Number | 10            |
+| Type   | Default |
+| ------ | ------- |
+| Number | 10      |
 
 The initial amount of items to render.
 
@@ -69,9 +69,9 @@ The initial amount of items to render.
 
 ### windowSize
 
-| Type   | Default Value |
-| ------ | ------------- |
-| Number | 21            |
+| Type   | Default |
+| ------ | ------- |
+| Number | 21      |
 
 The number passed here is a measurement unit where 1 is equivalent to your viewport height. The default value is 21 (10 viewports above, 10 below, and one in between).
 
@@ -81,9 +81,9 @@ The number passed here is a measurement unit where 1 is equivalent to your viewp
 
 ### legacyImplementation
 
-| Type    | Default Value |
-| ------- | ------------- |
-| Boolean | False         |
+| Type    | Default |
+| ------- | ------- |
+| Boolean | False   |
 
 Make `FlatList` rely on the older `ListView` instead of `VirtualizedList`.
 
