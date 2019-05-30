@@ -206,6 +206,9 @@
       "network": {
         "title": "Networking"
       },
+      "optimizing-flatlist-configuration": {
+        "title": "Optimizing Flatlist Configuration"
+      },
       "out-of-tree-platforms": {
         "title": "Out-of-Tree Platforms"
       },
