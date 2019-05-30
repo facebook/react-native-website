@@ -90,3 +90,60 @@ Make `FlatList` rely on the older `ListView` instead of `VirtualizedList`.
 **Pros:** This will make your list definitely perform better, as it removes virtualization and render all your items at once.
 
 **Cons:** Extra memory consumption and more app crash risk in large lists (100+) with complex items. It also warns that the above tweaks will not work because now it is using `ListView`.
+
+## List items
+
+There are also some tips about list item components. They are being managed by `VirtualizedList` a lot, so they need to be fast.
+
+### Use simple components
+
+The more complex your components are, the slower they will render. Try to avoid a lot of logic and nesting in your list items. If you are reusing this list item component a lot in your app, create a component just for your big lists and make them with less logic and less nested as possible.
+
+### Use light components
+
+The heavier your components are, the slower they render. Avoid heavy images (use a cropped version or thumbnail for list items, as small as possible). Talk to your design team, use as little effects and interactions and information as possible in your list. Show them in your item's detail.
+
+### Use shouldComponentUpdate
+
+Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it need to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
+
+```javascript
+    shouldComponentUpdate() {
+      return false
+    }
+```
+
+### Use cached optimized images
+
+You can use the community packages (such as [react-native-fast-image](https://github.com/DylanVann/react-native-fast-image) from [@DylanVann](https://github.com/DylanVann)) for more performant images. Every image in your list is a `new Image()` instance. The faster it reaches the `loaded` hook, the faster your Javascript thread will be free again.
+
+### Use getItemLayout
+
+If all your list item components have the same height (or width, for a horizontal list), passing [getItemLayout](https://facebook.github.io/react-native/docs/flatlist#getitemlayout) prop removes the need for your `FlatList` to dynamically calculate it every time. This is a very desirable optimization technique.
+
+If your components have dynamic size and you really need performance, consider asking your design team if they may think of a redesign in order to perform better.
+
+### Use keyExtractor or key
+
+You can set the [`keyExtractor`](https://facebook.github.io/react-native/docs/flatlist#keyextractor) to your `FlatList` component. This prop is used for caching and as the React `key` to track item re-ordering.
+
+You can also use a `key` prop in you item component.
+
+### Avoid anonymous function on renderItem
+
+Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
+
+```javascript
+renderItem = ({ item }) => (<View key={item.key}><Text>{item.title}</Text></View>);
+
+render(){
+  // ...
+
+  <FlatList
+    data={items}
+    renderItem={renderItem}
+  />
+
+  // ...
+}
+```
