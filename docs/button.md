@@ -175,7 +175,7 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 ### `touchSoundDisabled`
 
-If true, doesn't play system sound on touch
+If true, doesn't play system sound on touch.
 
 | Type    | Required | Platform |
 | ------  | -------- | -------- |
