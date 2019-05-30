@@ -56,9 +56,6 @@
       "button": {
         "title": "Button"
       },
-      "cameraroll": {
-        "title": "CameraRoll"
-      },
       "checkbox": {
         "title": "CheckBox"
       },

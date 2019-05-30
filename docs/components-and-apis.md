@@ -187,10 +187,6 @@ These components may come in handy for certain applications. For an exhaustive l
     <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
   </div>
   <div class="component">
-    <h3><a href="../cameraroll.html">CameraRoll</a></h3>
-    <p>Provides access to the local camera roll / gallery.</p>
-  </div>
-  <div class="component">
     <h3><a href="../clipboard.html">Clipboard</a></h3>
     <p>Provides an interface for setting and getting content from the clipboard on both iOS and Android.</p>
   </div>
