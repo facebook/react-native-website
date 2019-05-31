@@ -77,9 +77,9 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `space-between` Evenly space of children across the container's main axis, distributing remaining space between the children.
 
-- `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space between` using `space around` will result in space being distributed to the beginning of the first child and end of the last child.
+- `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space-between` using `space-around` will result in space being distributed to the beginning of the first child and end of the last child.
 
-Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, `space-between` and `space-evenly`.
+Adding `justifyContent` to a component's style determines the **distribution** of children along the **main axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, `space-between` and `space-evenly`.
 
 learn more [here](https://yogalayout.com/docs/justify-content)
 
@@ -113,7 +113,7 @@ See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-n
 
 #### Align Items
 
-[`alignItems`](https://facebook.github.io/react-native/docs/layout-props#alignitems) describes how to align children along the cross axis of their container. Align items is very similar to `justifyContent` but instead of applying to the main axis, `align items` applies to the cross axis.
+[`alignItems`](https://facebook.github.io/react-native/docs/layout-props#alignitems) describes how to align children along the cross axis of their container. Align items is very similar to `justifyContent` but instead of applying to the main axis, `alignItems` applies to the cross axis.
 
 - `stretch` (**default value**) Stretch children of a container to match the `height` of the container's cross axis.
 
@@ -210,7 +210,7 @@ See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-n
 
   Flex shrink accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the child’s flex shrink value.
 
-- [`flexBasis`](https://facebook.github.io/react-native/docs/layout-props#flexbasis) is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the `width` of that child if its parent is a container with `flex direction: row` or setting the `height` of a child if its parent is a container with `flex direction: column`. The flex basis of an item is the default size of that item, the size of the item before any flex grow and flex shrink calculations are performed.
+- [`flexBasis`](https://facebook.github.io/react-native/docs/layout-props#flexbasis) is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The flex basis of an item is the default size of that item, the size of the item before any flex grow and flex shrink calculations are performed.
 
 learn more [here](https://yogalayout.com/docs/flex)
 
@@ -220,7 +220,7 @@ The `width` property in Yoga specifies the width of the element's content area. 
 
 Both `width` and `height` can take following values:
 
-- `auto` Is the default Value, Yoga calculates the width/height for the element based on its content, whether that is other children, text, or an image.
+- `auto` Is the **default Value**, React Native calculates the width/height for the element based on its content, whether that is other children, text, or an image.
 
 - `pixels` Defines the width/height in absolute pixels. Depending on other properties set on the Yoga node this may or may not be the final dimension of the node.
 
@@ -228,7 +228,7 @@ Both `width` and `height` can take following values:
 
 ### Absolute & Relative Layout
 
-The `position type` of an element defines how it is positioned within its parent.
+The `position` type of an element defines how it is positioned within its parent.
 
 `relative` (**default value**) By default an element is positioned relatively. This means an element is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent elements.
 
