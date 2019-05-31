@@ -15,7 +15,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 In the following example the red, yellow and the green views are all children in the container view that got `flex: 1`. The red view got `flex: 1` , the yellow view got `flex: 2` and the green view got `flex: 3` . **1+2+3 = 6** which means that red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
 
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
 #### Flex Direction
@@ -54,7 +54,7 @@ export default class FlexDirectionBasics extends Component {
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 ```
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
 
 ### Layout Direction
@@ -108,7 +108,7 @@ export default class JustifyContentBasics extends Component {
 // skip this line if using Create React Native App
 AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 ```
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
 
 #### Align Items
@@ -159,14 +159,14 @@ export default class AlignItemsBasics extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 ```
 
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)
 
 ### Align Self
 
 [`alignSelf`](https://facebook.github.io/react-native/docs/layout-props#alignself) has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. `alignSelf` overrides any option set by the parent with `aligItems`.
 
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Align Self](https://cdn-images-1.medium.com/max/800/1*J1JCoKwLCokX9JXVBvP71g.png)
 
 ### Align Content
@@ -187,7 +187,7 @@ See some examples of [wix](https://medium.com/wix-engineering/the-full-react-nat
 
 learn more [here](https://yogalayout.com/docs/align-content)
 
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Align Content](https://cdn-images-1.medium.com/max/800/1*cC2XFyCF_igp20Ombt4wBw.png)
 
 ### Flex Wrap
@@ -197,7 +197,7 @@ If wrapping is allowed items are wrapped into multiple lines along the main axis
 
 When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here](https://yogalayout.com/docs/flex-wrap)
 
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 
 ### Flex Basis, Grow, and Shrink
@@ -234,7 +234,7 @@ The `position type` of an element defines how it is positioned within its parent
 
 `absolute` When positioned absolutely an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values. 
 
-See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c):
 ![Absolute & Relative Layoutp](https://cdn-images-1.medium.com/max/800/1*NlPeRQCQK3Vb5nyjL0Mqxw.png)
 
 #### Going Deeper
