@@ -9,14 +9,6 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 > Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, and the `flex` parameter only supporting a single number.
 
-### Layout Direction
-
-Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
-
-- `LTR` (**default value**) Text and children and laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
-
-- `RTL` Text and children and laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
-
 ### Flex
 
 [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fight”** over the available space along your primary axis. Most of the time you will want your app container to be flex:1 to take all of the screen height. Space will be divided according to each element flex property. In the following example the red, yellow and the green views are all children in the container view that got flex:1. The red view got flex:1 , the yellow view got flex:2 and the green view got flex:3 . 1+2+3=6 which means that red view will get 1/6 of the space, the yellow 2/6 of the space and the red 3/6 of the space. I think you got it . From [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
@@ -62,6 +54,14 @@ AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 ```
 See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
+
+### Layout Direction
+
+Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
+
+- `LTR` (**default value**) Text and children and laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
+
+- `RTL` Text and children and laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
 
 #### Justify Content
 
