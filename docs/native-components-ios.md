@@ -384,30 +384,34 @@ class MyApp extends React.Component {
 
 ## Handling multiple native views
 
-Sometimes you want to handle more than one native view in view tree eg.
+React native view can have more than one child view in view tree eg.
 
 ```jsx
 <View>
   <MyNativeView />
   <MyNativeView />
+  <Button />
 </View>
 ```
 
-Now UIManager does not know, which view should be handled in the above example. Below you will find a solution for this problem. Firstly define a reference to the view in a view tree:
+Class `MyNativeView` is a wrapper for `NativeComponent` and exposes methods, which will be called on the iOS platform. `MyNativeView` is defined in `MyNativeView.ios.js` and contains proxy methods of `NativeComponent`.
+
+The user makes some interaction like clicking a button, which interacts with `MyNativeView`. After pressing the button backgroundColor of `MyNativeView` changes. In this case `UIManager` does not know, which `MyNativeView` should be handled and which one should change backgroundColor. Below you will find a solution to this problem:
 
 ```jsx
 <View>
-  <MyNativeView ref={this.mvn = mvn}>/>
-  <MyNativeView ref={this.mvn2 = mvn2}>/>
+  <MyNativeView ref={this.myNativeReference}>/>
+  <MyNativeView ref={this.myNativeReference2}>/>
+  <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
 </View>
 ```
 
-Now the above component has reference to particular `MyNativeView`, which allows us to use its methods. This view component is platform specific wrapper for `NativeComponent` and it is defined in `MyNativeView.ios.js` file. `MyNativeView` should contain methods, which will be called in Native Module called `RNCMyNativeViewManager`.
+Now the above component has reference to particular `MyNativeView`, which allows us to use a specific instance of `MyNativeView`. Now `Button` can control, which `MyNativeView` should change `backgroundColor`, because it can use reference and make some changes on this reference. In this example let's assume, that `callNativeMethod` change `backgroundColor`.
 
 `MyNativeView.ios.js` contains code as follow:
 
 ```jsx
-class MyNativeView extends React.Component<Props> {
+class MyNativeView extends React.Component<> {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this),
@@ -423,7 +427,11 @@ class MyNativeView extends React.Component<Props> {
 }
 ```
 
-`MyNativeView` exposes a `callNativeMethod` method, which is the wrapper method for the native method. This implementation uses `UIManager`, which will call a native method called `callNativeMethod`. The first parameter is reactTag, which will be used in Native Module, second defines which method should be called on the native side and third parameter are params of native function. In this case, `callNativeMethod` does not pass any params.
+`callNativeMethod` makes some magic logic on the iOS side (eg. it can change backgroundColor like above or do something more sophisticated). `MyNativeView` exposes a `callNativeMethod` method, which notify iOS to `callNativeMethod`. This method uses `UIManager.dispatchViewManagerCommand`, which needs 3 parameters:
+
+- (nonnull NSNumber \*)reactTag  -  id of react view.
+- commandID:(NSInteger)commandID  -  Id of native method, that should be called
+- commandArgs:(NSArray<id> \*)commandArgs  -  Args of native method, that we can pass from JS to Native side.
 
 `RNCMyNativeViewManager.m`
 
@@ -445,7 +453,7 @@ RCT_EXPORT_METHOD(callNativeMethod:(nonnull NSNumber*) reactTag) {
 }
 ```
 
-The above implementation of the exported method use `UIManager` to find a particular view in view tree. Remember, that first parameter of an exported function must be `(nonnull NSNumber*) reactTag`, because the manager should know, which appropriate view should call method.
+`callNativeMethod` is defined in `RNCMyNativeViewManager.m` file and contain only one parameter, which is `(nonnull NSNumber*) reactTag`. Remember, that first parameter of an exported function must be `(nonnull NSNumber*) reactTag`, because the manager should know, which appropriate view should call method. This exported function should find a particular view using `addUIBlock`, which contains viewRegistry parameter. `viewRegistry` returns the correct based on `reactTag`. The found view can call the method implementation and we are sure, that an appropriate view is handled correctly.
 
 ## Styles
 
