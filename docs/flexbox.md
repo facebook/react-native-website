@@ -11,7 +11,9 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 ### Flex
 
-[`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fight”** over the available space along your primary axis. Most of the time you will want your app container to be flex:1 to take all of the screen height. Space will be divided according to each element flex property. In the following example the red, yellow and the green views are all children in the container view that got flex:1. The red view got flex:1 , the yellow view got flex:2 and the green view got flex:3 . 1+2+3=6 which means that red view will get 1/6 of the space, the yellow 2/6 of the space and the red 3/6 of the space. I think you got it . From [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
+[`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your primary axis. Space will be divided according to each element flex property. 
+
+In the following example the red, yellow and the green views are all children in the container view that got `flex: 1`. The red view got `flex: 1` , the yellow view got `flex: 2` and the green view got `flex: 3` . **1+2+3 = 6** which means that red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
 
 See some examples of [wix](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c) engineers
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
