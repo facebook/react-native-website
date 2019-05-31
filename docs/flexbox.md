@@ -11,7 +11,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 ### Layout Direction
 
-Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default Yoga lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
+Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
 
 - `LTR` (**default value**) Text and children and laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
 
