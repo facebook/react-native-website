@@ -211,7 +211,7 @@ Both `width` and `height` can take following values:
 
 - `auto` Is the **default Value**, React Native calculates the width/height for the element based on its content, whether that is other children, text, or an image.
 
-- `pixels` Defines the width/height in absolute pixels. Depending on other properties set on the Yoga node this may or may not be the final dimension of the node.
+- `pixels` Defines the width/height in absolute pixels. Depending on other styles set on the component, this may or may not be the final dimension of the node.
 
 - `percentage` Defines the width or height in percentage of its parent's width or height respectively.
 
