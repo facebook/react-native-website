@@ -3185,9 +3185,6 @@
       "version-0.60-RC/version-0.60-RC-communication-android": {
         "title": "Communication between native and React Native"
       },
-      "version-0.60-RC/version-0.60-RC-components-and-apis": {
-        "title": "Components and APIs"
-      },
       "version-0.60-RC/version-0.60-RC-datepickerios": {
         "title": "DatePickerIOS"
       },
