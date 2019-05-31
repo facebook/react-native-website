@@ -20,7 +20,7 @@ See some examples of [wix](https://medium.com/wix-engineering/the-full-react-nat
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the main axis. The main axis is the direction in which children are laid out. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the main axis. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
 
 - `row` (**default value**) Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
