@@ -29,7 +29,7 @@ In the following example the red, yellow and the green views are all children in
 
 - `column-reverse` Align children from bottom to top. If wrapping is enabled then the next line will start to the left first item on the bottom of the container.
 
-learn more [here](https://yogalayout.com/docs/flex-direction)
+LEARN MORE [HERE](https://yogalayout.com/docs/flex-direction)
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -76,7 +76,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space-between` using `space-around` will result in space being distributed to the beginning of the first child and end of the last child.
 
-learn more [here](https://yogalayout.com/docs/justify-content)
+LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -122,7 +122,7 @@ AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 
 > For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
 
-learn more [here](https://yogalayout.com/docs/align-items)
+LEARN MORE [HERE](https://yogalayout.com/docs/align-items)
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
@@ -176,7 +176,7 @@ AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 
 - `space-around` Evenly space wrapped lines across the container's main axis, distributing remaining space around the lines. Compared to space between using space around will result in space being distributed to the begining of the first lines and end of the last line.
 
-learn more [here](https://yogalayout.com/docs/align-content)
+LEARN MORE [HERE](https://yogalayout.com/docs/align-content)
 
 ![Align Content](https://cdn-images-1.medium.com/max/800/1*cC2XFyCF_igp20Ombt4wBw.png)
 
@@ -201,7 +201,7 @@ When wrapping lines `alignContent` can be used to specify how the lines are plac
 
 - [`flexBasis`](https://facebook.github.io/react-native/docs/layout-props#flexbasis) is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The flex basis of an item is the default size of that item, the size of the item before any flex grow and flex shrink calculations are performed.
 
-learn more [here](https://yogalayout.com/docs/flex)
+LEARN MORE [HERE](https://yogalayout.com/docs/flex)
 
 ### Width and Height
 
