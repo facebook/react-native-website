@@ -39,6 +39,9 @@ For cases where using a component is not ideal, there is also an imperative API 
 
 ### Methods
 
+- [`popStackEntry`](statusbar.md#popstackentry)
+- [`pushStackEntry`](statusbar.md#pushstackentry)
+- [`replaceStackEntry`](statusbar.md#replacestackentry)
 - [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
 - [`setBarStyle`](statusbar.md#setbarstyle)
 - [`setHidden`](statusbar.md#sethidden)
@@ -125,6 +128,55 @@ If the status bar is translucent. When translucent is set to true, the app will 
 | bool | No       | Android  |
 
 ## Methods
+
+### `popStackEntry()`
+
+```javascript
+static popStackEntry(entry: any)
+```
+
+Pop a StatusBar entry from the stack.
+
+**Parameters:**
+
+| Name  | Type | Required | Description                           |
+| ----- | ---- | -------- | ------------------------------------- |
+| entry | any  | Yes      | Entry returned from `pushStackEntry`. |
+
+---
+
+### `pushStackEntry()`
+
+```javascript
+static pushStackEntry(props: any)
+```
+
+Push a StatusBar entry onto the stack. The return value should be passed to `popStackEntry` when complete.
+
+**Parameters:**
+
+| Name  | Type | Required | Description                                                      |
+| ----- | ---- | -------- | ---------------------------------------------------------------- |
+| props | any  | Yes      | Object containing the StatusBar props to use in the stack entry. |
+
+---
+
+### `replaceStackEntry()`
+
+```javascript
+static replaceStackEntry(entry: any, props: any)
+```
+
+Replace an existing StatusBar stack entry with new props.
+
+**Parameters:**
+
+| Name  | Type | Required | Description                                                                  |
+| ----- | ---- | -------- | ---------------------------------------------------------------------------- |
+| entry | any  | Yes      | Entry returned from `pushStackEntry` to replace.                             |
+| props | any  | Yes      | Object containing the StatusBar props to use in the replacement stack entry. |
+
+---
 
 ### `setBackgroundColor()`
 
