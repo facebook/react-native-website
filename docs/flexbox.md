@@ -30,8 +30,6 @@ See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-n
 
 - `column-reverse` Align children from bottom to top. If wrapping is enabled then the next line will start to the left first item on the bottom of the container.
 
-Adding `flexDirection` to a component's `style` determines the **main axis** of its layout. Should the children be organized horizontally (`row`) or vertically (`column`)? The default is `column`.
-
 learn more [here](https://yogalayout.com/docs/flex-direction)
 
 ```ReactNativeWebPlayer
@@ -79,8 +77,6 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space-between` using `space-around` will result in space being distributed to the beginning of the first child and end of the last child.
 
-Adding `justifyContent` to a component's style determines the **distribution** of children along the **main axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, `space-between` and `space-evenly`.
-
 learn more [here](https://yogalayout.com/docs/justify-content)
 
 ```ReactNativeWebPlayer
@@ -124,8 +120,6 @@ See some examples from [Wix](https://medium.com/wix-engineering/the-full-react-n
 - `center` Align children of a container in the center of the container's cross axis.
 
 - `baseline` Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
-
-Adding `alignItems` to a component's style determines the **alignment** of children along the **secondary axis** (if the primary axis is `row`, then the secondary is `column`, and vice versa). Should children be aligned at the start, the center, the end, or stretched to fill? Available options are `flex-start`, `center`, `flex-end`, and `stretch`.
 
 > For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
 
