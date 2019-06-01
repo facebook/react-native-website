@@ -507,9 +507,9 @@ Describes the current state of a component to the user of an assistive technolog
 - `'expanded'` - Used to indicate that an expandable element is currently expanded.
 - `'collapsed'` - Used to indicate that an expandable element is currently collapsed.
 
-| Type                        | Required |
-| --------------------------- | -------- |
-| array of AccessibilitStates | No       |
+| Type                         | Required |
+| ---------------------------- | -------- |
+| array of AccessibilityStates | No       |
 
 ---
 
