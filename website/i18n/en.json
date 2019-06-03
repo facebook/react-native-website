@@ -56,9 +56,6 @@
       "button": {
         "title": "Button"
       },
-      "cameraroll": {
-        "title": "CameraRoll"
-      },
       "checkbox": {
         "title": "CheckBox"
       },
@@ -3083,6 +3080,9 @@
       "version-0.59/version-0.59-image-style-props": {
         "title": "Image Style Props"
       },
+      "version-0.59/version-0.59-images": {
+        "title": "Images"
+      },
       "version-0.59/version-0.59-imagestore": {
         "title": "ImageStore"
       },
@@ -3160,6 +3160,129 @@
       },
       "version-0.6/version-0.6-touchablewithoutfeedback": {
         "title": "TouchableWithoutFeedback"
+      },
+      "version-0.60-RC/version-0.60-RC-accessibility": {
+        "title": "Accessibility"
+      },
+      "version-0.60-RC/version-0.60-RC-accessibilityinfo": {
+        "title": "AccessibilityInfo"
+      },
+      "version-0.60-RC/version-0.60-RC-actionsheetios": {
+        "title": "ActionSheetIOS"
+      },
+      "version-0.60-RC/version-0.60-RC-activityindicator": {
+        "title": "ActivityIndicator"
+      },
+      "version-0.60-RC/version-0.60-RC-alert": {
+        "title": "Alert"
+      },
+      "version-0.60-RC/version-0.60-RC-animations": {
+        "title": "Animations"
+      },
+      "version-0.60-RC/version-0.60-RC-appregistry": {
+        "title": "AppRegistry"
+      },
+      "version-0.60-RC/version-0.60-RC-backhandler": {
+        "title": "BackHandler"
+      },
+      "version-0.60-RC/version-0.60-RC-communication-android": {
+        "title": "Communication between native and React Native"
+      },
+      "version-0.60-RC/version-0.60-RC-components-and-apis": {
+        "title": "Components and APIs"
+      },
+      "version-0.60-RC/version-0.60-RC-datepickerios": {
+        "title": "DatePickerIOS"
+      },
+      "version-0.60-RC/version-0.60-RC-debugging": {
+        "title": "Debugging"
+      },
+      "version-0.60-RC/version-0.60-RC-direct-manipulation": {
+        "title": "Direct Manipulation"
+      },
+      "version-0.60-RC/version-0.60-RC-easing": {
+        "title": "Easing"
+      },
+      "version-0.60-RC/version-0.60-RC-flatlist": {
+        "title": "FlatList"
+      },
+      "version-0.60-RC/version-0.60-RC-getting-started": {
+        "title": "Getting Started"
+      },
+      "version-0.60-RC/version-0.60-RC-image": {
+        "title": "Image"
+      },
+      "version-0.60-RC/version-0.60-RC-imagepickerios": {
+        "title": "ImagePickerIOS"
+      },
+      "version-0.60-RC/version-0.60-RC-layout-props": {
+        "title": "Layout Props"
+      },
+      "version-0.60-RC/version-0.60-RC-layoutanimation": {
+        "title": "LayoutAnimation"
+      },
+      "version-0.60-RC/version-0.60-RC-modal": {
+        "title": "Modal"
+      },
+      "version-0.60-RC/version-0.60-RC-more-resources": {
+        "title": "More Resources"
+      },
+      "version-0.60-RC/version-0.60-RC-native-modules-android": {
+        "title": "Native Modules"
+      },
+      "version-0.60-RC/version-0.60-RC-navigation": {
+        "title": "Navigating Between Screens"
+      },
+      "version-0.60-RC/version-0.60-RC-performance": {
+        "title": "Performance"
+      },
+      "version-0.60-RC/version-0.60-RC-pushnotificationios": {
+        "title": "PushNotificationIOS"
+      },
+      "version-0.60-RC/version-0.60-RC-scrollview": {
+        "title": "ScrollView"
+      },
+      "version-0.60-RC/version-0.60-RC-sectionlist": {
+        "title": "SectionList"
+      },
+      "version-0.60-RC/version-0.60-RC-signed-apk-android": {
+        "title": "Publishing to Google Play Store"
+      },
+      "version-0.60-RC/version-0.60-RC-state": {
+        "title": "State"
+      },
+      "version-0.60-RC/version-0.60-RC-statusbar": {
+        "title": "StatusBar"
+      },
+      "version-0.60-RC/version-0.60-RC-switch": {
+        "title": "Switch"
+      },
+      "version-0.60-RC/version-0.60-RC-systrace": {
+        "title": "Systrace"
+      },
+      "version-0.60-RC/version-0.60-RC-text": {
+        "title": "Text"
+      },
+      "version-0.60-RC/version-0.60-RC-textinput": {
+        "title": "TextInput"
+      },
+      "version-0.60-RC/version-0.60-RC-timers": {
+        "title": "Timers"
+      },
+      "version-0.60-RC/version-0.60-RC-touchablewithoutfeedback": {
+        "title": "TouchableWithoutFeedback"
+      },
+      "version-0.60-RC/version-0.60-RC-transforms": {
+        "title": "Transforms"
+      },
+      "version-0.60-RC/version-0.60-RC-view-style-props": {
+        "title": "View Style Props"
+      },
+      "version-0.60-RC/version-0.60-RC-view": {
+        "title": "View"
+      },
+      "version-0.60-RC/version-0.60-RC-virtualizedlist": {
+        "title": "VirtualizedList"
       },
       "version-0.7/version-0.7-pushnotificationios": {
         "title": "PushNotificationIOS"

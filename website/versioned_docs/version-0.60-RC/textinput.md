@@ -1,6 +1,7 @@
 ---
-id: textinput
+id: version-0.60-RC-textinput
 title: TextInput
+original_id: textinput
 ---
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
@@ -142,7 +143,6 @@ Note that on Android performing text selection in input can change app's activit
 * [`selectionColor`](textinput.md#selectioncolor)
 * [`selectionState`](textinput.md#selectionstate)
 * [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-* [`showSoftInputOnFocus`](textinput.md#showsoftinputonfocus)
 * [`spellCheck`](textinput.md#spellcheck)
 * [`style`](textinput.md#style)
 * [`textBreakStrategy`](textinput.md#textbreakstrategy)
@@ -742,16 +742,6 @@ If `true`, all text will automatically be selected on focus.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
----
-
-### `showSoftInputOnFocus`
-
-When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
 
 ---
 

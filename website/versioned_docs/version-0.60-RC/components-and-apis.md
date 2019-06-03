@@ -1,6 +1,7 @@
 ---
-id: components-and-apis
+id: version-0.60-RC-components-and-apis
 title: Components and APIs
+original_id: components-and-apis
 ---
 
 React Native provides a number of built-in components. You will find a full list of components and APIs on the sidebar to the left. If you're not sure where to get started, take a look at the following categories:
@@ -185,6 +186,10 @@ These components may come in handy for certain applications. For an exhaustive l
   <div class="component">
     <h3><a href="../animated.html">Animated</a></h3>
     <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
+  </div>
+  <div class="component">
+    <h3><a href="../cameraroll.html">CameraRoll</a></h3>
+    <p>Provides access to the local camera roll / gallery.</p>
   </div>
   <div class="component">
     <h3><a href="../clipboard.html">Clipboard</a></h3>

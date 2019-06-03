@@ -1,6 +1,7 @@
 ---
-id: state
+id: version-0.60-RC-state
 title: State
+original_id: state
 ---
 
 There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
@@ -15,17 +16,17 @@ import { AppRegistry, Text, View } from 'react-native';
 
 class Blink extends Component {
 
-  componentDidMount(){
+    componentDidMount(){
     // Toggle the state every second
-    setInterval(() => (
-      this.setState(previousState => (
-        { isShowingText: !previousState.isShowingText }
-      ))
-    ), 1000);
-  }
+        setInterval(() => (
+          this.setState(previousState => (
+            { isShowingText: !previousState.isShowingText }
+          ))
+        ), 1000);
+     }
 
-  //state object
-  state = { isShowingText: true };
+    //state object
+    state = { isShowingText: true };
 
   render() {
     if (!this.state.isShowingText) {

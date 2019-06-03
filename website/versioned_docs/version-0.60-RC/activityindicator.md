@@ -1,6 +1,7 @@
 ---
-id: activityindicator
+id: version-0.60-RC-activityindicator
 title: ActivityIndicator
+original_id: activityindicator
 ---
 
 Displays a circular loading indicator.
@@ -51,8 +52,8 @@ AppRegistry.registerComponent('App', () => App)
 
 * [`animating`](activityindicator.md#animating)
 * [`color`](activityindicator.md#color)
-* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
 * [`size`](activityindicator.md#size)
+* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
 
 ---
 
@@ -80,16 +81,6 @@ The foreground color of the spinner (default is gray on iOS and dark cyan on And
 
 ---
 
-### `hidesWhenStopped`
-
-Whether the indicator should hide when not animating (true by default).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
 ### `size`
 
 Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
@@ -97,3 +88,13 @@ Size of the indicator (default is 'small'). Passing a number to the size prop is
 | Type                            | Required |
 | ------------------------------- | -------- |
 | enum('small', 'large'), ,number | No       |
+
+---
+
+### `hidesWhenStopped`
+
+Whether the indicator should hide when not animating (true by default).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
