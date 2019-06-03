@@ -387,7 +387,7 @@ require.Systrace.beginEvent = (message) => {
 }
 ```
 
-Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisified, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
+Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisfied, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
 
 ### Updating the metro.config.js
 
