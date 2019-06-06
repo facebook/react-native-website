@@ -108,7 +108,7 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 1.  Save the files and check in the browser. Some changes may require a server restart.
 1.  Changes to /docs will only be visible in the latest version of the documentation (master).
 
-`open http://localhost:3000/react-native/versions.html`to see other versions.
+`open http://localhost:3000/react-native/versions.html` to see other versions.
 
 ### Test the change
 
