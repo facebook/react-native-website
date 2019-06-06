@@ -14,7 +14,7 @@ AppState is frequently used to determine the intent and proper behavior when han
   - in another app
   - on the home screen
   - [Android] on another `Activity` (even if it was launched by your app)
-- `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the Multitasking view or in the event of an incoming call
+- [iOS] `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the Multitasking view or in the event of an incoming call
 
 For more information, see [Apple's documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)
 
@@ -62,6 +62,12 @@ This example will only ever appear to say "Current state is: active" because the
 - [`addEventListener`](appstate.md#addeventlistener)
 - [`removeEventListener`](appstate.md#removeeventlistener)
 
+### Supported events
+
+- [`change`](appstate.md#change)
+- [`focus`](appstate.md#focus)
+- [`blur`](appstate.md#blur)
+
 ### Properties
 
 - [`currentState`](appstate.md#currentState)
@@ -69,6 +75,20 @@ This example will only ever appear to say "Current state is: active" because the
 ---
 
 # Reference
+
+## Events
+
+### `change`
+
+Event received when app state has changed. Listener is called with one of [current app state value](appstate.md#app-states).
+
+### `focus`
+
+[Android only] Received when app gains focus (user is interacting with the app).
+
+### `blur`
+
+[Android only] Received when user is not actively interacting with the app. Useful in situation when user pulls down [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change in that matter, but `blur` event will get fired.
 
 ## Methods
 
