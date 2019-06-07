@@ -207,4 +207,3 @@ Sets the toolbar title color.
 | Type               | Required |
 | ------------------ | -------- |
 | [color](colors.md) | No       |
-
