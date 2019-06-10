@@ -188,7 +188,7 @@ Can tell `TextInput` to automatically capitalize certain characters. This proper
 
 ### `autoCompleteType`
 
-Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will aways attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoCompleteType` to `off`.
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoCompleteType` to `off`.
 
 Possible values for `autoCompleteType` are:
 
