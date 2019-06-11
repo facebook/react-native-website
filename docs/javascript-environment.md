@@ -68,7 +68,6 @@ Browser
 - [CommonJS require](https://nodejs.org/docs/latest/api/modules.html)
 - [XMLHttpRequest, fetch](network.md#content)
 - [{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame](timers.md#content)
-- [navigator.geolocation](geolocation)
 
 ES6
 
