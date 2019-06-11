@@ -122,7 +122,7 @@ Many of the following components provide wrappers for commonly used UIKit classe
   </div>
   <div class="component">
     <h3><a href="./tabbarios">TabBarIOS</a></h3>
-    <p>Renders a <code>UITabViewController</code> on iOS. Use with <a href="tabbarios-item">TabBarIOS.Item</a>.</p>
+    <p>Renders a <code>UITabViewController</code> on iOS. Use with <a href="./tabbarios-item">TabBarIOS.Item</a>.</p>
   </div>
 </div>
 
