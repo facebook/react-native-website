@@ -80,15 +80,15 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### `change`
 
-Event received when app state has changed. Listener is called with one of [current app state value](appstate.md#app-states).
+This even is received when the app state has changed. The listener is called with one of [the current app state values](appstate.md#app-states).
 
 ### `focus`
 
-[Android only] Received when app gains focus (user is interacting with the app).
+[Android only] Received when the app gains focus (the user is interacting with the app).
 
 ### `blur`
 
-[Android only] Received when user is not actively interacting with the app. Useful in situation when user pulls down [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change in that matter, but `blur` event will get fired.
+[Android only] Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
 
 ## Methods
 
