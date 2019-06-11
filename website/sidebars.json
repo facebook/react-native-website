@@ -79,6 +79,8 @@
       "slider",
       "statusbar",
       "switch",
+      "tabbarios",
+      "tabbarios-item",
       "text",
       "textinput",
       "toolbarandroid",
