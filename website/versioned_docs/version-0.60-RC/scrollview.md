@@ -582,7 +582,7 @@ When set, causes the scroll view to stop at the defined offsets. This can be use
 
 ### `snapToStart`
 
-Use in conjuction with `snapToOffsets`. By default, the beginning of the list counts as a snap offset. Set `snapToStart` to false to disable this behavior and allow the list to scroll freely between its start and the first `snapToOffsets` offset. The default value is true.
+Use in conjunction with `snapToOffsets`. By default, the beginning of the list counts as a snap offset. Set `snapToStart` to false to disable this behavior and allow the list to scroll freely between its start and the first `snapToOffsets` offset. The default value is true.
 
 | Type    | Required |
 | ------- | -------- |
@@ -592,7 +592,7 @@ Use in conjuction with `snapToOffsets`. By default, the beginning of the list co
 
 ### `snapToEnd`
 
-Use in conjuction with `snapToOffsets`. By default, the end of the list counts as a snap offset. Set `snapToEnd` to false to disable this behavior and allow the list to scroll freely between its end and the last `snapToOffsets` offset. The default value is true.
+Use in conjunction with `snapToOffsets`. By default, the end of the list counts as a snap offset. Set `snapToEnd` to false to disable this behavior and allow the list to scroll freely between its end and the last `snapToOffsets` offset. The default value is true.
 
 | Type    | Required |
 | ------- | -------- |

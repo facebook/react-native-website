@@ -472,7 +472,7 @@ This is not necessary if you are integrating React Native into an existing appli
 
 ### [Optional] Using a specific version
 
-If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
 react-native init AwesomeProject --version X.XX.X
