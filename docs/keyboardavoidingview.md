@@ -36,6 +36,8 @@ import {KeyboardAvoidingView} from 'react-native';
 
 ### `behavior`
 
+Specify how to react to the presence of the keyboard.
+
 _Note: Android and iOS both interact with this prop differently._ _Android may behave better when given no behavior prop at all, whereas iOS is the opposite._
 
 | Type                                  | Required |
@@ -66,7 +68,7 @@ Enabled or disabled KeyboardAvoidingView. The default is `true`.
 
 ### `keyboardVerticalOffset`
 
-This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases.
+This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases. Defaults to 0.
 
 | Type   | Required |
 | ------ | -------- |
