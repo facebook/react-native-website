@@ -78,7 +78,7 @@ Color of the progress bar.
 
 ### `indeterminate`
 
-If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal.
+If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal, and requires a `progress` value.
 
 | Type              | Required |
 | ----------------- | -------- |
