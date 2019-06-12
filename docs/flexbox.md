@@ -11,15 +11,15 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 ### Flex
 
-[`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element flex property. 
+[`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property. 
 
-In the following example the red, yellow and the green views are all children in the container view that got `flex: 1`. The red view got `flex: 1` , the yellow view got `flex: 2` and the green view got `flex: 3` . **1+2+3 = 6** which means that red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
+In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the main axis. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the *main axis*. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
 
 - `row` Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
@@ -227,7 +227,7 @@ The `position` type of an element defines how it is positioned within its parent
 
 #### Going Deeper
 
-You can play a little with the [yoga playground](https://yogalayout.com/playground)
+Check out the interactive [yoga playground](https://yogalayout.com/playground) that you can use to get a better understanding of flexbox.
 
 We've covered the basics, but there are many other styles you may need for layouts. The full list of props that control layout is documented [here](./layout-props.md).
 
