@@ -77,19 +77,19 @@ HeadlessJsRetryPolicy retryPolicy = new LinearCountingRetryPolicy(
 );
 
 return new HeadlessJsTaskConfig(
-    "SomeTaskName",
-    Arguments.fromBundle(extras),
-    5000,
-    false,
-    retryPolicy
-  );
+  'SomeTaskName',
+  Arguments.fromBundle(extras),
+  5000,
+  false,
+  retryPolicy
+);
 ```
 
 A retry attempt will only be made when a specific `Error` is thrown. Inside a headless JS task, you can import the error and throw it when a retry attempt is required.
 
 Example:
 ```javascript
-import { HeadlessJsTaskError } from 'HeadlessJsTask';
+import {HeadlessJsTaskError} from 'HeadlessJsTask';
 
 module.exports = async (taskData) => {
   const condition = ...;
