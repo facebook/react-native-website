@@ -16,6 +16,7 @@
       "more-resources"
     ],
     "Guides": [
+      "optimizing-flatlist-configuration",
       "components-and-apis",
       "platform-specific-code",
       "navigation",
