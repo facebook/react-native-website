@@ -22,3 +22,16 @@ Simply wrap your top level view with a `SafeAreaView` with a `flex: 1` style app
 ### Props
 
 - [View props...](view.md#props)
+- [`emulateUnlessSupported`](safeareaview.md#emulateUnlessSupported)
+
+---
+
+# Reference
+
+## Props
+
+### `emulateUnlessSupported`
+
+| Type | Required | Default |
+| ---- | -------- | ------- |
+| bool | No       | true    |
