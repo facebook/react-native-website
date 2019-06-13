@@ -267,7 +267,7 @@ Used to locate this view in end-to-end tests.
 
 ### `touchSoundDisabled`
 
-If true, doesn't play system sound on touch
+If true, doesn't play a system sound on touch.
 
 | Type    | Required | Platform |
 | ------- | -------- | -------- |
