@@ -240,7 +240,7 @@ Handy for snapshot tests.
 
 | Type       | Required |
 | ---------- | -------- |
-| View.style | No       |
+| bool       | No       |
 
 
 
