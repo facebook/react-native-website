@@ -61,7 +61,7 @@ Given the large amount of changes in the past six months, we'd like to ask you t
 
 ## Continuous Integration
 
-Facebook merges all Pull Requests and internal changes directly into Facebook’s repository first and then syncs all commits back to GitHub. Facebook’s infrastructure is different from common continuous integration services and not all open source tests were ran inside of Facebook. This means that commits that sync out to GitHub frequently break tests in open source which take a lot of time to fix.
+Facebook merges all Pull Requests and internal changes directly into Facebook’s repository first and then syncs all commits back to GitHub. Facebook’s infrastructure is different from common continuous integration services and not all open source tests were run inside of Facebook. This means that commits that sync out to GitHub frequently break tests in open source which take a lot of time to fix.
 
 [Héctor Ramos](https://twitter.com/hectorramos) from the React Native team spent the past two months improving React Native's continuous integration systems both at Facebook and on GitHub. Most of the open source tests are now run before changes are committed to React Native at Facebook which will keep CI stable on GitHub when commits are being synchronized.
 
