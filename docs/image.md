@@ -82,7 +82,7 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.10.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:1.10.0'
+  implementation 'com.facebook.fresco:animated-gif:1.12.0'
 
   // For WebP support, including animated WebP
   implementation 'com.facebook.fresco:animated-webp:1.10.0'
