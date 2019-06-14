@@ -101,6 +101,12 @@ AppRegistry.registerComponent('App', () => App)
 * [`underlayColor`](touchablehighlight.md#underlaycolor)
 * [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
 * [`tvParallaxProperties`](touchablehighlight.md#tvparallaxproperties)
+* [`nextFocusDown`](touchablehighlight.md#nextFocusDown)
+* [`nextFocusForward`](touchablehighlight.md#nextFocusForward)
+* [`nextFocusLeft`](touchablehighlight.md#nextFocusLeft)
+* [`nextFocusRight`](touchablehighlight.md#nextFocusRight)
+* [`nextFocusUp`](touchablehighlight.md#nextFocusUp)
+* [`testOnly_pressed`](touchablehighlight.md#testOnly_pressed)
 
 ---
 
@@ -175,3 +181,66 @@ enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | object | No       | iOS      |
+
+---
+
+### `nextFocusDown`
+
+TV next focus down (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusForward`
+
+TV next focus forward (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusLeft`
+
+TV next focus left (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusRight`
+
+TV next focus right (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusUp`
+
+TV next focus up (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `testOnly_pressed`
+
+Handy for snapshot tests.
+
+| Type       | Required |
+| ---------- | -------- |
+| bool       | No       |
+
+
+
