@@ -479,11 +479,9 @@ Determines the maximum number of items rendered outside of the visible area, in 
 
 ### `persistentScrollbar`
 
-Set this when offset is needed for the loading indicator to show correctly.
-
 | Type   | Required |
 | ------ | -------- |
-| number | No       |
+| bool   | No       |
 
 ---
 
