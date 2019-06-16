@@ -118,6 +118,39 @@ function CodeReloadDemo() {
   );
 }
 
+function DocsAndTalks() {
+  return (
+    <section className="DocsAndTalks">
+      <div className="grid">
+        <div className="column">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/NCAY0HIfrwc"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+          <p>
+            <a href="https://youtu.be/NCAY0HIfrwc">
+              Mobile innovation with React Native... at f8
+            </a>
+          </p>
+        </div>
+        <div className="column">
+          <h2 className="heading">Docs and Talks</h2>
+          <p>[get list of docs]</p>
+          <p>[get list of talks]</p>
+          <p>
+            You can follow the latest news from the React Native team on Twitter
+            {/* TODO twitter link */}
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Features() {
   return (
     <main>
@@ -125,6 +158,7 @@ function Features() {
         <Feature key={feature.title} {...feature} />
       ))}
       <CodeReloadDemo />
+      <DocsAndTalks />
     </main>
   );
 }
