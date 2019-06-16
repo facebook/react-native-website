@@ -34,14 +34,14 @@ onActionSelected: function(position) {
 
 - [View props...](view.md#props)
 
-* [`overflowIcon`](toolbarandroid.md#overflowicon)
 * [`actions`](toolbarandroid.md#actions)
 * [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
+* [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
 * [`logo`](toolbarandroid.md#logo)
 * [`navIcon`](toolbarandroid.md#navicon)
 * [`onActionSelected`](toolbarandroid.md#onactionselected)
 * [`onIconClicked`](toolbarandroid.md#oniconclicked)
-* [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
+* [`overflowIcon`](toolbarandroid.md#overflowicon)
 * [`rtl`](toolbarandroid.md#rtl)
 * [`subtitle`](toolbarandroid.md#subtitle)
 * [`subtitleColor`](toolbarandroid.md#subtitlecolor)
@@ -54,16 +54,6 @@ onActionSelected: function(position) {
 # Reference
 
 ## Props
-
-### `overflowIcon`
-
-Sets the overflow icon.
-
-| Type                | Required |
-| ------------------- | -------- |
-| optionalImageSource | No       |
-
----
 
 ### `actions`
 
@@ -85,6 +75,18 @@ This property takes an array of objects, where each object has the following key
 ### `contentInsetStart`
 
 Sets the content inset for the toolbar starting edge.
+
+The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
+### `contentInsetEnd`
+
+Sets the content inset for the toolbar ending edge.
 
 The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
 
@@ -134,15 +136,13 @@ Callback called when the icon is selected.
 
 ---
 
-### `contentInsetEnd`
+### `overflowIcon`
 
-Sets the content inset for the toolbar ending edge.
+Sets the overflow icon.
 
-The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type                | Required |
+| ------------------- | -------- |
+| optionalImageSource | No       |
 
 ---
 

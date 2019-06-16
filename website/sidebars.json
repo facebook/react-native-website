@@ -16,6 +16,7 @@
       "more-resources"
     ],
     "Guides": [
+      "optimizing-flatlist-configuration",
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -52,7 +53,9 @@
       "headless-js-android",
       "signed-apk-android",
       "removing-default-permissions"
-    ],
+    ]
+  },
+  "api": {
     "Components": [
       "activityindicator",
       "button",
@@ -77,6 +80,8 @@
       "slider",
       "statusbar",
       "switch",
+      "tabbarios",
+      "tabbarios-item",
       "text",
       "textinput",
       "toolbarandroid",
@@ -98,7 +103,6 @@
       "appstate",
       "asyncstorage",
       "backhandler",
-      "cameraroll",
       "clipboard",
       "datepickerandroid",
       "dimensions",

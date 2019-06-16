@@ -350,48 +350,6 @@ project.ext.react = [
 
 Now that we have a RAM bundle, there is overhead for calling `require`. `require` now needs to send a message over the bridge when it encounters a module it has not loaded yet. This will impact startup the most, because that is where the largest number of require calls are likely to take place while the app loads the initial module. Luckily we can configure a portion of the modules to be preloaded. In order to do this, you will need to implement some form of inline require.
 
-### Adding a packager config file
-
-Create a folder in your project called packager, and create a single file named config.js. Add the following:
-
-```
-const config = {
-  transformer: {
-    getTransformOptions: () => {
-      return {
-        transform: { inlineRequires: true },
-      };
-    },
-  },
-};
-
-module.exports = config;
-```
-
-In Xcode, in the build phase, include `export BUNDLE_CONFIG="packager/config.js"`.
-
-```
-export BUNDLE_COMMAND="ram-bundle"
-export BUNDLE_CONFIG="packager/config.js"
-export NODE_BINARY=node
-../node_modules/react-native/scripts/react-native-xcode.sh
-```
-
-Edit your android/app/build.gradle file to include `bundleConfig: "packager/config.js",`.
-
-```
-project.ext.react = [
-  bundleCommand: "ram-bundle",
-  bundleConfig: "packager/config.js"
-]
-```
-
-Finally, you can update "start" under "scripts" on your package.json to use the config:
-
-`"start": "yarn react-native start --config packager/config.js",`
-
-Start your package server with `npm start`. Note that when the dev packager is automatically launched via xcode and `react-native run-android`, etc, it does not use `npm start`, so it won't use the config.
-
 ### Investigating the Loaded Modules
 
 In your root file (index.(ios|android).js) you can add the following after the initial imports:
@@ -428,14 +386,14 @@ require.Systrace.beginEvent = (message) => {
 }
 ```
 
-Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisified, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
+Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisfied, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
 
-### Updating the config.js
+### Updating the metro.config.js
 
-Returning to packager/config.js we should update it to use our newly generated modulePaths.js file.
+We now need to update `metro.config.js` in the root of the project to use our newly generated `modulePaths.js` file:
 
 ```
-const modulePaths = require('./modulePaths');
+const modulePaths = require('./packager/modulePaths');
 const resolve = require('path').resolve;
 const fs = require('fs');
 

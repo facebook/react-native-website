@@ -196,6 +196,8 @@ Determine whether or not an installed app can handle a given URL.
 
 The method returns a `Promise` object. When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
 
+The `Promise` will reject on Android if it was impossible to check if the URL can be opened, and on iOS if you didn't add the specific scheme in the `LSApplicationQueriesSchemes` key inside `Info.plist` (see bellow).
+
 **Parameters:**
 
 | Name | Type   | Required | Description      |
@@ -205,6 +207,10 @@ The method returns a `Promise` object. When it is determined whether or not the 
 > For web URLs, the protocol ("http://", "https://") must be set accordingly!
 
 > As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
+
+> This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
+
+> If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
 
 ---
 

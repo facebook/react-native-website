@@ -62,8 +62,8 @@ Lifecycle alternative:
 
 ### Methods
 
-- [`exitApp`](backhandler.md#exitapp)
 - [`addEventListener`](backhandler.md#addeventlistener)
+- [`exitApp`](backhandler.md#exitapp)
 - [`removeEventListener`](backhandler.md#removeeventlistener)
 
 ---
@@ -72,18 +72,18 @@ Lifecycle alternative:
 
 ## Methods
 
-### `exitApp()`
-
-```javascript
-static exitApp()
-```
-
----
-
 ### `addEventListener()`
 
 ```javascript
 static addEventListener(eventName, handler)
+```
+
+---
+
+### `exitApp()`
+
+```javascript
+static exitApp()
 ```
 
 ---

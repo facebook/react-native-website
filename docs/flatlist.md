@@ -14,6 +14,7 @@ A performant interface for rendering simple, flat lists, supporting the most han
 - Pull to Refresh.
 - Scroll loading.
 - ScrollToIndex support.
+- Multiple column support.
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
@@ -25,6 +26,8 @@ Minimal Example:
   renderItem={({item}) => <Text>{item.key}</Text>}
 />
 ```
+
+To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
 More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
 
@@ -98,42 +101,46 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Props
 
-- [`ScrollView` props...](scrollview.md#props)
-- [`VirtualizedList` props...](virtualizedlist.md#props)
-- [`renderItem`](flatlist.md#renderitem)
-- [`data`](flatlist.md#data)
-- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-- [`ListFooterComponent`](flatlist.md#listfootercomponent)
-- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
 - [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
+- [`data`](flatlist.md#data)
 - [`extraData`](flatlist.md#extradata)
 - [`getItemLayout`](flatlist.md#getitemlayout)
 - [`horizontal`](flatlist.md#horizontal)
 - [`initialNumToRender`](flatlist.md#initialnumtorender)
 - [`initialScrollIndex`](flatlist.md#initialscrollindex)
 - [`inverted`](flatlist.md#inverted)
+- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
 - [`keyExtractor`](flatlist.md#keyextractor)
+- [`legacyImplementation`](flatlist.md#legacyimplementation)
+- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
+- [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
+- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
+- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
 - [`numColumns`](flatlist.md#numcolumns)
 - [`onEndReached`](flatlist.md#onendreached)
 - [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
 - [`onRefresh`](flatlist.md#onrefresh)
 - [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
 - [`progressViewOffset`](flatlist.md#progressviewoffset)
-- [`legacyImplementation`](flatlist.md#legacyimplementation)
 - [`refreshing`](flatlist.md#refreshing)
+- [`renderItem`](flatlist.md#renderitem)
 - [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
+- [`ScrollView` props...](scrollview.md#props)
 - [`viewabilityConfig`](flatlist.md#viewabilityconfig)
 - [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
 
 ### Methods
 
+- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`getScrollResponder`](flatlist.md#getScrollResponder)
+- [`getScrollableNode`](flatlist.md#getScrollableNode)
 - [`scrollToEnd`](flatlist.md#scrolltoend)
 - [`scrollToIndex`](flatlist.md#scrolltoindex)
 - [`scrollToItem`](flatlist.md#scrolltoitem)
 - [`scrollToOffset`](flatlist.md#scrolltooffset)
 - [`recordInteraction`](flatlist.md#recordinteraction)
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
 
 ---
 
@@ -144,7 +151,7 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 ### `renderItem`
 
 ```javascript
-renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
+renderItem({item, index, separators});
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -155,6 +162,15 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 | -------- | -------- |
 | function | Yes      |
 
+- `item` (Object): The item from `data` being rendered.
+- `index` (number): The index corresponding to this item in the `data` array.
+- `separators` (Object)
+  - `highlight` (Function)
+  - `unhighlight` (Function)
+  - `updateProps` (Function)
+    - `select` (enum('leading', 'trailing'))
+    - `newProps` (Object)
+
 Example usage:
 
 ```javascript
@@ -163,7 +179,7 @@ Example usage:
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
   )}
   data={[{title: 'Title Text', key: 'item1'}]}
-  renderItem={({item, separators}) => (
+  renderItem={({item, index, separators}) => (
     <TouchableHighlight
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
@@ -218,6 +234,16 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
@@ -225,6 +251,16 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for ListHeaderComponent
+
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
 
 ---
 
@@ -606,3 +642,23 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getScrollResponder()`
+
+```javascript
+getScrollResponder();
+```
+
+Provides a handle to the underlying scroll responder.
+
+---
+
+### `getScrollableNode()`
+
+```javascript
+getScrollableNode();
+```
+
+Provides a handle to the underlying scroll node.

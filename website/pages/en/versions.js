@@ -30,7 +30,7 @@ class VersionItem extends React.Component {
           this.props.baseUrl +
           'docs/' +
           (isCurrentVersion ? '' : version + '/') +
-          'getting-started.html'
+          'getting-started'
         }>
         Documentation
       </a>
@@ -83,15 +83,17 @@ class Versions extends React.Component {
             is created off the master branch of{' '}
             <a href={'https://github.com/facebook/react-native'}>
               <code>facebook/react-native</code>
-            </a>. The release candidate will soak for a month to allow
-            contributors like yourself to{' '}
-            <a href={siteConfig.baseUrl + 'docs/upgrading.html'}>
+            </a>
+            . The release candidate will soak for a month to allow contributors
+            like yourself to{' '}
+            <a href={siteConfig.baseUrl + 'docs/upgrading'}>
               verify the changes
             </a>{' '}
             and to identify any issues by{' '}
             <a href="https://github.com/facebook/react-native/issues">
               writing clear, actionable bug reports
-            </a>. Eventually, the release candidate will be promoted to stable.
+            </a>
+            . Eventually, the release candidate will be promoted to stable.
           </p>
           <h2>Latest versions</h2>
           <p>

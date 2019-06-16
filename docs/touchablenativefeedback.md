@@ -31,6 +31,12 @@ renderButton: function() {
 
 * [`background`](touchablenativefeedback.md#background)
 * [`useForeground`](touchablenativefeedback.md#useforeground)
+* [`hasTVPreferredFocus`](touchablenativefeedback.md#hasTVPreferredFocus)
+* [`nextFocusDown`](touchablenativefeedback.md#nextFocusDown)
+* [`nextFocusForward`](touchablenativefeedback.md#nextFocusForward)
+* [`nextFocusLeft`](touchablenativefeedback.md#nextFocusLeft)
+* [`nextFocusRight`](touchablenativefeedback.md#nextFocusRight)
+* [`nextFocusUp`](touchablenativefeedback.md#nextFocusUp)
 
 ### Methods
 
@@ -64,6 +70,66 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `hasTVPreferredFocus`
+
+TV preferred focus (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusDown`
+
+TV next focus down (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusForward`
+
+TV next focus forward (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusLeft`
+
+TV next focus left (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusRight`
+
+TV next focus right (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusUp`
+
+TV next focus up (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ## Methods
 
