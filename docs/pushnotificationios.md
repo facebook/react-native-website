@@ -115,6 +115,7 @@ Then enable Background Modes/Remote notifications to be able to use remote notif
 - [`getContentAvailable`](pushnotificationios.md#getcontentavailable)
 - [`getBadgeCount`](pushnotificationios.md#getbadgecount)
 - [`getData`](pushnotificationios.md#getdata)
+- [`getThreadID`](pushnotificationios.md#getThreadID)
 
 ---
 
@@ -504,3 +505,13 @@ getData();
 ```
 
 Gets the data object on the notification
+
+---
+
+### `getThreadID()`
+
+```javascript
+getThreadID();
+```
+
+Gets the thread ID on the notification
