@@ -42,11 +42,13 @@ Code quality:
 - [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
 - [`create`](stylesheet.md#create)
 - [`flatten`](stylesheet.md#flatten)
+- [`compose`](stylesheet.md#compose)
 
 ### Properties
 
 - [`hairlineWidth`](stylesheet.md#hairlinewidth)
 - [`absoluteFill`](stylesheet.md#absolutefill)
+- [`absoluteFillObject`](stylesheet.md#absoluteFillObject)
 
 ---
 
@@ -125,9 +127,21 @@ StyleSheet.flatten(styles.listItem);
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
 
+---
+
+### `compose`
+
+Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
+
+```javascript
+static compose(style)
+```
+
 ## Properties
 
 ### `hairlineWidth`
+
+This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
 ```javascript
 var styles = StyleSheet.create({
@@ -147,6 +161,22 @@ A line with hairline width may not be visible if your simulator is downscaled.
 ### `absoluteFill`
 
 A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
+
+```javascript
+const styles = StyleSheet.create({
+  wrapper: {
+    ...StyleSheet.absoluteFill,
+    top: 10,
+    backgroundColor: 'transparent',
+  },
+});
+```
+
+---
+
+### `absoluteFillObject`
+
+Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillObject` can be used to create a customized entry in a `StyleSheet`, e.g.:
 
 ```javascript
 const styles = StyleSheet.create({
