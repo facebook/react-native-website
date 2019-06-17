@@ -36,12 +36,19 @@ html {
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 100px;
 }
 
 .TwoColumns .column {
   width: 100%;
   max-width: 450px;
+}
+
+.TwoColumns .column.left {
+  padding-right: 50px;
+}
+
+.TwoColumns .column.right {
+  padding-left: 50px;
 }
 
 .Heading {
@@ -132,6 +139,7 @@ html {
 
 .Community {
   background: #f8f8f8;
+  padding-bottom: 50px;
 }
 
 .Community .content {
@@ -139,6 +147,23 @@ html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+}
+
+.Community .column.left {
+  border-right: 1px solid gray;
+}
+
+.Community .firstP {
+  display: flex;
+  align-items: center;
+}
+
+.Community .firstP span {
+  margin-left: 20px;
+}
+
+.Community .right {
+  margin-top: 10px;
 }
 
 .Community .Heading {

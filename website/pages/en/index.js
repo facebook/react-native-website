@@ -3,6 +3,7 @@ const React = require('react');
 const CompLibrary = require('../../core/CompLibrary.js');
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
+const {baseUrl} = siteConfig;
 
 function ActionButton({href, target, children}) {
   return (
@@ -15,12 +16,10 @@ function ActionButton({href, target, children}) {
 function HomeCallToAction() {
   return (
     <div>
-      <ActionButton
-        href={siteConfig.baseUrl + 'docs/getting-started'}
-        target="_self">
+      <ActionButton href={baseUrl + 'docs/getting-started'} target="_self">
         Get started
       </ActionButton>
-      <ActionButton href={siteConfig.baseUrl + 'docs/tutorial'} target="_self">
+      <ActionButton href={baseUrl + 'docs/tutorial'} target="_self">
         Learn basics
       </ActionButton>
     </div>
@@ -59,8 +58,8 @@ function TwoColumns({columnOne, columnTwo, reverse}) {
   const right = reverse ? columnOne : columnTwo;
   return (
     <div className="TwoColumns">
-      <div className="column">{left}</div>
-      <div className="column">{right}</div>
+      <div className="column left">{left}</div>
+      <div className="column right">{right}</div>
     </div>
   );
 }
@@ -98,11 +97,11 @@ const features = [
       <div className="IntroImage">
         <img
           className="iphone"
-          src={`${siteConfig.baseUrl}img/homepage/iphone-demo.png`}
+          src={`${baseUrl}img/homepage/iphone-demo.png`}
         />
         <img
           className="android"
-          src={`${siteConfig.baseUrl}img/homepage/android-demo.png`}
+          src={`${baseUrl}img/homepage/android-demo.png`}
         />
       </div>
     ),
@@ -206,7 +205,7 @@ function AppList({apps}) {
       {apps.map((app, i) => {
         let imgSource = app.icon;
         if (!app.icon.startsWith('http')) {
-          imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
+          imgSource = baseUrl + 'img/showcase/' + app.icon;
         }
         return (
           <li key={i} className="item">
@@ -221,9 +220,6 @@ function AppList({apps}) {
 }
 
 const communityText = `
-React Native was built by Facebook and has been maintained for
-over 5 years.
-
 In 2018, React Native had the [2nd highest] number of contributors
 for any repos in GitHub. However, there are a few standout
 companies which partner with Facebook to create React Native:
@@ -231,14 +227,24 @@ companies which partner with Facebook to create React Native:
 Mansion].
 `;
 
-// TODO middle border
 function Community() {
   return (
     <Section className="Community">
       <div className="content">
         <Heading text="Open Community" />
         <TwoColumns
-          columnOne={<MarkdownBlock>{communityText}</MarkdownBlock>}
+          columnOne={
+            <React.Fragment>
+              <p className="firstP">
+                <img src={`${baseUrl}img/homepage/fb-logo.png`} />
+                <span>
+                  React Native was built by Facebook and has been maintained for
+                  over 5 years.
+                </span>
+              </p>
+              <MarkdownBlock>{communityText}</MarkdownBlock>
+            </React.Fragment>
+          }
           columnTwo={
             <React.Fragment>
               <p>
@@ -246,7 +252,9 @@ function Community() {
                 you've already used it in one of these apps:
               </p>
               <AppList apps={apps} />
-              <p>and [many more].</p>
+              <p>
+                and <a href={`${baseUrl}showcase`}>many more</a>.
+              </p>
             </React.Fragment>
           }
         />
