@@ -28,7 +28,7 @@ html {
 .Section {
   width: 100%;
   min-height: 450px;
-  padding: 50px 0;
+  padding-top: 50px;
 }
 
 .TwoColumns {
@@ -89,6 +89,26 @@ html {
 
 .Feature:nth-child(even) {
   background: #f8f8f8;
+}
+
+.IntroImage {
+  position: relative;
+  overflow: hidden;
+  height: 450px;
+}
+
+.IntroImage .iphone {
+  position: absolute;
+  width: 300px;
+  top: 0px;
+  left: 0px;
+}
+
+.IntroImage .android {
+  position: absolute;
+  width: 300px;
+  top: 10px;
+  left: 80px;
 }
 
 .CodeReloadDemo {

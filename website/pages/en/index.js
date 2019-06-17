@@ -93,7 +93,19 @@ const features = [
     title: 'Create native apps using React and JavaScript',
     text:
       'React Native lowers the barrier for creating native-quality apps using the world’s most popular programming language and one of the most popular user-interface libraries for it: [React](https://reactjs.org).\n\nReact offers a uni-directional declarative programming model that drastically reduces the complexity in building user interfaces.',
-    image: 'https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif',
+    // TODO animate the image
+    image: () => (
+      <div className="IntroImage">
+        <img
+          className="iphone"
+          src={`${siteConfig.baseUrl}img/homepage/iphone-demo.png`}
+        />
+        <img
+          className="android"
+          src={`${siteConfig.baseUrl}img/homepage/android-demo.png`}
+        />
+      </div>
+    ),
   },
   {
     title: 'View, Text, Image',
@@ -116,6 +128,13 @@ const features = [
 ];
 
 function Feature({title, text, image, reverse}) {
+  let imageEl;
+  if (typeof image === 'string') {
+    imageEl = <img src={image} />;
+  } else {
+    const Image = image;
+    imageEl = <Image />;
+  }
   return (
     <Section className="Feature">
       <TwoColumns
@@ -126,7 +145,7 @@ function Feature({title, text, image, reverse}) {
             <MarkdownBlock>{text}</MarkdownBlock>
           </React.Fragment>
         }
-        columnTwo={<img src={image} />}
+        columnTwo={imageEl}
       />
     </Section>
   );
