@@ -94,7 +94,7 @@ class AccessibilityStatusExample extends React.Component {
 static isBoldTextEnabled()
 ```
 
-iOS-Only. Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
+**iOS-Only.** Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
 
 ### `isGrayscaleEnabled()`
 
@@ -102,7 +102,7 @@ iOS-Only. Query whether a bold text is currently enabled. Returns a promise whic
 static isGrayscaleEnabled()
 ```
 
-Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
+**iOS-Only.** Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
 
 ### `isInvertColorsEnabled()`
 
@@ -110,7 +110,7 @@ Query whether grayscale is currently enabled. Returns a promise which resolves t
 static isInvertColorsEnabled()
 ```
 
-Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
+**iOS-Only.** Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
 
 ### `isReduceMotionEnabled()`
 
@@ -126,7 +126,7 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 static isReduceTransparencyEnabled()
 ```
 
-Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
+**iOS-Only.** Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
 
 ### `isScreenReaderEnabled()`
 
