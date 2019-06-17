@@ -221,3 +221,50 @@ html {
 .AppList .item {
   list-style: none;
 }
+
+.GetStarted {
+  width: 100%;
+  background: #282c33;
+  color: white;
+  padding: 50px 0;
+}
+
+.GetStarted .content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.GetStarted .heading {
+  font-size: 28px;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.GetStarted .steps {
+  align-self: center;
+}
+
+.GetStarted .steps li {
+  font-size: 28px;
+}
+
+.GetStarted .terminal {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 30px 30px 0px 30px;
+  width: 600px;
+}
+
+.GetStarted code {
+  color: white !important;
+  font-size: 18px;
+}

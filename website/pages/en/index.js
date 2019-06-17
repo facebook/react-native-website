@@ -206,6 +206,29 @@ function Community() {
   );
 }
 
+function GetStarted() {
+  return (
+    <section className="GetStarted">
+      <div className="content">
+        <h2 className="heading">Give it a try</h2>
+        <ol className="steps">
+          <li>
+            <p>Run this</p>
+            <div class="terminal">
+              <code>npm install -g react-native</code>
+              <code>react-native init MyTestApp</code>
+            </div>
+          </li>
+          <li>
+            <p>Read these</p>
+            <HomeCallToAction />
+          </li>
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 function Features() {
   return (
     <main>
@@ -215,6 +238,7 @@ function Features() {
       <CodeReloadDemo />
       <DocsAndTalks />
       <Community />
+      <GetStarted />
     </main>
   );
 }
