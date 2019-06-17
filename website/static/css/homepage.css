@@ -152,8 +152,6 @@ html {
   height: 450px;
   background: white;
   padding: 50px 0;
-  display: flex;
-  justify-content: center;
 }
 
 .DocsAndTalks .grid {
@@ -169,4 +167,57 @@ html {
 
 .DocsAndTalks .column:not(:first-child) {
   margin-left: 25px;
+}
+
+.Community {
+  width: 100%;
+  background: #f8f8f8;
+  padding: 50px 0;
+}
+
+.Community .content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.Community .grid {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.Community .column {
+  max-width: 450px;
+  width: 100%;
+}
+
+.Community .heading {
+  font-size: 28px;
+  color: black;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.Community .column:nth-child(odd) {
+  padding-right: 75px;
+  border-right: 1px gray solid;
+}
+
+.Community .column:nth-child(even) {
+  padding-left: 75px;
+}
+
+.AppList {
+  display: grid;
+  padding: 0;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 15px;
+}
+
+.AppList .item {
+  list-style: none;
 }

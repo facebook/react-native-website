@@ -151,6 +151,61 @@ function DocsAndTalks() {
   );
 }
 
+const apps = siteConfig.users.filter(app => app.pinned);
+
+function AppList({apps}) {
+  return (
+    <ul className="AppList">
+      {apps.map((app, i) => {
+        let imgSource = app.icon;
+        if (!app.icon.startsWith('http')) {
+          imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
+        }
+        return (
+          <li key={i} className="item">
+            <a href={app.infoLink}>
+              <img src={imgSource} alt={app.name} />
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
+function Community() {
+  return (
+    <section className="Community">
+      <div className="content">
+        <h2 className="heading">Open Community</h2>
+        <div className="grid">
+          <div className="column">
+            <p>
+              React Native was built by Facebook and has been maintained for
+              over 5 years.
+            </p>
+            <p>
+              In 2018, React Native had the [2nd highest] number of contributors
+              for any repos in GitHub. However, there are a few standout
+              companies which partner with Facebook to create React Native:
+              [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
+              Mansion].
+            </p>
+          </div>
+          <div className="column">
+            <p>
+              React Native is being used in thousands of apps, but it's likely
+              you've already used it in one of these apps:
+            </p>
+            <AppList apps={apps} />
+            <p>and [many more].</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Features() {
   return (
     <main>
@@ -159,6 +214,7 @@ function Features() {
       ))}
       <CodeReloadDemo />
       <DocsAndTalks />
+      <Community />
     </main>
   );
 }

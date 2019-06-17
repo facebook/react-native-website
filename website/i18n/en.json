@@ -3233,6 +3233,9 @@
       "version-0.60-RC/version-0.60-RC-navigation": {
         "title": "Navigating Between Screens"
       },
+      "version-0.60-RC/version-0.60-RC-optimizing-flatlist-configuration": {
+        "title": "Optimizing Flatlist Configuration"
+      },
       "version-0.60-RC/version-0.60-RC-performance": {
         "title": "Performance"
       },
