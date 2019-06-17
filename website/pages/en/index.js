@@ -46,22 +46,45 @@ function Logo() {
   );
 }
 
+/* TODO can we enforce max-width: 900px here? */
+function Section({element = 'section', children, className}) {
+  const El = element;
+  return <El className={`Section ${className}`}>{children}</El>;
+}
+
+function TwoColumns({columnOne, columnTwo, reverse}) {
+  // TODO "reverse" should reverse columns only on desktop
+  // Figure out a way to do this in only css
+  const left = reverse ? columnTwo : columnOne;
+  const right = reverse ? columnOne : columnTwo;
+  return (
+    <div className="TwoColumns">
+      <div className="column">{left}</div>
+      <div className="column">{right}</div>
+    </div>
+  );
+}
+
+function Heading({text}) {
+  return <h2 className="Heading">{text}</h2>;
+}
+
 function HeaderHero() {
   return (
-    <header className="HeaderHero">
-      <div className="grid">
-        <div className="column">
-          <h1 className="title">React Native</h1>
-          <p className="tagline">Learn once, write anywhere.</p>
-          <div className="buttons">
-            <HomeCallToAction />
-          </div>
-        </div>
-        <div className="column image">
-          <Logo />
-        </div>
-      </div>
-    </header>
+    <Section element="header" className="HeaderHero">
+      <TwoColumns
+        columnOne={
+          <React.Fragment>
+            <h1 className="title">React Native</h1>
+            <p className="tagline">Learn once, write anywhere.</p>
+            <div className="buttons">
+              <HomeCallToAction />
+            </div>
+          </React.Fragment>
+        }
+        columnTwo={<Logo />}
+      />
+    </Section>
   );
 }
 
@@ -92,62 +115,67 @@ const features = [
   },
 ];
 
-function Feature({title, text, image}) {
-  // TODO
+function Feature({title, text, image, reverse}) {
   return (
-    <section className="Feature">
-      <div className="grid">
-        <div className="column text">
-          <h2 className="heading">{title}</h2>
-          <MarkdownBlock>{text}</MarkdownBlock>
-        </div>
-        <div className="column image">
-          <img src={image} />
-        </div>
-      </div>
-    </section>
+    <Section className="Feature">
+      <TwoColumns
+        reverse={reverse}
+        columnOne={
+          <React.Fragment>
+            <Heading text={title} />
+            <MarkdownBlock>{text}</MarkdownBlock>
+          </React.Fragment>
+        }
+        columnTwo={<img src={image} />}
+      />
+    </Section>
   );
 }
 
 function CodeReloadDemo() {
   return (
-    <section className="CodeReloadDemo">
-      <h2 className="heading">Speed up your work with code reloading</h2>
+    <Section className="CodeReloadDemo">
+      <Heading text="Speed up your work with code reloading" />
       <img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif" />
-    </section>
+    </Section>
   );
 }
 
 function DocsAndTalks() {
   return (
-    <section className="DocsAndTalks">
-      <div className="grid">
-        <div className="column">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/NCAY0HIfrwc"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
-          <p>
-            <a href="https://youtu.be/NCAY0HIfrwc">
-              Mobile innovation with React Native... at f8
-            </a>
-          </p>
-        </div>
-        <div className="column">
-          <h2 className="heading">Docs and Talks</h2>
-          <p>[get list of docs]</p>
-          <p>[get list of talks]</p>
-          <p>
-            You can follow the latest news from the React Native team on Twitter
-            {/* TODO twitter link */}
-          </p>
-        </div>
-      </div>
-    </section>
+    <Section className="DocsAndTalks">
+      <TwoColumns
+        columnOne={
+          <React.Fragment>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/NCAY0HIfrwc"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+            <p>
+              <a href="https://youtu.be/NCAY0HIfrwc">
+                Mobile innovation with React Native... at f8
+              </a>
+            </p>
+          </React.Fragment>
+        }
+        columnTwo={
+          <React.Fragment>
+            <Heading text="Docs and Talks" />
+            <p>[get list of docs]</p>
+            <p>[get list of talks]</p>
+            <p>
+              You can follow the latest news from the React Native team on
+              Twitter
+              {/* TODO twitter link */}
+            </p>
+          </React.Fragment>
+        }
+      />
+    </Section>
   );
 }
 
@@ -173,44 +201,46 @@ function AppList({apps}) {
   );
 }
 
+const communityText = `
+React Native was built by Facebook and has been maintained for
+over 5 years.
+
+In 2018, React Native had the [2nd highest] number of contributors
+for any repos in GitHub. However, there are a few standout
+companies which partner with Facebook to create React Native:
+[Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
+Mansion].
+`;
+
+// TODO middle border
 function Community() {
   return (
-    <section className="Community">
+    <Section className="Community">
       <div className="content">
-        <h2 className="heading">Open Community</h2>
-        <div className="grid">
-          <div className="column">
-            <p>
-              React Native was built by Facebook and has been maintained for
-              over 5 years.
-            </p>
-            <p>
-              In 2018, React Native had the [2nd highest] number of contributors
-              for any repos in GitHub. However, there are a few standout
-              companies which partner with Facebook to create React Native:
-              [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
-              Mansion].
-            </p>
-          </div>
-          <div className="column">
-            <p>
-              React Native is being used in thousands of apps, but it's likely
-              you've already used it in one of these apps:
-            </p>
-            <AppList apps={apps} />
-            <p>and [many more].</p>
-          </div>
-        </div>
+        <Heading text="Open Community" />
+        <TwoColumns
+          columnOne={<MarkdownBlock>{communityText}</MarkdownBlock>}
+          columnTwo={
+            <React.Fragment>
+              <p>
+                React Native is being used in thousands of apps, but it's likely
+                you've already used it in one of these apps:
+              </p>
+              <AppList apps={apps} />
+              <p>and [many more].</p>
+            </React.Fragment>
+          }
+        />
       </div>
-    </section>
+    </Section>
   );
 }
 
 function GetStarted() {
   return (
-    <section className="GetStarted">
+    <Section className="GetStarted">
       <div className="content">
-        <h2 className="heading">Give it a try</h2>
+        <Heading text="Give it a try" />
         <ol className="steps">
           <li>
             <p>Run this</p>
@@ -225,21 +255,7 @@ function GetStarted() {
           </li>
         </ol>
       </div>
-    </section>
-  );
-}
-
-function Features() {
-  return (
-    <main>
-      {features.map(feature => (
-        <Feature key={feature.title} {...feature} />
-      ))}
-      <CodeReloadDemo />
-      <DocsAndTalks />
-      <Community />
-      <GetStarted />
-    </main>
+    </Section>
   );
 }
 
@@ -247,7 +263,15 @@ module.exports = function Index() {
   return (
     <div>
       <HeaderHero />
-      <Features />
+      <main>
+        {features.map((feature, i) => (
+          <Feature key={feature.title} reverse={i % 2 === 0} {...feature} />
+        ))}
+        <CodeReloadDemo />
+        <DocsAndTalks />
+        <Community />
+        <GetStarted />
+      </main>
     </div>
   );
 };

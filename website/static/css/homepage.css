@@ -25,22 +25,36 @@ html {
   text-decoration: none;
 }
 
-.HeaderHero {
+.Section {
   width: 100%;
-  height: 450px;
-  background: #282c33;
+  min-height: 450px;
   padding: 50px 0;
 }
 
-.HeaderHero .grid {
+.TwoColumns {
   max-width: 900px;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 100px;
 }
 
-.HeaderHero .column {
-  max-width: 450px;
+.TwoColumns .column {
   width: 100%;
+  max-width: 450px;
+}
+
+.Heading {
+  font-size: 28px;
+  color: black;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.HeaderHero {
+  background-color: #282c33;
 }
 
 .HeaderHero .title {
@@ -69,14 +83,6 @@ html {
   justify-content: center;
 }
 
-/* TODO consolidate with HeaderHero */
-.Feature {
-  width: 100%;
-  height: 450px;
-  background: white;
-  padding: 50px 0;
-}
-
 .Feature:nth-child(odd) {
   background: white;
 }
@@ -85,94 +91,27 @@ html {
   background: #f8f8f8;
 }
 
-.Feature .grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-}
-
-.Feature:nth-child(odd) .grid {
-  flex-direction: row-reverse;
-}
-
-.Feature:nth-child(even) .grid {
-  flex-direction: row;
-}
-
-.Feature .column {
-  max-width: 450px;
-  width: 100%;
-}
-
-.Feature:nth-child(odd) .text {
-  margin-left: 75px;
-}
-
-.Feature:nth-child(even) .text {
-  margin-right: 75px;
-}
-
-.Feature .heading {
-  font-size: 28px;
-  color: black;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.Feature .image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .CodeReloadDemo {
-  width: 100%;
-  height: 450px;
   background: #282c33;
-  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.CodeReloadDemo .heading {
-  font-size: 30px;
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 20px;
+.CodeReloadDemo .Heading {
   color: #61dafb;
-  line-height: 1;
-  text-align: center;
 }
 
 .DocsAndTalks {
-  width: 100%;
-  height: 450px;
   background: white;
-  padding: 50px 0;
 }
 
-.DocsAndTalks .grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-}
-
-.DocsAndTalks .column {
-  /* max-width: 450px; */
-  width: 100%;
-}
-
-.DocsAndTalks .column:not(:first-child) {
-  margin-left: 25px;
+.DocsAndTalks .TwoColumns {
+  grid-template-columns: 2fr 1fr;
 }
 
 .Community {
-  width: 100%;
   background: #f8f8f8;
-  padding: 50px 0;
 }
 
 .Community .content {
@@ -182,33 +121,8 @@ html {
   flex-direction: column;
 }
 
-.Community .grid {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-}
-
-.Community .column {
-  max-width: 450px;
-  width: 100%;
-}
-
-.Community .heading {
-  font-size: 28px;
+.Community .Heading {
   color: black;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-weight: 500;
-}
-
-.Community .column:nth-child(odd) {
-  padding-right: 75px;
-  border-right: 1px gray solid;
-}
-
-.Community .column:nth-child(even) {
-  padding-left: 75px;
 }
 
 .AppList {
@@ -223,10 +137,8 @@ html {
 }
 
 .GetStarted {
-  width: 100%;
   background: #282c33;
   color: white;
-  padding: 50px 0;
 }
 
 .GetStarted .content {
@@ -236,12 +148,8 @@ html {
   flex-direction: column;
 }
 
-.GetStarted .heading {
-  font-size: 28px;
-  line-height: 1.2;
-  margin-top: 0;
-  margin-bottom: 20px;
-  font-weight: 500;
+.GetStarted .Heading {
+  color: white;
 }
 
 .GetStarted .steps {
