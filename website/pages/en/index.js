@@ -103,6 +103,40 @@ function HeaderHero() {
   );
 }
 
+const codeExample = `
+\`\`\`javascript
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
+import {Header} from ‘./Header’;
+
+export default () => 
+  <View>
+    <Header title="Welcome to React Native"/>
+    <Text style={header}>Step One</Text>
+    <Text>
+      Edit App.js to change this scree and turn it
+      into your app.
+    </Text>
+    <Text style={header}>See Your Changes</Text>
+    <Text>
+      Press Cmd + R inside the simulator to reload
+      your app’s code.
+    </Text>
+    …
+   </View>
+\`\`\`
+`;
+
+// FIXME style the code blocks
+function CodeExample() {
+  return (
+    <div className="CodeExample">
+      <Heading text="// index.js" />
+      <MarkdownBlock>{codeExample}</MarkdownBlock>;
+    </div>
+  );
+}
+
 const features = [
   {
     title: 'Create native apps using React and JavaScript',
@@ -126,7 +160,7 @@ const features = [
     title: 'View, Text, Image',
     text:
       'React Native provides platform-agnostic APIs, sharing ideas with how native developers have been writing apps for the last decade.\n\nYou can write components which wrap your existing native code, leaving you to interact with all APIs via React’s declarative UI paradigm and JavaScript.\n\nThis enables native app development for whole new teams of developers, and can let existing native teams work much faster.',
-    image: 'https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif',
+    image: CodeExample,
   },
   {
     title: 'Native Experience',

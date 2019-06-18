@@ -122,6 +122,23 @@ html {
   left: 80px;
 }
 
+.CodeExample {
+  /* FIXME hack hack hack hack */
+  margin-top: -50px;
+  margin-left: -50px;
+  padding-top: 50px;
+  background-color: black;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+.CodeExample .Heading {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+  padding-left: 20px;
+}
+
 .CodeReloadDemo {
   display: flex;
   flex-direction: column;
