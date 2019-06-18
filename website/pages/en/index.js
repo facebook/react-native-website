@@ -114,7 +114,7 @@ export default () =>
     <Header title="Welcome to React Native"/>
     <Text style={header}>Step One</Text>
     <Text>
-      Edit App.js to change this scree and turn it
+      Edit App.js to change this screen and turn it
       into your app.
     </Text>
     <Text style={header}>See Your Changes</Text>
@@ -131,7 +131,6 @@ export default () =>
 function CodeExample() {
   return (
     <div className="CodeExample">
-      <Heading text="// index.js" />
       <MarkdownBlock>{codeExample}</MarkdownBlock>;
     </div>
   );
@@ -166,7 +165,7 @@ const features = [
     title: 'Native Experience',
     text:
       'React components in React Native map directly to the platform’s native UI building blocks.\n\nYou can use React Native to augment your existing native code in Kotlin, Swift, Java, and Objective-C.\n\nNo web-views. Unless you want to show web pages.',
-    image: 'https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif',
+    image: `${baseUrl}img/homepage/dissection.svg`,
   },
   {
     title: 'Seamless cross-platform',

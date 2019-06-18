@@ -136,7 +136,7 @@ class Features extends React.Component {
               </MarkdownBlock>
             </div>
             <MarkdownBlock>
-              {`\`\`\`javascript
+              {`\`\`\`jsx
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 

@@ -72,7 +72,7 @@ html {
   color: black;
   line-height: 1.2;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   font-weight: 400;
 }
 
@@ -102,6 +102,11 @@ html {
   justify-content: center;
 }
 
+.Feature {
+  max-height: 450px;
+  overflow: hidden;
+}
+
 .IntroImage {
   position: relative;
   overflow: hidden;
@@ -127,16 +132,34 @@ html {
   margin-top: -50px;
   margin-left: -50px;
   padding-top: 50px;
+  padding-left: 20px;
   background-color: black;
-  max-height: 450px;
-  overflow-y: scroll;
+  /* max-height: 450px; */
+  /* overflow-y: scroll; */
 }
 
 .CodeExample .Heading {
   color: white;
   font-family: "Courier New", Courier, monospace;
   font-weight: 500;
-  padding-left: 20px;
+}
+
+.CodeExample code {
+  padding: 0;
+  color: #f8f8f8 !important;
+}
+
+/* FIXME import a stylesheet instead once we adjust the rest of the codebase */
+.CodeExample .token.keyword {
+  color: #ae81ff;
+}
+
+.CodeExample .token.string {
+  color: #a6e22e;
+}
+
+.CodeExample .token.operator {
+  color: #cfcfc2;
 }
 
 .CodeReloadDemo {
