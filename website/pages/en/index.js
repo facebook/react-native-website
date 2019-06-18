@@ -138,7 +138,8 @@ const features = [
     title: 'Seamless cross-platform',
     text:
       'Ensure all your apps feel native on all platforms by easily creating platform-specific versions of a Component.\n\nThis technique is used to allow a single codebase to share a large amount of code across all platforms.',
-    image: 'https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif',
+    // FIXME fix text alignment here
+    image: `${baseUrl}img/homepage/cross-platform.svg`,
   },
 ];
 
