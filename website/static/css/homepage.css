@@ -16,7 +16,7 @@ html {
 
 .ActionButton {
   text-align: center;
-  background: #888888;
+  background-color: #888888;
   color: white;
   padding: 10px 24px;
   font-size: 18px;
@@ -29,6 +29,22 @@ html {
   width: 100%;
   min-height: 450px;
   padding-top: 50px;
+}
+
+.Section.light {
+  background-color: white;
+}
+
+.Section.light2 {
+  background-color: #f8f8f8;
+}
+
+.Section.dark {
+  background-color: #282c33;
+}
+
+.Section.bottomSpacing {
+  padding-bottom: 50px;
 }
 
 .TwoColumns {
@@ -60,10 +76,6 @@ html {
   font-weight: 400;
 }
 
-.HeaderHero {
-  background-color: #282c33;
-}
-
 .HeaderHero .title {
   font-size: 96px;
   color: #61dafb;
@@ -90,14 +102,6 @@ html {
   justify-content: center;
 }
 
-.Feature:nth-child(odd) {
-  background: white;
-}
-
-.Feature:nth-child(even) {
-  background: #f8f8f8;
-}
-
 .IntroImage {
   position: relative;
   overflow: hidden;
@@ -119,7 +123,6 @@ html {
 }
 
 .CodeReloadDemo {
-  background: #282c33;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -129,17 +132,8 @@ html {
   color: #61dafb;
 }
 
-.DocsAndTalks {
-  background: white;
-}
-
 .DocsAndTalks .TwoColumns {
   grid-template-columns: 2fr 1fr;
-}
-
-.Community {
-  background: #f8f8f8;
-  padding-bottom: 50px;
 }
 
 .Community .content {
@@ -182,7 +176,6 @@ html {
 }
 
 .GetStarted {
-  background: #282c33;
   color: white;
 }
 

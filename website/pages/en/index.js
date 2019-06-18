@@ -46,9 +46,21 @@ function Logo() {
 }
 
 /* TODO can we enforce max-width: 900px here? */
-function Section({element = 'section', children, className}) {
+// TODO add "background" prop (dark|light|light2)
+function Section({
+  element = 'section',
+  children,
+  className,
+  background = 'light',
+  bottomSpacing = false,
+}) {
   const El = element;
-  return <El className={`Section ${className}`}>{children}</El>;
+  const bottomSpacingClass = bottomSpacing ? 'bottomSpacing' : '';
+  return (
+    <El className={`Section ${className} ${background} ${bottomSpacingClass}`}>
+      {children}
+    </El>
+  );
 }
 
 function TwoColumns({columnOne, columnTwo, reverse}) {
@@ -70,7 +82,11 @@ function Heading({text}) {
 
 function HeaderHero() {
   return (
-    <Section element="header" className="HeaderHero">
+    <Section
+      element="header"
+      background="dark"
+      className="HeaderHero"
+      bottomSpacing>
       <TwoColumns
         columnOne={
           <React.Fragment>
@@ -126,7 +142,7 @@ const features = [
   },
 ];
 
-function Feature({title, text, image, reverse}) {
+function Feature({title, text, image, reverse, background}) {
   let imageEl;
   if (typeof image === 'string') {
     imageEl = <img src={image} />;
@@ -135,7 +151,7 @@ function Feature({title, text, image, reverse}) {
     imageEl = <Image />;
   }
   return (
-    <Section className="Feature">
+    <Section className="Feature" background={background}>
       <TwoColumns
         reverse={reverse}
         columnOne={
@@ -152,7 +168,7 @@ function Feature({title, text, image, reverse}) {
 
 function CodeReloadDemo() {
   return (
-    <Section className="CodeReloadDemo">
+    <Section className="CodeReloadDemo" background="dark">
       <Heading text="Speed up your work with code reloading" />
       <img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif" />
     </Section>
@@ -161,7 +177,7 @@ function CodeReloadDemo() {
 
 function DocsAndTalks() {
   return (
-    <Section className="DocsAndTalks">
+    <Section className="DocsAndTalks" background="light">
       <TwoColumns
         columnOne={
           <React.Fragment>
@@ -229,7 +245,7 @@ Mansion].
 
 function Community() {
   return (
-    <Section className="Community">
+    <Section className="Community" background="light2" bottomSpacing>
       <div className="content">
         <Heading text="Open Community" />
         <TwoColumns
@@ -265,7 +281,7 @@ function Community() {
 
 function GetStarted() {
   return (
-    <Section className="GetStarted">
+    <Section className="GetStarted" background="dark">
       <div className="content">
         <Heading text="Give it a try" />
         <ol className="steps">
@@ -292,7 +308,12 @@ module.exports = function Index() {
       <HeaderHero />
       <main>
         {features.map((feature, i) => (
-          <Feature key={feature.title} reverse={i % 2 === 0} {...feature} />
+          <Feature
+            key={feature.title}
+            background={i % 2 === 0 ? 'light' : 'light2'}
+            reverse={i % 2 === 0}
+            {...feature}
+          />
         ))}
         <CodeReloadDemo />
         <DocsAndTalks />
