@@ -26,12 +26,30 @@ function HomeCallToAction() {
   );
 }
 
+function TwitterButton({showCount = false}) {
+  return (
+    <React.Fragment>
+      <a
+        href="https://twitter.com/reactnative?ref_src=twsrc%5Etfw"
+        class="twitter-follow-button"
+        data-show-count={`${showCount}`}>
+        Follow @reactnative
+      </a>
+      <script
+        async
+        src="https://platform.twitter.com/widgets.js"
+        charset="utf-8"
+      />
+    </React.Fragment>
+  );
+}
+
 // FIXME keep as an svg file
 function Logo() {
   return (
     <svg
-      width={350}
-      height={350}
+      width={300}
+      height={300}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-11.5 -10.23174 23 20.46348">
       <title>React Logo</title>
@@ -87,6 +105,9 @@ function HeaderHero() {
       background="dark"
       className="HeaderHero"
       bottomSpacing>
+      <div className="socialLinks">
+        <TwitterButton />
+      </div>
       <TwoColumns
         reverse
         columnOne={<Logo />}
@@ -223,8 +244,8 @@ function DocsAndTalks() {
             <p>
               You can follow the latest news from the React Native team on
               Twitter
-              {/* TODO twitter link */}
             </p>
+            <TwitterButton showCount />
           </React.Fragment>
         }
         columnTwo={

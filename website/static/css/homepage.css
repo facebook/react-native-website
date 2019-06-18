@@ -110,6 +110,22 @@ html {
   font-weight: 400;
 }
 
+.HeaderHero {
+  padding-top: 20px;
+}
+
+.HeaderHero .socialLinks {
+  display: flex;
+  max-width: 900px;
+  justify-content: flex-end;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.HeaderHero .TwoColumns {
+  align-items: center;
+}
+
 .HeaderHero .title {
   font-size: 96px;
   color: #61dafb;
