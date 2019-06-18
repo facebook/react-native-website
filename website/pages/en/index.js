@@ -32,6 +32,7 @@ function TwitterButton({showCount = false}) {
       <a
         href="https://twitter.com/reactnative?ref_src=twsrc%5Etfw"
         class="twitter-follow-button"
+        data-size="large"
         data-show-count={`${showCount}`}>
         Follow @reactnative
       </a>
