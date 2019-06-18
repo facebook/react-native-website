@@ -243,6 +243,6 @@ If the app launch was triggered by an app link, it will give the link url, other
 sendIntent();
 ```
 
-Android-Only. Launch an Android intent, and also with extras (optional key-value pair).
+Android-Only. Launch an Android intent, with or without extras (optional key-value pair).
 
 > See https://facebook.github.io/react-native/docs/linking.html#sendintent
