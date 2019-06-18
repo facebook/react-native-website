@@ -64,14 +64,14 @@ function Section({
 }
 
 function TwoColumns({columnOne, columnTwo, reverse}) {
-  // TODO "reverse" should reverse columns only on desktop
-  // Figure out a way to do this in only css
-  const left = reverse ? columnTwo : columnOne;
-  const right = reverse ? columnOne : columnTwo;
   return (
-    <div className="TwoColumns">
-      <div className="column left">{left}</div>
-      <div className="column right">{right}</div>
+    <div className={`TwoColumns ${reverse ? 'reverse' : ''}`}>
+      <div className={`column first ${reverse ? 'right' : 'left'}`}>
+        {columnOne}
+      </div>
+      <div className={`column last ${reverse ? 'left' : 'right'}`}>
+        {columnTwo}
+      </div>
     </div>
   );
 }
@@ -213,7 +213,20 @@ function DocsAndTalks() {
   return (
     <Section className="DocsAndTalks" background="light">
       <TwoColumns
+        reverse
         columnOne={
+          <React.Fragment>
+            <Heading text="Docs and Talks" />
+            <p>[get list of docs]</p>
+            <p>[get list of talks]</p>
+            <p>
+              You can follow the latest news from the React Native team on
+              Twitter
+              {/* TODO twitter link */}
+            </p>
+          </React.Fragment>
+        }
+        columnTwo={
           <React.Fragment>
             <iframe
               width="560"
@@ -227,18 +240,6 @@ function DocsAndTalks() {
               <a href="https://youtu.be/NCAY0HIfrwc">
                 Mobile innovation with React Native... at f8
               </a>
-            </p>
-          </React.Fragment>
-        }
-        columnTwo={
-          <React.Fragment>
-            <Heading text="Docs and Talks" />
-            <p>[get list of docs]</p>
-            <p>[get list of talks]</p>
-            <p>
-              You can follow the latest news from the React Native team on
-              Twitter
-              {/* TODO twitter link */}
             </p>
           </React.Fragment>
         }

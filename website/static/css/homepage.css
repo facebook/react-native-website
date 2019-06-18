@@ -51,12 +51,25 @@ html {
   max-width: 900px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "first last";
+}
+
+.TwoColumns.reverse {
+  grid-template-areas: "last first";
 }
 
 .TwoColumns .column {
   width: 100%;
   max-width: 450px;
+}
+
+.TwoColumns .column.first {
+  grid-area: first;
+}
+
+.TwoColumns .column.last {
+  grid-area: last;
 }
 
 .TwoColumns .column.left {
@@ -65,6 +78,25 @@ html {
 
 .TwoColumns .column.right {
   padding-left: 50px;
+}
+
+@media screen and (max-width: 960px) {
+  .TwoColumns {
+    grid-template-columns: 1fr;
+    grid-template-areas: "first" "last";
+  }
+
+  .TwoColumns.reverse {
+    grid-template-areas: "first" "last";
+  }
+
+  .TwoColumns .column.left {
+    padding-right: 0;
+  }
+
+  .TwoColumns .column.right {
+    padding-right: 0;
+  }
 }
 
 .Heading {
@@ -183,7 +215,7 @@ html {
   flex-direction: column;
 }
 
-.Community .column.left {
+.Community .column.first {
   border-right: 1px solid gray;
 }
 
@@ -196,7 +228,7 @@ html {
   margin-left: 20px;
 }
 
-.Community .right {
+.Community .last {
   margin-top: 10px;
 }
 
