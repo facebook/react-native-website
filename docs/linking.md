@@ -127,6 +127,7 @@ Linking.canOpenURL(url)
 - [`canOpenURL`](linking.md#canopenurl)
 - [`openSettings`](linking.md#opensettings)
 - [`getInitialURL`](linking.md#getinitialurl)
+- [`sendIntent`](linking.md#sendIntent)
 
 ---
 
@@ -233,3 +234,13 @@ getInitialURL();
 If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`
 
 > To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
+
+---
+
+### `sendIntent()`
+
+```javascript
+sendIntent();
+```
+
+Android only. Launch an Android intent, and also with extras (optional key-value pair of data).
