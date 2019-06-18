@@ -91,11 +91,13 @@ html {
   }
 
   .TwoColumns .column.left {
-    padding-right: 0;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 
   .TwoColumns .column.right {
-    padding-right: 0;
+    padding-right: 40px;
+    padding-left: 40px;
   }
 }
 
@@ -137,6 +139,12 @@ html {
 .Feature {
   max-height: 450px;
   overflow: hidden;
+}
+
+@media screen and (max-width: 960px) {
+  .Feature {
+    max-height: initial;
+  }
 }
 
 .IntroImage {
@@ -208,6 +216,18 @@ html {
   grid-template-columns: 2fr 1fr;
 }
 
+.DocsAndTalks iframe {
+  width: 560px;
+  height: 315px;
+}
+
+@media screen and (max-width: 960px) {
+  .DocsAndTalks iframe {
+    width: 300px;
+    height: 169px;
+  }
+}
+
 .Community .content {
   max-width: 900px;
   margin: 0 auto;
@@ -215,8 +235,10 @@ html {
   flex-direction: column;
 }
 
-.Community .column.first {
-  border-right: 1px solid gray;
+@media screen and (min-width: 961px) {
+  .Community .column.first {
+    border-right: 1px solid gray;
+  }
 }
 
 .Community .firstP {
@@ -281,6 +303,12 @@ html {
   padding: 30px 30px 0px 30px;
   width: 600px;
   position: relative;
+}
+
+@media screen and (max-width: 960px) {
+  .GetStarted .terminal {
+    width: 400px;
+  }
 }
 
 .GetStarted .terminal::before {

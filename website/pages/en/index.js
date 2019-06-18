@@ -88,7 +88,9 @@ function HeaderHero() {
       className="HeaderHero"
       bottomSpacing>
       <TwoColumns
-        columnOne={
+        reverse
+        columnOne={<Logo />}
+        columnTwo={
           <React.Fragment>
             <h1 className="title">React Native</h1>
             <p className="tagline">Learn once, write everywhere.</p>
@@ -97,7 +99,6 @@ function HeaderHero() {
             </div>
           </React.Fragment>
         }
-        columnTwo={<Logo />}
       />
     </Section>
   );
@@ -229,8 +230,6 @@ function DocsAndTalks() {
         columnTwo={
           <React.Fragment>
             <iframe
-              width="560"
-              height="315"
               src="https://www.youtube.com/embed/NCAY0HIfrwc"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
