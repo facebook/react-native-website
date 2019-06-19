@@ -114,11 +114,26 @@ html {
   padding-top: 20px;
 }
 
+.HeaderHero .TwoColumns {
+  grid-template-columns: 3fr 1fr;
+}
+
+.HeaderHero .column {
+  max-width: initial;
+}
+
+.HeaderHero .column.left {
+  padding-right: 0;
+}
+
+.HeaderHero .column.right {
+  padding-left: 0;
+}
+
 .HeaderHero .socialLinks {
   display: flex;
-  max-width: 900px;
   justify-content: flex-end;
-  margin: auto;
+  margin-right: 60px;
   margin-bottom: 20px;
 }
 
