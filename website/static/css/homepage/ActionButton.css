@@ -1,0 +1,10 @@
+.ActionButton {
+  text-align: center;
+  background-color: #888888;
+  color: white;
+  padding: 10px 24px;
+  font-size: 18px;
+  font-weight: 300;
+  margin-right: 24px;
+  text-decoration: none;
+}

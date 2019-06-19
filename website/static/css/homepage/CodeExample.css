@@ -1,0 +1,34 @@
+.CodeExample {
+  /* FIXME hack hack hack hack */
+  margin-top: -50px;
+  margin-left: -50px;
+  padding-top: 50px;
+  padding-left: 20px;
+  background-color: black;
+  /* max-height: 450px; */
+  /* overflow-y: scroll; */
+}
+
+.CodeExample .Heading {
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+.CodeExample code {
+  padding: 0;
+  color: #f8f8f8 !important;
+}
+
+/* FIXME import a stylesheet instead once we adjust the rest of the codebase */
+.CodeExample .token.keyword {
+  color: #ae81ff;
+}
+
+.CodeExample .token.string {
+  color: #a6e22e;
+}
+
+.CodeExample .token.operator {
+  color: #cfcfc2;
+}

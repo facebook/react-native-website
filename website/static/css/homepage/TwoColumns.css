@@ -1,0 +1,53 @@
+.TwoColumns {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "first last";
+}
+
+.TwoColumns.reverse {
+  grid-template-areas: "last first";
+}
+
+.TwoColumns .column {
+  width: 100%;
+  max-width: 450px;
+}
+
+.TwoColumns .column.first {
+  grid-area: first;
+}
+
+.TwoColumns .column.last {
+  grid-area: last;
+}
+
+.TwoColumns .column.left {
+  padding-right: 50px;
+}
+
+.TwoColumns .column.right {
+  padding-left: 50px;
+}
+
+@media screen and (max-width: 960px) {
+  .TwoColumns {
+    grid-template-columns: 1fr;
+    grid-template-areas: "first" "last";
+  }
+
+  .TwoColumns.reverse {
+    grid-template-areas: "first" "last";
+  }
+
+  .TwoColumns .column.left {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+
+  .TwoColumns .column.right {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}

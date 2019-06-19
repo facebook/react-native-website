@@ -1,0 +1,9 @@
+.CodeReloadDemo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CodeReloadDemo .Heading {
+  color: #61dafb;
+}

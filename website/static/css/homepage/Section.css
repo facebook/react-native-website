@@ -1,0 +1,21 @@
+.Section {
+  width: 100%;
+  min-height: 450px;
+  padding-top: 50px;
+}
+
+.Section.light {
+  background-color: white;
+}
+
+.Section.light2 {
+  background-color: #f8f8f8;
+}
+
+.Section.dark {
+  background-color: #282c33;
+}
+
+.Section.bottomSpacing {
+  padding-bottom: 50px;
+}
