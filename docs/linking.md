@@ -240,9 +240,9 @@ If the app launch was triggered by an app link, it will give the link url, other
 ### `sendIntent()`
 
 ```javascript
-sendIntent();
+sendIntent(action: string, extras?: Array<{key: string, value: string | number | boolean}>)
 ```
 
-Android-Only. Launch an Android intent, with or without extras (optional key-value pair).
+> @platform android
 
-> See https://facebook.github.io/react-native/docs/linking.html#sendintent
+**Android-Only.** Launch an Android intent with extras (optional)

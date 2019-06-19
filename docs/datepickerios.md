@@ -148,9 +148,9 @@ Example with `minuteInterval` set to `10`:
 
 The date picker mode.
 
-| Type                             | Required |
-| -------------------------------- | -------- |
-| enum('date', 'time', 'datetime') | No       |
+| Type                                          | Required |
+| --------------------------------------------- | -------- |
+| enum('date', 'time', 'datetime', 'countdown') | No       |
 
 Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/docs/assets/DatePickerIOS/mode.png)
 

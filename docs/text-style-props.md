@@ -5,6 +5,7 @@ title: Text Style Props
 
 ### Props
 
+- [`View style props...`](view-style-props.md)
 - [`textShadowOffset`](text-style-props.md#textshadowoffset)
 - [`color`](text-style-props.md#color)
 - [`fontSize`](text-style-props.md#fontsize)
