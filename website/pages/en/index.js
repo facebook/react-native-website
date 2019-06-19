@@ -45,6 +45,22 @@ function TwitterButton({showCount = false}) {
   );
 }
 
+function GitHubButton() {
+  return (
+    <React.Fragment>
+      <a
+        class="github-button"
+        href="https://github.com/facebook/react-native"
+        data-icon="octicon-star"
+        data-size="large"
+        aria-label="Star facebook/react-native on GitHub">
+        Star
+      </a>
+      <script async defer src="https://buttons.github.io/buttons.js" />
+    </React.Fragment>
+  );
+}
+
 // FIXME keep as an svg file
 function Logo() {
   return (
@@ -108,6 +124,7 @@ function HeaderHero() {
       bottomSpacing>
       <div className="socialLinks">
         <TwitterButton />
+        <GitHubButton />
       </div>
       <TwoColumns
         reverse

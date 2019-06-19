@@ -25,6 +25,10 @@
   margin-bottom: 20px;
 }
 
+.HeaderHero .socialLinks * {
+  margin-left: 15px;
+}
+
 .HeaderHero .TwoColumns {
   align-items: center;
 }
