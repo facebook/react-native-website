@@ -297,6 +297,13 @@ for any repos in GitHub. However, there are a few standout
 companies which partner with Facebook to create React Native:
 [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
 Mansion].
+
+[2nd highest]: https://octoverse.github.com/projects#repositories
+[Callstack]: https://callstack.com/
+[Expo]: https://expo.io/
+[Infinite Red]: https://infinite.red/
+[Microsoft]: https://www.microsoft.com/en-gb/
+[Software Mansion]: https://swmansion.com/
 `;
 
 function Community() {
