@@ -223,6 +223,21 @@ function Feature({title, text, image, reverse, background}) {
   );
 }
 
+function Features() {
+  return (
+    <React.Fragment>
+      {features.map((feature, i) => (
+        <Feature
+          key={feature.title}
+          background={i % 2 === 0 ? 'light' : 'light2'}
+          reverse={i % 2 === 0}
+          {...feature}
+        />
+      ))}
+    </React.Fragment>
+  );
+}
+
 function CodeReloadDemo() {
   return (
     <Section className="CodeReloadDemo" background="dark">
@@ -370,14 +385,7 @@ module.exports = function Index() {
     <div>
       <HeaderHero />
       <main>
-        {features.map((feature, i) => (
-          <Feature
-            key={feature.title}
-            background={i % 2 === 0 ? 'light' : 'light2'}
-            reverse={i % 2 === 0}
-            {...feature}
-          />
-        ))}
+        <Features />
         <CodeReloadDemo />
         <DocsAndTalks />
         <Community />
