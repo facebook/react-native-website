@@ -20,7 +20,7 @@ title: Linking
 
 #### Handling deep links
 
-If your app was launched from an external url registered to your app you can access and handle it from any component you want with
+If your app was launched from an external url registered to your app you can access and handle it from any component you want with:
 
 ```javascript
 componentDidMount() {
@@ -82,7 +82,7 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 }
 ```
 
-And then on your React component you'll be able to listen to the events on `Linking` as follows
+And then on your React component you'll be able to listen to the events on `Linking` as follows:
 
 ```javascript
 componentDidMount() {
@@ -98,13 +98,13 @@ _handleOpenURL(event) {
 
 #### Opening external links
 
-To start the corresponding activity for a link (web URL, email, contact etc.), call
+To start the corresponding activity for a link (web URL, email, contact etc.), call:
 
 ```javascript
 Linking.openURL(url).catch((err) => console.error('An error occurred', err));
 ```
 
-If you want to check if any installed app can handle a given URL beforehand you can call
+If you want to check if any installed app can handle a given URL beforehand you can call:
 
 ```javascript
 Linking.canOpenURL(url)
@@ -149,7 +149,7 @@ constructor();
 addEventListener(type, handler);
 ```
 
-Add a handler to Linking changes by listening to the `url` event type and providing the handler
+Add a handler to Linking changes by listening to the `url` event type and providing the handler.
 
 ---
 
@@ -159,7 +159,7 @@ Add a handler to Linking changes by listening to the `url` event type and provid
 removeEventListener(type, handler);
 ```
 
-Remove a handler by passing the `url` event type and the handler
+Remove a handler by passing the `url` event type and the handler.
 
 ---
 
@@ -231,7 +231,7 @@ Open the Settings app and displays the app’s custom settings, if it has any.
 getInitialURL();
 ```
 
-If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`
+If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
 
 > To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
 
@@ -245,4 +245,4 @@ sendIntent(action: string, extras?: Array<{key: string, value: string | number |
 
 > @platform android
 
-Launch an **Android** intent with extras (optional)
+**Android-Only.** Launch an Android intent with extras (optional)
