@@ -44,7 +44,7 @@ const siteConfig = {
     primaryColor: 'rgb(34, 34, 34)',
     secondaryColor: '#05A5D1',
     tintColor: '#005068',
-    backgroundColor: '#f5fcff',
+    backgroundColor: 'white',
   },
   blogSidebarCount: 'ALL',
   algolia: {
