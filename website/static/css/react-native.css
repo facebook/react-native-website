@@ -31,8 +31,10 @@ body {
   color: $tintColor !important;
 }
 
-a {
-  color: $secondaryColor;
+/* FIXME verify this doesn't break any styles */
+p a {
+  color: black;
+  text-decoration: underline;
 }
 
 input#search_input_react {
