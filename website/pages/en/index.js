@@ -271,9 +271,11 @@ function DocsAndTalks() {
         reverse
         columnOne={
           <React.Fragment>
-            <Heading text="Docs and Talks" />
-            <p>[get list of docs]</p>
-            <p>[get list of talks]</p>
+            <Heading text="Talks" />
+            <p>
+              Members of the React Native team frequently speak at various
+              conferences.
+            </p>
             <p>
               You can follow the latest news from the React Native team on
               Twitter
