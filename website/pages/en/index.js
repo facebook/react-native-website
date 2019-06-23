@@ -147,7 +147,7 @@ const codeExample = `
 \`\`\`javascript
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
-import {Header} from ‘./Header’;
+import {Header} from './Header';
 
 export default () => 
   <View>

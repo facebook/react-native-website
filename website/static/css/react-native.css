@@ -57,9 +57,10 @@ input#search_input_react {
   text-transform: none;
 }
 
-code {
-  color: $tintColor !important;
-}
+/* code { */
+/* color: $tintColor !important; */
+/* color: white; */
+/* } */
 
 .mainContainer .component-grid {
   max-width: 800px;
@@ -204,13 +205,42 @@ li {
   max-width: 800px;
 }
 
+/* Syntax highlighting */
+/* FIXME how to interpret jsx tags */
+
 .hljs {
   line-height: 20px;
-  background-color: rgba(5, 165, 209, 0.05);
+  background-color: #282c34;
+  color: white;
 }
 
 .hljs + .hljs {
   margin-top: 10px;
+}
+
+.hljs-comment {
+  color: #b2b2b2;
+}
+
+.token.keyword {
+  color: #c5a5c5;
+}
+
+.token.string,
+.token.regex {
+  color: #8dc891;
+}
+
+.token.class-name {
+  color: #fac863;
+}
+
+.token.function {
+  color: #79b6f2;
+}
+
+.token.operator {
+  color: #fc929e;
 }
 
 /* Versions Page */
