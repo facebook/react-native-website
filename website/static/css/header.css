@@ -1,3 +1,7 @@
+.fixedHeaderContainer {
+  padding: 12px 0;
+}
+
 .fixedHeaderContainer header h3 {
   font-size: 14px;
   margin-left: 8px;

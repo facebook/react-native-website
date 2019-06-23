@@ -44,6 +44,13 @@ input#search_input_react {
 .button {
   color: $tintColor;
   border: 1px solid $tintColor;
+  border-radius: 0;
+  text-transform: none;
+}
+
+.button.edit-page-link {
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 .button:hover {

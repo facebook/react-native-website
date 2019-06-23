@@ -43,7 +43,7 @@ const siteConfig = {
   colors: {
     primaryColor: 'rgb(34, 34, 34)',
     secondaryColor: '#05A5D1',
-    tintColor: '#005068',
+    tintColor: '#888888',
     backgroundColor: 'white',
   },
   blogSidebarCount: 'ALL',
