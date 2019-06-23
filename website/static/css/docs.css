@@ -125,11 +125,11 @@ table tbody {
 table tr {
   display: table-row;
 }
-table tr:nth-of-type(odd) {
-  background: #f8f8f8;
+table tbody tr:nth-of-type(odd) {
+  background: $backgroundColor;
 }
-table tr:nth-of-type(even) {
-  background: white;
+table tbody tr:nth-of-type(even) {
+  background: #f8f8f8;
 }
 table tr th,
 table tr td {
