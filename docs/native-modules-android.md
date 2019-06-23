@@ -299,6 +299,8 @@ Native modules can signal events to JavaScript without being invoked directly. T
 
 ```java
 ...
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+...
 private void sendEvent(ReactContext reactContext,
                        String eventName,
                        @Nullable WritableMap params) {
