@@ -228,6 +228,16 @@ li {
   color: #8dc891;
 }
 
+.token.number,
+.token.constant,
+.token.symbol {
+  color: #5a9bcf;
+}
+
+.token.boolean {
+  color: #ff8b50;
+}
+
 .token.class-name {
   color: #fac863;
 }
