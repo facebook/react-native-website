@@ -222,12 +222,14 @@ li {
   color: #b2b2b2;
 }
 
-.token.keyword {
+.token.keyword,
+.token.attr-name {
   color: #c5a5c5;
 }
 
 .token.string,
-.token.regex {
+.token.regex,
+.token.attr-value {
   color: #8dc891;
 }
 
@@ -240,6 +242,10 @@ li {
 }
 
 .token.operator {
+  color: #fc929e;
+}
+
+.token.tag {
   color: #fc929e;
 }
 
