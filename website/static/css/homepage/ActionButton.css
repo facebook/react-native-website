@@ -6,5 +6,5 @@
   font-size: 18px;
   font-weight: 300;
   margin-right: 24px;
-  text-decoration: none;
+  text-decoration: none !important;
 }
