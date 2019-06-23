@@ -32,9 +32,13 @@ body {
 }
 
 /* FIXME verify this doesn't break any styles */
-p a {
+.mainContainer a {
   color: $primaryColor;
   text-decoration: underline;
+}
+
+.mainContainer a:hover {
+  text-decoration: none;
 }
 
 input#search_input_react {

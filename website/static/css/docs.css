@@ -129,7 +129,7 @@ table tr:nth-of-type(odd) {
   background: #f8f8f8;
 }
 table tr:nth-of-type(even) {
-  background: #ebf9ff;
+  background: white;
 }
 table tr th,
 table tr td {

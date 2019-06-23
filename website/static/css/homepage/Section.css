@@ -19,3 +19,11 @@
 .Section.bottomSpacing {
   padding-bottom: 50px;
 }
+
+.Section a {
+  text-decoration: underline;
+}
+
+.Section a:hover {
+  text-decoration: none;
+}
