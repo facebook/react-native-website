@@ -206,7 +206,6 @@ li {
 }
 
 /* Syntax highlighting */
-/* FIXME how to interpret jsx tags */
 
 .hljs {
   line-height: 20px;
@@ -216,10 +215,6 @@ li {
 
 .hljs + .hljs {
   margin-top: 10px;
-}
-
-.hljs-comment {
-  color: #b2b2b2;
 }
 
 .token.keyword,
@@ -241,10 +236,7 @@ li {
   color: #79b6f2;
 }
 
-.token.operator {
-  color: #fc929e;
-}
-
+.token.operator,
 .token.tag {
   color: #fc929e;
 }
