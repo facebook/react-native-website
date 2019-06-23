@@ -120,10 +120,6 @@ table thead tr {
   background: #dddddd;
 }
 
-table thead tr td {
-  color: $backgroundColor;
-}
-
 table tbody {
   display: table-row-group;
 }
