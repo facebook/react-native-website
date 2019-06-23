@@ -57,18 +57,6 @@ input#search_input_react {
   background: $tintColor;
 }
 
-.hero {
-  box-sizing: border-box;
-}
-.hero .button {
-  text-transform: none;
-}
-
-/* code { */
-/* color: $tintColor !important; */
-/* color: white; */
-/* } */
-
 .mainContainer .component-grid {
   max-width: 800px;
 }
@@ -162,131 +150,12 @@ li {
   font-size: 18px;
 }
 
-.big-button {
-  text-align: center;
-  /* TODO right colors */
-  background: #888888;
-  color: white;
-  /* border-radius: 4px; */
-  padding: 10px 24px;
-  font-size: 18px;
-  font-weight: 300;
-  /* margin: 0 12px; */
-  margin-right: 24px;
-  display: inline-block;
-  text-decoration: none;
-  /* transition: background 0.3s, color 0.3s, transform 0.3s; */
-}
-
-/* .big-button:hover {
-  background: #047598;
-  color: #fff;
-  transform: scale(1.05);
-} */
-
-.big-button a {
-  color: white;
-}
-
-/* .big-button:active {
-  background: #0485a9;
-} */
-
-/* @media screen and (min-width: 600px) {
-  .big-button {
-    font-size: 16px;
-  }
-} */
-
-@media screen and (max-width: 373px) {
-  .big-button {
-    margin-bottom: 4px;
-  }
-}
-
 .prose h1 {
   padding: 0 0;
 }
 
 .prose {
   max-width: 800px;
-}
-
-/* Syntax highlighting */
-
-.hljs {
-  line-height: 20px;
-  background-color: #282c34;
-  color: white;
-}
-
-.hljs + .hljs {
-  margin-top: 10px;
-}
-
-.token.keyword,
-.token.attr-name {
-  color: #c5a5c5;
-}
-
-.token.string,
-.token.regex,
-.token.attr-value {
-  color: #8dc891;
-}
-
-.token.number,
-.token.constant,
-.token.symbol {
-  color: #5a9bcf;
-}
-
-.token.boolean {
-  color: #ff8b50;
-}
-
-.token.class-name {
-  color: #fac863;
-}
-
-.token.function {
-  color: #79b6f2;
-}
-
-.token.operator,
-.token.tag {
-  color: #fc929e;
-}
-
-/* Versions Page */
-
-table.versions {
-  width: 60%;
-  border: 0;
-  border-collapse: separate;
-}
-
-table.versions tr th {
-  width: 20%;
-}
-
-table.versions td,
-table.versions th {
-  padding: 2px 5px;
-}
-
-table.versions tr th,
-table.versions tr td {
-  border: 0;
-  width: 33%;
-  padding: 5px;
-}
-
-table.versions tr:nth-of-type(odd) {
-  background: #e0f6ff;
-}
-table.versions tr:nth-of-type(even) {
-  background: #ebf9ff;
 }
 
 article iframe {
