@@ -109,16 +109,21 @@ hr {
 }
 
 table {
-  background: $tintColor;
   border: 1px solid #b0b0b0;
   border-collapse: collapse;
   display: table;
   margin: 20px 0;
   width: 80%;
 }
-table thead {
-  display: table-header-group;
+table thead tr {
+  /* display: table-header-group; */
+  background: #dddddd;
 }
+
+table thead tr td {
+  color: $backgroundColor;
+}
+
 table tbody {
   display: table-row-group;
 }
