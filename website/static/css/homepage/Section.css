@@ -5,11 +5,11 @@
 }
 
 .Section.light {
-  background-color: white;
+  background-color: $backgroundColor;
 }
 
 .Section.light2 {
-  background-color: #f8f8f8;
+  background-color: $tintColor;
 }
 
 .Section.dark {

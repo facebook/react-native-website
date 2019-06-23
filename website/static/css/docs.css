@@ -109,7 +109,7 @@ hr {
 }
 
 table {
-  background: #f8f8f8;
+  background: $tintColor;
   border: 1px solid #b0b0b0;
   border-collapse: collapse;
   display: table;
@@ -129,7 +129,7 @@ table tbody tr:nth-of-type(odd) {
   background: $backgroundColor;
 }
 table tbody tr:nth-of-type(even) {
-  background: #f8f8f8;
+  background: $tintColor;
 }
 table tr th,
 table tr td {

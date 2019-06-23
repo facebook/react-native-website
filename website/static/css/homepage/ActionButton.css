@@ -1,6 +1,6 @@
 .ActionButton {
   text-align: center;
-  background-color: $tintColor;
+  background-color: $secondaryColor;
   color: white;
   padding: 10px 24px;
   font-size: 18px;

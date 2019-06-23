@@ -42,8 +42,8 @@ const siteConfig = {
   favicon: 'img/favicon.png',
   colors: {
     primaryColor: 'rgb(34, 34, 34)',
-    secondaryColor: '#05A5D1',
-    tintColor: '#888888',
+    secondaryColor: '#888888',
+    tintColor: '#f4f4f4',
     backgroundColor: 'white',
   },
   blogSidebarCount: 'ALL',

@@ -46,8 +46,8 @@ input#search_input_react {
 }
 
 .button {
-  color: $tintColor;
-  border: 1px solid $tintColor;
+  color: $secondaryColor;
+  border: 1px solid $secondaryColor;
   border-radius: 0;
   text-transform: none;
 }
@@ -58,7 +58,7 @@ input#search_input_react {
 }
 
 .button:hover {
-  background: $tintColor;
+  background: $secondaryColor;
 }
 
 .mainContainer .component-grid {
