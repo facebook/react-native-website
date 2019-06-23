@@ -93,7 +93,7 @@ Try [downgrading your Gradle version to 1.2.3](https://github.com/facebook/react
 
 ## react-native init hangs
 
-If you run into issues where running `react-native init` hangs in your system, try running it again in verbose mode and refering to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
+If you run into issues where running `react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
 
 ```
 react-native init --verbose
