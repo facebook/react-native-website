@@ -41,6 +41,11 @@ body {
   text-decoration: none;
 }
 
+/* Get the search icon to display correctly with box-sizing */
+.reactNavSearchWrapper {
+  box-sizing: initial;
+}
+
 input#search_input_react {
   background-color: #2f2f2f;
 }
