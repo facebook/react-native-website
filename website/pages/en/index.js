@@ -63,54 +63,57 @@ function GitHubButton() {
 
 function LogoAnimation() {
   return (
-    <svg
-      className="LogoAnimation"
-      width={400}
-      height={400}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-200 -200 400 400">
-      <title>React Logo</title>
-      <clipPath id="border">
-        <rect className="border" rx="0.5" fill="none" stroke="gray" />
-      </clipPath>
-      <g clip-path="url(#border)" className="logo">
-        <g className="logoInner">
-          <circle cx="0" cy="0" r="30" fill="#61dafb" />
-          <g stroke="#61dafb" strokeWidth="15" fill="none" id="logo">
-            <ellipse rx="165" ry="64" />
-            <ellipse rx="165" ry="64" transform="rotate(60)" />
-            <ellipse rx="165" ry="64" transform="rotate(120)" />
+    <React.Fragment>
+      <script src={`${baseUrl}/js/headerAnimation.js`} />
+      <svg
+        className="LogoAnimation"
+        width={400}
+        height={400}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-200 -200 400 400">
+        <title>React Logo</title>
+        <clipPath id="border">
+          <rect className="border" rx="0.5" fill="none" stroke="gray" />
+        </clipPath>
+        <g clip-path="url(#border)" className="logo">
+          <g className="logoInner">
+            <circle cx="0" cy="0" r="30" fill="#61dafb" />
+            <g stroke="#61dafb" strokeWidth="15" fill="none" id="logo">
+              <ellipse rx="165" ry="64" />
+              <ellipse rx="165" ry="64" transform="rotate(60)" />
+              <ellipse rx="165" ry="64" transform="rotate(120)" />
+            </g>
           </g>
         </g>
-      </g>
-      <rect className="border" id="border" fill="none" stroke="white" />
-      {/* <line
-        x1="-30"
-        x2="30"
-        y1="130"
-        y2="130"
-        stroke="white"
-        strokeWidth="8"
-        strokeLinecap="round"
-        className="speaker"
-      />
-      <line
-        x1="-20"
-        x2="20"
-        y1="130"
-        y2="130"
-        stroke="white"
-        strokeWidth="15"
-        className="stand"
-      />
-      <polygon
-        points="-125,85 125,85, 160,125 -160,125"
-        fill="white"
-        stroke="white"
-        strokeWidth="5"
-        className="base"
-      /> */}
-    </svg>
+        <rect className="border" id="border" fill="none" stroke="white" />
+        <line
+          x1="-30"
+          x2="30"
+          y1="130"
+          y2="130"
+          stroke="white"
+          strokeWidth="8"
+          strokeLinecap="round"
+          className="speaker"
+        />
+        <line
+          x1="-20"
+          x2="20"
+          y1="130"
+          y2="130"
+          stroke="white"
+          strokeWidth="15"
+          className="stand"
+        />
+        <polygon
+          points="-125,85 125,85, 160,125 -160,125"
+          fill="white"
+          stroke="white"
+          strokeWidth="5"
+          className="base"
+        />
+      </svg>
+    </React.Fragment>
   );
 }
 

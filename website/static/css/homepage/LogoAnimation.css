@@ -1,0 +1,101 @@
+.LogoAnimation .border {
+  transition: all 1s ease-in-out;
+  width: 300px;
+  height: 300px;
+  x: -150px;
+  y: -150px;
+}
+
+.LogoAnimation .logoInner {
+  transform: scale(0.67);
+}
+
+.LogoAnimation.full .border {
+  stroke-opacity: 0;
+  width: 300px;
+  height: 300px;
+  x: -150px;
+  y: -150px;
+  opacity: 1;
+  rx: 2px;
+  stroke-width: 5px;
+}
+
+.LogoAnimation.icon .border {
+  width: 300px;
+  height: 300px;
+  x: -150px;
+  y: -150px;
+  rx: 2px;
+  stroke-width: 5px;
+}
+
+.LogoAnimation.mobile .border {
+  width: 180px;
+  height: 300px;
+  x: -90px;
+  y: -150px;
+  opacity: 1;
+  rx: 10px;
+  stroke-width: 5px;
+}
+
+.LogoAnimation.desktop .border {
+  width: 200px;
+  height: 320px;
+  x: -100px;
+  y: -160px;
+  transform: rotate(-90deg);
+  opacity: 1;
+  rx: 2px;
+  stroke-width: 8px;
+}
+
+.LogoAnimation.laptop .border {
+  width: 150px;
+  height: 250px;
+  x: -75px;
+  y: -125px;
+  transform: rotate(-90deg);
+  opacity: 1;
+  rx: 2px;
+  stroke-width: 5px;
+}
+
+.LogoAnimation.mobile2 .border {
+  width: 180px;
+  height: 300px;
+  x: -90px;
+  y: -150px;
+  opacity: 1;
+  rx: 10px;
+  stroke-width: 5px;
+  transform: rotate(-180deg);
+}
+
+.LogoAnimation.logo2 .border {
+  transform: rotate(-180deg);
+}
+
+.LogoAnimation.full2 .border {
+  transform: rotate(-180deg);
+  stroke-opacity: 0;
+}
+
+.LogoAnimation:not(.mobile):not(.mobile2) .speaker {
+  opacity: 0;
+}
+
+.LogoAnimation:not(.desktop) .stand {
+  opacity: 0;
+}
+
+.LogoAnimation:not(.laptop) .base {
+  opacity: 0;
+}
+
+.LogoAnimation .speaker,
+.LogoAnimation .stand,
+.LogoAnimation .base {
+  transition: opacity 1s ease-in-out;
+}
