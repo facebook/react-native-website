@@ -64,7 +64,7 @@ function GitHubButton() {
 function LogoAnimation() {
   return (
     <svg
-      className="LogoAnimation laptop"
+      className="LogoAnimation"
       width={400}
       height={400}
       xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ function LogoAnimation() {
         </g>
       </g>
       <rect className="border" id="border" fill="none" stroke="white" />
-      <line
+      {/* <line
         x1="-30"
         x2="30"
         y1="130"
@@ -109,7 +109,7 @@ function LogoAnimation() {
         stroke="white"
         strokeWidth="5"
         className="base"
-      />
+      /> */}
     </svg>
   );
 }
