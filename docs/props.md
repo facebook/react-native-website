@@ -3,7 +3,7 @@ id: props
 title: Props
 ---
 
-Most components can be customized when they are created, with different parameters. These creation parameters are called `props`.
+Most components can be customized when they are created, with different parameters. These creation parameters are called `props`, short for properties. 
 
 For example, one basic React Native component is the `Image`. When you create an image, you can use a prop named `source` to control what image it shows.
 
