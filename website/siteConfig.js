@@ -66,7 +66,12 @@ const siteConfig = {
     theme: 'solarized-dark',
   },
   gaTrackingId: 'UA-41298772-2',
-  scripts: ['https://snack.expo.io/embed.js', baseUrl + 'js/codeblocks.js'],
+  scripts: [
+    'https://snack.expo.io/embed.js',
+    'https://platform.twitter.com/widgets.js',
+    'https://buttons.github.io/buttons.js',
+    baseUrl + 'js/codeblocks.js',
+  ],
   cleanUrl: true,
   scrollToTop: true,
   scrollToTopOptions: {

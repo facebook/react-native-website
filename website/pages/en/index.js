@@ -34,36 +34,26 @@ function HomeCallToAction() {
 
 function TwitterButton({showCount = false}) {
   return (
-    <React.Fragment>
-      <a
-        href="https://twitter.com/reactnative?ref_src=twsrc%5Etfw"
-        class="twitter-follow-button"
-        data-size="large"
-        data-show-count={`${showCount}`}>
-        Follow @reactnative
-      </a>
-      <script
-        async
-        src="https://platform.twitter.com/widgets.js"
-        charset="utf-8"
-      />
-    </React.Fragment>
+    <a
+      href="https://twitter.com/reactnative?ref_src=twsrc%5Etfw"
+      class="twitter-follow-button"
+      data-size="large"
+      data-show-count={`${showCount}`}>
+      Follow @reactnative
+    </a>
   );
 }
 
 function GitHubButton() {
   return (
-    <React.Fragment>
-      <a
-        class="github-button"
-        href="https://github.com/facebook/react-native"
-        data-icon="octicon-star"
-        data-size="large"
-        aria-label="Star facebook/react-native on GitHub">
-        Star
-      </a>
-      <script async defer src="https://buttons.github.io/buttons.js" />
-    </React.Fragment>
+    <a
+      class="github-button"
+      href="https://github.com/facebook/react-native"
+      data-icon="octicon-star"
+      data-size="large"
+      aria-label="Star facebook/react-native on GitHub">
+      Star
+    </a>
   );
 }
 
