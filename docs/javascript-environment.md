@@ -49,7 +49,7 @@ Stage 3
 
 - [Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
 
-Stage 1
+Stage 2
 
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
 
