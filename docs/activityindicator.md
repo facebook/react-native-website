@@ -47,12 +47,12 @@ AppRegistry.registerComponent('App', () => App)
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`animating`](activityindicator.md#animating)
-- [`color`](activityindicator.md#color)
-- [`size`](activityindicator.md#size)
-- [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
+* [`animating`](activityindicator.md#animating)
+* [`color`](activityindicator.md#color)
+* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
+* [`size`](activityindicator.md#size)
 
 ---
 
@@ -72,21 +72,11 @@ Whether to show the indicator (true, the default) or hide it (false).
 
 ### `color`
 
-The foreground color of the spinner (default is gray).
+The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
 
 | Type               | Required |
 | ------------------ | -------- |
 | [color](colors.md) | No       |
-
----
-
-### `size`
-
-Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
-
-| Type                            | Required |
-| ------------------------------- | -------- |
-| enum('small', 'large'), ,number | No       |
 
 ---
 
@@ -97,3 +87,13 @@ Whether the indicator should hide when not animating (true by default).
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `size`
+
+Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
+
+| Type                            | Required |
+| ------------------------------- | -------- |
+| enum('small', 'large'), ,number | No       |

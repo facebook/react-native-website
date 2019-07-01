@@ -31,8 +31,9 @@
   "running-on-device",
   "upgrading",
   "troubleshooting",
-  "native-modules-setup",
+  "native-modules-android",
   "native-modules-ios",
+  "native-modules-setup",
   "native-components-ios",
   "linking-libraries-ios",
   "running-on-simulator-ios",
@@ -42,10 +43,5 @@
   "native-components-android",
   "headless-js-android",
   "signed-apk-android",
-  "removing-default-permissions",
-  "contributing",
-  "maintainers",
-  "building-from-source",
-  "testing",
-  "understanding-cli"
+  "removing-default-permissions"
 ]

@@ -23,12 +23,12 @@ Example usage:
 
 ### Props
 
-* [`onPress`](button.md#onpress)
-* [`title`](button.md#title)
-* [`accessibilityLabel`](button.md#accessibilitylabel)
-* [`color`](button.md#color)
-* [`disabled`](button.md#disabled)
-* [`testID`](button.md#testid)
+- [`onPress`](button.md#onpress)
+- [`title`](button.md#title)
+- [`accessibilityLabel`](button.md#accessibilitylabel)
+- [`color`](button.md#color)
+- [`disabled`](button.md#disabled)
+- [`testID`](button.md#testid)
 
 ---
 

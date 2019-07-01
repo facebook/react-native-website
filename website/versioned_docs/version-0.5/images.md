@@ -20,6 +20,7 @@ You can also use the `@2x` and `@3x` suffixes to provide images for different sc
 .
 ├── button.js
 └── img
+    ├── check.png
     ├── check@2x.png
     └── check@3x.png
 ```
@@ -65,9 +66,9 @@ Note that image sources required this way include size (width, height) info for 
 
 ## Static Non-Image Resources
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) for the full list.
+The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
 
-You can add support for other types by creating a packager config file (see the [packager config file](https://github.com/facebook/metro/blob/master/packages/metro/src/defaults.js#L14-L44) for the full list of configuration options).
+You can add support for other types by creating a packager config file (see the [packager config file](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) for the full list of configuration options).
 
 A caveat is that videos must use absolute positioning instead of `flexGrow`, since size info is not currently passed for non-image assets. This limitation doesn't occur for videos that are linked directly into Xcode or the Assets folder for Android.
 
@@ -132,7 +133,7 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
   style={{
     width: 51,
     height: 51,
-    resizeMode: Image.resizeMode.contain,
+    resizeMode: 'contain',
   }}
   source={{
     uri:
@@ -145,10 +146,10 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
 
 In some cases you might only want to display an image if it is already in the local cache, i.e. a low resolution placeholder until a higher resolution is available. In other cases you do not care if the image is outdated and are willing to display an outdated image to save bandwidth. The `cache` source property gives you control over how the network layer interacts with the cache.
 
-* `default`: Use the native platforms default strategy.
-* `reload`: The data for the URL will be loaded from the originating source. No existing cache data should be used to satisfy a URL load request.
-* `force-cache`: The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
-* `only-if-cached`: The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
+- `default`: Use the native platforms default strategy.
+- `reload`: The data for the URL will be loaded from the originating source. No existing cache data should be used to satisfy a URL load request.
+- `force-cache`: The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
+- `only-if-cached`: The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
 
 ```javascript
 <Image
@@ -196,7 +197,7 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
-You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [source code](https://github.com/facebook/react-native/blob/master/Libraries/Image/ImageBackground.js) for more insight, and create your own custom component when needed.
+You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
 
 ```javascript
 return (
@@ -212,10 +213,10 @@ Note that you must specify some width and height style attributes.
 
 Please note that the following corner specific, border radius style properties are currently ignored by iOS's image component:
 
-* `borderTopLeftRadius`
-* `borderTopRightRadius`
-* `borderBottomLeftRadius`
-* `borderBottomRightRadius`
+- `borderTopLeftRadius`
+- `borderTopRightRadius`
+- `borderBottomLeftRadius`
+- `borderBottomRightRadius`
 
 ## Off-thread Decoding
 

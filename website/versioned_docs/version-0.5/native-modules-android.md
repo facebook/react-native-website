@@ -8,6 +8,10 @@ Sometimes an app needs access to a platform API that React Native doesn't have a
 
 We designed React Native such that it is possible for you to write real native code and have access to the full power of the platform. This is a more advanced feature and we don't expect it to be part of the usual development process, however it is essential that it exists. If React Native doesn't support a native feature that you need, you should be able to build it yourself.
 
+## Native Module Setup
+
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
+
 ### Enable Gradle
 
 If you plan to make changes in Java code, we recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) to speed up builds.
@@ -18,12 +22,12 @@ This guide will use the [Toast](http://developer.android.com/reference/android/w
 
 We start by creating a native module. A native module is a Java class that usually extends the `ReactContextBaseJavaModule` class and implements the functionality required by the JavaScript. Our goal here is to be able to write `ToastExample.show('Awesome', ToastExample.SHORT);` from JavaScript to display a short toast on the screen.
 
-create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
+Create a new Java Class named `ToastModule.java` inside `android/app/src/main/java/com/your-app-name/` folder with the content below:
 
 ```java
 // ToastModule.java
 
-package com.facebook.react.modules.toast;
+package com.your-app-name;
 
 import android.widget.Toast;
 
@@ -103,7 +107,7 @@ create a new Java Class named `CustomToastPackage.java` inside `android/app/src/
 ```java
 // CustomToastPackage.java
 
-package com.facebook.react.modules.toast;
+package com.your-app-name;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
@@ -137,6 +141,12 @@ public class CustomToastPackage implements ReactPackage {
 The package needs to be provided in the `getPackages` method of the `MainApplication.java` file. This file exists under the android folder in your react-native application directory. The path to this file is: `android/app/src/main/java/com/your-app-name/MainApplication.java`.
 
 ```java
+// MainApplication.java
+
+...
+import com.your-app-name.CustomToastPackage; // <-- Add this line with your package name.
+...
+
 protected List<ReactPackage> getPackages() {
     return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
@@ -145,6 +155,8 @@ protected List<ReactPackage> getPackages() {
 ```
 
 To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
+
+Create a new JavaScript file named `ToastExample.js` with the content below:
 
 ```javascript
 /**
@@ -166,6 +178,8 @@ import ToastExample from './ToastExample';
 
 ToastExample.show('Awesome', ToastExample.SHORT);
 ```
+
+Please make sure this JavasScript file to be the same hierarchy as `ToastExample.js`.
 
 ## Beyond Toasts
 
@@ -212,7 +226,7 @@ UIManager.measureLayout(
   },
   (x, y, width, height) => {
     console.log(x + ':' + y + ':' + width + ':' + height);
-  }
+  },
 );
 ```
 
@@ -264,7 +278,7 @@ async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
       100,
-      100
+      100,
     );
 
     console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);
@@ -309,7 +323,7 @@ var ScrollResponderMixin = {
   mixins: [Subscribable.Mixin],
 
 
-  componentWillMount: function() {
+  componentDidMount() {
     ...
     this.addListenerOn(DeviceEventEmitter,
                        'keyboardWillShow',
@@ -326,10 +340,15 @@ You can also directly use the `DeviceEventEmitter` module to listen for events.
 
 ```javascript
 ...
-componentWillMount: function() {
-  DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
-    // handle event.
+componentDidMount() {
+  this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
+    // handle event
   });
+}
+
+componentWillUnmount() {
+  // When you want to stop listening to new events, simply call .remove() on the subscription
+  this.subscription.remove();
 }
 ...
 ```

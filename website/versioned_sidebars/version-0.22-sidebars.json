@@ -33,7 +33,8 @@
       "version-0.22-integration-with-existing-apps",
       "version-0.22-running-on-device",
       "version-0.22-upgrading",
-      "version-0.22-troubleshooting"
+      "version-0.22-troubleshooting",
+      "version-0.22-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.22-native-modules-ios",
@@ -50,13 +51,6 @@
       "version-0.22-headless-js-android",
       "version-0.22-signed-apk-android",
       "version-0.22-removing-default-permissions"
-    ],
-    "Contributing": [
-      "version-0.22-contributing",
-      "version-0.22-maintainers",
-      "version-0.22-building-from-source",
-      "version-0.22-testing",
-      "version-0.22-understanding-cli"
     ],
     "Components": [
       "version-0.22-datepickerios",

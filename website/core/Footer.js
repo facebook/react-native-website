@@ -1,5 +1,5 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
@@ -44,25 +44,25 @@ class Footer extends React.Component {
             </a>
           </div>
           <div>
-            <h5>
-              <a href={this.props.config.baseUrl + 'help.html'}>Community</a>
-            </h5>
+            <h5>Community</h5>
+            <a href={this.props.config.baseUrl + 'help.html'}>
+              The React Native Community
+            </a>
             <a href={this.props.config.baseUrl + 'showcase.html'}>
               Who's using React Native?
             </a>
             <a
               href="http://stackoverflow.com/questions/tagged/react-native"
               target="_blank">
-              Stack Overflow
+              Ask Questions on Stack Overflow
             </a>
-            <a href="https://discuss.reactjs.org" target="_blank">
-              Discussion Forum
+            <a href="https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md">
+              Contributor Guide
             </a>
-            <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Chat</a>
           </div>
           <div>
-            <h5>More</h5>
-            <a href={this.props.config.baseUrl + 'blog'}>Blog</a>
+            <h5>More Resources</h5>
+            <a href={this.props.config.baseUrl + 'blog/'}>Blog</a>
             <a href="https://twitter.com/reactnative" target="_blank">
               Twitter
             </a>

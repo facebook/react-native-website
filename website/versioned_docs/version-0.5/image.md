@@ -27,15 +27,15 @@ renderImages: function() {
 
 ### Props
 
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`capInsets`](image.md#capinsets)
-* [`defaultSource`](image.md#defaultsource)
-* [`onLayout`](image.md#onlayout)
-* [`resizeMode`](image.md#resizemode)
-* [`source`](image.md#source)
-* [`style`](image.md#style)
-* [`testID`](image.md#testid)
+- [`accessibilityLabel`](image.md#accessibilitylabel)
+- [`accessible`](image.md#accessible)
+- [`capInsets`](image.md#capinsets)
+- [`defaultSource`](image.md#defaultsource)
+- [`onLayout`](image.md#onlayout)
+- [`resizeMode`](image.md#resizemode)
+- [`source`](image.md#source)
+- [`style`](image.md#style)
+- [`testID`](image.md#testid)
 
 ---
 
@@ -121,23 +121,23 @@ Determines how to resize the image when the frame doesn't match the raw image di
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`backgroundColor`**: string
+- **`backgroundColor`**: string
 
-* **`borderColor`**: string
+- **`borderColor`**: string
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`resizeMode`**: Object.keys(ImageResizeMode)
+- **`resizeMode`**: Object.keys(ImageResizeMode)
 
-* **`tintColor`**: string
+- **`tintColor`**: string
 
 ---
 

@@ -26,46 +26,46 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`onSubmitEditing`](textinput.md#onsubmitediting)
-- [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoFocus`](textinput.md#autofocus)
-- [`blurOnSubmit`](textinput.md#bluronsubmit)
-- [`defaultValue`](textinput.md#defaultvalue)
-- [`editable`](textinput.md#editable)
-- [`keyboardType`](textinput.md#keyboardtype)
-- [`maxLength`](textinput.md#maxlength)
-- [`multiline`](textinput.md#multiline)
-- [`onBlur`](textinput.md#onblur)
-- [`onChange`](textinput.md#onchange)
-- [`onChangeText`](textinput.md#onchangetext)
-- [`onEndEditing`](textinput.md#onendediting)
-- [`onFocus`](textinput.md#onfocus)
-- [`onLayout`](textinput.md#onlayout)
-- [`onSelectionChange`](textinput.md#onselectionchange)
-- [`autoCorrect`](textinput.md#autocorrect)
-- [`placeholder`](textinput.md#placeholder)
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-- [`secureTextEntry`](textinput.md#securetextentry)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-- [`selectionColor`](textinput.md#selectioncolor)
-- [`style`](textinput.md#style)
-- [`value`](textinput.md#value)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`returnKeyType`](textinput.md#returnkeytype)
-- [`selectionState`](textinput.md#selectionstate)
+* [`onSubmitEditing`](textinput.md#onsubmitediting)
+* [`autoCapitalize`](textinput.md#autocapitalize)
+* [`autoFocus`](textinput.md#autofocus)
+* [`blurOnSubmit`](textinput.md#bluronsubmit)
+* [`defaultValue`](textinput.md#defaultvalue)
+* [`editable`](textinput.md#editable)
+* [`keyboardType`](textinput.md#keyboardtype)
+* [`maxLength`](textinput.md#maxlength)
+* [`multiline`](textinput.md#multiline)
+* [`onBlur`](textinput.md#onblur)
+* [`onChange`](textinput.md#onchange)
+* [`onChangeText`](textinput.md#onchangetext)
+* [`onEndEditing`](textinput.md#onendediting)
+* [`onFocus`](textinput.md#onfocus)
+* [`onLayout`](textinput.md#onlayout)
+* [`onSelectionChange`](textinput.md#onselectionchange)
+* [`autoCorrect`](textinput.md#autocorrect)
+* [`placeholder`](textinput.md#placeholder)
+* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+* [`secureTextEntry`](textinput.md#securetextentry)
+* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`selectionColor`](textinput.md#selectioncolor)
+* [`style`](textinput.md#style)
+* [`value`](textinput.md#value)
+* [`numberOfLines`](textinput.md#numberoflines)
+* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+* [`clearButtonMode`](textinput.md#clearbuttonmode)
+* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
+* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+* [`keyboardAppearance`](textinput.md#keyboardappearance)
+* [`onKeyPress`](textinput.md#onkeypress)
+* [`returnKeyType`](textinput.md#returnkeytype)
+* [`selectionState`](textinput.md#selectionstate)
 
 ### Methods
 
-* [`isFocused`](textinput.md#isfocused)
-* [`clear`](textinput.md#clear)
+- [`isFocused`](textinput.md#isfocused)
+- [`clear`](textinput.md#clear)
 
 ---
 
@@ -87,10 +87,10 @@ Callback that is called when the text input's submit button is pressed. Invalid 
 
 Can tell TextInput to automatically capitalize certain characters.
 
-* characters: all characters,
-* words: first letter of each word
-* sentences: first letter of each sentence (default)
-* none: don't auto capitalize anything
+- characters: all characters,
+- words: first letter of each word
+- sentences: first letter of each sentence (default)
+- none: don't auto capitalize anything
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -144,9 +144,9 @@ Determines which keyboard to open, e.g.`numeric`.
 
 The following values work across platforms:
 
-* default
-* numeric
-* email-address
+- default
+- numeric
+- email-address
 
 | Type                                                                                                                                                                                | Required |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |

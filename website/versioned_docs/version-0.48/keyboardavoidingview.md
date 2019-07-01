@@ -8,17 +8,17 @@ It is a component to solve the common problem of views that need to move out of 
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
-- [`behavior`](keyboardavoidingview.md#behavior)
-- [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+* [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
+* [`behavior`](keyboardavoidingview.md#behavior)
+* [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
 
 ### Methods
 
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
+- [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
+- [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
+- [`onLayout`](keyboardavoidingview.md#onlayout)
 
 ---
 

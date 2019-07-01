@@ -14,22 +14,26 @@ import React, { Component } from 'react';
 import { AppRegistry, Text, View } from 'react-native';
 
 class Blink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {isShowingText: true};
 
+  componentDidMount(){
     // Toggle the state every second
-    setInterval(() => {
-      this.setState(previousState => {
-        return { isShowingText: !previousState.isShowingText };
-      });
-    }, 1000);
+    setInterval(() => (
+      this.setState(previousState => (
+        { isShowingText: !previousState.isShowingText }
+      ))
+    ), 1000);
   }
 
+  //state object
+  state = { isShowingText: true };
+
   render() {
-    let display = this.state.isShowingText ? this.props.text : ' ';
+    if (!this.state.isShowingText) {
+      return null;
+    }
+
     return (
-      <Text>{display}</Text>
+      <Text>{this.props.text}</Text>
     );
   }
 }
@@ -51,7 +55,7 @@ export default class BlinkApp extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
 ```
 
-In a real application, you probably won't be setting state with a timer. You might set state when you have new data arrived from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) or [Mobx](https://mobx.js.org/) to control your data flow. In that case you would use Redux or Mobx to modify your state rather than calling `setState` directly.
+In a real application, you probably won't be setting state with a timer. You might set state when you have new data from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) or [Mobx](https://mobx.js.org/) to control your data flow. In that case you would use Redux or Mobx to modify your state rather than calling `setState` directly.
 
 When setState is called, BlinkApp will re-render its Component. By calling setState within the Timer, the component will re-render every time the Timer ticks.
 

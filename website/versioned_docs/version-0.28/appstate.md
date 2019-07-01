@@ -10,9 +10,9 @@ AppState is frequently used to determine the intent and proper behavior when han
 
 ### App States
 
-* `active` - The app is running in the foreground
-* `background` - The app is running in the background. The user is either in another app or on the home screen
-* `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the Multitasking view or in the event of an incoming call
+- `active` - The app is running in the foreground
+- `background` - The app is running in the background. The user is either in another app or on the home screen
+- `inactive` - This is a state that occurs when transitioning between foreground & background, and during periods of inactivity such as entering the Multitasking view or in the event of an incoming call
 
 For more information, see [Apple's documentation](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)
 
@@ -46,12 +46,12 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### Methods
 
-* [`addEventListener`](appstate.md#addeventlistener)
-* [`removeEventListener`](appstate.md#removeeventlistener)
+- [`addEventListener`](appstate.md#addeventlistener)
+- [`removeEventListener`](appstate.md#removeeventlistener)
 
 ### Properties
 
-* [`currentState`](appstate.md#currentstate)
+- [`currentState`](appstate.md#currentstate)
 
 ---
 

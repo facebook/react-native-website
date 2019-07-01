@@ -3,14 +3,14 @@ id: settings
 title: Settings
 ---
 
+`Settings` serves as a wrapper for [`NSUserDefaults`](https://developer.apple.com/documentation/foundation/nsuserdefaults), a persistent key-value store available only on iOS.
+
 ### Methods
 
-* [`get`](settings.md#get)
-* [`set`](settings.md#set)
-* [`watchKeys`](settings.md#watchkeys)
-* [`clearWatch`](settings.md#clearwatch)
-
-### Properties
+- [`clearWatch`](settings.md#clearwatch)
+- [`get`](settings.md#get)
+- [`set`](settings.md#set)
+- [`watchKeys`](settings.md#watchkeys)
 
 ---
 
@@ -18,11 +18,21 @@ title: Settings
 
 ## Methods
 
+### `clearWatch()`
+
+```javascript
+static clearWatch(watchId)
+```
+
+`watchId` is the number returned by `watchKeys()` when the subscription was originally configured.
+
 ### `get()`
 
 ```javascript
 static get(key)
 ```
+
+Get the current value for a key in `NSUserDefaults`.
 
 ---
 
@@ -32,6 +42,8 @@ static get(key)
 static set(settings)
 ```
 
+Set one or more values in `NSUserDefaults`.
+
 ---
 
 ### `watchKeys()`
@@ -40,12 +52,4 @@ static set(settings)
 static watchKeys(keys, callback)
 ```
 
----
-
-### `clearWatch()`
-
-```javascript
-static clearWatch(watchId)
-```
-
-## Properties
+Subscribe to be notified when the value for any of the keys specified by the `keys` array changes in `NSUserDefaults`. Returns a `watchId` number that may be used with `clearWatch()` to unsubscribe.

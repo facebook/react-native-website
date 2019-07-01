@@ -3,7 +3,7 @@ id: native-modules-ios
 title: Native Modules
 ---
 
-Sometimes an app needs access to platform API, and React Native doesn't have a corresponding module yet. Maybe you want to reuse some existing Objective-C, Swift or C++ code without having to reimplement it in JavaScript, or write some high performance, multi-threaded code such as for image processing, a database, or any number of advanced extensions.
+Sometimes an app needs to access a platform API and React Native doesn't have a corresponding module yet. Maybe you want to reuse some existing Objective-C, Swift or C++ code without having to reimplement it in JavaScript, or write some high performance, multi-threaded code such as for image processing, a database, or any number of advanced extensions.
 
 We designed React Native such that it is possible for you to write real native code and have access to the full power of the platform. This is a more advanced feature and we don't expect it to be part of the usual development process, however it is essential that it exists. If React Native doesn't support a native feature that you need, you should be able to build it yourself.
 
@@ -11,7 +11,7 @@ This is a more advanced guide that shows how to build a native module. It assume
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup.html) guide first.
+Native modules are usually distributed as npm packages, except that for them to be native modules they will contain an Xcode library project. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ## iOS Calendar Module Example
 
@@ -58,6 +58,8 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 {
   RCTLogInfo(@"Pretending to create an event %@ at %@", name, location);
 }
+
+@end
 ```
 
 Now, from your JavaScript file you can call the method like this:
@@ -78,12 +80,12 @@ The CalendarManager module is instantiated on the Objective-C side using a [Cale
 
 `RCT_EXPORT_METHOD` supports all standard JSON object types, such as:
 
-* string (`NSString`)
-* number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
-* boolean (`BOOL`, `NSNumber`)
-* array (`NSArray`) of any types from this list
-* object (`NSDictionary`) with string keys and values of any type from this list
-* function (`RCTResponseSenderBlock`)
+- string (`NSString`)
+- number (`NSInteger`, `float`, `double`, `CGFloat`, `NSNumber`)
+- boolean (`BOOL`, `NSNumber`)
+- array (`NSArray`) of any types from this list
+- object (`NSDictionary`) with string keys and values of any type from this list
+- function (`RCTResponseSenderBlock`)
 
 But it also works with any type that is supported by the `RCTConvert` class (see [`RCTConvert`](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details). The `RCTConvert` helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
@@ -120,7 +122,7 @@ You would then call this from JavaScript by using either:
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.getTime()
+  date.getTime(),
 ); // passing date as number of milliseconds since Unix epoch
 ```
 
@@ -130,7 +132,7 @@ or
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.toISOString()
+  date.toISOString(),
 ); // passing date as ISO-8601 string
 ```
 
@@ -305,6 +307,19 @@ console.log(CalendarManager.firstDayOfTheWeek);
 ```
 
 Note that the constants are exported only at initialization time, so if you change `constantsToExport` values at runtime it won't affect the JavaScript environment.
+
+### Implementing `+ requiresMainQueueSetup`
+
+If you override `- constantsToExport` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup`:
+
+```objectivec
++ (BOOL)requiresMainQueueSetup
+{
+  return YES;  // only do this if your module initialization relies on calling UIKit!
+}
+```
+
+If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with `NO`.
 
 ### Enum Constants
 

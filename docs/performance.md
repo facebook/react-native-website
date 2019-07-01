@@ -73,7 +73,7 @@ One case where I have used this is for animating in a modal (sliding down from t
 
 Caveats:
 
-* LayoutAnimation only works for fire-and-forget animations ("static" animations) -- if it must be interruptible, you will need to use `Animated`.
+- LayoutAnimation only works for fire-and-forget animations ("static" animations) -- if it must be interruptible, you will need to use `Animated`.
 
 ### Moving a view on the screen (scrolling, translating, rotating) drops UI thread FPS
 
@@ -91,9 +91,7 @@ Sometimes, if we do an action in the same frame that we are adjusting the opacit
 
 ```javascript
 handleOnPress() {
-  // Always use TimerMixin with requestAnimationFrame, setTimeout and
-  // setInterval
-  this.requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
     this.doExpensiveAction();
   });
 }
@@ -137,9 +135,9 @@ $ <path_to_android_sdk>/platform-tools/systrace/systrace.py --time=10 -o trace.h
 
 A quick breakdown of this command:
 
-* `time` is the length of time the trace will be collected in seconds
-* `sched`, `gfx`, and `view` are the android SDK tags (collections of markers) we care about: `sched` gives you information about what's running on each core of your phone, `gfx` gives you graphics info such as frame boundaries, and `view` gives you information about measure, layout, and draw passes
-* `-a <your_package_name>` enables app-specific markers, specifically the ones built into the React Native framework. `your_package_name` can be found in the `AndroidManifest.xml` of your app and looks like `com.example.app`
+- `time` is the length of time the trace will be collected in seconds
+- `sched`, `gfx`, and `view` are the android SDK tags (collections of markers) we care about: `sched` gives you information about what's running on each core of your phone, `gfx` gives you graphics info such as frame boundaries, and `view` gives you information about measure, layout, and draw passes
+- `-a <your_package_name>` enables app-specific markers, specifically the ones built into the React Native framework. `your_package_name` can be found in the `AndroidManifest.xml` of your app and looks like `com.example.app`
 
 Once the trace starts collecting, perform the animation or interaction you care about. At the end of the trace, systrace will give you a link to the trace which you can open in your browser.
 
@@ -157,9 +155,9 @@ If your trace .html file isn't opening correctly, check your browser console for
 
 Since `Object.observe` was deprecated in recent browsers, you may have to open the file from the Google Chrome Tracing tool. You can do so by:
 
-* Opening tab in chrome chrome://tracing
-* Selecting load
-* Selecting the html file generated from the previous command.
+- Opening tab in chrome chrome://tracing
+- Selecting load
+- Selecting the html file generated from the previous command.
 
 > **Enable VSync highlighting**
 >
@@ -175,19 +173,19 @@ Scroll until you see (part of) the name of your package. In this case, I was pro
 
 On the left side, you'll see a set of threads which correspond to the timeline rows on the right. There are a few threads we care about for our purposes: the UI thread (which has your package name or the name UI Thread), `mqt_js`, and `mqt_native_modules`. If you're running on Android 5+, we also care about the Render Thread.
 
-* **UI Thread.** This is where standard android measure/layout/draw happens. The thread name on the right will be your package name (in my case book.adsmanager) or UI Thread. The events that you see on this thread should look something like this and have to do with `Choreographer`, `traversals`, and `DispatchUI`:
+- **UI Thread.** This is where standard android measure/layout/draw happens. The thread name on the right will be your package name (in my case book.adsmanager) or UI Thread. The events that you see on this thread should look something like this and have to do with `Choreographer`, `traversals`, and `DispatchUI`:
 
   ![UI Thread Example](/react-native/docs/assets/SystraceUIThreadExample.png)
 
-* **JS Thread.** This is where JavaScript is executed. The thread name will be either `mqt_js` or `<...>` depending on how cooperative the kernel on your device is being. To identify it if it doesn't have a name, look for things like `JSCall`, `Bridge.executeJSCall`, etc:
+- **JS Thread.** This is where JavaScript is executed. The thread name will be either `mqt_js` or `<...>` depending on how cooperative the kernel on your device is being. To identify it if it doesn't have a name, look for things like `JSCall`, `Bridge.executeJSCall`, etc:
 
   ![JS Thread Example](/react-native/docs/assets/SystraceJSThreadExample.png)
 
-* **Native Modules Thread.** This is where native module calls (e.g. the `UIManager`) are executed. The thread name will be either `mqt_native_modules` or `<...>`. To identify it in the latter case, look for things like `NativeCall`, `callJavaModuleMethod`, and `onBatchComplete`:
+- **Native Modules Thread.** This is where native module calls (e.g. the `UIManager`) are executed. The thread name will be either `mqt_native_modules` or `<...>`. To identify it in the latter case, look for things like `NativeCall`, `callJavaModuleMethod`, and `onBatchComplete`:
 
   ![Native Modules Thread Example](/react-native/docs/assets/SystraceNativeModulesThreadExample.png)
 
-* **Bonus: Render Thread.** If you're using Android L (5.0) and up, you will also have a render thread in your application. This thread generates the actual OpenGL commands used to draw your UI. The thread name will be either `RenderThread` or `<...>`. To identify it in the latter case, look for things like `DrawFrame` and `queueBuffer`:
+- **Bonus: Render Thread.** If you're using Android L (5.0) and up, you will also have a render thread in your application. This thread generates the actual OpenGL commands used to draw your UI. The thread name will be either `RenderThread` or `<...>`. To identify it in the latter case, look for things like `DrawFrame` and `queueBuffer`:
 
   ![Render Thread Example](/react-native/docs/assets/SystraceRenderThreadExample.png)
 
@@ -238,8 +236,8 @@ Notice the long amount of time spent in `DrawFrame` that crosses frame boundarie
 
 To mitigate this, you should:
 
-* investigate using `renderToHardwareTextureAndroid` for complex, static content that is being animated/transformed (e.g. the `Navigator` slide/alpha animations)
-* make sure that you are **not** using `needsOffscreenAlphaCompositing`, which is disabled by default, as it greatly increases the per-frame load on the GPU in most cases.
+- investigate using `renderToHardwareTextureAndroid` for complex, static content that is being animated/transformed (e.g. the `Navigator` slide/alpha animations)
+- make sure that you are **not** using `needsOffscreenAlphaCompositing`, which is disabled by default, as it greatly increases the per-frame load on the GPU in most cases.
 
 If these don't help and you want to dig deeper into what the GPU is actually doing, you can check out [Tracer for OpenGL ES](http://developer.android.com/tools/help/gltracer.html).
 
@@ -323,12 +321,12 @@ Even without the RAM format, inline requires can lead to startup time improvemen
 
 On iOS using the RAM format will create a single indexed file that react native will load one module at a time. On Android, by default it will create a set of files for each module. You can force Android to create a single file, like iOS, but using multiple files can be more performant and requires less memory.
 
-Enable the RAM format in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/packager/react-native-xcode.sh` add `export BUNDLE_COMMAND="ram-bundle"`:
+Enable the RAM format in Xcode by editing the build phase "Bundle React Native code and images". Before `../node_modules/react-native/scripts/react-native-xcode.sh` add `export BUNDLE_COMMAND="ram-bundle"`:
 
 ```
 export BUNDLE_COMMAND="ram-bundle"
 export NODE_BINARY=node
-../node_modules/react-native/packager/react-native-xcode.sh
+../node_modules/react-native/scripts/react-native-xcode.sh
 ```
 
 On Android enable the RAM format by editing your `android/app/build.gradle` file. Before the line `apply from: "../../node_modules/react-native/react.gradle"` add or amend the `project.ext.react` block:
@@ -352,46 +350,6 @@ project.ext.react = [
 
 Now that we have a RAM bundle, there is overhead for calling `require`. `require` now needs to send a message over the bridge when it encounters a module it has not loaded yet. This will impact startup the most, because that is where the largest number of require calls are likely to take place while the app loads the initial module. Luckily we can configure a portion of the modules to be preloaded. In order to do this, you will need to implement some form of inline require.
 
-### Adding a packager config file
-
-Create a folder in your project called packager, and create a single file named config.js. Add the following:
-
-```
-const config = {
-  getTransformOptions: () => {
-    return {
-      transform: { inlineRequires: true },
-    };
-  },
-};
-
-module.exports = config;
-```
-
-In Xcode, in the build phase, include `export BUNDLE_CONFIG="packager/config.js"`.
-
-```
-export BUNDLE_COMMAND="ram-bundle"
-export BUNDLE_CONFIG="packager/config.js"
-export NODE_BINARY=node
-../node_modules/react-native/packager/react-native-xcode.sh
-```
-
-Edit your android/app/build.gradle file to include `bundleConfig: "packager/config.js",`.
-
-```
-project.ext.react = [
-  bundleCommand: "ram-bundle",
-  bundleConfig: "packager/config.js"
-]
-```
-
-Finally, you can update "start" under "scripts" on your package.json to use the config:
-
-`"start": "node node_modules/react-native/local-cli/cli.js start --config ../../../../packager/config.js",`
-
-Start your package server with `npm start`. Note that when the dev packager is automatically launched via xcode and `react-native run-android`, etc, it does not use `npm start`, so it won't use the config.
-
 ### Investigating the Loaded Modules
 
 In your root file (index.(ios|android).js) you can add the following after the initial imports:
@@ -414,7 +372,7 @@ console.log(
   waitingModuleNames.length
 );
 
-// grab this text blob, and put it in a file named packager/moduleNames.js
+// grab this text blob, and put it in a file named packager/modulePaths.js
 console.log(`module.exports = ${JSON.stringify(loadedModuleNames.sort())};`);
 ```
 
@@ -428,87 +386,36 @@ require.Systrace.beginEvent = (message) => {
 }
 ```
 
-Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisified, put the output of the loadedModuleNames into a file named packager/moduleNames.js.
+Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisfied, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
 
-### Transforming to Module Paths
+### Updating the metro.config.js
 
-The loaded module names get us part of the way there, but we actually need absolute module paths, so the next script will set that up. Add `packager/generateModulePaths.js` to your project with the following:
-
-```
-// @flow
-/* eslint-disable no-console */
-const execSync = require('child_process').execSync;
-const fs = require('fs');
-const moduleNames = require('./moduleNames');
-
-const pjson = require('../package.json');
-const localPrefix = `${pjson.name}/`;
-
-const modulePaths = moduleNames.map(moduleName => {
-  if (moduleName.startsWith(localPrefix)) {
-    return `./${moduleName.substring(localPrefix.length)}`;
-  }
-  if (moduleName.endsWith('.js')) {
-    return `./node_modules/${moduleName}`;
-  }
-  try {
-    const result = execSync(
-      `grep "@providesModule ${moduleName}" $(find . -name ${moduleName}\\\\.js) -l`
-    )
-      .toString()
-      .trim()
-      .split('\n')[0];
-    if (result != null) {
-      return result;
-    }
-  } catch (e) {
-    return null;
-  }
-  return null;
-});
-
-const paths = modulePaths
-  .filter(path => path != null)
-  .map(path => `'${path}'`)
-  .join(',\n');
-
-const fileData = `module.exports = [${paths}];`;
-
-fs.writeFile('./packager/modulePaths.js', fileData, err => {
-  if (err) {
-    console.log(err);
-  }
-
-  console.log('Done');
-});
-```
-
-You can run via `node packager/generateModulePaths.js`.
-
-This script attempts to map from the module names to module paths. Its not foolproof though, for instance, it ignores platform specific files (\*ios.js, and \*.android.js). However based on initial testing, it handles 95% of cases. When it runs, after some time it should complete and output a file named `packager/modulePaths.js`. It should contain paths to module files that are relative to your projects root. You can commit modulePaths.js to your repo so it is transportable.
-
-### Updating the config.js
-
-Returning to packager/config.js we should update it to use our newly generated modulePaths.js file.
+We now need to update `metro.config.js` in the root of the project to use our newly generated `modulePaths.js` file:
 
 ```
-const modulePaths = require('./modulePaths');
+const modulePaths = require('./packager/modulePaths');
 const resolve = require('path').resolve;
 const fs = require('fs');
 
+// Update the following line if the root folder of your app is somewhere else.
+const ROOT_FOLDER = resolve(__dirname, '..');
+
 const config = {
-  getTransformOptions: () => {
-    const moduleMap = {};
-    modulePaths.forEach(path => {
-      if (fs.existsSync(path)) {
-        moduleMap[resolve(path)] = true;
-      }
-    });
-    return {
-      preloadedModules: moduleMap,
-      transform: { inlineRequires: { blacklist: moduleMap } },
-    };
+  transformer: {
+    getTransformOptions: () => {
+      const moduleMap = {};
+      modulePaths.forEach(path => {
+        if (fs.existsSync(path)) {
+          moduleMap[resolve(path)] = true;
+        }
+      });
+      return {
+        preloadedModules: moduleMap,
+        transform: { inlineRequires: { blacklist: moduleMap } },
+      };
+    },
   },
+  projectRoot:ROOT_FOLDER,
 };
 
 module.exports = config;

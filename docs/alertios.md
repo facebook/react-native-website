@@ -7,20 +7,15 @@ title: AlertIOS
 
 Creating an iOS alert:
 
-```
-AlertIOS.alert(
- 'Sync Complete',
- 'All your data are belong to us.'
-);
+```javascript
+AlertIOS.alert('Sync Complete', 'All your data are belong to us.');
 ```
 
 Creating an iOS prompt:
 
-```
-AlertIOS.prompt(
-  'Enter a value',
-  null,
-  text => console.log("You entered "+text)
+```javascript
+AlertIOS.prompt('Enter a value', null, (text) =>
+  console.log('You entered ' + text),
 );
 ```
 
@@ -28,14 +23,14 @@ We recommend using the [`Alert.alert`](alert.md) method for cross-platform suppo
 
 ### Methods
 
-* [`alert`](alertios.md#alert)
-* [`prompt`](alertios.md#prompt)
+- [`alert`](alertios.md#alert)
+- [`prompt`](alertios.md#prompt)
 
 ### Type Definitions
 
-* [`AlertType`](alertios.md#alerttype)
-* [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
-* [`ButtonsArray`](alertios.md#buttonsarray)
+- [`AlertType`](alertios.md#alerttype)
+- [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
+- [`ButtonsArray`](alertios.md#buttonsarray)
 
 ---
 
@@ -76,7 +71,7 @@ AlertIOS.alert(
       text: 'Install',
       onPress: () => console.log('Install Pressed'),
     },
-  ]
+  ],
 );
 ```
 
@@ -118,7 +113,7 @@ AlertIOS.prompt(
       onPress: (password) => console.log('OK Pressed, password: ' + password),
     },
   ],
-  'secure-text'
+  'secure-text',
 );
 ```
 
@@ -132,7 +127,7 @@ AlertIOS.prompt(
   null,
   (text) => console.log('Your username is ' + text),
   null,
-  'default'
+  'default',
 );
 ```
 
@@ -142,9 +137,9 @@ AlertIOS.prompt(
 
 An Alert button type
 
-| Type  |
-| ----- |
-| $Enum |
+| Type   |
+| ------ |
+| \$Enum |
 
 **Constants:**
 
@@ -161,9 +156,9 @@ An Alert button type
 
 An Alert button style
 
-| Type  |
-| ----- |
-| $Enum |
+| Type   |
+| ------ |
+| \$Enum |
 
 **Constants:**
 

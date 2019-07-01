@@ -3,57 +3,51 @@ id: upgrading
 title: Upgrading to new React Native versions
 ---
 
-Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you. The instructions are a bit different depending on whether you used `create-react-native-app` or `react-native init` to create your project.
+Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you.
 
-## Create React Native App projects
+## Expo projects
 
-Upgrading your Create React Native App project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
+Upgrading your Expo project to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions in your `package.json` file. Please refer to [this list](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported. You will also need to set the correct `sdkVersion` in your `app.json` file.
 
-See the [CRNA user guide](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md#updating-to-new-releases) for up-to-date information about upgrading your project.
+See the [Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/workflow/upgrading-expo-sdk-walkthrough) for up-to-date information about upgrading your project.
 
-## Projects built with native code
+## React Native projects
 
-<div class="banner-crna-ejected">
-  <h3>Projects with Native Code Only</h3>
-  <p>
-    This section only applies to projects made with <code>react-native init</code> or to those made with Create React Native App which have since ejected. For more information about ejecting, please see the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on the Create React Native App repository.
-  </p>
-</div>
-
-Because React Native projects built with native code are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. Here's what you need to do to upgrade from an older version of React Native.
+Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. Here's what you need to do to upgrade from an older version of React Native.
 
 ### Upgrade based on Git
 
-The module `react-native-git-upgrade` provides a one-step operation to upgrade the source files with a minimum of conflicts. Under the hood, it consists in 2 phases:
+The [React Native CLI](https://github.com/react-native-community/react-native-cli) comes with `upgrade` command that provides a one-step operation to upgrade the source files with a minimum of conflicts, thanks to the [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) project.
 
-* First, it computes a Git patch between both old and new template files,
-* Then, the patch is applied on the user's sources.
+#### 1. Make sure your project uses Git
 
-> **IMPORTANT:** You don't have to install the new version of the `react-native` package, it will be installed automatically.
+> This step applies only to projects that don't use Git. Skip it if yours use it.
 
-#### 1. Install Git
-
-While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `react-native-git-upgrade`. Git will also need to be available in the `PATH`.
-
-#### 2. Install the `react-native-git-upgrade` module
-
-The `react-native-git-upgrade` module provides a CLI and must be installed globally:
+While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `react-native upgrade`. Git will also need to be available in the `PATH`. If your project doesn't use Git, initialize it and commit:
 
 ```sh
-$ npm install -g react-native-git-upgrade
+git init
+git add .
+git commit -m "upgrade RN"
 ```
 
-#### 3. Run the command
+After the upgrade is done and conflicts resolved, you can remove the `.git` directory.
+
+#### 2. Run the `upgrade` command
 
 Run the following command to start the process of upgrading to the latest version:
 
 ```sh
-$ react-native-git-upgrade
+react-native upgrade
 ```
 
-> You may specify a React Native version by passing an argument: `react-native-git-upgrade X.Y.Z`
+You may specify a React Native version by passing an argument, e.g. to upgrade to `0.59.0-rc.0` run:
 
-The templates are upgraded in a optimized way. You still may encounter conflicts but only where the Git 3-way merge have failed, depending on the version and how you modified your sources.
+```sh
+react-native upgrade 0.59.0-rc.0
+```
+
+The project is upgraded using `git apply` with 3-way merge. That's why it may happen you'll need to resolve some conflicts.
 
 #### 4. Resolve the conflicts
 
@@ -111,7 +105,7 @@ $ npm install --save react@R
 
 The new npm package may contain updates to the files that are normally generated when you run `react-native init`, like the iOS and the Android sub-projects.
 
-You may consult [rn-diff](https://github.com/ncuillery/rn-diff) to see if there were changes in the project template files. In case there weren't any, simply rebuild the project and continue developing. In case of minor changes, you may update your project manually and rebuild.
+You may consult [rn-diff-purge](https://github.com/pvinis/rn-diff-purge) to see if there were changes in the project template files. In case there weren't any, simply rebuild the project and continue developing. In case of minor changes, you may update your project manually and rebuild.
 
 If there were major changes, run this in a terminal to get these:
 
@@ -121,10 +115,10 @@ $ react-native upgrade
 
 This will check your files against the latest template and perform the following:
 
-* If there is a new file in the template, it is simply created.
-* If a file in the template is identical to your file, it is skipped.
-* If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
+- If there is a new file in the template, it is simply created.
+- If a file in the template is identical to your file, it is skipped.
+- If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
 
 ## Manual Upgrades
 
-Some upgrades require manual steps, e.g. 0.13 to 0.14, or 0.28 to 0.29. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.
+Some upgrades require manual steps, e.g. 0.28 to 0.29, or 0.56 to 0.57. Be sure to check the [release notes](https://github.com/facebook/react-native/releases) when upgrading so that you can identify any manual changes your particular project may require.

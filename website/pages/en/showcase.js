@@ -1,16 +1,16 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require("react");
+const React = require('react');
 
-const CompLibrary = require("../../core/CompLibrary.js");
+const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 
-const siteConfig = require(process.cwd() + "/siteConfig.js");
+const siteConfig = require(process.cwd() + '/siteConfig.js');
 
 const showcaseApps = siteConfig.users;
 const pinnedApps = showcaseApps.filter(app => {
@@ -55,8 +55,8 @@ class AppList extends React.Component {
 
   _renderAppIcon(app) {
     let imgSource = app.icon;
-    if (!app.icon.startsWith("http")) {
-      imgSource = siteConfig.baseUrl + "img/showcase/" + app.icon;
+    if (!app.icon.startsWith('http')) {
+      imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
     }
     return <img src={imgSource} alt={app.name} />;
   }
@@ -90,20 +90,20 @@ class AppList extends React.Component {
         iOS
       </a>
     ) : (
-      ""
+      ''
     );
     var linkPlayStore = app.linkPlayStore ? (
       <a href={app.linkPlayStore} target="_blank">
         Android
       </a>
     ) : (
-      ""
+      ''
     );
 
     return (
       <p>
         {linkAppStore}
-        {linkAppStore && linkPlayStore ? " · " : ""}
+        {linkAppStore && linkPlayStore ? ' · ' : ''}
         {linkPlayStore}
       </p>
     );
@@ -114,7 +114,7 @@ class Showcase extends React.Component {
   render() {
     return (
       <div className="pageContainer">
-        <Container padding={["bottom"]}>
+        <Container padding={['bottom']}>
           <div className="showcaseSection">
             <div className="prose">
               <h1>Who's using React Native?</h1>
@@ -144,7 +144,7 @@ class Showcase extends React.Component {
 }
 
 Showcase.defaultProps = {
-  language: "en"
+  language: 'en',
 };
 
 module.exports = Showcase;

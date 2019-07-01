@@ -20,7 +20,7 @@ class FadeInView extends React.Component {
     Animated.timing(
       // Uses easing functions
       this.state.fadeAnim, // The value to drive
-      {toValue: 1} // Configuration
+      {toValue: 1}, // Configuration
     ).start(); // Don't forget start!
   }
   render() {
@@ -68,31 +68,31 @@ Note that `Animated` is designed to be fully serializable so that animations can
 
 ### Methods
 
-* [`decay`](animated.md#decay)
-* [`timing`](animated.md#timing)
-* [`spring`](animated.md#spring)
-* [`add`](animated.md#add)
-* [`divide`](animated.md#divide)
-* [`multiply`](animated.md#multiply)
-* [`modulo`](animated.md#modulo)
-* [`diffClamp`](animated.md#diffclamp)
-* [`delay`](animated.md#delay)
-* [`sequence`](animated.md#sequence)
-* [`parallel`](animated.md#parallel)
-* [`stagger`](animated.md#stagger)
-* [`event`](animated.md#event)
-* [`createAnimatedComponent`](animated.md#createanimatedcomponent)
+- [`decay`](animated.md#decay)
+- [`timing`](animated.md#timing)
+- [`spring`](animated.md#spring)
+- [`add`](animated.md#add)
+- [`divide`](animated.md#divide)
+- [`multiply`](animated.md#multiply)
+- [`modulo`](animated.md#modulo)
+- [`diffClamp`](animated.md#diffclamp)
+- [`delay`](animated.md#delay)
+- [`sequence`](animated.md#sequence)
+- [`parallel`](animated.md#parallel)
+- [`stagger`](animated.md#stagger)
+- [`event`](animated.md#event)
+- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
 
 ### Properties
 
-* [`Value`](animated.md#value)
-* [`ValueXY`](animated.md#valuexy)
+- [`Value`](animated.md#value)
+- [`ValueXY`](animated.md#valuexy)
 
 ### Classes
 
-* [`AnimatedValue`](animated.md#animatedvalue)
-* [`AnimatedValueXY`](animated.md#animatedvaluexy)
-* [`AnimatedProps`](animated.md#animatedprops)
+- [`AnimatedValue`](animated.md#animatedvalue)
+- [`AnimatedValueXY`](animated.md#animatedvaluexy)
+- [`AnimatedProps`](animated.md#animatedprops)
 
 ---
 
@@ -411,7 +411,7 @@ class DraggableView extends React.Component {
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}} // Back to zero
+          {toValue: {x: 0, y: 0}}, // Back to zero
         ).start();
       },
     });

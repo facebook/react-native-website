@@ -12,9 +12,9 @@ Before you do this, you should be familiar with the concepts in [native UI compo
 
 To get started, you'll need to create a subclass of `ReactWebViewManager`, `ReactWebView`, and `ReactWebViewClient`. In your view manager, you'll then need to override:
 
-* `createReactWebViewInstance`
-* `getName`
-* `addEventEmitters`
+- `createReactWebViewInstance`
+- `getName`
+- `addEventEmitters`
 
 ```java
 @ReactModule(name = CustomWebViewManager.REACT_CLASS)
@@ -174,8 +174,8 @@ public class CustomWebViewManager extends ReactWebViewManager {
 
 To use your custom web view, you'll need to create a class for it. Your class must:
 
-* Export all the prop types from `WebView.propTypes`
-* Return a `WebView` component with the prop `nativeConfig.component` set to your native component (see below)
+- Export all the prop types from `WebView.propTypes`
+- Return a `WebView` component with the prop `nativeConfig.component` set to your native component (see below)
 
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 
@@ -196,7 +196,7 @@ export default class CustomWebView extends Component {
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,
-  WebView.extraNativeComponentConfig
+  WebView.extraNativeComponentConfig,
 );
 ```
 
@@ -254,6 +254,6 @@ const RCTCustomWebView = requireNativeComponent(
       ...WebView.extraNativeComponentConfig.nativeOnly,
       onScrollToBottom: true,
     },
-  }
+  },
 );
 ```

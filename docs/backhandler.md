@@ -32,11 +32,11 @@ Lifecycle example:
 
 ```javascript
   componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandler = BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    this.backHandler.remove()
   }
 
   handleBackPress = () => {
@@ -62,9 +62,9 @@ Lifecycle alternative:
 
 ### Methods
 
-* [`exitApp`](backhandler.md#exitapp)
-* [`addEventListener`](backhandler.md#addeventlistener)
-* [`removeEventListener`](backhandler.md#removeeventlistener)
+- [`addEventListener`](backhandler.md#addeventlistener)
+- [`exitApp`](backhandler.md#exitapp)
+- [`removeEventListener`](backhandler.md#removeeventlistener)
 
 ---
 
@@ -72,18 +72,18 @@ Lifecycle alternative:
 
 ## Methods
 
-### `exitApp()`
-
-```javascript
-static exitApp()
-```
-
----
-
 ### `addEventListener()`
 
 ```javascript
 static addEventListener(eventName, handler)
+```
+
+---
+
+### `exitApp()`
+
+```javascript
+static exitApp()
 ```
 
 ---

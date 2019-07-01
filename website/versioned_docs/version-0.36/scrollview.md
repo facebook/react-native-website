@@ -12,50 +12,50 @@ Doesn't yet support other contained responders from blocking this scroll view fr
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`bounces`](scrollview.md#bounces)
-- [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
-- [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
-- [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
-- [`onContentSizeChange`](scrollview.md#oncontentsizechange)
-- [`onScroll`](scrollview.md#onscroll)
-- [`pagingEnabled`](scrollview.md#pagingenabled)
-- [`refreshControl`](scrollview.md#refreshcontrol)
-- [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
-- [`scrollEnabled`](scrollview.md#scrollenabled)
-- [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
-- [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
-- [`style`](scrollview.md#style)
-- [`endFillColor`](scrollview.md#endfillcolor)
-- [`scrollPerfTag`](scrollview.md#scrollperftag)
-- [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
-- [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
-- [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
-- [`horizontal`](scrollview.md#horizontal)
-- [`bouncesZoom`](scrollview.md#bounceszoom)
-- [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
-- [`centerContent`](scrollview.md#centercontent)
-- [`contentInset`](scrollview.md#contentinset)
-- [`contentOffset`](scrollview.md#contentoffset)
-- [`decelerationRate`](scrollview.md#decelerationrate)
-- [`directionalLockEnabled`](scrollview.md#directionallockenabled)
-- [`indicatorStyle`](scrollview.md#indicatorstyle)
-- [`maximumZoomScale`](scrollview.md#maximumzoomscale)
-- [`minimumZoomScale`](scrollview.md#minimumzoomscale)
-- [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
-- [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
-- [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
-- [`scrollsToTop`](scrollview.md#scrollstotop)
-- [`snapToAlignment`](scrollview.md#snaptoalignment)
-- [`snapToInterval`](scrollview.md#snaptointerval)
-- [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
-- [`zoomScale`](scrollview.md#zoomscale)
+* [`bounces`](scrollview.md#bounces)
+* [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
+* [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
+* [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
+* [`onContentSizeChange`](scrollview.md#oncontentsizechange)
+* [`onScroll`](scrollview.md#onscroll)
+* [`pagingEnabled`](scrollview.md#pagingenabled)
+* [`refreshControl`](scrollview.md#refreshcontrol)
+* [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
+* [`scrollEnabled`](scrollview.md#scrollenabled)
+* [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
+* [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
+* [`style`](scrollview.md#style)
+* [`endFillColor`](scrollview.md#endfillcolor)
+* [`scrollPerfTag`](scrollview.md#scrollperftag)
+* [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
+* [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
+* [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
+* [`horizontal`](scrollview.md#horizontal)
+* [`bouncesZoom`](scrollview.md#bounceszoom)
+* [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
+* [`centerContent`](scrollview.md#centercontent)
+* [`contentInset`](scrollview.md#contentinset)
+* [`contentOffset`](scrollview.md#contentoffset)
+* [`decelerationRate`](scrollview.md#decelerationrate)
+* [`directionalLockEnabled`](scrollview.md#directionallockenabled)
+* [`indicatorStyle`](scrollview.md#indicatorstyle)
+* [`maximumZoomScale`](scrollview.md#maximumzoomscale)
+* [`minimumZoomScale`](scrollview.md#minimumzoomscale)
+* [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
+* [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
+* [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
+* [`scrollsToTop`](scrollview.md#scrollstotop)
+* [`snapToAlignment`](scrollview.md#snaptoalignment)
+* [`snapToInterval`](scrollview.md#snaptointerval)
+* [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
+* [`zoomScale`](scrollview.md#zoomscale)
 
 ### Methods
 
-* [`scrollTo`](scrollview.md#scrollto)
-* [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
+- [`scrollTo`](scrollview.md#scrollto)
+- [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
 
 ---
 
@@ -89,9 +89,9 @@ return ( <ScrollView contentContainerStyle={styles.contentContainer}> </ScrollVi
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'on-drag', the keyboard is dismissed when a drag begins.
-* 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'on-drag', the keyboard is dismissed when a drag begins.
+- 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -201,51 +201,51 @@ When true, shows a vertical scroll indicator. The default value is true.
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Shadow Props...](shadow-props.md#props)
+- [Shadow Props...](shadow-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`borderRightColor`**: [color](colors.md)
+- **`borderRightColor`**: [color](colors.md)
 
-* **`backfaceVisibility`**: ReactPropTypes.oneOf(['visible', 'hidden'])
+- **`backfaceVisibility`**: ReactPropTypes.oneOf(['visible', 'hidden'])
 
-* **`borderBottomColor`**: [color](colors.md)
+- **`borderBottomColor`**: [color](colors.md)
 
-* **`borderBottomLeftRadius`**: ReactPropTypes.number
+- **`borderBottomLeftRadius`**: ReactPropTypes.number
 
-* **`borderBottomRightRadius`**: ReactPropTypes.number
+- **`borderBottomRightRadius`**: ReactPropTypes.number
 
-* **`borderBottomWidth`**: ReactPropTypes.number
+- **`borderBottomWidth`**: ReactPropTypes.number
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderLeftColor`**: [color](colors.md)
+- **`borderLeftColor`**: [color](colors.md)
 
-* **`borderLeftWidth`**: ReactPropTypes.number
+- **`borderLeftWidth`**: ReactPropTypes.number
 
-* **`borderRadius`**: ReactPropTypes.number
+- **`borderRadius`**: ReactPropTypes.number
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderRightWidth`**: ReactPropTypes.number
+- **`borderRightWidth`**: ReactPropTypes.number
 
-* **`borderStyle`**: ReactPropTypes.oneOf(['solid', 'dotted', 'dashed'])
+- **`borderStyle`**: ReactPropTypes.oneOf(['solid', 'dotted', 'dashed'])
 
-* **`borderTopColor`**: [color](colors.md)
+- **`borderTopColor`**: [color](colors.md)
 
-* **`borderTopLeftRadius`**: ReactPropTypes.number
+- **`borderTopLeftRadius`**: ReactPropTypes.number
 
-* **`borderTopRightRadius`**: ReactPropTypes.number
+- **`borderTopRightRadius`**: ReactPropTypes.number
 
-* **`borderTopWidth`**: ReactPropTypes.number
+- **`borderTopWidth`**: ReactPropTypes.number
 
-* **`borderWidth`**: ReactPropTypes.number
+- **`borderWidth`**: ReactPropTypes.number
 
-* **`opacity`**: ReactPropTypes.number
+- **`opacity`**: ReactPropTypes.number
 
-* **`elevation`**: ReactPropTypes.number (_Android_)
+- **`elevation`**: ReactPropTypes.number (_Android_)
 
   (Android-only) Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 
@@ -365,8 +365,8 @@ Used to manually set the starting scroll offset. The default value is `{x: 0, y:
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively.
 
-* normal: 0.998 (the default)
-* fast: 0.99
+- normal: 0.998 (the default)
+- fast: 0.99
 
 | Type                            | Required | Platform |
 | ------------------------------- | -------- | -------- |
@@ -388,9 +388,9 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 The style of the scroll indicators.
 
-* `default` (the default), same as `black`.
-* `black`, scroll indicator is black. This style is good against a white content background.
-* `white`, scroll indicator is white. This style is good against a black content background.
+- `default` (the default), same as `black`.
+- `black`, scroll indicator is black. This style is good against a white content background.
+- `white`, scroll indicator is white. This style is good against a black content background.
 
 | Type                              | Required | Platform |
 | --------------------------------- | -------- | -------- |
@@ -462,9 +462,9 @@ When true, the scroll view scrolls to top when the status bar is tapped. The def
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the snapping to the scroll view.
 
-* `start` (the default) will align the snap at the left (horizontal) or top (vertical)
-* `center` will align the snap in the center
-* `end` will align the snap at the right (horizontal) or bottom (vertical)
+- `start` (the default) will align the snap at the left (horizontal) or top (vertical)
+- `center` will align the snap in the center
+- `end` will align the snap at the right (horizontal) or bottom (vertical)
 
 | Type                           | Required | Platform |
 | ------------------------------ | -------- | -------- |

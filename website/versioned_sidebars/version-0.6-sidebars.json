@@ -33,7 +33,8 @@
       "version-0.6-integration-with-existing-apps",
       "version-0.6-running-on-device",
       "version-0.6-upgrading",
-      "version-0.6-troubleshooting"
+      "version-0.6-troubleshooting",
+      "version-0.6-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.6-native-modules-ios",
@@ -50,13 +51,6 @@
       "version-0.6-headless-js-android",
       "version-0.6-signed-apk-android",
       "version-0.6-removing-default-permissions"
-    ],
-    "Contributing": [
-      "version-0.6-contributing",
-      "version-0.6-maintainers",
-      "version-0.6-building-from-source",
-      "version-0.6-testing",
-      "version-0.6-understanding-cli"
     ],
     "Components": [
       "version-0.6-datepickerios",

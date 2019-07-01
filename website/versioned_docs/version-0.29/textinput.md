@@ -90,47 +90,47 @@ AppRegistry.registerComponent(
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`placeholder`](textinput.md#placeholder)
-- [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoFocus`](textinput.md#autofocus)
-- [`blurOnSubmit`](textinput.md#bluronsubmit)
-- [`defaultValue`](textinput.md#defaultvalue)
-- [`editable`](textinput.md#editable)
-- [`keyboardType`](textinput.md#keyboardtype)
-- [`maxLength`](textinput.md#maxlength)
-- [`multiline`](textinput.md#multiline)
-- [`onBlur`](textinput.md#onblur)
-- [`onChange`](textinput.md#onchange)
-- [`onChangeText`](textinput.md#onchangetext)
-- [`onEndEditing`](textinput.md#onendediting)
-- [`onFocus`](textinput.md#onfocus)
-- [`onLayout`](textinput.md#onlayout)
-- [`onSelectionChange`](textinput.md#onselectionchange)
-- [`onSubmitEditing`](textinput.md#onsubmitediting)
-- [`autoCorrect`](textinput.md#autocorrect)
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-- [`returnKeyType`](textinput.md#returnkeytype)
-- [`secureTextEntry`](textinput.md#securetextentry)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-- [`selectionColor`](textinput.md#selectioncolor)
-- [`style`](textinput.md#style)
-- [`value`](textinput.md#value)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`returnKeyLabel`](textinput.md#returnkeylabel)
-- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`selectionState`](textinput.md#selectionstate)
+* [`placeholder`](textinput.md#placeholder)
+* [`autoCapitalize`](textinput.md#autocapitalize)
+* [`autoFocus`](textinput.md#autofocus)
+* [`blurOnSubmit`](textinput.md#bluronsubmit)
+* [`defaultValue`](textinput.md#defaultvalue)
+* [`editable`](textinput.md#editable)
+* [`keyboardType`](textinput.md#keyboardtype)
+* [`maxLength`](textinput.md#maxlength)
+* [`multiline`](textinput.md#multiline)
+* [`onBlur`](textinput.md#onblur)
+* [`onChange`](textinput.md#onchange)
+* [`onChangeText`](textinput.md#onchangetext)
+* [`onEndEditing`](textinput.md#onendediting)
+* [`onFocus`](textinput.md#onfocus)
+* [`onLayout`](textinput.md#onlayout)
+* [`onSelectionChange`](textinput.md#onselectionchange)
+* [`onSubmitEditing`](textinput.md#onsubmitediting)
+* [`autoCorrect`](textinput.md#autocorrect)
+* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+* [`returnKeyType`](textinput.md#returnkeytype)
+* [`secureTextEntry`](textinput.md#securetextentry)
+* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
+* [`selectionColor`](textinput.md#selectioncolor)
+* [`style`](textinput.md#style)
+* [`value`](textinput.md#value)
+* [`numberOfLines`](textinput.md#numberoflines)
+* [`returnKeyLabel`](textinput.md#returnkeylabel)
+* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+* [`clearButtonMode`](textinput.md#clearbuttonmode)
+* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
+* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
+* [`keyboardAppearance`](textinput.md#keyboardappearance)
+* [`onKeyPress`](textinput.md#onkeypress)
+* [`selectionState`](textinput.md#selectionstate)
 
 ### Methods
 
-* [`isFocused`](textinput.md#isfocused)
-* [`clear`](textinput.md#clear)
+- [`isFocused`](textinput.md#isfocused)
+- [`clear`](textinput.md#clear)
 
 ---
 
@@ -152,10 +152,10 @@ The string that will be rendered before text input has been entered.
 
 Can tell `TextInput` to automatically capitalize certain characters.
 
-* `characters`: all characters.
-* `words`: first letter of each word.
-* `sentences`: first letter of each sentence (_default_).
-* `none`: don't auto capitalize anything.
+- `characters`: all characters.
+- `words`: first letter of each word.
+- `sentences`: first letter of each sentence (_default_).
+- `none`: don't auto capitalize anything.
 
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
@@ -209,9 +209,9 @@ Determines which keyboard to open, e.g.`numeric`.
 
 The following values work across platforms:
 
-* `default`
-* `numeric`
-* `email-address`
+- `default`
+- `numeric`
+- `email-address`
 
 | Type                                                                                                                                                                                | Required |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -347,29 +347,29 @@ _Cross platform_
 
 The following values work across platforms:
 
-* `done`
-* `go`
-* `next`
-* `search`
-* `send`
+- `done`
+- `go`
+- `next`
+- `search`
+- `send`
 
 _Android Only_
 
 The following values work on Android only:
 
-* `none`
-* `previous`
+- `none`
+- `previous`
 
 _iOS Only_
 
 The following values work on iOS only:
 
-* `default`
-* `emergency-call`
-* `google`
-* `join`
-* `route`
-* `yahoo`
+- `default`
+- `emergency-call`
+- `google`
+- `join`
+- `route`
+- `yahoo`
 
 | Type                                                                                                                              | Required |
 | --------------------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -513,9 +513,9 @@ An instance of `DocumentSelectionState`, this is some state that is responsible 
 
 Some functionality that can be performed with this instance is:
 
-* `blur()`
-* `focus()`
-* `update()`
+- `blur()`
+- `focus()`
+- `update()`
 
 > You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
 

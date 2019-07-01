@@ -28,7 +28,7 @@ class DraggableView extends React.Component {
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}} // Back to zero
+          {toValue: {x: 0, y: 0}}, // Back to zero
         ).start();
       },
     });
@@ -47,17 +47,17 @@ class DraggableView extends React.Component {
 
 ### Methods
 
-* [`setValue`](animatedvaluexy.md#setvalue)
-* [`setOffset`](animatedvaluexy.md#setoffset)
-* [`flattenOffset`](animatedvaluexy.md#flattenoffset)
-* [`extractOffset`](animatedvaluexy.md#extractoffset)
-* [`addListener`](animatedvaluexy.md#addlistener)
-* [`removeListener`](animatedvaluexy.md#removelistener)
-* [`removeAllListeners`](animatedvaluexy.md#removealllisteners)
-* [`stopAnimation`](animatedvaluexy.md#stopanimation)
-* [`resetAnimation`](animatedvaluexy.md#resetanimation)
-* [`getLayout`](animatedvaluexy.md#getlayout)
-* [`getTranslateTransform`](animatedvaluexy.md#gettranslatetransform)
+- [`setValue`](animatedvaluexy.md#setvalue)
+- [`setOffset`](animatedvaluexy.md#setoffset)
+- [`flattenOffset`](animatedvaluexy.md#flattenoffset)
+- [`extractOffset`](animatedvaluexy.md#extractoffset)
+- [`addListener`](animatedvaluexy.md#addlistener)
+- [`removeListener`](animatedvaluexy.md#removelistener)
+- [`removeAllListeners`](animatedvaluexy.md#removealllisteners)
+- [`stopAnimation`](animatedvaluexy.md#stopanimation)
+- [`resetAnimation`](animatedvaluexy.md#resetanimation)
+- [`getLayout`](animatedvaluexy.md#getlayout)
+- [`getTranslateTransform`](animatedvaluexy.md#gettranslatetransform)
 
 ---
 

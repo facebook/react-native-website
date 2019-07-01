@@ -7,12 +7,12 @@ It is a component to solve the common problem of views that need to move out of 
 
 Example usage:
 
-```
-import { KeyboardAvoidingView } from 'react-native';
+```javascript
+import {KeyboardAvoidingView} from 'react-native';
 
 <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
   ... your UI ...
-</KeyboardAvoidingView>
+</KeyboardAvoidingView>;
 ```
 
 ### Example
@@ -21,18 +21,12 @@ import { KeyboardAvoidingView } from 'react-native';
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
-- [`behavior`](keyboardavoidingview.md#behavior)
-- [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
-- [`enabled`](keyboardavoidingview.md#enabled)
-
-### Methods
-
-* [`relativeKeyboardHeight`](keyboardavoidingview.md#relativekeyboardheight)
-* [`onKeyboardChange`](keyboardavoidingview.md#onkeyboardchange)
-* [`onLayout`](keyboardavoidingview.md#onlayout)
+* [`behavior`](keyboardavoidingview.md#behavior)
+* [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
+* [`enabled`](keyboardavoidingview.md#enabled)
+* [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
 
 ---
 
@@ -40,17 +34,9 @@ import { KeyboardAvoidingView } from 'react-native';
 
 ## Props
 
-### `keyboardVerticalOffset`
-
-This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
 ### `behavior`
+
+Specify how to react to the presence of the keyboard.
 
 _Note: Android and iOS both interact with this prop differently._ _Android may behave better when given no behavior prop at all, whereas iOS is the opposite._
 
@@ -72,32 +58,18 @@ The style of the content container(View) when behavior is 'position'.
 
 ### `enabled`
 
-Enabled or disabled KeyboardAvoidingView.
+Enabled or disabled KeyboardAvoidingView. The default is `true`.
 
 | Type    | Required |
 | ------- | -------- |
-| boolean | Yes      |
-
-## Methods
-
-### `relativeKeyboardHeight()`
-
-```javascript
-relativeKeyboardHeight(keyboardFrame: object):
-```
+| boolean | No       |
 
 ---
 
-### `onKeyboardChange()`
+### `keyboardVerticalOffset`
 
-```javascript
-onKeyboardChange((event: object));
-```
+This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases. Defaults to 0.
 
----
-
-### `onLayout()`
-
-```javascript
-onLayout((event: ViewLayoutEvent));
-```
+| Type   | Required |
+| ------ | -------- |
+| number | No       |

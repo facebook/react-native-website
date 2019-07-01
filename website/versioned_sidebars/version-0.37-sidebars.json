@@ -33,7 +33,8 @@
       "version-0.37-integration-with-existing-apps",
       "version-0.37-running-on-device",
       "version-0.37-upgrading",
-      "version-0.37-troubleshooting"
+      "version-0.37-troubleshooting",
+      "version-0.37-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.37-native-modules-ios",
@@ -50,13 +51,6 @@
       "version-0.37-headless-js-android",
       "version-0.37-signed-apk-android",
       "version-0.37-removing-default-permissions"
-    ],
-    "Contributing": [
-      "version-0.37-contributing",
-      "version-0.37-maintainers",
-      "version-0.37-building-from-source",
-      "version-0.37-testing",
-      "version-0.37-understanding-cli"
     ],
     "Components": [
       "version-0.37-activityindicator",

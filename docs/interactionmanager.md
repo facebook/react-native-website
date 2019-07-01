@@ -7,7 +7,7 @@ InteractionManager allows long-running work to be scheduled after any interactio
 
 Applications can schedule tasks to run after interactions with the following:
 
-```
+```javascript
 InteractionManager.runAfterInteractions(() => {
   // ...long-running synchronous task...
 });
@@ -15,15 +15,15 @@ InteractionManager.runAfterInteractions(() => {
 
 Compare this to other scheduling alternatives:
 
-* requestAnimationFrame(): for code that animates a view over time.
-* setImmediate/setTimeout(): run code later, note this may delay animations.
-* runAfterInteractions(): run code later, without delaying active animations.
+- requestAnimationFrame(): for code that animates a view over time.
+- setImmediate/setTimeout(): run code later, note this may delay animations.
+- runAfterInteractions(): run code later, without delaying active animations.
 
 The touch handling system considers one or more active touches to be an 'interaction' and will delay `runAfterInteractions()` callbacks until all touches have ended or been cancelled.
 
 InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
 
-```
+```javascript
 var handle = InteractionManager.createInteractionHandle();
 // run animation... (`runAfterInteractions` tasks are queued)
 // later, on animation completion:
@@ -37,15 +37,15 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 
 ### Methods
 
-* [`runAfterInteractions`](interactionmanager.md#runafterinteractions)
-* [`createInteractionHandle`](interactionmanager.md#createinteractionhandle)
-* [`clearInteractionHandle`](interactionmanager.md#clearinteractionhandle)
-* [`setDeadline`](interactionmanager.md#setdeadline)
+- [`runAfterInteractions`](interactionmanager.md#runafterinteractions)
+- [`createInteractionHandle`](interactionmanager.md#createinteractionhandle)
+- [`clearInteractionHandle`](interactionmanager.md#clearinteractionhandle)
+- [`setDeadline`](interactionmanager.md#setdeadline)
 
 ### Properties
 
-* [`Events`](interactionmanager.md#events)
-* [`addListener`](interactionmanager.md#addlistener)
+- [`Events`](interactionmanager.md#events)
+- [`addListener`](interactionmanager.md#addlistener)
 
 ---
 

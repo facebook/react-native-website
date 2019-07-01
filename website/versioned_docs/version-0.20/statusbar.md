@@ -30,13 +30,13 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 
 ### Props
 
-* [`animated`](statusbar.md#animated)
-* [`hidden`](statusbar.md#hidden)
-* [`backgroundColor`](statusbar.md#backgroundcolor)
-* [`translucent`](statusbar.md#translucent)
-* [`barStyle`](statusbar.md#barstyle)
-* [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
-* [`showHideTransition`](statusbar.md#showhidetransition)
+- [`animated`](statusbar.md#animated)
+- [`hidden`](statusbar.md#hidden)
+- [`backgroundColor`](statusbar.md#backgroundcolor)
+- [`translucent`](statusbar.md#translucent)
+- [`barStyle`](statusbar.md#barstyle)
+- [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
+- [`showHideTransition`](statusbar.md#showhidetransition)
 
 ---
 

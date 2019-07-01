@@ -5,134 +5,142 @@ title: FlatList
 
 A performant interface for rendering simple, flat lists, supporting the most handy features:
 
-* Fully cross-platform.
-* Optional horizontal mode.
-* Configurable viewability callbacks.
-* Header support.
-* Footer support.
-* Separator support.
-* Pull to Refresh.
-* Scroll loading.
-* ScrollToIndex support.
+- Fully cross-platform.
+- Optional horizontal mode.
+- Configurable viewability callbacks.
+- Header support.
+- Footer support.
+- Separator support.
+- Pull to Refresh.
+- Scroll loading.
+- ScrollToIndex support.
+- Multiple column support.
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
 Minimal Example:
 
-    <FlatList
-      data={[{key: 'a'}, {key: 'b'}]}
-      renderItem={({item}) => <Text>{item.key}</Text>}
-    />
+```javascript
+<FlatList
+  data={[{key: 'a'}, {key: 'b'}]}
+  renderItem={({item}) => <Text>{item.key}</Text>}
+/>
+```
+
+To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
 More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
 
-* By binding the `onPressItem` handler, the props will remain `===` and `PureComponent` will prevent wasteful re-renders unless the actual `id`, `selected`, or `title` props change, even if the components rendered in `MyListItem` did not have such optimizations.
-* By passing `extraData={this.state}` to `FlatList` we make sure `FlatList` itself will re-render when the `state.selected` changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is also a `PureComponent` and the prop comparison will not show any changes.
-* `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
+- By binding the `onPressItem` handler, the props will remain `===` and `PureComponent` will prevent wasteful re-renders unless the actual `id`, `selected`, or `title` props change, even if the components rendered in `MyListItem` did not have such optimizations.
+- By passing `extraData={this.state}` to `FlatList` we make sure `FlatList` itself will re-render when the `state.selected` changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is also a `PureComponent` and the prop comparison will not show any changes.
+- `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
+```javascript
+class MyListItem extends React.PureComponent {
+  _onPress = () => {
+    this.props.onPressItem(this.props.id);
+  };
 
-    class MyListItem extends React.PureComponent {
-      _onPress = () => {
-        this.props.onPressItem(this.props.id);
-      };
+  render() {
+    const textColor = this.props.selected ? 'red' : 'black';
+    return (
+      <TouchableOpacity onPress={this._onPress}>
+        <View>
+          <Text style={{color: textColor}}>{this.props.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
 
-      render() {
-        const textColor = this.props.selected ? "red" : "black";
-        return (
-          <TouchableOpacity onPress={this._onPress}>
-            <View>
-              <Text style={{ color: textColor }}>
-                {this.props.title}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        );
-      }
-    }
+class MultiSelectList extends React.PureComponent {
+  state = {selected: (new Map(): Map<string, boolean>)};
 
-    class MultiSelectList extends React.PureComponent {
-      state = {selected: (new Map(): Map<string, boolean>)};
+  _keyExtractor = (item, index) => item.id;
 
-      _keyExtractor = (item, index) => item.id;
+  _onPressItem = (id: string) => {
+    // updater functions are preferred for transactional updates
+    this.setState((state) => {
+      // copy the map rather than modifying state.
+      const selected = new Map(state.selected);
+      selected.set(id, !selected.get(id)); // toggle
+      return {selected};
+    });
+  };
 
-      _onPressItem = (id: string) => {
-        // updater functions are preferred for transactional updates
-        this.setState((state) => {
-          // copy the map rather than modifying state.
-          const selected = new Map(state.selected);
-          selected.set(id, !selected.get(id)); // toggle
-          return {selected};
-        });
-      };
+  _renderItem = ({item}) => (
+    <MyListItem
+      id={item.id}
+      onPressItem={this._onPressItem}
+      selected={!!this.state.selected.get(item.id)}
+      title={item.title}
+    />
+  );
 
-      _renderItem = ({item}) => (
-        <MyListItem
-          id={item.id}
-          onPressItem={this._onPressItem}
-          selected={!!this.state.selected.get(item.id)}
-          title={item.title}
-        />
-      );
-
-      render() {
-        return (
-          <FlatList
-            data={this.props.data}
-            extraData={this.state}
-            keyExtractor={this._keyExtractor}
-            renderItem={this._renderItem}
-          />
-        );
-      }
-    }
+  render() {
+    return (
+      <FlatList
+        data={this.props.data}
+        extraData={this.state}
+        keyExtractor={this._keyExtractor}
+        renderItem={this._renderItem}
+      />
+    );
+  }
+}
+```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
 
-* Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-* This is a `PureComponent` which means that it will not re-render if `props` remain shallow- equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-* By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
 
 ### Props
 
-* [`ScrollView` props...](scrollview.md#props)
-* [`VirtualizedList` props...](virtualizedlist.md#props)
-* [`renderItem`](flatlist.md#renderitem)
-* [`data`](flatlist.md#data)
-* [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-* [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-* [`ListFooterComponent`](flatlist.md#listfootercomponent)
-* [`ListHeaderComponent`](flatlist.md#listheadercomponent)
-* [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
-* [`extraData`](flatlist.md#extradata)
-* [`getItemLayout`](flatlist.md#getitemlayout)
-* [`horizontal`](flatlist.md#horizontal)
-* [`initialNumToRender`](flatlist.md#initialnumtorender)
-* [`initialScrollIndex`](flatlist.md#initialscrollindex)
-* [`inverted`](flatlist.md#inverted)
-* [`keyExtractor`](flatlist.md#keyextractor)
-* [`numColumns`](flatlist.md#numcolumns)
-* [`onEndReached`](flatlist.md#onendreached)
-* [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
-* [`onRefresh`](flatlist.md#onrefresh)
-* [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
-* [`progressViewOffset`](flatlist.md#progressviewoffset)
-* [`legacyImplementation`](flatlist.md#legacyimplementation)
-* [`refreshing`](flatlist.md#refreshing)
-* [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
-* [`viewabilityConfig`](flatlist.md#viewabilityconfig)
-* [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
+- [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
+- [`data`](flatlist.md#data)
+- [`extraData`](flatlist.md#extradata)
+- [`getItemLayout`](flatlist.md#getitemlayout)
+- [`horizontal`](flatlist.md#horizontal)
+- [`initialNumToRender`](flatlist.md#initialnumtorender)
+- [`initialScrollIndex`](flatlist.md#initialscrollindex)
+- [`inverted`](flatlist.md#inverted)
+- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
+- [`keyExtractor`](flatlist.md#keyextractor)
+- [`legacyImplementation`](flatlist.md#legacyimplementation)
+- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
+- [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
+- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
+- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
+- [`numColumns`](flatlist.md#numcolumns)
+- [`onEndReached`](flatlist.md#onendreached)
+- [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
+- [`onRefresh`](flatlist.md#onrefresh)
+- [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
+- [`progressViewOffset`](flatlist.md#progressviewoffset)
+- [`refreshing`](flatlist.md#refreshing)
+- [`renderItem`](flatlist.md#renderitem)
+- [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
+- [`ScrollView` props...](scrollview.md#props)
+- [`viewabilityConfig`](flatlist.md#viewabilityconfig)
+- [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
 
 ### Methods
 
-* [`scrollToEnd`](flatlist.md#scrolltoend)
-* [`scrollToIndex`](flatlist.md#scrolltoindex)
-* [`scrollToItem`](flatlist.md#scrolltoitem)
-* [`scrollToOffset`](flatlist.md#scrolltooffset)
-* [`recordInteraction`](flatlist.md#recordinteraction)
-* [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`getScrollResponder`](flatlist.md#getScrollResponder)
+- [`getScrollableNode`](flatlist.md#getScrollableNode)
+- [`scrollToEnd`](flatlist.md#scrolltoend)
+- [`scrollToIndex`](flatlist.md#scrolltoindex)
+- [`scrollToItem`](flatlist.md#scrolltoitem)
+- [`scrollToOffset`](flatlist.md#scrolltooffset)
+- [`recordInteraction`](flatlist.md#recordinteraction)
 
 ---
 
@@ -143,7 +151,7 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 ### `renderItem`
 
 ```javascript
-renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
+renderItem({item, index, separators});
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -154,6 +162,15 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 | -------- | -------- |
 | function | Yes      |
 
+- `item` (Object): The item from `data` being rendered.
+- `index` (number): The index corresponding to this item in the `data` array.
+- `separators` (Object)
+  - `highlight` (Function)
+  - `unhighlight` (Function)
+  - `updateProps` (Function)
+    - `select` (enum('leading', 'trailing'))
+    - `newProps` (Object)
+
 Example usage:
 
 ```javascript
@@ -162,7 +179,7 @@ Example usage:
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
   )}
   data={[{title: 'Title Text', key: 'item1'}]}
-  renderItem={({item, separators}) => (
+  renderItem={({item, index, separators}) => (
     <TouchableHighlight
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
@@ -217,6 +234,16 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
@@ -224,6 +251,16 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for ListHeaderComponent
+
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
 
 ---
 
@@ -253,7 +290,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 (data, index) => {length: number, offset: number, index: number}
 ```
 
-`getItemLayout` is an optional optimization that let us skip the measurement of dynamic content if you know the height of items ahead of time. `getItemLayout` is both efficient and easy to use if you have fixed height items, for example:
+`getItemLayout` is an optional optimization that allows skipping the measurement of dynamic content if you know the size (height or width) of items ahead of time. `getItemLayout` is both efficient and easy to use if you have fixed size items, for example:
 
 ```javascript
   getItemLayout={(data, index) => (
@@ -514,7 +551,7 @@ Scrolls to the end of the content. May be janky without `getItemLayout` prop.
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 
@@ -536,10 +573,10 @@ Scrolls to the item at the specified index such that it is positioned in the vie
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'index' (number) - The index to scroll to. Required.
-* 'viewOffset' (number) - A fixed number of pixels to offset the final target position. Required.
-* 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'index' (number) - The index to scroll to. Required.
+- 'viewOffset' (number) - A fixed number of pixels to offset the final target position. Required.
+- 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---
 
@@ -561,9 +598,9 @@ Requires linear scan through data - use `scrollToIndex` instead if possible.
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'item' (object) - The item to scroll to. Required.
-* 'viewPosition' (number)
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'item' (object) - The item to scroll to. Required.
+- 'viewPosition' (number)
 
 ---
 
@@ -583,8 +620,8 @@ Scroll to a specific content pixel offset in the list.
 
 Valid `params` keys are:
 
-* 'offset' (number) - The offset to scroll to. In case of `horizontal` being true, the offset is the x-value, in any other case the offset is the y-value. Required.
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'offset' (number) - The offset to scroll to. In case of `horizontal` being true, the offset is the x-value, in any other case the offset is the y-value. Required.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 
@@ -605,3 +642,23 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getScrollResponder()`
+
+```javascript
+getScrollResponder();
+```
+
+Provides a handle to the underlying scroll responder.
+
+---
+
+### `getScrollableNode()`
+
+```javascript
+getScrollableNode();
+```
+
+Provides a handle to the underlying scroll node.

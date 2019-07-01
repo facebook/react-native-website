@@ -11,7 +11,7 @@ Although the Toolbar supports remote images for the logo, navigation and action 
 
 Example:
 
-```
+```javascript
 render: function() {
   return (
     <ToolbarAndroid
@@ -32,22 +32,22 @@ onActionSelected: function(position) {
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`overflowIcon`](toolbarandroid.md#overflowicon)
-- [`actions`](toolbarandroid.md#actions)
-- [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
-- [`logo`](toolbarandroid.md#logo)
-- [`navIcon`](toolbarandroid.md#navicon)
-- [`onActionSelected`](toolbarandroid.md#onactionselected)
-- [`onIconClicked`](toolbarandroid.md#oniconclicked)
-- [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
-- [`rtl`](toolbarandroid.md#rtl)
-- [`subtitle`](toolbarandroid.md#subtitle)
-- [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-- [`testID`](toolbarandroid.md#testid)
-- [`title`](toolbarandroid.md#title)
-- [`titleColor`](toolbarandroid.md#titlecolor)
+* [`actions`](toolbarandroid.md#actions)
+* [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
+* [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
+* [`logo`](toolbarandroid.md#logo)
+* [`navIcon`](toolbarandroid.md#navicon)
+* [`onActionSelected`](toolbarandroid.md#onactionselected)
+* [`onIconClicked`](toolbarandroid.md#oniconclicked)
+* [`overflowIcon`](toolbarandroid.md#overflowicon)
+* [`rtl`](toolbarandroid.md#rtl)
+* [`subtitle`](toolbarandroid.md#subtitle)
+* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
+* [`testID`](toolbarandroid.md#testid)
+* [`title`](toolbarandroid.md#title)
+* [`titleColor`](toolbarandroid.md#titlecolor)
 
 ---
 
@@ -55,26 +55,16 @@ onActionSelected: function(position) {
 
 ## Props
 
-### `overflowIcon`
-
-Sets the overflow icon.
-
-| Type                | Required |
-| ------------------- | -------- |
-| optionalImageSource | No       |
-
----
-
 ### `actions`
 
 Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu.
 
 This property takes an array of objects, where each object has the following keys:
 
-* `title`: **required**, the title of this action
-* `icon`: the icon for this action, e.g. `require('./some_icon.png')`
-* `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
-* `showWithText`: boolean, whether to show text alongside the icon or not
+- `title`: **required**, the title of this action
+- `icon`: the icon for this action, e.g. `require('./some_icon.png')`
+- `show`: when to show this action as an icon or hide it in the overflow menu: `always`, `ifRoom` or `never`
+- `showWithText`: boolean, whether to show text alongside the icon or not
 
 | Type                                                                                                                  | Required |
 | --------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -85,6 +75,18 @@ This property takes an array of objects, where each object has the following key
 ### `contentInsetStart`
 
 Sets the content inset for the toolbar starting edge.
+
+The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
+---
+
+### `contentInsetEnd`
+
+Sets the content inset for the toolbar ending edge.
 
 The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
 
@@ -134,15 +136,13 @@ Callback called when the icon is selected.
 
 ---
 
-### `contentInsetEnd`
+### `overflowIcon`
 
-Sets the content inset for the toolbar ending edge.
+Sets the overflow icon.
 
-The content inset affects the valid area for Toolbar content other than the navigation button and menu. Insets define the minimum margin for these components and can be used to effectively align Toolbar content along well-known gridlines.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type                | Required |
+| ------------------- | -------- |
+| optionalImageSource | No       |
 
 ---
 

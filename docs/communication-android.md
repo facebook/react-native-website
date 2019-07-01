@@ -19,7 +19,7 @@ Properties are the simplest way of cross-component communication. So we need a w
 
 You can pass properties down to the React Native app by providing a custom implementation of `ReactActivityDelegate` in your main activity. This implementation should override `getLaunchOptions` to return a `Bundle` with the desired properties.
 
-```
+```java
 public class MainActivity extends ReactActivity {
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
@@ -39,26 +39,16 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
-```
+```javascript
 import React from 'react';
-import {
-  AppRegistry,
-  View,
-  Image
-} from 'react-native';
+import {AppRegistry, View, Image} from 'react-native';
 
 class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
-    return (
-      <Image source={{uri: imgURI}} />
-    );
+    return <Image source={{uri: imgURI}} />;
   }
   render() {
-    return (
-      <View>
-        {this.props.images.map(this.renderImage)}
-      </View>
-    );
+    return <View>{this.props.images.map(this.renderImage)}</View>;
   }
 }
 
@@ -67,7 +57,7 @@ AppRegistry.registerComponent('AwesomeProject', () => ImageBrowserApp);
 
 `ReactRootView` provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.
 
-```
+```java
 Bundle updatedProps = mReactRootView.getAppProperties();
 ArrayList<String> imageList = new ArrayList<String>(Arrays.asList(
         "http://foo.com/bar3.png",
@@ -82,7 +72,7 @@ It is fine to update properties anytime. However, updates have to be performed o
 
 There is no way to update only a few properties at a time. We suggest that you build it into your own wrapper instead.
 
-> **_Note:_** Currently, JS functions `componentWillReceiveProps` and `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentWillMount` function.
+> **_Note:_** Currently, JS function `componentWillUpdateProps` of the top level RN component will not be called after a prop update. However, you can access the new props in `componentDidMount` function.
 
 ### Passing properties from React Native to native
 
@@ -106,9 +96,9 @@ Events are described in detail in [this article](native-components-android.md#ev
 
 Events are powerful, because they allow us to change React Native components without needing a reference to them. However, there are some pitfalls that you can fall into while using them:
 
-* As events can be sent from anywhere, they can introduce spaghetti-style dependencies into your project.
-* Events share namespace, which means that you may encounter some name collisions. Collisions will not be detected statically, which makes them hard to debug.
-* If you use several instances of the same React Native component and you want to distinguish them from the perspective of your event, you'll likely need to introduce identifiers and pass them along with events (you can use the native view's `reactTag` as an identifier).
+- As events can be sent from anywhere, they can introduce spaghetti-style dependencies into your project.
+- Events share namespace, which means that you may encounter some name collisions. Collisions will not be detected statically, which makes them hard to debug.
+- If you use several instances of the same React Native component and you want to distinguish them from the perspective of your event, you'll likely need to introduce identifiers and pass them along with events (you can use the native view's `reactTag` as an identifier).
 
 ### Calling native functions from React Native (native modules)
 

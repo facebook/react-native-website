@@ -6,8 +6,8 @@ original_id: modal
 
 ### Props
 
-* [`animated`](modal.md#animated)
-* [`transparent`](modal.md#transparent)
+- [`animated`](modal.md#animated)
+- [`transparent`](modal.md#transparent)
 
 ---
 

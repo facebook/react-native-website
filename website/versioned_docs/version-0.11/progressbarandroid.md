@@ -27,8 +27,8 @@ render: function() {
 
 ### Props
 
-* [`styleAttr`](progressbarandroid.md#styleattr)
-* [`testID`](progressbarandroid.md#testid)
+- [`styleAttr`](progressbarandroid.md#styleattr)
+- [`testID`](progressbarandroid.md#testid)
 
 ---
 
@@ -40,12 +40,12 @@ render: function() {
 
 Style of the ProgressBar. One of:
 
-* Horizontal
-* Small
-* Large
-* Inverse
-* SmallInverse
-* LargeInverse
+- Horizontal
+- Small
+- Large
+- Inverse
+- SmallInverse
+- LargeInverse
 
 | Type                                                                            | Required |
 | ------------------------------------------------------------------------------- | -------- |

@@ -5,9 +5,9 @@ title: Share
 
 ### Methods
 
-* [`share`](share.md#share)
-* [`sharedAction`](share.md#sharedaction)
-* [`dismissedAction`](share.md#dismissedaction)
+- [`share`](share.md#share)
+- [`sharedAction`](share.md#sharedaction)
+- [`dismissedAction`](share.md#dismissedaction)
 
 ---
 
@@ -29,12 +29,12 @@ In Android, Returns a Promise which always be resolved with action being `Share.
 
 ### Content
 
-* `message` - a message to share
-* `title` - title of the message
+- `message` - a message to share
+- `title` - title of the message
 
 #### iOS
 
-* `url` - an URL to share
+- `url` - an URL to share
 
 At least one of URL and message is required.
 
@@ -42,13 +42,13 @@ At least one of URL and message is required.
 
 #### iOS
 
-* `subject` - a subject to share via email
-* `excludedActivityTypes`
-* `tintColor`
+- `subject` - a subject to share via email
+- `excludedActivityTypes`
+- `tintColor`
 
 #### Android
 
-* `dialogTitle`
+- `dialogTitle`
 
 ---
 
@@ -68,4 +68,38 @@ The content was successfully shared.
 static dismissedAction()
 ```
 
-The dialog has been dismissed. @platform ios
+_iOS Only_. The dialog has been dismissed.
+
+## Basic Example
+
+```javascript
+import React, {Component} from 'react';
+import {Share, Button} from 'react-native';
+
+class ShareExample extends Component {
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  render() {
+    return <Button onPress={this.onShare} title="Share" />;
+  }
+}
+```

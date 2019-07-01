@@ -12,51 +12,51 @@ Doesn't yet support other contained responders from blocking this scroll view fr
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
-- [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
-- [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
-- [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
-- [`onContentSizeChange`](scrollview.md#oncontentsizechange)
-- [`onScroll`](scrollview.md#onscroll)
-- [`refreshControl`](scrollview.md#refreshcontrol)
-- [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
-- [`scrollEnabled`](scrollview.md#scrollenabled)
-- [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
-- [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
-- [`style`](scrollview.md#style)
-- [`endFillColor`](scrollview.md#endfillcolor)
-- [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
-- [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
-- [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
-- [`bounces`](scrollview.md#bounces)
-- [`bouncesZoom`](scrollview.md#bounceszoom)
-- [`horizontal`](scrollview.md#horizontal)
-- [`centerContent`](scrollview.md#centercontent)
-- [`contentInset`](scrollview.md#contentinset)
-- [`contentOffset`](scrollview.md#contentoffset)
-- [`decelerationRate`](scrollview.md#decelerationrate)
-- [`directionalLockEnabled`](scrollview.md#directionallockenabled)
-- [`indicatorStyle`](scrollview.md#indicatorstyle)
-- [`maximumZoomScale`](scrollview.md#maximumzoomscale)
-- [`minimumZoomScale`](scrollview.md#minimumzoomscale)
-- [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
-- [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
-- [`pagingEnabled`](scrollview.md#pagingenabled)
-- [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
-- [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
-- [`scrollsToTop`](scrollview.md#scrollstotop)
-- [`snapToAlignment`](scrollview.md#snaptoalignment)
-- [`snapToInterval`](scrollview.md#snaptointerval)
-- [`zoomScale`](scrollview.md#zoomscale)
-- [`onRefreshStart`](scrollview.md#onrefreshstart)
+* [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
+* [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
+* [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
+* [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
+* [`onContentSizeChange`](scrollview.md#oncontentsizechange)
+* [`onScroll`](scrollview.md#onscroll)
+* [`refreshControl`](scrollview.md#refreshcontrol)
+* [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
+* [`scrollEnabled`](scrollview.md#scrollenabled)
+* [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
+* [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
+* [`style`](scrollview.md#style)
+* [`endFillColor`](scrollview.md#endfillcolor)
+* [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
+* [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
+* [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
+* [`bounces`](scrollview.md#bounces)
+* [`bouncesZoom`](scrollview.md#bounceszoom)
+* [`horizontal`](scrollview.md#horizontal)
+* [`centerContent`](scrollview.md#centercontent)
+* [`contentInset`](scrollview.md#contentinset)
+* [`contentOffset`](scrollview.md#contentoffset)
+* [`decelerationRate`](scrollview.md#decelerationrate)
+* [`directionalLockEnabled`](scrollview.md#directionallockenabled)
+* [`indicatorStyle`](scrollview.md#indicatorstyle)
+* [`maximumZoomScale`](scrollview.md#maximumzoomscale)
+* [`minimumZoomScale`](scrollview.md#minimumzoomscale)
+* [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
+* [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
+* [`pagingEnabled`](scrollview.md#pagingenabled)
+* [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
+* [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
+* [`scrollsToTop`](scrollview.md#scrollstotop)
+* [`snapToAlignment`](scrollview.md#snaptoalignment)
+* [`snapToInterval`](scrollview.md#snaptointerval)
+* [`zoomScale`](scrollview.md#zoomscale)
+* [`onRefreshStart`](scrollview.md#onrefreshstart)
 
 ### Methods
 
-* [`endRefreshing`](scrollview.md#endrefreshing)
-* [`scrollTo`](scrollview.md#scrollto)
-* [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
+- [`endRefreshing`](scrollview.md#endrefreshing)
+- [`scrollTo`](scrollview.md#scrollto)
+- [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
 
 ---
 
@@ -90,9 +90,9 @@ return ( <ScrollView contentContainerStyle={styles.contentContainer}> </ScrollVi
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'on-drag', the keyboard is dismissed when a drag begins.
-* 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'on-drag', the keyboard is dismissed when a drag begins.
+- 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal. On android this is not supported and it will have the same behavior as 'none'.
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -192,53 +192,53 @@ When true, shows a vertical scroll indicator.
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Shadow Props...](shadow-props.md#props)
+- [Shadow Props...](shadow-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`borderRightColor`**: [color](colors.md)
+- **`borderRightColor`**: [color](colors.md)
 
-* **`backfaceVisibility`**: enum('visible', 'hidden')
+- **`backfaceVisibility`**: enum('visible', 'hidden')
 
-* **`borderBottomColor`**: [color](colors.md)
+- **`borderBottomColor`**: [color](colors.md)
 
-* **`borderBottomLeftRadius`**: number
+- **`borderBottomLeftRadius`**: number
 
-* **`borderBottomRightRadius`**: number
+- **`borderBottomRightRadius`**: number
 
-* **`borderBottomWidth`**: number
+- **`borderBottomWidth`**: number
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderLeftColor`**: [color](colors.md)
+- **`borderLeftColor`**: [color](colors.md)
 
-* **`borderLeftWidth`**: number
+- **`borderLeftWidth`**: number
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderRightWidth`**: number
+- **`borderRightWidth`**: number
 
-* **`borderStyle`**: enum('solid', 'dotted', 'dashed')
+- **`borderStyle`**: enum('solid', 'dotted', 'dashed')
 
-* **`borderTopColor`**: [color](colors.md)
+- **`borderTopColor`**: [color](colors.md)
 
-* **`borderTopLeftRadius`**: number
+- **`borderTopLeftRadius`**: number
 
-* **`borderTopRightRadius`**: number
+- **`borderTopRightRadius`**: number
 
-* **`borderTopWidth`**: number
+- **`borderTopWidth`**: number
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`elevation`**: number (_Android_)
+- **`elevation`**: number (_Android_)
 
   (Android-only) Sets the elevation of a view, using Android's underlying [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation). This adds a drop shadow to the item and affects z-order for overlapping views. Only supported on Android 5.0+, has no effect on earlier versions.
 
@@ -348,8 +348,8 @@ Used to manually set the starting scroll offset. The default value is `{x: 0, y:
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. You may also use string shortcuts `"normal"` and `"fast"` which match the underlying iOS settings for `UIScrollViewDecelerationRateNormal` and `UIScrollViewDecelerationRateFast` respectively.
 
-* normal: 0.998 (the default)
-* fast: 0.99
+- normal: 0.998 (the default)
+- fast: 0.99
 
 | Type                            | Required | Platform |
 | ------------------------------- | -------- | -------- |
@@ -371,9 +371,9 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 The style of the scroll indicators.
 
-* `default` (the default), same as `black`.
-* `black`, scroll indicator is black. This style is good against a white content background.
-* `white`, scroll indicator is white. This style is good against a black content background.
+- `default` (the default), same as `black`.
+- `black`, scroll indicator is black. This style is good against a white content background.
+- `white`, scroll indicator is white. This style is good against a black content background.
 
 | Type                              | Required | Platform |
 | --------------------------------- | -------- | -------- |
@@ -465,9 +465,9 @@ When true, the scroll view scrolls to top when the status bar is tapped. The def
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the snapping to the scroll view.
 
-* `start` (the default) will align the snap at the left (horizontal) or top (vertical)
-* `center` will align the snap in the center
-* `end` will align the snap at the right (horizontal) or bottom (vertical)
+- `start` (the default) will align the snap at the left (horizontal) or top (vertical)
+- `center` will align the snap in the center
+- `end` will align the snap at the right (horizontal) or bottom (vertical)
 
 | Type                           | Required | Platform |
 | ------------------------------ | -------- | -------- |

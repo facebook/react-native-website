@@ -6,7 +6,7 @@ original_id: tabbarios
 
 ### Props
 
-* [`style`](tabbarios.md#style)
+- [`style`](tabbarios.md#style)
 
 ---
 

@@ -15,9 +15,9 @@ Native views are created and manipulated by subclasses of `RCTViewManager`. Thes
 
 Exposing a view is simple:
 
-* Subclass `RCTViewManager` to create a manager for your component.
-* Add the `RCT_EXPORT_MODULE()` marker macro.
-* Implement the `-(UIView *)view` method.
+- Subclass `RCTViewManager` to create a manager for your component.
+- Add the `RCT_EXPORT_MODULE()` marker macro.
+- Implement the `-(UIView *)view` method.
 
 ```objectivec
 // RNTMapManager.m
@@ -30,7 +30,7 @@ Exposing a view is simple:
 
 @implementation RNTMapManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNTMap)
 
 - (UIView *)view
 {
@@ -52,7 +52,7 @@ Then you just need a little bit of JavaScript to make this a usable React compon
 import { requireNativeComponent } from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
-module.exports = requireNativeComponent('RNTMap', null);
+module.exports = requireNativeComponent('RNTMap');
 
 // MyApp.js
 
@@ -122,7 +122,7 @@ var RNTMap = requireNativeComponent('RNTMap', MapView);
 module.exports = MapView;
 ```
 
-Now we have a nicely documented wrapper component that is easy to work with. Note that we changed the second argument to `requireNativeComponent` from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props to reduce the chances of mismatches between the ObjC and JS code.
+Now we have a nicely documented wrapper component that is easy to work with. Note that we changed `requireNativeComponent`'s second argument from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props in order to reduce the chances of mismatches between the Objective-C and JavaScript code.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
@@ -272,7 +272,7 @@ Until now we've just returned a `MKMapView` instance from our manager's `-(UIVie
 @end
 ```
 
-Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
+Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
 
 ```objectivec{9,17,31-48}
 // RNTMapManager.m
@@ -378,9 +378,82 @@ class MyApp extends React.Component {
         onRegionChange={this.onRegionChange}
       />
     );
-  }  
+  }
 }
 ```
+
+## Handling multiple native views
+
+A React Native view can have more than one child view in the view tree eg.
+
+```jsx
+<View>
+  <MyNativeView />
+  <MyNativeView />
+  <Button />
+</View>
+```
+
+In this example, the class `MyNativeView` is a wrapper for a `NativeComponent` and exposes methods, which will be called on the iOS platform. `MyNativeView` is defined in `MyNativeView.ios.js` and contains proxy methods of `NativeComponent`.
+
+When the user interacts with the component, like clicking the button, the `backgroundColor` of `MyNativeView` changes. In this case `UIManager` would not know which `MyNativeView` should be handled and which one should change `backgroundColor`. Below you will find a solution to this problem:
+
+```jsx
+<View>
+  <MyNativeView ref={this.myNativeReference}>/>
+  <MyNativeView ref={this.myNativeReference2}>/>
+  <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
+</View>
+```
+
+Now the above component has a reference to a particular `MyNativeView` which allows us to use a specific instance of `MyNativeView`. Now the button can control which `MyNativeView` should change its `backgroundColor`. In this example let's assume that `callNativeMethod` changes `backgroundColor`.
+
+`MyNativeView.ios.js` contains code as follow:
+
+```jsx
+class MyNativeView extends React.Component<> {
+  callNativeMethod = () => {
+    UIManager.dispatchViewManagerCommand(
+      ReactNative.findNodeHandle(this),
+      UIManager.getViewManagerConfig('RNCMyNativeView').Commands
+        .callNativeMethod,
+      [],
+    );
+  };
+
+  render() {
+    return <NativeComponent ref={NATIVE_COMPONENT_REF} />;
+  }
+}
+```
+
+`callNativeMethod` is our custom iOS method which for example changes the `backgroundColor` which is exposed through `MyNativeView`. This method uses `UIManager.dispatchViewManagerCommand` which needs 3 parameters:
+
+- (nonnull NSNumber \*)reactTag  -  id of react view.
+- commandID:(NSInteger)commandID  -  Id of the native method that should be called
+- commandArgs:(NSArray<id> \*)commandArgs  -  Args of the native method that we can pass from JS to native.
+
+`RNCMyNativeViewManager.m`
+
+```objectivec
+#import <React/RCTViewManager.h>
+#import <React/RCTUIManager.h>
+#import <React/RCTLog.h>
+
+RCT_EXPORT_METHOD(callNativeMethod:(nonnull NSNumber*) reactTag) {
+    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
+        NativeView *view = viewRegistry[reactTag];
+        if (!view || ![view isKindOfClass:[NativeView class]]) {
+            RCTLogError(@"Cannot find NativeView with tag #%@", reactTag);
+            return;
+        }
+        [view callNativeMethod];
+    }];
+
+}
+```
+
+Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file and contains only one parameter which is `(nonnull NSNumber*) reactTag`. This exported function will find a particular view using `addUIBlock` which contains the `viewRegistry` parameter and returns the component based on `reactTag` allowing it to call the method on the correct component.
 
 ## Styles
 

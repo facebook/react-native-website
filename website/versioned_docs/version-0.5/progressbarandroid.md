@@ -27,13 +27,13 @@ render: function() {
 
 ### Props
 
-* [View props...](view.md#props)
-* [`animating`](progressbarandroid.md#animating)
-* [`color`](progressbarandroid.md#color)
-* [`indeterminate`](progressbarandroid.md#indeterminate)
-* [`progress`](progressbarandroid.md#progress)
-* [`styleAttr`](progressbarandroid.md#styleattr)
-* [`testID`](progressbarandroid.md#testid)
+- [View props...](view.md#props)
+- [`animating`](progressbarandroid.md#animating)
+- [`color`](progressbarandroid.md#color)
+- [`indeterminate`](progressbarandroid.md#indeterminate)
+- [`progress`](progressbarandroid.md#progress)
+- [`styleAttr`](progressbarandroid.md#styleattr)
+- [`testID`](progressbarandroid.md#testid)
 
 ---
 
@@ -85,13 +85,13 @@ The progress value (between 0 and 1).
 
 Style of the ProgressBar. One of:
 
-* `Horizontal`
-* `Normal` (default)
-* `Small`
-* `Large`
-* `Inverse`
-* `SmallInverse`
-* `LargeInverse`
+- `Horizontal`
+- `Normal` (default)
+- `Small`
+- `Large`
+- `Inverse`
+- `SmallInverse`
+- `LargeInverse`
 
 | Type                                                                                      | Required |
 | ----------------------------------------------------------------------------------------- | -------- |

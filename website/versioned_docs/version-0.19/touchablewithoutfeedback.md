@@ -12,18 +12,18 @@ Do not use unless you have a very good reason. All the elements that respond to 
 
 ### Props
 
-* [`onLayout`](touchablewithoutfeedback.md#onlayout)
-* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`onLayout`](touchablewithoutfeedback.md#onlayout)
+- [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+- [`accessible`](touchablewithoutfeedback.md#accessible)
+- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+- [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
+- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+- [`onPress`](touchablewithoutfeedback.md#onpress)
+- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
 
 ---
 

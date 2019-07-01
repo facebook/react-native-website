@@ -5,30 +5,53 @@ title: TouchableWithoutFeedback
 
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
 
-TouchableWithoutFeedback supports only one child. If you wish to have several child components, wrap them in a View.
+`TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
+
+### Usage Example
+
+```javascript
+function MyComponent(props) {
+  return (
+    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
+      <Text>My Component</Text>
+    </View>
+  );
+}
+
+<TouchableWithoutFeedback onPress={() => alert('Pressed!')}>
+  <MyComponent />
+</TouchableWithoutFeedback>;
+```
 
 ### Props
 
-* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-* [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
-* [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`onLayout`](touchablewithoutfeedback.md#onlayout)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`accessibilityIgnoresInvertColors`](touchablewithoutfeedback.md#accessibilityIgnoresInvertColors)
+- [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
+- [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityState`](touchablewithoutfeedback.md#accessibilityState)
+- [`accessible`](touchablewithoutfeedback.md#accessible)
+- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
+- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
+- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
+- [`disabled`](touchablewithoutfeedback.md#disabled)
+- [`hitSlop`](touchablewithoutfeedback.md#hitslop)
+- [`onBlur`](touchablewithoutfeedback.md#onblur)
+- [`onFocus`](touchablewithoutfeedback.md#onfocus)
+- [`onLayout`](touchablewithoutfeedback.md#onlayout)
+- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
+- [`onPress`](touchablewithoutfeedback.md#onpress)
+- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
+- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
+- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`nativeID`](touchablewithoutfeedback.md#nativeID)
+- [`testID`](touchablewithoutfeedback.md#testid)
+- [`touchSoundDisabled`](touchablewithoutfeedback.md#touchSoundDisabled)
 
 ### Type Definitions
 
-* [`Event`](touchablewithoutfeedback.md#event)
+- [`Event`](touchablewithoutfeedback.md#event)
 
 ---
 
@@ -36,21 +59,11 @@ TouchableWithoutFeedback supports only one child. If you wish to have several ch
 
 ## Props
 
-### `hitSlop`
+### `accessibilityIgnoresInvertColors`
 
-This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
-
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
-
----
-
-### `accessibilityComponentType`
-
-| Type                        | Required |
-| --------------------------- | -------- |
-| AccessibilityComponentTypes | No       |
+| Type       | Required |
+| -----------| -------- |
+| Boolean    | No       |
 
 ---
 
@@ -68,17 +81,33 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type | Required |
-| ---- | -------- |
-| node | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
-### `accessibilityTraits`
+### `accessibilityRole`
 
-| Type                                               | Required |
-| -------------------------------------------------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| AccessibilityRoles | No       |
+
+---
+
+### `accessibilityStates`
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| array of AccessibilityStates | No       |
+
+---
+
+### `accessibilityState`
+
+| Type       | Required |
+| ---------- | -------- |
+| Object     | No       |
 
 ---
 
@@ -127,6 +156,34 @@ If true, disable all interactions for this component.
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `hitSlop`
+
+This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+
+| Type                                                               | Required |
+| ------------------------------------------------------------------ | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       |
+
+### `onBlur`
+
+Invoked when the item loses focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onFocus`
+
+Invoked when the item receives focus.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -187,6 +244,36 @@ When the scroll view is disabled, this defines how far your touch may move off o
 | Type                                                               | Required |
 | ------------------------------------------------------------------ | -------- |
 | object: {top: number, left: number, bottom: number, right: number} | No       |
+
+---
+
+### `nativeID`
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
+### `testID`
+
+Used to locate this view in end-to-end tests.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
+### `touchSoundDisabled`
+
+If true, doesn't play a system sound on touch.
+
+| Type    | Required | Platform |
+| ------- | -------- | -------- |
+| Boolean | No       | Android  |
+
+---
 
 ## Type Definitions
 

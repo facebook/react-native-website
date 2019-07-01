@@ -17,7 +17,7 @@ class ScreenReaderStatusExample extends React.Component {
   componentDidMount() {
     AccessibilityInfo.addEventListener(
       'change',
-      this._handleScreenReaderToggled
+      this._handleScreenReaderToggled,
     );
     AccessibilityInfo.fetch().done((isEnabled) => {
       this.setState({
@@ -29,7 +29,7 @@ class ScreenReaderStatusExample extends React.Component {
   componentWillUnmount() {
     AccessibilityInfo.removeEventListener(
       'change',
-      this._handleScreenReaderToggled
+      this._handleScreenReaderToggled,
     );
   }
 
@@ -54,11 +54,11 @@ class ScreenReaderStatusExample extends React.Component {
 
 ### Methods
 
-* [`fetch`](accessibilityinfo.md#fetch)
-* [`addEventListener`](accessibilityinfo.md#addeventlistener)
-* [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
-* [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
-* [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
+- [`fetch`](accessibilityinfo.md#fetch)
+- [`addEventListener`](accessibilityinfo.md#addeventlistener)
+- [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
+- [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
+- [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
 
 ---
 
@@ -84,10 +84,10 @@ static addEventListener(eventName, handler)
 
 Add an event handler. Supported events:
 
-* `change`: Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.
-* `announcementFinished`: iOS-only event. Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:
-  * `announcement`: The string announced by the screen reader.
-  * `success`: A boolean indicating whether the announcement was successfully made.
+- `change`: Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.
+- `announcementFinished`: iOS-only event. Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:
+  - `announcement`: The string announced by the screen reader.
+  - `success`: A boolean indicating whether the announcement was successfully made.
 
 ---
 

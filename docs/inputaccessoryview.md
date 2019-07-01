@@ -51,9 +51,9 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 ### Props
 
-* [`backgroundColor`](inputaccessoryview.md#backgroundcolor)
-* [`nativeID`](inputaccessoryview.md#nativeid)
-* [`style`](inputaccessoryview.md#style)
+- [`backgroundColor`](inputaccessoryview.md#backgroundcolor)
+- [`nativeID`](inputaccessoryview.md#nativeid)
+- [`style`](inputaccessoryview.md#style)
 
 ---
 
@@ -84,3 +84,8 @@ An ID which is used to associate this `InputAccessoryView` to specified TextInpu
 | Type                         | Required |
 | ---------------------------- | -------- |
 | [style](view-style-props.md) | No       |
+
+# Known issues
+
+- [react-native#18997](https://github.com/facebook/react-native/issues/18997): Doesn't support multiline `TextInput`s
+- [react-native#20157](https://github.com/facebook/react-native/issues/20157): Can't use with a bottom tab bar

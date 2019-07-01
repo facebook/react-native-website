@@ -31,21 +31,21 @@ render: function() {
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
-- [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
-- [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
-- [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
-- [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
-- [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
-- [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
-- [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
+* [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
+* [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
+* [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
+* [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
+* [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
+* [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
+* [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
+* [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
 
 ### Methods
 
-* [`openDrawer`](drawerlayoutandroid.md#opendrawer)
-* [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
+- [`openDrawer`](drawerlayoutandroid.md#opendrawer)
+- [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
 
 ---
 
@@ -87,8 +87,8 @@ Specifies the width of the drawer, more precisely the width of the view that be 
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'on-drag', the keyboard is dismissed when a drag begins.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'on-drag', the keyboard is dismissed when a drag begins.
 
 | Type                    | Required |
 | ----------------------- | -------- |
@@ -130,9 +130,9 @@ Function called whenever there is an interaction with the navigation view.
 
 Function called when the drawer state has changed. The drawer can be in 3 states:
 
-* idle, meaning there is no interaction with the navigation view happening at the time
-* dragging, meaning there is currently an interation with the navigation view
-* settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing it's closing or opening animation
+- idle, meaning there is no interaction with the navigation view happening at the time
+- dragging, meaning there is currently an interation with the navigation view
+- settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing it's closing or opening animation
 
 | Type     | Required |
 | -------- | -------- |

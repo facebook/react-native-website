@@ -6,16 +6,16 @@ original_id: sectionlist
 
 A performant interface for rendering sectioned lists, supporting the most handy features:
 
-* Fully cross-platform.
-* Configurable viewability callbacks.
-* List header support.
-* List footer support.
-* Item separator support.
-* Section header support.
-* Section separator support.
-* Heterogeneous data and item rendering support.
-* Pull to Refresh.
-* Scroll loading.
+- Fully cross-platform.
+- Configurable viewability callbacks.
+- List header support.
+- List footer support.
+- Item separator support.
+- Section header support.
+- Section separator support.
+- Heterogeneous data and item rendering support.
+- Pull to Refresh.
+- Scroll loading.
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
@@ -41,38 +41,38 @@ Simple Examples:
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits it's props (as well as those of `ScrollView`) that aren't explicitly listed here, along with the following caveats:
 
-* Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-* This is a `PureComponent` which means that it will not re-render if `props` remain shallow- equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-* In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate ands momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-* By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
+- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
+- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
+- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate ands momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
+- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
 ### Props
 
-* [`initialNumToRender`](sectionlist.md#initialnumtorender)
-* [`keyExtractor`](sectionlist.md#keyextractor)
-* [`renderItem`](sectionlist.md#renderitem)
-* [`sections`](sectionlist.md#sections)
-* [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-* [`extraData`](sectionlist.md#extradata)
-* [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-* [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-* [`legacyImplementation`](sectionlist.md#legacyimplementation)
-* [`onEndReached`](sectionlist.md#onendreached)
-* [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-* [`onRefresh`](sectionlist.md#onrefresh)
-* [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-* [`refreshing`](sectionlist.md#refreshing)
-* [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-* [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-* [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-* [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-* [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-* [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
+- [`initialNumToRender`](sectionlist.md#initialnumtorender)
+- [`keyExtractor`](sectionlist.md#keyextractor)
+- [`renderItem`](sectionlist.md#renderitem)
+- [`sections`](sectionlist.md#sections)
+- [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
+- [`extraData`](sectionlist.md#extradata)
+- [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
+- [`ListFooterComponent`](sectionlist.md#listfootercomponent)
+- [`legacyImplementation`](sectionlist.md#legacyimplementation)
+- [`onEndReached`](sectionlist.md#onendreached)
+- [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
+- [`onRefresh`](sectionlist.md#onrefresh)
+- [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
+- [`refreshing`](sectionlist.md#refreshing)
+- [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
+- [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
+- [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
+- [`renderSectionHeader`](sectionlist.md#rendersectionheader)
+- [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
+- [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
 
 ### Methods
 
-* [`scrollToLocation`](sectionlist.md#scrolltolocation)
-* [`recordInteraction`](sectionlist.md#recordinteraction)
+- [`scrollToLocation`](sectionlist.md#scrolltolocation)
+- [`recordInteraction`](sectionlist.md#recordinteraction)
 
 ---
 
@@ -92,7 +92,7 @@ How many items to render in the initial batch. This should be enough to fill the
 
 ### `keyExtractor`
 
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks item.key, then falls back to using the index, like react does.
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like react does.
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |
@@ -124,9 +124,9 @@ General shape:
       ItemSeparatorComponent?: ?ReactClass<{highlighted: boolean, ...}>,
     }>
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| $ReadOnlyArray<SectionT> | Yes      |
+| Type                      | Required |
+| ------------------------- | -------- |
+| \$ReadOnlyArray<SectionT> | Yes      |
 
 ---
 

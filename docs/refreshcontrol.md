@@ -8,6 +8,8 @@ This component is used inside a ScrollView or ListView to add pull to refresh fu
 ### Usage example
 
 ```javascript
+import { ScrollView, RefreshControl } from 'react-native';
+
 class RefreshableList extends Component {
   constructor(props) {
     super(props);
@@ -44,18 +46,18 @@ class RefreshableList extends Component {
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`refreshing`](refreshcontrol.md#refreshing)
-- [`onRefresh`](refreshcontrol.md#onrefresh)
-- [`colors`](refreshcontrol.md#colors)
-- [`enabled`](refreshcontrol.md#enabled)
-- [`progressBackgroundColor`](refreshcontrol.md#progressbackgroundcolor)
-- [`progressViewOffset`](refreshcontrol.md#progressviewoffset)
-- [`size`](refreshcontrol.md#size)
-- [`tintColor`](refreshcontrol.md#tintcolor)
-- [`title`](refreshcontrol.md#title)
-- [`titleColor`](refreshcontrol.md#titlecolor)
+* [`refreshing`](refreshcontrol.md#refreshing)
+* [`onRefresh`](refreshcontrol.md#onrefresh)
+* [`colors`](refreshcontrol.md#colors)
+* [`enabled`](refreshcontrol.md#enabled)
+* [`progressBackgroundColor`](refreshcontrol.md#progressbackgroundcolor)
+* [`progressViewOffset`](refreshcontrol.md#progressviewoffset)
+* [`size`](refreshcontrol.md#size)
+* [`tintColor`](refreshcontrol.md#tintcolor)
+* [`title`](refreshcontrol.md#title)
+* [`titleColor`](refreshcontrol.md#titlecolor)
 
 ---
 

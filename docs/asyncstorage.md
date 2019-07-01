@@ -3,6 +3,8 @@ id: asyncstorage
 title: AsyncStorage
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
+
 `AsyncStorage` is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
 It is recommended that you use an abstraction on top of `AsyncStorage` instead of `AsyncStorage` directly for anything more than light usage since it operates globally.
@@ -13,25 +15,25 @@ The `AsyncStorage` JavaScript code is a simple facade that provides a clear Java
 
 Importing the `AsyncStorage` library:
 
-```
-import { AsyncStorage } from "react-native"
+```javascript
+import {AsyncStorage} from 'react-native';
 ```
 
 Persisting data:
 
-```
+```javascript
 _storeData = async () => {
   try {
     await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
   } catch (error) {
     // Error saving data
   }
-}
+};
 ```
 
 Fetching data:
 
-```
+```javascript
 _retrieveData = async () => {
   try {
     const value = await AsyncStorage.getItem('TASKS');
@@ -39,25 +41,25 @@ _retrieveData = async () => {
       // We have data!!
       console.log(value);
     }
-   } catch (error) {
-     // Error retrieving data
-   }
-}
+  } catch (error) {
+    // Error retrieving data
+  }
+};
 ```
 
 ### Methods
 
-* [`getItem`](asyncstorage.md#getitem)
-* [`setItem`](asyncstorage.md#setitem)
-* [`removeItem`](asyncstorage.md#removeitem)
-* [`mergeItem`](asyncstorage.md#mergeitem)
-* [`clear`](asyncstorage.md#clear)
-* [`getAllKeys`](asyncstorage.md#getallkeys)
-* [`flushGetRequests`](asyncstorage.md#flushgetrequests)
-* [`multiGet`](asyncstorage.md#multiget)
-* [`multiSet`](asyncstorage.md#multiset)
-* [`multiRemove`](asyncstorage.md#multiremove)
-* [`multiMerge`](asyncstorage.md#multimerge)
+- [`getItem`](asyncstorage.md#getitem)
+- [`setItem`](asyncstorage.md#setitem)
+- [`removeItem`](asyncstorage.md#removeitem)
+- [`mergeItem`](asyncstorage.md#mergeitem)
+- [`clear`](asyncstorage.md#clear)
+- [`getAllKeys`](asyncstorage.md#getallkeys)
+- [`flushGetRequests`](asyncstorage.md#flushgetrequests)
+- [`multiGet`](asyncstorage.md#multiget)
+- [`multiSet`](asyncstorage.md#multiset)
+- [`multiRemove`](asyncstorage.md#multiremove)
+- [`multiMerge`](asyncstorage.md#multimerge)
 
 ---
 
@@ -190,9 +192,9 @@ Gets _all_ keys known to your app; for all callers, libraries, etc. Returns a `P
 
 **Parameters:**
 
-| Name     | Type                                           | Required | Description                                                |
-| -------- | ---------------------------------------------- | -------- | ---------------------------------------------------------- |
-| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called the keys found and any error. |
+| Name     | Type                                           | Required | Description                                                     |
+| -------- | ---------------------------------------------- | -------- | --------------------------------------------------------------- |
+| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called with all keys found and any error. |
 
 ---
 

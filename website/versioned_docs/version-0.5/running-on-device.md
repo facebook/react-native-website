@@ -75,7 +75,7 @@ original_id: running-on-device
 
 It's always a good idea to test your app on an actual device before releasing it to your users. This document will guide you through the necessary steps to run your React Native app on a device and to get it ready for production.
 
-If you used Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
+If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
 
 <div class="toggler">
 
@@ -108,7 +108,7 @@ If you used Create React Native App to set up your project, you can preview your
 
 <block class="linux windows ios" />
 
-A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to the [Quick Start instructions](getting-started.md) to learn how to build your app using Create React Native App, which will allow you to run your app using the Expo client app.
+A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to the [Quick Start instructions](getting-started.md) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
 
 <block class="mac ios" />
 
@@ -122,7 +122,7 @@ If this is your first time running an app on your iOS device, you may need to re
 
 Register for an [Apple developer account](https://developer.apple.com/) if you don't have one yet.
 
-Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown.
+Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
 
 ![](/react-native/docs/assets/RunningOnDeviceCodeSigning.png)
 
@@ -268,8 +268,8 @@ If it doesn't resolve your local IP address either the **xip.io** service is dow
 
 To still use xip.io behind your router:
 
-* configure your phone to use Google DNS (8.8.8.8)
-* disable the appropriate security feature in your router
+- configure your phone to use Google DNS (8.8.8.8)
+- disable the appropriate security feature in your router
 
 <block class="mac windows linux android" />
 
@@ -333,6 +333,8 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account.
 
+> If you are using Expo then read the Expo Guide for [Building Standalone Apps](https://docs.expo.io/versions/latest/distribution/building-standalone-apps/).
+
 ### 1. Enable App Transport Security
 
 App Transport Security is a security feature introduced in iOS 9 that rejects all HTTP requests that are not sent over HTTPS. This can result in HTTP traffic being blocked, including the developer React Native server. ATS is disabled for `localhost` by default in React Native projects in order to make development easier.
@@ -349,27 +351,7 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 ![](/react-native/docs/assets/ConfigureReleaseScheme.png)
 
-### 3. Configure app to use static bundle
-
-During the development process, React Native has loaded your JavaScript code dynamically at runtime. For a production build, you want to pre-package the JavaScript bundle and distribute it inside your application. Doing this requires a code change in your code so that it knows to load the static bundle.
-
-In `AppDelegate.m`, change the default `jsCodeLocation` to point to the static bundle that is built in Release.
-
-```objc
-  jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
-```
-
-This will now reference the `main.jsbundle` resource file that is created during the `Bundle React Native code and images` Build Phase in Xcode.
-
-> Note: The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
-
-```shell
- if [ "${CONFIGURATION}" == "Debug" ]; then
-  export SKIP_BUNDLING=true
- fi
-```
-
-#### Pro Tip
+#### Pro Tips
 
 As your App Bundle grows in size, you may start to see a white screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
 
@@ -380,7 +362,15 @@ As your App Bundle grows in size, you may start to see a white screen flash betw
   rootView.loadingView = launchScreenView;
 ```
 
-### 4. Build app for release
+The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
+
+```shell
+ if [ "${CONFIGURATION}" == "Debug" ]; then
+  export SKIP_BUNDLING=true
+ fi
+```
+
+### 3. Build app for release
 
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 

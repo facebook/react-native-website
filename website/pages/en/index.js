@@ -1,21 +1,19 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require("react");
+const React = require('react');
 
-const CompLibrary = require("../../core/CompLibrary.js");
+const CompLibrary = require('../../core/CompLibrary.js');
 const MarkdownBlock = CompLibrary.MarkdownBlock;
 const Container = CompLibrary.Container;
 
-const siteConfig = require(process.cwd() + "/siteConfig.js");
+const siteConfig = require(process.cwd() + '/siteConfig.js');
 
-const pinnedApps = siteConfig.users.filter(app => {
-  return app.pinned;
-});
+const pinnedApps = siteConfig.users.filter(app => app.pinned);
 
 class Button extends React.Component {
   render() {
@@ -23,8 +21,7 @@ class Button extends React.Component {
       <a
         className="big-button"
         href={this.props.href}
-        target={this.props.target}
-      >
+        target={this.props.target}>
         {this.props.children}
       </a>
     );
@@ -36,12 +33,11 @@ class HomeCallToAction extends React.Component {
     return (
       <div>
         <Button
-          href={siteConfig.baseUrl + "docs/getting-started.html"}
-          target="_self"
-        >
+          href={siteConfig.baseUrl + 'docs/getting-started'}
+          target="_self">
           Get Started
         </Button>
-        <Button href={siteConfig.baseUrl + "docs/tutorial.html"} target="_self">
+        <Button href={siteConfig.baseUrl + 'docs/tutorial'} target="_self">
           Learn the Basics
         </Button>
       </div>
@@ -92,8 +88,8 @@ class AppList extends React.Component {
 
   _renderAppIcon(app) {
     let imgSource = app.icon;
-    if (!app.icon.startsWith("http")) {
-      imgSource = siteConfig.baseUrl + "img/showcase/" + app.icon;
+    if (!app.icon.startsWith('http')) {
+      imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
     }
     return <img src={imgSource} alt={app.name} />;
   }
@@ -110,24 +106,24 @@ class Features extends React.Component {
               <MarkdownBlock>
                 React Native lets you build mobile apps using only JavaScript.
                 It uses the same design as React, letting you compose a rich
-                mobile UI from declarative components.
+                mobile UI using declarative components.
               </MarkdownBlock>
             </div>
             <MarkdownBlock>
               {`\`\`\`javascript
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
-class WhyReactNativeIsSoGreat extends Component {
+class HelloReactNative extends Component {
   render() {
     return (
       <View>
         <Text>
-          If you like React on the web, you'll like React Native.
+          If you like React, you'll also like React Native.
         </Text>
         <Text>
-          You just use native components like 'View' and 'Text',
-          instead of web components like 'div' and 'span'.
+          Instead of 'div' and 'span', you'll use native components
+          like 'View' and 'Text'.
         </Text>
       </View>
     );
@@ -142,26 +138,25 @@ class WhyReactNativeIsSoGreat extends Component {
             <div className="blockContent">
               <h2>A React Native app is a real mobile app</h2>
               <MarkdownBlock>
-                With React Native, you don't build a "mobile web app", an "HTML5
-                app", or a "hybrid app". You build a real mobile app that's
-                indistinguishable from an app built using Objective-C or Java.
-                React Native uses the same fundamental UI building blocks as
-                regular iOS and Android apps. You just put those building blocks
-                together using JavaScript and React.
+                The apps you are building with React Native aren't mobile web
+                apps because React Native uses the same fundamental UI building
+                blocks as regular iOS and Android apps. Instead of using Swift,
+                Kotlin or Java, you are putting those building blocks together
+                using JavaScript and React.
               </MarkdownBlock>
             </div>
             <MarkdownBlock>
               {`\`\`\`javascript
-import React, { Component } from 'react';
-import { Image, ScrollView, Text } from 'react-native';
+import React, {Component} from 'react';
+import {Image, ScrollView, Text} from 'react-native';
 
-class AwkwardScrollingImageWithText extends Component {
+class ScrollingImageWithText extends Component {
   render() {
     return (
       <ScrollView>
         <Image
-          source={{uri: 'https://i.chzbgr.com/full/7345954048/h7E2C65F9/'}}
-          style={{width: 320, height:180}}
+          source={{uri: 'https://facebook.github.io/react-native/img/header_logo.png'}}
+          style={{width: 66, height: 58}}
         />
         <Text>
           On iOS, a React Native ScrollView uses a native UIScrollView.
@@ -171,7 +166,7 @@ class AwkwardScrollingImageWithText extends Component {
           On Android, it uses a native ImageView.
 
           React Native wraps the fundamental native components, giving you
-          the performance of a native app, plus the clean design of React.
+          the performance of a native app using the APIs of React.
         </Text>
       </ScrollView>
     );
@@ -190,7 +185,7 @@ class AwkwardScrollingImageWithText extends Component {
                 <MarkdownBlock>
                   React Native lets you build your app faster. Instead of
                   recompiling, you can reload your app instantly. With [Hot
-                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html),
+                  Reloading](http://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading),
                   you can even run new code while retaining your application
                   state. Give it a try - it's a magical experience.
                 </MarkdownBlock>
@@ -209,7 +204,7 @@ class AwkwardScrollingImageWithText extends Component {
               <div>
                 <MarkdownBlock>
                   React Native combines smoothly with components written in
-                  Objective-C, Java, or Swift. It's simple to drop down to
+                  Swift, Java, or Objective-C. It's simple to drop down to
                   native code if you need to optimize a few aspects of your
                   application. It's also easy to build part of your app in React
                   Native, and part of your app using native code directly -
@@ -220,18 +215,18 @@ class AwkwardScrollingImageWithText extends Component {
             <MarkdownBlock>
               {`
 \`\`\`javascript
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
-import { TheGreatestComponentInTheWorld } from './your-native-code';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
+import {MapViewComponent} from './your-native-map-implementation';
 
-class SomethingFast extends Component {
+class CustomMapView extends Component {
   render() {
     return (
       <View>
-        <TheGreatestComponentInTheWorld />
+        <MapViewComponent />
         <Text>
-          TheGreatestComponentInTheWorld could use native Objective-C,
-          Java, or Swift - the product development process is the same.
+          MapViewComponent could use native Swift, Java, or Objective-C -
+          the product development process is the same.
         </Text>
       </View>
     );
@@ -255,10 +250,8 @@ class MiniShowcase extends React.Component {
         <p>
           Thousands of apps are using React Native, from established Fortune 500
           companies to hot new startups. If you're curious to see what can be
-          accomplished with React Native,{" "}
-          <a href={siteConfig.baseUrl + "showcase.html"}>
-            check out these apps
-          </a>!
+          accomplished with React Native,{' '}
+          <a href={siteConfig.baseUrl + 'showcase'}>check out these apps</a>!
         </p>
         <div className="logos">
           <AppList apps={pinnedApps} />

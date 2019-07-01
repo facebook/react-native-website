@@ -22,10 +22,10 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 
 ## Extending React Native
 
-* Fellow developers write and publish React Native modules to npm and open source them on GitHub.
-* Making modules helps grow the React Native ecosystem and community. We recommend writing modules for your use cases and sharing them on npm.
-* Read the guides on Native Modules ([iOS](native-modules-ios.md), [Android](native-modules-android.md)) and Native UI Components ([iOS](native-components-ios.md), [Android](native-components-android.md)) if you are interested in extending native functionality.
-* Looking for a pre-built component? Check [JS.coach](https://js.coach/react-native).
+- Fellow developers write and publish React Native modules to npm and open source them on GitHub.
+- Making modules helps grow the React Native ecosystem and community. We recommend writing modules for your use cases and sharing them on npm.
+- Read the guides on Native Modules ([iOS](native-modules-ios.md), [Android](native-modules-android.md)) and Native UI Components ([iOS](native-components-ios.md), [Android](native-components-android.md)) if you are interested in extending native functionality.
+- Looking for a pre-built component? Check [JS.coach](https://js.coach/react-native) or [Native Directory](https://native.directory/) to find what the community has been creating.
 
 ## Development Tools
 
@@ -33,20 +33,12 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 
 [Ignite](https://github.com/infinitered/ignite) is a starter kit that uses Redux and a few different common UI libraries. It has a CLI to generate apps, components, and containers. If you like all of the individual tech choices, Ignite could be perfect for you.
 
-[CodePush](https://microsoft.github.io/code-push/) is a service from Microsoft that makes it easy to deploy live updates to your React Native app. If you don't like going through the app store process to deploy little tweaks, and you also don't like setting up your own backend, give CodePush a try.
+[App Center](https://appcenter.ms/) is a service from Microsoft that makes it easy to deploy live updates to your React Native app. If you don't like going through the app store process to deploy little tweaks, and you also don't like setting up your own backend, give App Center a try.
 
 [Expo](https://docs.expo.io) is a development environment plus application that focuses on letting you build React Native apps in the Expo development environment, without ever touching Xcode or Android Studio. If you wish React Native was even more JavaScripty and webby, check out Expo.
 
+[Yoga](https://yogalayout.com/) is a stand-alone layout engine that extends beyond React Native and allows product engineers to build layouts quickly for multiple platforms with a highly optimized open source layout engine designed with speed, size, and ease of use in mind.
+
+[Bugsnag](https://www.bugsnag.com/), [Microsoft App Center](https://appcenter.ms/), and [Sentry](https://sentry.io/welcome/) all provide excellent crash and error monitoring services for React and React Native apps. These services allow you to proactively monitor crashes and issues occuring on your apps in real time so you can fix them quickly and improve user experience.
+
 The [React Developer Tools](debugging.md#react-developer-tools) are great for debugging React and React Native apps.
-
-## Where React Native People Hang Out
-
-The [forum at discuss.reactjs.org](https://discuss.reactjs.org/) is a great place for discussion about best practices and application architecture as well as the future of React Native.
-
-[Reactiflux](https://discord.gg/0ZcbPKXt5bZjGY5n) is a Discord chat where a lot of React-related discussion happens, including React Native. Discord is just like Slack except it works better for open source projects with a zillion contributors. Check out the #react-native channel.
-
-The [React Twitter account](https://twitter.com/reactjs) covers both React and React Native. Follow the React Native [Twitter account](https://twitter.com/reactnative) and [blog](/react-native/blog/) to find out what's happening in the world of React Native.
-
-There are a lot of [React Native Meetups](http://www.meetup.com/topics/react-native/) that happen around the world. Often there is React Native content in React meetups as well.
-
-Sometimes we have React conferences. We posted the [videos from React.js Conf 2017](https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0), [React.js Conf 2016](https://www.youtube.com/playlist?list=PLb0IAmt7-GS0M8Q95RIc2lOM6nc77q1IY), and [React.js Conf 2015](https://www.youtube.com/watch?list=PLb0IAmt7-GS1cbw4qonlQztYV1TAW0sCr&v=KVZ-P-ZI6W4). We'll probably have more conferences in the future, too. Stay tuned. You can also find a list of dedicated React Native conferences [here](http://www.awesome-react-native.com/#conferences).

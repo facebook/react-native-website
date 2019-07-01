@@ -33,7 +33,8 @@
       "version-0.24-integration-with-existing-apps",
       "version-0.24-running-on-device",
       "version-0.24-upgrading",
-      "version-0.24-troubleshooting"
+      "version-0.24-troubleshooting",
+      "version-0.24-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.24-native-modules-ios",
@@ -50,13 +51,6 @@
       "version-0.24-headless-js-android",
       "version-0.24-signed-apk-android",
       "version-0.24-removing-default-permissions"
-    ],
-    "Contributing": [
-      "version-0.24-contributing",
-      "version-0.24-maintainers",
-      "version-0.24-building-from-source",
-      "version-0.24-testing",
-      "version-0.24-understanding-cli"
     ],
     "Components": [
       "version-0.24-datepickerios",

@@ -18,9 +18,9 @@ On iOS you can specify any number of buttons. Each button can optionally specify
 
 On Android at most three buttons can be specified. Android has a concept of a neutral, negative and a positive button:
 
-* If you specify one button, it will be the 'positive' one (such as 'OK')
-* Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
-* Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
+- If you specify one button, it will be the 'positive' one (such as 'OK')
+- Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
+- Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
 
 ```
 // Works on both iOS and Android
@@ -37,7 +37,7 @@ Alert.alert(
 
 ### Methods
 
-* [`alert`](alert.md#alert)
+- [`alert`](alert.md#alert)
 
 ---
 

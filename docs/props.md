@@ -26,7 +26,7 @@ export default class Bananas extends Component {
 AppRegistry.registerComponent('AwesomeProject', () => Bananas);
 ```
 
-Notice that `{pic}` is surrounded by braces, to embed the variable `pic` into JSX. You can put any JavaScript expression inside braces in JSX.
+Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX. You can put any JavaScript expression inside braces in JSX.
 
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `this.props` in your `render` function. Here's an example:
 
@@ -37,7 +37,9 @@ import { AppRegistry, Text, View } from 'react-native';
 class Greeting extends Component {
   render() {
     return (
-      <Text>Hello {this.props.name}!</Text>
+      <View style={{alignItems: 'center'}}>
+        <Text>Hello {this.props.name}!</Text>
+      </View>
     );
   }
 }
@@ -45,7 +47,7 @@ class Greeting extends Component {
 export default class LotsOfGreetings extends Component {
   render() {
     return (
-      <View style={{alignItems: 'center'}}>
+      <View style={{alignItems: 'center', top: 50}}>
         <Greeting name='Rexxar' />
         <Greeting name='Jaina' />
         <Greeting name='Valeera' />

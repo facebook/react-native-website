@@ -116,12 +116,12 @@
   },
   {
     "name": "Wix.com",
-    "icon": "wix.jpg",
+    "icon": "wix.png",
     "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482?mt=8",
     "linkPlayStore":
       "https://play.google.com/store/apps/details?id=com.wix.android",
-    "infoLink": "https://www.youtube.com/watch?v=abSNo2P9mMM",
-    "infoTitle": "Building a React Native App for 80 Million Users",
+    "infoLink": "https://www.wix.com/wix-lp/wix-app",
+    "infoTitle": "Get the New Wix App!",
     "pinned": true
   },
   {
@@ -183,8 +183,8 @@
     "linkAppStore":
       "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
     "infoLink":
-      "https://blog.discordapp.com/using-react-native-one-year-later-91fd5e949933",
-    "infoTitle": "Using React Native: One Year Later",
+      "https://blog.discordapp.com/why-discord-is-sticking-with-react-native-ccc34be0d427",
+    "infoTitle": "Why Discord is Sticking with React Native",
     "pinned": false
   },
   {
@@ -270,6 +270,17 @@
     "infoLink":
       "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
+    "pinned": false
+  },
+  {
+    "name": "Salesforce",
+    "icon": "salesforce.png",
+    "linkAppStore":
+      "https://itunes.apple.com/us/app/salesforce/id404249815?mt=8",
+    "linkPlayStore":
+      "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
+    "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
+    "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": false
   }
 ]

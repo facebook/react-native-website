@@ -10,41 +10,41 @@ Doesn't yet support other contained responders from blocking this scroll view fr
 
 ### Props
 
-* [`maximumZoomScale`](scrollview.md#maximumzoomscale)
-* [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
-* [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
-* [`bounces`](scrollview.md#bounces)
-* [`bouncesZoom`](scrollview.md#bounceszoom)
-* [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
-* [`centerContent`](scrollview.md#centercontent)
-* [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
-* [`contentInset`](scrollview.md#contentinset)
-* [`contentOffset`](scrollview.md#contentoffset)
-* [`decelerationRate`](scrollview.md#decelerationrate)
-* [`directionalLockEnabled`](scrollview.md#directionallockenabled)
-* [`horizontal`](scrollview.md#horizontal)
-* [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
-* [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
-* [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
-* [`minimumZoomScale`](scrollview.md#minimumzoomscale)
-* [`onScroll`](scrollview.md#onscroll)
-* [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
-* [`pagingEnabled`](scrollview.md#pagingenabled)
-* [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
-* [`scrollEnabled`](scrollview.md#scrollenabled)
-* [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
-* [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
-* [`scrollsToTop`](scrollview.md#scrollstotop)
-* [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
-* [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
-* [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
-* [`style`](scrollview.md#style)
-* [`zoomScale`](scrollview.md#zoomscale)
+- [`maximumZoomScale`](scrollview.md#maximumzoomscale)
+- [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
+- [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
+- [`bounces`](scrollview.md#bounces)
+- [`bouncesZoom`](scrollview.md#bounceszoom)
+- [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
+- [`centerContent`](scrollview.md#centercontent)
+- [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
+- [`contentInset`](scrollview.md#contentinset)
+- [`contentOffset`](scrollview.md#contentoffset)
+- [`decelerationRate`](scrollview.md#decelerationrate)
+- [`directionalLockEnabled`](scrollview.md#directionallockenabled)
+- [`horizontal`](scrollview.md#horizontal)
+- [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
+- [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
+- [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
+- [`minimumZoomScale`](scrollview.md#minimumzoomscale)
+- [`onScroll`](scrollview.md#onscroll)
+- [`onScrollAnimationEnd`](scrollview.md#onscrollanimationend)
+- [`pagingEnabled`](scrollview.md#pagingenabled)
+- [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
+- [`scrollEnabled`](scrollview.md#scrollenabled)
+- [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
+- [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
+- [`scrollsToTop`](scrollview.md#scrollstotop)
+- [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
+- [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
+- [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
+- [`style`](scrollview.md#style)
+- [`zoomScale`](scrollview.md#zoomscale)
 
 ### Methods
 
-* [`scrollTo`](scrollview.md#scrollto)
-* [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
+- [`scrollTo`](scrollview.md#scrollto)
+- [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
 
 ---
 
@@ -152,8 +152,8 @@ return ( <ScrollView contentContainerStyle={styles.contentContainer}> </ScrollVi
 
 A floating-point number that determines how quickly the scroll view decelerates after the user lifts their finger. Reasonable choices include
 
-* Normal: 0.998 (the default)
-* Fast: 0.9
+- Normal: 0.998 (the default)
+- Fast: 0.9
 
 | Type   | Required |
 | ------ | -------- |
@@ -185,9 +185,9 @@ When true, the scroll view's children are arranged horizontally in a row instead
 
 Determines whether the keyboard gets dismissed in response to a drag.
 
-* 'none' (the default), drags do not dismiss the keyboard.
-* 'onDrag', the keyboard is dismissed when a drag begins.
-* 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal.
+- 'none' (the default), drags do not dismiss the keyboard.
+- 'onDrag', the keyboard is dismissed when a drag begins.
+- 'interactive', the keyboard is dismissed interactively with the drag and moves in synchrony with the touch; dragging upwards cancels the dismissal.
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |
@@ -327,43 +327,43 @@ An array of child indices determining which children get docked to the top of th
 | ----- | -------- |
 | style | No       |
 
-* [Layout Props...](layout-props.md#props)
+- [Layout Props...](layout-props.md#props)
 
-* [Transforms...](transforms.md#props)
+- [Transforms...](transforms.md#props)
 
-* **`borderTopColor`**: string
+- **`borderTopColor`**: string
 
-* **`backgroundColor`**: string
+- **`backgroundColor`**: string
 
-* **`borderBottomLeftRadius`**: number
+- **`borderBottomLeftRadius`**: number
 
-* **`borderBottomRightRadius`**: number
+- **`borderBottomRightRadius`**: number
 
-* **`borderColor`**: string
+- **`borderColor`**: string
 
-* **`borderLeftColor`**: string
+- **`borderLeftColor`**: string
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderRightColor`**: string
+- **`borderRightColor`**: string
 
-* **`borderBottomColor`**: string
+- **`borderBottomColor`**: string
 
-* **`borderTopLeftRadius`**: number
+- **`borderTopLeftRadius`**: number
 
-* **`borderTopRightRadius`**: number
+- **`borderTopRightRadius`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`shadowColor`**: string
+- **`shadowColor`**: string
 
-* **`shadowOffset`**: object: {width: number,height: number}
+- **`shadowOffset`**: object: {width: number,height: number}
 
-* **`shadowOpacity`**: number
+- **`shadowOpacity`**: number
 
-* **`shadowRadius`**: number
+- **`shadowRadius`**: number
 
 ---
 

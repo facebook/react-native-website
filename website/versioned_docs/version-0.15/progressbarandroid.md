@@ -27,9 +27,9 @@ render: function() {
 
 ### Props
 
-* [`color`](progressbarandroid.md#color)
-* [`styleAttr`](progressbarandroid.md#styleattr)
-* [`testID`](progressbarandroid.md#testid)
+- [`color`](progressbarandroid.md#color)
+- [`styleAttr`](progressbarandroid.md#styleattr)
+- [`testID`](progressbarandroid.md#testid)
 
 ---
 
@@ -51,12 +51,12 @@ Color of the progress bar.
 
 Style of the ProgressBar. One of:
 
-* Horizontal
-* Small
-* Large
-* Inverse
-* SmallInverse
-* LargeInverse
+- Horizontal
+- Small
+- Large
+- Inverse
+- SmallInverse
+- LargeInverse
 
 | Type                                                                            | Required |
 | ------------------------------------------------------------------------------- | -------- |

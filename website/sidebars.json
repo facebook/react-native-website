@@ -16,6 +16,7 @@
       "more-resources"
     ],
     "Guides": [
+      "optimizing-flatlist-configuration",
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -35,7 +36,8 @@
       "running-on-device",
       "upgrading",
       "troubleshooting",
-      "native-modules-setup"
+      "native-modules-setup",
+      "out-of-tree-platforms"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -51,14 +53,9 @@
       "headless-js-android",
       "signed-apk-android",
       "removing-default-permissions"
-    ],
-    "Contributing": [
-      "contributing",
-      "maintainers",
-      "building-from-source",
-      "testing",
-      "understanding-cli"
-    ],
+    ]
+  },
+  "api": {
     "Components": [
       "activityindicator",
       "button",
@@ -66,12 +63,11 @@
       "drawerlayoutandroid",
       "flatlist",
       "image",
+      "imagebackground",
       "inputaccessoryview",
       "keyboardavoidingview",
-      "listview",
       "maskedviewios",
       "modal",
-      "navigatorios",
       "picker",
       "pickerios",
       "progressbarandroid",
@@ -82,7 +78,6 @@
       "sectionlist",
       "segmentedcontrolios",
       "slider",
-      "snapshotviewios",
       "statusbar",
       "switch",
       "tabbarios",
@@ -96,8 +91,7 @@
       "touchablewithoutfeedback",
       "view",
       "viewpagerandroid",
-      "virtualizedlist",
-      "webview"
+      "virtualizedlist"
     ],
     "APIs": [
       "accessibilityinfo",
@@ -108,25 +102,19 @@
       "appregistry",
       "appstate",
       "asyncstorage",
-      "backandroid",
       "backhandler",
-      "cameraroll",
       "clipboard",
       "datepickerandroid",
       "dimensions",
       "easing",
-      "geolocation",
       "imageeditor",
       "imagepickerios",
-      "imagestore",
       "image-style-props",
       "interactionmanager",
       "keyboard",
       "layout-props",
       "layoutanimation",
       "linking",
-      "listviewdatasource",
-      "netinfo",
       "panresponder",
       "permissionsandroid",
       "pixelratio",
@@ -142,7 +130,6 @@
       "toastandroid",
       "transforms",
       "vibration",
-      "vibrationios",
       "view-style-props"
     ]
   }

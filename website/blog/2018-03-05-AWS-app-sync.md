@@ -12,8 +12,8 @@ AWS is well known in the technology industry as a provider of cloud services. Th
 
 This blog post talks about some interesting things for React and React Native developers:
 
-* [**AWS Amplify**](https://github.com/aws/aws-amplify), a declarative library for JavaScript applications using cloud services
-* [**AWS AppSync**](https://aws.amazon.com/appsync/), a fully managed GraphQL service with offline and real-time features
+- [**AWS Amplify**](https://github.com/aws/aws-amplify), a declarative library for JavaScript applications using cloud services
+- [**AWS AppSync**](https://aws.amazon.com/appsync/), a fully managed GraphQL service with offline and real-time features
 
 ## AWS Amplify
 
@@ -35,12 +35,12 @@ Auth.confirmSignIn(user, code)
 
 In the code above, you can see an example of some of the common tasks that Amplify helps you with, such as using multi-factor authentication (MFA) codes with either email or SMS. The supported categories today are:
 
-* **Auth**: Provides credential automation. Out-of-the-box implementation uses AWS credentials for signing, and OIDC JWT tokens from [Amazon Cognito](https://aws.amazon.com/cognito/). Common functionality, such as MFA features, is supported.
-* **Analytics**: With a single line of code, get tracking for authenticated or unauthenticated users in [Amazon Pinpoint](https://aws.amazon.com/pinpoint/). Extend this for custom metrics or attributes, as you prefer.
-* **API**: Provides interaction with RESTful APIs in a secure manner, leveraging [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). The API module is great on serverless infrastructures with [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
-* **Storage**: Simplified commands to upload, download, and list content in [Amazon S3](https://aws.amazon.com/s3/). You can also easily group data into public or private content on a per-user basis.
-* **Caching**: An LRU cache interface across web apps and React Native that uses implementation-specific persistence.
-* **i18n and Logging**: Provides internationalization and localization capabilities, as well as debugging and logging capabilities.
+- **Auth**: Provides credential automation. Out-of-the-box implementation uses AWS credentials for signing, and OIDC JWT tokens from [Amazon Cognito](https://aws.amazon.com/cognito/). Common functionality, such as MFA features, is supported.
+- **Analytics**: With a single line of code, get tracking for authenticated or unauthenticated users in [Amazon Pinpoint](https://aws.amazon.com/pinpoint/). Extend this for custom metrics or attributes, as you prefer.
+- **API**: Provides interaction with RESTful APIs in a secure manner, leveraging [AWS Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html). The API module is great on serverless infrastructures with [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
+- **Storage**: Simplified commands to upload, download, and list content in [Amazon S3](https://aws.amazon.com/s3/). You can also easily group data into public or private content on a per-user basis.
+- **Caching**: An LRU cache interface across web apps and React Native that uses implementation-specific persistence.
+- **i18n and Logging**: Provides internationalization and localization capabilities, as well as debugging and logging capabilities.
 
 One of the nice things about Amplify is that it encodes "best practices" in the design for your specific programming environment. For example, one thing we found working with customers and React Native developers is that shortcuts taken during development to get things working quickly would make it through to production stacks. These can compromise either scalability or security, and force infrastructure rearchitecture and code refactoring.
 

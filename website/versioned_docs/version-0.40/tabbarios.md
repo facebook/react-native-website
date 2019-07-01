@@ -6,15 +6,15 @@ original_id: tabbarios
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`barTintColor`](tabbarios.md#bartintcolor)
-- [`itemPositioning`](tabbarios.md#itempositioning)
-- [`style`](tabbarios.md#style)
-- [`tintColor`](tabbarios.md#tintcolor)
-- [`translucent`](tabbarios.md#translucent)
-- [`unselectedItemTintColor`](tabbarios.md#unselecteditemtintcolor)
-- [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
+* [`barTintColor`](tabbarios.md#bartintcolor)
+* [`itemPositioning`](tabbarios.md#itempositioning)
+* [`style`](tabbarios.md#style)
+* [`tintColor`](tabbarios.md#tintcolor)
+* [`translucent`](tabbarios.md#translucent)
+* [`unselectedItemTintColor`](tabbarios.md#unselecteditemtintcolor)
+* [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
 
 ---
 
@@ -26,9 +26,9 @@ original_id: tabbarios
 
 Background color of the tab bar
 
-| Type       | Required |
-| ---------- | -------- |
-| $FlowFixMe | No       |
+| Type        | Required |
+| ----------- | -------- |
+| \$FlowFixMe | No       |
 
 ---
 
@@ -36,9 +36,9 @@ Background color of the tab bar
 
 Specifies tab bar item positioning. Available values are:
 
-* fill - distributes items across the entire width of the tab bar
-* center - centers item in the available tab bar space
-* auto (default) - distributes items dynamically according to the user interface idiom. In a horizontally compact environment (e.g. iPhone 5) this value defaults to `fill`, in a horizontally regular one (e.g. iPad) it defaults to center.
+- fill - distributes items across the entire width of the tab bar
+- center - centers item in the available tab bar space
+- auto (default) - distributes items dynamically according to the user interface idiom. In a horizontally compact environment (e.g. iPhone 5) this value defaults to `fill`, in a horizontally regular one (e.g. iPad) it defaults to center.
 
 | Type                          | Required |
 | ----------------------------- | -------- |
@@ -48,9 +48,9 @@ Specifies tab bar item positioning. Available values are:
 
 ### `style`
 
-| Type       | Required |
-| ---------- | -------- |
-| $FlowFixMe | No       |
+| Type        | Required |
+| ----------- | -------- |
+| \$FlowFixMe | No       |
 
 ---
 
@@ -58,9 +58,9 @@ Specifies tab bar item positioning. Available values are:
 
 Color of the currently selected tab icon
 
-| Type       | Required |
-| ---------- | -------- |
-| $FlowFixMe | No       |
+| Type        | Required |
+| ----------- | -------- |
+| \$FlowFixMe | No       |
 
 ---
 
@@ -78,9 +78,9 @@ A Boolean value that indicates whether the tab bar is translucent
 
 Color of unselected tab icons. Available since iOS 10.
 
-| Type       | Required |
-| ---------- | -------- |
-| $FlowFixMe | No       |
+| Type        | Required |
+| ----------- | -------- |
+| \$FlowFixMe | No       |
 
 ---
 
@@ -88,6 +88,6 @@ Color of unselected tab icons. Available since iOS 10.
 
 Color of text on unselected tabs
 
-| Type       | Required |
-| ---------- | -------- |
-| $FlowFixMe | No       |
+| Type        | Required |
+| ----------- | -------- |
+| \$FlowFixMe | No       |

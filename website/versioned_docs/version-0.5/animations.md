@@ -165,7 +165,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
   }}
 ```
 
-[`interpolate()`](animated.md#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get an negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
+[`interpolate()`](animated.md#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
 
 ```javascript
 value.interpolate({
@@ -251,8 +251,8 @@ onPanResponderMove={Animated.event(
 
 You may notice that there is no obvious way to read the current value while animating. This is because the value may only be known in the native runtime due to optimizations. If you need to run JavaScript in response to the current value, there are two approaches:
 
-* `spring.stopAnimation(callback)` will stop the animation and invoke `callback` with the final value. This is useful when making gesture transitions.
-* `spring.addListener(callback)` will invoke `callback` asynchronously while the animation is running, providing a recent value. This is useful for triggering state changes, for example snapping a bobble to a new option as the user drags it closer, because these larger state changes are less sensitive to a few frames of lag compared to continuous gestures like panning which need to run at 60 fps.
+- `spring.stopAnimation(callback)` will stop the animation and invoke `callback` with the final value. This is useful when making gesture transitions.
+- `spring.addListener(callback)` will invoke `callback` asynchronously while the animation is running, providing a recent value. This is useful for triggering state changes, for example snapping a bobble to a new option as the user drags it closer, because these larger state changes are less sensitive to a few frames of lag compared to continuous gestures like panning which need to run at 60 fps.
 
 `Animated` is designed to be fully serializable so that animations can be run in a high performance way, independent of the normal JavaScript event loop. This does influence the API, so keep that in mind when it seems a little trickier to do something compared to a fully synchronous system. Check out `Animated.Value.addListener` as a way to work around some of these limitations, but use it sparingly since it might have performance implications in the future.
 
@@ -272,7 +272,7 @@ Animated.timing(this.state.animatedValue, {
 
 Animated values are only compatible with one driver so if you use native driver when starting an animation on a value, make sure every animation on that value also uses the native driver.
 
-The native driver also works with `Animated.event`. This is specially useful for animations that follow the scroll position as without the native driver, the animation will always run a frame behind the gesture due to the async nature of React Native.
+The native driver also works with `Animated.event`. This is especially useful for animations that follow the scroll position as without the native driver, the animation will always run a frame behind the gesture due to the async nature of React Native.
 
 ```javascript
 <Animated.ScrollView // <-- Use the Animated ScrollView wrapper
@@ -285,7 +285,7 @@ The native driver also works with `Animated.event`. This is specially useful for
         },
       },
     ],
-    {useNativeDriver: true} // <-- Add this
+    {useNativeDriver: true}, // <-- Add this
   )}>
   {content}
 </Animated.ScrollView>
@@ -319,8 +319,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 
 The RNTester app has various examples of `Animated` in use:
 
-* [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/AnimatedGratuitousApp)
-* [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)
+- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/AnimatedGratuitousApp)
+- [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/NativeAnimationsExample.js)
 
 ## `LayoutAnimation` API
 

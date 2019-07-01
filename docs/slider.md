@@ -3,28 +3,30 @@ id: slider
 title: Slider
 ---
 
+> **Deprecated.** Use [react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider) instead.
+
 A component used to select a single value from a range of values.
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`style`](slider.md#style)
-- [`disabled`](slider.md#disabled)
-- [`maximumValue`](slider.md#maximumvalue)
-- [`minimumTrackTintColor`](slider.md#minimumtracktintcolor)
-- [`minimumValue`](slider.md#minimumvalue)
-- [`onSlidingComplete`](slider.md#onslidingcomplete)
-- [`onValueChange`](slider.md#onvaluechange)
-- [`step`](slider.md#step)
-- [`maximumTrackTintColor`](slider.md#maximumtracktintcolor)
-- [`testID`](slider.md#testid)
-- [`value`](slider.md#value)
-- [`thumbTintColor`](slider.md#thumbtintcolor)
-- [`maximumTrackImage`](slider.md#maximumtrackimage)
-- [`minimumTrackImage`](slider.md#minimumtrackimage)
-- [`thumbImage`](slider.md#thumbimage)
-- [`trackImage`](slider.md#trackimage)
+* [`style`](slider.md#style)
+* [`disabled`](slider.md#disabled)
+* [`maximumValue`](slider.md#maximumvalue)
+* [`minimumTrackTintColor`](slider.md#minimumtracktintcolor)
+* [`minimumValue`](slider.md#minimumvalue)
+* [`onSlidingComplete`](slider.md#onslidingcomplete)
+* [`onValueChange`](slider.md#onvaluechange)
+* [`step`](slider.md#step)
+* [`maximumTrackTintColor`](slider.md#maximumtracktintcolor)
+* [`testID`](slider.md#testid)
+* [`value`](slider.md#value)
+* [`thumbTintColor`](slider.md#thumbtintcolor)
+* [`maximumTrackImage`](slider.md#maximumtrackimage)
+* [`minimumTrackImage`](slider.md#minimumtrackimage)
+* [`thumbImage`](slider.md#thumbimage)
+* [`trackImage`](slider.md#trackimage)
 
 ---
 
@@ -146,11 +148,11 @@ _This is not a controlled component_, you don't need to update the value during 
 
 ### `thumbTintColor`
 
-Color of the foreground switch grip.
+The color used to tint the default thumb images on iOS, or the color of the foreground switch grip on Android.
 
-| Type               | Required | Platform |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | No       | Android  |
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 

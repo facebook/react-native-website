@@ -16,9 +16,9 @@ Native views are created and manipulated by subclasses of `RCTViewManager`. Thes
 
 Exposing a view is simple:
 
-* Subclass `RCTViewManager` to create a manager for your component.
-* Add the `RCT_EXPORT_MODULE()` marker macro.
-* Implement the `-(UIView *)view` method.
+- Subclass `RCTViewManager` to create a manager for your component.
+- Add the `RCT_EXPORT_MODULE()` marker macro.
+- Implement the `-(UIView *)view` method.
 
 ```objectivec
 // RNTMapManager.m
@@ -31,7 +31,7 @@ Exposing a view is simple:
 
 @implementation RNTMapManager
 
-RCT_EXPORT_MODULE()
+RCT_EXPORT_MODULE(RNTMap)
 
 - (UIView *)view
 {
@@ -53,7 +53,7 @@ Then you just need a little bit of JavaScript to make this a usable React compon
 import { requireNativeComponent } from 'react-native';
 
 // requireNativeComponent automatically resolves 'RNTMap' to 'RNTMapManager'
-module.exports = requireNativeComponent('RNTMap', null);
+module.exports = requireNativeComponent('RNTMap');
 
 // MyApp.js
 
@@ -123,7 +123,7 @@ var RNTMap = requireNativeComponent('RNTMap', MapView);
 module.exports = MapView;
 ```
 
-Now we have a nicely documented wrapper component that is easy to work with. Note that we changed the second argument to `requireNativeComponent` from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props to reduce the chances of mismatches between the ObjC and JS code.
+Now we have a nicely documented wrapper component that is easy to work with. Note that we changed `requireNativeComponent`'s second argument from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props in order to reduce the chances of mismatches between the Objective-C and JavaScript code.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
@@ -273,7 +273,7 @@ Until now we've just returned a `MKMapView` instance from our manager's `-(UIVie
 @end
 ```
 
-Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
+Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
 
 ```objectivec{9,17,31-48}
 // RNTMapManager.m
@@ -379,7 +379,7 @@ class MyApp extends React.Component {
         onRegionChange={this.onRegionChange}
       />
     );
-  }  
+  }
 }
 ```
 

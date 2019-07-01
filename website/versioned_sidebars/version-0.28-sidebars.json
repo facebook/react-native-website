@@ -33,7 +33,8 @@
       "version-0.28-integration-with-existing-apps",
       "version-0.28-running-on-device",
       "version-0.28-upgrading",
-      "version-0.28-troubleshooting"
+      "version-0.28-troubleshooting",
+      "version-0.28-native-modules-setup"
     ],
     "Guides (iOS)": [
       "version-0.28-native-modules-ios",
@@ -50,13 +51,6 @@
       "version-0.28-headless-js-android",
       "version-0.28-signed-apk-android",
       "version-0.28-removing-default-permissions"
-    ],
-    "Contributing": [
-      "version-0.28-contributing",
-      "version-0.28-maintainers",
-      "version-0.28-building-from-source",
-      "version-0.28-testing",
-      "version-0.28-understanding-cli"
     ],
     "Components": [
       "version-0.28-activityindicator",

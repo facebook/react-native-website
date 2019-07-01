@@ -5,25 +5,26 @@ title: Text Style Props
 
 ### Props
 
-* [`textShadowOffset`](text-style-props.md#textshadowoffset)
-* [`color`](text-style-props.md#color)
-* [`fontSize`](text-style-props.md#fontsize)
-* [`fontStyle`](text-style-props.md#fontstyle)
-* [`fontWeight`](text-style-props.md#fontweight)
-* [`lineHeight`](text-style-props.md#lineheight)
-* [`textAlign`](text-style-props.md#textalign)
-* [`textDecorationLine`](text-style-props.md#textdecorationline)
-* [`textShadowColor`](text-style-props.md#textshadowcolor)
-* [`fontFamily`](text-style-props.md#fontfamily)
-* [`textShadowRadius`](text-style-props.md#textshadowradius)
-* [`includeFontPadding`](text-style-props.md#includefontpadding)
-* [`textAlignVertical`](text-style-props.md#textalignvertical)
-* [`fontVariant`](text-style-props.md#fontvariant)
-* [`letterSpacing`](text-style-props.md#letterspacing)
-* [`textDecorationColor`](text-style-props.md#textdecorationcolor)
-* [`textDecorationStyle`](text-style-props.md#textdecorationstyle)
-* [`textTransform`](text-style-props.md#texttransform)
-* [`writingDirection`](text-style-props.md#writingdirection)
+- [`View style props...`](view-style-props.md)
+- [`textShadowOffset`](text-style-props.md#textshadowoffset)
+- [`color`](text-style-props.md#color)
+- [`fontSize`](text-style-props.md#fontsize)
+- [`fontStyle`](text-style-props.md#fontstyle)
+- [`fontWeight`](text-style-props.md#fontweight)
+- [`lineHeight`](text-style-props.md#lineheight)
+- [`textAlign`](text-style-props.md#textalign)
+- [`textDecorationLine`](text-style-props.md#textdecorationline)
+- [`textShadowColor`](text-style-props.md#textshadowcolor)
+- [`fontFamily`](text-style-props.md#fontfamily)
+- [`textShadowRadius`](text-style-props.md#textshadowradius)
+- [`includeFontPadding`](text-style-props.md#includefontpadding)
+- [`textAlignVertical`](text-style-props.md#textalignvertical)
+- [`fontVariant`](text-style-props.md#fontvariant)
+- [`letterSpacing`](text-style-props.md#letterspacing)
+- [`textDecorationColor`](text-style-props.md#textdecorationcolor)
+- [`textDecorationStyle`](text-style-props.md#textdecorationstyle)
+- [`textTransform`](text-style-props.md#texttransform)
+- [`writingDirection`](text-style-props.md#writingdirection)
 
 ---
 
@@ -151,9 +152,9 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `letterSpacing`
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   | Required | Platform            |
+| ------ | -------- | ------------------- |
+| number | No       | iOS, Android >= 5.0 |
 
 ---
 
@@ -175,9 +176,9 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `textTransform`
 
-| Type                                                 | Required | Platform |
-| ---------------------------------------------------- | -------- | -------- |
-| enum('none', 'uppercase', 'lowercase', 'capitalize') | No       | iOS      |
+| Type                                                 | Required |
+| ---------------------------------------------------- | -------- |
+| enum('none', 'uppercase', 'lowercase', 'capitalize') | No       |
 
 ---
 
