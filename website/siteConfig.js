@@ -42,7 +42,7 @@ const siteConfig = {
   favicon: 'img/favicon.png',
   colors: {
     primaryColor: 'rgb(34, 34, 34)',
-    secondaryColor: 'rgba(255, 255, 255, 0.8)',
+    secondaryColor: 'rgba(255, 255, 255, 0.9)',
     tintColor: '#f4f4f8',
     backgroundColor: 'white',
   },
