@@ -60,6 +60,8 @@ Only animatable components can be animated. These special components do the magi
 - `Animated.ScrollView`
 - `Animated.Text`
 - `Animated.View`
+- `Animated.FlatList`
+- `Animated.SectionList`
 
 ### Composing animations
 
