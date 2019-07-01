@@ -5,9 +5,9 @@ const MarkdownBlock = CompLibrary.MarkdownBlock;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 const {baseUrl} = siteConfig;
 
-function ActionButton({href, target, children}) {
+function ActionButton({href, type = 'primary', target, children}) {
   return (
-    <a className="ActionButton" href={href} target={target}>
+    <a className={`ActionButton ${type}`} href={href} target={target}>
       {children}
     </a>
   );
@@ -16,10 +16,16 @@ function ActionButton({href, target, children}) {
 function HomeCallToAction() {
   return (
     <div>
-      <ActionButton href={baseUrl + 'docs/getting-started'} target="_self">
+      <ActionButton
+        type="primary"
+        href={baseUrl + 'docs/getting-started'}
+        target="_self">
         Get started
       </ActionButton>
-      <ActionButton href={baseUrl + 'docs/tutorial'} target="_self">
+      <ActionButton
+        type="secondary"
+        href={baseUrl + 'docs/tutorial'}
+        target="_self">
         Learn basics
       </ActionButton>
     </div>

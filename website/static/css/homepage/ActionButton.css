@@ -1,15 +1,32 @@
 .ActionButton {
   text-align: center;
-  background-color: $secondaryColor;
-  color: white;
   padding: 0.75rem 1.5rem;
   font-size: 1.25rem;
   font-weight: 300;
-  margin-right: 1.5rem;
   text-decoration: none !important;
 }
 
-.ActionButton:hover {
+.ActionButton.primary {
+  color: $primaryColor;
+  background-color: $secondaryColor;
+}
+
+.ActionButton.primary:hover {
+  color: black;
+  background-color: white;
+}
+
+.ActionButton.secondary {
+  background: none;
+  color: $secondaryColor;
+}
+
+.ActionButton.secondary::after {
+  content: "›";
+  font-size: 24px;
+  margin-left: 5px;
+}
+
+.ActionButton.secondary:hover {
   color: white;
-  background-color: #777780;
 }
