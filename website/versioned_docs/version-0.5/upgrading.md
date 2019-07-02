@@ -20,11 +20,9 @@ Because typical React Native projects are essentially made up of an Android proj
 
 The [React Native CLI](https://github.com/react-native-community/cli) comes with `upgrade` command that provides a one-step operation to upgrade the source files with a minimum of conflicts, it internally uses [rn-diff-purge](https://github.com/react-native-community/rn-diff-purge) project to find out which files need to be created, removed or modified.
 
-#### Upgrade based on Git
+#### 1. Run the `upgrade` command
 
-The `upgrade` command works on top of Git by using `git apply` with 3-way merge, therefore it's required to use Git in order for this to work, if you don't use Git but still want to use this solution then you can check out how to do it in the [Troubleshooting](#i-want-to-upgrade-with-react-native-cli-but-i-don-t-use-git) section.
-
-##### 1. Run the `upgrade` command
+> The `upgrade` command works on top of Git by using `git apply` with 3-way merge, therefore it's required to use Git in order for this to work, if you don't use Git but still want to use this solution then you can check out how to do it in the [Troubleshooting](#i-want-to-upgrade-with-react-native-cli-but-i-don-t-use-git) section.
 
 Run the following command to start the process of upgrading to the latest version:
 
