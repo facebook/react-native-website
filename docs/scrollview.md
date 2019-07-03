@@ -417,7 +417,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop.
+Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. The event has the shape `{ nativeEvent: { contentInset: { bottom, left, right, top }, contentOffset: { x, y }, contentSize: { height, width }, layoutMeasurement: { height, width }, zoomScale } }`. All values are numbers.
 
 | Type     | Required |
 | -------- | -------- |
