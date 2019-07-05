@@ -96,4 +96,4 @@ Size of the indicator (default is 'small'). Passing a number to the size prop is
 
 | Type                            | Required |
 | ------------------------------- | -------- |
-| enum('small', 'large'), ,number | No       |
+| enum('small', 'large'), number | No       |
