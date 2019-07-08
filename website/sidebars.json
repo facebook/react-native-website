@@ -100,6 +100,7 @@
       "alertios",
       "animated",
       "appregistry",
+      "bundleregistry",
       "appstate",
       "asyncstorage",
       "backhandler",

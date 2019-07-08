@@ -53,6 +53,9 @@
       "building-for-apple-tv": {
         "title": "Building For TV Devices"
       },
+      "bundleregistry": {
+        "title": "BundleRegistry"
+      },
       "button": {
         "title": "Button"
       },
