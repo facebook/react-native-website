@@ -110,7 +110,7 @@ Note that on Android performing text selection in input can change app's activit
 * [`disableFullscreenUI`](textinput.md#disablefullscreenui)
 * [`editable`](textinput.md#editable)
 * [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-* [`importantForAutofill`](textinput.md#importantForAutofill)
+* [`importantForAutofill`](textinput.md#importantforautofill)
 * [`inlineImageLeft`](textinput.md#inlineimageleft)
 * [`inlineImagePadding`](textinput.md#inlineimagepadding)
 * [`inputAccessoryViewID`](textinput.md#inputaccessoryviewid)

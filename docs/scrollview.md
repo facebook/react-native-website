@@ -68,7 +68,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 * [`scrollPerfTag`](scrollview.md#scrollperftag)
 * [`scrollToOverflowEnabled`](scrollview.md#scrolltooverflowenabled)
 * [`scrollsToTop`](scrollview.md#scrollstotop)
-* [`DEPRECATED_sendUpdatedChildFrames`](scrollview.md#deprecatedsendupdatedchildframes)
+* [`DEPRECATED_sendUpdatedChildFrames`](scrollview.md#deprecated_sendupdatedchildframes)
 * [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
 * [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
 * [`snapToAlignment`](scrollview.md#snaptoalignment)

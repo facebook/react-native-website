@@ -23,8 +23,8 @@ return (
 
 - [`Image` props...](image.md#props)
 - [`style`](imagebackground.md#style)
-- [`imageStyle`](imagebackground.md#imageStyle)
-- [`imageRef`](imagebackground.md#imageRef)
+- [`imageStyle`](imagebackground.md#imagestyle)
+- [`imageRef`](imagebackground.md#imageref)
 
 ---
 

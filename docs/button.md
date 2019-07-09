@@ -29,15 +29,15 @@ import { Button } from 'react-native';
 - [`color`](button.md#color)
 - [`disabled`](button.md#disabled)
 - [`hasTVPreferredFocus`](button.md#hastvpreferredfocus)
-- [`nextFocusDown`](view.md#nextfocusdown)
-- [`nextFocusForward`](view.md#nextfocusForward)
-- [`nextFocusLeft`](view.md#nextfocusleft)
-- [`nextFocusRight`](view.md#nextfocusright)
-- [`nextFocusUp`](view.md#nextfocusleft)
+- [`nextFocusDown`](button.md#nextfocusdown)
+- [`nextFocusForward`](button.md#nextfocusforward)
+- [`nextFocusLeft`](button.md#nextfocusleft)
+- [`nextFocusRight`](button.md#nextfocusright)
+- [`nextFocusUp`](button.md#nextfocusup)
 - [`onPress`](button.md#onpress)
 - [`testID`](button.md#testid)
 - [`title`](button.md#title)
-- [`touchSoundDisabled`](button.md#touchSoundDisabled)
+- [`touchSoundDisabled`](button.md#touchsounddisabled)
 
 
 

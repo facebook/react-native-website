@@ -211,7 +211,7 @@ We believe that this more constrained way to style text will yield better apps:
 - [`onResponderRelease`](text.md#onresponderrelease)
 - [`onResponderTerminate`](text.md#onresponderterminate)
 - [`onResponderTerminationRequest`](text.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
+- [`onStartShouldSetResponderCapture`](text.md#onstartshouldsetrespondercapture)
 - [`onTextLayout`](text.md#ontextlayout)
 - [`pressRetentionOffset`](text.md#pressretentionoffset)
 - [`selectable`](text.md#selectable)

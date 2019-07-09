@@ -31,12 +31,12 @@ renderButton: function() {
 
 * [`background`](touchablenativefeedback.md#background)
 * [`useForeground`](touchablenativefeedback.md#useforeground)
-* [`hasTVPreferredFocus`](touchablenativefeedback.md#hasTVPreferredFocus)
-* [`nextFocusDown`](touchablenativefeedback.md#nextFocusDown)
-* [`nextFocusForward`](touchablenativefeedback.md#nextFocusForward)
-* [`nextFocusLeft`](touchablenativefeedback.md#nextFocusLeft)
-* [`nextFocusRight`](touchablenativefeedback.md#nextFocusRight)
-* [`nextFocusUp`](touchablenativefeedback.md#nextFocusUp)
+* [`hasTVPreferredFocus`](touchablenativefeedback.md#hastvpreferredfocus)
+* [`nextFocusDown`](touchablenativefeedback.md#nextfocusdown)
+* [`nextFocusForward`](touchablenativefeedback.md#nextfocusforward)
+* [`nextFocusLeft`](touchablenativefeedback.md#nextfocusleft)
+* [`nextFocusRight`](touchablenativefeedback.md#nextfocusright)
+* [`nextFocusUp`](touchablenativefeedback.md#nextfocusup)
 
 ### Methods
 

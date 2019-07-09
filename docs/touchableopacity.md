@@ -96,11 +96,11 @@ AppRegistry.registerComponent('App', () => App)
 * [`activeOpacity`](touchableopacity.md#activeopacity)
 * [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
 * [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchableopacity.md#nextFocusDown)
-* [`nextFocusForward`](touchableopacity.md#nextFocusForward)
-* [`nextFocusLeft`](touchableopacity.md#nextFocusLeft)
-* [`nextFocusRight`](touchableopacity.md#nextFocusRight)
-* [`nextFocusUp`](touchableopacity.md#nextFocusUp)
+* [`nextFocusDown`](touchableopacity.md#nextfocusdown)
+* [`nextFocusForward`](touchableopacity.md#nextfocusforward)
+* [`nextFocusLeft`](touchableopacity.md#nextfocusleft)
+* [`nextFocusRight`](touchableopacity.md#nextfocusright)
+* [`nextFocusUp`](touchableopacity.md#nextfocusup)
 
 ### Methods
 

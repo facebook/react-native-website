@@ -13,9 +13,9 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 * [`disabled`](switch.md#disabled)
 * [`trackColor`](switch.md#trackcolor)
-* [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
+* [`ios_backgroundColor`](switch.md#ios_backgroundcolor)
 * [`onValueChange`](switch.md#onvaluechange)
-* [`onChange`](switch.md#onChange)
+* [`onChange`](switch.md#onchange)
 * [`thumbColor`](switch.md#thumbcolor)
 * [`value`](switch.md#value)
 

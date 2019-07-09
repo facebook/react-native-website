@@ -101,12 +101,12 @@ AppRegistry.registerComponent('App', () => App)
 * [`underlayColor`](touchablehighlight.md#underlaycolor)
 * [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
 * [`tvParallaxProperties`](touchablehighlight.md#tvparallaxproperties)
-* [`nextFocusDown`](touchablehighlight.md#nextFocusDown)
-* [`nextFocusForward`](touchablehighlight.md#nextFocusForward)
-* [`nextFocusLeft`](touchablehighlight.md#nextFocusLeft)
-* [`nextFocusRight`](touchablehighlight.md#nextFocusRight)
-* [`nextFocusUp`](touchablehighlight.md#nextFocusUp)
-* [`testOnly_pressed`](touchablehighlight.md#testOnly_pressed)
+* [`nextFocusDown`](touchablehighlight.md#nextfocusdown)
+* [`nextFocusForward`](touchablehighlight.md#nextfocusforward)
+* [`nextFocusLeft`](touchablehighlight.md#nextfocusleft)
+* [`nextFocusRight`](touchablehighlight.md#nextfocusright)
+* [`nextFocusUp`](touchablehighlight.md#nextfocusup)
+* [`testOnly_pressed`](touchablehighlight.md#testonly_pressed)
 
 ---
 

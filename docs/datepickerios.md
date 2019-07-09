@@ -50,13 +50,13 @@ const styles = StyleSheet.create({
 - [View props...](view.md#props)
 
 * [`date`](datepickerios.md#date)
-* [`initialDate`](datepickerios.md#initialDate)
+* [`initialDate`](datepickerios.md#initialdate)
 * [`locale`](datepickerios.md#locale)
 * [`maximumDate`](datepickerios.md#maximumdate)
 * [`minimumDate`](datepickerios.md#minimumdate)
 * [`minuteInterval`](datepickerios.md#minuteinterval)
 * [`mode`](datepickerios.md#mode)
-* [`onChange`](datepickerios.md#onChange)
+* [`onChange`](datepickerios.md#onchange)
 * [`onDateChange`](datepickerios.md#ondatechange)
 * [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
