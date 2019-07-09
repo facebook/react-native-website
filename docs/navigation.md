@@ -3,72 +3,26 @@ id: navigation
 title: Navigating Between Screens
 ---
 
-Mobile apps are rarely made up of a single screen. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator.
+By default, React Native renders your components onto a single screen. To create multiple screens and navigate between them you need a navigation library. The following table helps you choose the one that's right for you. Each column identifies a different feature and each row represents a different navigation library (React Router Native isn't included because it doesn't have stack navigation). These features aren't the be-all and end-all of what makes a good navigation library but they are important. Keep reading to find out why.
 
-This guide covers the various navigation components available in React Native. If you are just getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides an easy to use navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both iOS and Android.
+|                                                                                                           | Uses native API | Has one React root | Runs in Expo | Runs on the Web |
+| --------------------------------------------------------------------------------------------------------- | --------------- | ------------------ | ------------ | --------------- |
+| [React Navigation](https://reactnavigation.org/docs/en/getting-started.html)                              | No              | Yes                | Yes          | No              |
+| [React Native Navigation](https://wix.github.io/react-native-navigation/)                                 | Yes             | No                 | No           | No              |
+| [The Navigation router](https://grahammendick.github.io/navigation/documentation/native/hello-world.html) | Yes             | Yes                | No           | Yes             |
 
-If you'd like to achieve a native look and feel on both iOS and Android, or you're integrating React Native into an app that already manages navigation natively, the following library provides native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
+## Uses native API
 
-## React Navigation
+React Native uses the same fundamental UI building blocks as regular apps. Both iOS and Android have fundamental navigation building blocks Android has `Activities` or `Fragments` and iOS has `UIViewControllers`. If your navigation library doesn't use them then you can end up with an app that doesn't have a native look and feel. You'll also miss out on iOS navigation bar features like large titles and search bars.
 
-The community solution to navigation is a standalone library that allows developers to set up the screens of an app with just a few lines of code.
+## Has one React root
 
-The first step is to install in your project:
+If your navigation library renders all screens under a single React root then they share the React `Context`. That means you can use any state management library, or none, to pass data between them. If screens don't share the React `Context` then you have to hold the shared data in a global store outside of the React tree. That rules out state management solutions like Relay and Apollo and only rules in Redux.
 
-```
-npm install --save react-navigation
-```
+## Runs in Expo
 
-The second step is to install react-native-gesture-handler
+Expo provides a shared native runtime so you don't write native code. You focus on writing your React app in JavaScript. You don't have to worry about iOS or Android specific settings, or even opening up Xcode. Managed Expo projects have their own workflow including Expo CLI (a command line interface) and Expo Dev Tools (a web UI) to simplify the development and deployment process.
 
-```
-yarn add react-native-gesture-handler
-# or with npm
-# npm install --save react-native-gesture-handler
-```
+## Runs on the Web
 
-Now we need to link our react-native to react-native-gesture-handler
-
-```
-react-native link react-native-gesture-handler
-```
-
-Then you can quickly create an app with a home screen and a profile screen:
-
-```javascript
-import {createStackNavigator, createAppContainer} from 'react-navigation';
-
-const MainNavigator = createStackNavigator({
-  Home: {screen: HomeScreen},
-  Profile: {screen: ProfileScreen},
-});
-
-const App = createAppContainer(MainNavigator);
-
-export default App;
-```
-
-Each screen component can set navigation options such as the header title. It can use action creators on the `navigation` prop to link to other screens:
-
-```javascript
-class HomeScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Welcome',
-  };
-  render() {
-    const {navigate} = this.props.navigation;
-    return (
-      <Button
-        title="Go to Jane's profile"
-        onPress={() => navigate('Profile', {name: 'Jane'})}
-      />
-    );
-  }
-}
-```
-
-React Navigation routers make it easy to override navigation logic. Because routers can be nested inside each other, developers can override navigation logic for one area of the app without making widespread changes.
-
-The views in React Navigation use native components and the [`Animated`](animated.md) library to deliver 60fps animations that are run on the native thread. Plus, the animations and gestures can be easily customized.
-
-For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/getting-started.html), or browse other docs such as the [Intro to Navigators](https://expo.io/@react-navigation/NavigationPlayground).
+React Native for Web runs your native app on the Web. You don't have to change any code because React Native for Web renders your React Native components as DOM elements. For example, it converts Views into divs. But this only works if your navigation library supports React Native for Web. To avoid compromising the Web experience, make sure that your navigation library can generate Hyoerlinks and render on the server-side (SSR).
