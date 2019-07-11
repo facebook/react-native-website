@@ -145,6 +145,7 @@ input#search_input_react {
 
 .container .wrapper .hljs {
   margin: 14px 0;
+  border-radius: 10px;
 }
 
 .pageContainer .container {
