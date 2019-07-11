@@ -2,7 +2,7 @@
   /* FIXME hack hack hack hack */
   margin-top: -50px;
   margin-left: -50px;
-  background-color: #282c34;
+  background-color: $dark;
   /* max-height: 450px; */
   /* overflow-y: scroll; */
 }

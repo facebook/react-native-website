@@ -13,7 +13,7 @@
 }
 
 .Section.dark {
-  background-color: #282c33;
+  background-color: $dark;
 }
 
 .Section.bottomSpacing {

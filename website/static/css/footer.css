@@ -5,7 +5,7 @@ footer .sitemap h6 > a {
 }
 
 footer.nav-footer {
-  background-color: #20232a;
+  background-color: $darker;
 }
 
 footer.nav-footer .nav-home img {

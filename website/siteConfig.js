@@ -42,6 +42,8 @@ const siteConfig = {
   favicon: 'img/favicon.png',
   colors: {
     brand: '#61dafb', // electric blue
+    dark: '#282c34', // dark blue
+    darker: '#20232a', // really dark blue
     primaryColor: 'rgb(34, 34, 34)',
     secondaryColor: '#888888',
     tintColor: '#f4f4f8', // slightly off white
