@@ -43,7 +43,7 @@ const siteConfig = {
   colors: {
     brand: '#61dafb', // electric blue
     primaryColor: 'rgb(34, 34, 34)',
-    secondaryColor: 'rgba(255, 255, 255, 0.9)',
+    secondaryColor: '#888888',
     tintColor: '#f4f4f8', // slightly off white
     backgroundColor: 'white',
   },

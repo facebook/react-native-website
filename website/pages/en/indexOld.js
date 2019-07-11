@@ -28,7 +28,6 @@ class Button extends React.Component {
   }
 }
 
-// FIXME keep as an svg
 function Logo() {
   return (
     <svg

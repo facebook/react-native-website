@@ -200,7 +200,6 @@ export default () =>
 \`\`\`
 `;
 
-// FIXME style the code blocks
 function CodeExample() {
   return (
     <div className="CodeExample">
@@ -233,7 +232,6 @@ const features = [
     title: 'Seamless cross-platform',
     text:
       'Ensure all your apps feel native on all platforms by easily creating platform-specific versions of a Component.\n\nThis technique is used to allow a single codebase to share a large amount of code across all platforms.',
-    // FIXME fix text alignment here
     image: `${baseUrl}img/homepage/cross-platform.svg`,
   },
 ];
