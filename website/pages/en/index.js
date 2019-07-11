@@ -214,19 +214,7 @@ const features = [
     title: 'Create native apps using React and JavaScript',
     text:
       'React Native lowers the barrier for creating native-quality apps using the world’s most popular programming language and one of the most popular user-interface libraries for it: [React](https://reactjs.org).\n\nReact offers a uni-directional declarative programming model that drastically reduces the complexity in building user interfaces.',
-    // TODO animate the image
-    image: () => (
-      <div className="IntroImage">
-        <img
-          className="iphone"
-          src={`${baseUrl}img/homepage/iphone-demo.png`}
-        />
-        <img
-          className="android"
-          src={`${baseUrl}img/homepage/android-demo.png`}
-        />
-      </div>
-    ),
+    image: () => <img src={`${baseUrl}img/homepage/phones.png`} />,
   },
   {
     title: 'View, Text, Image',
@@ -238,6 +226,7 @@ const features = [
     title: 'Native Experience',
     text:
       'React components in React Native map directly to the platform’s native UI building blocks.\n\nYou can use React Native to augment your existing native code in Kotlin, Swift, Java, and Objective-C.\n\nNo web-views. Unless you want to show web pages.',
+    // TODO animate the image
     image: `${baseUrl}img/homepage/dissection.svg`,
   },
   {
