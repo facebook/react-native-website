@@ -5,5 +5,5 @@
 }
 
 .CodeReloadDemo .Heading {
-  color: #61dafb;
+  color: $brand;
 }

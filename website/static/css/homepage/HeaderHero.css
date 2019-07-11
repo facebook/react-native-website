@@ -35,7 +35,7 @@
 
 .HeaderHero .title {
   font-size: 96px;
-  color: #61dafb;
+  color: $brand;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 20px;

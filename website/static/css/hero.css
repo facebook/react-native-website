@@ -55,7 +55,7 @@
 
 .hero .text {
   font-size: 96px;
-  color: #61dafb;
+  color: $brand;
   line-height: 1;
   margin-bottom: 20px;
   font-weight: 500;
