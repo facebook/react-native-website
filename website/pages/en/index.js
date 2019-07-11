@@ -60,7 +60,7 @@ function GitHubButton() {
 function LogoAnimation() {
   return (
     <React.Fragment>
-      <script src={`${baseUrl}/js/headerAnimation.js`} />
+      <script src={`${baseUrl}js/headerAnimation.js`} />
       <svg
         className="LogoAnimation init"
         width={400}
