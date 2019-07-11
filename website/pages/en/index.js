@@ -66,7 +66,7 @@ function LogoAnimation() {
     <React.Fragment>
       <script src={`${baseUrl}/js/headerAnimation.js`} />
       <svg
-        className="LogoAnimation"
+        className="LogoAnimation init"
         width={400}
         height={400}
         xmlns="http://www.w3.org/2000/svg"

@@ -1,36 +1,35 @@
 .LogoAnimation .border {
-  transition: all 1s ease-in-out;
-  width: 300px;
-  height: 300px;
-  x: -150px;
-  y: -150px;
+  transition: all 850ms ease-in-out;
+  stroke-opacity: 0;
+  width: 400px;
+  height: 400px;
+  x: -200px;
+  y: -200px;
+  stroke-width: 5px;
+  rx: 2px;
 }
 
 .LogoAnimation .logoInner {
+  transform: scale(1);
+  transition: all 850ms ease-in-out;
+}
+
+.LogoAnimation:not(.init):not(.full):not(.full2) .logoInner {
   transform: scale(0.67);
 }
 
 .LogoAnimation.full .border {
   stroke-opacity: 0;
-  width: 300px;
-  height: 300px;
-  x: -150px;
-  y: -150px;
+  width: 400px;
+  height: 400px;
+  x: -200px;
+  y: -200px;
   opacity: 1;
   rx: 2px;
-  stroke-width: 5px;
-}
-
-.LogoAnimation.icon .border {
-  width: 300px;
-  height: 300px;
-  x: -150px;
-  y: -150px;
-  rx: 2px;
-  stroke-width: 5px;
 }
 
 .LogoAnimation.mobile .border {
+  stroke-opacity: 1;
   width: 180px;
   height: 300px;
   x: -90px;
@@ -41,6 +40,7 @@
 }
 
 .LogoAnimation.desktop .border {
+  stroke-opacity: 1;
   width: 200px;
   height: 320px;
   x: -100px;
@@ -52,6 +52,7 @@
 }
 
 .LogoAnimation.laptop .border {
+  stroke-opacity: 1;
   width: 150px;
   height: 250px;
   x: -75px;
@@ -63,6 +64,7 @@
 }
 
 .LogoAnimation.mobile2 .border {
+  stroke-opacity: 1;
   width: 180px;
   height: 300px;
   x: -90px;
@@ -70,10 +72,6 @@
   opacity: 1;
   rx: 10px;
   stroke-width: 5px;
-  transform: rotate(-180deg);
-}
-
-.LogoAnimation.logo2 .border {
   transform: rotate(-180deg);
 }
 
