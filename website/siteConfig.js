@@ -41,10 +41,10 @@ const siteConfig = {
   footerIcon: 'img/header_logo.png',
   favicon: 'img/favicon.png',
   colors: {
-    brand: '#61dafb',
+    brand: '#61dafb', // electric blue
     primaryColor: 'rgb(34, 34, 34)',
     secondaryColor: 'rgba(255, 255, 255, 0.9)',
-    tintColor: '#f4f4f8',
+    tintColor: '#f4f4f8', // slightly off white
     backgroundColor: 'white',
   },
   blogSidebarCount: 'ALL',
