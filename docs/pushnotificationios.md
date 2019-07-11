@@ -18,7 +18,11 @@ Handle push notifications for your app, including permission handling and icon b
 
 To get up and running, [configure your notifications with Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6) and your server-side system.
 
-[Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library
+React Native version higher than 0.60.0: 
+- Autolinking in 0.60.0 handles the linking for you!
+
+React Native versions lower than 0.60.0: 
+- [Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library
 
 - Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
 - Add the following to `Link Binary With Libraries`: `libRCTPushNotification.a`
