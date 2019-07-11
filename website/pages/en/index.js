@@ -57,22 +57,59 @@ function GitHubButton() {
   );
 }
 
-// FIXME keep as an svg file
-function Logo() {
+function LogoAnimation() {
   return (
-    <svg
-      width={300}
-      height={300}
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="-11.5 -10.23174 23 20.46348">
-      <title>React Logo</title>
-      <circle cx="0" cy="0" r="2.05" fill="#61dafb" />
-      <g stroke="#61dafb" strokeWidth="1" fill="none">
-        <ellipse rx="11" ry="4.2" />
-        <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-        <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-      </g>
-    </svg>
+    <React.Fragment>
+      <script src={`${baseUrl}/js/headerAnimation.js`} />
+      <svg
+        className="LogoAnimation init"
+        width={400}
+        height={400}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="-200 -200 400 400">
+        <title>React Logo</title>
+        <clipPath id="border">
+          <rect className="border" rx="0.5" fill="none" stroke="gray" />
+        </clipPath>
+        <g clip-path="url(#border)" className="logo">
+          <g className="logoInner">
+            <circle cx="0" cy="0" r="30" fill="#61dafb" />
+            <g stroke="#61dafb" strokeWidth="15" fill="none" id="logo">
+              <ellipse rx="165" ry="64" />
+              <ellipse rx="165" ry="64" transform="rotate(60)" />
+              <ellipse rx="165" ry="64" transform="rotate(120)" />
+            </g>
+          </g>
+        </g>
+        <rect className="border" id="border" fill="none" stroke="white" />
+        <line
+          x1="-30"
+          x2="30"
+          y1="130"
+          y2="130"
+          stroke="white"
+          strokeWidth="8"
+          strokeLinecap="round"
+          className="speaker"
+        />
+        <line
+          x1="-20"
+          x2="20"
+          y1="130"
+          y2="130"
+          stroke="white"
+          strokeWidth="15"
+          className="stand"
+        />
+        <polygon
+          points="-125,85 125,85, 160,125 -160,125"
+          fill="white"
+          stroke="white"
+          strokeWidth="5"
+          className="base"
+        />
+      </svg>
+    </React.Fragment>
   );
 }
 
@@ -124,7 +161,7 @@ function HeaderHero() {
       </div>
       <TwoColumns
         reverse
-        columnOne={<Logo />}
+        columnOne={<LogoAnimation />}
         columnTwo={
           <React.Fragment>
             <h1 className="title">React Native</h1>
