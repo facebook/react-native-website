@@ -718,9 +718,9 @@ Displays the scroll indicators momentarily.
 
 ```javascript
 scrollTo(
-	y?: number | {x?: number, y?: number, animated?: boolean},
-	x?: number,
-	animated?: boolean,
+  options?: {x?: number, y?: number, animated?: boolean} | number,
+  deprecatedX?: number,
+	deprecatedAnimated?: boolean,
 );
 ```
 
