@@ -120,15 +120,9 @@ function Section({
   children,
   className,
   background = 'light',
-  bottomSpacing = false,
 }) {
   const El = element;
-  const bottomSpacingClass = bottomSpacing ? 'bottomSpacing' : '';
-  return (
-    <El className={`Section ${className} ${background} ${bottomSpacingClass}`}>
-      {children}
-    </El>
-  );
+  return <El className={`Section ${className} ${background}`}>{children}</El>;
 }
 
 function TwoColumns({columnOne, columnTwo, reverse}) {
@@ -150,11 +144,7 @@ function Heading({text}) {
 
 function HeaderHero() {
   return (
-    <Section
-      element="header"
-      background="dark"
-      className="HeaderHero"
-      bottomSpacing>
+    <Section element="header" background="dark" className="HeaderHero">
       <div className="socialLinks">
         <TwitterButton />
         <GitHubButton />
@@ -216,7 +206,7 @@ React Native combines the best parts of native development with React, a best-in
 
 **Use a little—or a lot**. You can use React Native today in your existing Android and iOS projects or you can create a whole new app from scratch.
     `,
-    image: () => <img src={`${baseUrl}img/homepage/phones.png`} />,
+    image: `${baseUrl}img/homepage/phones.png`,
   },
   {
     title: 'Native Development for Everyone',
@@ -239,6 +229,20 @@ React primitives render to native platform UI, meaning your app uses the same na
     text:
       'React components wrap existing native code and interact with native APIs via React’s declarative UI paradigm and JavaScript. This enables native app development for whole new teams of developers, and can let existing native teams work much faster.',
     image: `${baseUrl}img/homepage/cross-platform.svg`,
+  },
+  {
+    title: 'React Refresh',
+    text:
+      '**See your changes as soon as you save.** With the power of JavaScript, React Native lets you iterate at lightning speed. No more waiting for native builds to finish. Save, see, repeat.',
+    image: () => (
+      <video controls width="450">
+        `
+        <source
+          src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
+          type="video/mp4"
+        />
+      </video>
+    ),
   },
 ];
 
@@ -281,20 +285,10 @@ function Features() {
   );
 }
 
-function CodeReloadDemo() {
+function Talks() {
   return (
-    <Section className="CodeReloadDemo" background="dark">
-      <Heading text="React Refresh" />
-      <img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif" />
-    </Section>
-  );
-}
-
-function DocsAndTalks() {
-  return (
-    <Section className="DocsAndTalks" background="light">
+    <Section className="DocsAndTalks" background="light2">
       <TwoColumns
-        reverse
         columnOne={
           <React.Fragment>
             <Heading text="Talks" />
@@ -366,7 +360,7 @@ with repos like React Native Windows and React Native Web.
 
 function Community() {
   return (
-    <Section className="Community" background="light2" bottomSpacing>
+    <Section className="Community" background="light">
       <div className="content">
         <Heading text="Facebook Supported, Community Driven" />
         <TwoColumns
@@ -421,8 +415,7 @@ module.exports = function Index() {
       <HeaderHero />
       <main>
         <Features />
-        <CodeReloadDemo />
-        <DocsAndTalks />
+        <Talks />
         <Community />
         <GetStarted />
       </main>

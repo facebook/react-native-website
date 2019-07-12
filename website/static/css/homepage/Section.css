@@ -1,7 +1,7 @@
 .Section {
   width: 100%;
-  min-height: 450px;
   padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .Section.light {
@@ -14,10 +14,6 @@
 
 .Section.dark {
   background-color: $dark;
-}
-
-.Section.bottomSpacing {
-  padding-bottom: 50px;
 }
 
 .Section p {
