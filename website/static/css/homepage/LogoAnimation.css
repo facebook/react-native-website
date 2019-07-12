@@ -95,5 +95,5 @@
 .LogoAnimation .speaker,
 .LogoAnimation .stand,
 .LogoAnimation .base {
-  transition: opacity 1s ease-in-out;
+  transition: opacity 850ms ease-in-out;
 }
