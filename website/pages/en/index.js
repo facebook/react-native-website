@@ -209,18 +209,18 @@ React Native combines the best parts of native development with React, a best-in
     image: `${baseUrl}img/homepage/phones.png`,
   },
   {
-    title: 'Native Development for Everyone',
-    text:
-      "React Native lets you create truly native apps and doesn't compromise on your users' experience. It provides a core set of platform agnostic native components like `View`, `Text`, and `Image` that map directly to the platform’s native UI building blocks.",
-    image: CodeExample,
-  },
-  {
     title: 'Written in JavaScript—rendered with native code',
     text: `
 React primitives render to native platform UI, meaning your app uses the same native platform APIs other apps do.
 
 **Many platforms**, one React. Create platform-specific versions of components so a single codebase can share code across platforms. With React Native, one team can maintain two platforms and share a common technology—React.
     `,
+    image: CodeExample,
+  },
+  {
+    title: 'Native Development for Everyone',
+    text:
+      "React Native lets you create truly native apps and doesn't compromise on your users' experience. It provides a core set of platform agnostic native components like `View`, `Text`, and `Image` that map directly to the platform’s native UI building blocks.",
     // TODO animate the image
     image: `${baseUrl}img/homepage/dissection.svg`,
   },
