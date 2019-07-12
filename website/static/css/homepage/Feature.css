@@ -8,3 +8,15 @@
     max-height: initial;
   }
 }
+
+.Feature.ReactRefresh {
+  padding: 0;
+}
+
+.Feature.ReactRefresh .TwoColumns {
+  grid-template-columns: 2fr 1fr;
+}
+
+.Feature.ReactRefresh .first {
+  padding-top: 50px;
+}

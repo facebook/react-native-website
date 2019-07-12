@@ -232,10 +232,11 @@ React primitives render to native platform UI, meaning your app uses the same na
   },
   {
     title: 'React Refresh',
+    className: 'ReactRefresh',
     text:
       '**See your changes as soon as you save.** With the power of JavaScript, React Native lets you iterate at lightning speed. No more waiting for native builds to finish. Save, see, repeat.',
     image: () => (
-      <video controls width="450">
+      <video autoplay controls width="600">
         `
         <source
           src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
@@ -246,7 +247,7 @@ React primitives render to native platform UI, meaning your app uses the same na
   },
 ];
 
-function Feature({title, text, image, reverse, background}) {
+function Feature({title, text, image, reverse, background, className = ''}) {
   let imageEl;
   if (typeof image === 'string') {
     imageEl = <img src={image} />;
@@ -255,7 +256,7 @@ function Feature({title, text, image, reverse, background}) {
     imageEl = <Image />;
   }
   return (
-    <Section className="Feature" background={background}>
+    <Section className={`Feature ${className}`} background={background}>
       <TwoColumns
         reverse={reverse}
         columnOne={
