@@ -341,7 +341,6 @@ function AppList({apps}) {
 }
 
 const communityText = `
-Facebook released React Native in 2015 and has been maintaining it ever since.
 In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
 Today, React Native is maintained by contributions from 
 [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
@@ -366,6 +365,13 @@ function Community() {
         <TwoColumns
           columnOne={
             <React.Fragment>
+              <p className="firstP">
+                <img src={`${baseUrl}img/homepage/fb-logo.png`} alt="" />
+                <span>
+                  Facebook released React Native in 2015 and has been
+                  maintaining it ever since.
+                </span>
+              </p>
               <MarkdownBlock>{communityText}</MarkdownBlock>
             </React.Fragment>
           }
