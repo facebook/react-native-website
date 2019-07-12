@@ -405,8 +405,7 @@ function GetStarted() {
           <li>
             <p>Run this</p>
             <div class="terminal">
-              <code>npm install -g react-native</code>
-              <code>react-native init MyTestApp</code>
+              <code>npx react-native init MyTestApp</code>
             </div>
           </li>
           <li>
