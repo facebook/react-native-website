@@ -210,28 +210,34 @@ function CodeExample() {
 
 const features = [
   {
-    title: 'Create native apps using React and JavaScript',
-    text:
-      'React Native lowers the barrier for creating native-quality apps using the world’s most popular programming language and one of the most popular user-interface libraries for it: [React](https://reactjs.org).\n\nReact offers a uni-directional declarative programming model that drastically reduces the complexity in building user interfaces.',
+    title: 'Create native apps for Android and iOS using React and JavaScript',
+    text: `
+React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces.
+
+**Use a little—or a lot**. You can use React Native today in your existing Android and iOS projects or you can create a whole new app from scratch.
+    `,
     image: () => <img src={`${baseUrl}img/homepage/phones.png`} />,
   },
   {
-    title: 'View, Text, Image',
+    title: 'Native Development for Everyone',
     text:
-      'React Native provides platform-agnostic APIs, sharing ideas with how native developers have been writing apps for the last decade.\n\nYou can write components which wrap your existing native code, leaving you to interact with all APIs via React’s declarative UI paradigm and JavaScript.\n\nThis enables native app development for whole new teams of developers, and can let existing native teams work much faster.',
+      "React Native lets you create truly native apps and doesn't compromise on your users' experience. It provides a core set of platform agnostic native components like `View`, `Text`, and `Image` that map directly to the platform’s native UI building blocks.",
     image: CodeExample,
   },
   {
-    title: 'Native Experience',
-    text:
-      'React components in React Native map directly to the platform’s native UI building blocks.\n\nYou can use React Native to augment your existing native code in Kotlin, Swift, Java, and Objective-C.\n\nNo web-views. Unless you want to show web pages.',
+    title: 'Written in JavaScript—rendered with native code',
+    text: `
+React primitives render to native platform UI, meaning your app uses the same native platform APIs other apps do.
+
+**Many platforms**, one React. Create platform-specific versions of components so a single codebase can share code across platforms. With React Native, one team can maintain two platforms and share a common technology—React.
+    `,
     // TODO animate the image
     image: `${baseUrl}img/homepage/dissection.svg`,
   },
   {
     title: 'Seamless cross-platform',
     text:
-      'Ensure all your apps feel native on all platforms by easily creating platform-specific versions of a Component.\n\nThis technique is used to allow a single codebase to share a large amount of code across all platforms.',
+      'React components wrap existing native code and interact with native APIs via React’s declarative UI paradigm and JavaScript. This enables native app development for whole new teams of developers, and can let existing native teams work much faster.',
     image: `${baseUrl}img/homepage/cross-platform.svg`,
   },
 ];
@@ -278,7 +284,7 @@ function Features() {
 function CodeReloadDemo() {
   return (
     <Section className="CodeReloadDemo" background="dark">
-      <Heading text="Speed up your work with code reloading" />
+      <Heading text="React Refresh" />
       <img src="https://media.giphy.com/media/13WZniThXy0hSE/giphy.gif" />
     </Section>
   );
@@ -311,11 +317,6 @@ function DocsAndTalks() {
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             />
-            <p>
-              <a href="https://youtu.be/NCAY0HIfrwc">
-                Mobile innovation with React Native... at f8
-              </a>
-            </p>
           </React.Fragment>
         }
       />
@@ -346,11 +347,14 @@ function AppList({apps}) {
 }
 
 const communityText = `
-In 2018, React Native had the [2nd highest] number of contributors
-for any repos in GitHub. However, there are a few standout
-companies which partner with Facebook to create React Native:
+Facebook released React Native in 2015 and has been maintaining it ever since.
+In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
+Today, React Native is maintained by contributions from 
 [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
 Mansion].
+
+Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
+with repos like React Native Windows and React Native Web.
 
 [2nd highest]: https://octoverse.github.com/projects#repositories
 [Callstack]: https://callstack.com/
@@ -364,17 +368,10 @@ function Community() {
   return (
     <Section className="Community" background="light2" bottomSpacing>
       <div className="content">
-        <Heading text="Open Community" />
+        <Heading text="Facebook Supported, Community Driven" />
         <TwoColumns
           columnOne={
             <React.Fragment>
-              <p className="firstP">
-                <img src={`${baseUrl}img/homepage/fb-logo.png`} />
-                <span>
-                  React Native was built by Facebook and has been maintained for
-                  over 5 years.
-                </span>
-              </p>
               <MarkdownBlock>{communityText}</MarkdownBlock>
             </React.Fragment>
           }

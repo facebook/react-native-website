@@ -20,6 +20,10 @@
   padding-bottom: 50px;
 }
 
+.Section p {
+  font-size: 17px;
+}
+
 .Section a {
   text-decoration: underline;
 }
