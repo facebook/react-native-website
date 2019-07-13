@@ -19,11 +19,3 @@
 .Section.dark {
   background-color: $dark;
 }
-
-.Section a {
-  text-decoration: underline;
-}
-
-.Section a:hover {
-  text-decoration: none;
-}

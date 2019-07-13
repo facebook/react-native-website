@@ -26,6 +26,7 @@ li.navSearchWrapper {
   .navigationSlider .slidingNav ul li a {
     color: white;
     padding: 0.5rem 1.5rem;
+    background-color: transparent;
   }
 
   .navigationSlider .slidingNav ul li a:hover {

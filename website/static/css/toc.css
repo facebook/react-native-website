@@ -29,6 +29,7 @@
 
 .toc .toggleNav ul li a {
   color: $text;
+  background-color: transparent;
 }
 
 .toc .toggleNav ul li a:hover {

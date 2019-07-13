@@ -36,15 +36,26 @@ body {
   margin-bottom: 30px;
 }
 
-/* FIXME verify this doesn't break any styles */
-.mainContainer a {
-  color: $primaryColor;
-  text-decoration: underline;
+p a,
+li a {
+  /* text-decoration: underline; */
+  background-color: rgba(187, 239, 253, 0.3);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.mainContainer a:hover {
-  text-decoration: none;
+p a:hover,
+li a:hover {
+  background-color: #bbeffd;
+  border-bottom-color: $text;
 }
+
+a code {
+  background: none;
+}
+
+/* .mainContainer a:hover {
+  text-decoration: none;
+} */
 
 .button {
   color: $secondaryColor;
