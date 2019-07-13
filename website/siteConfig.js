@@ -43,7 +43,8 @@ const siteConfig = {
   colors: {
     brand: '#61dafb', // electric blue
     dark: '#282c34', // dark blue
-    darker: '#20232a', // really dark blue
+    deepdark: '#20232a', // really dark blue
+    light: '#373940', // light blue
     text: '#1a1a1a', // black substitute
     subtle: '#6d6d6d', // light grey for text
     divider: '#ececec', // very light grey

@@ -1,5 +1,6 @@
 .fixedHeaderContainer {
   padding: 12px 0;
+  background-color: $deepdark;
 }
 
 .fixedHeaderContainer header h3 {
@@ -24,7 +25,7 @@ li.navSearchWrapper {
 @media only screen and (min-width: 1024px) {
   .navigationSlider .slidingNav ul li a {
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
   }
 
   .navigationSlider .slidingNav ul li a:hover {
@@ -44,5 +45,12 @@ li.navSearchWrapper {
 }
 
 input#search_input_react {
-  background-color: #2f2f2f;
+  background-color: $dark;
+  width: 220px;
+  border-radius: 0.25rem;
+  transition: background-color 150ms ease-in-out;
+}
+
+input#search_input_react:focus {
+  background-color: $light;
 }
