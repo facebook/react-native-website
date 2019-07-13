@@ -22,6 +22,11 @@
   color: black;
 }
 
+.toc .toggleNav ul {
+  padding: 0px;
+  padding-right: 8px;
+}
+
 .toc .toggleNav ul li a {
   color: $text;
 }
