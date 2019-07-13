@@ -238,8 +238,7 @@ React primitives render to native platform UI, meaning your app uses the same na
     image: () => (
       <video
         muted
-        autoplay
-        controls
+        autoPlay
         loop
         width="600"
         src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
