@@ -236,13 +236,13 @@ React primitives render to native platform UI, meaning your app uses the same na
     text:
       '**See your changes as soon as you save.** With the power of JavaScript, React Native lets you iterate at lightning speed. No more waiting for native builds to finish. Save, see, repeat.',
     image: () => (
-      <video autoplay controls width="600">
-        `
-        <source
-          src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
-          type="video/mp4"
-        />
-      </video>
+      <video
+        muted
+        autoplay
+        controls
+        width="600"
+        src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
+      />
     ),
   },
 ];
