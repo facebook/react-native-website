@@ -53,19 +53,22 @@ a code {
 }
 
 .button {
-  color: $secondaryColor;
-  border: 1px solid $secondaryColor;
-  border-radius: 0;
+  border: none;
+  font-size: 1.5rem;
+  color: $subtle;
   text-transform: none;
+  transition: all 0s;
+  padding: 0;
 }
 
 .button.edit-page-link {
-  text-transform: uppercase;
-  font-size: 12px;
+  font-size: 1.25rem;
+  margin-top: 1rem;
 }
 
 .button:hover {
-  background: $secondaryColor;
+  color: $text;
+  background: transparent;
 }
 
 .mainContainer .component-grid {
