@@ -1,15 +1,16 @@
 .ActionButton {
-  text-align: center;
   padding: 0.75rem 1.5rem;
+  text-align: center;
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
   text-decoration: none !important;
   border-bottom: none;
+  transition: all 0.2s ease-out;
 }
 
 .ActionButton.primary {
   color: $primaryColor;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: $brand;
 }
 
 .ActionButton.primary:hover {
@@ -19,7 +20,7 @@
 
 .ActionButton.secondary {
   background: none;
-  color: rgba(255, 255, 255, 0.9);
+  color: $brand;
 }
 
 .ActionButton.secondary::after {

@@ -1,7 +1,11 @@
 .GetStarted,
-.GetStarted .Heading,
 .GetStarted p {
   color: white;
+}
+
+.GetStarted .Heading {
+  color: $brand;
+  text-align: center;
 }
 
 .GetStarted .content {
