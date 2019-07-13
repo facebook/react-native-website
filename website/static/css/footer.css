@@ -1,11 +1,19 @@
-footer .sitemap h6,
-footer .sitemap h5 > a,
-footer .sitemap h6 > a {
-  color: $secondaryColor;
-}
-
 footer.nav-footer {
   background-color: $darker;
+}
+
+.nav-footer .sitemap h5,
+.nav-footer .sitemap h5 a {
+  color: #999;
+  text-transform: uppercase;
+}
+
+.nav-footer .sitemap a {
+  color: white;
+}
+
+.nav-footer .sitemap a:hover {
+  color: $brand;
 }
 
 footer.nav-footer .nav-home img {
