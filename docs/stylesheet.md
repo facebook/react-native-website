@@ -39,16 +39,15 @@ Code quality:
 
 ### Methods
 
-- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
+- [`compose`](stylesheet.md#compose)
 - [`create`](stylesheet.md#create)
 - [`flatten`](stylesheet.md#flatten)
-- [`compose`](stylesheet.md#compose)
+- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
 
 ### Properties
 
-- [`hairlineWidth`](stylesheet.md#hairlinewidth)
 - [`absoluteFill`](stylesheet.md#absolutefill)
-- [`absoluteFillObject`](stylesheet.md#absoluteFillObject)
+- [`hairlineWidth`](stylesheet.md#hairlinewidth)
 
 ---
 
@@ -56,17 +55,13 @@ Code quality:
 
 ## Methods
 
-### `setStyleAttributePreprocessor()`
+### `compose`
+
+Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
 ```javascript
-static setStyleAttributePreprocessor(property, process)
+static compose(style)
 ```
-
-WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
-
-Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
-
----
 
 ### `create()`
 
@@ -129,34 +124,19 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 
 ---
 
-### `compose`
-
-Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
+### `setStyleAttributePreprocessor()`
 
 ```javascript
-static compose(style)
+static setStyleAttributePreprocessor(property, process)
 ```
 
-## Properties
+WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
 
-### `hairlineWidth`
-
-This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
-
-```javascript
-var styles = StyleSheet.create({
-  separator: {
-    borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-});
-```
-
-This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
-
-A line with hairline width may not be visible if your simulator is downscaled.
+Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
 
 ---
+
+## Properties
 
 ### `absoluteFill`
 
@@ -172,20 +152,23 @@ const styles = StyleSheet.create({
 });
 ```
 
----
+### `hairlineWidth`
 
-### `absoluteFillObject`
-
-Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillObject` can be used to create a customized entry in a `StyleSheet`, e.g.:
+This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
 ```javascript
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFill,
-    top: 10,
-    backgroundColor: 'transparent',
+var styles = StyleSheet.create({
+  separator: {
+    borderBottomColor: '#bbb',
+    borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
 ```
+
+---
+
+This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
+
+A line with hairline width may not be visible if your simulator is downscaled.
 
 ---
