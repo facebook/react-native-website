@@ -11,6 +11,8 @@
 
 .Feature.ReactRefresh {
   padding: 0;
+  /* height needs to be set to equal that of the video or there's weird spacing */
+  height: 340px;
 }
 
 .Feature.ReactRefresh .TwoColumns {
@@ -19,4 +21,8 @@
 
 .Feature.ReactRefresh .first {
   padding-top: 50px;
+}
+
+.Feature.ReactRefresh video {
+  height: 340px;
 }
