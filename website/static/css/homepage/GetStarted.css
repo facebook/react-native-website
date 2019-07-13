@@ -1,4 +1,6 @@
-.GetStarted {
+.GetStarted,
+.GetStarted .Heading,
+.GetStarted p {
   color: white;
 }
 
@@ -7,10 +9,6 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-}
-
-.GetStarted .Heading {
-  color: white;
 }
 
 .GetStarted .steps {

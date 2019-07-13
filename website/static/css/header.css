@@ -20,3 +20,20 @@ li.navSearchWrapper {
   font-weight: 400;
   font-size: 1.5em;
 }
+
+@media only screen and (min-width: 1024px) {
+  .navigationSlider .slidingNav ul li a {
+    color: white;
+    padding: 0.5rem 1rem;
+  }
+
+  .navigationSlider .slidingNav ul li a:hover {
+    color: $brand;
+  }
+
+  .navigationSlider .slidingNav ul li.siteNavItemActive a,
+  .navigationSlider .slidingNav ul li.siteNavGroupActive a {
+    /* TODO add bottom highlight to nav */
+    color: $brand;
+  }
+}
