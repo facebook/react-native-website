@@ -81,6 +81,15 @@ body {
   color: $primaryColor;
 }
 
+.mainContainer .wrapper .post .postHeaderTitle {
+  color: #282c34;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 65px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
 /* FIXME verify this doesn't break any styles */
 .mainContainer a {
   color: $primaryColor;
@@ -203,7 +212,9 @@ input#search_input_react {
 }
 
 p {
-  font-size: 18px;
+  font-size: 17px;
+  color: $text;
+  line-height: 1.7;
 }
 
 li {

@@ -20,10 +20,6 @@
   background-color: $dark;
 }
 
-.Section p {
-  font-size: 17px;
-}
-
 .Section a {
   text-decoration: underline;
 }
