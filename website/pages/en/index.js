@@ -240,6 +240,7 @@ React primitives render to native platform UI, meaning your app uses the same na
         muted
         autoplay
         controls
+        loop
         width="600"
         src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
       />
