@@ -12,7 +12,7 @@
 .LogoAnimation .logoInner {
   transform: scale(1);
   transition: all 850ms ease-in-out;
-  transition-delay: 150ms;
+  transition-delay: 50ms;
 }
 
 .LogoAnimation.mobile .logoInner,

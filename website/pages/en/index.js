@@ -63,8 +63,8 @@ function LogoAnimation() {
       <script src={`${baseUrl}js/headerAnimation.js`} />
       <svg
         className="LogoAnimation init"
-        width={400}
-        height={400}
+        width={350}
+        height={350}
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-200 -200 400 400">
         <title>React Logo</title>
