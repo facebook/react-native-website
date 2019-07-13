@@ -21,3 +21,11 @@ table.versions tr td {
   width: 33%;
   padding: 8px;
 }
+
+table.versions td a {
+  text-decoration: underline;
+}
+
+table.versions td a:hover {
+  text-decoration: none;
+}
