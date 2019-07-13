@@ -2,10 +2,6 @@ body {
   background-color: $backgroundColor;
 }
 
-.headerTitle {
-  font-weight: 300 !important;
-}
-
 .mainContainer {
   background-color: $backgroundColor !important;
 }
@@ -20,56 +16,6 @@ body {
   .docsNavContainer {
     width: 240px;
   }
-}
-
-.collapsible .arrow {
-  transform: rotate(180deg);
-}
-
-.collapsible .arrow.rotate {
-  transform: rotate(0);
-}
-
-.toc {
-  border-right: 1px solid $divider;
-}
-
-.toc .toggleNav .navGroup .navGroupCategoryTitle {
-  color: #6d6d6d;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.toc .toggleNav .navGroup .navGroupCategoryTitle:hover {
-  color: black;
-}
-
-.toc .toggleNav ul li a {
-  color: $text;
-}
-
-.toc .toggleNav ul li a:hover {
-  color: #6d6d6d;
-}
-
-.toc .toggleNav ul li.navListItemActive a {
-  font-weight: 700;
-}
-
-.toc .toggleNav ul li {
-  position: relative;
-}
-
-.toc .toggleNav ul li.navListItemActive::after {
-  content: "";
-  background-color: $brand;
-  position: absolute;
-  width: 5px;
-  top: 2px;
-  right: 0;
-  bottom: 2px;
 }
 
 .mainContainer h1,
@@ -98,15 +44,6 @@ body {
 
 .mainContainer a:hover {
   text-decoration: none;
-}
-
-/* Get the search icon to display correctly with box-sizing */
-.reactNavSearchWrapper {
-  box-sizing: initial;
-}
-
-input#search_input_react {
-  background-color: #2f2f2f;
 }
 
 .button {
