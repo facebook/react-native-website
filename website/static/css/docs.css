@@ -104,7 +104,7 @@ hr {
   height: 1px;
   margin-bottom: -1px;
   border: none;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid $divider;
   margin-top: 40px;
 }
 

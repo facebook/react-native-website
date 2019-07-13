@@ -4,6 +4,10 @@
   padding-bottom: 50px;
 }
 
+.Section + .Section {
+  border-top: 1px solid $divider;
+}
+
 .Section.light {
   background-color: $backgroundColor;
 }

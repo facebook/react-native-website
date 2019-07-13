@@ -46,9 +46,10 @@ const siteConfig = {
     darker: '#20232a', // really dark blue
     text: '#1a1a1a', // black substitute
     subtle: '#6d6d6d', // light grey for text
+    divider: '#ececec', // very light grey
     primaryColor: 'rgb(34, 34, 34)',
     secondaryColor: '#888888',
-    tintColor: '#f4f4f8', // slightly off white
+    tintColor: '#f7f7f7', // slightly off white
     backgroundColor: 'white',
   },
   blogSidebarCount: 'ALL',

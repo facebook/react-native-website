@@ -31,7 +31,7 @@ body {
 }
 
 .toc {
-  border-right: 1px solid #ececec;
+  border-right: 1px solid $divider;
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle {
