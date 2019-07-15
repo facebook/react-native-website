@@ -1,4 +1,4 @@
-.LogoAnimation .border {
+.LogoAnimation .screen {
   transition: all 850ms ease-in-out;
   stroke-opacity: 0;
   width: 400px;
@@ -7,6 +7,10 @@
   y: -200px;
   stroke-width: 5px;
   rx: 2px;
+}
+
+.LogoAnimation .background {
+  fill: $dark;
 }
 
 .LogoAnimation .logoInner {
@@ -28,7 +32,7 @@
   transform: scale(0.33);
 }
 
-.LogoAnimation.full .border {
+.LogoAnimation.full .screen {
   stroke-opacity: 0;
   width: 400px;
   height: 400px;
@@ -38,7 +42,7 @@
   rx: 2px;
 }
 
-.LogoAnimation.mobile .border {
+.LogoAnimation.mobile .screen {
   stroke-opacity: 1;
   width: 180px;
   height: 300px;
@@ -49,7 +53,7 @@
   stroke-width: 5px;
 }
 
-.LogoAnimation.desktop .border {
+.LogoAnimation.desktop .screen {
   stroke-opacity: 1;
   width: 200px;
   height: 320px;
@@ -61,7 +65,7 @@
   stroke-width: 8px;
 }
 
-.LogoAnimation.laptop .border {
+.LogoAnimation.laptop .screen {
   stroke-opacity: 1;
   width: 150px;
   height: 250px;
@@ -73,7 +77,7 @@
   stroke-width: 5px;
 }
 
-.LogoAnimation.mobile2 .border {
+.LogoAnimation.mobile2 .screen {
   stroke-opacity: 1;
   width: 180px;
   height: 300px;
@@ -85,25 +89,28 @@
   transform: rotate(-180deg);
 }
 
-.LogoAnimation.full2 .border {
+.LogoAnimation.full2 .screen {
   transform: rotate(-180deg);
   stroke-opacity: 0;
 }
 
 .LogoAnimation:not(.mobile):not(.mobile2) .speaker {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .LogoAnimation:not(.desktop) .stand {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .LogoAnimation:not(.laptop) .base {
   opacity: 0;
+  transform: scaleX(0);
 }
 
 .LogoAnimation .speaker,
 .LogoAnimation .stand,
 .LogoAnimation .base {
-  transition: opacity 850ms ease-in-out;
+  transition: all 850ms ease-in-out;
 }
