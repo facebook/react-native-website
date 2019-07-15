@@ -7,7 +7,7 @@
 
 @media screen and (min-width: 961px) {
   .Community .column.first {
-    border-right: 1px solid gray;
+    border-right: 1px solid $divider;
   }
 }
 
