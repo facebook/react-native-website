@@ -7,7 +7,7 @@
   top: 1px;
   padding: 10px !important;
   margin: 0px 2px 0px 2px !important;
-  border: 1px solid $secondaryColor;
+  border: 1px solid $subtle;
   border-bottom-color: transparent;
   border-radius: 3px 3px 0px 0px;
   background-color: transparent;
@@ -26,7 +26,7 @@
   list-style-type: none;
   padding: 0 !important;
   margin: 0 !important;
-  border-bottom: 1px solid $secondaryColor;
+  border-bottom: 1px solid $subtle;
   cursor: default;
 }
 @media screen and (max-width: 960px) {
@@ -34,7 +34,7 @@
   .toggler li:first-child,
   .toggler li:last-child {
     display: block;
-    border-bottom-color: $secondaryColor;
+    border-bottom-color: $subtle;
     border-radius: 3px;
     margin: 2px 0px 2px 0px;
   }
@@ -46,8 +46,8 @@
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
-  border: 1px solid $secondaryColor;
+  border: 1px solid $subtle;
   border-radius: 3px;
   text-decoration: none !important;
-  color: $secondaryColor;
+  color: $subtle;
 }
