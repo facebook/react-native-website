@@ -24,7 +24,7 @@ body {
 .mainContainer h4,
 .mainContainer h5,
 .mainContainer h6 {
-  color: $primaryColor;
+  color: $text;
 }
 
 .mainContainer .wrapper .post .postHeaderTitle {
@@ -145,7 +145,13 @@ a code {
 }
 
 .container .wrapper h2 {
-  font-size: 31px;
+  font-size: 35px;
+  font-weight: 700;
+}
+
+.container .wrapper h3 {
+  font-size: 25px;
+  font-weight: 700;
 }
 
 .container .wrapper .hljs {

@@ -155,7 +155,7 @@ function HeaderHero() {
         columnTwo={
           <React.Fragment>
             <h1 className="title">React Native</h1>
-            <p className="tagline">Learn once, write everywhere.</p>
+            <p className="tagline">Learn once, write anywhere.</p>
             <div className="buttons">
               <HomeCallToAction />
             </div>

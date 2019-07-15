@@ -9,7 +9,7 @@
 }
 
 .ActionButton.primary {
-  color: $primaryColor;
+  color: $dark;
   background-color: $brand;
 }
 
