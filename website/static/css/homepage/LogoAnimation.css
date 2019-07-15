@@ -100,12 +100,10 @@
 }
 
 .LogoAnimation:not(.desktop) .stand {
-  opacity: 0;
   transform: scaleX(0);
 }
 
 .LogoAnimation:not(.laptop) .base {
-  opacity: 0;
   transform: scaleX(0);
 }
 
