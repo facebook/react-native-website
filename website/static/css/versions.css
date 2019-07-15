@@ -1,5 +1,14 @@
 /* Versions Page */
 
+.versionsPage h1 {
+  color: $dark;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 65px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
 table.versions {
   width: 60%;
   border: 0;

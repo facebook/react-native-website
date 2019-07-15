@@ -28,7 +28,7 @@ body {
 }
 
 .mainContainer .wrapper .post .postHeaderTitle {
-  color: #282c34;
+  color: $dark;
   font-weight: 700;
   font-size: 60px;
   line-height: 65px;
