@@ -11,6 +11,7 @@ function isActiveBlock(block) {
 
 function displayTab(type, value) {
   const list = document.getElementById(`toggle-${type}`);
+  // short circuit if there is no toggle for this tab type
   if (!list) {
     return;
   }
