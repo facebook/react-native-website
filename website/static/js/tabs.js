@@ -1,19 +1,34 @@
-function displayTab(type, value) {
-  var container = document.getElementsByTagName('block')[0].parentNode;
-  container.className =
-    'display-' +
-    type +
-    '-' +
-    value +
-    ' ' +
-    container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
+const currentTabs = {};
 
+function isActiveBlock(block) {
+  for (let tab of Object.values(currentTabs)) {
+    if (!block.classList.contains(tab)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function displayTab(type, value) {
   const list = document.getElementById(`toggle-${type}`);
   if (!list) {
     return;
   }
+  currentTabs[type] = value;
   [...list.children].forEach(child => {
-    if (child.className.includes(`button-${value}`)) {
+    if (child.classList.contains(`button-${value}`)) {
+      child.classList.add('active');
+    } else {
+      child.classList.remove('active');
+    }
+  });
+
+  var container = document.getElementsByTagName('block')[0].parentNode;
+  [...container.children].forEach(child => {
+    if (child.tagName !== 'BLOCK') {
+      return;
+    }
+    if (isActiveBlock(child)) {
       child.classList.add('active');
     } else {
       child.classList.remove('active');

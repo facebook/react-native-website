@@ -3,18 +3,9 @@ id: building-for-apple-tv
 title: Building For TV Devices
 ---
 
-<style>
-  block { display: none; }
-  .display-platform-ios .ios,
-  .display-platform-android .android {
-    display: block;
-  }
-</style>
-
 TV devices support has been implemented with the intention of making existing React Native applications "just work" on Apple TV and Android TV, with few or no changes needed in the JavaScript code for the applications.
 
 <div class="toggler">
-
   <ul role="tablist" id="toggle-platform">
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS

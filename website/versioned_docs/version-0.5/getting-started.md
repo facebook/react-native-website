@@ -4,23 +4,6 @@ title: Getting Started
 original_id: getting-started
 ---
 
-<style>
-  block { display: none; }
-  .display-guide-quickstart.display-platform-ios.display-os-mac .quickstart.ios.mac,
-  .display-guide-quickstart.display-platform-ios.display-os-linux .quickstart.ios.linux,
-  .display-guide-quickstart.display-platform-ios.display-os-windows .quickstart.ios.windows,
-  .display-guide-quickstart.display-platform-android.display-os-mac .quickstart.android.mac,
-  .display-guide-quickstart.display-platform-android.display-os-linux .quickstart.android.linux,
-  .display-guide-quickstart.display-platform-android.display-os-windows .quickstart.android.windows,    .display-guide-native.display-platform-ios.display-os-mac .native.ios.mac,
-  .display-guide-native.display-platform-ios.display-os-linux .native.ios.linux,
-  .display-guide-native.display-platform-ios.display-os-windows .native.ios.windows,
-  .display-guide-native.display-platform-android.display-os-mac .native.android.mac,
-  .display-guide-native.display-platform-android.display-os-linux .native.android.linux,
-  .display-guide-native.display-platform-android.display-os-windows .native.android.windows {
-    display: block;
-  }
-</style>
-
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
 
 <strong>If you are coming from a web background</strong>, the easiest way to get started with React Native is with Expo tools because they allow you to start a project without installing and configuring Xcode or Android Studio. Expo CLI sets up a development environment on your local machine and you can be writing a React Native app within minutes. For instant development, you can use [Snack](https://snack.expo.io/) to try React Native out directly in your web browser.

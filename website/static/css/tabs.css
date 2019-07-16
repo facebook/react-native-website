@@ -61,3 +61,11 @@
   border-radius: 3px;
   text-decoration: none;
 }
+
+block {
+  display: none;
+}
+
+block.active {
+  display: block;
+}
