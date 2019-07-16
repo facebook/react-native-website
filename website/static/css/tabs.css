@@ -34,7 +34,7 @@
   width: 100%;
   background-color: $brand;
   transform: scaleX(0);
-  transition: transform 0.1s ease-out;
+  transition: transform 0.2s ease-out;
 }
 
 .toggler li.active::after,
