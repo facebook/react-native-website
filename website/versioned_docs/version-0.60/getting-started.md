@@ -5,16 +5,6 @@ original_id: getting-started
 ---
 
 <style>
-  .display-guide-quickstart .toggler .button-quickstart,
-  .display-guide-native .toggler .button-native,
-  .display-os-mac .toggler .button-mac,
-  .display-os-linux .toggler .button-linux,
-  .display-os-windows .toggler .button-windows,
-  .display-platform-ios .toggler .button-ios,
-  .display-platform-android .toggler .button-android {
-    background-color: #05A5D1;
-    color: white;
-  }
   block { display: none; }
   .display-guide-quickstart.display-platform-ios.display-os-mac .quickstart.ios.mac,
   .display-guide-quickstart.display-platform-ios.display-os-linux .quickstart.ios.linux,
@@ -38,7 +28,7 @@ This page will help you install and build your first React Native app. If you al
 <strong>If you are familiar with native development</strong>, you will likely want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
 <div class="toggler">
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-guide">
     <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
       Expo CLI Quickstart
     </li>
@@ -115,11 +105,14 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
-<div class="toggler">
+<div class="toggler" id="toggle-os">
   <span>Development OS:</span>
   <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
   <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
   <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+</div>
+
+<div class="toggler" id="toggle-platform">
   <span>Target OS:</span>
   <a href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
   <a href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>

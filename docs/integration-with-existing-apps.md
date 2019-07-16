@@ -4,12 +4,6 @@ title: Integration with Existing Apps
 ---
 
 <style>
-  .display-language-objc .toggler .button-objc,
-  .display-language-swift .toggler .button-swift,
-  .display-language-android .toggler .button-android {
-    background-color: #05A5D1;
-    color: white;
-  }
   block { display: none; }
   .display-language-objc .objc,
   .display-language-swift .swift,
@@ -23,7 +17,7 @@ React Native is great when you are starting a new mobile app from scratch. Howev
 The specific steps are different depending on what platform you're targeting.
 
 <div class="toggler">
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-language" >
     <li id="objc" class="button-objc" aria-selected="false" role="tab" tabindex="0" aria-controls="objctab" onclick="displayTab('language', 'objc')">
       iOS (Objective-C)
     </li>

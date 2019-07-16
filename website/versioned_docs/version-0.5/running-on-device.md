@@ -5,14 +5,6 @@ original_id: running-on-device
 ---
 
 <style>
-  .display-os-mac .toggler .button-mac,
-  .display-os-linux .toggler .button-linux,
-  .display-os-windows .toggler .button-windows,
-  .display-platform-ios .toggler .button-ios,
-  .display-platform-android .toggler .button-android {
-    background-color: #05A5D1;
-    color: white;
-  }
   block { display: none; }
   .display-platform-ios.display-os-mac .ios.mac,
   .display-platform-ios.display-os-linux .ios.linux,
@@ -29,8 +21,7 @@ It's always a good idea to test your app on an actual device before releasing it
 If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
 
 <div class="toggler">
-
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-platform">
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
     </li>
@@ -50,7 +41,7 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
 
 <block class="linux windows mac ios android" />
 
-<div class="toggler">
+<div class="toggler" id="toggle-os">
 <span>Development OS:</span>
 <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
 <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>

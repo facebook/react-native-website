@@ -7,14 +7,25 @@
   top: 1px;
   padding: 10px;
   margin: 0px 2px 0px 2px;
-  color: $secondaryColor;
-  border: 1px solid $secondaryColor;
   border-bottom-color: transparent;
   border-radius: 3px 3px 0px 0px;
-  background-color: transparent;
   font-size: 0.99em;
   cursor: pointer;
 }
+
+.toggler li,
+.toggler a {
+  color: $secondaryColor;
+  border: 1px solid $secondaryColor;
+  background-color: transparent;
+}
+
+.toggler li.active,
+.toggler a.active {
+  color: white;
+  background-color: $secondaryColor;
+}
+
 .toggler li:first-child {
   margin-left: 0;
 }
@@ -47,8 +58,6 @@
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
-  border: 1px solid $secondaryColor;
   border-radius: 3px;
   text-decoration: none;
-  color: $secondaryColor;
 }

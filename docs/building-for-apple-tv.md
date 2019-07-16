@@ -4,11 +4,6 @@ title: Building For TV Devices
 ---
 
 <style>
-  .display-platform-ios .toggler .button-ios,
-  .display-platform-android .toggler .button-android {
-    background-color: #05A5D1;
-    color: white;
-  }
   block { display: none; }
   .display-platform-ios .ios,
   .display-platform-android .android {
@@ -20,7 +15,7 @@ TV devices support has been implemented with the intention of making existing Re
 
 <div class="toggler">
 
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-platform">
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
     </li>

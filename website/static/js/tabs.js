@@ -7,6 +7,18 @@ function displayTab(type, value) {
     value +
     ' ' +
     container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
+
+  const list = document.getElementById(`toggle-${type}`);
+  if (!list) {
+    return;
+  }
+  [...list.children].forEach(child => {
+    if (child.className.includes(`button-${value}`)) {
+      child.classList.add('active');
+    } else {
+      child.classList.remove('active');
+    }
+  });
 }
 function convertBlocks() {
   // Convert <div>...<span><block /></span>...</div>

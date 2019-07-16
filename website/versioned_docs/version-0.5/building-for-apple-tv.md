@@ -5,11 +5,6 @@ original_id: building-for-apple-tv
 ---
 
 <style>
-  .display-platform-ios .toggler .button-ios,
-  .display-platform-android .toggler .button-android {
-    background-color: #05A5D1;
-    color: white;
-  }
   block { display: none; }
   .display-platform-ios .ios,
   .display-platform-android .android {
@@ -19,8 +14,7 @@ original_id: building-for-apple-tv
 
 TV devices support has been implemented with the intention of making existing React Native applications "just work" on Apple TV and Android TV, with few or no changes needed in the JavaScript code for the applications.
 
-<div class="toggler">
-
+<div class="toggler" id="toggle-platform">
   <ul role="tablist" >
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
