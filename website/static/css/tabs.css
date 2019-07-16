@@ -5,8 +5,9 @@
   display: inline-block;
   position: relative;
   top: 1px;
-  padding: 10px !important;
-  margin: 0px 2px 0px 2px !important;
+  padding: 10px;
+  margin: 0px 2px 0px 2px;
+  color: $secondaryColor;
   border: 1px solid $secondaryColor;
   border-bottom-color: transparent;
   border-radius: 3px 3px 0px 0px;
@@ -15,17 +16,17 @@
   cursor: pointer;
 }
 .toggler li:first-child {
-  margin-left: 0 !important;
+  margin-left: 0;
 }
 .toggler li:last-child {
-  margin-right: 0 !important;
+  margin-right: 0;
 }
 .toggler ul {
   width: 100%;
   display: inline-block;
   list-style-type: none;
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 0;
+  margin: 0;
   border-bottom: 1px solid $secondaryColor;
   cursor: default;
 }
@@ -48,6 +49,6 @@
   margin: 2px;
   border: 1px solid $secondaryColor;
   border-radius: 3px;
-  text-decoration: none !important;
+  text-decoration: none;
   color: $secondaryColor;
 }
