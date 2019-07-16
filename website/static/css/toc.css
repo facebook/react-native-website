@@ -6,8 +6,17 @@
   transform: rotate(0);
 }
 
+.container.docsNavContainer {
+  overflow: visible;
+}
+
 .toc {
+  height: 100%;
   border-right: 1px solid $divider;
+  margin-left: -9999px;
+  padding-left: 9999px;
+  overflow-y: auto;
+  background-color: $tintColor;
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle {
@@ -30,6 +39,7 @@
 .toc .toggleNav ul li a {
   color: $text;
   background-color: transparent;
+  font-size: 16px;
 }
 
 .toc .toggleNav ul li a:hover {
