@@ -12,18 +12,22 @@ Let's do this thing.
 In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
 
 ```ReactNativeWebPlayer
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, world!</Text>
-      </View>
-    );
-  }
+function HelloWorldApp() {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+      }}>
+      <Text>Hello, world!</Text>
+    </View>
+  )
 }
+export default HelloWorldApp;
 ```
 
 If you are feeling curious, you can play around with sample code directly in the web simulators. You can also paste it into your `App.js` file to create a real app on your local machine.
@@ -32,14 +36,62 @@ If you are feeling curious, you can play around with sample code directly in the
 
 Some of the things in here might not look like JavaScript to you. Don't panic. _This is the future_.
 
-First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development. React Native ships with ES2015 support, so you can use this stuff without worrying about compatibility. `import`, `from`, `class`, and `extends` in the example above are all ES2015 features. If you aren't familiar with ES2015, you can probably pick it up just by reading through sample code like this tutorial has. If you want, [this page](https://babeljs.io/learn-es2015/) has a good overview of ES2015 features.
+First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development. React Native ships with ES2015 support, so you can use this stuff without worrying about compatibility. `import`, `from` in the example above are all ES2015 features. If you aren't familiar with ES2015, you can probably pick it up just by reading through sample code like this tutorial has. If you want, [this page](https://babeljs.io/learn-es2015/) has a good overview of ES2015 features.
 
 The other unusual thing in this code example is `<View><Text>Hello world!</Text></View>`. This is JSX - a syntax for embedding XML within JavaScript. Many frameworks use a special templating language which lets you embed code inside markup language. In React, this is reversed. JSX lets you write your markup language inside code. It looks like HTML on the web, except instead of web things like `<div>` or `<span>`, you use React components. In this case, `<Text>` is a built-in component that just displays some text and `View` is like the `<div>` or `<span>`.
 
 ## Components
 
-So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component. A component can be pretty simple - the only thing that's required is a `render` function which returns some JSX to render.
+So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component. A component can be pretty simple.
 
 ## This app doesn't do very much
 
-Good point. To make components do more interesting things, you need to [learn about Props](props.md).
+Good point. To make components do more interesting things, you need to [learn about Props](#props).
+
+## Props
+
+Most components can be customized when they are created, with different parameters. These creation parameters are called props.
+
+Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `this.props` in your function. Here's an example:
+
+```ReactNativeWebPlayer
+import React from 'react';
+import { AppRegistry, Text, View, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  center: {
+    alignItems: 'center'
+  }
+})
+
+function Greeting(props) {
+  return (
+    <View style={styles.center}>
+      <Text>Hello {props.name}!</Text>
+    </View>
+  );
+}
+
+function LotsOfGreetings() {
+  return (
+    <View style={[styles.center, {top: 50}]}>
+      <Greeting name='Rexxar' />
+      <Greeting name='Jaina' />
+      <Greeting name='Valeera' />
+    </View>
+  );
+}
+
+// skip this line if using React Native CLI
+AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
+```
+
+Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX, just like the built-in components. The power to do this is what makes React so cool - if you find yourself wishing that you had a different set of UI primitives to work with, you just invent new ones.
+
+The other new thing going on here is the [`View`](view.md) component. A [`View`](view.md) is useful as a container for other components, to help control style and layout.
+
+With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](view.md) components, you can build a wide variety of static screens. To learn how to make your app change over time, you need to [learn about State](#state).
+
+## State
+
+<!-- TODO -->
