@@ -368,7 +368,7 @@ function Community() {
           columnOne={
             <React.Fragment>
               <p className="firstP">
-                <img src={`${baseUrl}img/homepage/fb-logo.png`} alt="" />
+                <img src={`${baseUrl}img/homepage/fb-logo.svg`} alt="" />
                 <span>
                   Facebook released React Native in 2015 and has been
                   maintaining it ever since.
