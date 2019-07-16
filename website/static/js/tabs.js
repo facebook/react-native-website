@@ -19,8 +19,10 @@ function displayTab(type, value) {
   [...list.children].forEach(child => {
     if (child.classList.contains(`button-${value}`)) {
       child.classList.add('active');
+      child.setAttribute('aria-selected', true);
     } else {
       child.classList.remove('active');
+      child.setAttribute('aria-selected', false);
     }
   });
 
