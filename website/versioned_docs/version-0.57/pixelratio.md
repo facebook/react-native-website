@@ -43,7 +43,7 @@ In React Native, everything in JavaScript and within the layout engine works wit
 
 ### `get()`
 
-```javascript
+```jsx
 static get()
 ```
 
@@ -72,7 +72,7 @@ Returns the device pixel density. Some examples:
 
 ### `getFontScale()`
 
-```javascript
+```jsx
 static getFontScale()
 ```
 
@@ -86,7 +86,7 @@ Currently this is only implemented on Android and reflects the user preference s
 
 ### `getPixelSizeForLayoutSize()`
 
-```javascript
+```jsx
 static getPixelSizeForLayoutSize(layoutSize)
 ```
 
@@ -98,7 +98,7 @@ Guaranteed to return an integer number.
 
 ### `roundToNearestPixel()`
 
-```javascript
+```jsx
 static roundToNearestPixel(layoutSize)
 ```
 

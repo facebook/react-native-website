@@ -9,7 +9,7 @@ The most fundamental component for building a UI, `View` is a container that sup
 
 This example creates a `View` that wraps two colored boxes and a text component in a row with padding.
 
-```javascript
+```jsx
 class ViewColoredBoxesWithText extends Component {
   render() {
     return (

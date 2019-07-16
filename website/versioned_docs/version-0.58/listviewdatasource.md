@@ -10,7 +10,7 @@ To update the data in the datasource, use `cloneWithRows` (or `cloneWithRowsAndS
 
 In this example, a component receives data in chunks, handled by `_onDataArrived`, which concats the new data onto the old data and updates the data source. We use `concat` to create a new array - mutating `this._data`, e.g. with `this._data.push(newRowData)`, would be an error. `_rowHasChanged` understands the shape of the row data and knows how to efficiently compare it.
 
-```javascript
+```jsx
 getInitialState: function() {
   var ds = new ListView.DataSource({rowHasChanged: this._rowHasChanged});
   return {ds};
@@ -46,7 +46,7 @@ _onDataArrived(newData) {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor(params);
 ```
 
@@ -75,7 +75,7 @@ The constructor takes in a params argument that can contain any of the following
 
 ### `cloneWithRows()`
 
-```javascript
+```jsx
 cloneWithRows(dataBlob, rowIdentities);
 ```
 
@@ -89,7 +89,7 @@ Note: This function does NOT clone the data in this data source. It simply passe
 
 ### `cloneWithRowsAndSections()`
 
-```javascript
+```jsx
 cloneWithRowsAndSections(dataBlob, sectionIdentities, rowIdentities);
 ```
 
@@ -110,7 +110,7 @@ const dataSource = ds.cloneWithRowsAndSections({
 
 ### `getRowCount()`
 
-```javascript
+```jsx
 getRowCount();
 ```
 
@@ -122,7 +122,7 @@ If you are specifying the rowIdentities or sectionIdentities, then `getRowCount`
 
 ### `getRowAndSectionCount()`
 
-```javascript
+```jsx
 getRowAndSectionCount();
 ```
 
@@ -134,7 +134,7 @@ If you are specifying the rowIdentities or sectionIdentities, then `getRowAndSec
 
 ### `rowShouldUpdate()`
 
-```javascript
+```jsx
 rowShouldUpdate(sectionIndex, rowIndex);
 ```
 
@@ -144,7 +144,7 @@ Returns if the row is dirtied and needs to be rerendered
 
 ### `getRowData()`
 
-```javascript
+```jsx
 getRowData(sectionIndex, rowIndex);
 ```
 
@@ -154,7 +154,7 @@ Gets the data required to render the row.
 
 ### `getRowIDForFlatIndex()`
 
-```javascript
+```jsx
 getRowIDForFlatIndex(index);
 ```
 
@@ -164,7 +164,7 @@ Gets the rowID at index provided if the dataSource arrays were flattened, or nul
 
 ### `getSectionIDForFlatIndex()`
 
-```javascript
+```jsx
 getSectionIDForFlatIndex(index);
 ```
 
@@ -174,7 +174,7 @@ Gets the sectionID at index provided if the dataSource arrays were flattened, or
 
 ### `getSectionLengths()`
 
-```javascript
+```jsx
 getSectionLengths();
 ```
 
@@ -184,7 +184,7 @@ Returns an array containing the number of rows in each section
 
 ### `sectionHeaderShouldUpdate()`
 
-```javascript
+```jsx
 sectionHeaderShouldUpdate(sectionIndex);
 ```
 
@@ -194,7 +194,7 @@ Returns if the section header is dirtied and needs to be rerendered
 
 ### `getSectionHeaderData()`
 
-```javascript
+```jsx
 getSectionHeaderData(sectionIndex);
 ```
 

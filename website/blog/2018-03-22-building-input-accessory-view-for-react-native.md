@@ -83,7 +83,7 @@ The input accessory view successfully avoids the home pill, but now content behi
 
 Here's an example which builds a keyboard toolbar button to reset `<TextInput>` state.
 
-```javascript
+```jsx
 class TextInputAccessoryViewExample extends React.Component<{}, *> {
   constructor(props) {
     super(props);

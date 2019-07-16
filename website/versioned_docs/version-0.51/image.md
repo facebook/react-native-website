@@ -377,7 +377,7 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 
 ### `getSize()`
 
-```javascript
+```jsx
 static getSize(uri: string, success: function, [failure]: function):
 ```
 
@@ -399,7 +399,7 @@ Does not work for static image resources.
 
 ### `prefetch()`
 
-```javascript
+```jsx
 static prefetch(url: string):
 ```
 

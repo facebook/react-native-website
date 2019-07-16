@@ -107,7 +107,7 @@ This callback will be called once ViewPager finish navigating to selected page (
 
 ### `setPage()`
 
-```javascript
+```jsx
 setPage((selectedPage: number));
 ```
 
@@ -117,7 +117,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 ### `setPageWithoutAnimation()`
 
-```javascript
+```jsx
 setPageWithoutAnimation((selectedPage: number));
 ```
 

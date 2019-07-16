@@ -139,7 +139,7 @@ Used to locate this view in end-to-end tests.
 
 ### `onStartShouldSetResponder()`
 
-```javascript
+```jsx
 onStartShouldSetResponder():
 ```
 
@@ -147,7 +147,7 @@ onStartShouldSetResponder():
 
 ### `handleResponderTerminationRequest()`
 
-```javascript
+```jsx
 handleResponderTerminationRequest():
 ```
 
@@ -155,7 +155,7 @@ handleResponderTerminationRequest():
 
 ### `handleResponderGrant()`
 
-```javascript
+```jsx
 handleResponderGrant((e: SyntheticEvent), (dispatchID: string));
 ```
 
@@ -163,7 +163,7 @@ handleResponderGrant((e: SyntheticEvent), (dispatchID: string));
 
 ### `handleResponderMove()`
 
-```javascript
+```jsx
 handleResponderMove((e: SyntheticEvent));
 ```
 
@@ -171,7 +171,7 @@ handleResponderMove((e: SyntheticEvent));
 
 ### `handleResponderRelease()`
 
-```javascript
+```jsx
 handleResponderRelease((e: SyntheticEvent));
 ```
 
@@ -179,6 +179,6 @@ handleResponderRelease((e: SyntheticEvent));
 
 ### `handleResponderTerminate()`
 
-```javascript
+```jsx
 handleResponderTerminate((e: SyntheticEvent));
 ```

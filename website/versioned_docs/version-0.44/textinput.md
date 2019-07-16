@@ -655,7 +655,7 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```
 
@@ -665,7 +665,7 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```
 

@@ -29,7 +29,7 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ### `registerConfig()`
 
-```javascript
+```jsx
 static registerConfig(config)
 ```
 
@@ -37,7 +37,7 @@ static registerConfig(config)
 
 ### `registerComponent()`
 
-```javascript
+```jsx
 static registerComponent(appKey, getComponentFunc)
 ```
 
@@ -45,7 +45,7 @@ static registerComponent(appKey, getComponentFunc)
 
 ### `registerRunnable()`
 
-```javascript
+```jsx
 static registerRunnable(appKey, func)
 ```
 
@@ -53,7 +53,7 @@ static registerRunnable(appKey, func)
 
 ### `getAppKeys()`
 
-```javascript
+```jsx
 static getAppKeys()
 ```
 
@@ -61,7 +61,7 @@ static getAppKeys()
 
 ### `runApplication()`
 
-```javascript
+```jsx
 static runApplication(appKey, appParameters)
 ```
 
@@ -69,7 +69,7 @@ static runApplication(appKey, appParameters)
 
 ### `unmountApplicationComponentAtRootTag()`
 
-```javascript
+```jsx
 static unmountApplicationComponentAtRootTag(rootTag)
 ```
 
@@ -77,7 +77,7 @@ static unmountApplicationComponentAtRootTag(rootTag)
 
 ### `registerHeadlessTask()`
 
-```javascript
+```jsx
 static registerHeadlessTask(taskKey, task)
 ```
 
@@ -87,7 +87,7 @@ Register a headless task. A headless task is a bit of code that runs without a U
 
 ### `startHeadlessTask()`
 
-```javascript
+```jsx
 static startHeadlessTask(taskId, taskKey, data)
 ```
 

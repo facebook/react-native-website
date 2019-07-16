@@ -25,7 +25,7 @@ One reason why well-built native apps feel so smooth is by avoiding expensive op
 
 Applications can schedule tasks to run after interactions with the following:
 
-```javascript
+```jsx
 InteractionManager.runAfterInteractions(() => {
   // ...long-running synchronous task...
 });
@@ -41,7 +41,7 @@ The touch handling system considers one or more active touches to be an 'interac
 
 InteractionManager also allows applications to register animations by creating an interaction 'handle' on animation start, and clearing it upon completion:
 
-```javascript
+```jsx
 var handle = InteractionManager.createInteractionHandle();
 // run animation... (`runAfterInteractions` tasks are queued)
 // later, on animation completion:
@@ -55,7 +55,7 @@ We found out that the primary cause of fatals in apps created with React Native 
 
 This library does not ship with React Native - in order to use it on your project, you will need to install it with `npm i react-timer-mixin --save` from your project directory.
 
-```javascript
+```jsx
 import TimerMixin from 'react-timer-mixin';
 
 var Component = createReactClass({

@@ -45,7 +45,7 @@ Alternatively, the dismissing behavior can be disabled altogether by providing a
 
 Example usage:
 
-```javascript
+```jsx
 // Works on both iOS and Android
 Alert.alert(
   'Alert Title',
@@ -75,6 +75,6 @@ Alert.alert(
 
 ### `alert()`
 
-```javascript
+```jsx
 static alert(title, message?, buttons?, options? type?)
 ```

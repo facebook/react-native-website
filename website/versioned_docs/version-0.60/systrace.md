@@ -23,7 +23,7 @@ original_id: systrace
 
 ### `installReactHook()`
 
-```javascript
+```jsx
 static installReactHook(useFiber)
 ```
 
@@ -31,7 +31,7 @@ static installReactHook(useFiber)
 
 ### `setEnabled()`
 
-```javascript
+```jsx
 static setEnabled(enabled)
 ```
 
@@ -39,7 +39,7 @@ static setEnabled(enabled)
 
 ### `isEnabled()`
 
-```javascript
+```jsx
 static isEnabled()
 ```
 
@@ -47,7 +47,7 @@ static isEnabled()
 
 ### `beginEvent()`
 
-```javascript
+```jsx
 static beginEvent(profileName?, args?)
 ```
 
@@ -57,7 +57,7 @@ beginEvent/endEvent for starting and then ending a profile within the same call 
 
 ### `endEvent()`
 
-```javascript
+```jsx
 static endEvent()
 ```
 
@@ -65,7 +65,7 @@ static endEvent()
 
 ### `beginAsyncEvent()`
 
-```javascript
+```jsx
 static beginAsyncEvent(profileName?)
 ```
 
@@ -75,7 +75,7 @@ beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the e
 
 ### `endAsyncEvent()`
 
-```javascript
+```jsx
 static endAsyncEvent(profileName?, cookie?)
 ```
 
@@ -83,7 +83,7 @@ static endAsyncEvent(profileName?, cookie?)
 
 ### `counterEvent()`
 
-```javascript
+```jsx
 static counterEvent(profileName?, value?)
 ```
 

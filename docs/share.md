@@ -17,7 +17,7 @@ title: Share
 
 ### `share()`
 
-```javascript
+```jsx
 static share(content, options)
 ```
 
@@ -54,7 +54,7 @@ At least one of URL and message is required.
 
 ### `sharedAction()`
 
-```javascript
+```jsx
 static sharedAction()
 ```
 
@@ -64,7 +64,7 @@ The content was successfully shared.
 
 ### `dismissedAction()`
 
-```javascript
+```jsx
 static dismissedAction()
 ```
 
@@ -72,7 +72,7 @@ _iOS Only_. The dialog has been dismissed.
 
 ## Basic Example
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {Share, Button} from 'react-native';
 

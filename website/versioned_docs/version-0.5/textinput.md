@@ -337,6 +337,6 @@ The default value for the text input
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```

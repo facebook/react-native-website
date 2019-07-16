@@ -34,7 +34,7 @@ This JS code is a simple facade over the native iOS implementation to provide a 
 
 ### `getItem()`
 
-```javascript
+```jsx
 static getItem(key, callback?)
 ```
 
@@ -44,7 +44,7 @@ Fetches `key` and passes the result to `callback`, along with an `Error` if ther
 
 ### `setItem()`
 
-```javascript
+```jsx
 static setItem(key, value, callback?)
 ```
 
@@ -54,7 +54,7 @@ Sets `value` for `key` and calls `callback` on completion, along with an `Error`
 
 ### `removeItem()`
 
-```javascript
+```jsx
 static removeItem(key, callback?)
 ```
 
@@ -64,7 +64,7 @@ Returns a `Promise` object.
 
 ### `mergeItem()`
 
-```javascript
+```jsx
 static mergeItem(key, value, callback?)
 ```
 
@@ -72,7 +72,7 @@ Merges existing value with input value, assuming they are stringified json. Retu
 
 Example:
 
-```javascript
+```jsx
 let UID123_object = {
   name: 'Chris',
   age: 30,
@@ -99,7 +99,7 @@ AsyncStorage.setItem(store_key, JSON.stringify(UID123_object), () => {
 
 ### `clear()`
 
-```javascript
+```jsx
 static clear(callback?)
 ```
 
@@ -109,7 +109,7 @@ Erases _all_ AsyncStorage for all clients, libraries, etc. You probably don't wa
 
 ### `getAllKeys()`
 
-```javascript
+```jsx
 static getAllKeys(callback?)
 ```
 
@@ -121,7 +121,7 @@ Example: see multiGet for example
 
 ### `flushGetRequests()`
 
-```javascript
+```jsx
 static flushGetRequests()
 ```
 
@@ -131,7 +131,7 @@ Flushes any pending requests using a single multiget
 
 ### `multiGet()`
 
-```javascript
+```jsx
 static multiGet(keys, callback?)
 ```
 
@@ -141,7 +141,7 @@ multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 Example:
 
-```javascript
+```jsx
 AsyncStorage.getAllKeys((err, keys) => {
   AsyncStorage.multiGet(keys, (err, stores) => {
     stores.map((result, i, store) => {
@@ -157,7 +157,7 @@ AsyncStorage.getAllKeys((err, keys) => {
 
 ### `multiSet()`
 
-```javascript
+```jsx
 static multiSet(keyValuePairs, callback?)
 ```
 
@@ -171,7 +171,7 @@ Example: see multiMerge for an example
 
 ### `multiRemove()`
 
-```javascript
+```jsx
 static multiRemove(keys, callback?)
 ```
 
@@ -179,7 +179,7 @@ Delete all the keys in the `keys` array. Returns a `Promise` object.
 
 Example:
 
-```javascript
+```jsx
 let keys = ['k1', 'k2'];
 AsyncStorage.multiRemove(keys, (err) => {
   // keys k1 & k2 removed, if they existed
@@ -191,7 +191,7 @@ AsyncStorage.multiRemove(keys, (err) => {
 
 ### `multiMerge()`
 
-```javascript
+```jsx
 static multiMerge(keyValuePairs, callback?)
 ```
 
@@ -201,7 +201,7 @@ Not supported by all native implementations.
 
 Example:
 
-```javascript
+```jsx
 // first user, initial values
 let UID234_object = {
   name: 'Chris',

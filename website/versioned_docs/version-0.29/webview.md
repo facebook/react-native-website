@@ -325,7 +325,7 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 
 ### `goForward()`
 
-```javascript
+```jsx
 goForward();
 ```
 
@@ -335,7 +335,7 @@ Go forward one page in the web view's history.
 
 ### `goBack()`
 
-```javascript
+```jsx
 goBack();
 ```
 
@@ -345,7 +345,7 @@ Go back one page in the web view's history.
 
 ### `reload()`
 
-```javascript
+```jsx
 reload();
 ```
 
@@ -355,7 +355,7 @@ Reloads the current page.
 
 ### `stopLoading()`
 
-```javascript
+```jsx
 stopLoading();
 ```
 
@@ -365,7 +365,7 @@ Stop loading the current page.
 
 ### `getWebViewHandle()`
 
-```javascript
+```jsx
 getWebViewHandle():
 ```
 

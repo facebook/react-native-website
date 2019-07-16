@@ -32,7 +32,7 @@ There is also a function `showWithGravity` to specify the layout gravity. May be
 
 ### `show()`
 
-```javascript
+```jsx
 static show(message, duration)
 ```
 
@@ -40,7 +40,7 @@ static show(message, duration)
 
 ### `showWithGravity()`
 
-```javascript
+```jsx
 static showWithGravity(message, duration, gravity)
 ```
 
@@ -48,7 +48,7 @@ static showWithGravity(message, duration, gravity)
 
 ### `SHORT`
 
-```javascript
+```jsx
 ToastAndroid.SHORT;
 ```
 
@@ -56,7 +56,7 @@ ToastAndroid.SHORT;
 
 ### `LONG`
 
-```javascript
+```jsx
 ToastAndroid.LONG;
 ```
 
@@ -64,7 +64,7 @@ ToastAndroid.LONG;
 
 ### `TOP`
 
-```javascript
+```jsx
 ToastAndroid.TOP;
 ```
 
@@ -72,7 +72,7 @@ ToastAndroid.TOP;
 
 ### `BOTTOM`
 
-```javascript
+```jsx
 ToastAndroid.BOTTOM;
 ```
 
@@ -80,6 +80,6 @@ ToastAndroid.BOTTOM;
 
 ### `CENTER`
 
-```javascript
+```jsx
 ToastAndroid.CENTER;
 ```

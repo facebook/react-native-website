@@ -78,6 +78,7 @@ const siteConfig = {
     'https://platform.twitter.com/widgets.js',
     'https://buttons.github.io/buttons.js',
     baseUrl + 'js/codeblocks.js',
+    baseUrl + 'js/tabs.js',
   ],
   cleanUrl: true,
   scrollToTop: true,

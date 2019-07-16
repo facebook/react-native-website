@@ -23,7 +23,7 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 
 ### Example
 
-```javascript
+```jsx
 import {PermissionsAndroid} from 'react-native';
 
 async function requestCameraPermission() {
@@ -65,7 +65,7 @@ async function requestCameraPermission() {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -73,7 +73,7 @@ constructor();
 
 ### `check()`
 
-```javascript
+```jsx
 check(permission);
 ```
 
@@ -83,7 +83,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `request()`
 
-```javascript
+```jsx
 request(permission, rationale?)
 ```
 
@@ -95,7 +95,7 @@ If the optional rationale argument is included (which is an object with a `title
 
 ### `requestMultiple()`
 
-```javascript
+```jsx
 requestMultiple(permissions);
 ```
 
@@ -105,7 +105,7 @@ Prompts the user to enable multiple permissions in the same dialog and returns a
 
 ### `checkPermission()`
 
-```javascript
+```jsx
 checkPermission(permission);
 ```
 
@@ -117,7 +117,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `requestPermission()`
 
-```javascript
+```jsx
 requestPermission(permission, rationale?)
 ```
 

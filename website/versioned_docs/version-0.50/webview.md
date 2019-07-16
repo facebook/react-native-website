@@ -406,6 +406,6 @@ Boolean value that determines whether scrolling is enabled in the `WebView`. The
 
 ### `extraNativeComponentConfig()`
 
-```javascript
+```jsx
 static extraNativeComponentConfig()
 ```

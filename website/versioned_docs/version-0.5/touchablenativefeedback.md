@@ -70,7 +70,7 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 
 ### `SelectableBackground()`
 
-```javascript
+```jsx
 TouchableNativeFeedback.SelectableBackground();
 ```
 
@@ -80,7 +80,7 @@ Creates an object that represents android theme's default background for selecta
 
 ### `SelectableBackgroundBorderless()`
 
-```javascript
+```jsx
 TouchableNativeFeedback.SelectableBackgroundBorderless();
 ```
 
@@ -90,7 +90,7 @@ Creates an object that represent android theme's default background for borderle
 
 ### `Ripple()`
 
-```javascript
+```jsx
 TouchableNativeFeedback.Ripple((color: string), (borderless: boolean));
 ```
 
@@ -107,7 +107,7 @@ Creates an object that represents ripple drawable with specified color (as a str
 
 ### `canUseNativeForeground()`
 
-```javascript
+```jsx
 TouchableNativeFeedback.canUseNativeForeground();
 ```
 

@@ -307,7 +307,7 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 
 ### `getSize()`
 
-```javascript
+```jsx
 static getSize(uri: string, success: function, failure: function):
 ```
 
@@ -327,7 +327,7 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 ### `prefetch()`
 
-```javascript
+```jsx
 static prefetch(url: string):
 ```
 
