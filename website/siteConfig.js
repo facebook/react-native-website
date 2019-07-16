@@ -37,7 +37,7 @@ const siteConfig = {
     {search: true},
     {href: repoUrl, label: 'GitHub'},
   ],
-  headerIcon: 'img/header_logo.png',
+  headerIcon: 'img/header_logo.svg',
   footerIcon: 'img/header_logo.png',
   favicon: 'img/favicon.png',
   colors: {

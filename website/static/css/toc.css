@@ -8,6 +8,7 @@
 
 .container.docsNavContainer {
   overflow: visible;
+  flex: 0 0 280px;
 }
 
 .toc {

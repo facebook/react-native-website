@@ -3,6 +3,14 @@
   background-color: $deepdark;
 }
 
+.fixedHeaderContainer header img {
+  height: 75%;
+}
+
+.fixedHeaderContainer header a[href="/react-native/"] {
+  width: 160px;
+}
+
 .fixedHeaderContainer header h3 {
   font-size: 14px;
   margin-left: 8px;
@@ -10,7 +18,7 @@
 }
 
 .fixedHeaderContainer header h3:hover {
-  opacity: 0.8;
+  color: $brand;
 }
 
 li.navSearchWrapper {
@@ -18,8 +26,9 @@ li.navSearchWrapper {
 }
 
 .fixedHeaderContainer header .headerTitleWithLogo {
-  font-weight: 400;
-  font-size: 1.5em;
+  font-weight: 500;
+  font-size: 1.25rem;
+  color: $brand;
 }
 
 @media only screen and (min-width: 1024px) {
