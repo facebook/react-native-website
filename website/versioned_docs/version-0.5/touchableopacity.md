@@ -49,6 +49,6 @@ Determines what the opacity of the wrapped view should be when touch is active.
 
 ### `setOpacityTo()`
 
-```javascript
+```jsx
 setOpacityTo(value);
 ```

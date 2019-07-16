@@ -71,7 +71,7 @@ Alrighty. Now that we know what we are building and how the animation works, we 
 
 The main piece of this puzzle is [MaskedViewIOS](https://facebook.github.io/react-native/docs/maskedviewios.html), a core React Native component.
 
-```javascript
+```jsx
 import {MaskedViewIOS} from 'react-native';
 
 <MaskedViewIOS maskElement={<Text>Basic Mask</Text>}>
@@ -83,7 +83,7 @@ import {MaskedViewIOS} from 'react-native';
 
 What we want to do is render our blue layer, and then on top render our masked app and white layers with the Twitter logo.
 
-```javascript
+```jsx
 {
   fullScreenBlueLayer;
 }
@@ -134,7 +134,7 @@ Since I’m thinking about this animation as steps occurring at different points
 
 Our initial component state will be the following.
 
-```javascript
+```jsx
 state = {
   loadingProgress: new Animated.Value(0),
 };
@@ -142,7 +142,7 @@ state = {
 
 When we are ready to begin the animation, we tell Animated to animate this value to 100.
 
-```javascript
+```jsx
 Animated.timing(this.state.loadingProgress, {
   toValue: 100,
   duration: 1000,
@@ -164,7 +164,7 @@ The app scale starts at 1.1 and scales down to its regular scale by the end of t
 
 What we essentially did above is map the values from the animation progress percentage to the values for the individual pieces. We do that with Animated using `.interpolate`. We create 3 different style objects, one for each piece of the animation, using interpolated values based off of `this.state.loadingProgress`.
 
-```javascript
+```jsx
 const loadingProgress = this.state.loadingProgress;
 
 const opacityClearToVisible = {
@@ -201,7 +201,7 @@ const appScale = {
 
 Now that we have these style objects, we can use them when rendering the snippet of the view from earlier in the post. Note that only `Animated.View`, `Animated.Text`, and `Animated.Image` are able to use style objects that use `Animated.Value`.
 
-```javascript
+```jsx
 const fullScreenBlueLayer = <View style={styles.fullScreenBlueLayer} />;
 const fullScreenWhiteLayer = <View style={styles.fullScreenWhiteLayer} />;
 
@@ -233,7 +233,7 @@ Yay! We now have the animation pieces looking like we want. Now we just have to 
 
 To know when we can clean them up, we need to know when the animation is complete. Luckily where we call, `Animated.timing` ,`.start` takes an optional callback that runs when the animation is complete.
 
-```javascript
+```jsx
 Animated.timing(this.state.loadingProgress, {
   toValue: 100,
   duration: 1000,
@@ -247,7 +247,7 @@ Animated.timing(this.state.loadingProgress, {
 
 Now that we have a value in `state` to know whether we are done with the animation, we can modify our blue and white layers to use that.
 
-```javascript
+```jsx
 const fullScreenBlueLayer = this.state.animationDone ? null : (
   <View style={[styles.fullScreenBlueLayer]} />
 );

@@ -20,7 +20,7 @@ For more information, see [Apple's documentation](https://developer.apple.com/li
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {AppState, Text} from 'react-native';
 
@@ -72,7 +72,7 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -89,7 +89,7 @@ Add a handler to AppState changes by listening to the `change` event type and pr
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -106,6 +106,6 @@ Remove a handler by passing the `change` event type and the handler.
 
 ### `currentState`
 
-```javascript
+```jsx
 AppState.currentState;
 ```

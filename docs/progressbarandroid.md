@@ -7,7 +7,7 @@ Android-only React component used to indicate that the app is loading or there i
 
 Example:
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {ProgressBarAndroid, AppRegistry, StyleSheet, View} from 'react-native';
 

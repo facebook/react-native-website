@@ -23,7 +23,7 @@ Geolocation follows the MDN specification: https://developer.mozilla.org/en-US/d
 
 ### `getCurrentPosition()`
 
-```javascript
+```jsx
 static getCurrentPosition(geo_success, geo_error?, geo_options?)
 ```
 
@@ -33,7 +33,7 @@ Invokes the success callback once with the latest location info. Supported optio
 
 ### `watchPosition()`
 
-```javascript
+```jsx
 static watchPosition(success, error?, options?)
 ```
 
@@ -43,7 +43,7 @@ Invokes the success callback whenever the location changes. Supported options: t
 
 ### `clearWatch()`
 
-```javascript
+```jsx
 static clearWatch(watchID)
 ```
 
@@ -51,7 +51,7 @@ static clearWatch(watchID)
 
 ### `stopObserving()`
 
-```javascript
+```jsx
 static stopObserving()
 ```
 

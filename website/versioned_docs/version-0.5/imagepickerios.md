@@ -19,7 +19,7 @@ original_id: imagepickerios
 
 ### `canRecordVideos()`
 
-```javascript
+```jsx
 ImagePickerIOS.canRecordVideos(callback);
 ```
 
@@ -27,7 +27,7 @@ ImagePickerIOS.canRecordVideos(callback);
 
 ### `canUseCamera()`
 
-```javascript
+```jsx
 ImagePickerIOS.canUseCamera(callback);
 ```
 
@@ -35,7 +35,7 @@ ImagePickerIOS.canUseCamera(callback);
 
 ### `openCameraDialog()`
 
-```javascript
+```jsx
 ImagePickerIOS.openCameraDialog(config, successCallback, cancelCallback);
 ```
 
@@ -43,6 +43,6 @@ ImagePickerIOS.openCameraDialog(config, successCallback, cancelCallback);
 
 ### `openSelectDialog()`
 
-```javascript
+```jsx
 ImagePickerIOS.openSelectDialog(config, successCallback, cancelCallback);
 ```

@@ -91,7 +91,7 @@ The RNTester app supports Apple TV; use the `RNTester-tvOS` build target to buil
 
 - _JavaScript layer_: Support for Apple TV has been added to `Platform.ios.js`. You can check whether code is running on AppleTV by doing
 
-```javascript
+```jsx
 var Platform = require('Platform');
 var running_on_tv = Platform.isTV;
 
@@ -163,7 +163,7 @@ var running_on_android_tv = Platform.isTV;
 
 <block class="ios android">
 
-```javascript
+```jsx
 var TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {

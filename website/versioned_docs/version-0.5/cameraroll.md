@@ -17,7 +17,7 @@ original_id: cameraroll
 
 ### `saveImageWithTag()`
 
-```javascript
+```jsx
 static saveImageWithTag(tag, successCallback, errorCallback)
 ```
 
@@ -29,7 +29,7 @@ Saves the image with tag `tag` to the camera roll.
 
 ### `getPhotos()`
 
-```javascript
+```jsx
 static getPhotos(params, callback, errorCallback)
 ```
 

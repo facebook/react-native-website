@@ -29,7 +29,7 @@ AlertIOS.prompt(
 
 Example with custom buttons:
 
-```javascript
+```jsx
 AlertIOS.alert(
   'Update available',
   'Keep your app up to date to enjoy the latest features',
@@ -49,7 +49,7 @@ AlertIOS.alert(
 
 Example with custom buttons:
 
-```javascript
+```jsx
 AlertIOS.prompt(
   'Enter password',
   'Enter your password to claim your $1.5B in lottery winnings',
@@ -70,7 +70,7 @@ AlertIOS.prompt(
 
 Example with the default button and a custom callback:
 
-```javascript
+```jsx
 AlertIOS.prompt(
   'Update username',
   null,
@@ -99,7 +99,7 @@ AlertIOS.prompt(
 
 ### `alert()`
 
-```javascript
+```jsx
 AlertIOS.alert(title, [message], [callbackOrButtons]);
 ```
 
@@ -119,7 +119,7 @@ If passed a function in the `callbackOrButtons` param, it will be called when th
 
 ### `prompt()`
 
-```javascript
+```jsx
 AlertIOS.prompt(
   title,
   [message],

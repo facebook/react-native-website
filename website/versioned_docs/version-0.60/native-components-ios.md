@@ -47,7 +47,7 @@ RCT_EXPORT_MODULE(RNTMap)
 
 Then you just need a little bit of JavaScript to make this a usable React component:
 
-```javascript
+```jsx
 // MapView.js
 
 import { requireNativeComponent } from 'react-native';
@@ -70,7 +70,7 @@ Make sure to use `RNTMap` here. We want to require the manager here, which will 
 
 **Note:** When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
 
-```javascript
+```jsx
   render() {
     return <MapView style={{flex: 1}} />;
   }
@@ -91,14 +91,14 @@ Note that we explicitly specify the type as `BOOL` - React Native uses `RCTConve
 
 Now to actually disable zooming, we set the property in JS:
 
-```javascript
+```jsx
 // MyApp.js
 <MapView zoomEnabled={false} style={{flex: 1}} />
 ```
 
 To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
 
-```javascript
+```jsx
 // MapView.js
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -184,7 +184,7 @@ These conversion functions are designed to safely process any JSON that the JS m
 
 To finish up support for the `region` prop, we need to document it in `propTypes` (or we'll get an error that the native prop is undocumented), then we can set it just like any other prop:
 
-```javascript
+```jsx
 // MapView.js
 
 MapView.propTypes = {
@@ -239,7 +239,7 @@ Here you can see that the shape of the region is explicit in the JS documentatio
 
 Sometimes your native component will have some special properties that you don't want to be part of the API for the associated React component. For example, `Switch` has a custom `onChange` handler for the raw native event, and exposes an `onValueChange` handler property that is invoked with just the boolean value rather than the raw event. Since you don't want these native only properties to be part of the API, you don't want to put them in `propTypes`, but if you don't you'll get an error. The solution is simply to add them to the `nativeOnly` option, e.g.
 
-```javascript
+```jsx
 var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
   nativeOnly: {onChange: true},
 });
@@ -329,7 +329,7 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 
 In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to make a simpler API:
 
-```javascript
+```jsx
 // MapView.js
 
 class MapView extends React.Component {
@@ -460,7 +460,7 @@ Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file an
 
 Since all our native react views are subclasses of `UIView`, most style attributes will work like you would expect out of the box. Some components will want a default style, however, for example `UIDatePicker` which is a fixed size. This default style is important for the layout algorithm to work as expected, but we also want to be able to override the default style when using the component. `DatePickerIOS` does this by wrapping the native component in an extra view, which has flexible styling, and using a fixed style (which is generated with constants passed in from native) on the inner native component:
 
-```javascript
+```jsx
 // DatePickerIOS.ios.js
 
 import { UIManager } from 'react-native';

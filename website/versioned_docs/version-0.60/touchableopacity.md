@@ -10,7 +10,7 @@ Opacity is controlled by wrapping the children in an Animated.View, which is add
 
 Example:
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableOpacity onPress={this._onPressButton}>
@@ -215,7 +215,7 @@ TV next focus up (see documentation for the View component).
 
 ### `setOpacityTo()`
 
-```javascript
+```jsx
 setOpacityTo((value: number), (duration: number));
 ```
 

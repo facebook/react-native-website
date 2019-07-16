@@ -104,6 +104,6 @@ This callback will be caleld once ViewPager finish navigating to selected page (
 
 ### `setPage()`
 
-```javascript
+```jsx
 setPage(selectedPage);
 ```
