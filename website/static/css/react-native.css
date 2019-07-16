@@ -48,6 +48,7 @@ li a:hover {
   border-bottom-color: $text;
 }
 
+/* Code in links should have just the link background, not the gray code bg */
 a code {
   background: none;
 }
@@ -55,10 +56,10 @@ a code {
 .button {
   border: none;
   font-size: 1.5rem;
-  color: $subtle;
   text-transform: none;
   transition: all 0s;
   padding: 0;
+  color: $subtle;
 }
 
 .button.edit-page-link {
@@ -69,6 +70,11 @@ a code {
 .button:hover {
   color: $text;
   background: transparent;
+}
+
+.hash-link:focus {
+  opacity: 1;
+  transition: none;
 }
 
 .mainContainer .component-grid {
