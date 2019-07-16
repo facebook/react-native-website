@@ -34,9 +34,20 @@ If you are feeling curious, you can play around with sample code directly in the
 
 ## What's going on here?
 
+1. First of all, we need to import `React` to be able to use`JSX`, which will then be transformed to the native components of each platform.
+2. On line 2, we import the `Text` and`View` components from `react-native`
+
+Then we find the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
+
+The `Text` component allows us to render a text, while the`View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
+
+The first style that we find is `flex: 1`, the [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case it is the only component, so it will take all the available screen space.
+
+The following style is [`justifyContent`](https://facebook.github.io/react-native/docs/layout-props#justifycontent): "center". This align children of a container in the center of the container's main axis and finally we have [`alignItems`](https://facebook.github.io/react-native/docs/layout-props#alignitems): "center", which align children of a container in the center of the container's cross axis.
+
 Some of the things in here might not look like JavaScript to you. Don't panic. _This is the future_.
 
-First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development. React Native ships with ES2015 support, so you can use this stuff without worrying about compatibility. `import`, `from` in the example above are all ES2015 features. If you aren't familiar with ES2015, you can probably pick it up just by reading through sample code like this tutorial has. If you want, [this page](https://babeljs.io/learn-es2015/) has a good overview of ES2015 features.
+ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development. React Native ships with ES2015 support, so you can use this stuff without worrying about compatibility. `import` and `from` in the example above are all ES2015 features. If you aren't familiar with ES2015, you can probably pick it up just by reading through sample code like this tutorial has. If you want, [this page](https://babeljs.io/learn-es2015/) has a good overview of ES2015 features.
 
 The other unusual thing in this code example is `<View><Text>Hello world!</Text></View>`. This is JSX - a syntax for embedding XML within JavaScript. Many frameworks use a special templating language which lets you embed code inside markup language. In React, this is reversed. JSX lets you write your markup language inside code. It looks like HTML on the web, except instead of web things like `<div>` or `<span>`, you use React components. In this case, `<Text>` is a built-in component that just displays some text and `View` is like the `<div>` or `<span>`.
 
