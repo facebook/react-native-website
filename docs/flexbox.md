@@ -11,7 +11,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 ### Flex
 
-[`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property. 
+[`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
 In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
 
@@ -19,7 +19,7 @@ In the following example the red, yellow and the green views are all children in
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the *main axis*. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
 
 - `row` Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
@@ -75,6 +75,8 @@ Layout direction specifies the direction in which children and text in a hierarc
 - `space-between` Evenly space of children across the container's main axis, distributing remaining space between the children.
 
 - `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space-between` using `space-around` will result in space being distributed to the beginning of the first child and end of the last child.
+
+- `space-evenly` Evenly distributed within the alignment container along the main axis. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
 
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
@@ -182,8 +184,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/align-content)
 
 ### Flex Wrap
 
-The [`flexWrap`](https://facebook.github.io/react-native/docs/layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements).
-If wrapping is allowed items are wrapped into multiple lines along the main axis if needed. 
+The [`flexWrap`](https://facebook.github.io/react-native/docs/layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed.
 
 When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here]
 
@@ -221,7 +222,7 @@ The `position` type of an element defines how it is positioned within its parent
 
 `relative` (**default value**) By default an element is positioned relatively. This means an element is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent elements.
 
-`absolute` When positioned absolutely an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values. 
+`absolute` When positioned absolutely an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
 
 ![Absolute & Relative Layoutp](https://cdn-images-1.medium.com/max/800/1*NlPeRQCQK3Vb5nyjL0Mqxw.png)
 
