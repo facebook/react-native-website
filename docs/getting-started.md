@@ -525,6 +525,10 @@ Run `react-native run-ios` inside your React Native project folder:
 
 ```
 cd AwesomeProject
+npm install
+cd ios
+pod install
+cd ..
 react-native run-ios
 ```
 
