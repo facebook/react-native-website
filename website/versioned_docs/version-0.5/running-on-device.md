@@ -13,7 +13,7 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
     </li>
-    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="-1" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
+    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
       Android
     </li>
   </ul>
@@ -29,11 +29,13 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
 
 <block class="linux windows mac ios android" />
 
-<div class="toggler" id="toggle-os">
-<span>Development OS:</span>
-<a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-<a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
-<a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+<div class="toggler">
+  <span>Development OS:</span>
+  <span role="tablist" id="toggle-os">
+    <a role="tab" href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
+    <a role="tab" href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+    <a role="tab" href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+  </span>
 </div>
 
 <block class="linux windows ios" />

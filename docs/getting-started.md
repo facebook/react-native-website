@@ -14,7 +14,7 @@ This page will help you install and build your first React Native app. If you al
     <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
       Expo CLI Quickstart
     </li>
-    <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="-1" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
+    <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="0" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
       React Native CLI Quickstart
     </li>
   </ul>
@@ -88,17 +88,21 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
-<div class="toggler" id="os">
+<div class="toggler">
   <span>Development OS:</span>
-  <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-  <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
-  <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+  <span role="tablist" id="toggle-os">
+    <a role="tab" href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
+    <a role="tab" href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+    <a role="tab" href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+  </span>
 </div>
 
-<div class="toggler" id="platform">
+<div class="toggler" id="toggle-platform">
   <span>Target OS:</span>
-  <a href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
-  <a href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  <span role="tablist" id="toggle-platform">
+    <a role="tab" href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
+    <a role="tab" href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  </span>
 </div>
 
 <block class="native linux windows ios" />
