@@ -3,27 +3,43 @@
 }
 .toggler li {
   display: inline-block;
-  position: relative;
   top: 1px;
   padding: 10px;
   margin: 0px 2px 0px 2px;
   border-bottom-color: transparent;
   border-radius: 3px 3px 0px 0px;
   font-size: 0.99em;
-  cursor: pointer;
 }
 
 .toggler li,
 .toggler button {
-  color: $secondaryColor;
-  border: 1px solid $secondaryColor;
+  position: relative;
+  color: $text;
   background-color: transparent;
+  cursor: pointer;
 }
 
 .toggler li.active,
 .toggler button.active {
-  color: white;
-  background-color: $secondaryColor;
+  font-weight: 700;
+}
+
+.toggler li::after,
+.toggler button::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: $brand;
+  transform: scaleX(0);
+  transition: transform 0.1s ease-out;
+}
+
+.toggler li.active::after,
+.toggler button.active::after {
+  transform: scaleX(1);
 }
 
 .toggler li:first-child {
@@ -58,7 +74,8 @@
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
-  border-radius: 3px;
+  /* border-radius: 3px; */
+  border: none;
   text-decoration: none;
   font-size: 16px;
 }

@@ -1,3 +1,7 @@
+* :focus:not(.focus-visible) {
+  outline: none;
+}
+
 body {
   background-color: $backgroundColor;
 }

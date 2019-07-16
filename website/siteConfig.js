@@ -74,6 +74,7 @@ const siteConfig = {
   },
   gaTrackingId: 'UA-41298772-2',
   scripts: [
+    'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
     'https://snack.expo.io/embed.js',
     'https://platform.twitter.com/widgets.js',
     'https://buttons.github.io/buttons.js',
