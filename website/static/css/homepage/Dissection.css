@@ -1,0 +1,12 @@
+.Dissection {
+  position: relative;
+}
+
+.Dissection img {
+  margin-top: -60px;
+  margin-left: -25px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-width: 475px;
+}

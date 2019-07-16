@@ -114,8 +114,6 @@ function LogoAnimation() {
   );
 }
 
-/* TODO can we enforce max-width: 900px here? */
-// TODO add "background" prop (dark|light|light2)
 function Section({
   element = 'section',
   children,
@@ -199,6 +197,17 @@ function CodeExample() {
   );
 }
 
+function Dissection() {
+  return (
+    <div className="Dissection">
+      <img src={`${baseUrl}img/homepage/dissection/0.png`} />
+      <img src={`${baseUrl}img/homepage/dissection/1.png`} />
+      <img src={`${baseUrl}img/homepage/dissection/2.png`} />
+      <img src={`${baseUrl}img/homepage/dissection/3.png`} />
+    </div>
+  );
+}
+
 const features = [
   {
     title: 'Create native apps for Android and iOS using React and JavaScript',
@@ -223,8 +232,8 @@ React primitives render to native platform UI, meaning your app uses the same na
     title: 'Native Development for Everyone',
     text:
       "React Native lets you create truly native apps and doesn't compromise on your users' experience. It provides a core set of platform agnostic native components like `View`, `Text`, and `Image` that map directly to the platform’s native UI building blocks.",
-    // TODO animate the image
-    image: `${baseUrl}img/homepage/dissection.svg`,
+    className: 'ForEveryone',
+    image: Dissection,
   },
   {
     title: 'Seamless cross-platform',

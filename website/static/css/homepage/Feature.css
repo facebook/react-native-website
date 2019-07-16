@@ -18,6 +18,10 @@
   margin-top: -1.5rem;
 }
 
+.Feature.ForEveryone {
+  height: 400px;
+}
+
 .Feature.ReactRefresh {
   padding: 0;
   /* height needs to be set to equal that of the video or there's weird spacing */
