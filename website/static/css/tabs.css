@@ -5,27 +5,39 @@
   display: inline-block;
   position: relative;
   top: 1px;
-  padding: 10px !important;
-  margin: 0px 2px 0px 2px !important;
-  border: 1px solid $secondaryColor;
+  padding: 10px;
+  margin: 0px 2px 0px 2px;
   border-bottom-color: transparent;
   border-radius: 3px 3px 0px 0px;
-  background-color: transparent;
   font-size: 0.99em;
   cursor: pointer;
 }
+
+.toggler li,
+.toggler button {
+  color: $secondaryColor;
+  border: 1px solid $secondaryColor;
+  background-color: transparent;
+}
+
+.toggler li.active,
+.toggler button.active {
+  color: white;
+  background-color: $secondaryColor;
+}
+
 .toggler li:first-child {
-  margin-left: 0 !important;
+  margin-left: 0;
 }
 .toggler li:last-child {
-  margin-right: 0 !important;
+  margin-right: 0;
 }
 .toggler ul {
   width: 100%;
   display: inline-block;
   list-style-type: none;
-  padding: 0 !important;
-  margin: 0 !important;
+  padding: 0;
+  margin: 0;
   border-bottom: 1px solid $secondaryColor;
   cursor: default;
 }
@@ -42,12 +54,19 @@
     border-bottom: 0;
   }
 }
-.toggler a {
+.toggler button {
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
-  border: 1px solid $secondaryColor;
   border-radius: 3px;
-  text-decoration: none !important;
-  color: $secondaryColor;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+block {
+  display: none;
+}
+
+block.active {
+  display: block;
 }
