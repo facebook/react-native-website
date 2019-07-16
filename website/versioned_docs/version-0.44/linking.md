@@ -105,7 +105,7 @@ Linking.canOpenURL(url).then(supported => {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -113,7 +113,7 @@ constructor();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -123,7 +123,7 @@ Add a handler to Linking changes by listening to the `url` event type and provid
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -133,7 +133,7 @@ Remove a handler by passing the `url` event type and the handler
 
 ### `openURL()`
 
-```javascript
+```jsx
 openURL(url);
 ```
 
@@ -149,7 +149,7 @@ NOTE: For web URLs, the protocol ("http://", "https://") must be set accordingly
 
 ### `canOpenURL()`
 
-```javascript
+```jsx
 canOpenURL(url);
 ```
 
@@ -165,7 +165,7 @@ NOTE: As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` k
 
 ### `getInitialURL()`
 
-```javascript
+```jsx
 getInitialURL();
 ```
 

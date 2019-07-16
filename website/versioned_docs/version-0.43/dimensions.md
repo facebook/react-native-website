@@ -19,7 +19,7 @@ original_id: dimensions
 
 ### `set()`
 
-```javascript
+```jsx
 static set(dims)
 ```
 
@@ -31,7 +31,7 @@ This should only be called from native code by sending the didUpdateDimensions e
 
 ### `get()`
 
-```javascript
+```jsx
 static get(dim)
 ```
 
@@ -47,7 +47,7 @@ Example: `var {height, width} = Dimensions.get('window');`
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(type, handler)
 ```
 
@@ -59,7 +59,7 @@ Add an event handler. Supported events:
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(type, handler)
 ```
 

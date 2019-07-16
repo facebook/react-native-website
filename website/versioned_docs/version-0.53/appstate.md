@@ -78,7 +78,7 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -90,7 +90,7 @@ TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate 
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -102,6 +102,6 @@ Remove a handler by passing the `change` event type and the handler
 
 ### `currentState`
 
-```javascript
+```jsx
 AppState.currentState;
 ```

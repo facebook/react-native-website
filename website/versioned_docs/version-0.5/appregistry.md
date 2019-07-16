@@ -43,7 +43,7 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 ### `registerComponent()`
 
-```javascript
+```jsx
 AppRegistry.registerComponent(appKey, componentProvider, [section]);
 ```
 
@@ -61,7 +61,7 @@ Registers an app's root component.
 
 ### `runApplication()`
 
-```javascript
+```jsx
 AppRegistry.runApplication(appKey, appParameters);
 ```
 
@@ -78,7 +78,7 @@ Loads the JavaScript bundle and runs the app.
 
 ### `unmountApplicationComponentAtRootTag()`
 
-```javascript
+```jsx
 AppRegistry.unmountApplicationComponentAtRootTag(rootTag);
 ```
 
@@ -94,7 +94,7 @@ Stops an application when a view should be destroyed. The `rootTag` should match
 
 ### `registerHeadlessTask()`
 
-```javascript
+```jsx
 AppRegistry.registerHeadlessTask(taskKey, task);
 ```
 
@@ -111,7 +111,7 @@ Register a headless task. A headless task is a bit of code that runs without a U
 
 ### `startHeadlessTask()`
 
-```javascript
+```jsx
 AppRegistry.startHeadlessTask(taskId, taskKey, data);
 ```
 
@@ -129,7 +129,7 @@ Only called from native code. Starts a headless task.
 
 ### `setWrapperComponentProvider()`
 
-```javascript
+```jsx
 AppRegistry.setWrapperComponentProvider(provider);
 ```
 
@@ -137,7 +137,7 @@ AppRegistry.setWrapperComponentProvider(provider);
 
 ### `registerConfig()`
 
-```javascript
+```jsx
 AppRegistry.registerConfig(config);
 ```
 
@@ -145,7 +145,7 @@ AppRegistry.registerConfig(config);
 
 ### `registerRunnable()`
 
-```javascript
+```jsx
 AppRegistry.registerRunnable(appKey, run);
 ```
 
@@ -153,7 +153,7 @@ AppRegistry.registerRunnable(appKey, run);
 
 ### `registerSection()`
 
-```javascript
+```jsx
 AppRegistry.registerSection(appKey, component);
 ```
 
@@ -161,7 +161,7 @@ AppRegistry.registerSection(appKey, component);
 
 ### `getAppKeys()`
 
-```javascript
+```jsx
 AppRegistry.getAppKeys();
 ```
 
@@ -169,7 +169,7 @@ AppRegistry.getAppKeys();
 
 ### `getSectionKeys()`
 
-```javascript
+```jsx
 AppRegistry.getSectionKeys();
 ```
 
@@ -177,7 +177,7 @@ AppRegistry.getSectionKeys();
 
 ### `getSections()`
 
-```javascript
+```jsx
 AppRegistry.getSections();
 ```
 
@@ -185,7 +185,7 @@ AppRegistry.getSections();
 
 ### `getRunnable()`
 
-```javascript
+```jsx
 AppRegistry.getRunnable(appKey);
 ```
 
@@ -193,7 +193,7 @@ AppRegistry.getRunnable(appKey);
 
 ### `getRegistry()`
 
-```javascript
+```jsx
 AppRegistry.getRegistry();
 ```
 
@@ -201,6 +201,6 @@ AppRegistry.getRegistry();
 
 ### `setComponentProviderInstrumentationHook()`
 
-```javascript
+```jsx
 AppRegistry.setComponentProviderInstrumentationHook(hook);
 ```

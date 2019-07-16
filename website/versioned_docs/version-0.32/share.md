@@ -18,7 +18,7 @@ original_id: share
 
 ### `share()`
 
-```javascript
+```jsx
 static share(content, options)
 ```
 
@@ -54,7 +54,7 @@ At least one of URL and message is required.
 
 ### `sharedAction()`
 
-```javascript
+```jsx
 static sharedAction()
 ```
 
@@ -64,7 +64,7 @@ The content was successfully shared.
 
 ### `dismissedAction()`
 
-```javascript
+```jsx
 static dismissedAction()
 ```
 

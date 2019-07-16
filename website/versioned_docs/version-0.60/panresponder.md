@@ -42,7 +42,7 @@ A `gestureState` object has the following:
 
 ### Basic Usage
 
-```javascript
+```jsx
 class ExampleComponent extends Component {
   constructor(props) {
     super(props);
@@ -102,7 +102,7 @@ To see it in action, try the [PanResponder example in RNTester](https://github.c
 
 ### `create()`
 
-```javascript
+```jsx
 static create(config)
 ```
 

@@ -17,7 +17,7 @@ original_id: actionsheetios
 
 ### `showActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showActionSheetWithOptions(options, callback)
 ```
 
@@ -25,6 +25,6 @@ static showActionSheetWithOptions(options, callback)
 
 ### `showShareActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showShareActionSheetWithOptions(options, failureCallback, successCallback)
 ```

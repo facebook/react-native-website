@@ -34,7 +34,7 @@ Note that in order to get this to work on **Android** you need to set the follow
 
 ### `configureNext()`
 
-```javascript
+```jsx
 static configureNext(config, onAnimationDidEnd?)
 ```
 
@@ -57,7 +57,7 @@ Schedules an animation to happen on the next layout.
 
 ### `create()`
 
-```javascript
+```jsx
 static create(duration, type, creationProp)
 ```
 

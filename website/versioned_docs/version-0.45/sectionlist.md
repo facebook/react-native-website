@@ -294,7 +294,7 @@ Makes section headers stick to the top of the screen until the next one pushes i
 
 ### `scrollToLocation()`
 
-```javascript
+```jsx
 scrollToLocation((params: object));
 ```
 
@@ -306,7 +306,7 @@ Note: cannot scroll to locations outside the render window without specifying th
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 

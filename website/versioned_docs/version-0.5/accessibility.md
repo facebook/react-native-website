@@ -20,7 +20,7 @@ When `true`, indicates that the view is an accessibility element. When a view is
 
 On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
 
-```javascript
+```jsx
 <View accessible={true}>
   <Text>text one</Text>
   <Text>text two</Text>
@@ -35,7 +35,7 @@ When a view is marked as accessible, it is a good practice to set an accessibili
 
 To use, set the `accessibilityLabel` property to a custom string on your View, Text or Touchable:
 
-```javascript
+```jsx
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Tap me!"
@@ -54,7 +54,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
 
-```javascript
+```jsx
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Go back"
@@ -159,7 +159,7 @@ Assign this property to a custom function which will be called when someone perf
 
 In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
 
-```javascript
+```jsx
 <TouchableWithoutFeedback accessibilityComponentType=”button”
   onPress={this._onPress}>
   <View style={styles.button}>
@@ -178,7 +178,7 @@ When components dynamically change, we want TalkBack to alert the end user. This
 - **polite** Accessibility services should announce changes to this view.
 - **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
-```javascript
+```jsx
 <TouchableWithoutFeedback onPress={this._addOne}>
   <View style={styles.embedded}>
     <Text>Click me</Text>
@@ -195,7 +195,7 @@ In the above example method \_addOne changes the state.count variable. As soon a
 
 In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The ‘importantForAccessibility’ property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to ‘auto’, ‘yes’, ‘no’ and ‘no-hide-descendants’ (the last value will force accessibility services to ignore the component and all of its children).
 
-```javascript
+```jsx
 <View style={styles.container}>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
     backgroundColor: 'green'}} importantForAccessibility=”yes”>
@@ -218,7 +218,7 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or a custom radio button has been selected). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event.
 
-```javascript
+```jsx
 import { UIManager, findNodeHandle } from 'react-native';
 
 _onPress: function() {

@@ -11,7 +11,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 
 Example:
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableHighlight onPress={this._onPressButton}>
@@ -238,9 +238,6 @@ TV next focus up (see documentation for the View component).
 
 Handy for snapshot tests.
 
-| Type       | Required |
-| ---------- | -------- |
-| bool       | No       |
-
-
-
+| Type | Required |
+| ---- | -------- |
+| bool | No       |

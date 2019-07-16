@@ -12,7 +12,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ## Example
 
-```javascript
+```jsx
 <SegmentedControlIOS
   values={['One', 'Two']}
   selectedIndex={this.state.selectedIndex}

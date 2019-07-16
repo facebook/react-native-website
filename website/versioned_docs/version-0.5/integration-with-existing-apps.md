@@ -331,7 +331,7 @@ First, create an empty `index.js` file in the root of your React Native project.
 
 In your `index.js`, create your component. In our sample here, we will add simple `<Text>` component within a styled `<View>`
 
-```javascript
+```jsx
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
@@ -441,7 +441,7 @@ First `import` the `RCTRootView` header.
 
 First `import` the `React` library.
 
-```javascript
+```jsx
 import React
 ```
 
@@ -637,7 +637,7 @@ First, create an empty `index.js` file in the root of your React Native project.
 
 In your `index.js`, create your component. In our sample here, we will add simple `<Text>` component within a styled `<View>`:
 
-```javascript
+```jsx
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 

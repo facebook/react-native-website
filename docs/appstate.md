@@ -22,7 +22,7 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {AppState, Text} from 'react-native';
 
@@ -94,7 +94,7 @@ This even is received when the app state has changed. The listener is called wit
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -106,7 +106,7 @@ TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate 
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -116,6 +116,6 @@ Remove a handler by passing the `change` event type and the handler
 
 ### `currentState`
 
-```javascript
+```jsx
 AppState.currentState;
 ```

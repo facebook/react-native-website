@@ -8,7 +8,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 
 Here's a small example illustrating how to use `AccessibilityInfo`:
 
-```javascript
+```jsx
 class ScreenReaderStatusExample extends React.Component {
   state = {
     screenReaderEnabled: false,
@@ -66,7 +66,7 @@ class ScreenReaderStatusExample extends React.Component {
 
 ### `fetch()`
 
-```javascript
+```jsx
 static fetch()
 ```
 
@@ -76,7 +76,7 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -88,7 +88,7 @@ Add an event handler. Supported events:
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 

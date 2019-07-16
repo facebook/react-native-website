@@ -78,7 +78,7 @@ AppRegistry.registerComponent('AwesomeProject', () => BoldAndBeautiful);
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
-```javascript
+```jsx
 "I am bold and red"
 0-9: bold
 9-17: bold, red
@@ -88,7 +88,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
-```javascript
+```jsx
 <Text>
   <Text>First part and </Text>
   <Text>second part</Text>
@@ -131,7 +131,7 @@ All elements in the document will inherit this font unless they or one of their 
 
 In React Native, we are more strict about it: **you must wrap all the text nodes inside of a `<Text>` component**. You cannot have a text node directly under a `<View>`.
 
-```javascript
+```jsx
 // BAD: will raise exception, can't have a text node as child of a <View>
 <View>
   Some text
@@ -147,7 +147,7 @@ In React Native, we are more strict about it: **you must wrap all the text nodes
 
 You also lose the ability to set up a default font for an entire subtree. The recommended way to use consistent fonts and sizes across your application is to create a component `MyAppText` that includes them and use this component across your app. You can also use this component to make more specific components like `MyAppHeaderText` for other kinds of text.
 
-```javascript
+```jsx
 <View>
   <MyAppText>
     Text styled with the default font for the entire application
@@ -158,7 +158,7 @@ You also lose the ability to set up a default font for an entire subtree. The re
 
 Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
-```javascript
+```jsx
 class MyAppHeaderText extends Component {
   render() {
     return (
@@ -174,7 +174,7 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
-```javascript
+```jsx
 <Text style={{fontWeight: 'bold'}}>
   I am bold
   <Text style={{color: 'red'}}>and red</Text>

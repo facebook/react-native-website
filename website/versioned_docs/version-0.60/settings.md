@@ -21,7 +21,7 @@ original_id: settings
 
 ### `clearWatch()`
 
-```javascript
+```jsx
 static clearWatch(watchId)
 ```
 
@@ -29,7 +29,7 @@ static clearWatch(watchId)
 
 ### `get()`
 
-```javascript
+```jsx
 static get(key)
 ```
 
@@ -39,7 +39,7 @@ Get the current value for a key in `NSUserDefaults`.
 
 ### `set()`
 
-```javascript
+```jsx
 static set(settings)
 ```
 
@@ -49,7 +49,7 @@ Set one or more values in `NSUserDefaults`.
 
 ### `watchKeys()`
 
-```javascript
+```jsx
 static watchKeys(keys, callback)
 ```
 

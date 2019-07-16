@@ -17,7 +17,7 @@ original_id: dimensions
 
 ### `set()`
 
-```javascript
+```jsx
 static set(dims)
 ```
 
@@ -29,7 +29,7 @@ This should only be called from native code by sending the didUpdateDimensions e
 
 ### `get()`
 
-```javascript
+```jsx
 static get(dim)
 ```
 

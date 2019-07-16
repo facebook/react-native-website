@@ -12,7 +12,7 @@ It is important all children are `<View>`s and not composite components. You can
 
 Example:
 
-```javascript
+```jsx
 render() {
   return (
     <ViewPagerAndroid
