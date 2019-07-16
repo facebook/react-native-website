@@ -14,14 +14,14 @@
 }
 
 .toggler li,
-.toggler a {
+.toggler button {
   color: $secondaryColor;
   border: 1px solid $secondaryColor;
   background-color: transparent;
 }
 
 .toggler li.active,
-.toggler a.active {
+.toggler button.active {
   color: white;
   background-color: $secondaryColor;
 }
@@ -54,12 +54,13 @@
     border-bottom: 0;
   }
 }
-.toggler a {
+.toggler button {
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
   border-radius: 3px;
   text-decoration: none;
+  font-size: 16px;
 }
 
 block {

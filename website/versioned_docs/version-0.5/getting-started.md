@@ -92,17 +92,17 @@ The instructions are a bit different depending on your development operating sys
 <div class="toggler">
   <span>Development OS:</span>
   <span role="tablist" id="toggle-os">
-    <a role="tab" href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-    <a role="tab" href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
-    <a role="tab" href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</button>
   </span>
 </div>
 
 <div class="toggler">
   <span>Target OS:</span>
   <span role="tablist" id="toggle-platform">
-    <a role="tab" href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
-    <a role="tab" href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+    <button role="tab" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</button>
+    <button role="tab" class="button-android" onclick="displayTab('platform', 'android')">Android</button>
   </span>
 </div>
 
