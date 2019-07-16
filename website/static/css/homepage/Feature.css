@@ -9,6 +9,15 @@
   }
 }
 
+.Feature.Intro {
+  max-height: 425px;
+}
+
+/* Correct for whitespace in the image of phones */
+.Feature.Intro img {
+  margin-top: -1.5rem;
+}
+
 .Feature.ReactRefresh {
   padding: 0;
   /* height needs to be set to equal that of the video or there's weird spacing */
