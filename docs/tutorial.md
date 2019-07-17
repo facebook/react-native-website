@@ -55,10 +55,6 @@ The other unusual thing in this code example is `<View><Text>Hello world!</Text>
 
 So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component. A component can be pretty simple.
 
-## This app doesn't do very much
-
-Good point. To make components do more interesting things, you need to [learn about Props](#props).
-
 ## Props
 
 Most components can be customized when they are created, with different parameters. These creation parameters are called props.
