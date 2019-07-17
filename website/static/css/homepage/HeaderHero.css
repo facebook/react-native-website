@@ -4,6 +4,7 @@
 
 .HeaderHero .TwoColumns {
   grid-template-columns: 3fr 1fr;
+  /* margin: -10px 0; */
 }
 
 .HeaderHero .TwoColumns .column {
@@ -22,7 +23,7 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 60px;
-  margin-bottom: 20px;
+  margin-top: -10px; /* make this tighter */
 }
 
 .HeaderHero .socialLinks * {
