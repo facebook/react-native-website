@@ -213,7 +213,7 @@ function Dissection() {
 
 const features = [
   {
-    title: 'Create native apps for Android and iOS using React and JavaScript',
+    title: 'Create native apps for Android and iOS using React',
     className: 'Intro',
     text: `
 React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces.
@@ -245,7 +245,7 @@ React primitives render to native platform UI, meaning your app uses the same na
     image: `${baseUrl}img/homepage/cross-platform.svg`,
   },
   {
-    title: 'React Refresh',
+    title: 'Fast Refresh',
     className: 'ReactRefresh',
     text:
       '**See your changes as soon as you save.** With the power of JavaScript, React Native lets you iterate at lightning speed. No more waiting for native builds to finish. Save, see, repeat.',
