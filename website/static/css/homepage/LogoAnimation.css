@@ -21,7 +21,7 @@
 
 .LogoAnimation.mobile .logoInner,
 .LogoAnimation.mobile2 .logoInner {
-  transform: scale(0.67);
+  transform: scale(0.4);
 }
 
 .LogoAnimation.desktop .logoInner {
@@ -29,7 +29,7 @@
 }
 
 .LogoAnimation.laptop .logoInner {
-  transform: scale(0.33);
+  transform: scale(0.35);
 }
 
 .LogoAnimation.full .screen {
