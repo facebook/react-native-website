@@ -184,10 +184,17 @@ export default () =>
       Press Cmd + R inside the simulator to reload
       your app’s code.
     </Text>
-    …
+    <Text style={header}>Debug</Text>
+    <Text>
+      Press Cmd + M or Shake your device to open the
+      React Native Debug Menu.
+    </Text>
+    <Text style={header}>Learn</Text>
+    <Text>
+      Read the docs to discover what to do next:
+    </Text>
    </View>
-\`\`\`
-`;
+   \`\`\``;
 
 function CodeExample() {
   return (
