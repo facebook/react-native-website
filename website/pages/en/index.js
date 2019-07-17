@@ -199,12 +199,15 @@ function CodeExample() {
 
 function Dissection() {
   return (
-    <div className="Dissection">
-      <img src={`${baseUrl}img/homepage/dissection/0.png`} />
-      <img src={`${baseUrl}img/homepage/dissection/1.png`} />
-      <img src={`${baseUrl}img/homepage/dissection/2.png`} />
-      <img src={`${baseUrl}img/homepage/dissection/3.png`} />
-    </div>
+    <React.Fragment>
+      <div className="Dissection">
+        <img src={`${baseUrl}img/homepage/dissection/0.png`} />
+        <img src={`${baseUrl}img/homepage/dissection/1.png`} />
+        <img src={`${baseUrl}img/homepage/dissection/2.png`} />
+        <img src={`${baseUrl}img/homepage/dissection/3.png`} />
+      </div>
+      <script src={`${baseUrl}js/dissectionAnimation.js`} />
+    </React.Fragment>
   );
 }
 
