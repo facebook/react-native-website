@@ -10,6 +10,10 @@ body {
   background-color: $backgroundColor !important;
 }
 
+.blog .wrapper {
+  max-width: 1200px;
+}
+
 @media only screen and (min-width: 1024px) {
   .mainContainer {
     margin-left: 20px;
@@ -31,7 +35,7 @@ body {
   color: $text;
 }
 
-.mainContainer .wrapper .post .postHeaderTitle {
+.mainContainer h1 {
   color: $dark;
   font-weight: 700;
   font-size: 60px;
