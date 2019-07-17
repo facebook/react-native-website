@@ -9,14 +9,13 @@
   left: 0;
   top: 0;
   min-width: 475px;
-  opacity: 0;
-  transform: translateX(40px);
-  transition: all 0.4s ease-in;
+  /* transform: translateX(40px); */
+  /* transition: all 0.4s ease-in; */
 }
 
-.Dissection img.visible {
+/* .Dissection img.visible {
   opacity: 1;
   transform: translateX(0);
   transition-duration: 0.67s;
   transition-timing-function: ease-out;
-}
+} */

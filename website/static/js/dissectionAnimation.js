@@ -1,30 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
-  let i = 0;
   const dissection = document.querySelector('.Dissection');
   const images = dissection.children;
+  const numImages = images.length;
 
-  function animateExit() {
-    i--;
-    if (i >= 0) {
-      images[i].classList.remove('visible');
-      setTimeout(animateExit, 200);
-    } else {
-      i = 0;
-      setTimeout(animateEnter, 1000);
-    }
+  function clamp(val, min, max) {
+    return Math.min(max, Math.max(min, val));
   }
 
-  function animateEnter() {
-    if (i < images.length) {
-      images[i].classList.add('visible');
-      i++;
-      setTimeout(animateEnter, 1000);
-    } else {
-      setTimeout(animateExit, 500);
-    }
+  function getImagePercent(index, scrollPercent) {
+    const start = index / numImages;
+    const imgPercent = clamp((scrollPercent - start) * numImages, 0, 1);
+    return imgPercent;
   }
 
-  setTimeout(() => {
-    animateEnter();
-  }, 0);
+  window.addEventListener('scroll', e => {
+    const elPos = dissection.getBoundingClientRect().top;
+    const screenPercent = 1 - clamp((elPos - 150) / window.innerHeight, 0, 1);
+    requestAnimationFrame(() => {
+      for (let i = 0; i < numImages; i++) {
+        const imgPercent = getImagePercent(i, screenPercent);
+        images[i].style.opacity = imgPercent;
+        const translation = 40 * (1 - imgPercent);
+        images[i].style.transform = `translateX(${translation}px)`;
+      }
+    });
+  });
 });
