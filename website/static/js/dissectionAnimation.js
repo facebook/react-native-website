@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgPercent = getImagePercent(i, screenPercent);
         images[i].style.opacity = imgPercent;
         const translation = 40 * (1 - imgPercent);
-        images[i].style.transform = `translateX(${translation}px)`;
+        images[i].style.left = `${translation}px`;
       }
     });
   });
