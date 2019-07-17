@@ -57,6 +57,33 @@ function GitHubButton() {
   );
 }
 
+function Section({
+  element = 'section',
+  children,
+  className,
+  background = 'light',
+}) {
+  const El = element;
+  return <El className={`Section ${className} ${background}`}>{children}</El>;
+}
+
+function TwoColumns({columnOne, columnTwo, reverse}) {
+  return (
+    <div className={`TwoColumns ${reverse ? 'reverse' : ''}`}>
+      <div className={`column first ${reverse ? 'right' : 'left'}`}>
+        {columnOne}
+      </div>
+      <div className={`column last ${reverse ? 'left' : 'right'}`}>
+        {columnTwo}
+      </div>
+    </div>
+  );
+}
+
+function Heading({text}) {
+  return <h2 className="Heading">{text}</h2>;
+}
+
 function LogoAnimation() {
   return (
     <React.Fragment>
@@ -112,33 +139,6 @@ function LogoAnimation() {
       </svg>
     </React.Fragment>
   );
-}
-
-function Section({
-  element = 'section',
-  children,
-  className,
-  background = 'light',
-}) {
-  const El = element;
-  return <El className={`Section ${className} ${background}`}>{children}</El>;
-}
-
-function TwoColumns({columnOne, columnTwo, reverse}) {
-  return (
-    <div className={`TwoColumns ${reverse ? 'reverse' : ''}`}>
-      <div className={`column first ${reverse ? 'right' : 'left'}`}>
-        {columnOne}
-      </div>
-      <div className={`column last ${reverse ? 'left' : 'right'}`}>
-        {columnTwo}
-      </div>
-    </div>
-  );
-}
-
-function Heading({text}) {
-  return <h2 className="Heading">{text}</h2>;
 }
 
 function HeaderHero() {
@@ -258,9 +258,37 @@ React primitives render to native platform UI, meaning your app uses the same na
       />
     ),
   },
+  {
+    title: 'Talks',
+    className: 'Talks',
+    text: `
+Members of the React Native team frequently speak at various
+conferences.
+
+You can follow the latest news from the React Native team on
+Twitter
+    `,
+    afterText: () => <TwitterButton />,
+    image: () => (
+      <iframe
+        src="https://www.youtube.com/embed/NCAY0HIfrwc"
+        frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+    ),
+  },
 ];
 
-function Feature({title, text, image, reverse, background, className = ''}) {
+function Feature({
+  title,
+  text,
+  image,
+  reverse,
+  background,
+  afterText: AfterText,
+  className = '',
+}) {
   let imageEl;
   if (typeof image === 'string') {
     imageEl = <img src={image} />;
@@ -276,6 +304,7 @@ function Feature({title, text, image, reverse, background, className = ''}) {
           <React.Fragment>
             <Heading text={title} />
             <MarkdownBlock>{text}</MarkdownBlock>
+            {AfterText && <AfterText />}
           </React.Fragment>
         }
         columnTwo={imageEl}
@@ -296,39 +325,6 @@ function Features() {
         />
       ))}
     </React.Fragment>
-  );
-}
-
-function Talks() {
-  return (
-    <Section className="DocsAndTalks" background="light2">
-      <TwoColumns
-        columnOne={
-          <React.Fragment>
-            <Heading text="Talks" />
-            <p>
-              Members of the React Native team frequently speak at various
-              conferences.
-            </p>
-            <p>
-              You can follow the latest news from the React Native team on
-              Twitter
-            </p>
-            <TwitterButton showCount />
-          </React.Fragment>
-        }
-        columnTwo={
-          <React.Fragment>
-            <iframe
-              src="https://www.youtube.com/embed/NCAY0HIfrwc"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-          </React.Fragment>
-        }
-      />
-    </Section>
   );
 }
 
@@ -431,14 +427,11 @@ function GetStarted() {
 
 module.exports = function Index() {
   return (
-    <div>
+    <main>
       <HeaderHero />
-      <main>
-        <Features />
-        <Talks />
-        <Community />
-        <GetStarted />
-      </main>
-    </div>
+      <Features />
+      <Community />
+      <GetStarted />
+    </main>
   );
 };

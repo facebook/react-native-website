@@ -1,9 +1,0 @@
-.CodeReloadDemo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.CodeReloadDemo .Heading {
-  color: $brand;
-}

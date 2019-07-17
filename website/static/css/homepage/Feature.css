@@ -18,6 +18,18 @@
   margin-top: -1.5rem;
 }
 
+.Feature .CodeExample {
+  background-color: $dark;
+}
+
+@media only screen and (min-width: 736px) {
+  .Feature .CodeExample {
+    margin-top: -50px;
+    margin-left: -50px;
+    margin-right: -9999px; /* bleed into right */
+  }
+}
+
 .Feature.ForEveryone {
   height: 400px;
 }
@@ -38,4 +50,20 @@
 
 .Feature.ReactRefresh video {
   height: 340px;
+}
+
+.Feature.Talks .TwoColumns {
+  grid-template-columns: 1fr 2fr;
+}
+
+.Feature.Talks iframe {
+  width: 560px;
+  height: 315px;
+}
+
+@media screen and (max-width: 960px) {
+  .Feature.Talks iframe {
+    width: 300px;
+    height: 169px;
+  }
 }
