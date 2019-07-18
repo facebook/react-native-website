@@ -109,5 +109,62 @@ There are two types of data that control a component: `props` and `state`. `prop
 
 As shown in the image, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
 
-## TODO: A better state example using the Player
+## TODO: Explain a little the following example
+
+```ReactNativeWebPlayer
+import React, { Component } from 'react'
+import {
+  AppRegistry,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+} from 'react-native'
+
+class App extends Component {
+  state = { 
+    count: 0 
+  }
+  
+  onPress = () => {
+    this.setState({
+      count: this.state.count + 1
+    })
+  }
+
+ render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+         style={styles.button}
+         onPress={this.onPress}
+        >
+         <Text>Click me</Text>
+        </TouchableOpacity>
+        <View style={styles.countContainer}>
+          <Text>
+            You clicked { this.state.count } times
+          </Text>
+        </View>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+    marginBottom: '10'
+  }
+})
+
+AppRegistry.registerComponent('App', () => App)
+```
 
