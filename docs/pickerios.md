@@ -44,6 +44,6 @@ title: PickerIOS
 
 ### `selectedValue`
 
-| Type              | Required |
-| ---------------   | -------- |
-| number or string  | No       |
+| Type             | Required |
+| ---------------- | -------- |
+| number or string | No       |
