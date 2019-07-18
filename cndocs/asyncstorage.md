@@ -37,7 +37,7 @@ _storeData = async () => {
 ```
 _retrieveData = async () => {
   try {
-    const value = await AsyncStorage.getItem('TASKS');
+    const value = await AsyncStorage.getItem('@MySuperStore:key');
     if (value !== null) {
       // We have data!!
       console.log(value);
