@@ -130,16 +130,6 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 ---
 
-### `activeOpacity`
-
-Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
 ### `tvParallaxProperties`
 
 _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
