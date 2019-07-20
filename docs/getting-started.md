@@ -457,7 +457,7 @@ cd AwesomeProject
 react-native start
 ```
 
-`react-native start` starts Metro Bundler, which you can read more about ![here](https://facebook.github.io/metro/).
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
 Run `react-native run-ios` inside your React Native project folder:
 
@@ -488,7 +488,7 @@ cd AwesomeProject
 react-native start
 ```
 
-`react-native start` starts Metro Bundler, which you can read more about ![here](https://facebook.github.io/metro/).
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
 Run `react-native run-android` inside your React Native project folder:
 
