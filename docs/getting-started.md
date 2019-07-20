@@ -450,6 +450,15 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 ## Running your React Native application
 
+Run `react-native start` inside your React Native project folder:
+
+```
+cd AwesomeProject
+react-native start
+```
+
+`react-native start` starts Metro Bundler, which you can read more about ![here](https://facebook.github.io/metro/).
+
 Run `react-native run-ios` inside your React Native project folder:
 
 ```
@@ -472,6 +481,15 @@ The above command will automatically run your app on the iOS Simulator by defaul
 <block class="native mac windows linux android" />
 
 ## Running your React Native application
+
+Run `react-native start` inside your React Native project folder:
+
+```
+cd AwesomeProject
+react-native start
+```
+
+`react-native start` starts Metro Bundler, which you can read more about ![here](https://facebook.github.io/metro/).
 
 Run `react-native run-android` inside your React Native project folder:
 
