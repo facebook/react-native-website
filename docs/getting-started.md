@@ -462,7 +462,6 @@ react-native start
 Run `react-native run-ios` inside your React Native project folder:
 
 ```
-cd AwesomeProject
 react-native run-ios
 ```
 
@@ -494,7 +493,6 @@ react-native start
 Run `react-native run-android` inside your React Native project folder:
 
 ```
-cd AwesomeProject
 react-native run-android
 ```
 
