@@ -397,7 +397,7 @@ It's implemented using onLayout handler attached to the content container which 
 
 ### `onMomentumScrollBegin`
 
-Called when the momentum scroll starts (scroll which occurs as the ScrollView glides to a stop).
+Called when the momentum scroll starts (scroll which occurs as the ScrollView starts gliding).
 
 | Type     | Required |
 | -------- | -------- |
