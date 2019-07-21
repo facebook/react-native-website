@@ -383,7 +383,7 @@ The current scale of the scroll view content. The default value is 1.0.
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(([destY]: number), ([destX]: number));
 ```
 
@@ -391,6 +391,6 @@ scrollTo(([destY]: number), ([destX]: number));
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(([destY]: number), ([destX]: number));
 ```

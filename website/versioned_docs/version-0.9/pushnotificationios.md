@@ -35,7 +35,7 @@ To get up and running, [configure your notifications with Apple](https://develop
 
 ### `presentLocalNotification()`
 
-```javascript
+```jsx
 static presentLocalNotification(details)
 ```
 
@@ -49,7 +49,7 @@ details is an object containing:
 
 ### `scheduleLocalNotification()`
 
-```javascript
+```jsx
 static scheduleLocalNotification(details)
 ```
 
@@ -64,7 +64,7 @@ details is an object containing:
 
 ### `setApplicationIconBadgeNumber()`
 
-```javascript
+```jsx
 static setApplicationIconBadgeNumber(number)
 ```
 
@@ -74,7 +74,7 @@ Sets the badge number for the app icon on the home screen
 
 ### `getApplicationIconBadgeNumber()`
 
-```javascript
+```jsx
 static getApplicationIconBadgeNumber(callback)
 ```
 
@@ -84,7 +84,7 @@ Gets the current badge number for the app icon on the home screen
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(type, handler)
 ```
 
@@ -99,7 +99,7 @@ Valid events are:
 
 ### `requestPermissions()`
 
-```javascript
+```jsx
 static requestPermissions(permissions?)
 ```
 
@@ -115,7 +115,7 @@ If a map is provided to the method, only the permissions with truthy values will
 
 ### `abandonPermissions()`
 
-```javascript
+```jsx
 static abandonPermissions()
 ```
 
@@ -127,7 +127,7 @@ You should call this method in rare circumstances only, such as when a new versi
 
 ### `checkPermissions()`
 
-```javascript
+```jsx
 static checkPermissions(callback)
 ```
 
@@ -141,7 +141,7 @@ See what push permissions are currently enabled. `callback` will be invoked with
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(type, handler)
 ```
 
@@ -151,7 +151,7 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 ### `popInitialNotification()`
 
-```javascript
+```jsx
 static popInitialNotification()
 ```
 
@@ -163,7 +163,7 @@ The first caller of `popInitialNotification` will get the initial notification o
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor(nativeNotif);
 ```
 
@@ -173,7 +173,7 @@ You will never need to instansiate `PushNotificationIOS` yourself. Listening to 
 
 ### `getMessage()`
 
-```javascript
+```jsx
 getMessage();
 ```
 
@@ -183,7 +183,7 @@ An alias for `getAlert` to get the notification's main message string
 
 ### `getSound()`
 
-```javascript
+```jsx
 getSound();
 ```
 
@@ -193,7 +193,7 @@ Gets the sound string from the `aps` object
 
 ### `getAlert()`
 
-```javascript
+```jsx
 getAlert();
 ```
 
@@ -203,7 +203,7 @@ Gets the notification's main message from the `aps` object
 
 ### `getBadgeCount()`
 
-```javascript
+```jsx
 getBadgeCount();
 ```
 
@@ -213,7 +213,7 @@ Gets the badge count number from the `aps` object
 
 ### `getData()`
 
-```javascript
+```jsx
 getData();
 ```
 

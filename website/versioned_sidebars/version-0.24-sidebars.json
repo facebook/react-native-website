@@ -52,13 +52,6 @@
       "version-0.24-signed-apk-android",
       "version-0.24-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.24-contributing",
-      "version-0.24-maintainers",
-      "version-0.24-building-from-source",
-      "version-0.24-testing",
-      "version-0.24-understanding-cli"
-    ],
     "Components": [
       "version-0.24-datepickerios",
       "version-0.24-drawerlayoutandroid",

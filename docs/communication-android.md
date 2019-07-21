@@ -39,7 +39,7 @@ public class MainActivity extends ReactActivity {
 }
 ```
 
-```javascript
+```jsx
 import React from 'react';
 import {AppRegistry, View, Image} from 'react-native';
 

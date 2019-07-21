@@ -50,7 +50,7 @@ Alert.alert(
 
 ### `alert()`
 
-```javascript
+```jsx
 Alert.alert(title, [message], [buttons], [options]);
 ```
 

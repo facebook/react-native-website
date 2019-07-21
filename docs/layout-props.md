@@ -231,9 +231,9 @@ This style takes precedence over the `left` and `right` styles.
 
 ### `flex`
 
-In React Native `flex` does not work the same way that it does in CSS. `flex` is a number rather than a string, and it works according to the `Yoga` library at https://github.com/facebook/yoga
+In React Native `flex` does not work the same way that it does in CSS. `flex` is a number rather than a string, and it works according to the [Yoga](https://github.com/facebook/yoga).
 
-When `flex` is a positive number, it makes the component flexible and it will be sized proportional to its flex value. So a component with `flex` set to 2 will take twice the space as a component with `flex` set to 1.
+When `flex` is a positive number, it makes the component flexible and it will be sized proportional to its flex value. So a component with `flex` set to 2 will take twice the space as a component with `flex` set to 1. `flex: <positive number>` equates to `flexGrow: <positive number>, flexShrink: 1, flexBasis: 0`.
 
 When `flex` is 0, the component is sized according to `width` and `height` and it is inflexible.
 
@@ -475,7 +475,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/min-width for more details.
 
 ### `overflow`
 
-`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details. `overflow: visible` only works on iOS. On Android, all views will clip their children.
+`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details.
 
 | Type                                | Required |
 | ----------------------------------- | -------- |

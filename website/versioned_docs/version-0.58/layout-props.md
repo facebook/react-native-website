@@ -476,7 +476,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/min-width for more details.
 
 ### `overflow`
 
-`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details. `overflow: visible` only works on iOS. On Android, all views will clip their children.
+`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details.
 
 | Type                                | Required |
 | ----------------------------------- | -------- |

@@ -39,6 +39,6 @@ original_id: snapshotviewios
 
 ### `onDefaultAction()`
 
-```javascript
+```jsx
 onDefaultAction((event: Object));
 ```

@@ -63,7 +63,7 @@ Performance:
 
 ### `setStyleAttributePreprocessor()`
 
-```javascript
+```jsx
 static setStyleAttributePreprocessor(property, process)
 ```
 
@@ -75,7 +75,7 @@ Sets a function to use to pre-process a style property value. This is used inter
 
 ### `create()`
 
-```javascript
+```jsx
 static create(obj)
 ```
 

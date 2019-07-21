@@ -62,7 +62,7 @@ Performance:
 
 ### `create()`
 
-```javascript
+```jsx
 static create(obj)
 ```
 

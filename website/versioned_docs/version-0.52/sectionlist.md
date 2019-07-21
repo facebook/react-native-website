@@ -332,7 +332,7 @@ Makes section headers stick to the top of the screen until the next one pushes i
 
 ### `scrollToLocation()`
 
-```javascript
+```jsx
 scrollToLocation(params);
 ```
 
@@ -358,7 +358,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -368,7 +368,7 @@ Tells the list an interaction has occured, which should trigger viewability calc
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

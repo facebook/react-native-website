@@ -74,7 +74,7 @@ To request network info, you need to add the following line to your app's `Andro
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 NetInfo.addEventListener(eventName, handler);
 ```
 
@@ -98,7 +98,7 @@ Supported events:
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 NetInfo.removeEventListener(eventName, handler);
 ```
 
@@ -115,7 +115,7 @@ Removes the listener for network status changes.
 
 ### `getConnectionInfo()`
 
-```javascript
+```jsx
 NetInfo.getConnectionInfo();
 ```
 
@@ -125,7 +125,7 @@ Returns a promise that resolves to an object with `type` and `effectiveType` key
 
 ### `isConnectionExpensive()`
 
-```javascript
+```jsx
 NetInfo.isConnectionExpensive();
 ```
 

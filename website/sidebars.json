@@ -16,6 +16,7 @@
       "more-resources"
     ],
     "Guides": [
+      "optimizing-flatlist-configuration",
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -51,15 +52,11 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "removing-default-permissions"
-    ],
-    "Contributing": [
-      "contributing",
-      "maintainers",
-      "building-from-source",
-      "publishing-forks",
-      "testing"
-    ],
+      "removing-default-permissions",
+      "hermes"
+    ]
+  },
+  "api": {
     "Components": [
       "activityindicator",
       "button",
@@ -70,7 +67,6 @@
       "imagebackground",
       "inputaccessoryview",
       "keyboardavoidingview",
-      "listview",
       "maskedviewios",
       "modal",
       "picker",
@@ -83,9 +79,10 @@
       "sectionlist",
       "segmentedcontrolios",
       "slider",
-      "snapshotviewios",
       "statusbar",
       "switch",
+      "tabbarios",
+      "tabbarios-item",
       "text",
       "textinput",
       "toolbarandroid",
@@ -95,8 +92,7 @@
       "touchablewithoutfeedback",
       "view",
       "viewpagerandroid",
-      "virtualizedlist",
-      "webview"
+      "virtualizedlist"
     ],
     "APIs": [
       "accessibilityinfo",
@@ -107,25 +103,19 @@
       "appregistry",
       "appstate",
       "asyncstorage",
-      "backandroid",
       "backhandler",
-      "cameraroll",
       "clipboard",
       "datepickerandroid",
       "dimensions",
       "easing",
-      "geolocation",
       "imageeditor",
       "imagepickerios",
-      "imagestore",
       "image-style-props",
       "interactionmanager",
       "keyboard",
       "layout-props",
       "layoutanimation",
       "linking",
-      "listviewdatasource",
-      "netinfo",
       "panresponder",
       "permissionsandroid",
       "pixelratio",
@@ -141,7 +131,6 @@
       "toastandroid",
       "transforms",
       "vibration",
-      "vibrationios",
       "view-style-props"
     ]
   }

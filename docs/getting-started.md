@@ -3,103 +3,25 @@ id: getting-started
 title: Getting Started
 ---
 
-<style>
-  .toggler {
-    margin-top: 2em;
-  }
-  .toggler li {
-    display: inline-block;
-    position: relative;
-    top: 1px;
-    padding: 10px;
-    margin: 0px 2px 0px 2px;
-    border: 1px solid #05A5D1;
-    border-bottom-color: transparent;
-    border-radius: 3px 3px 0px 0px;
-    color: #05A5D1;
-    background-color: transparent;
-    font-size: 0.99em;
-    cursor: pointer;
-  }
-  .toggler li:first-child {
-    margin-left: 0;
-  }
-  .toggler li:last-child {
-    margin-right: 0;
-  }
-  .toggler ul {
-    width: 100%;
-    display: inline-block;
-    list-style-type: none;
-    margin: 0;
-    border-bottom: 1px solid #05A5D1;
-    cursor: default;
-  }
-  @media screen and (max-width: 960px) {
-    .toggler li,
-    .toggler li:first-child,
-    .toggler li:last-child {
-      display: block;
-      border-bottom-color: #05A5D1;
-      border-radius: 3px;
-      margin: 2px 0px 2px 0px !important;
-    }
-    .toggler ul {
-      border-bottom: 0;
-    }
-  }
-  .toggler a {
-    display: inline-block;
-    padding: 10px 5px;
-    margin: 2px;
-    border: 1px solid #05A5D1;
-    border-radius: 3px;
-    text-decoration: none !important;
-  }
-  .display-guide-quickstart .toggler .button-quickstart,
-  .display-guide-native .toggler .button-native,
-  .display-os-mac .toggler .button-mac,
-  .display-os-linux .toggler .button-linux,
-  .display-os-windows .toggler .button-windows,
-  .display-platform-ios .toggler .button-ios,
-  .display-platform-android .toggler .button-android {
-    background-color: #05A5D1;
-    color: white;
-  }
-  block { display: none; }
-  .display-guide-quickstart.display-platform-ios.display-os-mac .quickstart.ios.mac,
-  .display-guide-quickstart.display-platform-ios.display-os-linux .quickstart.ios.linux,
-  .display-guide-quickstart.display-platform-ios.display-os-windows .quickstart.ios.windows,
-  .display-guide-quickstart.display-platform-android.display-os-mac .quickstart.android.mac,
-  .display-guide-quickstart.display-platform-android.display-os-linux .quickstart.android.linux,
-  .display-guide-quickstart.display-platform-android.display-os-windows .quickstart.android.windows,    .display-guide-native.display-platform-ios.display-os-mac .native.ios.mac,
-  .display-guide-native.display-platform-ios.display-os-linux .native.ios.linux,
-  .display-guide-native.display-platform-ios.display-os-windows .native.ios.windows,
-  .display-guide-native.display-platform-android.display-os-mac .native.android.mac,
-  .display-guide-native.display-platform-android.display-os-linux .native.android.linux,
-  .display-guide-native.display-platform-android.display-os-windows .native.android.windows {
-    display: block;
-  }
-</style>
-
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
 
-<strong>If you are coming from a web background</strong>, the easiest way to get started with React Native is with Expo tools because they allow you to start a project without installing and configuring Xcode or Android Studio. Expo CLI sets up a development environment on your local machine and you can be writing a React Native app within minutes. For instant development, you can use [Snack](https://snack.expo.io/) to try React Native out directly in your web browser.
+<strong>If you are coming from a web background</strong>, the easiest way to get started with React Native is with Expo tools because they allow you to start a project without installing and configuring Xcode or Android Studio. Expo CLI sets up a development environment on your local machine and you can begin writing a React Native app within minutes. For instant development, you can use [Snack](https://snack.expo.io/) to try React Native out directly in your web browser.
 
 <strong>If you are familiar with native development</strong>, you will likely want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
 <div class="toggler">
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-guide">
     <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
       Expo CLI Quickstart
     </li>
-    <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="-1" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
+    <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="0" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
       React Native CLI Quickstart
     </li>
   </ul>
 </div>
 
 <block class="quickstart mac windows linux ios android" />
+
 Assuming that you have [Node 10+](https://nodejs.org/en/download/) installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
@@ -146,7 +68,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 ### Running your app on a simulator or virtual device
 
-Expo CLI makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for building projects with native code to learn how to install Xcode or set up your Android development environment.
+Expo CLI makes it really easy to run your React Native app on a physical device without setting up a development environment. If you want to run your app on the iOS Simulator or an Android Virtual Device, please refer to the instructions for "React Native CLI Quickstart" to learn how to install Xcode or set up your Android development environment.
 
 Once you've set these up, you can launch your app on an Android Virtual Device by running `npm run android`, or on the iOS Simulator by running `npm run ios` (macOS only).
 
@@ -154,33 +76,40 @@ Once you've set these up, you can launch your app on an Android Virtual Device b
 
 Because you don't build any native code when using Expo to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
 
-If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/expokit/eject)" eventually to create your own native builds. If you do eject, the "Building Projects with Native Code" instructions will be required to continue working on your project.
+If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/expokit/eject)" eventually to create your own native builds. If you do eject, the "React Native CLI Quickstart" instructions will be required to continue working on your project.
 
 Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported.
 
-If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Native.
+If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started" onclick="displayTab('guide', 'quickstart')">Expo</a> or Create React Native App, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both iOS and Android, that's fine - you just have to pick one to start with, since the setup is a bit different.
 
 <div class="toggler">
   <span>Development OS:</span>
-  <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-  <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
-  <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+  <span role="tablist" id="toggle-os">
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+  </span>
+</div>
+
+<div class="toggler">
   <span>Target OS:</span>
-  <a href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
-  <a href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  <span role="tablist" id="toggle-platform">
+    <button role="tab" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
+    <button role="tab" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  </span>
 </div>
 
 <block class="native linux windows ios" />
 
 ## Unsupported
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
 
 <block class="native mac ios" />
 
@@ -214,18 +143,22 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <block class="native mac ios android" />
 
-### Node, Watchman
+### Node, Watchman, JDK
 
-We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node, Watchman, and JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```
 brew install node
 brew install watchman
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
 ```
 
 If you have already installed Node on your system, make sure it is Node 8.3 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
+
+If you have already installed JDK on your system, make sure it is JDK 8 or newer.
 
 <block class="native linux android" />
 
@@ -293,11 +226,11 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
-<block class="native mac linux android" />
+<block class="native linux android" />
 
 ### Java Development Kit
 
-React Native requires a recent version of the Java SE Development Kit (JDK). [Download and install Oracle JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if needed. You can also use [OpenJDK 8](http://openjdk.java.net/install/) as an alternative.
+React Native requires version 8 of the Java SE Development Kit (JDK). You may download and install [OpenJDK](http://openjdk.java.net) from [AdoptOpenJDK](https://adoptopenjdk.net/) or your system packager. You may also [Download and install Oracle JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if desired.
 
 <block class="native mac linux windows android" />
 
@@ -443,7 +376,7 @@ This is not necessary if you are integrating React Native into an existing appli
 
 ### [Optional] Using a specific version
 
-If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
 react-native init AwesomeProject --version X.XX.X
@@ -467,7 +400,7 @@ This is not necessary if you are integrating React Native into an existing appli
 
 ### [Optional] Using a specific version
 
-If you want to start a new project with a specifc React Native version, you can use the `--version` argument:
+If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
 react-native init AwesomeProject --version X.XX.X
@@ -528,7 +461,7 @@ You should see your new app running in the iOS Simulator shortly.
 
 ![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode or [Nuclide](https://nuclide.io/).
+`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
@@ -559,7 +492,7 @@ If everything is set up correctly, you should see your new app running in your A
 
 <block class="native mac windows linux android" />
 
-`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio or [Nuclide](https://nuclide.io/).
+`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
@@ -623,124 +556,3 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
-
-<script>
-  function displayTab(type, value) {
-    var container = document.getElementsByTagName('block')[0].parentNode;
-    container.className = 'display-' + type + '-' + value + ' ' +
-      container.className.replace(RegExp('display-' + type + '-[a-z]+ ?'), '');
-  }
-  function convertBlocks() {
-    // Convert <div>...<span><block /></span>...</div>
-    // Into <div>...<block />...</div>
-    var blocks = document.querySelectorAll('block');
-    for (var i = 0; i < blocks.length; ++i) {
-      var block = blocks[i];
-      var span = blocks[i].parentNode;
-      var container = span.parentNode;
-      container.insertBefore(block, span);
-      container.removeChild(span);
-    }
-    // Convert <div>...<block />content<block />...</div>
-    // Into <div>...<block>content</block><block />...</div>
-    blocks = document.querySelectorAll('block');
-    for (var i = 0; i < blocks.length; ++i) {
-      var block = blocks[i];
-      while (
-        block.nextSibling &&
-        block.nextSibling.tagName !== 'BLOCK'
-      ) {
-        block.appendChild(block.nextSibling);
-      }
-    }
-  }
-  function guessPlatformAndOS() {
-    if (!document.querySelector('block')) {
-      return;
-    }
-    // If we are coming to the page with a hash in it (i.e. from a search, for example), try to get
-    // us as close as possible to the correct platform and dev os using the hashtag and block walk up.
-    var foundHash = false;
-    if (
-      window.location.hash !== '' &&
-      window.location.hash !== 'content'
-    ) {
-      // content is default
-      var hashLinks = document.querySelectorAll(
-        'a.hash-link'
-      );
-      for (
-        var i = 0;
-        i < hashLinks.length && !foundHash;
-        ++i
-      ) {
-        if (hashLinks[i].hash === window.location.hash) {
-          var parent = hashLinks[i].parentElement;
-          while (parent) {
-            if (parent.tagName === 'BLOCK') {
-              // Could be more than one target os and dev platform, but just choose some sort of order
-              // of priority here.
-              // Dev OS
-              if (parent.className.indexOf('mac') > -1) {
-                displayTab('os', 'mac');
-                foundHash = true;
-              } else if (
-                parent.className.indexOf('linux') > -1
-              ) {
-                displayTab('os', 'linux');
-                foundHash = true;
-              } else if (
-                parent.className.indexOf('windows') > -1
-              ) {
-                displayTab('os', 'windows');
-                foundHash = true;
-              } else {
-                break;
-              }
-              // Target Platform
-              if (parent.className.indexOf('ios') > -1) {
-                displayTab('platform', 'ios');
-                foundHash = true;
-              } else if (
-                parent.className.indexOf('android') > -1
-              ) {
-                displayTab('platform', 'android');
-                foundHash = true;
-              } else {
-                break;
-              }
-              // Guide
-              if (parent.className.indexOf('native') > -1) {
-                displayTab('guide', 'native');
-                foundHash = true;
-              } else if (
-                parent.className.indexOf('quickstart') > -1
-              ) {
-                displayTab('guide', 'quickstart');
-                foundHash = true;
-              } else {
-                break;
-              }
-              break;
-            }
-            parent = parent.parentElement;
-          }
-        }
-      }
-    }
-    // Do the default if there is no matching hash
-    if (!foundHash) {
-      var isMac = navigator.platform === 'MacIntel';
-      var isWindows = navigator.platform === 'Win32';
-      displayTab('platform', isMac ? 'ios' : 'android');
-      displayTab(
-        'os',
-        isMac ? 'mac' : isWindows ? 'windows' : 'linux'
-      );
-      displayTab('guide', 'quickstart');
-      displayTab('language', 'objc');
-    }
-  }
-  convertBlocks();
-  guessPlatformAndOS();
-</script>

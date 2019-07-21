@@ -9,13 +9,13 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 
 A task is a simple async function that you register on `AppRegistry`, similar to registering React applications:
 
-```javascript
+```jsx
 AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
 ```
 
 Then, in `SomeTaskName.js`:
 
-```javascript
+```jsx
 module.exports = async (taskData) => {
   // do stuff
 };
@@ -66,8 +66,47 @@ service.putExtras(bundle);
 getApplicationContext().startService(service);
 ```
 
+## Retries
+
+By default, the headless JS task will not perform any retries. In order to do so, you need to create a `HeadlessJsRetryPolicy` and throw a specfic `Error`.
+
+`LinearCountingRetryPolicy` is an implementation of `HeadlessJsRetryPolicy` that allows you to specify a maximum number of retries with a fixed delay between each attempt. If that does not suit your needs then you can easily implement your own `HeadlessJsRetryPolicy`. These policies can simply be passed as an extra argument to the `HeadlessJsTaskConfig` constructor, e.g.
+
+```java
+HeadlessJsRetryPolicy retryPolicy = new LinearCountingRetryPolicy(
+  3, // Max number of retry attempts
+  1000 // Delay between each retry attempt
+);
+
+return new HeadlessJsTaskConfig(
+  'SomeTaskName',
+  Arguments.fromBundle(extras),
+  5000,
+  false,
+  retryPolicy
+);
+```
+
+A retry attempt will only be made when a specific `Error` is thrown. Inside a headless JS task, you can import the error and throw it when a retry attempt is required.
+
+Example:
+
+```jsx
+import {HeadlessJsTaskError} from 'HeadlessJsTask';
+
+module.exports = async (taskData) => {
+  const condition = ...;
+  if (!condition) {
+    throw new HeadlessJsTaskError();
+  }
+};
+```
+
+If you wish all errors to cause a retry attempt, you will need to catch them and throw the above error.
+
 ## Caveats
 
+- The function passed to `setTimeout` does not always behave as expected. Instead the function is called only when the application is launched again. If you just need to wait, use the retry functionality.
 - By default, your app will crash if you try to run a task while the app is in the foreground. This is to prevent developers from shooting themselves in the foot by doing a lot of work in a task and slowing the UI. You can pass a fourth `boolean` argument to control this behaviour.
 - If you start your service from a `BroadcastReceiver`, make sure to call `HeadlessJsTaskService.acquireWakeLockNow()` before returning from `onReceive()`.
 

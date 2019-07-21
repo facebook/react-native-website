@@ -34,7 +34,7 @@ This class implements common easing functions. The math is pretty obscure, but t
 
 ### `step0()`
 
-```javascript
+```jsx
 static step0(n)
 ```
 
@@ -42,7 +42,7 @@ static step0(n)
 
 ### `step1()`
 
-```javascript
+```jsx
 static step1(n)
 ```
 
@@ -50,7 +50,7 @@ static step1(n)
 
 ### `linear()`
 
-```javascript
+```jsx
 static linear(t)
 ```
 
@@ -58,7 +58,7 @@ static linear(t)
 
 ### `ease()`
 
-```javascript
+```jsx
 static ease(t)
 ```
 
@@ -66,7 +66,7 @@ static ease(t)
 
 ### `quad()`
 
-```javascript
+```jsx
 static quad(t)
 ```
 
@@ -74,7 +74,7 @@ static quad(t)
 
 ### `cubic()`
 
-```javascript
+```jsx
 static cubic(t)
 ```
 
@@ -82,7 +82,7 @@ static cubic(t)
 
 ### `poly()`
 
-```javascript
+```jsx
 static poly(n)
 ```
 
@@ -90,7 +90,7 @@ static poly(n)
 
 ### `sin()`
 
-```javascript
+```jsx
 static sin(t)
 ```
 
@@ -98,7 +98,7 @@ static sin(t)
 
 ### `circle()`
 
-```javascript
+```jsx
 static circle(t)
 ```
 
@@ -106,7 +106,7 @@ static circle(t)
 
 ### `exp()`
 
-```javascript
+```jsx
 static exp(t)
 ```
 
@@ -114,7 +114,7 @@ static exp(t)
 
 ### `elastic()`
 
-```javascript
+```jsx
 static elastic(bounciness)
 ```
 
@@ -128,7 +128,7 @@ http://tiny.cc/elastic_b_1 (default bounciness = 1) http://tiny.cc/elastic_b_3 (
 
 ### `back()`
 
-```javascript
+```jsx
 static back(s)
 ```
 
@@ -136,7 +136,7 @@ static back(s)
 
 ### `bounce()`
 
-```javascript
+```jsx
 static bounce(t)
 ```
 
@@ -144,7 +144,7 @@ static bounce(t)
 
 ### `bezier()`
 
-```javascript
+```jsx
 static bezier(x1, y1, x2, y2)
 ```
 
@@ -152,7 +152,7 @@ static bezier(x1, y1, x2, y2)
 
 ### `in()`
 
-```javascript
+```jsx
 static in easing;
 ```
 
@@ -160,7 +160,7 @@ static in easing;
 
 ### `out()`
 
-```javascript
+```jsx
 static out(easing)
 ```
 
@@ -170,7 +170,7 @@ Runs an easing function backwards.
 
 ### `inOut()`
 
-```javascript
+```jsx
 static inOut(easing)
 ```
 

@@ -9,10 +9,10 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 ### Usage Example
 
-```javascript
+```jsx
 function MyComponent(props) {
   return (
-    <View {...props} style={{flex: 1, backgroundColour: '#fff'}}>
+    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
       <Text>My Component</Text>
     </View>
   );
@@ -25,12 +25,12 @@ function MyComponent(props) {
 
 ### Props
 
-- [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
+- [`accessibilityIgnoresInvertColors`](touchablewithoutfeedback.md#accessibilityIgnoresInvertColors)
 - [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
 - [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
 - [`accessibilityRole`](view.md#accessibilityrole)
 - [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
+- [`accessibilityState`](touchablewithoutfeedback.md#accessibilityState)
 - [`accessible`](touchablewithoutfeedback.md#accessible)
 - [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
 - [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
@@ -45,7 +45,9 @@ function MyComponent(props) {
 - [`onPressIn`](touchablewithoutfeedback.md#onpressin)
 - [`onPressOut`](touchablewithoutfeedback.md#onpressout)
 - [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
+- [`nativeID`](touchablewithoutfeedback.md#nativeID)
 - [`testID`](touchablewithoutfeedback.md#testid)
+- [`touchSoundDisabled`](touchablewithoutfeedback.md#touchSoundDisabled)
 
 ### Type Definitions
 
@@ -57,13 +59,11 @@ function MyComponent(props) {
 
 ## Props
 
-### `accessibilityComponentType`
+### `accessibilityIgnoresInvertColors`
 
-_> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-| Type                        | Required |
-| --------------------------- | -------- |
-| AccessibilityComponentTypes | No       |
+| Type    | Required |
+| ------- | -------- |
+| Boolean | No       |
 
 ---
 
@@ -103,13 +103,11 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
-### `accessibilityTraits`
+### `accessibilityState`
 
-_> Note: `accessibilityTraits`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
-
-| Type                                               | Required |
-| -------------------------------------------------- | -------- |
-| AccessibilityTraits, ,array of AccessibilityTraits | No       |
+| Type   | Required |
+| ------ | -------- |
+| Object | No       |
 
 ---
 
@@ -247,6 +245,16 @@ When the scroll view is disabled, this defines how far your touch may move off o
 | ------------------------------------------------------------------ | -------- |
 | object: {top: number, left: number, bottom: number, right: number} | No       |
 
+---
+
+### `nativeID`
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
 ### `testID`
 
 Used to locate this view in end-to-end tests.
@@ -254,6 +262,16 @@ Used to locate this view in end-to-end tests.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
+
+---
+
+### `touchSoundDisabled`
+
+If true, doesn't play a system sound on touch.
+
+| Type    | Required | Platform |
+| ------- | -------- | -------- |
+| Boolean | No       | Android  |
 
 ---
 

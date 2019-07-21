@@ -52,13 +52,6 @@
       "version-0.46-signed-apk-android",
       "version-0.46-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.46-contributing",
-      "version-0.46-maintainers",
-      "version-0.46-building-from-source",
-      "version-0.46-testing",
-      "version-0.46-understanding-cli"
-    ],
     "Components": [
       "version-0.46-activityindicator",
       "version-0.46-button",

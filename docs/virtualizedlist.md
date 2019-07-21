@@ -27,15 +27,20 @@ Some caveats:
 - [`initialScrollIndex`](virtualizedlist.md#initialscrollindex)
 - [`inverted`](virtualizedlist.md#inverted)
 - [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
+- [`listKey`](virtualizedlist.md#listKey)
 - [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
+- [`ListItemComponent`](virtualizedlist.md#ListItemComponent)
 - [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
+- [`ListFooterComponentStyle`](virtualizedlist.md#ListFooterComponentStyle)
 - [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
+- [`ListHeaderComponentStyle`](virtualizedlist.md#ListHeaderComponentStyle)
 - [`onEndReached`](virtualizedlist.md#onendreached)
 - [`onLayout`](virtualizedlist.md#onlayout)
 - [`onRefresh`](virtualizedlist.md#onrefresh)
 - [`onScrollToIndexFailed`](virtualizedlist.md#onscrolltoindexfailed)
 - [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
 - [`refreshing`](virtualizedlist.md#refreshing)
+- [`refreshControl`](virtualizedlist.md#refreshControl)
 - [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
 - [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
 - [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
@@ -49,6 +54,7 @@ Some caveats:
 - [`windowSize`](virtualizedlist.md#windowsize)
 - [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
 - [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
+- [`persistentScrollbar`](virtualizedlist.md#persistentScrollbar)
 
 ### Methods
 
@@ -67,7 +73,7 @@ Some caveats:
 
 ### `renderItem`
 
-```javascript
+```jsx
 (info: any) => ?React.Element<any>
 ```
 
@@ -91,7 +97,7 @@ The default accessor functions assume this is an array of objects with shape `{k
 
 ### `getItem`
 
-```javascript
+```jsx
 (data: any, index: number) => object;
 ```
 
@@ -105,7 +111,7 @@ A generic accessor for extracting an item from any sort of data blob.
 
 ### `getItemCount`
 
-```javascript
+```jsx
 (data: any) => number;
 ```
 
@@ -139,7 +145,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `getItemLayout`
 
-```javascript
+```jsx
 (
     data: any,
     index: number,
@@ -182,6 +188,16 @@ Each cell is rendered using this element. Can be a React Component Class,or a re
 
 ---
 
+### `listKey`
+
+A unique identifier for this list. If there are multiple VirtualizedLists at the same level of nesting within another VirtualizedList, this key is necessary for virtualization to work properly.
+
+| Type   | Required |
+| ------ | -------- |
+| string | True     |
+
+---
+
 ### `ListEmptyComponent`
 
 Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
@@ -189,6 +205,16 @@ Rendered when the list is empty. Can be a React Component Class, a render functi
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListItemComponent`
+
+Each data item is rendered using this element. Can be a React Component Class, or a render function
+
+| Type                | Required |
+| ------------------- | -------- |
+| component, function | No       |
 
 ---
 
@@ -202,6 +228,16 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type          | Required |
+| ------------- | -------- |
+| ViewStyleProp | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
@@ -209,6 +245,16 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for ListHeaderComponent
+
+| Type          | Required |
+| ------------- | -------- |
+| ViewStyleProp | No       |
 
 ---
 
@@ -222,7 +268,7 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 
 ### `onRefresh`
 
-```javascript
+```jsx
 () => void
 ```
 
@@ -236,7 +282,7 @@ If provided, a standard `RefreshControl` will be added for "Pull to Refresh" fun
 
 ### `onScrollToIndexFailed`
 
-```javascript
+```jsx
 (info: {
     index: number,
     highestMeasuredFrameIndex: number,
@@ -254,7 +300,7 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 ### `onViewableItemsChanged`
 
-```javascript
+```jsx
 (info: {
     viewableItems: array,
     changed: array,
@@ -279,6 +325,16 @@ Set this true while waiting for new data from a refresh.
 
 ---
 
+### `refreshControl`
+
+A custom refresh control element. When set, it overrides the default <RefreshControl> component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
+
+| Type    | Required |
+| ------- | -------- |
+| element | No       |
+
+---
+
 ### `removeClippedSubviews`
 
 This may improve scroll performance for large lists.
@@ -293,7 +349,7 @@ This may improve scroll performance for large lists.
 
 ### `renderScrollComponent`
 
-```javascript
+```jsx
 (props: object) => element;
 ```
 
@@ -345,7 +401,7 @@ How many items to render in the initial batch. This should be enough to fill the
 
 ### `keyExtractor`
 
-```javascript
+```jsx
 (item: object, index: number) => string;
 ```
 
@@ -369,7 +425,7 @@ The maximum number of items to render in each incremental render batch. The more
 
 ### `onEndReached`
 
-```javascript
+```jsx
 (info: {distanceFromEnd: number}) => void
 ```
 
@@ -421,6 +477,14 @@ Determines the maximum number of items rendered outside of the visible area, in 
 
 ---
 
+### `persistentScrollbar`
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
 ### `progressViewOffset`
 
 Set this when offset is needed for the loading indicator to show correctly.
@@ -433,7 +497,7 @@ Set this when offset is needed for the loading indicator to show correctly.
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([params]: object));
 ```
 
@@ -441,7 +505,7 @@ scrollToEnd(([params]: object));
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex((params: object));
 ```
 
@@ -449,7 +513,7 @@ scrollToIndex((params: object));
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem((params: object));
 ```
 
@@ -457,7 +521,7 @@ scrollToItem((params: object));
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset((params: object));
 ```
 
@@ -471,7 +535,7 @@ Param `animated` (`true` by default) defines whether the list should do an anima
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -479,6 +543,6 @@ recordInteraction();
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```

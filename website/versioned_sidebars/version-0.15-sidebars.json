@@ -52,13 +52,6 @@
       "version-0.15-signed-apk-android",
       "version-0.15-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.15-contributing",
-      "version-0.15-maintainers",
-      "version-0.15-building-from-source",
-      "version-0.15-testing",
-      "version-0.15-understanding-cli"
-    ],
     "Components": [
       "version-0.15-datepickerios",
       "version-0.15-drawerlayoutandroid",

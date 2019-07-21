@@ -8,7 +8,7 @@ Animations are an important part of modern UX, and the `Animated` library is des
 
 The simplest workflow is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates either via animations, such as `Animated.timing`, or by hooking into gestures like panning or scrolling via `Animated.event`. `Animated.Value` can also bind to props other than style, and can be interpolated as well. Here is a basic example of a container view that will fade in when it's mounted:
 
-```javascript
+```jsx
 class FadeInView extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +46,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 
 1. This can easily be done by modifying `style` in the example above like so:
 
-```javascript
+```jsx
  style={{
    opacity: this.state.fadeAnim, // Binds directly
    transform: [{
@@ -102,7 +102,7 @@ Note that `Animated` is designed to be fully serializable so that animations can
 
 ### `decay()`
 
-```javascript
+```jsx
 static decay(value, config)
 ```
 
@@ -112,7 +112,7 @@ Animates a value from an initial velocity to zero based on a decay coefficient.
 
 ### `timing()`
 
-```javascript
+```jsx
 static timing(value, config)
 ```
 
@@ -122,7 +122,7 @@ Animates a value along a timed easing curve. The `Easing` module has tons of pre
 
 ### `spring()`
 
-```javascript
+```jsx
 static spring(value, config)
 ```
 
@@ -132,7 +132,7 @@ Spring animation based on Rebound and Origami. Tracks velocity state to create f
 
 ### `add()`
 
-```javascript
+```jsx
 static add(a, b)
 ```
 
@@ -142,7 +142,7 @@ Creates a new Animated value composed from two Animated values added together.
 
 ### `divide()`
 
-```javascript
+```jsx
 static divide(a, b)
 ```
 
@@ -152,7 +152,7 @@ Creates a new Animated value composed by dividing the first Animated value by th
 
 ### `multiply()`
 
-```javascript
+```jsx
 static multiply(a, b)
 ```
 
@@ -162,7 +162,7 @@ Creates a new Animated value composed from two Animated values multiplied togeth
 
 ### `modulo()`
 
-```javascript
+```jsx
 static modulo(a, modulus)
 ```
 
@@ -172,7 +172,7 @@ Creates a new Animated value that is the (non-negative) modulo of the provided A
 
 ### `diffClamp()`
 
-```javascript
+```jsx
 static diffClamp(a, min, max)
 ```
 
@@ -184,7 +184,7 @@ This is useful with scroll events, for example, to show the navbar when scrollin
 
 ### `delay()`
 
-```javascript
+```jsx
 static delay(time)
 ```
 
@@ -194,7 +194,7 @@ Starts an animation after the given delay.
 
 ### `sequence()`
 
-```javascript
+```jsx
 static sequence(animations)
 ```
 
@@ -204,7 +204,7 @@ Starts an array of animations in order, waiting for each to complete before star
 
 ### `parallel()`
 
-```javascript
+```jsx
 static parallel(animations, config?)
 ```
 
@@ -214,7 +214,7 @@ Starts an array of animations all at the same time. By default, if one of the an
 
 ### `stagger()`
 
-```javascript
+```jsx
 static stagger(time, animations)
 ```
 
@@ -224,13 +224,13 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 
 ### `event()`
 
-```javascript
+```jsx
 static event(argMapping, config?)
 ```
 
 Takes an array of mappings and extracts values from each arg accordingly, then calls `setValue` on the mapped outputs. e.g.
 
-```javascript
+```jsx
  onScroll={Animated.event(
    [{nativeEvent: {contentOffset: {x: this._scrollX}}}]
    {listener},          // Optional async listener
@@ -246,7 +246,7 @@ Takes an array of mappings and extracts values from each arg accordingly, then c
 
 ### `createAnimatedComponent()`
 
-```javascript
+```jsx
 static createAnimatedComponent(Component)
 ```
 
@@ -266,7 +266,7 @@ Standard value for driving animations. One `Animated.Value` can drive multiple p
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor(value);
 ```
 
@@ -274,7 +274,7 @@ constructor(value);
 
 ### `setValue()`
 
-```javascript
+```jsx
 setValue(value);
 ```
 
@@ -284,7 +284,7 @@ Directly set the value. This will stop any animations running on the value and u
 
 ### `setOffset()`
 
-```javascript
+```jsx
 setOffset(offset);
 ```
 
@@ -294,7 +294,7 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 ### `flattenOffset()`
 
-```javascript
+```jsx
 flattenOffset();
 ```
 
@@ -304,7 +304,7 @@ Merges the offset value into the base value and resets the offset to zero. The f
 
 ### `extractOffset()`
 
-```javascript
+```jsx
 extractOffset();
 ```
 
@@ -314,7 +314,7 @@ Sets the offset value to the base value, and resets the base value to zero. The 
 
 ### `addListener()`
 
-```javascript
+```jsx
 addListener(callback);
 ```
 
@@ -324,7 +324,7 @@ Adds an asynchronous listener to the value so you can observe updates from anima
 
 ### `removeListener()`
 
-```javascript
+```jsx
 removeListener(id);
 ```
 
@@ -332,7 +332,7 @@ removeListener(id);
 
 ### `removeAllListeners()`
 
-```javascript
+```jsx
 removeAllListeners();
 ```
 
@@ -340,7 +340,7 @@ removeAllListeners();
 
 ### `stopAnimation()`
 
-```javascript
+```jsx
 stopAnimation(callback?)
 ```
 
@@ -350,7 +350,7 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 ### `interpolate()`
 
-```javascript
+```jsx
 interpolate(config);
 ```
 
@@ -360,7 +360,7 @@ Interpolates the value before updating the property, e.g. mapping 0-1 to 0-10.
 
 ### `animate()`
 
-```javascript
+```jsx
 animate(animation, callback);
 ```
 
@@ -370,7 +370,7 @@ Typically only used internally, but could be used by a custom Animation class.
 
 ### `stopTracking()`
 
-```javascript
+```jsx
 stopTracking();
 ```
 
@@ -380,7 +380,7 @@ Typically only used internally.
 
 ### `track()`
 
-```javascript
+```jsx
 track(tracking);
 ```
 
@@ -392,7 +392,7 @@ Typically only used internally.
 
 2D Value for driving 2D animations, such as pan gestures. Almost identical API to normal `Animated.Value`, but multiplexed. Contains two regular `Animated.Value`s under the hood. Example:
 
-```javascript
+```jsx
 class DraggableView extends React.Component {
   constructor(props) {
     super(props);
@@ -432,7 +432,7 @@ class DraggableView extends React.Component {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor(valueIn?)
 ```
 
@@ -440,7 +440,7 @@ constructor(valueIn?)
 
 ### `setValue()`
 
-```javascript
+```jsx
 setValue(value);
 ```
 
@@ -448,7 +448,7 @@ setValue(value);
 
 ### `setOffset()`
 
-```javascript
+```jsx
 setOffset(offset);
 ```
 
@@ -456,7 +456,7 @@ setOffset(offset);
 
 ### `flattenOffset()`
 
-```javascript
+```jsx
 flattenOffset();
 ```
 
@@ -464,7 +464,7 @@ flattenOffset();
 
 ### `stopAnimation()`
 
-```javascript
+```jsx
 stopAnimation(callback?)
 ```
 
@@ -472,7 +472,7 @@ stopAnimation(callback?)
 
 ### `addListener()`
 
-```javascript
+```jsx
 addListener(callback);
 ```
 
@@ -480,7 +480,7 @@ addListener(callback);
 
 ### `removeListener()`
 
-```javascript
+```jsx
 removeListener(id);
 ```
 
@@ -488,13 +488,13 @@ removeListener(id);
 
 ### `getLayout()`
 
-```javascript
+```jsx
 getLayout();
 ```
 
 Converts `{x, y}` into `{left, top}` for use in style, e.g.
 
-```javascript
+```jsx
  style={this.state.anim.getLayout()}
 ```
 
@@ -502,13 +502,13 @@ Converts `{x, y}` into `{left, top}` for use in style, e.g.
 
 ### `getTranslateTransform()`
 
-```javascript
+```jsx
 getTranslateTransform();
 ```
 
 Converts `{x, y}` into a useable translation transform, e.g.
 
-```javascript
+```jsx
  style={{
    transform: this.state.anim.getTranslateTransform()
  }}

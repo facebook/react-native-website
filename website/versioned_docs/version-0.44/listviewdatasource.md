@@ -46,7 +46,7 @@ _onDataArrived(newData) {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor(params);
 ```
 
@@ -75,7 +75,7 @@ The constructor takes in a params argument that can contain any of the following
 
 ### `cloneWithRows()`
 
-```javascript
+```jsx
 cloneWithRows(dataBlob, rowIdentities);
 ```
 
@@ -89,7 +89,7 @@ Note: This function does NOT clone the data in this data source. It simply passe
 
 ### `cloneWithRowsAndSections()`
 
-```javascript
+```jsx
 cloneWithRowsAndSections(dataBlob, sectionIdentities, rowIdentities);
 ```
 
@@ -103,7 +103,7 @@ Note: this returns a new object!
 
 ### `getRowCount()`
 
-```javascript
+```jsx
 getRowCount();
 ```
 
@@ -111,7 +111,7 @@ getRowCount();
 
 ### `getRowAndSectionCount()`
 
-```javascript
+```jsx
 getRowAndSectionCount();
 ```
 
@@ -119,7 +119,7 @@ getRowAndSectionCount();
 
 ### `rowShouldUpdate()`
 
-```javascript
+```jsx
 rowShouldUpdate(sectionIndex, rowIndex);
 ```
 
@@ -129,7 +129,7 @@ Returns if the row is dirtied and needs to be rerendered
 
 ### `getRowData()`
 
-```javascript
+```jsx
 getRowData(sectionIndex, rowIndex);
 ```
 
@@ -139,7 +139,7 @@ Gets the data required to render the row.
 
 ### `getRowIDForFlatIndex()`
 
-```javascript
+```jsx
 getRowIDForFlatIndex(index);
 ```
 
@@ -149,7 +149,7 @@ Gets the rowID at index provided if the dataSource arrays were flattened, or nul
 
 ### `getSectionIDForFlatIndex()`
 
-```javascript
+```jsx
 getSectionIDForFlatIndex(index);
 ```
 
@@ -159,7 +159,7 @@ Gets the sectionID at index provided if the dataSource arrays were flattened, or
 
 ### `getSectionLengths()`
 
-```javascript
+```jsx
 getSectionLengths();
 ```
 
@@ -169,7 +169,7 @@ Returns an array containing the number of rows in each section
 
 ### `sectionHeaderShouldUpdate()`
 
-```javascript
+```jsx
 sectionHeaderShouldUpdate(sectionIndex);
 ```
 
@@ -179,7 +179,7 @@ Returns if the section header is dirtied and needs to be rerendered
 
 ### `getSectionHeaderData()`
 
-```javascript
+```jsx
 getSectionHeaderData(sectionIndex);
 ```
 

@@ -26,7 +26,7 @@ This exposes the native ToastAndroid module as a JS module. This has a function 
 
 ### `show()`
 
-```javascript
+```jsx
 static show(message, duration)
 ```
 

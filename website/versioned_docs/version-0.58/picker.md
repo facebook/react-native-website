@@ -6,7 +6,7 @@ original_id: picker
 
 Renders the native picker component on iOS and Android. Example:
 
-```javascript
+```jsx
 <Picker
   selectedValue={this.state.language}
   style={{height: 50, width: 100}}

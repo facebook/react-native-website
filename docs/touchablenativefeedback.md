@@ -11,7 +11,7 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 Example:
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableNativeFeedback
@@ -31,6 +31,12 @@ renderButton: function() {
 
 * [`background`](touchablenativefeedback.md#background)
 * [`useForeground`](touchablenativefeedback.md#useforeground)
+* [`hasTVPreferredFocus`](touchablenativefeedback.md#hasTVPreferredFocus)
+* [`nextFocusDown`](touchablenativefeedback.md#nextFocusDown)
+* [`nextFocusForward`](touchablenativefeedback.md#nextFocusForward)
+* [`nextFocusLeft`](touchablenativefeedback.md#nextFocusLeft)
+* [`nextFocusRight`](touchablenativefeedback.md#nextFocusRight)
+* [`nextFocusUp`](touchablenativefeedback.md#nextFocusUp)
 
 ### Methods
 
@@ -65,11 +71,71 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 | ---- | -------- |
 | bool | No       |
 
+---
+
+### `hasTVPreferredFocus`
+
+TV preferred focus (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusDown`
+
+TV next focus down (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusForward`
+
+TV next focus forward (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusLeft`
+
+TV next focus left (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusRight`
+
+TV next focus right (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `nextFocusUp`
+
+TV next focus up (see documentation for the View component).
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
 ## Methods
 
 ### `SelectableBackground()`
 
-```javascript
+```jsx
 static SelectableBackground()
 ```
 
@@ -79,7 +145,7 @@ Creates an object that represents android theme's default background for selecta
 
 ### `SelectableBackgroundBorderless()`
 
-```javascript
+```jsx
 static SelectableBackgroundBorderless()
 ```
 
@@ -89,7 +155,7 @@ Creates an object that represent android theme's default background for borderle
 
 ### `Ripple()`
 
-```javascript
+```jsx
 static Ripple(color: string, borderless: boolean)
 ```
 
@@ -106,6 +172,6 @@ Creates an object that represents ripple drawable with specified color (as a str
 
 ### `canUseNativeForeground()`
 
-```javascript
+```jsx
 static canUseNativeForeground()
 ```
