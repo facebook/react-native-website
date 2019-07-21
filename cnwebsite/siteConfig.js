@@ -57,7 +57,7 @@ const siteConfig = {
     {page: 'about', label: '关于'},
     {search: true},
     {href: repoUrl, label: 'GitHub'},
-    {href: '//doc.react-china.org/', external: true, label: 'React'},
+    {href: '//zh-hans.reactjs.org/', external: true, label: 'React'},
   ],
   headerIcon: 'img/header_logo.png',
   footerIcon: 'img/header_logo.png',
