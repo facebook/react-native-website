@@ -56,7 +56,9 @@
       "signed-apk-android",
       "removing-default-permissions",
       "hermes"
-    ],
+    ]
+  },
+  "api": {
     "组件": [
       "activityindicator",
       "button",
@@ -92,7 +94,7 @@
       "virtualizedlist",
       "webview"
     ],
-    "API": [
+    "APIs": [
       "accessibilityinfo",
       "actionsheetios",
       "alert",
