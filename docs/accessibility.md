@@ -19,7 +19,7 @@ When `true`, indicates that the view is an accessibility element. When a view is
 
 On Android, `accessible={true}` property for a react-native View will be translated into native `focusable={true}`.
 
-```javascript
+```jsx
 <View accessible={true}>
   <Text>text one</Text>
   <Text>text two</Text>
@@ -34,7 +34,7 @@ When a view is marked as accessible, it is a good practice to set an accessibili
 
 To use, set the `accessibilityLabel` property to a custom string on your View, Text or Touchable:
 
-```javascript
+```jsx
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Tap me!"
@@ -53,7 +53,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
 
-```javascript
+```jsx
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Go back"
@@ -75,7 +75,9 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 #### accessibilityRole (iOS, Android)
 
-Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. To use, set the `accessibilityRole` property to one of the following strings:
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
+
+`accessibilityRole` can be one of the following:
 
 - **none** Used when the element has no role.
 - **button** Used when the element should be treated as a button.
@@ -88,15 +90,38 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- **alert** Used when an element contains important text to be presented to the user.
+- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
+- **menu** Used when the component is a menu of choices.
+- **menubar** Used when a component is a container of multiple menus.
+- **menuitem** Used to represent an item within a menu.
+- **progressbar** Used to represent a component which indicates progress of a task.
+- **radio** Used to represent a radio button.
+- **radiogroup** Used to represent a group of radio buttons.
+- **scrollbar** Used to represent a scroll bar.
+- **spinbutton** Used to represent a button which opens a list of choices.
+- **switch** Used to represent a switch which can be turned on and off.
+- **tab** Used to represent a tab.
+- **tablist** Used to represent a list of tabs.
+- **timer** Used to represent a timer.
+- **toolbar** Used to represent a tool bar (a container of action buttons or components).
 
 #### accessibilityStates (iOS, Android)
 
-Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
+Describes the current state of a component to the user of an assistive technology.
+
+`accessibilityStates` is an array of values, and may include any of the following:
 
 - **selected** Used when the element is in a selected state. For example, a button is selected.
 - **disabled** Used when the element is disabled and cannot be interacted with.
+- **checked** Used to indicate that a checkable element is currently checked.
+- **unchecked** Used to indicate that a checkable element is not currently checked.
+- **busy** Used to indicate that an element is currently busy.
+- **expanded** Used to indicate that an expandable element is currently expanded.
+- **collapsed** Used to indicate that an expandable element is currently collapsed.
 
-To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
+To use, set the `accessibilityStates` to an array containing the list of current states.
 
 #### accessibilityViewIsModal (iOS)
 
@@ -130,7 +155,7 @@ When components dynamically change, we want TalkBack to alert the end user. This
 - **polite** Accessibility services should announce changes to this view.
 - **assertive** Accessibility services should interrupt ongoing speech to immediately announce changes to this view.
 
-```javascript
+```jsx
 <TouchableWithoutFeedback onPress={this._addOne}>
   <View style={styles.embedded}>
     <Text>Click me</Text>
@@ -147,7 +172,7 @@ In the above example method \_addOne changes the state.count variable. As soon a
 
 In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The ‘importantForAccessibility’ property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to ‘auto’, ‘yes’, ‘no’ and ‘no-hide-descendants’ (the last value will force accessibility services to ignore the component and all of its children).
 
-```javascript
+```jsx
 <View style={styles.container}>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
     backgroundColor: 'green'}} importantForAccessibility=”yes”>
@@ -162,6 +187,59 @@ In the case of two overlapping UI components with the same parent, default acces
 
 In the above example, the yellow layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can easily use overlapping views with the same parent without confusing TalkBack.
 
+### Accessibility Actions
+
+Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. In order to support accessibility actions, a component must do two things:
+
+- Define the list of actions it supports via the `accessibilityActions` property.
+- Implement an `onAccessibilityAction` function to handle action requests.
+
+The `accessibilityActions` property should contain a list of action objects. Each action object should contain the following fields:
+
+| Name  | Type   | Required |
+| ----- | ------ | -------- |
+| name  | string | Yes      |
+| label | string | No       |
+
+Actions either represent standard actions, such as clicking a button or adjusting a slider, or custom actions specific to a given component such as deleting an email message. The `name` field is required for both standard and custom actions, but `label` is optional for standard actions.
+
+When adding support for standard actions, `name` must be one of the following:
+
+- `'magicTap'` - iOS only - While VoiceOver focus is on or inside the component, the user double tapped with two fingers.
+- `'escape'` - iOS only - While VoiceOver focus is on or inside the component, the user performed a two finger scrub gesture (left, right, left).
+- `'activate'` - Activate the component. Typically this should perform the same action as when the user touches or clicks the component when not using an assistive technology. This is generated when a screen reader user double taps the component.
+- `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume up button.
+- `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume down button.
+- `'longpress'` - Android only - This action is generated when the user places accessibility focus on the component and double tap and holds one finger on the screen. Typically, this should perform the same action as when the user holds down one finger on the component while not using an assistive technology.
+
+The `label` field is optional for standard actions, and is often unused by assistive technologies. For custom actions, it is a localized string containing a description of the action to be presented to the user.
+
+To handle action requests, a component must implement an `onAccessibilityAction` function. The only argument to this function is an event containing the name of the action to perform. The below example from RNTester shows how to create a component which defines and handles several custom actions.
+
+```jsx
+<View
+  accessible={true}
+  accessibilityActions={[
+    {name: 'cut', label: 'cut'},
+    {name: 'copy', label: 'copy'},
+    {name: 'paste', label: 'paste'},
+  ]}
+  onAccessibilityAction={(event) => {
+    switch (event.nativeEvent.actionName) {
+      case 'cut':
+        Alert.alert('Alert', 'cut action success');
+        break;
+      case 'copy':
+        Alert.alert('Alert', 'copy action success');
+        break;
+      case 'paste':
+        Alert.alert('Alert', 'paste action success');
+        break;
+    }
+  }}
+/>
+```
+
 ### Checking if a Screen Reader is Enabled
 
 The `AccessibilityInfo` API allows you to determine whether or not a screen reader is currently active. See the [AccessibilityInfo documentation](accessibilityinfo.md) for details.
@@ -170,7 +248,7 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or a custom radio button has been selected). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event.
 
-```javascript
+```jsx
 import { UIManager, findNodeHandle } from 'react-native';
 
 _onPress: function() {

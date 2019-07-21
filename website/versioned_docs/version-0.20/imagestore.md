@@ -19,7 +19,7 @@ original_id: imagestore
 
 ### `hasImageForTag()`
 
-```javascript
+```jsx
 static hasImageForTag(uri, callback)
 ```
 
@@ -29,7 +29,7 @@ Check if the ImageStore contains image data for the specified URI. @platform ios
 
 ### `removeImageForTag()`
 
-```javascript
+```jsx
 static removeImageForTag(uri)
 ```
 
@@ -39,7 +39,7 @@ Delete an image from the ImageStore. Images are stored in memory and must be man
 
 ### `addImageFromBase64()`
 
-```javascript
+```jsx
 static addImageFromBase64(base64ImageData, success, failure)
 ```
 
@@ -51,7 +51,7 @@ Note that it is very inefficient to transfer large quantities of binary data bet
 
 ### `getBase64ForTag()`
 
-```javascript
+```jsx
 static getBase64ForTag(uri, success, failure)
 ```
 

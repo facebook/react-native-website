@@ -280,7 +280,7 @@ Determines whether HTML5 videos play inline or use the native full-screen contro
 
 ### `goForward()`
 
-```javascript
+```jsx
 goForward();
 ```
 
@@ -290,7 +290,7 @@ Go forward one page in the webview's history.
 
 ### `goBack()`
 
-```javascript
+```jsx
 goBack();
 ```
 
@@ -300,7 +300,7 @@ Go back one page in the webview's history.
 
 ### `reload()`
 
-```javascript
+```jsx
 reload();
 ```
 
@@ -310,7 +310,7 @@ Reloads the current page.
 
 ### `stopLoading()`
 
-```javascript
+```jsx
 stopLoading();
 ```
 
@@ -318,7 +318,7 @@ stopLoading();
 
 ### `getWebViewHandle()`
 
-```javascript
+```jsx
 getWebViewHandle():
 ```
 

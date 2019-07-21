@@ -41,7 +41,7 @@ A `gestureState` object has the following:
 
 ### Basic Usage
 
-```javascript
+```jsx
 class ExampleComponent extends Component {
   constructor(props) {
     super(props);
@@ -87,7 +87,7 @@ class ExampleComponent extends Component {
 
 ### Working Example
 
-To see it in action, try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/RNTester/js/PanResponderExample.js)
+To see it in action, try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js)
 
 ### Methods
 
@@ -101,7 +101,7 @@ To see it in action, try the [PanResponder example in RNTester](https://github.c
 
 ### `create()`
 
-```javascript
+```jsx
 static create(config)
 ```
 

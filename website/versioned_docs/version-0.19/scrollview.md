@@ -489,7 +489,7 @@ The current scale of the scroll view content. The default value is 1.0.
 
 ### `endRefreshing()`
 
-```javascript
+```jsx
 endRefreshing();
 ```
 
@@ -497,7 +497,7 @@ endRefreshing();
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(destY, destX, animated);
 ```
 
@@ -505,7 +505,7 @@ scrollTo(destY, destX, animated);
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(destY, destX);
 ```
 
@@ -515,6 +515,6 @@ Deprecated, do not use.
 
 ### `handleScroll()`
 
-```javascript
+```jsx
 handleScroll((e: Object));
 ```

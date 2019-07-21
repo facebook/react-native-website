@@ -287,7 +287,7 @@ Boolean value that indicates whether the navigation bar is translucent by defaul
 
 ### `push()`
 
-```javascript
+```jsx
 push((route: object));
 ```
 
@@ -303,7 +303,7 @@ Navigate forward to a new route.
 
 ### `popN()`
 
-```javascript
+```jsx
 popN((n: number));
 ```
 
@@ -319,7 +319,7 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 
 ### `pop()`
 
-```javascript
+```jsx
 pop();
 ```
 
@@ -329,7 +329,7 @@ Pop back to the previous scene.
 
 ### `replaceAtIndex()`
 
-```javascript
+```jsx
 replaceAtIndex((route: object), (index: number));
 ```
 
@@ -346,7 +346,7 @@ Replace a route in the navigation stack.
 
 ### `replace()`
 
-```javascript
+```jsx
 replace((route: object));
 ```
 
@@ -362,7 +362,7 @@ Replace the route for the current scene and immediately load the view for the ne
 
 ### `replacePrevious()`
 
-```javascript
+```jsx
 replacePrevious((route: object));
 ```
 
@@ -378,7 +378,7 @@ Replace the route/view for the previous scene.
 
 ### `popToTop()`
 
-```javascript
+```jsx
 popToTop();
 ```
 
@@ -388,7 +388,7 @@ Go back to the topmost item in the navigation stack.
 
 ### `popToRoute()`
 
-```javascript
+```jsx
 popToRoute((route: object));
 ```
 
@@ -404,7 +404,7 @@ Go back to the item for a particular route object.
 
 ### `replacePreviousAndPop()`
 
-```javascript
+```jsx
 replacePreviousAndPop((route: object));
 ```
 
@@ -420,7 +420,7 @@ Replaces the previous route/view and transitions back to it.
 
 ### `resetTo()`
 
-```javascript
+```jsx
 resetTo((route: object));
 ```
 

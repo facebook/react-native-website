@@ -52,13 +52,6 @@
       "version-0.13-signed-apk-android",
       "version-0.13-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.13-contributing",
-      "version-0.13-maintainers",
-      "version-0.13-testing",
-      "version-0.13-building-from-source",
-      "version-0.13-understanding-cli"
-    ],
     "Components": [
       "version-0.13-datepickerios",
       "version-0.13-drawerlayoutandroid",

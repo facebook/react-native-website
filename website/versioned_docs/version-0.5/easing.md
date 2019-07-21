@@ -70,7 +70,7 @@ The following helpers are used to modify other easing functions.
 
 ### `step0()`
 
-```javascript
+```jsx
 static step0(n)
 ```
 
@@ -80,7 +80,7 @@ A stepping function, returns 1 for any positive value of `n`.
 
 ### `step1()`
 
-```javascript
+```jsx
 static step1(n)
 ```
 
@@ -90,7 +90,7 @@ A stepping function, returns 1 if `n` is greater than or equal to 1.
 
 ### `linear()`
 
-```javascript
+```jsx
 static linear(t)
 ```
 
@@ -102,7 +102,7 @@ http://cubic-bezier.com/#0,0,1,1
 
 ### `ease()`
 
-```javascript
+```jsx
 static ease(t)
 ```
 
@@ -114,7 +114,7 @@ http://cubic-bezier.com/#.42,0,1,1
 
 ### `quad()`
 
-```javascript
+```jsx
 static quad(t)
 ```
 
@@ -126,7 +126,7 @@ http://easings.net/#easeInQuad
 
 ### `cubic()`
 
-```javascript
+```jsx
 static cubic(t)
 ```
 
@@ -138,7 +138,7 @@ http://easings.net/#easeInCubic
 
 ### `poly()`
 
-```javascript
+```jsx
 static poly(n)
 ```
 
@@ -150,7 +150,7 @@ n = 4: http://easings.net/#easeInQuart n = 5: http://easings.net/#easeInQuint
 
 ### `sin()`
 
-```javascript
+```jsx
 static sin(t)
 ```
 
@@ -162,7 +162,7 @@ http://easings.net/#easeInSine
 
 ### `circle()`
 
-```javascript
+```jsx
 static circle(t)
 ```
 
@@ -174,7 +174,7 @@ http://easings.net/#easeInCirc
 
 ### `exp()`
 
-```javascript
+```jsx
 static exp(t)
 ```
 
@@ -186,7 +186,7 @@ http://easings.net/#easeInExpo
 
 ### `elastic()`
 
-```javascript
+```jsx
 static elastic(bounciness)
 ```
 
@@ -200,7 +200,7 @@ http://easings.net/#easeInElastic
 
 ### `back()`
 
-```javascript
+```jsx
 static back(s)
 ```
 
@@ -214,7 +214,7 @@ Wolfram Plot:
 
 ### `bounce()`
 
-```javascript
+```jsx
 static bounce(t)
 ```
 
@@ -226,7 +226,7 @@ http://easings.net/#easeInBounce
 
 ### `bezier()`
 
-```javascript
+```jsx
 static bezier(x1, y1, x2, y2)
 ```
 
@@ -238,7 +238,7 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 
 ### `in()`
 
-```javascript
+```jsx
 static in easing;
 ```
 
@@ -248,7 +248,7 @@ Runs an easing function forwards.
 
 ### `out()`
 
-```javascript
+```jsx
 static out(easing)
 ```
 
@@ -258,7 +258,7 @@ Runs an easing function backwards.
 
 ### `inOut()`
 
-```javascript
+```jsx
 static inOut(easing)
 ```
 

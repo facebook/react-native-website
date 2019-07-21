@@ -157,7 +157,7 @@ To make it simpler to access your new functionality from JavaScript, it is commo
 
 Create a new JavaScript file named `ToastExample.js` with the content below:
 
-```javascript
+```jsx
 /**
  * This exposes the native ToastExample module as a JS module. This has a
  * function 'show' which takes the following parameters:
@@ -172,13 +172,13 @@ module.exports = NativeModules.ToastExample;
 
 Now, from your other JavaScript file you can call the method like this:
 
-```javascript
+```jsx
 import ToastExample from './ToastExample';
 
 ToastExample.show('Awesome', ToastExample.SHORT);
 ```
 
-Please make sure this JavasScript file to be the same hierarchy as `ToastExample.js`.
+Please make sure this JavaScript is in the same hierarchy as `ToastExample.js`.
 
 ## Beyond Toasts
 
@@ -216,7 +216,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 This method would be accessed in JavaScript using:
 
-```javascript
+```jsx
 UIManager.measureLayout(
   100,
   100,
@@ -235,7 +235,7 @@ It is very important to highlight that the callback is not invoked immediately a
 
 ### Promises
 
-Native modules can also fulfill a promise, which can simplify your code, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
+Native modules can also fulfill a promise, which can simplify your JavaScript, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
 
 Refactoring the above code to use a promise instead of callbacks looks like this:
 
@@ -272,7 +272,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```javascript
+```jsx
 async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
@@ -299,6 +299,8 @@ Native modules can signal events to JavaScript without being invoked directly. T
 
 ```java
 ...
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+...
 private void sendEvent(ReactContext reactContext,
                        String eventName,
                        @Nullable WritableMap params) {
@@ -314,7 +316,7 @@ sendEvent(reactContext, "keyboardWillShow", params);
 
 JavaScript modules can then register to receive events by `addListenerOn` using the `Subscribable` mixin.
 
-```javascript
+```jsx
 import { DeviceEventEmitter } from 'react-native';
 ...
 
@@ -337,7 +339,7 @@ var ScrollResponderMixin = {
 
 You can also directly use the `DeviceEventEmitter` module to listen for events.
 
-```javascript
+```jsx
 ...
 componentDidMount() {
   this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {

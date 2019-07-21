@@ -498,13 +498,13 @@ If true, use WKWebView instead of UIWebView.
 
 ### `extraNativeComponentConfig()`
 
-```javascript
+```jsx
 static extraNativeComponentConfig()
 ```
 
 ### `goForward()`
 
-```javascript
+```jsx
 goForward();
 ```
 
@@ -512,7 +512,7 @@ Go forward one page in the web view's history.
 
 ### `goBack()`
 
-```javascript
+```jsx
 goBack();
 ```
 
@@ -520,7 +520,7 @@ Go back one page in the web view's history.
 
 ### `reload()`
 
-```javascript
+```jsx
 reload();
 ```
 
@@ -528,7 +528,7 @@ Reloads the current page.
 
 ### `stopLoading()`
 
-```javascript
+```jsx
 stopLoading();
 ```
 

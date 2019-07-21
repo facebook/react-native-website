@@ -52,13 +52,6 @@
       "version-0.5-signed-apk-android",
       "version-0.5-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.5-contributing",
-      "version-0.5-maintainers",
-      "version-0.5-building-from-source",
-      "version-0.5-testing",
-      "version-0.5-understanding-cli"
-    ],
     "Components": [
       "version-0.5-datepickerios",
       "version-0.5-image",

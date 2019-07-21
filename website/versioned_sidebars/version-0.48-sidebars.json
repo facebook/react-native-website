@@ -52,13 +52,6 @@
       "version-0.48-signed-apk-android",
       "version-0.48-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.48-contributing",
-      "version-0.48-maintainers",
-      "version-0.48-building-from-source",
-      "version-0.48-testing",
-      "version-0.48-understanding-cli"
-    ],
     "Components": [
       "version-0.48-activityindicator",
       "version-0.48-button",

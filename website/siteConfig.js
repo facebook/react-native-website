@@ -8,7 +8,14 @@
 const RemarkablePlugins = require('./core/RemarkablePlugins');
 
 const users = require('./showcase.json');
-const defaultVersionShown = '0.59';
+let communityRepos = [];
+try {
+  communityRepos = require('./community-repos.json');
+} catch (e) {
+  // We don't care if there are no repos synced locally
+  // We only care if we are on the CI server and about to deploy
+}
+const defaultVersionShown = '0.60';
 const baseUrl = '/react-native/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
@@ -20,9 +27,11 @@ const siteConfig = {
   repoUrl,
   defaultVersionShown,
   users,
+  communityRepos,
   editUrl: 'https://github.com/facebook/react-native-website/blob/master/docs/',
   headerLinks: [
     {doc: 'getting-started', label: 'Docs'},
+    {doc: 'activityindicator', label: 'API'},
     {page: 'help', label: 'Community'},
     {blog: true, label: 'Blog'},
     {search: true},
@@ -57,8 +66,17 @@ const siteConfig = {
     theme: 'solarized-dark',
   },
   gaTrackingId: 'UA-41298772-2',
-  scripts: ['https://snack.expo.io/embed.js', baseUrl + 'js/codeblocks.js'],
+  scripts: [
+    'https://snack.expo.io/embed.js',
+    baseUrl + 'js/codeblocks.js',
+    baseUrl + 'js/tabs.js',
+  ],
   cleanUrl: true,
+  scrollToTop: true,
+  scrollToTopOptions: {
+    zIndex: 100,
+  },
+  docsSideNavCollapsible: true,
 };
 
 module.exports = siteConfig;

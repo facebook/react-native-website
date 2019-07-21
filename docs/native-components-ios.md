@@ -46,7 +46,7 @@ RCT_EXPORT_MODULE(RNTMap)
 
 Then you just need a little bit of JavaScript to make this a usable React component:
 
-```javascript
+```jsx
 // MapView.js
 
 import { requireNativeComponent } from 'react-native';
@@ -69,7 +69,7 @@ Make sure to use `RNTMap` here. We want to require the manager here, which will 
 
 **Note:** When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
 
-```javascript
+```jsx
   render() {
     return <MapView style={{flex: 1}} />;
   }
@@ -90,14 +90,14 @@ Note that we explicitly specify the type as `BOOL` - React Native uses `RCTConve
 
 Now to actually disable zooming, we set the property in JS:
 
-```javascript
+```jsx
 // MyApp.js
 <MapView zoomEnabled={false} style={{flex: 1}} />
 ```
 
 To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
 
-```javascript
+```jsx
 // MapView.js
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -183,7 +183,7 @@ These conversion functions are designed to safely process any JSON that the JS m
 
 To finish up support for the `region` prop, we need to document it in `propTypes` (or we'll get an error that the native prop is undocumented), then we can set it just like any other prop:
 
-```javascript
+```jsx
 // MapView.js
 
 MapView.propTypes = {
@@ -238,7 +238,7 @@ Here you can see that the shape of the region is explicit in the JS documentatio
 
 Sometimes your native component will have some special properties that you don't want to be part of the API for the associated React component. For example, `Switch` has a custom `onChange` handler for the raw native event, and exposes an `onValueChange` handler property that is invoked with just the boolean value rather than the raw event. Since you don't want these native only properties to be part of the API, you don't want to put them in `propTypes`, but if you don't you'll get an error. The solution is simply to add them to the `nativeOnly` option, e.g.
 
-```javascript
+```jsx
 var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
   nativeOnly: {onChange: true},
 });
@@ -328,7 +328,7 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 
 In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to make a simpler API:
 
-```javascript
+```jsx
 // MapView.js
 
 class MapView extends React.Component {
@@ -382,11 +382,84 @@ class MyApp extends React.Component {
 }
 ```
 
+## Handling multiple native views
+
+A React Native view can have more than one child view in the view tree eg.
+
+```jsx
+<View>
+  <MyNativeView />
+  <MyNativeView />
+  <Button />
+</View>
+```
+
+In this example, the class `MyNativeView` is a wrapper for a `NativeComponent` and exposes methods, which will be called on the iOS platform. `MyNativeView` is defined in `MyNativeView.ios.js` and contains proxy methods of `NativeComponent`.
+
+When the user interacts with the component, like clicking the button, the `backgroundColor` of `MyNativeView` changes. In this case `UIManager` would not know which `MyNativeView` should be handled and which one should change `backgroundColor`. Below you will find a solution to this problem:
+
+```jsx
+<View>
+  <MyNativeView ref={this.myNativeReference}>/>
+  <MyNativeView ref={this.myNativeReference2}>/>
+  <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
+</View>
+```
+
+Now the above component has a reference to a particular `MyNativeView` which allows us to use a specific instance of `MyNativeView`. Now the button can control which `MyNativeView` should change its `backgroundColor`. In this example let's assume that `callNativeMethod` changes `backgroundColor`.
+
+`MyNativeView.ios.js` contains code as follow:
+
+```jsx
+class MyNativeView extends React.Component<> {
+  callNativeMethod = () => {
+    UIManager.dispatchViewManagerCommand(
+      ReactNative.findNodeHandle(this),
+      UIManager.getViewManagerConfig('RNCMyNativeView').Commands
+        .callNativeMethod,
+      [],
+    );
+  };
+
+  render() {
+    return <NativeComponent ref={NATIVE_COMPONENT_REF} />;
+  }
+}
+```
+
+`callNativeMethod` is our custom iOS method which for example changes the `backgroundColor` which is exposed through `MyNativeView`. This method uses `UIManager.dispatchViewManagerCommand` which needs 3 parameters:
+
+- (nonnull NSNumber \*)reactTag  -  id of react view.
+- commandID:(NSInteger)commandID  -  Id of the native method that should be called
+- commandArgs:(NSArray<id> \*)commandArgs  -  Args of the native method that we can pass from JS to native.
+
+`RNCMyNativeViewManager.m`
+
+```objectivec
+#import <React/RCTViewManager.h>
+#import <React/RCTUIManager.h>
+#import <React/RCTLog.h>
+
+RCT_EXPORT_METHOD(callNativeMethod:(nonnull NSNumber*) reactTag) {
+    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
+        NativeView *view = viewRegistry[reactTag];
+        if (!view || ![view isKindOfClass:[NativeView class]]) {
+            RCTLogError(@"Cannot find NativeView with tag #%@", reactTag);
+            return;
+        }
+        [view callNativeMethod];
+    }];
+
+}
+```
+
+Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file and contains only one parameter which is `(nonnull NSNumber*) reactTag`. This exported function will find a particular view using `addUIBlock` which contains the `viewRegistry` parameter and returns the component based on `reactTag` allowing it to call the method on the correct component.
+
 ## Styles
 
 Since all our native react views are subclasses of `UIView`, most style attributes will work like you would expect out of the box. Some components will want a default style, however, for example `UIDatePicker` which is a fixed size. This default style is important for the layout algorithm to work as expected, but we also want to be able to override the default style when using the component. `DatePickerIOS` does this by wrapping the native component in an extra view, which has flexible styling, and using a fixed style (which is generated with constants passed in from native) on the inner native component:
 
-```javascript
+```jsx
 // DatePickerIOS.ios.js
 
 import { UIManager } from 'react-native';

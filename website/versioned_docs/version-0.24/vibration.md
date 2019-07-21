@@ -25,7 +25,7 @@ Vibration patterns are currently unsupported.
 
 ### `vibrate()`
 
-```javascript
+```jsx
 static vibrate(pattern, repeat)
 ```
 
@@ -33,7 +33,7 @@ static vibrate(pattern, repeat)
 
 ### `cancel()`
 
-```javascript
+```jsx
 static cancel()
 ```
 

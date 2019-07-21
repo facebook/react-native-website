@@ -18,20 +18,24 @@ The first step is to install in your project:
 ```
 npm install --save react-navigation
 ```
+
 The second step is to install react-native-gesture-handler
+
 ```
 yarn add react-native-gesture-handler
 # or with npm
 # npm install --save react-native-gesture-handler
 ```
+
 Now we need to link our react-native to react-native-gesture-handler
+
 ```
 react-native link react-native-gesture-handler
 ```
 
 Then you can quickly create an app with a home screen and a profile screen:
 
-```javascript
+```jsx
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
@@ -46,7 +50,7 @@ export default App;
 
 Each screen component can set navigation options such as the header title. It can use action creators on the `navigation` prop to link to other screens:
 
-```javascript
+```jsx
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome',

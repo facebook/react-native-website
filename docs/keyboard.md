@@ -9,7 +9,7 @@ title: Keyboard
 
 The Keyboard module allows you to listen for native events and react to them, as well as make changes to the keyboard, like dismissing it.
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {Keyboard, TextInput} from 'react-native';
 
@@ -59,7 +59,7 @@ class Example extends Component {
 
 ### `addListener()`
 
-```javascript
+```jsx
 static addListener(eventName, callback)
 ```
 
@@ -76,7 +76,7 @@ This function then returns the reference to the listener.
 - `keyboardWillChangeFrame`
 - `keyboardDidChangeFrame`
 
-Note that if you set `android:windowSoftInputMode` to `adjustResize` or `adjustNothing`, only `keyboardDidShow` and `keyboardDidHide` events will be available on Android. `keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
+Note that if you set `android:windowSoftInputMode` to `adjustResize`, only `keyboardDidShow` and `keyboardDidHide` events will be available on Android. If you set `android:windowSoftInputMode` to `adjustNothing`, no events will be available on Android. `keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
 
 @param {function} callback function to be called when the event fires.
 
@@ -84,7 +84,7 @@ Note that if you set `android:windowSoftInputMode` to `adjustResize` or `adjustN
 
 ### `removeListener()`
 
-```javascript
+```jsx
 static removeListener(eventName, callback)
 ```
 
@@ -96,7 +96,7 @@ Removes a specific listener.
 
 ### `removeAllListeners()`
 
-```javascript
+```jsx
 static removeAllListeners(eventName)
 ```
 
@@ -108,7 +108,7 @@ Removes all listeners for a specific event type.
 
 ### `dismiss()`
 
-```javascript
+```jsx
 static dismiss()
 ```
 

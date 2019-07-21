@@ -4,13 +4,13 @@ title: ListView
 original_id: listview
 ---
 
-DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](https://facebook.github.io/react-native/blog/2017/03/13/better-list-views.html) for more details.
+DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](https://facebook.github.io/react-native/blog/2017/03/13/better-list-views) for more details.
 
 ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](listviewdatasource.md), populate it with a simple array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
 
 Minimal example:
 
-```javascript
+```jsx
 class MyComponent extends Component {
   constructor() {
     super();
@@ -256,7 +256,7 @@ The header and footer are always rendered (if these props are provided) on every
 
 ### `getMetrics()`
 
-```javascript
+```jsx
 getMetrics();
 ```
 
@@ -266,7 +266,7 @@ Exports some data, e.g. for perf investigations or analytics.
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(...args: Array)
 ```
 
@@ -278,7 +278,7 @@ See `ScrollView#scrollTo`.
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: object));
 ```
 
@@ -292,7 +292,7 @@ See `ScrollView#scrollToEnd`.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

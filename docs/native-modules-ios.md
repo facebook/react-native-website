@@ -64,7 +64,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 
 Now, from your JavaScript file you can call the method like this:
 
-```javascript
+```jsx
 import {NativeModules} from 'react-native';
 var CalendarManager = NativeModules.CalendarManager;
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
@@ -118,7 +118,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 
 You would then call this from JavaScript by using either:
 
-```javascript
+```jsx
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
@@ -128,7 +128,7 @@ CalendarManager.addEvent(
 
 or
 
-```javascript
+```jsx
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
@@ -153,7 +153,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name details:(NSDictionary *)details)
 
 and call it from JavaScript:
 
-```javascript
+```jsx
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.getTime(),
@@ -183,7 +183,7 @@ RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
 
 `RCTResponseSenderBlock` accepts only one argument - an array of parameters to pass to the JavaScript callback. In this case we use Node's convention to make the first parameter an error object (usually `null` when there is no error) and the rest are the results of the function.
 
-```javascript
+```jsx
 CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
@@ -220,7 +220,7 @@ RCT_REMAP_METHOD(findEvents,
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```javascript
+```jsx
 async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
@@ -302,7 +302,7 @@ A native module can export constants that are immediately available to JavaScrip
 
 JavaScript can use this value right away, synchronously:
 
-```javascript
+```jsx
 console.log(CalendarManager.firstDayOfTheWeek);
 ```
 
@@ -400,7 +400,7 @@ RCT_EXPORT_MODULE();
 
 JavaScript code can subscribe to these events by creating a new `NativeEventEmitter` instance around your module.
 
-```javascript
+```jsx
 import { NativeEventEmitter, NativeModules } from 'react-native';
 const { CalendarManager } = NativeModules;
 

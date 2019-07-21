@@ -147,7 +147,7 @@ When true, no visual change is made when text is pressed down. By default, a gra
 
 ### `onStartShouldSetResponder()`
 
-```javascript
+```jsx
 onStartShouldSetResponder():
 ```
 
@@ -155,7 +155,7 @@ onStartShouldSetResponder():
 
 ### `handleResponderTerminationRequest()`
 
-```javascript
+```jsx
 handleResponderTerminationRequest():
 ```
 
@@ -163,7 +163,7 @@ handleResponderTerminationRequest():
 
 ### `handleResponderGrant()`
 
-```javascript
+```jsx
 handleResponderGrant((e: SyntheticEvent), (dispatchID: string));
 ```
 
@@ -171,7 +171,7 @@ handleResponderGrant((e: SyntheticEvent), (dispatchID: string));
 
 ### `handleResponderMove()`
 
-```javascript
+```jsx
 handleResponderMove((e: SyntheticEvent));
 ```
 
@@ -179,7 +179,7 @@ handleResponderMove((e: SyntheticEvent));
 
 ### `handleResponderRelease()`
 
-```javascript
+```jsx
 handleResponderRelease((e: SyntheticEvent));
 ```
 
@@ -187,6 +187,6 @@ handleResponderRelease((e: SyntheticEvent));
 
 ### `handleResponderTerminate()`
 
-```javascript
+```jsx
 handleResponderTerminate((e: SyntheticEvent));
 ```

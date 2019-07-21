@@ -10,7 +10,7 @@ Renders the child view with a mask specified in the `maskElement` prop.
 
 ## Example
 
-```javascript
+```jsx
 import React from 'react';
 import {MaskedViewIOS, Text, View} from 'react-native';
 

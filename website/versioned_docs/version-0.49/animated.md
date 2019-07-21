@@ -8,7 +8,7 @@ The `Animated` library is designed to make animations fluid, powerful, and easy 
 
 The simplest workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
 
-```javascript
+```jsx
 Animated.timing(
   // Animate value over time
   this.state.fadeAnim, // The value to drive
@@ -86,7 +86,7 @@ You can combine two animated values via addition, multiplication, division, or m
 
 ### Interpolation
 
-The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses lineal interpolation by default but also supports easing functions.
+The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses linear interpolation by default but also supports easing functions.
 
 - [`interpolate()`](animated.md#interpolate)
 
@@ -100,7 +100,7 @@ Gestures, like panning or scrolling, and other events can map directly to animat
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
-```javascript
+```jsx
  onScroll={Animated.event(
    // scrollX = e.nativeEvent.contentOffset.x
    [{ nativeEvent: {
@@ -148,7 +148,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 ### `decay()`
 
-```javascript
+```jsx
 static decay(value, config)
 ```
 
@@ -164,7 +164,7 @@ Config is an object that may have the following options:
 
 ### `timing()`
 
-```javascript
+```jsx
 static timing(value, config)
 ```
 
@@ -181,7 +181,7 @@ Config is an object that may have the following options:
 
 ### `spring()`
 
-```javascript
+```jsx
 static spring(value, config)
 ```
 
@@ -199,7 +199,7 @@ Config is an object that may have the following options. Note that you can only 
 
 ### `add()`
 
-```javascript
+```jsx
 static add(a, b)
 ```
 
@@ -209,7 +209,7 @@ Creates a new Animated value composed from two Animated values added together.
 
 ### `divide()`
 
-```javascript
+```jsx
 static divide(a, b)
 ```
 
@@ -219,7 +219,7 @@ Creates a new Animated value composed by dividing the first Animated value by th
 
 ### `multiply()`
 
-```javascript
+```jsx
 static multiply(a, b)
 ```
 
@@ -229,7 +229,7 @@ Creates a new Animated value composed from two Animated values multiplied togeth
 
 ### `modulo()`
 
-```javascript
+```jsx
 static modulo(a, modulus)
 ```
 
@@ -239,7 +239,7 @@ Creates a new Animated value that is the (non-negative) modulo of the provided A
 
 ### `diffClamp()`
 
-```javascript
+```jsx
 static diffClamp(a, min, max)
 ```
 
@@ -251,7 +251,7 @@ This is useful with scroll events, for example, to show the navbar when scrollin
 
 ### `delay()`
 
-```javascript
+```jsx
 static delay(time)
 ```
 
@@ -261,7 +261,7 @@ Starts an animation after the given delay.
 
 ### `sequence()`
 
-```javascript
+```jsx
 static sequence(animations)
 ```
 
@@ -271,7 +271,7 @@ Starts an array of animations in order, waiting for each to complete before star
 
 ### `parallel()`
 
-```javascript
+```jsx
 static parallel(animations, config?)
 ```
 
@@ -281,7 +281,7 @@ Starts an array of animations all at the same time. By default, if one of the an
 
 ### `stagger()`
 
-```javascript
+```jsx
 static stagger(time, animations)
 ```
 
@@ -291,7 +291,7 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 
 ### `loop()`
 
-```javascript
+```jsx
 static loop(animation, config?)
 ```
 
@@ -305,13 +305,13 @@ Config is an object that may have the following options:
 
 ### `event()`
 
-```javascript
+```jsx
 static event(argMapping, config?)
 ```
 
 Takes an array of mappings and extracts values from each arg accordingly, then calls `setValue` on the mapped outputs. e.g.
 
-```javascript
+```jsx
  onScroll={Animated.event(
    [{nativeEvent: {contentOffset: {x: this._scrollX}}}],
    {listener},          // Optional async listener
@@ -332,7 +332,7 @@ Config is an object that may have the following options:
 
 ### `forkEvent()`
 
-```javascript
+```jsx
 static forkEvent(event, listener)
 ```
 
@@ -342,7 +342,7 @@ Advanced imperative API for snooping on animated events that are passed in throu
 
 ### `unforkEvent()`
 
-```javascript
+```jsx
 static unforkEvent(event, listener)
 ```
 

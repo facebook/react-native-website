@@ -192,7 +192,7 @@ Make the drawer take the entire screen and draw the background of the status bar
 
 ### `openDrawer()`
 
-```javascript
+```jsx
 openDrawer();
 ```
 
@@ -202,7 +202,7 @@ Opens the drawer.
 
 ### `closeDrawer()`
 
-```javascript
+```jsx
 closeDrawer();
 ```
 

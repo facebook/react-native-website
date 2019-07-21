@@ -153,7 +153,7 @@ Determines when the keyboard should stay visible after a tap.
 
 - `'never'` (the default), tapping outside of the focused text input when the keyboard is up dismisses the keyboard. When this happens, children won't receive the tap.
 - `'always'`, the keyboard will not dismiss automatically, and the scroll view will not catch taps, but children of the scroll view can catch taps.
-- `'handled'`, the keyboard will not dismiss automatically when the tap was handled by a children, (or captured by an ancestor).
+- `'handled'`, the keyboard will not dismiss automatically when the tap was handled by children of the scroll view (or captured by an ancestor).
 - `false`, deprecated, use 'never' instead
 - `true`, deprecated, use 'always' instead
 
@@ -622,7 +622,7 @@ Enables nested scrolling for Android API level 21+. Nested scrolling is supporte
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(
   ([y]: number),
   object,
@@ -648,7 +648,7 @@ Note: The weird function signature is due to the fact that, for historical reaso
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
@@ -660,7 +660,7 @@ Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd(
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(y, x);
 ```
 
@@ -670,7 +670,7 @@ Deprecated, use `scrollTo` instead.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

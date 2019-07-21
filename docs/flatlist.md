@@ -14,17 +14,20 @@ A performant interface for rendering simple, flat lists, supporting the most han
 - Pull to Refresh.
 - Scroll loading.
 - ScrollToIndex support.
+- Multiple column support.
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
 Minimal Example:
 
-```javascript
+```jsx
 <FlatList
   data={[{key: 'a'}, {key: 'b'}]}
   renderItem={({item}) => <Text>{item.key}</Text>}
 />
 ```
+
+To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
 More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
 
@@ -32,7 +35,7 @@ More complex, multi-select example demonstrating `PureComponent` usage for perf 
 - By passing `extraData={this.state}` to `FlatList` we make sure `FlatList` itself will re-render when the `state.selected` changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is also a `PureComponent` and the prop comparison will not show any changes.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
-```javascript
+```jsx
 class MyListItem extends React.PureComponent {
   _onPress = () => {
     this.props.onPressItem(this.props.id);
@@ -98,42 +101,46 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### Props
 
-- [`ScrollView` props...](scrollview.md#props)
-- [`VirtualizedList` props...](virtualizedlist.md#props)
-- [`renderItem`](flatlist.md#renderitem)
-- [`data`](flatlist.md#data)
-- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-- [`ListFooterComponent`](flatlist.md#listfootercomponent)
-- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
 - [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
+- [`data`](flatlist.md#data)
 - [`extraData`](flatlist.md#extradata)
 - [`getItemLayout`](flatlist.md#getitemlayout)
 - [`horizontal`](flatlist.md#horizontal)
 - [`initialNumToRender`](flatlist.md#initialnumtorender)
 - [`initialScrollIndex`](flatlist.md#initialscrollindex)
 - [`inverted`](flatlist.md#inverted)
+- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
 - [`keyExtractor`](flatlist.md#keyextractor)
+- [`legacyImplementation`](flatlist.md#legacyimplementation)
+- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
+- [`ListFooterComponent`](flatlist.md#listfootercomponent)
+- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
+- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
+- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
 - [`numColumns`](flatlist.md#numcolumns)
 - [`onEndReached`](flatlist.md#onendreached)
 - [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
 - [`onRefresh`](flatlist.md#onrefresh)
 - [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
 - [`progressViewOffset`](flatlist.md#progressviewoffset)
-- [`legacyImplementation`](flatlist.md#legacyimplementation)
 - [`refreshing`](flatlist.md#refreshing)
+- [`renderItem`](flatlist.md#renderitem)
 - [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
+- [`ScrollView` props...](scrollview.md#props)
 - [`viewabilityConfig`](flatlist.md#viewabilityconfig)
 - [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
+- [`VirtualizedList` props...](virtualizedlist.md#props)
 
 ### Methods
 
+- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`getScrollResponder`](flatlist.md#getScrollResponder)
+- [`getScrollableNode`](flatlist.md#getScrollableNode)
 - [`scrollToEnd`](flatlist.md#scrolltoend)
 - [`scrollToIndex`](flatlist.md#scrolltoindex)
 - [`scrollToItem`](flatlist.md#scrolltoitem)
 - [`scrollToOffset`](flatlist.md#scrolltooffset)
 - [`recordInteraction`](flatlist.md#recordinteraction)
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
 
 ---
 
@@ -143,8 +150,8 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### `renderItem`
 
-```javascript
-renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
+```jsx
+renderItem({item, index, separators});
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -155,15 +162,24 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 | -------- | -------- |
 | function | Yes      |
 
+- `item` (Object): The item from `data` being rendered.
+- `index` (number): The index corresponding to this item in the `data` array.
+- `separators` (Object)
+  - `highlight` (Function)
+  - `unhighlight` (Function)
+  - `updateProps` (Function)
+    - `select` (enum('leading', 'trailing'))
+    - `newProps` (Object)
+
 Example usage:
 
-```javascript
+```jsx
 <FlatList
   ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
   )}
   data={[{title: 'Title Text', key: 'item1'}]}
-  renderItem={({item, separators}) => (
+  renderItem={({item, index, separators}) => (
     <TouchableHighlight
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
@@ -218,6 +234,16 @@ Rendered at the bottom of all the items. Can be a React Component Class, a rende
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
@@ -225,6 +251,16 @@ Rendered at the top of all the items. Can be a React Component Class, a render f
 | Type                         | Required |
 | ---------------------------- | -------- |
 | component, function, element | No       |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for ListHeaderComponent
+
+| Type         | Required |
+| ------------ | -------- |
+| style object | No       |
 
 ---
 
@@ -250,13 +286,13 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `getItemLayout`
 
-```javascript
+```jsx
 (data, index) => {length: number, offset: number, index: number}
 ```
 
 `getItemLayout` is an optional optimization that allows skipping the measurement of dynamic content if you know the size (height or width) of items ahead of time. `getItemLayout` is both efficient and easy to use if you have fixed size items, for example:
 
-```javascript
+```jsx
   getItemLayout={(data, index) => (
     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   )}
@@ -312,7 +348,7 @@ Reverses the direction of scroll. Uses scale transforms of `-1`.
 
 ### `keyExtractor`
 
-```javascript
+```jsx
 (item: object, index: number) => string;
 ```
 
@@ -336,7 +372,7 @@ Multiple columns can only be rendered with `horizontal={false}` and will zig-zag
 
 ### `onEndReached`
 
-```javascript
+```jsx
 (info: {distanceFromEnd: number}) => void
 ```
 
@@ -360,7 +396,7 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 ### `onRefresh`
 
-```javascript
+```jsx
 () => void
 ```
 
@@ -374,7 +410,7 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 ### `onViewableItemsChanged`
 
-```javascript
+```jsx
 (info: {
     viewableItems: array,
     changed: array,
@@ -454,7 +490,7 @@ At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThr
   Error: Changing viewabilityConfig on the fly is not supported`
 ```
 
-```javascript
+```jsx
 constructor (props) {
   super(props)
 
@@ -465,7 +501,7 @@ constructor (props) {
 }
 ```
 
-```javascript
+```jsx
 <FlatList
     viewabilityConfig={this.viewabilityConfig}
   ...
@@ -481,7 +517,7 @@ Percent of viewport that must be covered for a partially occluded item to count 
 
 #### itemVisiblePercentThreshold
 
-Similar to `viewAreaPercentThreshold`, but considers the percent of the item that is visible, rather than the fraction of the viewable area it covers.
+Similar to `viewAreaCoveragePercentThreshold`, but considers the percent of the item that is visible, rather than the fraction of the viewable area it covers.
 
 #### waitForInteraction
 
@@ -501,7 +537,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd([params]);
 ```
 
@@ -521,7 +557,7 @@ Valid `params` keys are:
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex(params);
 ```
 
@@ -546,7 +582,7 @@ Valid `params` keys are:
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem(params);
 ```
 
@@ -570,7 +606,7 @@ Valid `params` keys are:
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset(params);
 ```
 
@@ -591,7 +627,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -601,8 +637,28 @@ Tells the list an interaction has occurred, which should trigger viewability cal
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getScrollResponder()`
+
+```jsx
+getScrollResponder();
+```
+
+Provides a handle to the underlying scroll responder.
+
+---
+
+### `getScrollableNode()`
+
+```jsx
+getScrollableNode();
+```
+
+Provides a handle to the underlying scroll node.

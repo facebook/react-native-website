@@ -1,55 +1,64 @@
-aliases:
-  # Caches
-  - &restore-yarn-cache
-    keys:
-      - v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
-      # Fallback in case checksum fails
-      - v1-yarn-{{ .Branch }}-
+version: 2.1
 
-  - &save-yarn-cache
-    paths:
-      - website/node_modules
-      - ~/.cache/yarn
-    key: v1-yarn-{{ .Branch }}-{{ checksum "website/yarn.lock" }}
+# -------------------------
+#        EXECUTORS
+# -------------------------
+executors:
+  node8:
+    docker:
+      - image: circleci/node:8
 
-  # Filters
-  - &filter-only-master
-    branches:
-      only:
-        - master
-
-defaults: &defaults
-  working_directory: ~/react-native-website
-  docker:
-    - image: circleci/node:8
-
-version: 2
-jobs:
-  # Checkout and run yarn
-  checkout_code:
-    <<: *defaults
+# -------------------------
+#        COMMANDS
+# -------------------------
+commands:
+  restore_cache_checkout:
     steps:
-      - checkout
+      - restore_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
 
-      - restore-cache: *restore-yarn-cache
+  run_yarn:
+    steps:
+      - restore_cache:
+          keys:
+            - v1-yarn-{{ .Branch }}
       - run:
           name: Yarn Install
-          command: |
-            cd website
-            yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
-      - save-cache: *save-yarn-cache
+          command: yarn install --no-progress --non-interactive --cache-folder ~/.cache/yarn
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.cache/yarn
+          key: v1-yarn-{{ .Branch }}
 
-      - persist_to_workspace:
-          root: .
-          paths: .
+# -------------------------
+#        JOBS
+# -------------------------
+jobs:
+  # --------------------------------------------------
+  # JOB: setup
+  # Checks out the repo, and persists to cache.
+  # --------------------------------------------------
+  setup:
+    executor: node8
+    working_directory: ~/react-native-website
+    steps:
+      - checkout
+      - save_cache:
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - ~/react-native-website
 
-  # Tests website
+  # --------------------------------------------------
+  # JOB: test_website
+  # Test website can be built and has no lint issues.
+  # --------------------------------------------------
   test_website:
-    <<: *defaults
+    executor: node8
     working_directory: ~/react-native-website/website
     steps:
-      - attach_workspace:
-          at: ~/react-native-website
+      - restore_cache_checkout
+      - run_yarn
       - run: yarn ci-check
       - run: yarn test
       - run:
@@ -59,16 +68,17 @@ jobs:
               exit 1;
             fi
 
-  # Deploys website
+  # --------------------------------------------------
+  # JOB: deploy_website
+  # Deploy website to GitHub Pages in core RN repo.
+  # --------------------------------------------------
   deploy_website:
-    <<: *defaults
+    executor: node8
     working_directory: ~/react-native-website/website
     steps:
-      - attach_workspace:
-          at: ~/react-native-website
-      - run:
-          name: Install Dependencies
-          command: sudo apt install rsync
+      - restore_cache_checkout
+      - run_yarn
+      - run: sudo apt install rsync
       - run:
           name: Build and Deploy Static Website
           command: |
@@ -82,25 +92,29 @@ jobs:
               echo "Skipping deploy."
             fi
 
+# -------------------------
+#        WORKFLOWS
+# -------------------------
 workflows:
-  version: 2
-
   # Tests run on master and on forks
   tests:
     jobs:
-      - checkout_code
+      - setup
 
       # Test website
       - test_website:
           requires:
-            - checkout_code
+            - setup
 
   # If we are on master, deploy docs
   deploy:
     jobs:
-      - checkout_code:
-          filters: *filter-only-master
+      - setup:
+          filters:
+            branches:
+              only:
+                - master
 
       - deploy_website:
           requires:
-            - checkout_code
+            - setup

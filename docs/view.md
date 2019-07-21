@@ -9,7 +9,7 @@ The most fundamental component for building a UI, `View` is a container that sup
 
 This example creates a `View` that wraps two colored boxes and a text component in a row with padding.
 
-```javascript
+```jsx
 class ViewColoredBoxesWithText extends Component {
   render() {
     return (
@@ -47,15 +47,30 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 
 ### Props
 
-- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
-- [`accessibilityLabel`](view.md#accessibilitylabel)
+- [`accessible`](view.md#accessible)
+- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
 - [`accessibilityHint`](view.md#accessibilityhint)
+- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
+- [`accessibilityLabel`](view.md#accessibilitylabel)
+- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
+- [`accessibilityRole`](view.md#accessibilityrole)
+- [`accessibilityStates`](view.md#accessibilitystates)
+- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
+- [`clickable`](view.md#clickable)
+- [`collapsable`](view.md#collapsable)
 - [`hitSlop`](view.md#hitslop)
+- [`importantForAccessibility`](view.md#importantforaccessibility)
 - [`nativeID`](view.md#nativeid)
+- [`nextFocusDown`](view.md#nextfocusdown)
+- [`nextFocusForward`](view.md#nextfocusForward)
+- [`nextFocusLeft`](view.md#nextfocusleft)
+- [`nextFocusRight`](view.md#nextfocusright)
+- [`nextFocusUp`](view.md#nextfocusleft)
+- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
+- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
 - [`onAccessibilityTap`](view.md#onaccessibilitytap)
 - [`onLayout`](view.md#onlayout)
 - [`onMagicTap`](view.md#onmagictap)
-- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
 - [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
 - [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
 - [`onResponderGrant`](view.md#onrespondergrant)
@@ -64,23 +79,14 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
 - [`onResponderRelease`](view.md#onresponderrelease)
 - [`onResponderTerminate`](view.md#onresponderterminate)
 - [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
-- [`accessible`](view.md#accessible)
+- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
 - [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
 - [`pointerEvents`](view.md#pointerevents)
+- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
 - [`removeClippedSubviews`](view.md#removeclippedsubviews)
+- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 - [`style`](view.md#style)
 - [`testID`](view.md#testid)
-- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
-- [`collapsable`](view.md#collapsable)
-- [`importantForAccessibility`](view.md#importantforaccessibility)
-- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
-- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
-- [`accessibilityRole`](view.md#accessibilityrole)
-- [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
-- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
-- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
 
 ---
 
@@ -321,7 +327,7 @@ Controls whether the `View` can be the target of touch events.
      pointer-events: none;
 }
 .box-none * {
-     pointer-events: all;
+     pointer-events: auto;
 }
 ```
 
@@ -329,7 +335,7 @@ Controls whether the `View` can be the target of touch events.
 
 ```
 .box-only {
-     pointer-events: all;
+     pointer-events: auto;
 }
 .box-only * {
      pointer-events: none;
@@ -445,21 +451,37 @@ On Android, this is useful for animations and interactions that only modify opac
 
 ### `accessibilityRole`
 
-Tells the screen reader to treat the currently focused on element as having a specific role.
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
 
-Possible values for `AccessibilityRole` is one of:
+`accessibilityRole` can be one of the following:
 
-- `'none'` - The element has no role.
-- `'button'` - The element should be treated as a button.
-- `'link'` - The element should be treated as a link.
-- `'header'` - The element is a header that divides content into sections.
-- `'search'` - The element should be treated as a search field.
-- `'image'` - The element should be treated as an image.
-- `'key'` - The element should be treated like a keyboard key.
-- `'text'` - The element should be treated as text.
-- `'summary'` - The element provides app summary information.
-- `'imagebutton'` - The element has the role of both an image and also a button.
-- `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - Used when the element has no role.
+- `'button'` - Used when the element should be treated as a button.
+- `'link'` - Used when the element should be treated as a link.
+- `'search'` - Used when the text field element should also be treated as a search field.
+- `'image'` - Used when the element should be treated as an image. Can be combined with button or link, for example.
+- `'keyboardkey'` - Used when the element acts as a keyboard key.
+- `'text'` - Used when the element should be treated as static text that cannot change.
+- `'adjustable'` - Used when an element can be "adjusted" (e.g. a slider).
+- `'imagebutton'` - Used when the element should be treated as a button and is also an image.
+- `'header'` - Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- `'summary'` - Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- `'alert'` - Used when an element contains important text to be presented to the user.
+- `'checkbox'` - Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- `'combobox'` - Used when an element represents a combo box, which allows the user to select among several choices.
+- `'menu'` - Used when the component is a menu of choices.
+- `'menubar'` - Used when a component is a container of multiple menus.
+- `'menuitem'` - Used to represent an item within a menu.
+- `'progressbar'` - Used to represent a component which indicates progress of a task.
+- `'radio'` - Used to represent a radio button.
+- `'radiogroup'` - Used to represent a group of radio buttons.
+- `'scrollbar'` - Used to represent a scroll bar.
+- `'spinbutton'` - Used to represent a button which opens a list of choices.
+- `'switch'` - Used to represent a switch which can be turned on and off.
+- `'tab'` - Used to represent a tab.
+- `'tablist'` - Used to represent a list of tabs.
+- `'timer'` - Used to represent a timer.
+- `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
 
 On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
@@ -473,18 +495,21 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 ### `accessibilityStates`
 
-Tells the screen reader to treat the currently focused on element as being in a specific state.
+Describes the current state of a component to the user of an assistive technology.
 
-You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
+`accessibilityStates` is an array of values, and may include any of the following:
 
-Possible values for `AccessibilityStates` are:
+- `'selected'` - Used when the element is in a selected state. For example, a button is selected.
+- `'disabled'` - Used when the element is disabled and cannot be manipulated.
+- `'checked'` - Used to indicate that a checkable element is currently checked.
+- `'unchecked'` - Used to indicate that a checkable element is not currently checked.
+- `'busy'` - Used to indicate that an element is currently busy.
+- `'expanded'` - Used to indicate that an expandable element is currently expanded.
+- `'collapsed'` - Used to indicate that an expandable element is currently collapsed.
 
-- `'selected'` - The element is in a selected state.
-- `'disabled'` - The element is in a disabled state.
-
-| Type                        | Required |
-| --------------------------- | -------- |
-| array of AccessibilitStates | No       |
+| Type                         | Required |
+| ---------------------------- | -------- |
+| array of AccessibilityStates | No       |
 
 ---
 
@@ -535,3 +560,63 @@ Rasterization incurs an off-screen drawing pass and the bitmap consumes memory. 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `nextFocusDown`
+
+Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+---
+
+### `nextFocusForward`
+
+Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+---
+
+### `nextFocusLeft`
+
+Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+---
+
+### `nextFocusRight`
+
+Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+---
+
+### `nextFocusUp`
+
+Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
+
+---
+
+### `clickable`
+
+Determines whether this `View` is clickable or tappable for for accessibility hints.
+
+| Type    | Required | Platform |
+| ------- | -------- | -------- |
+| boolean | No       | Android  |

@@ -93,7 +93,7 @@ Docusaurus keeps track of the list of versions for the site in the 'website/vers
 
 1.  `cd react-native-website` to go into the project root.
 1.  `cd website` to go into the website portion of the project.
-1.  Run `yarn version <version>` where `<version>` is the new version being released.
+1.  Run `yarn run version <newVersion>` where `<newVersion>` is the new version being released.
 
 ## Website configuration
 
@@ -117,7 +117,7 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 1.  Save the files and check in the browser. Some changes may require a server restart.
 1.  Changes to /docs will only be visible in the latest version of the documentation (master).
 
-`open http://localhost:3000/react-native/versions.html`to see other versions.
+`open http://localhost:3000/react-native/versions.html` to see other versions.
 
 ### Test the change
 

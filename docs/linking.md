@@ -20,9 +20,9 @@ title: Linking
 
 #### Handling deep links
 
-If your app was launched from an external url registered to your app you can access and handle it from any component you want with
+If your app was launched from an external url registered to your app you can access and handle it from any component you want with:
 
-```javascript
+```jsx
 componentDidMount() {
   Linking.getInitialURL().then((url) => {
     if (url) {
@@ -82,9 +82,9 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 }
 ```
 
-And then on your React component you'll be able to listen to the events on `Linking` as follows
+And then on your React component you'll be able to listen to the events on `Linking` as follows:
 
-```javascript
+```jsx
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
 },
@@ -98,15 +98,15 @@ _handleOpenURL(event) {
 
 #### Opening external links
 
-To start the corresponding activity for a link (web URL, email, contact etc.), call
+To start the corresponding activity for a link (web URL, email, contact etc.), call:
 
-```javascript
+```jsx
 Linking.openURL(url).catch((err) => console.error('An error occurred', err));
 ```
 
-If you want to check if any installed app can handle a given URL beforehand you can call
+If you want to check if any installed app can handle a given URL beforehand you can call:
 
-```javascript
+```jsx
 Linking.canOpenURL(url)
   .then((supported) => {
     if (!supported) {
@@ -127,6 +127,7 @@ Linking.canOpenURL(url)
 - [`canOpenURL`](linking.md#canopenurl)
 - [`openSettings`](linking.md#opensettings)
 - [`getInitialURL`](linking.md#getinitialurl)
+- [`sendIntent`](linking.md#sendintent)
 
 ---
 
@@ -136,7 +137,7 @@ Linking.canOpenURL(url)
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -144,27 +145,27 @@ constructor();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
-Add a handler to Linking changes by listening to the `url` event type and providing the handler
+Add a handler to Linking changes by listening to the `url` event type and providing the handler.
 
 ---
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
-Remove a handler by passing the `url` event type and the handler
+Remove a handler by passing the `url` event type and the handler.
 
 ---
 
 ### `openURL()`
 
-```javascript
+```jsx
 openURL(url);
 ```
 
@@ -188,13 +189,15 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 ### `canOpenURL()`
 
-```javascript
+```jsx
 canOpenURL(url);
 ```
 
 Determine whether or not an installed app can handle a given URL.
 
 The method returns a `Promise` object. When it is determined whether or not the given URL can be handled, the promise is resolved and the first parameter is whether or not it can be opened.
+
+The `Promise` will reject on Android if it was impossible to check if the URL can be opened, and on iOS if you didn't add the specific scheme in the `LSApplicationQueriesSchemes` key inside `Info.plist` (see bellow).
 
 **Parameters:**
 
@@ -206,11 +209,15 @@ The method returns a `Promise` object. When it is determined whether or not the 
 
 > As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
 
+> This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
+
+> If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
+
 ---
 
 ### `openSettings()`
 
-```javascript
+```jsx
 openSettings();
 ```
 
@@ -220,10 +227,22 @@ Open the Settings app and displays the app’s custom settings, if it has any.
 
 ### `getInitialURL()`
 
-```javascript
+```jsx
 getInitialURL();
 ```
 
-If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`
+If the app launch was triggered by an app link, it will give the link url, otherwise it will give `null`.
 
 > To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
+
+---
+
+### `sendIntent()`
+
+```jsx
+sendIntent(action: string, extras?: Array<{key: string, value: string | number | boolean}>)
+```
+
+> @platform android
+
+**Android-Only.** Launch an Android intent with extras (optional)

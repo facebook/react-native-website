@@ -82,7 +82,7 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.10.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:1.10.0'
+  implementation 'com.facebook.fresco:animated-gif:1.12.0'
 
   // For WebP support, including animated WebP
   implementation 'com.facebook.fresco:animated-webp:1.10.0'
@@ -262,9 +262,9 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 The image source (either a remote URL or a local file resource).
 
-This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache.
+This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
-The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp` (Android only), `psd` (iOS only).
+The currently supported formats are `png`, `jpg`, `jpeg`, `bmp`, `gif`, `webp` (Android only), `psd` (iOS only). In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
 
 | Type                | Required |
 | ------------------- | -------- |
@@ -417,7 +417,7 @@ Android only. When true, enables progressive jpeg streaming. https://frescolib.o
 
 ### `getSize()`
 
-```javascript
+```jsx
 Image.getSize(uri, success, [failure]);
 ```
 
@@ -439,7 +439,7 @@ Does not work for static image resources.
 
 ### `getSizeWithHeaders()`
 
-```javascript
+```jsx
 Image.getSizeWithHeaders(uri, headers, success, [failure]);
 ```
 
@@ -462,7 +462,7 @@ Does not work for static image resources.
 
 ### `prefetch()`
 
-```javascript
+```jsx
 Image.prefetch(url);
 ```
 
@@ -478,7 +478,7 @@ Prefetches a remote image for later use by downloading it to the disk cache
 
 ### `abortPrefetch()`
 
-```javascript
+```jsx
 Image.abortPrefetch(requestId);
 ```
 
@@ -494,7 +494,7 @@ Abort prefetch request. Android-only.
 
 ### `queryCache()`
 
-```javascript
+```jsx
 Image.queryCache(urls);
 ```
 
@@ -510,7 +510,7 @@ Perform cache interrogation. Returns a mapping from URL to cache status, such as
 
 ### `resolveAssetSource()`
 
-```javascript
+```jsx
 Image.resolveAssetSource(source);
 ```
 

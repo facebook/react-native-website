@@ -36,7 +36,8 @@ class Help extends React.Component {
             open issues in the{' '}
             <a href="https://github.com/facebook/react-native/issues">
               main repository
-            </a>. If you cannot find an existing issue, please{' '}
+            </a>
+            . If you cannot find an existing issue, please{' '}
             <a href="https://github.com/facebook/react-native/issues/new?template=bug_report.md">
               use the Bug Report template
             </a>{' '}
@@ -52,7 +53,8 @@ class Help extends React.Component {
             tagged with <strong>react-native</strong> or{' '}
             <a href="http://stackoverflow.com/questions/ask?tags=react-native">
               ask your own
-            </a>!
+            </a>
+            !
           </p>
           <h2>Staying up to date</h2>
           <h3>Official channels</h3>
@@ -102,6 +104,21 @@ class Help extends React.Component {
             a list of dedicated React Native conferences{' '}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {'.'}
+          </p>
+          <h3>React Native Show</h3>
+          <p>
+            The React Native Show is a video series from the React Native team
+            covering updates to React Native:
+          </p>
+          <p>
+            <iframe
+              width="560"
+              height="315"
+              frameBorder="0"
+              allowFullScreen
+              src="https://www.youtube-nocookie.com/embed/bjwwIqaKSo4"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            />
           </p>
           <h2>Communities</h2>
           <h3>Reactiflux Chat</h3>

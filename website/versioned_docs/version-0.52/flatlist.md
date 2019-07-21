@@ -143,7 +143,7 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 
 ### `renderItem`
 
-```javascript
+```jsx
 renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
 ```
 
@@ -157,7 +157,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 Example usage:
 
-```javascript
+```jsx
 <FlatList
   ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
@@ -250,13 +250,13 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `getItemLayout`
 
-```javascript
+```jsx
 (data, index) => {length: number, offset: number, index: number}
 ```
 
 `getItemLayout` is an optional optimization that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient, and is easy to use if you have fixed height items, for example:
 
-```javascript
+```jsx
   getItemLayout={(data, index) => (
     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   )}
@@ -312,7 +312,7 @@ Reverses the direction of scroll. Uses scale transforms of `-1`.
 
 ### `keyExtractor`
 
-```javascript
+```jsx
 (item: object, index: number) => string;
 ```
 
@@ -336,7 +336,7 @@ Multiple columns can only be rendered with `horizontal={false}` and will zig-zag
 
 ### `onEndReached`
 
-```javascript
+```jsx
 (info: {distanceFromEnd: number}) => void
 ```
 
@@ -360,7 +360,7 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 ### `onRefresh`
 
-```javascript
+```jsx
 () => void
 ```
 
@@ -374,7 +374,7 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 ### `onViewableItemsChanged`
 
-```javascript
+```jsx
 (info: {
     viewableItems: array,
     changed: array,
@@ -453,7 +453,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd([params]);
 ```
 
@@ -473,7 +473,7 @@ Valid `params` keys are:
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex(params);
 ```
 
@@ -498,7 +498,7 @@ Valid `params` keys are:
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem(params);
 ```
 
@@ -522,7 +522,7 @@ Valid `params` keys are:
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset(params);
 ```
 
@@ -543,7 +543,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -553,7 +553,7 @@ Tells the list an interaction has occurred, which should trigger viewability cal
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

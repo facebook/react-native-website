@@ -52,13 +52,6 @@
       "version-0.19-signed-apk-android",
       "version-0.19-removing-default-permissions"
     ],
-    "Contributing": [
-      "version-0.19-contributing",
-      "version-0.19-maintainers",
-      "version-0.19-building-from-source",
-      "version-0.19-testing",
-      "version-0.19-understanding-cli"
-    ],
     "Components": [
       "version-0.19-datepickerios",
       "version-0.19-drawerlayoutandroid",

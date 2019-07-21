@@ -106,7 +106,7 @@ To see it in action, try the [PanResponder example in RNTester](https://github.c
 
 ### `create()`
 
-```javascript
+```jsx
 static create(config)
 ```
 

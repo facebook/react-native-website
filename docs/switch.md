@@ -15,9 +15,8 @@ This is a controlled component that requires an `onValueChange` callback that up
 * [`trackColor`](switch.md#trackcolor)
 * [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
 * [`onValueChange`](switch.md#onvaluechange)
-* [`testID`](switch.md#testid)
+* [`onChange`](switch.md#onChange)
 * [`thumbColor`](switch.md#thumbcolor)
-* [`tintColor`](switch.md#tintcolor)
 * [`value`](switch.md#value)
 
 ---
@@ -60,7 +59,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 ### `onValueChange`
 
-Invoked with the new value when the value changes.
+Invoked when the user tries to change the value of the switch. Receives the new value as an argument. If you want to instead receive an event, use `onChange`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -68,31 +67,19 @@ Invoked with the new value when the value changes.
 
 ---
 
-### `testID`
+### `onChange`
 
-Used to locate this view in end-to-end tests.
+Invoked when the user tries to change the value of the switch. Receives the change event as an argument. If you want to only receive the new value, use `onValueChange` instead.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
 ### `thumbColor`
 
 Color of the foreground switch grip. If this is set on iOS, the switch grip will lose its drop shadow.
-
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
-
----
-
-### `tintColor`
-
-> `tintColor` is deprecated, use [`trackColor`](switch.md/trackcolor) instead.
-
-Border color on iOS and background color on Android when the switch is turned off.
 
 | Type               | Required |
 | ------------------ | -------- |
