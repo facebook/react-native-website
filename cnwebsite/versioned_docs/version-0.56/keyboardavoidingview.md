@@ -82,7 +82,7 @@ _注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能�
 
 ### `relativeKeyboardHeight()`
 
-```javascript
+```jsx
 relativeKeyboardHeight(keyboardFrame: object):
 ```
 
@@ -90,7 +90,7 @@ relativeKeyboardHeight(keyboardFrame: object):
 
 ### `onKeyboardChange()`
 
-```javascript
+```jsx
 onKeyboardChange((event: object));
 ```
 
@@ -98,6 +98,6 @@ onKeyboardChange((event: object));
 
 ### `onLayout()`
 
-```javascript
+```jsx
 onLayout((event: ViewLayoutEvent));
 ```

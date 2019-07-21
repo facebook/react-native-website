@@ -8,7 +8,7 @@ original_id: image
 
 用法样例：
 
-```javascript
+```jsx
 renderImages() {
   return (
     <View>
@@ -269,7 +269,7 @@ dependencies {
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

@@ -16,7 +16,7 @@ __译注__：本文档的说明较为简略，使用上有一定的难度。论�
 ![](/img/components/navigator2.png)
 
 ### 基本用法
-```javascript
+```jsx
 <Navigator
     initialRoute={{name: 'My First Scene', index: 0}}
     renderScene={(route, navigator) =>

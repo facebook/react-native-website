@@ -21,7 +21,6 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 
 * [`configureNext`](layoutanimation.md#configurenext)
 * [`create`](layoutanimation.md#create)
-* [`checkConfig`](layoutanimation.md#checkconfig)
 
 ### 查看属性
 
@@ -40,7 +39,7 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 
 ### `configureNext()`
 
-```javascript
+```jsx
 static configureNext(config, onAnimationDidEnd?)
 ```
 
@@ -63,19 +62,13 @@ static configureNext(config, onAnimationDidEnd?)
 
 ### `create()`
 
-```javascript
+```jsx
 static create(duration, type, creationProp)
 ```
 
 用来创建`configureNext`所需的 config 参数的辅助函数。
 
 ---
-
-### `checkConfig()`
-
-```javascript
-static checkConfig(config, location, name)
-```
 
 ## 属性
 

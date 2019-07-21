@@ -53,7 +53,7 @@ Vibration.cancel()
 
 ### `vibrate()`
 
-```javascript
+```jsx
 Vibration.vibrate(pattern: number, Array<number>, repeat: boolean)
 ```
 
@@ -70,7 +70,7 @@ Trigger a vibration with specified `pattern`.
 
 ### `cancel()`
 
-```javascript
+```jsx
 Vibration.cancel();
 ```
 

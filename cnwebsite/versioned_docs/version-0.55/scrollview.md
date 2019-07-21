@@ -576,7 +576,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
 ```
 
@@ -590,7 +590,7 @@ scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: object));
 ```
 
@@ -602,7 +602,7 @@ scrollToEnd(([options]: object));
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(y, x);
 ```
 
@@ -612,7 +612,7 @@ Deprecated, use `scrollTo` instead.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

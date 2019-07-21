@@ -54,12 +54,14 @@ const styles = StyleSheet.create({
 * [View props...](view.md#props)
 
 - [`date`](datepickerios.md#date)
-- [`onDateChange`](datepickerios.md#ondatechange)
+- [`initialDate`](datepickerios.md#initialDate)
+* [`locale`](datepickerios.md#locale)
 - [`maximumDate`](datepickerios.md#maximumdate)
 - [`minimumDate`](datepickerios.md#minimumdate)
 - [`minuteInterval`](datepickerios.md#minuteinterval)
 - [`mode`](datepickerios.md#mode)
-- [`locale`](datepickerios.md#locale)
+- [`onChange`](datepickerios.md#onChange)
+- [`onDateChange`](datepickerios.md#ondatechange)
 - [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
 ---
@@ -75,6 +77,18 @@ const styles = StyleSheet.create({
 | 类型 | 必填 |
 | ---- | ---- |
 | Date | 是   |
+
+---
+
+### `onChange`
+
+Date change handler.
+
+This is called when the user changes the date or time in the UI. The first and only argument is an Event. For getting the date the picker was changed to, use onDateChange instead.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -138,9 +152,9 @@ Example with `minuteInterval` set to `10`:
 
 选择器模式。
 
-| 类型                             | 必填 |
-| -------------------------------- | ---- |
-| enum('date', 'time', 'datetime') | 否   |
+| Type                                          | Required |
+| --------------------------------------------- | -------- |
+| enum('date', 'time', 'datetime', 'countdown') | No       |
 
 Example with `mode` set to `date`, `time`, and `datetime`: ![](assets/DatePickerIOS/mode.png)
 
@@ -165,3 +179,13 @@ The locale for the date picker. Value needs to be a [Locale ID](https://develope
 | 类型   | 必填 |
 | ------ | ---- |
 | number | 否   |
+
+---
+
+### `initialDate`
+
+Provides an initial value that will change when the user starts selecting a date. It is useful for simple use-cases where you do not want to deal with listening to events and updating the date prop to keep the controlled state in sync. The controlled state has known bugs which causes it to go out of sync with native. The initialDate prop is intended to allow you to have native be source of truth.
+
+| Type | Required |
+| ---- | -------- |
+| Date | No       |

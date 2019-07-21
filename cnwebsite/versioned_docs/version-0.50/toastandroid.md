@@ -12,7 +12,7 @@ original_id: toastandroid
 还有一个名为`showWithGravity`的方法可以指定弹出的位置。可选项有：ToastAndroid.TOP, ToastAndroid.BOTTOM, ToastAndroid.CENTER.
 
 用法示例：  
-```javascript
+```jsx
 ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
 ToastAndroid.showWithGravity('All Your Base Are Belong To Us', ToastAndroid.SHORT, ToastAndroid.CENTER);
 ```
@@ -33,7 +33,7 @@ ToastAndroid.showWithGravity('All Your Base Are Belong To Us', ToastAndroid.SHOR
 <div class="props"><div class="prop"><h4 class="propTitle"><a class="anchor" name="short"></a>SHORT<span class="propType">: MemberExpression</span> <a class="hash-link" href="#short">#</a></h4><div><p>// Toast duration constants</p></div></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="long"></a>LONG<span class="propType">: MemberExpression</span> <a class="hash-link" href="#long">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="top"></a>TOP<span class="propType">: MemberExpression</span> <a class="hash-link" href="#top">#</a></h4><div><p>// Toast gravity constants</p></div></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="bottom"></a>BOTTOM<span class="propType">: MemberExpression</span> <a class="hash-link" href="#bottom">#</a></h4></div><div class="prop"><h4 class="propTitle"><a class="anchor" name="center"></a>CENTER<span class="propType">: MemberExpression</span> <a class="hash-link" href="#center">#</a></h4></div></div>
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

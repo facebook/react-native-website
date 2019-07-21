@@ -8,7 +8,7 @@ original_id: panresponder
 
 它提供了一个对[触摸响应系统](gesture-responder-system.html)响应器的可预测的包装。对于每一个处理函数，它在原生事件之外提供了一个新的`gestureState`对象。  
 
-```javascript
+```jsx
 onPanResponderMove: (event, gestureState) => {}
 ```  
 
@@ -40,7 +40,7 @@ onPanResponderMove: (event, gestureState) => {}
 
 ### 基本用法
 
-```javascript
+```jsx
   componentWillMount: function() {
     this._panResponder = PanResponder.create({
       // 要求成为响应者：
@@ -118,7 +118,7 @@ onPanResponderMove: (event, gestureState) => {}
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

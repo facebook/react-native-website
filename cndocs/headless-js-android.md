@@ -9,13 +9,13 @@ Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来�
 
 首先我们要通过`AppRegistry`来注册一个异步函数，这个函数我们称之为“任务”。注册方式类似在 index.js 中注册 RN 应用：
 
-```javascript
+```jsx
 AppRegistry.registerHeadlessTask("SomeTaskName", () => require("SomeTaskName"));
 ```
 
 然后创建 require 中引用的`SomeTaskName.js`文件:
 
-```javascript
+```jsx
 module.exports = async taskData => {
   // 要做的任务
 };
@@ -64,8 +64,45 @@ service.putExtras(bundle);
 getApplicationContext().startService(service);
 ```
 
+## 重试
+
+By default, the headless JS task will not perform any retries. In order to do so, you need to create a `HeadlessJsRetryPolicy` and throw a specfic `Error`.
+
+`LinearCountingRetryPolicy` is an implementation of `HeadlessJsRetryPolicy` that allows you to specify a maximum number of retries with a fixed delay between each attempt. If that does not suit your needs then you can easily implement your own `HeadlessJsRetryPolicy`. These policies can simply be passed as an extra argument to the `HeadlessJsTaskConfig` constructor, e.g.
+
+```java
+HeadlessJsRetryPolicy retryPolicy = new LinearCountingRetryPolicy(
+3, // Max number of retry attempts
+1000 // Delay between each retry attempt
+);
+return new HeadlessJsTaskConfig(
+'SomeTaskName',
+Arguments.fromBundle(extras),
+5000,
+false,
+retryPolicy
+);
+```
+
+A retry attempt will only be made when a specific `Error` is thrown. Inside a headless JS task, you can import the error and throw it when a retry attempt is required.
+
+Example:
+
+```jsx
+import {HeadlessJsTaskError} from 'HeadlessJsTask';
+module.exports = async (taskData) => {
+const condition = ...;
+if (!condition) {
+  throw new HeadlessJsTaskError();
+}
+};
+```
+
+If you wish all errors to cause a retry attempt, you will need to catch them and throw the above error.
+
 ## 注意事项
 
+- The function passed to `setTimeout` does not always behave as expected. Instead the function is called only when the application is launched again. If you just need to wait, use the retry functionality.
 * 默认情况下，如果应用正在前台运行时尝试执行任务，那么应用会崩溃。这是为了防止开发者在任务中处理太多逻辑而拖慢用户界面。如果你必须要这么做，那么可以设置第四个参数为`false`来更改这一限制。
 * 如果你是通过`BroadcastReceiver`来启动的服务，那么谨记在从`onReceive()`返回之前要调用`HeadlessJsTaskService.acquireWakeLockNow()`。
 

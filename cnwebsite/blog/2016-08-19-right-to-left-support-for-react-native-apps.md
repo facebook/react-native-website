@@ -98,7 +98,7 @@ Here are two ways to flip the icon according to the direction:
 
 * Adding a `transform` style to the image component:
 
-  ```javascript
+  ```jsx
   <Image
     source={...}
     style={{transform: [{scaleX: I18nManager.isRTL ? -1 : 1}]}}
@@ -107,7 +107,7 @@ Here are two ways to flip the icon according to the direction:
 
 * Or, changing the image source according to the direction:
 
-  ```javascript
+  ```jsx
   let imageSource = require('./back.png');
   if (I18nManager.isRTL) {
     imageSource = require('./forward.png');

@@ -25,7 +25,7 @@ original_id: permissionsandroid
 
 ### 示例
 
-```javascript
+```jsx
 import {PermissionsAndroid} from 'react-native';
 
 async function requestCameraPermission() {
@@ -105,7 +105,7 @@ async function requestCameraPermission() {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -113,7 +113,7 @@ constructor();
 
 ### `check()`
 
-```javascript
+```jsx
 check(permission);
 ```
 
@@ -129,7 +129,7 @@ check(permission);
 
 ### `request()`
 
-```javascript
+```jsx
 request(permission, [rationale]);
 ```
 
@@ -158,7 +158,7 @@ request(permission, [rationale]);
 
 ### `requestMultiple()`
 
-```javascript
+```jsx
 requestMultiple(permissions);
 ```
 

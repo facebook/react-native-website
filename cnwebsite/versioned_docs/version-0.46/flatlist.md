@@ -20,7 +20,7 @@ original_id: flatlist
 
 一个最简单的例子：
 
-```javascript
+```jsx
 <FlatList
   data={[{key: 'a'}, {key: 'b'}]}
   renderItem={({item}) => <Text>{item.key}</Text>}
@@ -33,7 +33,7 @@ original_id: flatlist
 - 给`FlatList`指定`extraData={this.state}`属性，是为了保证`state.selected`变化时，能够正确触发`FlatList`的更新。如果不指定此属性，则`FlatList`不会触发更新，因为它是一个`PureComponent`，其props在`===`比较中没有变化则不会触发更新。
 - `keyExtractor`属性指定使用id作为列表每一项的key。
 
-```javascript
+```jsx
 class MyListItem extends React.PureComponent {
   _onPress = () => {
     this.props.onPressItem(this.props.id);
@@ -302,7 +302,7 @@ your use-case.</p>
 
 
 ### 例子
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

@@ -23,7 +23,7 @@ original_id: settings
 
 ### `get()`
 
-```javascript
+```jsx
 static get(key)
 ```
 
@@ -33,7 +33,7 @@ Get the current value for a key in `NSUserDefaults`.
 
 ### `set()`
 
-```javascript
+```jsx
 static set(settings)
 ```
 
@@ -43,7 +43,7 @@ Set one or more values in `NSUserDefaults`.
 
 ### `watchKeys()`
 
-```javascript
+```jsx
 static watchKeys(keys, callback)
 ```
 
@@ -53,7 +53,7 @@ Subscribe to be notified when the value for any of the keys specified by the `ke
 
 ### `clearWatch()`
 
-```javascript
+```jsx
 static clearWatch(watchId)
 ```
 

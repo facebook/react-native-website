@@ -8,7 +8,7 @@ original_id: share
 
 ## Basic Example
 
-```javascript
+```jsx
 import React, {Component} from 'react'
 import {Share, Button} from 'react-native'
 
@@ -58,7 +58,7 @@ class ShareExample extends Component {
 
 ### `share()`
 
-```javascript
+```jsx
 static share(content, options)
 ```
 
@@ -95,7 +95,7 @@ static share(content, options)
 
 ### `sharedAction()`
 
-```javascript
+```jsx
 static sharedAction()
 ```
 
@@ -105,7 +105,7 @@ static sharedAction()
 
 ### `dismissedAction()`
 
-```javascript
+```jsx
 static dismissedAction()
 ```
 

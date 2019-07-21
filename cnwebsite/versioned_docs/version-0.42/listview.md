@@ -8,7 +8,7 @@ ListView - 一个核心组件，用于高效地显示一个可以垂直滚动的
 
 最简单的例子：
 
-```javascript
+```jsx
 constructor(props) {
   super(props);
   var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -169,7 +169,7 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

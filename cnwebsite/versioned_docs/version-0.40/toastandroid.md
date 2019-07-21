@@ -28,7 +28,7 @@ original_id: toastandroid
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

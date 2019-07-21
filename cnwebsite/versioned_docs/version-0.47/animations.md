@@ -13,7 +13,7 @@ React Native提供了两个互补的动画系统：用于全局的布局动画`L
 `Animated`仅封装了四个可以动画化的组件：`View`、`Text`、`Image`和`ScrollView`，不过你也可以使用`Animated.createAnimatedComponent()`来封装你自己的组件。
 下面是一个在加载时带有淡入动画效果的视图：
 
-```javascript
+```jsx
 // FadeInView.js
 import React, { Component } from 'react';
 import {
@@ -53,7 +53,7 @@ export default class FadeInView extends Component {
 
 然后你就可以在组件中像使用`View`那样去使用`FadeInView`了，比如像下面这样：
 
-```javascript
+```jsx
 render() {
   return (
     <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
@@ -91,7 +91,7 @@ Custom `duration` or even a `delay` before the animation starts is also supporte
 
 For example, if we want to create a 2-second long animation of an object that slightly backs up before moving to its final position:
 
-```javascript
+```jsx
 Animated.timing(
   this.state.xPosition,
   {
@@ -109,7 +109,7 @@ Take a look at the [Configuring animations](animated.html#configuring-animations
 
 多个动画可以通过`parallel`（同时执行）、`sequence`（顺序执行）、`stagger`和`delay`来组合使用。它们中的每一个都接受一个要执行的动画数组，并且自动在适当的时候调用start/stop。举个例子：
 
-```javascript
+```jsx
 Animated.sequence([            // 首先执行decay动画，结束后同时执行spring和twirl动画
   Animated.decay(position, {   // 滑行一段距离后停止
     velocity: {x: gestureState.vx, y: gestureState.vy}, // 根据用户的手势设置速度
@@ -137,7 +137,7 @@ You can find a full list of composition methods in the [Composing animations](an
 There are some cases where an animated value needs to invert another animated value for calculation.
 An example is inverting a scale (2x --> 0.5x):
 
-```javascript
+```jsx
 const a = Animated.Value(1);
 const b = Animated.divide(1, a);
 
@@ -150,7 +150,7 @@ Animated.spring(a, {
 
 `Animated` API还有一个很强大的部分就是`interpolate`插值函数。它可以接受一个输入区间，然后将其映射到另一个的输出区间。下面是一个一个简单的从0-1区间到0-100区间的映射示例：
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [0, 1],
   outputRange: [0, 100],
@@ -159,7 +159,7 @@ value.interpolate({
 
 `interpolate`还支持定义多个区间段落，常用来定义静止区间等。举个例子，要让输入在接近-300时取相反值，然后在输入接近-100时到达0，然后在输入接近0时又回到1，接着一直到输入到100的过程中逐步回到0，最后形成一个始终为0的静止区间，对于任何大于100的输入都返回0。具体写法如下：
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
   outputRange: [300,    0, 1,   0,   0],
@@ -183,7 +183,7 @@ value.interpolate({
 
 `interpolate`还支持到字符串的映射，从而可以实现颜色以及带有单位的值的动画变换。例如你可以像下面这样实现一个旋转动画：
  
- ```javascript
+ ```jsx
  value.interpolate({
    inputRange: [0, 360],
    outputRange: ['0deg', '360deg']
@@ -196,7 +196,7 @@ value.interpolate({
 
 动画中所设的值还可以通过跟踪别的值得到。你只要把toValue设置成另一个动态值而不是一个普通数字就行了。比如我们可以用弹跳动画来实现聊天头像的闪动，又比如通过`timing`设置`duration:0`来实现快速的跟随。他们还可以使用插值来进行组合：
 
-```javascript
+```jsx
 Animated.spring(follower, {toValue: leader}).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
@@ -212,7 +212,7 @@ Animated.timing(opacity, {
 
 `Animated.event`是Animated API中与输入有关的部分，允许手势或其它事件直接绑定到动态值上。它通过一个结构化的映射语法来完成，使得复杂事件对象中的值可以被正确的解开。第一层是一个数组，允许同时映射多个值，然后数组的每一个元素是一个嵌套的对象。在下面的例子里，你可以发现`scrollX`被映射到了`event.nativeEvent.contentOffset.x`(`event`通常是回调函数的第一个参数)，并且`pan.x`和`pan.y`分别映射到`gestureState.dx`和`gestureState.dy`（`gestureState`是传递给`PanResponder`回调函数的第二个参数）。
 
-```javascript
+```jsx
 onScroll={Animated.event(
   [{nativeEvent: {contentOffset: {x: scrollX}}}]   // scrollX = e.nativeEvent.contentOffset.x
 )}
@@ -243,7 +243,7 @@ but use it sparingly since it might have performance implications in the future.
 在动画中启用原生驱动非常简单。
 只需在开始动画之前，在动画配置中加入一行`useNativeDriver: true`，如下所示：
 
-```javascript
+```jsx
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
@@ -257,7 +257,7 @@ Animated.timing(this.state.animatedValue, {
 This is specially useful for animations that follow the scroll position as without the native driver,
 the animation will always run a frame behind the gesture due to the async nature of React Native.
 
-```javascript
+```jsx
 <Animated.ScrollView // <-- 使用Animated ScrollView wrapper
   scrollEventThrottle={1} // <-- 设为1以确保滚动事件的触发频率足够密集
   onScroll={Animated.event(
@@ -295,13 +295,13 @@ The RNTester app has various examples of `Animated` in use:
 注意尽管`LayoutAnimation`非常强大且有用，但它对动画本身的控制没有`Animated`或者其它动画库那样方便，所以如果你使用`LayoutAnimation`无法实现一个效果，那可能还是要考虑其他的方案。
 
 另外，如果要在**Android**上使用LayoutAnimation，那么目前还需要在`UIManager`中启用：
-```javascript
+```jsx
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ![](/img/LayoutAnimationExample.gif)
 
-```javascript
+```jsx
 import React from 'react';
 import {
   NativeModules,

@@ -36,7 +36,7 @@ original_id: animatedvalue
 
 ### `setValue()`
 
-```javascript
+```jsx
 setValue(value);
 ```
 
@@ -52,7 +52,7 @@ setValue(value);
 
 ### `setOffset()`
 
-```javascript
+```jsx
 setOffset(offset);
 ```
 
@@ -68,7 +68,7 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 ### `flattenOffset()`
 
-```javascript
+```jsx
 flattenOffset();
 ```
 
@@ -78,7 +78,7 @@ Merges the offset value into the base value and resets the offset to zero. The f
 
 ### `extractOffset()`
 
-```javascript
+```jsx
 extractOffset();
 ```
 
@@ -88,7 +88,7 @@ Sets the offset value to the base value, and resets the base value to zero. The 
 
 ### `addListener()`
 
-```javascript
+```jsx
 addListener(callback);
 ```
 
@@ -106,7 +106,7 @@ Returns a string that serves as an identifier for the listener.
 
 ### `removeListener()`
 
-```javascript
+```jsx
 removeListener(id);
 ```
 
@@ -122,7 +122,7 @@ removeListener(id);
 
 ### `removeAllListeners()`
 
-```javascript
+```jsx
 removeAllListeners();
 ```
 
@@ -132,7 +132,7 @@ removeAllListeners();
 
 ### `stopAnimation()`
 
-```javascript
+```jsx
 stopAnimation([callback]);
 ```
 
@@ -148,7 +148,7 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 ### `resetAnimation()`
 
-```javascript
+```jsx
 resetAnimation([callback]);
 ```
 
@@ -164,7 +164,7 @@ Stops any animation and resets the value to its original.
 
 ### `interpolate()`
 
-```javascript
+```jsx
 interpolate(config);
 ```
 
@@ -191,7 +191,7 @@ The `config` object is composed of the following keys:
 
 ### `animate()`
 
-```javascript
+```jsx
 animate(animation, callback);
 ```
 
@@ -208,7 +208,7 @@ Typically only used internally, but could be used by a custom Animation class.
 
 ### `stopTracking()`
 
-```javascript
+```jsx
 stopTracking();
 ```
 
@@ -218,7 +218,7 @@ Typically only used internally.
 
 ### `track()`
 
-```javascript
+```jsx
 track(tracking);
 ```
 

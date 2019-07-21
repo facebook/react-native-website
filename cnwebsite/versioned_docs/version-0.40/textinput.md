@@ -322,7 +322,7 @@ Note that on Android performing text selection in input can change app's activit
 ### 例子
 
 #### iOS  
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');
@@ -1022,7 +1022,7 @@ exports.examples = [
 
 #### Android
 
-```javascript  
+```jsx  
 'use strict';
 
 var React = require('react');

@@ -14,7 +14,7 @@ React Native提供了可以处理常见触摸手势（例如点击或滑动）�
 
 示例：
 
-```javascript
+```jsx
 class MyButton extends Component {
   _onPressButton() {
     console.log("You tapped the button!");

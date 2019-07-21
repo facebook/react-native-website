@@ -94,7 +94,7 @@ original_id: building-for-apple-tv
 
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
-```javascript
+```jsx
 import {Platform} from 'react-native';
 const running_on_tv = Platform.isTV;
 
@@ -166,7 +166,7 @@ const running_on_tv = Platform.isTV;
 
 <block class="ios android">
 
-```javascript
+```jsx
 var TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {

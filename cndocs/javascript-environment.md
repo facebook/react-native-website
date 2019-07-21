@@ -52,6 +52,10 @@ Stage 3
 
 - [对象的扩展运算 Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
 
+Stage 2
+
+- [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
+
 其他特性
 
 - [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
@@ -67,7 +71,6 @@ Stage 3
 - [CommonJS require](https://nodejs.org/docs/latest/api/modules.html)
 - [XMLHttpRequest, fetch](network.md#content)
 - [{set, clear}{Timeout, Interval, Immediate}, {request, cancel}AnimationFrame](timers.md#content)
-- [navigator.geolocation](geolocation.md#content)
 
 ES6
 

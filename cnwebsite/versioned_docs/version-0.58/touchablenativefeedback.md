@@ -72,7 +72,7 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 
 ### `SelectableBackground()`
 
-```javascript
+```jsx
 static SelectableBackground()
 ```
 
@@ -82,7 +82,7 @@ static SelectableBackground()
 
 ### `SelectableBackgroundBorderless()`
 
-```javascript
+```jsx
 static SelectableBackgroundBorderless()
 ```
 
@@ -92,7 +92,7 @@ static SelectableBackgroundBorderless()
 
 ### `Ripple()`
 
-```javascript
+```jsx
 static Ripple(color: string, borderless: boolean)
 ```
 
@@ -109,6 +109,6 @@ static Ripple(color: string, borderless: boolean)
 
 ### `canUseNativeForeground()`
 
-```javascript
+```jsx
 static canUseNativeForeground()
 ```

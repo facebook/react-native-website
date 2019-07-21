@@ -11,7 +11,7 @@ original_id: drawerlayoutandroid
 
 ### 例子
 
-```javascript
+```jsx
 render: function() {
   var navigationView = (
     <View style={{flex: 1, backgroundColor: '#fff'}}>

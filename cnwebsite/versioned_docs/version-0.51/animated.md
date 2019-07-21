@@ -8,7 +8,7 @@ original_id: animated
 
 创建动画最简单的工作流程是创建一个 `Animated.Value` ，将它连接到动画组件的一个或多个样式属性，然后使用`Animated.timing()`通过动画效果展示数据的变化：
 
-```javascript
+```jsx
 Animated.timing(                            // Animate value over time
   this.state.fadeAnim,                      // The value to drive
   {
@@ -99,7 +99,7 @@ Animated.timing(                            // Animate value over time
 
 例如，在使用水平滚动手势时，为了将`event.nativeEvent.contentOffset.x`映射到`scrollX`（`Animated.Value`），您需要执行以下操作：
 
-```javascript
+```jsx
  onScroll={Animated.event(
    // scrollX = e.nativeEvent.contentOffset.x
    [{ nativeEvent: {
@@ -356,7 +356,7 @@ Animated.timing(                            // Animate value over time
 
 例子：
 
-```javascript
+```jsx
 class DraggableView extends React.Component {
    constructor(props) {
      super(props);

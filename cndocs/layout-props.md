@@ -233,7 +233,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 在 React Native 中`flex`的表现和 CSS 有些区别。`flex`在 RN 中只能为整数值，其具体表现请参考`yoga`布局引擎的文档，其地址为<https://github.com/facebook/yoga>。
 
-当`flex`为一个正整数时，组件尺寸会具有弹性，并根据具体的 flex 值来按比例分配。比如两个组件在同一个父容器中，一个`flex`为 2，另一个`flex`为 1，则两者的尺寸比为 2：1。
+当`flex`为一个正整数时，组件尺寸会具有弹性，并根据具体的 flex 值来按比例分配。比如两个组件在同一个父容器中，一个`flex`为 2，另一个`flex`为 1，则两者的尺寸比为 2：1。 `flex: <positive number>` equates to `flexGrow: <positive number>, flexShrink: 1, flexBasis: 0`.
 
 当`flex`为 0 时，组件尺寸由`width`和`height`决定，此时不再具有弹性。
 
@@ -475,7 +475,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 ### `overflow`
 
-`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). 访问<https://developer.mozilla.org/en/docs/Web/CSS/overflow>来进一步了解。 `overflow: visible` only works on iOS. On Android, all views will clip their children.
+`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). 访问<https://developer.mozilla.org/en/docs/Web/CSS/overflow>来进一步了解。
 
 | 类型                                | 必填 |
 | ----------------------------------- | ---- |

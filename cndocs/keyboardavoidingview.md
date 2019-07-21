@@ -46,6 +46,8 @@ import { KeyboardAvoidingView } from 'react-native';
 
 ### `behavior`
 
+Specify how to react to the presence of the keyboard.
+
 _注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能不指定此属性更好，而 iOS 可能相反。_
 
 | 类型                                  | 必填 |

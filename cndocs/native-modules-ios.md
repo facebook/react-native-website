@@ -64,7 +64,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 
 现在从 Javascript 里可以这样调用这个方法：
 
-```javascript
+```jsx
 import {NativeModules} from 'react-native';
 const CalendarManager = NativeModules.CalendarManager;
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
@@ -124,7 +124,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 
 对应 JavaScript 端既可以这样：
 
-```javascript
+```jsx
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
@@ -134,7 +134,7 @@ CalendarManager.addEvent(
 
 也可以这样：
 
-```javascript
+```jsx
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
@@ -159,7 +159,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name details:(NSDictionary *)details)
 
 然后在 JS 里这样调用：
 
-```javascript
+```jsx
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.getTime(),
@@ -189,7 +189,7 @@ RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
 
 `RCTResponseSenderBlock`只接受一个参数——传递给 JavaScript 回调函数的参数数组。在上面这个例子里我们用 Node.js 的常用习惯：第一个参数是一个错误对象（没有发生错误的时候为 null），而剩下的部分是函数的返回值。
 
-```javascript
+```jsx
 CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
@@ -228,7 +228,7 @@ RCT_REMAP_METHOD(findEvents
 
 现在 JavaScript 端的方法会返回一个 Promise。这样你就可以在一个声明了`async`的异步函数内使用`await`关键字来调用，并等待其结果返回。（虽然这样写着看起来像同步操作，但实际仍然是异步的，并不会阻塞执行来等待）。
 
-```javascript
+```jsx
 async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
@@ -310,7 +310,7 @@ RCTRootView *rootView = [[RCTRootView alloc]
 
 JavaScript 端可以随时同步地访问这个数据：
 
-```javascript
+```jsx
 console.log(CalendarManager.firstDayOfTheWeek);
 ```
 
@@ -408,7 +408,7 @@ RCT_EXPORT_MODULE();
 
 JavaScript 端的代码可以创建一个包含你的模块的`NativeEventEmitter`实例来订阅这些事件。
 
-```javascript
+```jsx
 import { NativeEventEmitter, NativeModules } from 'react-native';
 const { CalendarManager } = NativeModules;
 

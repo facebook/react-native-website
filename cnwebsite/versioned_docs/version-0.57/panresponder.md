@@ -44,7 +44,7 @@ onPanResponderMove: (event, gestureState) => {}
 
 ### 基本用法
 
-```javascript
+```jsx
   componentWillMount: function() {
     this._panResponder = PanResponder.create({
       // 要求成为响应者：
@@ -102,7 +102,7 @@ onPanResponderMove: (event, gestureState) => {}
 
 ### `create()`
 
-```javascript
+```jsx
 static create(config)
 ```
 

@@ -10,7 +10,7 @@ original_id: alertios
 
 这个API主要用于需要iOS特有功能的场景，比如提示用户输入一些信息等。其他情况下，尤其是仅仅显示一个静态的提示框时，应该使用跨平台的[`Alert`](alert.html)接口。
 
-```javascript
+```jsx
 AlertIOS.alert(
   'Foo Title',
   'My Alert Msg',
@@ -42,7 +42,7 @@ AlertIOS.alert(
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

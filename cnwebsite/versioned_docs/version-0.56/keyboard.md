@@ -59,7 +59,7 @@ class Example extends Component {
 
 ### `addListener()`
 
-```javascript
+```jsx
 static addListener(eventName, callback)
 ```
 
@@ -84,7 +84,7 @@ static addListener(eventName, callback)
 
 ### `removeListener()`
 
-```javascript
+```jsx
 static removeListener(eventName, callback)
 ```
 
@@ -97,7 +97,7 @@ static removeListener(eventName, callback)
 
 ### `removeAllListeners()`
 
-```javascript
+```jsx
 static removeAllListeners(eventName)
 ```
 
@@ -109,7 +109,7 @@ static removeAllListeners(eventName)
 
 ### `dismiss()`
 
-```javascript
+```jsx
 static dismiss()
 ```
 

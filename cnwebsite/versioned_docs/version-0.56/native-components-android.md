@@ -102,7 +102,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
 整个过程的最后一步就是创建 JavaScript 模块并且定义 Java 和 JavaScript 之间的接口层。我们建议你使用 Flow 或是 TypeScript 来规范定义接口的具体结构，或者至少用注释说明清楚（老版本的 RN 使用`propTypes`来规范接口定义，这一做法已不再支持）。
 
-```javascript
+```jsx
 // ImageView.js
 
 import { requireNativeComponent } from "react-native";
@@ -157,7 +157,7 @@ public class ReactImageManager extends SimpleViewManager<MyCustomView> {
 
 这个回调会传递一个原生事件对象，一般来说我们会在封装组件里进行处理以便外部使用：
 
-```javascript
+```jsx
 // MyCustomView.js
 
 class MyCustomView extends React.Component {

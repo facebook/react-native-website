@@ -147,7 +147,7 @@ protected List<ReactPackage> getPackages() {
 
 为了让你的功能从 JavaScript 端访问起来更为方便，通常我们都会把原生模块封装成一个 JavaScript 模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。这个 JS 文件也可以用于添加一些其他 JavaScript 端实现的功能。
 
-```javascript
+```jsx
 // ToastExample.js
 /**
  * This exposes the native ToastExample module as a JS module. This has a
@@ -165,7 +165,7 @@ module.exports = NativeModules.ToastExample;
 
 现在，在别处的 JavaScript 代码中可以这样调用你的方法：
 
-```javascript
+```jsx
 import ToastExample from "./ToastExample";
 
 ToastExample.show("Awesome", ToastExample.SHORT);
@@ -207,7 +207,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 这个函数可以在 JavaScript 里这样使用：
 
-```javascript
+```jsx
 UIManager.measureLayout(
   100,
   100,
@@ -267,7 +267,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 现在 JavaScript 端的方法会返回一个 Promise。这样你就可以在一个声明了`async`的异步函数内使用`await`关键字来调用，并等待其结果返回。（虽然这样写着看起来像同步操作，但实际仍然是异步的，并不会阻塞执行来等待）。
 
-```javascript
+```jsx
 async function measureLayout() {
   try {
     var { relativeX, relativeY, width, height } = await UIManager.measureLayout(
@@ -309,7 +309,7 @@ sendEvent(reactContext, "keyboardWillShow", params);
 
 JavaScript 模块可以通过使用`DeviceEventEmitter`模块来监听事件：
 
-```javascript
+```jsx
 import { DeviceEventEmitter } from 'react-native';
 
 // ...

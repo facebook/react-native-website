@@ -134,7 +134,7 @@ JavaScript 线程的性能在开发模式下是很糟糕的。这是不可避免
 
 有些时候，如果我们有一项操作与点击事件所带来的透明度改变或者高亮效果发生在同一帧中，那么有可能在`onPress`函数结束之前我们都看不到这些效果。比如在`onPress`执行了一个`setState`的操作，这个操作需要大量计算工作并且导致了掉帧。对此的一个解决方案是将`onPress`处理函数中的操作封装到`requestAnimationFrame`中：
 
-```javascript
+```jsx
 handleOnPress() {
   // 谨记在使用requestAnimationFrame、setTimeout以及setInterval时
   // 要使用TimerMixin（其作用是在组件unmount时，清除所有定时器）

@@ -8,7 +8,7 @@ original_id: backandroid
 
 例子：
 
-```javascript
+```jsx
 BackAndroid.addEventListener('hardwareBackPress', function() {
      if (!this.onMainScreen()) { 
        this.goBack();

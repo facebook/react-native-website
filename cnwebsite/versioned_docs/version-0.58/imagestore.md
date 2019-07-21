@@ -21,7 +21,7 @@ original_id: imagestore
 
 ### `hasImageForTag()`
 
-```javascript
+```jsx
 static hasImageForTag(uri, callback)
 ```
 
@@ -31,7 +31,7 @@ static hasImageForTag(uri, callback)
 
 ### `removeImageForTag()`
 
-```javascript
+```jsx
 static removeImageForTag(uri)
 ```
 
@@ -41,7 +41,7 @@ static removeImageForTag(uri)
 
 ### `addImageFromBase64()`
 
-```javascript
+```jsx
 static addImageFromBase64(base64ImageData, success, failure)
 ```
 
@@ -53,7 +53,7 @@ static addImageFromBase64(base64ImageData, success, failure)
 
 ### `getBase64ForTag()`
 
-```javascript
+```jsx
 static getBase64ForTag(uri, success, failure)
 ```
 

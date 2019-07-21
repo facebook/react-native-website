@@ -8,7 +8,7 @@ original_id: images
 
 从0.14版本开始，React Native提供了一个统一的方式来管理iOS和Android应用中的图片。要往App中添加一个静态图片，只需把图片文件放在代码文件夹中某处，然后像下面这样去引用它：
 
-```javascript
+```jsx
 <Image source={require('./my-icon.png')} />
 ```
 
@@ -26,7 +26,7 @@ original_id: images
 
 并且`button.js`里有这样的代码：
 
-```javascript
+```jsx
 <Image source={require('./img/check.png')} />
 ```
 
@@ -46,7 +46,7 @@ _注意_：如果你添加图片的时候packager正在运行，可能需要重�
 
 注意：为了使新的图片资源机制正常工作，require中的图片名字必须是一个静态字符串。  
 
-```javascript
+```jsx
 // 正确
 <Image source={require('./my-icon.png')} />
 
@@ -65,7 +65,7 @@ var icon = this.props.active ? require('./my-icon-active.png') : require('./my-i
 
 如果你在编写一个混合App（一部分UI使用React Native，而另一部分使用平台原生代码），也可以使用已经打包到App中的图片资源（通过Xcode的asset类目或者Android的drawable文件夹打包）：
 
-```javascript
+```jsx
 <Image source={{uri: 'app_icon'}} style={{width: 40, height: 40}} />
 ```
 
@@ -76,7 +76,7 @@ var icon = this.props.active ? require('./my-icon-active.png') : require('./my-i
 
 很多要在App中显示的图片并不能在编译的时候获得，又或者有时候需要动态载入来减少打包后的二进制文件的大小。这些时候，与静态资源不同的是，`你需要手动指定图片的尺寸`。
 
-```javascript
+```jsx
 // 正确
 <Image source={{uri: 'https://facebook.github.io/react/img/logo_og.png'}}
        style={{width: 400, height: 400}} />
@@ -101,7 +101,7 @@ iOS会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 比如这样一个引用`require('image!logo')`的实际输出结果可能是：
 
-```javascript
+```jsx
 {"__packager_asset":true,"isStatic":true,"path":"/Users/react/HelloWorld/iOS/Images.xcassets/react.imageset/logo.png","uri":"logo","width":591,"height":573}
 ```
 
@@ -109,7 +109,7 @@ iOS会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 在React Native中，另一个值得一提的变动是我们把`src`属性改为了`source`属性，而且并不接受字符串，正确的值是一个带有`uri`属性的对象。 
 
-```javascript
+```jsx
 <Image source={{uri: 'something.jpg'}} />
 ```
 
@@ -121,7 +121,7 @@ iOS会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 开发者们常面对的一种需求就是类似web中的背景图（`background-image`）。要实现这一用例，只需简单地创建一个`<Image>`组件，然后把需要背景图的子组件嵌入其中即可。
 
-```javascript
+```jsx
 return (
   <Image source={...}>
     <Text>Inside</Text>

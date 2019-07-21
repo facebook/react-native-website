@@ -39,7 +39,7 @@ try {
 
 ### `open()`
 
-```javascript
+```jsx
 static open(options)
 ```
 
@@ -61,7 +61,7 @@ static open(options)
 
 ### `timeSetAction()`
 
-```javascript
+```jsx
 static timeSetAction()
 ```
 
@@ -71,7 +71,7 @@ static timeSetAction()
 
 ### `dismissedAction()`
 
-```javascript
+```jsx
 static dismissedAction()
 ```
 

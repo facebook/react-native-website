@@ -10,7 +10,7 @@ original_id: touchablenativefeedback
 
 例子：
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableNativeFeedback

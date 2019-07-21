@@ -20,7 +20,7 @@ original_id: imagepickerios
 
 ### `canRecordVideos()`
 
-```javascript
+```jsx
 static canRecordVideos(callback)
 ```
 
@@ -28,7 +28,7 @@ static canRecordVideos(callback)
 
 ### `canUseCamera()`
 
-```javascript
+```jsx
 static canUseCamera(callback)
 ```
 
@@ -36,7 +36,7 @@ static canUseCamera(callback)
 
 ### `openCameraDialog()`
 
-```javascript
+```jsx
 static openCameraDialog(config, successCallback, cancelCallback)
 ```
 
@@ -44,6 +44,6 @@ static openCameraDialog(config, successCallback, cancelCallback)
 
 ### `openSelectDialog()`
 
-```javascript
+```jsx
 static openSelectDialog(config, successCallback, cancelCallback)
 ```

@@ -23,7 +23,7 @@ original_id: sectionlist
 
 简单的例子：
 
-```javascript
+```jsx
 // Example 1 (Homogeneous Rendering)
 <SectionList
   renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
@@ -39,7 +39,7 @@ original_id: sectionlist
 />
 ```
 
-```javascript
+```jsx
 // Example 2 (Heterogeneous Rendering / No Section Headers)
 const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
 
@@ -346,7 +346,7 @@ This may improve scroll performance for large lists.
 
 ### `scrollToLocation()`
 
-```javascript
+```jsx
 scrollToLocation(params);
 ```
 
@@ -372,7 +372,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -382,7 +382,7 @@ recordInteraction();
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

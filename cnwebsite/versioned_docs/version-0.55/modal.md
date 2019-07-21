@@ -7,7 +7,7 @@ original_id: modal
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
-```javascript
+```jsx
 import React, { Component } from "react";
 import { Modal, Text, TouchableHighlight, View } from "react-native";
 

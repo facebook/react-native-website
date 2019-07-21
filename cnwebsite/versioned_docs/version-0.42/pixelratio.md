@@ -12,7 +12,7 @@ PixelRatio类提供了访问设备的像素密度的方法。
 
 如果应用运行在一个高像素密度的设备上，显示的图片也应当分辨率更高。一个取得缩略图的好规则就是将显示尺寸乘以像素密度比：
 
-```javascript
+```jsx
 var image = getImage({
   width: PixelRatio.getPixelSizeForLayoutSize(200),
   height: PixelRatio.getPixelSizeForLayoutSize(100),

@@ -18,7 +18,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 ### 查看Props
 
 * [View props...](view.md#props)
-
+- [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
 - [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
 - [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
 - [`disableScrollViewPanResponder`](scrollview.md#disablescrollviewpanresponder)
@@ -80,6 +80,16 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 # 文档
 
 ## Props
+
+### `alwaysBounceHorizontal`
+
+When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself. The default value is true when `horizontal={true}` and false otherwise.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
+
+---
 
 ### `alwaysBounceVertical`
 
@@ -616,7 +626,7 @@ Use in conjuction with `snapToOffsets`. By default, the end of the list counts a
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(
   ([y]: number),
   object,
@@ -640,7 +650,7 @@ scrollTo(
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
@@ -652,7 +662,7 @@ scrollToEnd(([options]: {animated: boolean, duration: number}));
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(y, x);
 ```
 
@@ -662,7 +672,7 @@ Deprecated, use `scrollTo` instead.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

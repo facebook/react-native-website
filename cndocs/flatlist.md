@@ -14,15 +14,20 @@ title: FlatList
 * 支持下拉刷新。
 * 支持上拉加载。
 * 支持跳转到指定行（ScrollToIndex）。
+* 支持多列布局。
 
 如果需要分组/类/区（section），请使用[`<SectionList>`](sectionlist.md).
 
 一个最简单的例子：
 
-    <FlatList
-      data={[{key: 'a'}, {key: 'b'}]}
-      renderItem={({item}) => <Text>{item.key}</Text>}
-    />
+```jsx
+  <FlatList
+    data={[{key: 'a'}, {key: 'b'}]}
+    renderItem={({item}) => <Text>{item.key}</Text>}
+  />
+```
+
+To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
 下面是一个较复杂的例子，其中演示了如何利用`PureComponent`来进一步优化性能和减少 bug 产生的可能（以下这段文字需要你深刻理解 shouldComponentUpdate 的机制，以及 Component 和 PureComponent 的不同，所以如果不了解就先跳过吧）。
 
@@ -127,12 +132,14 @@ title: FlatList
 
 ### 查看方法
 
+- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
+- [`getScrollResponder`](flatlist.md#getScrollResponder)
+- [`getScrollableNode`](flatlist.md#getScrollableNode)
 * [`scrollToEnd`](flatlist.md#scrolltoend)
 * [`scrollToIndex`](flatlist.md#scrolltoindex)
 * [`scrollToItem`](flatlist.md#scrolltoitem)
 * [`scrollToOffset`](flatlist.md#scrolltooffset)
 * [`recordInteraction`](flatlist.md#recordinteraction)
-* [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
 
 ---
 
@@ -142,8 +149,8 @@ title: FlatList
 
 ### `renderItem`
 
-```javascript
-renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
+```jsx
+renderItem({item, index, separators});
 ```
 
 从`data`中挨个取出数据并渲染到列表中。
@@ -154,15 +161,24 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 | -------- | ---- |
 | function | 是   |
 
+- `item` (Object): The item from `data` being rendered.
+- `index` (number): The index corresponding to this item in the `data` array.
+- `separators` (Object)
+  - `highlight` (Function)
+  - `unhighlight` (Function)
+  - `updateProps` (Function)
+    - `select` (enum('leading', 'trailing'))
+    - `newProps` (Object)
+
 示例：
 
-```javascript
+```jsx
 <FlatList
   ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
   )}
   data={[{title: 'Title Text', key: 'item1'}]}
-  renderItem={({item, separators}) => (
+  renderItem={({item, index, separators}) => (
     <TouchableHighlight
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
@@ -249,13 +265,13 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `getItemLayout`
 
-```javascript
+```jsx
 (data, index) => {length: number, offset: number, index: number}
 ```
 
 `getItemLayout`是一个可选的优化，用于避免动态测量内容尺寸的开销，不过前提是你可以提前知道内容的高度。如果你的行高是固定的，`getItemLayout`用起来就既高效又简单，类似下面这样：
 
-```javascript
+```jsx
   getItemLayout={(data, index) => (
     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   )}
@@ -311,7 +327,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `keyExtractor`
 
-```javascript
+```jsx
 (item: object, index: number) => string;
 ```
 
@@ -335,7 +351,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `onEndReached`
 
-```javascript
+```jsx
 (info: {distanceFromEnd: number}) => void
 ```
 
@@ -359,7 +375,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `onRefresh`
 
-```javascript
+```jsx
 () => void
 ```
 
@@ -373,7 +389,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `onViewableItemsChanged`
 
-```javascript
+```jsx
 (info: {
     viewableItems: array,
     changed: array,
@@ -453,7 +469,7 @@ At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThr
   Error: Changing viewabilityConfig on the fly is not supported`
 ```
 
-```javascript
+```jsx
 constructor (props) {
   super(props)
 
@@ -464,7 +480,7 @@ constructor (props) {
 }
 ```
 
-```javascript
+```jsx
 <FlatList
     viewabilityConfig={this.viewabilityConfig}
   ...
@@ -480,7 +496,7 @@ Percent of viewport that must be covered for a partially occluded item to count 
 
 #### itemVisiblePercentThreshold
 
-Similar to `viewAreaPercentThreshold`, but considers the percent of the item that is visible, rather than the fraction of the viewable area it covers.
+Similar to `viewAreaCoveragePercentThreshold`, but considers the percent of the item that is visible, rather than the fraction of the viewable area it covers.
 
 #### waitForInteraction
 
@@ -500,7 +516,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd([params]);
 ```
 
@@ -520,7 +536,7 @@ Valid `params` keys are:
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex(params);
 ```
 
@@ -545,7 +561,7 @@ Valid `params` keys are:
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem(params);
 ```
 
@@ -569,7 +585,7 @@ Valid `params` keys are:
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset(params);
 ```
 
@@ -590,7 +606,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -600,8 +616,28 @@ recordInteraction();
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 
 短暂地显示滚动指示器。
+
+---
+
+### `getScrollResponder()`
+
+```jsx
+getScrollResponder();
+```
+
+Provides a handle to the underlying scroll responder.
+
+---
+
+### `getScrollableNode()`
+
+```jsx
+getScrollableNode();
+```
+
+Provides a handle to the underlying scroll node.

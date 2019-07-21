@@ -10,7 +10,7 @@ original_id: animations
 
 `Animated`库使得开发者可以非常容易地实现各种各样的动画和交互方式，并且具备极高的性能。`Animated`仅关注动画的输入与输出声明，在其中建立一个可配置的变化函数，然后使用简单的`start/stop`方法来控制动画按顺序执行。下面是一个在加载时带有简单的弹跳动画的组件示例：
 
-```javascript
+```jsx
 class Playground extends React.Component {
   constructor(props: any) {
     super(props);
@@ -69,7 +69,7 @@ class Playground extends React.Component {
 
 多个动画可以通过`parallel`（同时执行）、`sequence`（顺序执行）、`stagger`和`delay`来组合使用。它们中的每一个都接受一个要执行的动画数组，并且自动在适当的时候调用start/stop。举个例子：
 
-```javascript
+```jsx
 Animated.sequence([            // 首先执行decay动画，结束后同时执行spring和twirl动画
   Animated.decay(position, {   // 滑行一段距离后停止
     velocity: {x: gestureState.vx, y: gestureState.vy}, // 根据用户的手势设置速度
@@ -92,7 +92,7 @@ Animated.sequence([            // 首先执行decay动画，结束后同时执�
 
 `Animated` API还有一个很强大的部分就是`interpolate`插值函数。它可以接受一个输入区间，然后将其映射到另一个的输出区间。下面是一个一个简单的从0-1区间到0-100区间的映射示例：
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [0, 1],
   outputRange: [0, 100],
@@ -101,7 +101,7 @@ value.interpolate({
 
 `interpolate`还支持定义多个区间段落，常用来定义静止区间等。举个例子，要让输入在接近-300时取相反值，然后在输入接近-100时到达0，然后在输入接近0时又回到1，接着一直到输入到100的过程中逐步回到0，最后形成一个始终为0的静止区间，对于任何大于100的输入都返回0。具体写法如下：
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
   outputRange: [300,    0, 1,   0,   0],
@@ -125,7 +125,7 @@ value.interpolate({
 
 `interpolate`还支持到字符串的映射，从而可以实现颜色以及带有单位的值的动画变换。例如你可以像下面这样实现一个旋转动画：
  
- ```javascript
+ ```jsx
  value.interpolate({
    inputRange: [0, 360],
    outputRange: ['0deg', '360deg']
@@ -138,7 +138,7 @@ value.interpolate({
 
 动画中所设的值还可以通过跟踪别的值得到。你只要把toValue设置成另一个动态值而不是一个普通数字就行了。比如我们可以用弹跳动画来实现聊天头像的闪动，又比如通过`timing`设置`duration:0`来实现快速的跟随。他们还可以使用插值来进行组合：
 
-```javascript
+```jsx
 Animated.spring(follower, {toValue: leader}).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
@@ -154,7 +154,7 @@ Animated.timing(opacity, {
 
 `Animated.event`是Animated API中与输入有关的部分，允许手势或其它事件直接绑定到动态值上。它通过一个结构化的映射语法来完成，使得复杂事件对象中的值可以被正确的解开。第一层是一个数组，允许同时映射多个值，然后数组的每一个元素是一个嵌套的对象。在下面的例子里，你可以发现`scrollX`被映射到了`event.nativeEvent.contentOffset.x`(`event`通常是回调函数的第一个参数)，并且`pan.x`和`pan.y`分别映射到`gestureState.dx`和`gestureState.dy`（`gestureState`是传递给`PanResponder`回调函数的第二个参数）。
 
-```javascript
+```jsx
 onScroll={Animated.event(
   [{nativeEvent: {contentOffset: {x: scrollX}}}]   // scrollX = e.nativeEvent.contentOffset.x
 )}
@@ -184,13 +184,13 @@ onPanResponderMove={Animated.event([
 注意尽管`LayoutAnimation`非常强大且有用，但它对动画本身的控制没有`Animated`或者其它动画库那样方便，所以如果你使用`LayoutAnimation`无法实现一个效果，那可能还是要考虑其他的方案。
 
 另外，如果要在**Android**上使用LayoutAnimation，那么目前还需要在`UIManager`中启用：
-```javascript
+```jsx
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
 ![](/img/LayoutAnimationExample.gif)
 
-```javascript
+```jsx
 var App = React.createClass({
   componentWillMount() {
     // 创建动画
@@ -241,7 +241,7 @@ var App = React.createClass({
 
 这个库并未随React Native一起发布——要在你的工程中使用它，则需要先在你的工程目录下执行`npm i react-tween-state --save`来安装。
 
-```javascript
+```jsx
 import tweenState from 'react-tween-state';
 import reactMixin from 'react-mixin'; // https://github.com/brigand/react-mixin
 
@@ -289,7 +289,7 @@ reactMixin.onClass(App, tweenState.Mixin);
 
 需要注意的是Rebound动画可以被中断——如果你在按下动画的过程中释放手指，它会从当前状态弹回初始值。
 
-```javascript
+```jsx
 var rebound = require('rebound');
 
 var App = React.createClass({
@@ -355,7 +355,7 @@ var App = React.createClass({
 
 我们可以把这个用在Rebound样例中来更新缩放比例——如果我们要更新的组件有一个非常深的内嵌结构，并且没有使用`shouldComponentUpdate`来优化，那么使用`setNativeProps`就将大有裨益。
 
-```javascript
+```jsx
 // 回到上面示例的那个组件中，找到componentWillMount方法，
 // 然后将scrollSpring的监听函数替换为如下代码:
 this._scrollSpring.addListener({
@@ -391,7 +391,7 @@ render: function() {
 
 正如文档[导航器对比](navigator-comparison.html#content)所说，`Navigator`使用JavaScript实现，而`NavigatoIOS`则是一个对于`UINavigationController`提供的原生功能的包装。所以这些场景切换动画仅仅对`Navigator`有效。为了在Navigator中重新创建`UINavigationController`所提供的动画并且使之可以被自定义，React Native导出了一个[NavigatorSceneConfigs](https://github.com/facebook/react-native/blob/master/Libraries/CustomComponents/Navigator/NavigatorSceneConfigs.js)API。
 
-```javascript
+```jsx
 import { Dimensions } from 'react-native';
 var SCREEN_WIDTH = Dimensions.get('window').width;
 var BaseConfig = Navigator.SceneConfigs.FloatFromRight;

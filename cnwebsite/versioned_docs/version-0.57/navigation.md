@@ -26,7 +26,7 @@ original_id: navigation
 
 ![](assets/NavigationStack-NavigatorIOS.gif)
 
-```javascript
+```jsx
 <NavigatorIOS
   initialRoute={{
     component: MyScene,
@@ -40,7 +40,7 @@ original_id: navigation
 
 由于`NavigatorIOS`使用的是原生的 UIKit 导航，所以它会自动渲染一个带有返回按钮和标题的导航栏。
 
-```javascript
+```jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { Button, NavigatorIOS, Text, View } from "react-native";

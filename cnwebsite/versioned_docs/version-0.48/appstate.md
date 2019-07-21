@@ -20,7 +20,7 @@ AppState通常在处理推送通知的时候用来决定内容和对应的行为
 
 要获取当前的状态，你可以使用`AppState.currentState`，这个变量会一直保持更新。不过在启动的过程中，`currentState`可能为null，直到`AppState`从原生代码得到通知为止。
 
-```javascript
+```jsx
 constructor(props) {
   super(props);
   this.state = {
@@ -75,7 +75,7 @@ render() {
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

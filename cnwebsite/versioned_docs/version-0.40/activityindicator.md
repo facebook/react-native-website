@@ -40,7 +40,7 @@ original_id: activityindicator
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

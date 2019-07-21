@@ -14,7 +14,7 @@ ToolbarAndroid是一个包装了仅限Android平台的`工具栏(Toolbar)`[部�
 
 例子：
 
-```javascript
+```jsx
 render: function() {
   return (
     <ToolbarAndroid
@@ -135,7 +135,7 @@ onActionSelected: function(position) {
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

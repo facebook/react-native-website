@@ -338,7 +338,7 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 在`index.js`中添加你自己的组件。这里我们只是简单的添加一个`<Text>`组件，然后用一个带有样式的`<View>`组件把它包起来。
 
-```javascript
+```jsx
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 
@@ -448,7 +448,7 @@ We will, for debugging purposes, log that the event handler was invoked. Then, w
 
 首先`import`导入`React`库。
 
-```javascript
+```jsx
 import React
 ```
 
@@ -625,7 +625,7 @@ Now we will actually modify the native Android application to integrate React Na
 
 在`index.js`中添加你自己的组件。这里我们只是简单的添加一个`<Text>`组件，然后用一个带有样式的`<View>`组件把它包起来。
 
-```javascript
+```jsx
 import React from 'react';
 import {AppRegistry, StyleSheet, Text, View} from 'react-native';
 

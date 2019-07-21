@@ -25,7 +25,7 @@ original_id: timers
 
 应用可以通过以下代码来安排一个任务，使其在交互结束之后执行：
 
-```javascript
+```jsx
 InteractionManager.runAfterInteractions(() => {
    // ...需要长时间同步执行的任务...
 });
@@ -41,7 +41,7 @@ InteractionManager.runAfterInteractions(() => {
 
 InteractionManager还允许应用注册动画，在动画开始时创建一个交互“句柄”，然后在结束的时候清除它。
 
-```javascript
+```jsx
 var handle = InteractionManager.createInteractionHandle();
 // 执行动画... (`runAfterInteractions`中的任务现在开始排队等候)
 // 在动画完成之后
@@ -55,7 +55,7 @@ InteractionManager.clearInteractionHandle(handle);
 
 这个库并没有跟着React Native一起发布。你需要在项目文件夹下输入`npm i react-timer-mixin --save`来单独安装它。
 
-```javascript
+```jsx
 var TimerMixin = require('react-timer-mixin');
 
 var Component = React.createClass({

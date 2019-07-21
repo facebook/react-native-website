@@ -129,7 +129,7 @@ Linking.canOpenURL(url).then(supported => {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -137,7 +137,7 @@ constructor();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -147,7 +147,7 @@ addEventListener(type, handler);
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -157,7 +157,7 @@ removeEventListener(type, handler);
 
 ### `openURL()`
 
-```javascript
+```jsx
 openURL(url);
 ```
 
@@ -181,7 +181,7 @@ openURL(url);
 
 ### `canOpenURL()`
 
-```javascript
+```jsx
 canOpenURL(url);
 ```
 
@@ -203,7 +203,7 @@ canOpenURL(url);
 
 ### `getInitialURL()`
 
-```javascript
+```jsx
 getInitialURL();
 ```
 

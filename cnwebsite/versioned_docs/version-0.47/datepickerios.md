@@ -65,7 +65,7 @@ original_id: datepickerios
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

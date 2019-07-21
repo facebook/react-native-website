@@ -19,7 +19,7 @@ iOS和Android都提供了便于残障人士无障碍使用App的API。此外，�
 
 在Android上，React Native视图的‘accessible={true}’属性会被转译为原生视图对应的‘focusable={true}’属性。
 
-```javascript
+```jsx
 <View accessible={true}>
   <Text>text one</Text>
   <Text >text two</Text>
@@ -36,7 +36,7 @@ iOS和Android都提供了便于残障人士无障碍使用App的API。此外，�
 
 设定`accessibilityLabel`属性并赋予一个字符串内容即可在视图中启用无障碍标签：
 
-```javascript
+```jsx
 <TouchableOpacity accessible={true} accessibilityLabel={'Tap me!'} onPress={this._onPress}>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
@@ -82,7 +82,7 @@ iOS和Android都提供了便于残障人士无障碍使用App的API。此外，�
 
 在某些情况下，我们也希望告知用户他选中的组件的类型（比如是个按钮）。如果我们使用的是原生按钮，这一行为会自动进行。但既然我们主要是使用javascript，则还需要为Android的TalkBack技术提供更多信息。要实现这一点，就必须为所有UI组件指定`accessibilityComponentType`属性。比如可以指定`button`，`radiobutton_checked`以及`radiobutton_unchecked`等值。
 
-```javascript
+```jsx
 <TouchableWithoutFeedback accessibilityComponentType=”button”
   onPress={this._onPress}>
   <View style={styles.button}>
@@ -101,7 +101,7 @@ iOS和Android都提供了便于残障人士无障碍使用App的API。此外，�
 * **polite** 辅助服务应该提醒用户当前视图的变化。
 * **assertive** 辅助服务应该立即打断当前的语音会话，提醒用户当前视图的变化。
 
-```javascript
+```jsx
 <TouchableWithoutFeedback onPress={this._addOne}>
   <View style={styles.embedded}>
     <Text>Click me</Text>
@@ -118,7 +118,7 @@ iOS和Android都提供了便于残障人士无障碍使用App的API。此外，�
 
 如果有两个UI组件同时层叠覆盖在父视图之上，那么默认的无障碍功能的焦点位置就可能难以预料。`importantForAccessibility`属性解决了这一问题，它可以控制某个视图是否触发无障碍功能事件，以及是否将其报告给辅助服务。具体值可以设置为`auto`，`yes`，`no`和`no-hide-descendants`（最后一个值会强制辅助服务忽略当前组件及其所有子组件）。
 
-```javascript
+```jsx
 <View style={styles.container}>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
     backgroundColor: 'green'}} importantForAccessibility=”yes”>
@@ -139,7 +139,7 @@ iOS和Android都提供了便于残障人士无障碍使用App的API。此外，�
 
 有时候需要在UI组件上主动触发一个无障碍功能的事件（比如当某个自定义的视图出现在屏幕上或是某个自定义的单选框被选中）。为此Native UIManager模块提供了一个`sendAccessibilityEvent`方法。它接受两个参数：view标签和事件类型。
 
-```javascript
+```jsx
 _onPress: function() {
   this.state.radioButton = this.state.radioButton === “radiobutton_checked” ?
   “radiobutton_unchecked” : “radiobutton_checked”;

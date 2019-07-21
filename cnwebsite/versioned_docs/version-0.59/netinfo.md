@@ -78,7 +78,7 @@ NetInfo.addEventListener(
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 NetInfo.addEventListener(eventName, handler);
 ```
 
@@ -102,7 +102,7 @@ NetInfo.addEventListener(eventName, handler);
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 NetInfo.removeEventListener(eventName, handler);
 ```
 
@@ -119,7 +119,7 @@ NetInfo.removeEventListener(eventName, handler);
 
 ### `getConnectionInfo()`
 
-```javascript
+```jsx
 NetInfo.getConnectionInfo();
 ```
 
@@ -129,7 +129,7 @@ NetInfo.getConnectionInfo();
 
 ### `isConnectionExpensive()`
 
-```javascript
+```jsx
 NetInfo.isConnectionExpensive();
 ```
 

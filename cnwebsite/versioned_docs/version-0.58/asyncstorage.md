@@ -71,7 +71,7 @@ _retrieveData = async () => {
 
 ### `getItem()`
 
-```javascript
+```jsx
 static getItem(key: string, [callback]: ?(error: ?Error, result: ?string) => void)
 ```
 
@@ -88,7 +88,7 @@ static getItem(key: string, [callback]: ?(error: ?Error, result: ?string) => voi
 
 ### `setItem()`
 
-```javascript
+```jsx
 static setItem(key: string, value: string, [callback]: ?(error: ?Error) => void)
 ```
 
@@ -106,7 +106,7 @@ static setItem(key: string, value: string, [callback]: ?(error: ?Error) => void)
 
 ### `removeItem()`
 
-```javascript
+```jsx
 static removeItem(key: string, [callback]: ?(error: ?Error) => void)
 ```
 
@@ -123,7 +123,7 @@ static removeItem(key: string, [callback]: ?(error: ?Error) => void)
 
 ### `mergeItem()`
 
-```javascript
+```jsx
 static mergeItem(key: string, value: string, [callback]: ?(error: ?Error) => void)
 ```
 
@@ -141,7 +141,7 @@ static mergeItem(key: string, value: string, [callback]: ?(error: ?Error) => voi
 
 示例：
 
-```javascript
+```jsx
 let UID123_object = {
   name: "Chris",
   age: 30,
@@ -170,7 +170,7 @@ AsyncStorage.setItem("UID123", JSON.stringify(UID123_object), () => {
 
 ### `clear()`
 
-```javascript
+```jsx
 static clear([callback]: ?(error: ?Error) => void)
 ```
 
@@ -186,7 +186,7 @@ static clear([callback]: ?(error: ?Error) => void)
 
 ### `getAllKeys()`
 
-```javascript
+```jsx
 static getAllKeys([callback]: ?(error: ?Error, keys: ?Array<string>) => void)
 ```
 
@@ -202,7 +202,7 @@ static getAllKeys([callback]: ?(error: ?Error, keys: ?Array<string>) => void)
 
 ### `flushGetRequests()`
 
-```javascript
+```jsx
 static flushGetRequests(): [object Object]
 ```
 
@@ -212,7 +212,7 @@ static flushGetRequests(): [object Object]
 
 ### `multiGet()`
 
-```javascript
+```jsx
 static multiGet(keys: Array<string>, [callback]: ?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void)
 ```
 
@@ -233,7 +233,7 @@ multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 示例：
 
-```javascript
+```jsx
 AsyncStorage.getAllKeys((err, keys) => {
   AsyncStorage.multiGet(keys, (err, stores) => {
     stores.map((result, i, store) => {
@@ -249,7 +249,7 @@ AsyncStorage.getAllKeys((err, keys) => {
 
 ### `multiSet()`
 
-```javascript
+```jsx
 static multiSet(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
@@ -272,7 +272,7 @@ multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
 
 ### `multiRemove()`
 
-```javascript
+```jsx
 static multiRemove(keys: Array<string>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
@@ -287,7 +287,7 @@ static multiRemove(keys: Array<string>, [callback]: ?(errors: ?Array<Error>) => 
 
 示例：
 
-```javascript
+```jsx
 let keys = ["k1", "k2"];
 AsyncStorage.multiRemove(keys, err => {
   // 如果k1,k2字段值存在的话就会被删除
@@ -298,7 +298,7 @@ AsyncStorage.multiRemove(keys, err => {
 
 ### `multiMerge()`
 
-```javascript
+```jsx
 static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
@@ -315,7 +315,7 @@ static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Ar
 
 示例：
 
-```javascript
+```jsx
 // 第一个用户的初始数据
 let UID234_object = {
   name: "Chris",

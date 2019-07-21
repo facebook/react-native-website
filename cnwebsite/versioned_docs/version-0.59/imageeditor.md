@@ -18,7 +18,7 @@ original_id: imageeditor
 
 ### `cropImage()`
 
-```javascript
+```jsx
 static cropImage(uri, cropData, success, failure)
 ```
 
@@ -33,7 +33,7 @@ static cropImage(uri, cropData, success, failure)
 * `displaySize (optional)` - Size to which you want to scale the cropped image
 * `resizeMode (optional)` - Resizing mode to use when scaling the image
 
-```javascript
+```jsx
 cropData = {
   offset: {x: number, y: number},
   size: {width: number, height: number},

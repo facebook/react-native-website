@@ -10,7 +10,7 @@ original_id: listviewdatasource
 
 在下面这个例子中，一个组件在分块接受数据，这些数据由`_onDataArrived`方法处理——将新数据拼接（concat）到旧数据尾部，同时使用clone方法更新DataSource。我们使用concat方法来修改`this._data`以创建新数组，注意不能使用push方法拼接数组。实现`_rowHasChanged`方法需要透彻了解行数据的结构，以便提供高效的比对策略。
 
-```javascript
+```jsx
 constructor(props) {
   super(props);
   var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

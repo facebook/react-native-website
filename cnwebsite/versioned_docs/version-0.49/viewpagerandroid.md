@@ -10,7 +10,7 @@ original_id: viewpagerandroid
 
 例子：
 
-```javascript
+```jsx
 render: function() {
   return (
     <ViewPagerAndroid
@@ -112,7 +112,7 @@ var styles = {
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

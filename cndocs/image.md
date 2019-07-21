@@ -71,7 +71,7 @@ dependencies {
   implementation 'com.facebook.fresco:animated-base-support:1.10.0'
 
   // 如果你需要支持GIF动图
-  implementation 'com.facebook.fresco:animated-gif:1.10.0'
+  implementation 'com.facebook.fresco:animated-gif:1.12.0'
 
   // 如果你需要支持WebP格式，包括WebP动图
   implementation 'com.facebook.fresco:animated-webp:1.10.0'
@@ -251,9 +251,9 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 图片源数据（远程 URL 地址或本地数据）。
 
-This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache.
+This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
-目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。
+目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
 
 | 类型                | 必填 |
 | ------------------- | ---- |
@@ -405,7 +405,7 @@ Android only. When true, enables progressive jpeg streaming. https://frescolib.o
 
 ### `getSize()`
 
-```javascript
+```jsx
 Image.getSize(uri, success, [failure]);
 ```
 
@@ -427,7 +427,7 @@ Image.getSize(uri, success, [failure]);
 
 ### `getSizeWithHeaders()`
 
-```javascript
+```jsx
 Image.getSizeWithHeaders(uri, headers, success, [failure]);
 ```
 
@@ -450,7 +450,7 @@ Does not work for static image resources.
 
 ### `prefetch()`
 
-```javascript
+```jsx
 Image.prefetch(url);
 ```
 
@@ -466,7 +466,7 @@ Image.prefetch(url);
 
 ### `abortPrefetch()`
 
-```javascript
+```jsx
 Image.abortPrefetch(requestId);
 ```
 
@@ -482,7 +482,7 @@ Image.abortPrefetch(requestId);
 
 ### `queryCache()`
 
-```javascript
+```jsx
 Image.queryCache(urls);
 ```
 
@@ -498,7 +498,7 @@ Image.queryCache(urls);
 
 ### `resolveAssetSource()`
 
-```javascript
+```jsx
 Image.resolveAssetSource(source);
 ```
 

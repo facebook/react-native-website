@@ -5,11 +5,12 @@ title: PickerIOS
 
 ### Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`itemStyle`](pickerios.md#itemstyle)
-- [`onValueChange`](pickerios.md#onvaluechange)
-- [`selectedValue`](pickerios.md#selectedvalue)
+* [`itemStyle`](pickerios.md#itemstyle)
+* [`onValueChange`](pickerios.md#onvaluechange)
+* [`onChange`](pickerios.md#onChange)
+* [`selectedValue`](pickerios.md#selectedvalue)
 
 ---
 
@@ -20,21 +21,29 @@ title: PickerIOS
 ### `itemStyle`
 
 | 类型                               | 必填 |
-| ---------------------------------- | -------- |
-| [text styles](text-style-props.md) | 否       |
+| ---------------------------------- | ---- |
+| [text styles](text-style-props.md) | 否   |
 
 ---
 
 ### `onValueChange`
 
 | 类型     | 必填 |
+| -------- | ---- |
+| function | 否   |
+
+---
+
+### `onChange`
+
+| Type     | Required |
 | -------- | -------- |
-| function | 否       |
+| function | No       |
 
 ---
 
 ### `selectedValue`
 
-| 类型 | 必填 |
-| ---- | -------- |
-| any  | 否       |
+| 类型             | 必填 |
+| ---------------- | ---- |
+| number or string | 否   |

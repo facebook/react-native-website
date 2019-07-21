@@ -45,14 +45,14 @@ original_id: debugging
 和红屏报警类似，你可以使用`console.warn()`来手动触发黄屏警告。
 在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：
 
-```javascript
+```jsx
 console.disableYellowBox = true;
 console.warn('YellowBox is disabled.');
 ```
 
 你也可以通过代码屏蔽指定的警告，像下面这样调用ignoreWarnings方法，参数为一个数组：
 
-```javascript
+```jsx
 YellowBox.ignoreWarnings(['Warning: ']);
 ```
 

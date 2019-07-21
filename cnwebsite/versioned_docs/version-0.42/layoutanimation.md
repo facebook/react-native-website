@@ -11,7 +11,7 @@ original_id: layoutanimation
 
 
 注意：目前如果要在**Android**上使用LayoutAnimation，那么还需要在`UIManager`中明确启用：
-```javascript
+```jsx
 UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 

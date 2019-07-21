@@ -7,7 +7,7 @@ title: AccessibilityInfo
 
 下面是一个使用`AccessibilityInfo`的小例子:
 
-```javascript
+```jsx
 class AccessibilityStatusExample extends React.Component {
   state = {
     reduceMotionEnabled: false,
@@ -90,31 +90,31 @@ class AccessibilityStatusExample extends React.Component {
 
 ### `isBoldTextEnabled()`
 
-```javascript
+```jsx
 static isBoldTextEnabled()
 ```
 
-iOS-Only. Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
+**iOS-Only.** Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
 
 ### `isGrayscaleEnabled()`
 
-```javascript
+```jsx
 static isGrayscaleEnabled()
 ```
 
-Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
+**iOS-Only.** Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
 
 ### `isInvertColorsEnabled()`
 
-```javascript
+```jsx
 static isInvertColorsEnabled()
 ```
 
-Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
+**iOS-Only.** Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
 
 ### `isReduceMotionEnabled()`
 
-```javascript
+```jsx
 static isReduceMotionEnabled()
 ```
 
@@ -122,15 +122,15 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ### `isReduceTransparencyEnabled()`
 
-```javascript
+```jsx
 static isReduceTransparencyEnabled()
 ```
 
-Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
+**iOS-Only.** Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
 
 ### `isScreenReaderEnabled()`
 
-```javascript
+```jsx
 static isScreenReaderEnabled()
 ```
 
@@ -140,7 +140,7 @@ static isScreenReaderEnabled()
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -160,7 +160,7 @@ static addEventListener(eventName, handler)
 
 ### `setAccessibilityFocus()`
 
-```javascript
+```jsx
 static setAccessibilityFocus(reactTag)
 ```
 
@@ -170,17 +170,17 @@ static setAccessibilityFocus(reactTag)
 
 ### `announceForAccessibility()`
 
-```javascript
+```jsx
 static announceForAccessibility(announcement)
 ```
 
-仅 iOS 可用。发送一个字符串给读屏应用朗读。
+发送一个字符串给读屏应用朗读。
 
 ---
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 

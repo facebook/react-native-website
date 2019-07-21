@@ -23,7 +23,7 @@ original_id: dimensions
 
 ### `set()`
 
-```javascript
+```jsx
 static set(dims)
 ```
 
@@ -35,7 +35,7 @@ static set(dims)
 
 ### `get()`
 
-```javascript
+```jsx
 static get(dim)
 ```
 
@@ -53,7 +53,7 @@ static get(dim)
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(type, handler)
 ```
 
@@ -65,7 +65,7 @@ Add an event handler. Supported events:
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(type, handler)
 ```
 

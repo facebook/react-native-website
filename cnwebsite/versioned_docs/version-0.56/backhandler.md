@@ -17,7 +17,7 @@ iOS：尚无作用。
 
 示例：
 
-```javascript
+```jsx
 BackHandler.addEventListener("hardwareBackPress", function() {
   // this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现！
 
@@ -31,7 +31,7 @@ BackHandler.addEventListener("hardwareBackPress", function() {
 
 在生命周期方法中使用的示例：
 
-```javascript
+```jsx
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
   }
@@ -48,7 +48,7 @@ BackHandler.addEventListener("hardwareBackPress", function() {
 
 在生命周期方法中使用的另一种写法：
 
-```javascript
+```jsx
   componentDidMount() {
     this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
       this.goBack(); // works best when the goBack is async
@@ -75,7 +75,7 @@ BackHandler.addEventListener("hardwareBackPress", function() {
 
 ### `exitApp()`
 
-```javascript
+```jsx
 static exitApp()
 ```
 
@@ -83,7 +83,7 @@ static exitApp()
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -91,6 +91,6 @@ static addEventListener(eventName, handler)
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```

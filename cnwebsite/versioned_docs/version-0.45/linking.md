@@ -12,7 +12,7 @@ original_id: linking
 
 如果你的应用被其注册过的外部url调起，则可以在任何组件内这样获取和处理它：
 
-```javascript
+```jsx
 componentDidMount() {
   Linking.getInitialURL().then((url) => {
     if (url) {
@@ -74,7 +74,7 @@ you'll need to add the following code as well:
 
 然后你的React组件就可以监听`Linking`的相关事件：
 
-```javascript
+```jsx
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
 },
@@ -91,12 +91,12 @@ _handleOpenURL(event) {
 
 要启动一个链接相对应的应用（打开浏览器、邮箱或者其它的应用），只需调用：
 
-```javascript
+```jsx
 Linking.openURL(url).catch(err => console.error('An error occurred', err));
 ```
 如果想在打开链接前先检查是否安装了对应的应用，则调用以下方法：
 
-```javascript
+```jsx
 Linking.canOpenURL(url).then(supported => {
   if (!supported) {
     console.log('Can\'t handle url: ' + url);

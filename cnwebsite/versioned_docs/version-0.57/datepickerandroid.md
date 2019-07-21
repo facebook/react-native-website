@@ -39,7 +39,7 @@ try {
 
 ### `open()`
 
-```javascript
+```jsx
 static open(options)
 ```
 
@@ -63,7 +63,7 @@ Note the native date picker dialog has some UI glitches on Android 4 and lower w
 
 ### `dateSetAction()`
 
-```javascript
+```jsx
 static dateSetAction()
 ```
 
@@ -73,7 +73,7 @@ static dateSetAction()
 
 ### `dismissedAction()`
 
-```javascript
+```jsx
 static dismissedAction()
 ```
 

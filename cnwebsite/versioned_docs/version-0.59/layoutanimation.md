@@ -43,7 +43,7 @@ UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationE
 
 ### `configureNext()`
 
-```javascript
+```jsx
 static configureNext(config, onAnimationDidEnd?)
 ```
 
@@ -66,7 +66,7 @@ static configureNext(config, onAnimationDidEnd?)
 
 ### `create()`
 
-```javascript
+```jsx
 static create(duration, type, creationProp)
 ```
 
@@ -76,7 +76,7 @@ static create(duration, type, creationProp)
 
 ### `checkConfig()`
 
-```javascript
+```jsx
 static checkConfig(config, location, name)
 ```
 

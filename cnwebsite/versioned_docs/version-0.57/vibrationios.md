@@ -26,7 +26,7 @@ original_id: vibrationios
 
 ### `vibrate()`
 
-```javascript
+```jsx
 static vibrate()
 ```
 

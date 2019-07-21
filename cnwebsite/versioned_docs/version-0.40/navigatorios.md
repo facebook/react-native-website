@@ -361,7 +361,7 @@ In the example above the navigation bar color is changed when the new route is p
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

@@ -11,7 +11,7 @@ See also [`Animated`](animated.md).
 
 ## 示例
 
-```javascript
+```jsx
 class DraggableView extends React.Component {
   constructor(props) {
     super(props);
@@ -70,7 +70,7 @@ class DraggableView extends React.Component {
 
 ### `setValue()`
 
-```javascript
+```jsx
 setValue(value);
 ```
 
@@ -86,7 +86,7 @@ Directly set the value. This will stop any animations running on the value and u
 
 ### `setOffset()`
 
-```javascript
+```jsx
 setOffset(offset);
 ```
 
@@ -102,7 +102,7 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 ### `flattenOffset()`
 
-```javascript
+```jsx
 flattenOffset();
 ```
 
@@ -112,7 +112,7 @@ Merges the offset value into the base value and resets the offset to zero. The f
 
 ### `extractOffset()`
 
-```javascript
+```jsx
 extractOffset();
 ```
 
@@ -122,7 +122,7 @@ Sets the offset value to the base value, and resets the base value to zero. The 
 
 ### `addListener()`
 
-```javascript
+```jsx
 addListener(callback);
 ```
 
@@ -140,7 +140,7 @@ Returns a string that serves as an identifier for the listener.
 
 ### `removeListener()`
 
-```javascript
+```jsx
 removeListener(id);
 ```
 
@@ -156,7 +156,7 @@ Unregister a listener. The `id` param shall match the identifier previously retu
 
 ### `removeAllListeners()`
 
-```javascript
+```jsx
 removeAllListeners();
 ```
 
@@ -166,7 +166,7 @@ Remove all registered listeners.
 
 ### `stopAnimation()`
 
-```javascript
+```jsx
 stopAnimation([callback]);
 ```
 
@@ -182,7 +182,7 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 ### `resetAnimation()`
 
-```javascript
+```jsx
 resetAnimation([callback]);
 ```
 
@@ -198,13 +198,13 @@ Stops any animation and resets the value to its original.
 
 ### `getLayout()`
 
-```javascript
+```jsx
 getLayout();
 ```
 
 Converts `{x, y}` into `{left, top}` for use in style, e.g.
 
-```javascript
+```jsx
 style={this.state.anim.getLayout()}
 ```
 
@@ -212,13 +212,13 @@ style={this.state.anim.getLayout()}
 
 ### `getTranslateTransform()`
 
-```javascript
+```jsx
 getTranslateTransform();
 ```
 
 Converts `{x, y}` into a useable translation transform, e.g.
 
-```javascript
+```jsx
 style={{
   transform: this.state.anim.getTranslateTransform()
 }}

@@ -54,7 +54,8 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "removing-default-permissions"
+      "removing-default-permissions",
+      "hermes"
     ],
     "组件": [
       "activityindicator",
@@ -77,7 +78,6 @@
       "sectionlist",
       "segmentedcontrolios",
       "slider",
-      "snapshotviewios",
       "statusbar",
       "switch",
       "text",
@@ -101,7 +101,6 @@
       "appregistry",
       "appstate",
       "asyncstorage",
-      "backandroid",
       "backhandler",
       "cameraroll",
       "clipboard",
@@ -111,14 +110,12 @@
       "geolocation",
       "imageeditor",
       "imagepickerios",
-      "imagestore",
       "image-style-props",
       "interactionmanager",
       "keyboard",
       "layout-props",
       "layoutanimation",
       "linking",
-      "netinfo",
       "panresponder",
       "permissionsandroid",
       "pixelratio",
@@ -133,7 +130,6 @@
       "toastandroid",
       "transforms",
       "vibration",
-      "vibrationios",
       "view-style-props"
     ]
   }

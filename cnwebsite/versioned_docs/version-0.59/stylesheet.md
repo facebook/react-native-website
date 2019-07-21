@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
 ### `setStyleAttributePreprocessor()`
 
-```javascript
+```jsx
 static setStyleAttributePreprocessor(property, process)
 ```
 
@@ -71,7 +71,7 @@ Sets a function to use to pre-process a style property value. This is used inter
 
 ### `create()`
 
-```javascript
+```jsx
 static create(obj)
 ```
 
@@ -81,7 +81,7 @@ Creates a StyleSheet style reference from the given object.
 
 ### `flatten`
 
-```javascript
+```jsx
 static flatten(style)
 ```
 
@@ -91,7 +91,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 
 Example:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -109,7 +109,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 
 Alternative use:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -132,7 +132,7 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 
 ### `hairlineWidth`
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
@@ -151,7 +151,7 @@ var styles = StyleSheet.create({
 
 A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
 
-```javascript
+```jsx
 const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFill,

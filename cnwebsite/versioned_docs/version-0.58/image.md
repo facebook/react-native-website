@@ -407,7 +407,7 @@ Android only. When true, enables progressive jpeg streaming. https://frescolib.o
 
 ### `getSize()`
 
-```javascript
+```jsx
 Image.getSize(uri, success, [failure]);
 ```
 
@@ -429,7 +429,7 @@ Image.getSize(uri, success, [failure]);
 
 ### `prefetch()`
 
-```javascript
+```jsx
 Image.prefetch(url);
 ```
 
@@ -445,7 +445,7 @@ Image.prefetch(url);
 
 ### `abortPrefetch()`
 
-```javascript
+```jsx
 Image.abortPrefetch(requestId);
 ```
 
@@ -461,7 +461,7 @@ Image.abortPrefetch(requestId);
 
 ### `queryCache()`
 
-```javascript
+```jsx
 Image.queryCache(urls);
 ```
 
@@ -477,7 +477,7 @@ Image.queryCache(urls);
 
 ### `resolveAssetSource()`
 
-```javascript
+```jsx
 Image.resolveAssetSource(source);
 ```
 

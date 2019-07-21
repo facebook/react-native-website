@@ -10,7 +10,7 @@ original_id: accessibilityinfo
 
 下面是一个使用`AccessibilityInfo`的小例子:
 
-```javascript
+```jsx
 class AccessibilityStatusExample extends React.Component {
   state = {
     reduceMotionEnabled: false,
@@ -93,7 +93,7 @@ class AccessibilityStatusExample extends React.Component {
 
 ### `isBoldTextEnabled()`
 
-```javascript
+```jsx
 static isBoldTextEnabled()
 ```
 
@@ -101,7 +101,7 @@ iOS-Only. Query whether a bold text is currently enabled. Returns a promise whic
 
 ### `isGrayscaleEnabled()`
 
-```javascript
+```jsx
 static isGrayscaleEnabled()
 ```
 
@@ -109,7 +109,7 @@ Query whether grayscale is currently enabled. Returns a promise which resolves t
 
 ### `isInvertColorsEnabled()`
 
-```javascript
+```jsx
 static isInvertColorsEnabled()
 ```
 
@@ -117,7 +117,7 @@ Query whether invert colors is currently enabled. Returns a promise which resolv
 
 ### `isReduceMotionEnabled()`
 
-```javascript
+```jsx
 static isReduceMotionEnabled()
 ```
 
@@ -125,7 +125,7 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ### `isReduceTransparencyEnabled()`
 
-```javascript
+```jsx
 static isReduceTransparencyEnabled()
 ```
 
@@ -133,7 +133,7 @@ Query whether reduce transparency is currently enabled. Returns a promise which 
 
 ### `isScreenReaderEnabled()`
 
-```javascript
+```jsx
 static isScreenReaderEnabled()
 ```
 
@@ -143,7 +143,7 @@ static isScreenReaderEnabled()
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -163,7 +163,7 @@ static addEventListener(eventName, handler)
 
 ### `setAccessibilityFocus()`
 
-```javascript
+```jsx
 static setAccessibilityFocus(reactTag)
 ```
 
@@ -173,7 +173,7 @@ static setAccessibilityFocus(reactTag)
 
 ### `announceForAccessibility()`
 
-```javascript
+```jsx
 static announceForAccessibility(announcement)
 ```
 
@@ -183,7 +183,7 @@ static announceForAccessibility(announcement)
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 

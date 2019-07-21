@@ -57,7 +57,7 @@ InteractionManager.clearInteractionHandle(handle);
 
 ### `runAfterInteractions()`
 
-```javascript
+```jsx
 static runAfterInteractions(task)
 ```
 
@@ -67,7 +67,7 @@ static runAfterInteractions(task)
 
 ### `createInteractionHandle()`
 
-```javascript
+```jsx
 static createInteractionHandle()
 ```
 
@@ -77,7 +77,7 @@ static createInteractionHandle()
 
 ### `clearInteractionHandle()`
 
-```javascript
+```jsx
 static clearInteractionHandle(handle)
 ```
 
@@ -87,7 +87,7 @@ static clearInteractionHandle(handle)
 
 ### `setDeadline()`
 
-```javascript
+```jsx
 static setDeadline(deadline)
 ```
 

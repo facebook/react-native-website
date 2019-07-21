@@ -43,7 +43,7 @@ RCT_EXPORT_MODULE()
 
 接下来你需要一些Javascript代码来让这个视图变成一个可用的React组件：
 
-```javascript
+```jsx
 // MapView.js
 
 var { requireNativeComponent } = require('react-native');
@@ -67,14 +67,14 @@ RCT_EXPORT_VIEW_PROPERTY(pitchEnabled, BOOL)
 
 现在要想禁用捏放操作，我们只需要在JS里设置对应的属性：
 
-```javascript
+```jsx
 // MyApp.js
 <MapView pitchEnabled={false} />
 ```
 
 但这样并不能很好的说明这个组件的用法——用户要想知道我们的组件有哪些属性可以用，以及可以取什么样的值，他不得不一路翻到Objective-C的代码。要解决这个问题，我们可以创建一个封装组件，并且通过`PropTypes`来说明这个组件的接口。
 
-```javascript
+```jsx
 // MapView.js
 import React, { Component, PropTypes } from 'react';
 import { requireNativeComponent } from 'react-native';
@@ -155,7 +155,7 @@ RCT_CONVERTER(CLLocationDistance, CLLocationDistance, doubleValue);
 
 为了完成`region`属性的支持，我们还需要在`propTypes`里添加相应的说明（否则我们会立刻收到一个错误提示），然后就可以像使用其他属性一样使用了：
 
-```javascript
+```jsx
 // MapView.js
 
 MapView.propTypes = {
@@ -205,7 +205,7 @@ MapView.propTypes = {
 
 有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个`onChange`属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上`Switch`的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在API之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是带上额外的`nativeOnly`参数，像这样：
 
-```javascript
+```jsx
 var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
   nativeOnly: { onChange: true }
 });
@@ -286,7 +286,7 @@ RCT_EXPORT_VIEW_PROPERTY(onChange, RCTBubblingEventBlock)
 如你所见，我们刚才通过继承`MKMapView`添加了事件处理函数，然后我们将`onChange`暴露出来，委托`RCTMapManager`代理其创建的所有视图。最后在委托方法`-mapView:regionDidChangeAnimated:`中，根据对应的视图调用事件处理函数并传递区域数据。调用`onChange`事件会触发JavaScript端的同名回调函数。这个回调会被原生事件执行，然后我们通常都会在封装组件里做一些处理，来使得API更简明：
 
 
-```javascript
+```jsx
 // MapView.js
 
 class MapView extends React.Component {
@@ -316,7 +316,7 @@ MapView.propTypes = {
 
 因为我们所有的视图都是`UIView`的子类，大部分的样式属性应该直接就可以生效。但有一部分组件会希望使用自己定义的默认样式，例如`UIDatePicker`希望自己的大小是固定的。这个默认属性对于布局算法的正常工作来说很重要，但我们也希望在使用这个组件的时候可以覆盖这些默认的样式。`DatePickerIOS`实现这个功能的办法是通过封装一个拥有弹性样式的额外视图，然后在内层的视图上应用一个固定样式（通过原生传递来的常数生成）：
 
-```javascript
+```jsx
 // DatePickerIOS.ios.js
 
 var RCTDatePickerIOSConsts = require('react-native').UIManager.RCTDatePicker.Constants;

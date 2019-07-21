@@ -22,7 +22,7 @@ original_id: navigation
 
 ![](/img/NavigationStack-NavigatorIOS.gif)
 
-```javascript
+```jsx
 <NavigatorIOS
   initialRoute={{
     component: MyScene,
@@ -36,7 +36,7 @@ original_id: navigation
 
 由于`NavigatorIOS`使用的是原生的UIKit导航，所以它会自动渲染一个带有返回按钮和标题的导航栏。
 
-```javascript
+```jsx
 import React, { Component, PropTypes } from 'react';
 import { NavigatorIOS, Text, TouchableHighlight, View } from 'react-native';
 
@@ -92,7 +92,7 @@ class MyScene extends Component {
 
 `Navigator`和`NavigatorIOS`都是有状态的组件。如果你在app中多处使用这些组件，那么维护工作就会变得非常麻烦。`NavigationExperimental`以不同的方式实现了导航，它可以使用任何视图来作为导航视图，同时还用到了规约函数（reducer）自顶向下地管理状态。正如名字中的`Experimental`所示，这一组件的整体实现具有一定的实验性，但我们仍然建议你尝试一下用它去更好地管理应用的导航。
 
-```javascript
+```jsx
 <NavigationCardStack
   onNavigateBack={onPopRouteFunc}
   navigationState={myNavigationState}
@@ -102,7 +102,7 @@ class MyScene extends Component {
 
 引入`NavigationExperimental`的步骤和React Native中的其他组件一样。在引入此组件之后，还可以进一步解构其中一些有用的子组件，比如这里我们会从中解构`NavigationCardStack`和 `NavigationStateUtils`这两个子组件。
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 import { NavigationExperimental } from 'react-native';
 
@@ -118,7 +118,7 @@ const {
 
 首先创建一个新组件，我们会把它作为根容器，并在这里定义初始状态。导航栈会定义在`navigationState`字段中，其中也包含了初始的路由定义：
 
-```javascript
+```jsx
 class BleedingEdgeApplication extends Component {
   constructor(props, context) {
     super(props, context);
@@ -155,7 +155,7 @@ NavigationExperimental内置了一些有用的规约函数（reducer），都放
 
 据此我们可以这样来编写`_onNavigationChange`函数，在其中判断"push"和"pop"的行为，并分别规约对应的状态。
 
-```javascript
+```jsx
 _onNavigationChange(type) {
   // 从state中解构出navigationState
   let {navigationState} = this.state;
@@ -196,7 +196,7 @@ Cool.我们已经触碰到了NavigationExperimental的精髓之所在。这里�
 
 为方便起见我们先定义一个Row（行）组件。其中显示了一些文字，并带有点击事件。
 
-```javascript
+```jsx
 class TappableRow extends Component {
   render() {
     return (
@@ -215,7 +215,7 @@ class TappableRow extends Component {
 
 现在来定义实际的场景。其中用到了一个ScrollView来显示一个垂直列表，第一行显示当前路由对象的key字段值，后两行用来点击后调用导航器的push和pop方法。
 
-```javascript
+```jsx
 class MyVeryComplexScene extends Component {
   render() {
     return (
@@ -241,7 +241,7 @@ class MyVeryComplexScene extends Component {
 
 我们之前已经定义了状态和管理状态的规约函数，现在可以创建导航器组件了。在写导航器的同时，我们可以使用当前路由的属性来配置场景并渲染它了。
 
-```javascript
+```jsx
 class MyVerySimpleNavigator extends Component {
 
   // 在这里绑定一些导航用的方法
@@ -284,7 +284,7 @@ class MyVerySimpleNavigator extends Component {
 
 差不多了！我已经可以闻到终点线的味道啦。现在把我们新做的导航器放到根容器中：
 
-```javascript
+```jsx
 class BleedingEdgeApplication extends Component {
 
   // 为了简化说明，这里省略了constructor和其他的方法
@@ -307,7 +307,7 @@ class BleedingEdgeApplication extends Component {
 
 (啊没错，我们忘了引入组件和样式。)
 
-```javascript
+```jsx
 import { NavigationExperimental, PixelRatio, ScrollView, StyleSheet, Text, TouchableHighlight } from 'react-native';
 
 const styles = StyleSheet.create({

@@ -14,7 +14,14 @@ const RemarkablePlugins = require('./core/RemarkablePlugins');
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const bbsUrl = 'http://bbs.reactnative.cn';
-const defaultVersionShown = '0.59';
+let communityRepos = [];
+try {
+  communityRepos = require('./community-repos.json');
+} catch (e) {
+  // We don't care if there are no repos synced locally
+  // We only care if we are on the CI server and about to deploy
+}
+const defaultVersionShown = '0.60';
 const siteConfig = {
   adData: {
     banner: {
@@ -32,12 +39,14 @@ const siteConfig = {
   repoUrl,
   defaultVersionShown,
   users: [],
+  communityRepos,
   editUrl:
     '//github.com/reactnativecn/react-native-website/blob/production/cndocs/',
   headerLinks: [
     {doc: 'getting-started', label: '文档'},
     // { href: "//ke.qq.com/course/197101", label: "课程", external: true },
     // { blog: true, label: "博客" },
+    {doc: 'activityindicator', label: 'API'},
     {
       href: '//bbs.reactnative.cn/category/3/blogs',
       external: true,
@@ -79,11 +88,17 @@ const siteConfig = {
   },
   gaTrackingId: 'UA-63485149-4',
   scripts: [
-    // "https://snack.expo.io/embed.js",
+    // 'https://snack.expo.io/embed.js',
     baseUrl + 'js/codeblocks.js',
+    baseUrl + 'js/tabs.js',
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',
+  scrollToTop: true,
+  scrollToTopOptions: {
+    zIndex: 100,
+  },
+  docsSideNavCollapsible: true,
 };
 
 module.exports = siteConfig;

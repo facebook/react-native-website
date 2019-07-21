@@ -414,7 +414,7 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

@@ -61,7 +61,7 @@ original_id: segmentedcontrolios
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

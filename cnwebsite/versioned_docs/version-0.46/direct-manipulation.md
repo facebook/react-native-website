@@ -14,7 +14,7 @@ original_id: direct-manipulation
 
 [TouchableOpacity](https://github.com/facebook/react-native/blob/master/Libraries/Components/Touchable/TouchableOpacity.js)这个组件就在内部使用了`setNativeProps`方法来更新其子组件的透明度：
 
-```javascript
+```jsx
 setOpacityTo: function(value) {
   // Redacted: animation related code
   this.refs[CHILD_REF].setNativeProps({
@@ -25,7 +25,7 @@ setOpacityTo: function(value) {
 
 由此我们可以写出下面这样的代码：子组件可以响应点击事件，更改自己的透明度。而子组件自身并不需要处理这件事情，也不需要在实现中做任何修改。
 
-```javascript
+```jsx
 <TouchableOpacity onPress={this._handlePress}>
   <View style={styles.button}>
     <Text>Press me!</Text>
@@ -35,7 +35,7 @@ setOpacityTo: function(value) {
 
 如果不使用`setNativeProps`这个方法来实现这一需求，那么一种可能的办法是把透明值保存到state中，然后在`onPress`事件触发时更新这个值：
 
-```javascript
+```jsx
 getInitialState() {
   return { myButtonOpacity: 1, }
 },
@@ -60,7 +60,7 @@ render() {
 
 复合组件并不是单纯的由一个原生视图构成，所以你不能对其直接使用`setNativeProps`。比如下面这个例子：
 
-```javascript
+```jsx
 var MyButton = React.createClass({
   render() {
     return (
@@ -91,7 +91,7 @@ must either be native or forward setNativeProps to a native component`.
 
 具体要做的就是在我们的自定义组件中再封装一个`setNativeProps`方法，其内容为对合适的子组件调用真正的`setNativeProps`方法，并传递要设置的参数。
 
-```javascript
+```jsx
 var MyButton = React.createClass({
   setNativeProps(nativeProps) {
     this._root.setNativeProps(nativeProps);

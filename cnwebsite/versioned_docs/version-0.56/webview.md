@@ -461,13 +461,13 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 ### `extraNativeComponentConfig()`
 
-```javascript
+```jsx
 static extraNativeComponentConfig()
 ```
 
 ### `goForward()`
 
-```javascript
+```jsx
 goForward();
 ```
 
@@ -475,7 +475,7 @@ Go forward one page in the web view's history.
 
 ### `goBack()`
 
-```javascript
+```jsx
 goBack();
 ```
 
@@ -483,7 +483,7 @@ Go back one page in the web view's history.
 
 ### `reload()`
 
-```javascript
+```jsx
 reload();
 ```
 
@@ -491,7 +491,7 @@ Reloads the current page.
 
 ### `stopLoading()`
 
-```javascript
+```jsx
 stopLoading();
 ```
 

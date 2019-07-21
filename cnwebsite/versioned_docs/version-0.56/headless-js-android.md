@@ -11,13 +11,13 @@ Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来�
 
 首先我们要通过`AppRegistry`来注册一个异步函数，这个函数我们称之为“任务”。注册方式类似在 index.js 中注册 RN 应用：
 
-```javascript
+```jsx
 AppRegistry.registerHeadlessTask("SomeTaskName", () => require("SomeTaskName"));
 ```
 
 然后创建 require 中引用的`SomeTaskName.js`文件:
 
-```javascript
+```jsx
 module.exports = async taskData => {
   // 要做的任务
 };

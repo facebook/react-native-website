@@ -24,7 +24,7 @@ original_id: alert
 
 一个简单的例子：
 
-```javascript
+```jsx
 // iOS和Android上都可用
 Alert.alert(
   'Alert Title',
@@ -46,7 +46,7 @@ Alert.alert(
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

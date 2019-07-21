@@ -21,7 +21,7 @@ original_id: backandroid
 
 ### `exitApp()`
 
-```javascript
+```jsx
 static exitApp()
 ```
 
@@ -29,7 +29,7 @@ static exitApp()
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -37,6 +37,6 @@ static addEventListener(eventName, handler)
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```

@@ -16,13 +16,13 @@ React Native 提供了和 web 标准一致的[Fetch API](https://developer.mozil
 
 要从任意地址获取内容的话，只需简单地将网址作为参数传递给 fetch 方法即可（fetch 这个词本身也就是`获取`的意思）：
 
-```javascript
+```jsx
 fetch('https://mywebsite.com/mydata.json');
 ```
 
 Fetch 还有可选的第二个参数，可以用来定制 HTTP 请求一些参数。你可以指定 header 参数，或是指定使用 POST 方法，又或是提交数据等等：
 
-```javascript
+```jsx
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
@@ -58,7 +58,7 @@ fetch('https://mywebsite.com/endpoint/', {
 
 网络请求天然是一种异步操作（译注：同样的还有[asyncstorage](asyncstorage.html)，请不要再问怎样把异步变成同步！无论在语法层面怎么折腾，它们的异步本质是无法变更的。异步的意思是你应该趁这个时间去做点别的事情，比如显示 loading，而不是让界面卡住傻等）。Fetch 方法会返回一个[Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)，这种模式可以简化异步风格的代码（译注：同样的，如果你不了解 promise，建议使用搜索引擎补课）：
 
-```javascript
+```jsx
 function getMoviesFromApiAsync() {
   return fetch('https://facebook.github.io/react-native/movies.json')
     .then((response) => response.json())
@@ -73,7 +73,7 @@ function getMoviesFromApiAsync() {
 
 你也可以在 React Native 应用中使用 ES2017 标准中的`async`/`await` 语法：
 
-```javascript
+```jsx
 // 注意这个方法前面有async关键字
 async function getMoviesFromApi() {
   try {
@@ -153,7 +153,7 @@ export default class FetchExample extends React.Component {
 
 React Native 中已经内置了[XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)(也就是俗称的 ajax)。一些基于 XMLHttpRequest 封装的第三方库也可以使用，例如[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)等。但注意不能使用 jQuery，因为 jQuery 中还使用了很多浏览器中才有而 RN 中没有的东西（所以也不是所有 web 中的 ajax 库都可以直接使用）。
 
-```javascript
+```jsx
 var request = new XMLHttpRequest();
 request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
@@ -177,7 +177,7 @@ request.send();
 
 React Native 还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个 TCP 连接上提供全双工的通信信道。
 
-```javascript
+```jsx
 var ws = new WebSocket('ws://host.com/path');
 
 ws.onopen = () => {

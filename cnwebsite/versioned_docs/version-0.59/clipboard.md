@@ -21,13 +21,13 @@ original_id: clipboard
 
 ### `getString()`
 
-```javascript
+```jsx
 static getString()
 ```
 
 获取剪贴板的文本内容。返回一个`Promise`，然后你可以用下面的方式来读取剪贴板内容。
 
-```javascript
+```jsx
 async _getContent() {
   var content = await Clipboard.getString();
 }
@@ -37,13 +37,13 @@ async _getContent() {
 
 ### `setString()`
 
-```javascript
+```jsx
 static setString(content)
 ```
 
 设置剪贴板的文本内容，然后你可以用下面的方式来设置剪贴板内容。
 
-```javascript
+```jsx
 _setContent() {
   Clipboard.setString('hello world');
 }

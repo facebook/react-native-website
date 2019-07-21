@@ -18,7 +18,7 @@ original_id: actionsheetios
 
 ### `showActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showActionSheetWithOptions(options, callback)
 ```
 
@@ -50,7 +50,7 @@ if (buttonIndex === 1) { /* 当接收到的索引为1，即点击了删除按钮
 
 ### `showShareActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showShareActionSheetWithOptions(options, failureCallback, successCallback)
 ```
 

@@ -8,7 +8,7 @@ original_id: animated
 
 最简单的工作流程就是创建一个`Animated.Value`，把它绑定到组件的一个或多个样式属性上。然后可以通过动画驱动它，譬如`Animated.timing`，或者通过`Animated.event`把它关联到一个手势上，譬如拖动或者滑动操作。除了样式，`Animated.value`还可以绑定到props上，并且一样可以被插值。这里有一个简单的例子，一个容器视图会在加载的时候淡入显示：
 
-```javascript
+```jsx
 class FadeInView extends React.Component {
    constructor(props) {
      super(props);
@@ -42,7 +42,7 @@ class FadeInView extends React.Component {
 
 举个例子，你可能希望你的`Animated.Value`从0变化到1时，把组件的位置从150px移动到0px，不透明度从0到1。可以通过以下的方法修改`style`属性来实现：
 
-```javascript
+```jsx
  style={{
    opacity: this.state.fadeAnim, // Binds directly
    transform: [{
@@ -230,7 +230,7 @@ class FadeInView extends React.Component {
 
 例子：
 
-```javascript
+```jsx
 class DraggableView extends React.Component {
    constructor(props) {
      super(props);
@@ -316,7 +316,7 @@ class DraggableView extends React.Component {
 
  ### 例子
 
- ```javascript
+ ```jsx
 'use strict';
 
 var React = require('react');

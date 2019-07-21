@@ -29,7 +29,7 @@ original_id: cameraroll
 
 ### `saveToCameraRoll()`
 
-```javascript
+```jsx
 CameraRoll.saveToCameraRoll(tag, [type]);
 ```
 
@@ -54,7 +54,7 @@ If the tag has a file extension of .mov or .mp4, it will be inferred as a video.
 
 ### `getPhotos()`
 
-```javascript
+```jsx
 CameraRoll.getPhotos(params);
 ```
 

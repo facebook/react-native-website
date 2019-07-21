@@ -188,7 +188,7 @@ return (
 
 ### `openDrawer()`
 
-```javascript
+```jsx
 openDrawer();
 ```
 
@@ -198,7 +198,7 @@ openDrawer();
 
 ### `closeDrawer()`
 
-```javascript
+```jsx
 closeDrawer();
 ```
 

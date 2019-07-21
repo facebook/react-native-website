@@ -405,7 +405,7 @@ export default class UselessTextInputMultiline extends Component {
 ### 例子
 
 #### iOS  
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');
@@ -1260,7 +1260,7 @@ exports.examples = [
 
 #### Android
 
-```javascript  
+```jsx  
 'use strict';
 
 var React = require('react');

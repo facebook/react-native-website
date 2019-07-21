@@ -10,7 +10,7 @@ original_id: refreshcontrol
 
 ### 示例
 
-```javascript
+```jsx
 class RefreshableList extends Component {
   constructor(props) {
     super(props);

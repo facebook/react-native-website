@@ -66,7 +66,7 @@ In order to enable geolocation in the background, you need to include the 'NSLoc
 
 ### `setRNConfiguration()`
 
-```javascript
+```jsx
 geolocation.setRNConfiguration(config);
 ```
 
@@ -86,7 +86,7 @@ Supported options:
 
 ### `requestAuthorization()`
 
-```javascript
+```jsx
 geolocation.requestAuthorization();
 ```
 
@@ -96,7 +96,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 
 ### `getCurrentPosition()`
 
-```javascript
+```jsx
 geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ```
 
@@ -120,7 +120,7 @@ geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 
 ### `watchPosition()`
 
-```javascript
+```jsx
 geolocation.watchPosition(success, [error], [options]);
 ```
 
@@ -146,7 +146,7 @@ Supported options:
 
 ### `clearWatch()`
 
-```javascript
+```jsx
 geolocation.clearWatch(watchID);
 ```
 
@@ -160,7 +160,7 @@ geolocation.clearWatch(watchID);
 
 ### `stopObserving()`
 
-```javascript
+```jsx
 geolocation.stopObserving();
 ```
 

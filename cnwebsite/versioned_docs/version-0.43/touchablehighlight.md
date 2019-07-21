@@ -8,7 +8,7 @@ original_id: touchablehighlight
 
 例子：
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableHighlight onPress={this._onPressButton}>

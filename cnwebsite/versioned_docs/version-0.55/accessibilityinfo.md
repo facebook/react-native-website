@@ -9,7 +9,7 @@ original_id: accessibilityinfo
 
 下面是一个使用`AccessibilityInfo`的小例子:
 
-```javascript
+```jsx
 class ScreenReaderStatusExample extends React.Component {
   state = {
     screenReaderEnabled: false
@@ -69,7 +69,7 @@ class ScreenReaderStatusExample extends React.Component {
 
 ### `fetch()`
 
-```javascript
+```jsx
 static fetch()
 ```
 
@@ -79,7 +79,7 @@ static fetch()
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -94,7 +94,7 @@ static addEventListener(eventName, handler)
 
 ### `setAccessibilityFocus()`
 
-```javascript
+```jsx
 static setAccessibilityFocus(reactTag)
 ```
 
@@ -104,7 +104,7 @@ static setAccessibilityFocus(reactTag)
 
 ### `announceForAccessibility()`
 
-```javascript
+```jsx
 static announceForAccessibility(announcement)
 ```
 
@@ -114,7 +114,7 @@ static announceForAccessibility(announcement)
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 

@@ -100,7 +100,7 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -108,7 +108,7 @@ constructor();
 
 ### `check()`
 
-```javascript
+```jsx
 check(permission);
 ```
 
@@ -124,7 +124,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `request()`
 
-```javascript
+```jsx
 request(permission, [rationale]);
 ```
 
@@ -143,7 +143,7 @@ If `rationale` is provided, this function checks with the OS whether it is neces
 
 ### `requestMultiple()`
 
-```javascript
+```jsx
 requestMultiple(permissions);
 ```
 

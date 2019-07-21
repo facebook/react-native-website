@@ -8,7 +8,7 @@ StyleSheet提供了一种类似CSS样式表的抽象。
 
 创建一个样式表：
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   container: {
     borderRadius: 4,
@@ -27,7 +27,7 @@ var styles = StyleSheet.create({
 
 使用一个样式表：
 
-```javascript
+```jsx
 <View style={styles.container}>
   <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
 </View>

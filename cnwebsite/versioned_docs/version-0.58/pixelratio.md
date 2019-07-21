@@ -47,7 +47,7 @@ var image = getImage({
 
 ### `get()`
 
-```javascript
+```jsx
 static get()
 ```
 
@@ -76,7 +76,7 @@ static get()
 
 ### `getFontScale()`
 
-```javascript
+```jsx
 static getFontScale()
 ```
 
@@ -90,7 +90,7 @@ static getFontScale()
 
 ### `getPixelSizeForLayoutSize()`
 
-```javascript
+```jsx
 static getPixelSizeForLayoutSize(layoutSize)
 ```
 
@@ -102,7 +102,7 @@ static getPixelSizeForLayoutSize(layoutSize)
 
 ### `roundToNearestPixel()`
 
-```javascript
+```jsx
 static roundToNearestPixel(layoutSize)
 ```
 

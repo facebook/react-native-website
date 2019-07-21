@@ -157,7 +157,7 @@ original_id: webview
 </div>
 
 ### 例子
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

@@ -131,7 +131,7 @@ Linking.canOpenURL(url).then(supported => {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -139,7 +139,7 @@ constructor();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -149,7 +149,7 @@ addEventListener(type, handler);
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -159,7 +159,7 @@ removeEventListener(type, handler);
 
 ### `openURL()`
 
-```javascript
+```jsx
 openURL(url);
 ```
 
@@ -183,7 +183,7 @@ openURL(url);
 
 ### `canOpenURL()`
 
-```javascript
+```jsx
 canOpenURL(url);
 ```
 
@@ -205,7 +205,7 @@ canOpenURL(url);
 
 ### `openSettings()`
 
- ```javascript
+ ```jsx
 openSettings();
 ```
 
@@ -215,7 +215,7 @@ Open the Settings app and displays the app’s custom settings, if it has any.
 
 ### `getInitialURL()`
 
-```javascript
+```jsx
 getInitialURL();
 ```
 

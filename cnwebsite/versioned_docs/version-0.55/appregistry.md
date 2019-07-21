@@ -37,7 +37,7 @@ original_id: appregistry
 
 ### `setWrapperComponentProvider()`
 
-```javascript
+```jsx
 static setWrapperComponentProvider(provider)
 ```
 
@@ -45,7 +45,7 @@ static setWrapperComponentProvider(provider)
 
 ### `registerConfig()`
 
-```javascript
+```jsx
 static registerConfig(config)
 ```
 
@@ -53,7 +53,7 @@ static registerConfig(config)
 
 ### `registerComponent()`
 
-```javascript
+```jsx
 static registerComponent(appKey, componentProvider, section?)
 ```
 
@@ -61,7 +61,7 @@ static registerComponent(appKey, componentProvider, section?)
 
 ### `registerRunnable()`
 
-```javascript
+```jsx
 static registerRunnable(appKey, run)
 ```
 
@@ -69,7 +69,7 @@ static registerRunnable(appKey, run)
 
 ### `registerSection()`
 
-```javascript
+```jsx
 static registerSection(appKey, component)
 ```
 
@@ -77,7 +77,7 @@ static registerSection(appKey, component)
 
 ### `getAppKeys()`
 
-```javascript
+```jsx
 static getAppKeys()
 ```
 
@@ -85,7 +85,7 @@ static getAppKeys()
 
 ### `getSectionKeys()`
 
-```javascript
+```jsx
 static getSectionKeys()
 ```
 
@@ -93,7 +93,7 @@ static getSectionKeys()
 
 ### `getSections()`
 
-```javascript
+```jsx
 static getSections()
 ```
 
@@ -101,7 +101,7 @@ static getSections()
 
 ### `getRunnable()`
 
-```javascript
+```jsx
 static getRunnable(appKey)
 ```
 
@@ -109,7 +109,7 @@ static getRunnable(appKey)
 
 ### `getRegistry()`
 
-```javascript
+```jsx
 static getRegistry()
 ```
 
@@ -117,7 +117,7 @@ static getRegistry()
 
 ### `setComponentProviderInstrumentationHook()`
 
-```javascript
+```jsx
 static setComponentProviderInstrumentationHook(hook)
 ```
 
@@ -125,7 +125,7 @@ static setComponentProviderInstrumentationHook(hook)
 
 ### `runApplication()`
 
-```javascript
+```jsx
 static runApplication(appKey, appParameters)
 ```
 
@@ -133,7 +133,7 @@ static runApplication(appKey, appParameters)
 
 ### `unmountApplicationComponentAtRootTag()`
 
-```javascript
+```jsx
 static unmountApplicationComponentAtRootTag(rootTag)
 ```
 
@@ -141,7 +141,7 @@ static unmountApplicationComponentAtRootTag(rootTag)
 
 ### `registerHeadlessTask()`
 
-```javascript
+```jsx
 static registerHeadlessTask(taskKey, task)
 ```
 
@@ -151,7 +151,7 @@ Register a headless task. A headless task is a bit of code that runs without a U
 
 ### `startHeadlessTask()`
 
-```javascript
+```jsx
 static startHeadlessTask(taskId, taskKey, data)
 ```
 

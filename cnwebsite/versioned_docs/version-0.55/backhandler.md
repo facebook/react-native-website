@@ -17,7 +17,7 @@ iOS：尚无作用。
 
 示例：
 
-```javascript
+```jsx
 BackHandler.addEventListener("hardwareBackPress", function() {
   // this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现！
 
@@ -43,7 +43,7 @@ BackHandler.addEventListener("hardwareBackPress", function() {
 
 ### `exitApp()`
 
-```javascript
+```jsx
 static exitApp()
 ```
 
@@ -51,7 +51,7 @@ static exitApp()
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -59,6 +59,6 @@ static addEventListener(eventName, handler)
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```

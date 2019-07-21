@@ -19,7 +19,7 @@ original_id: sectionlist
 
 简单的例子：
 
-```javascript
+```jsx
 <SectionList
   renderItem={({item}) => <ListItem title={item.title} />}
   renderSectionHeader={({section}) => <Header title={section.key} />}
@@ -189,7 +189,7 @@ iOS. See <a href="#stickysectionheadersenabled"><code>stickySectionHeadersEnable
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

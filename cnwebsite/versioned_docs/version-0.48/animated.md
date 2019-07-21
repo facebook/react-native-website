@@ -8,7 +8,7 @@ The `Animated` library is designed to make animations fluid, powerful, and easy 
 
 The simplest workflow for creating an animation is to to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
 
-```javascript
+```jsx
 Animated.timing(                            // Animate value over time
   this.state.fadeAnim,                      // The value to drive
   {
@@ -99,7 +99,7 @@ Gestures, like panning or scrolling, and other events can map directly to animat
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
-```javascript
+```jsx
  onScroll={Animated.event(
    // scrollX = e.nativeEvent.contentOffset.x
    [{ nativeEvent: {
@@ -356,7 +356,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 例子：
 
-```javascript
+```jsx
 class DraggableView extends React.Component {
    constructor(props) {
      super(props);

@@ -22,7 +22,7 @@ React Native目前有几个内置的导航器组件，一般来说我们首推`N
 
 下面我们来定义一个仅显示一些文本的简单场景。创建一个名为“MyScene.js”的文件，然后粘贴如下代码：
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
@@ -43,7 +43,7 @@ export default class MyScene extends Component {
 
 注意组件声明前面的`export default`关键字。它的意思是**导出(export)**当前组件，以允许其他组件**引入(import)**和使用当前组件，就像下面这样（下面的代码你可以写在index.ios.js或是index.android.js中）：
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 import { AppRegistry } from 'react-native';
 
@@ -70,7 +70,7 @@ AppRegistry.registerComponent('YoDawgApp', () => YoDawgApp);
 
 场景已经说的够多了，下面我们开始尝试导航跳转。首先要做的是渲染一个`Navigator`组件，然后通过此组件的`renderScene`属性方法来渲染其他场景。
 
-```javascript
+```jsx
 render() {
   return (
     <Navigator
@@ -89,7 +89,7 @@ render() {
 
 要过渡到新的场景，你需要了解`push`和`pop`方法。这两个方法由`navigator`对象提供，而这个对象就是上面的`renderScene`方法中传递的第二个参数。 我们使用这两个方法来把路由对象推入或弹出导航栈。
 
-```javascript
+```jsx
 navigator.push({
   title: 'Next Scene',
   index: 1,
@@ -100,7 +100,7 @@ navigator.pop();
 
 下面是一个更完整的示例：
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 import { AppRegistry, Navigator, Text, View } from 'react-native';
 

@@ -37,7 +37,7 @@ original_id: geolocation
 
 ## 例子
 
-```javascript
+```jsx
 /* eslint no-console: 0 */
 'use strict';
 

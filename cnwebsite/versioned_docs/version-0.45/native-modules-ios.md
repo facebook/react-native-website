@@ -47,7 +47,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 
 现在从Javascript里可以这样调用这个方法：
 
-```javascript
+```jsx
 import { NativeModules } from 'react-native';
 var CalendarManager = NativeModules.CalendarManager;
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
@@ -101,13 +101,13 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 
 在Javascript既可以这样：
 
-```javascript
+```jsx
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.getTime()); // 把日期以unix时间戳形式传递
 ```
 
 也可以这样：
 
-```javascript
+```jsx
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey', date.toISOString()); // 把日期以ISO-8601的字符串形式传递
 ```
 
@@ -128,7 +128,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name details:(NSDictionary *)details)
 
 然后在JS里这样调用：
 
-```javascript
+```jsx
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.toTime(),
@@ -158,7 +158,7 @@ RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)
 
 `RCTResponseSenderBlock`只接受一个参数——传递给JavaScript回调函数的参数数组。在上面这个例子里我们用Node.js的常用习惯：第一个参数是一个错误对象（没有发生错误的时候为null），而剩下的部分是函数的返回值。
 
-```javascript
+```jsx
 CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
@@ -281,7 +281,7 @@ RCTRootView *rootView = [[RCTRootView alloc]
 
 Javascript端可以随时同步地访问这个数据：
 
-```javascript
+```jsx
 console.log(CalendarManager.firstDayOfTheWeek);
 ```
 
@@ -364,7 +364,7 @@ RCT_EXPORT_MODULE();
 ```
 JavaScript代码可以创建一个包含你的模块的`NativeEventEmitter`实例来订阅这些事件。
 
-```javascript
+```jsx
 import { NativeEventEmitter, NativeModules } from 'react-native';
 const { CalendarManager } = NativeModules;
 

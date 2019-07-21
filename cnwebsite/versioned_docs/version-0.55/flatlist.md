@@ -144,7 +144,7 @@ original_id: flatlist
 
 ### `renderItem`
 
-```javascript
+```jsx
 renderItem({ item: Object, index: number, separators: { highlight: Function, unhighlight: Function, updateProps: Function(select: string, newProps: Object) } }) => ?React.Element
 ```
 
@@ -158,7 +158,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 示例：
 
-```javascript
+```jsx
 <FlatList
   ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
@@ -251,13 +251,13 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `getItemLayout`
 
-```javascript
+```jsx
 (data, index) => {length: number, offset: number, index: number}
 ```
 
 `getItemLayout`是一个可选的优化，用于避免动态测量内容尺寸的开销，不过前提是你可以提前知道内容的高度。如果你的行高是固定的，`getItemLayout`用起来就既高效又简单，类似下面这样：
 
-```javascript
+```jsx
   getItemLayout={(data, index) => (
     {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
   )}
@@ -313,7 +313,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `keyExtractor`
 
-```javascript
+```jsx
 (item: object, index: number) => string;
 ```
 
@@ -337,7 +337,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `onEndReached`
 
-```javascript
+```jsx
 (info: {distanceFromEnd: number}) => void
 ```
 
@@ -361,7 +361,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `onRefresh`
 
-```javascript
+```jsx
 () => void
 ```
 
@@ -375,7 +375,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ### `onViewableItemsChanged`
 
-```javascript
+```jsx
 (info: {
     viewableItems: array,
     changed: array,
@@ -455,7 +455,7 @@ At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThr
   Error: Changing viewabilityConfig on the fly is not supported`
 ```
 
-```javascript
+```jsx
 constructor (props) {
   super(props)
 
@@ -466,7 +466,7 @@ constructor (props) {
 }
 ```
 
-```javascript
+```jsx
 <FlatList
     viewabilityConfig={this.viewabilityConfig}
   ...
@@ -502,7 +502,7 @@ List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewab
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd([params]);
 ```
 
@@ -522,7 +522,7 @@ Valid `params` keys are:
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex(params);
 ```
 
@@ -547,7 +547,7 @@ Valid `params` keys are:
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem(params);
 ```
 
@@ -571,7 +571,7 @@ Valid `params` keys are:
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset(params);
 ```
 
@@ -592,7 +592,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -602,7 +602,7 @@ recordInteraction();
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

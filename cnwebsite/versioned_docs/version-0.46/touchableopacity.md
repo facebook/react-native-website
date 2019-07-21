@@ -8,7 +8,7 @@ original_id: touchableopacity
 
 例子：
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableOpacity onPress={this._onPressButton}>

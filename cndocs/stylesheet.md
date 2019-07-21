@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
 - [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
 - [`create`](stylesheet.md#create)
 - [`flatten`](stylesheet.md#flatten)
+- [`compose`](stylesheet.md#compose)
 
 ### 查看常量
 
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
 
 ### `setStyleAttributePreprocessor()`
 
-```javascript
+```jsx
 static setStyleAttributePreprocessor(property, process)
 ```
 
@@ -68,7 +69,7 @@ Sets a function to use to pre-process a style property value. This is used inter
 
 ### `create()`
 
-```javascript
+```jsx
 static create(obj)
 ```
 
@@ -78,7 +79,7 @@ Creates a StyleSheet style reference from the given object.
 
 ### `flatten`
 
-```javascript
+```jsx
 static flatten(style)
 ```
 
@@ -88,7 +89,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 
 Example:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -106,7 +107,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 
 Alternative use:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -125,11 +126,21 @@ StyleSheet.flatten(styles.listItem);
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
 
+---
+
+### `compose`
+
+Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
+
+```jsx
+static compose(style)
+```
+
 ## 常量
 
 ### `hairlineWidth`
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
@@ -148,7 +159,7 @@ var styles = StyleSheet.create({
 
 A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
 
-```javascript
+```jsx
 const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFill,

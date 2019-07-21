@@ -51,7 +51,7 @@ original_id: button
 
 ### 例子
 
-```javascript
+```jsx
 use strict';
 
 const React = require('react');

@@ -22,7 +22,7 @@ original_id: settings
 
 ### `get()`
 
-```javascript
+```jsx
 static get(key)
 ```
 
@@ -30,7 +30,7 @@ static get(key)
 
 ### `set()`
 
-```javascript
+```jsx
 static set(settings)
 ```
 
@@ -38,7 +38,7 @@ static set(settings)
 
 ### `watchKeys()`
 
-```javascript
+```jsx
 static watchKeys(keys, callback)
 ```
 
@@ -46,7 +46,7 @@ static watchKeys(keys, callback)
 
 ### `clearWatch()`
 
-```javascript
+```jsx
 static clearWatch(watchId)
 ```
 

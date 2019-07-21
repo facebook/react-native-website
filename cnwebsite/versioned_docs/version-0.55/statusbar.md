@@ -120,7 +120,7 @@ original_id: statusbar
 
 ### `setHidden()`
 
-```javascript
+```jsx
 static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 ```
 
@@ -137,7 +137,7 @@ static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 
 ### `setBarStyle()`
 
-```javascript
+```jsx
 static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 ```
 
@@ -154,7 +154,7 @@ static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 
 ### `setNetworkActivityIndicatorVisible()`
 
-```javascript
+```jsx
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
@@ -170,7 +170,7 @@ static setNetworkActivityIndicatorVisible(visible: boolean)
 
 ### `setBackgroundColor()`
 
-```javascript
+```jsx
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
 
@@ -187,7 +187,7 @@ static setBackgroundColor(color: string, [animated]: boolean)
 
 ### `setTranslucent()`
 
-```javascript
+```jsx
 static setTranslucent(translucent: boolean)
 ```
 

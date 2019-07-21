@@ -92,7 +92,7 @@ if (!__DEV__) {
 
 有些时候，如果我们有一项操作与点击事件所带来的透明度改变或者高亮效果发生在同一帧中，那么有可能在`onPress`函数结束之前我们都看不到这些效果。比如在`onPress`执行了一个`setState`的操作，这个操作需要大量计算工作并且导致了掉帧。对此的一个解决方案是将`onPress`处理函数中的操作封装到`requestAnimationFrame`中：
 
-```javascript
+```jsx
 handleOnPress() {
   // 谨记在使用requestAnimationFrame、setTimeout以及setInterval时
   // 要使用TimerMixin（其作用是在组件unmount时，清除所有定时器）
@@ -345,48 +345,6 @@ project.ext.react = [
 
 现在我们已经启用了RAM格式，然而调用`require`会造成额外的开销。因为当遇到尚未加载的模块时，`require`需要通过bridge来发送消息。这主要会影响到启动速度，因为在应用程序加载初始模块时可能触发相当大量的请求调用。幸运的是，我们可以配置一部分模块进行预加载。为了做到这一点，你将需要实现某种形式的内联引用。
 
-### 添加 packager 配置文件
-
-在项目中创建一个名为 packager 的文件夹，并创建一个名为 config.js 的文件。添加以下内容：
-
-```
-const config = {
-  transformer: {
-    getTransformOptions: () => {
-      return {
-        transform: { inlineRequires: true },
-      };
-    },
-  },
-};
-
-module.exports = config;
-```
-
-在 Xcode 的 Build phase 中添加`export BUNDLE_CONFIG="packager/config.js"`
-
-```
-export BUNDLE_COMMAND="ram-bundle"
-export BUNDLE_CONFIG="packager/config.js"
-export NODE_BINARY=node
-../node_modules/react-native/scripts/react-native-xcode.sh.sh
-```
-
-编辑 android/app/build.gradle 文件，添加`bundleConfig: "packager/config.js",`
-
-```
-project.ext.react = [
-  bundleCommand: "ram-bundle",
-  bundleConfig: "packager/config.js"
-]
-```
-
-最后，在 package.json 的“scripts”下修改“start”命令来启用配置文件：
-
-`"start": "yarn react-native start packager/config.js",`
-
-此时用`npm start`启动你的 packager 服务即会加载配置文件。请注意，如果你仍然通过 xcode 或是 react-native run-android 等方式自动启动 packager 服务，则由于没有使用上面的参数，不会加载配置文件。
-
 ### 调试预加载的模块
 
 在您的根文件 (index.(ios|android).js) 中，您可以在初始导入(initial imports)之后添加以下内容：
@@ -425,12 +383,12 @@ require.Systrace.beginEvent = (message) => {
 
 虽然每个 App 各有不同，但只加载第一个页面所需的模块是有普适意义的。当你满意时，把 loadedModuleNames 的输出放到 packager/modulePaths.js 文件中。
 
-### 更新配置文件
+### 更新配置文件(metro.config.js)
 
-Returning to packager/config.js we should update it to use our newly generated modulePaths.js file.
+We now need to update `metro.config.js` in the root of the project to use our newly generated `modulePaths.js` file:
 
 ```
-const modulePaths = require('./modulePaths');
+const modulePaths = require('./packager/modulePaths');
 const resolve = require('path').resolve;
 const fs = require('fs');
 

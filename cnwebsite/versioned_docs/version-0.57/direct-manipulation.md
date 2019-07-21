@@ -16,7 +16,7 @@ original_id: direct-manipulation
 
 [TouchableOpacity](https://github.com/facebook/react-native/blob/master/Libraries/Components/Touchable/TouchableOpacity.js)这个组件就在内部使用了`setNativeProps`方法来更新其子组件的透明度：
 
-```javascript
+```jsx
 setOpacityTo(value) {
   // Redacted: animation related code
   this.refs[CHILD_REF].setNativeProps({
@@ -27,7 +27,7 @@ setOpacityTo(value) {
 
 由此我们可以写出下面这样的代码：子组件可以响应点击事件，更改自己的透明度。而子组件自身并不需要处理这件事情，也不需要在实现中做任何修改。
 
-```javascript
+```jsx
 <TouchableOpacity onPress={this._handlePress}>
   <View style={styles.button}>
     <Text>Press me!</Text>
@@ -37,7 +37,7 @@ setOpacityTo(value) {
 
 如果不使用`setNativeProps`来实现这一需求，那么一种可能的办法是把透明值保存到 state 中，然后在`onPress`事件触发时更新这个值：
 
-```javascript
+```jsx
 constructor(props) {
   super(props);
   this.state = { myButtonOpacity: 1, };

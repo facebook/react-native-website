@@ -15,7 +15,7 @@ original_id: pickerios
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 var React = require('react');

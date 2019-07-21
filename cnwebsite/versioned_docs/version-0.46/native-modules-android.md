@@ -139,7 +139,7 @@ protected List<ReactPackage> getPackages() {
 
 为了让你的功能从JavaScript端访问起来更为方便，通常我们都会把原生模块封装成一个JavaScript模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。这个JS文件也可以用于添加一些其他JavaScript端实现的功能。
 
-```javascript
+```jsx
 'use strict';
 
 /**
@@ -160,7 +160,7 @@ export default NativeModules.ToastAndroid;
 
 现在，在别处的JavaScript代码中可以这样调用你的方法：
 
-```javascript
+```jsx
 import ToastAndroid from './ToastAndroid';
 ToastAndroid.show('Awesome', ToastAndroid.SHORT);
 ```
@@ -412,7 +412,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
 
 为了让你的功能从JavaScript端访问起来更为方便，通常我们都会把原生模块封装成一个JavaScript模块。这不是必须的，但省下了每次都从`NativeModules`中获取对应模块的步骤。这个JS文件也可以用于添加一些其他JavaScript端实现的功能。
 
-```javascript
+```jsx
 'use strict';
 import { NativeModules } from 'react-native';
 
@@ -421,7 +421,7 @@ export default NativeModules.ImagePickerModule;
 
 现在，在别处的JavaScript代码中可以这样调用你的方法(此处的调用涉及到Promise语法)：
 
-```javascript
+```jsx
 import ImagePickerModule from './ImagePickerModule';
 ImagePickerModule.pickImage()
                 .then((msg) => {

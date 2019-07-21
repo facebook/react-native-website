@@ -82,7 +82,7 @@ By default, `timing` will use a easeInOut curve that conveys gradual acceleratio
 
 For example, if we want to create a 2-second long animation of an object that slightly backs up before moving to its final position:
 
-```javascript
+```jsx
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
@@ -98,7 +98,7 @@ Take a look at the [配置动画](animated.md#配置动画) section of the `Anim
 
 For example, the following animation coasts to a stop, then it springs back while twirling in parallel:
 
-```javascript
+```jsx
 Animated.sequence([
   // decay, then spring to start and twirl
   Animated.decay(position, {
@@ -129,7 +129,7 @@ Animated.sequence([
 
 There are some cases where an animated value needs to invert another animated value for calculation. An example is inverting a scale (2x --> 0.5x):
 
-```javascript
+```jsx
 const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
@@ -144,7 +144,7 @@ Each property can be run through an interpolation first. An interpolation maps i
 
 A simple mapping to convert a 0-1 range to a 0-100 range would be:
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [0, 1],
   outputRange: [0, 100]
@@ -153,7 +153,7 @@ value.interpolate({
 
 For example, you may want to think about your `Animated.Value` as going from 0 to 1, but animate the position from 150px to 0px and the opacity from 0 to 1. This can easily be done by modifying `style` from the example above like so:
 
-```javascript
+```jsx
   style={{
     opacity: this.state.fadeAnim, // Binds directly
     transform: [{
@@ -167,7 +167,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 
 [`interpolate()`](animated.md#interpolate)还支持定义多个区间段落，常用来定义静止区间等。举个例子，要让输入在接近-300 时取相反值，然后在输入接近-100 时到达 0，然后在输入接近 0 时又回到 1，接着一直到输入到 100 的过程中逐步回到 0，最后形成一个始终为 0 的静止区间，对于任何大于 100 的输入都返回 0。具体写法如下：
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
   outputRange: [300, 0, 1, 0, 0]
@@ -193,7 +193,7 @@ value.interpolate({
 
 `interpolate()`还支持到字符串的映射，从而可以实现颜色以及带有单位的值的动画变换。例如你可以像下面这样实现一个旋转动画：
 
-```javascript
+```jsx
 value.interpolate({
   inputRange: [0, 360],
   outputRange: ["0deg", "360deg"]
@@ -206,7 +206,7 @@ value.interpolate({
 
 动画中所设的值还可以通过跟踪别的值得到。你只要把 toValue 设置成另一个动态值而不是一个普通数字就行了。比如我们可以用弹跳动画来实现聊天头像的闪动，又比如通过`timing`设置`duration:0`来实现快速的跟随。他们还可以使用插值来进行组合：
 
-```javascript
+```jsx
 Animated.spring(follower, { toValue: leader }).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
@@ -224,7 +224,7 @@ The `leader` and `follower` animated values would be implemented using `Animated
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
-```javascript
+```jsx
  onScroll={Animated.event(
    // scrollX = e.nativeEvent.contentOffset.x
    [{ nativeEvent: {
@@ -238,7 +238,7 @@ For example, when working with horizontal scrolling gestures, you would do the f
 
 When using `PanResponder`, you could use the following code to extract the x and y positions from `gestureState.dx` and `gestureState.dy`. We use a `null` in the first position of the array, as we are only interested in the second argument passed to the `PanResponder` handler, which is the `gestureState`.
 
-```javascript
+```jsx
 onPanResponderMove={Animated.event(
   [null, // ignore the native event
   // extract dx and dy from gestureState
@@ -262,7 +262,7 @@ onPanResponderMove={Animated.event(
 
 在动画中启用原生驱动非常简单。只需在开始动画之前，在动画配置中加入一行`useNativeDriver: true`，如下所示：
 
-```javascript
+```jsx
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
@@ -274,7 +274,7 @@ Animated.timing(this.state.animatedValue, {
 
 原生驱动还可以在`Animated.event`中使用。 This is specially useful for animations that follow the scroll position as without the native driver, the animation will always run a frame behind the gesture due to the async nature of React Native.
 
-```javascript
+```jsx
 <Animated.ScrollView // <-- 使用可动画化的ScrollView组件
   scrollEventThrottle={1} // <-- 设为1以确保滚动事件的触发频率足够密集
   onScroll={Animated.event(
@@ -304,7 +304,7 @@ When an animation is running, it can prevent `VirtualizedList` components from r
 
 While using transform styles such as `rotateY`, `rotateX`, and others ensure the transform style `perspective` is in place. At this time some animations may not render on Android without it. Example below.
 
-```javascript
+```jsx
 <Animated.View
   style={{
     transform: [
@@ -331,7 +331,7 @@ The RNTester app has various examples of `Animated` in use:
 
 另外，如果要在**Android**上使用 LayoutAnimation，那么目前还需要在`UIManager`中启用：:
 
-```javascript
+```jsx
 // 在执行任何动画代码之前，比如在入口文件App.js中执行
 UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);

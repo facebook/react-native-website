@@ -608,7 +608,7 @@ Use in conjuction with `snapToOffsets`. By default, the end of the list counts a
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(
   ([y]: number),
   object,
@@ -632,7 +632,7 @@ scrollTo(
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
@@ -644,7 +644,7 @@ scrollToEnd(([options]: {animated: boolean, duration: number}));
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(y, x);
 ```
 
@@ -654,7 +654,7 @@ Deprecated, use `scrollTo` instead.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

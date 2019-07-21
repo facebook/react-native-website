@@ -78,7 +78,7 @@ class AppStateExample extends Component {
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -90,7 +90,7 @@ TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate 
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -100,6 +100,6 @@ removeEventListener(type, handler);
 
 ### `currentState`
 
-```javascript
+```jsx
 AppState.currentState;
 ```

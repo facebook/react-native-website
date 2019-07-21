@@ -6,7 +6,7 @@ original_id: netinfo
 
 NetInfo模块可以获知设备联网或离线的状态信息。  
 
-```javascript
+```jsx
 NetInfo.getConnectionInfo().then((connectionInfo) => {
   console.log('Initial, type: ' + connectionInfo.type + ', effectiveType: ' + connectionInfo.effectiveType);
 });
@@ -56,7 +56,7 @@ Android的联网类型：
 ### isConnectionExpensive
 此方法仅Android可用。用于判断当前活动的连接是否计费。如果当前连接是通过移动数据网络，或者通过基于移动数据网络所创建的wifi热点，都有可能被判定为计费的数据连接。  
 
-```javascript    
+```jsx    
 NetInfo.isConnectionExpensive((isConnectionExpensive) => {
   console.log('Connection is ' + (isConnectionExpensive ? 'Expensive' : 'Not Expensive'));
 });  
@@ -65,7 +65,7 @@ NetInfo.isConnectionExpensive((isConnectionExpensive) => {
 ### isConnected
 此方法所有平台皆可使用。以异步方式获取一个布尔值，用于判断当前设备是否联网。  
 
-```javascript
+```jsx
 NetInfo.isConnected.fetch().done((isConnected) => {
   console.log('First, is ' + (isConnected ? 'online' : 'offline'));
 });
@@ -120,7 +120,7 @@ NetInfo.isConnected.addEventListener(
 
 ### 例子
 
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

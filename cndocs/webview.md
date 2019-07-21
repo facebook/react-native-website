@@ -515,13 +515,13 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 ### `extraNativeComponentConfig()`
 
-```javascript
+```jsx
 static extraNativeComponentConfig()
 ```
 
 ### `goForward()`
 
-```javascript
+```jsx
 goForward();
 ```
 
@@ -529,7 +529,7 @@ goForward();
 
 ### `goBack()`
 
-```javascript
+```jsx
 goBack();
 ```
 
@@ -537,7 +537,7 @@ goBack();
 
 ### `reload()`
 
-```javascript
+```jsx
 reload();
 ```
 
@@ -545,7 +545,7 @@ reload();
 
 ### `stopLoading()`
 
-```javascript
+```jsx
 stopLoading();
 ```
 

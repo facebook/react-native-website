@@ -743,7 +743,7 @@ TextInput是一个受约束的(Controlled)的组件，意味着如果提供了va
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```
 
@@ -753,7 +753,7 @@ clear();
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```
 

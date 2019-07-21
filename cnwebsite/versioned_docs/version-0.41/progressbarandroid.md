@@ -8,7 +8,7 @@ original_id: progressbarandroid
 
 例子：
 
-```javascript
+```jsx
 render: function() {
   var progressBar =
     <View style={styles.container}>
@@ -75,7 +75,7 @@ render: function() {
 
 ### 样例
 
-```javascript
+```jsx
 'use strict';
 
 var ProgressBar = require('ProgressBarAndroid');

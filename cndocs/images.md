@@ -7,7 +7,7 @@ title: 图片
 
 React Native 提供了一个统一的方式来管理 iOS 和 Android 应用中的图片。要往 App 中添加一个静态图片，只需把图片文件放在代码文件夹中某处，然后像下面这样去引用它：
 
-```javascript
+```jsx
 <Image source={require('./my-icon.png')} />
 ```
 
@@ -28,7 +28,7 @@ React Native 提供了一个统一的方式来管理 iOS 和 Android 应用中�
 
 并且`button.js`里有这样的代码：
 
-```javascript
+```jsx
 <Image source={require('./img/check.png')} />
 ```
 
@@ -48,7 +48,7 @@ _注意_：如果你添加图片的时候 packager 正在运行，可能需要�
 
 注意：为了使新的图片资源机制正常工作，require 中的图片名字必须是一个静态字符串（不能使用变量！因为 require 是在编译时期执行，而非运行时期执行！）。
 
-```javascript
+```jsx
 // 正确
 <Image source={require('./my-icon.png')} />;
 
@@ -69,7 +69,7 @@ var icon = this.props.active
 
 上面描述的`require`语法也可以用来静态地加载你项目中的声音、视频或者文档文件。大多数常见文件类型都支持，包括`.mp3`, `.wav`, `.mp4`, `.mov`, `.htm` 和 `.pdf`等（完整列表请看 [packager defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44))。
 
-你也可以创建自己的配置文件来支持其他类型的文件。具体的配置可以参考[packager config file](https://github.com/facebook/react-native/blob/0.57-stable/local-cli/util/Config.js#L65)。
+你也可以在[metro(即packager)配置文件](https://facebook.github.io/metro/docs/en/configuration)中添加[`assetExts`配置项](https://facebook.github.io/metro/docs/en/configuration#assetexts)来支持其他类型的文件。
 
 需要注意的是视频必须指定尺寸而不能使用`flex`样式，因为我们目前还不能从非图片资源中获取到尺寸信息。对于直接链接到 Xcode 或者 Android 资源文件夹的视频，则不会有这个限制。
 
@@ -77,13 +77,13 @@ var icon = this.props.active
 
 如果你在编写一个混合 App（一部分 UI 使用 React Native，而另一部分使用平台原生代码），也可以使用已经打包到 App 中的图片资源（以拖拽的方式放置在 Xcode 的 asset 类目中，或是放置在 Android 的 drawable 目录里）。注意此时只使用文件名，不带路径也不带后缀：
 
-```javascript
+```jsx
 <Image source={{uri: 'app_icon'}} style={{width: 40, height: 40}} />
 ```
 
 对于放置在 Android 的 assets 目录中的图片，还可以使用`asset:/` 前缀来引用：
 
-```javascript
+```jsx
 <Image source={{uri: 'asset:/app_icon.png'}} style={{width: 40, height: 40}} />
 ```
 
@@ -93,7 +93,7 @@ var icon = this.props.active
 
 很多要在 App 中显示的图片并不能在编译的时候获得，又或者有时候需要动态载入来减少打包后的二进制文件的大小。这些时候，与静态资源不同的是，`你需要手动指定图片的尺寸`。同时我们强烈建议你使用 https 以满足 iOS [App Transport Security](https://segmentfault.com/a/1190000002933776) 的要求。
 
-```javascript
+```jsx
 // 正确
 <Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
        style={{width: 400, height: 400}} />
@@ -106,7 +106,7 @@ var icon = this.props.active
 
 你可以在 Image 组件的 source 属性中指定一些请求参数，如下面的示例：
 
-```javascript
+```jsx
 <Image
   source={{
     uri: 'https://facebook.github.io/react/logo-og.png',
@@ -126,7 +126,7 @@ var icon = this.props.active
 
 > 建议仅对非常小的图片使用 base64 数据，比如一些小图标。
 
-```javascript
+```jsx
 // 请记得指定宽高！
 <Image
   style={{
@@ -150,7 +150,7 @@ var icon = this.props.active
 - `force-cache`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则从原始地址加载。
 - `only-if-cached`: 现有的缓存数据将用于满足请求，忽略其期限或到期日。如果缓存中没有对应请求的数据，则不尝试从原始地址加载，并且认为请求是失败的。
 
-```javascript
+```jsx
 <Image
   source={{
     uri: 'https://facebook.github.io/react/logo-og.png',
@@ -162,7 +162,7 @@ var icon = this.props.active
 
 ## 本地文件系统中的图片
 
-参考[相册（CameraRoll)](cameraroll.md)这个例子来看如何使用在`Images.xcassets`以外的本地资源。
+参考[相册（CameraRoll)](https://github.com/react-native-community/react-native-cameraroll)这个例子来看如何使用在`Images.xcassets`以外的本地资源。
 
 ### 最合适的相册图片
 
@@ -176,7 +176,7 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 比如这样一个引用`require('./my-icon.png')`的实际输出结果可能是：
 
-```javascript
+```jsx
 {"__packager_asset":true,"uri":"my-icon.png","width":591,"height":573}
 ```
 
@@ -184,7 +184,7 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 在 React Native 中，另一个值得一提的变动是我们把`src`属性改为了`source`属性，而且并不接受字符串，正确的值是一个带有`uri`属性的对象。
 
-```javascript
+```jsx
 <Image source={{uri: 'something.jpg'}} />
 ```
 
@@ -198,7 +198,7 @@ iOS 会为同一张图片在相册中保存多个不同尺寸的副本。为了�
 
 也可能你并不需要使用`<ImageBackground>`，因为它的实现其实非常简单，实质就是对图片使用了绝对定位。你可以阅读其[文档](imagebackground.md)然后思考你是否有更好更简单的布局方案。
 
-```javascript
+```jsx
 return (
   <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
     <Text>Inside</Text>

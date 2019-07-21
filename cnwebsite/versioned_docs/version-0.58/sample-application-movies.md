@@ -38,7 +38,7 @@ react-native init SampleAppMovies
 
 在我们真正从 Rotten Tomatoes(_译注：一个国外的电影社区_)抓取数据之前，我们先制造一些模拟数据来练一练手。在 Facebook 我们通常在 JS 文件的开头，紧跟着 import 语句之后声明一个常量，不过这不重要，你可以把它放在`App.js`的任意位置：
 
-```javascript
+```jsx
 var MOCKED_MOVIES_DATA = [
   {
     title: "标题",
@@ -54,14 +54,14 @@ var MOCKED_MOVIES_DATA = [
 
 我们接下来要展现一个电影，绘制它的标题、年份、以及缩略图(_译注：这个过程我们通常会叫做“渲染/render”，后面我们都会用“渲染”这个词_)。渲染缩略图需要用到 Image 组件，所以把 Image 添加到对 React 的 import 列表中。
 
-```javascript
+```jsx
 import React, { Component } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 ```
 
 然后修改一下 render 函数，这样我们可以把上面创建的模拟数据渲染出来。
 
-```javascript
+```jsx
   render() {
     var movie = MOCKED_MOVIES_DATA[0];
     return (
@@ -76,7 +76,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 
 按下`⌘+R`或者`Reload JS`，现在你应该能看到文字"Title"和"2015"，但现在 Image 组件没渲染任何东西，这是因为我们还没有为图片指定我们想要渲染的宽和高。这通过样式来实现。当我们修改样式的时候，我们也应该清理掉我们不再使用的样式。
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -93,7 +93,7 @@ var styles = StyleSheet.create({
 
 然后把它应用到 Image 组件上：
 
-```javascript
+```jsx
 <Image source={{ uri: movie.posters.thumbnail }} style={styles.thumbnail} />
 ```
 
@@ -119,7 +119,7 @@ var styles = StyleSheet.create({
 
 所以我们需要增加一个 container 来实现一个水平布局内嵌套一个垂直布局。
 
-```javascript
+```jsx
 return (
   <View style={styles.container}>
     <Image source={{ uri: movie.posters.thumbnail }} style={styles.thumbnail} />
@@ -133,7 +133,7 @@ return (
 
 和之前相比并没有太多变化，我们增加了一个 container 来包装文字，然后把它移到了 Image 的后面（因为他们最终在图片的右边）。然后我们来看看样式要怎么改：
 
-```javascript
+```jsx
   container: {
     flex: 1,
     flexDirection: 'row',
@@ -149,7 +149,7 @@ return (
 
 现在我们往`style`对象里增加另一个样式：
 
-```javascript
+```jsx
   rightContainer: {
     flex: 1,
   },
@@ -159,7 +159,7 @@ return (
 
 给文字添加样式就简单的多了：
 
-```javascript
+```jsx
   title: {
     fontSize: 20,
     marginBottom: 8,
@@ -182,7 +182,7 @@ return (
 
 把下面的常量放到文件的最开头（通常在 import 下面）来创建我们请求数据所需的地址常量 REQUEST_URL
 
-```javascript
+```jsx
 /**
  * 为了避免骚扰，我们用了一个样例数据来替代Rotten Tomatoes的API
  * 请求，这个样例数据放在React Native的Github库中。
@@ -194,7 +194,7 @@ var REQUEST_URL =
 
 首先在应用中创建一个初始的 null 状态，这样可以通过`this.state.movies == null`来判断我们的数据是不是已经被抓取到了。我们在服务器响应返回的时候执行`this.setState({movies: moviesData})`来改变这个状态。把下面这段代码放到我们的 React 类的 render 函数之前（下面注释中的“绑定操作”你可以看看这个[短视频教程](http://v.youku.com/v_show/id_XMTgyNzM0NjQzMg==.html)）：
 
-```javascript
+```jsx
   constructor(props) {
     super(props);   //这一句不能省略，照抄即可
     this.state = {
@@ -208,7 +208,7 @@ var REQUEST_URL =
 
 组件加载完毕之后，就可以向服务器请求数据。`componentDidMount`是 React 组件的一个生命周期方法，它会在组件刚加载完成的时候调用一次，以后不会再被调用。React 中的各种生命周期方法请[参阅此文档](http://facebook.github.io/react/docs/component-specs.html)。
 
-```javascript
+```jsx
   componentDidMount() {
     this.fetchData();
   }
@@ -216,7 +216,7 @@ var REQUEST_URL =
 
 现在我们来为组件添加`fetchData`函数。你所需要做的就是在 Promise 调用链结束后执行`this.setState({movies:data})`。在 React 的工作机制下，`setState`实际上会触发一次`重新渲染`的流程，此时 render 函数被触发，发现 this.state.movies 不再是`null`。
 
-```javascript
+```jsx
   fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
@@ -231,7 +231,7 @@ var REQUEST_URL =
 
 现在我们来修改 render 函数。在电影数据加载完毕之前，先渲染一个“加载中”的视图；而如果电影数据已经加载完毕了，则渲染第一个电影数据。
 
-```javascript
+```jsx
   render() {
     if (!this.state.movies) {
       return this.renderLoadingView();
@@ -281,14 +281,14 @@ var REQUEST_URL =
 
 首先要做的事情：在文件最开头引入`FlatList`。
 
-```javascript
+```jsx
 import React, { Component } from "react";
 import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 ```
 
 现在来修改 render 函数。当我们已经有了数据之后，渲染一个包含多个电影信息的 FlatList，而不仅仅是单个的电影。
 
-```javascript
+```jsx
   render() {
     if (!this.state.loaded) {
       return this.renderLoadingView();
@@ -310,7 +310,7 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 你会注意到我们现在用到了`this.state`中的`data`。下一步就是在`constructor`生成的初始状态中添加一个空白的`data`。另外，我们现在要把数据存储在`data`中了，所以不再另外用`this.state.movies`来保存数据。我们可以在 state 里用一个布尔型的属性(`this.state.loaded`)来判断数据加载是否已经完成了。
 
-```javascript
+```jsx
   constructor(props) {
     super(props);
     this.state = {
@@ -325,7 +325,7 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 同时我们也要修改`fetchData`方法来把数据添加到 data 里（注意这里使用了数组的 concat 方法生成新数组，不能直接在原数组上 push！）：
 
-```javascript
+```jsx
   fetchData() {
     fetch(REQUEST_URL)
       .then((response) => response.json())
@@ -341,7 +341,7 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 `renderMovie`方法的构型也有变化（注意如果你要在这个方法中使用 this 关键字的话，需要怎么改？）。
 
-```javascript
+```jsx
   renderMovie({ item }) {
     // { item }是一种“解构”写法，请阅读ES2015语法的相关文档
     // item也是FlatList中固定的参数名，请阅读FlatList的相关文档
@@ -362,7 +362,7 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 最后，我们再在`styles`对象里给`FlatList`添加一些样式。
 
-```javascript
+```jsx
   list: {
     paddingTop: 20,
     backgroundColor: '#F5FCFF',
@@ -379,7 +379,7 @@ import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
 ### 最终的代码(App.js)
 
-```javascript
+```jsx
 
 import React, { Component } from "react";
 

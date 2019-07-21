@@ -17,7 +17,7 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 
 用法示例：
 
-```javascript
+```jsx
 import { ToastAndroid } from 'react-native'; 
 
 ToastAndroid.show("A pikachu appeared nearby !", ToastAndroid.SHORT);
@@ -39,7 +39,7 @@ ToastAndroid.showWithGravityAndOffset(
 
 The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
-```javascript
+```jsx
 import React, { Component } from 'react';
 import {
   View,
@@ -117,7 +117,7 @@ class App extends Component {
 
 ### `show()`
 
-```javascript
+```jsx
 static show(message, duration)
 ```
 
@@ -125,7 +125,7 @@ static show(message, duration)
 
 ### `showWithGravity()`
 
-```javascript
+```jsx
 static showWithGravity(message, duration, gravity)
 ```
 
@@ -133,7 +133,7 @@ static showWithGravity(message, duration, gravity)
 
 ### `showWithGravityAndOffset()`
 
-```javascript
+```jsx
 static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 ```
 
@@ -141,7 +141,7 @@ static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 
 ### `SHORT`
 
-```javascript
+```jsx
 ToastAndroid.SHORT;
 ```
 
@@ -149,7 +149,7 @@ ToastAndroid.SHORT;
 
 ### `LONG`
 
-```javascript
+```jsx
 ToastAndroid.LONG;
 ```
 
@@ -157,7 +157,7 @@ ToastAndroid.LONG;
 
 ### `TOP`
 
-```javascript
+```jsx
 ToastAndroid.TOP;
 ```
 
@@ -165,7 +165,7 @@ ToastAndroid.TOP;
 
 ### `BOTTOM`
 
-```javascript
+```jsx
 ToastAndroid.BOTTOM;
 ```
 
@@ -173,6 +173,6 @@ ToastAndroid.BOTTOM;
 
 ### `CENTER`
 
-```javascript
+```jsx
 ToastAndroid.CENTER;
 ```

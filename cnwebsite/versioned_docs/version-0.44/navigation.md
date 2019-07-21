@@ -65,7 +65,7 @@ React Navigation中的视图是原生组件，同时用到了运行在原生线�
 
 ![](/img/NavigationStack-NavigatorIOS.gif)
 
-```javascript
+```jsx
 <NavigatorIOS
   initialRoute={{
     component: MyScene,
@@ -79,7 +79,7 @@ React Navigation中的视图是原生组件，同时用到了运行在原生线�
 
 由于`NavigatorIOS`使用的是原生的UIKit导航，所以它会自动渲染一个带有返回按钮和标题的导航栏。
 
-```javascript
+```jsx
 import React, { Component, PropTypes } from 'react';
 import { NavigatorIOS, Text, TouchableHighlight, View } from 'react-native';
 

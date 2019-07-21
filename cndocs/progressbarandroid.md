@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 
 ### `indeterminate`
 
-决定进度条是否要显示一个不确定的进度。注意这个在styleAttr是Horizontal的时候必须是false。
+决定进度条是否要显示一个不确定的进度。注意这个在styleAttr是Horizontal的时候必须是false，并且需要设置`progress`值。
 
 | 类型              | 必填 |
 | ----------------- | ---- |

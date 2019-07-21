@@ -19,7 +19,7 @@ original_id: flatlist
 
 一个简单的例子：
 
-```javascript
+```jsx
 <FlatList
   data={[{key: 'a'}, {key: 'b'}]}
   renderItem={({item}) => <Text>{item.key}</Text>}
@@ -211,7 +211,7 @@ original_id: flatlist
 
 
 ### 例子
-```javascript
+```jsx
 'use strict';
 
 const React = require('react');

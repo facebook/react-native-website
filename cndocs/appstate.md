@@ -14,9 +14,9 @@ AppState 通常在处理推送通知的时候用来决定内容和对应的行�
   * 在别的应用中
   * 停留在桌面
   * 对 Android 来说还可能处在另一个`Activity`中（即便是由你的应用拉起的）
-* `inactive` - 此状态表示应用正在前后台的切换过程中，或是处在系统的多任务视图，又或是处在来电状态中。
+* [iOS] `inactive` - 此状态表示应用正在前后台的切换过程中，或是处在系统的多任务视图，又或是处在来电状态中。
 
-要了解更多信息，可以阅读[Apple 的文档](https://developer.apple.com/library/ios/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/TheAppLifeCycle/TheAppLifeCycle.html)。
+要了解更多信息，可以阅读[Apple 的文档](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)。
 
 ### 基本用法
 
@@ -63,6 +63,12 @@ class AppStateExample extends Component {
 * [`addEventListener`](appstate.md#addeventlistener)
 * [`removeEventListener`](appstate.md#removeeventlistener)
 
+### 查看事件
+
+- [`change`](appstate.md#change)
+- [`focus`](appstate.md#focus)
+- [`blur`](appstate.md#blur)
+
 ### 查看属性
 
 * [`currentState`](appstate.md#currentState)
@@ -71,11 +77,25 @@ class AppStateExample extends Component {
 
 # 文档
 
+## 事件
+
+### `change`
+
+This even is received when the app state has changed. The listener is called with one of [the current app state values](appstate.md#app-states).
+
+### `focus`
+
+[Android only] Received when the app gains focus (the user is interacting with the app).
+
+### `blur`
+
+[Android only] Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
+
 ## 方法
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -87,16 +107,16 @@ TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate 
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
 移除一个监听函数。type 参数应填`change`。
 
-## Properties
+## 属性
 
 ### `currentState`
 
-```javascript
+```jsx
 AppState.currentState;
 ```

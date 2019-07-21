@@ -10,7 +10,7 @@ title: 处理触摸事件
 
 [Button](button.md)是一个简单的跨平台的按钮组件。下面是一个最简示例：
 
-```javascript
+```jsx
 <Button
   onPress={() => {
     Alert.alert("你点击了按钮！");
