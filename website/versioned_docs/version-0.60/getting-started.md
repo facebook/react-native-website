@@ -15,7 +15,7 @@ This page will help you install and build your first React Native app. If you al
     <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
       Expo CLI Quickstart
     </li>
-    <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="0" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
+    <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="1" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
       React Native CLI Quickstart
     </li>
   </ul>
