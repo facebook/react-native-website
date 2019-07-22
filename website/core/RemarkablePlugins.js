@@ -142,11 +142,10 @@ function SnackPlayer(md) {
  * E.g.
  * ```ReactNativeWebPlayer platform=android
  * import React from 'react';
- * import { AppRegistry, Text } from 'react-native';
+ * import { Text } from 'react-native';
  *
  * const App = () => <Text>Hello World!</Text>;
- *
- * AppRegistry.registerComponent('MyApp', () => App);
+ * export default App;
  * ```
  */
 function ReactNativeWebPlayer(md) {
