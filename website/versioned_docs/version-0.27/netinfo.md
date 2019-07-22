@@ -110,7 +110,7 @@ NetInfo.isConnected.addEventListener(
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -120,7 +120,7 @@ Invokes the listener whenever network status changes. The listener receives one 
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 
@@ -130,7 +130,7 @@ Removes the listener for network status changes.
 
 ### `fetch()`
 
-```javascript
+```jsx
 static fetch()
 ```
 
@@ -140,7 +140,7 @@ Returns a promise that resolves with one of the connectivity types listed above.
 
 ### `isConnectionExpensive()`
 
-```javascript
+```jsx
 static isConnectionExpensive()
 ```
 

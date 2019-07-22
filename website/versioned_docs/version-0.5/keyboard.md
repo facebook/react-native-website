@@ -58,7 +58,7 @@ class Example extends Component {
 
 ### `addListener()`
 
-```javascript
+```jsx
 Keyboard.addListener(eventName, callback);
 ```
 
@@ -83,7 +83,7 @@ Note that if you set `android:windowSoftInputMode` to `adjustResize` or `adjustN
 
 ### `removeListener()`
 
-```javascript
+```jsx
 Keyboard.removeListener(eventName, callback);
 ```
 
@@ -95,7 +95,7 @@ Removes a specific listener.
 
 ### `removeAllListeners()`
 
-```javascript
+```jsx
 Keyboard.removeAllListeners(eventName);
 ```
 
@@ -107,7 +107,7 @@ Removes all listeners for a specific event type.
 
 ### `dismiss()`
 
-```javascript
+```jsx
 Keyboard.dismiss();
 ```
 

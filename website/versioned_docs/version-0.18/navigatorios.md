@@ -192,7 +192,7 @@ A Boolean value that indicates whether the navigation bar is translucent by defa
 
 ### `push()`
 
-```javascript
+```jsx
 push((route: object));
 ```
 
@@ -200,7 +200,7 @@ push((route: object));
 
 ### `popN()`
 
-```javascript
+```jsx
 popN((n: number));
 ```
 
@@ -208,7 +208,7 @@ popN((n: number));
 
 ### `pop()`
 
-```javascript
+```jsx
 pop();
 ```
 
@@ -216,7 +216,7 @@ pop();
 
 ### `replaceAtIndex()`
 
-```javascript
+```jsx
 replaceAtIndex((route: object), (index: number));
 ```
 
@@ -228,7 +228,7 @@ Replace a route in the navigation stack.
 
 ### `replace()`
 
-```javascript
+```jsx
 replace((route: object));
 ```
 
@@ -238,7 +238,7 @@ Replaces the top of the navigation stack.
 
 ### `replacePrevious()`
 
-```javascript
+```jsx
 replacePrevious((route: object));
 ```
 
@@ -248,7 +248,7 @@ Replace the current route's parent.
 
 ### `popToTop()`
 
-```javascript
+```jsx
 popToTop();
 ```
 
@@ -256,7 +256,7 @@ popToTop();
 
 ### `popToRoute()`
 
-```javascript
+```jsx
 popToRoute((route: object));
 ```
 
@@ -264,7 +264,7 @@ popToRoute((route: object));
 
 ### `replacePreviousAndPop()`
 
-```javascript
+```jsx
 replacePreviousAndPop((route: object));
 ```
 
@@ -272,7 +272,7 @@ replacePreviousAndPop((route: object));
 
 ### `resetTo()`
 
-```javascript
+```jsx
 resetTo((route: object));
 ```
 
@@ -280,7 +280,7 @@ resetTo((route: object));
 
 ### `handleNavigationComplete()`
 
-```javascript
+```jsx
 handleNavigationComplete((e: Event));
 ```
 
@@ -288,6 +288,6 @@ handleNavigationComplete((e: Event));
 
 ### `renderNavigationStackItems()`
 
-```javascript
+```jsx
 renderNavigationStackItems();
 ```

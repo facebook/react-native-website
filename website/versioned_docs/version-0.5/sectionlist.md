@@ -21,7 +21,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 Simple Examples:
 
-```javascript
+```jsx
 <SectionList
   renderItem={({item}) => <ListItem title={item} />}
   renderSectionHeader={({section}) => <Header title={section.title} />}
@@ -111,7 +111,7 @@ sections: [{
 
 ### `renderItem`
 
-```javascript
+```jsx
 renderItem({ item: object, index: number, section: object, separators: { highlight: function, unhighlight: function, updateProps: function(select: string, newProps: object) } }): [element]
 ```
 
@@ -207,7 +207,7 @@ Reverses the direction of scroll. Uses scale transforms of `-1`.
 
 ### `keyExtractor`
 
-```javascript
+```jsx
 (item: object, index: number) => string;
 ```
 
@@ -221,7 +221,7 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 ### `onEndReached`
 
-```javascript
+```jsx
 (info: {distanceFromEnd: number}) => void
 ```
 
@@ -245,7 +245,7 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 ### `onRefresh`
 
-```javascript
+```jsx
 () => void
 ```
 
@@ -259,7 +259,7 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 ### `onViewableItemsChanged`
 
-```javascript
+```jsx
 (info: {
     viewableItems: array,
     changed: array,
@@ -336,7 +336,7 @@ Makes section headers stick to the top of the screen until the next one pushes i
 
 ### `scrollToLocation()`
 
-```javascript
+```jsx
 scrollToLocation((params: object));
 ```
 
@@ -348,7 +348,7 @@ Note: cannot scroll to locations outside the render window without specifying th
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -358,7 +358,7 @@ Tells the list an interaction has occured, which should trigger viewability calc
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

@@ -62,7 +62,7 @@ Apple TV parallax effects
 
 ### `setOpacityTo()`
 
-```javascript
+```jsx
 setOpacityTo((value: number), (duration: number));
 ```
 

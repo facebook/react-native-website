@@ -17,7 +17,7 @@ original_id: actionsheetios
 
 ### `showActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showActionSheetWithOptions(options, callback)
 ```
 
@@ -33,7 +33,7 @@ Display an iOS action sheet. The `options` object must contain one or more of:
 
 ### `showShareActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showShareActionSheetWithOptions(options, failureCallback, successCallback)
 ```
 

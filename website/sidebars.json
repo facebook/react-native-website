@@ -52,7 +52,8 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "removing-default-permissions"
+      "removing-default-permissions",
+      "hermes"
     ]
   },
   "api": {

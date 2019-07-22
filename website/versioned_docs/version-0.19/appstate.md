@@ -61,7 +61,7 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(type, handler)
 ```
 
@@ -78,7 +78,7 @@ Add a handler to AppState changes by listening to the `change` event type and pr
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(type, handler)
 ```
 
@@ -95,6 +95,6 @@ Remove a handler by passing the `change` event type and the handler
 
 ### `currentState`
 
-```javascript
+```jsx
 AppState.currentState;
 ```

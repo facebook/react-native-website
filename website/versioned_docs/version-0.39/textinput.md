@@ -609,7 +609,7 @@ Some functionality that can be performed with this instance is:
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```
 
@@ -619,7 +619,7 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```
 

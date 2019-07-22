@@ -24,7 +24,7 @@ The user's permission is required in order to access the Camera Roll on devices 
 
 ### `saveImageWithTag()`
 
-```javascript
+```jsx
 static saveImageWithTag(tag)
 ```
 
@@ -32,7 +32,7 @@ static saveImageWithTag(tag)
 
 ### `saveToCameraRoll()`
 
-```javascript
+```jsx
 static saveToCameraRoll(tag, type?)
 ```
 
@@ -50,7 +50,7 @@ Returns a Promise which will resolve with the new URI.
 
 ### `getPhotos()`
 
-```javascript
+```jsx
 static getPhotos(params)
 ```
 

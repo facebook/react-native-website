@@ -405,7 +405,7 @@ Android only. By default, it is 300ms.
 
 ### `getSize()`
 
-```javascript
+```jsx
 Image.getSize(uri, success, [failure]);
 ```
 
@@ -427,7 +427,7 @@ Does not work for static image resources.
 
 ### `prefetch()`
 
-```javascript
+```jsx
 Image.prefetch(url);
 ```
 
@@ -443,7 +443,7 @@ Prefetches a remote image for later use by downloading it to the disk cache
 
 ### `abortPrefetch()`
 
-```javascript
+```jsx
 Image.abortPrefetch(requestId);
 ```
 
@@ -459,7 +459,7 @@ Abort prefetch request. Android-only.
 
 ### `queryCache()`
 
-```javascript
+```jsx
 Image.queryCache(urls);
 ```
 
@@ -475,7 +475,7 @@ Perform cache interrogation. Returns a mapping from URL to cache status, such as
 
 ### `resolveAssetSource()`
 
-```javascript
+```jsx
 Image.resolveAssetSource(source);
 ```
 

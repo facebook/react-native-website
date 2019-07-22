@@ -54,6 +54,6 @@ Alert.alert(
 
 ### `alert()`
 
-```javascript
+```jsx
 static alert(title, message?, buttons?, options?, type?)
 ```

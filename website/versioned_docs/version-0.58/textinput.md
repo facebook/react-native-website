@@ -789,7 +789,7 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```
 
@@ -799,7 +799,7 @@ Removes all text from the `TextInput`.
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused();
 ```
 

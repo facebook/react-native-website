@@ -42,7 +42,7 @@ var image = getImage({
 
 ### `get()`
 
-```javascript
+```jsx
 static get()
 ```
 
@@ -71,7 +71,7 @@ Returns the device pixel density. Some examples:
 
 ### `getPixelSizeForLayoutSize()`
 
-```javascript
+```jsx
 static getPixelSizeForLayoutSize(layoutSize)
 ```
 
@@ -83,7 +83,7 @@ Guaranteed to return an integer number.
 
 ### `startDetecting()`
 
-```javascript
+```jsx
 static startDetecting()
 ```
 

@@ -20,7 +20,7 @@ original_id: backandroid
 
 ### `exitApp()`
 
-```javascript
+```jsx
 BackAndroid.exitApp();
 ```
 
@@ -28,7 +28,7 @@ BackAndroid.exitApp();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 BackAndroid.addEventListener(eventName, handler);
 ```
 
@@ -36,6 +36,6 @@ BackAndroid.addEventListener(eventName, handler);
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 BackAndroid.removeEventListener(eventName, handler);
 ```

@@ -23,7 +23,7 @@ original_id: netinfo
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -31,7 +31,7 @@ static addEventListener(eventName, handler)
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 
@@ -39,7 +39,7 @@ static removeEventListener(eventName, handler)
 
 ### `fetch()`
 
-```javascript
+```jsx
 static fetch()
 ```
 

@@ -72,7 +72,7 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ### `scrollToLocation()`
 
-```javascript
+```jsx
 scrollToLocation((params: object));
 ```
 
@@ -84,7 +84,7 @@ Note: cannot scroll to locations outside the render window without specifying th
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -94,7 +94,7 @@ Tells the list an interaction has occured, which should trigger viewability calc
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

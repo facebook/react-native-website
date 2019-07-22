@@ -20,7 +20,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 Simple Examples:
 
-```javascript
+```jsx
 // Example 1 (Homogeneous Rendering)
 <SectionList
   renderItem={({item, index, section}) => <Text key={index}>{item}</Text>}
@@ -36,7 +36,7 @@ Simple Examples:
 />
 ```
 
-```javascript
+```jsx
 // Example 2 (Heterogeneous Rendering / No Section Headers)
 const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
 
@@ -343,7 +343,7 @@ Makes section headers stick to the top of the screen until the next one pushes i
 
 ### `scrollToLocation()`
 
-```javascript
+```jsx
 scrollToLocation(params);
 ```
 
@@ -369,7 +369,7 @@ Valid `params` keys are:
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -379,7 +379,7 @@ Tells the list an interaction has occurred, which should trigger viewability cal
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

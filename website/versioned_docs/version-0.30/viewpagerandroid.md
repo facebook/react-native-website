@@ -150,7 +150,7 @@ When false, the content does not scroll. The default value is true.
 
 ### `setPage()`
 
-```javascript
+```jsx
 setPage((selectedPage: number));
 ```
 
@@ -160,7 +160,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 ### `setPageWithoutAnimation()`
 
-```javascript
+```jsx
 setPageWithoutAnimation((selectedPage: number));
 ```
 

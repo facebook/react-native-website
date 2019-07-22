@@ -419,6 +419,6 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 
 ### `extraNativeComponentConfig()`
 
-```javascript
+```jsx
 static extraNativeComponentConfig()
 ```

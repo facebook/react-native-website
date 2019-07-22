@@ -14,7 +14,7 @@ The `AsyncStorage` JavaScript code is a simple facade that provides a clear Java
 
 Persisting data:
 
-```javascript
+```jsx
 try {
   await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
 } catch (error) {
@@ -24,7 +24,7 @@ try {
 
 Fetching data:
 
-```javascript
+```jsx
 try {
   const value = await AsyncStorage.getItem('@MySuperStore:key');
   if (value !== null) {
@@ -38,7 +38,7 @@ try {
 
 Merging data:
 
-```javascript
+```jsx
 let UID123_object = {
   name: 'Chris',
   age: 30,
@@ -65,7 +65,7 @@ AsyncStorage.setItem('UID123', JSON.stringify(UID123_object), () => {
 
 Multi merge example:
 
-```javascript
+```jsx
 // first user, initial values
 let UID234_object = {
   name: 'Chris',
@@ -120,7 +120,7 @@ AsyncStorage.multiSet(multi_set_pairs, (err) => {
 
 Fetching multiple items:
 
-```javascript
+```jsx
 AsyncStorage.getAllKeys((err, keys) => {
   AsyncStorage.multiGet(keys, (err, stores) => {
     stores.map((result, i, store) => {
@@ -134,7 +134,7 @@ AsyncStorage.getAllKeys((err, keys) => {
 
 Removing multiple items:
 
-```javascript
+```jsx
 let keys = ['k1', 'k2'];
 AsyncStorage.multiRemove(keys, (err) => {
   // keys k1 & k2 removed, if they existed
@@ -169,7 +169,7 @@ These functions return arrays of errors, potentially one for every key. For key-
 
 ### `getItem()`
 
-```javascript
+```jsx
 AsyncStorage.getItem(key, [callback]);
 ```
 
@@ -186,7 +186,7 @@ Fetches an item for a `key` and invokes a callback upon completion. Returns a `P
 
 ### `setItem()`
 
-```javascript
+```jsx
 AsyncStorage.setItem(key, value, [callback]);
 ```
 
@@ -206,7 +206,7 @@ Returns a `Promise` object.
 
 ### `removeItem()`
 
-```javascript
+```jsx
 AsyncStorage.removeItem(key, [callback]);
 ```
 
@@ -223,7 +223,7 @@ Removes an item for a `key` and invokes a callback upon completion. Returns a `P
 
 ### `mergeItem()`
 
-```javascript
+```jsx
 AsyncStorage.mergeItem(key, value, [callback]);
 ```
 
@@ -243,7 +243,7 @@ Merges an existing `key` value with an input value, assuming both values are str
 
 ### `clear()`
 
-```javascript
+```jsx
 AsyncStorage.clear([callback]);
 ```
 
@@ -259,7 +259,7 @@ Erases _all_ `AsyncStorage` for all clients, libraries, etc. You probably don't 
 
 ### `getAllKeys()`
 
-```javascript
+```jsx
 AsyncStorage.getAllKeys([callback]);
 ```
 
@@ -275,7 +275,7 @@ Gets _all_ keys known to your app; for all callers, libraries, etc. Returns a `P
 
 ### `flushGetRequests()`
 
-```javascript
+```jsx
 AsyncStorage.flushGetRequests();
 ```
 
@@ -285,7 +285,7 @@ Flushes any pending requests using a single batch call to get the data.
 
 ### `multiGet()`
 
-```javascript
+```jsx
 AsyncStorage.multiGet(keys, [callback]);
 ```
 
@@ -308,7 +308,7 @@ The method returns a `Promise` object.
 
 ### `multiSet()`
 
-```javascript
+```jsx
 AsyncStorage.multiSet(keyValuePairs, [callback]);
 ```
 
@@ -331,7 +331,7 @@ The method returns a `Promise` object.
 
 ### `multiRemove()`
 
-```javascript
+```jsx
 AsyncStorage.multiRemove(keys, [callback]);
 ```
 
@@ -348,7 +348,7 @@ Call this to batch the deletion of all keys in the `keys` array. Returns a `Prom
 
 ### `multiMerge()`
 
-```javascript
+```jsx
 AsyncStorage.multiMerge(keyValuePairs, [callback]);
 ```
 
