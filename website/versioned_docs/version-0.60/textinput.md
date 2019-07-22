@@ -10,7 +10,7 @@ The simplest use case is to plop down a `TextInput` and subscribe to the `onChan
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, TextInput } from 'react-native';
+import { TextInput } from 'react-native';
 
 export default class UselessTextInput extends Component {
   constructor(props) {
@@ -28,9 +28,6 @@ export default class UselessTextInput extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => UselessTextInput);
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
@@ -39,7 +36,7 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 
 class UselessTextInput extends Component {
   render() {
@@ -80,12 +77,6 @@ export default class UselessTextInputMultiline extends Component {
     );
   }
 }
-
-// skip these lines if using Create React Native App
-AppRegistry.registerComponent(
- 'AwesomeProject',
- () => UselessTextInputMultiline
-);
 ```
 
 `TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this is to either not set height explicitly, case in which the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
