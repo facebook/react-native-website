@@ -103,13 +103,17 @@ With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](
 
 There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
 
+#### What's the difference between state and props in React?
+
+In a React component, the props are the variables that we pass from a parent component to a child component. Similarly, the state are also variables, with the difference that they are not passed through parameters, but rather that the component initializes and manages them internally.
+
 #### There are differences between React and React Native to handle the state?
 
 ![image](https://user-images.githubusercontent.com/20761166/61405629-48270680-a8a8-11e9-906e-aa80d51e51e3.png)
 
 As shown in the image, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
 
-## TODO: Explain a little the following example
+In the following example we will show the same above counter example using classes
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react'
