@@ -34,7 +34,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/flex-direction)
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FlexDirectionBasics extends Component {
   render() {
@@ -48,9 +48,6 @@ export default class FlexDirectionBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 ```
 
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
@@ -81,7 +78,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class JustifyContentBasics extends Component {
   render() {
@@ -100,9 +97,6 @@ export default class JustifyContentBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 ```
 
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
@@ -127,7 +121,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/align-items)
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class AlignItemsBasics extends Component {
   render() {
@@ -148,9 +142,6 @@ export default class AlignItemsBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)

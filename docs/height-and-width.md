@@ -11,7 +11,7 @@ The simplest way to set the dimensions of a component is by adding a fixed `widt
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FixedDimensionsBasics extends Component {
   render() {
@@ -24,9 +24,6 @@ export default class FixedDimensionsBasics extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FixedDimensionsBasics);
 ```
 
 Setting dimensions this way is common for components that should always render at exactly the same size, regardless of screen dimensions.
@@ -39,7 +36,7 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FlexDimensionsBasics extends Component {
   render() {
@@ -55,9 +52,6 @@ export default class FlexDimensionsBasics extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FlexDimensionsBasics);
 ```
 
 After you can control a component's size, the next step is to [learn how to lay it out on the screen](flexbox.md).
