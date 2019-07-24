@@ -1,9 +1,7 @@
 .home-float-1 {
   position: fixed;
-  padding-left: 1600px;
-  width: 1800px;
   height: 308px;
-  margin-left: auto;
+  margin-left: 1600px;
   margin-right: auto;
   left: 0;
   right: 0;
