@@ -16,51 +16,43 @@ The [`Animated`](animated.md) API is designed to make it very easy to concisely 
 For example, a container view that fades in when it is mounted may look like this:
 
 ```SnackPlayer
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Animated, Text, View } from 'react-native';
 
-class FadeInView extends React.Component {
-  state = {
-    fadeAnim: new Animated.Value(0),  // Initial value for opacity: 0
-  }
-
-  componentDidMount() {
-    Animated.timing(                  // Animate over time
-      this.state.fadeAnim,            // The animated value to drive
+const FadeInView = (props) => {
+  const [fadeAdmin] = useState(new Animated.Value(0))  // Initial value for opacity: 0
+  
+  React.useEffect(() => {
+    Animated.timing(
+      fadeAdmin,
       {
-        toValue: 1,                   // Animate to opacity: 1 (opaque)
-        duration: 10000,              // Make it take a while
+        toValue: 1,
+        duration: 10000,
       }
-    ).start();                        // Starts the animation
-  }
+    ).start();
+  }, [])
 
-  render() {
-    let { fadeAnim } = this.state;
-
-    return (
-      <Animated.View                 // Special animatable View
-        style={{
-          ...this.props.style,
-          opacity: fadeAnim,         // Bind opacity to animated value
-        }}
-      >
-        {this.props.children}
-      </Animated.View>
-    );
-  }
+  return (
+    <Animated.View                 // Special animatable View
+      style={{
+        ...props.style,
+        opacity: fadeAdnim,         // Bind opacity to animated value
+      }}
+    >
+      {props.children}
+    </Animated.View>
+  );
 }
 
 // You can then use your `FadeInView` in place of a `View` in your components:
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
-          <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
-        </FadeInView>
-      </View>
-    )
-  }
+export default () => {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
+        <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
+      </FadeInView>
+    </View>
+  )
 }
 ```
 
