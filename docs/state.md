@@ -9,7 +9,7 @@ In general, you should initialize `state` in the constructor, and then call `set
 
 For example, let's say we want to make text that blinks all the time. The text itself gets set once when the blinking component gets created, so the text itself is a `prop`. The "whether the text is currently on or off" changes over time, so that should be kept in `state`.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=State
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
