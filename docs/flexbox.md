@@ -31,7 +31,7 @@ In the following example the red, yellow and the green views are all children in
 
 LEARN MORE [HERE](https://yogalayout.com/docs/flex-direction)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Flex%20Direction
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
@@ -75,7 +75,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Justify%20Content
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
@@ -118,7 +118,7 @@ export default class JustifyContentBasics extends Component {
 
 LEARN MORE [HERE](https://yogalayout.com/docs/align-items)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Align%20Items
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
