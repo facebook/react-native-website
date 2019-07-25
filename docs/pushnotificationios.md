@@ -168,7 +168,7 @@ details is an object containing:
 - `fireDate` : The date and time when the system should deliver the notification.
 - `alertTitle` : The text displayed as the title of the notification alert.
 - `alertBody` : The message displayed in the notification alert.
-- `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
+- `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view". Note that Apple no longer shows this in iOS 10 +
 - `soundName` : The sound played when the notification is fired (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).
 - `category` : The category of this notification, required for actionable notifications (optional).
