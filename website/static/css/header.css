@@ -38,6 +38,20 @@ li.navSearchWrapper {
   color: $brand;
 }
 
+@media only screen and (max-width: 480px) {
+  .headerWrapper.wrapper {
+    padding: 0 10px;
+  }
+
+  .fixedHeaderContainer header a[href="/react-native/"] {
+    width: 140px;
+  }
+  .fixedHeaderContainer header .headerTitleWithLogo {
+    display: initial !important;
+    font-size: 1rem;
+  }
+}
+
 @media only screen and (max-width: 1023px) {
   .navPusher {
     padding-top: 110px;
