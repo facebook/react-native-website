@@ -40,7 +40,7 @@
   letter-spacing: 0.08em;
 }
 
-.toc .toggleNav .navGroup .navGroupCategoryTitle:hover {
+.toc .toggleNav .navGroup .navGroupCategoryTitle.collapsible:hover {
   color: $text;
 }
 
