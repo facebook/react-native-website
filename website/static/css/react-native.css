@@ -2,10 +2,7 @@
   outline: none;
 }
 
-body {
-  background-color: $backgroundColor;
-}
-
+body,
 .mainContainer {
   background-color: $backgroundColor;
 }

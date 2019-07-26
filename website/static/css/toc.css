@@ -1,9 +1,21 @@
+.docsNavContainer .toc .navBreadcrumb {
+  /* Prevent overlap when scrolling up */
+  z-index: 9999;
+  background-color: $tintColor;
+  border-bottom: 2px solid $divider;
+}
 .collapsible .arrow {
   transform: rotate(180deg);
 }
 
 .collapsible .arrow.rotate {
   transform: rotate(0);
+}
+
+@media only screen and (min-width: 736px) {
+  .docsNavContainer {
+    width: 100%;
+  }
 }
 
 .container.docsNavContainer {
@@ -55,12 +67,12 @@
   position: relative;
 }
 
-.toc .toggleNav ul li.navListItemActive::after {
+.toc .toggleNav ul li.navListItemActive::before {
   content: "";
   background-color: $brand;
   position: absolute;
   width: 5px;
   top: 2px;
-  right: 0;
+  left: -16px;
   bottom: 2px;
 }

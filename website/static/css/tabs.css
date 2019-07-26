@@ -61,7 +61,7 @@
   .toggler li,
   .toggler li:first-child,
   .toggler li:last-child {
-    display: block;
+    /* display: block; */
     border-bottom-color: $subtle;
     border-radius: 3px;
     margin: 2px 0px 2px 0px;

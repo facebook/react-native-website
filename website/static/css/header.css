@@ -39,6 +39,10 @@ li.navSearchWrapper {
 }
 
 @media only screen and (max-width: 1023px) {
+  .navPusher {
+    padding-top: 110px;
+  }
+
   ul.nav-site.nav-site-internal {
     margin-top: 60px;
   }
