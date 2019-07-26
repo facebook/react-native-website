@@ -2,10 +2,12 @@ footer.nav-footer {
   background-color: $darker;
 }
 
-@media only screen and (min-width: 761px) {
+@media only screen and (min-width: 741px) {
   .nav-footer .sitemap {
     display: grid;
-    grid-template-columns: 0.25fr 1fr 1.33fr 1fr;
+    grid-template-columns: 1fr 1.33fr 1fr;
+    justify-items: center;
+    max-width: 900px;
   }
 }
 
