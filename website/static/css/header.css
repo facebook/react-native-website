@@ -107,6 +107,10 @@ li.navSearchWrapper {
 }
 
 @media only screen and (min-width: 1024px) {
+  .navPusher {
+    padding-top: 60px;
+  }
+
   .navigationSlider .slidingNav ul li:not(.reactNavSearchWrapper) {
     position: relative;
     padding: 13px 16px;

@@ -76,3 +76,9 @@
   left: -16px;
   bottom: 2px;
 }
+
+@media only screen and (min-width: 1024px) {
+  .toc {
+    padding-top: 2rem;
+  }
+}

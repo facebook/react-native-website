@@ -11,9 +11,16 @@ body,
   max-width: 1200px;
 }
 
+@media only screen and (max-width: 1023px) {
+  .mainContainer {
+    padding-top: 48px;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .mainContainer {
     margin-left: 20px;
+    padding-top: 2rem;
   }
 
   .docsNavContainer {
