@@ -49,6 +49,13 @@ body,
   margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 960px) {
+  .mainContainer h1.postHeaderTitle {
+    font-size: 40px;
+    margin-bottom: 1rem;
+  }
+}
+
 p a,
 li a {
   background-color: rgba(187, 239, 253, 0.3);
