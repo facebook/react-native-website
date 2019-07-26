@@ -11,10 +11,22 @@
   transition: none;
 }
 
+/* Put the image on the left of the block */
+.blogContainer .postHeader .authorBlock {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
 .blogContainer .postHeader .post-authorName {
   color: $subtle;
+  font-size: 16px;
+  margin-left: 10px;
+  margin-right: 0px;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 .blogContainer .postHeader .post-authorName a {
   color: $text;
+  width: fit-content;
 }
