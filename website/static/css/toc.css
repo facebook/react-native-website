@@ -33,7 +33,7 @@
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle {
-  color: #6d6d6d;
+  color: $subtle;
   font-size: 14px;
   font-weight: 700;
   text-transform: uppercase;
@@ -41,7 +41,7 @@
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle:hover {
-  color: black;
+  color: $text;
 }
 
 .toc .toggleNav ul {
@@ -56,7 +56,8 @@
 }
 
 .toc .toggleNav ul li a:hover {
-  color: #6d6d6d;
+  color: $subtle;
+  transition: none;
 }
 
 .toc .toggleNav ul li.navListItemActive a {
