@@ -42,7 +42,7 @@ function htmlForCodeBlock(code) {
  * whenever an example that uses the SnackPlayer is updated with code
  * that requires a newer Expo SDK release.
  */
-const LatestSDKVersion = '26.0.0';
+const LatestSDKVersion = '31.0.0';
 /**
  * Use the SnackPlayer by including a ```SnackPlayer``` block in markdown.
  *
@@ -133,7 +133,7 @@ function ReactNativeWebPlayer(md) {
     env,
     self
   ) {
-    const WEB_PLAYER_VERSION = '1.10.0';
+    const WEB_PLAYER_VERSION = '2.0.0-alpha.8';
 
     let sampleCode = tokens[idx].content;
     let hash = `#code=${encodeURIComponent(sampleCode)}`;
