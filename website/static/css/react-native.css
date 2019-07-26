@@ -7,7 +7,7 @@ body {
 }
 
 .mainContainer {
-  background-color: $backgroundColor !important;
+  background-color: $backgroundColor;
 }
 
 .blog .wrapper {

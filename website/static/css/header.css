@@ -42,10 +42,15 @@ li.navSearchWrapper {
   ul.nav-site.nav-site-internal {
     margin-top: 60px;
   }
+}
 
+/* the media queries for docusaurus default have an overlap
+ * (i.e. using 1024 as both the min-width and max-width for separate queries)
+ */
+@media only screen and (max-width: 1024px) {
   .reactNavSearchWrapper input#search_input_react {
     border-radius: 0.25rem;
-    background-color: $light;
+    background-color: $dark;
     height: 30px;
   }
 
