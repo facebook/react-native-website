@@ -6,9 +6,9 @@
   .Feature .column.last {
     margin-top: 1rem;
   }
-  .Feature.Intro img {
-    width: 400px;
-    margin: 0 auto;
+
+  .Feature.Intro .column.last {
+    max-height: 300px;
   }
 
   .Feature .CodeExample {
@@ -90,7 +90,12 @@
   }
 
   .Feature.Talks iframe {
-    width: 400px;
-    height: 225px;
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 761px) and (max-width: 960px) {
+  .Feature .column.last {
+    width: 50%;
   }
 }
