@@ -50,6 +50,9 @@ const siteConfig = {
     divider: '#ececec', // very light grey
     tintColor: '#f7f7f7', // slightly off white
     backgroundColor: 'white',
+    // we don't use these any more but docusaurus complains if we don't
+    primaryColor: 'black',
+    secondaryColor: 'gray',
   },
   blogSidebarCount: 'ALL',
   algolia: {

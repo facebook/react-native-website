@@ -21,11 +21,12 @@
   margin-left: 8px;
   text-decoration: none;
   font-weight: 400;
-  transition: color 0.2s ease-out;
+  transition: color 0.15s ease-out;
 }
 
 .fixedHeaderContainer header h3:hover {
   color: $brand;
+  transition: none;
 }
 
 li.navSearchWrapper {
@@ -127,7 +128,7 @@ li.navSearchWrapper {
 
   .navigationSlider .slidingNav ul li:not(.reactNavSearchWrapper) {
     position: relative;
-    padding: 13px 16px;
+    padding: 0;
     height: 60px;
   }
 
@@ -149,11 +150,14 @@ li.navSearchWrapper {
   .navigationSlider .slidingNav ul li a {
     color: white;
     background-color: transparent !important;
-    transition: color 0.2s ease-out;
+    transition: color 0.15s ease-out;
+    height: 60px;
+    padding: 0 1.5rem;
   }
 
   .navigationSlider .slidingNav ul li a:hover {
     color: $brand;
+    transition: none;
   }
 
   .navigationSlider .slidingNav ul li.siteNavItemActive a,

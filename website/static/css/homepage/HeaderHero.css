@@ -9,12 +9,14 @@
 .HeaderHero .socialLinks {
   display: flex;
   justify-content: flex-end;
-  margin-right: 60px;
-  margin-top: -10px; /* make this tighter */
+  /* margin-right: 60px;
+  margin-top: -10px; make this tighter */
+  max-width: 1200px;
+  margin: -10px auto 0px;
 }
 
 .HeaderHero .socialLinks * {
-  margin-left: 15px;
+  margin-right: 1rem;
 }
 
 .HeaderHero .TwoColumns {
@@ -72,6 +74,5 @@
 
   .HeaderHero .socialLinks {
     margin-top: -2rem;
-    margin-right: 1rem;
   }
 }
