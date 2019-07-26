@@ -2,11 +2,6 @@
   padding-top: 20px;
 }
 
-.HeaderHero .TwoColumns {
-  grid-template-columns: 3fr 1fr;
-  /* margin: -10px 0; */
-}
-
 .HeaderHero .TwoColumns .column {
   max-width: initial;
 }
@@ -58,4 +53,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (min-width: 961px) {
+  .HeaderHero .TwoColumns {
+    grid-template-columns: 3fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .HeaderHero .title {
+    font-size: 60px;
+  }
+
+  .HeaderHero .tagline {
+    font-size: 30px;
+  }
 }

@@ -23,15 +23,17 @@
   grid-area: last;
 }
 
-.TwoColumns .column.left {
-  padding-right: 50px;
+@media only screen and (min-width: 961px) {
+  .TwoColumns .column.left {
+    padding-right: 50px;
+  }
+
+  .TwoColumns .column.right {
+    padding-left: 50px;
+  }
 }
 
-.TwoColumns .column.right {
-  padding-left: 50px;
-}
-
-@media screen and (max-width: 960px) {
+@media only screen and (max-width: 960px) {
   .TwoColumns {
     grid-template-columns: 1fr;
     grid-template-areas: "first" "last";
@@ -41,13 +43,9 @@
     grid-template-areas: "first" "last";
   }
 
-  .TwoColumns .column.left {
-    padding-right: 40px;
-    padding-left: 40px;
-  }
-
-  .TwoColumns .column.right {
-    padding-right: 40px;
-    padding-left: 40px;
+  .TwoColumns .column {
+    width: 80%;
+    max-width: initial;
+    margin: 0 auto;
   }
 }

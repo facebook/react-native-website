@@ -1,61 +1,81 @@
 .Feature {
-  max-height: 450px;
   overflow: hidden;
 }
 
 @media screen and (max-width: 960px) {
-  .Feature {
-    max-height: initial;
+  .Feature .column.last {
+    margin-top: 1rem;
   }
-}
+  .Feature.Intro img {
+    width: 400px;
+    margin: 0 auto;
+  }
 
-.Feature.Intro {
-  max-height: 425px;
-}
+  .Feature .CodeExample {
+    margin: 0 -999px -50px;
+    padding-left: 999px;
+    height: 24rem;
+  }
 
-/* Correct for whitespace in the image of phones */
-.Feature.Intro img {
-  margin-top: -1.5rem;
+  .Feature .CodeExample code {
+    padding: 1.25rem 0;
+  }
+
+  .Feature.ReactRefresh video {
+    width: 100%;
+  }
 }
 
 .Feature .CodeExample {
   background-color: $dark;
-  height: 450px;
   overflow-y: scroll;
 }
 
-@media only screen and (min-width: 736px) {
+@media only screen and (min-width: 961px) {
+  .Feature {
+    max-height: 450px;
+  }
+
+  .Feature.Intro {
+    max-height: 425px;
+  }
+
+  /* Correct for whitespace in the image of phones */
+  .Feature.Intro img {
+    margin-top: -1.5rem;
+  }
+
   .Feature .CodeExample {
     margin-top: -50px;
     margin-left: -50px;
     margin-right: -9999px; /* bleed into right */
   }
-}
 
-.Feature.ForEveryone {
-  height: 400px;
-}
+  .Feature.ForEveryone {
+    height: 400px;
+  }
 
-.Feature.ReactRefresh {
-  padding: 0;
-  /* height needs to be set to equal that of the video or there's weird spacing */
-  height: 340px;
-}
+  .Feature.ReactRefresh {
+    padding: 0;
+    /* height needs to be set to equal that of the video or there's weird spacing */
+    height: 340px;
+  }
 
-.Feature.ReactRefresh .TwoColumns {
-  grid-template-columns: 2fr 1fr;
-}
+  .Feature.ReactRefresh .first {
+    padding-top: 50px;
+  }
 
-.Feature.ReactRefresh .first {
-  padding-top: 50px;
-}
+  .Feature.ReactRefresh .TwoColumns {
+    grid-template-columns: 2fr 1fr;
+  }
 
-.Feature.ReactRefresh video {
-  height: 340px;
-}
+  .Feature.ReactRefresh video {
+    height: 340px;
+  }
 
-.Feature.Talks .TwoColumns {
-  grid-template-columns: 1fr 2fr;
+  .Feature.Talks .TwoColumns {
+    grid-template-columns: 1fr 2fr;
+  }
 }
 
 .Feature.Talks iframe {
@@ -63,9 +83,9 @@
   height: 315px;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 760px) {
   .Feature.Talks iframe {
-    width: 300px;
-    height: 169px;
+    width: 400px;
+    height: 225px;
   }
 }

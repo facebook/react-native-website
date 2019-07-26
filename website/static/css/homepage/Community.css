@@ -5,7 +5,14 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 961px) {
+@media only screen and (max-width: 960px) {
+  .Community .Heading {
+    width: 80%;
+    margin: 0 auto 1rem;
+  }
+}
+
+@media only screen and (min-width: 961px) {
   .Community .column.first {
     border-right: 1px solid $divider;
   }

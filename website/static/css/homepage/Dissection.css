@@ -1,5 +1,6 @@
 .Dissection {
   position: relative;
+  min-height: 300px;
 }
 
 .Dissection img {
