@@ -20,3 +20,11 @@ footer.nav-footer .nav-home img {
   height: auto;
   width: 34px;
 }
+
+.nav-footer .fbOpenSource {
+  opacity: 0.5;
+}
+
+footer.nav-footer .copyright {
+  color: #999;
+}
