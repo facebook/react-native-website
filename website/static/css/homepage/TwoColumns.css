@@ -44,8 +44,16 @@
   }
 
   .TwoColumns .column {
-    width: 80%;
+    width: 100%;
     max-width: initial;
-    margin: 0 auto;
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .TwoColumns .column {
+    width: 100%;
+    max-width: initial;
+    padding: 0 1.25rem;
   }
 }

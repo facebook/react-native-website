@@ -6,10 +6,13 @@ footer.nav-footer {
 .nav-footer .sitemap h5 a {
   color: #999;
   text-transform: uppercase;
+  margin: 0;
 }
 
 .nav-footer .sitemap a {
   color: white;
+  margin: 2px 0;
+  padding: 3px 0;
 }
 
 .nav-footer .sitemap a:hover {

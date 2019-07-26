@@ -19,6 +19,7 @@
 
   .Feature .CodeExample code {
     padding: 1.25rem 0;
+    font-size: 11px;
   }
 
   .Feature.ReactRefresh video {
