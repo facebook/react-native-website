@@ -15,11 +15,16 @@ body,
   .mainContainer {
     margin-left: 20px;
   }
-}
 
-@media only screen and (min-width: 736px) {
   .docsNavContainer {
     width: 240px;
+  }
+
+  .container {
+    max-width: 900px;
+  }
+  .docMainWrapper > *:last-child {
+    margin-right: 20px;
   }
 }
 
@@ -149,10 +154,6 @@ a code {
 
 .wrapper {
   max-width: 1200px;
-}
-
-.container {
-  max-width: 900px;
 }
 
 .container .wrapper h2 {
