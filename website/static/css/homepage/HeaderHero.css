@@ -6,14 +6,6 @@
   max-width: initial;
 }
 
-.HeaderHero .TwoColumns .column.left {
-  padding-right: 0;
-}
-
-.HeaderHero .TwoColumns .column.right {
-  padding-left: 0;
-}
-
 .HeaderHero .socialLinks {
   display: flex;
   justify-content: flex-end;
@@ -59,6 +51,14 @@
   .HeaderHero .TwoColumns {
     grid-template-columns: 3fr 1fr;
   }
+
+  .HeaderHero .TwoColumns .column.left {
+    padding-right: 0;
+  }
+
+  .HeaderHero .TwoColumns .column.right {
+    padding-left: 0;
+  }
 }
 
 @media only screen and (max-width: 760px) {
@@ -68,5 +68,10 @@
 
   .HeaderHero .tagline {
     font-size: 30px;
+  }
+
+  .HeaderHero .socialLinks {
+    margin-top: -2rem;
+    margin-right: 1rem;
   }
 }
