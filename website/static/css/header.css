@@ -38,10 +38,26 @@ li.navSearchWrapper {
   color: $brand;
 }
 
+@media only screen and (max-width: 1023px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 60px;
+  }
+
+  .reactNavSearchWrapper input#search_input_react {
+    border-radius: 0.25rem;
+    background-color: $light;
+    height: 30px;
+  }
+
+  .reactNavSearchWrapper input#search_input_react:focus {
+    background-color: $light;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .navigationSlider .slidingNav ul li:not(.reactNavSearchWrapper) {
     position: relative;
-    padding: 13px 20px;
+    padding: 13px 16px;
     height: 60px;
   }
 
