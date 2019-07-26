@@ -22,6 +22,8 @@
     "icon": "fba.png",
     "linkAppStore": "https://itunes.apple.com/us/app/facebook/id1266461465",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.analytics",
+    "infoLink": "https://analytics.facebook.com/blog",
+    "infoTitle": "Using React Native App to Measure the Business Impact of Instagram and Pages in Facebook Analytics",
     "pinned": true
   },
   {
@@ -65,6 +67,8 @@
     "icon": "skype.png",
     "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
+    "infoLink": "https://blogs.skype.com/",
+    "infoTitle": "Supporting React Native at Skype",
     "pinned": true
   },
   {
@@ -72,6 +76,8 @@
     "icon": "tesla.png",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.teslamotors.tesla",
     "linkAppStore": "https://itunes.apple.com/us/app/tesla-motors/id582007913?mt=8",
+    "infoLink": "https://www.tesla.com/blog",
+    "infoTitle": "Using React Native for improved designs and quality",
     "pinned": true
   },
   {
