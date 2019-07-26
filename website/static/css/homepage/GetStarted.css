@@ -36,12 +36,6 @@
   position: relative;
 }
 
-@media screen and (max-width: 960px) {
-  .GetStarted .terminal {
-    width: 400px;
-  }
-}
-
 .GetStarted .terminal::before {
   content: "○ ○ ○";
   color: gray;
@@ -62,4 +56,18 @@
   position: absolute;
   left: -13px;
   color: gray;
+}
+
+@media screen and (max-width: 760px) {
+  .GetStarted .content {
+    width: 80%;
+  }
+
+  .GetStarted .steps li {
+    margin-left: -2rem;
+  }
+
+  .GetStarted .terminal {
+    width: 100%;
+  }
 }

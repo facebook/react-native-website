@@ -6,6 +6,7 @@
   text-decoration: none !important;
   border-bottom: none;
   transition: all 0.2s ease-out;
+  max-width: 50%;
 }
 
 .ActionButton.primary {
