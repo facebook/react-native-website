@@ -143,7 +143,7 @@ function LogoAnimation() {
 
 function HeaderHero() {
   return (
-    <Section element="header" background="dark" className="HeaderHero">
+    <Section background="dark" className="HeaderHero">
       <div className="socialLinks">
         <TwitterButton />
         <GitHubButton />
