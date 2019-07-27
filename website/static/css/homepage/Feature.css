@@ -91,7 +91,7 @@
   height: 315px;
 }
 
-@media only screen and (max-width: 760px) {
+@media only screen and (max-width: 960px) {
   .Feature .CodeExample code {
     padding: 1.25rem 0;
     font-size: 11px;
