@@ -231,6 +231,7 @@ React Native combines the best parts of native development with React, a best-in
   },
   {
     title: 'Written in JavaScript—rendered with native code',
+    className: 'NativeCode',
     text: `
 React primitives render to native platform UI, meaning your app uses the same native platform APIs other apps do.
 

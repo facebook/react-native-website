@@ -11,19 +11,26 @@
     max-height: 300px;
   }
 
-  .Feature .CodeExample {
-    margin: 0 -999px -50px;
-    padding-left: 999px;
-    height: 24rem;
+  .Feature.NativeCode .column.last {
+    width: 100%;
+    padding: 0;
+    margin-bottom: -50px;
   }
 
   .Feature .CodeExample code {
-    padding: 1.25rem 0;
-    font-size: 11px;
+    height: 24rem;
+    width: 500px;
+    margin: 0 auto;
   }
 
   .Feature.ReactRefresh video {
     width: 100%;
+  }
+
+  .Feature.Talks .column.last {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 
@@ -85,6 +92,11 @@
 }
 
 @media only screen and (max-width: 760px) {
+  .Feature .CodeExample code {
+    padding: 1.25rem 0;
+    font-size: 11px;
+  }
+
   .Feature.ReactRefresh .column.last {
     width: 100%;
     margin-bottom: -50px;
@@ -96,7 +108,18 @@
 }
 
 @media only screen and (min-width: 761px) and (max-width: 960px) {
+  .Feature .column.first {
+    margin-bottom: 2rem;
+  }
+
   .Feature .column.last {
-    width: 50%;
+    width: 66.7%;
+    margin: 0 auto;
+  }
+
+  .Feature.ReactRefresh .column.last {
+    width: 100%;
+    padding: 0;
+    margin-bottom: -56px;
   }
 }

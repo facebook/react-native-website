@@ -63,6 +63,16 @@
   }
 }
 
+@media only screen and (max-width: 960px) {
+  .HeaderHero .column.first {
+    display: flex;
+    justify-content: center;
+  }
+  .HeaderHero .column.last {
+    text-align: center;
+  }
+}
+
 @media only screen and (max-width: 760px) {
   .HeaderHero .title {
     font-size: 60px;
