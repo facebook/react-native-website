@@ -5,7 +5,15 @@
   flex-direction: column;
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 480px) {
+  .Community .Heading {
+    width: 100%;
+    padding: 0 1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media only screen (min-width: 481px) and (max-width: 960px) {
   .Community .Heading {
     width: 100%;
     padding: 0 4rem;
