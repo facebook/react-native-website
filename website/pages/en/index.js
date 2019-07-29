@@ -92,6 +92,10 @@ with repos like React Native Windows and React Native Web.
   `,
 };
 
+function Heading({text}) {
+  return <h2 className="Heading">{text}</h2>;
+}
+
 function ActionButton({href, type = 'primary', target, children}) {
   return (
     <a className={`ActionButton ${type}`} href={href} target={target}>
@@ -175,10 +179,6 @@ function TwoColumns({columnOne, columnTwo, reverse}) {
       </div>
     </div>
   );
-}
-
-function Heading({text}) {
-  return <h2 className="Heading">{text}</h2>;
 }
 
 function LogoAnimation() {
@@ -321,7 +321,7 @@ function Features() {
       {features.map((feature, i) => (
         <Feature
           key={feature.title}
-          background={i % 2 === 0 ? 'light' : 'light2'}
+          background={i % 2 === 0 ? 'light' : 'tint'}
           reverse={i % 2 === 0}
           {...feature}
         />
@@ -355,7 +355,7 @@ function NativeDevelopment() {
 
 function CrossPlatform() {
   return (
-    <Section className="CrossPlatform" background="light2">
+    <Section className="CrossPlatform" background="tint">
       <TwoColumns
         columnOne={
           <TextColumn
@@ -392,7 +392,7 @@ function FastRefresh() {
 
 function Talks() {
   return (
-    <Section className="Talks" background="light2">
+    <Section className="Talks" background="tint">
       <TwoColumns
         columnOne={
           <TextColumn

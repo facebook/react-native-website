@@ -12,7 +12,7 @@
   background-color: $backgroundColor;
 }
 
-.Section.light2 {
+.Section.tint {
   background-color: $tintColor;
 }
 
