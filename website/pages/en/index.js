@@ -293,11 +293,6 @@ const features = [
     className: 'ForEveryone',
     image: Dissection,
   },
-  {
-    title: 'Seamless cross-platform',
-    text: textContent.crossPlatform,
-    image: `${baseUrl}img/homepage/cross-platform.svg`,
-  },
 ];
 
 function Feature({
@@ -345,6 +340,22 @@ function Features() {
         />
       ))}
     </React.Fragment>
+  );
+}
+
+function CrossPlatform() {
+  return (
+    <Section className="CrossPlatform" background="light2">
+      <TwoColumns
+        columnOne={
+          <React.Fragment>
+            <Heading text="Seamless Cross-Platform" />
+            <MarkdownBlock>{textContent.crossPlatform}</MarkdownBlock>
+          </React.Fragment>
+        }
+        columnTwo={<img src={`${baseUrl}img/homepage/cross-platform.svg`} />}
+      />
+    </Section>
   );
 }
 
@@ -485,6 +496,7 @@ module.exports = function Index() {
     <main>
       <HeaderHero />
       <Features />
+      <CrossPlatform />
       <FastRefresh />
       <Talks />
       <Community />
