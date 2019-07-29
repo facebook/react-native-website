@@ -26,12 +26,6 @@
   .Feature.ReactRefresh video {
     width: 100%;
   }
-
-  .Feature.Talks .column.last {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
 }
 
 .Feature .CodeExample {
@@ -80,15 +74,6 @@
   .Feature.ReactRefresh video {
     height: 340px;
   }
-
-  .Feature.Talks .TwoColumns {
-    grid-template-columns: 1fr 2fr;
-  }
-}
-
-.Feature.Talks iframe {
-  width: 560px;
-  height: 315px;
 }
 
 @media only screen and (max-width: 960px) {
@@ -100,10 +85,6 @@
   .Feature.ReactRefresh .column.last {
     width: 100%;
     margin-bottom: -50px;
-  }
-
-  .Feature.Talks iframe {
-    width: 100%;
   }
 }
 

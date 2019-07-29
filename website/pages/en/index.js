@@ -5,6 +5,93 @@ const MarkdownBlock = CompLibrary.MarkdownBlock;
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 const {baseUrl} = siteConfig;
 
+const textContent = {
+  intro: `
+React Native combines the best parts of native development with React,
+a best-in-class JavaScript library for building user interfaces.
+
+**Use a little—or a lot**. You can use React Native today in your existing
+Android and iOS projects or you can create a whole new app from scratch.
+  `,
+  nativeCode: `
+React primitives render to native platform UI, meaning your app uses the
+same native platform APIs other apps do.
+
+**Many platforms**, one React. Create platform-specific versions of components
+so a single codebase can share code across platforms. With React Native,
+one team can maintain two platforms and share a common technology—React.
+  `,
+  codeExample: `
+\`\`\`jsx
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
+import {Header} from './Header';
+
+export default () => 
+  <View>
+    <Header title="Welcome to React Native"/>
+    <Text style={header}>Step One</Text>
+    <Text>
+      Edit App.js to change this screen and turn it
+      into your app.
+    </Text>
+    <Text style={header}>See Your Changes</Text>
+    <Text>
+      Press Cmd + R inside the simulator to reload
+      your app’s code.
+    </Text>
+    <Text style={header}>Debug</Text>
+    <Text>
+      Press Cmd + M or Shake your device to open the
+      React Native Debug Menu.
+    </Text>
+    <Text style={header}>Learn</Text>
+    <Text>
+      Read the docs to discover what to do next:
+    </Text>
+   </View>
+   \`\`\`
+  `,
+  forEveryone: `
+React Native lets you create truly native apps and doesn't compromise on your users' experience.
+It provides a core set of platform agnostic native components like \`View\`, \`Text\`, and \`Image\`
+that map directly to the platform’s native UI building blocks.
+  `,
+  crossPlatform: `
+React components wrap existing native code and interact with native APIs via
+React’s declarative UI paradigm and JavaScript. This enables native app development
+for whole new teams of developers, and can let existing native teams work much faster.
+  `,
+  fastRefresh: `
+**See your changes as soon as you save.** With the power of JavaScript,
+React Native lets you iterate at lightning speed. No more waiting for native builds to finish.
+Save, see, repeat.
+  `,
+  talks: `
+Members of the React Native team frequently speak at various
+conferences.
+
+You can follow the latest news from the React Native team on
+Twitter
+  `,
+  community: `
+In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
+Today, React Native is maintained by contributions from 
+[Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
+Mansion].
+
+Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
+with repos like React Native Windows and React Native Web.
+
+[2nd highest]: https://octoverse.github.com/projects#repositories
+[Callstack]: https://callstack.com/
+[Expo]: https://expo.io/
+[Infinite Red]: https://infinite.red/
+[Microsoft]: https://www.microsoft.com/en-gb/
+[Software Mansion]: https://swmansion.com/
+  `,
+};
+
 function ActionButton({href, type = 'primary', target, children}) {
   return (
     <a className={`ActionButton ${type}`} href={href} target={target}>
@@ -165,45 +252,6 @@ function HeaderHero() {
   );
 }
 
-const codeExample = `
-\`\`\`jsx
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
-import {Header} from './Header';
-
-export default () => 
-  <View>
-    <Header title="Welcome to React Native"/>
-    <Text style={header}>Step One</Text>
-    <Text>
-      Edit App.js to change this screen and turn it
-      into your app.
-    </Text>
-    <Text style={header}>See Your Changes</Text>
-    <Text>
-      Press Cmd + R inside the simulator to reload
-      your app’s code.
-    </Text>
-    <Text style={header}>Debug</Text>
-    <Text>
-      Press Cmd + M or Shake your device to open the
-      React Native Debug Menu.
-    </Text>
-    <Text style={header}>Learn</Text>
-    <Text>
-      Read the docs to discover what to do next:
-    </Text>
-   </View>
-   \`\`\``;
-
-function CodeExample() {
-  return (
-    <div className="CodeExample">
-      <MarkdownBlock>{codeExample}</MarkdownBlock>;
-    </div>
-  );
-}
-
 function Dissection() {
   return (
     <React.Fragment>
@@ -218,71 +266,48 @@ function Dissection() {
   );
 }
 
+function CodeExample() {
+  return (
+    <div className="CodeExample">
+      <MarkdownBlock>{textContent.codeExample}</MarkdownBlock>
+    </div>
+  );
+}
+
 const features = [
   {
     title: 'Create native apps for Android and iOS using React',
     className: 'Intro',
-    text: `
-React Native combines the best parts of native development with React, a best-in-class JavaScript library for building user interfaces.
-
-**Use a little—or a lot**. You can use React Native today in your existing Android and iOS projects or you can create a whole new app from scratch.
-    `,
+    text: textContent.intro,
     image: `${baseUrl}img/homepage/phones.png`,
   },
   {
     title: 'Written in JavaScript—rendered with native code',
     className: 'NativeCode',
-    text: `
-React primitives render to native platform UI, meaning your app uses the same native platform APIs other apps do.
-
-**Many platforms**, one React. Create platform-specific versions of components so a single codebase can share code across platforms. With React Native, one team can maintain two platforms and share a common technology—React.
-    `,
+    text: textContent.nativeCode,
     image: CodeExample,
   },
   {
     title: 'Native Development for Everyone',
-    text:
-      "React Native lets you create truly native apps and doesn't compromise on your users' experience. It provides a core set of platform agnostic native components like `View`, `Text`, and `Image` that map directly to the platform’s native UI building blocks.",
+    text: textContent.forEveryone,
     className: 'ForEveryone',
     image: Dissection,
   },
   {
     title: 'Seamless cross-platform',
-    text:
-      'React components wrap existing native code and interact with native APIs via React’s declarative UI paradigm and JavaScript. This enables native app development for whole new teams of developers, and can let existing native teams work much faster.',
+    text: textContent.crossPlatform,
     image: `${baseUrl}img/homepage/cross-platform.svg`,
   },
   {
     title: 'Fast Refresh',
     className: 'ReactRefresh',
-    text:
-      '**See your changes as soon as you save.** With the power of JavaScript, React Native lets you iterate at lightning speed. No more waiting for native builds to finish. Save, see, repeat.',
+    text: textContent.fastRefresh,
     image: () => (
       <video
         muted
         autoPlay
         loop
         src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
-      />
-    ),
-  },
-  {
-    title: 'Talks',
-    className: 'Talks',
-    text: `
-Members of the React Native team frequently speak at various
-conferences.
-
-You can follow the latest news from the React Native team on
-Twitter
-    `,
-    afterText: () => <TwitterButton />,
-    image: () => (
-      <iframe
-        src="https://www.youtube.com/embed/NCAY0HIfrwc"
-        frameborder="0"
-        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
       />
     ),
   },
@@ -336,6 +361,34 @@ function Features() {
   );
 }
 
+function Talks() {
+  return (
+    <Section className="Talks" background="light2">
+      <TwoColumns
+        columnOne={
+          <React.Fragment>
+            <Heading text="Talks" />
+            <MarkdownBlock>{textContent.talks}</MarkdownBlock>
+            <TwitterButton />
+          </React.Fragment>
+        }
+        columnTwo={
+          <div className="vidWrapper">
+            <iframe
+              src="https://www.youtube.com/embed/NCAY0HIfrwc"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </div>
+        }
+      />
+    </Section>
+  );
+}
+
+/* Community */
+
 const apps = siteConfig.users.filter(app => app.pinned);
 
 function AppList({apps}) {
@@ -358,23 +411,6 @@ function AppList({apps}) {
   );
 }
 
-const communityText = `
-In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
-Today, React Native is maintained by contributions from 
-[Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
-Mansion].
-
-Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
-with repos like React Native Windows and React Native Web.
-
-[2nd highest]: https://octoverse.github.com/projects#repositories
-[Callstack]: https://callstack.com/
-[Expo]: https://expo.io/
-[Infinite Red]: https://infinite.red/
-[Microsoft]: https://www.microsoft.com/en-gb/
-[Software Mansion]: https://swmansion.com/
-`;
-
 function Community() {
   return (
     <Section className="Community" background="light">
@@ -390,7 +426,7 @@ function Community() {
                   maintaining it ever since.
                 </span>
               </p>
-              <MarkdownBlock>{communityText}</MarkdownBlock>
+              <MarkdownBlock>{textContent.community}</MarkdownBlock>
             </React.Fragment>
           }
           columnTwo={
@@ -438,6 +474,7 @@ module.exports = function Index() {
     <main>
       <HeaderHero />
       <Features />
+      <Talks />
       <Community />
       <GetStarted />
     </main>
