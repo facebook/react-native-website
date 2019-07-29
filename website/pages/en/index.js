@@ -298,19 +298,6 @@ const features = [
     text: textContent.crossPlatform,
     image: `${baseUrl}img/homepage/cross-platform.svg`,
   },
-  {
-    title: 'Fast Refresh',
-    className: 'ReactRefresh',
-    text: textContent.fastRefresh,
-    image: () => (
-      <video
-        muted
-        autoPlay
-        loop
-        src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
-      />
-    ),
-  },
 ];
 
 function Feature({
@@ -358,6 +345,30 @@ function Features() {
         />
       ))}
     </React.Fragment>
+  );
+}
+
+function FastRefresh() {
+  return (
+    <Section className="FastRefresh" background="light">
+      <TwoColumns
+        reverse
+        columnOne={
+          <React.Fragment>
+            <Heading text="Fast Refresh" />
+            <MarkdownBlock>{textContent.fastRefresh}</MarkdownBlock>
+          </React.Fragment>
+        }
+        columnTwo={
+          <video
+            muted
+            autoPlay
+            loop
+            src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
+          />
+        }
+      />
+    </Section>
   );
 }
 
@@ -474,6 +485,7 @@ module.exports = function Index() {
     <main>
       <HeaderHero />
       <Features />
+      <FastRefresh />
       <Talks />
       <Community />
       <GetStarted />

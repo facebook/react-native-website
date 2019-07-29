@@ -22,10 +22,6 @@
     width: 500px;
     margin: 0 auto;
   }
-
-  .Feature.ReactRefresh video {
-    width: 100%;
-  }
 }
 
 .Feature .CodeExample {
@@ -56,35 +52,12 @@
   .Feature.ForEveryone {
     height: 450px;
   }
-
-  .Feature.ReactRefresh {
-    padding: 0;
-    /* height needs to be set to equal that of the video or there's weird spacing */
-    height: 340px;
-  }
-
-  .Feature.ReactRefresh .first {
-    padding-top: 50px;
-  }
-
-  .Feature.ReactRefresh .TwoColumns {
-    grid-template-columns: 2fr 1fr;
-  }
-
-  .Feature.ReactRefresh video {
-    height: 340px;
-  }
 }
 
 @media only screen and (max-width: 960px) {
   .Feature .CodeExample code {
     padding: 1.25rem 0;
     font-size: 11px;
-  }
-
-  .Feature.ReactRefresh .column.last {
-    width: 100%;
-    margin-bottom: -50px;
   }
 }
 
@@ -96,11 +69,5 @@
   .Feature .column.last {
     width: 66.7%;
     margin: 0 auto;
-  }
-
-  .Feature.ReactRefresh .column.last {
-    width: 100%;
-    padding: 0;
-    margin-bottom: -56px;
   }
 }
