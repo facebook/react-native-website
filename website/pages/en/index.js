@@ -259,26 +259,12 @@ function HeaderHero() {
   );
 }
 
-function CodeExample() {
-  return (
-    <div className="CodeExample">
-      <MarkdownBlock>{textContent.codeExample}</MarkdownBlock>
-    </div>
-  );
-}
-
 const features = [
   {
     title: 'Create native apps for Android and iOS using React',
     className: 'Intro',
     text: textContent.intro,
     image: `${baseUrl}img/homepage/phones.png`,
-  },
-  {
-    title: 'Written in JavaScript—rendered with native code',
-    className: 'NativeCode',
-    text: textContent.nativeCode,
-    image: CodeExample,
   },
 ];
 
@@ -327,6 +313,22 @@ function Features() {
         />
       ))}
     </React.Fragment>
+  );
+}
+
+function NativeCode() {
+  return (
+    <Section className="NativeCode" background="tint">
+      <TwoColumns
+        columnOne={
+          <TextColumn
+            title="Written in JavaScript—rendered with native code"
+            text={textContent.nativeCode}
+          />
+        }
+        columnTwo={<MarkdownBlock>{textContent.codeExample}</MarkdownBlock>}
+      />
+    </Section>
   );
 }
 
@@ -505,6 +507,7 @@ module.exports = function Index() {
       <script src={baseUrl + 'js/headerAnimation.js'} />
       <HeaderHero />
       <Features />
+      <NativeCode />
       <NativeDevelopment />
       <CrossPlatform />
       <FastRefresh />

@@ -10,23 +10,6 @@
   .Feature.Intro .column.last {
     max-height: 300px;
   }
-
-  .Feature.NativeCode .column.last {
-    width: 100%;
-    padding: 0;
-    margin-bottom: -50px;
-  }
-
-  .Feature .CodeExample code {
-    height: 24rem;
-    width: 500px;
-    margin: 0 auto;
-  }
-}
-
-.Feature .CodeExample {
-  background-color: $dark;
-  overflow-y: scroll;
 }
 
 @media only screen and (min-width: 961px) {
@@ -41,19 +24,6 @@
   /* Correct for whitespace in the image of phones */
   .Feature.Intro img {
     margin-top: -1.5rem;
-  }
-
-  .Feature .CodeExample {
-    margin-top: -50px;
-    margin-left: -50px;
-    margin-right: -9999px; /* bleed into right */
-  }
-}
-
-@media only screen and (max-width: 960px) {
-  .Feature .CodeExample code {
-    padding: 1.25rem 0;
-    font-size: 11px;
   }
 }
 
