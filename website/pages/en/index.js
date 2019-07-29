@@ -208,7 +208,7 @@ function LogoAnimation() {
         className="stand"
       />
       <polygon
-        points="-125,90 125,90 160,150 -160,150"
+        points="-125,90 125,90 160,145 -160,145"
         fill="white"
         stroke="white"
         strokeWidth="5"
@@ -468,7 +468,7 @@ function GetStarted() {
 
 module.exports = function Index() {
   return (
-    <main>
+    <main className="HomePage">
       <script src={baseUrl + 'js/dissectionAnimation.js'} />
       <script src={baseUrl + 'js/headerAnimation.js'} />
       <HeaderHero />
