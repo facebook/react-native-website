@@ -100,6 +100,16 @@ function ActionButton({href, type = 'primary', target, children}) {
   );
 }
 
+function TextColumn({title, text, moreContent}) {
+  return (
+    <React.Fragment>
+      <Heading text={title} />
+      <MarkdownBlock>{text}</MarkdownBlock>
+      {moreContent}
+    </React.Fragment>
+  );
+}
+
 function HomeCallToAction() {
   return (
     <div>
@@ -348,10 +358,10 @@ function CrossPlatform() {
     <Section className="CrossPlatform" background="light2">
       <TwoColumns
         columnOne={
-          <React.Fragment>
-            <Heading text="Seamless Cross-Platform" />
-            <MarkdownBlock>{textContent.crossPlatform}</MarkdownBlock>
-          </React.Fragment>
+          <TextColumn
+            title="Seamless Cross-Platform"
+            text={textContent.crossPlatform}
+          />
         }
         columnTwo={<img src={`${baseUrl}img/homepage/cross-platform.svg`} />}
       />
@@ -365,10 +375,7 @@ function FastRefresh() {
       <TwoColumns
         reverse
         columnOne={
-          <React.Fragment>
-            <Heading text="Fast Refresh" />
-            <MarkdownBlock>{textContent.fastRefresh}</MarkdownBlock>
-          </React.Fragment>
+          <TextColumn title="Fast Refresh" text={textContent.fastRefresh} />
         }
         columnTwo={
           <video
@@ -388,11 +395,11 @@ function Talks() {
     <Section className="Talks" background="light2">
       <TwoColumns
         columnOne={
-          <React.Fragment>
-            <Heading text="Talks" />
-            <MarkdownBlock>{textContent.talks}</MarkdownBlock>
-            <TwitterButton />
-          </React.Fragment>
+          <TextColumn
+            title="Talks"
+            text={textContent.talks}
+            moreContent={<TwitterButton />}
+          />
         }
         columnTwo={
           <div className="vidWrapper">

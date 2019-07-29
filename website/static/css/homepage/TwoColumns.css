@@ -1,18 +1,9 @@
 .TwoColumns {
-  max-width: 900px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "first last";
-}
-
-.TwoColumns.reverse {
-  grid-template-areas: "last first";
 }
 
 .TwoColumns .column {
   width: 100%;
-  max-width: 450px;
 }
 
 .TwoColumns .column.first {
@@ -24,6 +15,21 @@
 }
 
 @media only screen and (min-width: 961px) {
+  .TwoColumns {
+    max-width: 900px;
+    margin: 0 auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "first last";
+  }
+
+  .TwoColumns.reverse {
+    grid-template-areas: "last first";
+  }
+
+  .TwoColumns .column {
+    max-width: 450px;
+  }
+
   .TwoColumns .column.left {
     padding-right: 50px;
   }
@@ -34,26 +40,19 @@
 }
 
 @media only screen and (max-width: 960px) {
-  .TwoColumns {
+  .TwoColumns,
+  .TwoColumns.reverse {
     grid-template-columns: 1fr;
     grid-template-areas: "first" "last";
   }
 
-  .TwoColumns.reverse {
-    grid-template-areas: "first" "last";
-  }
-
   .TwoColumns .column {
-    width: 100%;
-    max-width: initial;
     padding: 0 4rem;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .TwoColumns .column {
-    width: 100%;
-    max-width: initial;
     padding: 0 1.25rem;
   }
 }
