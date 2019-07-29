@@ -16,7 +16,6 @@
   x: -200px;
   y: -200px;
   stroke-width: 5px;
-  rx: 2px;
 }
 
 .LogoAnimation .background {
@@ -49,7 +48,6 @@
   x: -200px;
   y: -200px;
   opacity: 1;
-  rx: 2px;
 }
 
 .LogoAnimation.mobile .screen {
@@ -59,7 +57,6 @@
   x: -90px;
   y: -150px;
   opacity: 1;
-  rx: 10px;
   stroke-width: 5px;
 }
 
@@ -71,7 +68,6 @@
   y: -160px;
   transform: rotate(-90deg);
   opacity: 1;
-  rx: 2px;
   stroke-width: 8px;
 }
 
@@ -83,7 +79,6 @@
   y: -125px;
   transform: rotate(-90deg);
   opacity: 1;
-  rx: 2px;
   stroke-width: 5px;
 }
 
@@ -94,7 +89,6 @@
   x: -90px;
   y: -150px;
   opacity: 1;
-  rx: 10px;
   stroke-width: 5px;
   transform: rotate(-180deg);
 }
