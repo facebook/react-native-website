@@ -183,58 +183,55 @@ function Heading({text}) {
 
 function LogoAnimation() {
   return (
-    <React.Fragment>
-      <script src={`${baseUrl}js/headerAnimation.js`} />
-      <svg
-        className="LogoAnimation init"
-        width={350}
-        height={350}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="-200 -200 400 400">
-        <title>React Logo</title>
-        <clipPath id="screen">
-          <rect className="screen" rx="0.5" fill="none" stroke="gray" />
-        </clipPath>
-        <line
-          x1="-20"
-          x2="20"
-          y1="120"
-          y2="120"
-          stroke="white"
-          strokeWidth="15"
-          className="stand"
-        />
-        <polygon
-          points="-125,85 125,85, 160,125 -160,125"
-          fill="white"
-          stroke="white"
-          strokeWidth="5"
-          className="base"
-        />
-        <rect className="screen background" stroke="none" />
-        <g clip-path="url(#screen)" className="logo">
-          <g className="logoInner">
-            <circle cx="0" cy="0" r="30" fill="#61dafb" />
-            <g stroke="#61dafb" strokeWidth="15" fill="none" id="logo">
-              <ellipse rx="165" ry="64" />
-              <ellipse rx="165" ry="64" transform="rotate(60)" />
-              <ellipse rx="165" ry="64" transform="rotate(120)" />
-            </g>
+    <svg
+      className="LogoAnimation init"
+      width={350}
+      height={350}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="-200 -200 400 400">
+      <title>React Logo</title>
+      <clipPath id="screen">
+        <rect className="screen" rx="0.5" fill="none" stroke="gray" />
+      </clipPath>
+      <line
+        x1="-20"
+        x2="20"
+        y1="120"
+        y2="120"
+        stroke="white"
+        strokeWidth="15"
+        className="stand"
+      />
+      <polygon
+        points="-125,85 125,85, 160,125 -160,125"
+        fill="white"
+        stroke="white"
+        strokeWidth="5"
+        className="base"
+      />
+      <rect className="screen background" stroke="none" />
+      <g clip-path="url(#screen)" className="logo">
+        <g className="logoInner">
+          <circle cx="0" cy="0" r="30" fill="#61dafb" />
+          <g stroke="#61dafb" strokeWidth="15" fill="none" id="logo">
+            <ellipse rx="165" ry="64" />
+            <ellipse rx="165" ry="64" transform="rotate(60)" />
+            <ellipse rx="165" ry="64" transform="rotate(120)" />
           </g>
-          <line
-            x1="-30"
-            x2="30"
-            y1="130"
-            y2="130"
-            stroke="white"
-            strokeWidth="8"
-            strokeLinecap="round"
-            className="speaker"
-          />
         </g>
-        <rect className="screen" fill="none" stroke="white" />
-      </svg>
-    </React.Fragment>
+        <line
+          x1="-30"
+          x2="30"
+          y1="130"
+          y2="130"
+          stroke="white"
+          strokeWidth="8"
+          strokeLinecap="round"
+          className="speaker"
+        />
+      </g>
+      <rect className="screen" fill="none" stroke="white" />
+    </svg>
   );
 }
 
@@ -262,20 +259,6 @@ function HeaderHero() {
   );
 }
 
-function Dissection() {
-  return (
-    <React.Fragment>
-      <div className="Dissection">
-        <img src={`${baseUrl}img/homepage/dissection/0.png`} />
-        <img src={`${baseUrl}img/homepage/dissection/1.png`} />
-        <img src={`${baseUrl}img/homepage/dissection/2.png`} />
-        <img src={`${baseUrl}img/homepage/dissection/3.png`} />
-      </div>
-      <script src={`${baseUrl}js/dissectionAnimation.js`} />
-    </React.Fragment>
-  );
-}
-
 function CodeExample() {
   return (
     <div className="CodeExample">
@@ -296,12 +279,6 @@ const features = [
     className: 'NativeCode',
     text: textContent.nativeCode,
     image: CodeExample,
-  },
-  {
-    title: 'Native Development for Everyone',
-    text: textContent.forEveryone,
-    className: 'ForEveryone',
-    image: Dissection,
   },
 ];
 
@@ -350,6 +327,29 @@ function Features() {
         />
       ))}
     </React.Fragment>
+  );
+}
+
+function NativeDevelopment() {
+  return (
+    <Section className="NativeDevelopment" background="light">
+      <TwoColumns
+        reverse
+        columnOne={
+          <TextColumn
+            title="Native Development For Everyone"
+            text={textContent.forEveryone}
+          />
+        }
+        columnTwo={
+          <div className="dissection">
+            {[0, 1, 2, 3].map(i => (
+              <img src={`${baseUrl}img/homepage/dissection/${i}.png`} />
+            ))}
+          </div>
+        }
+      />
+    </Section>
   );
 }
 
@@ -501,8 +501,11 @@ function GetStarted() {
 module.exports = function Index() {
   return (
     <main>
+      <script src={baseUrl + 'js/dissectionAnimation.js'} />
+      <script src={baseUrl + 'js/headerAnimation.js'} />
       <HeaderHero />
       <Features />
+      <NativeDevelopment />
       <CrossPlatform />
       <FastRefresh />
       <Talks />

@@ -48,10 +48,6 @@
     margin-left: -50px;
     margin-right: -9999px; /* bleed into right */
   }
-
-  .Feature.ForEveryone {
-    height: 450px;
-  }
 }
 
 @media only screen and (max-width: 960px) {
