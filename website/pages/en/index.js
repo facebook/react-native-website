@@ -259,60 +259,20 @@ function HeaderHero() {
   );
 }
 
-const features = [
-  {
-    title: 'Create native apps for Android and iOS using React',
-    className: 'Intro',
-    text: textContent.intro,
-    image: `${baseUrl}img/homepage/phones.png`,
-  },
-];
-
-function Feature({
-  title,
-  text,
-  image,
-  reverse,
-  background,
-  afterText: AfterText,
-  className = '',
-}) {
-  let imageEl;
-  if (typeof image === 'string') {
-    imageEl = <img src={image} />;
-  } else {
-    const Image = image;
-    imageEl = <Image />;
-  }
+function NativeApps() {
   return (
-    <Section className={`Feature ${className}`} background={background}>
+    <Section className="NativeApps" background="light">
       <TwoColumns
-        reverse={reverse}
+        reverse
         columnOne={
-          <React.Fragment>
-            <Heading text={title} />
-            <MarkdownBlock>{text}</MarkdownBlock>
-            {AfterText && <AfterText />}
-          </React.Fragment>
+          <TextColumn
+            title="Create native apps for Android and iOS using React"
+            text={textContent.intro}
+          />
         }
-        columnTwo={imageEl}
+        columnTwo={<img src={baseUrl + 'img/homepage/phones.png'} />}
       />
     </Section>
-  );
-}
-
-function Features() {
-  return (
-    <React.Fragment>
-      {features.map((feature, i) => (
-        <Feature
-          key={feature.title}
-          background={i % 2 === 0 ? 'light' : 'tint'}
-          reverse={i % 2 === 0}
-          {...feature}
-        />
-      ))}
-    </React.Fragment>
   );
 }
 
@@ -506,7 +466,7 @@ module.exports = function Index() {
       <script src={baseUrl + 'js/dissectionAnimation.js'} />
       <script src={baseUrl + 'js/headerAnimation.js'} />
       <HeaderHero />
-      <Features />
+      <NativeApps />
       <NativeCode />
       <NativeDevelopment />
       <CrossPlatform />
