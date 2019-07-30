@@ -181,17 +181,28 @@ function TwoColumns({columnOne, columnTwo, reverse}) {
   );
 }
 
+function ScreenRect({className, fill, stroke}) {
+  return (
+    <rect
+      className={`screen ${className}`}
+      rx="3%"
+      fill={fill}
+      stroke={stroke}
+    />
+  );
+}
+
 function LogoAnimation() {
   return (
     <svg
-      className="LogoAnimation init"
+      className="LogoAnimation mobile"
       width={350}
       height={350}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="-200 -200 400 400">
       <title>React Logo</title>
       <clipPath id="screen">
-        <rect className="screen" rx="3%" fill="none" stroke="gray" />
+        <ScreenRect fill="none" stroke="gray" />
       </clipPath>
       <rect
         x="-25"
@@ -211,7 +222,7 @@ function LogoAnimation() {
         strokeLinejoin="round"
         className="base"
       />
-      <rect className="screen background" rx="3%" stroke="none" />
+      <ScreenRect className="background" stroke="none" />
       <g clip-path="url(#screen)" className="logo">
         <g className="logoInner">
           <circle cx="0" cy="0" r="30" fill="#61dafb" />
@@ -232,7 +243,7 @@ function LogoAnimation() {
           className="speaker"
         />
       </g>
-      <rect className="screen" rx="3%" fill="none" stroke="white" />
+      <ScreenRect fill="none" stroke="white" />
     </svg>
   );
 }
