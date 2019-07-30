@@ -173,19 +173,3 @@ const styles = StyleSheet.create({
 ```
 
 ---
-
-### `absoluteFillObject`
-
-Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillObject` can be used to create a customized entry in a `StyleSheet`, e.g.:
-
-```jsx
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFill,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
-});
-```
-
----
