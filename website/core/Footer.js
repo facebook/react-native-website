@@ -14,11 +14,7 @@ class Footer extends React.Component {
       <footer className="nav-footer" id="footer">
         <section className="sitemap">
           <div>
-            <h5>
-              <a href={this.props.config.baseUrl + 'docs/getting-started.html'}>
-                Docs
-              </a>
-            </h5>
+            <h5>Docs</h5>
             <a href={this.props.config.baseUrl + 'docs/getting-started.html'}>
               Getting Started
             </a>

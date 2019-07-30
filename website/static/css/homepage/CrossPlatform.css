@@ -1,5 +1,4 @@
 @media only screen and (max-width: 960px) {
-  /* TODO this should just be a style for TwoColumns */
   .CrossPlatform .TwoColumns {
     grid-gap: 2rem;
   }
