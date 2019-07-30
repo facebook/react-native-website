@@ -39,7 +39,7 @@ const siteConfig = {
   ],
   headerIcon: 'img/header_logo.svg',
   footerIcon: 'img/header_logo.png',
-  favicon: 'img/favicon.png',
+  favicon: 'img/favicon.ico',
   colors: {
     brand: '#61dafb', // electric blue
     dark: '#282c34', // dark blue
