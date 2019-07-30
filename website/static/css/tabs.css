@@ -19,6 +19,11 @@
   cursor: pointer;
 }
 
+.toggler li:hover,
+.toggler button:hover {
+  color: $subtle;
+}
+
 .toggler li.active,
 .toggler button.active {
   font-weight: 700;
