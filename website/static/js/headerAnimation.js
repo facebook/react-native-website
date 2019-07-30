@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeouts = [];
 
   const logo = document.querySelector('.LogoAnimation');
-  return;
 
   function animateStep() {
     const prev = steps[i];
