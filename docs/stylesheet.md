@@ -7,7 +7,7 @@ A StyleSheet is an abstraction similar to CSS StyleSheets
 
 Create a new StyleSheet:
 
-```javascript
+```jsx
 const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 Use a StyleSheet:
 
-```javascript
+```jsx
 <View style={styles.container}>
   <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
 </View>
@@ -39,15 +39,16 @@ Code quality:
 
 ### Methods
 
-- [`compose`](stylesheet.md#compose)
+- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
 - [`create`](stylesheet.md#create)
 - [`flatten`](stylesheet.md#flatten)
-- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
+- [`compose`](stylesheet.md#compose)
 
 ### Properties
 
-- [`absoluteFill`](stylesheet.md#absolutefill)
 - [`hairlineWidth`](stylesheet.md#hairlinewidth)
+- [`absoluteFill`](stylesheet.md#absolutefill)
+- [`absoluteFillObject`](stylesheet.md#absoluteFillObject)
 
 ---
 
@@ -55,17 +56,21 @@ Code quality:
 
 ## Methods
 
-### `compose`
+### `setStyleAttributePreprocessor()`
 
-Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
-
-```javascript
-static compose(style)
+```jsx
+static setStyleAttributePreprocessor(property, process)
 ```
+
+WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+
+Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
+
+---
 
 ### `create()`
 
-```javascript
+```jsx
 static create(obj)
 ```
 
@@ -75,7 +80,7 @@ Creates a StyleSheet style reference from the given object.
 
 ### `flatten`
 
-```javascript
+```jsx
 static flatten(style)
 ```
 
@@ -85,7 +90,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 
 Example:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -103,7 +108,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 
 Alternative use:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -124,39 +129,21 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 
 ---
 
-### `setStyleAttributePreprocessor()`
+### `compose`
 
-```javascript
-static setStyleAttributePreprocessor(property, process)
+Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
+
+```jsx
+static compose(style)
 ```
-
-WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
-
-Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
-
----
 
 ## Properties
-
-### `absoluteFill`
-
-A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
-
-```javascript
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFill,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
-});
-```
 
 ### `hairlineWidth`
 
 This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
@@ -165,10 +152,23 @@ var styles = StyleSheet.create({
 });
 ```
 
----
-
 This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
 
 A line with hairline width may not be visible if your simulator is downscaled.
 
+---
+
+### `absoluteFill`
+
+A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
+
+```jsx
+const styles = StyleSheet.create({
+  wrapper: {
+    ...StyleSheet.absoluteFill,
+    top: 10,
+    backgroundColor: 'transparent',
+  },
+});
+```
 ---
