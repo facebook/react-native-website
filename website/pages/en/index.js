@@ -346,6 +346,7 @@ function FastRefresh() {
             muted
             autoPlay
             loop
+            playsInline
             src={`${baseUrl}img/homepage/ReactRefresh.mp4`}
           />
         }
