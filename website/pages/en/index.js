@@ -186,6 +186,10 @@ function ScreenRect({className, fill, stroke}) {
     <rect
       className={`screen ${className}`}
       rx="3%"
+      width="180"
+      height="300"
+      x="-90"
+      y="-150"
       fill={fill}
       stroke={stroke}
     />
@@ -195,7 +199,7 @@ function ScreenRect({className, fill, stroke}) {
 function LogoAnimation() {
   return (
     <svg
-      className="LogoAnimation mobile"
+      className="LogoAnimation init"
       width={350}
       height={350}
       xmlns="http://www.w3.org/2000/svg"

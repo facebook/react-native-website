@@ -11,11 +11,7 @@
 .LogoAnimation .screen {
   transition: all 850ms ease-in-out;
   stroke-opacity: 0;
-  width: 400px;
-  height: 400px;
-  /* x: -200px;
-  y: -200px; */
-  transform: translate(-200px, -200px);
+  transform: scale(2.25, 1.33) rotate(0);
   stroke-width: 5px;
 }
 
@@ -44,51 +40,42 @@
 
 .LogoAnimation.full .screen {
   stroke-opacity: 0;
-  width: 400px;
-  height: 400px;
-  transform: rotate(0deg) translate(-200px, -200px);
+  transform: scale(2.25, 1.33) rotate(0);
   opacity: 1;
+  transition: none;
 }
 
 .LogoAnimation.mobile .screen {
   stroke-opacity: 1;
-  width: 180px;
-  height: 300px;
-  transform: rotate(0deg) translate(-90px, -150px);
+  transform: scale(1) rotate(0);
   opacity: 1;
   stroke-width: 5px;
 }
 
 .LogoAnimation.desktop .screen {
   stroke-opacity: 1;
-  width: 200px;
-  height: 320px;
-  transform: rotate(-90deg) translate(-100px, -160px);
+  transform: scale(1.125, 1.1) rotate(-90deg);
   opacity: 1;
   stroke-width: 8px;
 }
 
 .LogoAnimation.laptop .screen {
   stroke-opacity: 1;
-  width: 150px;
-  height: 250px;
-  transform: rotate(-90deg) translate(-75px, -125px);
+  transform: scale(0.83) rotate(-90deg);
   opacity: 1;
   stroke-width: 5px;
 }
 
 .LogoAnimation.mobile2 .screen {
   stroke-opacity: 1;
-  width: 180px;
-  height: 300px;
   opacity: 1;
   stroke-width: 5px;
-  transform: rotate(-180deg) translate(-90px, -150px);
+  transform: scale(1) rotate(-180deg);
 }
 
 .LogoAnimation.full2 .screen {
-  transform: rotate(-180deg) translate(-200px, -200px);
   stroke-opacity: 0;
+  transform: scale(2.25, 1.33) rotate(-180deg);
 }
 
 .LogoAnimation:not(.mobile):not(.mobile2) .speaker {
