@@ -272,7 +272,7 @@ function NativeApps() {
             text={textContent.intro}
           />
         }
-        columnTwo={<img src={baseUrl + 'img/homepage/phones.png'} />}
+        columnTwo={<img alt="" src={baseUrl + 'img/homepage/phones.png'} />}
       />
     </Section>
   );
@@ -308,7 +308,7 @@ function NativeDevelopment() {
         columnTwo={
           <div className="dissection">
             {[0, 1, 2, 3].map(i => (
-              <img src={`${baseUrl}img/homepage/dissection/${i}.png`} />
+              <img alt="" src={`${baseUrl}img/homepage/dissection/${i}.png`} />
             ))}
           </div>
         }
@@ -327,7 +327,9 @@ function CrossPlatform() {
             text={textContent.crossPlatform}
           />
         }
-        columnTwo={<img src={`${baseUrl}img/homepage/cross-platform.svg`} />}
+        columnTwo={
+          <img alt="" src={`${baseUrl}img/homepage/cross-platform.svg`} />
+        }
       />
     </Section>
   );
@@ -370,6 +372,7 @@ function Talks() {
           <div className="vidWrapper">
             <iframe
               src="https://www.youtube.com/embed/NCAY0HIfrwc"
+              title="Mobile Innovation with React Native, ComponentKit, and Litho"
               frameborder="0"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen

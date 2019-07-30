@@ -87,3 +87,8 @@ block {
 block.active {
   display: block;
 }
+
+.toggler span:first-child {
+  display: block;
+  font-weight: 700;
+}
