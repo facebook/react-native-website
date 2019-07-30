@@ -13,8 +13,9 @@
   stroke-opacity: 0;
   width: 400px;
   height: 400px;
-  x: -200px;
-  y: -200px;
+  /* x: -200px;
+  y: -200px; */
+  transform: translate(-200px, -200px);
   stroke-width: 5px;
 }
 
@@ -45,8 +46,7 @@
   stroke-opacity: 0;
   width: 400px;
   height: 400px;
-  x: -200px;
-  y: -200px;
+  transform: rotate(0deg) translate(-200px, -200px);
   opacity: 1;
 }
 
@@ -54,8 +54,7 @@
   stroke-opacity: 1;
   width: 180px;
   height: 300px;
-  x: -90px;
-  y: -150px;
+  transform: rotate(0deg) translate(-90px, -150px);
   opacity: 1;
   stroke-width: 5px;
 }
@@ -64,9 +63,7 @@
   stroke-opacity: 1;
   width: 200px;
   height: 320px;
-  x: -100px;
-  y: -160px;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translate(-100px, -160px);
   opacity: 1;
   stroke-width: 8px;
 }
@@ -75,9 +72,7 @@
   stroke-opacity: 1;
   width: 150px;
   height: 250px;
-  x: -75px;
-  y: -125px;
-  transform: rotate(-90deg);
+  transform: rotate(-90deg) translate(-75px, -125px);
   opacity: 1;
   stroke-width: 5px;
 }
@@ -86,15 +81,13 @@
   stroke-opacity: 1;
   width: 180px;
   height: 300px;
-  x: -90px;
-  y: -150px;
   opacity: 1;
   stroke-width: 5px;
-  transform: rotate(-180deg);
+  transform: rotate(-180deg) translate(-90px, -150px);
 }
 
 .LogoAnimation.full2 .screen {
-  transform: rotate(-180deg);
+  transform: rotate(-180deg) translate(-200px, -200px);
   stroke-opacity: 0;
 }
 
