@@ -104,7 +104,7 @@ Many of the following components provide wrappers for commonly used UIKit classe
     <h3><a href="./imagepickerios">ImagePickerIOS</a></h3>
     <p>Renders a image picker on iOS.</p>
   </div>
-   <div class="component">
+  <div class="component">
     <h3><a href="./navigatorios">NavigatorIOS</a></h3>
     <p>A wrapper around <code>UINavigationController</code>, enabling you to implement a navigation stack.</p>
   </div>
