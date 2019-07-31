@@ -13,14 +13,21 @@ If you're starting a new project, you can use the [TypeScript template][ts-templ
 react-native init MyAwesomeTSProject --template typescript
 ```
 
-Or if you're using expo:
+Alternatively, you can use some of the community bootstrapping tools which can get you to a complete app faster:
+
+1. You can use Expo:
 
 ```sh
 npm install -g expo-cli
 expo init MyAwesomeTSProject
 ```
 
-and pick one of the TypeScript templates.
+2. Or you could use Ignite:
+
+```sh
+npm install -g ignite-cli
+ignite new MyAwesomeTSProject
+```
 
 ## Adding TypeScript to an Existing Project
 
@@ -88,32 +95,13 @@ export interface Props {
   enthusiasmLevel?: number;
 }
 
-interface State {
-  enthusiasmLevel: number;
-}
+const Hello: React.FC<Props> = (props) => {
+  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(props.enthusiasmLevel);
 
-export class Hello extends React.Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-
-    if ((props.enthusiasmLevel || 0) <= 0) {
-      throw new Error('You could be a little more enthusiastic. :D');
-    }
-
-    this.state = {
-      enthusiasmLevel: props.enthusiasmLevel || 1,
-    };
-  }
-
-  onIncrement = () =>
-    this.setState({enthusiasmLevel: this.state.enthusiasmLevel + 1});
-
-  onDecrement = () =>
-    this.setState({enthusiasmLevel: this.state.enthusiasmLevel - 1});
+  onIncrement = () => setEnthusiasmLevel(this.state.enthusiasmLevel + 1);
+  onDecrement = () => setEnthusiasmLevel(this.state.enthusiasmLevel - 1);
 
   getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
-
-  render() {
     return (
       <View style={styles.root}>
         <Text style={styles.greeting}>
@@ -173,8 +161,53 @@ const styles = StyleSheet.create({
 ## Where to Find Useful Advice
 
 - [TypeScript Handbook][ts-handbook]
+- [React's documentation on TypeScript][react-ts]
 - [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
 
+## Using Custom Path Aliases with TypeScript
+
+You would need to set the path aliases to work from both babel and TypeScript. For TypeScript, edit your `tsconfig.json` to have your [custom path mappings][path-map]. In this case we'll make anything in the root of `src` available with no preceding path reference, and allow any test file to be access by using `test/File.tsx`.
+
+```diff
+    "target": "esnext",
++     "baseUrl": ".",
++     "paths": {
++       "*": ["src/*"],
++       "tests": ["tests/*"]
++     },
+    }
+```
+
+Then you need to configure the Babel side, which is done by adding a new dependency: [`babel-plugin-module-resolver`][bpmr]
+
+```sh
+yarn add --dev babel-plugin-module-resolver
+# or
+npm install --save-dev babel-plugin-module-resolver
+```
+
+Next up you need to configure your `babel.config.js`:
+
+```diff
+{
+  plugins: [
++    [
++       'module-resolver',
++       {
++         root: ['./src'],
++         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
++         alias: {
++           "test/*": "./test/"],
++         }
++       }
++     ]
+  ]
+}
+```
+
+Note that the syntax for both is different.
+
+[react-ts]: https://reactjs.org/docs/static-type-checking.html#typescript
 [ts]: https://www.typescriptlang.org/
 [flow]: https://flow.org
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript
@@ -184,3 +217,5 @@ const styles = StyleSheet.create({
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
 [props]: /react-native/docs/props.html
 [state]: /react-native/docs/state.html
+[path-map]: https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
+[bpmr]: https://github.com/tleunen/babel-plugin-module-resolver
