@@ -9,14 +9,31 @@ body,
 
 @media only screen and (max-width: 1023px) {
   .mainContainer {
-    padding-top: 48px;
+    padding-top: 3rem;
+    padding-bottom: 0;
+  }
+
+  .docMainWrapper {
+    overflow-x: hidden;
+  }
+
+  .mainContainer .post {
+    margin-bottom: 2rem;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .mainContainer {
-    margin-left: 20px;
-    padding-top: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mainContainer .wrapper {
+    margin-left: 3rem;
+  }
+
+  .mainContainer .post {
+    margin: 3rem 0;
   }
 
   .docsNavContainer {
@@ -80,17 +97,18 @@ a code {
   text-transform: none;
   transition: all 0s;
   padding: 0;
-  color: $subtle;
+  color: white;
 }
 
 .button.edit-page-link {
+  color: $subtle;
   font-size: 1.25rem;
   margin-top: 1rem;
 }
 
-.button:hover {
-  color: $text;
-  background: transparent;
+.arrow-next,
+.arrow-prev {
+  display: none;
 }
 
 .hash-link:focus {
