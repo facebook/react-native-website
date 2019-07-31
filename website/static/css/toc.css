@@ -4,6 +4,23 @@
   background-color: $tintColor;
   border-bottom: 2px solid $divider;
 }
+
+.toc .toggleNav .navBreadcrumb h2 {
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.toc .toggleNav .navBreadcrumb i {
+  display: none;
+}
+
+.navBreadcrumb a,
+.navBreadcrumb span {
+  color: $subtle;
+}
+
 .collapsible .arrow {
   transform: rotate(180deg);
 }
