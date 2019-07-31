@@ -12,7 +12,7 @@
   margin: 13px 0;
 }
 
-.fixedHeaderContainer header a[href="/react-native/"] {
+.fixedHeaderContainer header > a:first-child {
   width: 160px;
 }
 
@@ -44,7 +44,7 @@ li.navSearchWrapper {
     padding: 0 10px;
   }
 
-  .fixedHeaderContainer header a[href="/react-native/"] {
+  .fixedHeaderContainer header > a:first-child {
     width: 140px;
   }
   .fixedHeaderContainer header .headerTitleWithLogo {
