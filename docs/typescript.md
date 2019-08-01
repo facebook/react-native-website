@@ -7,22 +7,20 @@ title: Using TypeScript with React Native
 
 ## Getting Started with TypeScript
 
-If you're starting a new project, you can use the [TypeScript template][ts-template] to get you there faster:
+If you're starting a new project, there are a few different ways to get started. You can use the [default TypeScript template][ts-template]:
 
 ```sh
 react-native init MyAwesomeTSProject --template typescript
 ```
 
-Alternatively, you can use some of the community bootstrapping tools which can get you to a complete app faster:
-
-1. You can use Expo:
+You can use [Expo][expo] which has two TypeScript templates:
 
 ```sh
 npm install -g expo-cli
 expo init MyAwesomeTSProject
 ```
 
-2. Or you could use Ignite:
+Or you could use [Ignite][ignite] which also has a TypeScript template:
 
 ```sh
 npm install -g ignite-cli
@@ -219,3 +217,5 @@ Note that the syntax for both is different.
 [state]: /react-native/docs/state.html
 [path-map]: https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
 [bpmr]: https://github.com/tleunen/babel-plugin-module-resolver
+[expo]: https://expo.io
+[ignite]: https://infinite.red/ignite
