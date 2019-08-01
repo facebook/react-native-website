@@ -9,7 +9,7 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-```ReactNativeWebPlayer name=Image&platform=web
+```SnackPlayer name=Image&platform=web
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 
@@ -36,7 +36,7 @@ export default class DisplayAnImage extends Component {
 
 You can also add `style` to an image:
 
-```ReactNativeWebPlayer name=Image&platform=web
+```SnackPlayer name=Image&platform=web
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 

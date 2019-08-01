@@ -27,7 +27,7 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=TouchableHighlight&platform=web
 import React, { Component } from 'react'
 import {
   StyleSheet,
