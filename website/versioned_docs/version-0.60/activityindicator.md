@@ -8,7 +8,7 @@ Displays a circular loading indicator.
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=activityindicator&platform=web
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
