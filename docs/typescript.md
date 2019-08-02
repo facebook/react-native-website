@@ -83,7 +83,7 @@ Transforming your files to JavaScript works via the same [Babel infrastructure][
 
 You can provide an interface for a React Component's [Props][props] and [State][state] via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
 
-```ts
+```tsx
 // components/Hello.tsx
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
