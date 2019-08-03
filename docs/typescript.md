@@ -85,74 +85,75 @@ You can provide an interface for a React Component's [Props][props] and [State][
 
 ```tsx
 // components/Hello.tsx
+
+// components/Hello.tsx
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
 export interface Props {
-  name: string;
-  enthusiasmLevel?: number;
+    name: string;
+    enthusiasmLevel?: number;
 }
 
 const Hello: React.FC<Props> = (props) => {
-  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(props.enthusiasmLevel);
+    const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(props.enthusiasmLevel);
 
-  onIncrement = () => setEnthusiasmLevel(this.state.enthusiasmLevel + 1);
-  onDecrement = () => setEnthusiasmLevel(this.state.enthusiasmLevel - 1);
+    const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
+    const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
 
-  getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
+    const getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
     return (
-      <View style={styles.root}>
+        <View s style={styles.root}>
         <Text style={styles.greeting}>
-          Hello{' '}
-          {this.props.name +
-            this.getExclamationMarks(this.state.enthusiasmLevel)}
+            Hello{' '}
+            {props.name + getExclamationMarks(enthusiasmLevel || 0)}
         </Text>
 
         <View style={styles.buttons}>
-          <View style={styles.button}>
+            <View style={styles.button}>
             <Button
-              title="-"
-              onPress={this.onDecrement}
-              accessibilityLabel="decrement"
-              color="red"
+                title="-"
+                onPress={onDecrement}
+                accessibilityLabel="decrement"
+                color="red"
             />
-          </View>
+            </View>
 
-          <View style={styles.button}>
+            <View style={styles.button}>
             <Button
-              title="+"
-              onPress={this.onIncrement}
-              accessibilityLabel="increment"
-              color="blue"
+                title="+"
+                onPress={onIncrement}
+                accessibilityLabel="increment"
+                color="blue"
             />
-          </View>
+            </View>
         </View>
-      </View>
+        </View>
     );
-  }
+    }
 }
 
 // styles
 const styles = StyleSheet.create({
-  root: {
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  buttons: {
-    flexDirection: 'row',
-    minHeight: 70,
-    alignItems: 'stretch',
-    alignSelf: 'center',
-    borderWidth: 5,
-  },
-  button: {
-    flex: 1,
-    paddingVertical: 0,
-  },
-  greeting: {
-    color: '#999',
-    fontWeight: 'bold',
-  },
+    root: {
+        alignItems: 'center',
+        alignSelf: 'center',
+    },
+    buttons: {
+       flexDirection: 'row',
+        minHeight: 70,
+        alignItems: 'stretch',
+        alignSelf: 'center',
+        borderWidth: 5,
+    },
+    button: {
+        flex: 1,
+        paddingVertical: 0,
+    },
+    greeting: {
+        color: '#999',
+        fontWeight: 'bold',
+    },
 });
 ```
 
