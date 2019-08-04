@@ -19,7 +19,7 @@ In the following example the red, yellow and the green views are all children in
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
 
 - `row` Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
