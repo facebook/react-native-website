@@ -103,7 +103,7 @@ const Hello: React.FC<Props> = (props) => {
 
     const getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
     return (
-        <View s style={styles.root}>
+        <View style={styles.root}>
         <Text style={styles.greeting}>
             Hello{' '}
             {props.name + getExclamationMarks(enthusiasmLevel || 0)}
