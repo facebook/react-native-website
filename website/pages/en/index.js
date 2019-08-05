@@ -23,11 +23,11 @@ one team can maintain two platforms and share a common technology—React.
   `,
   codeExample: `
 \`\`\`jsx
-import React, {Component} from 'react';
+import React from 'react';
 import {Text, View} from 'react-native';
 import {Header} from './Header';
 
-export default () => 
+const WelcomeScreen = () => 
   <View>
     <Header title="Welcome to React Native"/>
     <Text style={header}>Step One</Text>
