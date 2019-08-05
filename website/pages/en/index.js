@@ -76,9 +76,8 @@ Twitter
   `,
   community: `
 In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
-Today, React Native is maintained by contributions from 
-[Callstack], [Expo], [Infinite Red], [Microsoft], and [Software
-Mansion].
+Today, React Native is supported by contributions from individuals and companies around the world 
+including from our partners [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software Mansion].
 
 Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
 with repos like React Native Windows and React Native Web.
