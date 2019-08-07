@@ -215,16 +215,6 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 ---
 
-### `openSettings()`
-
-```jsx
-openSettings();
-```
-
-Open the Settings app and displays the app’s custom settings, if it has any.
-
----
-
 ### `getInitialURL()`
 
 ```jsx
