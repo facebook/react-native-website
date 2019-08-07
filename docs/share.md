@@ -23,7 +23,7 @@ static share(content, options)
 
 Open a dialog to share text content.
 
-In iOS, Returns a Promise which will be invoked an object containing `action`, `activityType`. If the user dismissed the dialog, the Promise will still be resolved with action being `Share.dismissedAction` and all the other keys being undefined.
+In iOS, Returns a Promise which will be invoked an object containing `action`, `activityType`. If the user dismissed the dialog, the Promise will still be resolved with action being `Share.dismissedAction` and all the other keys being undefined. Note that some share options will not appear or work on the iOS simulator.
 
 In Android, Returns a Promise which always be resolved with action being `Share.sharedAction`.
 
