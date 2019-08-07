@@ -175,7 +175,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/align-content)
 
 The [`flexWrap`](https://facebook.github.io/react-native/docs/layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed.
 
-When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here]
+When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here](https://yogalayout.com/docs/flex-wrap)
 
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 
