@@ -416,7 +416,7 @@ See DocumentSelectionState.js, some state that is responsible for maintaining se
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```
 
@@ -426,7 +426,7 @@ Returns if the input is currently focused.
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```
 

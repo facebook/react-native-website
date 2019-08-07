@@ -11,8 +11,6 @@ This repo contains the website configuration and documentation powering the [Rea
 1.  Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/). (needs 1.5 or greater).
 1.  A fork of the repo (for any contributions).
 1.  A clone of the `react-native-website` repo.
-1.  Docusaurus: Run `yarn global add docusaurus-init` or `npm install --global docusaurus-init`
-1.  Prettier: See [Prettier website for installation instructions](https://prettier.io/docs/en/install.html).
 
 ### Installation
 

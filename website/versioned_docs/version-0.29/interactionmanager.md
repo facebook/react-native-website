@@ -56,7 +56,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 
 ### `runAfterInteractions()`
 
-```javascript
+```jsx
 static runAfterInteractions(task)
 ```
 
@@ -66,7 +66,7 @@ Schedule a function to run after all interactions have completed. Returns a canc
 
 ### `createInteractionHandle()`
 
-```javascript
+```jsx
 static createInteractionHandle()
 ```
 
@@ -76,7 +76,7 @@ Notify manager that an interaction has started.
 
 ### `clearInteractionHandle()`
 
-```javascript
+```jsx
 static clearInteractionHandle(handle)
 ```
 
@@ -86,7 +86,7 @@ Notify manager that an interaction has completed.
 
 ### `setDeadline()`
 
-```javascript
+```jsx
 static setDeadline(deadline)
 ```
 

@@ -20,7 +20,7 @@ original_id: cameraroll
 
 ### `saveImageWithTag()`
 
-```javascript
+```jsx
 static saveImageWithTag(tag)
 ```
 
@@ -28,7 +28,7 @@ static saveImageWithTag(tag)
 
 ### `saveToCameraRoll()`
 
-```javascript
+```jsx
 static saveToCameraRoll(tag, type?)
 ```
 
@@ -46,7 +46,7 @@ Returns a Promise which will resolve with the new URI.
 
 ### `getPhotos()`
 
-```javascript
+```jsx
 static getPhotos(params)
 ```
 

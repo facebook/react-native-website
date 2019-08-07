@@ -27,7 +27,7 @@ If you are targeting devices running iOS 11 or later, you will also need to add 
 
 ### `saveToCameraRoll()`
 
-```javascript
+```jsx
 CameraRoll.saveToCameraRoll(tag, [type]);
 ```
 
@@ -52,7 +52,7 @@ Returns a Promise which will resolve with the new URI.
 
 ### `getPhotos()`
 
-```javascript
+```jsx
 CameraRoll.getPhotos(params);
 ```
 
@@ -109,7 +109,7 @@ Returns a Promise which when resolved will be of the following shape:
 
 Loading images:
 
-```javascript
+```jsx
 _handleButtonPress = () => {
    CameraRoll.getPhotos({
        first: 20,

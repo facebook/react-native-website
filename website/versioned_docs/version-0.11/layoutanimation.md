@@ -31,7 +31,7 @@ A common way to use this API is to call `LayoutAnimation.configureNext` before c
 
 ### `configureNext()`
 
-```javascript
+```jsx
 static configureNext(config, onAnimationDidEnd?)
 ```
 
@@ -49,7 +49,7 @@ Schedules an animation to happen on the next layout.
 
 ### `create()`
 
-```javascript
+```jsx
 static create(duration, type, creationProp)
 ```
 

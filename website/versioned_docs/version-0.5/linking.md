@@ -134,7 +134,7 @@ Linking.canOpenURL(url).then(supported => {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -142,7 +142,7 @@ constructor();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -152,7 +152,7 @@ Add a handler to Linking changes by listening to the `url` event type and provid
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -162,7 +162,7 @@ Remove a handler by passing the `url` event type and the handler
 
 ### `openURL()`
 
-```javascript
+```jsx
 openURL(url);
 ```
 
@@ -180,7 +180,7 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 ### `canOpenURL()`
 
-```javascript
+```jsx
 canOpenURL(url);
 ```
 
@@ -200,7 +200,7 @@ Determine whether or not an installed app can handle a given URL.
 
 ### `getInitialURL()`
 
-```javascript
+```jsx
 getInitialURL();
 ```
 

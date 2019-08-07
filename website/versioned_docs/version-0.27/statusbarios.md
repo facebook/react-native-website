@@ -20,7 +20,7 @@ Deprecated. Use `StatusBar` instead.
 
 ### `setStyle()`
 
-```javascript
+```jsx
 setStyle(style, animated?)
 ```
 
@@ -28,7 +28,7 @@ setStyle(style, animated?)
 
 ### `setHidden()`
 
-```javascript
+```jsx
 setHidden(hidden, animation?)
 ```
 
@@ -36,6 +36,6 @@ setHidden(hidden, animation?)
 
 ### `setNetworkActivityIndicatorVisible()`
 
-```javascript
+```jsx
 setNetworkActivityIndicatorVisible(visible);
 ```

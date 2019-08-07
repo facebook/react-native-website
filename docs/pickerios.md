@@ -9,7 +9,7 @@ title: PickerIOS
 
 * [`itemStyle`](pickerios.md#itemstyle)
 * [`onValueChange`](pickerios.md#onvaluechange)
-* [`onChange`](pickerios.md#onChange)
+* [`onChange`](pickerios.md#onchange)
 * [`selectedValue`](pickerios.md#selectedvalue)
 
 ---
@@ -44,6 +44,6 @@ title: PickerIOS
 
 ### `selectedValue`
 
-| Type              | Required |
-| ---------------   | -------- |
-| number or string  | No       |
+| Type             | Required |
+| ---------------- | -------- |
+| number or string | No       |

@@ -33,7 +33,7 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                           initialProperties:props];
 ```
 
-```javascript
+```jsx
 import React from 'react';
 import {AppRegistry, View, Image} from 'react-native';
 

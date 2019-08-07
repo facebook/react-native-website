@@ -14,7 +14,7 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 
 Basic usage:
 
-```javascript
+```jsx
 import {ToastAndroid} from 'react-native';
 
 ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
@@ -36,7 +36,7 @@ ToastAndroid.showWithGravityAndOffset(
 
 The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {View, Button, ToastAndroid} from 'react-native';
 
@@ -113,7 +113,7 @@ class App extends Component {
 
 ### `show()`
 
-```javascript
+```jsx
 static show(message, duration)
 ```
 
@@ -121,7 +121,7 @@ static show(message, duration)
 
 ### `showWithGravity()`
 
-```javascript
+```jsx
 static showWithGravity(message, duration, gravity)
 ```
 
@@ -129,7 +129,7 @@ static showWithGravity(message, duration, gravity)
 
 ### `showWithGravityAndOffset()`
 
-```javascript
+```jsx
 static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 ```
 
@@ -137,7 +137,9 @@ static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 
 ### `SHORT`
 
-```javascript
+Indicates the duration on the screen.
+
+```jsx
 ToastAndroid.SHORT;
 ```
 
@@ -145,7 +147,9 @@ ToastAndroid.SHORT;
 
 ### `LONG`
 
-```javascript
+Indicates the duration on the screen.
+
+```jsx
 ToastAndroid.LONG;
 ```
 
@@ -153,7 +157,9 @@ ToastAndroid.LONG;
 
 ### `TOP`
 
-```javascript
+Indicates the position on the screen.
+
+```jsx
 ToastAndroid.TOP;
 ```
 
@@ -161,7 +167,9 @@ ToastAndroid.TOP;
 
 ### `BOTTOM`
 
-```javascript
+Indicates the position on the screen.
+
+```jsx
 ToastAndroid.BOTTOM;
 ```
 
@@ -169,6 +177,8 @@ ToastAndroid.BOTTOM;
 
 ### `CENTER`
 
-```javascript
+Indicates the position on the screen.
+
+```jsx
 ToastAndroid.CENTER;
 ```

@@ -137,7 +137,7 @@ Blank space to show between pages. This is only visible while scrolling, pages a
 
 ### `setPage()`
 
-```javascript
+```jsx
 setPage((selectedPage: number));
 ```
 
@@ -147,7 +147,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 ### `setPageWithoutAnimation()`
 
-```javascript
+```jsx
 setPageWithoutAnimation((selectedPage: number));
 ```
 

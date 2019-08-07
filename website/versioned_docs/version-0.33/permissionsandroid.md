@@ -48,7 +48,7 @@ async function requestCameraPermission() {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -56,7 +56,7 @@ constructor();
 
 ### `checkPermission()`
 
-```javascript
+```jsx
 checkPermission(permission);
 ```
 
@@ -66,7 +66,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `requestPermission()`
 
-```javascript
+```jsx
 requestPermission(permission, rationale?)
 ```
 

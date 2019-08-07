@@ -10,7 +10,7 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-```ReactNativeWebPlayer
+```SnackPlayer platform=web
 import React, { Component } from 'react';
 import { AppRegistry, View, Image } from 'react-native';
 
@@ -40,7 +40,7 @@ AppRegistry.registerComponent('DisplayAnImage', () => DisplayAnImage);
 
 You can also add `style` to an image:
 
-```ReactNativeWebPlayer
+```SnackPlayer platform=web
 import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet } from 'react-native';
 
@@ -409,7 +409,7 @@ Android only. By default, it is 300ms.
 
 ### `getSize()`
 
-```javascript
+```jsx
 Image.getSize(uri, success, [failure]);
 ```
 
@@ -431,7 +431,7 @@ Does not work for static image resources.
 
 ### `prefetch()`
 
-```javascript
+```jsx
 Image.prefetch(url);
 ```
 
@@ -447,7 +447,7 @@ Prefetches a remote image for later use by downloading it to the disk cache
 
 ### `abortPrefetch()`
 
-```javascript
+```jsx
 Image.abortPrefetch(requestId);
 ```
 
@@ -463,7 +463,7 @@ Abort prefetch request. Android-only.
 
 ### `queryCache()`
 
-```javascript
+```jsx
 Image.queryCache(urls);
 ```
 
@@ -479,7 +479,7 @@ Perform cache interrogation. Returns a mapping from URL to cache status, such as
 
 ### `resolveAssetSource()`
 
-```javascript
+```jsx
 Image.resolveAssetSource(source);
 ```
 

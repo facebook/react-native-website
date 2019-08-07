@@ -10,7 +10,7 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```javascript
+```jsx
 <View>
   <StatusBar backgroundColor="blue" barStyle="light-content" />
   <View>
@@ -129,7 +129,7 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 
 ### `setHidden()`
 
-```javascript
+```jsx
 static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 ```
 
@@ -146,7 +146,7 @@ Show or hide the status bar
 
 ### `setBarStyle()`
 
-```javascript
+```jsx
 static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 ```
 
@@ -163,7 +163,7 @@ Set the status bar style
 
 ### `setNetworkActivityIndicatorVisible()`
 
-```javascript
+```jsx
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
@@ -179,7 +179,7 @@ Control the visibility of the network activity indicator
 
 ### `setBackgroundColor()`
 
-```javascript
+```jsx
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
 
@@ -196,7 +196,7 @@ Set the background color for the status bar
 
 ### `setTranslucent()`
 
-```javascript
+```jsx
 static setTranslucent(translucent: boolean)
 ```
 

@@ -99,7 +99,7 @@ The final Java step is to register the ViewManager to the application, this happ
 
 The very final step is to create the JavaScript module that defines the interface layer between Java and JavaScript for the users of your new view. It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments).
 
-```javascript
+```jsx
 // ImageView.js
 
 import {requireNativeComponent} from 'react-native';
@@ -154,7 +154,7 @@ public class ReactImageManager extends SimpleViewManager<MyCustomView> {
 
 This callback is invoked with the raw event, which we typically process in the wrapper component to make a simpler API:
 
-```javascript
+```jsx
 // MyCustomView.js
 
 class MyCustomView extends React.Component {

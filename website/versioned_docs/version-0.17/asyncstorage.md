@@ -34,7 +34,7 @@ This JS code is a simple facade over the native iOS implementation to provide a 
 
 ### `getItem()`
 
-```javascript
+```jsx
 static getItem(key, callback?)
 ```
 
@@ -44,7 +44,7 @@ Fetches `key` and passes the result to `callback`, along with an `Error` if ther
 
 ### `setItem()`
 
-```javascript
+```jsx
 static setItem(key, value, callback?)
 ```
 
@@ -54,7 +54,7 @@ Sets `value` for `key` and calls `callback` on completion, along with an `Error`
 
 ### `removeItem()`
 
-```javascript
+```jsx
 static removeItem(key, callback?)
 ```
 
@@ -64,7 +64,7 @@ Returns a `Promise` object.
 
 ### `mergeItem()`
 
-```javascript
+```jsx
 static mergeItem(key, value, callback?)
 ```
 
@@ -74,7 +74,7 @@ Merges existing value with input value, assuming they are stringified json. Retu
 
 ### `clear()`
 
-```javascript
+```jsx
 static clear(callback?)
 ```
 
@@ -84,7 +84,7 @@ Erases _all_ AsyncStorage for all clients, libraries, etc. You probably don't wa
 
 ### `getAllKeys()`
 
-```javascript
+```jsx
 static getAllKeys(callback?)
 ```
 
@@ -94,7 +94,7 @@ Gets _all_ keys known to the app, for all callers, libraries, etc. Returns a `Pr
 
 ### `flushGetRequests()`
 
-```javascript
+```jsx
 static flushGetRequests()
 ```
 
@@ -104,7 +104,7 @@ Flushes any pending requests using a single multiget
 
 ### `multiGet()`
 
-```javascript
+```jsx
 static multiGet(keys, callback?)
 ```
 
@@ -116,7 +116,7 @@ multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 ### `multiSet()`
 
-```javascript
+```jsx
 static multiSet(keyValuePairs, callback?)
 ```
 
@@ -128,7 +128,7 @@ multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
 
 ### `multiRemove()`
 
-```javascript
+```jsx
 static multiRemove(keys, callback?)
 ```
 
@@ -138,7 +138,7 @@ Delete all the keys in the `keys` array. Returns a `Promise` object.
 
 ### `multiMerge()`
 
-```javascript
+```jsx
 static multiMerge(keyValuePairs, callback?)
 ```
 

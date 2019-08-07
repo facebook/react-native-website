@@ -24,7 +24,7 @@ Vibration patterns are currently unsupported.
 
 ### `vibrate()`
 
-```javascript
+```jsx
 static vibrate()
 ```
 

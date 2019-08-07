@@ -17,7 +17,7 @@ original_id: actionsheetios
 
 ### `showActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showActionSheetWithOptions(options, callback)
 ```
 
@@ -35,7 +35,7 @@ The 'callback' function takes one parameter, the zero-based index of the selecte
 
 ### `showShareActionSheetWithOptions()`
 
-```javascript
+```jsx
 static showShareActionSheetWithOptions(options, failureCallback, successCallback)
 ```
 

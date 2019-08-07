@@ -18,7 +18,7 @@ title: Dimensions
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(type, handler)
 ```
 
@@ -30,7 +30,7 @@ Add an event handler. Supported events:
 
 ### `get()`
 
-```javascript
+```jsx
 static get(dim)
 ```
 
@@ -48,7 +48,7 @@ Example: `var {height, width} = Dimensions.get('window');`
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(type, handler)
 ```
 
@@ -58,7 +58,7 @@ Remove an event handler.
 
 ### `set()`
 
-```javascript
+```jsx
 static set(dims)
 ```
 

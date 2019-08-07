@@ -16,7 +16,7 @@ original_id: imageeditor
 
 ### `cropImage()`
 
-```javascript
+```jsx
 static cropImage(uri, cropData, success, failure)
 ```
 

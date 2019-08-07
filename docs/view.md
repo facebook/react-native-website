@@ -9,7 +9,7 @@ The most fundamental component for building a UI, `View` is a container that sup
 
 This example creates a `View` that wraps two colored boxes and a text component in a row with padding.
 
-```javascript
+```jsx
 class ViewColoredBoxesWithText extends Component {
   render() {
     return (
@@ -327,7 +327,7 @@ Controls whether the `View` can be the target of touch events.
      pointer-events: none;
 }
 .box-none * {
-     pointer-events: all;
+     pointer-events: auto;
 }
 ```
 
@@ -335,7 +335,7 @@ Controls whether the `View` can be the target of touch events.
 
 ```
 .box-only {
-     pointer-events: all;
+     pointer-events: auto;
 }
 .box-only * {
      pointer-events: none;

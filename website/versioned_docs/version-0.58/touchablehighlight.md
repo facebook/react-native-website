@@ -12,7 +12,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 
 Example:
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableHighlight onPress={this._onPressButton}>
@@ -27,7 +27,7 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer platform=web
 import React, { Component } from 'react'
 import {
   AppRegistry,

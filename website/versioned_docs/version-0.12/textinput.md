@@ -390,7 +390,7 @@ See DocumentSelectionState.js, some state that is responsible for maintaining se
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```
 
@@ -398,6 +398,6 @@ isFocused():
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```

@@ -9,7 +9,7 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 ### Usage Example
 
-```javascript
+```jsx
 function MyComponent(props) {
   return (
     <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
@@ -61,9 +61,9 @@ function MyComponent(props) {
 
 ### `accessibilityIgnoresInvertColors`
 
-| Type       | Required |
-| -----------| -------- |
-| Boolean    | No       |
+| Type    | Required |
+| ------- | -------- |
+| Boolean | No       |
 
 ---
 
@@ -105,9 +105,9 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityState`
 
-| Type       | Required |
-| ---------- | -------- |
-| Object     | No       |
+| Type   | Required |
+| ------ | -------- |
+| Object | No       |
 
 ---
 

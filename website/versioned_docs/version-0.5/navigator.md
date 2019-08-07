@@ -8,7 +8,7 @@ original_id: navigator
 
 To set up the `Navigator` you provide one or more objects called routes, to identify each scene. You also provide a `renderScene` function that renders the scene for each route object.
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {Text, Navigator, TouchableHighlight} from 'react-native';
 
@@ -31,7 +31,7 @@ In the above example, `initialRoute` is used to specify the first route. It cont
 
 The first example demonstrated one scene. To set up multiple scenes, you pass the `initialRouteStack` prop to `Navigator`:
 
-```javascript
+```jsx
 render() {
   const routes = [
     {title: 'First Scene', index: 0},
@@ -166,7 +166,7 @@ Optional function where you can configure scene animations and gestures. Will be
 
 The function should return a scene configuration object.
 
-```javascript
+```jsx
 (route, routeStack) => Navigator.SceneConfigs.FloatFromRight;
 ```
 
@@ -257,7 +257,7 @@ Pass in a function to get notified with the target route when the navigator comp
 
 Required function which renders the scene for a given route. Will be invoked with the route and the navigator object.
 
-```javascript
+```jsx
 (route, navigator) => (
   <MySceneComponent title={route.title} navigator={navigator} />
 );
@@ -283,7 +283,7 @@ Styles to apply to the container of each scene.
 
 ### `immediatelyResetRouteStack()`
 
-```javascript
+```jsx
 immediatelyResetRouteStack((nextRouteStack: RouteStack));
 ```
 
@@ -299,7 +299,7 @@ Reset every scene with an array of routes. All existing route stacks are destroy
 
 ### `jumpTo()`
 
-```javascript
+```jsx
 jumpTo((route: object));
 ```
 
@@ -317,7 +317,7 @@ The specified route must be in the currently mounted set of routes defined in `r
 
 ### `jumpForward()`
 
-```javascript
+```jsx
 jumpForward();
 ```
 
@@ -327,7 +327,7 @@ Jump forward to the next scene in the route stack.
 
 ### `jumpBack()`
 
-```javascript
+```jsx
 jumpBack();
 ```
 
@@ -337,7 +337,7 @@ Jump backward without unmounting the current scene.
 
 ### `XXXX()`
 
-```javascript
+```jsx
 push((route: object));
 ```
 
@@ -353,7 +353,7 @@ Navigate forward to a new scene, squashing any scenes that you could jump forwar
 
 ### `pop()`
 
-```javascript
+```jsx
 popN((n: number));
 ```
 
@@ -369,7 +369,7 @@ Go back N scenes at once. When N=1, behavior matches pop(). When N is invalid (n
 
 ### `pop()`
 
-```javascript
+```jsx
 pop();
 ```
 
@@ -379,7 +379,7 @@ Transition back and unmount the current scene.
 
 ### `replaceAtIndex()`
 
-```javascript
+```jsx
 replaceAtIndex((route: object), (index: number), (cb: Function));
 ```
 
@@ -397,7 +397,7 @@ Replace a scene as specified by an index.
 
 ### `replace()`
 
-```javascript
+```jsx
 replace((route: object));
 ```
 
@@ -413,7 +413,7 @@ Replace the current scene with a new route.
 
 ### `replacePrevious()`
 
-```javascript
+```jsx
 replacePrevious((route: object));
 ```
 
@@ -429,7 +429,7 @@ Replace the previous scene.
 
 ### `popToTop()`
 
-```javascript
+```jsx
 popToTop();
 ```
 
@@ -439,7 +439,7 @@ Pop to the first scene in the stack, unmounting every other scene.
 
 ### `popToRoute()`
 
-```javascript
+```jsx
 popToRoute((route: object));
 ```
 
@@ -455,7 +455,7 @@ Pop to a particular scene, as specified by its route. All scenes after it will b
 
 ### `replacePreviousAndPopXXXX()`
 
-```javascript
+```jsx
 replacePreviousAndPop((route: object));
 ```
 
@@ -471,7 +471,7 @@ Replace the previous scene and pop to it.
 
 ### `resetTo()`
 
-```javascript
+```jsx
 resetTo((route: object));
 ```
 
@@ -487,7 +487,7 @@ Navigate to a new scene and reset route stack.
 
 ### `getCurrentRoutes()`
 
-```javascript
+```jsx
 getCurrentRoutes();
 ```
 

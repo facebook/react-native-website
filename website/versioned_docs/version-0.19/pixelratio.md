@@ -34,7 +34,7 @@ var image = getImage({
 
 ### `get()`
 
-```javascript
+```jsx
 static get()
 ```
 
@@ -63,7 +63,7 @@ Returns the device pixel density. Some examples:
 
 ### `getFontScale()`
 
-```javascript
+```jsx
 static getFontScale()
 ```
 
@@ -77,7 +77,7 @@ Currently this is only implemented on Android and reflects the user preference s
 
 ### `getPixelSizeForLayoutSize()`
 
-```javascript
+```jsx
 static getPixelSizeForLayoutSize(layoutSize)
 ```
 
@@ -89,7 +89,7 @@ Guaranteed to return an integer number.
 
 ### `roundToNearestPixel()`
 
-```javascript
+```jsx
 static roundToNearestPixel(layoutSize)
 ```
 
@@ -99,7 +99,7 @@ Rounds a layout size (dp) to the nearest layout size that corresponds to an inte
 
 ### `startDetecting()`
 
-```javascript
+```jsx
 static startDetecting()
 ```
 

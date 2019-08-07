@@ -417,7 +417,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop.
+Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. The event has the shape `{ nativeEvent: { contentInset: { bottom, left, right, top }, contentOffset: { x, y }, contentSize: { height, width }, layoutMeasurement: { height, width }, zoomScale } }`. All values are numbers.
 
 | Type     | Required |
 | -------- | -------- |
@@ -706,7 +706,7 @@ The current scale of the scroll view content. The default value is 1.0.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 
@@ -716,25 +716,19 @@ Displays the scroll indicators momentarily.
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(
-  ([y]: number),
-  object,
-  ([x]: number),
-  ([animated]: boolean),
-  ([duration]: number),
+  options?: {x?: number, y?: number, animated?: boolean} | number,
+  deprecatedX?: number,
+	deprecatedAnimated?: boolean,
 );
 ```
 
-Scrolls to a given x, y offset, either immediately, with a smooth animation, or, for Android only, a custom animation duration time.
+Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 Example:
 
 `scrollTo({x: 0, y: 0, animated: true})`
-
-Example with duration (Android only):
-
-`scrollTo({x: 0, y: 0, duration: 500})`
 
 Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 
@@ -742,7 +736,7 @@ Note: The weird function signature is due to the fact that, for historical reaso
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
@@ -754,7 +748,7 @@ Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd(
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(y, x);
 ```
 

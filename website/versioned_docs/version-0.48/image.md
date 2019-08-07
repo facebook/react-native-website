@@ -10,7 +10,7 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-```ReactNativeWebPlayer
+```SnackPlayer platform=web
 import React, { Component } from 'react';
 import { AppRegistry, View, Image } from 'react-native';
 
@@ -40,7 +40,7 @@ AppRegistry.registerComponent('DisplayAnImage', () => DisplayAnImage);
 
 You can also add `style` to an image:
 
-```ReactNativeWebPlayer
+```SnackPlayer platform=web
 import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet } from 'react-native';
 
@@ -377,7 +377,7 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`.
 
 ### `getSize()`
 
-```javascript
+```jsx
 static getSize(uri: string, success: function, [failure]: function):
 ```
 
@@ -399,7 +399,7 @@ Does not work for static image resources.
 
 ### `prefetch()`
 
-```javascript
+```jsx
 static prefetch(url: string):
 ```
 
