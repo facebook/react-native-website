@@ -48,15 +48,15 @@ ES8
 Stage 3
 
 - [Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
-
-Stage 2
-
+- [Static class fields](https://github.com/tc39/proposal-static-class-features): `class CustomDate { static epoch = new CustomDate(0); }`
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
 
 Specific
 
 - [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
-- [Flow](http://flowtype.org/): `function foo(x: ?number): string {};`
+- [Flow](https://flowtype.org/): `function foo(x: ?number): string {};`
+- [TypeScript](https://flowtype.org/): `function foo(x: number | undefined): string {};`
+- [Babel Template](https://babeljs.io/docs/en/babel-template): allows AST templating
 
 ## Polyfills
 
