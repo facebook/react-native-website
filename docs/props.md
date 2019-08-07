@@ -7,7 +7,7 @@ Most components can be customized when they are created, with different paramete
 
 For example, one basic React Native component is the `Image`. When you create an image, you can use a prop named `source` to control what image it shows.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Props
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 
@@ -27,7 +27,7 @@ Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX.
 
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `this.props` in your `render` function. Here's an example:
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Props
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 

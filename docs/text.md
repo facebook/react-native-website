@@ -9,7 +9,7 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Text&platform=web
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
 
 Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Nested&platform=web
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
