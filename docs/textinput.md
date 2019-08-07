@@ -7,7 +7,7 @@ A foundational component for inputting text into the app via a keyboard. Props p
 
 The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
 
-```SnackPlayer name=TextInput&platform=web
+```SnackPlayer name=TextInput
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
@@ -33,8 +33,7 @@ Two methods exposed via the native element are .focus() and .blur() that will fo
 
 Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
-
-```SnackPlayer name=TextInput&platform=web
+```SnackPlayer name=TextInput
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 
