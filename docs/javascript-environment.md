@@ -48,7 +48,7 @@ ES8
 Stage 3
 
 - [Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
-- [Static class fields](https://github.com/tc39/proposal-static-class-features): `var extended = { ...obj, a: 10 };`
+- [Static class fields](https://github.com/tc39/proposal-static-class-features): `class CustomDate { static epoch = new CustomDate(0); }`
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
 
 Specific
