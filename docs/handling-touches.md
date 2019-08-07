@@ -12,7 +12,7 @@ Users interact with mobile apps mainly through touch. They can use a combination
 ```jsx
 <Button
   onPress={() => {
-    Alert.alert('You tapped the button!');
+    alert('You tapped the button!');
   }}
   title="Press Me"
 />
@@ -24,13 +24,13 @@ This will render a blue label on iOS, and a blue rounded rectangle with white te
 
 Go ahead and play around with the `Button` component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right, then click on "Tap to Play" to preview the app.
 
-```SnackPlayer name=Button%20Basics
+```SnackPlayer name=Button%20Basics&platform=web
 import React, { Component } from 'react';
-import { Alert, Button, StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
 export default class ButtonBasics extends Component {
   _onPressButton() {
-    Alert.alert('You tapped the button!')
+    alert('You tapped the button!')
   }
 
   render() {
@@ -99,17 +99,17 @@ In some cases, you may want to detect when a user presses and holds a view for a
 
 Let's see all of these in action:
 
-```SnackPlayer platform=android&name=Touchables
+```SnackPlayer platform=web&name=Touchables
 import React, { Component } from 'react';
-import { Alert, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
 export default class Touchables extends Component {
   _onPressButton() {
-    Alert.alert('You tapped the button!')
+    alert('You tapped the button!')
   }
 
   _onLongPressButton() {
-    Alert.alert('You long-pressed the button!')
+    alert('You long-pressed the button!')
   }
 
 
@@ -130,7 +130,7 @@ export default class Touchables extends Component {
             onPress={this._onPressButton}
             background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableNativeFeedback</Text>
+            <Text style={styles.buttonText}>TouchableNativeFeedback {Platform.OS !== 'android' ? '(Android only)' : ''}</Text>
           </View>
         </TouchableNativeFeedback>
         <TouchableWithoutFeedback
@@ -162,6 +162,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3'
   },
   buttonText: {
+    textAlign: 'center',
     padding: 20,
     color: 'white'
   }
