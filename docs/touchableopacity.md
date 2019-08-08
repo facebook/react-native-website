@@ -24,7 +24,7 @@ renderButton: function() {
 
 ### Example
 
-```SnackPlayer name=TouchableOpacity&platform=web
+```SnackPlayer name=TouchableOpacity
 import React, { Component } from 'react'
 import {
   StyleSheet,

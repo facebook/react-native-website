@@ -8,7 +8,7 @@ A React component for displaying different types of images, including network im
 
 This example shows both fetching and displaying an image from local storage as well as on from network.
 
-```SnackPlayer platform=web
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View, Image } from 'react-native';
 
@@ -17,7 +17,8 @@ class DisplayAnImage extends Component {
     return (
       <View>
         <Image
-          source={require('/react-native/img/favicon.png')}
+          style={{width: 50, height: 50}}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
           style={{width: 50, height: 50}}
@@ -34,7 +35,7 @@ AppRegistry.registerComponent('DisplayAnImage', () => DisplayAnImage);
 
 You can also add `style` to an image:
 
-```SnackPlayer platform=web
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet } from 'react-native';
 
@@ -51,7 +52,7 @@ class DisplayAnImageWithStyle extends Component {
       <View>
         <Image
           style={styles.stretch}
-          source={require('/react-native/img/favicon.png')}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
       </View>
     );
