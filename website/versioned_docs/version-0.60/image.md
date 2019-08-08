@@ -45,7 +45,8 @@ import { View, Image, StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   stretch: {
     width: 50,
-    height: 200
+    height: 200,
+    resizeMode: 'stretch'
   }
 });
 
