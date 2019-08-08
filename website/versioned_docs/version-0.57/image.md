@@ -19,6 +19,7 @@ export default class DisplayAnImage extends Component {
     return (
       <View>
         <Image
+          style={{width: 50, height: 50}}
           source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
