@@ -88,7 +88,7 @@ Note that on Android performing text selection in input can change app's activit
 
 * [`allowFontScaling`](textinput.md#allowfontscaling)
 * [`autoCapitalize`](textinput.md#autocapitalize)
-* [`autoCompleteType`](textinput.md#autocompletetype)
+* [`autoComplete`](textinput.md#autocompletetype)
 * [`autoCorrect`](textinput.md#autocorrect)
 * [`autoFocus`](textinput.md#autofocus)
 * [`blurOnSubmit`](textinput.md#bluronsubmit)
@@ -177,11 +177,11 @@ Can tell `TextInput` to automatically capitalize certain characters. This proper
 
 ---
 
-### `autoCompleteType`
+### `autoComplete`
 
-Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoCompleteType` to `off`.
+Specifies autocomplete hints for the system, so it can provide autofill. On Android, the system will always attempt to offer autofill by using heuristics to identify the type of content. To disable autocomplete, set `autoComplete` to `off`.
 
-Possible values for `autoCompleteType` are:
+Possible values for `autoComplete` are:
 
 - `off`
 - `username`
