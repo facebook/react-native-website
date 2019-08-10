@@ -193,7 +193,7 @@ Node comes with npm, which lets you install the React Native command line interf
 Run the following command in a Terminal:
 
 ```
-npm install -g @react-native-community/cli
+npm install @react-native-community/cli
 ```
 
 > If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
@@ -207,7 +207,7 @@ Node comes with npm, which lets you install the React Native command line interf
 Run the following command in a Command Prompt or shell:
 
 ```powershell
-npm install -g @react-native-community/cli
+npm install @react-native-community/cli
 ```
 
 > If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
@@ -369,7 +369,7 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
 
 ```
-react-native init AwesomeProject
+npx react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
@@ -379,11 +379,11 @@ This is not necessary if you are integrating React Native into an existing appli
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
-react-native init AwesomeProject --version X.XX.X
+npx react-native init AwesomeProject --version X.XX.X
 ```
 
 ```
-react-native init AwesomeProject --version react-native@next
+npx react-native init AwesomeProject --version react-native@next
 ```
 
 <block class="native mac windows linux android" />
@@ -393,7 +393,7 @@ react-native init AwesomeProject --version react-native@next
 Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
 
 ```
-react-native init AwesomeProject
+npx react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
@@ -403,11 +403,11 @@ This is not necessary if you are integrating React Native into an existing appli
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
-react-native init AwesomeProject --version X.XX.X
+npx react-native init AwesomeProject --version X.XX.X
 ```
 
 ```
-react-native init AwesomeProject --version react-native@next
+npx react-native init AwesomeProject --version react-native@next
 ```
 
 <block class="native mac windows linux android" />
