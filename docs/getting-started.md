@@ -193,7 +193,7 @@ Node comes with npm, which lets you install the React Native command line interf
 Run the following command in a Terminal:
 
 ```
-npm install -g react-native-cli
+npm install -g @react-native-community/cli
 ```
 
 > If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
@@ -207,7 +207,7 @@ Node comes with npm, which lets you install the React Native command line interf
 Run the following command in a Command Prompt or shell:
 
 ```powershell
-npm install -g react-native-cli
+npm install -g @react-native-community/cli
 ```
 
 > If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
