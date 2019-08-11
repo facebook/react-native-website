@@ -104,32 +104,33 @@ hr {
   height: 1px;
   margin-bottom: -1px;
   border: none;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid $divider;
   margin-top: 40px;
 }
 
 table {
-  background: #ebf9ff;
   border: 1px solid #b0b0b0;
   border-collapse: collapse;
   display: table;
   margin: 20px 0;
   width: 80%;
 }
-table thead {
-  display: table-header-group;
+table thead tr {
+  /* display: table-header-group; */
+  background: #dddddd;
 }
+
 table tbody {
   display: table-row-group;
 }
 table tr {
   display: table-row;
 }
-table tr:nth-of-type(odd) {
-  background: #ebf9ff;
+table tbody tr:nth-of-type(odd) {
+  background: $backgroundColor;
 }
-table tr:nth-of-type(even) {
-  background: #e0f6ff;
+table tbody tr:nth-of-type(even) {
+  background: $tintColor;
 }
 table tr th,
 table tr td {

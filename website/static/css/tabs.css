@@ -3,27 +3,48 @@
 }
 .toggler li {
   display: inline-block;
-  position: relative;
   top: 1px;
   padding: 10px;
   margin: 0px 2px 0px 2px;
   border-bottom-color: transparent;
   border-radius: 3px 3px 0px 0px;
   font-size: 0.99em;
-  cursor: pointer;
 }
 
 .toggler li,
 .toggler button {
-  color: $secondaryColor;
-  border: 1px solid $secondaryColor;
+  position: relative;
+  color: $text;
   background-color: transparent;
+  cursor: pointer;
+}
+
+.toggler li:hover,
+.toggler button:hover {
+  color: $subtle;
 }
 
 .toggler li.active,
 .toggler button.active {
-  color: white;
-  background-color: $secondaryColor;
+  font-weight: 700;
+}
+
+.toggler li::after,
+.toggler button::after {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: $brand;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-out;
+}
+
+.toggler li.active::after,
+.toggler button.active::after {
+  transform: scaleX(1);
 }
 
 .toggler li:first-child {
@@ -38,15 +59,15 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  border-bottom: 1px solid $secondaryColor;
+  border-bottom: 1px solid $subtle;
   cursor: default;
 }
+
 @media screen and (max-width: 960px) {
   .toggler li,
   .toggler li:first-child,
   .toggler li:last-child {
-    display: block;
-    border-bottom-color: $secondaryColor;
+    border-bottom-color: $subtle;
     border-radius: 3px;
     margin: 2px 0px 2px 0px;
   }
@@ -54,11 +75,12 @@
     border-bottom: 0;
   }
 }
+
 .toggler button {
   display: inline-block;
   padding: 10px 5px;
   margin: 2px;
-  border-radius: 3px;
+  border: none;
   text-decoration: none;
   font-size: 16px;
 }
@@ -69,4 +91,14 @@ block {
 
 block.active {
   display: block;
+}
+
+.toggler span:first-child {
+  font-weight: 700;
+}
+
+@media only screen and (max-width: 480px) {
+  .toggler span:first-child {
+    display: block;
+  }
 }

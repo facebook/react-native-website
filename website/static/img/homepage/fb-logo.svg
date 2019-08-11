@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>f_logo_RGB-Black_1024</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0.005859375 0.00392927308 100 0.00392927308 100 99.978389 0.005859375 99.978389"></polygon>
+    </defs>
+    <g id="Welcome" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-45.000000, -162.000000)">
+            <g id="f_logo_RGB-Black_1024" transform="translate(45.000000, 162.000000)">
+                <g id="Group-3" transform="translate(-0.000000, 0.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <path d="M100,50.2946955 C100,22.5176817 77.6142578,0 50,0 C22.3857422,0 0,22.5176817 0,50.2946955 C0,75.3982318 18.2842773,96.2053045 42.1875,99.978389 L42.1875,64.8330059 L29.4921875,64.8330059 L29.4921875,50.2946955 L42.1875,50.2946955 L42.1875,39.2141454 C42.1875,26.6090373 49.6521484,19.6463654 61.0732422,19.6463654 C66.5436523,19.6463654 72.265625,20.6286837 72.265625,20.6286837 L72.265625,33.0058939 L65.9607422,33.0058939 C59.7495117,33.0058939 57.8125,36.8828094 57.8125,40.8602161 L57.8125,50.2946955 L71.6796875,50.2946955 L69.4628906,64.8330059 L57.8125,64.8330059 L57.8125,99.978389 C81.7157227,96.2053045 100,75.3982318 100,50.2946955" id="Fill-1" fill="#1977F2" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

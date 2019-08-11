@@ -10,9 +10,9 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Text
 import React, { Component } from 'react';
-import { AppRegistry, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 export default class TextInANest extends Component {
   constructor(props) {
@@ -46,18 +46,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('TextInANest', () => TextInANest);
 ```
 
 ## Nested text
 
 Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Nested
 import React, { Component } from 'react';
-import { AppRegistry, Text } from 'react-native';
+import { Text } from 'react-native';
 
 export default class BoldAndBeautiful extends Component {
   render() {
@@ -71,9 +68,6 @@ export default class BoldAndBeautiful extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BoldAndBeautiful);
 ```
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
