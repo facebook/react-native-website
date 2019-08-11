@@ -10,7 +10,17 @@ original_id: statusbar
 
 ### 和导航器一起使用的注意事项
 
-由于`StatusBar`可以在任意视图中加载，且后加载的设置会覆盖先前的设置。因此在配合导航器使用时，请务必考虑清楚`StatusBar`的放置顺序。
+由于`StatusBar`可以在任意视图中加载，可以放置多个且后加载的会覆盖先加载的。因此在配合导航器使用时，请务必考虑清楚`StatusBar`的放置顺序。
+
+```jsx
+<View>
+  <StatusBar backgroundColor="blue" barStyle="light-content" />
+  <View>
+    <StatusBar hidden={route.statusBarHidden} />
+    ...
+  </View>
+</View>
+```
 
 ### 静态API
 
@@ -23,20 +33,23 @@ original_id: statusbar
 ### 查看Props
 
 * [`animated`](statusbar.md#animated)
+* [`backgroundColor`](statusbar.md#backgroundcolor)
 * [`barStyle`](statusbar.md#barstyle)
 * [`hidden`](statusbar.md#hidden)
-* [`backgroundColor`](statusbar.md#backgroundcolor)
-* [`translucent`](statusbar.md#translucent)
 * [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
 * [`showHideTransition`](statusbar.md#showhidetransition)
+* [`translucent`](statusbar.md#translucent)
 
 ### 查看方法
 
-* [`setHidden`](statusbar.md#sethidden)
-* [`setBarStyle`](statusbar.md#setbarstyle)
-* [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
-* [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
-* [`setTranslucent`](statusbar.md#settranslucent)
+- [`popStackEntry`](statusbar.md#popstackentry)
+- [`pushStackEntry`](statusbar.md#pushstackentry)
+- [`replaceStackEntry`](statusbar.md#replacestackentry)
+- [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
+- [`setBarStyle`](statusbar.md#setbarstyle)
+- [`setHidden`](statusbar.md#sethidden)
+- [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
+- [`setTranslucent`](statusbar.md#settranslucent)
 
 ### 查看类型定义
 
@@ -56,6 +69,16 @@ original_id: statusbar
 | 类型 | 必填 |
 | ---- | ---- |
 | bool | 否   |
+
+---
+
+### `backgroundColor`
+
+状态栏的背景色。
+
+| 类型               | 必填 | 平台    |
+| ------------------ | ---- | ------- |
+| [color](colors.md) | 否   | Android |
 
 ---
 
@@ -79,26 +102,6 @@ original_id: statusbar
 
 ---
 
-### `backgroundColor`
-
-状态栏的背景色。
-
-| 类型               | 必填 | 平台    |
-| ------------------ | ---- | ------- |
-| [color](colors.md) | 否   | Android |
-
----
-
-### `translucent`
-
-指定状态栏是否透明。设置为true时，应用会延伸到状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
-
-| 类型 | 必填 | 平台    |
-| ---- | ---- | ------- |
-| bool | 否   | Android |
-
----
-
 ### `networkActivityIndicatorVisible`
 
 指定是否显示网络活动提示符。
@@ -117,55 +120,66 @@ original_id: statusbar
 | --------------------- | ---- | ---- |
 | enum('fade', 'slide') | 否   | iOS  |
 
+---
+
+### `translucent`
+
+指定状态栏是否透明。设置为true时，应用会延伸到状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
+
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
+
+---
+
 ## 方法
 
-### `setHidden()`
+### `popStackEntry()`
 
 ```jsx
-static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
+static popStackEntry(entry: any)
 ```
 
-显示／隐藏状态栏
+Pop a StatusBar entry from the stack.
 
-**参数：**
+**Parameters:**
 
-| 名称      | 类型                                                  | 必填 | 说明                             |
-| --------- | ----------------------------------------------------- | ---- | -------------------------------- |
-| hidden    | boolean                                               | 是   | 是否隐藏状态栏                   |
-| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否   | 改变状态栏显示状态的动画过渡效果 |
+| Name  | Type | Required | Description                           |
+| ----- | ---- | -------- | ------------------------------------- |
+| entry | any  | Yes      | Entry returned from `pushStackEntry`. |
 
 ---
 
-### `setBarStyle()`
+### `pushStackEntry()`
 
 ```jsx
-static setBarStyle(style: StatusBarStyle, [animated]: boolean)
+static pushStackEntry(props: any)
 ```
 
-设置状态栏的样式
+Push a StatusBar entry onto the stack. The return value should be passed to `popStackEntry` when complete.
 
-**参数：**
+**Parameters:**
 
-| 名称     | 类型                                          | 必填 | 说明               |
-| -------- | --------------------------------------------- | ---- | ------------------ |
-| style    | [StatusBarStyle](statusbar.md#statusbarstyle) | 是   | 要设置的状态栏样式 |
-| animated | boolean                                       | 否   | 是否启用过渡动画   |
+| Name  | Type | Required | Description                                                      |
+| ----- | ---- | -------- | ---------------------------------------------------------------- |
+| props | any  | Yes      | Object containing the StatusBar props to use in the stack entry. |
 
 ---
 
-### `setNetworkActivityIndicatorVisible()`
+### `replaceStackEntry()`
 
 ```jsx
-static setNetworkActivityIndicatorVisible(visible: boolean)
+static replaceStackEntry(entry: any, props: any)
 ```
 
-显示／隐藏网络活动指示器。仅限iOS。
+Replace an existing StatusBar stack entry with new props.
 
-**参数：**
+**Parameters:**
 
-| 名称    | 类型    | 必填 | 说明                   |
-| ------- | ------- | ---- | ---------------------- |
-| visible | boolean | 是   | 是否显示网络活动指示器 |
+| Name  | Type | Required | Description                                                                  |
+| ----- | ---- | -------- | ---------------------------------------------------------------------------- |
+| entry | any  | Yes      | Entry returned from `pushStackEntry` to replace.                             |
+| props | any  | Yes      | Object containing the StatusBar props to use in the replacement stack entry. |
 
 ---
 
@@ -186,6 +200,56 @@ static setBackgroundColor(color: string, [animated]: boolean)
 
 ---
 
+### `setBarStyle()`
+
+```jsx
+static setBarStyle(style: StatusBarStyle, [animated]: boolean)
+```
+
+设置状态栏的样式
+
+**参数：**
+
+| 名称     | 类型                                          | 必填 | 说明               |
+| -------- | --------------------------------------------- | ---- | ------------------ |
+| style    | [StatusBarStyle](statusbar.md#statusbarstyle) | 是   | 要设置的状态栏样式 |
+| animated | boolean                                       | 否   | 是否启用过渡动画   |
+
+---
+
+### `setHidden()`
+
+```jsx
+static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
+```
+
+显示／隐藏状态栏
+
+**参数：**
+
+| 名称      | 类型                                                  | 必填 | 说明                             |
+| --------- | ----------------------------------------------------- | ---- | -------------------------------- |
+| hidden    | boolean                                               | 是   | 是否隐藏状态栏                   |
+| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否   | 改变状态栏显示状态的动画过渡效果 |
+
+---
+
+### `setNetworkActivityIndicatorVisible()`
+
+```jsx
+static setNetworkActivityIndicatorVisible(visible: boolean)
+```
+
+显示／隐藏网络活动指示器。仅限iOS。
+
+**参数：**
+
+| 名称    | 类型    | 必填 | 说明                   |
+| ------- | ------- | ---- | ---------------------- |
+| visible | boolean | 是   | 是否显示网络活动指示器 |
+
+---
+
 ### `setTranslucent()`
 
 ```jsx
@@ -201,6 +265,25 @@ static setTranslucent(translucent: boolean)
 | translucent | boolean | 是   | Set as translucent. |
 
 ## 类型定义
+
+
+### StatusBarAnimation
+
+状态栏动画过渡效果
+
+| 类型  |
+| ----- |
+| $Enum |
+
+**常量：**
+
+| Value | 说明     |
+| ----- | -------- |
+| none  | 没有动画 |
+| fade  | 渐变效果 |
+| slide | 滑动效果 |
+
+---
 
 ### StatusBarStyle
 
@@ -219,19 +302,3 @@ static setTranslucent(translucent: boolean)
 | dark-content  | 白底黑字（需要Android API>=23）                |
 
 ---
-
-### StatusBarAnimation
-
-状态栏动画过渡效果
-
-| 类型  |
-| ----- |
-| $Enum |
-
-**常量：**
-
-| Value | 说明     |
-| ----- | -------- |
-| none  | 没有动画 |
-| fade  | 渐变效果 |
-| slide | 滑动效果 |

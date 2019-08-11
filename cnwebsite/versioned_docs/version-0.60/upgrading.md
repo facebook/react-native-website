@@ -46,7 +46,7 @@ react-native upgrade 0.59.0-rc.0
 
 The project is upgraded using `git apply` with 3-way merge. That's why it may happen you'll need to resolve some conflicts.
 
-#### 4. Resolve the conflicts
+#### 3. Resolve the conflicts
 
 Conflicted files include delimiters which make very clear where the changes come from. For example:
 

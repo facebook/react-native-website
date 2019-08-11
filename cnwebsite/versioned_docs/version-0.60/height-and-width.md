@@ -14,7 +14,7 @@ original_id: height-and-width
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FixedDimensionsBasics extends Component {
   render() {
@@ -39,7 +39,7 @@ export default class FixedDimensionsBasics extends Component {
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FlexDimensionsBasics extends Component {
   render() {

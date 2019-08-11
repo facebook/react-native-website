@@ -54,15 +54,14 @@ ES8
 Stage 3
 
 - [对象的扩展运算 Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
-
-Stage 2
-
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
 
 其他特性
 
 - [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
 - [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
+- [TypeScript](https://flowtype.org/): `function foo(x: number | undefined): string {};`
+- [Babel Template](https://babeljs.io/docs/en/babel-template): allows AST templating
 
 ## 接口兼容（Polyfills）
 

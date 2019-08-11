@@ -12,7 +12,7 @@ original_id: using-a-scrollview
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, ScrollView, Image, Text } from 'react-native';
+import { ScrollView, Image, Text } from 'react-native';
 
 export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
   render() {

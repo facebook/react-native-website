@@ -142,10 +142,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <TextInput
           ref={component => this._textInput = component}
-          style={{height: 50, flex: 1, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
+          style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
         />
         <TouchableOpacity onPress={this.clearText}>
           <Text>Clear text</Text>

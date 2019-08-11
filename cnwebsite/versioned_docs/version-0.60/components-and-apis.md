@@ -108,10 +108,6 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
     <p>插入图片。</p>
   </div>
   <div class="component">
-    <h3><a href="../navigatorios.html">NavigatorIOS</a></h3>
-    <p><code>UINavigationController</code>的封装，用于实现页面的导航跳转。</p>
-  </div>
-  <div class="component">
     <h3><a href="../progressviewios.html">ProgressViewIOS</a></h3>
     <p>渲染一个<code>UIProgressView</a></code>进度条。</p>
   </div>

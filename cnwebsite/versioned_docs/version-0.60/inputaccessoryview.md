@@ -12,7 +12,7 @@ To use this component wrap your custom toolbar with the InputAccessoryView compo
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { View, ScrollView, AppRegistry, TextInput, InputAccessoryView, Button } from 'react-native';
+import { View, ScrollView, TextInput, InputAccessoryView, Button } from 'react-native';
 
 export default class UselessTextInput extends Component {
   constructor(props) {

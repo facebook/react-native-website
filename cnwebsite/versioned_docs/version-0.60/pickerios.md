@@ -12,7 +12,7 @@ original_id: pickerios
 
 * [`itemStyle`](pickerios.md#itemstyle)
 * [`onValueChange`](pickerios.md#onvaluechange)
-* [`onChange`](pickerios.md#onChange)
+* [`onChange`](pickerios.md#onchange)
 * [`selectedValue`](pickerios.md#selectedvalue)
 
 ---
