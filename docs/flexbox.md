@@ -13,13 +13,13 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
-In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
+In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the green `3/6` of the space.
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
 
 - `row` Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
@@ -31,9 +31,9 @@ In the following example the red, yellow and the green views are all children in
 
 LEARN MORE [HERE](https://yogalayout.com/docs/flex-direction)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Flex%20Direction
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FlexDirectionBasics extends Component {
   render() {
@@ -47,9 +47,6 @@ export default class FlexDirectionBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 ```
 
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
@@ -78,9 +75,9 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Justify%20Content
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class JustifyContentBasics extends Component {
   render() {
@@ -99,9 +96,6 @@ export default class JustifyContentBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 ```
 
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
@@ -124,9 +118,9 @@ AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 
 LEARN MORE [HERE](https://yogalayout.com/docs/align-items)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Align%20Items
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class AlignItemsBasics extends Component {
   render() {
@@ -147,9 +141,6 @@ export default class AlignItemsBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)
@@ -184,7 +175,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/align-content)
 
 The [`flexWrap`](https://facebook.github.io/react-native/docs/layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed.
 
-When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here]
+When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here](https://yogalayout.com/docs/flex-wrap)
 
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 

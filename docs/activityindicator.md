@@ -7,11 +7,10 @@ Displays a circular loading indicator.
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=activityindicator
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -41,8 +40,6 @@ const styles = StyleSheet.create({
     padding: 10
   }
 })
-
-AppRegistry.registerComponent('App', () => App)
 ```
 
 ### Props
@@ -94,6 +91,6 @@ Whether the indicator should hide when not animating (true by default).
 
 Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
 
-| Type                            | Required |
-| ------------------------------- | -------- |
-| enum('small', 'large'), ,number | No       |
+| Type                           | Required |
+| ------------------------------ | -------- |
+| enum('small', 'large'), number | No       |

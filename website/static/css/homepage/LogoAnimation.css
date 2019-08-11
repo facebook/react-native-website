@@ -1,0 +1,98 @@
+.LogoAnimation {
+  width: 350px;
+}
+
+@media only screen and (max-width: 760px) {
+  .LogoAnimation {
+    width: 100%;
+  }
+}
+
+.LogoAnimation .screen {
+  transition: all 850ms ease-in-out;
+  stroke-opacity: 0;
+  transform: scale(2.25, 1.33) rotate(0);
+  stroke-width: 5px;
+}
+
+.LogoAnimation .background {
+  fill: $dark;
+}
+
+.LogoAnimation .logoInner {
+  transform: scale(1);
+  transition: all 850ms ease-in-out;
+  transition-delay: 50ms;
+}
+
+.LogoAnimation.mobile .logoInner,
+.LogoAnimation.mobile2 .logoInner {
+  transform: scale(0.4);
+}
+
+.LogoAnimation.desktop .logoInner {
+  transform: scale(0.5);
+}
+
+.LogoAnimation.laptop .logoInner {
+  transform: scale(0.35);
+}
+
+.LogoAnimation.full .screen {
+  stroke-opacity: 0;
+  transform: scale(2.25, 1.33) rotate(0);
+  opacity: 1;
+  transition: none;
+}
+
+.LogoAnimation.mobile .screen {
+  stroke-opacity: 1;
+  transform: scale(1) rotate(0);
+  opacity: 1;
+  stroke-width: 5px;
+}
+
+.LogoAnimation.desktop .screen {
+  stroke-opacity: 1;
+  transform: scale(1.125, 1.1) rotate(-90deg);
+  opacity: 1;
+  stroke-width: 8px;
+}
+
+.LogoAnimation.laptop .screen {
+  stroke-opacity: 1;
+  transform: scale(0.83) rotate(-90deg);
+  opacity: 1;
+  stroke-width: 5px;
+}
+
+.LogoAnimation.mobile2 .screen {
+  stroke-opacity: 1;
+  opacity: 1;
+  stroke-width: 5px;
+  transform: scale(1) rotate(-180deg);
+}
+
+.LogoAnimation.full2 .screen {
+  stroke-opacity: 0;
+  transform: scale(2.25, 1.33) rotate(-180deg);
+}
+
+.LogoAnimation:not(.mobile):not(.mobile2) .speaker {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.LogoAnimation:not(.desktop) .stand {
+  transform: scaleX(0);
+}
+
+.LogoAnimation:not(.laptop) .base {
+  transform: scaleX(0);
+}
+
+.LogoAnimation .speaker,
+.LogoAnimation .stand,
+.LogoAnimation .base {
+  transition: all 850ms ease-in-out;
+}
