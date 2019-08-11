@@ -11,7 +11,6 @@ title: ProgressBarAndroid
 import React, { Component } from "react";
 import {
   ProgressBarAndroid,
-  AppRegistry,
   StyleSheet,
   View
 } from "react-native";

@@ -138,6 +138,8 @@ static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 
 ### `SHORT`
 
+Indicates the duration on the screen.
+
 ```jsx
 ToastAndroid.SHORT;
 ```
@@ -145,6 +147,8 @@ ToastAndroid.SHORT;
 ---
 
 ### `LONG`
+
+Indicates the duration on the screen.
 
 ```jsx
 ToastAndroid.LONG;
@@ -154,6 +158,8 @@ ToastAndroid.LONG;
 
 ### `TOP`
 
+Indicates the position on the screen.
+
 ```jsx
 ToastAndroid.TOP;
 ```
@@ -162,6 +168,8 @@ ToastAndroid.TOP;
 
 ### `BOTTOM`
 
+Indicates the position on the screen.
+
 ```jsx
 ToastAndroid.BOTTOM;
 ```
@@ -169,6 +177,8 @@ ToastAndroid.BOTTOM;
 ---
 
 ### `CENTER`
+
+Indicates the position on the screen.
 
 ```jsx
 ToastAndroid.CENTER;

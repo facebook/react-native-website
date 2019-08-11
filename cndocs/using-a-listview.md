@@ -24,6 +24,8 @@ export default class FlatListBasics extends Component {
         <FlatList
           data={[
             {key: 'Devin'},
+            {key: 'Dan'},
+            {key: 'Dominic'},
             {key: 'Jackson'},
             {key: 'James'},
             {key: 'Joel'},
@@ -64,7 +66,7 @@ export default class SectionListBasics extends Component {
       <View style={styles.container}>
         <SectionList
           sections={[
-            {title: 'D', data: ['Devin']},
+            {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
             {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item}</Text>}

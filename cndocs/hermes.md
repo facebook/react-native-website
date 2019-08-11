@@ -21,6 +21,13 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
   ]
 ```
 
+Also, if you're using ProGuard, you will need to add this rule in `proguard-rules.pro` :
+
+```
+-keep class com.facebook.hermes.unicode.** { *; }
+```
+
+
 Next, if you've already built your app at least once, clean the build:
 
 ```shell

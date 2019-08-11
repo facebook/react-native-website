@@ -1,0 +1,73 @@
+.GetStarted,
+.GetStarted p {
+  color: white;
+}
+
+.GetStarted .Heading {
+  color: $brand;
+  text-align: center;
+}
+
+.GetStarted .content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.GetStarted .steps {
+  align-self: center;
+}
+
+.GetStarted .steps li {
+  font-size: 28px;
+}
+
+.GetStarted .terminal {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-top: 1px solid gray;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 30px 30px 0px 30px;
+  width: 600px;
+  position: relative;
+}
+
+.GetStarted .terminal::before {
+  content: "○ ○ ○";
+  color: gray;
+  font-size: 16px;
+  position: absolute;
+  left: 15px;
+  top: 5px;
+}
+
+.GetStarted code {
+  color: white !important;
+  font-size: 18px;
+  position: relative;
+}
+
+.GetStarted code:first-child::before {
+  content: ">";
+  position: absolute;
+  left: -13px;
+  color: gray;
+}
+
+@media screen and (max-width: 760px) {
+  .GetStarted .content {
+    width: 80%;
+  }
+
+  .GetStarted .steps li {
+    margin-left: -2rem;
+  }
+
+  .GetStarted .terminal {
+    width: 100%;
+  }
+}

@@ -1,11 +1,31 @@
-footer .sitemap h6,
-footer .sitemap h5 > a,
-footer .sitemap h6 > a {
-  color: $secondaryColor;
+footer.nav-footer {
+  background-color: $darker;
 }
 
-footer.nav-footer {
-  background-color: #012129;
+@media only screen and (min-width: 741px) {
+  .nav-footer .sitemap {
+    display: grid;
+    grid-template-columns: 1fr 1.33fr 1fr;
+    justify-items: center;
+    max-width: 900px;
+  }
+}
+
+.nav-footer .sitemap h5,
+.nav-footer .sitemap h5 a {
+  color: #999;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.nav-footer .sitemap a {
+  color: white;
+  margin: 2px 0;
+  padding: 3px 0;
+}
+
+.nav-footer .sitemap a:hover {
+  color: $brand;
 }
 
 footer.nav-footer .nav-home img {
@@ -13,13 +33,10 @@ footer.nav-footer .nav-home img {
   width: 34px;
 }
 
-footer .copyright p {
-  font-size: 14px;
+.nav-footer .fbOpenSource {
+  opacity: 0.5;
 }
 
-footer .copyright img {
-  margin: 6px 3px 0 10px;
-  width: 20px;
-  height: 20px;
-  vertical-align: bottom;
+footer.nav-footer .copyright {
+  color: #999;
 }

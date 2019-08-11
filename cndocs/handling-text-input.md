@@ -9,7 +9,7 @@ title: 处理文本输入
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, Text, TextInput, View } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 
 export default class PizzaTranslator extends Component {
   state = {

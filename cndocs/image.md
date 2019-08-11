@@ -11,7 +11,7 @@ title: Image
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View, Image } from 'react-native';
+import { View, Image } from 'react-native';
 
 export default class DisplayAnImage extends Component {
   render() {
@@ -22,7 +22,7 @@ export default class DisplayAnImage extends Component {
         />
         <Image
           style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
         />
         <Image
           style={{width: 66, height: 58}}
@@ -38,7 +38,7 @@ export default class DisplayAnImage extends Component {
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {

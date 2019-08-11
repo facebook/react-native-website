@@ -27,7 +27,7 @@ title: 处理触摸事件
 
 ```SnackPlayer name=Button%20Basics
 import React, { Component } from 'react';
-import { Alert, AppRegistry, Button, StyleSheet, View } from 'react-native';
+import { Alert, Button, StyleSheet, View } from 'react-native';
 
 export default class ButtonBasics extends Component {
   _onPressButton() {
@@ -81,8 +81,6 @@ const styles = StyleSheet.create({
   }
 })
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => ButtonBasics);
 ```
 
 ## Touchable 系列组件
@@ -105,7 +103,7 @@ AppRegistry.registerComponent('AwesomeProject', () => ButtonBasics);
 
 ```SnackPlayer platform=android&name=Touchables
 import React, { Component } from 'react';
-import { Alert, AppRegistry, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import { Alert, Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
 
 export default class Touchables extends Component {
   _onPressButton() {
@@ -166,6 +164,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2196F3'
   },
   buttonText: {
+    textAlign: 'center',
     padding: 20,
     color: 'white'
   }

@@ -18,10 +18,18 @@ title: PushNotificationIOS
 
 要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。
 
-首先请[手动链接](linking-libraries-ios.md)PushNotificationIOS的库（以下操作如果不熟悉，请自行补习Xcode的使用教程）：  
+Add the PushNotificationIOS library to your Podfile:
+./ios/Podfile
+```
+...
+target 'myAwesomeApp' do
+  # Pods for myAwesomeApp
+...
+  pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
+...
+```
 
-- 将`node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`文件拖到Xcode界面中
-- 在Xcode的`Link Binary With Libraries`中添加`libRCTPushNotification.a`
+译注: 0.60版本之前的步骤不同，请查看老版本文档。
 
 然后你需要在AppDelegate中启用推送通知的支持以及注册相应的事件。
 

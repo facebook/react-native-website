@@ -59,14 +59,22 @@ const siteConfig = {
     {href: repoUrl, label: 'GitHub'},
     {href: '//zh-hans.reactjs.org/', external: true, label: 'React'},
   ],
-  headerIcon: 'img/header_logo.png',
+  headerIcon: 'img/header_logo.svg',
   footerIcon: 'img/header_logo.png',
-  favicon: 'img/favicon.png',
+  favicon: 'img/favicon.ico',
   colors: {
-    primaryColor: 'rgb(34, 34, 34)',
-    secondaryColor: '#05A5D1',
-    tintColor: '#005068',
-    backgroundColor: '#f5fcff',
+    brand: '#61dafb', // electric blue
+    dark: '#282c34', // dark blue
+    deepdark: '#20232a', // really dark blue
+    light: '#373940', // light blue
+    text: '#1a1a1a', // black substitute
+    subtle: '#6d6d6d', // light grey for text
+    divider: '#ececec', // very light grey
+    tintColor: '#f7f7f7', // slightly off white
+    backgroundColor: 'white',
+    // we don't use these any more but docusaurus complains if we don't
+    primaryColor: 'black',
+    secondaryColor: 'gray',
   },
   algolia: {
     apiKey: '7ab53ed26928639bae06ef0f6165f68b',
@@ -89,6 +97,8 @@ const siteConfig = {
   gaTrackingId: 'UA-63485149-4',
   scripts: [
     // 'https://snack.expo.io/embed.js',
+    'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
+    'https://buttons.github.io/buttons.js',
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
   ],

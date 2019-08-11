@@ -11,7 +11,7 @@ title: 样式
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default class LotsOfStyles extends Component {
   render() {

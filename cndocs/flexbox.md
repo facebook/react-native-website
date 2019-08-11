@@ -15,7 +15,7 @@ title: 使用Flexbox布局
 
 [`flex`](layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
-In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the red `3/6` of the space.
+In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the green `3/6` of the space.
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
@@ -25,7 +25,7 @@ In the following example the red, yellow and the green views are all children in
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FlexDirectionBasics extends Component {
   render() {
@@ -55,7 +55,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class JustifyContentBasics extends Component {
   render() {
@@ -84,7 +84,7 @@ export default class JustifyContentBasics extends Component {
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class AlignItemsBasics extends Component {
   render() {
@@ -137,7 +137,7 @@ LEARN MORE [HERE](https://yogalayout.com/docs/align-content)
 
 The [`flexWrap`](https://facebook.github.io/react-native/docs/layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed.
 
-When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here]
+When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here](https://yogalayout.com/docs/flex-wrap)
 
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 

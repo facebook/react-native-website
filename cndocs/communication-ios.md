@@ -35,12 +35,11 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
 ```
 import React from 'react';
 import {
-  AppRegistry,
   View,
   Image
 } from 'react-native';
 
-class ImageBrowserApp extends React.Component {
+export default class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
     return (
       <Image source={{uri: imgURI}} />
@@ -55,7 +54,6 @@ class ImageBrowserApp extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('ImageBrowserApp', () => ImageBrowserApp);
 ```
 
 `RCTRootView`同样提供了一个可读写的属性`appProperties`。在`appProperties`设置之后，React Native 应用将会根据新的属性重新渲染。当然，只有在新属性和之前的属性有区别时更新才会被触发。
