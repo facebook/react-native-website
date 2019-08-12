@@ -191,4 +191,4 @@ const styles = StyleSheet.create({
 
 ### `absoluteFill` vs. `absoluteFillObject`
 
-Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject` as you can see in the [source code](https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/StyleSheet.js)
+Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject` as you can see in the [source code](https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/StyleSheet.js#L255)
