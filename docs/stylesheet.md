@@ -166,8 +166,6 @@ A very common pattern is to create overlays with position absolute and zero posi
 const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFill,
-    top: 10,
-    backgroundColor: 'transparent',
   },
 });
 ```
@@ -181,7 +179,7 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 ```jsx
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: 10,
     backgroundColor: 'transparent',
   },
@@ -189,3 +187,8 @@ const styles = StyleSheet.create({
 ```
 
 ---
+
+
+### `absoluteFill` vs. `absoluteFillObject`
+
+Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject` as you can see in the [source code](https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/StyleSheet.js)
