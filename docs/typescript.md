@@ -3,33 +3,33 @@ id: typescript
 title: Using TypeScript with React Native
 ---
 
-[TypeScript][ts] is a language which extends JavaScript to add type definitions, a lot like [Flow][flow] which React Native is built in. React Native supports TypeScript and Flow out of the box by default.
+[TypeScript][ts] is a language which extends JavaScript to add type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 
 ## Getting Started with TypeScript
 
 If you're starting a new project, there are a few different ways to get started. You can use the [default TypeScript template][ts-template]:
 
 ```sh
-react-native init MyAwesomeTSProject --template typescript
+react-native init MyTSProject --template typescript
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
 
 ```sh
 npm install -g expo-cli
-expo init MyAwesomeTSProject
+expo init MyTSProject
 ```
 
-Or you could use [Ignite][ignite] which also has a TypeScript template:
+Or you could use [Ignite][ignite], which also has a TypeScript template:
 
 ```sh
 npm install -g ignite-cli
-ignite new MyAwesomeTSProject
+ignite new MyTSProject
 ```
 
 ## Adding TypeScript to an Existing Project
 
-1. Add TypeScript, and the React Native and Jest types to your project. When you were using JavaScript these could have been added for you by your editor.
+1. Add TypeScript and the React Native and Jest types to your project. (When you were using JavaScript these could have been added for you by your editor.)
 
 ```sh
 yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
@@ -77,7 +77,7 @@ module.exports = {
 
 ## How TypeScript and React Native works
 
-Transforming your files to JavaScript works via the same [Babel infrastructure][babel] as vanilla JavaScript, this means that you should not rely on TypeScript to transform your `ts` and `tsx` files, and it's worth noting there are [one or two caveats][babel-7-caveats] if you have existing TypeScript code to work with.
+You should not rely on TypeScript to transform your `ts` and `tsx` files into JavaScript! Transforming your files to JavaScript works via the same [Babel infrastructure][Babel] as vanilla JavaScript. If you have existing TypeScript code, there are [one or two caveats][babel-7-caveats].
 
 ## What does React Native + TypeScript look like
 
@@ -165,7 +165,9 @@ const styles = StyleSheet.create({
 
 ## Using Custom Path Aliases with TypeScript
 
-You would need to set the path aliases to work from both babel and TypeScript. For TypeScript, edit your `tsconfig.json` to have your [custom path mappings][path-map]. In this case we'll make anything in the root of `src` available with no preceding path reference, and allow any test file to be access by using `test/File.tsx`.
+To use custom path aliases with TypeScript, you need to set the path aliases to work from both babel and TypeScript. For TypeScript, edit your `tsconfig.json` to have your [custom path mappings][path-map]. Here's how:
+
+1. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `test/File.tsx`:
 
 ```diff
     "target": "esnext",
@@ -177,7 +179,7 @@ You would need to set the path aliases to work from both babel and TypeScript. F
     }
 ```
 
-Then you need to configure the Babel side, which is done by adding a new dependency: [`babel-plugin-module-resolver`][bpmr]
+2. Configure the Babel side done by adding a new dependency, [`babel-plugin-module-resolver`][bpmr]:
 
 ```sh
 yarn add --dev babel-plugin-module-resolver
@@ -185,7 +187,7 @@ yarn add --dev babel-plugin-module-resolver
 npm install --save-dev babel-plugin-module-resolver
 ```
 
-Next up you need to configure your `babel.config.js`:
+3. Finally, configure your `babel.config.js` (note that the syntax for both is different):
 
 ```diff
 {
@@ -203,8 +205,6 @@ Next up you need to configure your `babel.config.js`:
   ]
 }
 ```
-
-Note that the syntax for both is different.
 
 [react-ts]: https://reactjs.org/docs/static-type-checking.html#typescript
 [ts]: https://www.typescriptlang.org/
