@@ -30,7 +30,7 @@ ignite new MyTSProject
 
 ## Adding TypeScript to an Existing Project
 
-1. Add TypeScript, and the types for React Native and Jest to your project.
+1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
 yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
@@ -79,8 +79,7 @@ module.exports = {
 
 ## How TypeScript and React Native works
 
-Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend
-that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats]
+Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats]
 to using Babel instead of TypeScript.
 
 ## What does React Native + TypeScript look like
@@ -159,7 +158,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-You explore the syntax more in the [TypeScript playground][tsplay]
+You can explore the syntax more in the [TypeScript playground][tsplay].
 
 ## Where to Find Useful Advice
 
@@ -169,7 +168,7 @@ You explore the syntax more in the [TypeScript playground][tsplay]
 
 ## Using Custom Path Aliases with TypeScript
 
-To use custom path aliases with TypeScript, you need to set the path aliases to work from both babel and TypeScript. Here's how:
+To use custom path aliases with TypeScript, you need to set the path aliases to work from both Babel and TypeScript. Here's how:
 
 1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `test/File.tsx`:
 
