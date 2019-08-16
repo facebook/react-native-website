@@ -3,11 +3,12 @@ id: typescript
 title: Using TypeScript with React Native
 ---
 
-[TypeScript][ts] is a language which extends JavaScript to add type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
+[TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. 
+While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 
 ## Getting Started with TypeScript
 
-If you're starting a new project, there are a few different ways to get started. You can use the [default TypeScript template][ts-template]:
+If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
 react-native init MyTSProject --template typescript
@@ -29,13 +30,14 @@ ignite new MyTSProject
 
 ## Adding TypeScript to an Existing Project
 
-1. Add TypeScript and the React Native and Jest types to your project. (When you were using JavaScript these could have been added for you by your editor.)
+1. Add TypeScript, and the types for React Native and Jest to your project.
 
 ```sh
 yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
 npm install --save-dev @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
+
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
 
@@ -77,7 +79,9 @@ module.exports = {
 
 ## How TypeScript and React Native works
 
-You should not rely on TypeScript to transform your `ts` and `tsx` files into JavaScript! Transforming your files to JavaScript works via the same [Babel infrastructure][Babel] as vanilla JavaScript. If you have existing TypeScript code, there are [one or two caveats][babel-7-caveats].
+Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend
+that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats]
+to using Babel instead of TypeScript.
 
 ## What does React Native + TypeScript look like
 
@@ -155,6 +159,8 @@ const styles = StyleSheet.create({
 });
 ```
 
+You explore the syntax more in the [TypeScript playground][tsplay]
+
 ## Where to Find Useful Advice
 
 - [TypeScript Handbook][ts-handbook]
@@ -218,3 +224,4 @@ npm install --save-dev babel-plugin-module-resolver
 [bpmr]: https://github.com/tleunen/babel-plugin-module-resolver
 [expo]: https://expo.io
 [ignite]: https://infinite.red/ignite
+[tsplay]: https://www.typescriptlang.org/play/?strictNullChecks=false&esModuleInterop=true&jsx=3#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wG4BYAKFEljgG8AhAVxhggDsAaOAZRgCeAGyS8AFkiQweAFSQAPaXABqwJAHcAvnGy4CRdDAC0HFDGAA3JGSpUFteMA4wkUTOiRwACjjABnBio4YLhTECQALjg-GCgnAHMKShC4JGcxZj9gFD8QABkkKyEAfiiOZhAAI1ckzVtKNE4YuAAJJCEhCCjkQwA6ADEAYQAeHwh-AD44AF44AAowXz8AShmp+iCQxo5mgG00mAysnPzC9p4-KQBRdMzs3IKigF0ZxGIYXszRGDMkBaXegcjvdTkVlklNsFts1OABJDhoIjhZyvOaraZTS4wG6HO4nR7tOZzIF4h5nIRwAA+lLgAAZVgBqOAARnBkLg0PgnAAIkhEUhkfBZmi1tFrrdjmSikSSZLQe0qTT6XAjCy2ZR2Zy4PFrvI0EIUCAzMBOABZFBQADWAWF5RAgzEFr8ZQq1Sg6KmAEEoFAUAI5naHU64EzWb0AFYQJxzfAAQnw6pSRBgzCgHHm7JSw1UGmighE03oMWESD8vRwEBgmgmmZCwzkijzJcLxZEZfiRCkCWrtZSwTaHQg9HwBDqyT7E-oi3GZbCniZOuxeoNRvMZot1uJEpBBIp1LpyzHE+CwwA9A2YDWNeOJ9m1OomwWi-nS71Kqx2Dsezfjyecw-WyQFsXzLd82E4b9fyzFhwI4XsoPMGACwAIiMZD4N-TgfFLPxCx5PkkQOI8oIndA0Bw4BKmAIRgEEPIUGqIRpmQgATAiBQOdCfxIqEIE6KBmKIFiuJ4uBTyvUSz3-K8MLrf9HyA58S1Aj8IIknjhhgz9ZInRCUIZETRJCLCiD8XD6DhBFCOcYijLgMiKKomi6IY9pmKcflBUMuzGn45jKiEZgkG8qDxJ0uApPvdTb1PaT4MijRorgRMQjHMcqFPU8FL8KgtUAm0+BfcRJA+flfjmDYfwrGAokq38UBo+IOFhFwQGdAhyOcVx8C4eCGuAJreHaTAonwTqXCgHr2U0XqfzAz92rqidMBEeRuWAIgMBNDhRpwdQpu4kIQCcNoBrEGq4AAdlpWb6sa5rWva-AYmTNAxAOu6Bo4IahBGjqDm627j0qaA2KgAB1YAWMOKIAFYgeCGb2XmzhavglaFCiZkEb7MAUBYliEmUVxzDQBqohu6acY7EqEjRw7eP40aAGIAE52Y+49ME4GBwaQM6LvwEGhBYznEdmzRwSAA
