@@ -85,8 +85,6 @@ You can provide an interface for a React Component's [Props][props] and [State][
 
 ```tsx
 // components/Hello.tsx
-
-// components/Hello.tsx
 import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
@@ -165,9 +163,9 @@ const styles = StyleSheet.create({
 
 ## Using Custom Path Aliases with TypeScript
 
-To use custom path aliases with TypeScript, you need to set the path aliases to work from both babel and TypeScript. For TypeScript, edit your `tsconfig.json` to have your [custom path mappings][path-map]. Here's how:
+To use custom path aliases with TypeScript, you need to set the path aliases to work from both babel and TypeScript. Here's how:
 
-1. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `test/File.tsx`:
+1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `test/File.tsx`:
 
 ```diff
     "target": "esnext",
@@ -187,7 +185,7 @@ yarn add --dev babel-plugin-module-resolver
 npm install --save-dev babel-plugin-module-resolver
 ```
 
-3. Finally, configure your `babel.config.js` (note that the syntax for both is different):
+3. Finally, configure your `babel.config.js` (note that the syntax for your `babel.config.js` is different from your `tsconfig.json`):
 
 ```diff
 {
