@@ -188,6 +188,8 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 ### `legacyImplementation`
 
+The legacy implementation is no longer supported.
+
 | Type      | Required |
 | --------- | -------- |
 | [boolean] | No       |
@@ -384,6 +386,10 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+| Platfrom |
+| -------- |
+| iOS      |
 
 ## Type Definitions
 
