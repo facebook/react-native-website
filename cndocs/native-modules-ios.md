@@ -212,7 +212,7 @@ CalendarManager.findEvents((error, events) => {
 我们把上面的代码用 promise 来代替回调进行重构：
 
 ```objectivec
-RCT_REMAP_METHOD(findEvents
+RCT_REMAP_METHOD(findEvents,
                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
                  rejecter:(RCTPromiseRejectBlock)reject)
 {
