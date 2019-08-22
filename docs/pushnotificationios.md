@@ -18,8 +18,8 @@ Handle push notifications for your app, including permission handling and icon b
 
 To get up and running, [configure your notifications with Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6) and your server-side system.
 
-Add the PushNotificationIOS library to your Podfile:
-./ios/Podfile
+Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
+
 ```
 ...
 target 'myAwesomeApp' do
