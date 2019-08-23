@@ -55,9 +55,9 @@ export default class FlexDirectionBasics extends Component {
 
 Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
 
-- `LTR` (**default value**) Text and children and laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
+- `LTR` (**default value**) Text and children are laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
 
-- `RTL` Text and children and laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
+- `RTL` Text and children are laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
 
 #### Justify Content
 
