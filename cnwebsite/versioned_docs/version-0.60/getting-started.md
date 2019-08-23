@@ -82,8 +82,6 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started.html" onclick="displayTab('guide', 'quickstart')">Create React Native App</a>, you'll need this section.</p>
-
 根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
 
 如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows 环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
@@ -103,16 +101,6 @@ If you're integrating React Native into an existing project, you'll want to skip
     <button role="tab" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
     <button role="tab" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
   </span>
-</div>
-
-<div class="toggler">
-  <span>开发平台：</span>
-  <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-  <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
-  <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
-  <span>目标平台：</span>
-  <a href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
-  <a href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
 </div>
 
 <block class="native linux windows ios" />
@@ -394,9 +382,11 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk\platform-tools
 
 ## 创建新项目
 
-使用 React Native 命令行工具来创建一个名为"AwesomeProject"的新项目：
+使用 React Native 命令行工具来创建一个名为"AwesomeProject"的新项目，init 命令默认会创建最新的版本。
 
-**！！！注意！！！**：init 命令默认会创建最新的版本，而目前最新的 0.45 及以上版本需要下载 boost 等几个第三方库编译。这些库在国内即便翻墙也很难下载成功，导致很多人`无法运行iOS项目`！！！中文网在论坛中提供了这些库的[国内下载链接](http://bbs.reactnative.cn/topic/4301/)。如果你嫌麻烦，又没有对新版本的需求，那么可以暂时创建`0.44.3`的版本。
+> **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译。这里有中文网提供的[国内下载链接](http://bbs.reactnative.cn/topic/4301/)。
+
+> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
 
 ```
 react-native init AwesomeProject
