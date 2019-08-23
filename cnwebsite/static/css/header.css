@@ -13,7 +13,7 @@
 }
 
 .fixedHeaderContainer header > a:first-child {
-  width: 160px;
+  width: 220px;
 }
 
 .fixedHeaderContainer header h3 {
@@ -152,7 +152,7 @@ li.navSearchWrapper {
     background-color: transparent !important;
     transition: color 0.15s ease-out;
     height: 60px;
-    padding: 0 1.5rem;
+    padding: 0 0.8rem;
   }
 
   .navigationSlider .slidingNav ul li a:hover {
@@ -173,7 +173,7 @@ li.navSearchWrapper {
 
 input#search_input_react {
   /* Make as wide as the expanded state in the docusaurus default */
-  width: 220px;
+  width: 160px;
   background-color: $dark;
   border-radius: 0.25rem;
   transition: background-color 150ms ease-in-out;
