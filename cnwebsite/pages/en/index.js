@@ -65,7 +65,7 @@ class HeaderHero extends React.Component {
           <HomeCallToAction />
         </div>
 
-        <div className="home-float-1">
+        {/* <div className="home-float-1">
           <a
             href="https://www.kaikeba.com/market/web_site_vone"
             target="_blank"
@@ -87,7 +87,7 @@ class HeaderHero extends React.Component {
           }
           `,
           }}
-        />
+        /> */}
       </Hero>
     );
   }
@@ -307,14 +307,14 @@ class Index extends React.Component {
   render() {
     return (
       <div className="pageContainer">
-        <div className="home-ads-1">
+        {/* <div className="home-ads-1">
           <a
             href="https://www.kaikeba.com/market/web_site_vone"
             target="_blank"
             rel="noopener noreferrer">
             <img src={siteConfig.baseUrl + 'img/ads/20190523163421.png'} />
           </a>
-        </div>
+        </div> */}
         <HeaderHero />
         {/* <Banner /> */}
         <Features />

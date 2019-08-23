@@ -23,8 +23,7 @@ try {
 }
 const defaultVersionShown = '0.60';
 const siteConfig = {
-  adData: {
-  },
+  adData: {},
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
   bbsUrl,
@@ -95,6 +94,7 @@ const siteConfig = {
     'https://buttons.github.io/buttons.js',
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
+    baseUrl + 'js/doccode.js',
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',
