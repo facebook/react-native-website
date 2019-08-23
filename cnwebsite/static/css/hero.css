@@ -30,9 +30,54 @@
   box-shadow: none;
 }
 
-.button.blue {
+.hero .button.blue {
   background: -webkit-linear-gradient(#77a3d2, #4783c2);
   background: linear-gradient(#77a3d2, #4783c2);
+}
+
+.big-button,
+p {
+  font-size: 18px;
+}
+
+.big-button {
+  text-align: center;
+  background: #05a5d1;
+  border-radius: 4px;
+  padding: 12px 16px;
+  font-weight: 300;
+  margin: 0 12px;
+  display: inline-block;
+  color: #fafafa;
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.3);
+  transition: background 0.3s, color 0.3s;
+}
+
+.big-button:hover {
+  background: #40bbdd;
+  color: #fff;
+}
+
+.big-button a {
+  color: #fff;
+}
+
+.big-button:active {
+  background: #0485a9;
+}
+
+@media screen and (min-width: 600px) {
+  .big-button {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 373px) {
+  .big-button {
+    margin-bottom: 4px;
+  }
 }
 
 @media only screen and (max-device-width: 1024px) {
