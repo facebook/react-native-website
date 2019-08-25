@@ -181,7 +181,7 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 ```jsx
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: 10,
     backgroundColor: 'transparent',
   },
