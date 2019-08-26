@@ -9,7 +9,13 @@ A common way to use this API is to call it before calling `setState`.
 
 Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
 
-    UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+```js
+if (Platform.OS === 'android') {
+    if (UIManager.setLayoutAnimationEnabledExperimental) {
+        UIManager.setLayoutAnimationEnabledExperimental(true);
+    }
+}
+```
 
 ### Methods
 
