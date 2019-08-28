@@ -73,6 +73,8 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space-between` using `space-around` will result in space being distributed to the beginning of the first child and end of the last child.
 
+- `space-evenly` Evenly distributed within the alignment container along the main axis. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
+
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
 ```SnackPlayer name=Justify%20Content
