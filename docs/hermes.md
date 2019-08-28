@@ -11,6 +11,9 @@ title: Using Hermes
 
 First, ensure you're using at least version 0.60.4 of React Native. If you're upgrading an existing app ensure everything works before trying to switch to Hermes.
 
+> ## Note for Windows users. 
+> Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
+
 Edit your `android/app/build.gradle` file and make the change illustrated below:
 
 ```diff
