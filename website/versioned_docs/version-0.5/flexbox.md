@@ -14,7 +14,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 Adding `flexDirection` to a component's `style` determines the **primary axis** of its layout. Should the children be organized horizontally (`row`) or vertically (`column`)? The default is `column`.
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 
@@ -39,7 +39,7 @@ AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 
 Adding `justifyContent` to a component's style determines the **distribution** of children along the **primary axis**. Should children be distributed at the start, the center, the end, or spaced evenly? Available options are `flex-start`, `center`, `flex-end`, `space-around`, `space-between` and `space-evenly`.
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 
@@ -71,7 +71,7 @@ Adding `alignItems` to a component's style determines the **alignment** of child
 
 > For `stretch` to have an effect, children must not have a fixed dimension along the secondary axis. In the following example, setting `alignItems: stretch` does nothing until the `width: 50` is removed from the children.
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View } from 'react-native';
 

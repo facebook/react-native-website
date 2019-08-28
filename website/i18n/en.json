@@ -126,7 +126,7 @@
         "title": "Height and Width"
       },
       "hermes": {
-        "title": "Enabling Hermes"
+        "title": "Using Hermes"
       },
       "image-style-props": {
         "title": "Image Style Props"
@@ -3237,7 +3237,7 @@
         "title": "Headless JS"
       },
       "version-0.60/version-0.60-hermes": {
-        "title": "Enabling Hermes"
+        "title": "Using Hermes"
       },
       "version-0.60/version-0.60-image": {
         "title": "Image"

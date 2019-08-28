@@ -20,7 +20,7 @@ In the following example the red, yellow and the green views are all children in
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
 
 - `row` Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
@@ -32,9 +32,9 @@ In the following example the red, yellow and the green views are all children in
 
 LEARN MORE [HERE](https://yogalayout.com/docs/flex-direction)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Flex%20Direction
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class FlexDirectionBasics extends Component {
   render() {
@@ -48,9 +48,6 @@ export default class FlexDirectionBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FlexDirectionBasics);
 ```
 
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
@@ -79,9 +76,9 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Justify%20Content
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class JustifyContentBasics extends Component {
   render() {
@@ -100,9 +97,6 @@ export default class JustifyContentBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 ```
 
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
@@ -125,9 +119,9 @@ AppRegistry.registerComponent('AwesomeProject', () => JustifyContentBasics);
 
 LEARN MORE [HERE](https://yogalayout.com/docs/align-items)
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Align%20Items
 import React, { Component } from 'react';
-import { AppRegistry, View } from 'react-native';
+import { View } from 'react-native';
 
 export default class AlignItemsBasics extends Component {
   render() {
@@ -148,9 +142,6 @@ export default class AlignItemsBasics extends Component {
     );
   }
 };
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => AlignItemsBasics);
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)

@@ -15,9 +15,9 @@ const siteConfig = require(process.cwd() + '/siteConfig.js');
 class Help extends React.Component {
   render() {
     return (
-      <div className="pageContainer">
+      <div className="pageContainer HelpPage">
         <Container className="mainContainer documentContainer postContainer">
-          <h1>The React Native Community</h1>
+          <h1 className="postHeaderTitle">The React Native Community</h1>
           <p>
             There are a lot of developers around the world using React Native.
             This is a brief overview of where you can find them.

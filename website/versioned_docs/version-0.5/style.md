@@ -10,7 +10,7 @@ The `style` prop can be a plain old JavaScript object. That's the simplest and w
 
 As a component grows in complexity, it is often cleaner to use `StyleSheet.create` to define several styles in one place. Here's an example:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
