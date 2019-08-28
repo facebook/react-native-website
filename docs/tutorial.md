@@ -39,9 +39,9 @@ If you are feeling curious, you can play around with sample code directly in the
 
 Then we find the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
 
-The `Text` component allows us to render a text, while the`View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
+The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
 
-The first style that we find is `flex: 1`, the [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case it is the only component, so it will take all the available screen space.
+The first style that we find is `flex: 1`, the [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case, it is the only component, so it will take all the available screen space.
 
 The following style is [`justifyContent`](https://facebook.github.io/react-native/docs/layout-props#justifycontent): "center". This align children of a container in the center of the container's main axis and finally we have [`alignItems`](https://facebook.github.io/react-native/docs/layout-props#alignitems): "center", which align children of a container in the center of the container's cross axis.
 
@@ -105,7 +105,7 @@ There are two types of data that control a component: `props` and `state`. `prop
 
 #### What's the difference between state and props in React?
 
-In a React component, the props are the variables that we pass from a parent component to a child component. Similarly, the state are also variables, with the difference that they are not passed through parameters, but rather that the component initializes and manages them internally.
+In a React component, the props are the variables that we pass from a parent component to a child component. Similarly, the state are also variables, with the difference that they are not passed as parameters, but rather that the component initializes and manages them internally.
 
 #### There are differences between React and React Native to handle the state?
 
@@ -113,7 +113,7 @@ In a React component, the props are the variables that we pass from a parent com
 
 As shown in the image, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
 
-In the following example we will show the same above counter example using classes
+In the following example we will show the same above counter example using classes.
 
 ```ReactNativeWebPlayer
 import React, { Component } from 'react'
