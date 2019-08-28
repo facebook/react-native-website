@@ -134,7 +134,7 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
 ```jsx
-static compose(style)
+static compose(style1, style2)
 ```
 
 ## Properties
