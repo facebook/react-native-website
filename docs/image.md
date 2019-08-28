@@ -9,7 +9,7 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-```SnackPlayer name=Image&platform=web
+```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 
@@ -18,11 +18,12 @@ export default class DisplayAnImage extends Component {
     return (
       <View>
         <Image
-          source={require('/react-native/img/favicon.png')}
+          style={{width: 50, height: 50}}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
           style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
         />
         <Image
           style={{width: 66, height: 58}}
@@ -36,14 +37,15 @@ export default class DisplayAnImage extends Component {
 
 You can also add `style` to an image:
 
-```SnackPlayer name=Image&platform=web
+```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {
     width: 50,
-    height: 200
+    height: 200,
+    resizeMode: 'stretch'
   }
 });
 
@@ -53,7 +55,7 @@ export default class DisplayAnImageWithStyle extends Component {
       <View>
         <Image
           style={styles.stretch}
-          source={require('/react-native/img/favicon.png')}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
       </View>
     );
@@ -415,8 +417,6 @@ Image.getSize(uri, success, [failure]);
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
 
 In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
-
-Does not work for static image resources.
 
 **Parameters:**
 

@@ -44,7 +44,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
-  public ToastModule(ReactApplicationContext reactContext) {
+  ToastModule(ReactApplicationContext reactContext) {
     super(reactContext);
   }
 }
@@ -147,9 +147,12 @@ import com.your-app-name.CustomToastPackage; // <-- Add this line with your pack
 ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- Add this line with your package name.
+  return packages;
 }
 ```
 
@@ -412,7 +415,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
     }
   };
 
-  public ImagePickerModule(ReactApplicationContext reactContext) {
+  ImagePickerModule(ReactApplicationContext reactContext) {
     super(reactContext);
 
     // Add the listener for `onActivityResult`

@@ -20,7 +20,7 @@ In the following example the red, yellow and the green views are all children in
 
 #### Flex Direction
 
-[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis the the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
+[`flexDirection`](https://facebook.github.io/react-native/docs/layout-props#flexdirection) controls the direction in which children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which wrapping lines are laid out in.
 
 - `row` Align children from left to right. If wrapping is enabled then the next line will start under the first item on the left of the container.
 
@@ -32,7 +32,7 @@ In the following example the red, yellow and the green views are all children in
 
 LEARN MORE [HERE](https://yogalayout.com/docs/flex-direction)
 
-```SnackPlayer name=Flex%20Direction&platform=web
+```SnackPlayer name=Flex%20Direction
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
@@ -76,7 +76,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 
-```SnackPlayer name=Justify%20Content&platform=web
+```SnackPlayer name=Justify%20Content
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
@@ -119,7 +119,7 @@ export default class JustifyContentBasics extends Component {
 
 LEARN MORE [HERE](https://yogalayout.com/docs/align-items)
 
-```SnackPlayer name=Align%20Items&platform=web
+```SnackPlayer name=Align%20Items
 import React, { Component } from 'react';
 import { View } from 'react-native';
 

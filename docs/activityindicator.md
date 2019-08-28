@@ -7,7 +7,7 @@ Displays a circular loading indicator.
 
 ### Example
 
-```SnackPlayer name=activityindicator&platform=web
+```SnackPlayer name=activityindicator
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
@@ -91,6 +91,6 @@ Whether the indicator should hide when not animating (true by default).
 
 Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
 
-| Type                            | Required |
-| ------------------------------- | -------- |
+| Type                           | Required |
+| ------------------------------ | -------- |
 | enum('small', 'large'), number | No       |

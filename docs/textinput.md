@@ -7,25 +7,20 @@ A foundational component for inputting text into the app via a keyboard. Props p
 
 The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
 
-```SnackPlayer name=TextInput&platform=web
+```SnackPlayer name=TextInput
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
-export default class UselessTextInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
-  }
+export default function UselessTextInput() {
+  const [value, onChangeText] = React.useState('Useless Placeholder');
 
-  render() {
-    return (
-      <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
-    );
-  }
+  return (
+    <TextInput
+      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+      onChangeText={text => onChangeText(text)}
+      value={value}
+    />
+  );
 }
 ```
 
@@ -33,49 +28,40 @@ Two methods exposed via the native element are .focus() and .blur() that will fo
 
 Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
-
-```SnackPlayer name=TextInput&platform=web
+```SnackPlayer name=TextInput
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 
-class UselessTextInput extends Component {
-  render() {
-    return (
-      <TextInput
-        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
-        editable = {true}
-        maxLength = {40}
-      />
-    );
-  }
+function UselessTextInput(props) {
+  return (
+    <TextInput
+      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+      editable
+      maxLength={40}
+    />
+  );
 }
 
-export default class UselessTextInputMultiline extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: 'Useless Multiline Placeholder',
-    };
-  }
+export default function UselessTextInputMultiline() {
+  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
   // color.
-  render() {
-    return (
-     <View style={{
-       backgroundColor: this.state.text,
-       borderBottomColor: '#000000',
-       borderBottomWidth: 1 }}
-     >
-       <UselessTextInput
-         multiline = {true}
-         numberOfLines = {4}
-         onChangeText={(text) => this.setState({text})}
-         value={this.state.text}
-       />
-     </View>
-    );
-  }
+  return (
+    <View
+      style={{
+        backgroundColor: value,
+        borderBottomColor: '#000000',
+        borderBottomWidth: 1,
+      }}>
+      <UselessTextInput
+        multiline
+        numberOfLines={4}
+        onChangeText={text => onChangeText(text)}
+        value={value}
+      />
+    </View>
+  );
 }
 ```
 

@@ -23,6 +23,10 @@ function parseParams(paramString) {
     }
   }
 
+  if (!params.platform) {
+    params.platform = 'web';
+  }
+
   return params;
 }
 

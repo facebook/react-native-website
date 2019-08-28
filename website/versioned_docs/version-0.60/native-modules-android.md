@@ -148,9 +148,12 @@ import com.your-app-name.CustomToastPackage; // <-- Add this line with your pack
 ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- Add this line with your package name.
+  return packages;
 }
 ```
 
