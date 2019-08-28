@@ -3,6 +3,8 @@ id: imageeditor
 title: ImageEditor
 ---
 
+> **Deprecated.** Use [@react-native-community/image-editor](https://github.com/react-native-community/react-native-image-editor) instead.
+
 ### Methods
 
 - [`cropImage`](imageeditor.md#cropimage)
