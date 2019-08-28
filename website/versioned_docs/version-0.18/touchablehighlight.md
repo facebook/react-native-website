@@ -95,6 +95,6 @@ The color of the underlay that will show through when the touch is active.
 
 ### `computeSyntheticState()`
 
-```javascript
+```jsx
 computeSyntheticState(props);
 ```

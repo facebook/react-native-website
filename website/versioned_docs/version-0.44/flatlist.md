@@ -354,7 +354,7 @@ See `ViewabilityHelper` for flow type and further documentation.
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([params]: object));
 ```
 
@@ -364,7 +364,7 @@ Scrolls to the end of the content. May be janky without `getItemLayout` prop.
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex((params: object));
 ```
 
@@ -376,7 +376,7 @@ May be janky without `getItemLayout` prop.
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem((params: object));
 ```
 
@@ -386,7 +386,7 @@ Requires linear scan through data - use `scrollToIndex` instead if possible. May
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset((params: object));
 ```
 
@@ -396,7 +396,7 @@ Scroll to a specific content pixel offset, like a normal `ScrollView`.
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 

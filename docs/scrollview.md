@@ -397,7 +397,7 @@ It's implemented using onLayout handler attached to the content container which 
 
 ### `onMomentumScrollBegin`
 
-Called when the momentum scroll starts (scroll which occurs as the ScrollView glides to a stop).
+Called when the momentum scroll starts (scroll which occurs as the ScrollView starts gliding).
 
 | Type     | Required |
 | -------- | -------- |
@@ -417,7 +417,7 @@ Called when the momentum scroll ends (scroll which occurs as the ScrollView glid
 
 ### `onScroll`
 
-Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop.
+Fires at most once per frame during scrolling. The frequency of the events can be controlled using the `scrollEventThrottle` prop. The event has the shape `{ nativeEvent: { contentInset: { bottom, left, right, top }, contentOffset: { x, y }, contentSize: { height, width }, layoutMeasurement: { height, width }, zoomScale } }`. All values are numbers.
 
 | Type     | Required |
 | -------- | -------- |
@@ -706,7 +706,7 @@ The current scale of the scroll view content. The default value is 1.0.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 
@@ -716,7 +716,7 @@ Displays the scroll indicators momentarily.
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(
   options?: {x?: number, y?: number, animated?: boolean} | number,
   deprecatedX?: number,
@@ -736,7 +736,7 @@ Note: The weird function signature is due to the fact that, for historical reaso
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: {animated: boolean, duration: number}));
 ```
 
@@ -748,7 +748,7 @@ Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd(
 
 ### `scrollWithoutAnimationTo()`
 
-```javascript
+```jsx
 scrollWithoutAnimationTo(y, x);
 ```
 

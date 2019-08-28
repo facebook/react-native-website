@@ -36,7 +36,7 @@ react-native link react-native-gesture-handler
 
 Then you can quickly create an app with a home screen and a profile screen:
 
-```javascript
+```jsx
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 const MainNavigator = createStackNavigator({
@@ -51,7 +51,7 @@ export default App;
 
 Each screen component can set navigation options such as the header title. It can use action creators on the `navigation` prop to link to other screens:
 
-```javascript
+```jsx
 class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'Welcome',

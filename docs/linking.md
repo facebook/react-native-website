@@ -22,7 +22,7 @@ title: Linking
 
 If your app was launched from an external url registered to your app you can access and handle it from any component you want with:
 
-```javascript
+```jsx
 componentDidMount() {
   Linking.getInitialURL().then((url) => {
     if (url) {
@@ -84,7 +84,7 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 
 And then on your React component you'll be able to listen to the events on `Linking` as follows:
 
-```javascript
+```jsx
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
 },
@@ -100,13 +100,13 @@ _handleOpenURL(event) {
 
 To start the corresponding activity for a link (web URL, email, contact etc.), call:
 
-```javascript
+```jsx
 Linking.openURL(url).catch((err) => console.error('An error occurred', err));
 ```
 
 If you want to check if any installed app can handle a given URL beforehand you can call:
 
-```javascript
+```jsx
 Linking.canOpenURL(url)
   .then((supported) => {
     if (!supported) {
@@ -127,7 +127,7 @@ Linking.canOpenURL(url)
 - [`canOpenURL`](linking.md#canopenurl)
 - [`openSettings`](linking.md#opensettings)
 - [`getInitialURL`](linking.md#getinitialurl)
-- [`sendIntent`](linking.md#sendIntent)
+- [`sendIntent`](linking.md#sendintent)
 
 ---
 
@@ -137,7 +137,7 @@ Linking.canOpenURL(url)
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -145,7 +145,7 @@ constructor();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 addEventListener(type, handler);
 ```
 
@@ -155,7 +155,7 @@ Add a handler to Linking changes by listening to the `url` event type and provid
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 removeEventListener(type, handler);
 ```
 
@@ -165,7 +165,7 @@ Remove a handler by passing the `url` event type and the handler.
 
 ### `openURL()`
 
-```javascript
+```jsx
 openURL(url);
 ```
 
@@ -189,7 +189,7 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 ### `canOpenURL()`
 
-```javascript
+```jsx
 canOpenURL(url);
 ```
 
@@ -217,7 +217,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 ### `openSettings()`
 
-```javascript
+```jsx
 openSettings();
 ```
 
@@ -227,7 +227,7 @@ Open the Settings app and displays the app’s custom settings, if it has any.
 
 ### `getInitialURL()`
 
-```javascript
+```jsx
 getInitialURL();
 ```
 
@@ -239,7 +239,7 @@ If the app launch was triggered by an app link, it will give the link url, other
 
 ### `sendIntent()`
 
-```javascript
+```jsx
 sendIntent(action: string, extras?: Array<{key: string, value: string | number | boolean}>)
 ```
 

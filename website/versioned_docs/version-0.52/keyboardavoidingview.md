@@ -62,7 +62,7 @@ The style of the content container(View) when behavior is 'position'.
 
 ### `relativeKeyboardHeight()`
 
-```javascript
+```jsx
 relativeKeyboardHeight(keyboardFrame: object):
 ```
 
@@ -70,7 +70,7 @@ relativeKeyboardHeight(keyboardFrame: object):
 
 ### `onKeyboardChange()`
 
-```javascript
+```jsx
 onKeyboardChange((event: object));
 ```
 
@@ -78,6 +78,6 @@ onKeyboardChange((event: object));
 
 ### `onLayout()`
 
-```javascript
+```jsx
 onLayout((event: ViewLayoutEvent));
 ```

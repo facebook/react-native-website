@@ -126,7 +126,7 @@ Then enable Background Modes/Remote notifications to be able to use remote notif
 
 ### `presentLocalNotification()`
 
-```javascript
+```jsx
 PushNotificationIOS.presentLocalNotification(details);
 ```
 
@@ -152,7 +152,7 @@ details is an object containing:
 
 ### `scheduleLocalNotification()`
 
-```javascript
+```jsx
 PushNotificationIOS.scheduleLocalNotification(details);
 ```
 
@@ -181,7 +181,7 @@ details is an object containing:
 
 ### `cancelAllLocalNotifications()`
 
-```javascript
+```jsx
 PushNotificationIOS.cancelAllLocalNotifications();
 ```
 
@@ -191,7 +191,7 @@ Cancels all scheduled localNotifications
 
 ### `removeAllDeliveredNotifications()`
 
-```javascript
+```jsx
 PushNotificationIOS.removeAllDeliveredNotifications();
 ```
 
@@ -201,7 +201,7 @@ Remove all delivered notifications from Notification Center
 
 ### `getDeliveredNotifications()`
 
-```javascript
+```jsx
 PushNotificationIOS.getDeliveredNotifications(callback);
 ```
 
@@ -226,7 +226,7 @@ A delivered notification is an object containing:
 
 ### `removeDeliveredNotifications()`
 
-```javascript
+```jsx
 PushNotificationIOS.removeDeliveredNotifications(identifiers);
 ```
 
@@ -242,7 +242,7 @@ Removes the specified notifications from Notification Center
 
 ### `setApplicationIconBadgeNumber()`
 
-```javascript
+```jsx
 PushNotificationIOS.setApplicationIconBadgeNumber(number);
 ```
 
@@ -258,7 +258,7 @@ Sets the badge number for the app icon on the home screen
 
 ### `getApplicationIconBadgeNumber()`
 
-```javascript
+```jsx
 PushNotificationIOS.getApplicationIconBadgeNumber(callback);
 ```
 
@@ -274,7 +274,7 @@ Gets the current badge number for the app icon on the home screen
 
 ### `cancelLocalNotifications()`
 
-```javascript
+```jsx
 PushNotificationIOS.cancelLocalNotifications(userInfo);
 ```
 
@@ -292,7 +292,7 @@ Optionally restricts the set of canceled notifications to those notifications wh
 
 ### `getScheduledLocalNotifications()`
 
-```javascript
+```jsx
 PushNotificationIOS.getScheduledLocalNotifications(callback);
 ```
 
@@ -308,7 +308,7 @@ Gets the local notifications that are currently scheduled.
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 PushNotificationIOS.addEventListener(type, handler);
 ```
 
@@ -332,7 +332,7 @@ Valid events are:
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 PushNotificationIOS.removeEventListener(type, handler);
 ```
 
@@ -349,7 +349,7 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 ### `requestPermissions()`
 
-```javascript
+```jsx
 PushNotificationIOS.requestPermissions([permissions]);
 ```
 
@@ -373,7 +373,7 @@ This method returns a promise that will resolve when the user accepts, rejects, 
 
 ### `abandonPermissions()`
 
-```javascript
+```jsx
 PushNotificationIOS.abandonPermissions();
 ```
 
@@ -385,7 +385,7 @@ You should call this method in rare circumstances only, such as when a new versi
 
 ### `checkPermissions()`
 
-```javascript
+```jsx
 PushNotificationIOS.checkPermissions(callback);
 ```
 
@@ -407,7 +407,7 @@ See what push permissions are currently enabled.
 
 ### `getInitialNotification()`
 
-```javascript
+```jsx
 PushNotificationIOS.getInitialNotification();
 ```
 
@@ -417,7 +417,7 @@ This method returns a promise. If the app was launched by a push notification, t
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor(nativeNotif);
 ```
 
@@ -427,7 +427,7 @@ You will never need to instantiate `PushNotificationIOS` yourself. Listening to 
 
 ### `finish()`
 
-```javascript
+```jsx
 finish(fetchResult);
 ```
 
@@ -441,7 +441,7 @@ If you do not call this method your background remote notifications could be thr
 
 ### `getMessage()`
 
-```javascript
+```jsx
 getMessage();
 ```
 
@@ -451,7 +451,7 @@ An alias for `getAlert` to get the notification's main message string
 
 ### `getSound()`
 
-```javascript
+```jsx
 getSound();
 ```
 
@@ -461,7 +461,7 @@ Gets the sound string from the `aps` object
 
 ### `getCategory()`
 
-```javascript
+```jsx
 getCategory();
 ```
 
@@ -471,7 +471,7 @@ Gets the category string from the `aps` object
 
 ### `getAlert()`
 
-```javascript
+```jsx
 getAlert();
 ```
 
@@ -481,7 +481,7 @@ Gets the notification's main message from the `aps` object
 
 ### `getContentAvailable()`
 
-```javascript
+```jsx
 getContentAvailable();
 ```
 
@@ -491,7 +491,7 @@ Gets the content-available number from the `aps` object
 
 ### `getBadgeCount()`
 
-```javascript
+```jsx
 getBadgeCount();
 ```
 
@@ -501,7 +501,7 @@ Gets the badge count number from the `aps` object
 
 ### `getData()`
 
-```javascript
+```jsx
 getData();
 ```
 
@@ -511,7 +511,7 @@ Gets the data object on the notification
 
 ### `getThreadID()`
 
-```javascript
+```jsx
 getThreadID();
 ```
 

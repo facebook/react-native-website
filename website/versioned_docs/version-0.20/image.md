@@ -235,7 +235,7 @@ Invoked on download progress with `{nativeEvent: {loaded, total}}`
 
 ### `getSize()`
 
-```javascript
+```jsx
 static getSize(uri: string, success: function, failure: function)
 ```
 

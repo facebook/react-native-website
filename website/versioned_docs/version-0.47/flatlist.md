@@ -405,7 +405,7 @@ Set this when offset is needed for the loading indicator to show correctly.
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([params]: object));
 ```
 
@@ -415,7 +415,7 @@ Scrolls to the end of the content. May be janky without `getItemLayout` prop.
 
 ### `scrollToIndex()`
 
-```javascript
+```jsx
 scrollToIndex((params: object));
 ```
 
@@ -427,7 +427,7 @@ Note: cannot scroll to locations outside the render window without specifying th
 
 ### `scrollToItem()`
 
-```javascript
+```jsx
 scrollToItem((params: object));
 ```
 
@@ -439,7 +439,7 @@ Note: cannot scroll to locations outside the render window without specifying th
 
 ### `scrollToOffset()`
 
-```javascript
+```jsx
 scrollToOffset((params: object));
 ```
 
@@ -451,7 +451,7 @@ Check out [scrollToOffset](virtualizedlist.md#scrolltooffset) of VirtualizedList
 
 ### `recordInteraction()`
 
-```javascript
+```jsx
 recordInteraction();
 ```
 
@@ -461,7 +461,7 @@ Tells the list an interaction has occured, which should trigger viewability calc
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

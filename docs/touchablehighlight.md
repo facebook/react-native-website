@@ -11,7 +11,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 
 Example:
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableHighlight onPress={this._onPressButton}>
@@ -26,17 +26,16 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=TouchableHighlight
 import React, { Component } from 'react'
 import {
-  AppRegistry,
   StyleSheet,
   TouchableHighlight,
   Text,
   View,
 } from 'react-native'
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = { count: 0 }
@@ -86,8 +85,6 @@ const styles = StyleSheet.create({
     color: '#FF00FF'
   }
 })
-
-AppRegistry.registerComponent('App', () => App)
 ```
 
 ### Props
@@ -238,9 +235,6 @@ TV next focus up (see documentation for the View component).
 
 Handy for snapshot tests.
 
-| Type       | Required |
-| ---------- | -------- |
-| bool       | No       |
-
-
-
+| Type | Required |
+| ---- | -------- |
+| bool | No       |

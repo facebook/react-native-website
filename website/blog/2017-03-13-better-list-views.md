@@ -68,7 +68,7 @@ Lists are used in many contexts, so we packed the new components full of feature
 
 - These components are based on `PureComponent` which means that they will not re-render if `props` remains shallow-equal. Make sure that everything your `renderItem` function depends on directly is passed as a prop that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state. For example:
 
-  ```javascript
+  ```jsx
   <FlatList
     data={this.state.data}
     renderItem={({item}) => (

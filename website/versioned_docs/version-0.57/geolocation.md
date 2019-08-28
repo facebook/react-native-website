@@ -61,7 +61,7 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 
 ### `setRNConfiguration()`
 
-```javascript
+```jsx
 geolocation.setRNConfiguration(config);
 ```
 
@@ -81,7 +81,7 @@ Supported options:
 
 ### `requestAuthorization()`
 
-```javascript
+```jsx
 geolocation.requestAuthorization();
 ```
 
@@ -91,7 +91,7 @@ Request suitable Location permission based on the key configured on pList. If NS
 
 ### `getCurrentPosition()`
 
-```javascript
+```jsx
 geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 ```
 
@@ -115,7 +115,7 @@ Supported options:
 
 ### `watchPosition()`
 
-```javascript
+```jsx
 geolocation.watchPosition(success, [error], [options]);
 ```
 
@@ -141,7 +141,7 @@ Supported options:
 
 ### `clearWatch()`
 
-```javascript
+```jsx
 geolocation.clearWatch(watchID);
 ```
 
@@ -155,7 +155,7 @@ geolocation.clearWatch(watchID);
 
 ### `stopObserving()`
 
-```javascript
+```jsx
 geolocation.stopObserving();
 ```
 

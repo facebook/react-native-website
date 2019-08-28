@@ -14,7 +14,7 @@ It is sometimes necessary to make changes directly to a component without using 
 
 [TouchableOpacity](https://github.com/facebook/react-native/blob/master/Libraries/Components/Touchable/TouchableOpacity.js) uses `setNativeProps` internally to update the opacity of its child component:
 
-```javascript
+```jsx
 setOpacityTo(value) {
   // Redacted: animation related code
   this.refs[CHILD_REF].setNativeProps({
@@ -25,7 +25,7 @@ setOpacityTo(value) {
 
 This allows us to write the following code and know that the child will have its opacity updated in response to taps, without the child having any knowledge of that fact or requiring any changes to its implementation:
 
-```javascript
+```jsx
 <TouchableOpacity onPress={this._handlePress}>
   <View style={styles.button}>
     <Text>Press me!</Text>
@@ -35,7 +35,7 @@ This allows us to write the following code and know that the child will have its
 
 Let's imagine that `setNativeProps` was not available. One way that we might implement it with that constraint is to store the opacity value in the state, then update that value whenever `onPress` is fired:
 
-```javascript
+```jsx
 constructor(props) {
   super(props);
   this.state = { myButtonOpacity: 1, };
@@ -140,10 +140,10 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <TextInput
           ref={component => this._textInput = component}
-          style={{height: 50, flex: 1, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
+          style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
         />
         <TouchableOpacity onPress={this.clearText}>
           <Text>Clear text</Text>
@@ -194,7 +194,7 @@ Like `measure()`, but measures the view relative to an ancestor, specified as `r
 
 As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
 
-```javascript
+```jsx
 import {findNodeHandle} from 'react-native';
 ```
 

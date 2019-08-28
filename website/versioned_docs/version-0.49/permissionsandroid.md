@@ -64,7 +64,7 @@ async function requestCameraPermission() {
 
 ### `constructor()`
 
-```javascript
+```jsx
 constructor();
 ```
 
@@ -72,7 +72,7 @@ constructor();
 
 ### `checkPermission()`
 
-```javascript
+```jsx
 checkPermission(permission);
 ```
 
@@ -86,7 +86,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `check()`
 
-```javascript
+```jsx
 check(permission);
 ```
 
@@ -96,7 +96,7 @@ Returns a promise resolving to a boolean value as to whether the specified permi
 
 ### `requestPermission()`
 
-```javascript
+```jsx
 requestPermission(permission, rationale?)
 ```
 
@@ -112,7 +112,7 @@ If the optional rationale argument is included (which is an object with a `title
 
 ### `request()`
 
-```javascript
+```jsx
 request(permission, rationale?)
 ```
 
@@ -124,7 +124,7 @@ If the optional rationale argument is included (which is an object with a `title
 
 ### `requestMultiple()`
 
-```javascript
+```jsx
 requestMultiple(permissions);
 ```
 

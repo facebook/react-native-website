@@ -148,9 +148,12 @@ import com.your-app-name.CustomToastPackage; // <-- Add this line with your pack
 ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- Add this line with your package name.
+  return packages;
 }
 ```
 
@@ -158,7 +161,7 @@ To make it simpler to access your new functionality from JavaScript, it is commo
 
 Create a new JavaScript file named `ToastExample.js` with the content below:
 
-```javascript
+```jsx
 /**
  * This exposes the native ToastExample module as a JS module. This has a
  * function 'show' which takes the following parameters:
@@ -173,7 +176,7 @@ module.exports = NativeModules.ToastExample;
 
 Now, from your other JavaScript file you can call the method like this:
 
-```javascript
+```jsx
 import ToastExample from './ToastExample';
 
 ToastExample.show('Awesome', ToastExample.SHORT);
@@ -217,7 +220,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 This method would be accessed in JavaScript using:
 
-```javascript
+```jsx
 UIManager.measureLayout(
   100,
   100,
@@ -273,7 +276,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
-```javascript
+```jsx
 async function measureLayout() {
   try {
     var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
@@ -317,7 +320,7 @@ sendEvent(reactContext, "keyboardWillShow", params);
 
 JavaScript modules can then register to receive events by `addListenerOn` using the `Subscribable` mixin.
 
-```javascript
+```jsx
 import { DeviceEventEmitter } from 'react-native';
 ...
 
@@ -340,7 +343,7 @@ var ScrollResponderMixin = {
 
 You can also directly use the `DeviceEventEmitter` module to listen for events.
 
-```javascript
+```jsx
 ...
 componentDidMount() {
   this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {

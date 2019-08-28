@@ -8,7 +8,7 @@ original_id: webview
 
 `WebView` renders web content in a native view.
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {WebView} from 'react-native';
 
@@ -26,7 +26,7 @@ class MyWeb extends Component {
 
 Minimal example with inline HTML:
 
-```javascript
+```jsx
 import React, {Component} from 'react';
 import {WebView} from 'react-native';
 
@@ -509,13 +509,13 @@ If true, use WKWebView instead of UIWebView.
 
 ### `extraNativeComponentConfig()`
 
-```javascript
+```jsx
 static extraNativeComponentConfig()
 ```
 
 ### `goForward()`
 
-```javascript
+```jsx
 goForward();
 ```
 
@@ -523,7 +523,7 @@ Go forward one page in the web view's history.
 
 ### `goBack()`
 
-```javascript
+```jsx
 goBack();
 ```
 
@@ -531,7 +531,7 @@ Go back one page in the web view's history.
 
 ### `reload()`
 
-```javascript
+```jsx
 reload();
 ```
 
@@ -539,7 +539,7 @@ Reloads the current page.
 
 ### `stopLoading()`
 
-```javascript
+```jsx
 stopLoading();
 ```
 

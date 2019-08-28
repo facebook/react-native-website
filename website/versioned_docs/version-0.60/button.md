@@ -12,7 +12,7 @@ If this button doesn't look right for your app, you can build your own button us
 
 Example usage:
 
-```javascript
+```jsx
 import { Button } from 'react-native';
 ...
 

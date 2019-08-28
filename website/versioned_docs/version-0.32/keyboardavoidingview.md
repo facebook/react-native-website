@@ -54,7 +54,7 @@ This is the distance between the top of the user screen and the react native vie
 
 ### `relativeKeyboardHeight()`
 
-```javascript
+```jsx
 relativeKeyboardHeight(keyboardFrame: object):
 ```
 
@@ -62,7 +62,7 @@ relativeKeyboardHeight(keyboardFrame: object):
 
 ### `onKeyboardChange()`
 
-```javascript
+```jsx
 onKeyboardChange((event: object));
 ```
 
@@ -70,6 +70,6 @@ onKeyboardChange((event: object));
 
 ### `onLayout()`
 
-```javascript
+```jsx
 onLayout((event: object));
 ```

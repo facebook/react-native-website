@@ -10,7 +10,7 @@ Opacity is controlled by wrapping the children in an Animated.View, which is add
 
 Example:
 
-```javascript
+```jsx
 renderButton: function() {
   return (
     <TouchableOpacity onPress={this._onPressButton}>
@@ -25,7 +25,7 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   AppRegistry,
@@ -150,7 +150,7 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 ### `setOpacityTo()`
 
-```javascript
+```jsx
 setOpacityTo((value: number), (duration: number));
 ```
 

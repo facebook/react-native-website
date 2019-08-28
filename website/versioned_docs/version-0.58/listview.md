@@ -10,7 +10,7 @@ ListView - A core component designed for efficient display of vertically scrolli
 
 Minimal example:
 
-```javascript
+```jsx
 class MyComponent extends Component {
   constructor() {
     super();
@@ -256,7 +256,7 @@ The header and footer are always rendered (if these props are provided) on every
 
 ### `getMetrics()`
 
-```javascript
+```jsx
 getMetrics();
 ```
 
@@ -266,7 +266,7 @@ Exports some data, e.g. for perf investigations or analytics.
 
 ### `scrollTo()`
 
-```javascript
+```jsx
 scrollTo(...args: Array)
 ```
 
@@ -278,7 +278,7 @@ See `ScrollView#scrollTo`.
 
 ### `scrollToEnd()`
 
-```javascript
+```jsx
 scrollToEnd(([options]: object));
 ```
 
@@ -292,7 +292,7 @@ See `ScrollView#scrollToEnd`.
 
 ### `flashScrollIndicators()`
 
-```javascript
+```jsx
 flashScrollIndicators();
 ```
 

@@ -8,7 +8,7 @@ A StyleSheet is an abstraction similar to CSS StyleSheets
 
 Create a new StyleSheet:
 
-```javascript
+```jsx
 const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 
 Use a StyleSheet:
 
-```javascript
+```jsx
 <View style={styles.container}>
   <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
 </View>
@@ -59,7 +59,7 @@ Code quality:
 
 ### `setStyleAttributePreprocessor()`
 
-```javascript
+```jsx
 static setStyleAttributePreprocessor(property, process)
 ```
 
@@ -71,7 +71,7 @@ Sets a function to use to pre-process a style property value. This is used inter
 
 ### `create()`
 
-```javascript
+```jsx
 static create(obj)
 ```
 
@@ -81,7 +81,7 @@ Creates a StyleSheet style reference from the given object.
 
 ### `flatten`
 
-```javascript
+```jsx
 static flatten(style)
 ```
 
@@ -91,7 +91,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 
 Example:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -109,7 +109,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 
 Alternative use:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   listItem: {
     flex: 1,
@@ -134,7 +134,7 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
-```javascript
+```jsx
 static compose(style)
 ```
 
@@ -144,7 +144,7 @@ static compose(style)
 
 This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
-```javascript
+```jsx
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
@@ -163,7 +163,7 @@ A line with hairline width may not be visible if your simulator is downscaled.
 
 A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
 
-```javascript
+```jsx
 const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFill,
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
 
 Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillObject` can be used to create a customized entry in a `StyleSheet`, e.g.:
 
-```javascript
+```jsx
 const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFill,

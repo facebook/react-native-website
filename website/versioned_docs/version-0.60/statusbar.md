@@ -10,7 +10,7 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```javascript
+```jsx
 <View>
   <StatusBar backgroundColor="blue" barStyle="light-content" />
   <View>
@@ -132,7 +132,7 @@ If the status bar is translucent. When translucent is set to true, the app will 
 
 ### `popStackEntry()`
 
-```javascript
+```jsx
 static popStackEntry(entry: any)
 ```
 
@@ -148,7 +148,7 @@ Pop a StatusBar entry from the stack.
 
 ### `pushStackEntry()`
 
-```javascript
+```jsx
 static pushStackEntry(props: any)
 ```
 
@@ -164,7 +164,7 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 ### `replaceStackEntry()`
 
-```javascript
+```jsx
 static replaceStackEntry(entry: any, props: any)
 ```
 
@@ -181,7 +181,7 @@ Replace an existing StatusBar stack entry with new props.
 
 ### `setBackgroundColor()`
 
-```javascript
+```jsx
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
 
@@ -198,7 +198,7 @@ Set the background color for the status bar. Android-only
 
 ### `setBarStyle()`
 
-```javascript
+```jsx
 static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 ```
 
@@ -215,7 +215,7 @@ Set the status bar style
 
 ### `setHidden()`
 
-```javascript
+```jsx
 static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 ```
 
@@ -232,7 +232,7 @@ Show or hide the status bar
 
 ### `setNetworkActivityIndicatorVisible()`
 
-```javascript
+```jsx
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
@@ -248,7 +248,7 @@ Control the visibility of the network activity indicator. iOS-only.
 
 ### `setTranslucent()`
 
-```javascript
+```jsx
 static setTranslucent(translucent: boolean)
 ```
 

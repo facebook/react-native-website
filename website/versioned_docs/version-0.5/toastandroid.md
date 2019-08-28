@@ -15,7 +15,7 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 
 Basic usage:
 
-```javascript
+```jsx
 ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
 ToastAndroid.showWithGravity(
   'All Your Base Are Belong To Us',
@@ -53,7 +53,7 @@ ToastAndroid.showWithGravityAndOffset(
 
 ### `show()`
 
-```javascript
+```jsx
 ToastAndroid.show(message, duration);
 ```
 
@@ -61,7 +61,7 @@ ToastAndroid.show(message, duration);
 
 ### `showWithGravity()`
 
-```javascript
+```jsx
 ToastAndroid.showWithGravity(message, duration, gravity);
 ```
 
@@ -69,7 +69,7 @@ ToastAndroid.showWithGravity(message, duration, gravity);
 
 ### `showWithGravityAndOffset()`
 
-```javascript
+```jsx
 ToastAndroid.showWithGravityAndOffset(
   message,
   duration,
@@ -83,7 +83,7 @@ ToastAndroid.showWithGravityAndOffset(
 
 ### `SHORT`
 
-```javascript
+```jsx
 ToastAndroid.SHORT;
 ```
 
@@ -91,7 +91,7 @@ ToastAndroid.SHORT;
 
 ### `LONG`
 
-```javascript
+```jsx
 ToastAndroid.LONG;
 ```
 
@@ -99,7 +99,7 @@ ToastAndroid.LONG;
 
 ### `TOP`
 
-```javascript
+```jsx
 ToastAndroid.TOP;
 ```
 
@@ -107,7 +107,7 @@ ToastAndroid.TOP;
 
 ### `BOTTOM`
 
-```javascript
+```jsx
 ToastAndroid.BOTTOM;
 ```
 
@@ -115,6 +115,6 @@ ToastAndroid.BOTTOM;
 
 ### `CENTER`
 
-```javascript
+```jsx
 ToastAndroid.CENTER;
 ```
