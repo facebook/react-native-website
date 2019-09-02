@@ -1,7 +1,6 @@
 ---
-id: version-0.5-upgrading
+id: upgrading
 title: Upgrading to new React Native versions
-original_id: upgrading
 ---
 
 Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you.
