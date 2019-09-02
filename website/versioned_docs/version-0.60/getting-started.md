@@ -149,6 +149,7 @@ While you can use any editor of your choice to develop your app, you will need t
 We recommend installing Node, Watchman, and JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```
+brew install yarn
 brew install node
 brew install watchman
 brew tap AdoptOpenJDK/openjdk

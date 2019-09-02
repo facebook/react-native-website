@@ -328,7 +328,7 @@ Controls whether the `View` can be the target of touch events.
      pointer-events: none;
 }
 .box-none * {
-     pointer-events: all;
+     pointer-events: auto;
 }
 ```
 
@@ -336,7 +336,7 @@ Controls whether the `View` can be the target of touch events.
 
 ```
 .box-only {
-     pointer-events: all;
+     pointer-events: auto;
 }
 .box-only * {
      pointer-events: none;
@@ -616,7 +616,7 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 ### `clickable`
 
-Determines whether this `View` is clickable or tappable for for accessibility hints.
+Determines whether this `View` is clickable or tappable for accessibility hints.
 
 | Type    | Required | Platform |
 | ------- | -------- | -------- |

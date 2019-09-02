@@ -135,8 +135,8 @@ Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in an
 ### Methods
 
 - [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
-- [`getScrollResponder`](flatlist.md#getScrollResponder)
-- [`getScrollableNode`](flatlist.md#getScrollableNode)
+- [`getScrollResponder`](flatlist.md#getscrollresponder)
+- [`getScrollableNode`](flatlist.md#getscrollablenode)
 - [`scrollToEnd`](flatlist.md#scrolltoend)
 - [`scrollToIndex`](flatlist.md#scrolltoindex)
 - [`scrollToItem`](flatlist.md#scrolltoitem)

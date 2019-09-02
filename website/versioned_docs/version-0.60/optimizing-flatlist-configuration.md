@@ -8,7 +8,7 @@ original_id: optimizing-flatlist-configuration
 
 - **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the '[Virtual List](https://bvaughn.github.io/react-virtualized/#/components/List)' concept.)
 
-- **Memory consumption:** How much information about your list is being stored in memory, which could lead to a app crash.
+- **Memory consumption:** How much information about your list is being stored in memory, which could lead to an app crash.
 
 - **Responsiveness:** Application ability to respond to interactions. Low responsiveness, for instance, is when you touch on a component and it waits a bit to respond, instead of responding immediately as expected.
 

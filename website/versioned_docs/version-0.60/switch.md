@@ -13,11 +13,11 @@ This is a controlled component that requires an `onValueChange` callback that up
 - [View props...](view.md#props)
 
 * [`disabled`](switch.md#disabled)
-* [`trackColor`](switch.md#trackcolor)
 * [`ios_backgroundColor`](switch.md#ios-backgroundcolor)
-* [`onValueChange`](switch.md#onvaluechange)
 * [`onChange`](switch.md#onChange)
+* [`onValueChange`](switch.md#onvaluechange)
 * [`thumbColor`](switch.md#thumbcolor)
+* [`trackColor`](switch.md#trackcolor)
 * [`value`](switch.md#value)
 
 ---
@@ -36,18 +36,6 @@ If true the user won't be able to toggle the switch. Default value is false.
 
 ---
 
-### `trackColor`
-
-Custom colors for the switch track.
-
-_iOS_: When the switch value is false, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
-
-| Type                                                          | Required |
-| ------------------------------------------------------------- | -------- |
-| object: {false: [color](colors.md), true: [color](colors.md)} | No       |
-
----
-
 ### `ios_backgroundColor`
 
 On iOS, custom color for the background. This background color can be seen either when the switch value is false or when the switch is disabled (and the switch is translucent).
@@ -58,9 +46,9 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 ---
 
-### `onValueChange`
+### `onChange`
 
-Invoked when the user tries to change the value of the switch. Receives the new value as an argument. If you want to instead receive an event, use `onChange`.
+Invoked when the user tries to change the value of the switch. Receives the change event as an argument. If you want to only receive the new value, use `onValueChange` instead.
 
 | Type     | Required |
 | -------- | -------- |
@@ -68,9 +56,9 @@ Invoked when the user tries to change the value of the switch. Receives the new 
 
 ---
 
-### `onChange`
+### `onValueChange`
 
-Invoked when the user tries to change the value of the switch. Receives the change event as an argument. If you want to only receive the new value, use `onValueChange` instead.
+Invoked when the user tries to change the value of the switch. Receives the new value as an argument. If you want to instead receive an event, use `onChange`.
 
 | Type     | Required |
 | -------- | -------- |
@@ -85,6 +73,18 @@ Color of the foreground switch grip. If this is set on iOS, the switch grip will
 | Type               | Required |
 | ------------------ | -------- |
 | [color](colors.md) | No       |
+
+---
+
+### `trackColor`
+
+Custom colors for the switch track.
+
+_iOS_: When the switch value is false, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
+
+| Type                                                          | Required |
+| ------------------------------------------------------------- | -------- |
+| object: {false: [color](colors.md), true: [color](colors.md)} | No       |
 
 ---
 

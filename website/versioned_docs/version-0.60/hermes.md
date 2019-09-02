@@ -10,7 +10,11 @@ original_id: hermes
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for running React Native apps on Android. For many apps, simply enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
 
-First, ensure you're using at least version 0.60.2 of React Native. If you're upgrading an existing app ensure everything works before trying to switch to Hermes.
+First, ensure you're using at least version 0.60.4 of React Native. If you're upgrading an existing app ensure everything works before trying to switch to Hermes.
+
+> ## Note for Windows users.
+>
+> Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 
 Edit your `android/app/build.gradle` file and make the change illustrated below:
 
@@ -20,6 +24,12 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
 -     enableHermes: false  // clean and rebuild if changing
 +     enableHermes: true  // clean and rebuild if changing
   ]
+```
+
+Also, if you're using ProGuard, you will need to add this rule in `proguard-rules.pro` :
+
+```
+-keep class com.facebook.hermes.unicode.** { *; }
 ```
 
 Next, if you've already built your app at least once, clean the build:
