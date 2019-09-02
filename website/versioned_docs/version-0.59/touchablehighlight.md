@@ -27,7 +27,7 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   AppRegistry,

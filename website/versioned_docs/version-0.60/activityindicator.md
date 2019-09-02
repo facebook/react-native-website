@@ -8,11 +8,10 @@ Displays a circular loading indicator.
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=activityindicator
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -42,8 +41,6 @@ const styles = StyleSheet.create({
     padding: 10
   }
 })
-
-AppRegistry.registerComponent('App', () => App)
 ```
 
 ### Props

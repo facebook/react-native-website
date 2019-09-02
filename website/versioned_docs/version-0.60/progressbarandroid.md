@@ -10,7 +10,7 @@ Example:
 
 ```jsx
 import React, {Component} from 'react';
-import {ProgressBarAndroid, AppRegistry, StyleSheet, View} from 'react-native';
+import {ProgressBarAndroid, StyleSheet, View} from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -36,8 +36,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
 });
-
-AppRegistry.registerComponent('App', () => App);
 ```
 
 ### Props

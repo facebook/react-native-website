@@ -126,7 +126,6 @@ Linking.canOpenURL(url)
 - [`removeEventListener`](linking.md#removeeventlistener)
 - [`openURL`](linking.md#openurl)
 - [`canOpenURL`](linking.md#canopenurl)
-- [`openSettings`](linking.md#opensettings)
 - [`getInitialURL`](linking.md#getinitialurl)
 
 ---
@@ -212,16 +211,6 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 > This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
 
 > If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
-
----
-
-### `openSettings()`
-
-```jsx
-openSettings();
-```
-
-Open the Settings app and displays the app’s custom settings, if it has any.
 
 ---
 

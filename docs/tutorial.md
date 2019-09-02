@@ -11,8 +11,8 @@ Let's do this thing.
 
 In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
 
-```ReactNativeWebPlayer
-import React from 'react';
+```SnackPlayer name=Hello%20World
+import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 function HelloWorldApp() {
@@ -61,7 +61,7 @@ Most components can be customized when they are created, with different paramete
 
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `this.props` in your function. Here's an example:
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Hello%20Props
 import React from 'react';
 import { AppRegistry, Text, View, StyleSheet } from 'react-native';
 
