@@ -23,7 +23,7 @@
     "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:markdown": "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "nit:source": "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown": "prettier  --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:markdown": "prettier --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "sync-community-repos": "node sync-community-repos.js",
