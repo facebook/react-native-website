@@ -161,6 +161,7 @@ Schedules the localNotification for immediate presentation.
 details is an object containing:
 
 - `alertBody` : The message displayed in the notification alert.
+- `alertTitle` : The text displayed as the title of the notification alert.
 - `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
 - `soundName` : The sound played when the notification is fired (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).
