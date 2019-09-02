@@ -11,7 +11,7 @@ Although the Toolbar supports remote images for the logo, navigation and action 
 
 Example:
 
-```javascript
+```jsx
 render: function() {
   return (
     <ToolbarAndroid

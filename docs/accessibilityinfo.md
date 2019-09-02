@@ -7,7 +7,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 
 Here's a small example illustrating how to use `AccessibilityInfo`:
 
-```javascript
+```jsx
 class AccessibilityStatusExample extends React.Component {
   state = {
     reduceMotionEnabled: false,
@@ -90,7 +90,7 @@ class AccessibilityStatusExample extends React.Component {
 
 ### `isBoldTextEnabled()`
 
-```javascript
+```jsx
 static isBoldTextEnabled()
 ```
 
@@ -98,7 +98,7 @@ static isBoldTextEnabled()
 
 ### `isGrayscaleEnabled()`
 
-```javascript
+```jsx
 static isGrayscaleEnabled()
 ```
 
@@ -106,7 +106,7 @@ static isGrayscaleEnabled()
 
 ### `isInvertColorsEnabled()`
 
-```javascript
+```jsx
 static isInvertColorsEnabled()
 ```
 
@@ -114,7 +114,7 @@ static isInvertColorsEnabled()
 
 ### `isReduceMotionEnabled()`
 
-```javascript
+```jsx
 static isReduceMotionEnabled()
 ```
 
@@ -122,7 +122,7 @@ Query whether reduce motion is currently enabled. Returns a promise which resolv
 
 ### `isReduceTransparencyEnabled()`
 
-```javascript
+```jsx
 static isReduceTransparencyEnabled()
 ```
 
@@ -130,7 +130,7 @@ static isReduceTransparencyEnabled()
 
 ### `isScreenReaderEnabled()`
 
-```javascript
+```jsx
 static isScreenReaderEnabled()
 ```
 
@@ -140,7 +140,7 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -160,7 +160,7 @@ Add an event handler. Supported events:
 
 ### `setAccessibilityFocus()`
 
-```javascript
+```jsx
 static setAccessibilityFocus(reactTag)
 ```
 
@@ -170,7 +170,7 @@ Set accessibility focus to a React component. On Android, this is equivalent to 
 
 ### `announceForAccessibility()`
 
-```javascript
+```jsx
 static announceForAccessibility(announcement)
 ```
 
@@ -180,7 +180,7 @@ Post a string to be announced by the screen reader.
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 

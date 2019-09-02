@@ -125,6 +125,9 @@
       "height-and-width": {
         "title": "Height and Width"
       },
+      "hermes": {
+        "title": "Using Hermes"
+      },
       "image-style-props": {
         "title": "Image Style Props"
       },
@@ -3161,130 +3164,232 @@
       "version-0.6/version-0.6-touchablewithoutfeedback": {
         "title": "TouchableWithoutFeedback"
       },
-      "version-0.60-RC/version-0.60-RC-accessibility": {
+      "version-0.60/version-0.60-accessibility": {
         "title": "Accessibility"
       },
-      "version-0.60-RC/version-0.60-RC-accessibilityinfo": {
+      "version-0.60/version-0.60-accessibilityinfo": {
         "title": "AccessibilityInfo"
       },
-      "version-0.60-RC/version-0.60-RC-actionsheetios": {
+      "version-0.60/version-0.60-actionsheetios": {
         "title": "ActionSheetIOS"
       },
-      "version-0.60-RC/version-0.60-RC-activityindicator": {
+      "version-0.60/version-0.60-activityindicator": {
         "title": "ActivityIndicator"
       },
-      "version-0.60-RC/version-0.60-RC-alert": {
+      "version-0.60/version-0.60-alert": {
         "title": "Alert"
       },
-      "version-0.60-RC/version-0.60-RC-animations": {
+      "version-0.60/version-0.60-animated": {
+        "title": "Animated"
+      },
+      "version-0.60/version-0.60-animations": {
         "title": "Animations"
       },
-      "version-0.60-RC/version-0.60-RC-appregistry": {
+      "version-0.60/version-0.60-app-extensions": {
+        "title": "App Extensions"
+      },
+      "version-0.60/version-0.60-appregistry": {
         "title": "AppRegistry"
       },
-      "version-0.60-RC/version-0.60-RC-backhandler": {
+      "version-0.60/version-0.60-appstate": {
+        "title": "AppState"
+      },
+      "version-0.60/version-0.60-backhandler": {
         "title": "BackHandler"
       },
-      "version-0.60-RC/version-0.60-RC-communication-android": {
+      "version-0.60/version-0.60-button": {
+        "title": "Button"
+      },
+      "version-0.60/version-0.60-communication-android": {
         "title": "Communication between native and React Native"
       },
-      "version-0.60-RC/version-0.60-RC-components-and-apis": {
+      "version-0.60/version-0.60-components-and-apis": {
         "title": "Components and APIs"
       },
-      "version-0.60-RC/version-0.60-RC-datepickerios": {
+      "version-0.60/version-0.60-datepickerios": {
         "title": "DatePickerIOS"
       },
-      "version-0.60-RC/version-0.60-RC-debugging": {
+      "version-0.60/version-0.60-debugging": {
         "title": "Debugging"
       },
-      "version-0.60-RC/version-0.60-RC-direct-manipulation": {
+      "version-0.60/version-0.60-dimensions": {
+        "title": "Dimensions"
+      },
+      "version-0.60/version-0.60-direct-manipulation": {
         "title": "Direct Manipulation"
       },
-      "version-0.60-RC/version-0.60-RC-easing": {
+      "version-0.60/version-0.60-easing": {
         "title": "Easing"
       },
-      "version-0.60-RC/version-0.60-RC-flatlist": {
+      "version-0.60/version-0.60-flatlist": {
         "title": "FlatList"
       },
-      "version-0.60-RC/version-0.60-RC-getting-started": {
+      "version-0.60/version-0.60-flexbox": {
+        "title": "Layout with Flexbox"
+      },
+      "version-0.60/version-0.60-getting-started": {
         "title": "Getting Started"
       },
-      "version-0.60-RC/version-0.60-RC-image": {
+      "version-0.60/version-0.60-handling-text-input": {
+        "title": "Handling Text Input"
+      },
+      "version-0.60/version-0.60-headless-js-android": {
+        "title": "Headless JS"
+      },
+      "version-0.60/version-0.60-hermes": {
+        "title": "Using Hermes"
+      },
+      "version-0.60/version-0.60-image": {
         "title": "Image"
       },
-      "version-0.60-RC/version-0.60-RC-imagepickerios": {
+      "version-0.60/version-0.60-imagepickerios": {
         "title": "ImagePickerIOS"
       },
-      "version-0.60-RC/version-0.60-RC-layout-props": {
+      "version-0.60/version-0.60-images": {
+        "title": "Images"
+      },
+      "version-0.60/version-0.60-javascript-environment": {
+        "title": "JavaScript Environment"
+      },
+      "version-0.60/version-0.60-keyboard": {
+        "title": "Keyboard"
+      },
+      "version-0.60/version-0.60-keyboardavoidingview": {
+        "title": "KeyboardAvoidingView"
+      },
+      "version-0.60/version-0.60-layout-props": {
         "title": "Layout Props"
       },
-      "version-0.60-RC/version-0.60-RC-layoutanimation": {
+      "version-0.60/version-0.60-layoutanimation": {
         "title": "LayoutAnimation"
       },
-      "version-0.60-RC/version-0.60-RC-modal": {
+      "version-0.60/version-0.60-linking": {
+        "title": "Linking"
+      },
+      "version-0.60/version-0.60-modal": {
         "title": "Modal"
       },
-      "version-0.60-RC/version-0.60-RC-more-resources": {
+      "version-0.60/version-0.60-more-resources": {
         "title": "More Resources"
       },
-      "version-0.60-RC/version-0.60-RC-native-modules-android": {
+      "version-0.60/version-0.60-native-components-ios": {
+        "title": "Native UI Components"
+      },
+      "version-0.60/version-0.60-native-modules-android": {
         "title": "Native Modules"
       },
-      "version-0.60-RC/version-0.60-RC-navigation": {
+      "version-0.60/version-0.60-navigation": {
         "title": "Navigating Between Screens"
       },
-      "version-0.60-RC/version-0.60-RC-optimizing-flatlist-configuration": {
+      "version-0.60/version-0.60-optimizing-flatlist-configuration": {
         "title": "Optimizing Flatlist Configuration"
       },
-      "version-0.60-RC/version-0.60-RC-performance": {
+      "version-0.60/version-0.60-out-of-tree-platforms": {
+        "title": "Out-of-Tree Platforms"
+      },
+      "version-0.60/version-0.60-panresponder": {
+        "title": "PanResponder"
+      },
+      "version-0.60/version-0.60-performance": {
         "title": "Performance"
       },
-      "version-0.60-RC/version-0.60-RC-pushnotificationios": {
+      "version-0.60/version-0.60-pickerios": {
+        "title": "PickerIOS"
+      },
+      "version-0.60/version-0.60-progressbarandroid": {
+        "title": "ProgressBarAndroid"
+      },
+      "version-0.60/version-0.60-pushnotificationios": {
         "title": "PushNotificationIOS"
       },
-      "version-0.60-RC/version-0.60-RC-scrollview": {
+      "version-0.60/version-0.60-removing-default-permissions": {
+        "title": "Removing Default Permissions"
+      },
+      "version-0.60/version-0.60-running-on-simulator-ios": {
+        "title": "Running On Simulator"
+      },
+      "version-0.60/version-0.60-safeareaview": {
+        "title": "SafeAreaView"
+      },
+      "version-0.60/version-0.60-scrollview": {
         "title": "ScrollView"
       },
-      "version-0.60-RC/version-0.60-RC-sectionlist": {
+      "version-0.60/version-0.60-sectionlist": {
         "title": "SectionList"
       },
-      "version-0.60-RC/version-0.60-RC-signed-apk-android": {
+      "version-0.60/version-0.60-settings": {
+        "title": "Settings"
+      },
+      "version-0.60/version-0.60-signed-apk-android": {
         "title": "Publishing to Google Play Store"
       },
-      "version-0.60-RC/version-0.60-RC-state": {
+      "version-0.60/version-0.60-slider": {
+        "title": "Slider"
+      },
+      "version-0.60/version-0.60-state": {
         "title": "State"
       },
-      "version-0.60-RC/version-0.60-RC-statusbar": {
+      "version-0.60/version-0.60-statusbar": {
         "title": "StatusBar"
       },
-      "version-0.60-RC/version-0.60-RC-switch": {
+      "version-0.60/version-0.60-style": {
+        "title": "Style"
+      },
+      "version-0.60/version-0.60-stylesheet": {
+        "title": "StyleSheet"
+      },
+      "version-0.60/version-0.60-switch": {
         "title": "Switch"
       },
-      "version-0.60-RC/version-0.60-RC-systrace": {
+      "version-0.60/version-0.60-systrace": {
         "title": "Systrace"
       },
-      "version-0.60-RC/version-0.60-RC-text": {
+      "version-0.60/version-0.60-text-style-props": {
+        "title": "Text Style Props"
+      },
+      "version-0.60/version-0.60-text": {
         "title": "Text"
       },
-      "version-0.60-RC/version-0.60-RC-textinput": {
+      "version-0.60/version-0.60-textinput": {
         "title": "TextInput"
       },
-      "version-0.60-RC/version-0.60-RC-timers": {
+      "version-0.60/version-0.60-timers": {
         "title": "Timers"
       },
-      "version-0.60-RC/version-0.60-RC-touchablewithoutfeedback": {
+      "version-0.60/version-0.60-toolbarandroid": {
+        "title": "ToolbarAndroid"
+      },
+      "version-0.60/version-0.60-touchablehighlight": {
+        "title": "TouchableHighlight"
+      },
+      "version-0.60/version-0.60-touchablenativefeedback": {
+        "title": "TouchableNativeFeedback"
+      },
+      "version-0.60/version-0.60-touchableopacity": {
+        "title": "TouchableOpacity"
+      },
+      "version-0.60/version-0.60-touchablewithoutfeedback": {
         "title": "TouchableWithoutFeedback"
       },
-      "version-0.60-RC/version-0.60-RC-transforms": {
+      "version-0.60/version-0.60-transforms": {
         "title": "Transforms"
       },
-      "version-0.60-RC/version-0.60-RC-view-style-props": {
+      "version-0.60/version-0.60-troubleshooting": {
+        "title": "Troubleshooting"
+      },
+      "version-0.60/version-0.60-upgrading": {
+        "title": "Upgrading to new React Native versions"
+      },
+      "version-0.60/version-0.60-using-a-scrollview": {
+        "title": "Using a ScrollView"
+      },
+      "version-0.60/version-0.60-view-style-props": {
         "title": "View Style Props"
       },
-      "version-0.60-RC/version-0.60-RC-view": {
+      "version-0.60/version-0.60-view": {
         "title": "View"
       },
-      "version-0.60-RC/version-0.60-RC-virtualizedlist": {
+      "version-0.60/version-0.60-virtualizedlist": {
         "title": "VirtualizedList"
       },
       "version-0.7/version-0.7-pushnotificationios": {

@@ -37,7 +37,7 @@ try {
 
 ### `open()`
 
-```javascript
+```jsx
 DatePickerAndroid.open(options);
 ```
 
@@ -61,7 +61,7 @@ Note the native date picker dialog has some UI glitches on Android 4 and lower w
 
 ### `dateSetAction()`
 
-```javascript
+```jsx
 DatePickerAndroid.dateSetAction();
 ```
 
@@ -71,7 +71,7 @@ A date has been selected.
 
 ### `dismissedAction()`
 
-```javascript
+```jsx
 DatePickerAndroid.dismissedAction();
 ```
 

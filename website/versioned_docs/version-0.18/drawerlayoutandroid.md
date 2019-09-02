@@ -142,7 +142,7 @@ Function called when the drawer state has changed. The drawer can be in 3 states
 
 ### `openDrawer()`
 
-```javascript
+```jsx
 openDrawer();
 ```
 
@@ -150,6 +150,6 @@ openDrawer();
 
 ### `closeDrawer()`
 
-```javascript
+```jsx
 closeDrawer();
 ```

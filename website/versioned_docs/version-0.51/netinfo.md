@@ -139,7 +139,7 @@ The rest of the connectivity types are hidden by the Android API, but can be use
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 static addEventListener(eventName, handler)
 ```
 
@@ -154,7 +154,7 @@ Adds an event handler. Supported events:
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 static removeEventListener(eventName, handler)
 ```
 
@@ -164,7 +164,7 @@ Removes the listener for network status changes.
 
 ### `fetch()`
 
-```javascript
+```jsx
 static fetch()
 ```
 
@@ -174,7 +174,7 @@ This function is deprecated. Use `getConnectionInfo` instead. Returns a promise 
 
 ### `getConnectionInfo()`
 
-```javascript
+```jsx
 static getConnectionInfo()
 ```
 
@@ -184,7 +184,7 @@ Returns a promise that resolves to an object with `type` and `effectiveType` key
 
 ### `isConnectionExpensive()`
 
-```javascript
+```jsx
 static isConnectionExpensive()
 ```
 

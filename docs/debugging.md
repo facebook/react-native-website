@@ -48,7 +48,7 @@ As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
 
 YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
 
-```javascript
+```jsx
 import {YellowBox} from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ...']);
 ```
@@ -88,7 +88,7 @@ However, there are some disadvantages:
 
 ## React Developer Tools
 
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
 
 ```
 npm install -g react-devtools

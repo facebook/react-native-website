@@ -16,7 +16,7 @@ The event subscriptions are called in reverse order (i.e. last registered subscr
 
 Example:
 
-```javascript
+```jsx
 BackHandler.addEventListener('hardwareBackPress', function() {
   // this.onMainScreen and this.goBack are just examples, you need to use your own implementation here
   // Typically you would use the navigator here to go to the last state.
@@ -43,7 +43,7 @@ BackHandler.addEventListener('hardwareBackPress', function() {
 
 ### `exitApp()`
 
-```javascript
+```jsx
 BackHandler.exitApp();
 ```
 
@@ -51,7 +51,7 @@ BackHandler.exitApp();
 
 ### `addEventListener()`
 
-```javascript
+```jsx
 BackHandler.addEventListener(eventName, handler);
 ```
 
@@ -59,6 +59,6 @@ BackHandler.addEventListener(eventName, handler);
 
 ### `removeEventListener()`
 
-```javascript
+```jsx
 BackHandler.removeEventListener(eventName, handler);
 ```

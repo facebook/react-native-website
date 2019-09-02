@@ -22,7 +22,7 @@ original_id: statusbarios
 
 ### `setStyle()`
 
-```javascript
+```jsx
 static setStyle(style, animated?)
 ```
 
@@ -30,7 +30,7 @@ static setStyle(style, animated?)
 
 ### `setHidden()`
 
-```javascript
+```jsx
 static setHidden(hidden, animation)
 ```
 

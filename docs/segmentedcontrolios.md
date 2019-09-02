@@ -3,6 +3,8 @@ id: segmentedcontrolios
 title: SegmentedControlIOS
 ---
 
+> **Deprecated.** Use [@react-native-community/react-native-segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
+
 Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 #### Programmatically changing selected index
@@ -11,7 +13,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ## Example
 
-```javascript
+```jsx
 <SegmentedControlIOS
   values={['One', 'Two']}
   selectedIndex={this.state.selectedIndex}

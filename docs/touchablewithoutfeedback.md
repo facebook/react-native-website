@@ -9,7 +9,7 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 ### Usage Example
 
-```javascript
+```jsx
 function MyComponent(props) {
   return (
     <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
@@ -25,12 +25,12 @@ function MyComponent(props) {
 
 ### Props
 
-- [`accessibilityIgnoresInvertColors`](touchablewithoutfeedback.md#accessibilityIgnoresInvertColors)
+- [`accessibilityIgnoresInvertColors`](touchablewithoutfeedback.md#accessibilityignoresinvertcolors)
 - [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
 - [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
 - [`accessibilityRole`](view.md#accessibilityrole)
 - [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityState`](touchablewithoutfeedback.md#accessibilityState)
+- [`accessibilityState`](touchablewithoutfeedback.md#accessibilitystate)
 - [`accessible`](touchablewithoutfeedback.md#accessible)
 - [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
 - [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
@@ -45,9 +45,9 @@ function MyComponent(props) {
 - [`onPressIn`](touchablewithoutfeedback.md#onpressin)
 - [`onPressOut`](touchablewithoutfeedback.md#onpressout)
 - [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
-- [`nativeID`](touchablewithoutfeedback.md#nativeID)
+- [`nativeID`](touchablewithoutfeedback.md#nativeid)
 - [`testID`](touchablewithoutfeedback.md#testid)
-- [`touchSoundDisabled`](touchablewithoutfeedback.md#touchSoundDisabled)
+- [`touchSoundDisabled`](touchablewithoutfeedback.md#touchsounddisabled)
 
 ### Type Definitions
 
@@ -61,9 +61,9 @@ function MyComponent(props) {
 
 ### `accessibilityIgnoresInvertColors`
 
-| Type       | Required |
-| -----------| -------- |
-| Boolean    | No       |
+| Type    | Required |
+| ------- | -------- |
+| Boolean | No       |
 
 ---
 
@@ -105,9 +105,9 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityState`
 
-| Type       | Required |
-| ---------- | -------- |
-| Object     | No       |
+| Type   | Required |
+| ------ | -------- |
+| Object | No       |
 
 ---
 

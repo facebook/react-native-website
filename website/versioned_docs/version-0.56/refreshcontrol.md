@@ -8,7 +8,7 @@ This component is used inside a ScrollView or ListView to add pull to refresh fu
 
 ### Usage example
 
-```javascript
+```jsx
 class RefreshableList extends Component {
   constructor(props) {
     super(props);

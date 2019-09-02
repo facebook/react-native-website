@@ -10,7 +10,7 @@ A component used to select a single value from a range of values.
 
 The example below shows how to use `Slider` to change a value used by `Text`. The value is stored using the state of the root component (`App`). The same component subscribes to the `onValueChange` of `Slider` and changes the value using `setState`.
 
-```javascript
+```jsx
 import React from 'react';
 import {StyleSheet, Text, View, Slider} from 'react-native';
 

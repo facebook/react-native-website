@@ -103,7 +103,7 @@ To see it in action, try the [PanResponder example in UIExplorer](https://github
 
 ### `create()`
 
-```javascript
+```jsx
 static create(config)
 ```
 

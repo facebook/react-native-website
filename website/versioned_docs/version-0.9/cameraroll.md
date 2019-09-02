@@ -19,7 +19,7 @@ original_id: cameraroll
 
 ### `saveImageWithTag()`
 
-```javascript
+```jsx
 static saveImageWithTag(tag, successCallback, errorCallback)
 ```
 
@@ -39,7 +39,7 @@ On iOS, the tag can be one of the following:
 
 ### `getPhotos()`
 
-```javascript
+```jsx
 static getPhotos(params, callback, errorCallback)
 ```
 

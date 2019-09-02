@@ -8,7 +8,7 @@ A foundational component for inputting text into the app via a keyboard. Props p
 
 The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, TextInput } from 'react-native';
 
@@ -35,7 +35,7 @@ AppRegistry.registerComponent('AwesomeProject', () => UselessTextInput);
 
 Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View, TextInput } from 'react-native';
 
@@ -610,7 +610,7 @@ Some functionality that can be performed with this instance is:
 
 ### `isFocused()`
 
-```javascript
+```jsx
 isFocused():
 ```
 
@@ -620,7 +620,7 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 ### `clear()`
 
-```javascript
+```jsx
 clear();
 ```
 

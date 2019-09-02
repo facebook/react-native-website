@@ -51,7 +51,7 @@ InteractionManager.clearInteractionHandle(handle);
 
 ### `runAfterInteractions()`
 
-```javascript
+```jsx
 static runAfterInteractions(callback)
 ```
 
@@ -61,7 +61,7 @@ Schedule a function to run after all interactions have completed.
 
 ### `createInteractionHandle()`
 
-```javascript
+```jsx
 static createInteractionHandle()
 ```
 
@@ -71,7 +71,7 @@ Notify manager that an interaction has started.
 
 ### `clearInteractionHandle()`
 
-```javascript
+```jsx
 static clearInteractionHandle(handle)
 ```
 

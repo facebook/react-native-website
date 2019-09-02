@@ -8,7 +8,7 @@ It is a component to solve the common problem of views that need to move out of 
 
 Example usage:
 
-```javascript
+```jsx
 import {KeyboardAvoidingView} from 'react-native';
 
 <KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
