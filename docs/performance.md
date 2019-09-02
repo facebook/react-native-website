@@ -346,7 +346,7 @@ project.ext.react = [
 ]
 ```
 
-> ***Note***: If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you do not need RAM bundles. When loading the bytecode, `mmap` ensures that the entire file is not loaded. 
+> **_Note_**: If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you do not need RAM bundles. When loading the bytecode, `mmap` ensures that the entire file is not loaded.
 
 ### Configure Preloading and Inline Requires
 

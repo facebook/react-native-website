@@ -3,8 +3,7 @@ id: typescript
 title: Using TypeScript with React Native
 ---
 
-[TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. 
-While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
+[TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 
 ## Getting Started with TypeScript
 
@@ -37,7 +36,6 @@ yarn add typescript @types/jest @types/react @types/react-native @types/react-te
 # or for npm
 npm install --save-dev @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
-
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
 
@@ -79,8 +77,7 @@ module.exports = {
 
 ## How TypeScript and React Native works
 
-Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats]
-to using Babel instead of TypeScript.
+Out of the box, transforming your files to JavaScript works via the same [Babel infrastructure][babel] as a non-TypeScript React Native project. We recommend that you use the TypeScript compiler only for type checking. If you have existing TypeScript code being ported to React Native, there are [one or two caveats][babel-7-caveats] to using Babel instead of TypeScript.
 
 ## What does React Native + TypeScript look like
 
