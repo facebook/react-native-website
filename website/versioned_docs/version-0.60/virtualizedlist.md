@@ -30,11 +30,11 @@ Some caveats:
 - [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
 - [`listKey`](virtualizedlist.md#listKey)
 - [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
-- [`ListItemComponent`](virtualizedlist.md#ListItemComponent)
+- [`ListItemComponent`](virtualizedlist.md#listitemcomponent)
 - [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
-- [`ListFooterComponentStyle`](virtualizedlist.md#ListFooterComponentStyle)
+- [`ListFooterComponentStyle`](virtualizedlist.md#listfootercomponentstyle)
 - [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
-- [`ListHeaderComponentStyle`](virtualizedlist.md#ListHeaderComponentStyle)
+- [`ListHeaderComponentStyle`](virtualizedlist.md#listheadercomponentstyle)
 - [`onEndReached`](virtualizedlist.md#onendreached)
 - [`onLayout`](virtualizedlist.md#onlayout)
 - [`onRefresh`](virtualizedlist.md#onrefresh)
@@ -55,7 +55,7 @@ Some caveats:
 - [`windowSize`](virtualizedlist.md#windowsize)
 - [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
 - [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
-- [`persistentScrollbar`](virtualizedlist.md#persistentScrollbar)
+- [`persistentScrollbar`](virtualizedlist.md#persistentscrollbar)
 
 ### Methods
 

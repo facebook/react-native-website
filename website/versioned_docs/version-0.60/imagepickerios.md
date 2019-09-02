@@ -4,6 +4,8 @@ title: ImagePickerIOS
 original_id: imagepickerios
 ---
 
+> **Deprecated.** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
+
 ### Methods
 
 - [`canRecordVideos`](imagepickerios.md#canrecordvideos)

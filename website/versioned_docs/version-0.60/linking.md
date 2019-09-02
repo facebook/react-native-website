@@ -128,7 +128,7 @@ Linking.canOpenURL(url)
 - [`canOpenURL`](linking.md#canopenurl)
 - [`openSettings`](linking.md#opensettings)
 - [`getInitialURL`](linking.md#getinitialurl)
-- [`sendIntent`](linking.md#sendIntent)
+- [`sendIntent`](linking.md#sendintent)
 
 ---
 

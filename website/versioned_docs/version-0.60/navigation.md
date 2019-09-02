@@ -28,12 +28,6 @@ yarn add react-native-gesture-handler
 # npm install --save react-native-gesture-handler
 ```
 
-Now we need to link our react-native to react-native-gesture-handler
-
-```
-react-native link react-native-gesture-handler
-```
-
 Then you can quickly create an app with a home screen and a profile screen:
 
 ```jsx
