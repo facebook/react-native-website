@@ -12,7 +12,7 @@ Let's do this thing.
 In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
 
 ```SnackPlayer name=Hello%20World
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 
 function HelloWorldApp() {
@@ -79,7 +79,7 @@ function Greeting(props) {
   );
 }
 
-function LotsOfGreetings() {
+export default function LotsOfGreetings() {
   return (
     <View style={[styles.center, {top: 50}]}>
       <Greeting name='Rexxar' />
@@ -115,7 +115,7 @@ As shown in the image, there is no difference in handling the `state` between [R
 
 In the following example we will show the same above counter example using classes.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Hello%20Classes
 import React, { Component } from 'react'
 import {
   AppRegistry,
