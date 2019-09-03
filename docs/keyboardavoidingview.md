@@ -5,14 +5,40 @@ title: KeyboardAvoidingView
 
 It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its height, position, or bottom padding based on the position of the keyboard.
 
-Example usage:
+### Example:
 
-```jsx
-import {KeyboardAvoidingView} from 'react-native';
+```SnackPlayer name=keyboardavoidingview
+import React from 'react';
+import { StyleSheet, KeyboardAvoidingView, TextInput } from 'react-native';
 
-<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-  ... your UI ...
-</KeyboardAvoidingView>;
+export default function App() {
+  const [value, onChangeText] = React.useState('');
+
+  return (
+    <KeyboardAvoidingView enabled behavior="padding" style={styles.container}>
+      <TextInput
+        style={styles.textInput}
+        value={value}
+        placeholder="TextInput Placeholder"
+        onChangeText={text => onChangeText(text)}
+      />
+    </KeyboardAvoidingView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textInput: {
+    padding: 10,
+    borderWidth: StyleSheet.hairlineWidth,
+    borderColor: 'black',
+    borderRadius: 10,
+  },
+});
 ```
 
 ### Example

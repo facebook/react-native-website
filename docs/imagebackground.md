@@ -11,12 +11,36 @@ Note that you must specify some width and height style attributes.
 
 ## Example
 
-```jsx
-return (
-  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
-    <Text>Inside</Text>
-  </ImageBackground>
-);
+```SnackPlayer name=imagebackground
+import React from 'react';
+import { View, StyleSheet, Text, ImageBackground } from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <ImageBackground
+        style={styles.backgroundContainer}
+        source={{
+          uri: 'https://facebook.github.io/react-native/img/opengraph.png',
+        }}
+      >
+        <Text>React-native</Text>
+      </ImageBackground>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  backgroundContainer: {
+    width: 200,
+    height: 200,
+  },
+});
 ```
 
 ### Props
