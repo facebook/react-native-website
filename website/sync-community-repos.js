@@ -10,9 +10,10 @@ const fetch = require('node-fetch');
 const fs = require('fs-extra');
 
 async function graphqlQuery(after = null) {
-  const repoArgs = `privacy: PUBLIC, isFork: false, first: 20 ${
-    after ? `after: ${after}` : ''
+  const repoArgs = `privacy: PUBLIC, isFork: false, first: 20${
+    after ? `, after: "${after}"` : ''
   }`;
+
   const query = {
     query: `{
       organization(login: "react-native-community") {
@@ -80,6 +81,10 @@ async function collectRepos() {
   do {
     const json = await graphqlQuery(endCursor);
 
+    if (json.errors) {
+      break;
+    }
+
     const {repositories} = json.data.organization;
     repos.push(...repositories.nodes);
 
@@ -93,35 +98,51 @@ async function collectRepos() {
 async function parseRepos(repos) {
   const filteredRepos = repos.filter(repo => !repo.isArchived);
 
-  const parsedRepos = filteredRepos.map(repo => {
-    let hasCommunityEslint = false;
-    if (repo.packagejson && repo.packagejson.text) {
-      const packagejson = JSON.parse(repo.packagejson.text);
-
-      hasCommunityEslint = !!(
-        packagejson.devDependencies &&
-        packagejson.devDependencies['@react-native-community/eslint-config']
+  const parsedRepos = filteredRepos
+    .filter(repo => repo.packagejson && repo.packagejson.text)
+    .map(repo => {
+      return {
+        ...repo,
+        packagejson: JSON.parse(repo.packagejson.text),
+      };
+    })
+    .filter(
+      repo => repo.packagejson['rn-docs'] && repo.packagejson['rn-docs'].type
+    )
+    .map(repo => {
+      const hasCommunityEslint = !!(
+        repo.packagejson.devDependencies &&
+        repo.packagejson.devDependencies[
+          '@react-native-community/eslint-config'
+        ]
       );
-    }
 
-    const usesMitLicense = !!(
-      repo.licenseInfo && repo.licenseInfo.key === 'mit'
-    );
+      const usesMitLicense = !!(
+        repo.licenseInfo && repo.licenseInfo.key === 'mit'
+      );
 
-    return {
-      name: repo.name,
-      url: repo.url,
-      description: repo.description,
-      stars: repo.stargazers.totalCount,
-      topics: repo.repositoryTopics.nodes.map(topic => topic.topic.name),
-      openIssues: repo.issues.totalCount,
-      openPullRequests: repo.pullRequests.totalCount,
-      features: {
-        communityEslint: hasCommunityEslint,
-        mitLicense: usesMitLicense,
-      },
-    };
-  });
+      const id = repo.packagejson['rn-docs'].title
+        .toLowerCase()
+        .split(' ')
+        .join('_');
+
+      return {
+        id,
+        name: repo.name,
+        type: repo.packagejson['rn-docs'].type,
+        title: repo.packagejson['rn-docs'].title,
+        url: repo.url,
+        description: repo.description,
+        stars: repo.stargazers.totalCount,
+        topics: repo.repositoryTopics.nodes.map(topic => topic.topic.name),
+        openIssues: repo.issues.totalCount,
+        openPullRequests: repo.pullRequests.totalCount,
+        features: {
+          communityEslint: hasCommunityEslint,
+          mitLicense: usesMitLicense,
+        },
+      };
+    });
 
   parsedRepos.sort((a, b) => a.name.localeCompare(b.name));
 
@@ -136,12 +157,49 @@ async function syncCommunityRepos() {
     process.exit(1);
   }
 
-  const collectedRepos = await collectRepos();
-  const parsedRepos = await parseRepos(collectedRepos);
-  fs.writeFileSync(
-    './community-repos.json',
-    JSON.stringify(parsedRepos, null, 2)
-  );
+  try {
+    const collectedRepos = await collectRepos();
+    const parsedRepos = await parseRepos(collectedRepos);
+    parsedRepos.forEach(repo => {
+      fs.writeFileSync(
+        `../docs/${repo.id}.md`,
+        `---
+id: ${repo.id}
+title: ${repo.title}
+---
+
+This ${
+          repo.type
+        } is part of the React Native Community organisation on Github. Specific documentation about the component can be found [here](${
+          repo.url
+        })
+${repo.url}
+      `
+      );
+    });
+
+    const sidebars = JSON.parse(fs.readFileSync('./sidebars.json'));
+
+    const apis = parsedRepos.filter(repo => repo.type === 'API');
+    const existingArray = sidebars.api.APIs;
+    apis.forEach(api => {
+      existingArray.push(api.id);
+    });
+    const uniqueIds = Array.from(new Set(existingArray));
+    uniqueIds.sort();
+    sidebars.api.APIs = uniqueIds;
+    const components = parsedRepos.filter(repo => repo.type === 'Component');
+    const existingComponentsArray = sidebars.api.Components;
+    components.forEach(api => {
+      existingComponentsArray.push(api.id);
+    });
+    const uniqueComponentIds = Array.from(new Set(existingComponentsArray));
+    uniqueComponentIds.sort();
+    sidebars.api.Components = uniqueComponentIds;
+    fs.writeFileSync('./sidebars.json', JSON.stringify(sidebars));
+  } catch (e) {
+    console.error({e});
+  }
 }
 
 syncCommunityRepos();
