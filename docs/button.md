@@ -23,22 +23,6 @@ import { Button } from 'react-native';
 />
 ```
 
-### Props
-
-- [`accessibilityLabel`](button.md#accessibilitylabel)
-- [`color`](button.md#color)
-- [`disabled`](button.md#disabled)
-- [`hasTVPreferredFocus`](button.md#hastvpreferredfocus)
-- [`nextFocusDown`](button.md#nextfocusdown)
-- [`nextFocusForward`](button.md#nextfocusForward)
-- [`nextFocusLeft`](button.md#nextfocusleft)
-- [`nextFocusRight`](button.md#nextfocusright)
-- [`nextFocusUp`](button.md#nextfocusleft)
-- [`onPress`](button.md#onpress)
-- [`testID`](button.md#testid)
-- [`title`](button.md#title)
-- [`touchSoundDisabled`](button.md#touchSoundDisabled)
-
 ---
 
 # Reference

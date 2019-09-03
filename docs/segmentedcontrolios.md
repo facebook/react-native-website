@@ -5,7 +5,7 @@ title: SegmentedControlIOS
 
 > **Deprecated.** Use [@react-native-community/react-native-segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
 
-Use `SegmentedControlIOS` to render a UISegmentedControl iOS.
+Uses `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 #### Programmatically changing selected index
 
@@ -25,23 +25,13 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 <center><img src="/react-native/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`enabled`](segmentedcontrolios.md#enabled)
-* [`momentary`](segmentedcontrolios.md#momentary)
-* [`onChange`](segmentedcontrolios.md#onchange)
-* [`onValueChange`](segmentedcontrolios.md#onvaluechange)
-* [`selectedIndex`](segmentedcontrolios.md#selectedindex)
-* [`tintColor`](segmentedcontrolios.md#tintcolor)
-* [`values`](segmentedcontrolios.md#values)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `enabled`
 
