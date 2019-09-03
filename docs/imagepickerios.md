@@ -5,13 +5,6 @@ title: ImagePickerIOS
 
 > **Deprecated.** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
 
-### Methods
-
-- [`canRecordVideos`](imagepickerios.md#canrecordvideos)
-- [`canUseCamera`](imagepickerios.md#canusecamera)
-- [`openCameraDialog`](imagepickerios.md#opencameradialog)
-- [`openSelectDialog`](imagepickerios.md#openselectdialog)
-
 ---
 
 # Reference
