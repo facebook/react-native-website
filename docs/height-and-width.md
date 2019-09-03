@@ -52,7 +52,6 @@ export default class FlexDimensionsBasics extends Component {
     );
   }
 }
-```
 
-After you can control a component's size, the next step is to [learn how to lay it out on the screen](flexbox.md).
+//After you can control a component's size, the next step is to [learn how to lay it out on the screen](flexbox.md).
 ````
