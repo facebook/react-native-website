@@ -28,32 +28,13 @@ render: function() {
 },
 ```
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
-* [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
-* [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
-* [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
-* [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
-* [`drawerLockMode`](drawerlayoutandroid.md#drawerlockmode)
-* [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
-* [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
-* [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
-* [`drawerBackgroundColor`](drawerlayoutandroid.md#drawerbackgroundcolor)
-* [`statusBarBackgroundColor`](drawerlayoutandroid.md#statusbarbackgroundcolor)
-
-### Methods
-
-- [`openDrawer`](drawerlayoutandroid.md#opendrawer)
-- [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `renderNavigationView`
 

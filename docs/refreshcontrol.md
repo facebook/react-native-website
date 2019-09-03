@@ -44,26 +44,13 @@ class RefreshableList extends Component {
 
 **Note:** `refreshing` is a controlled prop, this is why it needs to be set to true in the `onRefresh` function otherwise the refresh indicator will stop immediately.
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`refreshing`](refreshcontrol.md#refreshing)
-* [`onRefresh`](refreshcontrol.md#onrefresh)
-* [`colors`](refreshcontrol.md#colors)
-* [`enabled`](refreshcontrol.md#enabled)
-* [`progressBackgroundColor`](refreshcontrol.md#progressbackgroundcolor)
-* [`progressViewOffset`](refreshcontrol.md#progressviewoffset)
-* [`size`](refreshcontrol.md#size)
-* [`tintColor`](refreshcontrol.md#tintcolor)
-* [`title`](refreshcontrol.md#title)
-* [`titleColor`](refreshcontrol.md#titlecolor)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `refreshing`
 

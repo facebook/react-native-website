@@ -50,20 +50,6 @@ class AnimatedCollapsible extends React.Component {
 }
 ```
 
-### Methods
-
-- [`configureNext`](layoutanimation.md#configurenext)
-- [`create`](layoutanimation.md#create)
-
-### Properties
-
-- [`Types`](layoutanimation.md#types)
-- [`Properties`](layoutanimation.md#properties)
-- [`Presets`](layoutanimation.md#presets)
-- [`easeInEaseOut`](layoutanimation.md#easeineaseout)
-- [`linear`](layoutanimation.md#linear)
-- [`spring`](layoutanimation.md#spring)
-
 ---
 
 # Reference

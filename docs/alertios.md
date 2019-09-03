@@ -23,17 +23,6 @@ AlertIOS.prompt('Enter a value', null, (text) =>
 
 We recommend using the [`Alert.alert`](alert.md) method for cross-platform support if you don't need to create iOS-only prompts.
 
-### Methods
-
-- [`alert`](alertios.md#alert)
-- [`prompt`](alertios.md#prompt)
-
-### Type Definitions
-
-- [`AlertType`](alertios.md#alerttype)
-- [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
-- [`ButtonsArray`](alertios.md#buttonsarray)
-
 ---
 
 # Reference

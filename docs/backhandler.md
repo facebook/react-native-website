@@ -60,12 +60,6 @@ Lifecycle alternative:
   }
 ```
 
-### Methods
-
-- [`addEventListener`](backhandler.md#addeventlistener)
-- [`exitApp`](backhandler.md#exitapp)
-- [`removeEventListener`](backhandler.md#removeeventlistener)
-
 ---
 
 # Reference
