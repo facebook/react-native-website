@@ -32,8 +32,6 @@ const styles = StyleSheet.create({
 
 ```
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
-
 ### Props
 
 - [View props...](view.md#props)
