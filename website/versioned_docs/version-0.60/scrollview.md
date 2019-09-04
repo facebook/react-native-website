@@ -719,23 +719,17 @@ Displays the scroll indicators momentarily.
 
 ```jsx
 scrollTo(
-  ([y]: number),
-  object,
-  ([x]: number),
-  ([animated]: boolean),
-  ([duration]: number),
+  options?: {x?: number, y?: number, animated?: boolean} | number,
+  deprecatedX?: number,
+	deprecatedAnimated?: boolean,
 );
 ```
 
-Scrolls to a given x, y offset, either immediately, with a smooth animation, or, for Android only, a custom animation duration time.
+Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
 Example:
 
 `scrollTo({x: 0, y: 0, animated: true})`
-
-Example with duration (Android only):
-
-`scrollTo({x: 0, y: 0, duration: 500})`
 
 Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 

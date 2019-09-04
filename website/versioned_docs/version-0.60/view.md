@@ -328,7 +328,7 @@ Controls whether the `View` can be the target of touch events.
      pointer-events: none;
 }
 .box-none * {
-     pointer-events: all;
+     pointer-events: auto;
 }
 ```
 
@@ -336,7 +336,7 @@ Controls whether the `View` can be the target of touch events.
 
 ```
 .box-only {
-     pointer-events: all;
+     pointer-events: auto;
 }
 .box-only * {
      pointer-events: none;
