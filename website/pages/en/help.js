@@ -86,6 +86,9 @@ class Help extends React.Component {
             React meetups as well. React Native has been covered often in past
             React Conf talks. Videos for these talks can be found online in the
             following playlists:{' '}
+            <a href="https://www.youtube.com/watch?v=WXYPpY_mElQ">
+              React Conf 2018
+            </a>
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
               React Conf 2017
             </a>
@@ -100,7 +103,7 @@ class Help extends React.Component {
             </a>
             {'. '}
             The next <a href="https://conf.reactjs.org/">React Conf</a> will
-            take place October 25 and 26 in Henderson, Nevada. You can also find
+            take place October 24 and 25 in Henderson, Nevada. You can also find
             a list of dedicated React Native conferences{' '}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {'.'}
