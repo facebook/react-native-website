@@ -170,53 +170,56 @@ id: ${repo.id}
 title: ${repo.title}
 ---
 
-> ${repo.description}
+${repo.description}
 
 
-This ${
+> This ${
           repo.type
-        } is part of the React Native Community organisation on Github. Specific documentation about the component can be found [here](${
+        } is not a part of React Native Core but maintained by the React Native Community. You can learn more at its [repo](${
           repo.url
         }).
 
+Package: \`\`\`${repo.packageName}\`\`\`
 
+Github repository: [${repo.url}](${repo.url})
 
-
-![Github stars](https://img.shields.io/github/stars/react-native-community/${
+<div class="docs_badges">
+<img src="https://img.shields.io/github/stars/react-native-community/${
           repo.name
-        }?style=social)
-
-![Open PR's](https://img.shields.io/github/issues-pr-raw/react-native-community/${
+        }?style=social" />
+<img src="https://img.shields.io/github/issues-pr-raw/react-native-community/${
           repo.name
-        })
-
-![Open issues](https://img.shields.io/github/issues-raw/react-native-community/${
+        }" />
+<img src="https://img.shields.io/github/issues-raw/react-native-community/${
           repo.name
-        })
-
-![NPM version](https://img.shields.io/npm/v/${repo.packageName})
+        }" />
+<img src="https://img.shields.io/npm/v/${repo.packageName}" />
+</div>
 `
       );
     });
 
     const sidebars = JSON.parse(fs.readFileSync('./sidebars.json'));
 
-    const apis = parsedRepos.filter(repo => repo.type === 'API');
-    const existingArray = sidebars.api.APIs;
-    apis.forEach(api => {
-      existingArray.push(api.id);
-    });
-    const uniqueIds = Array.from(new Set(existingArray));
-    uniqueIds.sort();
-    sidebars.api.APIs = uniqueIds;
+    const sidebarApi = {};
+    sidebarApi.Components = sidebars.api.Components;
+
     const components = parsedRepos.filter(repo => repo.type === 'Component');
-    const existingComponentsArray = sidebars.api.Components;
-    components.forEach(api => {
-      existingComponentsArray.push(api.id);
-    });
+    const existingComponentsArray = components.map(component => component.id);
     const uniqueComponentIds = Array.from(new Set(existingComponentsArray));
     uniqueComponentIds.sort();
-    sidebars.api.Components = uniqueComponentIds;
+    sidebarApi['Community Components'] = uniqueComponentIds;
+
+    sidebarApi.APIs = sidebars.api.APIs;
+
+    const apis = parsedRepos.filter(repo => repo.type === 'API');
+    const existingArray = apis.map(api => api.id);
+    const uniqueIds = Array.from(new Set(existingArray));
+    uniqueIds.sort();
+    sidebarApi['Community APIs'] = uniqueIds;
+
+    sidebars.api = sidebarApi;
+
     fs.writeFileSync(
       './sidebars.json',
       JSON.stringify(sidebars, null, 2) + '\n'
