@@ -86,29 +86,13 @@ const styles = StyleSheet.create({
 })
 ```
 
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`style`](touchableopacity.md#style)
-* [`activeOpacity`](touchableopacity.md#activeopacity)
-* [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
-* [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchableopacity.md#nextFocusDown)
-* [`nextFocusForward`](touchableopacity.md#nextFocusForward)
-* [`nextFocusLeft`](touchableopacity.md#nextFocusLeft)
-* [`nextFocusRight`](touchableopacity.md#nextFocusRight)
-* [`nextFocusUp`](touchableopacity.md#nextFocusUp)
-
-### Methods
-
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `style`
 

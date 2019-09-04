@@ -45,13 +45,6 @@ class Example extends Component {
 }
 ```
 
-### Methods
-
-- [`addListener`](keyboard.md#addlistener)
-- [`removeListener`](keyboard.md#removelistener)
-- [`removeAllListeners`](keyboard.md#removealllisteners)
-- [`dismiss`](keyboard.md#dismiss)
-
 ---
 
 # Reference

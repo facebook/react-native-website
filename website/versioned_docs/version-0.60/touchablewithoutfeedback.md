@@ -24,36 +24,6 @@ function MyComponent(props) {
 </TouchableWithoutFeedback>;
 ```
 
-### Props
-
-- [`accessibilityIgnoresInvertColors`](touchablewithoutfeedback.md#accessibilityignoresinvertcolors)
-- [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
-- [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
-- [`accessibilityRole`](view.md#accessibilityrole)
-- [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityState`](touchablewithoutfeedback.md#accessibilitystate)
-- [`accessible`](touchablewithoutfeedback.md#accessible)
-- [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-- [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-- [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-- [`disabled`](touchablewithoutfeedback.md#disabled)
-- [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-- [`onBlur`](touchablewithoutfeedback.md#onblur)
-- [`onFocus`](touchablewithoutfeedback.md#onfocus)
-- [`onLayout`](touchablewithoutfeedback.md#onlayout)
-- [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-- [`onPress`](touchablewithoutfeedback.md#onpress)
-- [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-- [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-- [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
-- [`nativeID`](touchablewithoutfeedback.md#nativeid)
-- [`testID`](touchablewithoutfeedback.md#testid)
-- [`touchSoundDisabled`](touchablewithoutfeedback.md#touchsounddisabled)
-
-### Type Definitions
-
-- [`Event`](touchablewithoutfeedback.md#event)
-
 ---
 
 # Reference

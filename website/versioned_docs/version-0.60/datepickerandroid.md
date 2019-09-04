@@ -25,12 +25,6 @@ try {
 }
 ```
 
-### Methods
-
-- [`open`](datepickerandroid.md#open)
-- [`dateSetAction`](datepickerandroid.md#datesetaction)
-- [`dismissedAction`](datepickerandroid.md#dismissedaction)
-
 ---
 
 # Reference

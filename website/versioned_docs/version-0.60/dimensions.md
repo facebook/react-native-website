@@ -4,15 +4,6 @@ title: Dimensions
 original_id: dimensions
 ---
 
-### Methods
-
-- [`addEventListener`](dimensions.md#addeventlistener)
-- [`get`](dimensions.md#get)
-- [`removeEventListener`](dimensions.md#removeeventlistener)
-- [`set`](dimensions.md#set)
-
----
-
 # Reference
 
 ## Methods

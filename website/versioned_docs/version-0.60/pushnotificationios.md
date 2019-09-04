@@ -33,18 +33,16 @@ Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
   - Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
-    <!-- prettier-ignore-start -->
-
-    ```
-    ...
-    target 'myAwesomeApp' do
-      # Pods for myAwesomeApp
-    ...
-      pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
-    ...
     ```
 
-    <!-- prettier-ignore-end -->
+    ``
+    ..
+    do
+    pp
+    ..
+    S'
+    ...
+    ```
 
 - [Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library:
   - Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
@@ -114,35 +112,6 @@ And then in your AppDelegate implementation add the following:
 ```
 
 Then enable Background Modes/Remote notifications to be able to use remote notifications properly. The easiest way to do this is via the project settings. Navigate to Targets -> Your App -> Capabilities -> Background Modes and check Remote notifications. This will automatically enable the required settings.
-
-### Methods
-
-- [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
-- [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
-- [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
-- [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
-- [`getDeliveredNotifications`](pushnotificationios.md#getdeliverednotifications)
-- [`removeDeliveredNotifications`](pushnotificationios.md#removedeliverednotifications)
-- [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-- [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-- [`cancelLocalNotifications`](pushnotificationios.md#cancellocalnotifications)
-- [`getScheduledLocalNotifications`](pushnotificationios.md#getscheduledlocalnotifications)
-- [`addEventListener`](pushnotificationios.md#addeventlistener)
-- [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-- [`requestPermissions`](pushnotificationios.md#requestpermissions)
-- [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
-- [`checkPermissions`](pushnotificationios.md#checkpermissions)
-- [`getInitialNotification`](pushnotificationios.md#getinitialnotification)
-- [`constructor`](pushnotificationios.md#constructor)
-- [`finish`](pushnotificationios.md#finish)
-- [`getMessage`](pushnotificationios.md#getmessage)
-- [`getSound`](pushnotificationios.md#getsound)
-- [`getCategory`](pushnotificationios.md#getcategory)
-- [`getAlert`](pushnotificationios.md#getalert)
-- [`getContentAvailable`](pushnotificationios.md#getcontentavailable)
-- [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-- [`getData`](pushnotificationios.md#getdata)
-- [`getThreadID`](pushnotificationios.md#getThreadID)
 
 ---
 
