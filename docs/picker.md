@@ -5,16 +5,39 @@ title: Picker
 
 Renders the native picker component on iOS and Android. Example:
 
-```jsx
-<Picker
-  selectedValue={this.state.language}
-  style={{height: 50, width: 100}}
-  onValueChange={(itemValue, itemIndex) =>
-    this.setState({language: itemValue})
-  }>
-  <Picker.Item label="Java" value="java" />
-  <Picker.Item label="JavaScript" value="js" />
-</Picker>
+```SnackPlayer name=Picker
+import React from 'react';
+import { View, StyleSheet, Picker } from 'react-native';
+
+export default function App() {
+  const [selected, setSelected] = React.useState();
+
+  return (
+    <View style={styles.container}>
+      <Picker
+        style={styles.picker}
+        selectedValue={selected}
+        onValueChange={(itemValue, itemIndex) => setSelected(itemValue)}
+      >
+        <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" />
+        <Picker.Item label="Objective C" value="obj-c" />
+      </Picker>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  picker: {
+    width: 200,
+    height: 300,
+  },
+});
 ```
 
 ---
