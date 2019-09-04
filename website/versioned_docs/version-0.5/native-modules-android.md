@@ -45,7 +45,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
-  public ToastModule(ReactApplicationContext reactContext) {
+  ToastModule(ReactApplicationContext reactContext) {
     super(reactContext);
   }
 }
@@ -148,9 +148,12 @@ import com.your-app-name.CustomToastPackage; // <-- Add this line with your pack
 ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- Add this line with your package name.
+  return packages;
 }
 ```
 
@@ -179,7 +182,7 @@ import ToastExample from './ToastExample';
 ToastExample.show('Awesome', ToastExample.SHORT);
 ```
 
-Please make sure this JavasScript file to be the same hierarchy as `ToastExample.js`.
+Please make sure this JavaScript is in the same hierarchy as `ToastExample.js`.
 
 ## Beyond Toasts
 
@@ -236,7 +239,7 @@ It is very important to highlight that the callback is not invoked immediately a
 
 ### Promises
 
-Native modules can also fulfill a promise, which can simplify your code, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
+Native modules can also fulfill a promise, which can simplify your JavaScript, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
 
 Refactoring the above code to use a promise instead of callbacks looks like this:
 
@@ -299,6 +302,8 @@ Native modules should not have any assumptions about what thread they are being 
 Native modules can signal events to JavaScript without being invoked directly. The easiest way to do this is to use the `RCTDeviceEventEmitter` which can be obtained from the `ReactContext` as in the code snippet below.
 
 ```java
+...
+import com.facebook.react.modules.core.DeviceEventManagerModule;
 ...
 private void sendEvent(ReactContext reactContext,
                        String eventName,
@@ -411,7 +416,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
     }
   };
 
-  public ImagePickerModule(ReactApplicationContext reactContext) {
+  ImagePickerModule(ReactApplicationContext reactContext) {
     super(reactContext);
 
     // Add the listener for `onActivityResult`

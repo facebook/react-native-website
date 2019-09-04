@@ -106,10 +106,6 @@ Many of the following components provide wrappers for commonly used UIKit classe
     <p>Renders a image picker on iOS.</p>
   </div>
   <div class="component">
-    <h3><a href="./navigatorios">NavigatorIOS</a></h3>
-    <p>A wrapper around <code>UINavigationController</code>, enabling you to implement a navigation stack.</p>
-  </div>
-  <div class="component">
     <h3><a href="./progressviewios">ProgressViewIOS</a></h3>
     <p>Renders a <code>UIProgressView</a></code> on iOS.</p>
   </div>
@@ -186,10 +182,6 @@ These components may come in handy for certain applications. For an exhaustive l
   <div class="component">
     <h3><a href="./animated">Animated</a></h3>
     <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
-  </div>
-  <div class="component">
-    <h3><a href="./cameraroll">CameraRoll</a></h3>
-    <p>Provides access to the local camera roll / gallery.</p>
   </div>
   <div class="component">
     <h3><a href="./clipboard">Clipboard</a></h3>
