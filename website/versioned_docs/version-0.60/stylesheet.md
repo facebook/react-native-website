@@ -38,19 +38,6 @@ Code quality:
 - By moving styles away from the render function, you're making the code easier to understand.
 - Naming the styles is a good way to add meaning to the low level components in the render function.
 
-### Methods
-
-- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
-- [`create`](stylesheet.md#create)
-- [`flatten`](stylesheet.md#flatten)
-- [`compose`](stylesheet.md#compose)
-
-### Properties
-
-- [`hairlineWidth`](stylesheet.md#hairlinewidth)
-- [`absoluteFill`](stylesheet.md#absolutefill)
-- [`absoluteFillObject`](stylesheet.md#absoluteFillObject)
-
 ---
 
 # Reference

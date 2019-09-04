@@ -98,56 +98,13 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 - In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 - By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
-
-### Props
-
-- [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
-- [`data`](flatlist.md#data)
-- [`extraData`](flatlist.md#extradata)
-- [`getItemLayout`](flatlist.md#getitemlayout)
-- [`horizontal`](flatlist.md#horizontal)
-- [`initialNumToRender`](flatlist.md#initialnumtorender)
-- [`initialScrollIndex`](flatlist.md#initialscrollindex)
-- [`inverted`](flatlist.md#inverted)
-- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-- [`keyExtractor`](flatlist.md#keyextractor)
-- [`legacyImplementation`](flatlist.md#legacyimplementation)
-- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-- [`ListFooterComponent`](flatlist.md#listfootercomponent)
-- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
-- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
-- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
-- [`numColumns`](flatlist.md#numcolumns)
-- [`onEndReached`](flatlist.md#onendreached)
-- [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
-- [`onRefresh`](flatlist.md#onrefresh)
-- [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
-- [`progressViewOffset`](flatlist.md#progressviewoffset)
-- [`refreshing`](flatlist.md#refreshing)
-- [`renderItem`](flatlist.md#renderitem)
-- [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
-- [`ScrollView` props...](scrollview.md#props)
-- [`viewabilityConfig`](flatlist.md#viewabilityconfig)
-- [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
-- [`VirtualizedList` props...](virtualizedlist.md#props)
-
-### Methods
-
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
-- [`getScrollResponder`](flatlist.md#getscrollresponder)
-- [`getScrollableNode`](flatlist.md#getscrollablenode)
-- [`scrollToEnd`](flatlist.md#scrolltoend)
-- [`scrollToIndex`](flatlist.md#scrolltoindex)
-- [`scrollToItem`](flatlist.md#scrolltoitem)
-- [`scrollToOffset`](flatlist.md#scrolltooffset)
-- [`recordInteraction`](flatlist.md#recordinteraction)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
 
 ### `renderItem`
 

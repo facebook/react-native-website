@@ -25,12 +25,6 @@ try {
 }
 ```
 
-### Methods
-
-- [`open`](timepickerandroid.md#open)
-- [`timeSetAction`](timepickerandroid.md#timesetaction)
-- [`dismissedAction`](timepickerandroid.md#dismissedaction)
-
 ---
 
 # Reference

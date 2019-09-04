@@ -20,16 +20,13 @@ Simply wrap your top level view with a `SafeAreaView` with a `flex: 1` style app
 </SafeAreaView>
 ```
 
-### Props
-
-- [View props...](view.md#props)
-- [`emulateUnlessSupported`](safeareaview.md#emulateUnlessSupported)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `emulateUnlessSupported`
 

@@ -6,13 +6,6 @@ original_id: settings
 
 `Settings` serves as a wrapper for [`NSUserDefaults`](https://developer.apple.com/documentation/foundation/nsuserdefaults), a persistent key-value store available only on iOS.
 
-### Methods
-
-- [`clearWatch`](settings.md#clearwatch)
-- [`get`](settings.md#get)
-- [`set`](settings.md#set)
-- [`watchKeys`](settings.md#watchkeys)
-
 ---
 
 # Reference
