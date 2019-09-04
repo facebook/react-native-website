@@ -353,6 +353,9 @@
       "tutorial": {
         "title": "Learn the Basics"
       },
+      "typescript": {
+        "title": "Using TypeScript with React Native"
+      },
       "upgrading": {
         "title": "Upgrading to new React Native versions"
       },
@@ -3179,6 +3182,9 @@
       "version-0.60/version-0.60-alert": {
         "title": "Alert"
       },
+      "version-0.60/version-0.60-alertios": {
+        "title": "AlertIOS"
+      },
       "version-0.60/version-0.60-animated": {
         "title": "Animated"
       },
@@ -3194,17 +3200,29 @@
       "version-0.60/version-0.60-appstate": {
         "title": "AppState"
       },
+      "version-0.60/version-0.60-asyncstorage": {
+        "title": "AsyncStorage"
+      },
       "version-0.60/version-0.60-backhandler": {
         "title": "BackHandler"
       },
       "version-0.60/version-0.60-button": {
         "title": "Button"
       },
+      "version-0.60/version-0.60-clipboard": {
+        "title": "Clipboard"
+      },
       "version-0.60/version-0.60-communication-android": {
+        "title": "Communication between native and React Native"
+      },
+      "version-0.60/version-0.60-communication-ios": {
         "title": "Communication between native and React Native"
       },
       "version-0.60/version-0.60-components-and-apis": {
         "title": "Components and APIs"
+      },
+      "version-0.60/version-0.60-datepickerandroid": {
+        "title": "DatePickerAndroid"
       },
       "version-0.60/version-0.60-datepickerios": {
         "title": "DatePickerIOS"
@@ -3217,6 +3235,9 @@
       },
       "version-0.60/version-0.60-direct-manipulation": {
         "title": "Direct Manipulation"
+      },
+      "version-0.60/version-0.60-drawerlayoutandroid": {
+        "title": "DrawerLayoutAndroid"
       },
       "version-0.60/version-0.60-easing": {
         "title": "Easing"
@@ -3236,17 +3257,38 @@
       "version-0.60/version-0.60-headless-js-android": {
         "title": "Headless JS"
       },
+      "version-0.60/version-0.60-height-and-width": {
+        "title": "Height and Width"
+      },
       "version-0.60/version-0.60-hermes": {
         "title": "Using Hermes"
       },
+      "version-0.60/version-0.60-image-style-props": {
+        "title": "Image Style Props"
+      },
       "version-0.60/version-0.60-image": {
         "title": "Image"
+      },
+      "version-0.60/version-0.60-imagebackground": {
+        "title": "ImageBackground"
+      },
+      "version-0.60/version-0.60-imageeditor": {
+        "title": "ImageEditor"
       },
       "version-0.60/version-0.60-imagepickerios": {
         "title": "ImagePickerIOS"
       },
       "version-0.60/version-0.60-images": {
         "title": "Images"
+      },
+      "version-0.60/version-0.60-inputaccessoryview": {
+        "title": "InputAccessoryView"
+      },
+      "version-0.60/version-0.60-integration-with-existing-apps": {
+        "title": "Integration with Existing Apps"
+      },
+      "version-0.60/version-0.60-interactionmanager": {
+        "title": "InteractionManager"
       },
       "version-0.60/version-0.60-javascript-environment": {
         "title": "JavaScript Environment"
@@ -3278,8 +3320,14 @@
       "version-0.60/version-0.60-native-modules-android": {
         "title": "Native Modules"
       },
+      "version-0.60/version-0.60-native-modules-setup": {
+        "title": "Native Modules Setup"
+      },
       "version-0.60/version-0.60-navigation": {
         "title": "Navigating Between Screens"
+      },
+      "version-0.60/version-0.60-network": {
+        "title": "Networking"
       },
       "version-0.60/version-0.60-optimizing-flatlist-configuration": {
         "title": "Optimizing Flatlist Configuration"
@@ -3293,14 +3341,32 @@
       "version-0.60/version-0.60-performance": {
         "title": "Performance"
       },
+      "version-0.60/version-0.60-permissionsandroid": {
+        "title": "PermissionsAndroid"
+      },
+      "version-0.60/version-0.60-picker": {
+        "title": "Picker"
+      },
       "version-0.60/version-0.60-pickerios": {
         "title": "PickerIOS"
+      },
+      "version-0.60/version-0.60-pixelratio": {
+        "title": "PixelRatio"
       },
       "version-0.60/version-0.60-progressbarandroid": {
         "title": "ProgressBarAndroid"
       },
+      "version-0.60/version-0.60-progressviewios": {
+        "title": "ProgressViewIOS"
+      },
+      "version-0.60/version-0.60-props": {
+        "title": "Props"
+      },
       "version-0.60/version-0.60-pushnotificationios": {
         "title": "PushNotificationIOS"
+      },
+      "version-0.60/version-0.60-refreshcontrol": {
+        "title": "RefreshControl"
       },
       "version-0.60/version-0.60-removing-default-permissions": {
         "title": "Removing Default Permissions"
@@ -3317,8 +3383,17 @@
       "version-0.60/version-0.60-sectionlist": {
         "title": "SectionList"
       },
+      "version-0.60/version-0.60-segmentedcontrolios": {
+        "title": "SegmentedControlIOS"
+      },
       "version-0.60/version-0.60-settings": {
         "title": "Settings"
+      },
+      "version-0.60/version-0.60-shadow-props": {
+        "title": "Shadow Props"
+      },
+      "version-0.60/version-0.60-share": {
+        "title": "Share"
       },
       "version-0.60/version-0.60-signed-apk-android": {
         "title": "Publishing to Google Play Store"
@@ -3331,6 +3406,9 @@
       },
       "version-0.60/version-0.60-statusbar": {
         "title": "StatusBar"
+      },
+      "version-0.60/version-0.60-statusbarios": {
+        "title": "StatusBarIOS"
       },
       "version-0.60/version-0.60-style": {
         "title": "Style"
@@ -3353,8 +3431,14 @@
       "version-0.60/version-0.60-textinput": {
         "title": "TextInput"
       },
+      "version-0.60/version-0.60-timepickerandroid": {
+        "title": "TimePickerAndroid"
+      },
       "version-0.60/version-0.60-timers": {
         "title": "Timers"
+      },
+      "version-0.60/version-0.60-toastandroid": {
+        "title": "ToastAndroid"
       },
       "version-0.60/version-0.60-toolbarandroid": {
         "title": "ToolbarAndroid"
@@ -3377,17 +3461,29 @@
       "version-0.60/version-0.60-troubleshooting": {
         "title": "Troubleshooting"
       },
+      "version-0.60/version-0.60-tutorial": {
+        "title": "Learn the Basics"
+      },
+      "version-0.60/version-0.60-typescript": {
+        "title": "Using TypeScript with React Native"
+      },
       "version-0.60/version-0.60-upgrading": {
         "title": "Upgrading to new React Native versions"
       },
       "version-0.60/version-0.60-using-a-scrollview": {
         "title": "Using a ScrollView"
       },
+      "version-0.60/version-0.60-vibration": {
+        "title": "Vibration"
+      },
       "version-0.60/version-0.60-view-style-props": {
         "title": "View Style Props"
       },
       "version-0.60/version-0.60-view": {
         "title": "View"
+      },
+      "version-0.60/version-0.60-viewpagerandroid": {
+        "title": "ViewPagerAndroid"
       },
       "version-0.60/version-0.60-virtualizedlist": {
         "title": "VirtualizedList"
