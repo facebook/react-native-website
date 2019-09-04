@@ -7,53 +7,43 @@ The Modal component is a simple way to present content above an enclosing view.
 
 > Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
-```jsx
-import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+```SnackPlayer name=Modal
+import React from 'react';
+import { View, Modal, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-class ModalExample extends Component {
-  state = {
-    modalVisible: false,
-  };
+export default function App() {
+  const [open, setOpen] = React.useState(false);
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-  render() {
-    return (
-      <View style={{marginTop: 22}}>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
-              <Text>Hello World!</Text>
-
-              <TouchableHighlight
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        </Modal>
-
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-          }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <Modal animationType="slide" transparent={false} visible={open}>
+        <View style={[styles.container, styles.modal]}>
+          <TouchableOpacity onPress={() => setOpen(false)}>
+            <Text style={styles.pressable}>Hide Modal</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+      <TouchableOpacity onPress={() => setOpen(true)}>
+        <Text style={styles.pressable}>Show Modal</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modal: {
+    backgroundColor: '#ea9eff',
+  },
+  pressable: {
+    fontSize: 32,
+    color: '#4287f5',
+  },
+});
 ```
 
 ---
@@ -76,9 +66,9 @@ The `visible` prop determines whether your modal is visible.
 
 The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
 
-| Type                                                                                                | Required | Platform |
-| --------------------------------------------------------------------------------------------------- | -------- | -------- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No | iOS |
 
 ---
 
@@ -170,9 +160,9 @@ The `presentationStyle` prop controls how the modal appears (generally on larger
 
 Default is set to `overFullScreen` or `fullScreen` depending on `transparent` property.
 
-| Type                                                           | Required | Platform |
-| -------------------------------------------------------------- | -------- | -------- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | No | iOS |
 
 ---
 
