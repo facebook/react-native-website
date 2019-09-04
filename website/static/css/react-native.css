@@ -127,6 +127,11 @@ a code {
   width: 100%;
   display: inline-block;
   background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+.mainContainer .component:hover {
+  transform: scale(1.03);
 }
 
 .mainContainer .component-grid .component h3 {
