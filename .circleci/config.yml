@@ -79,6 +79,7 @@ jobs:
     steps:
       - restore_cache_checkout
       - run_yarn
+      - run: yarn sync-community-repos
       - run: sudo apt install rsync
       - run:
           name: Build and Deploy Static Website
