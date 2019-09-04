@@ -1,7 +1,8 @@
 'use strict';
 
 const hljs = require('highlight.js');
-const escapeHtml = require('remarkable').utils.escapeHtml;
+const {utils} = require('remarkable');
+const {escapeHtml} = utils;
 
 // Remove leading "SnackPlayer", "ReactNativeWebPlayer"
 function cleanParams(params) {
