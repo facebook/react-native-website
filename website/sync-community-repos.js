@@ -131,6 +131,8 @@ async function parseRepos(repos) {
         name: repo.name,
         type: repo.packagejson['rn-docs'].type,
         title: repo.packagejson['rn-docs'].title,
+        description: repo.description,
+        packageName: repo.packagejson.name,
         url: repo.url,
         description: repo.description,
         stars: repo.stargazers.totalCount,
@@ -168,13 +170,32 @@ id: ${repo.id}
 title: ${repo.title}
 ---
 
+> ${repo.description}
+
+
 This ${
           repo.type
         } is part of the React Native Community organisation on Github. Specific documentation about the component can be found [here](${
           repo.url
+        }).
+
+
+
+
+![Github stars](https://img.shields.io/github/stars/react-native-community/${
+          repo.name
+        }?style=social)
+
+![Open PR's](https://img.shields.io/github/issues-pr-raw/react-native-community/${
+          repo.name
         })
-${repo.url}
-      `
+
+![Open issues](https://img.shields.io/github/issues-raw/react-native-community/${
+          repo.name
+        })
+
+![NPM version](https://img.shields.io/npm/v/${repo.packageName})
+`
       );
     });
 
@@ -196,7 +217,10 @@ ${repo.url}
     const uniqueComponentIds = Array.from(new Set(existingComponentsArray));
     uniqueComponentIds.sort();
     sidebars.api.Components = uniqueComponentIds;
-    fs.writeFileSync('./sidebars.json', JSON.stringify(sidebars));
+    fs.writeFileSync(
+      './sidebars.json',
+      JSON.stringify(sidebars, null, 2) + '\n'
+    );
   } catch (e) {
     console.error({e});
   }
