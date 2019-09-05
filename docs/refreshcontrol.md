@@ -135,9 +135,9 @@ Progress view top offset
 
 Size of the refresh indicator, see RefreshControl.SIZE.
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | No | Android |
+| Type                                                                   | Required | Platform |
+| ---------------------------------------------------------------------- | -------- | -------- |
+| enum(RefreshLayoutConsts.SIZE.DEFAULT, RefreshLayoutConsts.SIZE.LARGE) | No       | Android  |
 
 ---
 

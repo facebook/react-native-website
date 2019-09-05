@@ -164,9 +164,9 @@ const styles = StyleSheet.create({
 
 The amount by which the scroll view content is inset from the edges of the scroll view. Defaults to `{top: 0, left: 0, bottom: 0, right: 0}`.
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
+| Type                                                               | Required | Platform |
+| ------------------------------------------------------------------ | -------- | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
 
 ---
 
@@ -322,9 +322,9 @@ Caveat 1: Reordering elements in the scrollview with this enabled will probably 
 
 Caveat 2: This simply uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No | iOS |
+| Type                                                                     | Required | Platform |
+| ------------------------------------------------------------------------ | -------- | -------- |
+| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No       | iOS      |
 
 ---
 
@@ -539,9 +539,9 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`. Defaults to `{0, 0, 0, 0}`.
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
+| Type                                                               | Required | Platform |
+| ------------------------------------------------------------------ | -------- | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
 
 ---
 
