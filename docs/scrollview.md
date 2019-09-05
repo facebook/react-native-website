@@ -19,6 +19,46 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 
 `FlatList` is also handy if you want to render separators between your items, multiple columns, infinite scroll loading, or any number of other features it supports out of the box.
 
+### Example
+
+```SnackPlayer name=ScrollView
+import React from 'react';
+import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  scrollView: {
+    backgroundColor: 'pink',
+    marginHorizontal: 20,
+  },
+  text: {
+    fontSize: 42,
+  },
+});
+```
+
 ---
 
 # Reference
@@ -124,9 +164,9 @@ const styles = StyleSheet.create({
 
 The amount by which the scroll view content is inset from the edges of the scroll view. Defaults to `{top: 0, left: 0, bottom: 0, right: 0}`.
 
-| Type                                                               | Required | Platform |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
 
 ---
 
@@ -282,9 +322,9 @@ Caveat 1: Reordering elements in the scrollview with this enabled will probably 
 
 Caveat 2: This simply uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
 
-| Type                                                                     | Required | Platform |
-| ------------------------------------------------------------------------ | -------- | -------- |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No | iOS |
 
 ---
 
@@ -499,9 +539,9 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`. Defaults to `{0, 0, 0, 0}`.
 
-| Type                                                               | Required | Platform |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
 
 ---
 
