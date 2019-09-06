@@ -691,6 +691,22 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 
 ---
 
+### `textAlign`
+
+Align the input text to the left, center, or right sides of the input field.
+
+Possible values for `textAlign` are:
+
+- `left`
+- `center`
+- `right`
+
+| Type | Required |
+| ---- | -------- |
+| enum('left', 'center', 'right') | No     |
+
+---
+
 ### `textContentType`
 
 Give the keyboard and the system information about the expected semantic meaning for the content that users enter.
