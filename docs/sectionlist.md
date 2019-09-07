@@ -20,34 +20,79 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 Simple Examples:
 
-```jsx
-// Example 1 (Homogeneous Rendering)
-<SectionList
-  renderItem={({item, index, section}) => <Text key={index}>{item}</Text>}
-  renderSectionHeader={({section: {title}}) => (
-    <Text style={{fontWeight: 'bold'}}>{title}</Text>
-  )}
-  sections={[
-    {title: 'Title1', data: ['item1', 'item2']},
-    {title: 'Title2', data: ['item3', 'item4']},
-    {title: 'Title3', data: ['item5', 'item6']},
-  ]}
-  keyExtractor={(item, index) => item + index}
-/>
-```
+### Example
 
-```jsx
-// Example 2 (Heterogeneous Rendering / No Section Headers)
-const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
+```SnackPlayer name=SectionList
+import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList,
+} from 'react-native';
+import Constants from 'expo-constants';
 
-<SectionList
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
-  sections={[
-    { title: 'Title1', data: ['item1', 'item2'], renderItem: overrideRenderItem },
-    { title: 'Title2', data: ['item3', 'item4'] },
-    { title: 'Title3', data: ['item5', 'item6'] },
-  ]}
-/>
+const DATA = [
+  {
+    title: 'Main dishes',
+    data: ['Pizza', 'Burger', 'Risotto'],
+  },
+  {
+    title: 'Sides',
+    data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
+  },
+  {
+    title: 'Drinks',
+    data: ['Water', 'Coke', 'Beer'],
+  },
+  {
+    title: 'Desserts',
+    data: ['Cheese Cake', 'Ice Cream'],
+  },
+];
+
+function Item({ title }) {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <SectionList
+        sections={DATA}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => <Item title={item} />}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.header}>{title}</Text>
+        )}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+  },
+  header: {
+    fontSize: 32,
+  },
+  title: {
+    fontSize: 24,
+  },
+});
 ```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
@@ -403,10 +448,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| Name                     | Type                         | Description                                                                                                                                                            |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
-| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
-| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
+| Name | Type | Description |
+| --- | --- | --- |
+| data | array | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data). |
+| [key] | string | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default. |
+| [renderItem] | function | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list. |
 | [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+| [keyExtractor] | function | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor). |
