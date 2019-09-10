@@ -56,9 +56,9 @@ export default () => {
 }
 ```
 
-Let's break down what's happening here. In the `FadeInView` constructor, a new `Animated.Value` called `fadeAnim` is initialized as part of `state`. The opacity property on the `View` is mapped to this animated value. Behind the scenes, the numeric value is extracted and used to set opacity.
+Let's break down what's happening here. In the `FadeInView` constructor, a new `Animated.Value` called `fadeAdmin` is initialized as part of `state`. The opacity property on the `View` is mapped to this animated value. Behind the scenes, the numeric value is extracted and used to set opacity.
 
-When the component mounts, the opacity is set to 0. Then, an easing animation is started on the `fadeAnim` animated value, which will update all of its dependent mappings (in this case, just the opacity) on each frame as the value animates to the final value of 1.
+When the component mounts, the opacity is set to 0. Then, an easing animation is started on the `fadeAdmin` animated value, which will update all of its dependent mappings (in this case, just the opacity) on each frame as the value animates to the final value of 1.
 
 This is done in an optimized way that is faster than calling `setState` and re-rendering. Because the entire configuration is declarative, we will be able to implement further optimizations that serialize the configuration and runs the animation on a high-priority thread.
 
@@ -145,9 +145,9 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 
 ```jsx
   style={{
-    opacity: this.state.fadeAnim, // Binds directly
+    opacity: this.state.fadeAdmin, // Binds directly
     transform: [{
-      translateY: this.state.fadeAnim.interpolate({
+      translateY: this.state.fadeAdmin.interpolate({
         inputRange: [0, 1],
         outputRange: [150, 0]  // 0 : 150, 0.5 : 75, 1 : 0
       }),
