@@ -59,11 +59,11 @@ So this code is defining `HelloWorldApp`, a new `Component`. When you're buildin
 
 Most components can be customized when they are created, with different parameters. These creation parameters are called props.
 
-Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `this.props` in your function. Here's an example:
+Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `props.{NAME}` in your functional components or `this.props.{NAME}` in your class components. Here's an example:
 
 ```SnackPlayer name=Hello%20Props
 import React from 'react';
-import { AppRegistry, Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   center: {
@@ -79,7 +79,7 @@ function Greeting(props) {
   );
 }
 
-export default function LotsOfGreetings() {
+function LotsOfGreetings() {
   return (
     <View style={[styles.center, {top: 50}]}>
       <Greeting name='Rexxar' />
@@ -89,8 +89,7 @@ export default function LotsOfGreetings() {
   );
 }
 
-// skip this line if using React Native CLI
-AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
+export default LotsOfGreetings;
 ```
 
 Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX, just like the built-in components. The power to do this is what makes React so cool - if you find yourself wishing that you had a different set of UI primitives to work with, you just invent new ones.
@@ -101,7 +100,7 @@ With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](
 
 ## State
 
-There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
+Unlike props [that are read-only](https://reactjs.org/docs/components-and-props.html#props-are-read-only) and should not be modified, the `state` allows React components to change their output over time in response to user actions, network responses and anything else.
 
 #### What's the difference between state and props in React?
 
@@ -118,7 +117,6 @@ In the following example we will show the same above counter example using class
 ```SnackPlayer name=Hello%20Classes
 import React, { Component } from 'react'
 import {
-  AppRegistry,
   StyleSheet,
   TouchableOpacity,
   Text,
@@ -169,6 +167,5 @@ const styles = StyleSheet.create({
   }
 })
 
-AppRegistry.registerComponent('App', () => App)
+export default App;
 ```
-
