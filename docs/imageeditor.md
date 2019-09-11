@@ -3,36 +3,17 @@ id: imageeditor
 title: ImageEditor
 ---
 
-> **Deprecated.** Use [@react-native-community/image-editor](https://github.com/react-native-community/react-native-image-editor) instead.
+null
 
----
+> This API is not a part of React Native Core but maintained by the React Native Community. You can learn more at its [repo](https://github.com/react-native-community/react-native-image-editor).
 
-# Reference
+Package: `@react-native-community/image-editor`
 
-## Methods
+Github repository: [https://github.com/react-native-community/react-native-image-editor](https://github.com/react-native-community/react-native-image-editor)
 
-### `cropImage()`
-
-```jsx
-static cropImage(uri, cropData, success, failure)
-```
-
-Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the `failure` callback will be called.
-
-If the cropping process is successful, the resultant cropped image will be stored in the ImageStore, and the URI returned in the `success` callback will point to the image in the store. Remember to delete the cropped image from the ImageStore when you are done with it.
-
-### cropData
-
-- `offset` - The top-left corner of the cropped image, specified in the original image's coordinate space
-- `size` - Size (dimensions) of the cropped image
-- `displaySize (optional)` - Size to which you want to scale the cropped image
-- `resizeMode (optional)` - Resizing mode to use when scaling the image
-
-```jsx
-cropData = {
-  offset: {x: number, y: number},
-  size: {width: number, height: number},
-  displaySize: {width: number, height: number},
-  resizeMode: 'contain/cover/stretch',
-};
-```
+<div class="docs_badges">
+<img src="https://img.shields.io/github/stars/react-native-community/react-native-image-editor?style=social" />
+<img src="https://img.shields.io/github/issues-pr-raw/react-native-community/react-native-image-editor" />
+<img src="https://img.shields.io/github/issues-raw/react-native-community/react-native-image-editor" />
+<img src="https://img.shields.io/npm/v/@react-native-community/image-editor" />
+</div>

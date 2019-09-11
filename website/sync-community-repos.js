@@ -9,51 +9,33 @@ const process = require('process');
 const fetch = require('node-fetch');
 const fs = require('fs-extra');
 
-async function graphqlQuery(after = null) {
-  const repoArgs = `privacy: PUBLIC, isFork: false, first: 20${
-    after ? `, after: "${after}"` : ''
-  }`;
+async function graphqlQuery({owner, name}) {
+  const repoArgs = `owner: "${owner}", name: "${name}"`;
 
   const query = {
     query: `{
-      organization(login: "react-native-community") {
-        repositories(${repoArgs}) {
+      repository(${repoArgs}) {
+        id
+        name
+        description
+        isArchived
+        url
+        licenseInfo {
+          key
+        }
+        packagejson: object(expression: "master:package.json") {
+          ... on Blob {
+            text
+          }
+        }
+        stargazers {
           totalCount
-          pageInfo {
-            endCursor
-            startCursor
-          }
-          nodes {
-            id
-            name
-            description
-            isArchived
-            url
-            licenseInfo {
-              key
-            }
-            repositoryTopics(first: 100) {
-              nodes {
-                topic {
-                  name
-                }
-              }
-            }
-            packagejson: object(expression: "master:package.json") {
-              ... on Blob {
-                text
-              }
-            }
-            stargazers {
-              totalCount
-            }
-            issues(states:OPEN) {
-              totalCount
-            }
-            pullRequests(states:OPEN) {
-              totalCount
-            }
-          }
+        }
+        issues(states:OPEN) {
+          totalCount
+        }
+        pullRequests(states:OPEN) {
+          totalCount
         }
       }
     }`,
@@ -75,70 +57,227 @@ async function graphqlQuery(after = null) {
 }
 
 async function collectRepos() {
-  const repos = [];
-
-  let endCursor = null;
-  do {
-    const json = await graphqlQuery(endCursor);
-
-    if (json.errors) {
-      break;
-    }
-
-    const {repositories} = json.data.organization;
-    repos.push(...repositories.nodes);
-
-    const {pageInfo} = repositories;
-    endCursor = pageInfo.endCursor;
-  } while (endCursor != null);
-
-  return repos;
+  const repos = [
+    {
+      owner: 'react-native-community',
+      name: 'react-native-webview',
+      type: 'Component',
+      title: 'Webview',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-cameraroll',
+      type: 'API',
+      title: 'CameraRoll',
+    },
+    {
+      owner: 'harisbaig100',
+      name: 'react-native-clipboard',
+      type: 'API',
+      title: 'ClipBoard',
+      packageName: '@react-native-community/react-native-clipboard',
+    },
+    {
+      owner: 'harisbaig100',
+      name: 'react-native-segmented-control',
+      type: 'Component',
+      title: 'SegmentedControlIOS',
+      packageName: '@react-native-community/segmented-control',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-masked-view',
+      type: 'Component',
+      title: 'MaskedViewIOS',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-simple-share',
+      type: 'API',
+      title: 'Share',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-blur',
+      type: 'Component',
+      title: 'Blur',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'asyncstorage',
+      type: 'API',
+      title: 'AsyncStorage',
+      packageName: '@react-native-community/async-storage',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-slider',
+      type: 'Component',
+      title: 'Slider',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-datetimepicker',
+      type: 'Component',
+      title: 'DatePickerIOS',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-image-editor',
+      type: 'API',
+      title: 'ImageEditor',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-image-picker-ios',
+      type: 'Component',
+      title: 'ImagePickerIOS',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-checkbox',
+      type: 'Component',
+      title: 'Checkbox',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-push-notification-ios',
+      type: 'API',
+      title: 'PushNotificationIOS',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-picker',
+      type: 'Component',
+      title: 'Picker',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-viewpager',
+      type: 'Component',
+      title: 'ViewpagerAndroid',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-netinfo',
+      type: 'API',
+      title: 'NetInfo',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-geolocation',
+      type: 'API',
+      title: 'Geolocation',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-audio-toolkit',
+      type: 'API',
+      title: 'AudioToolkit',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-statusbar',
+      type: 'Component',
+      title: 'StatusBarIOS',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-statusbar',
+      type: 'Component',
+      title: 'StatusBar',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'art',
+      type: 'API',
+      title: 'ART',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-progress-bar-android',
+      type: 'Component',
+      title: 'ProgressBarAndroid',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-progress-view',
+      type: 'Component',
+      title: 'ProgressViewIOS',
+    },
+    {
+      owner: 'expo',
+      name: 'react-native-action-sheet',
+      type: 'Component',
+      title: 'ActionSheetIOS',
+      packageName: '@expo/react-native-action-sheet',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-datetimepicker',
+      type: 'Component',
+      title: 'DatePickerAndroid',
+    },
+    {
+      owner: 'react-native-community',
+      name: 'react-native-picker',
+      type: 'Component',
+      title: 'PickerIOS',
+    },
+  ];
+  const results = await Promise.all(repos.map(repo => graphqlQuery(repo)));
+  const mapped = results.map(({data: {repository}}, idx) => ({
+    ...repository,
+    ...repos[idx],
+  }));
+  return mapped;
 }
 
 async function parseRepos(repos) {
   const filteredRepos = repos.filter(repo => !repo.isArchived);
 
   const parsedRepos = filteredRepos
-    .filter(repo => repo.packagejson && repo.packagejson.text)
     .map(repo => {
       return {
         ...repo,
-        packagejson: JSON.parse(repo.packagejson.text),
+        packagejson: repo.packagejson && JSON.parse(repo.packagejson.text),
       };
     })
-    .filter(
-      repo => repo.packagejson['rn-docs'] && repo.packagejson['rn-docs'].type
-    )
     .map(repo => {
-      const hasCommunityEslint = !!(
-        repo.packagejson.devDependencies &&
-        repo.packagejson.devDependencies[
-          '@react-native-community/eslint-config'
-        ]
-      );
+      const hasCommunityEslint =
+        repo.packagejson &&
+        !!(
+          repo.packagejson.devDependencies &&
+          repo.packagejson.devDependencies[
+            '@react-native-community/eslint-config'
+          ]
+        );
 
       const usesMitLicense = !!(
         repo.licenseInfo && repo.licenseInfo.key === 'mit'
       );
 
-      const id = repo.packagejson['rn-docs'].title
+      const id = repo.title
         .toLowerCase()
         .split(' ')
         .join('_');
 
+      if (!repo.packageName && !repo.packagejson) {
+        console.log(repo);
+      }
+
       return {
         id,
         name: repo.name,
-        type: repo.packagejson['rn-docs'].type,
-        title: repo.packagejson['rn-docs'].title,
+        title: repo.title,
+        type: repo.type,
         description: repo.description,
-        packageName: repo.packagejson.name,
+        packageName: repo.packageName || repo.packagejson.name,
         url: repo.url,
         description: repo.description,
-        stars: repo.stargazers.totalCount,
-        topics: repo.repositoryTopics.nodes.map(topic => topic.topic.name),
-        openIssues: repo.issues.totalCount,
-        openPullRequests: repo.pullRequests.totalCount,
+        stars: repo.stargazers ? repo.stargazers.totalCount : 0,
+        openIssues: repo.issues ? repo.issues.totalCount : 0,
+        openPullRequests: repo.pullRequests ? repo.pullRequests.totalCount : 0,
         features: {
           communityEslint: hasCommunityEslint,
           mitLicense: usesMitLicense,
@@ -198,32 +337,6 @@ Github repository: [${repo.url}](${repo.url})
 `
       );
     });
-
-    const sidebars = JSON.parse(fs.readFileSync('./sidebars.json'));
-
-    const sidebarApi = {};
-    sidebarApi.Components = sidebars.api.Components;
-
-    const components = parsedRepos.filter(repo => repo.type === 'Component');
-    const existingComponentsArray = components.map(component => component.id);
-    const uniqueComponentIds = Array.from(new Set(existingComponentsArray));
-    uniqueComponentIds.sort();
-    sidebarApi['Community Components'] = uniqueComponentIds;
-
-    sidebarApi.APIs = sidebars.api.APIs;
-
-    const apis = parsedRepos.filter(repo => repo.type === 'API');
-    const existingArray = apis.map(api => api.id);
-    const uniqueIds = Array.from(new Set(existingArray));
-    uniqueIds.sort();
-    sidebarApi['Community APIs'] = uniqueIds;
-
-    sidebars.api = sidebarApi;
-
-    fs.writeFileSync(
-      './sidebars.json',
-      JSON.stringify(sidebars, null, 2) + '\n'
-    );
   } catch (e) {
     console.error({e});
   }

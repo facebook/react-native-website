@@ -3,77 +3,17 @@ id: imagepickerios
 title: ImagePickerIOS
 ---
 
-> **Deprecated.** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
+null
 
----
+> This Component is not a part of React Native Core but maintained by the React Native Community. You can learn more at its [repo](https://github.com/react-native-community/react-native-image-picker-ios).
 
-# Reference
+Package: `@react-native-community/image-picker-ios`
 
-## Methods
+Github repository: [https://github.com/react-native-community/react-native-image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios)
 
-### `canRecordVideos()`
-
-```jsx
-static canRecordVideos(callback)
-```
-
----
-
-### `canUseCamera()`
-
-```jsx
-static canUseCamera(callback)
-```
-
----
-
-### `openCameraDialog()`
-
-```jsx
-static openCameraDialog(config, successCallback, cancelCallback)
-```
-
-**Parameters:**
-
-| Name            | Type     | Required | Description |
-| --------------- | -------- | -------- | ----------- |
-| config          | object   | No       | See below.  |
-| successCallback | function | No       | See below.  |
-| cancelCallback  | function | No       | See below.  |
-
-`config` is an object containing:
-
-- `videoMode` : An optional boolean value that defaults to false.
-
-`successCallback` is an optional callback function that's invoked when the select dialog is opened successfully. It will include the following data:
-
-- `[string, number, number]`
-
-`cancelCallback` is an optional callback function that's invoked when the camera dialog is canceled.
-
----
-
-### `openSelectDialog()`
-
-```jsx
-static openSelectDialog(config, successCallback, cancelCallback)
-```
-
-**Parameters:**
-
-| Name            | Type     | Required | Description |
-| --------------- | -------- | -------- | ----------- |
-| config          | object   | No       | See below.  |
-| successCallback | function | No       | See below.  |
-| cancelCallback  | function | No       | See below.  |
-
-`config` is an object containing:
-
-- `showImages` : An optional boolean value that defaults to false.
-- `showVideos`: An optional boolean value that defaults to false.
-
-`successCallback` is an optional callback function that's invoked when the select dialog is opened successfully. It will include the following data:
-
-- `[string, number, number]`
-
-`cancelCallback` is an optional callback function that's invoked when the select dialog is canceled.
+<div class="docs_badges">
+<img src="https://img.shields.io/github/stars/react-native-community/react-native-image-picker-ios?style=social" />
+<img src="https://img.shields.io/github/issues-pr-raw/react-native-community/react-native-image-picker-ios" />
+<img src="https://img.shields.io/github/issues-raw/react-native-community/react-native-image-picker-ios" />
+<img src="https://img.shields.io/npm/v/@react-native-community/image-picker-ios" />
+</div>

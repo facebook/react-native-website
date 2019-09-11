@@ -26,7 +26,6 @@
     "nit:markdown": "prettier --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
-    "sync-community-repos": "node sync-community-repos.js",
     "sync-guides": "node sync-guides.js",
     "test": "yarn build"
   },

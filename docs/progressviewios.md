@@ -3,70 +3,17 @@ id: progressviewios
 title: ProgressViewIOS
 ---
 
-Uses `ProgressViewIOS` to render a UIProgressView on iOS.
+null
 
----
+> This Component is not a part of React Native Core but maintained by the React Native Community. You can learn more at its [repo](https://github.com/react-native-community/react-native-progress-view).
 
-# Reference
+Package: `@react-native-community/react-native-progress-view`
 
-## Props
+Github repository: [https://github.com/react-native-community/react-native-progress-view](https://github.com/react-native-community/react-native-progress-view)
 
-Inherits [View Props](view.md#props).
-
-### `progress`
-
-The progress value (between 0 and 1).
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
-### `progressImage`
-
-A stretchable image to display as the progress bar.
-
-| Type                   | Required |
-| ---------------------- | -------- |
-| Image.propTypes.source | No       |
-
----
-
-### `progressTintColor`
-
-The tint color of the progress bar itself.
-
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
-
----
-
-### `progressViewStyle`
-
-The progress bar style.
-
-| Type                   | Required |
-| ---------------------- | -------- |
-| enum('default', 'bar') | No       |
-
----
-
-### `trackImage`
-
-A stretchable image to display behind the progress bar.
-
-| Type                   | Required |
-| ---------------------- | -------- |
-| Image.propTypes.source | No       |
-
----
-
-### `trackTintColor`
-
-The tint color of the progress bar track.
-
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+<div class="docs_badges">
+<img src="https://img.shields.io/github/stars/react-native-community/react-native-progress-view?style=social" />
+<img src="https://img.shields.io/github/issues-pr-raw/react-native-community/react-native-progress-view" />
+<img src="https://img.shields.io/github/issues-raw/react-native-community/react-native-progress-view" />
+<img src="https://img.shields.io/npm/v/@react-native-community/react-native-progress-view" />
+</div>
