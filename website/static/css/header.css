@@ -24,15 +24,16 @@ li.navSearchWrapper {
   display: block;
   margin: 0 0 1em 0;
   position: relative;
-  padding: 1em 2em 1em 3em;
+  padding: 1em 2em 1em 3.5em;
   transition: transform 300ms ease-out;
 }
 
 .callout_docs-survey-2019-2 svg {
   fill: rgba(5, 165, 209, 1);
   height: 2em;
+  width: 2em;
   position: absolute;
-  top: 1em;
+  top: 0.75em;
   left: 1em;
 }
 
