@@ -67,6 +67,7 @@ const siteConfig = {
   },
   gaTrackingId: 'UA-41298772-2',
   scripts: [
+    baseUrl + 'js/survey-banner.js',
     'https://snack.expo.io/embed.js',
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',

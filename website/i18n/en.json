@@ -3218,9 +3218,6 @@
       "version-0.60/version-0.60-direct-manipulation": {
         "title": "Direct Manipulation"
       },
-      "version-0.60/version-0.60-easing": {
-        "title": "Easing"
-      },
       "version-0.60/version-0.60-flatlist": {
         "title": "FlatList"
       },
@@ -3247,6 +3244,9 @@
       },
       "version-0.60/version-0.60-images": {
         "title": "Images"
+      },
+      "version-0.60/version-0.60-integration-with-existing-apps": {
+        "title": "Integration with Existing Apps"
       },
       "version-0.60/version-0.60-javascript-environment": {
         "title": "JavaScript Environment"
