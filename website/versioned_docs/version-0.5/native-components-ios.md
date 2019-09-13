@@ -383,6 +383,79 @@ class MyApp extends React.Component {
 }
 ```
 
+## Handling multiple native views
+
+A React Native view can have more than one child view in the view tree eg.
+
+```jsx
+<View>
+  <MyNativeView />
+  <MyNativeView />
+  <Button />
+</View>
+```
+
+In this example, the class `MyNativeView` is a wrapper for a `NativeComponent` and exposes methods, which will be called on the iOS platform. `MyNativeView` is defined in `MyNativeView.ios.js` and contains proxy methods of `NativeComponent`.
+
+When the user interacts with the component, like clicking the button, the `backgroundColor` of `MyNativeView` changes. In this case `UIManager` would not know which `MyNativeView` should be handled and which one should change `backgroundColor`. Below you will find a solution to this problem:
+
+```jsx
+<View>
+  <MyNativeView ref={this.myNativeReference}>/>
+  <MyNativeView ref={this.myNativeReference2}>/>
+  <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
+</View>
+```
+
+Now the above component has a reference to a particular `MyNativeView` which allows us to use a specific instance of `MyNativeView`. Now the button can control which `MyNativeView` should change its `backgroundColor`. In this example let's assume that `callNativeMethod` changes `backgroundColor`.
+
+`MyNativeView.ios.js` contains code as follow:
+
+```jsx
+class MyNativeView extends React.Component<> {
+  callNativeMethod = () => {
+    UIManager.dispatchViewManagerCommand(
+      ReactNative.findNodeHandle(this),
+      UIManager.getViewManagerConfig('RNCMyNativeView').Commands
+        .callNativeMethod,
+      [],
+    );
+  };
+
+  render() {
+    return <NativeComponent ref={NATIVE_COMPONENT_REF} />;
+  }
+}
+```
+
+`callNativeMethod` is our custom iOS method which for example changes the `backgroundColor` which is exposed through `MyNativeView`. This method uses `UIManager.dispatchViewManagerCommand` which needs 3 parameters:
+
+- (nonnull NSNumber \*)reactTag  -  id of react view.
+- commandID:(NSInteger)commandID  -  Id of the native method that should be called
+- commandArgs:(NSArray<id> \*)commandArgs  -  Args of the native method that we can pass from JS to native.
+
+`RNCMyNativeViewManager.m`
+
+```objectivec
+#import <React/RCTViewManager.h>
+#import <React/RCTUIManager.h>
+#import <React/RCTLog.h>
+
+RCT_EXPORT_METHOD(callNativeMethod:(nonnull NSNumber*) reactTag) {
+    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
+        NativeView *view = viewRegistry[reactTag];
+        if (!view || ![view isKindOfClass:[NativeView class]]) {
+            RCTLogError(@"Cannot find NativeView with tag #%@", reactTag);
+            return;
+        }
+        [view callNativeMethod];
+    }];
+
+}
+```
+
+Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file and contains only one parameter which is `(nonnull NSNumber*) reactTag`. This exported function will find a particular view using `addUIBlock` which contains the `viewRegistry` parameter and returns the component based on `reactTag` allowing it to call the method on the correct component.
+
 ## Styles
 
 Since all our native react views are subclasses of `UIView`, most style attributes will work like you would expect out of the box. Some components will want a default style, however, for example `UIDatePicker` which is a fixed size. This default style is important for the layout algorithm to work as expected, but we also want to be able to override the default style when using the component. `DatePickerIOS` does this by wrapping the native component in an extra view, which has flexible styling, and using a fixed style (which is generated with constants passed in from native) on the inner native component:
