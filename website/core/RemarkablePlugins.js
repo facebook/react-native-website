@@ -35,15 +35,6 @@ function htmlForCodeBlock(code) {
 }
 
 /**
- * Expo SDKs lag stable React Native versions by a week or two.
- * This mapping informs the SnackPlayer which version of Expo whenever
- * a React Native version param is passed. There's no harm in keeping this
- * list up to date, but in practical terms you will only need to do so
- * whenever an example that uses the SnackPlayer is updated with code
- * that requires a newer Expo SDK release.
- */
-const LatestSDKVersion = '31.0.0';
-/**
  * Use the SnackPlayer by including a ```SnackPlayer``` block in markdown.
  *
  * Optionally, include url parameters directly after the block's language.
