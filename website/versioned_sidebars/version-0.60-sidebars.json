@@ -16,7 +16,6 @@
       "version-0.60-more-resources"
     ],
     "Guides": [
-      "version-0.60-optimizing-flatlist-configuration",
       "version-0.60-components-and-apis",
       "version-0.60-platform-specific-code",
       "version-0.60-navigation",
@@ -24,6 +23,7 @@
       "version-0.60-animations",
       "version-0.60-accessibility",
       "version-0.60-improvingux",
+      "version-0.60-optimizing-flatlist-configuration",
       "version-0.60-timers",
       "version-0.60-debugging",
       "version-0.60-performance",
