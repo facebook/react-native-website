@@ -39,7 +39,7 @@ Then you can quickly create an app with a home screen and a profile screen:
 
 ```jsx
 import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack'
+import {createStackNavigator} from 'react-navigation-stack';
 
 const MainNavigator = createStackNavigator({
   Home: {screen: HomeScreen},

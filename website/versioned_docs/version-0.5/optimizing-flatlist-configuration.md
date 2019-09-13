@@ -1,12 +1,12 @@
 ---
-id: version-0.60-optimizing-flatlist-configuration
+id: version-0.5-optimizing-flatlist-configuration
 title: Optimizing Flatlist Configuration
 original_id: optimizing-flatlist-configuration
 ---
 
 ## Terms
 
-- **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the '[Virtual List](https://bvaughn.github.io/react-virtualized/#/components/List)' concept.)
+- **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the [`Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List) concept.)
 
 - **Memory consumption:** How much information about your list is being stored in memory, which could lead to an app crash.
 
@@ -111,9 +111,9 @@ The heavier your components are, the slower they render. Avoid heavy images (use
 Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it need to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is simple enough, you could even use
 
 ```jsx
-    shouldComponentUpdate() {
-      return false
-    }
+shouldComponentUpdate() {
+  return false
+}
 ```
 
 ### Use cached optimized images
