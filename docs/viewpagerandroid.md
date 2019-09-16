@@ -9,7 +9,7 @@ React Native wrapper for the Android ViewPager.
 
 Package: `@react-native-community/viewpager`
 
-Github repository: [https://github.com/react-native-community/react-native-viewpager](https://github.com/react-native-community/react-native-viewpager)
+GitHub repository: [https://github.com/react-native-community/react-native-viewpager](https://github.com/react-native-community/react-native-viewpager)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-viewpager?style=social" />

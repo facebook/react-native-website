@@ -9,7 +9,7 @@ Cross-platform audio library for React Native
 
 Package: `@react-native-community/audio-toolkit`
 
-Github repository: [https://github.com/react-native-community/react-native-audio-toolkit](https://github.com/react-native-community/react-native-audio-toolkit)
+GitHub repository: [https://github.com/react-native-community/react-native-audio-toolkit](https://github.com/react-native-community/react-native-audio-toolkit)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-audio-toolkit?style=social" />

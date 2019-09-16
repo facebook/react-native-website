@@ -9,7 +9,7 @@ Checkbox component for React Native
 
 Package: `@react-native-community/checkbox`
 
-Github repository: [https://github.com/react-native-community/react-native-checkbox](https://github.com/react-native-community/react-native-checkbox)
+GitHub repository: [https://github.com/react-native-community/react-native-checkbox](https://github.com/react-native-community/react-native-checkbox)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-checkbox?style=social" />

@@ -9,7 +9,7 @@ React Native module that allows you to draw vector graphics.
 
 Package: `@react-native-community/art`
 
-Github repository: [https://github.com/react-native-community/art](https://github.com/react-native-community/art)
+GitHub repository: [https://github.com/react-native-community/art](https://github.com/react-native-community/art)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/art?style=social" />

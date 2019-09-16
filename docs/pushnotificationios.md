@@ -9,7 +9,7 @@ React Native Push Notification API for iOS.
 
 Package: `@react-native-community/push-notification-ios`
 
-Github repository: [https://github.com/react-native-community/react-native-push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios)
+GitHub repository: [https://github.com/react-native-community/react-native-push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-push-notification-ios?style=social" />

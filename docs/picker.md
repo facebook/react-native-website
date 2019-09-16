@@ -9,7 +9,7 @@ Picker is a cross-platform UI component for selecting an item from a list of opt
 
 Package: `@react-native-community/picker`
 
-Github repository: [https://github.com/react-native-community/react-native-picker](https://github.com/react-native-community/react-native-picker)
+GitHub repository: [https://github.com/react-native-community/react-native-picker](https://github.com/react-native-community/react-native-picker)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-picker?style=social" />

@@ -9,7 +9,7 @@ CameraRoll is a react-native native module that provides access to the local cam
 
 Package: `@react-native-community/cameraroll`
 
-Github repository: [https://github.com/react-native-community/react-native-cameraroll](https://github.com/react-native-community/react-native-cameraroll)
+GitHub repository: [https://github.com/react-native-community/react-native-cameraroll](https://github.com/react-native-community/react-native-cameraroll)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-cameraroll?style=social" />

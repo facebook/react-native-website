@@ -9,7 +9,7 @@ Geolocation APIs for React Native
 
 Package: `@react-native-community/geolocation`
 
-Github repository: [https://github.com/react-native-community/react-native-geolocation](https://github.com/react-native-community/react-native-geolocation)
+GitHub repository: [https://github.com/react-native-community/react-native-geolocation](https://github.com/react-native-community/react-native-geolocation)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-geolocation?style=social" />

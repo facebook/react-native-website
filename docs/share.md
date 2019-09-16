@@ -3,13 +3,11 @@ id: share
 title: Share
 ---
 
-null
-
 > This API is not a part of React Native Core but maintained by the React Native Community. You can learn more at its [repo](https://github.com/react-native-community/react-native-simple-share).
 
 Package: `@react-native-community/react-native-simple-share`
 
-Github repository: [https://github.com/react-native-community/react-native-simple-share](https://github.com/react-native-community/react-native-simple-share)
+GitHub repository: [https://github.com/react-native-community/react-native-simple-share](https://github.com/react-native-community/react-native-simple-share)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-simple-share?style=social" />

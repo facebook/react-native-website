@@ -3,13 +3,11 @@ id: asyncstorage
 title: AsyncStorage
 ---
 
-undefined
-
 > This API is not a part of React Native Core but maintained by the React Native Community. You can learn more at its [repo](undefined).
 
 Package: `@react-native-community/async-storage`
 
-Github repository: [undefined](undefined)
+GitHub repository: [undefined](undefined)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/asyncstorage?style=social" />

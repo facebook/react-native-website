@@ -9,7 +9,7 @@ React Native Blur component
 
 Package: `@react-native-community/blur`
 
-Github repository: [https://github.com/react-native-community/react-native-blur](https://github.com/react-native-community/react-native-blur)
+GitHub repository: [https://github.com/react-native-community/react-native-blur](https://github.com/react-native-community/react-native-blur)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-blur?style=social" />

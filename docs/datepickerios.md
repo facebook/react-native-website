@@ -9,7 +9,7 @@ React Native date & time picker component for iOS and Android
 
 Package: `@react-native-community/datetimepicker`
 
-Github repository: [https://github.com/react-native-community/react-native-datetimepicker](https://github.com/react-native-community/react-native-datetimepicker)
+GitHub repository: [https://github.com/react-native-community/react-native-datetimepicker](https://github.com/react-native-community/react-native-datetimepicker)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-datetimepicker?style=social" />

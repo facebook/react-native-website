@@ -9,7 +9,7 @@ React Native component used to select a single value from a range of values
 
 Package: `@react-native-community/slider`
 
-Github repository: [https://github.com/react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider)
+GitHub repository: [https://github.com/react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-slider?style=social" />

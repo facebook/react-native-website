@@ -1,6 +1,6 @@
 ---
 id: webview
-title: Webview
+title: WebView
 ---
 
 React Native Cross-Platform WebView
@@ -9,7 +9,7 @@ React Native Cross-Platform WebView
 
 Package: `react-native-webview`
 
-Github repository: [https://github.com/react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview)
+GitHub repository: [https://github.com/react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-webview?style=social" />

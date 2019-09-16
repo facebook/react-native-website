@@ -9,7 +9,7 @@ React Native Network Info API for Android & iOS
 
 Package: `@react-native-community/netinfo`
 
-Github repository: [https://github.com/react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo)
+GitHub repository: [https://github.com/react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-netinfo?style=social" />

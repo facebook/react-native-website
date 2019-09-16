@@ -9,7 +9,7 @@ A cross-platform ActionSheet for React Native
 
 Package: `@expo/react-native-action-sheet`
 
-Github repository: [https://github.com/expo/react-native-action-sheet](https://github.com/expo/react-native-action-sheet)
+GitHub repository: [https://github.com/expo/react-native-action-sheet](https://github.com/expo/react-native-action-sheet)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-action-sheet?style=social" />

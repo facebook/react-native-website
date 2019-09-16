@@ -9,7 +9,7 @@ React Native Clipboard API for both iOS and Android.
 
 Package: `@react-native-community/react-native-clipboard`
 
-Github repository: [https://github.com/harisbaig100/react-native-clipboard](https://github.com/harisbaig100/react-native-clipboard)
+GitHub repository: [https://github.com/harisbaig100/react-native-clipboard](https://github.com/harisbaig100/react-native-clipboard)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-clipboard?style=social" />

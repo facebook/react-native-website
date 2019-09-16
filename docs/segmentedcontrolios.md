@@ -9,7 +9,7 @@ React Native SegmentedControlIos library. Use SegmentedControlIOS to render a UI
 
 Package: `@react-native-community/segmented-control`
 
-Github repository: [https://github.com/harisbaig100/react-native-segmented-control](https://github.com/harisbaig100/react-native-segmented-control)
+GitHub repository: [https://github.com/harisbaig100/react-native-segmented-control](https://github.com/harisbaig100/react-native-segmented-control)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-segmented-control?style=social" />

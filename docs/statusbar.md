@@ -9,7 +9,7 @@ Native module for mutating status bar state
 
 Package: `@react-native-community/status-bar`
 
-Github repository: [https://github.com/react-native-community/react-native-statusbar](https://github.com/react-native-community/react-native-statusbar)
+GitHub repository: [https://github.com/react-native-community/react-native-statusbar](https://github.com/react-native-community/react-native-statusbar)
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/react-native-statusbar?style=social" />

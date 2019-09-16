@@ -62,7 +62,7 @@ async function collectRepos() {
       owner: 'react-native-community',
       name: 'react-native-webview',
       type: 'Component',
-      title: 'Webview',
+      title: 'WebView',
     },
     {
       owner: 'react-native-community',
@@ -309,8 +309,7 @@ id: ${repo.id}
 title: ${repo.title}
 ---
 
-${repo.description}
-
+${repo.description ? repo.description : ''}
 
 > This ${
           repo.type
@@ -318,9 +317,9 @@ ${repo.description}
           repo.url
         }).
 
-Package: \`\`\`${repo.packageName}\`\`\`
+Package: \`${repo.packageName}\`
 
-Github repository: [${repo.url}](${repo.url})
+GitHub repository: [${repo.url}](${repo.url})
 
 <div class="docs_badges">
 <img src="https://img.shields.io/github/stars/react-native-community/${
