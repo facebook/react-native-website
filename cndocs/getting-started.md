@@ -456,7 +456,7 @@ cd AwesomeProject
 react-native run-ios
 ```
 
-> 提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。
+> 提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
 
 很快就应该能看到 iOS 模拟器自动启动并运行你的项目。
 

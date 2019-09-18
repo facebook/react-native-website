@@ -386,7 +386,7 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk\platform-tools
 
 > **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译。这里有中文网提供的[国内下载链接](http://bbs.reactnative.cn/topic/4301/)。
 
-> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
+> **必须要看的注意事项二**：0.60 及以上版本依赖 CocoaPods 安装。CocoaPods 的仓库在国内也很难访问。如果在 CocoaPods 的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
 
 ```
 react-native init AwesomeProject
@@ -459,7 +459,7 @@ cd AwesomeProject
 react-native run-ios
 ```
 
-> 提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。
+> 提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意 0.60 版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
 
 很快就应该能看到 iOS 模拟器自动启动并运行你的项目。
 
