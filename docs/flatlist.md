@@ -221,6 +221,7 @@ Example usage:
   data={[{title: 'Title Text', key: 'item1'}]}
   renderItem={({item, index, separators}) => (
     <TouchableHighlight
+      key={item.key}
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
       onHideUnderlay={separators.unhighlight}>
