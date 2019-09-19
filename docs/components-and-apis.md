@@ -288,10 +288,4 @@ These components may come in handy for certain applications. For an exhaustive l
       <p>Component to control the app status bar.</p>
     </a>
   </div>
-  <div class="component">
-    <a href="./webview">
-      <h3>WebView</h3>
-      <p>A component that renders web content in a native view.</p>
-    </a>
-  </div>
 </div>

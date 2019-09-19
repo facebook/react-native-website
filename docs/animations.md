@@ -20,11 +20,11 @@ import React, { useState, useEffect } from 'react';
 import { Animated, Text, View } from 'react-native';
 
 const FadeInView = (props) => {
-  const [fadeAdmin] = useState(new Animated.Value(0))  // Initial value for opacity: 0
+  const [fadeAnim] = useState(new Animated.Value(0))  // Initial value for opacity: 0
 
   React.useEffect(() => {
     Animated.timing(
-      fadeAdmin,
+      fadeAnim,
       {
         toValue: 1,
         duration: 10000,
@@ -36,7 +36,7 @@ const FadeInView = (props) => {
     <Animated.View                 // Special animatable View
       style={{
         ...props.style,
-        opacity: fadeAdnim,         // Bind opacity to animated value
+        opacity: fadeAnim,         // Bind opacity to animated value
       }}
     >
       {props.children}

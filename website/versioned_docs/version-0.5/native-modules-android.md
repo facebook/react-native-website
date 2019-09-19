@@ -41,12 +41,14 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class ToastModule extends ReactContextBaseJavaModule {
+  private static ReactApplicationContext reactContext;
 
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
-  public ToastModule(ReactApplicationContext reactContext) {
-    super(reactContext);
+  ToastModule(ReactApplicationContext context) {
+    super(context);
+    reactContext = context;
   }
 }
 ```
@@ -148,9 +150,12 @@ import com.your-app-name.CustomToastPackage; // <-- Add this line with your pack
 ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- Add this line with your package name.
+  return packages;
 }
 ```
 
@@ -179,7 +184,7 @@ import ToastExample from './ToastExample';
 ToastExample.show('Awesome', ToastExample.SHORT);
 ```
 
-Please make sure this JavasScript file to be the same hierarchy as `ToastExample.js`.
+Please make sure this JavaScript is in the same hierarchy as `ToastExample.js`.
 
 ## Beyond Toasts
 
@@ -236,7 +241,7 @@ It is very important to highlight that the callback is not invoked immediately a
 
 ### Promises
 
-Native modules can also fulfill a promise, which can simplify your code, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
+Native modules can also fulfill a promise, which can simplify your JavaScript, especially when using ES2016's `async/await` syntax. When the last parameter of a bridged native method is a `Promise`, its corresponding JS method will return a JS Promise object.
 
 Refactoring the above code to use a promise instead of callbacks looks like this:
 
@@ -300,6 +305,10 @@ Native modules can signal events to JavaScript without being invoked directly. T
 
 ```java
 ...
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.Arguments;
+...
 private void sendEvent(ReactContext reactContext,
                        String eventName,
                        @Nullable WritableMap params) {
@@ -309,48 +318,25 @@ private void sendEvent(ReactContext reactContext,
 }
 ...
 WritableMap params = Arguments.createMap();
+params.putString("eventProperty", "someValue");
 ...
-sendEvent(reactContext, "keyboardWillShow", params);
+sendEvent(reactContext, "EventReminder", params);
 ```
 
-JavaScript modules can then register to receive events by `addListenerOn` using the `Subscribable` mixin.
+JavaScript modules can then register to receive events by `addListener` on the NativeEventEmitter class.
 
 ```jsx
-import { DeviceEventEmitter } from 'react-native';
+import { NativeEventEmitter, NativeModules } from 'react-native';
 ...
-
-var ScrollResponderMixin = {
-  mixins: [Subscribable.Mixin],
-
 
   componentDidMount() {
     ...
-    this.addListenerOn(DeviceEventEmitter,
-                       'keyboardWillShow',
-                       this.scrollResponderKeyboardWillShow);
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+    eventEmitter.addListener('EventReminder', (event) => {
+       console.log(event.eventProperty) // "someValue"
+    }
     ...
-  },
-  scrollResponderKeyboardWillShow:function(e: Event) {
-    this.keyboardWillOpenTo = e;
-    this.props.onKeyboardWillShow && this.props.onKeyboardWillShow(e);
-  },
-```
-
-You can also directly use the `DeviceEventEmitter` module to listen for events.
-
-```jsx
-...
-componentDidMount() {
-  this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
-    // handle event
-  });
-}
-
-componentWillUnmount() {
-  // When you want to stop listening to new events, simply call .remove() on the subscription
-  this.subscription.remove();
-}
-...
+  }
 ```
 
 ### Getting activity result from `startActivityForResult`
@@ -411,7 +397,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
     }
   };
 
-  public ImagePickerModule(ReactApplicationContext reactContext) {
+  ImagePickerModule(ReactApplicationContext reactContext) {
     super(reactContext);
 
     // Add the listener for `onActivityResult`
