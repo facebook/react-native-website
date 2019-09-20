@@ -50,11 +50,6 @@ class Footer extends React.Component {
             <a href="https://dev.to/t/reactnative" target="_blank">
               DEV Community
             </a>
-            <a
-              href="https://spectrum.chat/react-native?tab=posts"
-              target="_blank">
-              Spectrum Chat
-            </a>
           </div>
           <div>
             <h5>More Resources</h5>
