@@ -90,10 +90,6 @@ class ExampleComponent extends Component {
 
 To see it in action, try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js)
 
-### Methods
-
-- [`create`](panresponder.md#create)
-
 ---
 
 # Reference

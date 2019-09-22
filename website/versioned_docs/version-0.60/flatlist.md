@@ -19,76 +19,159 @@ A performant interface for rendering simple, flat lists, supporting the most han
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
-Minimal Example:
+### Basic Example:
 
-```jsx
-<FlatList
-  data={[{key: 'a'}, {key: 'b'}]}
-  renderItem={({item}) => <Text>{item.key}</Text>}
-/>
+```SnackPlayer name=flatlist-simple
+import React from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import Constants from 'expo-constants';
+
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
+
+function Item({ title }) {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+}
+
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={({ item }) => <Item title={item.title} />}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
 ```
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
-More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
+More complex, multi-select example demonstrating `` usage for perf optimization and avoiding bugs.
 
-- By binding the `onPressItem` handler, the props will remain `===` and `PureComponent` will prevent wasteful re-renders unless the actual `id`, `selected`, or `title` props change, even if the components rendered in `MyListItem` did not have such optimizations.
-- By passing `extraData={this.state}` to `FlatList` we make sure `FlatList` itself will re-render when the `state.selected` changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is also a `PureComponent` and the prop comparison will not show any changes.
+- By passing `extraData={selected}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
-```jsx
-class MyListItem extends React.PureComponent {
-  _onPress = () => {
-    this.props.onPressItem(this.props.id);
-  };
+```SnackPlayer name=flatlist-selectable
+import React from 'react';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+  Text,
+} from 'react-native';
+import Constants from 'expo-constants';
 
-  render() {
-    const textColor = this.props.selected ? 'red' : 'black';
-    return (
-      <TouchableOpacity onPress={this._onPress}>
-        <View>
-          <Text style={{color: textColor}}>{this.props.title}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
+
+function Item({ id, title, selected, onSelect }) {
+  return (
+    <TouchableOpacity
+      onPress={() => onSelect(id)}
+      style={[
+        styles.item,
+        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
+      ]}
+    >
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  );
 }
 
-class MultiSelectList extends React.PureComponent {
-  state = {selected: (new Map(): Map<string, boolean>)};
+export default function App() {
+  const [selected, setSelected] = React.useState(new Map());
 
-  _keyExtractor = (item, index) => item.id;
+  const onSelect = React.useCallback(
+    id => {
+      const newSelected = new Map(selected);
+      newSelected.set(id, !selected.get(id));
 
-  _onPressItem = (id: string) => {
-    // updater functions are preferred for transactional updates
-    this.setState((state) => {
-      // copy the map rather than modifying state.
-      const selected = new Map(state.selected);
-      selected.set(id, !selected.get(id)); // toggle
-      return {selected};
-    });
-  };
-
-  _renderItem = ({item}) => (
-    <MyListItem
-      id={item.id}
-      onPressItem={this._onPressItem}
-      selected={!!this.state.selected.get(item.id)}
-      title={item.title}
-    />
+      setSelected(newSelected);
+    },
+    [selected],
   );
 
-  render() {
-    return (
+  return (
+    <SafeAreaView style={styles.container}>
       <FlatList
-        data={this.props.data}
-        extraData={this.state}
-        keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}
+        data={DATA}
+        renderItem={({ item }) => (
+          <Item
+            id={item.id}
+            title={item.title}
+            selected={!!selected.get(item.id)}
+            onSelect={onSelect}
+          />
+        )}
+        keyExtractor={item => item.id}
+        extraData={selected}
       />
-    );
-  }
+    </SafeAreaView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
 ```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
@@ -98,56 +181,13 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 - In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 - By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
-
-### Props
-
-- [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
-- [`data`](flatlist.md#data)
-- [`extraData`](flatlist.md#extradata)
-- [`getItemLayout`](flatlist.md#getitemlayout)
-- [`horizontal`](flatlist.md#horizontal)
-- [`initialNumToRender`](flatlist.md#initialnumtorender)
-- [`initialScrollIndex`](flatlist.md#initialscrollindex)
-- [`inverted`](flatlist.md#inverted)
-- [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-- [`keyExtractor`](flatlist.md#keyextractor)
-- [`legacyImplementation`](flatlist.md#legacyimplementation)
-- [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-- [`ListFooterComponent`](flatlist.md#listfootercomponent)
-- [`ListFooterComponentStyle`](flatlist.md#listfootercomponentstyle)
-- [`ListHeaderComponent`](flatlist.md#listheadercomponent)
-- [`ListHeaderComponentStyle`](flatlist.md#listheadercomponentstyle)
-- [`numColumns`](flatlist.md#numcolumns)
-- [`onEndReached`](flatlist.md#onendreached)
-- [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
-- [`onRefresh`](flatlist.md#onrefresh)
-- [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
-- [`progressViewOffset`](flatlist.md#progressviewoffset)
-- [`refreshing`](flatlist.md#refreshing)
-- [`renderItem`](flatlist.md#renderitem)
-- [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
-- [`ScrollView` props...](scrollview.md#props)
-- [`viewabilityConfig`](flatlist.md#viewabilityconfig)
-- [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
-- [`VirtualizedList` props...](virtualizedlist.md#props)
-
-### Methods
-
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
-- [`getScrollResponder`](flatlist.md#getScrollResponder)
-- [`getScrollableNode`](flatlist.md#getScrollableNode)
-- [`scrollToEnd`](flatlist.md#scrolltoend)
-- [`scrollToIndex`](flatlist.md#scrolltoindex)
-- [`scrollToItem`](flatlist.md#scrolltoitem)
-- [`scrollToOffset`](flatlist.md#scrolltooffset)
-- [`recordInteraction`](flatlist.md#recordinteraction)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
 
 ### `renderItem`
 

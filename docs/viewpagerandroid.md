@@ -41,30 +41,13 @@ const styles = {
 }
 ```
 
-### Props
-
-- [View props...](view.md#props)
-
-- [`initialPage`](viewpagerandroid.md#initialpage)
-- [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
-- [`onPageScroll`](viewpagerandroid.md#onpagescroll)
-- [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
-- [`onPageSelected`](viewpagerandroid.md#onpageselected)
-- [`pageMargin`](viewpagerandroid.md#pagemargin)
-- [`peekEnabled`](viewpagerandroid.md#peekenabled)
-- [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
-- [`setPage`](viewpagerandroid.md#setpage)
-- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
-
-### Type Definitions
-
-- [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `initialPage`
 

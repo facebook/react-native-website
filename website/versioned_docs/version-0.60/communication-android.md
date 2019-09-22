@@ -44,7 +44,7 @@ public class MainActivity extends ReactActivity {
 import React from 'react';
 import {View, Image} from 'react-native';
 
-class ImageBrowserApp extends React.Component {
+export default class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
     return <Image source={{uri: imgURI}} />;
   }

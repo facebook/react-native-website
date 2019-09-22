@@ -16,7 +16,6 @@
       "more-resources"
     ],
     "Guides": [
-      "optimizing-flatlist-configuration",
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -24,11 +23,13 @@
       "animations",
       "accessibility",
       "improvingux",
+      "optimizing-flatlist-configuration",
       "timers",
       "debugging",
       "performance",
       "gesture-responder-system",
       "javascript-environment",
+      "typescript",
       "direct-manipulation",
       "colors",
       "integration-with-existing-apps",

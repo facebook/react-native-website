@@ -114,35 +114,6 @@ For example, when working with horizontal scrolling gestures, you would do the f
  )}
 ```
 
-### Methods
-
-- [`decay`](animated.md#decay)
-- [`timing`](animated.md#timing)
-- [`spring`](animated.md#spring)
-- [`add`](animated.md#add)
-- [`subtract`](animated.md#subtract)
-- [`divide`](animated.md#divide)
-- [`multiply`](animated.md#multiply)
-- [`modulo`](animated.md#modulo)
-- [`diffClamp`](animated.md#diffclamp)
-- [`delay`](animated.md#delay)
-- [`sequence`](animated.md#sequence)
-- [`parallel`](animated.md#parallel)
-- [`stagger`](animated.md#stagger)
-- [`loop`](animated.md#loop)
-- [`event`](animated.md#event)
-- [`forkEvent`](animated.md#forkevent)
-- [`unforkEvent`](animated.md#unforkevent)
-
-### Properties
-
-- [`Value`](animated.md#value)
-- [`ValueXY`](animated.md#valuexy)
-- [`Interpolation`](animated.md#interpolation)
-- [`Node`](animated.md#node)
-- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
-- [`attachNativeEvent`](animated.md#attachnativeevent)
-
 ---
 
 # Reference

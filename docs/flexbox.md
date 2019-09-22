@@ -13,7 +13,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
-In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the green `3/6` of the space.
+In the following example the red, yellow and the green views are all children in the container view that has `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the green `3/6` of the space.
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
@@ -55,9 +55,9 @@ export default class FlexDirectionBasics extends Component {
 
 Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
 
-- `LTR` (**default value**) Text and children and laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
+- `LTR` (**default value**) Text and children are laid out from left to right. Margin and padding applied the start of an element are applied on the left side.
 
-- `RTL` Text and children and laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
+- `RTL` Text and children are laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
 
 #### Justify Content
 
@@ -72,6 +72,8 @@ Layout direction specifies the direction in which children and text in a hierarc
 - `space-between` Evenly space of children across the container's main axis, distributing remaining space between the children.
 
 - `space-around` Evenly space of children across the container's main axis, distributing remaining space around the children. Compared to `space-between` using `space-around` will result in space being distributed to the beginning of the first child and end of the last child.
+
+- `space-evenly` Evenly distributed within the alignment container along the main axis. The spacing between each pair of adjacent items, the main-start edge and the first item, and the main-end edge and the last item, are all exactly the same.
 
 LEARN MORE [HERE](https://yogalayout.com/docs/justify-content)
 

@@ -3,6 +3,8 @@ id: alertios
 title: AlertIOS
 ---
 
+> **Deprecated.** `AlertIOS` has been moved to [`Alert`](alert.md)
+
 `AlertIOS` provides functionality to create an iOS alert dialog with a message or create a prompt for user input.
 
 Creating an iOS alert:
@@ -20,17 +22,6 @@ AlertIOS.prompt('Enter a value', null, (text) =>
 ```
 
 We recommend using the [`Alert.alert`](alert.md) method for cross-platform support if you don't need to create iOS-only prompts.
-
-### Methods
-
-- [`alert`](alertios.md#alert)
-- [`prompt`](alertios.md#prompt)
-
-### Type Definitions
-
-- [`AlertType`](alertios.md#alerttype)
-- [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
-- [`ButtonsArray`](alertios.md#buttonsarray)
 
 ---
 

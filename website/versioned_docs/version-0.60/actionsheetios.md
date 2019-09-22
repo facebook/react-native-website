@@ -4,13 +4,6 @@ title: ActionSheetIOS
 original_id: actionsheetios
 ---
 
-### Methods
-
-- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
-
----
-
 # Reference
 
 ## Methods

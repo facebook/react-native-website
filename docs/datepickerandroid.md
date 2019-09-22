@@ -5,6 +5,8 @@ title: DatePickerAndroid
 
 Opens the standard Android date picker dialog.
 
+> `DatePickerAndroid` has been merged with `DatePickerIOS` and `TimePickerAndroid` into a single component called [DateTimePicker](https://github.com/react-native-community/react-native-datetimepicker#react-native-datetimepicker) and will be removed in a future release.
+
 ### Example
 
 ```jsx
@@ -21,12 +23,6 @@ try {
   console.warn('Cannot open date picker', message);
 }
 ```
-
-### Methods
-
-- [`open`](datepickerandroid.md#open)
-- [`dateSetAction`](datepickerandroid.md#datesetaction)
-- [`dismissedAction`](datepickerandroid.md#dismissedaction)
 
 ---
 

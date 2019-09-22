@@ -46,49 +46,6 @@ For `View` responder props (e.g., `onResponderMove`), the synthetic touch event 
   - `timestamp` - A time identifier for the touch, useful for velocity calculation.
   - `touches` - Array of all current touches on the screen.
 
-### Props
-
-- [`accessible`](view.md#accessible)
-- [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
-- [`accessibilityHint`](view.md#accessibilityhint)
-- [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
-- [`accessibilityLabel`](view.md#accessibilitylabel)
-- [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
-- [`accessibilityRole`](view.md#accessibilityrole)
-- [`accessibilityStates`](view.md#accessibilitystates)
-- [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-- [`clickable`](view.md#clickable)
-- [`collapsable`](view.md#collapsable)
-- [`hitSlop`](view.md#hitslop)
-- [`importantForAccessibility`](view.md#importantforaccessibility)
-- [`nativeID`](view.md#nativeid)
-- [`nextFocusDown`](view.md#nextfocusdown)
-- [`nextFocusForward`](view.md#nextfocusForward)
-- [`nextFocusLeft`](view.md#nextfocusleft)
-- [`nextFocusRight`](view.md#nextfocusright)
-- [`nextFocusUp`](view.md#nextfocusleft)
-- [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
-- [`onAccessibilityEscape`](view.md#onaccessibilityescape)
-- [`onAccessibilityTap`](view.md#onaccessibilitytap)
-- [`onLayout`](view.md#onlayout)
-- [`onMagicTap`](view.md#onmagictap)
-- [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
-- [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
-- [`onResponderGrant`](view.md#onrespondergrant)
-- [`onResponderMove`](view.md#onrespondermove)
-- [`onResponderReject`](view.md#onresponderreject)
-- [`onResponderRelease`](view.md#onresponderrelease)
-- [`onResponderTerminate`](view.md#onresponderterminate)
-- [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
-- [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
-- [`pointerEvents`](view.md#pointerevents)
-- [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
-- [`removeClippedSubviews`](view.md#removeclippedsubviews)
-- [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
-- [`style`](view.md#style)
-- [`testID`](view.md#testid)
-
 ---
 
 # Reference
@@ -328,7 +285,7 @@ Controls whether the `View` can be the target of touch events.
      pointer-events: none;
 }
 .box-none * {
-     pointer-events: all;
+     pointer-events: auto;
 }
 ```
 
@@ -336,7 +293,7 @@ Controls whether the `View` can be the target of touch events.
 
 ```
 .box-only {
-     pointer-events: all;
+     pointer-events: auto;
 }
 .box-only * {
      pointer-events: none;
@@ -616,7 +573,7 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 ### `clickable`
 
-Determines whether this `View` is clickable or tappable for for accessibility hints.
+Determines whether this `View` is clickable or tappable for accessibility hints.
 
 | Type    | Required | Platform |
 | ------- | -------- | -------- |
