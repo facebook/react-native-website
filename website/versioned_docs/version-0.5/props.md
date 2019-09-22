@@ -4,13 +4,13 @@ title: Props
 original_id: props
 ---
 
-Most components can be customized when they are created, with different parameters. These creation parameters are called `props`.
+Most components can be customized when they are created, with different parameters. These creation parameters are called `props`, short for properties.
 
 For example, one basic React Native component is the `Image`. When you create an image, you can use a prop named `source` to control what image it shows.
 
-```SnackPlayer
+```SnackPlayer name=Props
 import React, { Component } from 'react';
-import { AppRegistry, Image } from 'react-native';
+import { Image } from 'react-native';
 
 export default class Bananas extends Component {
   render() {
@@ -22,18 +22,15 @@ export default class Bananas extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => Bananas);
 ```
 
 Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX. You can put any JavaScript expression inside braces in JSX.
 
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `this.props` in your `render` function. Here's an example:
 
-```SnackPlayer
+```SnackPlayer name=Props
 import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 class Greeting extends Component {
   render() {
@@ -56,9 +53,6 @@ export default class LotsOfGreetings extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => LotsOfGreetings);
 ```
 
 Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX, just like the built-in components. The power to do this is what makes React so cool - if you find yourself wishing that you had a different set of UI primitives to work with, you just invent new ones.

@@ -3,14 +3,6 @@ id: share
 title: Share
 ---
 
-### Methods
-
-- [`share`](share.md#share)
-- [`sharedAction`](share.md#sharedaction)
-- [`dismissedAction`](share.md#dismissedaction)
-
----
-
 # Reference
 
 ## Methods

@@ -48,26 +48,3 @@ var handle = InteractionManager.createInteractionHandle();
 InteractionManager.clearInteractionHandle(handle);
 // queued tasks run if all handles were cleared
 ```
-
-## TimerMixin
-
-We found out that the primary cause of fatals in apps created with React Native was due to timers firing after a component was unmounted. To solve this recurring issue, we introduced `TimerMixin`. If you include `TimerMixin`, then you can replace your calls to `setTimeout(fn, 500)` with `this.setTimeout(fn, 500)` (just prepend `this.`) and everything will be properly cleaned up for you when the component unmounts.
-
-This library does not ship with React Native - in order to use it on your project, you will need to install it with `npm i react-timer-mixin --save` from your project directory.
-
-```jsx
-import TimerMixin from 'react-timer-mixin';
-
-var Component = createReactClass({
-  mixins: [TimerMixin],
-  componentDidMount: function() {
-    this.setTimeout(() => {
-      console.log('I do not leak!');
-    }, 500);
-  },
-});
-```
-
-This will eliminate a lot of hard work tracking down bugs, such as crashes caused by timeouts firing after a component has been unmounted.
-
-Keep in mind that if you use ES6 classes for your React components [there is no built-in API for mixins](https://facebook.github.io/react/blog/2015/01/27/react-v0.13.0-beta-1.html#mixins). To use `TimerMixin` with ES6 classes, we recommend [react-mixin](https://github.com/brigand/react-mixin).

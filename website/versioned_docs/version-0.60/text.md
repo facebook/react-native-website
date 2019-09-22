@@ -181,41 +181,6 @@ We believe that this more constrained way to style text will yield better apps:
 
 - (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
 
-### Props
-
-- [`accessibilityHint`](text.md#accessibilityhint)
-- [`accessibilityLabel`](text.md#accessibilitylabel)
-- [`accessibilityRole`](text.md#accessibilityrole)
-- [`accessibilityState`](text.md#accessibilitystate)
-- [`accessible`](text.md#accessible)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`dataDetectorType`](text.md#datadetectortype)
-- [`disabled`](text.md#disabled)
-- [`ellipsizeMode`](text.md#ellipsizemode)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`minimumFontScale`](text.md#minimumfontscale)
-- [`nativeID`](text.md#nativeid)
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onLongPress`](text.md#onlongpress)
-- [`onMoveShouldSetResponder`](text.md#onmoveshouldsetresponder)
-- [`onPress`](text.md#onpress)
-- [`onResponderGrant`](text.md#onrespondergrant)
-- [`onResponderMove`](text.md#onrespondermove)
-- [`onResponderRelease`](text.md#onresponderrelease)
-- [`onResponderTerminate`](text.md#onresponderterminate)
-- [`onResponderTerminationRequest`](text.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-- [`onTextLayout`](text.md#ontextlayout)
-- [`pressRetentionOffset`](text.md#pressretentionoffset)
-- [`selectable`](text.md#selectable)
-- [`selectionColor`](text.md#selectioncolor)
-- [`style`](text.md#style)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`testID`](text.md#testid)
-- [`textBreakStrategy`](text.md#textbreakstrategy)
-
 ---
 
 # Reference

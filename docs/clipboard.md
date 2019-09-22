@@ -5,11 +5,6 @@ title: Clipboard
 
 `Clipboard` gives you an interface for setting and getting content from Clipboard on both iOS and Android
 
-### Methods
-
-- [`getString`](clipboard.md#getstring)
-- [`setString`](clipboard.md#setstring)
-
 ---
 
 # Reference

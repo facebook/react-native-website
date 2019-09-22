@@ -7,7 +7,6 @@ A component which enables customization of the keyboard input accessory view on 
 
 To use this component wrap your custom toolbar with the InputAccessoryView component, and set a `nativeID`. Then, pass that `nativeID` as the `inputAccessoryViewID` of whatever `TextInput` you desire. A simple example:
 
-
 ```SnackPlayer name=InputAccessoryView&platform=ios
 import React, { Component } from 'react';
 import { View, ScrollView, TextInput, InputAccessoryView, Button } from 'react-native';
@@ -45,13 +44,7 @@ export default class UselessTextInput extends Component {
 }
 ```
 
-This component can also be used to create sticky text inputs (text inputs which are anchored to the top of the keyboard). To do this, wrap a `TextInput` with the `InputAccessoryView` component, and don't set a `nativeID`. For an example, look at [InputAccessoryViewExample.js](https://github.com/facebook/react-native/blob/master/RNTester/js/InputAccessoryViewExample.js).
-
-### Props
-
-- [`backgroundColor`](inputaccessoryview.md#backgroundcolor)
-- [`nativeID`](inputaccessoryview.md#nativeid)
-- [`style`](inputaccessoryview.md#style)
+This component can also be used to create sticky text inputs (text inputs which are anchored to the top of the keyboard). To do this, wrap a `TextInput` with the `InputAccessoryView` component, and don't set a `nativeID`. For an example, look at [InputAccessoryViewExample.js](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/InputAccessoryView/InputAccessoryViewExample.js).
 
 ---
 

@@ -10,15 +10,13 @@ In general, you should initialize `state` in the constructor, and then call `set
 
 For example, let's say we want to make text that blinks all the time. The text itself gets set once when the blinking component gets created, so the text itself is a `prop`. The "whether the text is currently on or off" changes over time, so that should be kept in `state`.
 
-```SnackPlayer
+```SnackPlayer name=State
 import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 class Blink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { isShowingText: true };
 
+  componentDidMount(){
     // Toggle the state every second
     setInterval(() => (
       this.setState(previousState => (
@@ -26,6 +24,9 @@ class Blink extends Component {
       ))
     ), 1000);
   }
+
+  //state object
+  state = { isShowingText: true };
 
   render() {
     if (!this.state.isShowingText) {
@@ -50,9 +51,6 @@ export default class BlinkApp extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
 ```
 
 In a real application, you probably won't be setting state with a timer. You might set state when you have new data from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) or [Mobx](https://mobx.js.org/) to control your data flow. In that case you would use Redux or Mobx to modify your state rather than calling `setState` directly.

@@ -27,13 +27,6 @@ We have to be careful when to do this rounding. You never want to work with roun
 
 In React Native, everything in JavaScript and within the layout engine works with arbitrary precision numbers. It's only when we set the position and dimensions of the native element on the main thread that we round. Also, rounding is done relative to the root rather than the parent, again to avoid accumulating rounding errors.
 
-### Methods
-
-- [`get`](pixelratio.md#get)
-- [`getFontScale`](pixelratio.md#getfontscale)
-- [`getPixelSizeForLayoutSize`](pixelratio.md#getpixelsizeforlayoutsize)
-- [`roundToNearestPixel`](pixelratio.md#roundtonearestpixel)
-
 ---
 
 # Reference
