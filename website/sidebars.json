@@ -16,6 +16,7 @@
       "more-resources"
     ],
     "Guides": [
+      "fast-refresh",
       "components-and-apis",
       "platform-specific-code",
       "navigation",

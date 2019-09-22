@@ -15,23 +15,6 @@ You can access the developer menu by shaking your device or by selecting "Shake 
 
 > The Developer Menu is disabled in release (production) builds.
 
-## Reloading JavaScript
-
-Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press `⌘R` in the iOS Simulator, or tap `R` twice on Android emulators.
-
-### Automatic reloading
-
-You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
-
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading) from the Developer Menu. This will allow you to persist the app's state through reloads.
-
-> There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
-
-You will need to rebuild your app for changes to take effect in certain situations:
-
-- You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
-- You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
-
 ## In-app Errors and Warnings
 
 Errors and warnings are displayed inside your app in development builds.
