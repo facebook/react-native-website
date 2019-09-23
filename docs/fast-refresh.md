@@ -3,7 +3,7 @@ id: fast-refresh
 title: Fast Refresh
 ---
 
-Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the [React Native developer menu](/intern/wiki/React_Native_Intro/common_workflows/#trigger-react-native-dev). With Fast Refresh enabled, most edits should fall within a second or two.
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. With Fast Refresh enabled, most edits should fall within a second or two.
 
 ## How It Works
 
