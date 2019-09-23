@@ -66,7 +66,7 @@ _iOS Only_. The dialog has been dismissed.
 
 ```jsx
 import React, {Component} from 'react';
-import {Share, Button} from 'react-native';
+import {Share, Button, Alert} from 'react-native';
 
 class ShareExample extends Component {
   onShare = async () => {
@@ -86,7 +86,7 @@ class ShareExample extends Component {
         // dismissed
       }
     } catch (error) {
-      alert(error.message);
+      Alert.alert(error.message);
     }
   };
 
