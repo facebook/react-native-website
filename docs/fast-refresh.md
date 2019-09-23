@@ -3,7 +3,7 @@ id: fast-refresh
 title: Fast Refresh
 ---
 
-Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. With Fast Refresh enabled, most edits should fall within a second or two.
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. With Fast Refresh enabled, most edits should be visible within a second or two.
 
 ## How It Works
 
@@ -33,6 +33,6 @@ In longer term, as more of your codebase moves to function components and Hooks,
 
 ## Tips
 
-- Fast Refresh preserves React local state in function components (and Hooks!) by default.
+- Fast Refresh preserves React local state in function components (and Hooks) by default.
 - Sometimes you might want to _force_ the state to be reset, and a component to be remounted. For example, this can be handy if you're tweaking an animation that only happens on mount. To do this, you can add `// @refresh reset` anywhere in the file you're editing. This directive is local to the file, and instructs Fast Refresh to remount components defined in that file on every edit.
 - You can put `console.log` or `debugger;` into the components you edit during a Fast Refresh session.
