@@ -3389,6 +3389,12 @@
       "version-0.60/version-0.60-virtualizedlist": {
         "title": "VirtualizedList"
       },
+      "version-0.61/version-0.61-debugging": {
+        "title": "Debugging"
+      },
+      "version-0.61/version-0.61-fast-refresh": {
+        "title": "Fast Refresh"
+      },
       "version-0.7/version-0.7-pushnotificationios": {
         "title": "PushNotificationIOS"
       },
