@@ -281,7 +281,7 @@ Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare 
 #import <React/RCTViewManager.h>
 
 #import "RNTMapView.h"
-#import "RCTConvert+Mapkit.m"
+#import "RCTConvert+Mapkit.h"
 
 @interface RNTMapManager : RCTViewManager <MKMapViewDelegate>
 @end
