@@ -141,7 +141,7 @@ You could write any conversion function you want for your view - here is the imp
 ```objectivec
 // RNTMapManager.m
 
-#import "RCTConvert+Mapkit.m"
+#import "RCTConvert+Mapkit.h"
 
 // RCTConvert+Mapkit.h
 
