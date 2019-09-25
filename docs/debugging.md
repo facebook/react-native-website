@@ -3,10 +3,6 @@ id: debugging
 title: Debugging
 ---
 
-## Enabling Keyboard Shortcuts
-
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
-
 ## Accessing the In-App Developer Menu
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
@@ -14,6 +10,14 @@ You can access the developer menu by shaking your device or by selecting "Shake 
 ![](/react-native/docs/assets/DeveloperMenu.png)
 
 > The Developer Menu is disabled in release (production) builds.
+
+## Enabling Fast Refresh
+
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled.  Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
+
+## Enabling Keyboard Shortcuts
+
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## In-app Errors and Warnings
 
