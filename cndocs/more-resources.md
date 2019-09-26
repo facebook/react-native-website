@@ -17,7 +17,7 @@ title: 其他参考资源
 
 ## 开发工具
 
-[Nuclide](https://nuclide.io/)是 Facebook 内部所使用的 React Native 开发工具。它最大的特点是自带调试功能，并且非常好地支持 flow 语法规则。 [VS Code](https://code.visualstudio.com/)也是目前非常受 JS 开发者欢迎的 IDE 工具。
+[VS Code](https://code.visualstudio.com/)是目前非常受 JS 开发者欢迎的 IDE 工具。
 
 [Ignite](https://github.com/infinitered/ignite)是一套整合了 Redux 以及一些常见 UI 组件的脚手架。它带有一个命令行可以生成 app、组件或是容器。如果你喜欢它的选择搭配，那么不妨一试。
 

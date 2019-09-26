@@ -462,7 +462,7 @@ react-native run-ios
 
 ![AwesomeProject on iOS](assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 或是[Nuclide](https://nuclide.io/)中直接运行应用。
+`react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
 
 > 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看论坛的[求助专区](http://bbs.reactnative.cn/category/4)。
 
@@ -495,7 +495,7 @@ react-native run-android
 
 <block class="native mac windows linux android" />
 
-`react-native run-android`只是运行应用的方式之一。你也可以在 Android Studio 或是[Nuclide](https://nuclide.io/)中直接运行应用。
+`react-native run-android`只是运行应用的方式之一。你也可以在 Android Studio 中直接运行应用。
 
 > 译注：建议在`run-android`成功后再尝试使用 Android Studio 启动。请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
