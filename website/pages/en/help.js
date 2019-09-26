@@ -127,7 +127,7 @@ class Help extends React.Component {
           <h3>Reactiflux Chat</h3>
           <p>
             If you need an answer right away, check out the{' '}
-            <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Discord</a>{' '}
+            <a href="https://discord.gg/reactiflux">Reactiflux Discord</a>{' '}
             community. There are usually a number of React Native experts there
             who can help out or point you to somewhere you might want to look.
           </p>
