@@ -148,7 +148,6 @@ While you can use any editor of your choice to develop your app, you will need t
 We recommend installing Node, Watchman, and JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```
-brew install yarn
 brew install node
 brew install watchman
 brew tap AdoptOpenJDK/openjdk
@@ -184,34 +183,6 @@ choco install -y nodejs.install python2 jdk8
 If you have already installed Node on your system, make sure it is Node 8.3 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
-
-<block class="native mac ios android" />
-
-<h3>The React Native CLI</h3>
-
-Node comes with npm, which lets you install the React Native command line interface.
-
-Run the following command in a Terminal:
-
-```
-npm install -g react-native-cli
-```
-
-> If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
-
-<block class="native windows linux android" />
-
-<h3>The React Native CLI</h3>
-
-Node comes with npm, which lets you install the React Native command line interface.
-
-Run the following command in a Command Prompt or shell:
-
-```powershell
-npm install -g react-native-cli
-```
-
-> If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
 
 <block class="native mac ios" />
 
@@ -370,7 +341,7 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
 
 ```
-react-native init AwesomeProject
+npx react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo (or Create React Native App), or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
@@ -380,11 +351,11 @@ This is not necessary if you are integrating React Native into an existing appli
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
-react-native init AwesomeProject --version X.XX.X
+npx react-native init AwesomeProject --version X.XX.X
 ```
 
 ```
-react-native init AwesomeProject --version react-native@next
+npx react-native init AwesomeProject --version react-native@next
 ```
 
 <block class="native mac windows linux android" />
@@ -394,7 +365,7 @@ react-native init AwesomeProject --version react-native@next
 Use the React Native command line interface to generate a new React Native project called "AwesomeProject":
 
 ```
-react-native init AwesomeProject
+npx react-native init AwesomeProject
 ```
 
 This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Create React Native App, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
@@ -404,11 +375,11 @@ This is not necessary if you are integrating React Native into an existing appli
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
 ```
-react-native init AwesomeProject --version X.XX.X
+npx react-native init AwesomeProject --version X.XX.X
 ```
 
 ```
-react-native init AwesomeProject --version react-native@next
+npx react-native init AwesomeProject --version react-native@next
 ```
 
 <block class="native mac windows linux android" />
@@ -451,18 +422,18 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-Run `react-native run-ios` inside your React Native project folder:
+Run `npx react-native run-ios` inside your React Native project folder:
 
 ```
 cd AwesomeProject
-react-native run-ios
+npx react-native run-ios
 ```
 
 You should see your new app running in the iOS Simulator shortly.
 
 ![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode.
+`npx react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
@@ -474,11 +445,11 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-Run `react-native run-android` inside your React Native project folder:
+Run `npx react-native run-android` inside your React Native project folder:
 
 ```
 cd AwesomeProject
-react-native run-android
+npx react-native run-android
 ```
 
 If everything is set up correctly, you should see your new app running in your Android emulator shortly.
@@ -493,7 +464,7 @@ If everything is set up correctly, you should see your new app running in your A
 
 <block class="native mac windows linux android" />
 
-`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio.
+`npx react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
