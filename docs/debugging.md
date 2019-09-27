@@ -123,6 +123,12 @@ You can enable a performance overlay to help you debug performance problems by s
 
 <hr style="margin-top:25px; margin-bottom:25px;"/>
 
+## Debugging Application State
+
+[Reactotron](https://github.com/infinitered/reactotron) is an open-source desktop app that allows you to inspect Redux or MobX-State-Tree application state as well as view custom logs, run custom commands such as resetting state, store and restore state snapshots, and other helpful debugging features for React Native apps.
+
+You can view installation instructions [in the README](https://github.com/infinitered/reactotron). If you're using Expo, here is an article detailing [how to install on Expo](https://shift.infinite.red/start-using-reactotron-in-your-expo-project-today-in-3-easy-steps-a03d11032a7a).
+
 # Debugging in Ejected Apps
 
 <div class="banner-crna-ejected" style="margin-top:25px">
