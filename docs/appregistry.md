@@ -20,26 +20,6 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 
 `AppRegistry` should be required early in the `require` sequence to make sure the JS execution environment is setup before other modules are required.
 
-### Methods
-
-- [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
-- [`registerConfig`](appregistry.md#registerconfig)
-- [`registerComponent`](appregistry.md#registercomponent)
-- [`registerRunnable`](appregistry.md#registerrunnable)
-- [`registerSection`](appregistry.md#registersection)
-- [`getAppKeys`](appregistry.md#getappkeys)
-- [`getSectionKeys`](appregistry.md#getsectionkeys)
-- [`getSections`](appregistry.md#getsections)
-- [`getRunnable`](appregistry.md#getrunnable)
-- [`getRegistry`](appregistry.md#getregistry)
-- [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
-- [`runApplication`](appregistry.md#runapplication)
-- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-- [`registerCancellableHeadlessTask`](appregistry.md#registercancellableheadlesstask)
-- [`startHeadlessTask`](appregistry.md#startheadlesstask)
-- [`cancelHeadlessTask`](appregistry.md#cancelheadlesstask)
-
 ---
 
 # Reference

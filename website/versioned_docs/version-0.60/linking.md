@@ -119,17 +119,6 @@ Linking.canOpenURL(url)
   .catch((err) => console.error('An error occurred', err));
 ```
 
-### Methods
-
-- [`constructor`](linking.md#constructor)
-- [`addEventListener`](linking.md#addeventlistener)
-- [`removeEventListener`](linking.md#removeeventlistener)
-- [`openURL`](linking.md#openurl)
-- [`canOpenURL`](linking.md#canopenurl)
-- [`openSettings`](linking.md#opensettings)
-- [`getInitialURL`](linking.md#getinitialurl)
-- [`sendIntent`](linking.md#sendintent)
-
 ---
 
 # Reference

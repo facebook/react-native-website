@@ -43,20 +43,13 @@ const styles = StyleSheet.create({
 })
 ```
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`animating`](activityindicator.md#animating)
-* [`color`](activityindicator.md#color)
-* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
-* [`size`](activityindicator.md#size)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `animating`
 

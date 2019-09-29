@@ -57,21 +57,6 @@ class AppStateExample extends Component {
 
 This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily.
 
-### Methods
-
-- [`addEventListener`](appstate.md#addeventlistener)
-- [`removeEventListener`](appstate.md#removeeventlistener)
-
-### Supported events
-
-- [`change`](appstate.md#change)
-- [`focus`](appstate.md#focus)
-- [`blur`](appstate.md#blur)
-
-### Properties
-
-- [`currentState`](appstate.md#currentState)
-
 ---
 
 # Reference

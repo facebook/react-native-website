@@ -87,13 +87,6 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 - `DENIED`: 'denied'
 - `NEVER_ASK_AGAIN`: 'never_ask_again'
 
-### Methods
-
-- [`constructor`](permissionsandroid.md#constructor)
-- [`check`](permissionsandroid.md#check)
-- [`request`](permissionsandroid.md#request)
-- [`requestMultiple`](permissionsandroid.md#requestmultiple)
-
 ---
 
 # Reference

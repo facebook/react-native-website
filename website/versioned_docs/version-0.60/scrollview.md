@@ -20,78 +20,53 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, just 
 
 `FlatList` is also handy if you want to render separators between your items, multiple columns, infinite scroll loading, or any number of other features it supports out of the box.
 
-### Props
+### Example
 
-- [View props...](view.md#props)
+```SnackPlayer name=ScrollView
+import React from 'react';
+import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
 
-* [`alwaysBounceHorizontal`](scrollview.md#alwaysbouncehorizontal)
-* [`alwaysBounceVertical`](scrollview.md#alwaysbouncevertical)
-* [`automaticallyAdjustContentInsets`](scrollview.md#automaticallyadjustcontentinsets)
-* [`bounces`](scrollview.md#bounces)
-* [`bouncesZoom`](scrollview.md#bounceszoom)
-* [`canCancelContentTouches`](scrollview.md#cancancelcontenttouches)
-* [`centerContent`](scrollview.md#centercontent)
-* [`contentContainerStyle`](scrollview.md#contentcontainerstyle)
-* [`contentInset`](scrollview.md#contentinset)
-* [`contentInsetAdjustmentBehavior`](scrollview.md#contentinsetadjustmentbehavior)
-* [`contentOffset`](scrollview.md#contentoffset)
-* [`decelerationRate`](scrollview.md#decelerationrate)
-* [`directionalLockEnabled`](scrollview.md#directionallockenabled)
-* [`disableIntervalMomentum`](scrollview.md#disableintervalmomentum)
-* [`disableScrollViewPanResponder`](scrollview.md#disablescrollviewpanresponder)
-* [`endFillColor`](scrollview.md#endfillcolor)
-* [`horizontal`](scrollview.md#horizontal)
-* [`indicatorStyle`](scrollview.md#indicatorstyle)
-* [`invertStickyHeaders`](scrollview.md#invertstickyheaders)
-* [`keyboardDismissMode`](scrollview.md#keyboarddismissmode)
-* [`keyboardShouldPersistTaps`](scrollview.md#keyboardshouldpersisttaps)
-* [`maintainVisibleContentPosition`](scrollview.md#maintainvisiblecontentposition)
-* [`maximumZoomScale`](scrollview.md#maximumzoomscale)
-* [`minimumZoomScale`](scrollview.md#minimumzoomscale)
-* [`nestedScrollEnabled`](scrollview.md#nestedscrollenabled)
-* [`onContentSizeChange`](scrollview.md#oncontentsizechange)
-* [`onMomentumScrollBegin`](scrollview.md#onmomentumscrollbegin)
-* [`onMomentumScrollEnd`](scrollview.md#onmomentumscrollend)
-* [`onScroll`](scrollview.md#onscroll)
-* [`onScrollBeginDrag`](scrollview.md#onscrollbegindrag)
-* [`onScrollEndDrag`](scrollview.md#onscrollenddrag)
-* [`onScrollToTop`](scrollview.md#onscrolltotop)
-* [`overScrollMode`](scrollview.md#overscrollmode)
-* [`pagingEnabled`](scrollview.md#pagingenabled)
-* [`persistentScrollbar`](scrollview.md#persistentscrollbar)
-* [`pinchGestureEnabled`](scrollview.md#pinchgestureenabled)
-* [`refreshControl`](scrollview.md#refreshcontrol)
-* [`removeClippedSubviews`](scrollview.md#removeclippedsubviews)
-* [`scrollBarThumbImage`](scrollview.md#scrollbarthumbimage)
-* [`scrollEnabled`](scrollview.md#scrollenabled)
-* [`scrollEventThrottle`](scrollview.md#scrolleventthrottle)
-* [`scrollIndicatorInsets`](scrollview.md#scrollindicatorinsets)
-* [`scrollPerfTag`](scrollview.md#scrollperftag)
-* [`scrollToOverflowEnabled`](scrollview.md#scrolltooverflowenabled)
-* [`scrollsToTop`](scrollview.md#scrollstotop)
-* [`DEPRECATED_sendUpdatedChildFrames`](scrollview.md#deprecatedsendupdatedchildframes)
-* [`showsHorizontalScrollIndicator`](scrollview.md#showshorizontalscrollindicator)
-* [`showsVerticalScrollIndicator`](scrollview.md#showsverticalscrollindicator)
-* [`snapToAlignment`](scrollview.md#snaptoalignment)
-* [`snapToEnd`](scrollview.md#snaptoend)
-* [`snapToInterval`](scrollview.md#snaptointerval)
-* [`snapToOffsets`](scrollview.md#snaptooffsets)
-* [`snapToStart`](scrollview.md#snaptostart)
-* [`stickyHeaderIndices`](scrollview.md#stickyheaderindices)
-* [`zoomScale`](scrollview.md#zoomscale)
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
 
-### Methods
-
-- [`flashScrollIndicators`](scrollview.md#flashscrollindicators)
-- [`scrollTo`](scrollview.md#scrollto)
-- [`scrollToEnd`](scrollview.md#scrolltoend)
-- [`scrollWithoutAnimationTo`](scrollview.md#scrollwithoutanimationto)
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  scrollView: {
+    backgroundColor: 'pink',
+    marginHorizontal: 20,
+  },
+  text: {
+    fontSize: 42,
+  },
+});
+```
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `alwaysBounceHorizontal`
 

@@ -20,18 +20,13 @@ return (
 );
 ```
 
-### Props
-
-- [`Image` props...](image.md#props)
-- [`style`](imagebackground.md#style)
-- [`imageStyle`](imagebackground.md#imagestyle)
-- [`imageRef`](imagebackground.md#imageref)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [Image Props](image.md#props).
 
 ### `style`
 

@@ -24,39 +24,13 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 
 For cases where using a component is not ideal, there is also an imperative API exposed as static functions on the component. It is however not recommended to use the static API and the component for the same prop because any value set by the static API will get overridden by the one set by the component in the next render.
 
-### Constants
-
-`currentHeight` (Android only) The height of the status bar.
-
-### Props
-
-- [`animated`](statusbar.md#animated)
-- [`backgroundColor`](statusbar.md#backgroundcolor)
-- [`barStyle`](statusbar.md#barstyle)
-- [`hidden`](statusbar.md#hidden)
-- [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
-- [`showHideTransition`](statusbar.md#showhidetransition)
-- [`translucent`](statusbar.md#translucent)
-
-### Methods
-
-- [`popStackEntry`](statusbar.md#popstackentry)
-- [`pushStackEntry`](statusbar.md#pushstackentry)
-- [`replaceStackEntry`](statusbar.md#replacestackentry)
-- [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
-- [`setBarStyle`](statusbar.md#setbarstyle)
-- [`setHidden`](statusbar.md#sethidden)
-- [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
-- [`setTranslucent`](statusbar.md#settranslucent)
-
-### Type Definitions
-
-- [`StatusBarAnimation`](statusbar.md#statusbaranimation)
-- [`StatusBarStyle`](statusbar.md#statusbarstyle)
-
 ---
 
 # Reference
+
+## Constants
+
+`currentHeight` (Android only) The height of the status bar.
 
 ## Props
 

@@ -20,20 +20,13 @@ import {KeyboardAvoidingView} from 'react-native';
 
 ![](/react-native/docs/assets/KeyboardAvoidingView/example.gif)
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`behavior`](keyboardavoidingview.md#behavior)
-* [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
-* [`enabled`](keyboardavoidingview.md#enabled)
-* [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `behavior`
 

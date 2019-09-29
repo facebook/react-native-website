@@ -38,11 +38,6 @@ Vibration.cancel();
 // iOS: vibration stopped
 ```
 
-### Methods
-
-- [`vibrate`](vibration.md#vibrate)
-- [`cancel`](vibration.md#cancel)
-
 ---
 
 # Reference
