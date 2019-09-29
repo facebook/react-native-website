@@ -7,6 +7,41 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 `TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
 
+```SnackPlayer name=TouchableWithoutFeedback
+import React, { useCallback } from 'react';
+import {
+  Text,
+  TouchableWithoutFeedback,
+  StyleSheet,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  const onPress = useCallback(() => {
+    Alert.alert('Touchable pressed');
+  });
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <TouchableWithoutFeedback onPress={onPress}>
+        <Text>Click me</Text>
+      </TouchableWithoutFeedback>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+```
+
 ### Usage Example
 
 ```jsx

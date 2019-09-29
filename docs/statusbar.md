@@ -5,18 +5,52 @@ title: StatusBar
 
 Component to control the app status bar.
 
-### Usage with Navigator
-
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```jsx
-<View>
-  <StatusBar backgroundColor="blue" barStyle="light-content" />
-  <View>
-    <StatusBar hidden={route.statusBarHidden} />
-    ...
-  </View>
-</View>
+### Example
+
+```SnackPlayer name=StatusBar platform=ios
+import React, { useState } from 'react';
+import {
+  Text,
+  View,
+  StatusBar,
+  StyleSheet,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  const [hidden, setHidden] = useState(false);
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <StatusBar hidden={hidden} />
+      <TouchableOpacity style={styles.button} onPress={() => setHidden(!hidden)}>
+        <Text style={styles.text}>Toggle StatusBar</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 20,
+    justifyContent: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 10,
+  },
+  text: {
+    fontSize: 32,
+  }
+});
 ```
 
 ### Imperative API
@@ -129,9 +163,9 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 **Parameters:**
 
-| Name  | Type | Required | Description                                                      |
-| ----- | ---- | -------- | ---------------------------------------------------------------- |
-| props | any  | Yes      | Object containing the StatusBar props to use in the stack entry. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| props | any | Yes | Object containing the StatusBar props to use in the stack entry. |
 
 ---
 
@@ -145,10 +179,10 @@ Replace an existing StatusBar stack entry with new props.
 
 **Parameters:**
 
-| Name  | Type | Required | Description                                                                  |
-| ----- | ---- | -------- | ---------------------------------------------------------------------------- |
-| entry | any  | Yes      | Entry returned from `pushStackEntry` to replace.                             |
-| props | any  | Yes      | Object containing the StatusBar props to use in the replacement stack entry. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| entry | any | Yes | Entry returned from `pushStackEntry` to replace. |
+| props | any | Yes | Object containing the StatusBar props to use in the replacement stack entry. |
 
 ---
 
@@ -179,10 +213,10 @@ Set the status bar style
 
 **Parameters:**
 
-| Name     | Type                                          | Required | Description               |
-| -------- | --------------------------------------------- | -------- | ------------------------- |
-| style    | [StatusBarStyle](statusbar.md#statusbarstyle) | Yes      | Status bar style to set   |
-| animated | boolean                                       | No       | Animate the style change. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| style | [StatusBarStyle](statusbar.md#statusbarstyle) | Yes | Status bar style to set |
+| animated | boolean | No | Animate the style change. |
 
 ---
 
@@ -196,10 +230,10 @@ Show or hide the status bar
 
 **Parameters:**
 
-| Name      | Type                                                  | Required | Description                                                      |
-| --------- | ----------------------------------------------------- | -------- | ---------------------------------------------------------------- |
-| hidden    | boolean                                               | Yes      | Hide the status bar.                                             |
-| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | No       | Optional animation when changing the status bar hidden property. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| hidden | boolean | Yes | Hide the status bar. |
+| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | No | Optional animation when changing the status bar hidden property. |
 
 ---
 
@@ -263,8 +297,8 @@ Status bar style
 
 **Constants:**
 
-| Value         | Description                                                          |
-| ------------- | -------------------------------------------------------------------- |
-| default       | Default status bar style (dark for iOS, light for Android)           |
-| light-content | Dark background, white texts and icons                               |
-| dark-content  | Light background, dark texts and icons (requires API>=23 on Android) |
+| Value | Description |
+| --- | --- |
+| default | Default status bar style (dark for iOS, light for Android) |
+| light-content | Dark background, white texts and icons |
+| dark-content | Light background, dark texts and icons (requires API>=23 on Android) |

@@ -9,20 +9,43 @@ At the moment it only supports having a single View instance as a child node, as
 
 Background drawable of native feedback touchable can be customized with `background` property.
 
-Example:
+### Example
 
-```jsx
-renderButton: function() {
+```SnackPlayer name=TouchableNativeFeedback platform=android
+import React, { useCallback } from 'react';
+import {
+  Text,
+  TouchableNativeFeedback,
+  StyleSheet,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  const onPress = useCallback(() => {
+    Alert.alert('Touchable pressed');
+  });
+
   return (
-    <TouchableNativeFeedback
-        onPress={this._onPressButton}
+    <SafeAreaView style={styles.container}>
+      <TouchableNativeFeedback
+        onPress={onPress}
         background={TouchableNativeFeedback.SelectableBackground()}>
-      <View style={{width: 150, height: 100, backgroundColor: 'red'}}>
-        <Text style={{margin: 30}}>Button</Text>
-      </View>
-    </TouchableNativeFeedback>
+        <Text>Click me</Text>
+      </TouchableNativeFeedback>
+    </SafeAreaView>
   );
-},
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 ```
 
 ---

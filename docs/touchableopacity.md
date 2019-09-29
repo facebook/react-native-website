@@ -7,21 +7,6 @@ A wrapper for making views respond properly to touches. On press down, the opaci
 
 Opacity is controlled by wrapping the children in an Animated.View, which is added to the view hierarchy. Be aware that this can affect layout.
 
-Example:
-
-```jsx
-renderButton: function() {
-  return (
-    <TouchableOpacity onPress={this._onPressButton}>
-      <Image
-        style={styles.button}
-        source={require('./myButton.png')}
-      />
-    </TouchableOpacity>
-  );
-},
-```
-
 ### Example
 
 ```SnackPlayer name=TouchableOpacity

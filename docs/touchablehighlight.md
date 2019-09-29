@@ -9,21 +9,6 @@ The underlay comes from wrapping the child in a new View, which can affect layou
 
 TouchableHighlight must have one child (not zero or more than one). If you wish to have several child components, wrap them in a View.
 
-Example:
-
-```jsx
-renderButton: function() {
-  return (
-    <TouchableHighlight onPress={this._onPressButton}>
-      <Image
-        style={styles.button}
-        source={require('./myButton.png')}
-      />
-    </TouchableHighlight>
-  );
-},
-```
-
 ### Example
 
 ```SnackPlayer name=TouchableHighlight

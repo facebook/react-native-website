@@ -9,6 +9,40 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ---
 
+### Example
+
+```SnackPlayer name=Switch
+import React, { useState } from 'react';
+import {
+  Text,
+  View,
+  Switch,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  const [selected, setSelected] = useState(false);
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>Toggle switch</Text>
+      <Switch value={selected} onValueChange={() => setSelected(!selected)} />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
+```
+
 # Reference
 
 ## Props

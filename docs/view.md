@@ -9,23 +9,46 @@ The most fundamental component for building a UI, `View` is a container that sup
 
 This example creates a `View` that wraps two colored boxes and a text component in a row with padding.
 
-```jsx
-class ViewColoredBoxesWithText extends Component {
-  render() {
-    return (
-      <View
-        style={{
-          flexDirection: 'row',
-          height: 100,
-          padding: 20,
-        }}>
-        <View style={{backgroundColor: 'blue', flex: 0.3}} />
-        <View style={{backgroundColor: 'red', flex: 0.5}} />
-        <Text>Hello World!</Text>
+### Example
+
+```SnackPlayer name=View
+import React from 'react';
+import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
+import Constants from 'expo-constants';
+
+export default function App() {
+  return (
+    <SafeAreaView style={[styles.container, styles.center]}>
+      <View style={[styles.block1, styles.center]}>
+        <Text>Blue block</Text>
       </View>
-    );
-  }
+      <View style={[styles.block2, styles.center]}>
+        <Text>Pink block</Text>
+      </View>
+    </SafeAreaView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  center: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  block1: {
+    backgroundColor: 'lightblue',
+    height: 200,
+    width: 300,
+  },
+  block2: {
+    backgroundColor: 'pink',
+    height: 300,
+    width: 200,
+  },
+});
 ```
 
 > `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
