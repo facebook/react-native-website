@@ -16,7 +16,7 @@
       "more-resources"
     ],
     "Guides": [
-      "optimizing-flatlist-configuration",
+      "fast-refresh",
       "components-and-apis",
       "platform-specific-code",
       "navigation",
@@ -24,6 +24,7 @@
       "animations",
       "accessibility",
       "improvingux",
+      "optimizing-flatlist-configuration",
       "timers",
       "debugging",
       "performance",

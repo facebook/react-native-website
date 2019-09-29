@@ -1,12 +1,8 @@
 ---
-id: version-0.60-debugging
+id: version-0.61-debugging
 title: Debugging
 original_id: debugging
 ---
-
-## Enabling Keyboard Shortcuts
-
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## Accessing the In-App Developer Menu
 
@@ -16,22 +12,13 @@ You can access the developer menu by shaking your device or by selecting "Shake 
 
 > The Developer Menu is disabled in release (production) builds.
 
-## Reloading JavaScript
+## Enabling Fast Refresh
 
-Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press `⌘R` in the iOS Simulator, or tap `R` twice on Android emulators.
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
 
-### Automatic reloading
+## Enabling Keyboard Shortcuts
 
-You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
-
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading) from the Developer Menu. This will allow you to persist the app's state through reloads.
-
-> There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
-
-You will need to rebuild your app for changes to take effect in certain situations:
-
-- You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
-- You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## In-app Errors and Warnings
 

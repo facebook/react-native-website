@@ -30,10 +30,10 @@ Run the following command to start the process of upgrading to the latest versio
 react-native upgrade
 ```
 
-You may specify a React Native version by passing an argument, e.g. to upgrade to `0.59.0-rc.0` run:
+You may specify a React Native version by passing an argument, e.g. to upgrade to `0.61.0-rc.0` run:
 
 ```sh
-react-native upgrade 0.59.0-rc.0
+react-native upgrade 0.61.0-rc.0
 ```
 
 The project is upgraded using `git apply` with 3-way merge, it may happen that you'll need to resolve a few conflicts after it's finished.

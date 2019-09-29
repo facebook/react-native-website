@@ -35,9 +35,9 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
 
 ```jsx
 import React from 'react';
-import {AppRegistry, View, Image} from 'react-native';
+import {View, Image} from 'react-native';
 
-class ImageBrowserApp extends React.Component {
+export default class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
     return <Image source={{uri: imgURI}} />;
   }
@@ -45,8 +45,6 @@ class ImageBrowserApp extends React.Component {
     return <View>{this.props.images.map(this.renderImage)}</View>;
   }
 }
-
-AppRegistry.registerComponent('ImageBrowserApp', () => ImageBrowserApp);
 ```
 
 `RCTRootView` also provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.

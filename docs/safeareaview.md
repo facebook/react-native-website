@@ -11,12 +11,23 @@ The purpose of `SafeAreaView` is to render content within the safe area boundari
 
 Simply wrap your top level view with a `SafeAreaView` with a `flex: 1` style applied to it. You may also want to use a background color that matches your application's design.
 
-```jsx
-<SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-  <View style={{flex: 1}}>
-    <Text>Hello World!</Text>
-  </View>
-</SafeAreaView>
+```SnackPlayer name=SafeAreaView
+import React from 'react';
+import { StyleSheet, Text, SafeAreaView } from 'react-native';
+
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text>Page content</Text>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 ```
 
 ---

@@ -182,3 +182,40 @@ input#search_input_react {
 input#search_input_react:focus {
   background-color: $light;
 }
+
+/* 2019_docs-survey */
+.callout_docs-survey-2019-2 {
+  background-color: rgba(5, 165, 209, 0.25);
+  border-radius: 0.15em;
+  color: #001217;
+  display: block;
+  margin: 1em 0;
+  position: relative;
+  padding: 1em 2em 1em 3.5em;
+  transition: transform 300ms ease-out;
+}
+
+.callout_docs-survey-2019-2 svg {
+  fill: rgba(5, 165, 209, 1);
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  top: 0.75em;
+  left: 1em;
+}
+
+.callout_docs-survey-2019-2:link,
+.callout_docs-survey-2019-2:visited {
+  color: #001217;
+}
+
+.callout_docs-survey-2019-2:hover,
+.callout_docs-survey-2019-2:active,
+.callout_docs-survey-2019-2:focus {
+  color: #001217;
+  transform: translate(0.1em, 0.1em);
+}
+
+.callout_docs-survey-2019-2 span {
+  text-decoration: underline;
+}
