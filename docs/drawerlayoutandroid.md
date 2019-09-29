@@ -7,7 +7,7 @@ React component that wraps the platform `DrawerLayout` (Android only). The Drawe
 
 ### Example
 
-```SnackPlayer name=drawerlayoutandroid
+```SnackPlayer name=drawerlayoutandroid platform=android
 import React from 'react';
 import {
   DrawerLayoutAndroid,

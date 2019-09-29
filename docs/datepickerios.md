@@ -9,7 +9,7 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 
 ### Example
 
-```SnackPlayer name=datepickerios
+```SnackPlayer name=datepickerios platform=ios
 import React, { Component } from 'react';
 import { DatePickerIOS, View, StyleSheet } from 'react-native';
 
