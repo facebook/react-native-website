@@ -12,21 +12,16 @@ The simplest use case is to plop down a `TextInput` and subscribe to the `onChan
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
-export default class UselessTextInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
-  }
+export default function UselessTextInput() {
+  const [value, onChangeText] = React.useState('Useless Placeholder');
 
-  render() {
-    return (
-      <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
-    );
-  }
+  return (
+    <TextInput
+      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+      onChangeText={text => onChangeText(text)}
+      value={value}
+    />
+  );
 }
 ```
 
@@ -38,44 +33,36 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 
-class UselessTextInput extends Component {
-  render() {
-    return (
-      <TextInput
-        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
-        editable = {true}
-        maxLength = {40}
-      />
-    );
-  }
+function UselessTextInput(props) {
+  return (
+    <TextInput
+      {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+      editable
+      maxLength={40}
+    />
+  );
 }
 
-export default class UselessTextInputMultiline extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: 'Useless Multiline Placeholder',
-    };
-  }
+export default function UselessTextInputMultiline() {
+  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
   // color.
-  render() {
-    return (
-     <View style={{
-       backgroundColor: this.state.text,
-       borderBottomColor: '#000000',
-       borderBottomWidth: 1 }}
-     >
-       <UselessTextInput
-         multiline = {true}
-         numberOfLines = {4}
-         onChangeText={(text) => this.setState({text})}
-         value={this.state.text}
-       />
-     </View>
-    );
-  }
+  return (
+    <View
+      style={{
+        backgroundColor: value,
+        borderBottomColor: '#000000',
+        borderBottomWidth: 1,
+      }}>
+      <UselessTextInput
+        multiline
+        numberOfLines={4}
+        onChangeText={text => onChangeText(text)}
+        value={value}
+      />
+    </View>
+  );
 }
 ```
 
@@ -83,75 +70,13 @@ export default class UselessTextInputMultiline extends Component {
 
 Note that on Android performing text selection in input can change app's activity `windowSoftInputMode` param to `adjustResize`. This may cause issues with components that have position: 'absolute' while keyboard is active. To avoid this behavior either specify `windowSoftInputMode` in AndroidManifest.xml ( https://developer.android.com/guide/topics/manifest/activity-element.html ) or control this param programmatically with native code.
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`allowFontScaling`](textinput.md#allowfontscaling)
-* [`autoCapitalize`](textinput.md#autocapitalize)
-* [`autoCompleteType`](textinput.md#autocompletetype)
-* [`autoCorrect`](textinput.md#autocorrect)
-* [`autoFocus`](textinput.md#autofocus)
-* [`blurOnSubmit`](textinput.md#bluronsubmit)
-* [`caretHidden`](textinput.md#carethidden)
-* [`clearButtonMode`](textinput.md#clearbuttonmode)
-* [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-* [`contextMenuHidden`](textinput.md#contextmenuhidden)
-* [`dataDetectorTypes`](textinput.md#datadetectortypes)
-* [`defaultValue`](textinput.md#defaultvalue)
-* [`disableFullscreenUI`](textinput.md#disablefullscreenui)
-* [`editable`](textinput.md#editable)
-* [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-* [`importantForAutofill`](textinput.md#importantForAutofill)
-* [`inlineImageLeft`](textinput.md#inlineimageleft)
-* [`inlineImagePadding`](textinput.md#inlineimagepadding)
-* [`inputAccessoryViewID`](textinput.md#inputaccessoryviewid)
-* [`keyboardAppearance`](textinput.md#keyboardappearance)
-* [`keyboardType`](textinput.md#keyboardtype)
-* [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-* [`maxLength`](textinput.md#maxlength)
-* [`multiline`](textinput.md#multiline)
-* [`numberOfLines`](textinput.md#numberoflines)
-* [`onBlur`](textinput.md#onblur)
-* [`onChange`](textinput.md#onchange)
-* [`onChangeText`](textinput.md#onchangetext)
-* [`onContentSizeChange`](textinput.md#oncontentsizechange)
-* [`onEndEditing`](textinput.md#onendediting)
-* [`onFocus`](textinput.md#onfocus)
-* [`onKeyPress`](textinput.md#onkeypress)
-* [`onLayout`](textinput.md#onlayout)
-* [`onScroll`](textinput.md#onscroll)
-* [`onSelectionChange`](textinput.md#onselectionchange)
-* [`onSubmitEditing`](textinput.md#onsubmitediting)
-* [`placeholder`](textinput.md#placeholder)
-* [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-* [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
-* [`returnKeyLabel`](textinput.md#returnkeylabel)
-* [`returnKeyType`](textinput.md#returnkeytype)
-* [`scrollEnabled`](textinput.md#scrollenabled)
-* [`secureTextEntry`](textinput.md#securetextentry)
-* [`selection`](textinput.md#selection)
-* [`selectionColor`](textinput.md#selectioncolor)
-* [`selectionState`](textinput.md#selectionstate)
-* [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-* [`showSoftInputOnFocus`](textinput.md#showsoftinputonfocus)
-* [`spellCheck`](textinput.md#spellcheck)
-* [`style`](textinput.md#style)
-* [`textBreakStrategy`](textinput.md#textbreakstrategy)
-* [`textContentType`](textinput.md#textcontenttype)
-* [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-* [`value`](textinput.md#value)
-
-### Methods
-
-- [`clear`](textinput.md#clear)
-- [`isFocused`](textinput.md#isfocused)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `allowFontScaling`
 

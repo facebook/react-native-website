@@ -62,10 +62,6 @@ Alert.alert(
 );
 ```
 
-### Methods
-
-- [`alert`](alert.md#alert)
-
 ---
 
 # Reference

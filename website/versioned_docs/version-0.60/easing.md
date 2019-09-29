@@ -42,26 +42,6 @@ The following helpers are used to modify other easing functions.
 - [`inOut`](easing.md#inout) makes any easing function symmetrical
 - [`out`](easing.md#out) runs an easing function backwards
 
-### Methods
-
-- [`step0`](easing.md#step0)
-- [`step1`](easing.md#step1)
-- [`linear`](easing.md#linear)
-- [`ease`](easing.md#ease)
-- [`quad`](easing.md#quad)
-- [`cubic`](easing.md#cubic)
-- [`poly`](easing.md#poly)
-- [`sin`](easing.md#sin)
-- [`circle`](easing.md#circle)
-- [`exp`](easing.md#exp)
-- [`elastic`](easing.md#elastic)
-- [`back`](easing.md#back)
-- [`bounce`](easing.md#bounce)
-- [`bezier`](easing.md#bezier)
-- [`in`](easing.md#in)
-- [`out`](easing.md#out)
-- [`inOut`](easing.md#inout)
-
 ---
 
 # Reference

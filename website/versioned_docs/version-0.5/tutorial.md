@@ -12,7 +12,7 @@ Let's do this thing.
 
 In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
 
-```SnackPlayer
+```SnackPlayer name=Hello%20World
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 

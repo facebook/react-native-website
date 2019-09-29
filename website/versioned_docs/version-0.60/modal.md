@@ -57,20 +57,6 @@ class ModalExample extends Component {
 }
 ```
 
-### Props
-
-- [`visible`](modal.md#visible)
-- [`supportedOrientations`](modal.md#supportedorientations)
-- [`onRequestClose`](modal.md#onrequestclose)
-- [`onShow`](modal.md#onshow)
-- [`transparent`](modal.md#transparent)
-- [`animationType`](modal.md#animationtype)
-- [`hardwareAccelerated`](modal.md#hardwareaccelerated)
-- [`onDismiss`](modal.md#ondismiss)
-- [`onOrientationChange`](modal.md#onorientationchange)
-- [`presentationStyle`](modal.md#presentationstyle)
-- [`animated`](modal.md#animated)
-
 ---
 
 # Reference

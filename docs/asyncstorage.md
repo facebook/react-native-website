@@ -47,20 +47,6 @@ _retrieveData = async () => {
 };
 ```
 
-### Methods
-
-- [`getItem`](asyncstorage.md#getitem)
-- [`setItem`](asyncstorage.md#setitem)
-- [`removeItem`](asyncstorage.md#removeitem)
-- [`mergeItem`](asyncstorage.md#mergeitem)
-- [`clear`](asyncstorage.md#clear)
-- [`getAllKeys`](asyncstorage.md#getallkeys)
-- [`flushGetRequests`](asyncstorage.md#flushgetrequests)
-- [`multiGet`](asyncstorage.md#multiget)
-- [`multiSet`](asyncstorage.md#multiset)
-- [`multiRemove`](asyncstorage.md#multiremove)
-- [`multiMerge`](asyncstorage.md#multimerge)
-
 ---
 
 # Reference

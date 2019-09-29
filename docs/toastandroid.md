@@ -91,20 +91,6 @@ class App extends Component {
 }
 ```
 
-### Methods
-
-- [`show`](toastandroid.md#show)
-- [`showWithGravity`](toastandroid.md#showwithgravity)
-- [`showWithGravityAndOffset`](toastandroid.md#showwithgravityandoffset)
-
-### Properties
-
-- [`SHORT`](toastandroid.md#short)
-- [`LONG`](toastandroid.md#long)
-- [`TOP`](toastandroid.md#top)
-- [`BOTTOM`](toastandroid.md#bottom)
-- [`CENTER`](toastandroid.md#center)
-
 ---
 
 # Reference

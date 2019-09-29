@@ -35,18 +35,6 @@ InteractionManager.clearInteractionHandle(handle);
 
 By default, queued tasks are executed together in a loop in one `setImmediate` batch. If `setDeadline` is called with a positive number, then tasks will only be executed until the deadline (in terms of js event loop run time) approaches, at which point execution will yield via setTimeout, allowing events such as touches to start interactions and block queued tasks from executing, making apps more responsive.
 
-### Methods
-
-- [`runAfterInteractions`](interactionmanager.md#runafterinteractions)
-- [`createInteractionHandle`](interactionmanager.md#createinteractionhandle)
-- [`clearInteractionHandle`](interactionmanager.md#clearinteractionhandle)
-- [`setDeadline`](interactionmanager.md#setdeadline)
-
-### Properties
-
-- [`Events`](interactionmanager.md#events)
-- [`addListener`](interactionmanager.md#addlistener)
-
 ---
 
 # Reference
