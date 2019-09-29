@@ -7,7 +7,7 @@ Android-only React component used to indicate that the app is loading or there i
 
 ### Example
 
-```SnackPlayer name=ProgressBarAndroid
+```SnackPlayer name=ProgressBarAndroid platform=android
 import React from 'react';
 import { View, StyleSheet, ProgressBarAndroid, Text } from 'react-native';
 
