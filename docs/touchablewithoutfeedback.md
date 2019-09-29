@@ -42,22 +42,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-### Usage Example
-
-```jsx
-function MyComponent(props) {
-  return (
-    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
-      <Text>My Component</Text>
-    </View>
-  );
-}
-
-<TouchableWithoutFeedback onPress={() => alert('Pressed!')}>
-  <MyComponent />
-</TouchableWithoutFeedback>;
-```
-
 ---
 
 # Reference
