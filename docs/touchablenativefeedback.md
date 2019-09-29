@@ -29,9 +29,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableNativeFeedback
-        onPress={onPress}
-        background={TouchableNativeFeedback.SelectableBackground()}>
+      <TouchableNativeFeedback onPress={onPress}>
         <Text>Click me</Text>
       </TouchableNativeFeedback>
     </SafeAreaView>
