@@ -189,12 +189,20 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 
 ### The React Native CLI
 
-Node comes with npm, which lets you install the React Native command line interface.
+Node comes with npm, which lets you install React Native.
 
 Run the following command in a Terminal:
 
+```powershell
+yarn add react-native
+npx install react-native
 ```
-npm install @react-native-community/cli
+
+The command line interface is included with the React Native binary. You can execute commands from your local React Native CLI version through `yarn` or `npx`.
+
+```powershell
+yarn react-native info
+npx react-native info
 ```
 
 > If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
@@ -203,12 +211,20 @@ npm install @react-native-community/cli
 
 ### The React Native CLI
 
-Node comes with npm, which lets you install the React Native command line interface.
+Node comes with npm, which lets you install React Native.
 
-Run the following command in a Command Prompt or shell:
+Run the following command in a Terminal:
 
 ```powershell
-npm install @react-native-community/cli
+yarn add react-native
+npx install react-native
+```
+
+The command line interface is included with the React Native binary. You can execute commands from your local React Native CLI version through `yarn` or `npx`.
+
+```powershell
+yarn react-native info
+npx react-native info
 ```
 
 > If you get an error like `Cannot find module 'npmlog'`, try installing npm directly: `curl -0 -L https://npmjs.org/install.sh | sudo sh`.
@@ -383,8 +399,10 @@ If you want to start a new project with a specific React Native version, you can
 npx react-native init AwesomeProject --version X.XX.X
 ```
 
+For non-semver versions, you can use the `--template` argument.
+
 ```
-npx react-native init AwesomeProject --version react-native@next
+npx react-native init AwesomeProject --template react-native@next
 ```
 
 <block class="native mac windows linux android" />
@@ -407,8 +425,10 @@ If you want to start a new project with a specific React Native version, you can
 npx react-native init AwesomeProject --version X.XX.X
 ```
 
+For non-semver versions, you can use the `--template` argument.
+
 ```
-npx react-native init AwesomeProject --version react-native@next
+npx react-native init AwesomeProject --template react-native@next
 ```
 
 <block class="native mac windows linux android" />
@@ -451,18 +471,18 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 ## Running your React Native application
 
-Run `react-native run-ios` inside your React Native project folder:
+Run `npx react-native run-ios` inside your React Native project folder:
 
 ```
 cd AwesomeProject
-react-native run-ios
+npx react-native run-ios
 ```
 
 You should see your new app running in the iOS Simulator shortly.
 
 ![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode.
+`npx react-native run-ios` is just one way to run your app. You can also run it directly from within Xcode.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
@@ -474,11 +494,11 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 ## Running your React Native application
 
-Run `react-native run-android` inside your React Native project folder:
+Run `npx react-native run-android` inside your React Native project folder:
 
 ```
 cd AwesomeProject
-react-native run-android
+npx react-native run-android
 ```
 
 If everything is set up correctly, you should see your new app running in your Android emulator shortly.
@@ -493,7 +513,7 @@ If everything is set up correctly, you should see your new app running in your A
 
 <block class="native mac windows linux android" />
 
-`react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio.
+`npx react-native run-android` is just one way to run your app - you can also run it directly from within Android Studio.
 
 > If you can't get this to work, see the [Troubleshooting](troubleshooting.md#content) page.
 
