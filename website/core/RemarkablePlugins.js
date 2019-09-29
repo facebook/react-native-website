@@ -24,10 +24,6 @@ function parseParams(paramString) {
     }
   }
 
-  if (!params.platform) {
-    params.platform = 'web';
-  }
-
   return params;
 }
 
@@ -82,7 +78,7 @@ function SnackPlayer(md) {
       : 'Example usage';
     const sampleCode = tokens[idx].content;
     const encodedSampleCode = encodeURIComponent(sampleCode);
-    const platform = params.platform ? params.platform : 'ios';
+    const platform = params.platform ? params.platform : 'web';
     const rnVersion = params.version ? params.version : 'next';
 
     return (
