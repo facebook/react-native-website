@@ -160,10 +160,7 @@ a code {
   }
 }
 
-@media only screen and (min-device-width: 768px) {
-  .mainContainer .component-grid {
-    width: 768px;
-  }
+@media only screen and (min-width: 768px) {
   .mainContainer .component-grid.component-grid-border {
     border-bottom: 1px solid #f1eff0;
   }
@@ -176,7 +173,12 @@ a code {
 
   @supports (display: grid) {
     .mainContainer .component-grid {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media only screen and (min-width: 1440px) {
+      .mainContainer .component-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
     .mainContainer .component {
       width: auto;
