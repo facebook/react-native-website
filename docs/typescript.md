@@ -161,7 +161,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 - [TypeScript Handbook][ts-handbook]
 - [React's documentation on TypeScript][react-ts]
-- [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
+- [React + TypeScript Cheatsheets][cheats] has a good overview on how to use React with TypeScript
 
 ## Using Custom Path Aliases with TypeScript
 
@@ -198,7 +198,7 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "test/*": "./test/"],
++           "test/*": "./test/"
 +         }
 +       }
 +     ]
