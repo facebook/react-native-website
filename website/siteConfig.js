@@ -81,7 +81,6 @@ const siteConfig = {
     'https://buttons.github.io/buttons.js',
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
-    baseUrl + 'js/2019_docs-survey.js',
   ],
   cleanUrl: true,
   scrollToTop: true,
