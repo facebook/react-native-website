@@ -128,7 +128,6 @@ const Hello: React.FC<Props> = (props) => {
         </View>
         </View>
     );
-    }
 }
 
 // styles
@@ -153,6 +152,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 });
+
+export default Hello;
 ```
 
 You can explore the syntax more in the [TypeScript playground][tsplay].
