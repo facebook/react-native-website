@@ -33,6 +33,11 @@ In this example we create view manager class `ReactImageManager` that extends `S
 public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
   public static final String REACT_CLASS = "RCTImageView";
+  ReactApplicationContext mCallerContext;
+
+  public ReactImageManager(ReactApplicationContext reactContext) {
+    mCallerContext = reactContext;
+  }
 
   @Override
   public String getName() {
