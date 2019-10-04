@@ -7,9 +7,9 @@ The [Open Source Guides](https://opensource.guide/) website has a collection of 
 - [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
 - [Building Welcoming Communities](https://opensource.guide/building-community/)
 
-### [Code of Conduct](https://code.fb.com/codeofconduct/)
+### [Code of Conduct](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md)
 
-As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://code.facebook.com/codeofconduct).
+As a reminder, all contributors are expected to adhere to the [Code of Conduct](https://github.com/facebook/react/blob/master/CODE_OF_CONDUCT.md).
 
 ## Ways to Contribute
 
