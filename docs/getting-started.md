@@ -227,6 +227,10 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 ![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
+<h4>Simulator<h4>
+
+You will also need to install a simulator. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Components panel and install a simulator by selecting the simulator with the corresponding version of iOS you wish to use.
+
 <block class="native linux android" />
 
 <h3>Java Development Kit</h3>
