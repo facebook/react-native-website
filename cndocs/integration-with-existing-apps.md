@@ -7,6 +7,8 @@ title: 集成到现有原生应用
 
 具体的步骤根据你所开发的目标平台不同而不同。
 
+> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`react-native init NewProject`创建一个最新版本的纯RN项目，去参考其Podfile或是gradle等的配置，以它们为准。
+
 <div class="toggler">
   <ul role="tablist" id="toggle-language">
     <li id="objc" class="button-objc" aria-selected="false" role="tab" tabindex="0" aria-controls="objctab" onclick="displayTab('language', 'objc')">

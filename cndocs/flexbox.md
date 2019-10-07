@@ -19,7 +19,7 @@ In the following example the red, yellow and the green views are all children in
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
-#### Flex Direction
+### Flex Direction
 
 在组件的`style`中指定`flexDirection`可以决定布局的**主轴**。子元素是应该沿着**水平轴(`row`)**方向排列，还是沿着**竖直轴(`column`)**方向排列呢？默认值是**竖直轴(`column`)**方向。
 
@@ -49,7 +49,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `RTL` Text and children and laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
 
-#### Justify Content
+### Justify Content
 
 在组件的 style 中指定`justifyContent`可以决定其子元素沿着**主轴**的**排列方式**。子元素是应该靠近主轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`、`space-around`、`space-between`以及`space-evenly`。
 
@@ -76,7 +76,7 @@ export default class JustifyContentBasics extends Component {
 };
 ```
 
-#### Align Items
+### Align Items
 
 在组件的 style 中指定`alignItems`可以决定其子元素沿着**次轴**（与主轴垂直的轴，比如若主轴方向为`row`，则次轴方向为`column`）的**排列方式**。子元素是应该靠近次轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`以及`stretch`。
 
@@ -177,7 +177,7 @@ The `position` type of an element defines how it is positioned within its parent
 
 ![Absolute & Relative Layoutp](https://cdn-images-1.medium.com/max/800/1*NlPeRQCQK3Vb5nyjL0Mqxw.png)
 
-#### 深入学习
+### 深入学习
 
 Check out the interactive [yoga playground](https://yogalayout.com/playground) that you can use to get a better understanding of flexbox.
 
