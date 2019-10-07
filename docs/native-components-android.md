@@ -52,7 +52,7 @@ Views are created in the `createViewInstance` method, the view should initialize
 ```java
   @Override
   public ReactImageView createViewInstance(ThemedReactContext context) {
-    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), mCallerContext);
+    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext);
   }
 ```
 
