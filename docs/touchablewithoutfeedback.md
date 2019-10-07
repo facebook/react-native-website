@@ -143,6 +143,18 @@ See the [Accessibility guide](accessibility.md#accessibility-actions) for more i
 
 ---
 
+### `accessibilityValue`
+
+Represents the current value of a component. It can be a textual description of a component's value, or for range-based components, such as sliders and progress bars, it contains range information (minimum, current, and maximum).
+
+See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) for more information.
+
+| Type                                                          | Required |
+| ------------------------------------------------------------- | -------- |
+| object: {min: number, max: number, now: number, text: string} | No       |
+
+---
+
 ### `delayLongPress`
 
 Delay in ms, from onPressIn, before onLongPress is called.
