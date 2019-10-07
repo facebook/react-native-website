@@ -19,15 +19,6 @@ import { KeyboardAvoidingView } from 'react-native';
 
 ![](assets/KeyboardAvoidingView/example.gif)
 
-### 查看 Props
-
-* [View props...](view.md#props)
-
-- [`keyboardVerticalOffset`](keyboardavoidingview.md#keyboardverticaloffset)
-- [`behavior`](keyboardavoidingview.md#behavior)
-- [`contentContainerStyle`](keyboardavoidingview.md#contentcontainerstyle)
-- [`enabled`](keyboardavoidingview.md#enabled)
-
 ---
 
 # 文档

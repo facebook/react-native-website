@@ -9,26 +9,6 @@ title: AppRegistry
 
 `AppRegistry`应当在`require`序列中尽可能早的被 require 到，以确保 JS 运行环境在其它模块之前被准备好。
 
-### 查看方法
-
-- [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
-- [`registerConfig`](appregistry.md#registerconfig)
-- [`registerComponent`](appregistry.md#registercomponent)
-- [`registerRunnable`](appregistry.md#registerrunnable)
-- [`registerSection`](appregistry.md#registersection)
-- [`getAppKeys`](appregistry.md#getappkeys)
-- [`getSectionKeys`](appregistry.md#getsectionkeys)
-- [`getSections`](appregistry.md#getsections)
-- [`getRunnable`](appregistry.md#getrunnable)
-- [`getRegistry`](appregistry.md#getregistry)
-- [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
-- [`runApplication`](appregistry.md#runapplication)
-- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-- [`registerCancellableHeadlessTask`](appregistry.md#registercancellableheadlesstask)
-- [`startHeadlessTask`](appregistry.md#startheadlesstask)
-- [`cancelHeadlessTask`](appregistry.md#cancelheadlesstask)
-
 ---
 
 # 文档

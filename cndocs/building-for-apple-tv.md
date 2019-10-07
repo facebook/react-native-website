@@ -101,7 +101,7 @@ const running_on_tv = Platform.isTV;
 <block class="ios android">
 
 ```jsx
-var TVEventHandler = require('TVEventHandler');
+const TVEventHandler = require('TVEventHandler');
 
 class Game2048 extends React.Component {
   _tvEventHandler: any;

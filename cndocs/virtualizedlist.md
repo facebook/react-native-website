@@ -14,51 +14,6 @@ Vritualization 通过维护一个有限的渲染窗口（其中包含可见的�
 * 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，而我们也在设法持续改进。
 * 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个 keyExtractor 函数来生成 key。
 
-### 查看 Props
-
-* [`ScrollView` props...](scrollview.md#props)
-* [`renderItem`](virtualizedlist.md#renderitem)
-* [`data`](virtualizedlist.md#data)
-* [`getItem`](virtualizedlist.md#getitem)
-* [`getItemCount`](virtualizedlist.md#getitemcount)
-* [`debug`](virtualizedlist.md#debug)
-* [`extraData`](virtualizedlist.md#extradata)
-* [`getItemLayout`](virtualizedlist.md#getitemlayout)
-* [`initialScrollIndex`](virtualizedlist.md#initialscrollindex)
-* [`inverted`](virtualizedlist.md#inverted)
-* [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
-* [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
-* [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
-* [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
-* [`onEndReached`](virtualizedlist.md#onendreached)
-* [`onLayout`](virtualizedlist.md#onlayout)
-* [`onRefresh`](virtualizedlist.md#onrefresh)
-* [`onScrollToIndexFailed`](virtualizedlist.md#onscrolltoindexfailed)
-* [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
-* [`refreshing`](virtualizedlist.md#refreshing)
-* [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
-* [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
-* [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
-* [`viewabilityConfigCallbackPairs`](virtualizedlist.md#viewabilityconfigcallbackpairs)
-* [`horizontal`](virtualizedlist.md#horizontal)
-* [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
-* [`keyExtractor`](virtualizedlist.md#keyextractor)
-* [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
-* [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
-* [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
-* [`windowSize`](virtualizedlist.md#windowsize)
-* [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
-* [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
-
-### 查看方法
-
-* [`scrollToEnd`](virtualizedlist.md#scrolltoend)
-* [`scrollToIndex`](virtualizedlist.md#scrolltoindex)
-* [`scrollToItem`](virtualizedlist.md#scrolltoitem)
-* [`scrollToOffset`](virtualizedlist.md#scrolltooffset)
-* [`recordInteraction`](virtualizedlist.md#recordinteraction)
-* [`flashScrollIndicators`](virtualizedlist.md#flashscrollindicators)
-
 ---
 
 # 文档

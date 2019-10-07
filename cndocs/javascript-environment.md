@@ -8,7 +8,7 @@ title: JavaScript环境
 在使用 React Native 时，你的 JavaScript 代码将会运行在两个不同的环境上：
 
 - 大多数情况下，React Native 使用的是[JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore)，也就是 Safari 所使用的 JavaScript 引擎。但是在 iOS 上 JavaScriptCore 并没有使用即时编译技术（JIT），因为在 iOS 中应用无权拥有可写可执行的内存页（因此无法动态生成代码）。
-- 在使用 Chrome 调试时，所有的 JavaScript 代码都运行在 Chrome 中，并且通过 WebSocket 与原生代码通信。此时的运行环境是[V8 引擎](https://code.google.com/p/v8/)。
+- 在使用 Chrome 调试时，所有的 JavaScript 代码都运行在 Chrome 中，并且通过 WebSocket 与原生代码通信。此时的运行环境是[V8 引擎](https://v8.dev)。
 
 虽然两个环境非常类似，但开发者还是可能碰到一些不一致的地方。未来我们很可能会尝试一些其他的 JS 引擎，所以请尽量避免使用依赖于特定运行环境的代码。
 
@@ -50,7 +50,7 @@ ES8
 
 Stage 3
 
-- [对象的扩展运算 Object Spread](https://github.com/sebmarkbage/ecmascript-rest-spread): `var extended = { ...obj, a: 10 };`
+- [对象的扩展运算 Object Spread](https://github.com/tc39/proposal-object-rest-spread): `var extended = { ...obj, a: 10 };`
 - [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
 
 其他特性

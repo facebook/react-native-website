@@ -58,21 +58,6 @@ class AppStateExample extends Component {
 
 上面的这个例子只会显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且 null 状态只会在一开始的一瞬间出现。
 
-### 查看方法
-
-* [`addEventListener`](appstate.md#addeventlistener)
-* [`removeEventListener`](appstate.md#removeeventlistener)
-
-### 查看事件
-
-- [`change`](appstate.md#change)
-- [`focus`](appstate.md#focus)
-- [`blur`](appstate.md#blur)
-
-### 查看属性
-
-* [`currentState`](appstate.md#currentState)
-
 ---
 
 # 文档

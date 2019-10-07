@@ -231,7 +231,7 @@ RCT_REMAP_METHOD(findEvents,
 ```jsx
 async function updateEvents() {
   try {
-    var events = await CalendarManager.findEvents();
+    const events = await CalendarManager.findEvents();
 
     this.setState({events});
   } catch (e) {

@@ -98,54 +98,13 @@ To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop.
 * 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，你可以根据自己的需求调整相应的参数，而我们也在设法持续改进。
 * 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个`keyExtractor`函数来生成 key。
 
-本组件如果嵌套在其他同滚动方向的 FlatList 中，则不会继承[ScrollView 的 Props](scrollview.md#props)。
-
-### 查看 Props
-
-* [`ScrollView` props...](scrollview.md#props)
-* [`VirtualizedList` props...](virtualizedlist.md#props)
-* [`renderItem`](flatlist.md#renderitem)
-* [`data`](flatlist.md#data)
-* [`ItemSeparatorComponent`](flatlist.md#itemseparatorcomponent)
-* [`ListEmptyComponent`](flatlist.md#listemptycomponent)
-* [`ListFooterComponent`](flatlist.md#listfootercomponent)
-* [`ListHeaderComponent`](flatlist.md#listheadercomponent)
-* [`columnWrapperStyle`](flatlist.md#columnwrapperstyle)
-* [`extraData`](flatlist.md#extradata)
-* [`getItemLayout`](flatlist.md#getitemlayout)
-* [`horizontal`](flatlist.md#horizontal)
-* [`initialNumToRender`](flatlist.md#initialnumtorender)
-* [`initialScrollIndex`](flatlist.md#initialscrollindex)
-* [`inverted`](flatlist.md#inverted)
-* [`keyExtractor`](flatlist.md#keyextractor)
-* [`numColumns`](flatlist.md#numcolumns)
-* [`onEndReached`](flatlist.md#onendreached)
-* [`onEndReachedThreshold`](flatlist.md#onendreachedthreshold)
-* [`onRefresh`](flatlist.md#onrefresh)
-* [`onViewableItemsChanged`](flatlist.md#onviewableitemschanged)
-* [`progressViewOffset`](flatlist.md#progressviewoffset)
-* [`legacyImplementation`](flatlist.md#legacyimplementation)
-* [`refreshing`](flatlist.md#refreshing)
-* [`removeClippedSubviews`](flatlist.md#removeclippedsubviews)
-* [`viewabilityConfig`](flatlist.md#viewabilityconfig)
-* [`viewabilityConfigCallbackPairs`](flatlist.md#viewabilityconfigcallbackpairs)
-
-### 查看方法
-
-- [`flashScrollIndicators`](flatlist.md#flashscrollindicators)
-- [`getScrollResponder`](flatlist.md#getScrollResponder)
-- [`getScrollableNode`](flatlist.md#getScrollableNode)
-* [`scrollToEnd`](flatlist.md#scrolltoend)
-* [`scrollToIndex`](flatlist.md#scrolltoindex)
-* [`scrollToItem`](flatlist.md#scrolltoitem)
-* [`scrollToOffset`](flatlist.md#scrolltooffset)
-* [`recordInteraction`](flatlist.md#recordinteraction)
-
 ---
 
 # 文档
 
 ## Props
+
+继承所有[ScrollView 的 Props](scrollview.md#props)。但如果嵌套在其他同滚动方向的 FlatList 中则无效。
 
 ### `renderItem`
 

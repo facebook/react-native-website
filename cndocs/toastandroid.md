@@ -92,20 +92,6 @@ class App extends Component {
 }
 ```
 
-### 查看方法
-
-- [`show`](toastandroid.md#show)
-- [`showWithGravity`](toastandroid.md#showwithgravity)
-- [`showWithGravityAndOffset`](toastandroid.md#showwithgravityandoffset)
-
-### 查看属性
-
-- [`SHORT`](toastandroid.md#short)
-- [`LONG`](toastandroid.md#long)
-- [`TOP`](toastandroid.md#top)
-- [`BOTTOM`](toastandroid.md#bottom)
-- [`CENTER`](toastandroid.md#center)
-
 ---
 
 # 文档

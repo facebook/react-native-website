@@ -117,7 +117,7 @@ MapView.propTypes = {
   zoomEnabled: PropTypes.bool,
 };
 
-var RNTMap = requireNativeComponent('RNTMap', MapView);
+const RNTMap = requireNativeComponent('RNTMap', MapView);
 
 export default MapView;
 ```
@@ -218,7 +218,7 @@ MapView.propTypes = {
 // MyApp.js
 
 render() {
-  var region = {
+  const region = {
     latitude: 37.48,
     longitude: -122.16,
     latitudeDelta: 0.1,
@@ -239,7 +239,7 @@ render() {
 有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个`onChange`属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上`Switch`的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在 API 之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是带上额外的`nativeOnly`参数，像这样：
 
 ```jsx
-var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
+const RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
   nativeOnly: {onChange: true},
 });
 ```
@@ -367,7 +367,7 @@ class MyApp extends React.Component {
   }
 
   render() {
-    var region = {
+    const region = {
       latitude: 37.48,
       longitude: -122.16,
       latitudeDelta: 0.1,
@@ -462,7 +462,7 @@ Here the `callNativeMethod` is defined in the `RNCMyNativeViewManager.m` file an
 // DatePickerIOS.ios.js
 
 import { UIManager } from 'react-native';
-var RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
+const RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
 ...
   render: function() {
     return (
@@ -477,7 +477,7 @@ var RCTDatePickerIOSConsts = UIManager.RCTDatePicker.Constants;
   }
 });
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   rkDatePickerIOS: {
     height: RCTDatePickerIOSConsts.ComponentHeight,
     width: RCTDatePickerIOSConsts.ComponentWidth,

@@ -3,6 +3,8 @@ id: pushnotificationios
 title: PushNotificationIOS
 ---
 
+> **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
+
 <div class="banner-crna-ejected">
   <h3>Projects with Native Code Only</h3>
   <p>
@@ -97,35 +99,6 @@ And then in your AppDelegate implementation add the following:
 ```
 
 Then enable Background Modes/Remote notifications to be able to use remote notifications properly. The easiest way to do this is via the project settings. Navigate to Targets -> Your App -> Capabilities -> Background Modes and check Remote notifications. This will automatically enable the required settings.
-
-### 查看方法
-
-* [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
-* [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
-* [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
-* [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
-* [`getDeliveredNotifications`](pushnotificationios.md#getdeliverednotifications)
-* [`removeDeliveredNotifications`](pushnotificationios.md#removedeliverednotifications)
-* [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-* [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-* [`cancelLocalNotifications`](pushnotificationios.md#cancellocalnotifications)
-* [`getScheduledLocalNotifications`](pushnotificationios.md#getscheduledlocalnotifications)
-* [`addEventListener`](pushnotificationios.md#addeventlistener)
-* [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-* [`requestPermissions`](pushnotificationios.md#requestpermissions)
-* [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
-* [`checkPermissions`](pushnotificationios.md#checkpermissions)
-* [`getInitialNotification`](pushnotificationios.md#getinitialnotification)
-* [`constructor`](pushnotificationios.md#constructor)
-* [`finish`](pushnotificationios.md#finish)
-* [`getMessage`](pushnotificationios.md#getmessage)
-* [`getSound`](pushnotificationios.md#getsound)
-* [`getCategory`](pushnotificationios.md#getcategory)
-* [`getAlert`](pushnotificationios.md#getalert)
-* [`getContentAvailable`](pushnotificationios.md#getcontentavailable)
-* [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-* [`getData`](pushnotificationios.md#getdata)
-- [`getThreadID`](pushnotificationios.md#getThreadID)
 
 ---
 

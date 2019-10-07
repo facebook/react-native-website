@@ -23,39 +23,13 @@ title: StatusBar
 
 有些场景并不适合使用组件，因此`StatusBar`也暴露了一个静态API。然而不推荐大家同时通过静态API和组件来定义相同的属性，因为静态API定义的属性值在后续的渲染中会被组件中定义的值所覆盖。
 
-### 常量
-
-`currentHeight` (仅限Android)状态栏的当前高度。
-
-### 查看Props
-
-* [`animated`](statusbar.md#animated)
-* [`backgroundColor`](statusbar.md#backgroundcolor)
-* [`barStyle`](statusbar.md#barstyle)
-* [`hidden`](statusbar.md#hidden)
-* [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
-* [`showHideTransition`](statusbar.md#showhidetransition)
-* [`translucent`](statusbar.md#translucent)
-
-### 查看方法
-
-- [`popStackEntry`](statusbar.md#popstackentry)
-- [`pushStackEntry`](statusbar.md#pushstackentry)
-- [`replaceStackEntry`](statusbar.md#replacestackentry)
-- [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
-- [`setBarStyle`](statusbar.md#setbarstyle)
-- [`setHidden`](statusbar.md#sethidden)
-- [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
-- [`setTranslucent`](statusbar.md#settranslucent)
-
-### 查看类型定义
-
-* [`StatusBarStyle`](statusbar.md#statusbarstyle)
-* [`StatusBarAnimation`](statusbar.md#statusbaranimation)
-
 ---
 
 # 文档
+
+## 常量
+
+`currentHeight` (仅限Android)状态栏的当前高度。
 
 ## Props
 

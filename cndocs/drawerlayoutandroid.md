@@ -11,7 +11,7 @@ title: DrawerLayoutAndroid
 
 ```
 render: function() {
-  var navigationView = (
+  const navigationView = (
     <View style={{flex: 1, backgroundColor: '#fff'}}>
       <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
     </View>
@@ -29,27 +29,6 @@ render: function() {
   );
 },
 ```
-
-### 查看 Props
-
-* [View props...](view.md#props)
-
-- [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
-- [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
-- [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
-- [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
-- [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
-- [`drawerLockMode`](drawerlayoutandroid.md#drawerlockmode)
-- [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
-- [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
-- [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
-- [`drawerBackgroundColor`](drawerlayoutandroid.md#drawerbackgroundcolor)
-- [`statusBarBackgroundColor`](drawerlayoutandroid.md#statusbarbackgroundcolor)
-
-### 查看方法
-
-* [`openDrawer`](drawerlayoutandroid.md#opendrawer)
-* [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
 
 ---
 

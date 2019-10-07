@@ -3,15 +3,6 @@ id: shadow-props
 title: 阴影样式属性
 ---
 
-### 查看Props
-
-* [`shadowColor`](shadow-props.md#shadowcolor)
-* [`shadowOffset`](shadow-props.md#shadowoffset)
-* [`shadowOpacity`](shadow-props.md#shadowopacity)
-* [`shadowRadius`](shadow-props.md#shadowradius)
-
----
-
 # 文档
 
 ## Props

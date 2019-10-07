@@ -3,25 +3,6 @@ id: image-style-props
 title: Image样式属性
 ---
 
-### Props
-
-* [`borderTopRightRadius`](image-style-props.md#bordertoprightradius)
-* [`backfaceVisibility`](image-style-props.md#backfacevisibility)
-* [`borderBottomLeftRadius`](image-style-props.md#borderbottomleftradius)
-* [`borderBottomRightRadius`](image-style-props.md#borderbottomrightradius)
-* [`borderColor`](image-style-props.md#bordercolor)
-* [`borderRadius`](image-style-props.md#borderradius)
-* [`borderTopLeftRadius`](image-style-props.md#bordertopleftradius)
-* [`backgroundColor`](image-style-props.md#backgroundcolor)
-* [`borderWidth`](image-style-props.md#borderwidth)
-* [`opacity`](image-style-props.md#opacity)
-* [`overflow`](image-style-props.md#overflow)
-* [`resizeMode`](image-style-props.md#resizemode)
-* [`tintColor`](image-style-props.md#tintcolor)
-* [`overlayColor`](image-style-props.md#overlaycolor)
-
----
-
 # 文档
 
 ## Props

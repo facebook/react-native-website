@@ -42,43 +42,6 @@ class ViewColoredBoxesWithText extends Component {
   * `timestamp` - 触摸事件的时间标记，用来计算速度.
   * `touches` - 屏幕上所有当前触摸事件的数组.
 
-### 查看 Props
-
-* [`onStartShouldSetResponder`](view.md#onstartshouldsetresponder)
-* [`accessibilityLabel`](view.md#accessibilitylabel)
-* [`accessibilityHint`](view.md#accessibilityhint)
-* [`hitSlop`](view.md#hitslop)
-* [`nativeID`](view.md#nativeid)
-* [`onAccessibilityTap`](view.md#onaccessibilitytap)
-* [`onLayout`](view.md#onlayout)
-* [`onMagicTap`](view.md#onmagictap)
-* [`onAccessibilityEscape`](view.md#onaccessibilityescape)
-* [`onMoveShouldSetResponder`](view.md#onmoveshouldsetresponder)
-* [`onMoveShouldSetResponderCapture`](view.md#onmoveshouldsetrespondercapture)
-* [`onResponderGrant`](view.md#onrespondergrant)
-* [`onResponderMove`](view.md#onrespondermove)
-* [`onResponderReject`](view.md#onresponderreject)
-* [`onResponderRelease`](view.md#onresponderrelease)
-* [`onResponderTerminate`](view.md#onresponderterminate)
-* [`onResponderTerminationRequest`](view.md#onresponderterminationrequest)
-* [`accessible`](view.md#accessible)
-* [`onStartShouldSetResponderCapture`](view.md#onstartshouldsetrespondercapture)
-* [`pointerEvents`](view.md#pointerevents)
-* [`removeClippedSubviews`](view.md#removeclippedsubviews)
-* [`style`](view.md#style)
-* [`testID`](view.md#testid)
-* [`accessibilityLiveRegion`](view.md#accessibilityliveregion)
-* [`collapsable`](view.md#collapsable)
-* [`importantForAccessibility`](view.md#importantforaccessibility)
-* [`needsOffscreenAlphaCompositing`](view.md#needsoffscreenalphacompositing)
-* [`renderToHardwareTextureAndroid`](view.md#rendertohardwaretextureandroid)
-* [`accessibilityRole`](view.md#accessibilityrole)
-* [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityViewIsModal`](view.md#accessibilityviewismodal)
-* [`accessibilityElementsHidden`](view.md#accessibilityElementsHidden)
-* [`accessibilityIgnoresInvertColors`](view.md#accessibilityIgnoresInvertColors)
-* [`shouldRasterizeIOS`](view.md#shouldrasterizeios)
-
 ---
 
 # 文档

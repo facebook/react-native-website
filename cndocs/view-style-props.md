@@ -3,40 +3,6 @@ id: view-style-props
 title: View样式属性
 ---
 
-### Props
-
-* [布局属性](layout-props.md#props)
-* [阴影样式属性](shadow-props.md#props)
-* [Transforms](transforms.md#props)
-* [`borderRightColor`](view-style-props.md#borderrightcolor)
-* [`backfaceVisibility`](view-style-props.md#backfacevisibility)
-* [`borderBottomColor`](view-style-props.md#borderbottomcolor)
-* [`borderBottomEndRadius`](view-style-props.md#borderbottomendradius)
-* [`borderBottomLeftRadius`](view-style-props.md#borderbottomleftradius)
-* [`borderBottomRightRadius`](view-style-props.md#borderbottomrightradius)
-* [`borderBottomStartRadius`](view-style-props.md#borderbottomstartradius)
-* [`borderBottomWidth`](view-style-props.md#borderbottomwidth)
-* [`borderColor`](view-style-props.md#bordercolor)
-* [`borderEndColor`](view-style-props.md#borderendcolor)
-* [`borderLeftColor`](view-style-props.md#borderleftcolor)
-* [`borderLeftWidth`](view-style-props.md#borderleftwidth)
-* [`borderRadius`](view-style-props.md#borderradius)
-* [`backgroundColor`](view-style-props.md#backgroundcolor)
-* [`borderRightWidth`](view-style-props.md#borderrightwidth)
-* [`borderStartColor`](view-style-props.md#borderstartcolor)
-* [`borderStyle`](view-style-props.md#borderstyle)
-* [`borderTopColor`](view-style-props.md#bordertopcolor)
-* [`borderTopEndRadius`](view-style-props.md#bordertopendradius)
-* [`borderTopLeftRadius`](view-style-props.md#bordertopleftradius)
-* [`borderTopRightRadius`](view-style-props.md#bordertoprightradius)
-* [`borderTopStartRadius`](view-style-props.md#bordertopstartradius)
-* [`borderTopWidth`](view-style-props.md#bordertopwidth)
-* [`borderWidth`](view-style-props.md#borderwidth)
-* [`opacity`](view-style-props.md#opacity)
-* [`elevation`](view-style-props.md#elevation)
-
----
-
 # 文档
 
 ## Props

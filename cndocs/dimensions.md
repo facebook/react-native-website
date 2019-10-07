@@ -5,13 +5,6 @@ title: Dimensions
 
 本模块用于获取设备屏幕的宽高。
 
-### 查看方法
-
-- [`set`](dimensions.md#set)
-- [`get`](dimensions.md#get)
-- [`addEventListener`](dimensions.md#addeventlistener)
-- [`removeEventListener`](dimensions.md#removeeventlistener)
-
 ---
 
 # 文档
@@ -40,7 +33,7 @@ static get(dim)
 
 > 注意：尽管尺寸信息立即就可用，但它可能会在将来被修改（譬如设备的方向改变），所以基于这些常量的渲染逻辑和样式应当每次 render 之后都调用此函数，而不是将对应的值保存下来。（举例来说，你可能需要使用内联的样式而不是在<code>StyleSheet</code>中保存相应的尺寸）。
 
-示例： `var {height, width} = Dimensions.get('window');`
+示例： `const {height, width} = Dimensions.get('window');`
 
 @param {string} dim 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。
 

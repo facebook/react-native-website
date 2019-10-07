@@ -42,21 +42,6 @@ class RefreshableList extends Component {
 
 **注意：** `refreshing`是一个受控属性， 所以必须在`onRefresh`函数中设置为true，否则loading指示器会立即停止。 
 
-### 查看Props
-
-* [View props...](view.md#props)
-
-- [`refreshing`](refreshcontrol.md#refreshing)
-- [`onRefresh`](refreshcontrol.md#onrefresh)
-- [`colors`](refreshcontrol.md#colors)
-- [`enabled`](refreshcontrol.md#enabled)
-- [`progressBackgroundColor`](refreshcontrol.md#progressbackgroundcolor)
-- [`progressViewOffset`](refreshcontrol.md#progressviewoffset)
-- [`size`](refreshcontrol.md#size)
-- [`tintColor`](refreshcontrol.md#tintcolor)
-- [`title`](refreshcontrol.md#title)
-- [`titleColor`](refreshcontrol.md#titlecolor)
-
 ---
 
 # 文档

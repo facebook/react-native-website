@@ -9,7 +9,7 @@ title: 无障碍功能
 
 iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此外，两个平台都提供了整套的辅助技术，比如都有针对视力受损人士的读屏软件（iOS 的 VoiceOver 和 Android 的 TalkBack）。同样地，在 React Native 中我们也封装了对应的 API，使开发者能够在 App 中集成无障碍功能。注意：iOS 与 Android 在具体方法上会有所区别，因此 React Native 的实现也会因平台而异。
 
-除了本文，你还可以阅读这篇[英文博客](https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/)了解更多信息。
+除了本文，你还可以阅读这篇[英文博客](https://engineering.fb.com/ios/making-react-native-apps-accessible/)了解更多信息。
 
 ## 使 App 能够无障碍使用
 

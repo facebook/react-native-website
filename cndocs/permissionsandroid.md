@@ -87,13 +87,6 @@ async function requestCameraPermission() {
 * `DENIED`: 'denied'， 表示用户已拒绝
 * `NEVER_ASK_AGAIN`: 'never_ask_again'，表示用户已拒绝，且不愿被再次询问。
 
-### 查看方法
-
-* [`constructor`](permissionsandroid.md#constructor)
-* [`check`](permissionsandroid.md#check)
-* [`request`](permissionsandroid.md#request)
-* [`requestMultiple`](permissionsandroid.md#requestmultiple)
-
 ---
 
 # 文档

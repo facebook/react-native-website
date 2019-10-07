@@ -5,11 +5,6 @@ title: Clipboard
 
 `Clipboard`组件可以在 iOS 和 Android 的剪贴板中读写内容。
 
-### 查看方法
-
-* [`getString`](clipboard.md#getstring)
-* [`setString`](clipboard.md#setstring)
-
 ---
 
 # 文档
@@ -26,7 +21,7 @@ static getString()
 
 ```jsx
 async _getContent() {
-  var content = await Clipboard.getString();
+  const content = await Clipboard.getString();
 }
 ```
 

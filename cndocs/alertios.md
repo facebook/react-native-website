@@ -26,17 +26,6 @@ AlertIOS.prompt(
 
 其他情况下，尤其是仅仅显示一个静态的提示框时，应该使用跨平台的[`Alert`](alert.md)。
 
-### 查看方法
-
-* [`alert`](alertios.md#alert)
-* [`prompt`](alertios.md#prompt)
-
-### 查看类型定义
-
-* [`AlertType`](alertios.md#alerttype)
-* [`AlertButtonStyle`](alertios.md#alertbuttonstyle)
-* [`ButtonsArray`](alertios.md#buttonsarray)
-
 ---
 
 # 文档

@@ -19,13 +19,6 @@ return (
 );
 ```
 
-### Props
-
-* [`Image` props...](image.md#props)
-* [`style`](imagebackground.md#style)
-* [`imageStyle`](imagebackground.md#imageStyle)
-* [`imageRef`](imagebackground.md#imageRef)
-
 ---
 
 # Reference

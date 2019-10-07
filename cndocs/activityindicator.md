@@ -43,20 +43,11 @@ const styles = StyleSheet.create({
 })
 ```
 
-### 查看属性
-
-* [View props...](view.md#props)
-
-- [`animating`](activityindicator.md#animating)
-- [`color`](activityindicator.md#color)
-- [`size`](activityindicator.md#size)
-- [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
-
----
-
 # 文档
 
 ## Props
+
+继承了所有[View Props](view.md#props).
 
 ### `animating`
 

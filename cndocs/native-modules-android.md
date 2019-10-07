@@ -40,12 +40,14 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class ToastModule extends ReactContextBaseJavaModule {
+  private static ReactApplicationContext reactContext;
 
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
   public ToastModule(ReactApplicationContext reactContext) {
     super(reactContext);
+    reactContext = context;
   }
 }
 ```
@@ -145,9 +147,12 @@ public class CustomToastPackage implements ReactPackage {
 import com.your-app-name.CustomToastPackage; // <-- 引入你自己的包
 ...
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- 添加这一行，类名替换成你的Package类的名字.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- 添加这一行，类名替换成你的Package类的名字 name.
+  return packages;
 }
 ```
 
@@ -276,7 +281,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 ```jsx
 async function measureLayout() {
   try {
-    var { relativeX, relativeY, width, height } = await UIManager.measureLayout(
+    const { relativeX, relativeY, width, height } = await UIManager.measureLayout(
       100,
       100
     );
@@ -300,6 +305,10 @@ measureLayout();
 
 ```java
 ...
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.Arguments;
+...
 private void sendEvent(ReactContext reactContext,
                        String eventName,
                        @Nullable WritableMap params) {
@@ -309,25 +318,25 @@ private void sendEvent(ReactContext reactContext,
 }
 ...
 WritableMap params = Arguments.createMap();
+params.putString("eventProperty", "someValue");
 ...
-sendEvent(reactContext, "keyboardWillShow", params);
+sendEvent(reactContext, "EventReminder", params);
 ```
 
-JavaScript 模块可以通过使用`DeviceEventEmitter`模块来监听事件：
+JavaScript 模块可以通过使用`NativeEventEmitter`模块来监听事件：
 
 ```jsx
-import { DeviceEventEmitter } from 'react-native';
+import { NativeEventEmitter, NativeModules } from 'react-native';
+...
 
-// ...
-componentDidMount() {
-  DeviceEventEmitter.addListener('keyboardWillShow', (e: Event) => {
-    // handle event.
-  });
-}
-componentWillUnmount() {
-  // When you want to stop listening to new events, simply call .remove() on the subscription
-  this.subscription.remove();
-}
+  componentDidMount() {
+    ...
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+    eventEmitter.addListener('EventReminder', (event) => {
+       console.log(event.eventProperty) // "someValue"
+    }
+    ...
+  }
 ```
 
 ### 从`startActivityForResult`中获取结果
@@ -388,7 +397,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
     }
   };
 
-  public ImagePickerModule(ReactApplicationContext reactContext) {
+  ImagePickerModule(ReactApplicationContext reactContext) {
     super(reactContext);
 
     // Add the listener for `onActivityResult`

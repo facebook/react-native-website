@@ -10,7 +10,7 @@ PixelRatio 类提供了访问设备的像素密度的方法。
 如果应用运行在一个高像素密度的设备上，显示的图片也应当分辨率更高。一个取得缩略图的好规则就是将显示尺寸乘以像素密度比：
 
 ```
-var image = getImage({
+const image = getImage({
   width: PixelRatio.getPixelSizeForLayoutSize(200),
   height: PixelRatio.getPixelSizeForLayoutSize(100),
 });
@@ -28,13 +28,6 @@ var image = getImage({
 我们做这个对齐的时候必须十分小心。如果你同时使用已经对齐的值和没有对齐的值，就会很容易产生一些因为近似导致的累积错误。即使这样的累积错误只发生一次，后果也可能会很严重，因为很可能会导致一个像素宽的边框最终突然消失或者显示为两倍的宽度。
 
 在 React Native 中，所有 JS 中的东西，包括布局引擎，都使用任意精度的数值。我们只在主线程最后设置原生组件的位置和坐标的时候才去做对齐工作。而且，对齐是相对于屏幕进行的，而非相对于父元素进行，进一步避免近似误差的累积。
-
-### 查看方法
-
-- [`get`](pixelratio.md#get)
-- [`getFontScale`](pixelratio.md#getfontscale)
-- [`getPixelSizeForLayoutSize`](pixelratio.md#getpixelsizeforlayoutsize)
-- [`roundToNearestPixel`](pixelratio.md#roundtonearestpixel)
 
 ---
 

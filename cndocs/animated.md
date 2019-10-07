@@ -112,35 +112,6 @@ Animated.timing(
  )}
 ```
 
-### 查看方法
-
-- [`decay`](animated.md#decay)
-- [`timing`](animated.md#timing)
-- [`spring`](animated.md#spring)
-- [`add`](animated.md#add)
-- [`subtract`](animated.md#subtract)
-- [`divide`](animated.md#divide)
-- [`multiply`](animated.md#multiply)
-- [`modulo`](animated.md#modulo)
-- [`diffClamp`](animated.md#diffclamp)
-- [`delay`](animated.md#delay)
-- [`sequence`](animated.md#sequence)
-- [`parallel`](animated.md#parallel)
-- [`stagger`](animated.md#stagger)
-- [`loop`](animated.md#loop)
-- [`event`](animated.md#event)
-- [`forkEvent`](animated.md#forkevent)
-- [`unforkEvent`](animated.md#unforkevent)
-
-### 属性
-
-- [`Value`](animated.md#value)
-- [`ValueXY`](animated.md#valuexy)
-- [`Interpolation`](animated.md#interpolation)
-- [`Node`](animated.md#node)
-- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
-- [`attachNativeEvent`](animated.md#attachnativeevent)
-
 ---
 
 # 文档

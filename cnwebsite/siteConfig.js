@@ -103,6 +103,7 @@ const siteConfig = {
     zIndex: 100,
   },
   docsSideNavCollapsible: true,
+  onPageNav: 'separate',
 };
 
 module.exports = siteConfig;

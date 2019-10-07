@@ -201,30 +201,6 @@ React Native实际上还是有一部分样式继承的实现，不过仅限于�
 
 - (对实现者来说) React Native的实现也被简化了。我们不需要在每个元素上都添加一个`fontFamily`字段，并且我们也不需要隐含地在显示文本的时候向上遍历树。唯一的样式继承在原生Text组件中编码，也不会影响到其它组件或者系统本身。
 
-### 查看Props
-
-* [`selectable`](text.md#selectable)
-* [`accessibilityHint`](text.md#accessibilityhint)
-* [`accessibilityLabel`](text.md#accessibilitylabel)
-* [`accessible`](text.md#accessible)
-* [`ellipsizeMode`](text.md#ellipsizemode)
-* [`nativeID`](text.md#nativeid)
-* [`numberOfLines`](text.md#numberoflines)
-* [`onLayout`](text.md#onlayout)
-* [`onLongPress`](text.md#onlongpress)
-* [`onPress`](text.md#onpress)
-* [`pressRetentionOffset`](text.md#pressretentionoffset)
-* [`allowFontScaling`](text.md#allowfontscaling)
-* [`style`](text.md#style)
-* [`testID`](text.md#testid)
-* [`disabled`](text.md#disabled)
-* [`selectionColor`](text.md#selectioncolor)
-* [`textBreakStrategy`](text.md#textbreakstrategy)
-* [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-* [`minimumFontScale`](text.md#minimumfontscale)
-* [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`dataDetectorType`](text.md#datadetectortype)
-
 ---
 
 # 文档

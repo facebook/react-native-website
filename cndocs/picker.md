@@ -3,29 +3,19 @@ id: picker
 title: Picker
 ---
 
-本组件可以在iOS和Android上渲染原生的选择器（Picker）。用例：
+本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。用例：
+
 ```js
 <Picker
   selectedValue={this.state.language}
-  style={{ height: 50, width: 100 }}
-  onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
+  style={{height: 50, width: 100}}
+  onValueChange={(itemValue, itemIndex) =>
+    this.setState({language: itemValue})
+  }>
   <Picker.Item label="Java" value="java" />
   <Picker.Item label="JavaScript" value="js" />
 </Picker>
 ```
-
-### 查看 Props
-
-* [View props...](view.md#props)
-
-- [`onValueChange`](picker.md#onvaluechange)
-- [`selectedValue`](picker.md#selectedvalue)
-- [`style`](picker.md#style)
-- [`testID`](picker.md#testid)
-- [`enabled`](picker.md#enabled)
-- [`mode`](picker.md#mode)
-- [`prompt`](picker.md#prompt)
-- [`itemStyle`](picker.md#itemstyle)
 
 ---
 
@@ -33,12 +23,14 @@ title: Picker
 
 ## Props
 
+继承所有[View Props](view.md#props).
+
 ### `onValueChange`
 
 某一项被选中时执行此回调。调用时带有如下参数：
 
-* `itemValue`: 被选中项的`value`属性
-* `itemPosition`: 被选中项在picker中的索引位置
+- `itemValue`: 被选中项的`value`属性
+- `itemPosition`: 被选中项在 picker 中的索引位置
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -76,7 +68,7 @@ title: Picker
 
 ### `enabled`
 
-如果设为false，则会禁用此选择器。
+如果设为 false，则会禁用此选择器。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -86,10 +78,10 @@ title: Picker
 
 ### `mode`
 
-在Android上，可以指定在用户点击选择器时，以怎样的形式呈现选项：
+在 Android 上，可以指定在用户点击选择器时，以怎样的形式呈现选项：
 
-* 'dialog':  显示一个模态对话框。默认选项。
-* 'dropdown': 以选择器所在位置为锚点展开一个下拉框。
+- 'dialog': 显示一个模态对话框。默认选项。
+- 'dropdown': 以选择器所在位置为锚点展开一个下拉框。
 
 | 类型                       | 必填 | 平台    |
 | -------------------------- | ---- | ------- |
@@ -99,7 +91,7 @@ title: Picker
 
 ### `prompt`
 
-设置选择器的提示字符串。在Android的对话框模式中用作对话框的标题。
+设置选择器的提示字符串。在 Android 的对话框模式中用作对话框的标题。
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |

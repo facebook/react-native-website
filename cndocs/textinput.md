@@ -7,142 +7,66 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
 
 最简单的用法就是丢一个`TextInput`到应用里，然后订阅它的`onChangeText`事件来读取用户的输入。注意，从TextInput里取值这就是目前唯一的做法！也就是使用在`onChangeText`中用`setState`把用户的输入写入到state中，然后在需要取值的地方从this.state中取出值。它还有一些其它的事件，譬如`onSubmitEditing`和`onFocus`。一个简单的例子如下：
 
-```ReactNativeWebPlayer
+```SnackPlayer name=TextInput
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
-export default class UselessTextInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { text: 'Useless Placeholder' };
-  }
+export default function UselessTextInput() {
+  const [value, onChangeText] = React.useState('Useless Placeholder');
 
-  render() {
-    return (
-      <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
-    );
-  }
+  return (
+    <TextInput
+      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+      onChangeText={text => onChangeText(text)}
+      value={value}
+    />
+  );
 }
-
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
 
 注意有些属性仅在`multiline`为true或者为false的时候有效。此外，当`multiline=false`时，为元素的某一个边添加边框样式（例如：`borderBottomColor`，`borderLeftWidth`等）将不会生效。为了能够实现效果你可以使用一个`View`来包裹`TextInput`：
 
-```ReactNativeWebPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=TextInput
+import React from 'react';
 import { View, TextInput } from 'react-native';
 
-class UselessTextInput extends Component {
-  render() {
-    return (
-      <TextInput
-        {...this.props} // 将父组件传递来的所有props传递给TextInput;比如下面的multiline和numberOfLines
-        editable = {true}
-        maxLength = {40}
-      />
-    );
-  }
+function UselessTextInput(props) {
+  return (
+    <TextInput
+      {...props} // 将父组件传递来的所有props传递给TextInput;比如下面的multiline和numberOfLines
+      editable
+      maxLength={40}
+    />
+  );
 }
 
-export default class UselessTextInputMultiline extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: 'Useless Multiline Placeholder',
-    };
-  }
+export default function UselessTextInputMultiline() {
+  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // 你可以试着输入一种颜色，比如red，那么这个red就会作用到View的背景色样式上
-  render() {
-    return (
-     <View style={{
-       backgroundColor: this.state.text,
-       borderBottomColor: '#000000',
-       borderBottomWidth: 1 }}
-     >
-       <UselessTextInput
-         multiline = {true}
-         numberOfLines = {4}
-         onChangeText={(text) => this.setState({text})}
-         value={this.state.text}
-       />
-     </View>
-    );
-  }
+  return (
+    <View
+      style={{
+        backgroundColor: value,
+        borderBottomColor: '#000000',
+        borderBottomWidth: 1,
+      }}>
+      <UselessTextInput
+        multiline
+        numberOfLines={4}
+        onChangeText={text => onChangeText(text)}
+        value={value}
+      />
+    </View>
+  );
 }
-
 ```
 
 `TextInput`在安卓上默认有一个底边框，同时会有一些padding。如果要想使其看起来和iOS上尽量一致，则需要设置`padding: 0`。
 
 又又，在安卓上长按选择文本会导致`windowSoftInputMode`设置变为`adjustResize`，这样可能导致绝对定位的元素被键盘给顶起来。要解决这一问题你需要在AndroidManifest.xml中明确指定合适的`windowSoftInputMode`( <https://developer.android.com/guide/topics/manifest/activity-element.html> )值，或是自己监听事件来处理布局变化。
-
-### 查看Props
-
-* [View props...](view.md#props)
-
-- [`allowFontScaling`](textinput.md#allowfontscaling)
-- [`autoCapitalize`](textinput.md#autocapitalize)
-- [`autoComplete`](textinput.md#autocomplete)
-- [`autoCorrect`](textinput.md#autocorrect)
-- [`autoFocus`](textinput.md#autofocus)
-- [`blurOnSubmit`](textinput.md#bluronsubmit)
-- [`caretHidden`](textinput.md#carethidden)
-- [`clearButtonMode`](textinput.md#clearbuttonmode)
-- [`clearTextOnFocus`](textinput.md#cleartextonfocus)
-- [`contextMenuHidden`](textinput.md#contextmenuhidden)
-- [`dataDetectorTypes`](textinput.md#datadetectortypes)
-- [`defaultValue`](textinput.md#defaultvalue)
-- [`disableFullscreenUI`](textinput.md#disablefullscreenui)
-- [`editable`](textinput.md#editable)
-- [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
-- [`importantForAutofill`](textinput.md#importantForAutofill)
-- [`inlineImageLeft`](textinput.md#inlineimageleft)
-- [`inlineImagePadding`](textinput.md#inlineimagepadding)
-- [`keyboardAppearance`](textinput.md#keyboardappearance)
-- [`keyboardType`](textinput.md#keyboardtype)
-- [`maxLength`](textinput.md#maxlength)
-- [`multiline`](textinput.md#multiline)
-- [`numberOfLines`](textinput.md#numberoflines)
-- [`onBlur`](textinput.md#onblur)
-- [`onChange`](textinput.md#onchange)
-- [`onChangeText`](textinput.md#onchangetext)
-- [`onContentSizeChange`](textinput.md#oncontentsizechange)
-- [`onEndEditing`](textinput.md#onendediting)
-- [`onFocus`](textinput.md#onfocus)
-- [`onKeyPress`](textinput.md#onkeypress)
-- [`onLayout`](textinput.md#onlayout)
-- [`onScroll`](textinput.md#onscroll)
-- [`onSelectionChange`](textinput.md#onselectionchange)
-- [`onSubmitEditing`](textinput.md#onsubmitediting)
-- [`placeholder`](textinput.md#placeholder)
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
-- [`returnKeyLabel`](textinput.md#returnkeylabel)
-- [`returnKeyType`](textinput.md#returnkeytype)
-- [`rejectResponderTermination`](textinput.md#rejectrespondertermination)
-- [`scrollEnabled`](textinput.md#scrollenabled)
-- [`secureTextEntry`](textinput.md#securetextentry)
-- [`selection`](textinput.md#selection)
-- [`selectionColor`](textinput.md#selectioncolor)
-- [`selectionState`](textinput.md#selectionstate)
-- [`selectTextOnFocus`](textinput.md#selecttextonfocus)
-- [`spellCheck`](textinput.md#spellcheck)
-- [`style`](textinput.md#style)
-- [`textContentType`](textinput.md#textcontenttype)
-- [`textBreakStrategy`](textinput.md#textbreakstrategy)
-- [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
-- [`value`](textinput.md#value)
-
-### 查看方法
-
-* [`clear`](textinput.md#clear)
-* [`isFocused`](textinput.md#isfocused)
 
 ---
 

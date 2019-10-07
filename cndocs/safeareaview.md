@@ -19,11 +19,6 @@ title: SafeAreaView
 </SafeAreaView>
 ```
 
-### Props
-
-- [View props...](view.md#props)
-- [`emulateUnlessSupported`](safeareaview.md#emulateUnlessSupported)
-
 ---
 
 # 文档

@@ -41,12 +41,6 @@ class ShareExample extends Component {
 }
 ```
 
-### 查看方法
-
-- [`share`](share.md#share)
-- [`sharedAction`](share.md#sharedaction)
-- [`dismissedAction`](share.md#dismissedaction)
-
 ---
 
 # 文档

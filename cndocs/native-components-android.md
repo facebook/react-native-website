@@ -174,5 +174,5 @@ class MyCustomView extends React.Component {
   }
 }
 
-var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
+const RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 ```

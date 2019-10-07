@@ -3,12 +3,6 @@ id: imageeditor
 title: ImageEditor
 ---
 
-### 查看方法
-
-* [`cropImage`](imageeditor.md#cropimage)
-
----
-
 # 文档
 
 ## 方法

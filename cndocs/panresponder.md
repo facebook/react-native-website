@@ -87,10 +87,6 @@ onPanResponderMove: (event, gestureState) => {}
 
 要想看看可以直接使用的例子，请参阅[官方示例 RNTester 中的 PanResponder](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js)
 
-### 查看方法
-
-- [`create`](panresponder.md#create)
-
 ---
 
 # 文档

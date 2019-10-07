@@ -41,25 +41,6 @@ const styles = {
 }
 ```
 
-### 查看 Props
-
-* [View props...](view.md#props)
-
-- [`initialPage`](viewpagerandroid.md#initialpage)
-- [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
-- [`onPageScroll`](viewpagerandroid.md#onpagescroll)
-- [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
-- [`onPageSelected`](viewpagerandroid.md#onpageselected)
-- [`pageMargin`](viewpagerandroid.md#pagemargin)
-- [`peekEnabled`](viewpagerandroid.md#peekenabled)
-- [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
-- [`setPage`](viewpagerandroid.md#setpage)
-- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
-
-### 查看类型定义
-
-* [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
-
 ---
 
 # 文档

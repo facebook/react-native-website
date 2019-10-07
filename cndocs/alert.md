@@ -56,12 +56,6 @@ Alert.alert(
 )
 ```
 
-### 查看方法
-
-* [`alert`](alert.md#alert)
-
----
-
 # 文档
 
 ## 方法

@@ -41,17 +41,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-### 查看Props
-
-* [View props...](view.md#props)
-
-- [`animating`](progressbarandroid.md#animating)
-- [`color`](progressbarandroid.md#color)
-- [`indeterminate`](progressbarandroid.md#indeterminate)
-- [`progress`](progressbarandroid.md#progress)
-- [`styleAttr`](progressbarandroid.md#styleattr)
-- [`testID`](progressbarandroid.md#testid)
-
 ---
 
 # 文档

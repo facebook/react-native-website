@@ -3,6 +3,8 @@ id: timepickerandroid
 title: TimePickerAndroid
 ---
 
+> `TimePickerAndroid` has been merged with `DatePickerIOS` and `DatePickerAndroid` into a single component called [DateTimePicker](https://github.com/react-native-community/react-native-datetimepicker#react-native-datetimepicker) and will be removed in a future release.
+
 本组件会打开一个标准的 Android 时间选择器的对话框。
 
 ### 示例
@@ -21,12 +23,6 @@ try {
   console.warn('Cannot open time picker', message);
 }
 ```
-
-### 查看方法
-
-- [`open`](timepickerandroid.md#open)
-- [`timeSetAction`](timepickerandroid.md#timesetaction)
-- [`dismissedAction`](timepickerandroid.md#dismissedaction)
 
 ---
 

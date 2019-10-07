@@ -41,7 +41,7 @@ InteractionManager.runAfterInteractions(() => {
 InteractionManager 还允许应用注册动画，在动画开始时创建一个交互“句柄”，然后在结束的时候清除它。
 
 ```jsx
-var handle = InteractionManager.createInteractionHandle();
+const handle = InteractionManager.createInteractionHandle();
 // 执行动画... (`runAfterInteractions`中的任务现在开始排队等候)
 // 在动画完成之后
 InteractionManager.clearInteractionHandle(handle);

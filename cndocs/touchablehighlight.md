@@ -87,23 +87,13 @@ const styles = StyleSheet.create({
 })
 ```
 
-### 查看Props
-
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-- [`activeOpacity`](touchablehighlight.md#activeopacity)
-- [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
-- [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
-- [`style`](touchablehighlight.md#style)
-- [`underlayColor`](touchablehighlight.md#underlaycolor)
-- [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
-- [`tvParallaxProperties`](touchablehighlight.md#tvparallaxproperties)
-
 ---
 
 # 文档
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `activeOpacity`
 

@@ -36,7 +36,7 @@ react-native init SampleAppMovies
 在我们真正从 Rotten Tomatoes(_译注：一个国外的电影社区_)抓取数据之前，我们先制造一些模拟数据来练一练手。在 Facebook 我们通常在 JS 文件的开头，紧跟着 import 语句之后声明一个常量，不过这不重要，你可以把它放在`App.js`的任意位置：
 
 ```jsx
-var MOCKED_MOVIES_DATA = [
+const MOCKED_MOVIES_DATA = [
   {
     title: "标题",
     year: "2015",
@@ -61,7 +61,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 
 ```jsx
   render() {
-    var movie = MOCKED_MOVIES_DATA[0];
+    const movie = MOCKED_MOVIES_DATA[0];
     return (
       <View style={styles.container}>
         <Text>{movie.title}</Text>
@@ -75,7 +75,7 @@ import { Image, StyleSheet, Text, View } from "react-native";
 按下`⌘+R`或者`Reload JS`，现在你应该能看到文字"Title"和"2015"，但现在 Image 组件没渲染任何东西，这是因为我们还没有为图片指定我们想要渲染的宽和高。这通过样式来实现。当我们修改样式的时候，我们也应该清理掉我们不再使用的样式。
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
@@ -186,7 +186,7 @@ return (
  * 请求，这个样例数据放在React Native的Github库中。
  * 当然，由于众所周知的原因，这个地址可能国内访问也比较困难。
  */
-var REQUEST_URL =
+const REQUEST_URL =
   "https://raw.githubusercontent.com/facebook/react-native/0.51-stable/docs/MoviesExample.json";
 ```
 
@@ -235,7 +235,7 @@ var REQUEST_URL =
       return this.renderLoadingView();
     }
 
-    var movie = this.state.movies[0];
+    const movie = this.state.movies[0];
     return this.renderMovie(movie);
   }
 
@@ -383,7 +383,7 @@ import React, { Component } from "react";
 
 import { Image, FlatList, StyleSheet, Text, View } from "react-native";
 
-var REQUEST_URL =
+const REQUEST_URL =
   "https://raw.githubusercontent.com/facebook/react-native/0.51-stable/docs/MoviesExample.json";
 
 export default class SampleAppMovies extends Component {
@@ -455,7 +455,7 @@ export default class SampleAppMovies extends Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",

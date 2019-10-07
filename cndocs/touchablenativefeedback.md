@@ -25,25 +25,13 @@ renderButton: function() {
 },
 ```
 
-### 查看Props
-
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-- [`background`](touchablenativefeedback.md#background)
-- [`useForeground`](touchablenativefeedback.md#useforeground)
-
-### 查看方法
-
-* [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
-* [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
-* [`Ripple`](touchablenativefeedback.md#ripple)
-* [`canUseNativeForeground`](touchablenativefeedback.md#canusenativeforeground)
-
 ---
 
 # 文档
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `background`
 

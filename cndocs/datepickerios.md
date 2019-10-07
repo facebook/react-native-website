@@ -49,21 +49,6 @@ const styles = StyleSheet.create({
 
 <center><img src="/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
 
-### 查看 Props
-
-* [View props...](view.md#props)
-
-- [`date`](datepickerios.md#date)
-- [`initialDate`](datepickerios.md#initialDate)
-* [`locale`](datepickerios.md#locale)
-- [`maximumDate`](datepickerios.md#maximumdate)
-- [`minimumDate`](datepickerios.md#minimumdate)
-- [`minuteInterval`](datepickerios.md#minuteinterval)
-- [`mode`](datepickerios.md#mode)
-- [`onChange`](datepickerios.md#onChange)
-- [`onDateChange`](datepickerios.md#ondatechange)
-- [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
-
 ---
 
 # 文档

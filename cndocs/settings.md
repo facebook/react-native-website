@@ -5,13 +5,6 @@ title: Settings
 
 `Settings` serves as a wrapper for [`NSUserDefaults`](https://developer.apple.com/documentation/foundation/nsuserdefaults), a persistent key-value store available only on iOS.
 
-### 查看方法
-
-- [`get`](settings.md#get)
-- [`set`](settings.md#set)
-- [`watchKeys`](settings.md#watchkeys)
-- [`clearWatch`](settings.md#clearwatch)
-
 ---
 
 # 文档

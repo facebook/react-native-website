@@ -13,51 +13,43 @@ React Native 提供了两个互补的动画系统：用于创建精细的交互�
 `Animated`仅封装了6个可以动画化的组件：`View`、`Text`、`Image`、`ScrollView`、`FlatList`和`SectionList`，不过你也可以使用`Animated.createAnimatedComponent()`来封装你自己的组件。下面是一个在加载时带有淡入动画效果的视图：
 
 ```SnackPlayer
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Animated, Text, View } from 'react-native';
 
-class FadeInView extends React.Component {
-  state = {
-    fadeAnim: new Animated.Value(0),  // 透明度初始值设为0
-  }
+const FadeInView = (props) => {
+  const [fadeAnim] = useState(new Animated.Value(0))  // 透明度初始值设为0
 
-  componentDidMount() {
+  React.useEffect(() => {
     Animated.timing(                  // 随时间变化而执行动画
-      this.state.fadeAnim,            // 动画中的变量值
+      fadeAnim,                       // 动画中的变量值
       {
         toValue: 1,                   // 透明度最终变为1，即完全不透明
         duration: 10000,              // 让动画持续一段时间
       }
     ).start();                        // 开始执行动画
-  }
+  }, [])
 
-  render() {
-    let { fadeAnim } = this.state;
-
-    return (
-      <Animated.View                 // 使用专门的可动画化的View组件
-        style={{
-          ...this.props.style,
-          opacity: fadeAnim,         // 将透明度指定为动画变量值
-        }}
-      >
-        {this.props.children}
-      </Animated.View>
-    );
-  }
+  return (
+    <Animated.View                 // 使用专门的可动画化的View组件
+      style={{
+        ...props.style,
+        opacity: fadeAnim,         // 将透明度绑定到动画变量值
+      }}
+    >
+      {props.children}
+    </Animated.View>
+  );
 }
 
 // 然后你就可以在组件中像使用`View`那样去使用`FadeInView`了
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
-          <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
-        </FadeInView>
-      </View>
-    )
-  }
+export default () => {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <FadeInView style={{width: 250, height: 50, backgroundColor: 'powderblue'}}>
+        <Text style={{fontSize: 28, textAlign: 'center', margin: 10}}>Fading in</Text>
+      </FadeInView>
+    </View>
+  )
 }
 ```
 

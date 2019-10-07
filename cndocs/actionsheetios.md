@@ -3,13 +3,6 @@ id: actionsheetios
 title: ActionSheetIOS
 ---
 
-### 查看方法
-
-* [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-* [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
-
----
-
 # 文档
 
 ## 方法

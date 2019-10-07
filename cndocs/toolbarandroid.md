@@ -32,25 +32,6 @@ onActionSelected: function(position) {
 
 [0]: https://developer.android.com/reference/android/support/v7/widget/Toolbar.html
 
-### 查看Props
-
-* [View props...](view.md#props)
-
-- [`overflowIcon`](toolbarandroid.md#overflowicon)
-- [`actions`](toolbarandroid.md#actions)
-- [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
-- [`logo`](toolbarandroid.md#logo)
-- [`navIcon`](toolbarandroid.md#navicon)
-- [`onActionSelected`](toolbarandroid.md#onactionselected)
-- [`onIconClicked`](toolbarandroid.md#oniconclicked)
-- [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
-- [`rtl`](toolbarandroid.md#rtl)
-- [`subtitle`](toolbarandroid.md#subtitle)
-- [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-- [`testID`](toolbarandroid.md#testid)
-- [`title`](toolbarandroid.md#title)
-- [`titleColor`](toolbarandroid.md#titlecolor)
-
 ---
 
 # 文档

@@ -110,17 +110,6 @@ Linking.canOpenURL(url).then(supported => {
 }).catch(err => console.error('An error occurred', err));
 ```
 
-### 查看方法
-
-* [`constructor`](linking.md#constructor)
-* [`addEventListener`](linking.md#addeventlistener)
-* [`removeEventListener`](linking.md#removeeventlistener)
-* [`openURL`](linking.md#openurl)
-* [`canOpenURL`](linking.md#canopenurl)
-* [`openSettings`](linking.md#opensettings)
-* [`getInitialURL`](linking.md#getinitialurl)
-* [`sendIntent`](linking.md#sendintent)
-
 ---
 
 # 文档

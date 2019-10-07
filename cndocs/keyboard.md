@@ -42,13 +42,6 @@ class Example extends Component {
 }
 ```
 
-### 查看方法
-
-* [`addListener`](keyboard.md#addlistener)
-* [`removeListener`](keyboard.md#removelistener)
-* [`removeAllListeners`](keyboard.md#removealllisteners)
-* [`dismiss`](keyboard.md#dismiss)
-
 ---
 
 # 文档

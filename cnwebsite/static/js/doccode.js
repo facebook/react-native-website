@@ -18,5 +18,12 @@
         '<a href="https://activity.huaweicloud.com/appdevelopment.html?&fromuser=aHc4NzgyMjgwMQ==&utm_source=aHc4NzgyMjgwMQ==&utm_medium=cps&utm_campaign=201905" target="_blank" style="display:block;padding:15px 25px 0 0"><img src="/img/thirdparty/huawei.jpg"></a>';
       sideNav.appendChild(el);
     }
+
+    if (location.href.indexOf('/getting-started') !== -1) {
+      var onPageNav = document.querySelector('nav.onPageNav');
+      if (onPageNav) {
+        onPageNav.remove();
+      }
+    }
   }
 })();

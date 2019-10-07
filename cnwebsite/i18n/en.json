@@ -222,7 +222,7 @@
         "title": "网络"
       },
       "optimizing-flatlist-configuration": {
-        "title": "Optimizing Flatlist Configuration"
+        "title": "列表配置优化"
       },
       "out-of-tree-platforms": {
         "title": "多平台支持"
@@ -373,6 +373,9 @@
       },
       "tutorial": {
         "title": "示例教程：Hello World"
+      },
+      "typescript": {
+        "title": "使用TypeScript"
       },
       "upgrading": {
         "title": "更新"

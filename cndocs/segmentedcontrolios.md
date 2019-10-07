@@ -3,6 +3,8 @@ id: segmentedcontrolios
 title: SegmentedControlIOS
 ---
 
+> **Deprecated.** Use [@react-native-community/react-native-segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
+
 使用`SegmentedControlIOS`来在iOS设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
 
 #### Programmatically changing selected index
@@ -22,18 +24,6 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 ```
 
 <center><img src="/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
-
-### 查看Props
-
-* [View props...](view.md#props)
-
-- [`enabled`](segmentedcontrolios.md#enabled)
-- [`momentary`](segmentedcontrolios.md#momentary)
-- [`onChange`](segmentedcontrolios.md#onchange)
-- [`onValueChange`](segmentedcontrolios.md#onvaluechange)
-- [`selectedIndex`](segmentedcontrolios.md#selectedindex)
-- [`tintColor`](segmentedcontrolios.md#tintcolor)
-- [`values`](segmentedcontrolios.md#values)
 
 ---
 

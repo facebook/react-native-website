@@ -11,7 +11,7 @@ tvOS(即 Apple TV 机顶盒)：监听遥控器上的后退按钮事件（阻止�
 
 iOS：尚无作用。
 
-监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。
+监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。Beware: If your app shows an opened `Modal`, BackHandler will not publish any events ([see `Modal` docs](modal.md#onrequestclose)).
 
 示例：
 
@@ -58,13 +58,6 @@ BackHandler.addEventListener("hardwareBackPress", function() {
     this.backHandler.remove();
   }
 ```
-
-### 查看方法
-
-- [`exitApp`](backhandler.md#exitapp)
-- [`addEventListener`](backhandler.md#addeventlistener)
-- [`exitApp`](backhandler.md#exitapp)
-- [`removeEventListener`](backhandler.md#removeeventlistener)
 
 ---
 

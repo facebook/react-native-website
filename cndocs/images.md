@@ -53,11 +53,11 @@ _注意_：如果你添加图片的时候 packager 正在运行，可能需要�
 <Image source={require('./my-icon.png')} />;
 
 // 错误
-var icon = this.props.active ? 'my-icon-active' : 'my-icon-inactive';
+const icon = this.props.active ? 'my-icon-active' : 'my-icon-inactive';
 <Image source={require('./' + icon + '.png')} />;
 
 // 正确
-var icon = this.props.active
+const icon = this.props.active
   ? require('./my-icon-active.png')
   : require('./my-icon-inactive.png');
 <Image source={icon} />;

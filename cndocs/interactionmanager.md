@@ -24,7 +24,7 @@ InteractionManager.runAfterInteractions(() => {
 InteractionManager 还允许应用注册动画，在动画开始时创建一个交互“句柄”，然后在结束的时候清除它。
 
 ```
-var handle = InteractionManager.createInteractionHandle();
+const handle = InteractionManager.createInteractionHandle();
 // 执行动画... (`runAfterInteractions`中的任务现在开始排队等候)
 // 在动画完成之后开始清除句柄：
 InteractionManager.clearInteractionHandle(handle);
@@ -34,18 +34,6 @@ InteractionManager.clearInteractionHandle(handle);
 `runAfterInteractions`接受一个普通的回调函数，或是一个`PromiseTask`对象，该对象需要带有名为`gen`的方法，并返回一个`Promise`。如果提供的参数是一个`PromiseTask`， 那么即便它是异步的它也会阻塞任务队列，直到它（以及它所有的依赖任务，哪怕这些依赖任务也是异步的）执行完毕后，才会执行下一个任务。
 
 默认情况下，排队的任务会在一次`setImmediate`方法中依序批量执行。如果你调用了`setDeadLine`方法并设定了一个正整数值，则任务只会在设定的时间到达后开始执行。在此之前，任务会通过`setTimeout`来挂起并阻塞其他任务执行，这样可以给诸如触摸交互一类的事件留出时间，使应用可以更快地响应用户。
-
-### 查看方法
-
-* [`runAfterInteractions`](interactionmanager.md#runafterinteractions)
-* [`createInteractionHandle`](interactionmanager.md#createinteractionhandle)
-* [`clearInteractionHandle`](interactionmanager.md#clearinteractionhandle)
-* [`setDeadline`](interactionmanager.md#setdeadline)
-
-### 查看属性
-
-* [`Events`](interactionmanager.md#events)
-* [`addListener`](interactionmanager.md#addlistener)
 
 ---
 

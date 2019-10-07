@@ -9,34 +9,6 @@ title: TouchableWithoutFeedback
 
 > 译注：常见的使用场景比如想实现点击空白处触发某个操作，那么就可以把空白部分用`TouchableWithoutFeedback`包起来，或者绝对定位覆盖住。
 
-### 查看Props
-
-* [`accessibilityComponentType`](touchablewithoutfeedback.md#accessibilitycomponenttype)
-* [`accessibilityHint`](touchablewithoutfeedback.md#accessibilityhint)
-* [`accessibilityLabel`](touchablewithoutfeedback.md#accessibilitylabel)
-* [`accessibilityRole`](view.md#accessibilityrole)
-* [`accessibilityStates`](view.md#accessibilitystates)
-* [`accessibilityTraits`](touchablewithoutfeedback.md#accessibilitytraits)
-* [`accessible`](touchablewithoutfeedback.md#accessible)
-* [`delayLongPress`](touchablewithoutfeedback.md#delaylongpress)
-* [`delayPressIn`](touchablewithoutfeedback.md#delaypressin)
-* [`delayPressOut`](touchablewithoutfeedback.md#delaypressout)
-* [`disabled`](touchablewithoutfeedback.md#disabled)
-* [`hitSlop`](touchablewithoutfeedback.md#hitslop)
-* [`onBlur`](touchablewithoutfeedback.md#onblur)
-* [`onFocus`](touchablewithoutfeedback.md#onfocus)
-* [`onLayout`](touchablewithoutfeedback.md#onlayout)
-* [`onLongPress`](touchablewithoutfeedback.md#onlongpress)
-* [`onPress`](touchablewithoutfeedback.md#onpress)
-* [`onPressIn`](touchablewithoutfeedback.md#onpressin)
-* [`onPressOut`](touchablewithoutfeedback.md#onpressout)
-* [`pressRetentionOffset`](touchablewithoutfeedback.md#pressretentionoffset)
-* [`testID`](touchablewithoutfeedback.md#testid)
-
-### 查看类型定义
-
-* [`Event`](touchablewithoutfeedback.md#event)
-
 ---
 
 # 文档

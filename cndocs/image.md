@@ -82,38 +82,6 @@ dependencies {
 }
 ```
 
-### 查看 Props
-
-* [`style`](image.md#style)
-* [`blurRadius`](image.md#blurradius)
-* [`onLayout`](image.md#onlayout)
-* [`onLoad`](image.md#onload)
-* [`onLoadEnd`](image.md#onloadend)
-* [`onLoadStart`](image.md#onloadstart)
-* [`resizeMode`](image.md#resizemode)
-* [`source`](image.md#source)
-* [`loadingIndicatorSource`](image.md#loadingindicatorsource)
-* [`onError`](image.md#onerror)
-* [`testID`](image.md#testid)
-* [`resizeMethod`](image.md#resizemethod)
-* [`accessibilityLabel`](image.md#accessibilitylabel)
-* [`accessible`](image.md#accessible)
-* [`capInsets`](image.md#capinsets)
-* [`defaultSource`](image.md#defaultsource)
-* [`onPartialLoad`](image.md#onpartialload)
-* [`onProgress`](image.md#onprogress)
-* [`fadeDuration`](image.md#fadeduration)
-* [`progressiveRenderingEnabled`](image.md#progressiverenderingenabled)
-
-### 查看方法
-
-* [`getSize`](image.md#getsize)
-* [`getSizeWithHeaders`](image.md#getsizewithheaders)
-* [`prefetch`](image.md#prefetch)
-* [`abortPrefetch`](image.md#abortprefetch)
-* [`queryCache`](image.md#querycache)
-* [`resolveAssetSource`](image.md#resolveassetsource)
-
 ---
 
 # 文档
@@ -434,8 +402,6 @@ Image.getSizeWithHeaders(uri, headers, success, [failure]);
 Retrieve the width and height (in pixels) of an image prior to displaying it with the ability to provide the headers for the request. This method can fail if the image cannot be found, or fails to download.
 
 In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
-
-Does not work for static image resources.
 
 **Parameters:**
 

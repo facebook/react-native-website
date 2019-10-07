@@ -151,7 +151,7 @@ export default class FetchExample extends React.Component {
 React Native 中已经内置了[XMLHttpRequest API](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)(也就是俗称的 ajax)。一些基于 XMLHttpRequest 封装的第三方库也可以使用，例如[frisbee](https://github.com/niftylettuce/frisbee)或是[axios](https://github.com/mzabriskie/axios)等。但注意不能使用 jQuery，因为 jQuery 中还使用了很多浏览器中才有而 RN 中没有的东西（所以也不是所有 web 中的 ajax 库都可以直接使用）。
 
 ```jsx
-var request = new XMLHttpRequest();
+const request = new XMLHttpRequest();
 request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
     return;
@@ -175,7 +175,7 @@ request.send();
 React Native 还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个 TCP 连接上提供全双工的通信信道。
 
 ```jsx
-var ws = new WebSocket('ws://host.com/path');
+const ws = new WebSocket('ws://host.com/path');
 
 ws.onopen = () => {
   // connection opened

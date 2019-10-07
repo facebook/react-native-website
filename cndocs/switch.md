@@ -9,20 +9,6 @@ title: Switch
 
 @keyword checkbox @keyword toggle @keyword 单选 @keyword 多选
 
-### 查看Props
-
-* [View props...](view.md#props)
-
-- [`disabled`](switch.md#disabled)
-- [`trackColor`](switch.md#trackcolor)
-- [`onValueChange`](switch.md#onvaluechange)	
-- [`ios_backgroundColor`](switch.md#ios_backgroundcolor)
-- [`onValueChange`](switch.md#onvaluechange)
-- [`testID`](switch.md#testid)
-- [`thumbColor`](switch.md#thumbcolor)
-- [`tintColor`](switch.md#tintcolor)
-- [`value`](switch.md#value)
-
 ---
 
 # 文档

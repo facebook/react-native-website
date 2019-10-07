@@ -37,18 +37,6 @@ const styles = StyleSheet.create({
 - 从 render 函数中移除具体的样式内容，可以使代码更清晰易懂。
 - 给样式命名也可以对 render 函数中的组件增加语义化的描述。
 
-### 查看方法
-
-- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
-- [`create`](stylesheet.md#create)
-- [`flatten`](stylesheet.md#flatten)
-- [`compose`](stylesheet.md#compose)
-
-### 查看常量
-
-- [`hairlineWidth`](stylesheet.md#hairlinewidth)
-- [`absoluteFill`](stylesheet.md#absolutefill)
-
 ---
 
 # 文档
@@ -90,7 +78,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 Example:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
@@ -108,7 +96,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 Alternative use:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
@@ -133,7 +121,7 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
 ```jsx
-static compose(style)
+static compose(style1, style2)
 ```
 
 ## 常量
@@ -141,7 +129,7 @@ static compose(style)
 ### `hairlineWidth`
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
     borderBottomWidth: StyleSheet.hairlineWidth,
