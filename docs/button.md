@@ -43,7 +43,7 @@ export default function App() {
         <Text style={styles.title}>
           Adjust the color in a way that looks standard on each platform. On
           iOS, the color prop controls the color of the text. On Android, the
-          color adjusts the backgroud color of the button.
+          color adjusts the background color of the button.
         </Text>
         <Button
           title="Press me"

@@ -78,7 +78,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 Example:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
@@ -96,7 +96,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 Alternative use:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
@@ -131,7 +131,7 @@ static compose(style1, style2)
 This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
     borderBottomWidth: StyleSheet.hairlineWidth,

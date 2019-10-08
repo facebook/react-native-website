@@ -89,6 +89,7 @@ class Help extends React.Component {
             <a href="https://www.youtube.com/watch?v=WXYPpY_mElQ">
               React Conf 2018
             </a>
+            {', '}
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
               React Conf 2017
             </a>
