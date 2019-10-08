@@ -28,15 +28,11 @@ Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
   - Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
-    ```
-
-    ``
-    ..
-    do
-    pp
-    ..
-    S'
-    ...
+    ```ruby
+    target 'myAwesomeApp' do
+      # Pods for myAwesomeApp
+      pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
+    end
     ```
 
 - [Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library:
