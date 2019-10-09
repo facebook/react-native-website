@@ -8,8 +8,15 @@ website/build/
 website/community-repos.json
 website/yarn.lock
 website/node_modules
-
 website/i18n/*
 !website/i18n/en.json
 
 .nvmrc
+
+cnwebsite/translated_docs
+cnwebsite/build/
+cnwebsite/community-repos.json
+cnwebsite/yarn.lock
+cnwebsite/node_modules
+cnwebsite/i18n/*
+!cnwebsite/i18n/en.json
