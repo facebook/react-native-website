@@ -188,7 +188,7 @@ target 'NumberTileGame' do
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
