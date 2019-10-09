@@ -1,6 +1,14 @@
 (function() {
   document.addEventListener('DOMContentLoaded', init);
 
+  function detectmob() {
+    if(window.innerWidth <= 1024) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   function init() {
     var articleContainer = document.querySelector('.post article');
     if (articleContainer) {
@@ -13,10 +21,14 @@
 
     var sideNav = document.querySelector('#docsNav nav');
     if (sideNav) {
-      var el = document.createElement('div');
-      el.innerHTML =
-        '<a href="https://activity.huaweicloud.com/appdevelopment.html?&fromuser=aHc4NzgyMjgwMQ==&utm_source=aHc4NzgyMjgwMQ==&utm_medium=cps&utm_campaign=201905" target="_blank" style="display:block;padding:15px 25px 0 0"><img src="/img/thirdparty/huawei.jpg"></a>';
-      sideNav.appendChild(el);
+      if (detectmob()) {
+
+      } else {
+        var el = document.createElement('div');
+        el.innerHTML =
+          '<a href="https://activity.huaweicloud.com/appdevelopment.html?&fromuser=aHc4NzgyMjgwMQ==&utm_source=aHc4NzgyMjgwMQ==&utm_medium=cps&utm_campaign=201905" target="_blank" style="display:block;padding:15px 25px 0 0"><img src="/img/thirdparty/huawei.jpg"></a>';
+        sideNav.appendChild(el);
+      }
     }
 
     if (location.href.indexOf('/getting-started') !== -1) {

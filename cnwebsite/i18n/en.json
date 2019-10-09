@@ -6952,6 +6952,405 @@
       },
       "version-0.60/version-0.60-webview": {
         "title": "WebView"
+      },
+      "version-0.61/version-0.61-accessibility": {
+        "title": "无障碍功能"
+      },
+      "version-0.61/version-0.61-accessibilityinfo": {
+        "title": "AccessibilityInfo"
+      },
+      "version-0.61/version-0.61-actionsheetios": {
+        "title": "ActionSheetIOS"
+      },
+      "version-0.61/version-0.61-activityindicator": {
+        "title": "ActivityIndicator"
+      },
+      "version-0.61/version-0.61-alert": {
+        "title": "Alert"
+      },
+      "version-0.61/version-0.61-alertios": {
+        "title": "AlertIOS"
+      },
+      "version-0.61/version-0.61-animated": {
+        "title": "Animated"
+      },
+      "version-0.61/version-0.61-animatedvalue": {
+        "title": "AnimatedValue"
+      },
+      "version-0.61/version-0.61-animatedvaluexy": {
+        "title": "AnimatedValueXY"
+      },
+      "version-0.61/version-0.61-animations": {
+        "title": "动画"
+      },
+      "version-0.61/version-0.61-app-extensions": {
+        "title": "iOS应用扩展"
+      },
+      "version-0.61/version-0.61-appregistry": {
+        "title": "AppRegistry"
+      },
+      "version-0.61/version-0.61-appstate": {
+        "title": "AppState"
+      },
+      "version-0.61/version-0.61-asyncstorage": {
+        "title": "AsyncStorage"
+      },
+      "version-0.61/version-0.61-backhandler": {
+        "title": "BackHandler"
+      },
+      "version-0.61/version-0.61-building-for-apple-tv": {
+        "title": "为电视和机顶盒制作应用"
+      },
+      "version-0.61/version-0.61-building-from-source": {
+        "title": "从源代码编译React Native"
+      },
+      "version-0.61/version-0.61-button": {
+        "title": "Button"
+      },
+      "version-0.61/version-0.61-cameraroll": {
+        "title": "CameraRoll"
+      },
+      "version-0.61/version-0.61-checkbox": {
+        "title": "CheckBox"
+      },
+      "version-0.61/version-0.61-clipboard": {
+        "title": "Clipboard"
+      },
+      "version-0.61/version-0.61-colors": {
+        "title": "颜色"
+      },
+      "version-0.61/version-0.61-communication-android": {
+        "title": "和原生端通信"
+      },
+      "version-0.61/version-0.61-communication-ios": {
+        "title": "和原生端通信"
+      },
+      "version-0.61/version-0.61-components-and-apis": {
+        "title": "组件和API"
+      },
+      "version-0.61/version-0.61-custom-webview-android": {
+        "title": "Custom WebView"
+      },
+      "version-0.61/version-0.61-custom-webview-ios": {
+        "title": "Custom WebView"
+      },
+      "version-0.61/version-0.61-datepickerandroid": {
+        "title": "DatePickerAndroid"
+      },
+      "version-0.61/version-0.61-datepickerios": {
+        "title": "DatePickerIOS"
+      },
+      "version-0.61/version-0.61-debugging": {
+        "title": "调试"
+      },
+      "version-0.61/version-0.61-dimensions": {
+        "title": "Dimensions"
+      },
+      "version-0.61/version-0.61-direct-manipulation": {
+        "title": "直接操作"
+      },
+      "version-0.61/version-0.61-drawerlayoutandroid": {
+        "title": "DrawerLayoutAndroid"
+      },
+      "version-0.61/version-0.61-easing": {
+        "title": "Easing"
+      },
+      "version-0.61/version-0.61-flatlist": {
+        "title": "FlatList"
+      },
+      "version-0.61/version-0.61-flexbox": {
+        "title": "使用Flexbox布局"
+      },
+      "version-0.61/version-0.61-geolocation": {
+        "title": "Geolocation"
+      },
+      "version-0.61/version-0.61-gesture-responder-system": {
+        "title": "手势响应系统"
+      },
+      "version-0.61/version-0.61-getting-started": {
+        "title": "搭建开发环境"
+      },
+      "version-0.61/version-0.61-handling-text-input": {
+        "title": "处理文本输入"
+      },
+      "version-0.61/version-0.61-handling-touches": {
+        "title": "处理触摸事件"
+      },
+      "version-0.61/version-0.61-headless-js-android": {
+        "title": "Headless JS（后台任务）"
+      },
+      "version-0.61/version-0.61-height-and-width": {
+        "title": "高度与宽度"
+      },
+      "version-0.61/version-0.61-hermes": {
+        "title": "Using Hermes"
+      },
+      "version-0.61/version-0.61-image-style-props": {
+        "title": "Image样式属性"
+      },
+      "version-0.61/version-0.61-image": {
+        "title": "Image"
+      },
+      "version-0.61/version-0.61-imagebackground": {
+        "title": "ImageBackground"
+      },
+      "version-0.61/version-0.61-imageeditor": {
+        "title": "ImageEditor"
+      },
+      "version-0.61/version-0.61-imagepickerios": {
+        "title": "ImagePickerIOS"
+      },
+      "version-0.61/version-0.61-images": {
+        "title": "图片"
+      },
+      "version-0.61/version-0.61-improvingux": {
+        "title": "改进用户体验"
+      },
+      "version-0.61/version-0.61-inputaccessoryview": {
+        "title": "InputAccessoryView"
+      },
+      "version-0.61/version-0.61-integration-with-existing-apps": {
+        "title": "集成到现有原生应用"
+      },
+      "version-0.61/version-0.61-interactionmanager": {
+        "title": "InteractionManager"
+      },
+      "version-0.61/version-0.61-javascript-environment": {
+        "title": "JavaScript环境"
+      },
+      "version-0.61/version-0.61-keyboard": {
+        "title": "Keyboard"
+      },
+      "version-0.61/version-0.61-keyboardavoidingview": {
+        "title": "KeyboardAvoidingView"
+      },
+      "version-0.61/version-0.61-layout-props": {
+        "title": "布局属性"
+      },
+      "version-0.61/version-0.61-layoutanimation": {
+        "title": "LayoutAnimation"
+      },
+      "version-0.61/version-0.61-linking-libraries-ios": {
+        "title": "链接原生库"
+      },
+      "version-0.61/version-0.61-linking": {
+        "title": "Linking"
+      },
+      "version-0.61/version-0.61-maintainers": {
+        "title": "What to Expect from Maintainers"
+      },
+      "version-0.61/version-0.61-modal": {
+        "title": "Modal"
+      },
+      "version-0.61/version-0.61-more-resources": {
+        "title": "其他参考资源"
+      },
+      "version-0.61/version-0.61-native-components-android": {
+        "title": "原生UI组件"
+      },
+      "version-0.61/version-0.61-native-components-ios": {
+        "title": "原生UI组件"
+      },
+      "version-0.61/version-0.61-native-modules-setup": {
+        "title": "原生模块配置"
+      },
+      "version-0.61/version-0.61-native-modules-android": {
+        "title": "原生模块"
+      },
+      "version-0.61/version-0.61-native-modules-ios": {
+        "title": "原生模块"
+      },
+      "version-0.61/version-0.61-navigation": {
+        "title": "使用导航器跳转页面"
+      },
+      "version-0.61/version-0.61-netinfo": {
+        "title": "NetInfo"
+      },
+      "version-0.61/version-0.61-network": {
+        "title": "网络"
+      },
+      "version-0.61/version-0.61-optimizing-flatlist-configuration": {
+        "title": "列表配置优化"
+      },
+      "version-0.61/version-0.61-out-of-tree-platforms": {
+        "title": "多平台支持"
+      },
+      "version-0.61/version-0.61-panresponder": {
+        "title": "PanResponder"
+      },
+      "version-0.61/version-0.61-performance": {
+        "title": "性能"
+      },
+      "version-0.61/version-0.61-permissionsandroid": {
+        "title": "PermissionsAndroid"
+      },
+      "version-0.61/version-0.61-picker-item": {
+        "title": "Picker.Item"
+      },
+      "version-0.61/version-0.61-picker-style-props": {
+        "title": "Picker Style Props"
+      },
+      "version-0.61/version-0.61-picker": {
+        "title": "Picker"
+      },
+      "version-0.61/version-0.61-pickerios": {
+        "title": "PickerIOS"
+      },
+      "version-0.61/version-0.61-pixelratio": {
+        "title": "PixelRatio"
+      },
+      "version-0.61/version-0.61-platform-specific-code": {
+        "title": "特定平台代码"
+      },
+      "version-0.61/version-0.61-progressbarandroid": {
+        "title": "ProgressBarAndroid"
+      },
+      "version-0.61/version-0.61-progressviewios": {
+        "title": "ProgressViewIOS"
+      },
+      "version-0.61/version-0.61-props": {
+        "title": "Props（属性）"
+      },
+      "version-0.61/version-0.61-publishing-forks": {
+        "title": "发布自己定制的ReactNative包"
+      },
+      "version-0.61/version-0.61-pushnotificationios": {
+        "title": "PushNotificationIOS"
+      },
+      "version-0.61/version-0.61-refreshcontrol": {
+        "title": "RefreshControl"
+      },
+      "version-0.61/version-0.61-removing-default-permissions": {
+        "title": "移除不需要的权限"
+      },
+      "version-0.61/version-0.61-running-on-device": {
+        "title": "在设备上运行"
+      },
+      "version-0.61/version-0.61-running-on-simulator-ios": {
+        "title": "在iOS模拟器上运行"
+      },
+      "version-0.61/version-0.61-safeareaview": {
+        "title": "SafeAreaView"
+      },
+      "version-0.61/version-0.61-sample-application-movies": {
+        "title": "示例教程：电影列表"
+      },
+      "version-0.61/version-0.61-scrollview": {
+        "title": "ScrollView"
+      },
+      "version-0.61/version-0.61-sectionlist": {
+        "title": "SectionList"
+      },
+      "version-0.61/version-0.61-segmentedcontrolios": {
+        "title": "SegmentedControlIOS"
+      },
+      "version-0.61/version-0.61-settings": {
+        "title": "Settings"
+      },
+      "version-0.61/version-0.61-shadow-props": {
+        "title": "阴影样式属性"
+      },
+      "version-0.61/version-0.61-share": {
+        "title": "Share"
+      },
+      "version-0.61/version-0.61-signed-apk-android": {
+        "title": "打包APK"
+      },
+      "version-0.61/version-0.61-slider": {
+        "title": "Slider"
+      },
+      "version-0.61/version-0.61-state": {
+        "title": "State（状态）"
+      },
+      "version-0.61/version-0.61-statusbar": {
+        "title": "StatusBar"
+      },
+      "version-0.61/version-0.61-style": {
+        "title": "样式"
+      },
+      "version-0.61/version-0.61-stylesheet": {
+        "title": "StyleSheet"
+      },
+      "version-0.61/version-0.61-switch": {
+        "title": "Switch"
+      },
+      "version-0.61/version-0.61-systrace": {
+        "title": "Systrace"
+      },
+      "version-0.61/version-0.61-testing": {
+        "title": "Testing your Changes"
+      },
+      "version-0.61/version-0.61-text-style-props": {
+        "title": "Text样式属性"
+      },
+      "version-0.61/version-0.61-text": {
+        "title": "Text"
+      },
+      "version-0.61/version-0.61-textinput": {
+        "title": "TextInput"
+      },
+      "version-0.61/version-0.61-timepickerandroid": {
+        "title": "TimePickerAndroid"
+      },
+      "version-0.61/version-0.61-timers": {
+        "title": "定时器"
+      },
+      "version-0.61/version-0.61-toastandroid": {
+        "title": "ToastAndroid"
+      },
+      "version-0.61/version-0.61-toolbarandroid": {
+        "title": "ToolbarAndroid"
+      },
+      "version-0.61/version-0.61-touchablehighlight": {
+        "title": "TouchableHighlight"
+      },
+      "version-0.61/version-0.61-touchablenativefeedback": {
+        "title": "TouchableNativeFeedback"
+      },
+      "version-0.61/version-0.61-touchableopacity": {
+        "title": "TouchableOpacity"
+      },
+      "version-0.61/version-0.61-touchablewithoutfeedback": {
+        "title": "TouchableWithoutFeedback"
+      },
+      "version-0.61/version-0.61-transforms": {
+        "title": "Transforms"
+      },
+      "version-0.61/version-0.61-troubleshooting": {
+        "title": "Troubleshooting"
+      },
+      "version-0.61/version-0.61-tutorial": {
+        "title": "示例教程：Hello World"
+      },
+      "version-0.61/version-0.61-typescript": {
+        "title": "使用TypeScript"
+      },
+      "version-0.61/version-0.61-upgrading": {
+        "title": "更新"
+      },
+      "version-0.61/version-0.61-using-a-listview": {
+        "title": "使用长列表"
+      },
+      "version-0.61/version-0.61-using-a-scrollview": {
+        "title": "使用滚动视图"
+      },
+      "version-0.61/version-0.61-vibration": {
+        "title": "Vibration"
+      },
+      "version-0.61/version-0.61-view-style-props": {
+        "title": "View样式属性"
+      },
+      "version-0.61/version-0.61-view": {
+        "title": "View"
+      },
+      "version-0.61/version-0.61-viewpagerandroid": {
+        "title": "ViewPagerAndroid"
+      },
+      "version-0.61/version-0.61-virtualizedlist": {
+        "title": "VirtualizedList"
+      },
+      "version-0.61/version-0.61-webview": {
+        "title": "WebView"
       }
     },
     "links": {
