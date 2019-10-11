@@ -112,7 +112,7 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 Describes the current state of a component to the user of an assistive technology.
 
-`accessibilityState` is an object. It should contain the following fields:
+`accessibilityState` is an object. It contains the following fields:
 
 | Name     | Type               | Required |
 | -------- | ------------------ | -------- |
@@ -134,19 +134,14 @@ To use, set the `accessibilityState` to an object with a specific definition.
 
 Represents the current value of a component. It can be a textual description of a component's value, or for range-based components, such as sliders and progress bars, it contains range information (minimum, current, and maximum).
 
-`accessibilityValue` is an object. It should contain the following fields:
+`accessibilityValue` is an object. It contains the following fields:
 
-| Name | Type   | Required |
-| ---- | ------ | -------- |
-| min  | number | No       |
-| max  | number | No       |
-| now  | number | No       |
-| text | string | No       |
-
-- **min** The minimum value of this component's range. Should be an integer. Required if now is set.
-- **max** The maximum value of this component's range. Should be an integer. Required if now is set.
-- **now** The current value of this component's range. Should be an integer.
-- **text** A textual description of this component's value. Will override minimum, current, and maximum if set.
+| Name | Description                                                                                    | Type    | Required                  |
+| ---- | ---------------------------------------------------------------------------------------------- | ------- | ------------------------- |
+| min  | The minimum value of this component's range.                                                   | integer | Required if `now` is set. |
+| max  | The maximum value of this component's range.                                                   | integer | Required if `now` is set. |
+| now  | The current value of this component's range.                                                   | integer | No                        |
+| text | A textual description of this component's value. Will override `min`, `now`, and `max` if set. | string  | No                        |
 
 #### accessibilityViewIsModal (iOS)
 
