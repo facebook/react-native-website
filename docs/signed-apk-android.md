@@ -87,7 +87,7 @@ Gradle's `bundleRelease` will bundle all the JavaScript needed to run your app i
 
 > Note: Make sure gradle.properties does not include _org.gradle.configureondemand=true_ as that will make the release build skip bundling JS and assets into the app binary.
 
-The generated AAB can be found under `android/app/build/outputs/bundle/release/app.aab`, and is ready to be uploaded to Google Play.
+The generated APK can be found under `android\app\build\outputs\apk\release\app-release.apk`, and is ready to be uploaded to Google Play.
 
 _Note: In order for Google Play to accept AAB format the App Signing by Google Play needs to be configured for your application on the Google Play Console. If you are updating an existing app that doesn't use App Signing by Google Play, please check our [migration section](#migrating-old-android-react-native-apps-to-use-app-signing-by-google-play) to learn how to perform that configuration change._
 
