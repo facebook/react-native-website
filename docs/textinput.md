@@ -781,6 +781,22 @@ The value to show for the text input. `TextInput` is a controlled component, whi
 
 ## Methods
 
+### `.focus()`
+
+```jsx
+focus();
+```
+
+Makes the native input request focus.
+
+### `.blur()`
+
+```jsx
+blur();
+```
+
+Makes the native input lose focus.
+
 ### `clear()`
 
 ```jsx
