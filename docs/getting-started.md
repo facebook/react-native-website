@@ -76,9 +76,9 @@ Once you've set these up, you can launch your app on an Android Virtual Device b
 
 Because you don't build any native code when using Expo to create a project, it's not possible to include custom native modules beyond the React Native APIs and components that are available in the Expo client app.
 
-If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/expokit/eject)" eventually to create your own native builds. If you do eject, the "React Native CLI Quickstart" instructions will be required to continue working on your project.
+If you know that you'll eventually need to include your own native code, Expo is still a good way to get started. In that case you'll just need to "[eject](https://docs.expo.io/versions/latest/workflow/customizing/)" eventually to create your own native builds. If you do eject, the "React Native CLI Quickstart" instructions will be required to continue working on your project.
 
-Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/#sdk-version) to find out what versions are supported.
+Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/overview/#sdk-version) to find out what versions are supported.
 
 If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
 
@@ -221,11 +221,15 @@ The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple
 
 If you have already installed Xcode on your system, make sure it is version 9.4 or newer.
 
-<h4>Command Line Tools<h4>
+<h4>Command Line Tools</h4>
 
 You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
 ![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+
+<h4>Installing an iOS Simulator in Xcode</h4>
+
+To install a simulator, open <strong>Xcode > Preferences...</strong> and select the <strong>Components</strong> tab. Select a simulator with the corresponding version of iOS you wish to use.
 
 <block class="native linux android" />
 
@@ -542,7 +546,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <h2>Now what?</h2>
 
-- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
@@ -552,7 +556,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 <h2>Now what?</h2>
 
-- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 

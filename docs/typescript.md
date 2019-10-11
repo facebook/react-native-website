@@ -10,7 +10,7 @@ title: Using TypeScript with React Native
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-react-native init MyTSProject --template typescript
+npx react-native init MyApp --template react-native-template-typescript
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
@@ -128,7 +128,6 @@ const Hello: React.FC<Props> = (props) => {
         </View>
         </View>
     );
-    }
 }
 
 // styles
@@ -153,6 +152,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 });
+
+export default Hello;
 ```
 
 You can explore the syntax more in the [TypeScript playground][tsplay].
@@ -198,7 +199,7 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "test/*": "./test/"],
++           "test/*": ["./test/"],
 +         }
 +       }
 +     ]

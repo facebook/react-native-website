@@ -5,14 +5,10 @@ title: PushNotificationIOS
 
 > **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
 
-<div class="banner-crna-ejected">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    This section only applies to projects made with <code>react-native init</code>
-    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/notifications/">Notifications</a> in the Expo documentation for the appropriate alternative.
   </p>
 </div>
 

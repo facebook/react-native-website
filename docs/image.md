@@ -201,7 +201,7 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 

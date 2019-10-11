@@ -129,16 +129,12 @@ You can enable a performance overlay to help you debug performance problems by s
 
 You can view installation instructions [in the README](https://github.com/infinitered/reactotron). If you're using Expo, here is an article detailing [how to install on Expo](https://shift.infinite.red/start-using-reactotron-in-your-expo-project-today-in-3-easy-steps-a03d11032a7a).
 
-# Debugging in Ejected Apps
+# Native Debugging
 
-<div class="banner-crna-ejected" style="margin-top:25px">
+<div class="banner-native-code-required" style="margin-top:25px">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
