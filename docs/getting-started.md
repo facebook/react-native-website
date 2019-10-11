@@ -229,7 +229,7 @@ You will also need to install the Xcode Command Line Tools. Open Xcode, then cho
 
 <h4>Simulator<h4>
 
-You will also need to install a simulator. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Components panel and install a simulator by selecting the simulator with the corresponding version of iOS you wish to use.
+To install a simulator, open <strong>Xcode > Preferences...</strong> and select the <strong>Components</strong> tab. Select a simulator with the corresponding version of iOS you wish to use.
 
 <block class="native linux android" />
 
