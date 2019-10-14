@@ -18,6 +18,15 @@ exports.allow = [
   "executed",
   "execution",
 
+  // We frequently refer to failures in errors but never in people
+  "failure",
+  "failures",
+
+  // We frequently refer to form props by their name "disabled"
+  "invalid",
+
   // Unfortunately this is a library name we depend on
-  "watchman"
+  "watchman-watchwoman"
 ];
+
+exports.profanitySureness = 1;
