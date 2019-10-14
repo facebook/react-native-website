@@ -161,7 +161,6 @@ On Android 5.0+ devices connected via USB, you can use the [`adb` command line t
 `adb reverse tcp:8081 tcp:8081`
 
 <!-- alex ignore host-hostess -->
-
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
 > If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.
