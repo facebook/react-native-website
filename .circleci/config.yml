@@ -83,7 +83,7 @@ jobs:
   # JOB: deploy_website
   # Deploy website to GitHub Pages in core RN repo.
   # --------------------------------------------------
-  deploy:
+  deploy_website:
     executor: node8
     working_directory: ~/react-native-website/website
     steps:
