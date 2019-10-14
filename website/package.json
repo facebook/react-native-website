@@ -29,7 +29,8 @@
     "sync-community-repos": "node sync-community-repos.js",
     "sync-guides": "node sync-guides.js",
     "test": "yarn build",
-    "lint": "cd ../ && alex docs"
+    "lint": "cd ../ && alex .",
+    "lintv": "cd ../ && alex"
   },
   "husky": {
     "hooks": {

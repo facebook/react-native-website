@@ -71,7 +71,7 @@ jobs:
   # JOB: lint
   # Lint the docs.
   # --------------------------------------------------
-  lint:
+  language_lint:
     executor: node8
     working_directory: ~/react-native-website/website
     steps:
@@ -118,7 +118,7 @@ workflows:
             - setup
 
       # Run lints
-      - lint:
+      - language_lint:
           requires:
             - setup
 
