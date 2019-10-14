@@ -41,7 +41,7 @@ Here are some benefits that you get:
 2. Images live in the same folder as your JavaScript code. Components are self-contained.
 3. No global namespace, i.e. you don't have to worry about name collisions.
 4. Only the images that are actually used will be packaged into your app.
-5. Adding and changing images doesn't require app recompilation, just refresh the simulator as you normally do.
+5. Adding and changing images doesn't require app recompilation, you can refresh the simulator as you normally do.
 6. The packager knows the image dimensions, no need to duplicate it in the code.
 7. Images can be distributed via [npm](https://www.npmjs.com/) packages.
 
@@ -197,7 +197,7 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
-You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
+You might not want to use `<ImageBackground>` in some cases, since the implementation is basic. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
 
 ```jsx
 return (
