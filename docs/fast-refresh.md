@@ -7,7 +7,7 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 ## How It Works
 
-- If you edit a module that **only exports React component(s)**, Fast Refresh will update the code just for that module, and re-render your component. You can edit anything in that file, including styles, rendering logic, event handlers, or effects.
+- If you edit a module that **only exports React component(s)**, Fast Refresh will update the code only for that module, and re-render your component. You can edit anything in that file, including styles, rendering logic, event handlers, or effects.
 - If you edit a module with exports that _aren't_ React components, Fast Refresh will re-run both that module, and the other modules importing it. So if both `Button.js` and `Modal.js` import `Theme.js`, editing `Theme.js` will update both components.
 - Finally, if you **edit a file** that's **imported by modules outside of the React tree**, Fast Refresh **will fall back to doing a full reload**. You might have a file which renders a React component but also exports a value that is imported by a **non-React component**. For example, maybe your component also exports a constant, and a non-React utility module imports it. In that case, consider migrating the query to a separate file and importing it into both files. This will re-enable Fast Refresh to work. Other cases can usually be solved in a similar way.
 

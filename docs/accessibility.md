@@ -49,7 +49,7 @@ In the above example, the `accessibilityLabel` on the TouchableOpacity element w
 
 #### accessibilityHint (iOS, Android)
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
 To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
 
@@ -185,7 +185,7 @@ In the case of two overlapping UI components with the same parent, default acces
 </View>
 ```
 
-In the above example, the yellow layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can easily use overlapping views with the same parent without confusing TalkBack.
+In the above example, the yellow layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can use overlapping views with the same parent without confusing TalkBack.
 
 ### Accessibility Actions
 
