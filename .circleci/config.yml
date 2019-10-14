@@ -50,10 +50,10 @@ jobs:
             - ~/react-native-website
 
   # --------------------------------------------------
-  # JOB: test_website
-  # Test website can be built and has no lint issues.
+  # JOB: test
+  # Test that the website can be built.
   # --------------------------------------------------
-  test_website:
+  test:
     executor: node8
     working_directory: ~/react-native-website/website
     steps:
@@ -68,10 +68,10 @@ jobs:
               exit 1;
             fi
   # --------------------------------------------------
-  # JOB: lint_website
-  # Test website can be built and has no lint issues.
+  # JOB: lint
+  # Lint the docs.
   # --------------------------------------------------
-  lint_website:
+  lint:
     executor: node8
     working_directory: ~/react-native-website/website
     steps:
@@ -83,7 +83,7 @@ jobs:
   # JOB: deploy_website
   # Deploy website to GitHub Pages in core RN repo.
   # --------------------------------------------------
-  deploy_website:
+  deploy:
     executor: node8
     working_directory: ~/react-native-website/website
     steps:
@@ -112,13 +112,13 @@ workflows:
     jobs:
       - setup
 
-      # Test website
-      - test_website:
+      # Run tests
+      - test:
           requires:
             - setup
 
-      # Test website
-      - lint_website:
+      # Run lints
+      - lint:
           requires:
             - setup
 
