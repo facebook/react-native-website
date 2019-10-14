@@ -55,4 +55,4 @@ static set(dims)
 
 This should only be called from native code by sending the didUpdateDimensions event.
 
-@param {object} dims Simple string-keyed object of dimensions to set
+@param {object} dims string-keyed object of dimensions to set

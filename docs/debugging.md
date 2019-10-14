@@ -13,7 +13,7 @@ You can access the developer menu by shaking your device or by selecting "Shake 
 
 ## Enabling Fast Refresh
 
-Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled.  Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
 
 ## Enabling Keyboard Shortcuts
 
@@ -99,7 +99,7 @@ Open the in-app developer menu and choose "Toggle Inspector". It will bring up a
 
 ![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
 ![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
@@ -154,6 +154,8 @@ On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/face
 On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
 `adb reverse tcp:8081 tcp:8081`
+
+<!-- alex ignore host-hostess -->
 
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
