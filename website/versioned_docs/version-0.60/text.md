@@ -80,7 +80,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+The `<Text>` element is unique relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
 ```jsx
 <Text>
@@ -150,7 +150,7 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
 class MyAppHeaderText extends Component {
@@ -189,7 +189,7 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### `accessibilityHint`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
 | Type   | Required |
 | ------ | -------- |
