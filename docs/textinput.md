@@ -515,6 +515,16 @@ Callback that is called when the text input's submit button is pressed with the 
 
 ---
 
+### `onTextInput`
+
+Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `placeholder`
 
 The string that will be rendered before text input has been entered.
