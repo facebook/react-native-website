@@ -4,7 +4,7 @@ title: FlatList
 original_id: flatlist
 ---
 
-A performant interface for rendering simple, flat lists, supporting the most handy features:
+A performant interface for rendering, flat lists, supporting the most handy features:
 
 - Fully cross-platform.
 - Optional horizontal mode.

@@ -253,6 +253,7 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+   <!-- alex ignore host -->
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
 7. Go back to the **Developer menu** and select **Reload JS**.
@@ -285,7 +286,7 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 #### Pro Tips
 
-As your App Bundle grows in size, you may start to see a white screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
+As your App Bundle grows in size, you may start to see a blank screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
 
 ```objc
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
