@@ -193,7 +193,7 @@ Node comes with npm, which lets you install the React Native command line interf
 
 Run the following command in a Terminal:
 
-```
+```bash
 npm install -g @react-native-community/cli
 ```
 
