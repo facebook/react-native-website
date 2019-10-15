@@ -203,6 +203,8 @@ Function that is invoked when the `WebView` loading starts or ends.
 
 ### `originWhitelist`
 
+<!-- alex ignore rule -->
+
 List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://*" and "https://*".
 
 | Type             | Required |

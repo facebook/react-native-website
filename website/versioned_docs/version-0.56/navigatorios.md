@@ -201,6 +201,8 @@ NavigatorIOS uses `route` objects to identify child views, their props, and navi
 
 ### `barStyle`
 
+<!-- alex ignore rule -->
+
 The style of the navigation bar. Supported values are 'default', 'black'. Use 'black' instead of setting `barTintColor` to black. This produces a navigation bar with the native iOS style with higher translucency.
 
 | Type                     | Required |
@@ -220,6 +222,8 @@ The default background color of the navigation bar.
 ---
 
 ### `interactivePopGestureEnabled`
+
+<!-- alex ignore rule -->
 
 Boolean value that indicates whether the interactive pop gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
 
@@ -329,7 +333,7 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 pop();
 ```
 
-Pop back to the previous scene.
+Get back to the previous scene.
 
 ---
 
@@ -430,7 +434,7 @@ Replaces the previous route/view and transitions back to it.
 resetTo((route: object));
 ```
 
-Replaces the top item and pop to it.
+Replaces the top item and goes back to it.
 
 **Parameters:**
 
