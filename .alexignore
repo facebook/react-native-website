@@ -10,7 +10,6 @@ website/blog/
 # Once you fix all of the errors, commit all of the changes including this file.
 #
 # To be considerate to the reviewer, please submit each version in different PRs.
-website/versioned_docs/version-0.5/
 website/versioned_docs/version-0.7/
 website/versioned_docs/version-0.8/
 website/versioned_docs/version-0.9/
