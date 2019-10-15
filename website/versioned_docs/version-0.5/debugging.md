@@ -169,7 +169,7 @@ On Android 5.0+ devices connected via USB, you can use the [`adb` command line t
 
 `adb reverse tcp:8081 tcp:8081`
 
-<!-- alex ignore rule -->
+<!-- alex ignore host -->
 
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 

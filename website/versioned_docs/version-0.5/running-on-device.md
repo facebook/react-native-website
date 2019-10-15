@@ -253,7 +253,7 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
-   <!-- alex ignore rule -->
+   <!-- alex ignore host -->
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
 7. Go back to the **Developer menu** and select **Reload JS**.
