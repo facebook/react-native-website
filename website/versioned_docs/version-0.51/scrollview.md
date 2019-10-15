@@ -12,9 +12,9 @@ Doesn't yet support other contained responders from blocking this scroll view fr
 
 `<ScrollView>` vs [`<FlatList>`](flatlist.md) - which one to use?
 
-`ScrollView` renders all its react child components at once.
+`ScrollView` renders all its react child components at once, but this has a performance downside.
 
-On the other hand, this has a performance downside. Imagine you have a very long list of items you want to display, maybe several screens worth of content. Creating JS components and native views for everything all at once, much of which may not even be shown, will contribute to slow rendering and increased memory usage.
+Imagine you have a very long list of items you want to display, maybe several screens worth of content. Creating JS components and native views for everything all at once, much of which may not even be shown, will contribute to slow rendering and increased memory usage.
 
 This is where `FlatList` comes into play. `FlatList` renders items lazily, when they are about to appear, and removes items that scroll way off screen to save memory and processing time.
 
@@ -440,10 +440,10 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 The style of the scroll indicators.
 
+  <!-- alex ignore retext-profanities -->
+
 - `'default'` (the default), same as `black`.
-  <!-- alex ignore rule -->
 - `'black'`, scroll indicator is black. This style is good against a light background.
-  <!-- alex ignore rule -->
 - `'white'`, scroll indicator is white. This style is good against a dark background.
 
 | Type                              | Required | Platform |

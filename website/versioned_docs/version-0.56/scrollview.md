@@ -463,10 +463,10 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 The style of the scroll indicators.
 
+ <!-- alex ignore retext-profanities -->
+
 - `'default'` (the default), same as `black`.
-  <!-- alex ignore rule -->
 - `'black'`, scroll indicator is black. This style is good against a light background.
-  <!-- alex ignore rule -->
 - `'white'`, scroll indicator is white. This style is good against a dark background.
 
 | Type                              | Required | Platform |
