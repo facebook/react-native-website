@@ -4,7 +4,7 @@ title: Animated
 original_id: animated
 ---
 
-The `Animated` library is designed to make animations fluid, powerful, build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
+The `Animated` library is designed to make animations fluid, powerful, painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
 The simplest workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
 
@@ -34,7 +34,7 @@ There are two value types you can use with `Animated`:
 `Animated` provides three types of animation types. Each animation type provides a particular animation curve that controls how your values animate from their initial value to the final value:
 
 - [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
-- [`Animated.spring()`](animated.md#spring) provides a spring physics model.
+- [`Animated.spring()`](animated.md#spring) provides a basic spring physics model.
 - [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
 
 In most cases, you will be using `timing()`. By default, it uses a symmetric easeInOut curve that conveys the gradual acceleration of an object to full speed and concludes by gradually decelerating to a stop.
