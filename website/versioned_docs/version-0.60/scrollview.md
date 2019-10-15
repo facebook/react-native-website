@@ -6,17 +6,17 @@ original_id: scrollview
 
 Component that wraps platform ScrollView while providing integration with touch locking "responder" system.
 
-Keep in mind that ScrollViews must have a bounded height in order to work, since they contain unbounded-height children into a bounded container (via a scroll interaction). In order to bound the height of a ScrollView, either set the height of the view directly (discouraged) or make sure all parent views have bounded height. Forgetting to transfer `{flex: 1}` down the view stack can lead to errors here, which the element inspector makes easy to debug.
+Keep in mind that ScrollViews must have a bounded height in order to work, since they contain unbounded-height children into a bounded container (via a scroll interaction). In order to bound the height of a ScrollView, either set the height of the view directly (discouraged) or make sure all parent views have bounded height. Forgetting to transfer `{flex: 1}` down the view stack can lead to errors here, which the element inspector makes quick to debug.
 
 Doesn't yet support other contained responders from blocking this scroll view from becoming the responder.
 
 `<ScrollView>` vs [`<FlatList>`](flatlist.md) - which one to use?
 
-`ScrollView` simply renders all its react child components at once. That makes it very easy to understand and use.
+`ScrollView` renders all its react child components at once, but this has a performance downside.
 
-On the other hand, this has a performance downside. Imagine you have a very long list of items you want to display, maybe several screens worth of content. Creating JS components and native views for everything all at once, much of which may not even be shown, will contribute to slow rendering and increased memory usage.
+Imagine you have a very long list of items you want to display, maybe several screens worth of content. Creating JS components and native views for everything all at once, much of which may not even be shown, will contribute to slow rendering and increased memory usage.
 
-This is where `FlatList` comes into play. `FlatList` renders items lazily, just when they are about to appear, and removes items that scroll way off screen to save memory and processing time.
+This is where `FlatList` comes into play. `FlatList` renders items lazily, when they are about to appear, and removes items that scroll way off screen to save memory and processing time.
 
 `FlatList` is also handy if you want to render separators between your items, multiple columns, infinite scroll loading, or any number of other features it supports out of the box.
 
@@ -259,8 +259,8 @@ When true, the scroll view's children are arranged horizontally in a row instead
 The style of the scroll indicators.
 
 - `'default'` (the default), same as `black`.
-- `'black'`, scroll indicator is black. This style is good against a light background.
-- `'white'`, scroll indicator is white. This style is good against a dark background.
+- `'black'`, scroll indicator is `black`. This style is good against a light background.
+- `'white'`, scroll indicator is `white`. This style is good against a dark background.
 
 | Type                              | Required | Platform |
 | --------------------------------- | -------- | -------- |
@@ -321,7 +321,7 @@ The optional `autoscrollToTopThreshold` can be used to make the content automati
 
 Caveat 1: Reordering elements in the scrollview with this enabled will probably cause jumpiness and jank. It can be fixed, but there are currently no plans to do so. For now, don't re-order the content of any ScrollViews or Lists that use this feature.
 
-Caveat 2: This simply uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
+Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
 
 | Type                                                                     | Required | Platform |
 | ------------------------------------------------------------------------ | -------- | -------- |
