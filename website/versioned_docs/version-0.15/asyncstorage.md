@@ -4,11 +4,11 @@ title: AsyncStorage
 original_id: asyncstorage
 ---
 
-AsyncStorage is a simple, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
+AsyncStorage is an asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
 It is recommended that you use an abstraction on top of AsyncStorage instead of AsyncStorage directly for anything more than light usage since it operates globally.
 
-This JS code is a simple facade over the native iOS implementation to provide a clear JS API, real Error objects, and simple non-multi functions. Each method returns a `Promise` object.
+This JS code is a facade over the native iOS implementation to provide a clear JS API, real Error objects, and non-multi functions. Each method returns a `Promise` object.
 
 ### Methods
 
