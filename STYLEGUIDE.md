@@ -32,7 +32,7 @@ Refer to non-web technologies by their proper nouns or as “apps,” not lumpin
 
 ## Welcoming and mature
 
-Tone counts for a lot. Too familiar, and it’s easy for some folks to feel like they aren’t a part of a company of friends. Too formal and we risk alienating them with a robotic-sounding textbook! Our aim is to be welcoming and mature, like a senior developer who doesn’t take themselves too seriously.
+Tone counts for a lot. Too familiar, and some folks might feel like they aren’t a part of a company of friends. Too formal and we risk alienating them with a robotic-sounding textbook! Our aim is to be welcoming and mature, like a senior developer who doesn’t take themselves too seriously.
 
 ### Example
 
@@ -67,7 +67,7 @@ When navigating operating system menus, the menu selection path should be *bold*
 
 *Bad* “Open Xcode’s ‘Preferences...’ menu and then click on ‘Components.’” Ambiguous. Relies on reader knowing that “Preferences” is a submenu of “Xcode.” Difficult to read at a glance.
 
-*Good* “Open *Xcode > Preferences...* and select the *Components* tab.” Path is clear and easy to pick out from the surrounding copy. 
+*Good* “Open *Xcode > Preferences...* and select the *Components* tab.” Path is clearer to pick out from the surrounding copy. 
 
 ## When it comes to values, be explicit
 
