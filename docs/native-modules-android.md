@@ -9,7 +9,7 @@ We designed React Native such that it is possible for you to write real native c
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is (from NPM's perspective) similar to any other media asset, meaning there isn't anything unique about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ### Enable Gradle
 
@@ -158,7 +158,7 @@ protected List<ReactPackage> getPackages() {
 }
 ```
 
-To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
+To access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
 
 Create a new JavaScript file named `ToastExample.js` with the content below:
 
@@ -189,7 +189,7 @@ Please make sure this JavaScript is in the same hierarchy as `ToastExample.js`.
 
 ### Callbacks
 
-Native modules also support a special kind of argument - a callback. In most cases it is used to provide the function call result to JavaScript.
+Native modules also support a unique kind of argument - a callback. In most cases it is used to provide the function call result to JavaScript.
 
 ```java
 import com.facebook.react.bridge.Callback;
@@ -333,7 +333,7 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
     eventEmitter.addListener('EventReminder', (event) => {
        console.log(event.eventProperty) // "someValue"
-    }
+    });
     ...
   }
 ```
@@ -359,7 +359,7 @@ public void onActivityResult(
 }
 ```
 
-We will implement a simple image picker to demonstrate this. The image picker will expose the method `pickImage` to JavaScript, which will return the path of the image when called.
+We will implement a basic image picker to demonstrate this. The image picker will expose the method `pickImage` to JavaScript, which will return the path of the image when called.
 
 ```java
 public class ImagePickerModule extends ReactContextBaseJavaModule {

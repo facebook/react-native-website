@@ -100,7 +100,7 @@ Open the in-app developer menu and choose "Toggle Inspector". It will bring up a
 
 ![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
 ![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
@@ -160,6 +160,7 @@ On Android 5.0+ devices connected via USB, you can use the [`adb` command line t
 
 `adb reverse tcp:8081 tcp:8081`
 
+<!-- alex ignore host-hostess -->
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 
 > If you run into any issues, it may be possible that one of your Chrome extensions is interacting in unexpected ways with the debugger. Try disabling all of your extensions and re-enabling them one-by-one until you find the problematic extension.

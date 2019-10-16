@@ -10,7 +10,7 @@ In [Integrating with Existing Apps guide](integration-with-existing-apps.md) and
 
 React Native is inspired by React, so the basic idea of the information flow is similar. The flow in React is one-directional. We maintain a hierarchy of components, in which each component depends only on its parent and its own internal state. We do this with properties: data is passed from a parent to its children in a top-down manner. If an ancestor component relies on the state of its descendant, one should pass down a callback to be used by the descendant to update the ancestor.
 
-The same concept applies to React Native. As long as we are building our application purely within the framework, we can drive our app with properties and callbacks. But, when we mix React Native and native components, we need some special, cross-language mechanisms that would allow us to pass information between them.
+The same concept applies to React Native. As long as we are building our application purely within the framework, we can drive our app with properties and callbacks. But, when we mix React Native and native components, we need some specific, cross-language mechanisms that would allow us to pass information between them.
 
 ## Properties
 
@@ -66,7 +66,7 @@ There is no way to update only a few properties at a time. We suggest that you b
 
 ### Passing properties from React Native to native
 
-The problem exposing properties of native components is covered in detail in [this article](native-components-ios.md#properties). In short, export properties with `RCT_CUSTOM_VIEW_PROPERTY` macro in your custom native component, then just use them in React Native as if the component was an ordinary React Native component.
+The problem exposing properties of native components is covered in detail in [this article](native-components-ios.md#properties). In short, export properties with `RCT_CUSTOM_VIEW_PROPERTY` macro in your custom native component, then use them in React Native as if the component was an ordinary React Native component.
 
 ### Limits of properties
 
@@ -110,7 +110,7 @@ When integrating native and React Native, we also need a way to consolidate two 
 
 ### Layout of a native component embedded in React Native
 
-This case is covered in [this article](native-components-ios.md#styles). Basically, as all our native react views are subclasses of `UIView`, most style and size attributes will work like you would expect out of the box.
+This case is covered in [this article](native-components-ios.md#styles). To summarize, as all our native react views are subclasses of `UIView`, most style and size attributes will work like you would expect out of the box.
 
 ### Layout of a React Native component embedded in native
 
@@ -196,6 +196,6 @@ You can checkout full source code of the example [here](https://github.com/faceb
 
 It's fine to change root view's size flexibility mode dynamically. Changing flexibility mode of a root view will schedule a layout recalculation and the delegate `rootViewDidChangeIntrinsicSize:` method will be called once the content size is known.
 
-> **_Note:_** React Native layout calculation is performed on a special thread, while native UI view updates are done on the main thread. This may cause temporary UI inconsistencies between native and React Native. This is a known problem and our team is working on synchronizing UI updates coming from different sources.
+> **_Note:_** React Native layout calculation is performed on a separate thread, while native UI view updates are done on the main thread. This may cause temporary UI inconsistencies between native and React Native. This is a known problem and our team is working on synchronizing UI updates coming from different sources.
 
 > **_Note:_** React Native does not perform any layout calculations until the root view becomes a subview of some other views. If you want to hide React Native view until its dimensions are known, add the root view as a subview and make it initially hidden (use `UIView`'s `hidden` property). Then change its visibility in the delegate method.
