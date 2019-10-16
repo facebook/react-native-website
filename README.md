@@ -25,9 +25,9 @@ This repo contains the website configuration and documentation powering the [Rea
 
 # Overview
 
-If you're here because you would like to contribute an edit or addition to the docs, you'll probably want to take a look at the 'docs/' directory.
+If you would like to _contribute an edit or addition to the docs,_ read through our [style guide](STYLEGUIDE) before you write anything. All our content is generated from markdown files you can find in the 'docs/' directory.
 
-To edit the internals of how the site is built, you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the 'website/' directory. Visit the Docusaurus website to learn more about all the available configuration options.
+_To edit the internals of how the site is built,_ you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the 'website/' directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
 ## Directory Structure
 
@@ -110,7 +110,7 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 
 ### Test the change
 
-1.  If possible, test any visual changes in all latest versions of common browsers, on both desktop and mobile.
+If possible, test any visual changes in all latest versions of Firefox and Chrome on desktop and Safari and Chrome on mobile.
 
 ### Push it
 
