@@ -32,7 +32,7 @@ Note that some props are only available with `multiline={true/false}`:
 
 ### Props
 
-- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
+- [`secureTextEntry`](textinput.md#securetextentry)
 - [`autoCapitalize`](textinput.md#autocapitalize)
 - [`autoFocus`](textinput.md#autofocus)
 - [`defaultValue`](textinput.md#defaultvalue)
@@ -47,19 +47,21 @@ Note that some props are only available with `multiline={true/false}`:
 - [`onLayout`](textinput.md#onlayout)
 - [`onSubmitEditing`](textinput.md#onsubmitediting)
 - [`placeholder`](textinput.md#placeholder)
+- [`placeholderTextColor`](textinput.md#placeholdertextcolor)
 - [`autoCorrect`](textinput.md#autocorrect)
-- [`secureTextEntry`](textinput.md#securetextentry)
 - [`style`](textinput.md#style)
 - [`testID`](textinput.md#testid)
-- [`textAlign`](textinput.md#textalign)
 - [`value`](textinput.md#value)
 - [`numberOfLines`](textinput.md#numberoflines)
+- [`textAlign`](textinput.md#textalign)
 - [`textAlignVertical`](textinput.md#textalignvertical)
 - [`underlineColorAndroid`](textinput.md#underlinecolorandroid)
+- [`blurOnSubmit`](textinput.md#bluronsubmit)
 - [`clearButtonMode`](textinput.md#clearbuttonmode)
 - [`clearTextOnFocus`](textinput.md#cleartextonfocus)
 - [`enablesReturnKeyAutomatically`](textinput.md#enablesreturnkeyautomatically)
 - [`maxLength`](textinput.md#maxlength)
+- [`onKeyPress`](textinput.md#onkeypress)
 - [`returnKeyType`](textinput.md#returnkeytype)
 - [`selectTextOnFocus`](textinput.md#selecttextonfocus)
 - [`selectionState`](textinput.md#selectionstate)
@@ -75,13 +77,13 @@ Note that some props are only available with `multiline={true/false}`:
 
 ## Props
 
-### `placeholderTextColor`
+### `secureTextEntry`
 
-The text color of the placeholder string
+If true, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is false.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -236,19 +238,19 @@ The string that will be rendered before text input has been entered
 
 ---
 
-### `autoCorrect`
+### `placeholderTextColor`
 
-If false, disables auto-correct. The default value is true.
+The text color of the placeholder string
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
-### `secureTextEntry`
+### `autoCorrect`
 
-If true, the text input obscures the text entered so that sensitive text like passwords stay secure. The default value is false.
+If false, disables auto-correct. The default value is true.
 
 | Type | Required |
 | ---- | -------- |
@@ -276,19 +278,9 @@ Used to locate this view in end-to-end tests
 
 ---
 
-### `textAlign`
-
-Set the position of the cursor from where editing will begin. @platorm android
-
-| Type                           | Required |
-| ------------------------------ | -------- |
-| enum('start', 'center', 'end') | No       |
-
----
-
 ### `value`
 
-The value to show for the text input. TextInput is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
+The value to show for the text input. TextInput is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to set the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
 | Type   | Required |
 | ------ | -------- |
@@ -303,6 +295,16 @@ Sets the number of lines for a TextInput. Use it with multiline set to true to b
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | Android  |
+
+---
+
+### `textAlign`
+
+Set the position of the cursor from where editing will begin.
+
+| Type                           | Required | Platform |
+| ------------------------------ | -------- | -------- |
+| enum('start', 'center', 'end') | No       | Android  |
 
 ---
 
@@ -323,6 +325,16 @@ The color of the textInput underline.
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | string | No       | Android  |
+
+---
+
+### `blurOnSubmit`
+
+If true, the text field will blur when submitted. The default value is true.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
 
 ---
 
@@ -363,6 +375,16 @@ Limits the maximum number of characters that can be entered. Use this instead of
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
 | number | No       | iOS      |
+
+---
+
+### `onKeyPress`
+
+Callback that is called when a key is pressed. Pressed key value is passed as an argument to the callback handler. Fires before onChange callbacks.
+
+| Type     | Required | Platform |
+| -------- | -------- | -------- |
+| function | No       | iOS      |
 
 ---
 
