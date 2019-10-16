@@ -23,12 +23,14 @@
     "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:markdown": "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "nit:source": "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
-    "nit:markdown": "prettier  --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
+    "nit:markdown": "prettier --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "sync-community-repos": "node sync-community-repos.js",
     "sync-guides": "node sync-guides.js",
-    "test": "yarn build"
+    "test": "yarn build",
+    "lint": "cd ../ && alex .",
+    "lintv": "cd ../ && alex"
   },
   "husky": {
     "hooks": {
@@ -36,9 +38,10 @@
     }
   },
   "dependencies": {
-    "docusaurus": "1.11.1",
-    "highlight.js": "^9.12.0",
-    "remarkable": "^1.7.1"
+    "alex": "^8.0.0",
+    "docusaurus": "1.12.0",
+    "highlight.js": "^9.15.10",
+    "remarkable": "^2.0.0"
   },
   "devDependencies": {
     "front-matter": "^2.3.0",

@@ -8,7 +8,7 @@ original_id: accessibility
 
 Both iOS and Android provide APIs for making apps accessible to people with disabilities. In addition, both platforms provide bundled assistive technologies, like the screen readers VoiceOver (iOS) and TalkBack (Android) for the visually impaired. Similarly, in React Native we have included APIs designed to provide developers with support for making apps more accessible. Take note, iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
-In addition to this documentation, you might find [this blog post](https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/) about React Native accessibility to be useful.
+In addition to this documentation, you might find [this blog post](https://engineering.fb.com/ios/making-react-native-apps-accessible/) about React Native accessibility to be useful.
 
 ## Making Apps Accessible
 
@@ -50,7 +50,7 @@ In the above example, the `accessibilityLabel` on the TouchableOpacity element w
 
 #### accessibilityHint (iOS, Android)
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not apparent from the accessibility label.
 
 To use, set the `accessibilityHint` property to a custom string on your View, Text or Touchable:
 
@@ -76,9 +76,9 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 #### accessibilityRole (iOS, Android)
 
-> **Note:** Accessibility Role and Accessibility States are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
 
-Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on Android the type of element that is focused on. To use, set the `accessibilityRole` property to one of the following strings:
+`accessibilityRole` can be one of the following:
 
 - **none** Used when the element has no role.
 - **button** Used when the element should be treated as a button.
@@ -91,43 +91,38 @@ Accessibility Role tells a person using either VoiceOver on iOS or TalkBack on A
 - **imagebutton** Used when the element should be treated as a button and is also an image.
 - **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
 - **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- **alert** Used when an element contains important text to be presented to the user.
+- **checkbox** Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- **combobox** Used when an element represents a combo box, which allows the user to select among several choices.
+- **menu** Used when the component is a menu of choices.
+- **menubar** Used when a component is a container of multiple menus.
+- **menuitem** Used to represent an item within a menu.
+- **progressbar** Used to represent a component which indicates progress of a task.
+- **radio** Used to represent a radio button.
+- **radiogroup** Used to represent a group of radio buttons.
+- **scrollbar** Used to represent a scroll bar.
+- **spinbutton** Used to represent a button which opens a list of choices.
+- **switch** Used to represent a switch which can be turned on and off.
+- **tab** Used to represent a tab.
+- **tablist** Used to represent a list of tabs.
+- **timer** Used to represent a timer.
+- **toolbar** Used to represent a tool bar (a container of action buttons or components).
 
 #### accessibilityStates (iOS, Android)
 
-> **Note:** > `accessibilityRole` and `accessibilityStates` are meant to be a cross-platform solution to replace `accessibilityTraits` and `accessibilityComponentType`, which will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
+Describes the current state of a component to the user of an assistive technology.
 
-Accessibility State tells a person using either VoiceOver on iOS or TalkBack on Android the state of the element currently focused on. The state of the element can be set either to `selected` or `disabled` or both:
+`accessibilityStates` is an array of values, and may include any of the following:
 
 - **selected** Used when the element is in a selected state. For example, a button is selected.
 - **disabled** Used when the element is disabled and cannot be interacted with.
+- **checked** Used to indicate that a checkable element is currently checked.
+- **unchecked** Used to indicate that a checkable element is not currently checked.
+- **busy** Used to indicate that an element is currently busy.
+- **expanded** Used to indicate that an expandable element is currently expanded.
+- **collapsed** Used to indicate that an expandable element is currently collapsed.
 
-To use, set the `accessibilityStates` to an array containing either `selected`, `disabled`, or both.
-
-#### accessibilityTraits (iOS)
-
-> **Note:** `accessibilityTraits` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-Accessibility traits tell a person using VoiceOver what kind of element they have selected. Is this element a label? A button? A header? These questions are answered by `accessibilityTraits`.
-
-To use, set the `accessibilityTraits` property to one of (or an array of) accessibility trait strings:
-
-- **none** Used when the element has no traits.
-- **button** Used when the element should be treated as a button.
-- **link** Used when the element should be treated as a link.
-- **header** Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
-- **search** Used when the text field element should also be treated as a search field.
-- **image** Used when the element should be treated as an image. Can be combined with button or link, for example.
-- **selected** Used when the element is selected. For example, a selected row in a table or a selected button within a segmented control.
-- **plays** Used when the element plays its own sound when activated.
-- **key** Used when the element acts as a keyboard key.
-- **text** Used when the element should be treated as static text that cannot change.
-- **summary** Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches. For example, when Weather first launches, the element with today's weather conditions is marked with this trait.
-- **disabled** Used when the control is not enabled and does not respond to user input.
-- **frequentUpdates** Used when the element frequently updates its label or value, but too often to send notifications. Allows an accessibility client to poll for changes. A stopwatch would be an example.
-- **startsMedia** Used when activating an element starts a media session (e.g. playing a movie, recording audio) that should not be interrupted by output from an assistive technology, like VoiceOver.
-- **adjustable** Used when an element can be "adjusted" (e.g. a slider).
-- **allowsDirectInteraction** Used when an element allows direct touch interaction for VoiceOver users (for example, a view representing a piano keyboard).
-- **pageTurn** Informs VoiceOver that it should scroll to the next page when it finishes reading the contents of the element.
+To use, set the `accessibilityStates` to an array containing the list of current states.
 
 #### accessibilityViewIsModal (iOS)
 
@@ -152,23 +147,6 @@ Assign this property to a custom function which will be called when someone perf
 #### onAccessibilityEscape (iOS)
 
 Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
-
-#### accessibilityComponentType (Android)
-
-> **Note:** > `accessibilityComponentType` will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead of `accessibilityTraits` and `accessibilityComponentType`.
-
-In some cases, we also want to alert the end user of the type of selected component (i.e., that it is a “button”). If we were using native buttons, this would work automatically. Since we are using javascript, we need to provide a bit more context for TalkBack. To do so, you must specify the ‘accessibilityComponentType’ property for any UI component. We support 'none', ‘button’, ‘radiobutton_checked’ and ‘radiobutton_unchecked’.
-
-```jsx
-<TouchableWithoutFeedback accessibilityComponentType=”button”
-  onPress={this._onPress}>
-  <View style={styles.button}>
-    <Text style={styles.buttonText}>Press me!</Text>
-  </View>
-</TouchableWithoutFeedback>
-```
-
-In the above example, the TouchableWithoutFeedback is being announced by TalkBack as a native Button.
 
 #### accessibilityLiveRegion (Android)
 
@@ -208,7 +186,60 @@ In the case of two overlapping UI components with the same parent, default acces
 </View>
 ```
 
-In the above example, the yellow layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can easily use overlapping views with the same parent without confusing TalkBack.
+In the above example, the yellow layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can use overlapping views with the same parent without confusing TalkBack.
+
+### Accessibility Actions
+
+Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. In order to support accessibility actions, a component must do two things:
+
+- Define the list of actions it supports via the `accessibilityActions` property.
+- Implement an `onAccessibilityAction` function to handle action requests.
+
+The `accessibilityActions` property should contain a list of action objects. Each action object should contain the following fields:
+
+| Name  | Type   | Required |
+| ----- | ------ | -------- |
+| name  | string | Yes      |
+| label | string | No       |
+
+Actions either represent standard actions, such as clicking a button or adjusting a slider, or custom actions specific to a given component such as deleting an email message. The `name` field is required for both standard and custom actions, but `label` is optional for standard actions.
+
+When adding support for standard actions, `name` must be one of the following:
+
+- `'magicTap'` - iOS only - While VoiceOver focus is on or inside the component, the user double tapped with two fingers.
+- `'escape'` - iOS only - While VoiceOver focus is on or inside the component, the user performed a two finger scrub gesture (left, right, left).
+- `'activate'` - Activate the component. Typically this should perform the same action as when the user touches or clicks the component when not using an assistive technology. This is generated when a screen reader user double taps the component.
+- `'increment'` - Increment an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes upward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume up button.
+- `'decrement'` - Decrement an adjustable component. On iOS, VoiceOver generates this action when the component has a role of `'adjustable'` and the user places focus on it and swipes downward. On Android, TalkBack generates this action when the user places accessibility focus on the component and presses the volume down button.
+- `'longpress'` - Android only - This action is generated when the user places accessibility focus on the component and double tap and holds one finger on the screen. Typically, this should perform the same action as when the user holds down one finger on the component while not using an assistive technology.
+
+The `label` field is optional for standard actions, and is often unused by assistive technologies. For custom actions, it is a localized string containing a description of the action to be presented to the user.
+
+To handle action requests, a component must implement an `onAccessibilityAction` function. The only argument to this function is an event containing the name of the action to perform. The below example from RNTester shows how to create a component which defines and handles several custom actions.
+
+```jsx
+<View
+  accessible={true}
+  accessibilityActions={[
+    {name: 'cut', label: 'cut'},
+    {name: 'copy', label: 'copy'},
+    {name: 'paste', label: 'paste'},
+  ]}
+  onAccessibilityAction={(event) => {
+    switch (event.nativeEvent.actionName) {
+      case 'cut':
+        Alert.alert('Alert', 'cut action success');
+        break;
+      case 'copy':
+        Alert.alert('Alert', 'copy action success');
+        break;
+      case 'paste':
+        Alert.alert('Alert', 'paste action success');
+        break;
+    }
+  }}
+/>
+```
 
 ### Checking if a Screen Reader is Enabled
 
@@ -245,8 +276,31 @@ In the above example we've created a custom radio button that now behaves like a
 
 ## Testing VoiceOver Support (iOS)
 
-To enable VoiceOver, go to the Settings app on your iOS device. Tap General, then Accessibility. There you will find many tools that people use to make their devices more usable, such as bolder text, increased contrast, and VoiceOver.
+To enable VoiceOver, go to the Settings app on your iOS device (it's not available for simulator). Tap General, then Accessibility. There you will find many tools that people use to make their devices more usable, such as bolder text, increased contrast, and VoiceOver.
 
 To enable VoiceOver, tap on VoiceOver under "Vision" and toggle the switch that appears at the top.
 
 At the very bottom of the Accessibility settings, there is an "Accessibility Shortcut". You can use this to toggle VoiceOver by triple clicking the Home button.
+
+## Testing TalkBack Support (Android)
+
+To enable TalkBack, go to the Settings app on your Android device or emulator. Tap Accessibility, then TalkBack. Toggle the "Use service" switch to enable or disable it.
+
+P.S. Android emulator doesn’t have TalkBack by default. To install it:
+
+1. Download TalkBack file here: https://google-talkback.en.uptodown.com/android
+2. Drag the downloaded `.apk` file into the emulator
+
+You can use the volume key shortcut to toggle TalkBack. To turn on the volume key shortcut, go to the Settings app, then Accessibility. At the top, turn on Volume key shortcut.
+
+To use the volume key shortcut, press both volume keys for 3 seconds to start an accessibility tool.
+
+Additionally, if you prefer, you can toggle TalkBack via command line with:
+
+```
+# disable
+adb shell settings put secure enabled_accessibility_services com.android.talkback/com.google.android.marvin.talkback.TalkBackService
+
+# enable
+adb shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService
+```

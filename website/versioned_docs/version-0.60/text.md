@@ -80,7 +80,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+The `<Text>` element is unique relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
 ```jsx
 <Text>
@@ -150,7 +150,7 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
 class MyAppHeaderText extends Component {
@@ -181,41 +181,6 @@ We believe that this more constrained way to style text will yield better apps:
 
 - (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
 
-### Props
-
-- [`accessibilityHint`](text.md#accessibilityhint)
-- [`accessibilityLabel`](text.md#accessibilitylabel)
-- [`accessibilityRole`](text.md#accessibilityrole)
-- [`accessibilityState`](text.md#accessibilitystate)
-- [`accessible`](text.md#accessible)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`dataDetectorType`](text.md#datadetectortype)
-- [`disabled`](text.md#disabled)
-- [`ellipsizeMode`](text.md#ellipsizemode)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`minimumFontScale`](text.md#minimumfontscale)
-- [`nativeID`](text.md#nativeid)
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onLongPress`](text.md#onlongpress)
-- [`onMoveShouldSetResponder`](text.md#onmoveshouldsetresponder)
-- [`onPress`](text.md#onpress)
-- [`onResponderGrant`](text.md#onrespondergrant)
-- [`onResponderMove`](text.md#onrespondermove)
-- [`onResponderRelease`](text.md#onresponderrelease)
-- [`onResponderTerminate`](text.md#onresponderterminate)
-- [`onResponderTerminationRequest`](text.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-- [`onTextLayout`](text.md#ontextlayout)
-- [`pressRetentionOffset`](text.md#pressretentionoffset)
-- [`selectable`](text.md#selectable)
-- [`selectionColor`](text.md#selectioncolor)
-- [`style`](text.md#style)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`testID`](text.md#testid)
-- [`textBreakStrategy`](text.md#textbreakstrategy)
-
 ---
 
 # Reference
@@ -224,7 +189,7 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### `accessibilityHint`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
 | Type   | Required |
 | ------ | -------- |

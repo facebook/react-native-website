@@ -251,7 +251,7 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 - `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-- `repeat`: Repeat the image to cover the frame of the view. The image will keep it's size and aspect ratio. (iOS only)
+- `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio. (iOS only)
 
 | Type                                                    | Required |
 | ------------------------------------------------------- | -------- |

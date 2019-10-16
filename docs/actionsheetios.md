@@ -3,13 +3,6 @@ id: actionsheetios
 title: ActionSheetIOS
 ---
 
-### Methods
-
-- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
-
----
-
 # Reference
 
 ## Methods

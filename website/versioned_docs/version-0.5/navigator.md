@@ -58,7 +58,7 @@ render() {
 }
 ```
 
-In the above example, a routes variable is defined with two route objects representing two scenes. Each route has an index property that is used to manage the scene being rendered. The `renderScene` method is changed to either push or pop the navigator depending on the current route's index. Finally, the `Text` component in the scene is now wrapped in a `TouchableHighlight` component to help trigger the navigator transitions.
+In the above example, a routes variable is defined with two route objects representing two scenes. Each route has an index property that is used to manage the scene being rendered. The `renderScene` method is changed to either `push` or `pop` the navigator depending on the current route's index. Finally, the `Text` component in the scene is now wrapped in a `TouchableHighlight` component to help trigger the navigator transitions.
 
 ## Navigation Bar
 
@@ -357,7 +357,7 @@ Navigate forward to a new scene, squashing any scenes that you could jump forwar
 popN((n: number));
 ```
 
-Go back N scenes at once. When N=1, behavior matches pop(). When N is invalid (negative or bigger than current routes count), do nothing.
+Go back N scenes at once. When N=1, behavior matches `pop()`. When N is invalid (negative or bigger than current routes count), do nothing.
 
 **Parameters:**
 
@@ -433,7 +433,7 @@ Replace the previous scene.
 popToTop();
 ```
 
-Pop to the first scene in the stack, unmounting every other scene.
+Get the first scene in the stack, unmounting every other scene.
 
 ---
 
@@ -443,7 +443,7 @@ Pop to the first scene in the stack, unmounting every other scene.
 popToRoute((route: object));
 ```
 
-Pop to a particular scene, as specified by its route. All scenes after it will be unmounted.
+Get a particular scene, as specified by its route. All scenes after it will be unmounted.
 
 **Parameters:**
 
@@ -459,7 +459,7 @@ Pop to a particular scene, as specified by its route. All scenes after it will b
 replacePreviousAndPop((route: object));
 ```
 
-Replace the previous scene and pop to it.
+Replace the previous scene and get to it.
 
 **Parameters:**
 

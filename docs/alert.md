@@ -62,10 +62,6 @@ Alert.alert(
 );
 ```
 
-### Methods
-
-- [`alert`](alert.md#alert)
-
 ---
 
 # Reference
@@ -75,5 +71,5 @@ Alert.alert(
 ### `alert()`
 
 ```jsx
-static alert(title, message?, buttons?, options? type?)
+static alert(title, message?, buttons?, options?)
 ```

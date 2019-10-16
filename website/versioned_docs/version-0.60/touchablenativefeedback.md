@@ -26,31 +26,13 @@ renderButton: function() {
 },
 ```
 
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`background`](touchablenativefeedback.md#background)
-* [`useForeground`](touchablenativefeedback.md#useforeground)
-* [`hasTVPreferredFocus`](touchablenativefeedback.md#hasTVPreferredFocus)
-* [`nextFocusDown`](touchablenativefeedback.md#nextFocusDown)
-* [`nextFocusForward`](touchablenativefeedback.md#nextFocusForward)
-* [`nextFocusLeft`](touchablenativefeedback.md#nextFocusLeft)
-* [`nextFocusRight`](touchablenativefeedback.md#nextFocusRight)
-* [`nextFocusUp`](touchablenativefeedback.md#nextFocusUp)
-
-### Methods
-
-- [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
-- [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
-- [`Ripple`](touchablenativefeedback.md#ripple)
-- [`canUseNativeForeground`](touchablenativefeedback.md#canusenativeforeground)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `background`
 
@@ -167,7 +149,7 @@ Creates an object that represents ripple drawable with specified color (as a str
 | Name       | Type    | Required | Description                                  |
 | ---------- | ------- | -------- | -------------------------------------------- |
 | color      | string  | Yes      | The ripple color                             |
-| borderless | boolean | Yes      | If the ripple can render outside it's bounds |
+| borderless | boolean | Yes      | If the ripple can render outside its bounds |
 
 ---
 

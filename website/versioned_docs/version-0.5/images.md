@@ -41,7 +41,7 @@ Here are some benefits that you get:
 2. Images live in the same folder as your JavaScript code. Components are self-contained.
 3. No global namespace, i.e. you don't have to worry about name collisions.
 4. Only the images that are actually used will be packaged into your app.
-5. Adding and changing images doesn't require app recompilation, just refresh the simulator as you normally do.
+5. Adding and changing images doesn't require app recompilation, you can refresh the simulator as you normally do.
 6. The packager knows the image dimensions, no need to duplicate it in the code.
 7. Images can be distributed via [npm](https://www.npmjs.com/) packages.
 
@@ -68,7 +68,7 @@ Note that image sources required this way include size (width, height) info for 
 
 The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
 
-You can add support for other types by creating a packager config file (see the [packager config file](https://github.com/facebook/react-native/blob/master/local-cli/util/Config.js#L68) for the full list of configuration options).
+You can add support for other types by adding an [`assetExts` resolver option](https://facebook.github.io/metro/docs/en/configuration#assetexts) in your [Metro configuration](https://facebook.github.io/metro/docs/en/configuration).
 
 A caveat is that videos must use absolute positioning instead of `flexGrow`, since size info is not currently passed for non-image assets. This limitation doesn't occur for videos that are linked directly into Xcode or the Assets folder for Android.
 
@@ -163,7 +163,7 @@ In some cases you might only want to display an image if it is already in the lo
 
 ## Local Filesystem Images
 
-See [CameraRoll](cameraroll.md) for an example of using local resources that are outside of `Images.xcassets`.
+See [CameraRoll](https://github.com/react-native-community/react-native-cameraroll) for an example of using local resources that are outside of `Images.xcassets`.
 
 ### Best Camera Roll Image
 
@@ -197,7 +197,7 @@ On the user side, this lets you annotate the object with useful attributes such 
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
-You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
+You might not want to use `<ImageBackground>` in some cases, since the implementation is basic. Refer to `<ImageBackground>`'s [documentation](imagebackground.md) for more insight, and create your own custom component when needed.
 
 ```jsx
 return (

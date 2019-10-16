@@ -69,19 +69,6 @@ class AccessibilityStatusExample extends React.Component {
 }
 ```
 
-### Methods
-
-- [`isBoldTextEnabled`](accessibilityinfo.md#isBoldTextEnabled)
-- [`isGrayscaleEnabled`](accessibilityinfo.md#isGrayscaleEnabled)
-- [`isInvertColorsEnabled`](accessibilityinfo.md#isInvertColorsEnabled)
-- [`isReduceMotionEnabled`](accessibilityinfo.md#isReduceMotionEnabled)
-- [`isReduceTransparencyEnabled`](accessibilityinfo.md#isReduceTransparencyEnabled)
-- [`isScreenReaderEnabled`](accessibilityinfo.md#isScreenReaderEnabled)
-- [`addEventListener`](accessibilityinfo.md#addeventlistener)
-- [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
-- [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
-- [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
-
 ---
 
 # Reference

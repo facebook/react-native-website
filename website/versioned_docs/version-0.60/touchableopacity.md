@@ -86,45 +86,19 @@ const styles = StyleSheet.create({
 })
 ```
 
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`style`](touchableopacity.md#style)
-* [`activeOpacity`](touchableopacity.md#activeopacity)
-* [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
-* [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchableopacity.md#nextFocusDown)
-* [`nextFocusForward`](touchableopacity.md#nextFocusForward)
-* [`nextFocusLeft`](touchableopacity.md#nextFocusLeft)
-* [`nextFocusRight`](touchableopacity.md#nextFocusRight)
-* [`nextFocusUp`](touchableopacity.md#nextFocusUp)
-
-### Methods
-
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
-
 ---
 
 # Reference
 
 ## Props
 
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
 ### `style`
 
 | Type       | Required |
 | ---------- | -------- |
 | View.style | No       |
-
----
-
-### `activeOpacity`
-
-Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
 
 ---
 

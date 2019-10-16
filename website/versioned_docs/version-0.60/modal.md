@@ -4,7 +4,7 @@ title: Modal
 original_id: modal
 ---
 
-The Modal component is a simple way to present content above an enclosing view.
+The Modal component is a basic way to present content above an enclosing view.
 
 > Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
@@ -56,20 +56,6 @@ class ModalExample extends Component {
   }
 }
 ```
-
-### Props
-
-- [`visible`](modal.md#visible)
-- [`supportedOrientations`](modal.md#supportedorientations)
-- [`onRequestClose`](modal.md#onrequestclose)
-- [`onShow`](modal.md#onshow)
-- [`transparent`](modal.md#transparent)
-- [`animationType`](modal.md#animationtype)
-- [`hardwareAccelerated`](modal.md#hardwareaccelerated)
-- [`onDismiss`](modal.md#ondismiss)
-- [`onOrientationChange`](modal.md#onorientationchange)
-- [`presentationStyle`](modal.md#presentationstyle)
-- [`animated`](modal.md#animated)
 
 ---
 
