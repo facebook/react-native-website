@@ -16,9 +16,9 @@ It’s convenient to write as though the reader has the same background and pers
 
 ### Example
 
-*Bad* “React Native is like React, but it uses native components instead of web components as building blocks.” This assumes a knowledge of the Web as well as React—and readers may lack one or both of those.
+**Bad** “React Native is like React, but it uses native components instead of web components as building blocks.” This assumes a knowledge of the Web as well as React—and readers may lack one or both of those.
 
-*Good* “React Native is built with React. On the Web, React composes web components into UIs. Similarly, React Native uses native components as building blocks.”
+**Good** “React Native is built with React. On the Web, React composes web components into UIs. Similarly, React Native uses native components as building blocks.”
 
 ## Unpack “native”
 
@@ -26,9 +26,9 @@ Refer to non-web technologies by their proper nouns or as “apps,” not lumpin
 
 ### Example
 
-*Bad* “Native App Accessibility (iOS and Android)” Qualifying “app” with “native” is redundant with “iOS” and “Android” in the same phrase.
+**Bad** “Native App Accessibility (iOS and Android)” Qualifying “app” with “native” is redundant with “iOS” and “Android” in the same phrase.
 
-*Good* “App Accessibility on iOS and Android” specifies both platforms and drops the confusing “native.”
+**Good** “App Accessibility on iOS and Android” specifies both platforms and drops the confusing “native.”
 
 ## Welcoming and mature
 
@@ -36,9 +36,9 @@ Tone counts for a lot. Too familiar, and some folks might feel like they aren’
 
 ### Example
 
-*Bad “*In accordance with the ancient traditions of our people, we must first build an app that does nothing except say ‘Hello, world!’” Pokes fun at ancient traditions of “our people” (whose people?) using a storytelling voice familiar to European English-language speakers that could be lost on people from other backgrounds.
+**Bad** “In accordance with the ancient traditions of our people, we must first build an app that does nothing except say ‘Hello, world!’” Pokes fun at ancient traditions of “our people” (whose people?) using a storytelling voice familiar to European English-language speakers that could be lost on people from other backgrounds.
 
-*Good *“As with so many other tutorials, you will first build an app that says ‘Hello, world!’” This is shorter, easier to read, and still keeps a friendly tone by acknowledging the proliferation of ‘hello world’ apps.
+**Good** “As with so many other tutorials, you will first build an app that says ‘Hello, world!’” This is shorter, easier to read, and still keeps a friendly tone by acknowledging the proliferation of ‘hello world’ apps.
 
 ## In-jokes are out
 
@@ -53,9 +53,9 @@ Cultural reference jokes, or “in-jokes,” don’t translate well across langu
 
 ### Example
 
-*Bad* “We can play around with sample code directly in these web simulators made by Genius Co. (You have built a wonderful tool!) Their contributions make it better and better. It’s great when they all work together!”
+**Bad** “We can play around with sample code directly in these web simulators made by Genius Co. (You have built a wonderful tool!) Their contributions make it better and better. It’s great when they all work together!”
 
-*Good* “You can play around with sample code directly in these web simulators made by Genius Co. (They have built a wonderful tool!) The React Native community’s contributions make it better and better. It’s great when we all work together!”
+**Good** “You can play around with sample code directly in these web simulators made by Genius Co. (They have built a wonderful tool!) The React Native community’s contributions make it better and better. It’s great when we all work together!”
 
 # Technical documentation guidelines
 
@@ -65,9 +65,9 @@ When navigating operating system menus, the menu selection path should be *bold*
 
 ### Example
 
-*Bad* “Open Xcode’s ‘Preferences...’ menu and then click on ‘Components.’” Ambiguous. Relies on reader knowing that “Preferences” is a submenu of “Xcode.” Difficult to read at a glance.
+**Bad** “Open Xcode’s ‘Preferences...’ menu and then click on ‘Components.’” Ambiguous. Relies on reader knowing that “Preferences” is a submenu of “Xcode.” Difficult to read at a glance.
 
-*Good* “Open *Xcode > Preferences...* and select the *Components* tab.” Path is clearer to pick out from the surrounding copy. 
+**Good** “Open *Xcode > Preferences...* and select the *Components* tab.” Path is clearer to pick out from the surrounding copy. 
 
 ## When it comes to values, be explicit
 
@@ -75,9 +75,9 @@ When it comes to describing property values, be definitive in what is and is not
 
 ### Example
 
-*Bad *“Should be an integer.” Implies that it could take other values. Leaves room for imagination.
+**Bad** “Should be an integer.” Implies that it could take other values. Leaves room for imagination.
 
-*Good* “Accepts integer values.” Leaves no doubt about what values this takes!
+**Good** “Accepts integer values.” Leaves no doubt about what values this takes!
 
 ## Empathize with readers
 
