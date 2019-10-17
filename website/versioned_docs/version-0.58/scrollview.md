@@ -467,8 +467,8 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 The style of the scroll indicators.
 
 - `'default'` (the default), same as `black`.
-- `'black'`, scroll indicator is black. This style is good against a light background.
-- `'white'`, scroll indicator is white. This style is good against a dark background.
+- `'black'`, scroll indicator is `black`. This style is good against a light background.
+- `'white'`, scroll indicator is `white`. This style is good against a dark background.
 
 | Type                              | Required | Platform |
 | --------------------------------- | -------- | -------- |
