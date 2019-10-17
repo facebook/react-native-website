@@ -10,8 +10,6 @@ website/blog/
 # Once you fix all of the errors, commit all of the changes including this file.
 #
 # To be considerate to the reviewer, please submit each version in different PRs.
-website/versioned_docs/version-0.9/
-website/versioned_docs/version-0.13/
 website/versioned_docs/version-0.16/
 website/versioned_docs/version-0.18/
 website/versioned_docs/version-0.19/
@@ -22,7 +20,6 @@ website/versioned_docs/version-0.23/
 website/versioned_docs/version-0.24/
 website/versioned_docs/version-0.25/
 website/versioned_docs/version-0.26/
-website/versioned_docs/version-0.27/
 website/versioned_docs/version-0.28/
 website/versioned_docs/version-0.29/
 website/versioned_docs/version-0.30/
@@ -37,10 +34,6 @@ website/versioned_docs/version-0.38/
 website/versioned_docs/version-0.41/
 website/versioned_docs/version-0.42/
 website/versioned_docs/version-0.43/
-website/versioned_docs/version-0.44/
 website/versioned_docs/version-0.46/
-website/versioned_docs/version-0.47/
-website/versioned_docs/version-0.51/
 website/versioned_docs/version-0.53/
-website/versioned_docs/version-0.56/
 website/versioned_docs/version-0.58/
