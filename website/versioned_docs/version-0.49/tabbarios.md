@@ -25,7 +25,7 @@ original_id: tabbarios
 
 ### `barStyle`
 
-The style of the tab bar. Supported values are 'default', 'black'. Use 'black' instead of setting `barTintColor` to black. This produces a tab bar with the native iOS style with higher translucency.
+The style of the tab bar. Supported values are 'default', 'black'. Use 'black' instead of setting `barTintColor` to `black`. This produces a tab bar with the native iOS style with higher translucency.
 
 | Type                     | Required |
 | ------------------------ | -------- |
