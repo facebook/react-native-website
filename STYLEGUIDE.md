@@ -10,9 +10,9 @@ Part of what makes books like Effective JavaScript effective for new learners as
 
 It’s convenient to write as though the reader has the same background and perspective that you do. But in reality, our readers have a range of experience as well as come to us from many different fields including iOS and Android. We have to be inclusive of all learners, and that means taking nothing for granted! 
 
-* *Assume no knowledge of React. *31% of visitors surveyed in September 2019 said they have no experience with React JS. When explaining React concepts, give a short explanation and then link to the appropriate React docs.
-* *Assume readers have no background in web development. *While 76% of our visitors surveyed in September 2019 said they had experience with web development before starting with React Native, that means 24% came in without any knowledge of web paradigms! 7.4% said they had no experience, meaning we can’t rely on web, iOS, or Android metaphors with those readers.
-* *Provide references to multiple technologies. *To help learners from Android and iOS backgrounds, it’s important that references also take those experiences into account and make comparisons for them in addition to web developers.
+* **Assume no knowledge of React.** 31% of visitors surveyed in September 2019 said they have no experience with React JS. When explaining React concepts, give a short explanation and then link to the appropriate React docs.
+* **Assume readers have no background in web development.** While 76% of our visitors surveyed in September 2019 said they had experience with web development before starting with React Native, that means 24% came in without any knowledge of web paradigms! 7.4% said they had no experience, meaning we can’t rely on web, iOS, or Android metaphors with those readers.
+* **Provide references to multiple technologies.** To help learners from Android and iOS backgrounds, it’s important that references also take those experiences into account and make comparisons for them in addition to web developers.
 
 ### Example
 
@@ -61,13 +61,13 @@ Cultural reference jokes, or “in-jokes,” don’t translate well across langu
 
 ## Format menu paths
 
-When navigating operating system menus, the menu selection path should be *bold* and use carats to indicate submenus.
+When navigating operating system menus, the menu selection path should be **bold** and use carats to indicate submenus.
 
 ### Example
 
 **Bad** “Open Xcode’s ‘Preferences...’ menu and then click on ‘Components.’” Ambiguous. Relies on reader knowing that “Preferences” is a submenu of “Xcode.” Difficult to read at a glance.
 
-**Good** “Open *Xcode > Preferences...* and select the *Components* tab.” Path is clearer to pick out from the surrounding copy. 
+**Good** “Open **Xcode > Preferences...** and select the **Components** tab.” Path is clearer to pick out from the surrounding copy. 
 
 ## When it comes to values, be explicit
 
@@ -93,4 +93,4 @@ When writing step-by-step instructions (e.g. how to install something), try to f
 
 ## Resources
 
-* React JS’s contibuting guidelines (https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text), especially the code examples guidelines (https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
+* [React JS’s contibuting guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text), especially the [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
