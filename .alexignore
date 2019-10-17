@@ -12,7 +12,6 @@ website/blog/
 # To be considerate to the reviewer, please submit each version in different PRs.
 website/versioned_docs/version-0.16/
 website/versioned_docs/version-0.18/
-website/versioned_docs/version-0.21/
 website/versioned_docs/version-0.22/
 website/versioned_docs/version-0.23/
 website/versioned_docs/version-0.24/
@@ -23,7 +22,6 @@ website/versioned_docs/version-0.29/
 website/versioned_docs/version-0.31/
 website/versioned_docs/version-0.32/
 website/versioned_docs/version-0.33/
-website/versioned_docs/version-0.35/
 website/versioned_docs/version-0.43/
 website/versioned_docs/version-0.46/
 website/versioned_docs/version-0.53/
