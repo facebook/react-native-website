@@ -209,7 +209,7 @@ The default background color of the navigation bar.
 
 ### `interactivePopGestureEnabled`
 
-<!-- alex ignore retext-equality -->
+<!-- alex ignore pop -->
 
 Boolean value that indicates whether the interactive pop gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
 
@@ -319,7 +319,7 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 pop();
 ```
 
-<!-- alex ignore retext-equality -->
+<!-- alex ignore pop -->
 
 Pop back to the previous scene.
 
@@ -422,7 +422,7 @@ Replaces the previous route/view and transitions back to it.
 resetTo((route: object));
 ```
 
-<!-- alex ignore retext-equality -->
+<!-- alex ignore pop -->
 
 Replaces the top item and pop to it.
 
