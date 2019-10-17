@@ -8,7 +8,7 @@ AsyncStorage is an unencrypted, asynchronous, persistent, key-value storage syst
 
 It is recommended that you use an abstraction on top of AsyncStorage instead of AsyncStorage directly for anything more than light usage since it operates globally.
 
-This JS code is a bas facade over the native iOS implementation to provide a clear JS API, real Error objects, and non-multi functions. Each method returns a `Promise` object.
+This JS code is a facade over the native iOS implementation to provide a clear JS API, real Error objects, and non-multi functions. Each method returns a `Promise` object.
 
 ### Methods
 
