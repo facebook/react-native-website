@@ -77,7 +77,7 @@ android {
 
 ### Generating the release APK
 
-Simply run the following in a terminal:
+Run the following in a terminal:
 
 ```sh
 $ cd android
