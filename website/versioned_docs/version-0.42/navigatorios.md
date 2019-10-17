@@ -209,7 +209,7 @@ The default background color of the navigation bar.
 
 ### `interactivePopGestureEnabled`
 
-<!-- alex ignore pop -->
+<!-- alex ignore dad-mom -->
 
 Boolean value that indicates whether the interactive pop gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
 
