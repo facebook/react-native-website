@@ -201,7 +201,7 @@ NavigatorIOS uses `route` objects to identify child views, their props, and navi
 
 ### `barStyle`
 
-The style of the navigation bar. Supported values are 'default', 'black'. Use 'black' instead of setting `barTintColor` to black. This produces a navigation bar with the native iOS style with higher translucency.
+The style of the navigation bar. Supported values are `default`, `black`. Use `black` instead of setting `barTintColor` to `black`. This produces a navigation bar with the native iOS style with higher translucency.
 
 | Type                     | Required |
 | ------------------------ | -------- |
