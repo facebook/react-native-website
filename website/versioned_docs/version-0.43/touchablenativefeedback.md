@@ -1,6 +1,7 @@
 ---
-id: touchablenativefeedback
+id: version-0.43-touchablenativefeedback
 title: TouchableNativeFeedback
+original_id: touchablenativefeedback
 ---
 
 A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.
@@ -11,7 +12,7 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 Example:
 
-```jsx
+```
 renderButton: function() {
   return (
     <TouchableNativeFeedback
@@ -25,13 +26,25 @@ renderButton: function() {
 },
 ```
 
+### Props
+
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+
+* [`background`](touchablenativefeedback.md#background)
+* [`useForeground`](touchablenativefeedback.md#useforeground)
+
+### Methods
+
+- [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
+- [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
+- [`Ripple`](touchablenativefeedback.md#ripple)
+- [`canUseNativeForeground`](touchablenativefeedback.md#canusenativeforeground)
+
 ---
 
 # Reference
 
 ## Props
-
-Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `background`
 
@@ -52,66 +65,6 @@ Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only av
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
----
-
-### `hasTVPreferredFocus`
-
-TV preferred focus (see documentation for the View component).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `nextFocusDown`
-
-TV next focus down (see documentation for the View component).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `nextFocusForward`
-
-TV next focus forward (see documentation for the View component).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `nextFocusLeft`
-
-TV next focus left (see documentation for the View component).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `nextFocusRight`
-
-TV next focus right (see documentation for the View component).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `nextFocusUp`
-
-TV next focus up (see documentation for the View component).
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
 
 ## Methods
 
