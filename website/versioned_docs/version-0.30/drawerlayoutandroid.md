@@ -68,7 +68,11 @@ Function called whenever the navigation view has been closed.
 
 ### `drawerBackgroundColor`
 
+<!-- alex disable white -->
+
 Specifies the background color of the drawer. The default value is white. If you want to set the opacity of the drawer, use rgba. Example:
+
+<!-- alex enable white -->
 
 ```
 return (
