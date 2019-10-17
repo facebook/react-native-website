@@ -200,7 +200,7 @@ The friction/tension or bounciness/speed options match the spring model in [Face
 - `speed`: Controls speed of the animation. Default 12.
 - `bounciness`: Controls bounciness. Default 8.
 
-Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation indigenous.
+Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
 
 - `stiffness`: The spring stiffness coefficient. Default 100.
 - `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
