@@ -10,15 +10,6 @@ website/blog/
 # Once you fix all of the errors, commit all of the changes including this file.
 #
 # To be considerate to the reviewer, please submit each version in different PRs.
-website/versioned_docs/version-0.7/
-website/versioned_docs/version-0.8/
-website/versioned_docs/version-0.9/
-website/versioned_docs/version-0.10/
-website/versioned_docs/version-0.11/
-website/versioned_docs/version-0.12/
-website/versioned_docs/version-0.13/
-website/versioned_docs/version-0.14/
-website/versioned_docs/version-0.15/
 website/versioned_docs/version-0.16/
 website/versioned_docs/version-0.17/
 website/versioned_docs/version-0.18/
@@ -30,30 +21,16 @@ website/versioned_docs/version-0.23/
 website/versioned_docs/version-0.24/
 website/versioned_docs/version-0.25/
 website/versioned_docs/version-0.26/
-website/versioned_docs/version-0.27/
 website/versioned_docs/version-0.28/
 website/versioned_docs/version-0.29/
-website/versioned_docs/version-0.30/
 website/versioned_docs/version-0.31/
 website/versioned_docs/version-0.32/
 website/versioned_docs/version-0.33/
 website/versioned_docs/version-0.34/
 website/versioned_docs/version-0.35/
 website/versioned_docs/version-0.36/
-website/versioned_docs/version-0.37/
 website/versioned_docs/version-0.38/
-website/versioned_docs/version-0.39/
-website/versioned_docs/version-0.41/
 website/versioned_docs/version-0.43/
-website/versioned_docs/version-0.44/
-website/versioned_docs/version-0.45/
 website/versioned_docs/version-0.46/
-website/versioned_docs/version-0.47/
-website/versioned_docs/version-0.48/
-website/versioned_docs/version-0.49/
-website/versioned_docs/version-0.51/
-website/versioned_docs/version-0.52/
 website/versioned_docs/version-0.53/
-website/versioned_docs/version-0.56/
-website/versioned_docs/version-0.57/
 website/versioned_docs/version-0.58/
