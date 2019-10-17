@@ -388,6 +388,9 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 ### `indicatorStyle`
 
+<!-- alex ignore black -->
+<!-- alex ignore white -->
+
 The style of the scroll indicators.
 
 - `default` (the default), same as `black`.
