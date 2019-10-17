@@ -209,6 +209,8 @@ The default background color of the navigation bar.
 
 ### `interactivePopGestureEnabled`
 
+<!-- alex ignore dad-mom -->
+
 Boolean value that indicates whether the interactive pop gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
 
 If this prop is not provided, the default behavior is for the back swipe gesture to be enabled when the navigation bar is shown and disabled when the navigation bar is hidden. Once you've provided the `interactivePopGestureEnabled` prop, you can never restore the default behavior.
@@ -317,6 +319,8 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 pop();
 ```
 
+<!-- alex ignore dad-mom -->
+
 Pop back to the previous scene.
 
 ---
@@ -417,6 +421,8 @@ Replaces the previous route/view and transitions back to it.
 ```jsx
 resetTo((route: object));
 ```
+
+<!-- alex ignore dad-mom -->
 
 Replaces the top item and pop to it.
 
