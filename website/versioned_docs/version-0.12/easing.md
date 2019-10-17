@@ -118,7 +118,7 @@ static exp(t)
 static elastic(bounciness)
 ```
 
-A simple elastic interaction, similar to a spring. Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
+A basic elastic interaction, similar to a spring. Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
 
 Wolfram Plots:
 
