@@ -36,6 +36,8 @@ This is a shortcut for `rgba(0,0,0,0)`:
 
 You can also use color names as values. React Native follows the [CSS3 specification](http://www.w3.org/TR/css3-color/#svg-color):
 
+<!-- alex ignore white -->
+
 - ![#f0f8ff](https://placehold.it/15/f0f8ff/000000?text=+) <color aliceblue /> aliceblue (#f0f8ff)
 - ![#faebd7](https://placehold.it/15/faebd7/000000?text=+) <color antiquewhite /> antiquewhite (#faebd7)
 - ![#00ffff](https://placehold.it/15/00ffff/000000?text=+) <color aqua /> aqua (#00ffff)
