@@ -319,7 +319,7 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 pop();
 ```
 
-<!-- alex ignore pop -->
+<!-- alex ignore dad-mom -->
 
 Pop back to the previous scene.
 
@@ -422,7 +422,7 @@ Replaces the previous route/view and transitions back to it.
 resetTo((route: object));
 ```
 
-<!-- alex ignore pop -->
+<!-- alex ignore dad-mom -->
 
 Replaces the top item and pop to it.
 
