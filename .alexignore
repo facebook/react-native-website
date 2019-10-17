@@ -11,7 +11,6 @@ website/blog/
 #
 # To be considerate to the reviewer, please submit each version in different PRs.
 website/versioned_docs/version-0.16/
-website/versioned_docs/version-0.17/
 website/versioned_docs/version-0.18/
 website/versioned_docs/version-0.19/
 website/versioned_docs/version-0.20/
