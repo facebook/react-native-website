@@ -53,7 +53,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
-<h2>Now what?</h3>
+<h2>Now what?</h2>
 
 Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
 
@@ -115,7 +115,7 @@ The instructions are a bit different depending on your development operating sys
 
 <h2>Installing dependencies</h2>
 
-You will need Node, Watchman, the React Native command line interface, and Xcode.
+You will need Node, Watchman, the React Native command line interface, CocoaPods, and Xcode.
 
 While you can use any editor of your choice to develop your app, you will need to install Xcode in order to set up the necessary tooling to build your React Native app for iOS.
 
@@ -143,14 +143,15 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <block class="native mac ios android" />
 
-<h3>Node, Watchman, JDK</h3>
+<h3>Node, Watchman, CocoaPods, JDK</h3>
 
-We recommend installing Node, Watchman, and JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node, Watchman, CocoaPods and JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```
 brew install yarn
 brew install node
 brew install watchman
+brew install cocoapods
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 ```
