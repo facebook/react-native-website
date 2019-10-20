@@ -223,7 +223,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ### `getItemLayout`
 
-`getItemLayout` is an optional optimizations that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient, and can be used in brief if you have fixed height items, for example:
+`getItemLayout` is an optional optimizations that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient if you have fixed height items, for example:
 
     getItemLayout={(data, index) => (
       {length: ITEM_HEIGHT, offset: ITEM_HEIGHT * index, index}
