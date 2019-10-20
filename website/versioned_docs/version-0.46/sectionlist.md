@@ -19,7 +19,7 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
-Simple Examples:
+Examples:
 
     <SectionList
       renderItem={({item}) => <ListItem title={item.title} />}
