@@ -13,7 +13,7 @@ The same concept applies to React Native. As long as we are building our applica
 
 ## Properties
 
-Properties are the simplest way of cross-component communication. So we need a way to pass properties both from native to React Native, and from React Native to native.
+Properties are the most straightforward way of cross-component communication. So we need a way to pass properties both from native to React Native, and from React Native to native.
 
 ### Passing properties from native to React Native
 
@@ -115,7 +115,7 @@ This case is covered in [this article](native-components-ios.md#styles). To summ
 
 #### React Native content with fixed size
 
-The simplest scenario is when we have a React Native app with a fixed size, which is known to the native side. In particular, a full-screen React Native view falls into this case. If we want a smaller root view, we can explicitly set RCTRootView's frame.
+The general scenario is when we have a React Native app with a fixed size, which is known to the native side. In particular, a full-screen React Native view falls into this case. If we want a smaller root view, we can explicitly set RCTRootView's frame.
 
 For instance, to make an RN app 200 (logical) pixels high, and the hosting view's width wide, we could do:
 
