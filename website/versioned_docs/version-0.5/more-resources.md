@@ -33,12 +33,12 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 
 [Ignite](https://github.com/infinitered/ignite) is a starter kit that uses Redux and a few different common UI libraries. It has a CLI to generate apps, components, and containers. If you like all of the individual tech choices, Ignite could be perfect for you.
 
-[App Center](https://appcenter.ms/) is a service from Microsoft that allows you to deploy live updates to your React Native app. If you don't like going through the app store process to deploy little tweaks, and you also don't like setting up your own backend, give App Center a try.
+[App Center](https://appcenter.ms/signup?utm_source=Facebook%20React%20Native&utm_medium=Azure&utm_campaign=GitHub) is a service from Microsoft that allows you to deploy live updates to your React Native app. If you don't like going through the app store process to deploy little tweaks, and you also don't like setting up your own backend, give [App Center](https://appcenter.ms/signup?utm_source=Facebook%20React%20Native&utm_medium=Azure&utm_campaign=GitHub) a try.
 
 [Expo](https://docs.expo.io) is a development environment plus application that focuses on letting you build React Native apps in the Expo development environment, without ever touching Xcode or Android Studio. If you wish React Native was even more JavaScripty and webby, check out Expo.
 
 [Yoga](https://yogalayout.com/) is a stand-alone layout engine that extends beyond React Native and allows product engineers to build layouts quickly for multiple platforms with a highly optimized open source layout engine designed with speed, size, and ease of use in mind.
 
-[Bugsnag](https://www.bugsnag.com/), [Microsoft App Center](https://appcenter.ms/), and [Sentry](https://sentry.io/welcome/) all provide excellent crash and error monitoring services for React and React Native apps. These services allow you to proactively monitor crashes and issues occurring on your apps in real time so you can fix them quickly and improve user experience.
+[Bugsnag](https://www.bugsnag.com/), [Microsoft App Center](https://appcenter.ms/signup?utm_source=Facebook%20React%20Native&utm_medium=Azure&utm_campaign=GitHub), and [Sentry](https://sentry.io/welcome/) all provide excellent crash and error monitoring services for React and React Native apps. These services allow you to proactively monitor crashes and issues occurring on your apps in real time so you can fix them quickly and improve user experience.
 
 The [React Developer Tools](debugging.md#react-developer-tools) are great for debugging React and React Native apps.
