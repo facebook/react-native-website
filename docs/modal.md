@@ -8,51 +8,42 @@ The Modal component is a basic way to present content above an enclosing view.
 > Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
 ```jsx
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
 
-class ModalExample extends Component {
-  state = {
-    modalVisible: false,
-  };
+export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
+  return (
+    <View style={{marginTop: 22}}>
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <View style={{marginTop: 22}}>
+          <View>
+            <Text>Hello World!</Text>
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-  render() {
-    return (
-      <View style={{marginTop: 22}}>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
-              <Text>Hello World!</Text>
-
-              <TouchableHighlight
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
+            <TouchableHighlight
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}>
+              <Text>Hide Modal</Text>
+            </TouchableHighlight>
           </View>
-        </Modal>
+        </View>
+      </Modal>
 
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-          }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+      <TouchableHighlight
+        onPress={() => {
+          setModalVisible(true);
+        }}>
+        <Text>Show Modal</Text>
+      </TouchableHighlight>
+    </View>
+  );
 }
 ```
 
