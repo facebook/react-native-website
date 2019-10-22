@@ -2,7 +2,7 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function detectmob() {
-    if(window.innerWidth <= 1024) {
+    if (window.innerWidth <= 1024) {
       return true;
     } else {
       return false;
@@ -22,11 +22,10 @@
     var sideNav = document.querySelector('#docsNav nav');
     if (sideNav) {
       if (detectmob()) {
-
       } else {
         var el = document.createElement('div');
         el.innerHTML =
-          '<a href="https://activity.huaweicloud.com/2019nov_promotion/index.html?&fromuser=aHc4NzgyMjgwMQ==&utm_source=aHc4NzgyMjgwMQ==&utm_medium=cps&utm_campaign=201905" target="_blank" style="display:block;padding:15px 25px 0 0"><img src="/img/thirdparty/huawei.jpg"></a>';
+          '<a href="https://activity.huaweicloud.com/2019nov_promotion/index.html?&fromuser=aHc4NzgyMjgwMQ==&utm_source=aHc4NzgyMjgwMQ==&utm_medium=cps&utm_campaign=201905" target="_blank" style="display:block;padding:15px 25px 0 0"><img src="/img/thirdparty/huawei11.jpg"></a>';
         sideNav.appendChild(el);
       }
     }
