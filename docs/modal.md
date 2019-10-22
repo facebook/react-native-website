@@ -62,54 +62,9 @@ class ModalExample extends Component {
 
 ## Props
 
-### `visible`
+### `animated`
 
-The `visible` prop determines whether your modal is visible.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
-
----
-
-### `supportedOrientations`
-
-The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
-
-| Type                                                                                                | Required | Platform |
-| --------------------------------------------------------------------------------------------------- | -------- | -------- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
-
----
-
-### `onRequestClose`
-
-The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
-
-| Type     | Required | Platform                 |
-| -------- | -------- | ------------------------ |
-| function | Yes      | Android, Platform.isTVOS |
-| function | No       | (Others)                 |
-
----
-
-### `onShow`
-
-The `onShow` prop allows passing a function that will be called once the modal has been shown.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
-### `transparent`
-
-The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
 
 ---
 
@@ -159,6 +114,27 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 ---
 
+### `onRequestClose`
+
+The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
+
+| Type     | Required | Platform                 |
+| -------- | -------- | ------------------------ |
+| function | Yes      | Android, Platform.isTVOS |
+| function | No       | (Others)                 |
+
+---
+
+### `onShow`
+
+The `onShow` prop allows passing a function that will be called once the modal has been shown.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `presentationStyle`
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
@@ -176,6 +152,30 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 ---
 
-### `animated`
+### `supportedOrientations`
 
-> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
+The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+
+| Type                                                                                                | Required | Platform |
+| --------------------------------------------------------------------------------------------------- | -------- | -------- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
+
+---
+
+### `transparent`
+
+The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `visible`
+
+The `visible` prop determines whether your modal is visible.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
