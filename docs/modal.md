@@ -152,6 +152,16 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 ---
 
+### `statusBarTranslucent`
+
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
 ### `supportedOrientations`
 
 The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
