@@ -513,6 +513,8 @@ Callback that is called when the text input's submit button is pressed with the 
 | -------- | -------- |
 | function | No       |
 
+Note that on iOS this method was never called when use `keyboardType="phone-pad"`.
+
 ---
 
 ### `placeholder`
