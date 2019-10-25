@@ -351,7 +351,7 @@ Navigate forward to a new scene, squashing any scenes that you could jump forwar
 
 ---
 
-### `pop()`
+### `popN()`
 
 ```jsx
 popN((n: number));
