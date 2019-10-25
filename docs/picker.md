@@ -25,6 +25,39 @@ Renders the native picker component on Android and iOS. Example:
 
 Inherits [View Props](view.md#props).
 
+### `enabled`
+
+If set to false, the picker will be disabled, i.e. the user will not be able to make a selection.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `itemStyle`
+
+Style to apply to each of the item labels.
+
+| Type                               | Required | Platform |
+| ---------------------------------- | -------- | -------- |
+| [text styles](text-style-props.md) | No       | iOS      |
+
+---
+
+### `mode`
+
+On Android, specifies how to display the selection items when the user taps on the picker:
+
+- 'dialog': Show a modal dialog. This is the default.
+- 'dropdown': Shows a dropdown anchored to the picker view
+
+| Type                       | Required | Platform |
+| -------------------------- | -------- | -------- |
+| enum('dialog', 'dropdown') | No       | Android  |
+
+---
+
 ### `onValueChange`
 
 Callback for when an item is selected. This is called with the following parameters:
@@ -35,6 +68,16 @@ Callback for when an item is selected. This is called with the following paramet
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
+
+---
+
+### `prompt`
+
+Prompt string for this picker, used on Android in dialog mode as the title of the dialog.
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | Android  |
 
 ---
 
@@ -64,45 +107,3 @@ Used to locate this view in end-to-end tests.
 | ------ | -------- |
 | string | No       |
 
----
-
-### `enabled`
-
-If set to false, the picker will be disabled, i.e. the user will not be able to make a selection.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
-### `mode`
-
-On Android, specifies how to display the selection items when the user taps on the picker:
-
-- 'dialog': Show a modal dialog. This is the default.
-- 'dropdown': Shows a dropdown anchored to the picker view
-
-| Type                       | Required | Platform |
-| -------------------------- | -------- | -------- |
-| enum('dialog', 'dropdown') | No       | Android  |
-
----
-
-### `prompt`
-
-Prompt string for this picker, used on Android in dialog mode as the title of the dialog.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | Android  |
-
----
-
-### `itemStyle`
-
-Style to apply to each of the item labels.
-
-| Type                               | Required | Platform |
-| ---------------------------------- | -------- | -------- |
-| [text styles](text-style-props.md) | No       | iOS      |
