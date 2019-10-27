@@ -2903,6 +2903,9 @@
       "version-0.57/version-0.57-webview": {
         "title": "WebView"
       },
+      "version-0.58/version-0.58-accessibility": {
+        "title": "Accessibility"
+      },
       "version-0.58/version-0.58-actionsheetios": {
         "title": "ActionSheetIOS"
       },
@@ -3083,6 +3086,9 @@
       "version-0.58/version-0.58-webview": {
         "title": "WebView"
       },
+      "version-0.59/version-0.59-accessibility": {
+        "title": "Accessibility"
+      },
       "version-0.59/version-0.59-appregistry": {
         "title": "AppRegistry"
       },
@@ -3169,6 +3175,9 @@
       },
       "version-0.6/version-0.6-touchablewithoutfeedback": {
         "title": "TouchableWithoutFeedback"
+      },
+      "version-0.60/version-0.60-accessibility": {
+        "title": "Accessibility"
       },
       "version-0.60/version-0.60-accessibilityinfo": {
         "title": "AccessibilityInfo"
@@ -3389,8 +3398,8 @@
       "version-0.60/version-0.60-virtualizedlist": {
         "title": "VirtualizedList"
       },
-      "version-0.61/version-0.61-debugging": {
-        "title": "Debugging"
+      "version-0.61/version-0.61-accessibility": {
+        "title": "Accessibility"
       },
       "version-0.61/version-0.61-fast-refresh": {
         "title": "Fast Refresh"
