@@ -4,7 +4,7 @@ title: Linking Libraries
 original_id: linking-libraries-ios
 ---
 
-Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to support these features whenever you need them.
+Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to support adding these features whenever you need them.
 
 With that in mind we exposed many of these features as independent static libraries.
 

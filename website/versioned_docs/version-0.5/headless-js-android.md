@@ -8,7 +8,7 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 
 ## The JS API
 
-A task is an async function that you register on `AppRegistry`, similar to registering React applications:
+A task is a async function that you register on `AppRegistry`, similar to registering React applications:
 
 ```jsx
 AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));

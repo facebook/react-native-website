@@ -222,11 +222,15 @@ The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple
 
 If you have already installed Xcode on your system, make sure it is version 9.4 or newer.
 
-<h4>Command Line Tools<h4>
+<h4>Command Line Tools</h4>
 
 You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
 ![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+
+<h4>Installing an iOS Simulator in Xcode</h4>
+
+To install a simulator, open <strong>Xcode > Preferences...</strong> and select the <strong>Components</strong> tab. Select a simulator with the corresponding version of iOS you wish to use.
 
 <block class="native linux android" />
 
@@ -543,7 +547,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <h2>Now what?</h2>
 
-- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
@@ -553,7 +557,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 <h2>Now what?</h2>
 
-- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 

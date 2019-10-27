@@ -10,7 +10,7 @@ We designed React Native such that it is possible for you to write real native c
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective similar to any other media asset, meaning there isn't anything unique about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is (from NPM's perspective) similar to any other media asset, meaning there isn't anything unique about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ### Enable Gradle
 
@@ -334,7 +334,7 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
     eventEmitter.addListener('EventReminder', (event) => {
        console.log(event.eventProperty) // "someValue"
-    }
+    });
     ...
   }
 ```

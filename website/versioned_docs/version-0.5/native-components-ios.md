@@ -14,7 +14,7 @@ Let's say we want to add an interactive Map to our app - might as well use [`MKM
 
 Native views are created and manipulated by subclasses of `RCTViewManager`. These subclasses are similar in function to view controllers, but are essentially singletons - only one instance of each is created by the bridge. They expose native views to the `RCTUIManager`, which delegates back to them to set and update the properties of the views as necessary. The `RCTViewManager`s are also typically the delegates for the views, sending events back to JavaScript via the bridge.
 
-To expose a view you can:
+To exposing a view you can:
 
 - Subclass `RCTViewManager` to create a manager for your component.
 - Add the `RCT_EXPORT_MODULE()` marker macro.
@@ -142,7 +142,7 @@ You could write any conversion function you want for your view - here is the imp
 ```objectivec
 // RNTMapManager.m
 
-#import "RCTConvert+Mapkit.m"
+#import "RCTConvert+Mapkit.h"
 
 // RCTConvert+Mapkit.h
 
@@ -282,7 +282,7 @@ Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare 
 #import <React/RCTViewManager.h>
 
 #import "RNTMapView.h"
-#import "RCTConvert+Mapkit.m"
+#import "RCTConvert+Mapkit.h"
 
 @interface RNTMapManager : RCTViewManager <MKMapViewDelegate>
 @end
@@ -327,7 +327,7 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 @end
 ```
 
-In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to simplify API:
+In the delegate method `-mapView:regionDidChangeAnimated:` the event handler block is called on the corresponding view with the region data. Calling the `onRegionChange` event handler block results in calling the same callback prop in JavaScript. This callback is invoked with the raw event, which we typically process in the wrapper component to simplify the API:
 
 ```jsx
 // MapView.js

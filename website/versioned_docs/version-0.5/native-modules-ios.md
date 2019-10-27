@@ -172,7 +172,7 @@ CalendarManager.addEvent('Birthday Party', {
 >
 > This section is more experimental than others because we don't have a solid set of best practices around callbacks yet.
 
-Native modules also supports a unique kind of argument- a callback. In most cases it is used to provide the function call result to JavaScript.
+Native modules also supports a unique type of argument- a callback. In most cases it is used to provide the function call result to JavaScript.
 
 ```objectivec
 RCT_EXPORT_METHOD(findEvents:(RCTResponseSenderBlock)callback)

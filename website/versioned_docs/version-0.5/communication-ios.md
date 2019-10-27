@@ -110,7 +110,7 @@ When integrating native and React Native, we also need a way to consolidate two 
 
 ### Layout of a native component embedded in React Native
 
-This case is covered in [this article](native-components-ios.md#styles). To summarize, as all our native react views are subclasses of `UIView`, most style and size attributes will work like you would expect out of the box.
+This case is covered in [this article](native-components-ios.md#styles). To summarize, since all our native react views are subclasses of `UIView`, most style and size attributes will work like you would expect out of the box.
 
 ### Layout of a React Native component embedded in native
 
@@ -134,7 +134,7 @@ For instance, to make an RN app 200 (logical) pixels high, and the hosting view'
 }
 ```
 
-When we have a fixed size root view, we need to respect its bounds on the JS side. In other words, we need to ensure that the React Native content can be contained within the fixed-size root view. The easiest way to ensure this is to use flexbox layout. If you use absolute positioning, and React components are visible outside the root view's bounds, you'll get overlap with native views, causing some features to behave unexpectedly. For instance, 'TouchableHighlight' will not highlight your touches outside the root view's bounds.
+When we have a fixed size root view, we need to respect its bounds on the JS side. In other words, we need to ensure that the React Native content can be contained within the fixed-size root view. The easiest way to ensure this is to use Flexbox layout. If you use absolute positioning, and React components are visible outside the root view's bounds, you'll get overlap with native views, causing some features to behave unexpectedly. For instance, 'TouchableHighlight' will not highlight your touches outside the root view's bounds.
 
 It's totally fine to update root view's size dynamically by re-setting its frame property. React Native will take care of the content's layout.
 

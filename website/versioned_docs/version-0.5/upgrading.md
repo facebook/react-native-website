@@ -89,7 +89,7 @@ yarn add react@{{REACT_VERSION}}
 
 #### 3. Upgrade your project files
 
-The new release may contain updates to other files that are generated when you run `react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you can rebuild the project and continue developing.
+The new release may contain updates to other files that are generated when you run `react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you only need to rebuild the project to continue developing.
 
 In case there are changes then you can either update them manually by copying and pasting from the changes in the page or you can do it with the React Native CLI upgrade command by running:
 

@@ -34,6 +34,11 @@ In this example we create view manager class `ReactImageManager` that extends `S
 public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
   public static final String REACT_CLASS = "RCTImageView";
+  ReactApplicationContext mCallerContext;
+
+  public ReactImageManager(ReactApplicationContext reactContext) {
+    mCallerContext = reactContext;
+  }
 
   @Override
   public String getName() {
@@ -48,7 +53,7 @@ Views are created in the `createViewInstance` method, the view should initialize
 ```java
   @Override
   public ReactImageView createViewInstance(ThemedReactContext context) {
-    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), mCallerContext);
+    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext);
   }
 ```
 
@@ -58,15 +63,13 @@ Properties that are to be reflected in JavaScript needs to be exposed as setter 
 
 Annotation `@ReactProp` has one obligatory argument `name` of type `String`. Name assigned to the `@ReactProp` annotation linked to the setter method is used to reference the property on JS side.
 
-<!-- alex ignore primitive -->
+<!-- alex disable primitive -->
 
 Except from `name`, `@ReactProp` annotation may take following optional arguments: `defaultBoolean`, `defaultInt`, `defaultFloat`. Those arguments should be of the corresponding type (accordingly `boolean`, `int`, `float`) and the value provided will be passed to the setter method in case when the property that the setter is referencing has been removed from the component. Note that "default" values are only provided for primitive types, in case when setter is of some complex type, `null` will be provided as a default value in case when corresponding property gets removed.
 
-Setter declaration requirements for methods annotated with `@ReactPropGroup` are different than for `@ReactProp`, please refer to the `@ReactPropGroup` annotation class docs for more information about it.
+Setter declaration requirements for methods annotated with `@ReactPropGroup` are different than for `@ReactProp`, please refer to the `@ReactPropGroup` annotation class docs for more information about it. **IMPORTANT!** in ReactJS updating the property value will result in setter method call. Note that one of the ways we can update component is by removing properties that have been set before. In that case setter method will be called as well to notify view manager that property has changed. In that case "default" value will be provided (for primitive types "default" can value can be specified using `defaultBoolean`, `defaultFloat`, etc. arguments of `@ReactProp` annotation, for complex types setter will be called with value set to `null`).
 
-<!-- alex ignore primitive -->
-
-**IMPORTANT!** in ReactJS updating the property value will result in setter method call. Note that one of the ways we can update component is by removing properties that have been set before. In that case setter method will be called as well to notify view manager that property has changed. In that case "default" value will be provided (for primitive types "default" can value can be specified using `defaultBoolean`, `defaultFloat`, etc. arguments of `@ReactProp` annotation, for complex types setter will be called with value set to `null`).
+<!-- alex enable primitive -->
 
 ```java
   @ReactProp(name = "src")
