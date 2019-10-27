@@ -136,7 +136,7 @@ function TwitterButton({showCount = false}) {
   return (
     <a
       href="https://twitter.com/reactnative?ref_src=twsrc%5Etfw"
-      class="twitter-follow-button"
+      className="twitter-follow-button"
       data-size="large"
       data-show-count={`${showCount}`}>
       Follow @reactnative
@@ -147,7 +147,7 @@ function TwitterButton({showCount = false}) {
 function GitHubButton() {
   return (
     <a
-      class="github-button"
+      className="github-button"
       href="https://github.com/facebook/react-native"
       data-icon="octicon-star"
       data-size="large"
@@ -226,7 +226,7 @@ function LogoAnimation() {
         className="base"
       />
       <ScreenRect className="background" stroke="none" />
-      <g clip-path="url(#screen)" className="logo">
+      <g clipPath="url(#screen)" className="logo">
         <g className="logoInner">
           <circle cx="0" cy="0" r="30" fill="#61dafb" />
           <g stroke="#61dafb" strokeWidth="15" fill="none" id="logo">
@@ -322,7 +322,11 @@ function NativeDevelopment() {
         columnTwo={
           <div className="dissection">
             {[0, 1, 2, 3].map(i => (
-              <img alt="" src={`${baseUrl}img/homepage/dissection/${i}.png`} />
+              <img
+                alt=""
+                key={i}
+                src={`${baseUrl}img/homepage/dissection/${i}.png`}
+              />
             ))}
           </div>
         }
@@ -466,7 +470,7 @@ function GetStarted() {
         <ol className="steps">
           <li>
             <p>Run this</p>
-            <div class="terminal">
+            <div className="terminal">
               <code>npx react-native init MyTestApp</code>
             </div>
           </li>
