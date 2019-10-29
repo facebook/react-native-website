@@ -356,6 +356,8 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 
 <h2>Creating a new application</h2>
 
+> If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
+
 React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
 
 ```sh
@@ -381,6 +383,8 @@ npx react-native init TSProject --template react-native-template-typescript
 <block class="native mac windows linux android" />
 
 <h2>Creating a new application</h2>
+
+> If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
 
 React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
 
