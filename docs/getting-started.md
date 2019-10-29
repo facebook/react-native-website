@@ -143,21 +143,29 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <block class="native mac ios android" />
 
-<h3>Node, Watchman, JDK</h3>
+<h3>Node, Watchman</h3>
 
-We recommend installing Node, Watchman, and JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```sh
-brew install yarn
 brew install node
 brew install watchman
-brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
 ```
 
 If you have already installed Node on your system, make sure it is Node 8.3 or newer.
 
 [Watchman](https://facebook.github.io/watchman) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance.
+
+<block class="native mac android" />
+
+<h3>JDK</h3>
+
+We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
+
+```sh
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+```
 
 If you have already installed JDK on your system, make sure it is JDK 8 or newer.
 
