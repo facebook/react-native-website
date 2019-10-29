@@ -447,7 +447,7 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-> If you use Yarn package manager, your can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
 Run `npx react-native run-ios` inside your React Native project folder:
 
@@ -472,7 +472,7 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-> If you use Yarn package manager, your can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
 Run `npx react-native run-android` inside your React Native project folder:
 
