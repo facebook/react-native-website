@@ -143,7 +143,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <block class="native mac ios android" />
 
-<h3>Node, Watchman</h3>
+<h3>Node &amp; Watchman</h3>
 
 We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
@@ -195,7 +195,7 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 
 <block class="native mac ios" />
 
-<h3>Xcode & CocoaPods</h3>
+<h3>Xcode &amp; CocoaPods</h3>
 
 The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple.com/us/app/xcode/id497799835?mt=12). Installing Xcode will also install the iOS Simulator and all the necessary tools to build your iOS app.
 
