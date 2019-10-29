@@ -159,7 +159,7 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 
 <block class="native mac android" />
 
-<h3>JDK</h3>
+<h3>Java Development Kit</h3>
 
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
