@@ -12,7 +12,11 @@ After 166 commits from 6 contributors, the React Native Community is excited to 
 
 Here it is in action:
 
-[VIDEO WITH DOCTOR]
+<p style="text-align: center;">
+  <video width="700" controls="controls" autoplay style="border-radius: 5px;">
+    <source type="video/mp4" src="/react-native/img/homepage/DoctorCommand.mp4"></source>
+  </video>
+</p>
 
 ## How it works
 
