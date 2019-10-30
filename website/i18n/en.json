@@ -3227,6 +3227,9 @@
       "version-0.60/version-0.60-flatlist": {
         "title": "FlatList"
       },
+      "version-0.60/version-0.60-getting-started": {
+        "title": "Getting Started"
+      },
       "version-0.60/version-0.60-hermes": {
         "title": "Using Hermes"
       },
@@ -3394,6 +3397,9 @@
       },
       "version-0.61/version-0.61-fast-refresh": {
         "title": "Fast Refresh"
+      },
+      "version-0.61/version-0.61-getting-started": {
+        "title": "Getting Started"
       },
       "version-0.7/version-0.7-pushnotificationios": {
         "title": "PushNotificationIOS"
