@@ -8,20 +8,20 @@ authorTwitter: lbentosilva
 category: announcements
 ---
 
-After a ton of work, the React Native Community is excited to launch `react-native doctor`, a new brand-new CLI command to help you out on getting started with React Native and automatically fixing errors with your installation.
+After 166 commits from 6 contributors, the React Native Community is excited to launch `react-native doctor`, a new brand-new CLI command to help you out on getting started with React Native and automatically fixing errors with your installation, heavily inspired by [Expo](https://expo.io/), [Homebrew](https://brew.sh/)'s own doctor command and [Jest](https://jestjs.io/)'s fluid interface.
 
-Check it out in action:
+Here it is in action:
 
 [VIDEO WITH DOCTOR]
 
 ## How it works
 
-The command currently supports most of the softwares and libraries that React Native relies on, such as CocoaPods, Xcode and Android SDK, the way it works is that it will list the issues that your current installation has and, if you choose to, it will try to automatically fix them, if a specific run wasn't able to fix then it will print out a message and a helpful link for you to fix it manually.
+The `doctor` command currently supports most of the software and libraries that React Native relies on, such as CocoaPods, Xcode and Android SDK. With `doctor` we'll find issues with your development environment and give you the option to automatically fix them. If `doctor` is not able to fix an issue, it will display a message and a helpful link explaining how to fix it manually.
 
 ## Try it now
 
-Give it a try, simply run `npx @react-native-community/cli doctor` to spin it up!
+To give it a try, run a healthcheck with `npx @react-native-community/cli doctor`!
 
 ## Thanks
 
-Huge thanks for the React Native Community for working on this, in special [@thymikee](https://github.com/thymikee), [@thib92](https://github.com/thib92), [@jmeistrich](https://github.com/jmeistrich) and [@tido64](https://github.com/tido64).
+Huge thanks for the React Native Community for working on this, in particular [@thymikee](https://github.com/thymikee), [@thib92](https://github.com/thib92), [@jmeistrich](https://github.com/jmeistrich), [@tido64](https://github.com/tido64) and [@rickhanlonii](https://github.com/rickhanlonii).
