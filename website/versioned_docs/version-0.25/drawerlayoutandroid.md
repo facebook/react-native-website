@@ -149,7 +149,7 @@ Function called when the drawer state has changed. The drawer can be in 3 states
 
 - idle, meaning there is no interaction with the navigation view happening at the time
 - dragging, meaning there is currently an interaction with the navigation view
-- settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing it's closing or opening animation
+- settling, meaning that there was an interaction with the navigation view, and the navigation view is now finishing its closing or opening animation
 
 | Type     | Required |
 | -------- | -------- |
@@ -158,6 +158,8 @@ Function called when the drawer state has changed. The drawer can be in 3 states
 ---
 
 ### `drawerBackgroundColor`
+
+<!-- alex ignore retext-profanities -->
 
 Specifies the background color of the drawer. The default value is white. If you want to set the opacity of the drawer, use rgba. Example:
 

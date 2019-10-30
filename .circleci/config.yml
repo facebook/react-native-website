@@ -50,10 +50,10 @@ jobs:
             - ~/react-native-website
 
   # --------------------------------------------------
-  # JOB: test_website
-  # Test website can be built and has no lint issues.
+  # JOB: test
+  # Test that the website can be built.
   # --------------------------------------------------
-  test_website:
+  test:
     executor: node8
     working_directory: ~/react-native-website/website
     steps:
@@ -67,6 +67,17 @@ jobs:
             if [ ! -f build/react-native/index.html ]; then
               exit 1;
             fi
+  # --------------------------------------------------
+  # JOB: lint
+  # Lint the docs.
+  # --------------------------------------------------
+  language_lint:
+    executor: node8
+    working_directory: ~/react-native-website/website
+    steps:
+      - restore_cache_checkout
+      - run_yarn
+      - run: yarn lint
 
   # --------------------------------------------------
   # JOB: deploy_website
@@ -101,8 +112,13 @@ workflows:
     jobs:
       - setup
 
-      # Test website
-      - test_website:
+      # Run tests
+      - test:
+          requires:
+            - setup
+
+      # Run lints
+      - language_lint:
           requires:
             - setup
 
