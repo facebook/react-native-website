@@ -1,6 +1,7 @@
 ---
-id: getting-started
+id: version-0.60-getting-started
 title: Getting Started
+original_id: getting-started
 ---
 
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
@@ -163,7 +164,8 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```sh
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
 ```
 
 If you have already installed JDK on your system, make sure it is JDK 8 or newer.
@@ -549,7 +551,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <h2>Now what?</h2>
 
-- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
@@ -559,7 +561,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 <h2>Now what?</h2>
 
-- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 

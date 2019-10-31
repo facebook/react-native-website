@@ -1,6 +1,7 @@
 ---
-id: getting-started
+id: version-0.61-getting-started
 title: Getting Started
+original_id: getting-started
 ---
 
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
@@ -163,7 +164,8 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```sh
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
 ```
 
 If you have already installed JDK on your system, make sure it is JDK 8 or newer.

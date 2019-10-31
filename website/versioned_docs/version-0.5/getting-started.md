@@ -222,7 +222,7 @@ The easiest way to install Xcode is via the [Mac App Store](https://itunes.apple
 
 If you have already installed Xcode on your system, make sure it is version 9.4 or newer.
 
-<h4>Command Line Tools<h4>
+<h4>Command Line Tools</h4>
 
 You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
