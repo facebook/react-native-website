@@ -16,7 +16,7 @@ function giveFeedback(value, event) {
   event.target.parentNode.innerHTML = `Thanks for letting us know!`;
 }
 
-if (pathLoc[2] === 'docs') {
+if (pathLoc[1] === 'docs' || pathLoc[2] === 'docs') {
   document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.container.mainContainer .post');
     if (container) {
