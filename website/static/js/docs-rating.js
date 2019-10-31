@@ -1,12 +1,16 @@
 const urlLoc = window.location;
 const pathLoc = urlLoc.pathname.split('/');
+const unnecessaryPaths = ['react-native', 'docs'];
+const labelLoc = pathLoc
+  .filter(paths => !unnecessaryPaths.includes(paths.toLowerCase()))
+  .join('/');
 
 function giveFeedback(value, event) {
   ga('send', {
     hitType: 'event',
     eventCategory: 'button',
     eventAction: 'feedback',
-    eventLabel: pathLoc.pop(),
+    eventLabel: labelLoc,
   });
 
   event.target.parentNode.innerHTML = `Thanks for letting us know!`;
