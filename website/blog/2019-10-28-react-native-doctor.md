@@ -1,5 +1,5 @@
 ---
-title: Announcing React Native Doctor
+title: Meet Doctor, a new React Native command
 author: Lucas Bento
 authorTitle: React Native Community
 authorURL: https://twitter.com/lbentosilva
