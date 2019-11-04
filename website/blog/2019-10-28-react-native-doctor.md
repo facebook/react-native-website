@@ -8,7 +8,7 @@ authorTwitter: lbentosilva
 category: announcements
 ---
 
-After 166 commits from 6 contributors, the React Native Community is excited to launch `react-native doctor`, a brand-new CLI command to help you out on getting started with React Native and automatically fix errors with your installation, heavily inspired by [Expo](https://expo.io/) an d [Homebrew](https://brew.sh/)'s own doctor command as well as [Jest](https://jestjs.io/)'s fluid interface.
+After 160+ commits from 6 contributors, the React Native Community is excited to launch `doctor`. It's a brand-new React Native CLI command to help you out with getting started, troubleshooting and automatically fixing errors with your development environment. `doctor` is heavily inspired by [Expo](https://expo.io/) and [Homebrew](https://brew.sh/)'s own doctor command with a pinch of UI inspired by [Jest](https://jestjs.io/).
 
 Here it is in action:
 
@@ -24,7 +24,11 @@ The `doctor` command currently supports most of the software and libraries that 
 
 ## Try it now
 
-To give it a try, run a healthcheck with `npx @react-native-community/cli doctor`!
+The `doctor` command is available as a part of React Native 0.62. However, you can try it without upgrading yet:
+
+```sh
+npx @react-native-community/cli@3 doctor
+```
 
 ## Thanks
 
