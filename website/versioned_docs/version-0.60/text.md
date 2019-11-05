@@ -209,7 +209,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityHint`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
 | Type   | Required |
 | ------ | -------- |
