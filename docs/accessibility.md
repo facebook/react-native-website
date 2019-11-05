@@ -1,13 +1,13 @@
 ---
 id: accessibility
 title: Accessibility
-description: Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with iOS and Android.
+description: "Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with iOS and Android."
 
 ---
 
-Both iOS and Android provide APIs for integrating apps with assitive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complimentary APIs. 
+Both iOS and Android provide APIs for integrating apps with assitive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complimentary APIs that let your app accommodate all users. 
 
-> Take note, iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
+> iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
 ## Accessibility properties
 
