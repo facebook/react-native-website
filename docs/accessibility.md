@@ -1,11 +1,13 @@
 ---
 id: accessibility
 title: Accessibility
+description: Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with iOS and Android.
+
 ---
 
-Both iOS and Android provide APIs for making apps accessible to people with disabilities. In addition, both platforms provide bundled assistive technologies, like the screen readers VoiceOver (iOS) and TalkBack (Android) for the visually impaired. Similarly, in React Native we have included APIs designed to provide developers with support for making apps more accessible. Take note, iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
+Both iOS and Android provide APIs for integrating apps with assitive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complimentary APIs. 
 
-In addition to this documentation, you might find [this blog post](https://engineering.fb.com/ios/making-react-native-apps-accessible/) about React Native accessibility to be useful.
+> Take note, iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
 ## Accessibility properties
 
@@ -298,3 +300,7 @@ adb shell settings put secure enabled_accessibility_services com.android.talkbac
 # enable
 adb shell settings put secure enabled_accessibility_services com.google.android.marvin.talkback/com.google.android.marvin.talkback.TalkBackService
 ```
+
+## Additional Resources
+
+* [Making React Native Apps Accessible](https://engineering.fb.com/ios/making-react-native-apps-accessible/)
