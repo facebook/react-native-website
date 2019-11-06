@@ -108,21 +108,40 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 - **timer** Used to represent a timer.
 - **toolbar** Used to represent a tool bar (a container of action buttons or components).
 
-#### accessibilityStates (iOS, Android)
+#### accessibilityState (iOS, Android)
 
 Describes the current state of a component to the user of an assistive technology.
 
-`accessibilityStates` is an array of values, and may include any of the following:
+`accessibilityState` is an object. It contains the following fields:
 
-- **selected** Used when the element is in a selected state. For example, a button is selected.
-- **disabled** Used when the element is disabled and cannot be interacted with.
-- **checked** Used to indicate that a checkable element is currently checked.
-- **unchecked** Used to indicate that a checkable element is not currently checked.
-- **busy** Used to indicate that an element is currently busy.
-- **expanded** Used to indicate that an expandable element is currently expanded.
-- **collapsed** Used to indicate that an expandable element is currently collapsed.
+| Name     | Type               | Required |
+| -------- | ------------------ | -------- |
+| disabled | boolean            | No       |
+| selected | boolean            | No       |
+| checked  | boolean or 'mixed' | No       |
+| busy     | boolean            | No       |
+| expanded | boolean            | No       |
 
-To use, set the `accessibilityStates` to an array containing the list of current states.
+- **disabled** Used to indicate whether the element is disabled or not. When `true`, the element cannot be interacted with.
+- **selected** Used to indicate whether a selectable element is currently selected or not.
+- **checked** Used to indicate the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes.
+- **busy** Used to indicate whether an element is currently busy or not.
+- **expanded** Used to indicate whether an expandable element is currently expanded or collapsed.
+
+To use, set the `accessibilityState` to an object with a specific definition.
+
+#### accessibilityValue (iOS, Android)
+
+Represents the current value of a component. It can be a textual description of a component's value, or for range-based components, such as sliders and progress bars, it contains range information (minimum, current, and maximum).
+
+`accessibilityValue` is an object. It contains the following fields:
+
+| Name | Description                                                                                    | Type    | Required                  |
+| ---- | ---------------------------------------------------------------------------------------------- | ------- | ------------------------- |
+| min  | The minimum value of this component's range.                                                   | integer | Required if `now` is set. |
+| max  | The maximum value of this component's range.                                                   | integer | Required if `now` is set. |
+| now  | The current value of this component's range.                                                   | integer | No                        |
+| text | A textual description of this component's value. Will override `min`, `now`, and `max` if set. | string  | No                        |
 
 #### accessibilityViewIsModal (iOS)
 
@@ -136,7 +155,7 @@ A Boolean value indicating whether the accessibility elements contained within t
 
 For example, in a window that contains sibling views `A` and `B`, setting `accessibilityElementsHidden` to `true` on view `B` causes VoiceOver to ignore the elements in the view `B`. This is similar to the Android property `importantForAccessibility="no-hide-descendants"`.
 
-#### onAccessibilityTap (iOS)
+#### onAccessibilityTap (iOS, Android)
 
 Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected.
 
@@ -247,32 +266,18 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 
 ### Sending Accessibility Events (Android)
 
-Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or a custom radio button has been selected). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event.
+Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event. The supported event types are `typeWindowStateChanged`, `typeViewFocused` and `typeViewClicked`.
 
 ```jsx
-import { UIManager, findNodeHandle } from 'react-native';
+import { Platform, UIManager, findNodeHandle } from 'react-native';
 
-_onPress: function() {
-  const radioButton = this.state.radioButton === 'radiobutton_checked' ?
-    'radiobutton_unchecked' : 'radiobutton_checked'
-
-  this.setState({
-    radioButton: radioButton
-  });
-
-  if (radioButton === 'radiobutton_checked') {
+if (Platform.OS === 'android') {
     UIManager.sendAccessibilityEvent(
       findNodeHandle(this),
-      UIManager.AccessibilityEventTypes.typeViewClicked);
+      UIManager.AccessibilityEventTypes.typeViewFocused);
   }
 }
-
-<CustomRadioButton
-  accessibilityComponentType={this.state.radioButton}
-  onPress={this._onPress}/>
 ```
-
-In the above example we've created a custom radio button that now behaves like a native one. More specifically, TalkBack now correctly announces changes to the radio button selection.
 
 ## Testing VoiceOver Support (iOS)
 
