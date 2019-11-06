@@ -187,13 +187,13 @@ We believe that this more constrained way to style text will yield better apps:
 
 ## Props
 
-### `accessibilityHint`
+### `accessible`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
+When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -207,60 +207,65 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
 ### `accessibilityRole`
 
-Tells the screen reader to treat the currently focused on element as having a specific role.
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
 
-Possible values for `AccessibilityRole` is one of:
+`accessibilityRole` can be one of the following:
 
-- `'none'` - The element has no role.
-- `'button'` - The element should be treated as a button.
-- `'link'` - The element should be treated as a link.
-- `'header'` - The element is a header that divides content into sections.
-- `'search'` - The element should be treated as a search field.
-- `'image'` - The element should be treated as an image.
-- `'key'` - The element should be treated like a keyboard key.
-- `'text'` - The element should be treated as text.
-- `'summary'` - The element provides app summary information.
-- `'imagebutton'` - The element has the role of both an image and also a button.
-- `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - Used when the element has no role.
+- `'button'` - Used when the element should be treated as a button.
+- `'link'` - Used when the element should be treated as a link.
+- `'search'` - Used when the text field element should also be treated as a search field.
+- `'image'` - Used when the element should be treated as an image. Can be combined with button or link, for example.
+- `'keyboardkey'` - Used when the element acts as a keyboard key.
+- `'text'` - Used when the element should be treated as static text that cannot change.
+- `'adjustable'` - Used when an element can be "adjusted" (e.g. a slider).
+- `'imagebutton'` - Used when the element should be treated as a button and is also an image.
+- `'header'` - Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- `'summary'` - Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- `'alert'` - Used when an element contains important text to be presented to the user.
+- `'checkbox'` - Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- `'combobox'` - Used when an element represents a combo box, which allows the user to select among several choices.
+- `'menu'` - Used when the component is a menu of choices.
+- `'menubar'` - Used when a component is a container of multiple menus.
+- `'menuitem'` - Used to represent an item within a menu.
+- `'progressbar'` - Used to represent a component which indicates progress of a task.
+- `'radio'` - Used to represent a radio button.
+- `'radiogroup'` - Used to represent a group of radio buttons.
+- `'scrollbar'` - Used to represent a scroll bar.
+- `'spinbutton'` - Used to represent a button which opens a list of choices.
+- `'switch'` - Used to represent a switch which can be turned on and off.
+- `'tab'` - Used to represent a tab.
+- `'tablist'` - Used to represent a list of tabs.
+- `'timer'` - Used to represent a timer.
+- `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
 
-On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
-
-On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
-
-| Type              | Required |
-| ----------------- | -------- |
-| AccessibilityRole | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `accessibilityState`
 
-Tells the screen reader to treat the currently focused on element as being in a specific state.
+Describes the current state of a component to the user of an assistive technology.
 
-You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: `{selected: true, disabled: true}`.
+See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-Possible values for `AccessibilityState` are:
-
-- `'selected'` - The element is in a selected state.
-- `'disabled'` - The element is in a disabled state.
-
-| Type   | Required |
-| ------ | -------- |
-| object | No       |
-
----
-
-### `accessible`
-
-When set to `true`, indicates that the view is an accessibility element. The default value for a `Text` element is `true`.
-
-See the [Accessibility guide](accessibility.md#accessible-ios-android) for more information.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type                                                                                           | Required |
+| ---------------------------------------------------------------------------------------------- | -------- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
 
 ---
 
