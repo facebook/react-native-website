@@ -17,6 +17,8 @@ The first step is to install in your project:
 
 ```
 npm install --save react-navigation
+# or with yarn
+# yarn add react-navigation
 ```
 
 The second step is to install react-native-gesture-handler
