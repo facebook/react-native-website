@@ -30,7 +30,7 @@ React Native apps come with [Jest](https://jestjs.io) out of the box, ready to u
 
 ### Structuring Tests
 
-Your tests should be short and ideally test just one thing. Let's start with an example unit test:
+Your tests should be short and ideally test only one thing. Let's start with an example unit test:
 
 ```js
 it('given a date in the past, colorForDueDate() returns red', () => {
@@ -72,7 +72,7 @@ Jest comes with [support for mocking](https://jestjs.io/docs/en/mock-functions#m
 
 When writing larger software systems, individual pieces of it need to interact with each other. As explained, in unit testing, when your unit depends on another one, you’ll sometimes end up mocking the dependency, replacing it with a fake one.
 
-In integration testing, real individual units are combined (just like in your app) and tested together to ensure that their cooperation works as expected. This is not to say that mocking does not happen here: you’ll still need mocks (for example to mock communication with the weather service covered in the mocking paragraph), but much less than in unit testing.
+In integration testing, real individual units are combined (same as in your app) and tested together to ensure that their cooperation works as expected. This is not to say that mocking does not happen here: you’ll still need mocks (for example to mock communication with the weather service covered in the mocking paragraph), but much less than in unit testing.
 
 > Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. As a rule of thumb for this document, when your test
 >
@@ -84,12 +84,12 @@ In integration testing, real individual units are combined (just like in your ap
 
 ## Component Tests
 
-React components are responsible for rendering your app, and users will directly interact with their output. Even if you have high unit and integration testing coverage and your app logic is correct, without component tests you may simply deliver a broken UI to your users.
+React components are responsible for rendering your app, and users will directly interact with their output. Even if you have high unit and integration testing coverage and your app logic is correct, without component tests you may still deliver a broken UI to your users.
 
 For testing React components, there are two things you may want to test:
 
-- Rendering: to ensure the component render output used by React is correct
 - Interaction: to ensure the component behaves correctly when interacted with by a user (eg. when user presses a button)
+- Rendering: to ensure the component render output used by React is correct
 
 For example, if you have a button that has an `onPress` listener, you want to test that the button both appears correctly and that tapping the button is correctly handled by the component.
 
@@ -99,17 +99,11 @@ There are several libraries that can help you testing these:
 - [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) builds on top of React’s test renderer and adds `fireEvent` and `query` apis described in the next paragraph.
 - [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` apis described in the next paragraph.
 
-> Note that component tests are just JavaScript tests running on Node, they do _not_ take into account any iOS or Android code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user - if there is a bug in the iOS or Android code, they will not find it.
-
-### Testing rendered output
-
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you test how—and if—a component is rendering. A snapshot is a textual representation of your component’s output that gets committed in your repo. When using snapshot testing, you first implement your component and then run the snapshot test, which saves the snapshot to a file. Any future changes to the component will result in a change in the snapshot that needs to be checked as part of your code review.
-
-In theory, you can use snapshots to test anything that is serializable, but do not abuse them! Snapshot is created _after_ you’re done working on the component, and at that point the snapshot is considered to be correct (even in the case when the rendered output is actually wrong). You need to make sure that the snapshot contains what you expect (which may not be trivial because snapshots can be fairly large). Snapshots do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+> Note that component tests are only JavaScript tests running on Node, they do _not_ take into account any iOS or Android code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user - if there is a bug in the iOS or Android code, they will not find it.
 
 ### Testing user interactions
 
-Apart from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also, of course, also contain other functions and event callbacks. Consider the following example:
+Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
 
 ```js
 class GroceryShoppingListCreator extends React.Component {
@@ -147,17 +141,23 @@ const bananaElement = getByText('banana');
 expect(bananaElement).toBeDefined(); // expect 'banana' to be on the list
 ```
 
+### Testing rendered output
+
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you test how—and if—a component is rendering. A snapshot is a textual representation of your component’s output that gets committed in your repo. When using snapshot testing, you first implement your component and then run the snapshot test, which saves the snapshot to a file. Any future changes to the component will result in a change in the snapshot that needs to be checked as part of your code review.
+
+In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshot is created _after_ you’re done working on the component, and at that point the snapshot is considered to be correct (even in the case when the rendered output is actually wrong). You need to make sure that the snapshot contains what you expect (which may not be trivial because snapshots can be fairly large). Snapshots do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+
 ## End to End Tests
 
 In End-to-end (E2E) tests, you verify your app is working on a device from the user perspective.
 
 To run them, you build your app in the release configuration and run tests against it in an emulator or a physical device. In E2E tests, you no longer think about React components, React Native apis, Redux stores or any business logic - that is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
 
-Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can tap buttons or insert text into textinputs just like a real user would. Then you can make assertions about whether or not certain element exists in the app’s screen, whether or not it’s visible, what text it contains and so on.
+Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can tap buttons or insert text into textinputs the same way a real user would. Then you can make assertions about whether or not certain element exists in the app’s screen, whether or not it’s visible, what text it contains and so on.
 
 E2E tests give you the highest possible confidence that part of your app is working but the tradeoff is that writing and running them is much more time consuming than with the previously mentioned types of tests. E2E tests also are more demanding when it comes to their maintenance.
 
-A good way to start is covering just the most important parts of your app by a small number of E2E tests which will ensure those parts keep working.
+A good way to start is covering only the most important parts of your app by a small number of E2E tests which will ensure those parts keep working.
 
 There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
 

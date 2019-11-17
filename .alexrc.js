@@ -11,7 +11,10 @@ exports.allow = [
   "invalid",
 
   // Unfortunately "watchman" is a library name that we depend on.
-  "watchman-watchwoman"
+  "watchman-watchwoman",
+
+  // Detox is an e2e testing library
+  "Detox"
 ];
 
 // Use a "maybe" level of profanity instead of the default "unlikely".
