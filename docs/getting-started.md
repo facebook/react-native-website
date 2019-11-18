@@ -481,7 +481,14 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-Run `npx react-native run-android` inside your React Native project folder:
+Run `npx react-native start` inside your React Native project folder:
+
+```sh
+cd AwesomeProject
+npx react-native start
+```
+
+On another terminal, run `npx react-native run-android`:
 
 ```sh
 cd AwesomeProject
