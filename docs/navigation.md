@@ -16,7 +16,9 @@ The community solution to navigation is a standalone library that allows develop
 The first step is to install in your project:
 
 ```
-npm install --save react-navigation
+yarn add react-navigation
+# or with npm
+# npm install --save react-navigation
 ```
 
 The second step is to install react-native-gesture-handler
