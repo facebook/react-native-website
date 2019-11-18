@@ -11,7 +11,7 @@ function giveFeedback(value) {
     eventCategory: 'button',
     eventAction: 'feedback',
     eventLabel: labelLoc,
-    value: value
+    eventValue: value
   });
 
   event.target.parentNode.innerHTML = `Thanks for letting us know!`;
