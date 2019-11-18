@@ -13,7 +13,7 @@ The same concept applies to React Native. As long as we are building our applica
 
 ## Properties
 
-Properties are the simplest way of cross-component communication. So we need a way to pass properties both from native to React Native, and from React Native to native.
+Properties are the most straightforward way of cross-component communication. So we need a way to pass properties both from native to React Native, and from React Native to native.
 
 ### Passing properties from native to React Native
 

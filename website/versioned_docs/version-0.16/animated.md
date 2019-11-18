@@ -6,7 +6,7 @@ original_id: animated
 
 Animations are an important part of modern UX, and the `Animated` library is designed to make them fluid, powerful, and possible to build and maintain.
 
-The simplest workflow is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates either via animations, such as `Animated.timing`, or by hooking into gestures like panning or scolling via `Animated.event`. `Animated.Value` can also bind to props other than style, and can be interpolated as well. Here is a basic example of a container view that will fade in when it's mounted:
+The general workflow is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates either via animations, such as `Animated.timing`, or by hooking into gestures like panning or scolling via `Animated.event`. `Animated.Value` can also bind to props other than style, and can be interpolated as well. Here is a basic example of a container view that will fade in when it's mounted:
 
 ```jsx
 class FadeInView extends React.Component {
