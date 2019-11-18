@@ -25,7 +25,7 @@ This repo contains the website configuration and documentation powering the [Rea
 
 # Overview
 
-If you would like to *contribute an edit or addition to the docs,* read through our [style guide](STYLEGUIDE) before you write anything. All our content is generated from markdown files you can find in the 'docs/' directory. 
+If you would like to *contribute an edit or addition to the docs,* read through our [style guide](STYLEGUIDE.md) before you write anything. All our content is generated from markdown files you can find in the 'docs/' directory. 
 
 *To edit the internals of how the site is built,* you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the 'website/' directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
