@@ -5,7 +5,7 @@ title: Transforms
 
 # Reference
 
-## Props
+## Methods
 
 ### `decomposedMatrix`
 
