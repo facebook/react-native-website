@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "alex": "^8.0.0",
-    "docusaurus": "1.12.0",
+    "docusaurus": "1.14.0",
     "highlight.js": "^9.15.10",
     "remarkable": "^2.0.0"
   },
