@@ -146,9 +146,9 @@ Creates an object that represents ripple drawable with specified color (as a str
 
 **Parameters:**
 
-| Name       | Type    | Required | Description                                  |
-| ---------- | ------- | -------- | -------------------------------------------- |
-| color      | string  | Yes      | The ripple color                             |
+| Name       | Type    | Required | Description                                 |
+| ---------- | ------- | -------- | ------------------------------------------- |
+| color      | string  | Yes      | The ripple color                            |
 | borderless | boolean | Yes      | If the ripple can render outside its bounds |
 
 ---

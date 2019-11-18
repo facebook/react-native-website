@@ -335,7 +335,7 @@ Jump backward without unmounting the current scene.
 
 ---
 
-### `XXXX()`
+### `push()`
 
 ```jsx
 push((route: object));
@@ -351,7 +351,7 @@ Navigate forward to a new scene, squashing any scenes that you could jump forwar
 
 ---
 
-### `pop()`
+### `popN()`
 
 ```jsx
 popN((n: number));
@@ -453,7 +453,7 @@ Get a particular scene, as specified by its route. All scenes after it will be u
 
 ---
 
-### `replacePreviousAndPopXXXX()`
+### `replacePreviousAndPop()`
 
 ```jsx
 replacePreviousAndPop((route: object));
