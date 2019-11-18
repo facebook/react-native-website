@@ -54,7 +54,7 @@ If you've recently created a new app from scratch, you should see if Hermes is e
 A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
 
 ```jsx
-const isHermes = () => global.HermesInternal != null;
+const isHermes = () => global.HermesInternal !== null;
 ```
 
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
