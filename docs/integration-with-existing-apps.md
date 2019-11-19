@@ -154,7 +154,9 @@ You can specify which `subspec`s your app will depend on in a `Podfile` file. Th
 $ pod init
 ```
 
-The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes. In the end, `Podfile` should look something similar to this:
+The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
+##IMPORTANT `Podfile` version changes from version to version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for a specific version of `Podfile`.
+In the end, `Podfile` should look something similar to this:
 
 <block class="objc" />
 
