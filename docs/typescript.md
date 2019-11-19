@@ -32,9 +32,9 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
-npm install --save-dev @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
@@ -102,30 +102,30 @@ const Hello: React.FC<Props> = (props) => {
     const getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
     return (
         <View style={styles.root}>
-        <Text style={styles.greeting}>
-            Hello{' '}
-            {props.name + getExclamationMarks(enthusiasmLevel || 0)}
-        </Text>
+            <Text style={styles.greeting}>
+                Hello{' '}
+                {props.name + getExclamationMarks(enthusiasmLevel || 0)}
+            </Text>
 
-        <View style={styles.buttons}>
-            <View style={styles.button}>
-            <Button
-                title="-"
-                onPress={onDecrement}
-                accessibilityLabel="decrement"
-                color="red"
-            />
-            </View>
+            <View style={styles.buttons}>
+                <View style={styles.button}>
+                <Button
+                    title="-"
+                    onPress={onDecrement}
+                    accessibilityLabel="decrement"
+                    color="red"
+                />
+                </View>
 
-            <View style={styles.button}>
-            <Button
-                title="+"
-                onPress={onIncrement}
-                accessibilityLabel="increment"
-                color="blue"
-            />
+                <View style={styles.button}>
+                <Button
+                    title="+"
+                    onPress={onIncrement}
+                    accessibilityLabel="increment"
+                    color="blue"
+                />
+                </View>
             </View>
-        </View>
         </View>
     );
 }
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     buttons: {
-       flexDirection: 'row',
+        flexDirection: 'row',
         minHeight: 70,
         alignItems: 'stretch',
         alignSelf: 'center',
@@ -162,7 +162,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 - [TypeScript Handbook][ts-handbook]
 - [React's documentation on TypeScript][react-ts]
-- [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
+- [React + TypeScript Cheatsheets][cheats] has a good overview on how to use React with TypeScript
 
 ## Using Custom Path Aliases with TypeScript
 
@@ -200,7 +200,7 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "test": ["./test/"],
++           "tests": ["./tests/"],
 +           "@components": "./src/components",
 +         }
 +       }

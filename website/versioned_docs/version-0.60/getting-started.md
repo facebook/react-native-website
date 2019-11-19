@@ -1,6 +1,7 @@
 ---
-id: getting-started
+id: version-0.60-getting-started
 title: Getting Started
+original_id: getting-started
 ---
 
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
@@ -41,7 +42,7 @@ This will start a development server for you.
 
 <h2>Running your React Native application</h2>
 
-Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, use the built-in QR code scanner of the Camera app.
+Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, follow on-screen instructions to get a link.
 
 <h3>Modifying your app</h3>
 
@@ -163,7 +164,8 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```sh
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
 ```
 
 If you have already installed JDK on your system, make sure it is JDK 8 or newer.
@@ -383,7 +385,7 @@ npx react-native init AwesomeProject --version X.XX.X
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
 ```sh
-npx react-native init AwesomeTSProject --template typescript
+npx react-native init AwesomeTSProject --template react-native-template-typescript
 ```
 
 <block class="native mac windows linux android" />
@@ -411,7 +413,7 @@ npx react-native init AwesomeProject --version X.XX.X
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
 ```sh
-npx react-native init AwesomeTSProject --template typescript
+npx react-native init AwesomeTSProject --template react-native-template-typescript
 ```
 
 <block class="native mac windows linux android" />
@@ -481,14 +483,7 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-Run `npx react-native start` inside your React Native project folder:
-
-```sh
-cd AwesomeProject
-npx react-native start
-```
-
-On another terminal, run `npx react-native run-android`:
+Run `npx react-native run-android` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
@@ -556,7 +551,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <h2>Now what?</h2>
 
-- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
@@ -566,7 +561,7 @@ If you're curious to learn more about React Native, continue on to the [Tutorial
 
 <h2>Now what?</h2>
 
-- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
+- Turn on [Live Reload](debugging.md#reloading-javascript) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 

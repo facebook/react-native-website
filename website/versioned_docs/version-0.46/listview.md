@@ -4,7 +4,7 @@ title: ListView
 original_id: listview
 ---
 
-ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](listviewdatasource.md), populate it with a simple array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
+ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](listviewdatasource.md), populate it with a array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
 
 Minimal example:
 

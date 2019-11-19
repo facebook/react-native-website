@@ -3,19 +3,3 @@ CODE_OF_CONDUCT.md
 
 # We will handle the blog posts after the main docs are linted.
 website/blog/
-
-# The version docs are actively being linted.
-# If you want to lint one of these directories, remove it from the list here and then run:
-#     `yarn lintv website/versioned_docs/version-{version number}/`
-# Once you fix all of the errors, commit all of the changes including this file.
-#
-# To be considerate to the reviewer, please submit each version in different PRs.
-website/versioned_docs/version-0.16/
-website/versioned_docs/version-0.18/
-website/versioned_docs/version-0.22/
-website/versioned_docs/version-0.25/
-website/versioned_docs/version-0.28/
-website/versioned_docs/version-0.29/
-website/versioned_docs/version-0.43/
-website/versioned_docs/version-0.46/
-website/versioned_docs/version-0.53/

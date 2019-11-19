@@ -515,6 +515,16 @@ Callback that is called when the text input's submit button is pressed with the 
 
 ---
 
+### `onTextInput`
+
+Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `placeholder`
 
 The string that will be rendered before text input has been entered.
@@ -821,3 +831,4 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 - [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
 - [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.
+- [react-native#26799](https://github.com/facebook/react-native/issues/26799): Doesn't support Android's `secureTextEntry` when `keyboardType="email-address"` or `keyboardType="phone-pad"`.
