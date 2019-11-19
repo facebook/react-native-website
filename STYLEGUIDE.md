@@ -57,6 +57,36 @@ Cultural reference jokes, or “in-jokes,” don’t translate well across langu
 
 **Good** “You can play around with sample code directly in these web simulators made by Genius Co. (They have built a wonderful tool!) The React Native community’s contributions make it better and better. It’s great when we all work together!”
 
+## Avoid pronouns
+
+Pronouns are difficult to translate into some languages. They also tend to be gendered, which provides unnecessary bias.
+
+### Example
+
+**Bad** “When he opens the app, he will see a loading screen.”
+
+**Good** “When the user opens the app, it will show a loading screen.”
+
+## Prefer imperative to gerund
+
+"To" forms of verbs are easier to translate.
+
+### Example
+
+**Bad** “Coding with React Native is fun!”
+
+**Good** “It is fun to code with React Native!”
+
+## Shorter is better
+
+Short sentences are easier to translate, for both machines and humans! Break clauses into multiple sentences.
+
+### Example
+
+**Bad** “First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development.”
+
+**Good** “ES2015 is a set of improvements to the official JavaScript standard. It is not yet supported by all browsers, so it isn't used yet in web development.”
+
 # Technical documentation guidelines
 
 ## Format menu paths
