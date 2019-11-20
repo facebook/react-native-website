@@ -73,6 +73,8 @@ module.exports = {
 
 4. Rename a JavaScript file to be `*.tsx`
 
+> You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
+
 5. Run `yarn tsc` to type-check your new TypeScript files.
 
 ## How TypeScript and React Native works
