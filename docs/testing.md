@@ -30,7 +30,7 @@ React Native apps come with [Jest](https://jestjs.io) out of the box, ready to u
 
 ### Structuring Tests
 
-Your tests should be short and ideally test only one thing. Let's start with an example unit test:
+Your tests should be short and ideally test only one thing. Let's start with an example unit test written with Jest:
 
 ```js
 it('given a date in the past, colorForDueDate() returns red', () => {
@@ -38,7 +38,7 @@ it('given a date in the past, colorForDueDate() returns red', () => {
 });
 ```
 
-The test is described by the string passed to the [`it`](https://jestjs.io/docs/en/api#testname-fn-timeout) function - take a good care writing the description so that it’s clear what is being tested. Do your best to cover the following:
+The test is described by the string passed to the [`it`](https://jestjs.io/docs/en/api#testname-fn-timeout) function - take good care writing the description so that it’s clear what is being tested. Do your best to cover the following:
 
 1. **Given** - some precondition
 2. **When** - some action executed by the function that you’re testing
@@ -54,7 +54,7 @@ Lastly, as developers we like when our code works great and doesn't crash. With 
 
 ## Unit tests
 
-The lowest level at which you can test is unit testing. Unit tests cover the smallest parts of code, like individual functions or classes.
+Unit tests cover the smallest parts of code, like individual functions or classes.
 
 When the object under test has any dependencies, you’ll often mock them out, as described in the next paragraph.
 
@@ -121,7 +121,7 @@ class GroceryShoppingListCreator extends React.Component {
 }
 ```
 
-When testing user interactions, test the component from the user perspective: you could write your tests to call `addNewItemToShoppingList` directly, and while such test works, it’s very close to the implementation details of your component.
+When testing user interactions, test the component from the user perspective: you could write your tests to call `addNewItemToShoppingList` directly, and while such test works, it's very close to the implementation details of your component and would break if you refactor the component.
 
 To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
 
