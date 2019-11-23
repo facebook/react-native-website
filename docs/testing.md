@@ -101,7 +101,7 @@ There are several libraries that can help you testing these:
 
 > Note that component tests are only JavaScript tests running on Node, they do _not_ take into account any iOS or Android code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user - if there is a bug in the iOS or Android code, they will not find it.
 
-### Testing user interactions
+### Testing User Interactions
 
 Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
 
@@ -141,11 +141,32 @@ const bananaElement = getByText('banana');
 expect(bananaElement).toBeDefined(); // expect 'banana' to be on the list
 ```
 
-### Testing rendered output
+### Testing Rendered Output
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you test how—and if—a component is rendering. A snapshot is a textual representation of your component’s output that gets committed in your repo. When using snapshot testing, you first implement your component and then run the snapshot test, which saves the snapshot to a file. Any future changes to the component will result in a change in the snapshot that needs to be checked as part of your code review.
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you verify how—and if—a component is rendering. A snapshot is a textual representation of your component’s render output, and may look like this:
 
-In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshot is created _after_ you’re done working on the component, and at that point the snapshot is considered to be correct (even in the case when the rendered output is actually wrong). You need to make sure that the snapshot contains what you expect (which may not be trivial because snapshots can be fairly large). Snapshots do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+```
+<Text
+  style={
+    Object {
+      "fontSize": 20,
+      "margin": 10,
+      "textAlign": "center",
+    }
+  }>
+  Welcome to React Native!
+</Text>
+```
+
+Snapshots are _generated_ by a component testing testing library, unlike the other types of tests which are written manually (snapshots are too complex to be created by hand, especially for large components this is not feasible).
+
+When using snapshot testing, you typically first implement your component and then run the snapshot test, which creates the snapshot and saves it to a file in your repo. The newly created snapshot is then committed and should be checked during code review. Any changes to the component will result in a change in the snapshot that again needs to be reviewed.
+
+Note that if you create the snapshot _after_ you’re done working on the component, at that point the snapshot is considered to be correct (even in the case when the rendered output is actually wrong). You as a developer or reviewer need to make sure that the snapshot contains what you expect. That may not be trivial because snapshots can be fairly large.
+
+In order to make snapshot verification easier for a given component, you can start taking the snapshot _early_. That is, instead of creating the snapshot after you're done working, create one at the start and update it continuously as you bring the component code to the desired state.
+
+In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
 
 ## End to End Tests
 
