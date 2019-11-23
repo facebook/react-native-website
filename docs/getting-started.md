@@ -31,7 +31,7 @@ npm install -g expo-cli
 Then run the following commands to create a new React Native project called "AwesomeProject":
 
 ```sh
-expo init AwesomeProject
+expo init AwesomeProject --name AwesomeProject -t 'blank'
 
 cd AwesomeProject
 npm start # you can also use: expo start
