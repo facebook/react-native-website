@@ -108,3 +108,15 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+## Unable to load script (windows)
+
+### Make sure you are either running a Metro Server(run 'react-native start') or that your bundle 'index.android.bundle' is packaged correctly for release
+
+Issue caused by recent versions of NodeJs [26598](https://github.com/facebook/react-native/issues/26598)
+Downgrade/adjust Nodejs version for fixing this.
+
+```
+choco uninstall nodejs // nodejs-lts
+choco install -y nodejs.install --version 10.16.3 --force // or the version that works for you
+```
