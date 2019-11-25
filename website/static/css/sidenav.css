@@ -1,0 +1,7 @@
+/* Right SideNav */
+
+@media only screen and (min-width: 1024px) {
+  .onPageNav {
+    margin-bottom: 120px;
+  }
+}
