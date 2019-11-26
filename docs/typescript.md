@@ -164,7 +164,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 - [TypeScript Handbook][ts-handbook]
 - [React's documentation on TypeScript][react-ts]
-- [React + TypeScript Cheatsheets][cheats] has a good overview on how to use React with TypeScript
+- [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
 
 ## Using Custom Path Aliases with TypeScript
 
