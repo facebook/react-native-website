@@ -8,11 +8,11 @@ Part of what makes books like Effective JavaScript effective for new learners as
 
 ## Write for more than a React audience
 
-It’s convenient to write as though the reader has the same background and perspective that you do. But in reality, our readers have a range of experience as well as come to us from many different fields including iOS and Android. We have to be inclusive of all learners, and that means taking nothing for granted! 
+It’s convenient to write as though the reader has the same background and perspective that you do. But in reality, our readers have a range of experience as well as come to us from many different fields including Android and iOS. We have to be inclusive of all learners, and that means taking nothing for granted!
 
-* **Assume no knowledge of React.** 31% of visitors surveyed in September 2019 said they have no experience with React JS. When explaining React concepts, give a short explanation and then link to the appropriate React docs.
-* **Assume readers have no background in web development.** While 76% of our visitors surveyed in September 2019 said they had experience with web development before starting with React Native, that means 24% came in without any knowledge of web paradigms! 7.4% said they had no experience, meaning we can’t rely on web, iOS, or Android metaphors with those readers.
-* **Provide references to multiple technologies.** To help learners from Android and iOS backgrounds, it’s important that references also take those experiences into account and make comparisons for them in addition to web developers.
+- **Assume no knowledge of React.** 31% of visitors surveyed in September 2019 said they have no experience with React JS. When explaining React concepts, give a short explanation and then link to the appropriate React docs.
+- **Assume readers have no background in web development.** While 76% of our visitors surveyed in September 2019 said they had experience with web development before starting with React Native, that means 24% came in without any knowledge of web paradigms! 7.4% said they had no experience, meaning we can’t rely on Android, iOS, or web metaphors with those readers.
+- **Provide references to multiple technologies.** To help learners from Android and iOS backgrounds, it’s important that references also take those experiences into account and make comparisons for them in addition to web developers.
 
 ### Example
 
@@ -22,13 +22,13 @@ It’s convenient to write as though the reader has the same background and pers
 
 ## Unpack “native”
 
-Refer to non-web technologies by their proper nouns or as “apps,” not lumping them as “native.” iOS and Android developers do not think of their technologies as “native” nor what they build as “native apps.” Being more specific helps create an inclusive shared vocabulary for web and app devs to learn and collaborate with each other.
+Refer to non-web technologies by their proper nouns or as “apps,” not lumping them as “native.” Android and iOS developers do not think of their technologies as “native” nor what they build as “native apps.” Being more specific helps create an inclusive shared vocabulary for web and app devs to learn and collaborate with each other.
 
 ### Example
 
-**Bad** “Native App Accessibility (iOS and Android)” Qualifying “app” with “native” is redundant with “iOS” and “Android” in the same phrase.
+**Bad** “Native App Accessibility (Android and iOS)” Qualifying “app” with “native” is redundant with “Android and “iOS” in the same phrase.
 
-**Good** “App Accessibility on iOS and Android” specifies both platforms and drops the confusing “native.”
+**Good** “App Accessibility on Android and iOS” specifies both platforms and drops the confusing “native.”
 
 ## Welcoming and mature
 
@@ -46,10 +46,10 @@ Cultural reference jokes, or “in-jokes,” don’t translate well across langu
 
 ## “you”, “we”, and “they”
 
-* “You” refers to the reader
-* “We” can be confusing and ambiguous. It could refer to the React Native community, React Native contributors, or the React Native Core team at Facebook. As such, only use “we” after explicitly referring to one of those groups.
-* “They” refers to people or organizations outside this “you/we” paradigm
-    * Set up who “they” are by referencing the person/org first 
+- “You” refers to the reader
+- “We” can be confusing and ambiguous. It could refer to the React Native community, React Native contributors, or the React Native Core team at Facebook. As such, only use “we” after explicitly referring to one of those groups.
+- “They” refers to people or organizations outside this “you/we” paradigm
+  - Set up who “they” are by referencing the person/org first
 
 ### Example
 
@@ -97,7 +97,7 @@ When navigating operating system menus, the menu selection path should be **bold
 
 **Bad** “Open Xcode’s ‘Preferences...’ menu and then click on ‘Components.’” Ambiguous. Relies on reader knowing that “Preferences” is a submenu of “Xcode.” Difficult to read at a glance.
 
-**Good** “Open **Xcode > Preferences...** and select the **Components** tab.” Path is clearer to pick out from the surrounding copy. 
+**Good** “Open **Xcode > Preferences...** and select the **Components** tab.” Path is clearer to pick out from the surrounding copy.
 
 ## When it comes to values, be explicit
 
@@ -111,16 +111,16 @@ When it comes to describing property values, be definitive in what is and is not
 
 ## Empathize with readers
 
-When writing step-by-step instructions (e.g. how to install something), try to forget everything you know about the topic to attain a "beginner's mindset." Imagine follow the instructions you write, one step at time. Often you will discover that there is implicit knowledge that you forgot to mention, or that there are missing or out-of-order	steps in the instructions. UX research pro tip: ask _someone else_ to follow your instructions and see where they get stuck!
+When writing step-by-step instructions (e.g. how to install something), try to forget everything you know about the topic to attain a "beginner's mindset." Imagine follow the instructions you write, one step at time. Often you will discover that there is implicit knowledge that you forgot to mention, or that there are missing or out-of-order steps in the instructions. UX research pro tip: ask _someone else_ to follow your instructions and see where they get stuck!
 
 # Learn more
 
 ## Writing tips
 
-* Start with an outline, a table of contents of what you want to cover
-* Expand that outline into fully fledged content
-* Ensure your content answers Who, What, Where, When, Why and How
+- Start with an outline, a table of contents of what you want to cover
+- Expand that outline into fully fledged content
+- Ensure your content answers Who, What, Where, When, Why and How
 
 ## Resources
 
-* [React JS’s contibuting guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text), especially the [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
+- [React JS’s contibuting guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-text), especially the [code examples guidelines](https://github.com/reactjs/reactjs.org/blob/master/CONTRIBUTING.md#guidelines-for-code-examples)
