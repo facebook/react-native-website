@@ -8,7 +8,7 @@ authorTwitter: javache
 category: engineering
 ---
 
-React Native allows you to build iOS and Android apps in JavaScript using React and Relay's declarative programming model. This leads to more concise, easier-to-understand code; fast iteration without a compile cycle; and easy sharing of code across multiple platforms. You can ship faster and focus on details that really matter, making your app look and feel fantastic. Optimizing performance is a big part of this. Here is the story of how we made React Native app startup twice as fast.
+React Native allows you to build Android and iOS apps in JavaScript using React and Relay's declarative programming model. This leads to more concise, easier-to-understand code; fast iteration without a compile cycle; and easy sharing of code across multiple platforms. You can ship faster and focus on details that really matter, making your app look and feel fantastic. Optimizing performance is a big part of this. Here is the story of how we made React Native app startup twice as fast.
 
 ## Why the hurry?
 
