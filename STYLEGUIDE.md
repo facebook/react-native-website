@@ -63,7 +63,7 @@ Pronouns are difficult to translate into some languages. They also tend to be ge
 
 ### Example
 
-<!--alex ignore retext-equality-->
+<!--alex ignore he-she retext-equality-->
 
 **Bad** “When he opens the app, he will see a loading screen.”
 
