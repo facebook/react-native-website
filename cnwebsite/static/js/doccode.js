@@ -19,6 +19,7 @@
       articleContainer.insertBefore(el, articleContainer.firstChild);
     }
 
+    /*
     var sideNav = document.querySelector('#docsNav nav');
     if (sideNav) {
       if (detectmob()) {
@@ -29,6 +30,7 @@
         sideNav.appendChild(el);
       }
     }
+    */
 
     if (location.href.indexOf('/getting-started') !== -1) {
       var onPageNav = document.querySelector('nav.onPageNav');
