@@ -4,9 +4,9 @@ title: Accessibility
 original_id: accessibility
 ---
 
-## Native App Accessibility (iOS and Android)
+## Native App Accessibility (Android and iOS)
 
-Both iOS and Android provide APIs for making apps accessible to people with disabilities. In addition, both platforms provide bundled assistive technologies, like the screen readers VoiceOver (iOS) and TalkBack (Android) for the visually impaired. Similarly, in React Native we have included APIs designed to provide developers with support for making apps more accessible. Take note, iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
+Both Android and iOS provide APIs for making apps accessible to people with disabilities. In addition, both platforms provide bundled assistive technologies, like the screen readers VoiceOver (iOS) and TalkBack (Android) for the visually impaired. Similarly, in React Native we have included APIs designed to provide developers with support for making apps more accessible. Take note, Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
 In addition to this documentation, you might find [this blog post](https://engineering.fb.com/ios/making-react-native-apps-accessible/) about React Native accessibility to be useful.
 

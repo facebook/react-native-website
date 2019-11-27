@@ -1,13 +1,12 @@
 ---
 id: accessibility
 title: Accessibility
-description: "Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with iOS and Android."
-
+description: "Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with Android and iOS."
 ---
 
-Both iOS and Android provide APIs for integrating apps with assitive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complimentary APIs that let your app accommodate all users. 
+Both Android and iOS provide APIs for integrating apps with assitive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complimentary APIs that let your app accommodate all users.
 
-> iOS and Android differ slightly in their approaches, and thus the React Native implementations may vary by platform.
+> Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
 ## Accessibility properties
 
@@ -111,13 +110,13 @@ Describes the current state of a component to the user of an assistive technolog
 
 `accessibilityState` is an object. It contains the following fields:
 
-| Name     |  Description | Type               | Required |
-| -------- | ------------ | ------------------ | -------- |
-| disabled | Indicates whether the element is disabled or not. | boolean            | No       |
-| selected | Indicates whether a selectable element is currently selected or not. | boolean            | No       |
+| Name     | Description                                                                                                                           | Type               | Required |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | -------- |
+| disabled | Indicates whether the element is disabled or not.                                                                                     | boolean            | No       |
+| selected | Indicates whether a selectable element is currently selected or not.                                                                  | boolean            | No       |
 | checked  | Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes. | boolean or 'mixed' | No       |
-| busy     | Indicates whether an element is currently busy or not. | boolean            | No       |
-| expanded | Indicates whether an expandable element is currently expanded or collapsed. | boolean            | No       |
+| busy     | Indicates whether an element is currently busy or not.                                                                                | boolean            | No       |
+| expanded | Indicates whether an expandable element is currently expanded or collapsed.                                                           | boolean            | No       |
 
 To use, set the `accessibilityState` to an object with a specific definition.
 
@@ -303,4 +302,4 @@ adb shell settings put secure enabled_accessibility_services com.google.android.
 
 ## Additional Resources
 
-* [Making React Native Apps Accessible](https://engineering.fb.com/ios/making-react-native-apps-accessible/)
+- [Making React Native Apps Accessible](https://engineering.fb.com/ios/making-react-native-apps-accessible/)

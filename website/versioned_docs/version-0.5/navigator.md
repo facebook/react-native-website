@@ -4,7 +4,7 @@ title: Navigator
 original_id: navigator
 ---
 
-`Navigator` handles the transition between different scenes in your app. It is implemented in JavaScript and is available on both iOS and Android. If you are targeting iOS only, you may also want to consider using `NavigatorIOS` as it leverages native UIKit navigation.
+`Navigator` handles the transition between different scenes in your app. It is implemented in JavaScript and is available on both Android and iOS. If you are targeting iOS only, you may also want to consider using `NavigatorIOS` as it leverages native UIKit navigation.
 
 To set up the `Navigator` you provide one or more objects called routes, to identify each scene. You also provide a `renderScene` function that renders the scene for each route object.
 
