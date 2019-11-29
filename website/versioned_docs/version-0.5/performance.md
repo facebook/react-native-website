@@ -4,7 +4,7 @@ title: Performance
 original_id: performance
 ---
 
-A compelling reason for using React Native instead of WebView-based tools is to achieve 60 frames per second and a native look and feel to your apps. Where possible, we would like for React Native to do the right thing and help you to focus on your app instead of performance optimization, but there are areas where we're not quite there yet, and others where React Native (similar to writing native code directly) cannot possibly determine the best way to optimize for you and so manual intervention will be necessary. We try our best to deliver buttery-smooth UI performance by default, but sometimes that just isn't possible.
+A compelling reason for using React Native instead of WebView-based tools is to achieve 60 frames per second and a native look and feel to your apps. Where possible, we would like for React Native to do the right thing and help you to focus on your app instead of performance optimization, but there are areas where we're not quite there yet, and others where React Native (similar to writing native code directly) cannot possibly determine the best way to optimize for you and so manual intervention will be necessary. We try our best to deliver buttery-smooth UI performance by default, but sometimes that isn't possible.
 
 This guide is intended to teach you some basics to help you to [troubleshoot performance issues](performance.md#profiling), as well as discuss [common sources of problems and their suggested solutions](performance.md#common-sources-of-performance-problems).
 
@@ -60,7 +60,7 @@ If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've impleme
 
 ### JS FPS plunges when re-rendering a view that hardly changes
 
-If you are using a ListView, you must provide a `rowHasChanged` function that can reduce a lot of work by quickly determining whether or not a row needs to be re-rendered. If you are using immutable data structures, this would be as simple as a reference equality check.
+If you are using a ListView, you must provide a `rowHasChanged` function that can reduce a lot of work by quickly determining whether or not a row needs to be re-rendered. If you are using immutable data structures, this would only need to be a reference equality check.
 
 Similarly, you can implement `shouldComponentUpdate` and indicate the exact conditions under which you would like the component to re-render. If you write pure components (where the return value of the render function is entirely dependent on props and state), you can leverage PureComponent to do this for you. Once again, immutable data structures are useful to keep this fast -- if you have to do a deep comparison of a large list of objects, it may be that re-rendering your entire component would be quicker, and it would certainly require less code.
 
@@ -202,7 +202,7 @@ If you noticed chop, however, you might see something like this:
 
 ![Choppy Animation from JS](/react-native/docs/assets/SystraceBadJS.png)
 
-Notice that the JS thread is executing basically all the time, and across frame boundaries! This app is not rendering at 60 FPS. In this case, **the problem lies in JS**.
+Notice that the JS thread is executing almost all the time, and across frame boundaries! This app is not rendering at 60 FPS. In this case, **the problem lies in JS**.
 
 You might also see something like this:
 
@@ -218,7 +218,7 @@ If you identified a JS problem, look for clues in the specific JS that you're ex
 
 ![Too much JS](/react-native/docs/assets/SystraceBadJS2.png)
 
-This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://facebook.github.io/react/component-specs.md#updating-shouldcomponentupdate).
+This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://reactjs.org/docs/react-component.html#shouldcomponentupdate).
 
 #### Resolving native UI Issues
 
@@ -240,7 +240,7 @@ To mitigate this, you should:
 - investigate using `renderToHardwareTextureAndroid` for complex, static content that is being animated/transformed (e.g. the `Navigator` slide/alpha animations)
 - make sure that you are **not** using `needsOffscreenAlphaCompositing`, which is disabled by default, as it greatly increases the per-frame load on the GPU in most cases.
 
-If these don't help and you want to dig deeper into what the GPU is actually doing, you can check out [Tracer for OpenGL ES](http://developer.android.com/tools/help/gltracer.html).
+If these don't help and you want to dig deeper into what the GPU is actually doing, you can check out [Tracer for OpenGL ES](http://www.androiddocs.com/tools/help/gltracer.html).
 
 ##### Creating new views on the UI thread
 
@@ -250,7 +250,7 @@ In the second scenario, you'll see something more like this:
 
 Notice that first the JS thread thinks for a bit, then you see some work done on the native modules thread, followed by an expensive traversal on the UI thread.
 
-There isn't an easy way to mitigate this unless you're able to postpone creating new UI until after the interaction, or you are able to simplify the UI you're creating. The react native team is working on an infrastructure level solution for this that will allow new UI to be created and configured off the main thread, allowing the interaction to continue smoothly.
+There isn't a quick way to mitigate this unless you're able to postpone creating new UI until after the interaction, or you are able to simplify the UI you're creating. The react native team is working on an infrastructure level solution for this that will allow new UI to be created and configured off the main thread, allowing the interaction to continue smoothly.
 
 ## RAM bundles + inline requires
 
@@ -347,51 +347,11 @@ project.ext.react = [
 ]
 ```
 
+> **_Note_**: If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you do not need RAM bundles. When loading the bytecode, `mmap` ensures that the entire file is not loaded.
+
 ### Configure Preloading and Inline Requires
 
 Now that we have a RAM bundle, there is overhead for calling `require`. `require` now needs to send a message over the bridge when it encounters a module it has not loaded yet. This will impact startup the most, because that is where the largest number of require calls are likely to take place while the app loads the initial module. Luckily we can configure a portion of the modules to be preloaded. In order to do this, you will need to implement some form of inline require.
-
-### Adding a packager config file
-
-Create a folder in your project called packager, and create a single file named config.js. Add the following:
-
-```
-const config = {
-  transformer: {
-    getTransformOptions: () => {
-      return {
-        transform: { inlineRequires: true },
-      };
-    },
-  },
-};
-
-module.exports = config;
-```
-
-In Xcode, in the build phase, include `export BUNDLE_CONFIG="packager/config.js"`.
-
-```
-export BUNDLE_COMMAND="ram-bundle"
-export BUNDLE_CONFIG="packager/config.js"
-export NODE_BINARY=node
-../node_modules/react-native/scripts/react-native-xcode.sh
-```
-
-Edit your android/app/build.gradle file to include `bundleConfig: "packager/config.js",`.
-
-```
-project.ext.react = [
-  bundleCommand: "ram-bundle",
-  bundleConfig: "packager/config.js"
-]
-```
-
-Finally, you can update "start" under "scripts" on your package.json to use the config:
-
-`"start": "yarn react-native start --config packager/config.js",`
-
-Start your package server with `npm start`. Note that when the dev packager is automatically launched via xcode and `react-native run-android`, etc, it does not use `npm start`, so it won't use the config.
 
 ### Investigating the Loaded Modules
 
@@ -429,14 +389,14 @@ require.Systrace.beginEvent = (message) => {
 }
 ```
 
-Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisified, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
+Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisfied, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
 
-### Updating the config.js
+### Updating the metro.config.js
 
-Returning to packager/config.js we should update it to use our newly generated modulePaths.js file.
+We now need to update `metro.config.js` in the root of the project to use our newly generated `modulePaths.js` file:
 
 ```
-const modulePaths = require('./modulePaths');
+const modulePaths = require('./packager/modulePaths');
 const resolve = require('path').resolve;
 const fs = require('fs');
 
@@ -464,7 +424,7 @@ const config = {
 module.exports = config;
 ```
 
-The `preloadedModules` entry in the config indicates which modules should be marked as preloaded when building a RAM bundle. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The blacklist entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the javascript spends extra time resolving the inline require every time the imports are referenced.
+The `preloadedModules` entry in the config indicates which modules should be marked as preloaded when building a RAM bundle. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The `blacklist` entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the javascript spends extra time resolving the inline require every time the imports are referenced.
 
 ### Test and Measure Improvements
 

@@ -53,7 +53,7 @@ AppRegistry.registerComponent('TextInANest', () => TextInANest);
 
 ## Nested text
 
-Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
 ```SnackPlayer
 import React, { Component } from 'react';
@@ -86,7 +86,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+The `<Text>` element is unique relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
 ```jsx
 <Text>
@@ -149,7 +149,7 @@ You also lose the ability to set up a default font for an entire subtree. The re
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
 class MyAppHeaderText extends Component {

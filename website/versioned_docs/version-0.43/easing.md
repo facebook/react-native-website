@@ -12,10 +12,10 @@ You can find a visualization of some common easing functions at http://easings.n
 
 The `Easing` module provides several predefined animations through the following methods:
 
-- [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
+- [`back`](easing.md#back) provides an animation where the object goes slightly back before moving forward
 - [`bounce`](easing.md#bounce) provides a bouncing animation
-- [`ease`](easing.md#ease) provides a simple inertial animation
-- [`elastic`](easing.md#elastic) provides a simple spring interaction
+- [`ease`](easing.md#ease) provides an inertial animation
+- [`elastic`](easing.md#elastic) provides a spring interaction
 
 ### Standard functions
 
@@ -106,7 +106,7 @@ http://cubic-bezier.com/#0,0,1,1
 static ease(t)
 ```
 
-A simple inertial interaction, similar to an object slowly accelerating to speed.
+An inertial interaction, similar to an object slowly accelerating to speed.
 
 http://cubic-bezier.com/#.42,0,1,1
 
@@ -190,7 +190,7 @@ http://easings.net/#easeInExpo
 static elastic(bounciness)
 ```
 
-A simple elastic interaction, similar to a spring oscillating back and forth.
+An elastic interaction, similar to a spring oscillating back and forth.
 
 Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
 
@@ -209,7 +209,7 @@ Wolfram Plots:
 static back(s)
 ```
 
-Use with `Animated.parallel()` to create a simple effect where the object animates back slightly as the animation starts.
+Use with `Animated.parallel()` to create an effect where the object animates back slightly as the animation starts.
 
 Wolfram Plot:
 
@@ -223,7 +223,7 @@ Wolfram Plot:
 static bounce(t)
 ```
 
-Provides a simple bouncing effect.
+Provides a bouncing effect.
 
 http://easings.net/#easeInBounce
 

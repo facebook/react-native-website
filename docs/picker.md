@@ -3,7 +3,7 @@ id: picker
 title: Picker
 ---
 
-Renders the native picker component on iOS and Android. Example:
+Renders the native picker component on Android and iOS. Example:
 
 ```jsx
 <Picker
@@ -17,24 +17,13 @@ Renders the native picker component on iOS and Android. Example:
 </Picker>
 ```
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`onValueChange`](picker.md#onvaluechange)
-* [`selectedValue`](picker.md#selectedvalue)
-* [`style`](picker.md#style)
-* [`testID`](picker.md#testid)
-* [`enabled`](picker.md#enabled)
-* [`mode`](picker.md#mode)
-* [`prompt`](picker.md#prompt)
-* [`itemStyle`](picker.md#itemstyle)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `onValueChange`
 

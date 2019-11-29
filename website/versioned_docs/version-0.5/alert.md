@@ -6,7 +6,7 @@ original_id: alert
 
 Use `Alert` to display an alert dialog.
 
-This is an API that works both on iOS and Android and can show static alerts. To show an alert that prompts the user to enter some information, see [`AlertIOS`](alertios.md), as entering text in an alert is common on iOS only.
+This is an API that works both on Android and iOS and can show static alerts. To show an alert that prompts the user to enter some information, see [`AlertIOS`](alertios.md), as entering text in an alert is common on iOS only.
 
 Optionally provide a list of buttons. Tapping any button will fire the respective `onPress` callback, and dismiss the alert. If no buttons are provided, a single 'OK' button will be displayed by default.
 
@@ -25,7 +25,7 @@ Alternatively, the dismissing behavior can be disabled altogether by providing a
 Example usage:
 
 ```
-// Works on both iOS and Android
+// Works on both Android and iOS
 Alert.alert(
   'Alert Title',
   'My Alert Msg',

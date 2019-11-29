@@ -15,7 +15,7 @@ try {
   // We don't care if there are no repos synced locally
   // We only care if we are on the CI server and about to deploy
 }
-const defaultVersionShown = '0.60';
+const defaultVersionShown = '0.61';
 const baseUrl = '/react-native/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
@@ -81,6 +81,7 @@ const siteConfig = {
     'https://buttons.github.io/buttons.js',
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
+    baseUrl + 'js/docs-rating.js',
   ],
   cleanUrl: true,
   scrollToTop: true,
@@ -88,6 +89,7 @@ const siteConfig = {
     zIndex: 100,
   },
   docsSideNavCollapsible: true,
+  onPageNav: 'separate',
 };
 
 module.exports = siteConfig;

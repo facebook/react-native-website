@@ -3,14 +3,10 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-<div class="banner-crna-ejected">
+<div class="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
-    This API only works in projects made with <code>react-native init</code>
-    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/permissions/">Permissions</a> in the Expo documentation for the appropriate alternative.
   </p>
 </div>
 
@@ -86,13 +82,6 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 - `GRANTED`: 'granted'
 - `DENIED`: 'denied'
 - `NEVER_ASK_AGAIN`: 'never_ask_again'
-
-### Methods
-
-- [`constructor`](permissionsandroid.md#constructor)
-- [`check`](permissionsandroid.md#check)
-- [`request`](permissionsandroid.md#request)
-- [`requestMultiple`](permissionsandroid.md#requestmultiple)
 
 ---
 

@@ -117,7 +117,7 @@ Here are two ways to flip the icon according to the direction:
 
 #### Gestures and Animations
 
-In iOS and Android development, when you change to RTL layout, the gestures and animations are the opposite of LTR layout. Currently, in RN, gestures and animations are not supported on RN core code level, but on components level. The good news is, some of these components already support RTL today, such as [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js) and [`NavigationExperimental`](https://github.com/facebook/react-native/tree/master/Libraries/NavigationExperimental). However, other components with gestures will need to support RTL manually.
+In Android and iOS development, when you change to RTL layout, the gestures and animations are the opposite of LTR layout. Currently, in RN, gestures and animations are not supported on RN core code level, but on components level. The good news is, some of these components already support RTL today, such as [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js) and [`NavigationExperimental`](https://github.com/facebook/react-native/tree/master/Libraries/NavigationExperimental). However, other components with gestures will need to support RTL manually.
 
 A good example to illustrate gesture RTL support is [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js).
 
@@ -197,7 +197,7 @@ When working on a new feature, you can easily toggle this button and reload the 
 
 The RTL support should cover most of the UX in your app; however, there are some limitations for now:
 
-- Text alignment behaviors differ in iOS and Android
+- Text alignment behaviors differ in Android and iOS
   - In iOS, the default text alignment depends on the active language bundle, they are consistently on one side. In Android, the default text alignment depends on the language of the text content, i.e. English will be left-aligned and Arabic will be right-aligned.
   - In theory, this should be made consistent across platform, but some people may prefer one behavior to another when using an app. More user experience research may be needed to find out the best practice for text alignment.
 

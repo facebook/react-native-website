@@ -47,7 +47,7 @@ Example output:
 
 You can also run `react-native-git-upgrade` with no arguments to upgrade to the latest version of React Native.
 
-We try to preserve your changes in iOS and Android build files, so you don't need to run `react-native link` after an upgrade.
+We try to preserve your changes in Android and iOS build files, so you don't need to run `react-native link` after an upgrade.
 
 We have designed the implementation to be as little intrusive as possible. It is entirely based on a local Git repository created on-the-fly in a temporary directory. It won't interfere with your project repository (no matter what VCS you use: Git, SVN, Mercurial, ... or none). Your sources are restored in case of unexpected errors.
 

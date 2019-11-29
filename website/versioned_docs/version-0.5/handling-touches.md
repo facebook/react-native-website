@@ -19,7 +19,7 @@ Users interact with mobile apps mainly through touch. They can use a combination
 />
 ```
 
-This will render a blue label on iOS, and a blue rounded rectangle with white text on Android. Pressing the button will call the "onPress" function, which in this case displays an alert popup. If you like, you can specify a "color" prop to change the color of your button.
+This will render a blue label on iOS, and a blue rounded rectangle with light text on Android. Pressing the button will call the "onPress" function, which in this case displays an alert popup. If you like, you can specify a "color" prop to change the color of your button.
 
 ![](/react-native/docs/assets/Button.png)
 

@@ -4,13 +4,13 @@ title: Using a ScrollView
 original_id: using-a-scrollview
 ---
 
-The [ScrollView](scrollview.md) is a generic scrolling container that can host multiple components and views. The scrollable items need not be homogeneous, and you can scroll both vertically and horizontally (by setting the `horizontal` property).
+The [ScrollView](scrollview.md) is a generic scrolling container that can contain multiple components and views. The scrollable items need not be homogeneous, and you can scroll both vertically and horizontally (by setting the `horizontal` property).
 
 This example creates a vertical `ScrollView` with both images and text mixed together.
 
-```SnackPlayer
+```SnackPlayer name=Using%20ScrollView
 import React, { Component } from 'react';
-import { AppRegistry, ScrollView, Image, Text } from 'react-native';
+import { ScrollView, Image, Text } from 'react-native';
 
 export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component {
   render() {
@@ -51,14 +51,9 @@ export default class IScrolledDownAndWhatHappenedNextShockedMe extends Component
     );
   }
 }
-
-// skip these lines if using Create React Native App
-AppRegistry.registerComponent(
-  'AwesomeProject',
-  () => IScrolledDownAndWhatHappenedNextShockedMe);
 ```
 
-ScrollViews can be configured to allow paging through views using swiping gestures by using the `pagingEnabled` props. Swiping horizontally between views can also be implemented on Android using the [ViewPagerAndroid](viewpagerandroid.md) component.
+ScrollViews can be configured to allow paging through views using swiping gestures by using the `pagingEnabled` props. Swiping horizontally between views can also be implemented on Android using the [ViewPager](https://github.com/react-native-community/react-native-viewpager) component.
 
 On iOS a ScrollView with a single item can be used to allow the user to zoom content. Set up the `maximumZoomScale` and `minimumZoomScale` props and your user will be able to use pinch and expand gestures to zoom in and out.
 
