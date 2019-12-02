@@ -29,7 +29,7 @@ Fast Refresh tries to preserve local React state in the component you're editing
 - The module you're editing might have _other_ exports in addition to a React component.
 - Sometimes, a module would export the result of calling higher-order component like `createNavigationContainer(MyScreen)`. If the returned component is a class, state will be reset.
 
-In longer term, as more of your codebase moves to function components and Hooks, you can expect state to be preserved in more cases.
+In the longer term, as more of your codebase moves to function components and Hooks, you can expect state to be preserved in more cases.
 
 ## Tips
 
