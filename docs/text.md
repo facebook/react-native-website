@@ -556,7 +556,7 @@ The highlight color of the text.
 
 - **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on Android and iOS Oreo (8.0) or above (API level >= 26). For lower android version it will fallback to `left`.
+  Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
 
 - **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 
