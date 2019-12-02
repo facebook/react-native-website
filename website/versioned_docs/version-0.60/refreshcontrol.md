@@ -8,7 +8,7 @@ This component is used inside a ScrollView or ListView to add pull to refresh fu
 
 ### Example
 
-```SnackPlayer name=RefreshControl
+```SnackPlayer name=RefreshControl&supportedPlatforms=ios,android
 import React from 'react';
 import {
   ScrollView,
