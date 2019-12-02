@@ -177,7 +177,8 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 +     "baseUrl": ".",
 +     "paths": {
 +       "*": ["src/*"],
-+       "tests": ["tests/*"]
++       "tests": ["tests/*"],
++       "@components/*": ["src/components/*"],
 +     },
     }
 ```
@@ -201,7 +202,8 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "test/*": ["./test/"]
++           "tests": ["./tests/"],
++           "@components": "./src/components",
 +         }
 +       }
 +     ]
