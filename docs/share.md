@@ -22,13 +22,16 @@ In Android, Returns a Promise which always be resolved with action being `Share.
 ### Content
 
 - `message` - a message to share
-- `title` - title of the message
 
 #### iOS
 
 - `url` - an URL to share
 
 At least one of URL and message is required.
+
+#### Android
+
+- `title` - title of the message
 
 ### Options
 
