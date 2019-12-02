@@ -82,7 +82,7 @@ including [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software Mansio
 Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
 with repos like React Native Windows and React Native Web.
 
-[2nd highest]: https://octoverse.github.com/projects#repositories
+[2nd highest]: https://octoverse.github.com/2018/projects.html#repositories
 [Callstack]: https://callstack.com/
 [Expo]: https://expo.io/
 [Infinite Red]: https://infinite.red/
