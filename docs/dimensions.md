@@ -31,7 +31,11 @@ Initial dimensions are set before `runApplication` is called so they should be a
 
 Example: `var {height, width} = Dimensions.get('window');`
 
-@param {string} dim Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension.
+**Parameters:**
+
+| Name      | Type     | Required | Description                                                                                   |
+| ------    | ------   | -------- | ----------------------------------------------------------------------------------------------|
+| dim       | string   | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension.  | 
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -55,4 +59,8 @@ static set(dims)
 
 This should only be called from native code by sending the didUpdateDimensions event.
 
-@param {object} dims string-keyed object of dimensions to set
+**Parameters:**
+
+| Name      | Type     | Required | Description                               |
+| ------    | ------   | -------- | ------------------------------------------|
+| dims      | object   | Yes      | string-keyed object of dimensions to set  | 
