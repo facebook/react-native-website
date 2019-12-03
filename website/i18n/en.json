@@ -300,7 +300,7 @@
         "title": "StatusBar"
       },
       "statusbarios": {
-        "title": "StatusBarIOS"
+        "title": "🚧 StatusBarIOS"
       },
       "style": {
         "title": "Style"
@@ -324,7 +324,7 @@
         "title": "TextInput"
       },
       "timepickerandroid": {
-        "title": "TimePickerAndroid"
+        "title": "🚧 TimePickerAndroid"
       },
       "timers": {
         "title": "Timers"
