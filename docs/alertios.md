@@ -1,6 +1,6 @@
 ---
 id: alertios
-title: AlertIOS
+title: 🚧 AlertIOS
 ---
 
 > **Deprecated.** `AlertIOS` has been moved to [`Alert`](alert.md)
