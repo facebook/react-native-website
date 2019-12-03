@@ -2,7 +2,16 @@
 id: dimensions
 title: Dimensions
 ---
+```jsx
+import {Dimensions } from "react-native";
+```
+You can get device width and height using below :
 
+Get device screen width and height :
+```jsx
+const screenWidth = Math.round(Dimensions.get('window').width);
+const screenHeight = Math.round(Dimensions.get('window').height);
+```
 # Reference
 
 ## Methods
