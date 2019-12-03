@@ -507,7 +507,7 @@ Callback that is called when the text input selection is changed. This will be c
 
 ### `onSubmitEditing`
 
-Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`. Invalid if `multiline={true}` is specified.
+Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`.
 
 | Type     | Required |
 | -------- | -------- |
