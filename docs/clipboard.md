@@ -40,8 +40,11 @@ _setContent() {
   Clipboard.setString('hello world');
 }
 ```
+**Parameters:**
 
-@param the content to be stored in the clipboard.
+| Name      | Type     | Required | Description                                |
+| ------    | ------   | -------- | -------------------------------------------|
+| content   | string   | Yes      | The content to be stored in the clipboard  | 
 
 _Notice_
 
