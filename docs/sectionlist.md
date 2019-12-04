@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 32,
+    backgroundColor: '#fff'
   },
   title: {
     fontSize: 24,
