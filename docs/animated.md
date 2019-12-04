@@ -3,9 +3,9 @@ id: animated
 title: Animated
 ---
 
-The `Animated` library is designed to make animations fluid, powerful, and easy to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
+The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
-The simplest workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
+The most basic workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
 
 ```jsx
 Animated.timing(
@@ -33,7 +33,7 @@ There are two value types you can use with `Animated`:
 `Animated` provides three types of animation types. Each animation type provides a particular animation curve that controls how your values animate from their initial value to the final value:
 
 - [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
-- [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
+- [`Animated.spring()`](animated.md#spring) provides a basic spring physics model.
 - [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
 
 In most cases, you will be using `timing()`. By default, it uses a symmetric easeInOut curve that conveys the gradual acceleration of an object to full speed and concludes by gradually decelerating to a stop.
@@ -50,7 +50,7 @@ You can use the native driver by specifying `useNativeDriver: true` in your anim
 
 ### Animatable components
 
-Only animatable components can be animated. These special components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
+Only animatable components can be animated. These unique components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
 
 - [`createAnimatedComponent()`](animated.md#createanimatedcomponent) can be used to make a component animatable.
 
@@ -72,7 +72,7 @@ Animations can also be combined in complex ways using composition functions:
 - [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
 - [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
 
-Animations can also be chained together simply by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](animations.md#tracking-dynamic-values) in the Animations guide.
+Animations can also be chained together by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](animations.md#tracking-dynamic-values) in the Animations guide.
 
 By default, if one animation is stopped or interrupted, then all other animations in the group are also stopped.
 
@@ -113,35 +113,6 @@ For example, when working with horizontal scrolling gestures, you would do the f
     }]
  )}
 ```
-
-### Methods
-
-- [`decay`](animated.md#decay)
-- [`timing`](animated.md#timing)
-- [`spring`](animated.md#spring)
-- [`add`](animated.md#add)
-- [`subtract`](animated.md#subtract)
-- [`divide`](animated.md#divide)
-- [`multiply`](animated.md#multiply)
-- [`modulo`](animated.md#modulo)
-- [`diffClamp`](animated.md#diffclamp)
-- [`delay`](animated.md#delay)
-- [`sequence`](animated.md#sequence)
-- [`parallel`](animated.md#parallel)
-- [`stagger`](animated.md#stagger)
-- [`loop`](animated.md#loop)
-- [`event`](animated.md#event)
-- [`forkEvent`](animated.md#forkevent)
-- [`unforkEvent`](animated.md#unforkevent)
-
-### Properties
-
-- [`Value`](animated.md#value)
-- [`ValueXY`](animated.md#valuexy)
-- [`Interpolation`](animated.md#interpolation)
-- [`Node`](animated.md#node)
-- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
-- [`attachNativeEvent`](animated.md#attachnativeevent)
 
 ---
 
@@ -198,14 +169,14 @@ Config is an object that may have the following options.
 
 Note that you can only define one of bounciness/speed, tension/friction, or stiffness/damping/mass, but not more than one:
 
-The friction/tension or bounciness/speed options match the spring model in [Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
+The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
 
 - `friction`: Controls "bounciness"/overshoot. Default 7.
 - `tension`: Controls speed. Default 40.
 - `speed`: Controls speed of the animation. Default 12.
 - `bounciness`: Controls bounciness. Default 8.
 
-Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation primitive.
+Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
 
 - `stiffness`: The spring stiffness coefficient. Default 100.
 - `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
@@ -331,7 +302,7 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 static loop(animation, config?)
 ```
 
-Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the JS thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
 
 Config is an object that may have the following options:
 
@@ -373,7 +344,7 @@ Config is an object that may have the following options:
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a simple javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
 
 ---
 

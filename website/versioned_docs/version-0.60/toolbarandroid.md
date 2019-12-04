@@ -31,30 +31,13 @@ onActionSelected: function(position) {
 
 [0]: https://developer.android.com/reference/android/support/v7/widget/Toolbar.html
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`actions`](toolbarandroid.md#actions)
-* [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
-* [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
-* [`logo`](toolbarandroid.md#logo)
-* [`navIcon`](toolbarandroid.md#navicon)
-* [`onActionSelected`](toolbarandroid.md#onactionselected)
-* [`onIconClicked`](toolbarandroid.md#oniconclicked)
-* [`overflowIcon`](toolbarandroid.md#overflowicon)
-* [`rtl`](toolbarandroid.md#rtl)
-* [`subtitle`](toolbarandroid.md#subtitle)
-* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-* [`testID`](toolbarandroid.md#testid)
-* [`title`](toolbarandroid.md#title)
-* [`titleColor`](toolbarandroid.md#titlecolor)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `actions`
 

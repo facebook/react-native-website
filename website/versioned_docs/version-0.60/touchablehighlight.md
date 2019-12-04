@@ -112,6 +112,8 @@ const styles = StyleSheet.create({
 
 ## Props
 
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
 ### `activeOpacity`
 
 Determines what the opacity of the wrapped view should be when touch is active. The value should be between 0 and 1. Defaults to 0.85. Requires `underlayColor` to be set.

@@ -86,38 +86,6 @@ dependencies {
 }
 ```
 
-### Props
-
-- [`style`](image.md#style)
-- [`blurRadius`](image.md#blurradius)
-- [`onLayout`](image.md#onlayout)
-- [`onLoad`](image.md#onload)
-- [`onLoadEnd`](image.md#onloadend)
-- [`onLoadStart`](image.md#onloadstart)
-- [`resizeMode`](image.md#resizemode)
-- [`source`](image.md#source)
-- [`loadingIndicatorSource`](image.md#loadingindicatorsource)
-- [`onError`](image.md#onerror)
-- [`testID`](image.md#testid)
-- [`resizeMethod`](image.md#resizemethod)
-- [`accessibilityLabel`](image.md#accessibilitylabel)
-- [`accessible`](image.md#accessible)
-- [`capInsets`](image.md#capinsets)
-- [`defaultSource`](image.md#defaultsource)
-- [`onPartialLoad`](image.md#onpartialload)
-- [`onProgress`](image.md#onprogress)
-- [`fadeDuration`](image.md#fadeduration)
-- [`progressiveRenderingEnabled`](image.md#progressiverenderingenabled)
-
-### Methods
-
-- [`getSize`](image.md#getsize)
-- [`getSizeWithHeaders`](image.md#getsizewithheaders)
-- [`prefetch`](image.md#prefetch)
-- [`abortPrefetch`](image.md#abortprefetch)
-- [`queryCache`](image.md#querycache)
-- [`resolveAssetSource`](image.md#resolveassetsource)
-
 ---
 
 # Reference
@@ -233,7 +201,7 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
