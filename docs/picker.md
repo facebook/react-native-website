@@ -9,25 +9,24 @@ Renders the native picker component on Android and iOS. Example:
 import React, {useState} from 'react';
 import { View, Picker } from 'react-native';
 
-export default function App()
+export default function App(){
   const [language, setLanguage] = useState('')
 
-  render() {
-    return (
-      <View>
-        <Picker
-          selectedValue={language}
-          style={{height: 50}}
-          onValueChange={(itemValue, itemIndex) =>
-            setLanguage(itemValue)
-          }>
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
-        </Picker>
-      </View>
-    );
-  }
+  return (
+    <View>
+      <Picker
+        selectedValue={language}
+        style={{height: 50}}
+        onValueChange={(itemValue, itemIndex) =>
+          setLanguage(itemValue)
+        }>
+        <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" />
+      </Picker>
+    </View>
+  );
 }
+
 
 ```
 
