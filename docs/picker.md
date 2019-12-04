@@ -5,7 +5,7 @@ title: Picker
 
 Renders the native picker component on iOS and Android. Example:
 
-```jsx
+```SnackPlayer name=Picker
 import React, {useState} from 'react';
 import { View, Picker } from 'react-native';
 
