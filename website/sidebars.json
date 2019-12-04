@@ -96,6 +96,13 @@
       "viewpagerandroid",
       "virtualizedlist"
     ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
+    ],
     "APIs": [
       "accessibilityinfo",
       "actionsheetios",
@@ -112,10 +119,8 @@
       "easing",
       "imageeditor",
       "imagepickerios",
-      "image-style-props",
       "interactionmanager",
       "keyboard",
-      "layout-props",
       "layoutanimation",
       "linking",
       "panresponder",
@@ -123,17 +128,14 @@
       "pixelratio",
       "pushnotificationios",
       "settings",
-      "shadow-props",
       "share",
       "statusbarios",
       "stylesheet",
       "systrace",
-      "text-style-props",
       "timepickerandroid",
       "toastandroid",
       "transforms",
-      "vibration",
-      "view-style-props"
+      "vibration"
     ]
   }
 }
