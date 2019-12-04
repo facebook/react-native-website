@@ -5,9 +5,9 @@ title: Navigating Between Screens
 
 Mobile apps are rarely made up of a single screen. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator.
 
-This guide covers the various navigation components available in React Native. If you are getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both iOS and Android.
+This guide covers the various navigation components available in React Native. If you are getting started with navigation, you will probably want to use [React Navigation](navigation.md#react-navigation). React Navigation provides a straightforward navigation solution, with the ability to present common stack navigation and tabbed navigation patterns on both Android and iOS.
 
-If you'd like to achieve a native look and feel on both iOS and Android, or you're integrating React Native into an app that already manages navigation natively, the following library provides native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
+If you'd like to achieve a native look and feel on both Android and iOS, or you're integrating React Native into an app that already manages navigation natively, the following library provides native navigation on both platforms: [react-native-navigation](https://github.com/wix/react-native-navigation).
 
 ## React Navigation
 
@@ -16,7 +16,9 @@ The community solution to navigation is a standalone library that allows develop
 The first step is to install in your project:
 
 ```
-npm install --save react-navigation
+yarn add react-navigation
+# or with npm
+# npm install --save react-navigation
 ```
 
 The second step is to install react-native-gesture-handler
