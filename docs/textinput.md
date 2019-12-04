@@ -5,7 +5,7 @@ title: TextInput
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
 
-The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
+The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput
 import React, { Component } from 'react';
@@ -221,7 +221,7 @@ Possible values for `dataDetectorTypes` are:
 
 ### `defaultValue`
 
-Provides an initial value that will change when the user starts typing. Useful for simple use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
+Provides an initial value that will change when the user starts typing. Useful for use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
 
 | Type   | Required |
 | ------ | -------- |
@@ -507,7 +507,17 @@ Callback that is called when the text input selection is changed. This will be c
 
 ### `onSubmitEditing`
 
-Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`. Invalid if `multiline={true}` is specified.
+Callback that is called when the text input's submit button is pressed with the argument `{nativeEvent: {text, eventCount, target}}`.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onTextInput`
+
+Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
 
 | Type     | Required |
 | -------- | -------- |
@@ -753,13 +763,15 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 ### `textBreakStrategy`
 
+<!-- alex disable simple -->
+
 Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `simple`.
 
 | Type                                      | Required | Platform |
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
 
----
+## <!-- alex enable simple -->
 
 ### `underlineColorAndroid`
 
@@ -773,13 +785,29 @@ The color of the `TextInput` underline.
 
 ### `value`
 
-The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
+The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
 
 ## Methods
+
+### `.focus()`
+
+```jsx
+focus();
+```
+
+Makes the native input request focus.
+
+### `.blur()`
+
+```jsx
+blur();
+```
+
+Makes the native input lose focus.
 
 ### `clear()`
 
@@ -803,3 +831,4 @@ Returns `true` if the input is currently focused; `false` otherwise.
 
 - [react-native#19096](https://github.com/facebook/react-native/issues/19096): Doesn't support Android's `onKeyPreIme`.
 - [react-native#19366](https://github.com/facebook/react-native/issues/19366): Calling .focus() after closing Android's keyboard via back button doesn't bring keyboard up again.
+- [react-native#26799](https://github.com/facebook/react-native/issues/26799): Doesn't support Android's `secureTextEntry` when `keyboardType="email-address"` or `keyboardType="phone-pad"`.

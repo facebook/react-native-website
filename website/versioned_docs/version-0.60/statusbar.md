@@ -110,7 +110,7 @@ If the status bar is translucent. When translucent is set to true, the app will 
 static popStackEntry(entry: any)
 ```
 
-Pop a StatusBar entry from the stack.
+Get and remove the last a StatusBar entry from the stack.
 
 **Parameters:**
 

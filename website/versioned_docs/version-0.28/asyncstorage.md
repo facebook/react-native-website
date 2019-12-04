@@ -4,11 +4,11 @@ title: AsyncStorage
 original_id: asyncstorage
 ---
 
-AsyncStorage is a simple, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
+AsyncStorage is an asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
 It is recommended that you use an abstraction on top of AsyncStorage instead of AsyncStorage directly for anything more than light usage since it operates globally.
 
-On iOS, AsyncStorage is backed by native code that stores small values in a serialized dictionary and larger values in separate files. On Android, AsyncStorage will use either RocksDB or SQLite based on what is available. This JS code is a simple facade that provides a clear JS API, real Error objects, and simple non-multi functions. Each method returns a `Promise` object.
+On iOS, AsyncStorage is backed by native code that stores small values in a serialized dictionary and larger values in separate files. On Android, AsyncStorage will use either RocksDB or SQLite based on what is available. This JS code is a facade that provides a clear JS API, real Error objects, and non-multi functions. Each method returns a `Promise` object.
 
 ### Methods
 

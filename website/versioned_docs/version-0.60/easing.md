@@ -12,10 +12,10 @@ You can find a visualization of some common easing functions at http://easings.n
 
 The `Easing` module provides several predefined animations through the following methods:
 
-- [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
+- [`back`](easing.md#back) provides a basic animation where the object goes slightly back before moving forward
 - [`bounce`](easing.md#bounce) provides a bouncing animation
-- [`ease`](easing.md#ease) provides a simple inertial animation
-- [`elastic`](easing.md#elastic) provides a simple spring interaction
+- [`ease`](easing.md#ease) provides a basic inertial animation
+- [`elastic`](easing.md#elastic) provides a basic spring interaction
 
 ### Standard functions
 
@@ -86,7 +86,7 @@ http://cubic-bezier.com/#0,0,1,1
 static ease(t)
 ```
 
-A simple inertial interaction, similar to an object slowly accelerating to speed.
+A basic inertial interaction, similar to an object slowly accelerating to speed.
 
 http://cubic-bezier.com/#.42,0,1,1
 
@@ -170,7 +170,7 @@ http://easings.net/#easeInExpo
 static elastic(bounciness)
 ```
 
-A simple elastic interaction, similar to a spring oscillating back and forth.
+A basic elastic interaction, similar to a spring oscillating back and forth.
 
 Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
 
@@ -184,7 +184,7 @@ http://easings.net/#easeInElastic
 static back(s)
 ```
 
-Use with `Animated.parallel()` to create a simple effect where the object animates back slightly as the animation starts.
+Use with `Animated.parallel()` to create a basic effect where the object animates back slightly as the animation starts.
 
 ---
 
@@ -194,7 +194,7 @@ Use with `Animated.parallel()` to create a simple effect where the object animat
 static bounce(t)
 ```
 
-Provides a simple bouncing effect.
+Provides a basic bouncing effect.
 
 http://easings.net/#easeInBounce
 

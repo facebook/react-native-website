@@ -21,7 +21,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 If you need _sticky_ section header support, use `ListView` for now.
 
-Simple Examples:
+Examples:
 
     <SectionList
       renderItem={({item}) => <ListItem title={item.title}}

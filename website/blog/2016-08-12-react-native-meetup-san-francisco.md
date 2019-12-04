@@ -36,7 +36,7 @@ The first round of news was followed by a quick introduction by Zynga, our hosts
 Up next, the first featured talk of the evening. [Clarence Leung](https://twitter.com/clarler), Senior Software Engineer at Netflix, presented his talk on Designing APIs for React Native. First he noted the two main types of libraries one may work on: components such as tab bars and date pickers, and libraries that provide access to native services such as the camera roll or in-app payments. There are two ways one may approach when building a library for use in React Native:
 
 - Provide platform-specific components
-- A cross-platform library with a similar API for both iOS and Android
+- A cross-platform library with a similar API for both Android and iOS
 
 Each approach has its own considerations, and it’s up to you to determine what works best for your needs.
 
@@ -46,13 +46,13 @@ As an example of platform-specific components, Clarence talked about the DatePic
 
 **Approach #2**
 
-Photo pickers, on the other hand, are treated similarly on iOS and Android. There are some slight differences — Android does not group photos into folders like iOS does with Selfies, for example — but those are easily handled using `if` statements and the `Platform` component.
+Photo pickers, on the other hand, are treated similarly on Android and iOS. There are some slight differences — Android does not group photos into folders like iOS does with Selfies, for example — but those are easily handled using `if` statements and the `Platform` component.
 
 Regardless of which approach you settle on, it’s a good idea to minimize the API surface and build app-specific libraries. For example, iOS’s In-App Purchase framework supports one-time, consumable purchases, as well as renewable subscriptions. If your app will only need to support consumable purchases, you may get away with dropping support for subscriptions in your cross-platform library.
 
 ![](/react-native/blog/assets/rnmsf-august-2016-netflix.jpg)
 
-There was a brief Q&A session at the end of Clarence’s talk. One of the interesting tid bits that came out of it was that around 80% of the React Native code written for these libraries at Netflix is shared across both iOS and Android.
+There was a brief Q&A session at the end of Clarence’s talk. One of the interesting tid bits that came out of it was that around 80% of the React Native code written for these libraries at Netflix is shared across both Android and iOS.
 
 ## Bridging the Gap, Using React Native in Existing Codebases
 
@@ -60,13 +60,13 @@ The final talk of the night was by [Leland Richardson](https://twitter.com/intel
 
 Leland started off by talking about greenfield apps versus brownfield apps. Greenfield means to start a project without the need to consider any prior work. This is in contrast to brownfield projects where you need to take into account the existing project’s requirements, development processes, and all of the teams various needs.
 
-When you’re working on a greenfield app, the React Native CLI sets up a single repository for both iOS and Android and everything just works. The first challenge against using React Native at Airbnb was the fact that the iOS and Android app each had their own repository. Multi-repo companies have some hurdles to get past before they can adopt React Native.
+When you’re working on a greenfield app, the React Native CLI sets up a single repository for both Android and iOS and everything just works. The first challenge against using React Native at Airbnb was the fact that the Android and iOS app each had their own repository. Multi-repo companies have some hurdles to get past before they can adopt React Native.
 
-To get around this, Airbnb first set up a new repo for the React Native codebase. They used their continuous integration servers to mirror the iOS and Android repos into this new repo. After tests are run and the bundle is built, the build artifacts are synced back to the iOS and Android repos. This allows the mobile engineers to work on native code without altering their development enviroment. Mobile engineers don't need to install npm, run the packager, or remember to build the JavaScript bundle. The engineers writing actual React Native code do not have to worry about syncing their code across iOS and Android, as they work on the React Native repository directly.
+To get around this, Airbnb first set up a new repo for the React Native codebase. They used their continuous integration servers to mirror the Android and iOS repos into this new repo. After tests are run and the bundle is built, the build artifacts are synced back to the Android and iOS repos. This allows the mobile engineers to work on native code without altering their development enviroment. Mobile engineers don't need to install npm, run the packager, or remember to build the JavaScript bundle. The engineers writing actual React Native code do not have to worry about syncing their code across Android and iOS, as they work on the React Native repository directly.
 
-This does come with some drawbacks, mainly they could not ship atomic updates. Changes that require a combination of native and JavaScript code would require three separate pull requests, all of which had to be carefully landed. In order to avoid conflicts, CI will fail to land changes back to the iOS and Android repos if master has changed since the build started. This would cause long delays during high commit frequency days (such as when new releases are cut).
+This does come with some drawbacks, mainly they could not ship atomic updates. Changes that require a combination of native and JavaScript code would require three separate pull requests, all of which had to be carefully landed. In order to avoid conflicts, CI will fail to land changes back to the Android and iOS repos if master has changed since the build started. This would cause long delays during high commit frequency days (such as when new releases are cut).
 
-Airbnb has since moved to a mono repo approach. Fortunately this was already under consideration, and once the iOS and Android teams became comfortable with using React Native they were happy to accelerate the move towards the mono repo.
+Airbnb has since moved to a mono repo approach. Fortunately this was already under consideration, and once the Android and iOS teams became comfortable with using React Native they were happy to accelerate the move towards the mono repo.
 
 This has solved most of the issues they had with the split repo approach. Leland did note that this does cause a higher strain on the version control servers, which may be an issue for smaller companies.
 
