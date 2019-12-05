@@ -18,7 +18,7 @@ import { Text, View } from 'react-native';
 function HelloWorldApp() {
   return (
     <View
-      style={{
+      style={{  }}
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
@@ -53,13 +53,13 @@ The other unusual thing in this code example is `<View><Text>Hello world!</Text>
 
 ## Components
 
-So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component. A component can be pretty simple.
+So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component.
 
 ## Props
 
 Most components can be customized when they are created, with different parameters. These creation parameters are called props.
 
-Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Just refer to `props.{NAME}` in your functional components or `this.props.{NAME}` in your class components. Here's an example:
+Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Refer to `props.{NAME}` in your functional components or `this.props.{NAME}` in your class components. Here's an example:
 
 ```SnackPlayer name=Hello%20Props
 import React from 'react';
@@ -92,7 +92,7 @@ function LotsOfGreetings() {
 export default LotsOfGreetings;
 ```
 
-Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX, just like the built-in components. The power to do this is what makes React so cool - if you find yourself wishing that you had a different set of UI primitives to work with, you just invent new ones.
+Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX. The power to do this is what makes React so cool.
 
 The other new thing going on here is the [`View`](view.md) component. A [`View`](view.md) is useful as a container for other components, to help control style and layout.
 
@@ -124,10 +124,10 @@ import {
 } from 'react-native'
 
 class App extends Component {
-  state = { 
-    count: 0 
+  state = {
+    count: 0
   }
-  
+
   onPress = () => {
     this.setState({
       count: this.state.count + 1
