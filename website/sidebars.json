@@ -6,41 +6,39 @@
       "props",
       "state",
       "style",
-      "height-and-width",
-      "flexbox",
       "handling-text-input",
-      "handling-touches",
       "using-a-scrollview",
       "using-a-listview",
-      "network",
+      "troubleshooting",
       "more-resources"
     ],
-    "Guides": [
-      "fast-refresh",
-      "components-and-apis",
-      "platform-specific-code",
-      "navigation",
-      "images",
-      "animations",
-      "accessibility",
-      "improvingux",
-      "optimizing-flatlist-configuration",
-      "timers",
-      "debugging",
-      "performance",
-      "gesture-responder-system",
-      "javascript-environment",
-      "typescript",
-      "direct-manipulation",
-      "colors",
+    "Environment setup": [
       "integration-with-existing-apps",
       "building-for-apple-tv",
-      "running-on-device",
-      "upgrading",
-      "troubleshooting",
-      "native-modules-setup",
       "out-of-tree-platforms"
     ],
+    "Workflow": [
+      "running-on-device",
+      "fast-refresh",
+      "debugging",
+      "typescript"
+    ],
+    "Design": ["colors", "images", "stylesheet", "flexbox", "height-and-width"],
+    "Interaction": [
+      "handling-touches",
+      "navigation",
+      "animations",
+      "gesture-responder-system"
+    ],
+    "Inclusion": ["accessibility"],
+    "Performance": ["performance", "optimizing-flatlist-configuration"],
+    "JavaScript Internals": ["javascript-environment", "timers", "hermes"],
+    "Connectivity": ["network"],
+    "Native Components and Modules": [
+      "native-modules-setup",
+      "direct-manipulation"
+    ],
+    "Maintaining": ["upgrading"],
     "Guides (iOS)": [
       "native-modules-ios",
       "native-components-ios",
@@ -54,12 +52,13 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "removing-default-permissions",
-      "hermes"
-    ]
+      "removing-default-permissions"
+    ],
+    "Interoperability": ["platform-specific-code"]
   },
   "api": {
     "Components": [
+      "components-and-apis",
       "activityindicator",
       "button",
       "datepickerios",
@@ -115,7 +114,6 @@
       "image-style-props",
       "interactionmanager",
       "keyboard",
-      "layout-props",
       "layoutanimation",
       "linking",
       "panresponder",
@@ -126,7 +124,6 @@
       "shadow-props",
       "share",
       "statusbarios",
-      "stylesheet",
       "systrace",
       "text-style-props",
       "timepickerandroid",

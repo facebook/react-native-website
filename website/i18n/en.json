@@ -3492,11 +3492,22 @@
     },
     "categories": {
       "The Basics": "The Basics",
-      "Guides": "Guides",
+      "Environment setup": "Environment setup",
+      "Workflow": "Workflow",
+      "Design": "Design",
+      "Interaction": "Interaction",
+      "Inclusion": "Inclusion",
+      "Performance": "Performance",
+      "JavaScript Internals": "JavaScript Internals",
+      "Connectivity": "Connectivity",
+      "Native Components and Modules": "Native Components and Modules",
+      "Maintaining": "Maintaining",
       "Guides (iOS)": "Guides (iOS)",
       "Guides (Android)": "Guides (Android)",
+      "Interoperability": "Interoperability",
       "Components": "Components",
       "APIs": "APIs",
+      "Guides": "Guides",
       "Contributing": "Contributing"
     }
   },
