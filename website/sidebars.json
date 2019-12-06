@@ -114,6 +114,7 @@
       "image-style-props",
       "interactionmanager",
       "keyboard",
+      "layout-props",
       "layoutanimation",
       "linking",
       "panresponder",
