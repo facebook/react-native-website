@@ -7,40 +7,36 @@ A component which enables customization of the keyboard input accessory view on 
 
 To use this component wrap your custom toolbar with the InputAccessoryView component, and set a `nativeID`. Then, pass that `nativeID` as the `inputAccessoryViewID` of whatever `TextInput` you desire. A basic example:
 
-```SnackPlayer name=InputAccessoryView&platform=ios
-import React, { Component } from 'react';
-import { View, ScrollView, TextInput, InputAccessoryView, Button } from 'react-native';
+```SnackPlayer name=InputAccessoryView&supportedPlatforms=ios,web
+import React, { useState } from 'react';
+import { Button, InputAccessoryView, ScrollView, TextInput } from 'react-native';
 
-export default class UselessTextInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {text: 'Placeholder Text'};
-  }
-
-  render() {
-    const inputAccessoryViewID = "uniqueID";
-    return (
-      <View>
-        <ScrollView keyboardDismissMode="interactive">
-          <TextInput
-            style={{
-              padding: 10,
-              paddingTop: 50,
-            }}
-            inputAccessoryViewID={inputAccessoryViewID}
-            onChangeText={text => this.setState({text})}
-            value={this.state.text}
-          />
-        </ScrollView>
-        <InputAccessoryView nativeID={inputAccessoryViewID}>
-          <Button
-            onPress={() => this.setState({text: 'Placeholder Text'})}
-            title="Reset Text"
-          />
-        </InputAccessoryView>
-      </View>
-    );
-  }
+export default App = () => {
+  const inputAccessoryViewID = 'uniqueID';
+  const initialText = 'Placeholder Text';
+  const [text, setText] = useState(initialText);
+  
+  return (
+    <>
+      <ScrollView keyboardDismissMode="interactive">
+        <TextInput
+          style={{
+            padding: 16,
+            marginTop: 50
+          }}
+          inputAccessoryViewID={inputAccessoryViewID}
+          onChangeText={text => setText(text)}
+          value={text}
+        />
+      </ScrollView>
+      <InputAccessoryView nativeID={inputAccessoryViewID}>
+        <Button
+          onPress={() => setText(initialText)}
+          title="Reset Text"
+        />
+      </InputAccessoryView>
+    </>
+  );
 }
 ```
 
