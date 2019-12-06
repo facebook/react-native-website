@@ -10,6 +10,7 @@
       "using-a-scrollview",
       "using-a-listview",
       "troubleshooting",
+      "platform-specific-code",
       "more-resources"
     ],
     "Environment setup": [
@@ -21,7 +22,8 @@
       "running-on-device",
       "fast-refresh",
       "debugging",
-      "typescript"
+      "typescript",
+      "upgrading"
     ],
     "Design": ["colors", "images", "stylesheet", "flexbox", "height-and-width"],
     "Interaction": [
@@ -32,13 +34,12 @@
     ],
     "Inclusion": ["accessibility"],
     "Performance": ["performance", "optimizing-flatlist-configuration"],
-    "JavaScript Internals": ["javascript-environment", "timers", "hermes"],
+    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Connectivity": ["network"],
     "Native Components and Modules": [
       "native-modules-setup",
       "direct-manipulation"
     ],
-    "Maintaining": ["upgrading"],
     "Guides (iOS)": [
       "native-modules-ios",
       "native-components-ios",
@@ -53,8 +54,7 @@
       "headless-js-android",
       "signed-apk-android",
       "removing-default-permissions"
-    ],
-    "Interoperability": ["platform-specific-code"]
+    ]
   },
   "api": {
     "Components": [
