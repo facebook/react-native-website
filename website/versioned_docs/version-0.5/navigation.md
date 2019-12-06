@@ -12,20 +12,84 @@ If you'd like to achieve a native look and feel on both Android and iOS, or you'
 
 ## React Navigation
 
-The community solution to navigation is a standalone library that allows developers to set up the screens of an app with a few lines of code.
+The community solution to navigation is a standalone library that allows developers to set up the screens of an app with a few lines of code. Assuming you are on the latest react-native version.
 
 The first step is to install in your project:
 
 ```
-npm install --save react-navigation
+yarn add react-navigation
+# or with npm
+# npm install react-navigation
 ```
 
-The second step is to install react-native-gesture-handler
+The second step is to install additional dependencies such as `react-native-gesture-handler`, `react-native-reanimated`, and `react-native-screens`:
 
 ```
 yarn add react-native-gesture-handler
 # or with npm
 # npm install --save react-native-gesture-handler
+```
+
+```
+yarn add react-native-reanimated
+# or with npm
+# npm install --save react-native-reanimated
+```
+
+```
+yarn add react-native-screens
+# or with npm
+# npm install --save react-native-screens
+```
+
+To complete your installation on **iOS**, make sure you have [Cocoapods](https://cocoapods.org/). Then run:
+
+```
+cd ios
+pod install
+cd ..
+```
+
+To Complete your installation on **Android**. Add the following two lines to dependencies section in `android/app/build.gradle`:
+
+```
+implementation 'androidx.appcompat:appcompat:1.1.0-rc01'
+implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0-alpha02'
+```
+
+And make the following modifications to `MainActivity.java`:
+
+```diff
+package com.reactnavigation.example;
+
+import com.facebook.react.ReactActivity;
++ import com.facebook.react.ReactActivityDelegate;
++ import com.facebook.react.ReactRootView;
++ import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+
+public class MainActivity extends ReactActivity {
+
+  @Override
+  protected String getMainComponentName() {
+    return "Example";
+  }
+
++  @Override
++  protected ReactActivityDelegate createReactActivityDelegate() {
++    return new ReactActivityDelegate(this, getMainComponentName()) {
++      @Override
++      protected ReactRootView createRootView() {
++       return new RNGestureHandlerEnabledRootView(MainActivity.this);
++      }
++    };
++  }
+}
+```
+
+Then add the following at the top of your entry file, such as `index.js` or `App.js`:
+
+```
+import 'react-native-gesture-handler'
 ```
 
 The third step is to install react-navigation-stack
