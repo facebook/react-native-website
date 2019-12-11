@@ -83,6 +83,9 @@ function SnackPlayer(md) {
     const sampleCode = tokens[idx].content;
     const encodedSampleCode = encodeURIComponent(sampleCode);
     const platform = params.platform ? params.platform : 'ios';
+    const supportedPlatforms = params.supportedPlatforms
+      ? params.supportedPlatforms
+      : 'ios,android,web';
     const rnVersion = params.version ? params.version : 'next';
 
     return (
@@ -96,6 +99,7 @@ function SnackPlayer(md) {
         data-snack-description="${description}"
         data-snack-code="${encodedSampleCode}"
         data-snack-platform="${platform}"
+        data-snack-supported-platforms=${supportedPlatforms}
         data-snack-preview="true"
         style="
           overflow: hidden;

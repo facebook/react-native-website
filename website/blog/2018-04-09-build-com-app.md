@@ -8,7 +8,7 @@ authorTwitter: gwmccull
 category: built-with-reactnative
 ---
 
-[Build.com](https://www.build.com/), headquartered in Chico, California, is one of the largest online retailers for home improvement items. The team has had a strong web-centric business for 18 years and began thinking about a mobile App in 2015. Building unique iOS and Android apps wasn’t practical due to our small team and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on React Native version 0.53.0.
+[Build.com](https://www.build.com/), headquartered in Chico, California, is one of the largest online retailers for home improvement items. The team has had a strong web-centric business for 18 years and began thinking about a mobile App in 2015. Building unique Android and iOS apps wasn’t practical due to our small team and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on React Native version 0.53.0.
 
 You can check out the app at [https://www.build.com/app](https://www.build.com/app).
 
@@ -23,7 +23,7 @@ Our app is full featured and includes everything that you’d expect from an e-c
 A few standout features you might not expect include:
 
 1. 3D models available for around 40 products with 90 finishes
-2. Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy. The Build.com React Native App is featured in the Apple App store for AR Shopping! AR is now available for iOS and Android!
+2. Augmented Reality (AR) to allow the user to see how lights and faucets will look in their home at 98% size accuracy. The Build.com React Native App is featured in the Apple App store for AR Shopping! AR is now available for Android and iOS!
 3. Collaborative project management features that allow people to put together shopping lists for the different phases of their project and collaborate around selection
 
 We’re working on many new and exciting features that will continue to improve our app experience including the next phase of Immersive Shopping with AR.
