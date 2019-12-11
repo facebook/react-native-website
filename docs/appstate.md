@@ -65,7 +65,7 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### `change`
 
-This even is received when the app state has changed. The listener is called with one of [the current app state values](appstate.md#app-states).
+This event is received when the app state has changed. The listener is called with one of [the current app state values](appstate.md#app-states).
 
 ### `focus`
 
