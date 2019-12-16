@@ -41,3 +41,5 @@ The folks who built the app for Facebook's F8 conference also [open-sourced the 
 [Bugsnag](https://www.bugsnag.com/), [Microsoft App Center](https://appcenter.ms/signup?utm_source=Facebook%20React%20Native&utm_medium=Azure&utm_campaign=GitHub), and [Sentry](https://sentry.io/welcome/) all provide excellent crash and error monitoring services for React and React Native apps. These services allow you to proactively monitor crashes and issues occurring on your apps in real time so you can fix them quickly and improve user experience.
 
 The [React Developer Tools](debugging.md#react-developer-tools) are great for debugging React and React Native apps.
+
+[React Native Debugger](https://github.com/jhen0409/react-native-debugger) is a standalone debugger, with support for react, redux and apollo dev tools. 
