@@ -393,7 +393,7 @@ npx react-native init AwesomeTSProject --template typescript
 > If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
 
 React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
-
+Make sure that you have run the metro server by executing  `npx react-native start` 
 ```sh
 npx react-native init AwesomeProject
 ```
