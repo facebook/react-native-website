@@ -54,6 +54,6 @@ export default class BlinkApp extends Component {
 
 In a real application, you probably won't be setting state with a timer. You might set state when you have new data from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) or [Mobx](https://mobx.js.org/) to control your data flow. In that case you would use Redux or Mobx to modify your state rather than calling `setState` directly.
 
-When setState is called, BlinkApp will re-render its Component. By calling setState within the Timer, the component will re-render every time the Timer ticks.
+After `setState` returns, Blink Component is re-rendered. By calling setState within the Timer, the component will be re-rendered every time the Timer ticks.
 
 State works the same way as it does in React, so for more details on handling state, you can look at the [React.Component API](https://reactjs.org/docs/react-component.html#setstate). At this point, you may have noticed that most of our examples use the default text color. To customize the text color, you will have to [learn about Style](style.md).
