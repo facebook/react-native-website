@@ -116,12 +116,14 @@ class Footer extends React.Component {
             React Native中文网 &copy; {currentYear} 杭州欧石南网络科技有限公司
           </p>
           <p style={{color: 'inherit'}}>
-            浙ICP备15023664号-3
+            <a href="http://beian.miit.gov.cn/">浙ICP备15023664号-3</a>
             <img
               src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png"
               alt="浙公网安备 33010602005511号"
             />
-            浙公网安备 33010602005511号
+            <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602005511">
+              浙公网安备 33010602005511号
+            </a>
           </p>
         </section>
         <script
