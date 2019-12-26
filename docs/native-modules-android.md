@@ -86,7 +86,7 @@ To expose a method to JavaScript a Java method must be annotated using `@ReactMe
 
 The following argument types are supported for methods annotated with `@ReactMethod` and they directly map to their JavaScript equivalents
 
-```
+<pre class="plaintext">
 Boolean -> Bool
 Integer -> Number
 Double -> Number
@@ -95,7 +95,7 @@ String -> String
 Callback -> function
 ReadableMap -> Object
 ReadableArray -> Array
-```
+</pre>
 
 Read more about [ReadableMap](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/bridge/ReadableMap.java) and [ReadableArray](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/bridge/ReadableArray.java)
 
