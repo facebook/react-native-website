@@ -170,6 +170,8 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 
 > For web URLs, the protocol ("http://", "https://") must be set accordingly!
 
+> This method may behave differently in a simulator e.g. "tel:" links are not able to be handled in the iOS simulator as there's no access to the dialer app.
+
 ---
 
 ### `canOpenURL()`
