@@ -16,8 +16,8 @@ If you are targeting devices running iOS 11 or later, you will also need to add 
 
 ### Methods
 
-- [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
-- [`getPhotos`](cameraroll.md#getphotos)
+- [`saveToCameraRoll`](#savetocameraroll)
+- [`getPhotos`](#getphotos)
 
 ---
 
