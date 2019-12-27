@@ -22,7 +22,7 @@ This page will help you install and build your first React Native app. If you al
 
 <block class="quickstart mac windows linux ios android" />
 
-Assuming that you have [Node 10 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
+Assuming that you have [Node 12 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
 npm install -g expo-cli
