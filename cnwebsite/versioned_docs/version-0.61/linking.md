@@ -4,7 +4,7 @@ title: Linking
 original_id: linking
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.25%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(1.75%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(97.37%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(1.75%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.88%)
 
 <div class="banner-crna-ejected">
   <h3>仅用在原生代码的项目</h3>
@@ -84,10 +84,10 @@ componentDidMount() {
 ```
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
-},
+}
 componentWillUnmount() {
   Linking.removeEventListener('url', this._handleOpenURL);
-},
+}
 _handleOpenURL(event) {
   console.log(event.url);
 }

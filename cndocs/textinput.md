@@ -484,6 +484,16 @@ Only called for multiline text inputs.
 
 ---
 
+### `onTextInput`
+
+Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `placeholder`
 
 如果没有任何文字输入，会显示此字符串。
@@ -736,6 +746,26 @@ TextInput是一个受约束的(Controlled)的组件，意味着如果提供了va
 | string | No   |
 
 ## 方法
+
+### `.focus()`
+
+```jsx
+focus();
+```
+
+Makes the native input request focus.
+
+---
+
+### `.blur()`
+
+```jsx
+blur();
+```
+
+Makes the native input lose focus.
+
+---
 
 ### `clear()`
 

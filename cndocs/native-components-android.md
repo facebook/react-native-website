@@ -33,6 +33,11 @@ title: 原生UI组件
 public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 
   public static final String REACT_CLASS = "RCTImageView";
+  ReactApplicationContext mCallerContext;
+
+  public ReactImageManager(ReactApplicationContext reactContext) {
+    mCallerContext = reactContext;
+  }
 
   @Override
   public String getName() {
@@ -47,7 +52,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 ```java
   @Override
   public ReactImageView createViewInstance(ThemedReactContext context) {
-    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), mCallerContext);
+    return new ReactImageView(context, Fresco.newDraweeControllerBuilder(), null, mCallerContext);
   }
 ```
 

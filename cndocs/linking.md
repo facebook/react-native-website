@@ -81,10 +81,10 @@ componentDidMount() {
 ```
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
-},
+}
 componentWillUnmount() {
   Linking.removeEventListener('url', this._handleOpenURL);
-},
+}
 _handleOpenURL(event) {
   console.log(event.url);
 }

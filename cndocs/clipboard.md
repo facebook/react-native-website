@@ -41,4 +41,12 @@ _setContent() {
 }
 ```
 
-@param 要写入剪贴板的内容
+**Parameters:**
+
+| Name      | Type     | Required | Description                                |
+| ------    | ------   | -------- | -------------------------------------------|
+| content   | string   | Yes      | The content to be stored in the clipboard  | 
+
+_Notice_
+
+Be careful when you're trying to copy to clipboard any data except `string` and `number`, some data need additional stringification. For example, if you will try to copy array - Android will raise an exception, but iOS will not.

@@ -5,7 +5,7 @@ title: Transforms
 
 # 文档
 
-## Props
+## 方法
 
 ### `decomposedMatrix`
 

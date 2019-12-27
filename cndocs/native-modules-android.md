@@ -86,7 +86,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
 
 下面的参数类型在`@ReactMethod`注明的方法中，会被直接映射到它们对应的 JavaScript 类型。
 
-```
+```text
 Boolean -> Bool
 Integer -> Number
 Double -> Number
@@ -327,15 +327,18 @@ JavaScript 模块可以通过使用`NativeEventEmitter`模块来监听事件：
 
 ```jsx
 import { NativeEventEmitter, NativeModules } from 'react-native';
-...
+// ...
 
   componentDidMount() {
-    ...
+    // ...
     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
-    eventEmitter.addListener('EventReminder', (event) => {
+    this.eventEmitter = eventEmitter.addListener('EventReminder', (event) => {
        console.log(event.eventProperty) // "someValue"
-    }
-    ...
+    };
+    // ...
+  }
+  componentWillUnmount() {
+    this.eventListener.remove(); // Removes the listener
   }
 ```
 

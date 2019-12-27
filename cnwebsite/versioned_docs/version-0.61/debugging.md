@@ -4,7 +4,7 @@ title: 调试
 original_id: debugging
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(91.30%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(8.70%)
 
 ## 开启调试的快捷键
 
@@ -18,19 +18,13 @@ React Native 在 iOS 模拟器上支持一些快捷键操作，具体会在下�
 
 > 在发布（production）版本中开发者菜单将无法使用。
 
-## 刷新 JavaScript
+## Enabling Fast Refresh
 
-传统的原生应用开发中，每一次修改都需要重新编译，但在 RN 中你只需要刷新一下 JavaScript 代码，就能立刻看到变化。具体的操作就是在开发菜单中点击"Reload"选项。也可以在 iOS 模拟器中按下**`Command`**`⌘` + **`R`** ，Android 模拟器上对应的则是按两下**`R`** 。
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
 
-### 自动刷新
+> 某些情况下自动刷新并不能顺利实施。如果碰到任何界面刷新上的问题，请尝试手动完全刷新。具体的操作就是在开发菜单中点击"Reload"选项。也可以在 iOS 模拟器中按下**`Command`**`⌘` + **`R`** ，Android 模拟器上对应的则是按两下**`R`** 。
 
-选择开发菜单中的"Enable Live Reload"可以开启自动刷新，这样可以节省你开发中的时间。
-
-更神奇的是，你还可以保持应用的当前运行状态，修改后的 JavaScript 文件会自动注入进来（就好比行驶中的汽车不用停下就能更换新的轮胎）。要实现这一特性只需开启开发菜单中的[Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html)选项。
-
-> 某些情况下 hot reload 并不能顺利实施。如果碰到任何界面刷新上的问题，请尝试手动完全刷新。
-
-但有些时候你必须要重新编译应用才能使修改生效：
+但有些时候你必须要重新编译应用（run-ios或是run-android）才能使修改生效：
 
 - 增加了新的资源(比如给 iOS 的`Images.xcassets`或是 Andorid 的`res/drawable`文件夹添加了图片)
 - 更改了任何的原生代码（objective-c/swift/java）
@@ -96,6 +90,8 @@ You can use Safari to debug the iOS version of your app without having to enable
 
 You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
 
+> Note: Version 4 of `react-devtools` requires `react-native` version 0.62 or higher to work properly.
+
 ```
 npm install -g react-devtools
 ```
@@ -120,7 +116,7 @@ Open the in-app developer menu and choose "Toggle Inspector". It will bring up a
 
 ![React Native Inspector](assets/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
 ![React DevTools Inspector Integration](assets/ReactDevToolsInspector.gif)
 
@@ -144,16 +140,18 @@ Then select a React component in React DevTools. There is a search box at the to
 
 <hr style="margin-top:25px; margin-bottom:25px;"/>
 
-# Debugging in Ejected Apps
+## Debugging Application State
 
-<div class="banner-crna-ejected" style="margin-top:25px">
+[Reactotron](https://github.com/infinitered/reactotron) is an open-source desktop app that allows you to inspect Redux or MobX-State-Tree application state as well as view custom logs, run custom commands such as resetting state, store and restore state snapshots, and other helpful debugging features for React Native apps.
+
+You can view installation instructions [in the README](https://github.com/infinitered/reactotron). If you're using Expo, here is an article detailing [how to install on Expo](https://shift.infinite.red/start-using-reactotron-in-your-expo-project-today-in-3-easy-steps-a03d11032a7a).
+
+# 原生端调试
+
+<div class="banner-native-code-required" style="margin-top:25px">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 

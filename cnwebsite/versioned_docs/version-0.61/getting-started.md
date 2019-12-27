@@ -4,7 +4,7 @@ title: 搭建开发环境
 original_id: getting-started
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(97.84%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(2.16%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(91.77%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(8.23%)
 
 欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。如果你已经搭好了环境，那么可以尝试一下[编写 Hello World](tutorial.md)。
 
@@ -23,28 +23,28 @@ original_id: getting-started
 
 译注：沙盒环境大量依赖于国外网络环境，也不能直接发布应用，只是用于学习、演示、试验等目的。不建议国内用户使用。
 
-[Create React Native App](https://github.com/react-community/create-react-native-app) is the easiest way to start building a new React Native application. It allows you to start a project without installing or configuring any tools to build native code - no Xcode or Android Studio installation required (see [Caveats](getting-started.md#caveats)).
+<strong>If you are new to mobile development</strong>, the easiest way to get started is with Expo CLI. Expo is a set of tools built around React Native and, while it has many [features](https://expo.io/features), the most relevant feature for us right now is that it can get you writing a React Native app within minutes. You will only need a recent version of Node.js and a phone or emulator. If you'd like to try out React Native directly in your web browser before installing any tools, you can try out [Snack](https://snack.expo.io/).
 
-Assuming that you have [Node](https://nodejs.org/en/download/) installed, you can use npm to install the `create-react-native-app` command line utility:
+Assuming that you have [Node 10 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
-```
-npm install -g create-react-native-app
+```sh
+npm install -g expo-cli
 ```
 
 Then run the following commands to create a new React Native project called "AwesomeProject":
 
-```
-create-react-native-app AwesomeProject
+```sh
+expo init AwesomeProject
 
 cd AwesomeProject
-npm start
+npm start # you can also use: expo start
 ```
 
-This will start a development server for you, and print a QR code in your terminal.
+This will start a development server for you.
 
 ## Running your React Native application
 
-Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. Using the Expo app, scan the QR code from your terminal to open your project.
+Install the [Expo](https://expo.io) client app on your iOS or Android phone and connect to the same wireless network as your computer. On Android, use the Expo app to scan the QR code from your terminal to open your project. On iOS, use the built-in QR code scanner of the Camera app.
 
 ### Modifying your app
 
@@ -84,7 +84,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
 
-如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows 环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
+如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供[求助讨论区](https://bbs.reactnative.cn/category/4)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
 
 <div class="toggler">
   <span>开发平台：</span>
@@ -113,7 +113,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 Xcode。
+必须安装的依赖有：Node、Watchman 和 Xcode。
 
 虽然你可以使用`任何编辑器`来开发应用（编写 js 代码），但你仍然必须安装 Xcode 来获得编译 iOS 应用所需的工具和环境。
 
@@ -121,19 +121,19 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Android Studio。
+必须安装的依赖有：Node、Watchman、JDK 和 Android Studio。
 
 <block class="native linux android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Android Studio。
+必须安装的依赖有：Node、JDK 和 Android Studio。
 
 <block class="native windows android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Android Studio。
+必须安装的依赖有：Node、Python2、JDK 和 Android Studio。
 
 <block class="native mac windows linux android" />
 
@@ -190,24 +190,24 @@ npx nrm use npm
 
 <block class="native mac ios android" />
 
-### Yarn、React Native 的命令行工具（react-native-cli）
+### Yarn
 
-[Yarn](http://yarnpkg.com)是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。React Native 的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
+[Yarn](http://yarnpkg.com)是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。
 
 ```
-npm install -g yarn react-native-cli
+npm install -g yarn
 ```
 
 安装完 yarn 之后就可以用 yarn 代替 npm 了，例如用`yarn`代替`npm install`命令，用`yarn add 某第三方库名`代替`npm install 某第三方库名`。
 
 <block class="native windows linux android" />
 
-### Yarn、React Native 的命令行工具（react-native-cli）
+### Yarn
 
-[Yarn](http://yarnpkg.com)是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。React Native 的命令行工具用于执行创建、初始化、更新项目、运行打包服务（packager）等任务。
+[Yarn](http://yarnpkg.com)是 Facebook 提供的替代 npm 的工具，可以加速 node 模块的下载。
 
 ```
-npm install -g yarn react-native-cli
+npm install -g yarn
 ```
 
 安装完 yarn 之后就可以用 yarn 代替 npm 了，例如用`yarn`代替`npm install`命令，用`yarn add 某第三方库名`代替`npm install 某第三方库名`。
@@ -230,7 +230,7 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 1
 
 React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高版本）。你可以在命令行中输入
 
-> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到 [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
+> `javac -version`（请注意是java`c`，不是java）来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到 [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 
 <block class="native mac linux windows android" />
 
@@ -374,17 +374,21 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk\platform-tools
 
 ## 创建新项目
 
-使用 React Native 命令行工具来创建一个名为"AwesomeProject"的新项目，init 命令默认会创建最新的版本。
+> 如果你之前全局安装过旧的`react-native-cli`命令行工具，请使用`npm uninstall -g react-native-cli`卸载掉它以避免一些冲突。
+
+使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用node自带的`npx`命令来使用（注意init 命令默认会创建最新的版本）：
 
 > **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译。这里有中文网提供的[国内下载链接](http://bbs.reactnative.cn/topic/4301/)。
 
-> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
+> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/
 
-```
-react-native init AwesomeProject
+> **必须要看的注意事项三**：请`不要`单独使用常见的关键字作为项目名（如class, native, new, package等等）。请`不要`使用与核心模块同名的项目名（如react, react-native等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
+
+```sh
+npx react-native init AwesomeProject
 ```
 
-> 提示：你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。例如`react-native init MyApp --version 0.44.3`。注意版本号必须精确到两个小数点。
+> 提示：你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。例如`npx react-native init MyApp --version 0.44.3`。注意版本号必须精确到两个小数点。
 
 如果你是想把 React Native 集成到现有的原生项目中，则步骤完全不同，请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
@@ -392,13 +396,17 @@ react-native init AwesomeProject
 
 ## 创建新项目
 
-使用 React Native 命令行工具来创建一个名为"AwesomeProject"的新项目：
+> 如果你之前全局安装过旧的`react-native-cli`命令行工具，请使用`npm uninstall -g react-native-cli`卸载掉它以避免一些冲突。
 
-```
-react-native init AwesomeProject
+使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用node自带的`npx`命令来使用（注意init 命令默认会创建最新的版本）：
+
+> **注意**：请`不要`单独使用常见的关键字作为项目名（如class, native, new, package等等）。请`不要`使用与核心模块同名的项目名（如react, react-native等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
+
+```sh
+npx react-native init AwesomeProject
 ```
 
-> 提示：你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。例如`react-native init MyApp --version 0.44.3`。注意版本号必须精确到两个小数点。
+> 提示：你可以使用`--version`参数（注意是`两`个杠）创建指定版本的项目。例如`npx react-native init MyApp --version 0.44.3`。注意版本号必须精确到两个小数点。
 
 **Windows 用户请注意，请不要在某些权限敏感的目录例如 System32 目录中 init 项目！会有各种权限限制导致不能运行！**
 
@@ -444,11 +452,11 @@ react-native init AwesomeProject
 
 ## 编译并运行 React Native 应用
 
-在你的项目目录中运行`react-native run-ios`：
+在你的项目目录中运行`yarn react-native run-ios`：
 
 ```
 cd AwesomeProject
-react-native run-ios
+yarn react-native run-ios
 ```
 
 > 提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
@@ -457,7 +465,7 @@ react-native run-ios
 
 ![AwesomeProject on iOS](assets/GettingStartediOSSuccess.png)
 
-`react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
+`yarn react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
 
 > 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看论坛的[求助专区](http://bbs.reactnative.cn/category/4)。
 
@@ -469,11 +477,11 @@ react-native run-ios
 
 ## 编译并运行 React Native 应用
 
-确保你先运行了模拟器或者连接了真机，然后在你的项目目录中运行`react-native run-android`：
+确保你先运行了模拟器或者连接了真机，然后在你的项目目录中运行`yarn react-native run-android`：
 
 ```
 cd AwesomeProject
-react-native run-android
+yarn react-native run-android
 ```
 
 如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。注意第一次运行时需要下载大量编译依赖，耗时可能数十分钟。此过程`严重依赖稳定的翻墙工具`，否则将频繁遭遇链接超时和断开，导致无法运行。
@@ -490,7 +498,7 @@ react-native run-android
 
 <block class="native mac windows linux android" />
 
-`react-native run-android`只是运行应用的方式之一。你也可以在 Android Studio 中直接运行应用。
+`yarn react-native run-android`只是运行应用的方式之一。你也可以在 Android Studio 中直接运行应用。
 
 > 译注：建议在`run-android`成功后再尝试使用 Android Studio 启动。请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
@@ -541,9 +549,7 @@ react-native run-android
 
 ## 接下来？
 
-- 试着在开发者菜单中打开[Live Reload](debugging.md#自动刷新)，现在你只要一保存代码应用就会自动完整刷新。
-
-- 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
+如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
 如果你想从头开始学习 React Native 开发，可以从尝试[编写 Hello World](tutorial.md)开始。
 
@@ -551,8 +557,6 @@ react-native run-android
 
 ## 接下来？
 
-- 试着在开发者菜单中打开[Live Reload](debugging.md#自动刷新)，现在你只要一保存代码应用就会自动完整刷新。
-
-- 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
+如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
 如果你想从头开始学习 React Native 开发，可以从尝试[编写 Hello World](tutorial.md)开始。

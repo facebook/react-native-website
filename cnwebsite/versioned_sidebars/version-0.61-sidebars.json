@@ -18,6 +18,7 @@
     ],
     "进阶指南": [
       "version-0.61-components-and-apis",
+      "version-0.61-fast-refresh",
       "version-0.61-platform-specific-code",
       "version-0.61-navigation",
       "version-0.61-images",

@@ -70,6 +70,10 @@ static share(content, options)
 
 至少需要一个 URL 和消息。
 
+#### Android
+
+- `title` - title of the message
+  
 ### Options
 
 #### iOS

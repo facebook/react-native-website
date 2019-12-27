@@ -4,27 +4,27 @@ title: Dimensions
 original_id: dimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(61.45%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(38.55%)
 
 本模块用于获取设备屏幕的宽高。
+
+```jsx
+import {Dimensions } from "react-native";
+```
+You can get device width and height using below :
+
+
+Get device screen width and height :
+```jsx
+const screenWidth = Math.round(Dimensions.get('window').width);
+const screenHeight = Math.round(Dimensions.get('window').height);
+```
 
 ---
 
 # 文档
 
 ## 方法
-
-### `set()`
-
-```jsx
-static set(dims)
-```
-
-这个函数只应该被原生代码调用。 by sending the didUpdateDimensions event.
-
-@param {object} dims Simple string-keyed object of dimensions to set
-
----
 
 ### `get()`
 
@@ -38,7 +38,11 @@ static get(dim)
 
 示例： `const {height, width} = Dimensions.get('window');`
 
-@param {string} dim 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。
+**Parameters:**
+
+| Name      | Type     | Required | Description                                                                                   |
+| ------    | ------   | -------- | ----------------------------------------------------------------------------------------------|
+| dim       | string   | Yes      | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。  | 
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -63,3 +67,20 @@ static removeEventListener(type, handler)
 ```
 
 Remove an event handler.
+
+---
+
+### `set()`
+
+```jsx
+static set(dims)
+```
+
+这个函数只应该被原生代码调用。 by sending the didUpdateDimensions event.
+
+**Parameters:**
+
+| Name      | Type     | Required | Description                               |
+| ------    | ------   | -------- | ------------------------------------------|
+| dims      | object   | Yes      | string-keyed object of dimensions to set  | 
+

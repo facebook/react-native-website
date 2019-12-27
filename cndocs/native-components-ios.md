@@ -141,7 +141,7 @@ RCT_CUSTOM_VIEW_PROPERTY(region, MKCoordinateRegion, MKMapView)
 ```objectivec
 // RNTMapManager.m
 
-#import "RCTConvert+Mapkit.m"
+#import "RCTConvert+Mapkit.h"
 
 // RCTConvert+Mapkit.h
 
@@ -283,7 +283,7 @@ const RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
 #import <React/RCTViewManager.h>
 
 #import "RNTMapView.h"
-#import "RCTConvert+Mapkit.m"
+#import "RCTConvert+Mapkit.h"
 
 @interface RNTMapManager : RCTViewManager <MKMapViewDelegate>
 @end

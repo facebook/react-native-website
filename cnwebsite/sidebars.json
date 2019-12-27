@@ -18,6 +18,7 @@
     ],
     "进阶指南": [
       "components-and-apis",
+      "fast-refresh",
       "platform-specific-code",
       "navigation",
       "images",

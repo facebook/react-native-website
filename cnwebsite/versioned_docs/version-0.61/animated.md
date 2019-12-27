@@ -4,11 +4,11 @@ title: Animated
 original_id: animated
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(97.43%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(2.57%)
 
 `Animated`库旨在使动画变得流畅，强大并易于构建和维护。`Animated`侧重于输入和输出之间的声明性关系，以及两者之间的可配置变换，此外还提供了简单的 `start/stop`方法来控制基于时间的动画执行。
 
-创建动画最简单的工作流程是创建一个 `Animated.Value` ，将它连接到动画组件的一个或多个样式属性，然后使用`Animated.timing()`通过动画效果展示数据的变化：
+创建动画最基本的工作流程是先创建一个 `Animated.Value` ，将它连接到动画组件的一个或多个样式属性，然后使用`Animated.timing()`通过动画效果展示数据的变化：
 
 ```jsx
 Animated.timing(
@@ -36,7 +36,7 @@ Animated.timing(
 `Animated`提供了三种动画类型。每种动画类型都提供了特定的函数曲线，用于控制动画值从初始值变化到最终值的变化过程：
 
 - [`Animated.decay()`](animated.md#decay)以指定的初始速度开始变化，然后变化速度越来越慢直至停下。
-- [`Animated.spring()`](animated.md#spring)提供了一个简单的弹簧物理模型.
+- [`Animated.spring()`](animated.md#spring)提供了一个基础的弹簧物理模型.
 - [`Animated.timing()`](animated.md#timing)使用[easing 函数](easing.md)让数值随时间动起来。
 
 大多数情况下你应该使用`timing()`。默认情况下，它使用对称的 easeInOut 曲线，将对象逐渐加速到全速，然后通过逐渐减速停止结束。
@@ -170,14 +170,14 @@ Config 参数有以下这些属性：
 
 注意你不能同时定义 bounciness/speed、tension/friction 或 stiffness/damping/mass 这三组数据，只能指定其中一组：
 
-The friction/tension or bounciness/speed options match the spring model in [Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
+friction/tension 或 bounciness/speed 选项符合[Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), 或是 [Origami](http://origami.design/)中的spring模型定义。
 
-- `friction`: Controls "bounciness"/overshoot. Default 7.
-- `tension`: Controls speed. Default 40.
-- `speed`: Controls speed of the animation. Default 12.
-- `bounciness`: Controls bounciness. Default 8.
+- `friction`: 控制弹性/幅度。默认值7。
+- `tension`: 控制速度。默认值40.
+- `speed`: 控制动画速度。默认值12.
+- `bounciness`: 控制弹性。默认值8.
 
-Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation primitive.
+Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
 
 - `stiffness`: The spring stiffness coefficient. Default 100.
 - `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
@@ -303,7 +303,7 @@ static stagger(time, animations)
 static loop(animation, config?)
 ```
 
-无限循环一个指定的动画，从头到尾周而复始。Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+无限循环一个指定的动画，从头到尾周而复始。如果此循环的子动画设置了`useNativeDriver: true`则不会阻塞JS线程的执行。此外循环可能导致基于`VirtualizedList`的列表不能加载更多行，此时可以在子动画中设置`isInteraction: false`来修复此问题。
  
  Config is an object that may have the following options:
  
@@ -345,7 +345,7 @@ Config 参数有以下这些属性：
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a simple javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
 
 ---
 

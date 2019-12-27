@@ -4,7 +4,7 @@ title: 使用Flexbox布局
 original_id: flexbox
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.94%), [lijason1121](https://github.com/search?q=lijason1121%40users.noreply.github.com+in%3Aemail&type=Users)(1.06%)
 
 我们在 React Native 中使用 flexbox 规则来指定某个组件的子元素的布局。Flexbox 可以在不同屏幕尺寸上提供一致的布局结构。
 
@@ -16,9 +16,9 @@ original_id: flexbox
 
 ### Flex
 
-[`flex`](layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
+[`flex`](layout-props#flex) 属性决定元素在主轴上如何**填满**可用区域。整个区域会根据每个元素设置的flex属性值被分割成多个部分。
 
-In the following example the red, yellow and the green views are all children in the container view that have `flex: 1` set. The red view uses `flex: 1` , the yellow view uses `flex: 2` and the green view uses `flex: 3` . **1+2+3 = 6** which means that the red view will get `1/6` of the space, the yellow `2/6` of the space and the green `3/6` of the space.
+在下面的例子中，在设置了`flex: 1`的容器view中，有红色，黄色和绿色三个子view。红色view设置了`flex: 1`，黄色view设置了`flex: 2`，绿色view设置了`flex: 3`。**1+2+3 = 6**，这意味着红色view占据整个区域的`1/6`，黄色view占据整个区域的`2/6`，绿色view占据整个区域的`3/6`。
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 

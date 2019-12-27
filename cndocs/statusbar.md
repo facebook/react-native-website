@@ -111,7 +111,7 @@ title: StatusBar
 static popStackEntry(entry: any)
 ```
 
-Pop a StatusBar entry from the stack.
+Get and remove the last StatusBar entry from the stack.
 
 **Parameters:**
 

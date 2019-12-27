@@ -121,7 +121,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 | 类型                                                                                             | 必填 | 平台 |
 | ------------------------------------------------------------------------------------------------ | -------- | -------- |
-| array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | 否       | iOS      |
+| array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | 否       | iOS, Android >= 5.0      |
 
 ---
 

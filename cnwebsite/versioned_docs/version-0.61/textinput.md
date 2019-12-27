@@ -4,7 +4,7 @@ title: TextInput
 original_id: textinput
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.18%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(3.82%)
 
 TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字，以及多种不同的键盘类型（如纯数字键盘）等等。
 
@@ -487,6 +487,16 @@ Only called for multiline text inputs.
 
 ---
 
+### `onTextInput`
+
+Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `placeholder`
 
 如果没有任何文字输入，会显示此字符串。
@@ -739,6 +749,26 @@ TextInput是一个受约束的(Controlled)的组件，意味着如果提供了va
 | string | No   |
 
 ## 方法
+
+### `.focus()`
+
+```jsx
+focus();
+```
+
+Makes the native input request focus.
+
+---
+
+### `.blur()`
+
+```jsx
+blur();
+```
+
+Makes the native input lose focus.
+
+---
 
 ### `clear()`
 

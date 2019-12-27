@@ -4,7 +4,7 @@ title: 原生模块
 original_id: native-modules-android
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.08%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(1.92%)
 
 有时候 App 需要访问平台 API，但 React Native 可能还没有相应的模块包装；或者你需要复用一些 Java 代码，而不是用 Javascript 重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
 
@@ -89,7 +89,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
 
 下面的参数类型在`@ReactMethod`注明的方法中，会被直接映射到它们对应的 JavaScript 类型。
 
-```
+```text
 Boolean -> Bool
 Integer -> Number
 Double -> Number
@@ -330,15 +330,18 @@ JavaScript 模块可以通过使用`NativeEventEmitter`模块来监听事件：
 
 ```jsx
 import { NativeEventEmitter, NativeModules } from 'react-native';
-...
+// ...
 
   componentDidMount() {
-    ...
+    // ...
     const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
-    eventEmitter.addListener('EventReminder', (event) => {
+    this.eventEmitter = eventEmitter.addListener('EventReminder', (event) => {
        console.log(event.eventProperty) // "someValue"
-    }
-    ...
+    };
+    // ...
+  }
+  componentWillUnmount() {
+    this.eventListener.remove(); // Removes the listener
   }
 ```
 

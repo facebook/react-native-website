@@ -4,7 +4,7 @@ title: StatusBar
 original_id: statusbar
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.64%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.36%)
 
 控制应用状态栏的组件。
 
@@ -114,7 +114,7 @@ original_id: statusbar
 static popStackEntry(entry: any)
 ```
 
-Pop a StatusBar entry from the stack.
+Get and remove the last StatusBar entry from the stack.
 
 **Parameters:**
 

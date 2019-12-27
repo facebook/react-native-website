@@ -4,7 +4,7 @@ title: 移除不需要的权限
 original_id: removing-default-permissions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(93.10%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(6.90%)
 
 默认情况下我们会给最终打包的 APK 加入一些权限申请，具体如下：
 
@@ -55,3 +55,7 @@ original_id: removing-default-permissions
     ```
 
 That's it. We did not remove the `INTERNET` permission as pretty much all apps use it. Now whenever you create a production APK all these 4 permissions will be removed. When you create a debug APK (`react-native run-android`) it will install the APK with all four permissions removed.
+
+## Hint
+If your App is free to use in the App-Store and there is no "In-App-Purchase" possible in your App, you also can remove: 
+    - android.vending.CHECK_LICENSE

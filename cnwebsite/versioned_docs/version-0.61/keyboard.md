@@ -4,7 +4,7 @@ title: Keyboard
 original_id: keyboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(86.21%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(13.79%)
 
 `Keyboard`模块用来控制键盘相关的事件。
 
@@ -61,7 +61,16 @@ static addListener(eventName, callback)
 
 此方法会返回监听函数的引用。
 
-@param {string} eventName `nativeEvent`参数用来指明要监听的事件，具体有以下几种:
+**Parameters:**
+
+| Name      | Type     | Required | Description                                            |
+| --------- | -------- | -------- | ------------------------------------------------------ |
+| eventName | string   | Yes      | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
+| callback  | function | Yes      | 事件触发时调用的 js 函数                               |
+
+**nativeEvent**
+
+This can be any of the following
 
 * `keyboardWillShow`
 * `keyboardDidShow`
@@ -71,8 +80,6 @@ static addListener(eventName, callback)
 * `keyboardDidChangeFrame`
 
 注意如果你把`android:windowSoftInputMode`设置为`adjustResize`，则在 Android 上只有`keyboardDidShow`和`keyboardDidHide`事件有效。如果`android:windowSoftInputMode`设置为`adjustNothing`，则没有任何事件有效。`keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
-
-@param {function} callback 事件触发时调用的 js 函数。
 
 ---
 
@@ -84,8 +91,12 @@ static removeListener(eventName, callback)
 
 移除某个类型事件的监听函数。
 
-@param {string} eventName `nativeEvent`即要移除的原生事件类型。
-@param {function} callback 要移除的监听函数。
+**Parameters:**
+
+| Name      | Type     | Required | Description                      |
+| --------- | -------- | -------- | -------------------------------- |
+| eventName | string   | Yes      | 要移除监听函数的原生事件类型名称 |
+| callback  | function | Yes      | 要移除的监听函数                 |
 
 ---
 
@@ -96,8 +107,6 @@ static removeAllListeners(eventName)
 ```
 
 移除某个类型事件的所有监听函数。
-
-@param {string} eventType 要移除所有监听函数的原生事件类型。
 
 ---
 
