@@ -3,9 +3,6 @@ id: hermes
 title: Using Hermes
 ---
 
-> ## Note about Android App Bundles
-> Android app bundles are not yet supported with hermes.
-
 <a href="https://hermesengine.dev">
   <img width="300" height="300" style="float: right; margin: -30px 4px 0;" src="/react-native/docs/assets/HermesLogo.svg"/>
 </a>
@@ -47,6 +44,9 @@ That's it! You should now be able to develop and deploy your app as normal:
 ```shell
 $ react-native run-android
 ```
+
+> ## Note about Android App Bundles
+> Android app bundles are not yet supported with hermes.
 
 ## Confirming Hermes is in use
 
