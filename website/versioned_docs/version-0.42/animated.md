@@ -4,9 +4,9 @@ title: Animated
 original_id: animated
 ---
 
-Animations are an important part of modern UX, and the `Animated` library is designed to make them fluid, powerful, and easy to build and maintain.
+Animations are an important part of modern UX, and the `Animated` library is designed to make them fluid, powerful, and painless to build and maintain.
 
-The simplest workflow is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates either via animations, such as `Animated.timing`, or by hooking into gestures like panning or scrolling via `Animated.event`. `Animated.Value` can also bind to props other than style, and can be interpolated as well. Here is a basic example of a container view that will fade in when it's mounted:
+The general workflow is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates either via animations, such as `Animated.timing`, or by hooking into gestures like panning or scrolling via `Animated.event`. `Animated.Value` can also bind to props other than style, and can be interpolated as well. Here is a basic example of a container view that will fade in when it's mounted:
 
 ```jsx
 class FadeInView extends React.Component {
@@ -36,7 +36,7 @@ class FadeInView extends React.Component {
 }
 ```
 
-Note that only animatable components can be animated. `View`, `Text`, and `Image` are already provided, and you can create custom ones with `createAnimatedComponent`. These special components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
+Note that only animatable components can be animated. `View`, `Text`, and `Image` are already provided, and you can create custom ones with `createAnimatedComponent`. These specific components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
 
 Animations are heavily configurable. Custom and pre-defined easing functions, delays, durations, decay factors, spring constants, and more can all be tweaked depending on the type of animation.
 
@@ -44,7 +44,7 @@ A single `Animated.Value` can drive any number of properties, and each property 
 
 For example, you may want to think about your `Animated.Value` as going from 0 to 1, but animate the position from 150px to 0px and the opacity from 0 to
 
-1. This can easily be done by modifying `style` in the example above like so:
+1. This can lightly be done by modifying `style` in the example above like so:
 
 ```jsx
  style={{
@@ -58,7 +58,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
  }}>
 ```
 
-Animations can also be combined in complex ways using composition functions such as `sequence` and `parallel`, and can also be chained together simply by setting the `toValue` of one animation to be another `Animated.Value`.
+Animations can also be combined in complex ways using composition functions such as `sequence` and `parallel`, and can also be chained together by setting the `toValue` of one animation to be another `Animated.Value`.
 
 `Animated.ValueXY` is handy for 2D animations, like panning, and there are other helpful additions like `setOffset` and `getLayout` to aid with typical interaction patterns, like drag-and-drop.
 

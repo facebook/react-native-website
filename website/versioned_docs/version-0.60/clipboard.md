@@ -4,7 +4,7 @@ title: Clipboard
 original_id: clipboard
 ---
 
-`Clipboard` gives you an interface for setting and getting content from Clipboard on both iOS and Android
+`Clipboard` gives you an interface for setting and getting content from Clipboard on both Android and iOS
 
 ---
 

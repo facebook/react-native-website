@@ -154,7 +154,11 @@ You can specify which `subspec`s your app will depend on in a `Podfile` file. Th
 $ pod init
 ```
 
-The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes. In the end, `Podfile` should look something similar to this:
+The `Podfile` will contain a boilerplate setup that you will tweak for your integration purposes.
+
+> The `Podfile` version changes depending on your version of `react-native`. Refer to https://react-native-community.github.io/upgrade-helper/ for the specific version of `Podfile` you should be using.
+
+Ultimately, your `Podfile` should look something similar to this:
 
 <block class="objc" />
 
@@ -164,10 +168,14 @@ target 'NumberTileGame' do
 
   # Your 'node_modules' directory is probably in the root of your project,
   # but if not, adjust the `:path` accordingly
+  pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
+  pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
+  pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
+  pod 'RCTTypeSafety', :path => "../node_modules/react-native/Libraries/TypeSafety"
   pod 'React', :path => '../node_modules/react-native/'
-  pod 'React-Core', :path => '../node_modules/react-native/React'
-  pod 'React-DevSupport', :path => '../node_modules/react-native/React'
-  pod 'React-fishhook', :path => '../node_modules/react-native/Libraries/fishhook'
+  pod 'React-Core', :path => '../node_modules/react-native/'
+  pod 'React-CoreModules', :path => '../node_modules/react-native/React/CoreModules'
+  pod 'React-Core/DevSupport', :path => '../node_modules/react-native/'
   pod 'React-RCTActionSheet', :path => '../node_modules/react-native/Libraries/ActionSheetIOS'
   pod 'React-RCTAnimation', :path => '../node_modules/react-native/Libraries/NativeAnimation'
   pod 'React-RCTBlob', :path => '../node_modules/react-native/Libraries/Blob'
@@ -177,17 +185,20 @@ target 'NumberTileGame' do
   pod 'React-RCTSettings', :path => '../node_modules/react-native/Libraries/Settings'
   pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
   pod 'React-RCTVibration', :path => '../node_modules/react-native/Libraries/Vibration'
-  pod 'React-RCTWebSocket', :path => '../node_modules/react-native/Libraries/WebSocket'
+  pod 'React-Core/RCTWebSocket', :path => '../node_modules/react-native/'
 
   pod 'React-cxxreact', :path => '../node_modules/react-native/ReactCommon/cxxreact'
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
-  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'ReactCommon/jscallinvoker', :path => "../node_modules/react-native/ReactCommon"
+  pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
+  pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
+
 end
 ```
 
@@ -215,7 +226,7 @@ target 'swift-2048' do
     # Add any other subspecs you want to use in your project
   ]
   # Explicitly include Yoga if you are using RN >= 0.42.0
-  pod "yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
+  pod "Yoga", :path => "../node_modules/react-native/ReactCommon/yoga"
 
   # Third party deps podspec link
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
@@ -266,11 +277,11 @@ The first bit of code we will write is the actual React Native code for the new 
 
 First, create an empty `index.js` file in the root of your React Native project.
 
-`index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `require`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it. In our case, we will just put everything in `index.js`.
+`index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `require`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it. In our case, we will put everything in `index.js`.
 
 ##### 2. Add your React Native code
 
-In your `index.js`, create your component. In our sample here, we will add simple `<Text>` component within a styled `<View>`
+In your `index.js`, create your component. In our sample here, we will add a `<Text>` component within a styled `<View>`
 
 ```jsx
 import React from 'react';
@@ -322,7 +333,7 @@ AppRegistry.registerComponent('RNHighScores', () => RNHighScores);
 
 Now that your React Native component is created via `index.js`, you need to add that component to a new or existing `ViewController`. The easiest path to take is to optionally create an event path to your component and then add that component to an existing `ViewController`.
 
-We will tie our React Native component with a new native view in the `ViewController` that will actually host it called `RCTRootView` .
+We will tie our React Native component with a new native view in the `ViewController` that will actually contain it called `RCTRootView` .
 
 ##### 1. Create an Event Path
 
@@ -457,7 +468,7 @@ Apple has blocked implicit cleartext HTTP resource loading. So we need to add th
 
 ##### 2. Run the packager
 
-To run your app, you need to first start the development server. To do this, simply run the following command in the root directory of your React Native project:
+To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
 ```
 $ npm start
@@ -572,11 +583,11 @@ The first bit of code we will write is the actual React Native code for the new 
 
 First, create an empty `index.js` file in the root of your React Native project.
 
-`index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `require`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it. In our case, we will just put everything in `index.js`.
+`index.js` is the starting point for React Native applications, and it is always required. It can be a small file that `require`s other file that are part of your React Native component or application, or it can contain all the code that is needed for it. In our case, we will put everything in `index.js`.
 
 ##### 2. Add your React Native code
 
-In your `index.js`, create your component. In our sample here, we will add simple `<Text>` component within a styled `<View>`:
+In your `index.js`, create your component. In our sample here, we will add a `<Text>` component within a styled `<View>`:
 
 ```jsx
 import React from 'react';
@@ -742,7 +753,7 @@ We also need to pass back button events to React Native:
 }
 ```
 
-This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle the back button press, your `invokeDefaultOnBackPressed` method will be called. By default this simply finishes your `Activity`.
+This allows JavaScript to control what happens when the user presses the hardware back button (e.g. to implement navigation). When JavaScript doesn't handle the back button press, your `invokeDefaultOnBackPressed` method will be called. By default this finishes your `Activity`.
 
 Finally, we need to hook up the dev menu. By default, this is activated by (rage) shaking the device, but this is not very useful in emulators. So we make it show when you press the hardware menu button (use `Ctrl + M` if you're using Android Studio emulator):
 
@@ -765,7 +776,7 @@ You have now done all the basic steps to integrate React Native with your curren
 
 ##### 1. Run the packager
 
-To run your app, you need to first start the development server. To do this, simply run the following command in the root directory of your React Native project:
+To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
 ```
 $ yarn start
@@ -781,7 +792,7 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 
 ### Creating a release build in Android Studio
 
-You can use Android Studio to create your release builds too! It’s as easy as creating release builds of your previously-existing native Android app. There’s just one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
+You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
 ```
 $ react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
@@ -789,7 +800,7 @@ $ react-native bundle --platform android --dev false --entry-file index.js --bun
 
 > Don’t forget to replace the paths with correct ones and create the assets folder if it doesn’t exist.
 
-Now just create a release build of your native app from within Android Studio as usual and you should be good to go!
+Now, create a release build of your native app from within Android Studio as usual and you should be good to go!
 
 <block class="objc swift android" />
 

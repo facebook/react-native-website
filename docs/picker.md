@@ -3,7 +3,7 @@ id: picker
 title: Picker
 ---
 
-Renders the native picker component on iOS and Android. Example:
+Renders the native picker component on Android and iOS. Example:
 
 ```jsx
 <Picker

@@ -10,7 +10,7 @@ title: Using TypeScript with React Native
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-react-native init MyTSProject --template typescript
+npx react-native init MyApp --template react-native-template-typescript
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
@@ -32,9 +32,9 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
-npm install --save-dev @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
@@ -73,6 +73,8 @@ module.exports = {
 
 4. Rename a JavaScript file to be `*.tsx`
 
+> You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
+
 5. Run `yarn tsc` to type-check your new TypeScript files.
 
 ## How TypeScript and React Native works
@@ -102,33 +104,32 @@ const Hello: React.FC<Props> = (props) => {
     const getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
     return (
         <View style={styles.root}>
-        <Text style={styles.greeting}>
-            Hello{' '}
-            {props.name + getExclamationMarks(enthusiasmLevel || 0)}
-        </Text>
+            <Text style={styles.greeting}>
+                Hello{' '}
+                {props.name + getExclamationMarks(enthusiasmLevel || 0)}
+            </Text>
 
-        <View style={styles.buttons}>
-            <View style={styles.button}>
-            <Button
-                title="-"
-                onPress={onDecrement}
-                accessibilityLabel="decrement"
-                color="red"
-            />
-            </View>
+            <View style={styles.buttons}>
+                <View style={styles.button}>
+                <Button
+                    title="-"
+                    onPress={onDecrement}
+                    accessibilityLabel="decrement"
+                    color="red"
+                />
+                </View>
 
-            <View style={styles.button}>
-            <Button
-                title="+"
-                onPress={onIncrement}
-                accessibilityLabel="increment"
-                color="blue"
-            />
+                <View style={styles.button}>
+                <Button
+                    title="+"
+                    onPress={onIncrement}
+                    accessibilityLabel="increment"
+                    color="blue"
+                />
+                </View>
             </View>
-        </View>
         </View>
     );
-    }
 }
 
 // styles
@@ -138,7 +139,7 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     buttons: {
-       flexDirection: 'row',
+        flexDirection: 'row',
         minHeight: 70,
         alignItems: 'stretch',
         alignSelf: 'center',
@@ -153,6 +154,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
 });
+
+export default Hello;
 ```
 
 You can explore the syntax more in the [TypeScript playground][tsplay].
@@ -161,7 +164,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 - [TypeScript Handbook][ts-handbook]
 - [React's documentation on TypeScript][react-ts]
-- [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
+- [React + TypeScript Cheatsheets][cheats] has a good overview on how to use React with TypeScript
 
 ## Using Custom Path Aliases with TypeScript
 
@@ -174,7 +177,8 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 +     "baseUrl": ".",
 +     "paths": {
 +       "*": ["src/*"],
-+       "tests": ["tests/*"]
++       "tests": ["tests/*"],
++       "@components/*": ["src/components/*"],
 +     },
     }
 ```
@@ -198,7 +202,8 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "test/*": "./test/"],
++           "tests": ["./tests/"],
++           "@components": "./src/components",
 +         }
 +       }
 +     ]
@@ -212,7 +217,7 @@ npm install --save-dev babel-plugin-module-resolver
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript
 [babel]: /react-native/docs/javascript-environment#javascript-syntax-transformers
 [babel-7-caveats]: https://babeljs.io/docs/en/next/babel-plugin-transform-typescript
-[cheats]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
+[cheat]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
 [props]: /react-native/docs/props.html
 [state]: /react-native/docs/state.html

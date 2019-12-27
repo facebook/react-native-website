@@ -444,11 +444,11 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 ### `position`
 
-`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always just relative to the parent.
+`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always relative to the parent.
 
 If you want to position a child using specific numbers of logical pixels relative to its parent, set the child to have `absolute` position.
 
-If you want to position a child relative to something that is not its parent, just don't use styles for that. Use the component tree.
+If you want to position a child relative to something that is not its parent, don't use styles for that. Use the component tree.
 
 See https://github.com/facebook/css-layout for more details on how `position` differs between React Native and CSS.
 

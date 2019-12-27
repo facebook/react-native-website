@@ -119,9 +119,9 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `fontVariant`
 
-| Type                                                                                             | Required | Platform |
-| ------------------------------------------------------------------------------------------------ | -------- | -------- |
-| array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | No       | iOS      |
+| Type                                                                                             | Required | Platform            |
+| ------------------------------------------------------------------------------------------------ | -------- | ------------------- |
+| array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | No       | iOS, Android >= 5.0 |
 
 ---
 

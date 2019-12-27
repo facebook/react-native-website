@@ -38,13 +38,13 @@ function MyComponent(props) {
 
 ---
 
-### `accessibilityHint`
+### `accessible`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -58,35 +58,89 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
-### `accessibilityRole`
+### `accessibilityHint`
 
-| Type               | Required |
-| ------------------ | -------- |
-| AccessibilityRoles | No       |
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
-### `accessibilityStates`
+### `accessibilityRole`
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| array of AccessibilityStates | No       |
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
+
+`accessibilityRole` can be one of the following:
+
+- `'none'` - Used when the element has no role.
+- `'button'` - Used when the element should be treated as a button.
+- `'link'` - Used when the element should be treated as a link.
+- `'search'` - Used when the text field element should also be treated as a search field.
+- `'image'` - Used when the element should be treated as an image. Can be combined with button or link, for example.
+- `'keyboardkey'` - Used when the element acts as a keyboard key.
+- `'text'` - Used when the element should be treated as static text that cannot change.
+- `'adjustable'` - Used when an element can be "adjusted" (e.g. a slider).
+- `'imagebutton'` - Used when the element should be treated as a button and is also an image.
+- `'header'` - Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- `'summary'` - Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- `'alert'` - Used when an element contains important text to be presented to the user.
+- `'checkbox'` - Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- `'combobox'` - Used when an element represents a combo box, which allows the user to select among several choices.
+- `'menu'` - Used when the component is a menu of choices.
+- `'menubar'` - Used when a component is a container of multiple menus.
+- `'menuitem'` - Used to represent an item within a menu.
+- `'progressbar'` - Used to represent a component which indicates progress of a task.
+- `'radio'` - Used to represent a radio button.
+- `'radiogroup'` - Used to represent a group of radio buttons.
+- `'scrollbar'` - Used to represent a scroll bar.
+- `'spinbutton'` - Used to represent a button which opens a list of choices.
+- `'switch'` - Used to represent a switch which can be turned on and off.
+- `'tab'` - Used to represent a tab.
+- `'tablist'` - Used to represent a list of tabs.
+- `'timer'` - Used to represent a timer.
+- `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `accessibilityState`
 
-| Type   | Required |
-| ------ | -------- |
-| Object | No       |
+Describes the current state of a component to the user of an assistive technology.
+
+See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
+
+| Type                                                                                           | Required |
+| ---------------------------------------------------------------------------------------------- | -------- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
 
 ---
 
-### `accessible`
+### `accessibilityActions`
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+Accessibility actions allow an assistive technology to programmatically invoke the actions of a component. The `accessibilityActions` property should contain a list of action objects. Each action object should contain the field name and label.
+
+See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
+
+| Type  | Required |
+| ----- | -------- |
+| array | No       |
+
+---
+
+### `onAccessibilityAction`
+
+Invoked when the user performs the accessibility actions. The only argument to this function is an event containing the name of the action to perform.
+
+See the [Accessibility guide](accessibility.md#accessibility-actions) for more information.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
