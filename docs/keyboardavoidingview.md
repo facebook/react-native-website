@@ -5,19 +5,53 @@ title: KeyboardAvoidingView
 
 It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its height, position, or bottom padding based on the position of the keyboard.
 
-Example usage:
-
-```jsx
-import {KeyboardAvoidingView} from 'react-native';
-
-<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-  ... your UI ...
-</KeyboardAvoidingView>;
-```
+![](/react-native/docs/assets/KeyboardAvoidingView/example.gif)
 
 ### Example
 
-![](/react-native/docs/assets/KeyboardAvoidingView/example.gif)
+```SnackPlayer name=KeyboardAvoidingView
+import React from 'react';
+import {
+  StyleSheet,
+  TextInput,
+  KeyboardAvoidingView,
+  View,
+  Platform
+} from 'react-native';
+
+export default () => (
+  <KeyboardAvoidingView style={styles.container} behavior='padding'>
+    <TextInput
+      style={styles.input}
+      placeholder='Name'
+      placeholderTextColor='black'
+    />
+    <TextInput
+      style={styles.input}
+      placeholder='Email'
+      placeholderTextColor='black'
+    />
+    <TextInput
+      style={styles.input}
+      placeholder='Address'
+      placeholderTextColor='black'
+    />
+  </KeyboardAvoidingView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-between"
+  },
+input: {
+    borderColor: "black",
+    borderWidth: 1,
+    height: 40,
+    color: "black"
+  }
+});
+```
 
 ---
 
@@ -31,7 +65,7 @@ Inherits [View Props](view.md#props).
 
 Specify how to react to the presence of the keyboard.
 
-_Note: Android and iOS both interact with this prop differently._ _Android may behave better when given no behavior prop at all, whereas iOS is the opposite._
+_Note: Android and iOS both interact with this prop differently._ _on both iOS and Android, setting the prop is recommended._
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |
