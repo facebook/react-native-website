@@ -319,6 +319,24 @@ If you override `- constantsToExport` then you should also implement `+ requires
 }
 ```
 
+```Swift
+//Swift
+
+// CalendarManager.swift
+
+@objc(CalendarManager)
+class CalendarManager: NSObject, RCTBridgeModule {
+
+static func moduleName() -> String! {
+      return "CalendarManager";
+}
+
+static func requiresMainQueueSetup() -> Bool {
+    return true
+}
+```
+
+
 If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with `NO`.
 
 ### Enum Constants
