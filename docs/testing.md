@@ -158,15 +158,15 @@ expect(bananaElement).toBeDefined(); // expect 'banana' to be on the list
 </Text>
 ```
 
-Snapshots are _generated_ by a component testing testing library, unlike the other types of tests which are written manually (snapshots are too complex to be created by hand, especially for large components this is not feasible).
+Snapshots are _generated_ by a component testing testing library, unlike the other types of tests which are written manually (snapshots are too complex to be created by hand, and even for small components this is not feasible).
 
 When using snapshot testing, you typically first implement your component and then run the snapshot test, which creates the snapshot and saves it to a file in your repo. The newly created snapshot is then committed and should be checked during code review. Any changes to the component will result in a change in the snapshot that again needs to be reviewed.
 
 Note that if you create the snapshot _after_ you’re done working on the component, at that point the snapshot is considered to be correct (even in the case when the rendered output is actually wrong). You as a developer or reviewer need to make sure that the snapshot contains what you expect. That may not be trivial because snapshots can be fairly large.
 
-In order to make snapshot verification easier for a given component, you can start taking the snapshot _early_. That is, instead of creating the snapshot after you're done working, create one at the start and update it continuously as you bring the component code to the desired state.
+In order to make snapshot comparison easier for a given component, you can start taking the snapshot _early_. That is, instead of creating the snapshot after you're done working, create one at the start and update it continuously as you bring the component code to the desired state.
 
-In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.). When in doubt, always prefer explicit expectations as described in the previous paragraph.
 
 ## End to End Tests
 
