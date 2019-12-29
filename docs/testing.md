@@ -108,16 +108,19 @@ Aside from rendering some UI, your components handle events like `onChangeText` 
 ```js
 class GroceryShoppingListCreator extends React.Component {
   render() {
-    <TextInput testID="groceryTextInput" onChangeText={this.setGroceryItem} />;
-    <Button
-      label="Add the item to list"
-      onPress={this.addNewItemToShoopingList}
-    />;
+    return (
+      <>
+        <TextInput
+          testID="groceryTextInput"
+          onChangeText={this.setGroceryItem}
+        />
+        <Button
+          title="Add the item to list"
+          onPress={this.props.addNewItemToShoppingList}
+        />
+      </>
+    );
   }
-
-  addNewItemToShoppingList = () => {
-    // ...
-  };
 }
 ```
 
@@ -125,7 +128,7 @@ When testing user interactions, test the component from the user perspective: yo
 
 To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
 
-`fireEvent.changeText(getByTestId(‘groceryTextInput'), ‘banana’);`
+`fireEvent.changeText(getByTestId('groceryTextInput'), 'banana');`
 
 The first parameter is a query function that returns a `ReactTestInstance` and the second parameter is the new text that user entered.
 
@@ -134,11 +137,12 @@ This way, we're not testing what some function is doing - we're testing what hap
 Now that we know how to fire an event, let's take a look at verifying that it caused the expected change in your component: for example, that a certain text is rendered in a `GroceryShoppingList`. Aforementioned component testing libraries expose `query` apis for this purpose. An example may look like this:
 
 ```js
-import {render} from 'react-native-testing-library';
+const {getByTestId, getByText, getAllByText} = render(<GroceryShoppingList />);
 
-const {getByText} = render(<GroceryShoppingList />); // render shopping list
-const bananaElement = getByText('banana');
-expect(bananaElement).toBeDefined(); // expect 'banana' to be on the list
+fireEvent.changeText(getByTestId('groceryTextInput'), 'banana');
+fireEvent.press(getByText('Add the item to list'));
+const bananaElements = getAllByText('banana');
+expect(bananaElements.length).toBe(1); // expect 'banana' to be on the list
 ```
 
 ### Testing Rendered Output
