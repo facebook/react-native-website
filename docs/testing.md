@@ -115,7 +115,7 @@ class GroceryShoppingListCreator extends React.Component {
     />;
   }
 
-  addNewItemToShoppingList = (someGroceryItem: string) => {
+  addNewItemToShoppingList = () => {
     // ...
   };
 }
