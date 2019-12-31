@@ -466,7 +466,7 @@ You can build many things with `props` and the Core Components [`Text`](text), [
 
 Props are set by the parent component and can only be changed by the parent component passing down new values. But user interfaces need to accept new data (input) directly and change according to human interaction. Fortunately, we have `state`, which lets us get and set data associated with a component. You can manipulate component state by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
 
-> A Hook is a special function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
+> A Hook is a kind of function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
 You can manipulate component state by calling `useState` inside its function:
 
