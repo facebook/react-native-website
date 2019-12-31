@@ -114,7 +114,7 @@
         "title": "Gesture Responder System"
       },
       "getting-started": {
-        "title": "Getting Started"
+        "title": "Setting up the development environment"
       },
       "handling-text-input": {
         "title": "Handling Text Input"
@@ -160,6 +160,15 @@
       },
       "interactionmanager": {
         "title": "InteractionManager"
+      },
+      "intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
+      "intro-react": {
+        "title": "Key React Concepts"
+      },
+      "introduction": {
+        "title": "Introduction"
       },
       "javascript-environment": {
         "title": "JavaScript Environment"
@@ -248,9 +257,6 @@
       "progressviewios": {
         "title": "ProgressViewIOS"
       },
-      "props": {
-        "title": "Props"
-      },
       "pushnotificationios": {
         "title": "PushNotificationIOS"
       },
@@ -292,9 +298,6 @@
       },
       "slider": {
         "title": "Slider"
-      },
-      "state": {
-        "title": "State"
       },
       "statusbar": {
         "title": "StatusBar"
@@ -352,9 +355,6 @@
       },
       "troubleshooting": {
         "title": "Troubleshooting"
-      },
-      "tutorial": {
-        "title": "Learn the Basics"
       },
       "typescript": {
         "title": "Using TypeScript with React Native"

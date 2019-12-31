@@ -1,11 +1,9 @@
 {
   "docs": {
     "The Basics": [
-      "getting-started",
-      "tutorial",
-      "props",
-      "state",
-      "style",
+      "introduction",
+      "intro-react-native-components",
+      "intro-react",
       "handling-text-input",
       "using-a-scrollview",
       "using-a-listview",
@@ -14,6 +12,7 @@
       "more-resources"
     ],
     "Environment setup": [
+      "getting-started",
       "integration-with-existing-apps",
       "building-for-apple-tv",
       "out-of-tree-platforms"
@@ -25,7 +24,7 @@
       "typescript",
       "upgrading"
     ],
-    "Design": ["colors", "images", "stylesheet", "flexbox", "height-and-width"],
+    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
     "Interaction": [
       "handling-touches",
       "navigation",
@@ -81,6 +80,7 @@
       "segmentedcontrolios",
       "slider",
       "statusbar",
+      "stylesheet",
       "switch",
       "tabbarios",
       "tabbarios-item",

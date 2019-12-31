@@ -89,6 +89,32 @@ function guessPlatformAndOS() {
             } else {
               break;
             }
+            // Dev Notes
+            if (parent.className.indexOf('androidNote') > -1) {
+              displayTab('devNotes', 'androidNote');
+              foundHash = true;
+            } else if (parent.className.indexOf('iosNote') > -1) {
+              displayTab('devNotes', 'iosNote');
+              foundHash = true;
+            } else if (parent.className.indexOf('windowsNote') > -1) {
+              displayTab('devNotes', 'windowsNote');
+              foundHash = true;
+            } else if (parent.className.indexOf('webNote') > -1) {
+              displayTab('devNotes', 'webNote');
+              foundHash = true;
+            } else {
+              break;
+            }
+            // Syntax
+            if (parent.className.indexOf('functional') > -1) {
+              displayTab('syntax', 'functional');
+              foundHash = true;
+            } else if (parent.className.indexOf('classical') > -1) {
+              displayTab('syntax', 'classical');
+              foundHash = true;
+            } else {
+              break;
+            }
             // Target Platform
             if (parent.className.indexOf('ios') > -1) {
               displayTab('platform', 'ios');
@@ -122,7 +148,9 @@ function guessPlatformAndOS() {
     var isWindows = navigator.platform === 'Win32';
     displayTab('platform', isMac ? 'ios' : 'android');
     displayTab('os', isMac ? 'mac' : isWindows ? 'windows' : 'linux');
+    displayTab('devNotes', 'webNote');
     displayTab('guide', 'quickstart');
+    displayTab('syntax', 'functional');
     displayTab('language', 'objc');
   }
 }
