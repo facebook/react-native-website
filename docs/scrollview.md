@@ -397,10 +397,10 @@ Fires at most once per frame during scrolling. The frequency of the events can b
 ```js
 {
   nativeEvent: {
-    contentInset: { bottom, left, right, top },
-    contentOffset: { x, y },
-    contentSize: { height, width },
-    layoutMeasurement: { height, width },
+    contentInset: {bottom, left, right, top},
+    contentOffset: {x, y},
+    contentSize: {height, width},
+    layoutMeasurement: {height, width},
     zoomScale
   }
 }
