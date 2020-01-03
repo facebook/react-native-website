@@ -7,7 +7,7 @@ These docs were written to take any learner at any expertise level with any back
 
 ## How to use these docs
 
-You can start here and read through these docs linearly like a book; or you can read skip around to the specific sections you need. Already familiar with React JS? You can skip that section—or read it for a light refresher.
+You can start here and read through these docs linearly like a book; or you can read the specific sections you need. Already familiar with React JS? You can skip that section—or read it for a light refresher.
 
 ## Prerequisites
 

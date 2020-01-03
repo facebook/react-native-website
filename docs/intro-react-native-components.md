@@ -7,7 +7,7 @@ React Native is an opensource framework for building Android and iOS application
 
 ## Views and mobile development
 
-In Android and iOS development, a **view** is the basic building block of UI: a small rectangular element on the screen which can be used to display text, images, respond to user input. Even the smallest visual elements of an app, like a line of text or a button, are kinds of views. Some kinds of views can nest other views. It’s views all the way down!
+In Android and iOS development, a **view** is the basic building block of UI: a small rectangular element on the screen which can be used to display text, images, or respond to user input. Even the smallest visual elements of an app, like a line of text or a button, are kinds of views. Some kinds of views can nest other views. It’s views all the way down!
 
 ## Native Components
 

@@ -3,7 +3,7 @@ id: intro-react
 title: Key React Concepts
 ---
 
-React Native runs on [React](https://reactjs.org/), the popular open source library for building user interfaces with JavaScript. To make the most use of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
+React Native runs on [React](https://reactjs.org/), the popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
 
 We’re going to cover the core concepts behind React:
 
@@ -27,7 +27,7 @@ And then use JavaScript [`export`](https://developer.mozilla.org/en-US/docs/Web/
 
 ```jsx
 export default function MyPet() {
-    return(
+    return (
         // TODO: You will fill this part in next!
     );
 }
@@ -476,7 +476,7 @@ Or you could set it like so:
 
 `const [quantity, pickQuantity] = useState(0);`
 
-Calling `useState` creates a “state variable”, sets its default value, and create functions to get and set it. Let’s break `[a, b] = useState(c)` down:
+Calling `useState` creates a “state variable”, sets its default value, and creates functions to get and set it. Let’s break `[a, b] = useState(c)` down:
 
 - `a` is the “state variable”—it refers to the current value of the component’s state
 - `b` is the name of the function you use to update the state variable
