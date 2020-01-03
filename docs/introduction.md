@@ -85,7 +85,7 @@ export default function YourApp() {
 }
 ```
 
-> The sample code in this documentation uses [JavaScript version ES2015](https://babeljs.io/learn-es2015/) (also known as ES6). Since ES2015 is not yet supported by all browsers, React Native ships with ES2015 support out of the box thanks to [Babel](https://babeljs.io/) (which also handles your JSX!). This means you can use ES2015 without worrying about backwards compatibility.
+> The sample code in this documentation uses [JavaScript version ES2015](https://babeljs.io/learn-es2015/) (also known as ES6). Since ES2015 is not supported by all JavaScript engines, React Native ships with ES2015 support out of the box thanks to [Babel](https://babeljs.io/) (which also handles your JSX!). This means you can use ES2015 without worrying about backwards compatibility.
 
 ## Developer Notes
 
