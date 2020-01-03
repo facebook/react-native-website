@@ -170,7 +170,7 @@ Note that if you create the snapshot _after_ you’re done working on the compon
 
 In order to make snapshot comparison easier for a given component, you can start taking the snapshot _early_. That is, instead of creating the snapshot after you're done working, create one at the start and update it continuously as you bring the component code to the desired state.
 
-In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.). When in doubt, always prefer explicit expectations as described in the previous paragraph.
+In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.). When in doubt, prefer explicit expectations as described in the previous paragraph.
 
 ## End to End Tests
 
