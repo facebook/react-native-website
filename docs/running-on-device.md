@@ -57,7 +57,7 @@ Select your project in the Xcode Project Navigator, then select your main target
 
 ![](/react-native/docs/assets/RunningOnDeviceCodeSigning.png)
 
-Repeat this step for the Tests target in your project.
+**Repeat** this step for the **Tests** target in your project.
 
 ### 3. Build and Run your app
 
