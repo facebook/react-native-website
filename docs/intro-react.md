@@ -17,27 +17,7 @@ If you want to dig deeper, we encourage you to check out [React's official docum
 
 ## Your first component
 
-Your first task is to make a pet component. To define your `MyPet` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to React Native’s [`Text`](/react-native/docs/next/text) components:
-
-```jsx
-import {Text} from 'react-native';
-```
-
-And then use JavaScript [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) statement to export your component for use throughout your app like so:
-
-```jsx
-export default function MyPet() {
-    return (
-        // TODO: You will fill this part in next!
-    );
-}
-```
-
-Your component doesn’t have anything to render, so you will get an error if you try to run this code. You will fix this in the next step by giving it something to render!
-
-## JSX
-
-React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your pet!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/introducing-jsx.html) you can reference to learn even more. Here’s how we would write the previous example with JSX:
+The rest of this introduction to React uses pets in its examples: friendly, approachable creatures that need names. Your first component is a Pet:
 
 <div class="toggler">
   <ul role="tablist" id="toggle-syntax">
@@ -71,6 +51,84 @@ import { Text } from 'react-native';
 
 export default class MyPet extends Component {
     render() {
+      return (
+          <Text>Hello, I am your pet!</Text>
+      );
+    }
+}
+```
+
+<block class="classical functional webNote androidNote" />
+
+To define your `MyPet` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/react-native/docs/next/text) component:
+
+```jsx
+import React from 'react';
+import {Text} from 'react-native';
+```
+
+Your component starts as a function:
+
+```jsx
+function MyPet() {}
+```
+
+Whatever a function component returns is rendered as a React element. `MyPet` will render a `<Text>` element:
+
+```jsx
+function MyPet() {
+  return <Text>Hello, I am your pet!</Text>;
+}
+```
+
+You can export your function component with JavaScript’s [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
+
+```jsx
+export default function MyPet() {
+  // return your component here!
+}
+```
+
+> This is just one way to export your component—specifically to work with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
+
+Now take a closer look at that `return` statement. `<Text>Hello, I am your pet!</Text>` is using a special JavaScript syntax that makes writing elements convienent: JSX.
+
+## JSX
+
+React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your pet!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/introducing-jsx.html) you can reference to learn even more. Here’s how you would write the previous example with JSX:
+
+<div class="toggler">
+  <ul role="tablist" id="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
+      Functional Syntax
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
+      Class Syntax
+    </li>
+  </ul>
+</div>
+
+<block class="functional webNote androidNote" />
+
+```SnackPlayer name=JSX
+import React from 'react';
+import { Text } from 'react-native';
+
+export default function MyPet() {
+  return (
+    <Text>Hello, I am your pet!</Text>
+  );
+}
+```
+
+<block class="classical webNote androidNote" />
+
+```SnackPlayer name=JSX
+import React, { Component } from 'react';
+import { Text } from 'react-native';
+
+export default class MyPet extends Component {
+    render() {
         return (
             <Text>Hello, I am your pet!</Text>
         );
@@ -80,7 +138,7 @@ export default class MyPet extends Component {
 
 <block class="classical functional webNote androidNote" />
 
-Because JSX is JavaScript, you can use variables inside it. Here we are declaring a name for the pet, `petName`, and embedding it with curly braces inside `<Text>`.
+Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the pet, `petName`, and embedding it with curly braces inside `<Text>`.
 
 <div class="toggler">
   <ul role="tablist" id="toggle-syntax">
@@ -130,7 +188,7 @@ export default class MyPet extends Component {
 
 You’ve already met [React Native’s Core Components](intro-react-native-components). React lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.
 
-For example, we can nest [`Text`](text) and [`TextInput`](textinput) inside a [`View`](view) below, and React Native will render them together:
+For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [`View`](view) below, and React Native will render them together:
 
 <block class="Functional webNote androidNote" />
 
@@ -259,7 +317,7 @@ export default class MyPets extends Component {
 
 <block class="functional classical webNote androidNote" />
 
-In the above example, `MyPet` is a React component. In `MyPets`, each `<MyPet>` renders a completely different pet. These pets can all have different data, which we pass to them via props.
+In the above example, `MyPet` is a React component. In `MyPets`, each `<MyPet>` renders a completely different pet. These pets can all have different data, which you pass to them via props.
 
 ## Props
 
@@ -316,7 +374,7 @@ export default class MyPet extends Component {
 
 `Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
 
-> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
+> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. For example `<Pet name={["Peebo", "Robert"][0]} />`. However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
 
 Your own components can also use props. Props let you customize your components. For example, here each `<MyPet>` passes a different `name` for the `MyPet` function to render:
 
@@ -464,15 +522,15 @@ You can build many things with `props` and the Core Components [`Text`](text), [
 
 ## State
 
-Props are set by the parent component and can only be changed by the parent component passing down new values. But user interfaces need to accept new data (input) directly and change according to human interaction. Fortunately, we have `state`, which lets us get and set data associated with a component. You can manipulate a component’s state by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
+Props are set by the parent component and can only be changed by the parent component passing down new values. But user interfaces need to accept new data (input) directly and change according to human interaction. Fortunately, React has `state`, which lets you get and set data associated with a component. You can manipulate a component’s state by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
 
-> A Hook is a kind of function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to functional components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
+> A Hook is a kind of function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
 You can manipulate a component’s state by calling `useState` inside its function:
 
 `const [currentValue, setNewValue] = useState("Initial value.");`
 
-Or you could set it like so:
+You can use `useState` to track any kind of data, including numbers:
 
 `const [quantity, pickQuantity] = useState(0);`
 
@@ -525,19 +583,19 @@ First, you will want to import `useState` from React like so:
 import React, {useState} from 'react';
 ```
 
-In this example, inside our `Pet` function, `useState` creates a `name` state variable:
+In this example, inside your `Pet` function, `useState` creates a `name` state variable:
 
 ```jsx
 const [name, setName] = useState("What's my name again?");
 ```
 
-Then we add `onChangeText` to the `<TextInput>`. This fires every time the `<TextInput>`‘s value changes (every time a user adds a character of text).
+Then you add `onChangeText` to the `<TextInput>`. This fires every time the `<TextInput>`‘s value changes (every time a user adds a character of text).
 
 ```jsx
 onChangeText={(text) => setName(text)}
 ```
 
-This uses the `setName` we defined with the `useState` Hook above to update our state variable `defaultText` every time `onChangeText` fires. (You might set state when you have new data from the server, or from user input, or even from a timer!)
+This uses the `setName` you defined with the `useState` Hook above to update your state variable `defaultText` every time `onChangeText` fires. (You might set state when you have new data from the server, or from user input, or even from a timer!)
 
 > You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const) , it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `MyPet` will re-render its `Pet`—discarding the old state const `name` in the process!
 

@@ -25,7 +25,7 @@ React Native comes with a suite of built-in components ready for you to use. The
 | `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
 | `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
 
-React Native has many more Core Components for everything from form controls to activity indicators. You can find them [documented in the APIs section](components-and-apis). For now, we’re going to work with these five Core Components. In the next section we will combine them to make our own mini app. Have a play with them here now!
+React Native has many more Core Components for everything from form controls to activity indicators. You can find them [documented in the APIs section](components-and-apis). For now, we’re going to work with these five Core Components. In the next section you will start combinging them. Have a play with them here now!
 
 <div class="toggler">
   <ul role="tablist" id="toggle-syntax">
