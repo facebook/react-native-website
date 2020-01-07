@@ -38,6 +38,6 @@ Try out apps from the [Showcase](/react-native/showcase/) to see what React Nati
 
 React Native has a community of thousands of developers like you making content, tools, tutorials—and Native Components!
 
-Can’t find what you’re looking for in the Core Components? Check [JS.coach](https://js.coach/react-native) or [Native Directory](https://www.native.directory/) to find what the community has been creating.
+Can’t find what you’re looking for in the Core Components? Visit [Native Directory](https://www.native.directory/) to find what the community has been creating.
 
 Interested in making your own Native Component or Module? Making modules for your own use case and sharing them with others on NPM and GitHub helps grow the React Native ecosystem and community! Read the guides to making your own Native Modules ([Android](native-modules-android.md), [iOS](native-modules-ios.md)) and Native Components ([Android](native-components-android.md), [iOS](native-components-ios.md)).
