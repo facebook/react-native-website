@@ -190,7 +190,18 @@ You’ve already met [React Native’s Core Components](intro-react-native-compo
 
 For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [`View`](view) below, and React Native will render them together:
 
-<block class="Functional webNote androidNote" />
+<div class="toggler">
+  <ul role="tablist" id="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
+      Functional Syntax
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
+      Class Syntax
+    </li>
+  </ul>
+</div>
+
+<block class="functional webNote androidNote" />
 
 ```SnackPlayer name=Custom%20Components
 import React from 'react';
