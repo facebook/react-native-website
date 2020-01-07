@@ -328,66 +328,11 @@ export default class MyPets extends Component {
 
 <block class="functional classical webNote androidNote" />
 
-In the above example, `MyPet` is a React component. In `MyPets`, each `<MyPet>` renders a completely different pet. These pets can all have different data, which you pass to them via props.
+In `MyPets`, each `<MyPet>` renders a unique element that can have its own data—which you pass via props.
 
 ## Props
 
-Most Core Components can be customized with different parameters called **props**. “Props” is short for properties.
-
-When using React Native’s Core Components [`Image`](image), you pass it a `prop` named [`source`](image#source) to define what image it shows:
-
-<div class="toggler">
-  <ul role="tablist" id="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
-      Functional Syntax
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
-      Class Syntax
-    </li>
-  </ul>
-</div>
-
-<block class="functional webNote androidNote" />
-
-```SnackPlayer name=Props
-import React from 'react';
-import { Text, View, Image } from 'react-native';
-
-export default function MyPetApp() {
-    return (
-      <View>
-        <Image source='https://placekitten.com/g/193/110' style={{width: 193, height: 110}}/>
-        <Text>Hello, I am your pet!</Text>
-      </View>
-    );
-}
-```
-
-<block class="classical webNote androidNote" />
-
-```SnackPlayer name=Props
-import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
-
-export default class MyPet extends Component {
-    render(){
-        return (
-            <View>
-                <Image source='https://placekitten.com/g/193/110' style={{width: 193, height: 110}}/>
-                <Text>Hello, I am your pet!</Text>
-            </View>
-        );
-    }
-}
-```
-
-<block class="functional classical webNote androidNote" />
-
-`Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
-
-> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. For example `<Pet name={["Peebo", "Robert"][0]} />`. However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
-
-Your own components can also use props. Props let you customize your components. For example, here each `<MyPet>` passes a different `name` for the `MyPet` function to render:
+React components accept arbitrary inputs called **props.** “Props” is short for “properties.” Props let you customize your components. For example, here each `<MyPet>` passes a different `name` for the `MyPet` function to render:
 
 <div class="toggler">
   <ul role="tablist" id="toggle-syntax">
@@ -453,6 +398,59 @@ export default class MyPets extends Component {
 ```
 
 <block class="functional classical webNote androidNote" />
+
+Most of React Native’s Core Components can be customized with props, too. For example, when using [`Image`](image), you pass it a `prop` named [`source`](image#source) to define what image it shows:
+
+<div class="toggler">
+  <ul role="tablist" id="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
+      Functional Syntax
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
+      Class Syntax
+    </li>
+  </ul>
+</div>
+
+<block class="functional webNote androidNote" />
+
+```SnackPlayer name=Props
+import React from 'react';
+import { Text, View, Image } from 'react-native';
+
+export default function MyPetApp() {
+    return (
+      <View>
+        <Image source='https://placekitten.com/g/193/110' style={{width: 193, height: 110}}/>
+        <Text>Hello, I am your pet!</Text>
+      </View>
+    );
+}
+```
+
+<block class="classical webNote androidNote" />
+
+```SnackPlayer name=Props
+import React, { Component } from 'react';
+import { Text, View, Image } from 'react-native';
+
+export default class MyPet extends Component {
+    render(){
+        return (
+            <View>
+                <Image source='https://placekitten.com/g/193/110' style={{width: 193, height: 110}}/>
+                <Text>Hello, I am your pet!</Text>
+            </View>
+        );
+    }
+}
+```
+
+<block class="functional classical webNote androidNote" />
+
+`Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
+
+> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. For example `<Pet name={["Peebo", "Robert"][0]} />`. However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
 
 You can add custom pet pictures to your component by:
 
