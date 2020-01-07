@@ -71,7 +71,9 @@ The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.
 
 ## Functional and Class Syntaxes
 
-You may have noticed the two tabs for “Functional Syntax” and “Class Syntax” in the Snack above. We thought it would be useful for you to have both syntaxes to study, though we will only go into depth with the Hooks syntax. React used a class-based syntax until [React 16.8 introduced a functional syntax called “Hooks”](https://reactjs.org/docs/hooks-intro.html). In March 2019, [React Native 0.58 adopted Hooks as well](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059). While Hooks are the future-facing way to write your React-based components, you might be working in a codebase that still uses classes.
+You may have noticed the two tabs for “Functional Syntax” and “Class Syntax” in the Snack above. We thought it would be useful for you to have both syntaxes to study, though we will only go into depth with the functional syntax.
+
+Classes were the only way to manage state in a React component until [React 16.8 introduced an API called “Hooks” for managing state and more in functional components](https://reactjs.org/docs/hooks-intro.html). In March 2019, [React Native 0.58 adopted Hooks as well](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059). While Hooks are the future-facing way to write your React-based components, you might be working in a codebase that still uses classes.
 
 With the functional syntax you export a JavaScript function that returns your component(s):
 
