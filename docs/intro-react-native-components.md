@@ -54,7 +54,7 @@ export default function App() {
         </View>
         <TextInput
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          value="You can type in me"
+          defaultValue="You can type in me"
         />
       </ScrollView>
     );
@@ -78,7 +78,7 @@ export default class App extends Component {
         </View>
         <TextInput
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          value="You can type in me"
+          defaultValue="You can type in me"
         />
       </ScrollView>
     );
