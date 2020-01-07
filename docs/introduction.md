@@ -75,12 +75,12 @@ You may have noticed the two tabs for “Functional Syntax” and “Class Synta
 
 With the functional syntax you export a JavaScript function that returns your component(s):
 
-```
+```jsx
 export default function YourApp() {
   return (
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>Hello, world!</Text>
-      </View>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Hello, world!</Text>
+    </View>
   );
 }
 ```

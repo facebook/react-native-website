@@ -3,7 +3,7 @@ id: intro-react
 title: Key React Concepts
 ---
 
-React Native runs on [React](https://reactjs.org/), the popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
+React Native runs on [React](https://reactjs.org/), a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
 
 We’re going to cover the core concepts behind React:
 
@@ -128,7 +128,7 @@ export default class MyPet extends Component {
 
 ## Custom Components
 
-You’ve already met [React Native’s Core Components](intro-react-native-components). React, lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.
+You’ve already met [React Native’s Core Components](intro-react-native-components). React lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.
 
 For example, we can nest [`Text`](text) and [`TextInput`](textinput) inside a [`View`](view) below, and React Native will render them together:
 
@@ -188,7 +188,7 @@ export default class MyPet extends Component {
 
 <block class="androidNote classical functional" />
 
-> On Android you usually put your views inside LinearLayout, FrameLayout, RelativeLayout, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](https://facebook.github.io/react-native/docs/next/flexbox).
+> On Android, you usually put your views inside LinearLayout, FrameLayout, RelativeLayout, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](https://facebook.github.io/react-native/docs/next/flexbox).
 
 <block class="webNote androidNote classical functional" />
 
@@ -259,7 +259,7 @@ export default class MyPets extends Component {
 
 <block class="functional classical webNote androidNote" />
 
-In the above example `MyPet` is a React component. In `MyPets` each `<MyPet>` renders a completely different pet. These pets can all have different data, which we pass to them via props.
+In the above example, `MyPet` is a React component. In `MyPets`, each `<MyPet>` renders a completely different pet. These pets can all have different data, which we pass to them via props.
 
 ## Props
 
@@ -316,7 +316,7 @@ export default class MyPet extends Component {
 
 `Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
 
-> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefor, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
+> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
 
 Your own components can also use props. Props let you customize your components. For example, here each `<MyPet>` passes a different `name` for the `MyPet` function to render:
 
@@ -464,11 +464,11 @@ You can build many things with `props` and the Core Components [`Text`](text), [
 
 ## State
 
-Props are set by the parent component and can only be changed by the parent component passing down new values. But user interfaces need to accept new data (input) directly and change according to human interaction. Fortunately, we have `state`, which lets us get and set data associated with a component. You can manipulate component state by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
+Props are set by the parent component and can only be changed by the parent component passing down new values. But user interfaces need to accept new data (input) directly and change according to human interaction. Fortunately, we have `state`, which lets us get and set data associated with a component. You can manipulate a component’s state by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
 
-> A Hook is a kind of function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
+> A Hook is a kind of function that lets you “hook into” React features. For example, useState is a Hook that lets you add React state to functional components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
-You can manipulate component state by calling `useState` inside its function:
+You can manipulate a component’s state by calling `useState` inside its function:
 
 `const [currentValue, setNewValue] = useState("Initial value.");`
 
@@ -476,7 +476,13 @@ Or you could set it like so:
 
 `const [quantity, pickQuantity] = useState(0);`
 
-Calling `useState` creates a “state variable”, sets its default value, and creates functions to get and set it. Let’s break `[a, b] = useState(c)` down:
+Calling `useState` does three things:
+
+- it creates a “state variable”
+- it creates a function to set its value
+- it sets its initial value
+
+Let’s break `[a, b] = useState(c)` down:
 
 - `a` is the “state variable”—it refers to the current value of the component’s state
 - `b` is the name of the function you use to update the state variable
@@ -513,21 +519,21 @@ export default function MyPets() {
 
 > See the `<>` and `</>` above? These bits of JSX wrap [fragments](https://reactjs.org/docs/fragments.html) inside a component. Adjacent JSX elements must be wrapped in an enclosing tag. This tag lets you do that without nesting an extra `View`.
 
-First you will want to import `useState` from React like so:
+First,7 you will want to import `useState` from React like so:
 
-```
-import { Text } from 'react-native';
+```jsx
+import React, {useState} from 'react';
 ```
 
 In this example, inside our `Pet` function, `useState` creates a `defaultText` state variable:
 
-```
+```jsx
 const [defaultText, setDefaultText] = useState("What's my name again?");
 ```
 
 Then we add `onChangeText` to `TextInput`. This fires every time `TextInput`‘s value changes. We’ll learn more about handling `TextInput` in the upcoming tutorial. But for now, notice that we’re using the `setDefaultText` we defined with `useState` to update our state variable `defaultText` every time `onChangeText` fires.:
 
-```
+```jsx
 onChangeText={(text) => setDefaultText(text)}
 ```
 
