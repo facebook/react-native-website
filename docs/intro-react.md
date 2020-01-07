@@ -519,27 +519,27 @@ export default function MyPets() {
 
 > See the `<>` and `</>` above? These bits of JSX wrap [fragments](https://reactjs.org/docs/fragments.html) inside a component. Adjacent JSX elements must be wrapped in an enclosing tag. This tag lets you do that without nesting an extra `View`.
 
-First,7 you will want to import `useState` from React like so:
+First, you will want to import `useState` from React like so:
 
 ```jsx
 import React, {useState} from 'react';
 ```
 
-In this example, inside our `Pet` function, `useState` creates a `defaultText` state variable:
+In this example, inside our `Pet` function, `useState` creates a `name` state variable:
 
 ```jsx
-const [defaultText, setDefaultText] = useState("What's my name again?");
+const [name, setName] = useState("What's my name again?");
 ```
 
-Then we add `onChangeText` to `TextInput`. This fires every time `TextInput`‘s value changes. We’ll learn more about handling `TextInput` in the upcoming tutorial. But for now, notice that we’re using the `setDefaultText` we defined with `useState` to update our state variable `defaultText` every time `onChangeText` fires.:
+Then we add `onChangeText` to the `<TextInput>`. This fires every time the `<TextInput>`‘s value changes (every time a user adds a character of text).
 
 ```jsx
-onChangeText={(text) => setDefaultText(text)}
+onChangeText={(text) => setName(text)}
 ```
 
-You might set state when you have new data from the server, or from user input, or even from a timer.
+This uses the `setName` we defined with the `useState` Hook above to update our state variable `defaultText` every time `onChangeText` fires. (You might set state when you have new data from the server, or from user input, or even from a timer!)
 
-> When a state-setting function like `setDefaultText` is called, its component will re-render. In this case `MyPet` will re-render its `Pet`.
+> You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const) , it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `MyPet` will re-render its `Pet`—discarding the old state const `name` in the process!
 
 ---
 
