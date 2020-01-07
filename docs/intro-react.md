@@ -23,7 +23,7 @@ Your first task is to make a pet component. To define your `MyPet` component, fi
 import {Text} from 'react-native';
 ```
 
-And then use JavaScript [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) statement to export our component for use throughout your app like so:
+And then use JavaScript [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) statement to export your component for use throughout your app like so:
 
 ```jsx
 export default function MyPet() {
