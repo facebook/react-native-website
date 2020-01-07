@@ -97,4 +97,4 @@ As you continue developing with React Native, you may want to use a kind of view
 
 Because React Native uses the same API structure as React components, you’ll need to understand React component APIs to get started. The [next section](intro-react) makes for a quick introduction or refresher on the topic. However, if you’re already familiar with React, feel free to [skip ahead](handling-text-input).
 
-<img src="/react-native/img/react-native-components.png" srcset="/react-native/img/react-native-components2x.png 2x" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native.">
+<img src="/react-native/docs/assets/react-native-components.png" srcset="/react-native/docs/assets/react-native-components2x.png 2x" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native.">
