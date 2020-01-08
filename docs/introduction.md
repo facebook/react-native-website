@@ -67,7 +67,7 @@ export default class HelloWorldApp extends Component {
 
 <block class="classical functional webNote iosNote androidNote" />
 
-The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects on and share how they render in platforms like Android and iOS. We will be using them a lot to demonstrate code samples throughout these docs. You can play around with sample code provided in the Snack, or you can [set up an environment on your local machine](http://localhost:3000/react-native/docs/next/getting-started) and paste the code into your `App.js` file there.
+The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects on and share how they render in platforms like Android and iOS. We will be using them a lot to demonstrate code samples throughout these docs. You can play around with sample code provided in the Snack, or you can [set up an environment on your local machine](getting-started) and paste the code into your `App.js` file there.
 
 ## Functional and Class Syntaxes
 
