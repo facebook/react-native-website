@@ -16,15 +16,15 @@ React Native comes with two such tools configured out of the box: [ESLint](https
 
 ## Writing Testable Code
 
-To start with tests, you first need to write code that is testable. Consider a car’s engine. For some reason it won’t start. In older cars, figuring out what is wrong with the engine requires the mechanic to take the engine apart, piece by piece, until they can figure out the issue. In modern cars, engines are outfitted with sensors that keep an eye on parts of the system, determining the exact location of part failures—sometimes before the engine even breaks down! Sensors changed the way engines were designed and manufactured.
+To start with tests, you first need to write code that is testable. Consider an aircraft manufacturing process - before any model first takes off to show that all of its complex systems work well together, individual parts are tested to guarantee they are safe and function correctly. For example, wings are tested by bending them under extreme load, engine parts are tested for their durability, windshield is tested against simulated bird impact, and much more.
 
-Similarly, with software, writing your code in many small functions that you can test (like adding sensors to the different components of an engine) is more effective than writing your entire program in one file with many lines of code (where you can only test if the engine starts or not). In this way, writing testable code is intertwined with writing clean, modular code. We encourage you to explore this topic in other learning resources.
+Similarly, with software, as opposed to writing your entire program in one huge file with many lines of code, writing your code in multiple small modules that you can test is more effective. In this way, writing testable code is intertwined with writing clean, modular code.
 
 To help make your app more testable, it’s a good idea to separate the view part of your app, React components, from business logic and app state (regardless of whether you use Redux, MobX or other solutions). This way, you can separate tests of your business logic — which shouldn’t rely on your React components — from the components themselves, whose job is primarily rendering your app’s UI!
 
 Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering, and your state would be independent on your components - your app’s logic would work without any React components at all!
 
-After writing testable code, it’s time to write some actual tests! (Or if you do test-driven development, you actually write tests first!).
+After writing testable code, it’s time to write some actual tests! (Or if you do test-driven development, you actually write tests first!). We encourage you to explore the topic of testability in other learning resources.
 
 React Native apps come with [Jest](https://jestjs.io) out of the box, ready to use. Jest is a popular JavaScript Testing Framework also started at Facebook. You can use it to write all types of tests featured in this guide. Let’s get started!
 
@@ -46,11 +46,11 @@ The test is described by the string passed to the [`it`](https://jestjs.io/docs/
 
 This is also known as AAA (Arrange, Act, Assert).
 
-Jest offers [`describe`](https://jestjs.io/docs/en/api#describename-fn) function to help structure your tests. Use `describe` to group together all tests that belong to one functionality. Describes can be nested, if you need that. Other functions you'll use are [`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) or [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) that you can use for setting up the objects you're testing. Read more in the [Jest api reference](https://jestjs.io/docs/en/api).
+Jest offers [`describe`](https://jestjs.io/docs/en/api#describename-fn) function to help structure your tests. Use `describe` to group together all tests that belong to one functionality. Describes can be nested, if you need that. Other functions you'll commonly use are [`beforeEach`](https://jestjs.io/docs/en/api#beforeeachfn-timeout) or [`beforeAll`](https://jestjs.io/docs/en/api#beforeallfn-timeout) that you can use for setting up the objects you're testing. Read more in the [Jest api reference](https://jestjs.io/docs/en/api).
 
 If your test has many steps or many expectations, you probably want to split it into multiple smaller ones. Also, ensure that your tests are completely independent of one another. Each test in your suite must be executable on its own without eg. first running some other test. Conversely, if you run all your tests together, the first test must not influence the output of the second one.
 
-Lastly, as developers we like when our code works great and doesn't crash. With tests, this is often the opposite - think of a failing test as of a _good thing_! When a test is failing, it means something is not right and it gives us an opportunity to fix the problem before it impacts the users.
+Lastly, as developers we like when our code works great and doesn't crash. With tests, this is often the opposite - think of a failing test as of a _good thing_! When a test is failing, it often means something is not right and it gives us an opportunity to fix the problem before it impacts the users.
 
 ## Unit tests
 
@@ -62,7 +62,7 @@ The great thing about unit tests is that they are quick to write and run. Theref
 
 ### Mocking
 
-Sometimes, when your tested objects have external dependencies, you’ll want to mock them out. “Mocking” is when you replace some dependency of your code by your own implementation. Note that generally, using real objects in your tests is better than using mocks but there are situations where this is not possible (for example when your JS code relies on a native module written in Java or Objective-C).
+Sometimes, when your tested objects have external dependencies, you’ll want to mock them out. “Mocking” is when you replace some dependency of your code by your own implementation. Note that generally, using real objects in your tests is better than using mocks but there are situations where this is not possible (for example when your JS unit test relies on a native module written in Java or Objective-C).
 
 Imagine you’re writing an app that shows the current weather in your city and you’re using some external service (dependency of your code) that provides you with the weather information. If the service tells you that it’s raining, you want to show an image with a rainy cloud. You don’t want to call that service in your tests, because it would make the tests slow and unstable (because of the network requests involved) and because the service may return different data every time you run the test. Therefore, you can provide a mock implementation of the service - effectively replacing thousands of lines of code and some internet-connected thermometers!
 
@@ -84,7 +84,7 @@ In integration testing, real individual units are combined (same as in your app)
 
 ## Component Tests
 
-React components are responsible for rendering your app, and users will directly interact with their output. Even if you have high unit and integration testing coverage and your app logic is correct, without component tests you may still deliver a broken UI to your users.
+React components are responsible for rendering your app, and users will directly interact with their output. Even if your app's business logic has high testing coverage and is correct, without component tests you may still deliver a broken UI to your users. Component tests could fall into both unit and integration testing, and since they are such a core part of React Native, we'll cover them in separate paragraphs.
 
 For testing React components, there are two things you may want to test:
 
@@ -111,7 +111,7 @@ class GroceryShoppingListCreator extends React.Component {
     return (
       <>
         <TextInput
-          testID="groceryTextInput"
+          placeholder="Enter grocery item"
           onChangeText={this.setGroceryItem}
         />
         <Button
@@ -128,7 +128,7 @@ When testing user interactions, test the component from the user perspective: yo
 
 To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
 
-`fireEvent.changeText(getByTestId('groceryTextInput'), 'banana');`
+`fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');`
 
 The first parameter is a query function that returns a `ReactTestInstance` and the second parameter is the new text that user entered.
 
@@ -139,7 +139,7 @@ Now that we know how to fire an event, let's take a look at verifying that it ca
 ```js
 const {getByTestId, getByText, getAllByText} = render(<GroceryShoppingList />);
 
-fireEvent.changeText(getByTestId('groceryTextInput'), 'banana');
+fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
 fireEvent.press(getByText('Add the item to list'));
 const bananaElements = getAllByText('banana');
 expect(bananaElements.length).toBe(1); // expect 'banana' to be on the list
@@ -180,7 +180,7 @@ To run them, you build your app in the release configuration and run tests again
 
 Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can tap buttons or insert text into textinputs the same way a real user would. Then you can make assertions about whether or not certain element exists in the app’s screen, whether or not it’s visible, what text it contains and so on.
 
-E2E tests give you the highest possible confidence that part of your app is working but the tradeoff is that writing and running them is much more time consuming than with the previously mentioned types of tests. E2E tests also are more demanding when it comes to their maintenance.
+E2E tests give you the highest possible confidence that part of your app is working but the tradeoff is that writing and running them is _much_ more time consuming than with the previously mentioned types of tests. E2E tests also are more demanding when it comes to their maintenance.
 
 A good way to start is covering only the most important parts of your app by a small number of E2E tests which will ensure those parts keep working.
 
