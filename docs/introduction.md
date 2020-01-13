@@ -3,7 +3,7 @@ id: introduction
 title: Introduction
 ---
 
-So many different kinds of people use React Native: from master iOS developers to React JS beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
+Many different kinds of people use React Native: from advanced iOS developers to React JS beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
 
 ## How to use these docs
 
