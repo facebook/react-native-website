@@ -15,9 +15,9 @@ To work with React Native, you will need to have an understanding of JavaScript 
 
 > While we do our best to assume no prior knowledge of React, iOS, or Android development, these are valuable topics of study for the aspiring React Native developer. Where sensible, we have linked to resources and articles that go more in depth.
 
-## Formatting
+### Environment Setup
 
-Menu paths are written in bold and use carats to navigate submenus. Example: **Android Studio > Preferences**
+Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](getting-started). Our you can follow along with the interactive examples used throughout this guide.
 
 ## Interactive examples
 
@@ -115,6 +115,10 @@ People with many different developer experiences are learning React Native. You 
 > iOS developers may be familiar with this concept.
 
 <block class="webNote androidNote iosNote  classical functional" />
+
+## Formatting
+
+Menu paths are written in bold and use carats to navigate submenus. Example: **Android Studio > Preferences**
 
 ---
 

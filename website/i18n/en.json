@@ -257,6 +257,9 @@
       "progressviewios": {
         "title": "ProgressViewIOS"
       },
+      "props": {
+        "title": "Props"
+      },
       "pushnotificationios": {
         "title": "PushNotificationIOS"
       },
@@ -298,6 +301,9 @@
       },
       "slider": {
         "title": "Slider"
+      },
+      "state": {
+        "title": "State"
       },
       "statusbar": {
         "title": "StatusBar"
@@ -355,6 +361,9 @@
       },
       "troubleshooting": {
         "title": "Troubleshooting"
+      },
+      "tutorial": {
+        "title": "Learn the Basics"
       },
       "typescript": {
         "title": "Using TypeScript with React Native"
