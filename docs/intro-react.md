@@ -89,9 +89,9 @@ export default function MyPet() {
 }
 ```
 
-> This is just one way to export your component—specifically to work with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
+> This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
 
-Now take a closer look at that `return` statement. `<Text>Hello, I am your pet!</Text>` is using a special JavaScript syntax that makes writing elements convienent: JSX.
+Now take a closer look at that `return` statement. `<Text>Hello, I am your pet!</Text>` is using a kind of JavaScript syntax that makes writing elements convienent: JSX.
 
 ## JSX
 
