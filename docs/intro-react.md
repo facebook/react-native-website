@@ -17,7 +17,7 @@ If you want to dig deeper, we encourage you to check out [React's official docum
 
 ## Your first component
 
-The rest of this introduction to React uses pets in its examples: friendly, approachable creatures that need names. Your first component is a Pet:
+The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:
 
 <div class="toggler">
   <ul role="tablist" id="toggle-syntax">
@@ -32,18 +32,18 @@ The rest of this introduction to React uses pets in its examples: friendly, appr
 
 <block class="functional webNote androidNote iosNote" />
 
-```SnackPlayer name=Your%20Pet
+```SnackPlayer name=Your%20Cat
 import React from 'react';
 import { Text } from 'react-native';
 
-export default function MyPet() {
+export default function Cat() {
   return (
-    <Text>Hello, I am your pet!</Text>
+    <Text>Hello, I am your cat!</Text>
   );
 }
 ```
 
-To define your `MyPet` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/react-native/docs/next/text) Core Component:
+Here is how you do it: To define your `Cat` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/react-native/docs/next/text) Core Component:
 
 ```jsx
 import React from 'react';
@@ -53,60 +53,60 @@ import {Text} from 'react-native';
 Your component starts as a function:
 
 ```jsx
-function MyPet() {}
+function Cat() {}
 ```
 
-Whatever a function component returns is rendered as a React element. `MyPet` will render a `<Text>` element:
+Whatever a function component returns is rendered as a React element. `Cat` will render a `<Text>` element:
 
 ```jsx
-function MyPet() {
-  return <Text>Hello, I am your pet!</Text>;
+function Cat() {
+  return <Text>Hello, I am your cat!</Text>;
 }
 ```
 
 You can export your function component with JavaScript’s [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
 
 ```jsx
-export default function MyPet() {
+export default function Cat() {
   // return your component here!
 }
 ```
 
 <block class="classical webNote androidNote iosNote" />
 
-Class components have a little more going on under the hood compared to function components.
+Class components have a little more complexity compared to function components in some ways.
 
-```SnackPlayer name=Your%20Pet
+```SnackPlayer name=Your%20Cat
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
-export default class MyPet extends Component {
+export default class Cat extends Component {
   render() {
     return (
-      <Text>Hello, I am your pet!</Text>
+      <Text>Hello, I am your cat!</Text>
     );
   }
 }
 ```
 
-We additionally import `Component` from React:
+You additionally import `Component` from React:
 
 ```jsx
 import React, {Component} from 'react';
 ```
 
-Your component starts as a class extending `Component` instead of as function:
+Your component starts as a class extending `Component` instead of as a function:
 
 ```jsx
-class MyPet extends Component {}
+class Cat extends Component {}
 ```
 
 Class components have a `render()` function. Whatever is returned inside it is rendered as a React element:
 
 ```jsx
-class MyPet extends Component {
+class Cat extends Component {
   render() {
-    return <Text>Hello, I am your pet!</Text>;
+    return <Text>Hello, I am your cat!</Text>;
   }
 }
 ```
@@ -114,7 +114,7 @@ class MyPet extends Component {
 And as with function components, you can export your class component:
 
 ```jsx
-export default function MyPet() {
+export default function Cat() {
   // return your component here!
 }
 ```
@@ -123,33 +123,33 @@ export default function MyPet() {
 
 > This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
 
-Now take a closer look at that `return` statement. `<Text>Hello, I am your pet!</Text>` is using a kind of JavaScript syntax that makes writing elements convenient: JSX.
+Now take a closer look at that `return` statement. `<Text>Hello, I am your cat!</Text>` is using a kind of JavaScript syntax that makes writing elements convenient: JSX.
 
 ## JSX
 
-React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your pet!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/introducing-jsx.html) you can reference to learn even more. Here’s how you would write the previous example with JSX:
+React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/introducing-jsx.html) you can reference to learn even more. Here’s how you would write the previous example with JSX:
 
 ```SnackPlayer name=JSX
 import React from 'react';
 import { Text } from 'react-native';
 
-export default function MyPet() {
+export default function Cat() {
   return (
-    <Text>Hello, I am your pet!</Text>
+    <Text>Hello, I am your cat!</Text>
   );
 }
 ```
 
-Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the pet, `petName`, and embedding it with curly braces inside `<Text>`.
+Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
 import { Text } from 'react-native';
 
-export default function MyPet() {
-  const petName = "Peebo";
+export default function Cat() {
+  const name = "Maru";
   return (
-    <Text>Hello, I am {petName}!</Text>
+    <Text>Hello, I am {name}!</Text>
   );
 }
 ```
@@ -164,7 +164,7 @@ For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-export default function MyPet() {
+export default function Cat() {
   return (
     <View>
       <Text>Hello, I am...</Text>
@@ -198,42 +198,42 @@ export default function MyPet() {
 
 <block class="webNote androidNote classical functional" />
 
-You can render this component in multiple places without repeating your code by using `<MyPet>`:
+You can render this component multiple times and multiple places without repeating your code by using `<Cat>`:
 
 ```SnackPlayer name=Multiple%20Components
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-function MyPet() {
+function Cat() {
   return (
     <View>
-      <Text>Hello, I am your pet!</Text>
+      <Text>I am a also cat!</Text>
     </View>
   );
 }
 
-export default function MyPets() {
+export default function Cafe() {
   return (
     <View>
-      <MyPet />
-      <MyPet />
-      <MyPet />
+      <Cat />
+      <Cat />
+      <Cat />
     </View>
   );
 }
 ```
 
-In `MyPets`, each `<MyPet>` renders a unique element that can have its own data—which you pass via props.
+You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique element that can have its own data—which you pass via props.
 
 ## Props
 
-React components accept arbitrary inputs called **props.** “Props” is short for “properties.” Props let you customize your components. For example, here each `<MyPet>` passes a different `name` for the `MyPet` function to render:
+**Props** is short for “properties.” Props let you customize React components. For example, here each `<Cat>` passes a different `name` for the `Cat` function to render:
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
 import { Text, View } from 'react-native';
 
-function MyPet(props) {
+function Cat(props) {
   return (
     <View>
       <Text>Hello, I am {props.name}!</Text>
@@ -241,12 +241,12 @@ function MyPet(props) {
   );
 }
 
-export default function MyPets() {
+export default function Cafe() {
   return (
     <View>
-      <MyPet name="Peebo" />
-      <MyPet name="Henrietta" />
-      <MyPet name="Tenno" />
+      <Cat name="Maru" />
+      <Cat name="Jellylorum" />
+      <Cat name="Spot" />
     </View>
   );
 }
@@ -258,7 +258,7 @@ Most of React Native’s Core Components can be customized with props, too. For 
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
-export default function MyPetApp() {
+export default function CatApp() {
   return (
     <View>
       <Image
@@ -267,7 +267,7 @@ export default function MyPetApp() {
           width: 193,
           height: 110
         }}/>
-      <Text>Hello, I am your pet!</Text>
+      <Text>Hello, I am your cat!</Text>
     </View>
   );
 }
@@ -275,19 +275,19 @@ export default function MyPetApp() {
 
 `Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
 
-> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number (`<Pet food={["grain", "fruit"]} /> age={2}`). However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
+> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number (`<Cat food={["fish", "kibble"]} /> age={2}`). However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
 
-You can add custom pet pictures to your component by:
+You can add custom cat pictures to your component by:
 
-- adding an `Image` component to your `MyPet` component
-- setting `Image`‘s `source` via `MyPet`‘s `props` with `{props.picURI}`
-- then passing `picURI` values in each `MyPet`
+- adding an `Image` component to your `Cat` component
+- setting `Image`‘s `source` via `Cat`‘s `props` with `{props.picURI}`
+- then passing `picURI` values in each `Cat`
 
 ```SnackPlayer name=Custom%20Pictures
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
-function MyPet(props) {
+function Cat(props) {
   return (
     <View>
       <Image source={props.picURI} style={{width: 200, height: 200}}/>
@@ -296,12 +296,12 @@ function MyPet(props) {
   );
 }
 
-export default function MyPets() {
+export default function Cafe() {
   return (
     <View>
-      <MyPet name="Peebo" picURI="https://placekitten.com/g/200/200" />
-      <MyPet name="Henrietta" picURI="https://placekitten.com/g/200/200" />
-      <MyPet name="Tenno" picURI="https://placekitten.com/g/200/200" />
+      <Cat name="Maru" picURI="https://placekitten.com/g/200/200" />
+      <Cat name="Jellylorum" picURI="https://placekitten.com/g/200/200" />
+      <Cat name="Spot" picURI="https://placekitten.com/g/200/200" />
     </View>
   );
 }
@@ -311,7 +311,7 @@ You can build many things with `props` and the Core Components [`Text`](text), [
 
 ## State
 
-Props are set by the parent component and can only be changed by the parent component passing down new values. But user interfaces need to accept new data (input) directly and change according to human interaction. How do you get dynamic data into your components? Fortunately, React components can have their own `state` you can get and set data from.
+Props are set by the parent component and can only be changed by the parent component passing down new values. But for individual components to change according to human interactions, they need to be able to accept and store their own data. Fortunately, React components can have their own `state` you can get and set data from.
 
 <div class="toggler">
   <ul role="tablist" id="toggle-syntax">
@@ -328,13 +328,13 @@ Props are set by the parent component and can only be changed by the parent comp
 
 You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
 
-> A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add React state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
+> A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
-You can declare a component’s state by calling `useState` inside its function:
+You can declare a component’s state by calling `useState` inside its function like this:
 
 `const [currentValue, setNewValue] = useState("Initial value.");`
 
-You can use `useState` to track any kind of data, like numbers:
+You can use `useState` to track any kind of data, including numbers:
 
 `const [quantity, pickQuantity] = useState(0);`
 
@@ -353,7 +353,7 @@ Let’s break `[a, b] = useState(c)` down:
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-function MyPet() {
+function Cat() {
 
   const [name, setName] = useState("What's my name again?");
 
@@ -374,17 +374,17 @@ function MyPet() {
   );
 }
 
-export default function MyPets() {
+export default function Cafe() {
   return (
     <>
-      <MyPet />
-      <MyPet />
+      <Cat />
+      <Cat />
     </>
   );
 }
 ```
 
-> See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra `View`.
+> See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
 
 First, you will want to import `useState` from React like so:
 
@@ -392,7 +392,7 @@ First, you will want to import `useState` from React like so:
 import React, {useState} from 'react';
 ```
 
-In this example, inside your `Pet` function, `useState` creates a `name` state variable:
+In this example, inside your `Cat` function, `useState` creates a `name` state variable:
 
 ```jsx
 const [name, setName] = useState("What's my name again?");
@@ -406,7 +406,7 @@ onChangeText={(text) => setName(text)}
 
 This uses the `setName` you defined with the `useState` Hook above to update your state variable `defaultText` every time `onChangeText` fires. You might set state when you have new data from the server, or from user input, or even from a timer.
 
-> You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `MyPet` will re-render its `Pet`—discarding the old state const `name` in the process!
+> You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `Cat` will re-render its `<Cat>`—discarding the old state const `name` in the process!
 
 <block class="classical webNote androidNote" />
 The older class components approach is a little different when it comes to state.
@@ -415,7 +415,7 @@ The older class components approach is a little different when it comes to state
 import React, { Component } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-export class MyPet extends Component {
+export class Cat extends Component {
   state = {name: "What's my name again?!"}
 
   render(){
@@ -437,12 +437,12 @@ export class MyPet extends Component {
   }
 }
 
-export default class MyPets extends Component {
+export default class Cafe extends Component {
   render(){
     return (
       <>
-        <MyPet />
-        <MyPet />
+        <Cat />
+        <Cat />
       </>
     );
   }
