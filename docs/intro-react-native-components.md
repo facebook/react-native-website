@@ -32,19 +32,23 @@ import React from 'react';
 import { View, Text, Image, ScrollView, TextInput } from 'react-native';
 
 export default function App() {
-    return (
-      <ScrollView>
-        <Text>ScrollViews scroll!</Text>
-        <View>
-          <Text>Some text</Text>
-          <Image source="https://placekitten.com/g/200/300" style={{width: 200, height: 200}}/>
-        </View>
-        <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          defaultValue="You can type in me"
-        />
-      </ScrollView>
-    );
+  return (
+    <ScrollView>
+      <Text>ScrollViews scroll!</Text>
+      <View>
+        <Text>Some text</Text>
+        <Image source="https://placekitten.com/g/200/300" style={{width: 200, height: 200}}/>
+      </View>
+      <TextInput
+        style={{
+          height: 40,
+          borderColor: 'gray',
+          borderWidth: 1
+        }}
+        defaultValue="You can type in me"
+      />
+    </ScrollView>
+  );
 }
 ```
 

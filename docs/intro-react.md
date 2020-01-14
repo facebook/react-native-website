@@ -207,7 +207,7 @@ import { Text, TextInput, View } from 'react-native';
 function MyPet() {
   return (
     <View>
-        <Text>Hello, I am your pet!</Text>
+      <Text>Hello, I am your pet!</Text>
     </View>
   );
 }
@@ -261,7 +261,12 @@ import { Text, View, Image } from 'react-native';
 export default function MyPetApp() {
   return (
     <View>
-      <Image source='https://placekitten.com/g/193/110' style={{width: 193, height: 110}}/>
+      <Image
+        source='https://placekitten.com/g/193/110'
+        style={{
+          width: 193,
+          height: 110
+        }}/>
       <Text>Hello, I am your pet!</Text>
     </View>
   );
@@ -356,8 +361,14 @@ function MyPet() {
     <View>
       <Text>Hello, I am...{name}!</Text>
       <TextInput
-        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-        onChangeText={(text) => setName(text)}
+        style={{
+          height: 40,
+          borderColor: 'gray',
+          borderWidth: 1
+        }}
+        onChangeText={
+          (text) => setName(text)
+        }
       />
     </View>
   );
