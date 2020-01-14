@@ -25,20 +25,7 @@ React Native comes with a suite of built-in components ready for you to use. The
 | `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
 | `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
 
-React Native has many more Core Components for everything from form controls to activity indicators. You can find them [documented in the APIs section](components-and-apis). For now, we’re going to work with these five Core Components. In the next section you will start combinging them. Have a play with them here now!
-
-<div class="toggler">
-  <ul role="tablist" id="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
-      Functional Syntax
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
-      Class Syntax
-    </li>
-  </ul>
-</div>
-
-<block class="functional" />
+React Native has many more Core Components for everything from form controls to activity indicators. You can find them [documented in the APIs section](components-and-apis). For now, we’re going to work with these five Core Components. In the next section you will start combining them. Have a play with them here now!
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
@@ -60,34 +47,6 @@ export default function App() {
     );
 }
 ```
-
-<block class="classical" />
-
-```SnackPlayer name=Hello%20World
-import React, { Component } from 'react';
-import { View, Text, Image, ScrollView, TextInput } from 'react-native';
-
-export default class App extends Component {
-  render() {
-    return (
-      <ScrollView>
-        <Text>ScrollViews scroll!</Text>
-        <View>
-          <Text>Some text</Text>
-          <Image source="https://placekitten.com/g/200/300" style={{width: 200, height: 200}}/>
-        </View>
-        <TextInput
-          style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-          defaultValue="You can type in me"
-        />
-      </ScrollView>
-    );
-  }
-}
-
-```
-
-<block class="classical functional" />
 
 ## Make your own Native Components
 
