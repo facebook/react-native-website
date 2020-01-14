@@ -43,17 +43,17 @@ With React, you can make components using either classes or functions. Originall
 Because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle:
 
 <div class="toggler">
-  <ul role="tablist" id="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
       Function Component Example
     </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
       Class Component Example
     </li>
   </ul>
 </div>
 
-<block class="functional webNote androidNote iosNote" />
+<block class="functional syntax" />
 
 ```SnackPlayer name=Hello%20World%20Function%20Component
 import React from 'react';
@@ -72,7 +72,7 @@ export default function YourApp() {
 }
 ```
 
-<block class="classical webNote androidNote iosNote" />
+<block class="classical syntax" />
 
 ```SnackPlayer name=Hello%20World%20Class%20Component
 import React, { Component } from 'react';
@@ -94,7 +94,7 @@ export default class HelloWorldApp extends Component {
 
 ```
 
-<block class="classical functional webNote androidNote iosNote" />
+<block class="endBlock syntax" />
 
 You can find more examples of class components in [previous versions of this documentation](/react-native/versions).
 
@@ -104,26 +104,26 @@ People with many different developer experiences are learning React Native. You 
 
 <div class="toggler">
   <span>Developer Notes</span>
-  <span role="tablist" id="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTab('devNotes', 'webNote')">Web</button>
-    <button role="tab" class="button-androidNote" onclick="displayTab('devNotes', 'androidNote')">Android</button>
-    <button role="tab" class="button-iosNote" onclick="displayTab('devNotes', 'iosNote')">iOS</button>
+  <span role="tablist" class="toggle-devNotes">
+    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
+    <button role="tab" class="button-androidNote" onclick="displayTabs('devNotes', 'androidNote')">Android</button>
+    <button role="tab" class="button-iosNote" onclick="displayTabs('devNotes', 'iosNote')">iOS</button>
   </span>
 </div>
 
-<block class="webNote classical functional" />
+<block class="webNote devNotes" />
 
 > Web developers may be familiar with this concept.
 
-<block class="androidNote classical functional" />
+<block class="androidNote devNotes" />
 
 > Android developers may be familiar with this concept.
 
-<block class="iosNote classical functional" />
+<block class="iosNote devNotes" />
 
 > iOS developers may be familiar with this concept.
 
-<block class="webNote androidNote iosNote classical functional" />
+<block class="endBlock devNotes" />
 
 ## Formatting
 

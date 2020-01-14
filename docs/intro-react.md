@@ -20,17 +20,17 @@ If you want to dig deeper, we encourage you to check out [React's official docum
 The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:
 
 <div class="toggler">
-  <ul role="tablist" id="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
       Function Component Example
     </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
       Class Component Example
     </li>
   </ul>
 </div>
 
-<block class="functional webNote androidNote iosNote" />
+<block class="functional syntax" />
 
 ```SnackPlayer name=Your%20Cat
 import React from 'react';
@@ -68,11 +68,11 @@ You can export your function component with JavaScript’s [`export`](https://de
 
 ```jsx
 export default function Cat() {
-  // return your component here!
+  // element(s) go here!
 }
 ```
 
-<block class="classical webNote androidNote iosNote" />
+<block class="classical syntax" />
 
 Class components have a little more complexity compared to function components in some ways.
 
@@ -115,11 +115,11 @@ And as with function components, you can export your class component:
 
 ```jsx
 export default function Cat() {
-  // return your component here!
+  // element(s) go here!
 }
 ```
 
-<block class="classical functional webNote androidNote iosNote" />
+<block class="endBlock syntax" />
 
 > This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
 
@@ -182,21 +182,21 @@ export default function Cat() {
 
 <div class="toggler">
   <span>Developer Notes</span>
-  <span role="tablist" id="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTab('devNotes', 'webNote')">Web</button>
-    <button role="tab" class="button-androidNote" onclick="displayTab('devNotes', 'androidNote')">Android</button>
+  <span role="tablist" class="toggle-devNotes">
+    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
+    <button role="tab" class="button-androidNote" onclick="displayTabs('devNotes', 'androidNote')">Android</button>
   </span>
 </div>
 
-<block class="webNote classical functional" />
+<block class="webNote devNotes" />
 
 > If you’re familiar with web development, `<View>` and `<Text>` might remind you of HTML! You can think of them as the `<div>` and `<p>` tags of application development.
 
-<block class="androidNote classical functional" />
+<block class="androidNote devNotes" />
 
 > On Android, you usually put your views inside LinearLayout, FrameLayout, RelativeLayout, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](https://facebook.github.io/react-native/docs/next/flexbox).
 
-<block class="webNote androidNote classical functional" />
+<block class="endBlock devNotes" />
 
 You can render this component multiple times and multiple places without repeating your code by using `<Cat>`:
 
@@ -314,17 +314,17 @@ You can build many things with `props` and the Core Components [`Text`](text), [
 Props are set by the parent component and can only be changed by the parent component passing down new values. But for individual components to change according to human interactions, they need to be able to accept and store their own data. Fortunately, React components can have their own `state` you can get and set data from.
 
 <div class="toggler">
-  <ul role="tablist" id="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTab('syntax', 'functional')">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
       State with Function Components
     </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTab('syntax', 'classical')">
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
       State with Class Components
     </li>
   </ul>
 </div>
 
-<block class="functional webNote androidNote" />
+<block class="functional syntax" />
 
 You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
 
@@ -408,7 +408,7 @@ This uses the `setName` you defined with the `useState` Hook above to update you
 
 > You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `Cat` will re-render its `<Cat>`—discarding the old state const `name` in the process!
 
-<block class="classical webNote androidNote" />
+<block class="classical syntax" />
 The older class components approach is a little different when it comes to state.
 
 ```SnackPlayer name=State%20and%20Class%20Components
@@ -469,7 +469,7 @@ this.setState({name: text});
 
 > Do not change your component's state directly by assigning it a new value with `this.state.name = text`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
 
-<block class="classical functional webNote androidNote" />
+<block class="endBlock syntax" />
 
 ---
 

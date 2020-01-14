@@ -38,6 +38,48 @@ function displayTab(type, value) {
     }
   });
 }
+
+// DisplayTabs are when you want to show multiple togglers on the same page, independent of each other.
+// See introduction.md for syntax.
+function displayTabs(type, value) {
+  const list = document.getElementsByClassName(`toggle-${type}`);
+  // short circuit if there is no toggle for this tab type
+  if (!list) {
+    return;
+  }
+  [...list].forEach(child => {
+    [...child.children].forEach(grandchild => {
+      if (grandchild.classList.contains(`button-${value}`)) {
+        grandchild.classList.add('active');
+        grandchild.setAttribute('aria-selected', true);
+      } else {
+        grandchild.classList.remove('active');
+        grandchild.setAttribute('aria-selected', false);
+      }
+    });
+  });
+
+  var container = document.getElementsByTagName('block')[0].parentNode;
+  [...container.children].forEach(child => {
+    if (child.tagName !== 'BLOCK') {
+      return;
+    }
+    if (child.classList.contains('endBlock')) {
+      child.classList.add('active');
+    }
+    if (
+      child.classList.contains(type) &&
+      !child.classList.contains('endBlock')
+    ) {
+      if (child.classList.contains(value)) {
+        child.classList.add('active');
+      } else {
+        child.classList.remove('active');
+      }
+    }
+  });
+}
+
 function convertBlocks() {
   // Convert <div>...<span><block /></span>...</div>
   // Into <div>...<block />...</div>
@@ -91,26 +133,26 @@ function guessPlatformAndOS() {
             }
             // Dev Notes
             if (parent.className.indexOf('androidNote') > -1) {
-              displayTab('devNotes', 'androidNote');
+              displayTabs('devNotes', 'androidNote');
               foundHash = true;
             } else if (parent.className.indexOf('iosNote') > -1) {
-              displayTab('devNotes', 'iosNote');
+              displayTabs('devNotes', 'iosNote');
               foundHash = true;
             } else if (parent.className.indexOf('windowsNote') > -1) {
-              displayTab('devNotes', 'windowsNote');
+              displayTabs('devNotes', 'windowsNote');
               foundHash = true;
             } else if (parent.className.indexOf('webNote') > -1) {
-              displayTab('devNotes', 'webNote');
+              displayTabs('devNotes', 'webNote');
               foundHash = true;
             } else {
               break;
             }
             // Syntax
             if (parent.className.indexOf('functional') > -1) {
-              displayTab('syntax', 'functional');
+              displayTabs('syntax', 'functional');
               foundHash = true;
             } else if (parent.className.indexOf('classical') > -1) {
-              displayTab('syntax', 'classical');
+              displayTabs('syntax', 'classical');
               foundHash = true;
             } else {
               break;
@@ -148,10 +190,10 @@ function guessPlatformAndOS() {
     var isWindows = navigator.platform === 'Win32';
     displayTab('platform', isMac ? 'ios' : 'android');
     displayTab('os', isMac ? 'mac' : isWindows ? 'windows' : 'linux');
-    displayTab('devNotes', 'webNote');
     displayTab('guide', 'quickstart');
-    displayTab('syntax', 'functional');
     displayTab('language', 'objc');
+    displayTabs('syntax', 'functional');
+    displayTabs('devNotes', 'webNote');
   }
 }
 
