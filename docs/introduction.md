@@ -127,7 +127,7 @@ People with many different developer experiences are learning React Native. You 
 
 ## Formatting
 
-Menu paths are written in bold and use carats to navigate submenus. Example: **Android Studio > Preferences**
+Menu paths are written in bold and use carets to navigate submenus. Example: **Android Studio > Preferences**
 
 Inline code
 
