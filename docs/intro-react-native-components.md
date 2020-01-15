@@ -11,11 +11,11 @@ In Android and iOS development, a **view** is the basic building block of UI: a 
 
 ## Native Components
 
-In Android development, you write views in Java or Kotlin; in iOS development, you use Objective-C or Swift. With React Native, you can invoke these views with JavaScript using React components. At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components Native Components.
+In Android development, you write views in Kotlin or Java; in iOS development, you use Swift or Objective-C. With React Native, you can invoke these views with JavaScript using React components. At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components **Native Components.**
 
 ## Core Components
 
-React Native comes with a suite of built-in components ready for you to use. These Core Components include:
+React Native comes with a suite of built-in components ready for you to use. These **Core Components** include:
 
 | React Native UI Component | Android View   | iOS View         | Web Analog               | Description                                                                                           |
 | ------------------------- | -------------- | ---------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ React Native comes with a suite of built-in components ready for you to use. The
 | `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
 | `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
 
-React Native has many more Core Components for everything from form controls to activity indicators. You can find them [documented in the APIs section](components-and-apis). For now, we’re going to work with these five Core Components. In the next section you will start combining them. Have a play with them here now!
+React Native has many more Core Components for everything from form controls to activity indicators. You can find them [documented in the API section](components-and-apis). For now, we’re going to work with these five Core Components. In the next section you will start combining them. Have a play with them here now!
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';

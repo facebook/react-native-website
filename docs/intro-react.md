@@ -173,7 +173,7 @@ export default function Cat() {
           height: 40,
           borderColor: 'gray',
           borderWidth: 1 }}
-        value="Name me!"
+        defaultValue="Name me!"
       />
     </View>
   );
