@@ -34,9 +34,9 @@ import { View, Text, Image, ScrollView, TextInput } from 'react-native';
 export default function App() {
   return (
     <ScrollView>
-      <Text>ScrollViews scroll!</Text>
+      <Text>Some text</Text>
       <View>
-        <Text>Some text</Text>
+        <Text>Some more text</Text>
         <Image source="https://placekitten.com/g/200/300" style={{width: 200, height: 200}}/>
       </View>
       <TextInput
@@ -54,7 +54,7 @@ export default function App() {
 
 ## Make your own Native Components
 
-As you continue developing with React Native, you may want to use a kind of view on Android or iOS that isn’t in the Core Components. For this reason, React Native lets you to build your own Native Components for [Android](native-components-android.md) and [iOS](native-components-ios.md) to suit your app's unique needs. We also have a thriving ecosystem of these community-contributed components and modules. Check [Native Directory](https://www.native.directory/) to find what the community has been creating.
+As you continue developing with React Native, you may want to use a view on Android or iOS that isn’t in the Core Components. For this reason, React Native lets you to build your own Native Components for [Android](native-components-android.md) and [iOS](native-components-ios.md) to suit your app's unique needs. We also have a thriving ecosystem of these community-contributed components and modules. Check [Native Directory](https://www.native.directory/) to find what the community has been creating.
 
 ---
 

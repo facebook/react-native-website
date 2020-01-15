@@ -64,17 +64,17 @@ function Cat() {
 }
 ```
 
-You can export your function component with JavaScript’s [`export`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
+You can export your function component with JavaScript’s [`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
 
 ```jsx
 export default function Cat() {
-  // element(s) go here!
+  return <Text>Hello, I am your cat!</Text>;
 }
 ```
 
 <block class="classical syntax" />
 
-Class components have a little more complexity compared to function components in some ways.
+Class components tend to be a bit more verbose than function components.
 
 ```SnackPlayer name=Your%20Cat
 import React, { Component } from 'react';
@@ -114,8 +114,10 @@ class Cat extends Component {
 And as with function components, you can export your class component:
 
 ```jsx
-export default function Cat() {
-  // element(s) go here!
+export default class Cat extends Component {
+  render() {
+    return <Text>Hello, I am your cat!</Text>;
+  }
 }
 ```
 
@@ -127,20 +129,7 @@ Now take a closer look at that `return` statement. `<Text>Hello, I am your cat!<
 
 ## JSX
 
-React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/introducing-jsx.html) you can reference to learn even more. Here’s how you would write the previous example with JSX:
-
-```SnackPlayer name=JSX
-import React from 'react';
-import { Text } from 'react-native';
-
-export default function Cat() {
-  return (
-    <Text>Hello, I am your cat!</Text>
-  );
-}
-```
-
-Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
+React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/jsx-in-depth.html) you can reference to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
@@ -153,6 +142,24 @@ export default function Cat() {
   );
 }
 ```
+
+Any JavaScript will work between curly braces, including functions like `{fullName("Rum", Tum", "Tugger")}`:
+
+```SnackPlayer name=Curly%20Braces
+import React from 'react';
+import { Text } from 'react-native';
+
+export default function Cat() {
+  function fullName(firstName, secondName, thirdName) {
+    return firstName + " " + secondName + " " + thirdName;
+  }
+  return (
+    <Text>Hello, I am {fullName("Rum", "Tum", "Tugger")}!</Text>
+  );
+}
+```
+
+You can think of curly braces as creating a portal into JS functionality right there in your JSX.
 
 ## Custom Components
 

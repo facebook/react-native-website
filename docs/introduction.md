@@ -3,11 +3,11 @@ id: introduction
 title: Introduction
 ---
 
-Many different kinds of people use React Native: from advanced iOS developers to React JS beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
+Many different kinds of people use React Native: from advanced iOS developers to React beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
 
 ## How to use these docs
 
-You can start here and read through these docs linearly like a book; or you can read the specific sections you need. Already familiar with React JS? You can skip [that section](intro-react)—or read it for a light refresher.
+You can start here and read through these docs linearly like a book; or you can read the specific sections you need. Already familiar with React? You can skip [that section](intro-react)—or read it for a light refresher.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Because Hooks are the future-facing way to write your React components, we wrote
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function YourApp() {
+export default function HelloWorldApp() {
   return (
     <View style={{
         flex: 1,
@@ -128,8 +128,6 @@ People with many different developer experiences are learning React Native. You 
 ## Formatting
 
 Menu paths are written in bold and use carets to navigate submenus. Example: **Android Studio > Preferences**
-
-Inline code
 
 > The sample code in this documentation uses [JavaScript version ES2015](https://babeljs.io/learn-es2015/) (also known as ES6). Since ES2015 is not supported by all JavaScript engines, React Native ships with ES2015 support out of the box thanks to [Babel](https://babeljs.io/) (which also handles your JSX!). This means you can use ES2015 without worrying about backwards compatibility.
 
