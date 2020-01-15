@@ -159,7 +159,9 @@ export default function Cat() {
 }
 ```
 
-You can think of curly braces as creating a portal into JS functionality right there in your JSX.
+You can think of curly braces as creating a portal into JS functionality in your JSX!
+
+> Because JSX is included in the React library, it won’t work if you don’t have `import React from 'react'` at the top of your file!
 
 ## Custom Components
 
@@ -316,11 +318,11 @@ export default function Cafe() {
 }
 ```
 
-You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need `state`.
+You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
 ## State
 
-Props are set by the parent component and can only be changed by the parent component passing down new values. But for individual components to change according to human interactions, they need to be able to accept and store their own data. Fortunately, React components can have their own `state` you can get and set data from.
+Props are set by the parent component and can only be changed by the parent component passing down new values. But for individual components to change according to human interactions, they need to be able to accept and store their own data. Fortunately, React components can have their own state you can get and set data from.
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -341,11 +343,18 @@ You can add state to a component by calling [React’s `useState` Hook](https://
 
 You can declare a component’s state by calling `useState` inside its function like this:
 
-`const [currentValue, setNewValue] = useState("Initial value.");`
+```JS
+function demonstrationComponent() {
+  const [currentValue, setValue] = useState("Initial value.");
+  // ...
+}
+```
 
 You can use `useState` to track any kind of data, including numbers:
 
-`const [quantity, pickQuantity] = useState(0);`
+```JS
+const [quantity, pickQuantity] = useState(0);
+```
 
 Calling `useState` does two things:
 
@@ -413,7 +422,7 @@ Then you add `onChangeText` to the `<TextInput>`. This fires every time the `<Te
 onChangeText={(text) => setName(text)}
 ```
 
-This uses the `setName` you defined with the `useState` Hook above to update your state variable `defaultText` every time `onChangeText` fires. You might set state when you have new data from the server, or from user input, or even from a timer.
+This uses the `setName` you defined with the `useState` Hook above to update your state variable `name` every time `onChangeText` fires. You might set state when you have new data from the server, or from user input, or even from a timer.
 
 > You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `Cat` will re-render its `<Cat>`—discarding the old state const `name` in the process!
 
@@ -458,7 +467,7 @@ export default class Cafe extends Component {
 }
 ```
 
-In class components, state is stored in a `state` object:
+In class components, state is stored in a state object:
 
 ```jsx
 state = {name: "What's my name again?!"};
