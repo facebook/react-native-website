@@ -179,7 +179,8 @@ export default function Cat() {
         style={{
           height: 40,
           borderColor: 'gray',
-          borderWidth: 1 }}
+          borderWidth: 1
+        }}
         defaultValue="Name me!"
       />
     </View>
@@ -201,7 +202,7 @@ export default function Cat() {
 
 <block class="androidNote devNotes" />
 
-> On Android, you usually put your views inside LinearLayout, FrameLayout, RelativeLayout, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](https://facebook.github.io/react-native/docs/next/flexbox).
+> On Android, you usually put your views inside LinearLayout, FrameLayout, RelativeLayout, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
 
 <block class="endBlock devNotes" />
 
@@ -259,7 +260,7 @@ export default function Cafe() {
 }
 ```
 
-Most of React Native’s Core Components can be customized with props, too. For example, when using [`Image`](image), you pass it a `prop` named [`source`](image#source) to define what image it shows:
+Most of React Native’s Core Components can be customized with props, too. For example, when using [`Image`](image), you pass it a prop named [`source`](image#source) to define what image it shows:
 
 ```SnackPlayer name=Props
 import React from 'react';
@@ -270,10 +271,8 @@ export default function CatApp() {
     <View>
       <Image
         source='https://placekitten.com/g/193/110'
-        style={{
-          width: 193,
-          height: 110
-        }}/>
+        style={{width: 193, height: 110}}
+      />
       <Text>Hello, I am your cat!</Text>
     </View>
   );
@@ -287,7 +286,7 @@ export default function CatApp() {
 You can add custom cat pictures to your component by:
 
 - adding an `Image` component to your `Cat` component
-- setting `Image`‘s `source` via `Cat`‘s `props` with `{props.picURI}`
+- setting `Image`‘s `source` via `Cat`‘s props with `{props.picURI}`
 - then passing `picURI` values in each `Cat`
 
 ```SnackPlayer name=Custom%20Pictures
@@ -297,7 +296,10 @@ import { Text, View, Image } from 'react-native';
 function Cat(props) {
   return (
     <View>
-      <Image source={props.picURI} style={{width: 200, height: 200}}/>
+      <Image
+        source={props.picURI}
+        style={{width: 200, height: 200}}
+      />
       <Text>Hello, I am {props.name}!</Text>
     </View>
   );
@@ -314,7 +316,7 @@ export default function Cafe() {
 }
 ```
 
-You can build many things with `props` and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need `state`.
+You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need `state`.
 
 ## State
 
