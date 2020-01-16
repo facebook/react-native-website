@@ -286,39 +286,6 @@ export default function CatApp() {
 
 > Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number (`<Cat food={["fish", "kibble"]} /> age={2}`). However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
 
-You can add custom cat pictures to your component by:
-
-- adding an `Image` component to your `Cat` component
-- setting `Image`‘s `source` via `Cat`‘s props with `{props.picURI}`
-- then passing `picURI` values in each `Cat`
-
-```SnackPlayer name=Custom%20Pictures
-import React from 'react';
-import { Text, View, Image } from 'react-native';
-
-function Cat(props) {
-  return (
-    <View>
-      <Image
-        source={props.picURI}
-        style={{width: 200, height: 200}}
-      />
-      <Text>Hello, I am {props.name}!</Text>
-    </View>
-  );
-}
-
-export default function Cafe() {
-  return (
-    <View>
-      <Cat name="Maru" picURI="https://placekitten.com/g/200/200" />
-      <Cat name="Jellylorum" picURI="https://placekitten.com/g/200/200" />
-      <Cat name="Spot" picURI="https://placekitten.com/g/200/200" />
-    </View>
-  );
-}
-```
-
 You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
 ## State
