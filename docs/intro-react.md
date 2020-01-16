@@ -1,7 +1,7 @@
 ---
 id: intro-react
 title: React Fundamentals
-description: To understand React Native fully, you need a solid foundation in React. This short introduction to React can help you get started.
+description: To understand React Native fully, you need a solid foundation in React. This short introduction to React can help you get started or get refreshed.
 ---
 
 React Native runs on [React](https://reactjs.org/), a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
@@ -234,11 +234,13 @@ export default function Cafe() {
 }
 ```
 
-You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique element that can have its own data—which you pass via props.
+Any component that renders other components is a **parent component.** Here, `Cafe` is the parent component and each `Cat` is a **child component.**
+
+You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique element—which you can customize with props.
 
 ## Props
 
-**Props** is short for “properties.” Props let you customize React components. For example, here each `<Cat>` passes a different `name` for the `Cat` function to render:
+**Props** is short for “properties.” Props let you customize React components. For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
