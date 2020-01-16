@@ -16,10 +16,6 @@ To work with React Native, you will need to have an understanding of JavaScript 
 
 > While we do our best to assume no prior knowledge of React, iOS, or Android development, these are valuable topics of study for the aspiring React Native developer. Where sensible, we have linked to resources and articles that go more in depth.
 
-### Environment Setup
-
-Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](getting-started). Our you can follow along with the interactive examples used throughout this guide.
-
 ## Interactive examples
 
 ```SnackPlayer name=Hello%20World
@@ -35,7 +31,9 @@ export default function YourApp() {
 }
 ```
 
-The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects on and share how they render in platforms like Android and iOS. We will be using them a lot to demonstrate code samples throughout these docs. You can play around with sample code provided in the Snack, or you can [set up an environment on your local machine](getting-started) and paste the code into your `App.js` file there.
+The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects on and share how they render in platforms like Android and iOS. We will be using them a lot to demonstrate code samples throughout these docs. You can play around with sample code provided in the Snack.
+
+> Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](getting-started) and paste the code examples into your `App.js` file there.
 
 ## Function Components and Class Components
 
