@@ -27,13 +27,15 @@ import { Text, View } from 'react-native';
 export default function YourApp() {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>Hello, world!</Text>
+      <Text>
+        // Try editing me! 🎉
+      </Text>
     </View>
   );
 }
 ```
 
-The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with the code.
+The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with the code. Go ahead and try changing the text commented out with `//` above to "Hello, world!"
 
 > Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](getting-started) and paste the code examples into your `App.js` file there. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
 
@@ -101,7 +103,7 @@ You can find more examples of class components in [previous versions of this doc
 
 ## Developer Notes
 
-People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specifc to one platform or another like so:
+People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specific to one platform or another like so:
 
 <div class="toggler">
   <span>Developer Notes</span>

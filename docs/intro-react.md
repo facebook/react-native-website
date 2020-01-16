@@ -14,7 +14,7 @@ We’re going to cover the core concepts behind React:
 - props
 - state
 
-If you want to dig deeper, we encourage you to check out [React's official documentation](https://reactjs.org/docs/getting-started.html).
+If you want to dig deeper, we encourage you to check out [React’s official documentation](https://reactjs.org/docs/getting-started.html).
 
 ## Your first component
 
