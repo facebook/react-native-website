@@ -129,8 +129,6 @@ People with many different developer experiences are learning React Native. You 
 
 Menu paths are written in bold and use carets to navigate submenus. Example: **Android Studio > Preferences**
 
-> The sample code in this documentation uses [JavaScript version ES2015](https://babeljs.io/learn-es2015/) (also known as ES6). Since ES2015 is not supported by all JavaScript engines, React Native ships with ES2015 support out of the box thanks to [Babel](https://babeljs.io/) (which also handles your JSX!). This means you can use ES2015 without worrying about backwards compatibility.
-
 ---
 
 Now that you know how this guide works, it's time to get to know the foundation of React Native: [Native Components](intro-react-native-components.md).
