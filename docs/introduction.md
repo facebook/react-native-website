@@ -100,7 +100,7 @@ You can find more examples of class components in [previous versions of this doc
 
 ## Developer Notes
 
-People with many different developer experiences are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specifc to one platform or another like so:
+People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specifc to one platform or another like so:
 
 <div class="toggler">
   <span>Developer Notes</span>
