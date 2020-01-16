@@ -1,6 +1,7 @@
 ---
 id: intro-react
-title: Key React Concepts
+title: React Fundamentals
+description: To understand React Native fully, you need a solid foundation in React. This short introduction to React can help you get started.
 ---
 
 React Native runs on [React](https://reactjs.org/), a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
