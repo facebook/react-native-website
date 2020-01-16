@@ -35,15 +35,15 @@ export default function YourApp() {
 }
 ```
 
-The above is a Snack Player. It’s [a handy tool created by Expo](https://expo.io/tools#snack) to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with the code. Go ahead and try changing the text commented out with `//` above to "Hello, world!"
+The above is a Snack Player. It’s a handy tool created by Expo to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with the code. Go ahead and try changing the text commented out with `//` above to "Hello, world!"
 
 > Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](getting-started) and paste the code examples into your `App.js` file there. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
 
 ## Function Components and Class Components
 
-With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. However, [React 16.8 introduced an API called “Hooks” for adding state and more to function components](https://reactjs.org/docs/hooks-intro.html). In March 2019, [React Native 0.58 adopted Hooks as well](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059).
+With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. But since the introduction of React's Hooks API, you can add state and more to function components.
 
-Because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle:
+[Hooks were introduced in React Native 0.58.](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
