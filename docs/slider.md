@@ -4,6 +4,7 @@ title: Slider
 ---
 
 > **Deprecated.** Use [react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider) instead.
+> **But.** Expo platform is not corresponded to [react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider).
 
 A component used to select a single value from a range of values.
 
