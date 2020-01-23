@@ -130,7 +130,7 @@ Now take a closer look at that `return` statement. `<Text>Hello, I am your cat!<
 
 ## JSX
 
-React and React Native use JSX, a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/jsx-in-depth.html) you can reference to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
+React and React Native use **JSX,** a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/jsx-in-depth.html) you can reference to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
@@ -292,7 +292,9 @@ You can build many things with props and the Core Components [`Text`](text), [`I
 
 ## State
 
-Props are set by the parent component and can only be changed by the parent component passing down new values. But for individual components to change according to human interactions, they need to be able to accept and store their own data. Fortunately, React components can have their own state you can get and set data from.
+While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+
+> As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time.
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -307,56 +309,26 @@ Props are set by the parent component and can only be changed by the parent comp
 
 <block class="functional syntax" />
 
-You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html).
-
-> A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
-
-You can declare a component’s state by calling `useState` inside its function like this:
-
-```JS
-function demonstrationComponent() {
-  const [currentValue, setValue] = useState("Initial value.");
-  // ...
-}
-```
-
-You can use `useState` to track any kind of data, including numbers:
-
-```JS
-const [quantity, pickQuantity] = useState(0);
-```
-
-Calling `useState` does two things:
-
-- it creates a “state variable” with an initial value
-- it creates a function to set that state variable’s value
-
-Let’s break `[a, b] = useState(c)` down:
-
-- `a` is the “state variable”—it refers to the current value of the component’s state
-- `b` is the name of the function you use to update the state variable
-- `c` is the value you initialize the state variable with
+You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html). A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
 ```SnackPlayer name=State
-import React, { useState } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import React, { useState } from "react";
+import { Button, Text, View } from "react-native";
 
-function Cat() {
-
-  const [name, setName] = useState("What's my name again?");
+function Cat(props) {
+  const [isHungry, setIsHungry] = useState(true);
 
   return (
     <View>
-      <Text>Hello, I am...{name}!</Text>
-      <TextInput
-        style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 1
+      <Text>
+        I am {props.name}, and I am {isHungry ? "hungry" : "full"}!
+      </Text>
+      <Button
+        onPress={() => {
+          setIsHungry(false);
         }}
-        onChangeText={
-          (text) => setName(text)
-        }
+        disabled={!isHungry}
+        title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
       />
     </View>
   );
@@ -365,14 +337,12 @@ function Cat() {
 export default function Cafe() {
   return (
     <>
-      <Cat />
-      <Cat />
+      <Cat name="Munkustrap" />
+      <Cat name="Spot" />
     </>
   );
 }
 ```
-
-> See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
 
 First, you will want to import `useState` from React like so:
 
@@ -380,44 +350,85 @@ First, you will want to import `useState` from React like so:
 import React, {useState} from 'react';
 ```
 
-In this example, inside your `Cat` function, `useState` creates a `name` state variable:
+Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
 
-```jsx
-const [name, setName] = useState("What's my name again?");
+```JS
+function Cat(props) {
+  const [isHungry, setIsHungry] = useState(true);
+  // ...
+}
 ```
 
-Then you add `onChangeText` to the `<TextInput>`. This fires every time the `<TextInput>`‘s value changes (every time a user adds a character of text).
+> You can use `useState` to track any kind of data: strings, numbers, Booleans, arrays, objects. For example, you can track the number of times a cat has been petted with `const [timesPetted, setTimesPetted] = useState(0)`!
 
-```jsx
-onChangeText={(text) => setName(text)}
+Calling `useState` does two things:
+
+- it creates a “state variable” with an initial value—in this case the state variable is `isHungry` and its initial value is `true`
+- it creates a function to set that state variable’s value—`setIsHungry`
+
+It doesn’t matter what names you use. Just remember the pattern is `[<getter>, <setter>] = useState(<initialValue>)`.
+
+Next you add the [`Button`](button) Core Component and give it an `onPress` prop:
+
+```JSX
+<Button
+  onPress={() => {
+    setIsHungry(false);
+  }}
+  //..
+/>
 ```
 
-This uses the `setName` you defined with the `useState` Hook above to update your state variable `name` every time `onChangeText` fires. You might set state when you have new data from the server, or from user input, or even from a timer.
+Now, when someone presses the button, `onPress` will fire, calling the `setIsHungry(false)`. This sets the state variable `isHungry` to `false`. When `isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
 
-> You might’ve noticed that although `name` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is that every time a user inputs a letter into `<TextInput>`, `setName()` fires to update the state const `name`. When a state-setting function like `setName` is called, its component will re-render, running its function again. In this case `Cat` will re-render its `<Cat>`—discarding the old state const `name` in the process!
+```JSX
+<Button
+  //..
+  disabled={!isHungry}
+  title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
+/>
+```
+
+> You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case `Cat` will re-render its `<Cat>`—discarding the old `isHungry` and running `setState` again with the new value in the process!
+
+Finally, put your cats inside a `Cafe` component:
+
+```JSX
+export default function Cafe() {
+  return (
+    <>
+      <Cat name="Munkustrap" />
+      <Cat name="Spot" />
+    </>
+  );
+}
+```
 
 <block class="classical syntax" />
+
 The older class components approach is a little different when it comes to state.
 
 ```SnackPlayer name=State%20and%20Class%20Components
-import React, { Component } from 'react';
-import { Text, TextInput, View } from 'react-native';
+import React, { Component } from "react";
+import { Button, Text, View } from "react-native";
 
 export class Cat extends Component {
-  state = {name: "What's my name again?!"}
+  state = { isHungry: true };
 
-  render(){
+  render(props) {
     return (
       <View>
-        <Text>Hello, I am...{this.state.name}!</Text>
-        <TextInput
-          style={{
-            height: 40,
-            borderColor: 'gray',
-            borderWidth: 1
+        <Text>
+          I am {this.props.name}, and I am
+          {this.state.isHungry ? " hungry" : " full"}!
+        </Text>
+        <Button
+          onPress={() => {
+            this.setState({ isHungry: false });
           }}
-          onChangeText={
-            (text) => this.setState({name: text})
+          disabled={!this.state.isHungry}
+          title={
+            this.state.isHungry ? "Pour me some milk, please!" : "Thank you!"
           }
         />
       </View>
@@ -426,38 +437,82 @@ export class Cat extends Component {
 }
 
 export default class Cafe extends Component {
-  render(){
+  render() {
     return (
       <>
-        <Cat />
-        <Cat />
+        <Cat name="Munkustrap" />
+        <Cat name="Spot" />
       </>
     );
   }
 }
 ```
 
+As always with class components, you must import the `Component` class from React:
+
+```jsx
+import React, {Component} from 'react';
+```
+
 In class components, state is stored in a state object:
 
 ```jsx
-state = {name: "What's my name again?!"};
+export class Cat extends Component {
+  state = {isHungry: true};
+  //..
+}
 ```
 
-You access this object inside your component with `this.state`:
+Just as with accessing props with `this.props`, you access this object inside your component with `this.state`:
 
 ```jsx
-<Text>Hello, I am...{this.state.name}!</Text>
+<Text>
+  I am {this.props.name}, and I am
+  {this.state.isHungry ? ' hungry' : ' full'}!
+</Text>
 ```
 
-And you set individual values inside the state object with `this.setState()`:
+And you set individual values inside the state object by passing an object with the key value pair for state and its new value to `this.setState()`:
 
 ```jsx
-this.setState({name: text});
+<Button
+  onPress={() => {
+    this.setState({ isHungry: false });
+  }}
+  // ..
+</Button>
 ```
 
-> Do not change your component's state directly by assigning it a new value with `this.state.name = text`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
+> Do not change your component's state directly by assigning it a new value with `this.state.hunger = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
+
+When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `false` and its `title` also changes:
+
+```jsx
+<Button
+  // ..
+  disabled={!this.state.isHungry}
+  title={this.state.isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
+/>
+```
+
+Finally, put your cats inside a `Cafe` component:
+
+```JSX
+export default class Cafe extends Component {
+  render() {
+    return (
+      <>
+        <Cat name="Munkustrap" />
+        <Cat name="Spot" />
+      </>
+    );
+  }
+}
+```
 
 <block class="endBlock syntax" />
+
+> See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
 
 ---
 
