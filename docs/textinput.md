@@ -693,6 +693,16 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 
 ---
 
+### `testID`
+
+Used to locate this view in end-to-end tests.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
 ### `textAlign`
 
 Align the input text to the left, center, or right sides of the input field.
