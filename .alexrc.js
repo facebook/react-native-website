@@ -13,8 +13,8 @@ exports.allow = [
   // Unfortunately "watchman" is a library name that we depend on.
   "watchman-watchwoman",
 
-  // Detox is an e2e testing library
-  "Detox"
+  // ignore rehab rule, Detox is an e2e testing library
+  "rehab"
 ];
 
 // Use a "maybe" level of profanity instead of the default "unlikely".
