@@ -26,7 +26,7 @@ Theoretically, you could go so far as to move all logic and data fetching out of
 
 After writing testable code, it’s time to write some actual tests! (Or if you do test-driven development, you actually write tests first!). We encourage you to explore the topic of testability in other learning resources.
 
-React Native apps come with [Jest](https://jestjs.io) out of the box, ready to use. Jest is a popular JavaScript Testing Framework also started at Facebook. You can use it to write all types of tests featured in this guide. Let’s get started!
+The default template of React Native ships with [Jest](https://jestjs.io) testing framework. It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away. You can use Jest to write all types of tests featured in this guide. Let’s get started!
 
 ### Structuring Tests
 
@@ -60,7 +60,7 @@ When the object under test has any dependencies, you’ll often mock them out, a
 
 The great thing about unit tests is that they are quick to write and run. Therefore, as you work, you get fast feedback about whether your tests are passing. Jest even has an option to continuously run tests that are related to code you’re editing: [Watch mode](https://jestjs.io/docs/en/cli#watch).
 
-### Mocking
+## Mocking
 
 Sometimes, when your tested objects have external dependencies, you’ll want to mock them out. “Mocking” is when you replace some dependency of your code by your own implementation. Note that generally, using real objects in your tests is better than using mocks but there are situations where this is not possible (for example when your JS unit test relies on a native module written in Java or Objective-C).
 
@@ -95,11 +95,11 @@ For example, if you have a button that has an `onPress` listener, you want to te
 
 There are several libraries that can help you testing these:
 
-- React’s [test renderer](https://reactjs.org/docs/test-renderer.html) is a small library provided by Facebook useful for snapshot testing. It “renders” your component view hierarchy to pure JavaScript objects held in memory. You can then make assertions on those objects in your Jest tests.
+- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html) developed alongside its core. Provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
 - [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) builds on top of React’s test renderer and adds `fireEvent` and `query` apis described in the next paragraph.
 - [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` apis described in the next paragraph.
 
-> Note that component tests are only JavaScript tests running on Node, they do _not_ take into account any iOS or Android code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user - if there is a bug in the iOS or Android code, they will not find it.
+> Note that component tests are only JavaScript tests running in Node.js environment, they do _not_ take into account any iOS or Android code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user - if there is a bug in the iOS or Android code, they will not find it.
 
 ### Testing User Interactions
 
@@ -128,7 +128,11 @@ When testing user interactions, test the component from the user perspective: yo
 
 To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
 
-`fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');`
+```js
+test('updates grocery input', () => {
+  fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
+})
+\```
 
 The first parameter is a query function that returns a `ReactTestInstance` and the second parameter is the new text that user entered.
 
@@ -172,7 +176,7 @@ In order to make snapshot comparison easier for a given component, you can start
 
 In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.). When in doubt, prefer explicit expectations as described in the previous paragraph.
 
-## End to End Tests
+## End-to-End Tests
 
 In End-to-end (E2E) tests, you verify your app is working on a device from the user perspective.
 
