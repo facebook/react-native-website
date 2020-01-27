@@ -3,7 +3,17 @@ id: testing
 title: Testing
 ---
 
-As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild. In this guide, we will cover different ways to ensure your app works as expected, ranging from static analysis to End to End tests.
+As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
+
+In this guide, we will cover different ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
+
+## Why Test
+
+We're humans and we make mistakes. Testing is important because it proves that your code is working, and perhaps even more importantly, ensures that your code continues to work in the future as you add new features, refactor the existing ones, or after you upgrade major dependencies of your project.
+
+There is more value in testing, that perhaps isn't immediately visible: when there is a bug in your code, often the easiest way to fix it is to write a failing test that exposes the bug - then when you fix the bug in your code and re-run the test, it'll pass, meaning the bug is fixed and is never reintroduced into the code base.
+
+Tests can also serve as documentation for new people joining your team - when they have to use code they have never seen before, reading tests can greatly help them to understand how the existing code is intended to be used.
 
 ## Static Analysis
 
@@ -128,11 +138,11 @@ When testing user interactions, test the component from the user perspective: yo
 
 To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
 
-````js
+```js
 test('updates grocery input', () => {
   fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
-})
-\```
+});
+```
 
 The first parameter is a query function that returns a `ReactTestInstance` and the second parameter is the new text that user entered.
 
@@ -141,13 +151,17 @@ This way, we're not testing what some function is doing - we're testing what hap
 Now that we know how to fire an event, let's take a look at verifying that it caused the expected change in your component: for example, that a certain text is rendered in a `GroceryShoppingList`. Aforementioned component testing libraries expose `query` apis for this purpose. An example may look like this:
 
 ```js
-const {getByTestId, getByText, getAllByText} = render(<GroceryShoppingList />);
+test('given empty GroceryShoppingList, user can add an item to it', () => {
+  const {getByTestId, getByText, getAllByText} = render(
+    <GroceryShoppingList />,
+  );
 
-fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
-fireEvent.press(getByText('Add the item to list'));
-const bananaElements = getAllByText('banana');
-expect(bananaElements.length).toBe(1); // expect 'banana' to be on the list
-````
+  fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
+  fireEvent.press(getByText('Add the item to list'));
+  const bananaElements = getAllByText('banana');
+  expect(bananaElements).toHaveLength(1); // expect 'banana' to be on the list
+});
+```
 
 ### Testing Rendered Output
 
@@ -192,11 +206,7 @@ There are several E2E testing tools available: in the React Native community, [D
 
 ## Summary
 
-Testing is important because it proves that your code is working, and perhaps even more importantly, ensures that your code continues to work in the future as you add new features, refactor the existing ones, or after you upgrade major dependencies of your project.
-
-There is more value in testing, that perhaps isn't immediately visible: when there is a bug in your code, often the easiest way to fix it is to write a failing test that exposes the bug - then when you fix the bug in your code and re-run the test, it'll pass, meaning the bug is fixed and is never reintroduced into the code base.
-
-Tests can also serve as documentation for new people joining your team - when they have to use code they have never seen before, reading tests can greatly help them to understand how the existing code is intended to be used.
+We hope you enjoyed and, what's more important, learned something from this guide. There are many ways we can test our apps, and it may be hard to decide what to use at first. However, we believe all of that will make more sense once you start adding tests to your awesome React Native app. So what are you waiting for? Get your coverage up!
 
 ### Links
 
