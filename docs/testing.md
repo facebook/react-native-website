@@ -128,7 +128,7 @@ When testing user interactions, test the component from the user perspective: yo
 
 To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
 
-```js
+````js
 test('updates grocery input', () => {
   fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
 })
@@ -147,7 +147,7 @@ fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
 fireEvent.press(getByText('Add the item to list'));
 const bananaElements = getAllByText('banana');
 expect(bananaElements.length).toBe(1); // expect 'banana' to be on the list
-```
+````
 
 ### Testing Rendered Output
 
@@ -178,13 +178,13 @@ In theory, you can use snapshots to test anything that is serializable, but do n
 
 ## End-to-End Tests
 
-In End-to-end (E2E) tests, you verify your app is working on a device from the user perspective.
+In end-to-end (E2E) tests, you verify your app is working as expected on a device (or a simulator / emulator) from the user perspective.
 
-To run them, you build your app in the release configuration and run tests against it in an emulator or a physical device. In E2E tests, you no longer think about React components, React Native apis, Redux stores or any business logic - that is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
+To run them, you build your app in the release configuration and run tests against it. In E2E tests, you no longer think about React components, React Native apis, Redux stores or any business logic - that is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
 
 Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can tap buttons or insert text into textinputs the same way a real user would. Then you can make assertions about whether or not certain element exists in the app’s screen, whether or not it’s visible, what text it contains and so on.
 
-E2E tests give you the highest possible confidence that part of your app is working but the tradeoff is that writing and running them is _much_ more time consuming than with the previously mentioned types of tests. E2E tests also are more demanding when it comes to their maintenance.
+E2E tests give you the highest possible confidence that part of your app is working. The tradeoff here is that compared to the previously mentioned types of tests, writing them is more time consuming, they are quite slow to run and more prone to flakiness.
 
 A rule of thumb is to mostly cover vital parts of your app, like authentication flow, core functionalities, payments, etc with E2E tests and use faster JS test for the rest. The more tests you add, the more confidence, but also more time spending maintaining and running them. Know the tradeoffs and decide what's best for you.
 
