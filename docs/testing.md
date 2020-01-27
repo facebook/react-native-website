@@ -186,7 +186,7 @@ Instead, E2E testing libraries allow you to find and control elements in the scr
 
 E2E tests give you the highest possible confidence that part of your app is working but the tradeoff is that writing and running them is _much_ more time consuming than with the previously mentioned types of tests. E2E tests also are more demanding when it comes to their maintenance.
 
-A good way to start is covering only the most important parts of your app by a small number of E2E tests which will ensure those parts keep working.
+A rule of thumb is to mostly cover vital parts of your app, like authentication flow, core functionalities, payments, etc with E2E tests and use faster JS test for the rest. The more tests you add, the more confidence, but also more time spending maintaining and running them. Know the tradeoffs and decide what's best for you.
 
 There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
 
