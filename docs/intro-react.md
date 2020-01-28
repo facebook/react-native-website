@@ -275,7 +275,7 @@ export default function CatApp() {
   return (
     <View>
       <Image
-        source='https://placekitten.com/g/193/110'
+        source="https://facebook.github.io/react-native/docs/assets/p_cat1.png"
         style={{width: 193, height: 110}}
       />
       <Text>Hello, I am your cat!</Text>
