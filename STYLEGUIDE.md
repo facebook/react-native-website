@@ -101,6 +101,14 @@ When navigating operating system menus, the menu selection path should be **bold
 
 **Good** “Open **Xcode > Preferences...** and select the **Components** tab.” Path is clearer to pick out from the surrounding copy.
 
+## “Android” before “iOS”
+
+The number of Android developers surpasses iOS developers, and putting iOS in front of Android seems belittling and privileged. For consistency's sake at the very least, when listing technologies, Android comes before iOS.
+
+**Bad** “While we do our best to assume no prior knowledge of React, iOS, or Android development, these are valuable topics of study for the aspiring React Native developer.”
+
+**Good** “While we do our best to assume no prior knowledge of React, Android, or iOS development, these are valuable topics of study for the aspiring React Native developer.”
+
 ## When it comes to values, be explicit
 
 When it comes to describing property values, be definitive in what is and is not allowed. If something is optional, say it is optional. If something can have multiple values, say which values it can accept.

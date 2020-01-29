@@ -113,8 +113,8 @@
       "gesture-responder-system": {
         "title": "Gesture Responder System"
       },
-      "getting-started": {
-        "title": "Getting Started"
+      "environment-setup": {
+        "title": "Setting up the development environment"
       },
       "handling-text-input": {
         "title": "Handling Text Input"
@@ -160,6 +160,15 @@
       },
       "interactionmanager": {
         "title": "InteractionManager"
+      },
+      "intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
+      "intro-react": {
+        "title": "React Fundamentals"
+      },
+      "getting-started": {
+        "title": "Introduction"
       },
       "javascript-environment": {
         "title": "JavaScript Environment"
