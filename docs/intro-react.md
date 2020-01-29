@@ -465,7 +465,7 @@ export class Cat extends Component {
 }
 ```
 
-Just as with accessing props with `this.props`, you access this object inside your component with `this.state`:
+As with accessing props with `this.props`, you access this object inside your component with `this.state`:
 
 ```jsx
 <Text>
