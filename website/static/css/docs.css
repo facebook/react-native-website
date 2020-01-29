@@ -112,7 +112,6 @@ table {
   border-collapse: collapse;
   display: table;
   margin: 20px 0;
-  /* width: 80%; */
 }
 table thead tr {
   /* display: table-header-group; */
@@ -155,13 +154,6 @@ table tr th {
   font-family: "Helvetica Neue", Arial, sans-serif;
   text-transform: uppercase;
 }
-/* Nixed so tables on pages like getting-started look good
-table tr th:first-of-type {
-  width: 60%;
-}
-table tr th:nth-of-type(4) {
-  width: 80%;
-} */
 
 figure {
   text-align: center;
