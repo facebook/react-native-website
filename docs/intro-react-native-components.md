@@ -10,15 +10,18 @@ React Native is an open source framework for building Android and iOS applicatio
 
 In Android and iOS development, a **view** is the basic building block of UI: a small rectangular element on the screen which can be used to display text, images, or respond to user input. Even the smallest visual elements of an app, like a line of text or a button, are kinds of views. Some kinds of views can contain other views. It’s views all the way down!
 
-<img src="../assets/diagram_ios-android-views.svg" width="1000" alt="Diagram of Android and iOS app showing them both built on top of atomic elements called views.">
+<figure>
+  <img src="../assets/diagram_ios-android-views.svg" width="1000" alt="Diagram of Android and iOS app showing them both built on top of atomic elements called views.">
+  <figcaption>Just a sampling of the many views used in Android and iOS apps.</figcaption>
+</figure>
 
 ## Native Components
 
 In Android development, you write views in Kotlin or Java; in iOS development, you use Swift or Objective-C. With React Native, you can invoke these views with JavaScript using React components. At runtime, React Native creates the corresponding Android and iOS views for those components. Because React Native components are backed by the same views as Android and iOS, React Native apps look, feel, and perform like any other apps. We call these platform-backed components **Native Components.**
 
-React Native lets you to build your own Native Components for [Android](native-components-android.md) and [iOS](native-components-ios.md) to suit your app’s unique needs. We also have a thriving ecosystem of these **community-contributed components.** Check [Native Directory](https://www.native.directory/) to find what the community has been creating sometime.
+React Native lets you to build your own Native Components for [Android](native-components-android.md) and [iOS](native-components-ios.md) to suit your app’s unique needs. We also have a thriving ecosystem of these **community-contributed components.** Check out [Native Directory](https://www.native.directory/) to find what the community has been creating.
 
-React Native includes a set of essential, ready-to-use Native Components you can use to start building your app today. These are React Native's **Core Components**.
+React Native also includes a set of essential, ready-to-use Native Components you can use to start building your app today. These are React Native's **Core Components**.
 
 ## Core Components
 
@@ -32,7 +35,7 @@ React Native has many Core Components for everything from form controls to activ
 | `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
 | `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
 
-In the next section you will start combining these components to learn about how React works. Have a play with them here now!
+In the next section, you will start combining these Core Components to learn about how React works. Have a play with them here now!
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';

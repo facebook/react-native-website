@@ -102,10 +102,9 @@
 
 hr {
   height: 1px;
-  margin-bottom: -1px;
   border: none;
   border-bottom: 1px solid $divider;
-  margin-top: 40px;
+  margin: 2em 0;
 }
 
 table {
@@ -163,3 +162,12 @@ table tr th:first-of-type {
 table tr th:nth-of-type(4) {
   width: 80%;
 } */
+
+figure {
+  text-align: center;
+  font-style: italic;
+}
+
+figcaption {
+  margin: 1em 0 0 0;
+}

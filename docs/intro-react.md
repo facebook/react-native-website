@@ -10,7 +10,6 @@ We’re going to cover the core concepts behind React:
 
 - components
 - JSX
-- custom components
 - props
 - state
 
@@ -205,7 +204,7 @@ export default function Cat() {
 
 <block class="androidNote devNotes" />
 
-> On Android, you usually put your views inside LinearLayout, FrameLayout, RelativeLayout, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
+> On Android, you usually put your views inside `LinearLayout`, `FrameLayout`, `RelativeLayout`, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
 
 <block class="endBlock devNotes" />
 
@@ -226,6 +225,7 @@ function Cat() {
 export default function Cafe() {
   return (
     <View>
+      <Text>Welcome!</Text>
       <Cat />
       <Cat />
       <Cat />
@@ -276,7 +276,7 @@ export default function CatApp() {
     <View>
       <Image
         source="https://facebook.github.io/react-native/docs/assets/p_cat1.png"
-        style={{width: 193, height: 110}}
+        style={{width: 200, height: 200}}
       />
       <Text>Hello, I am your cat!</Text>
     </View>
@@ -286,7 +286,7 @@ export default function CatApp() {
 
 `Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
 
-> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number (`<Cat food={["fish", "kibble"]} /> age={2}`). However, JS object are **_also_** denoted with curly braces: `{width: 193, height: 110}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 193, height: 110}}`
+> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}`
 
 You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
@@ -295,6 +295,8 @@ You can build many things with props and the Core Components [`Text`](text), [`I
 While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
 
 > As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time.
+
+The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
