@@ -368,7 +368,7 @@ Calling `useState` does two things:
 - it creates a “state variable” with an initial value—in this case the state variable is `isHungry` and its initial value is `true`
 - it creates a function to set that state variable’s value—`setIsHungry`
 
-It doesn’t matter what names you use. Just remember the pattern is `[<getter>, <setter>] = useState(<initialValue>)`.
+It doesn’t matter what names you use. But it can be handy to think of the pattern as `[<getter>, <setter>] = useState(<initialValue>)`.
 
 Next you add the [`Button`](button) Core Component and give it an `onPress` prop:
 
