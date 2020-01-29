@@ -113,7 +113,7 @@
       "gesture-responder-system": {
         "title": "Gesture Responder System"
       },
-      "getting-started": {
+      "environment-setup": {
         "title": "Setting up the development environment"
       },
       "handling-text-input": {
@@ -167,7 +167,7 @@
       "intro-react": {
         "title": "React Fundamentals"
       },
-      "introduction": {
+      "getting-started": {
         "title": "Introduction"
       },
       "javascript-environment": {

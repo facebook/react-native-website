@@ -53,7 +53,7 @@ The keys to integrating React Native components into your Android application ar
 
 <block class="objc swift" />
 
-Follow the instructions for building apps with native code from the [Getting Started guide](getting-started.md) to configure your development environment for building React Native apps for iOS.
+Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup.md) to configure your development environment for building React Native apps for iOS.
 
 ### 1. Set up directory structure
 
@@ -61,7 +61,7 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 
 <block class="android" />
 
-Follow the instructions for building apps with native code from the [Getting Started guide](getting-started.md) to configure your development environment for building React Native apps for Android.
+Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup.md) to configure your development environment for building React Native apps for Android.
 
 ### 1. Set up directory structure
 

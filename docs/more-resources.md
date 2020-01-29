@@ -7,7 +7,7 @@ Congratulations! You built your first React Native app. But there’s more to le
 
 ## Where to go from here
 
-- [Set up your environment](getting-started)
+- [Set up your environment](environment-setup)
 - [Set up your development workflow](running-on-device)
 - [Design and layout your app](flexbox)
 - [Debug your app](debugging)

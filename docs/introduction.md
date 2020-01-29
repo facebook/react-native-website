@@ -1,5 +1,5 @@
 ---
-id: introduction
+id: getting-started
 title: Introduction
 description: This helpful guide lays out the prerequisites for learning React Native, using these docs, and setting up your environment.
 ---
