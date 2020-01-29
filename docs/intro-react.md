@@ -143,18 +143,21 @@ export default function Cat() {
 }
 ```
 
-Any JavaScript will work between curly braces, including functions like `{fullName("Rum", Tum", "Tugger")}`:
+Any JavaScript expression will work between curly braces, including function calls like `{getFullName("Rum", Tum", "Tugger")}`:
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
 import { Text } from 'react-native';
 
 export default function Cat() {
-  function fullName(firstName, secondName, thirdName) {
+  function getFullName(firstName, secondName, thirdName) {
     return firstName + " " + secondName + " " + thirdName;
   }
+
   return (
-    <Text>Hello, I am {fullName("Rum", "Tum", "Tugger")}!</Text>
+    <Text>
+      Hello, I am {getFullName("Rum", "Tum", "Tugger")}!
+    </Text>
   );
 }
 ```
@@ -354,7 +357,7 @@ import React, {useState} from 'react';
 
 Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
 
-```JS
+```jsx
 function Cat(props) {
   const [isHungry, setIsHungry] = useState(true);
   // ...
@@ -372,7 +375,7 @@ It doesn’t matter what names you use. But it can be handy to think of the patt
 
 Next you add the [`Button`](button) Core Component and give it an `onPress` prop:
 
-```JSX
+```jsx
 <Button
   onPress={() => {
     setIsHungry(false);
@@ -383,7 +386,7 @@ Next you add the [`Button`](button) Core Component and give it an `onPress` prop
 
 Now, when someone presses the button, `onPress` will fire, calling the `setIsHungry(false)`. This sets the state variable `isHungry` to `false`. When `isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
 
-```JSX
+```jsx
 <Button
   //..
   disabled={!isHungry}
@@ -395,7 +398,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 
 Finally, put your cats inside a `Cafe` component:
 
-```JSX
+```jsx
 export default function Cafe() {
   return (
     <>
@@ -499,7 +502,7 @@ When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to 
 
 Finally, put your cats inside a `Cafe` component:
 
-```JSX
+```jsx
 export default class Cafe extends Component {
   render() {
     return (
