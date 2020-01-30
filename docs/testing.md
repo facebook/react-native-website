@@ -165,14 +165,13 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 ### Testing Rendered Output
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you verify how—and if—a component is rendering. A snapshot is a textual representation of your component’s render output, and may look like this:
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you verify how component is rendering. A snapshot is a textual representation of your component’s render output, and may look like this:
 
 ```
 <Text
   style={
     Object {
       "fontSize": 20,
-      "margin": 10,
       "textAlign": "center",
     }
   }>
@@ -180,15 +179,19 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 </Text>
 ```
 
-Snapshots are _generated_ by a component testing testing library, unlike the other types of tests which are written manually (snapshots are too complex to be created by hand, and even for small components this is not feasible).
+Snapshots are _generated_ by a component testing testing library, unlike the other types of tests which are written manually (snapshots are too complex to be created by hand).
 
-When using snapshot testing, you typically first implement your component and then run the snapshot test, which creates the snapshot and saves it to a file in your repo. The newly created snapshot is then committed and should be checked during code review. Any changes to the component will result in a change in the snapshot that again needs to be reviewed.
+With snapshot testing, you typically first implement your component and then run the snapshot test, which creates a snapshot and saves it to a file in your repo as a reference snapshot. The file is then committed and checked during code review. Changes to the component render output will result in change of its snapshot, which fails the test. You then need to update the stored reference snapshot for the test to pass. That change again needs to be commited and reviewed.
 
-Note that if you create the snapshot _after_ you’re done working on the component, at that point the snapshot is considered to be correct (even in the case when the rendered output is actually wrong). You as a developer or reviewer need to make sure that the snapshot contains what you expect. That may not be trivial because snapshots can be fairly large.
+Snapshots have several weak points:
 
-In order to make snapshot comparison easier for a given component, you can start taking the snapshot _early_. That is, instead of creating the snapshot after you're done working, create one at the start and update it continuously as you bring the component code to the desired state.
+- For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can easily become hard to understand and their added value becomes low.
+- When snapshot is created, at that point it is considered to be correct - even in the case when the rendered output is actually wrong.
+- Snapshots are easy to be overused and when a snapshot fails, it's easy to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
 
-In theory, you can use snapshots to test anything that is serializable, but do not overuse them! Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.). When in doubt, prefer explicit expectations as described in the previous paragraph.
+Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
+
+We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
 
 ## End-to-End Tests
 
