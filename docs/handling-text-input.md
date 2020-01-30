@@ -18,7 +18,7 @@ export default function PizzaTranslator() {
       <TextInput
         style={{height: 40}}
         placeholder="Type here to translate!"
-        onChangeText={(text) => setText(text)}
+        onChangeText={text => setText(text)}
         defaultValue={text}
       />
       <Text style={{padding: 10, fontSize: 42}}>
