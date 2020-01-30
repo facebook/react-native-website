@@ -594,9 +594,9 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 ---
 
-### `clickable`
+### `focusable`
 
-Determines whether this `View` is clickable or tappable for accessibility hints.
+Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 
 | Type    | Required | Platform |
 | ------- | -------- | -------- |
