@@ -165,7 +165,11 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 ### Testing Rendered Output
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) lets you verify how component is rendering. A snapshot is a textual representation of your component’s render output, and may look like this:
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) is a special kind of testing enabled by Jest. It is a very powerful and low-level tool, so special attention is advised when using it. 
+
+> In this guide we will speak about "component snapshot", which is a snapshot specialized to render React component tree objects using a JSX-like string, powered by a [custom React serializer](https://jestjs.io/docs/en/configuration#snapshotserializers-arraystring) that lets Jest translate JS objects to string that's human-readable. It's built into Jest and used by default so you don't need to worry about it.
+
+A component snapshot is a textual representation of your component’s render output _generated_ during a test run, and may look like this:
 
 ```
 <Text
@@ -181,7 +185,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 Snapshots are _generated_ by a component testing testing library, unlike the other types of tests which are written manually (snapshots are too complex to be created by hand).
 
-With snapshot testing, you typically first implement your component and then run the snapshot test, which creates a snapshot and saves it to a file in your repo as a reference snapshot. The file is then committed and checked during code review. Changes to the component render output will result in change of its snapshot, which fails the test. You then need to update the stored reference snapshot for the test to pass. That change again needs to be commited and reviewed.
+With snapshot testing, you typically first implement your component and then run the snapshot test, which creates a snapshot and saves it to a file in your repo as a reference snapshot. **The file is then committed and checked during code review**. Changes to the component render output will result in change of its snapshot, which fails the test. You then need to update the stored reference snapshot for the test to pass. That change again needs to be committed and reviewed.
 
 Snapshots have several weak points:
 
