@@ -27,13 +27,15 @@ React Native also includes a set of essential, ready-to-use Native Components yo
 
 React Native has many Core Components for everything from form controls to activity indicators. You can find them all [documented in the API section](components-and-apis). You will mostly work with the following Core Components:
 
-| React Native UI Component | Android View   | iOS View         | Web Analog               | Description                                                                                           |
-| ------------------------- | -------------- | ---------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
-| `<View>`                  | `<ViewGroup>`  | `<UIView>`       | A non-scrollling `<div>` | A container that supports layout with flexbox, style, some touch handling, and accessibility controls |
-| `<Text>`                  | `<TextView>`   | `<UITextView>`   | `<p>`                    | Displays, styles, and nests strings of text and even handles touch events                             |
-| `<Image>`                 | `<ImageView>`  | `<UIImageView>`  | `<img>`                  | Displays different types of images                                                                    |
-| `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
-| `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
+| React Native UI Component | Android View   | iOS View          | Web Analog               | Description                                                                                           |
+| ------------------------- | -------------- | ----------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `<View>`                  | `<ViewGroup>`  | `<UIView>`        | A non-scrollling `<div>` | A container that supports layout with flexbox, style, some touch handling, and accessibility controls |
+| `<Text>`                  | `<TextView>`   | `<UITextView>` \* | `<p>`                    | Displays, styles, and nests strings of text and even handles touch events                             |
+| `<Image>`                 | `<ImageView>`  | `<UIImageView>`   | `<img>`                  | Displays different types of images                                                                    |
+| `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>`  | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
+| `<TextInput>`             | `<EditText>`   | `<UITextField>`   | `<input type="text">`    | Allows the user to enter text                                                                         |
+
+\* The React Native `<Text>` component on iOS is actually backed by a `UIView` which also allows drawing text.
 
 In the next section, you will start combining these Core Components to learn about how React works. Have a play with them here now!
 
