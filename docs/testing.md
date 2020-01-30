@@ -185,9 +185,9 @@ With snapshot testing, you typically first implement your component and then run
 
 Snapshots have several weak points:
 
-- For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can easily become hard to understand and their added value becomes low.
+- For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can quickly become hard to understand and their added value becomes low.
 - When snapshot is created, at that point it is considered to be correct - even in the case when the rendered output is actually wrong.
-- Snapshots are easy to be overused and when a snapshot fails, it's easy to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
+- When a snapshot fails, it's tempting to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
 
 Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
 
