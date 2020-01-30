@@ -165,7 +165,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 
 ### Testing Rendered Output
 
-[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) is a special kind of testing enabled by Jest. It is a very powerful and low-level tool, so special attention is advised when using it.
+[Snapshot testing](https://jestjs.io/docs/en/snapshot-testing) is an advanced kind of testing enabled by Jest. It is a very powerful and low-level tool, so extra attention is advised when using it.
 
 > In this guide we will speak about "component snapshot", which is a snapshot specialized to render React component tree objects using a JSX-like string, powered by a [custom React serializer](https://jestjs.io/docs/en/configuration#snapshotserializers-arraystring) that lets Jest translate JS objects to string that's human-readable. It's built into Jest and used by default so you don't need to worry about it.
 
