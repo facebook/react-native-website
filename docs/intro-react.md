@@ -394,7 +394,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 />
 ```
 
-> You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case `Cat` will re-render its `<Cat>`—discarding the old `isHungry` and running `setState` again with the new value in the process!
+> You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again with the new value of `isHungry`, and return a `<Button>` with the new `title`!
 
 Finally, put your cats inside a `Cafe` component:
 
