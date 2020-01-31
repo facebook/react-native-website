@@ -155,6 +155,7 @@ blurRadius: the blur radius of the blur filter added to the image
 | ------ | -------- |
 | number | No       |
 
+> Tip : IOS you will need to increase `blurRadius` more than `5`
 ---
 
 ### `onLayout`
