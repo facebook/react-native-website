@@ -5,38 +5,55 @@ title: Vibration
 
 The Vibration API is exposed at `Vibration.vibrate()`. The vibration is synchronous so this method will return immediately.
 
-There will be no effect on devices that do not support Vibration, eg. the simulator.
+There will be no effect on devices that do not support vibration, such as the iOS Simulator or Android emulator.
 
-**Note for Android:** add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
+<div class="toggler">
+  <span>Developer Notes</span>
+  <span role="tablist" class="toggle-devNotes">
+    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Android</button>
+    <button role="tab" class="button-iosNote" onclick="displayTabs('devNotes', 'iosNote')">iOS</button>
+  </span>
+</div>
 
-**The vibration duration in iOS is not configurable**, so there are some differences with Android. In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
+<block class="webNote devNotes" />
 
-In iOS, invoking `vibrate(duration)` will ignore the duration and vibrate for a fixed time. While the `pattern` array is used to define the duration between each vibration. See below example for more.
+> Add `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`
+
+In Android, if `pattern` is a number, it specifies the vibration duration in ms. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time.
 
 Repeatable vibration is also supported, the vibration will repeat with defined pattern until `cancel()` is called.
 
-Example:
+**Example**
 
 ```jsx
 const DURATION = 10000;
 const PATTERN = [1000, 2000, 3000];
 
 Vibration.vibrate(DURATION);
-// Android: vibrate for 10s
-// iOS: duration is not configurable, vibrate for fixed time (about 500ms)
+// Vibrate for 10s
 
 Vibration.vibrate(PATTERN);
-// Android: wait 1s -> vibrate 2s -> wait 3s
-// iOS: wait 1s -> vibrate -> wait 2s -> vibrate -> wait 3s -> vibrate
+// Wait 1s -> vibrate 2s -> wait 3s
 
 Vibration.vibrate(PATTERN, true);
-// Android: wait 1s -> vibrate 2s -> wait 3s -> wait 1s -> vibrate 2s -> wait 3s -> ...
-// iOS: wait 1s -> vibrate -> wait 2s -> vibrate -> wait 3s -> vibrate -> wait 1s -> vibrate -> wait 2s -> vibrate -> wait 3s -> vibrate -> ...
+// Wait 1s -> vibrate 2s -> wait 3s -> wait 1s -> vibrate 2s -> wait 3s -> ...
 
 Vibration.cancel();
-// Android: vibration stopped
-// iOS: vibration stopped
+// Stop vibration.
 ```
+
+<block class="iosNote devNotes" />
+
+> The vibration duration is not configurable on iOS. Invoking `vibrate(duration)` will ignore the duration, and vibrate for a fixed time. Vibrating with a pattern is not supported on iOS, either.
+
+**Example**
+
+```jsx
+Vibration.vibrate();
+// Vibrate for a fixed time (about 500ms)
+```
+
+<block class="endBlock devNotes" />
 
 ---
 
@@ -50,14 +67,16 @@ Vibration.cancel();
 Vibration.vibrate(pattern: number, Array<number>, repeat: boolean)
 ```
 
-Trigger a vibration with specified `pattern`.
+Trigger a vibration.
+
+**On Android,** a pattern of vibrations can be specified, as well as whether to keep vibrating until cancelled.
 
 **Parameters:**
 
-| Name    | Type                    | Required | Description                                                                  |
-| ------- | ----------------------- | -------- | ---------------------------------------------------------------------------- |
-| pattern | number or Array<number> | Yes      | Vibration pattern, accept a number or an array of numbers. Default to 400ms. |
-| repeat  | boolean                 | No       | Repeat vibration pattern until cancel(), default to false.                   |
+| Name    | Type                    | Required | Description                                                                  | Platform |
+| ------- | ----------------------- | -------- | ---------------------------------------------------------------------------- | -------- |
+| pattern | number or Array<number> | Yes      | Vibration pattern, accept a number or an array of numbers. Default to 400ms. | Android  |
+| repeat  | boolean                 | No       | Repeat vibration pattern until cancel(), default to false.                   | Android  |
 
 ---
 
@@ -67,8 +86,8 @@ Trigger a vibration with specified `pattern`.
 Vibration.cancel();
 ```
 
-Stop vibration.
+**Android-Only.** Stop vibration.
 
-```
-Vibration.cancel()
-```
+| Platform |
+| -------- |
+| Android  |
