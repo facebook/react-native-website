@@ -14,7 +14,7 @@ Repeatable vibration is also supported on Android, in which case the vibration w
 **Example**
 
 ```jsx
-// iOS and Android: Vibrate for a fixed time (about 500ms)
+// iOS and Android: Vibrate for a fixed time (400ms)
 Vibration.vibrate();
 
 // Android:
