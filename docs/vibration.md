@@ -5,7 +5,7 @@ title: Vibration
 
 The Vibration API is exposed at `Vibration.vibrate()`. The vibration is synchronous so this method will return immediately. There will be no effect on devices that do not support vibration, such as the iOS Simulator or Android emulator.
 
-The `vibrate()` method can take a duration or pattern argument. On Android, if `pattern` is a number, it specifies the vibration duration in milliseconds. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time. On iOS, this argument will have no effect as the `vibrate()` method invokes a simple `AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)` call (e.g. a fixed time vibration).
+The `vibrate()` method can take a duration or pattern argument. On Android, if `pattern` is a number, it specifies the vibration duration in milliseconds. If `pattern` is an array, those odd indices are the vibration duration, while the even ones are the separation time. On iOS, this argument will have no effect as the vibration will always have a fixed duration.
 
 Repeatable vibration is also supported on Android, in which case the vibration will repeat with the defined pattern until `cancel()` is called.
 
