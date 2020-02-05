@@ -8,6 +8,19 @@ Displays a circular loading indicator.
 
 ### Example
 
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
 ```SnackPlayer name=activityindicator%20Function%20Component%20Example
 import React from 'react'
 import {
@@ -41,8 +54,9 @@ const styles = StyleSheet.create({
 })
 ```
 
-```SnackPlayer name=activityindicator%20Class%20Component%20Example
+<block class="classical syntax" />
 
+```SnackPlayer name=activityindicator%20Class%20Component%20Example
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
@@ -76,6 +90,8 @@ const styles = StyleSheet.create({
   }
 })
 ```
+
+<block class="endBlock syntax" />
 
 # Reference
 
