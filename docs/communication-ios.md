@@ -99,7 +99,7 @@ The fact that native modules are singletons limits the mechanism in the context 
 
 Although this solution is complex, it is used in `RCTUIManager`, which is an internal React Native class that manages all React Native views.
 
-Native modules can also be used to expose existing native libraries to JS. The [Geolocation library](https://github.com/facebook/react-native/tree/master/Libraries/Geolocation) is a living example of the idea.
+Native modules can also be used to expose existing native libraries to JS. The [Geolocation library](https://github.com/react-native-community/react-native-geolocation) is a living example of the idea.
 
 > **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.
 
