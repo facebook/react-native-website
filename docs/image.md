@@ -88,7 +88,7 @@ export default class DisplayAnImage extends Component {
 
 You can also add `style` to an image:
 
-```
+
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
