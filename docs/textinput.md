@@ -645,24 +645,6 @@ The highlight and cursor color of the text input.
 
 ---
 
-### `selectionState`
-
-An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
-
-Some functionality that can be performed with this instance is:
-
-- `blur()`
-- `focus()`
-- `update()`
-
-> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
-
-| Type                   | Required | Platform |
-| ---------------------- | -------- | -------- |
-| DocumentSelectionState | No       | iOS      |
-
----
-
 ### `selectTextOnFocus`
 
 If `true`, all text will automatically be selected on focus.
@@ -703,9 +685,9 @@ Possible values for `textAlign` are:
 - `center`
 - `right`
 
-| Type | Required |
-| ---- | -------- |
-| enum('left', 'center', 'right') | No     |
+| Type                            | Required |
+| ------------------------------- | -------- |
+| enum('left', 'center', 'right') | No       |
 
 ---
 
