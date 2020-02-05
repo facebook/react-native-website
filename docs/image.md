@@ -9,9 +9,23 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
+
+```
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
 <block class="functional syntax" />
 
-```SnackPlayer name=Image
+```SnackPlayer name=Function%20Component%20Example
+
 import React from 'react';
 import { View, Image } from 'react-native';
 
@@ -38,11 +52,12 @@ export default function DisplayAnImage() {
     </View>
   );
 }
+
 ```
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Image
+```SnackPlayer name=Class%20Component%20Example
 
 import React, { Component } from 'react';
 import { AppRegistry, View, Image } from 'react-native';
@@ -67,15 +82,30 @@ export default class DisplayAnImage extends Component {
     );
   }
 }
+
 ```
 
 <block class="endBlock syntax" />
+```
 
 You can also add `style` to an image:
 
+```
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
 <block class="functional syntax" />
 
-```SnackPlayer name=Image
+```SnackPlayer name=Function%20Component%20Example
+
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
@@ -100,11 +130,13 @@ export default function DisplayAnImageWithStyle() {
     </View>
   );
 }
+
 ```
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Image
+```SnackPlayer name=Class%20Component%20Example
+
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
@@ -128,9 +160,13 @@ export default class DisplayAnImageWithStyle extends Component {
     );
   }
 }
+
 ```
 
 <block class="endBlock syntax" />
+```
+
+
 
 ### GIF and WebP support on Android
 
