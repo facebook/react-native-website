@@ -9,8 +9,6 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-
-```
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
@@ -164,7 +162,7 @@ export default class DisplayAnImageWithStyle extends Component {
 ```
 
 <block class="endBlock syntax" />
-```
+
 
 
 
