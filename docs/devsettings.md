@@ -3,7 +3,7 @@ id: devsettings
 title: DevSettings
 ---
 
-`DevSettings`
+The `DevSettings` module exposes methods for customizing settings in for developers in development.
 
 ---
 
@@ -16,10 +16,11 @@ title: DevSettings
 ```jsx
  addMenuItem(title: string, handler: () => )
 ```
-It allows users to add additional dev menu options to their app, so you can use following code to show secret dev screen
+
+Add a custom menu item to the developer menu:
 
 ```jsx
 DevSettings.addMenuItem('Show Secret Dev Screen', () => {
-             Alert.alert('Showing secret dev screen!');
-           });
+  Alert.alert('Showing secret dev screen!');
+});
 ```
