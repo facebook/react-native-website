@@ -9,9 +9,43 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
+<block class="functional syntax" />
+
 ```SnackPlayer name=Image
-import React, { Component } from 'react';
+import React from 'react';
 import { View, Image } from 'react-native';
+
+export default function DisplayAnImage() {
+  return (
+    <View style={{ paddingTop: 50 }}>
+      <Image
+        style={{ width: 50, height: 50 }}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+      <Image
+        style={{ width: 50, height: 50 }}
+        source={{
+          uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+        }}
+      />
+      <Image
+        style={{ width: 66, height: 58 }}
+        source={{
+          uri:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+        }}
+      />
+    </View>
+  );
+}
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Image
+
+import React, { Component } from 'react';
+import { AppRegistry, View, Image } from 'react-native';
 
 export default class DisplayAnImage extends Component {
   render() {
@@ -35,7 +69,40 @@ export default class DisplayAnImage extends Component {
 }
 ```
 
+<block class="endBlock syntax" />
+
 You can also add `style` to an image:
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Image
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  stretch: {
+    width: 50,
+    height: 200,
+    resizeMode: 'stretch',
+  },
+});
+
+export default function DisplayAnImageWithStyle() {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.stretch}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+    </View>
+  );
+}
+```
+
+<block class="classical syntax" />
 
 ```SnackPlayer name=Image
 import React, { Component } from 'react';
@@ -62,6 +129,8 @@ export default class DisplayAnImageWithStyle extends Component {
   }
 }
 ```
+
+<block class="endBlock syntax" />
 
 ### GIF and WebP support on Android
 
@@ -156,6 +225,7 @@ blurRadius: the blur radius of the blur filter added to the image
 | number | No       |
 
 > Tip : IOS you will need to increase `blurRadius` more than `5`
+
 ---
 
 ### `onLayout`
@@ -308,9 +378,9 @@ When true, indicates the image is an accessibility element.
 
 When the image is resized, the corners of the size specified by `capInsets` will stay a fixed size, but the center content and borders of the image will be stretched. This is useful for creating resizable rounded buttons, shadows, and other resizable assets. More info in the [official Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets).
 
-| Type                                                               | Required | Platform |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
 
 ---
 
@@ -389,11 +459,11 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| uri | string | Yes | The location of the image. |
+| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No | The function that will be called if there was an error, such as failing to retrieve the image. |
 
 ---
 
@@ -411,12 +481,12 @@ Does not work for static image resources.
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| headers | object   | Yes      | The headers for the request.                                                                         |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| uri | string | Yes | The location of the image. |
+| headers | object | Yes | The headers for the request. |
+| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No | The function that will be called if there was an error, such as failing toto retrieve the image. |
 
 ---
 
@@ -478,8 +548,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **Parameters:**
 
-| Name   | Type           | Required | Description                                                                  |
-| ------ | -------------- | -------- | ---------------------------------------------------------------------------- |
-| source | number, object | Yes      | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| source | number, object | Yes | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
 
 > `ImageSource` is an object like `{ uri: '<http location || file path>' }`
