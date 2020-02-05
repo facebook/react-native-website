@@ -19,35 +19,27 @@ if (Platform.OS === 'android') {
 
 Example usage:
 
-```jsx
-import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Platform, UIManager, LayoutAnimation} from 'react-native';
+```SnackPlayer =rn-layoutanimation
+const App = () => {
+  const [expanded, setExpanded] = useState(false);
 
-if (
-  Platform.OS === 'android' &&
-  UIManager.setLayoutAnimationEnabledExperimental
-) {
-  UIManager.setLayoutAnimationEnabledExperimental(true);
-}
-class AnimatedCollapsible extends React.Component {
-  state = {expanded: false};
-  render() {
-    return (
-      <View style={{overflow: 'hidden'}}>
-        <TouchableOpacity
-          onPress={() => {
-            LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-            this.setState({expanded: !this.state.expanded});
-          }}>
-          <Text>
-            Press me to {this.state.expanded ? 'collapse' : 'expand'}!
-          </Text>
-        </TouchableOpacity>
-        {this.state.expanded && <Text>I disappear sometimes!</Text>}
-      </View>
-    );
-  }
-}
+  return (
+    <View style={{overflow: 'hidden'}}>
+    <TouchableOpacity
+      onPress={() => {
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+        setExpanded(!expanded);
+      }}>
+      <Text>
+        Press me to {expanded ? 'collapse' : 'expand'}!
+      </Text>
+    </TouchableOpacity>
+    {expanded && <Text>I disappear sometimes!</Text>}
+  </View>
+  );
+};
+
+export default App;
 ```
 
 ---
