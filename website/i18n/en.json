@@ -38,6 +38,9 @@
       "app-extensions": {
         "title": "App Extensions"
       },
+      "appearance": {
+        "title": "Appearance"
+      },
       "appregistry": {
         "title": "AppRegistry"
       },
@@ -340,9 +343,6 @@
       },
       "toastandroid": {
         "title": "ToastAndroid"
-      },
-      "toolbarandroid": {
-        "title": "ToolbarAndroid"
       },
       "touchablehighlight": {
         "title": "TouchableHighlight"
