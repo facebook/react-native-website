@@ -25,64 +25,41 @@ renderButton: function() {
 ### Example
 
 ```SnackPlayer name=TouchableOpacity
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native'
+import React, { useState } from 'react';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { count: 0 }
-  }
+export default function App() {
+  const [count, setCount] = useState(0);
+  const handleIncrementCount = () => setCount(prevState => prevState + 1);
 
-  onPress = () => {
-    this.setState({
-      count: this.state.count+1
-    })
-  }
-
- render() {
-   return (
-     <View style={styles.container}>
-       <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-       >
-         <Text> Touch Here </Text>
-       </TouchableOpacity>
-       <View style={[styles.countContainer]}>
-         <Text style={[styles.countText]}>
-            { this.state.count !== 0 ? this.state.count: null}
-          </Text>
-        </View>
+  return (
+    <View style={styles.container}>
+      <View style={styles.countContainer}>
+        <Text>Count: {count}</Text>
       </View>
-    )
-  }
+      <TouchableOpacity style={styles.button} onPress={handleIncrementCount}>
+        <Text>Touch Here</Text>
+      </TouchableOpacity>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   button: {
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
-    padding: 10
+    padding: 10,
   },
   countContainer: {
     alignItems: 'center',
-    padding: 10
+    padding: 10,
   },
-  countText: {
-    color: '#FF00FF'
-  }
-})
+});
 ```
 
 ---
