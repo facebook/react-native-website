@@ -1749,6 +1749,11 @@ commander@~2.8.1:
   dependencies:
     graceful-readlink ">= 1.0.0"
 
+comment-parser@^0.7.2:
+  version "0.7.2"
+  resolved "https://registry.npmjs.org/comment-parser/-/comment-parser-0.7.2.tgz#baf6d99b42038678b81096f15b630d18142f4b8a"
+  integrity sha512-4Rjb1FnxtOcv9qsfuaNuVsmmVn4ooVoBHzYfyKteiXwIU84PClyGA5jASoFMwPV93+FPh9spwueXauxFJZkGAg==
+
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -3620,6 +3625,11 @@ hastscript@^5.0.0:
     hast-util-parse-selector "^2.2.0"
     property-information "^5.0.1"
     space-separated-tokens "^1.0.0"
+
+he@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
+  integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
 
 hex-color-regex@^1.1.0:
   version "1.1.0"
@@ -6988,6 +6998,11 @@ sliced@^1.0.1:
   resolved "https://registry.yarnpkg.com/sliced/-/sliced-1.0.1.tgz#0b3a662b5d04c3177b1926bea82b03f837a2ef41"
   integrity sha1-CzpmK10Ewxd7GSa+qCsD+Dei70E=
 
+snapdragon-lexer@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/snapdragon-lexer/-/snapdragon-lexer-4.0.0.tgz#86e2fb96931e12060839000995b00d3551658292"
+  integrity sha512-ddXT9cpKI0PUrs3xeoQVKEjequr0UyW9w281dzu8RTgWtqdIGZSvoWDsnIMPCc8Fupk4dByatSodhwYEGgrdSg==
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -7585,6 +7600,13 @@ toidentifier@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/toidentifier/-/toidentifier-1.0.0.tgz#7e1be3470f1e77948bc43d94a3c8f4d7752ba553"
   integrity sha512-yaOH/Pk/VEhBWWTlhI+qXxDFXlejDGcQipMlyxda9nthulaxLZUNcUqFxokp0vcYnvteJln5FNQDRrxj3YcbVw==
+
+tokenize-comment@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/tokenize-comment/-/tokenize-comment-3.0.1.tgz#deeffcd57714e6097182a39e032e4ff861c60a1a"
+  integrity sha512-of5j9zCooBZxcE1EQ9PCjXcuFUPU/h8GxhWqF86cQ3muHQQreIWgY40ZNfuPQUSXyTa6i7oAWqWX4QivzZh26Q==
+  dependencies:
+    snapdragon-lexer "^4.0.0"
 
 toml@^2.3.2:
   version "2.3.6"
