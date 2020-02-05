@@ -22,21 +22,13 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 
 <block class="functional syntax" />
 
-```SnackPlayer name=DatePickerIOS
+```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios
 import React, {useState} from 'react';
 import {DatePickerIOS, View, StyleSheet, Text, Platform} from 'react-native';
 
 export default function App () {
 
   const [chosenDate, setChosenDate] = useState(new Date());
-
-  if(Platform.OS !== "ios") {
-    return (
-      <View style={styles.container}>
-        <Text>This Component only works on iOS</Text>
-      </View>
-    )
-  }
 
   return (
     <View style={styles.container}>
@@ -58,7 +50,7 @@ const styles = StyleSheet.create({
 
 <block class="classical syntax" />
 
-```SnackPlayer name=DatePickerIOS
+```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios
 import React, {Component} from 'react';
 import {DatePickerIOS, View, StyleSheet, Text, Platform} from 'react-native';
 
@@ -73,15 +65,6 @@ export default class App extends Component {
   setDate(newDate) {
     this.setState({chosenDate: newDate});
   }
-
-  render() {
-    if (Platform.OS !== 'ios') {
-      return (
-        <View style={styles.container}>
-          <Text>This Component only works on iOS</Text>
-        </View>
-      );
-    }
 
     return (
       <View style={styles.container}>
