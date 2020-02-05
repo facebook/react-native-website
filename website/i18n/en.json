@@ -341,9 +341,6 @@
       "toastandroid": {
         "title": "ToastAndroid"
       },
-      "toolbarandroid": {
-        "title": "ToolbarAndroid"
-      },
       "touchablehighlight": {
         "title": "TouchableHighlight"
       },
@@ -3400,6 +3397,9 @@
       },
       "version-0.60/version-0.60-virtualizedlist": {
         "title": "VirtualizedList"
+      },
+      "version-0.61/version-0.61-activityindicator": {
+        "title": "ActivityIndicator"
       },
       "version-0.61/version-0.61-debugging": {
         "title": "Debugging"
