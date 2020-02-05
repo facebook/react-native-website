@@ -36,13 +36,13 @@ In the longer term, as more of your codebase moves to function components and Ho
 - Fast Refresh preserves React local state in function components (and Hooks) by default.
 - Sometimes you might want to _force_ the state to be reset, and a component to be remounted. For example, this can be handy if you're tweaking an animation that only happens on mount. To do this, you can add `// @refresh reset` anywhere in the file you're editing. This directive is local to the file, and instructs Fast Refresh to remount components defined in that file on every edit.
 - You can put `console.log` or `debugger;` into the components you edit during a Fast Refresh session.
-- Technically all **useState** and **useRef** hooks is preserved, while all other hooks runs as if the component is being removed and added again. The following example gives you some insight into how a fast refresh affects the **useEffect** hook:
+- Technically all `useState` and `useRef` Hooks are preserved, while all other Hooks run as if the component were removed then added again. The following example gives you some idea of how a fast refresh affects the `useEffect` Hook:
 
 ```js
-useEffect(() => {
-  // I ran the first time, but will also run on fast refresh
-  return () => {
-    // I will run when the component is removed, but will also run on fast refresh
+useEffect(() => { // runs once and also on fast refresh
+
+  return () => {  // runs when the component is removed and also on fast refresh
+    // ..
   }
 }, [])
 ```
