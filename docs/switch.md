@@ -9,17 +9,26 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ```SnackPlayer name=switch
 import React, { useState } from 'react';
-import { Text, View, Switch } from 'react-native';
+import { View, Switch } from 'react-native';
 
 export default function App() {
-  const [value, setValue] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#cecece',
+      }}>
       <Switch
-        value={value}
-        onValueChange={v => {
-          setValue(v);
-        }}
+        trackColor={{ false: '#767577', true: '#81b0ff' }}
+        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
       />
     </View>
   );
