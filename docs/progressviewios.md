@@ -1,7 +1,9 @@
 ---
 id: progressviewios
-title: ProgressViewIOS
+title: 🚧 ProgressViewIOS
 ---
+
+> **Deprecated.** Use [@react-native-community/progress-view](https://github.com/react-native-community/react-native-progress-view) instead.
 
 Uses `ProgressViewIOS` to render a UIProgressView on iOS.
 
