@@ -54,8 +54,7 @@ const styles = StyleSheet.create({
     flexDirection: 'vertical',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: '100%',
-    backgroundColor: 'red'
+    height: '100%'
   }
 });
 
@@ -128,8 +127,7 @@ const styles = StyleSheet.create({
     flexDirection: 'vertical',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: '100%',
-    backgroundColor: 'red'
+    height: '100%'
   }
 });
 
