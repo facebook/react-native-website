@@ -3,7 +3,7 @@ id: devsettings
 title: DevSettings
 ---
 
-The `DevSettings` module exposes methods for customizing settings in for developers in development.
+The `DevSettings` module exposes methods for customizing settings for developers in development.
 
 ---
 
