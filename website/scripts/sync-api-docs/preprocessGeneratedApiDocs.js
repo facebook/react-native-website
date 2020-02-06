@@ -28,22 +28,29 @@ function joinDescriptionAndExamples(tokenized) {
   return sections.join('\n\n');
 }
 
+function preprocessTagsInDescription(obj) {
+  if (obj && obj.description) {
+    const descriptionTokenized = tokenizeComment(obj.description);
+    obj.description = joinDescriptionAndExamples(descriptionTokenized);
+    obj.rnTags = {};
+    const platformTag = descriptionTokenized.tags.find(
+      ({key}) => key === 'platform'
+    );
+    if (platformTag) {
+      obj.rnTags.platform = platformTag.value;
+    }
+  }
+}
+
 // NOTE: This function mutates `docs`.
 function preprocessGeneratedApiDocs(docs) {
   for (const doc of docs) {
     if (doc.props) {
-      for (const [key, prop] of Object.entries(doc.props)) {
-        if (prop.description) {
-          const descriptionTokenized = tokenizeComment(prop.description);
-          prop.description = joinDescriptionAndExamples(descriptionTokenized);
-          prop.rnTags = {};
-          const platformTag = descriptionTokenized.tags.find(
-            ({key}) => key === 'platform'
-          );
-          if (platformTag) {
-            prop.rnTags.platform = platformTag.value;
-          }
-        }
+      for (const prop of Object.values(doc.props)) {
+        preprocessTagsInDescription(prop);
+      }
+      for (const prop of doc.methods) {
+        preprocessTagsInDescription(prop);
       }
     }
   }
