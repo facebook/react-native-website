@@ -2,16 +2,129 @@
 id: dimensions
 title: Dimensions
 ---
-```jsx
-import {Dimensions } from "react-native";
-```
-You can get device width and height using below :
 
-Get device screen width and height :
 ```jsx
-const screenWidth = Math.round(Dimensions.get('window').width);
-const screenHeight = Math.round(Dimensions.get('window').height);
+import {Dimensions} from 'react-native';
 ```
+
+You can get the application window's width and height using below code:
+
+```jsx
+const windowWidth = Math.round(Dimensions.get('window').width);
+const windowHeight = Math.round(Dimensions.get('window').height);
+```
+
+If you are targeting foldable devices or devices which can change the screen size or app window size, you can use the event listener available in the Dimensions module as shown in the below example.
+
+### Example
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Dimensions
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
+
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
+
+export default function App() {
+  const [dimensions, setDimensions] = useState({ window, screen });
+
+  const onChange = ({ window, screen }) => {
+    setDimensions({ window, screen });
+  };
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange);
+    return () => {
+      Dimensions.removeEventListener("change", onChange);
+    };
+  });
+
+  return (
+    <View style={styles.container}>
+      <Text>{`Window Dimensions: height - ${dimensions.window.height}, width - ${dimensions.window.width}`}</Text>
+      <Text>{`Screen Dimensions: height - ${dimensions.screen.height}, width - ${dimensions.screen.width}`}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Dimensions
+import React, { Component } from "react";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
+
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
+
+export default class App extends Component {
+  state = {
+    dimensions: {
+      window,
+      screen
+    }
+  };
+
+  onChange = ({ window, screen }) => {
+    this.setState({ dimensions: { window, screen } });
+  };
+
+  componentDidMount() {
+    Dimensions.addEventListener("change", this.onChange);
+  }
+
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this.onChange);
+  }
+
+  render() {
+    const { dimensions } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <Text>{`Window Dimensions: height - ${dimensions.window.height}, width - ${dimensions.window.width}`}</Text>
+        <Text>{`Screen Dimensions: height - ${dimensions.screen.height}, width - ${dimensions.screen.width}`}</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
+
+### React Native Hooks
+
+You can also try [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from [React native hooks](https://github.com/react-native-community/react-native-hooks) library which makes handling screen/window size changes much simpler.
+
 # Reference
 
 ## Methods
@@ -25,6 +138,8 @@ static addEventListener(type, handler)
 Add an event handler. Supported events:
 
 - `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is an object with `window` and `screen` properties whose values are the same as the return values of `Dimensions.get('window')` and `Dimensions.get('screen')`, respectively.
+  - `window` - Size of the visible Application window
+  - `screen` - Size of the device's screen
 
 ---
 
@@ -42,9 +157,9 @@ Example: `var {height, width} = Dimensions.get('window');`
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                                                   |
-| ------    | ------   | -------- | ----------------------------------------------------------------------------------------------|
-| dim       | string   | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension.  | 
+| Name | Type   | Required | Description                                                                                  |
+| ---- | ------ | -------- | -------------------------------------------------------------------------------------------- |
+| dim  | string | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension. |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -70,6 +185,6 @@ This should only be called from native code by sending the didUpdateDimensions e
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                               |
-| ------    | ------   | -------- | ------------------------------------------|
-| dims      | object   | Yes      | string-keyed object of dimensions to set  | 
+| Name | Type   | Required | Description                              |
+| ---- | ------ | -------- | ---------------------------------------- |
+| dims | object | Yes      | string-keyed object of dimensions to set |
