@@ -5,46 +5,143 @@ title: Modal
 
 The Modal component is a basic way to present content above an enclosing view.
 
+### Example
 
-```SnackPlayer name=rn-modal
+<block class="functional syntax" />
+
+```SnackPlayer name=rn-modal-function-example
 import React, {Component, useState} from 'react';
-import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+import {Modal, Text, TouchableHighlight, View, Alert, StyleSheet} from 'react-native';
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={{marginTop: 22}}>
+    <View style={{marginTop: 22, ...styles.centeredView}}>
       <Modal
         animationType="slide"
-        transparent={false}
+        transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert('Modal has been closed.');
         }}>
-        <View style={{marginTop: 22}}>
-          <View>
-            <Text>Hello World!</Text>
+        <View style={{marginTop: 22, ...styles.centeredView}}>
+          <View style={{...styles.modalView}}>
+            <Text style={styles.modalText}>Hello World!</Text>
 
             <TouchableHighlight
+              style={{...styles.openButton  , backgroundColor: "#2196F3"}}
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}>
-              <Text>Hide Modal</Text>
+              <Text style={styles.textStyle}>Hide Modal</Text>
             </TouchableHighlight>
           </View>
         </View>
       </Modal>
 
       <TouchableHighlight
+        style={styles.openButton}
         onPress={() => {
           setModalVisible(true);
         }}>
-        <Text>Show Modal</Text>
+        <Text style={styles.textStyle}>Show Modal</Text>
       </TouchableHighlight>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+})
+
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=rn-modal-class-example
+import React, {Component} from 'react';
+import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+
+class ModalExample extends Component {
+  state = {
+    modalVisible: false,
+  };
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+
+  render() {
+    return (
+      <View style={{marginTop: 22}}>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}>
+          <View style={{marginTop: 22}}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
+
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}>
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
+      </View>
+    );
+  }
+}
+```
+
+<block class="endBlock syntax" />
 
 ---
 
