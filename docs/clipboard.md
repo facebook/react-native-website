@@ -1,7 +1,9 @@
 ---
 id: clipboard
-title: Clipboard
+title: 🚧 Clipboard
 ---
+
+> **Deprecated.** Use [@react-native-community/clipboard](https://github.com/react-native-community/react-native-clipboard) instead.
 
 `Clipboard` gives you an interface for setting and getting content from Clipboard on both Android and iOS
 
@@ -40,11 +42,12 @@ _setContent() {
   Clipboard.setString('hello world');
 }
 ```
+
 **Parameters:**
 
-| Name      | Type     | Required | Description                                |
-| ------    | ------   | -------- | -------------------------------------------|
-| content   | string   | Yes      | The content to be stored in the clipboard  | 
+| Name    | Type   | Required | Description                               |
+| ------- | ------ | -------- | ----------------------------------------- |
+| content | string | Yes      | The content to be stored in the clipboard |
 
 _Notice_
 
