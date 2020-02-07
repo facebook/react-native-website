@@ -9,7 +9,48 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 
 ### Example
 
-```jsx
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios
+import React, {useState} from 'react';
+import {DatePickerIOS, View, StyleSheet} from 'react-native';
+
+export default function App () {
+
+  const [chosenDate, setChosenDate] = useState(new Date());
+
+  return (
+    <View style={styles.container}>
+      <DatePickerIOS
+        date={chosenDate}
+        onDateChange={setChosenDate}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios
 import React, {Component} from 'react';
 import {DatePickerIOS, View, StyleSheet} from 'react-native';
 
@@ -45,7 +86,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
+<block class="endBlock syntax" />
 
 ---
 
