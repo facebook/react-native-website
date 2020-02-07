@@ -5,7 +5,7 @@ title: LayoutAnimation
 
 Automatically animates views to their new positions when the next layout happens.
 
-A common way to use this API is to call it before calling `setState`.
+A common way to use this API is to call it before updating the state hook in functional components and calling `setState` in class components.
 
 Note that in order to get this to work on **Android** you need to set the following flags via `UIManager`:
 
@@ -69,6 +69,8 @@ export default App;
 
 ```
 
+<block class="endBlock syntax" />
+
 ---
 
 # Reference
@@ -85,10 +87,10 @@ Schedules an animation to happen on the next layout.
 
 #### Parameters:
 
-| Name              | Type     | Required | Description                                                |
-| ----------------- | -------- | -------- | ---------------------------------------------------------- |
-| config            | object   | Yes      | See config description below.                              |
-| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| config | object | Yes | See config description below. |
+| onAnimationDidEnd | function | No | Called when the animation finished. Only supported on iOS. |
 
 The `config` parameter is an object with the keys below. [`create`](layoutanimation.md#create) returns a valid object for `config`, and the [`Presets`](layoutanimation.md#presets) objects can also all be passed as the `config`.
 
@@ -162,11 +164,11 @@ An enumeration of layout properties to be animated to be used in the [`create`](
 
 A set of predefined animation configs to pass into [`configureNext`](layoutanimation.md#configurenext).
 
-| Presets       | Value                                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
-| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
-| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
+| Presets | Value |
+| --- | --- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')` |
+| linear | `create(500, 'linear', 'opacity')` |
+| spring | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
 
 ---
 
