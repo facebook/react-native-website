@@ -21,7 +21,7 @@ First, you need to install them in your project:
 npm install @react-navigation/native @react-navigation/stack
 ```
 
-The second step is to install the required peer dependencies. You need to run different commands depending on whether your projects is an Expo managed project or a bare React Native project.
+Next, install the required peer dependencies. You need to run different commands depending on whether your project is an Expo managed project or a bare React Native project.
 
 - If you have an Expo managed project, install the dependencies with `expo`:
 
@@ -43,7 +43,7 @@ The second step is to install the required peer dependencies. You need to run di
   cd ..
   ```
 
-> Note: You might get warnings related to peer dependencies after installation. They are usually caused my incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
+> Note: You might get warnings related to peer dependencies after installation. They are usually caused by incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
 
 To finalize installation of `react-native-gesture-handler`, add the following at the **top** (make sure it's at the top and there's nothing else before it) of your entry file, such as `index.js` or `App.js`:
 
