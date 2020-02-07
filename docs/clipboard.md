@@ -22,7 +22,7 @@ title: Clipboard
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Clipboard
+```SnackPlayer name=Clipboard&supportedPlatforms=ios,android
 import React, {useState} from 'react';
 import {View, StyleSheet, Text, Button, Clipboard, TextInput} from 'react-native';
 
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Clipboard
+```SnackPlayer name=Clipboard&supportedPlatforms=ios,android
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, Button, Clipboard, TextInput} from 'react-native';
 
