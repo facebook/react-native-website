@@ -10,15 +10,9 @@ title: Clipboard
 
 ## Example
 
-```SnackPlayer name=api-clipboard
+```SnackPlayer name=Clipboard%20API%20Example
 import React, { useState } from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  TouchableOpacity,
-  Clipboard
-} from "react-native";
+import { SafeAreaView, View, Text, TouchableOpacity, Clipboard } from "react-native";
 
 const App = () => {
   const [copiedText, setCopiedText] = useState("");
