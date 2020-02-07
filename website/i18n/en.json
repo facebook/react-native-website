@@ -341,6 +341,9 @@
       "toastandroid": {
         "title": "ToastAndroid"
       },
+      "toolbarandroid": {
+        "title": "ToolbarAndroid"
+      },
       "touchablehighlight": {
         "title": "TouchableHighlight"
       },
