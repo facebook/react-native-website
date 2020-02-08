@@ -14,37 +14,69 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 
 Basic usage:
 
-```jsx
-import {ToastAndroid} from 'react-native';
+```SnackPlayer name=basic-android-toast
+import React from 'react';
+import { View, StyleSheet, ToastAndroid, Button } from 'react-native';
+import Constants from 'expo-constants';
+const App = () => {
 
-ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
-ToastAndroid.showWithGravity(
-  'All Your Base Are Belong To Us',
-  ToastAndroid.SHORT,
-  ToastAndroid.CENTER,
-);
-ToastAndroid.showWithGravityAndOffset(
-  'A wild toast appeared!',
-  ToastAndroid.LONG,
-  ToastAndroid.BOTTOM,
-  25,
-  50,
-);
+  const showToast = () => {
+    ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
+  }
+
+  const showToastWithGravity = () => {
+    ToastAndroid.showWithGravity(
+      'All Your Base Are Belong To Us',
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER,
+    );
+  }
+
+  const showToastWithGravityAndOffset = () => {
+    ToastAndroid.showWithGravityAndOffset(
+      'A wild toast appeared!',
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50,
+    );
+  }
+
+  return (
+    <View style={styles.container}>
+      <Button title="Toggle Toast" onPress={() => showToast()} />
+      <Button title="Toggle Toast With Gravity" onPress={() => showToastWithGravity()} />
+      <Button title="Toggle Toast With Gravity & Offset" onPress={() => showToastWithGravityAndOffset()} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  }
+});
+
+export default App;
 ```
 
 ### Advanced usage:
 
 The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
-```jsx
-import React, {Component} from 'react';
-import {View, Button, ToastAndroid} from 'react-native';
+```SnackPlayer name=advanced-android-toast
+import React, { useState, useEffect } from 'react';
+import { View, StyleSheet, ToastAndroid, Button } from 'react-native';
+import Constants from 'expo-constants';
 
-// a component that calls the imperative ToastAndroid API
-const Toast = (props) => {
-  if (props.visible) {
+const Toast = ({visible, message}) => {
+  if (visible) {
     ToastAndroid.showWithGravityAndOffset(
-      props.message,
+      message,
       ToastAndroid.LONG,
       ToastAndroid.BOTTOM,
       25,
@@ -55,40 +87,34 @@ const Toast = (props) => {
   return null;
 };
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
+const App = () => {
+  const [visibleToast, setvisibleToast] = useState(false);
+  
+  useEffect(() => setvisibleToast(false), [visibleToast]);
 
-  handleButtonPress = () => {
-    this.setState(
-      {
-        visible: true,
-      },
-      () => {
-        this.hideToast();
-      },
-    );
+  const handleButtonPress = () => {
+    setvisibleToast(true);
   };
 
-  hideToast = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <Toast visible={this.state.visible} message="Example" />
-        <Button title="Toggle Modal" onPress={this.handleButtonPress} />
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <Toast visible={visibleToast} message="Example" />
+      <Button title="Toggle Toast" onPress={() => handleButtonPress()} />
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+});
+
+export default App;
 ```
 
 ---
