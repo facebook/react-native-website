@@ -5,7 +5,6 @@ title: Modal
 
 The Modal component is a basic way to present content above an enclosing view.
 
-> Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
 ```SnackPlayer name=rn-modal
 import React, {Component, useState} from 'react';
@@ -78,6 +77,16 @@ Default is set to `none`.
 ### `hardwareAccelerated`
 
 The `hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
+### `statusBarTranslucent`
+
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

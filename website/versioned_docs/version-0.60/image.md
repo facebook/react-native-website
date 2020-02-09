@@ -73,17 +73,17 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 ```gradle
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  implementation 'com.facebook.fresco:animated-base-support:1.10.0'
+  implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:1.12.0'
+  implementation 'com.facebook.fresco:animated-gif:2.0.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:1.10.0'
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:animated-webp:2.1.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 }
 ```
 
@@ -202,7 +202,7 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
@@ -308,9 +308,9 @@ When true, indicates the image is an accessibility element.
 
 When the image is resized, the corners of the size specified by `capInsets` will stay a fixed size, but the center content and borders of the image will be stretched. This is useful for creating resizable rounded buttons, shadows, and other resizable assets. More info in the [official Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets).
 
-| Type                                                               | Required | Platform |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
 
 ---
 
@@ -389,11 +389,11 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| uri | string | Yes | The location of the image. |
+| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No | The function that will be called if there was an error, such as failing to retrieve the image. |
 
 ---
 
@@ -411,12 +411,12 @@ Does not work for static image resources.
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| headers | object   | Yes      | The headers for the request.                                                                         |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| uri | string | Yes | The location of the image. |
+| headers | object | Yes | The headers for the request. |
+| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No | The function that will be called if there was an error, such as failing toto retrieve the image. |
 
 ---
 
@@ -478,8 +478,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **Parameters:**
 
-| Name   | Type           | Required | Description                                                                  |
-| ------ | -------------- | -------- | ---------------------------------------------------------------------------- |
-| source | number, object | Yes      | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| source | number, object | Yes | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
 
 > `ImageSource` is an object like `{ uri: '<http location || file path>' }`

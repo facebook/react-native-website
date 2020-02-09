@@ -1,9 +1,9 @@
 ---
-id: getting-started
-title: Getting Started
+id: environment-setup
+title: Setting up the development environment
 ---
 
-This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
+This page will help you install and build your first React Native app.
 
 <strong>If you are new to mobile development</strong>, the easiest way to get started is with Expo CLI. Expo is a set of tools built around React Native and, while it has many [features](https://expo.io/features), the most relevant feature for us right now is that it can get you writing a React Native app within minutes. You will only need a recent version of Node.js and a phone or emulator. If you'd like to try out React Native directly in your web browser before installing any tools, you can try out [Snack](https://snack.expo.io/).
 
@@ -22,7 +22,7 @@ This page will help you install and build your first React Native app. If you al
 
 <block class="quickstart mac windows linux ios android" />
 
-Assuming that you have [Node 10 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
+Assuming that you have [Node 12 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
 ```sh
 npm install -g expo-cli
@@ -64,7 +64,7 @@ If you have a problem with Expo, before creating a new issue, please see if ther
 - in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
 - in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
-If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
 
 <h3>Running your app on a simulator or virtual device</h3>
 
@@ -84,7 +84,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="getting-started" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
 
@@ -109,7 +109,7 @@ The instructions are a bit different depending on your development operating sys
 
 <h2>Unsupported</h2>
 
-<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="getting-started" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
 
 <block class="native mac ios" />
 
@@ -556,18 +556,14 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <h2>Now what?</h2>
 
-- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
-
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
 
 <block class="native windows linux mac android" />
 
 <h2>Now what?</h2>
 
-- Turn on [Fast Refresh](debugging.md#enabling-fast-refresh) in the Developer Menu. Your app will now reload automatically whenever you save any changes!
-
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, continue on to the [Tutorial](tutorial.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).

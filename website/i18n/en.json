@@ -21,7 +21,7 @@
         "title": "Alert"
       },
       "alertios": {
-        "title": "AlertIOS"
+        "title": "🚧 AlertIOS"
       },
       "animated": {
         "title": "Animated"
@@ -45,7 +45,7 @@
         "title": "AppState"
       },
       "asyncstorage": {
-        "title": "AsyncStorage"
+        "title": "🚧 AsyncStorage"
       },
       "backhandler": {
         "title": "BackHandler"
@@ -81,10 +81,10 @@
         "title": "Custom WebView"
       },
       "datepickerandroid": {
-        "title": "DatePickerAndroid"
+        "title": "🚧 DatePickerAndroid"
       },
       "datepickerios": {
-        "title": "DatePickerIOS"
+        "title": "🚧 DatePickerIOS"
       },
       "debugging": {
         "title": "Debugging"
@@ -113,8 +113,8 @@
       "gesture-responder-system": {
         "title": "Gesture Responder System"
       },
-      "getting-started": {
-        "title": "Getting Started"
+      "environment-setup": {
+        "title": "Setting up the development environment"
       },
       "handling-text-input": {
         "title": "Handling Text Input"
@@ -141,10 +141,10 @@
         "title": "ImageBackground"
       },
       "imageeditor": {
-        "title": "ImageEditor"
+        "title": "🚧 ImageEditor"
       },
       "imagepickerios": {
-        "title": "ImagePickerIOS"
+        "title": "🚧 ImagePickerIOS"
       },
       "images": {
         "title": "Images"
@@ -160,6 +160,15 @@
       },
       "interactionmanager": {
         "title": "InteractionManager"
+      },
+      "intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
+      "intro-react": {
+        "title": "React Fundamentals"
+      },
+      "getting-started": {
+        "title": "Introduction"
       },
       "javascript-environment": {
         "title": "JavaScript Environment"
@@ -234,7 +243,7 @@
         "title": "Picker"
       },
       "pickerios": {
-        "title": "PickerIOS"
+        "title": "🚧 PickerIOS"
       },
       "pixelratio": {
         "title": "PixelRatio"
@@ -243,16 +252,16 @@
         "title": "Platform Specific Code"
       },
       "progressbarandroid": {
-        "title": "ProgressBarAndroid"
+        "title": "🚧 ProgressBarAndroid"
       },
       "progressviewios": {
-        "title": "ProgressViewIOS"
+        "title": "🚧 ProgressViewIOS"
       },
       "props": {
         "title": "Props"
       },
       "pushnotificationios": {
-        "title": "PushNotificationIOS"
+        "title": "🚧 PushNotificationIOS"
       },
       "refreshcontrol": {
         "title": "RefreshControl"
@@ -276,7 +285,7 @@
         "title": "SectionList"
       },
       "segmentedcontrolios": {
-        "title": "SegmentedControlIOS"
+        "title": "🚧 SegmentedControlIOS"
       },
       "settings": {
         "title": "Settings"
@@ -291,7 +300,7 @@
         "title": "Publishing to Google Play Store"
       },
       "slider": {
-        "title": "Slider"
+        "title": "🚧 Slider"
       },
       "state": {
         "title": "State"
@@ -300,7 +309,7 @@
         "title": "StatusBar"
       },
       "statusbarios": {
-        "title": "StatusBarIOS"
+        "title": "🚧 StatusBarIOS"
       },
       "style": {
         "title": "Style"
@@ -324,7 +333,7 @@
         "title": "TextInput"
       },
       "timepickerandroid": {
-        "title": "TimePickerAndroid"
+        "title": "🚧 TimePickerAndroid"
       },
       "timers": {
         "title": "Timers"
@@ -378,7 +387,7 @@
         "title": "View"
       },
       "viewpagerandroid": {
-        "title": "ViewPagerAndroid"
+        "title": "🚧 ViewPagerAndroid"
       },
       "virtualizedlist": {
         "title": "VirtualizedList"

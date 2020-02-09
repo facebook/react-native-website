@@ -45,6 +45,9 @@ That's it! You should now be able to develop and deploy your app as normal:
 $ react-native run-android
 ```
 
+> ## Note about Android App Bundles
+> Android app bundles are not yet supported with hermes.
+
 ## Confirming Hermes is in use
 
 If you've recently created a new app from scratch, you should see if Hermes is enabled in the welcome view:

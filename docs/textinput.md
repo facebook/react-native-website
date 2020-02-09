@@ -513,6 +513,8 @@ Callback that is called when the text input's submit button is pressed with the 
 | -------- | -------- |
 | function | No       |
 
+Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
+
 ---
 
 ### `onTextInput`
@@ -688,6 +690,22 @@ If `false`, disables spell-check style (i.e. red underlines). The default value 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | iOS      |
+
+---
+
+### `textAlign`
+
+Align the input text to the left, center, or right sides of the input field.
+
+Possible values for `textAlign` are:
+
+- `left`
+- `center`
+- `right`
+
+| Type | Required |
+| ---- | -------- |
+| enum('left', 'center', 'right') | No     |
 
 ---
 
