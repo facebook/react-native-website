@@ -18,8 +18,6 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
-Simple Examples:
-
 ### Example
 
 ```SnackPlayer name=SectionList
@@ -88,6 +86,7 @@ const styles = StyleSheet.create({
   },
   header: {
     fontSize: 32,
+    backgroundColor: '#fff'
   },
   title: {
     fontSize: 24,

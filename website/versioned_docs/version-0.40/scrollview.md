@@ -6,13 +6,13 @@ original_id: scrollview
 
 Component that wraps platform ScrollView while providing integration with touch locking "responder" system.
 
-Keep in mind that ScrollViews must have a bounded height in order to work, since they contain unbounded-height children into a bounded container (via a scroll interaction). In order to bound the height of a ScrollView, either set the height of the view directly (discouraged) or make sure all parent views have bounded height. Forgetting to transfer `{flex: 1}` down the view stack can lead to errors here, which the element inspector makes easy to debug.
+Keep in mind that ScrollViews must have a bounded height in order to work, since they contain unbounded-height children into a bounded container (via a scroll interaction). In order to bound the height of a ScrollView, either set the height of the view directly (discouraged) or make sure all parent views have bounded height. Forgetting to transfer `{flex: 1}` down the view stack can lead to errors here, which the element inspector can be used to debug.
 
 Doesn't yet support other contained responders from blocking this scroll view from becoming the responder.
 
-`<ScrollView>` vs `<ListView>` - which one to use? ScrollView simply renders all its react child components at once. That makes it very easy to understand and use. On the other hand, this has a performance downside. Imagine you have a very long list of items you want to display, worth of couple of your ScrollView’s heights. Creating JS components and native views upfront for all its items, which may not even be shown, will contribute to slow rendering of your screen and increased memory usage.
+`<ScrollView>` vs `<ListView>` - which one to use? ScrollView renders all its react child components at once. That makes it very understandable and useful. On the other hand, this has a performance downside. Imagine you have a very long list of items you want to display, worth of couple of your ScrollView’s heights. Creating JS components and native views upfront for all its items, which may not even be shown, will contribute to slow rendering of your screen and increased memory usage.
 
-This is where ListView comes into play. ListView renders items lazily, just when they are about to appear. This laziness comes at cost of a more complicated API, which is worth it unless you are rendering a small fixed set of items.
+This is where ListView comes into play. ListView renders items lazily, right when they are about to appear. This laziness comes at cost of a more complicated API, which is worth it unless you are rendering a small fixed set of items.
 
 ### Props
 
@@ -399,8 +399,10 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 The style of the scroll indicators.
 
 - `default` (the default), same as `black`.
-- `black`, scroll indicator is black. This style is good against a white content background.
-- `white`, scroll indicator is white. This style is good against a black content background.
+  <!-- alex ignore rule -->
+- `black`, scroll indicator is black. This style is good against a light content background.
+  <!-- alex ignore rule -->
+- `white`, scroll indicator is white. This style is good against a dark content background.
 
 | Type                              | Required | Platform |
 | --------------------------------- | -------- | -------- |

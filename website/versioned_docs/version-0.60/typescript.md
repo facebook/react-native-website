@@ -11,7 +11,7 @@ original_id: typescript
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-react-native init MyTSProject --template typescript
+npx react-native init MyTSProject --template react-native-template-typescript@6.2.0
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
@@ -35,7 +35,7 @@ ignite new MyTSProject
 ```sh
 yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
-npm install --save-dev @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
@@ -199,7 +199,7 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "test/*": "./test/"],
++           "test/*": ["./test/"],
 +         }
 +       }
 +     ]

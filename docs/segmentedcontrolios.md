@@ -1,9 +1,9 @@
 ---
 id: segmentedcontrolios
-title: SegmentedControlIOS
+title: 🚧 SegmentedControlIOS
 ---
 
-> **Deprecated.** Use [@react-native-community/react-native-segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
+> **Deprecated.** Use [@react-native-community/segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
 
 Uses `SegmentedControlIOS` to render a UISegmentedControl iOS.
 

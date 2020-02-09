@@ -41,10 +41,10 @@ title: Layout Props
 
 Aspect ratio controls the size of the undefined dimension of a node. Aspect ratio is a non-standard property only available in React Native and not CSS.
 
-- On a node with a set width/height aspect ratio controls the size of the unset dimension
-- On a node with a set flex basis aspect ratio controls the size of the node in the cross axis if unset
-- On a node with a measure function aspect ratio works as though the measure function measures the flex basis
-- On a node with flex grow/shrink aspect ratio controls the size of the node in the cross axis if unset
+- On a node with a set width/height, aspect ratio controls the size of the unset dimension
+- On a node with a set flex basis, aspect ratio controls the size of the node in the cross axis if unset
+- On a node with a measure function, aspect ratio works as though the measure function measures the flex basis
+- On a node with flex grow/shrink, aspect ratio controls the size of the node in the cross axis if unset
 - Aspect ratio takes min/max dimensions into account
 
 | Type   | Required |
@@ -151,7 +151,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/bottom for more details of 
 
 `display` sets the display type of this component.
 
-It works similarly to `display` in CSS, but only support 'flex' and 'none'. 'flex' is the default.
+It works similarly to `display` in CSS but only supports 'flex' and 'none'. 'flex' is the default.
 
 | Type                 | Required |
 | -------------------- | -------- |
@@ -175,13 +175,13 @@ This style takes precedence over the `left` and `right` styles.
 
 In React Native `flex` does not work the same way that it does in CSS. `flex` is a number rather than a string, and it works according to the [Yoga](https://github.com/facebook/yoga).
 
-When `flex` is a positive number, it makes the component flexible and it will be sized proportional to its flex value. So a component with `flex` set to 2 will take twice the space as a component with `flex` set to 1. `flex: <positive number>` equates to `flexGrow: <positive number>, flexShrink: 1, flexBasis: 0`.
+When `flex` is a positive number, it makes the component flexible, and it will be sized proportional to its flex value. So a component with `flex` set to 2 will take twice the space as a component with `flex` set to 1. `flex: <positive number>` equates to `flexGrow: <positive number>, flexShrink: 1, flexBasis: 0`.
 
-When `flex` is 0, the component is sized according to `width` and `height` and it is inflexible.
+When `flex` is 0, the component is sized according to `width` and `height`, and it is inflexible.
 
-When `flex` is -1, the component is normally sized according `width` and `height`. However, if there's not enough space, the component will shrink to its `minWidth` and `minHeight`.
+When `flex` is -1, the component is normally sized according to `width` and `height`. However, if there's not enough space, the component will shrink to its `minWidth` and `minHeight`.
 
-flexGrow, flexShrink, and flexBasis work the same as in CSS.
+`flexGrow`, `flexShrink`, and `flexBasis` work the same as in CSS.
 
 | Type   | Required |
 | ------ | -------- |
@@ -417,7 +417,7 @@ See https://developer.mozilla.org/en-US/docs/Web/CSS/min-width for more details.
 
 ### `overflow`
 
-`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details.
+`overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents' main axis. It works like `overflow` in CSS (default: visible). See https://developer.mozilla.org/en/docs/Web/CSS/overflow for more details.
 
 | Type                                | Required |
 | ----------------------------------- | -------- |
@@ -517,11 +517,11 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 ### `position`
 
-`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always just relative to the parent.
+`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always relative to the parent.
 
 If you want to position a child using specific numbers of logical pixels relative to its parent, set the child to have `absolute` position.
 
-If you want to position a child relative to something that is not its parent, just don't use styles for that. Use the component tree.
+If you want to position a child relative to something that is not its parent, don't use styles for that. Use the component tree.
 
 See https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
 

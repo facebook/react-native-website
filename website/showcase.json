@@ -67,7 +67,7 @@
     "icon": "skype.png",
     "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
-    "infoLink": "https://blogs.skype.com/",
+    "infoLink": "https://dev.skype.com/react",
     "infoTitle": "Supporting React Native at Skype",
     "pinned": true
   },

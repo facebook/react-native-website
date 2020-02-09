@@ -18,7 +18,7 @@ Users interact with mobile apps mainly through touch. They can use a combination
 />
 ```
 
-This will render a blue label on iOS, and a blue rounded rectangle with white text on Android. Pressing the button will call the "onPress" function, which in this case displays an alert popup. If you like, you can specify a "color" prop to change the color of your button.
+This will render a blue label on iOS, and a blue rounded rectangle with light text on Android. Pressing the button will call the "onPress" function, which in this case displays an alert popup. If you like, you can specify a "color" prop to change the color of your button.
 
 ![](/react-native/docs/assets/Button.png)
 
@@ -169,6 +169,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Scrolling lists, swiping pages, and pinch-to-zoom
+## Scrolling and swiping
 
-Another gesture commonly used in mobile apps is the swipe or pan. This gesture allows the user to scroll through a list of items, or swipe through pages of content. In order to handle these and other gestures, we'll learn [how to use a ScrollView](using-a-scrollview.md) next.
+Gestures commonly used on devices with touchable screens include swipes and pans. These allow the user to scroll through a list of items, or swipe through pages of content. For these, check out the [ScrollView](scrollview.md) Core Component.

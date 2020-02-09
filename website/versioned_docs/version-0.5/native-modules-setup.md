@@ -6,7 +6,7 @@ original_id: native-modules-setup
 
 Native modules are usually distributed as npm packages, except that on top of the usual Javascript they will include some native code per platform. To understand more about npm packages you may find [this guide](https://docs.npmjs.com/getting-started/publishing-npm-packages) useful.
 
-To get set up with the basic project structure for a native module we will use a third party tool [create-react-native-module](https://github.com/brodybits/create-react-native-module). You can go ahead further and dive deep into how that library works, for our needs we will just need:
+To get set up with the basic project structure for a native module we will use a third party tool [create-react-native-module](https://github.com/brodybits/create-react-native-module). You can go ahead further and dive deep into how that library works, for our needs we will only need:
 
 ```
 $ yarn global add create-react-native-module

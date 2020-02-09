@@ -102,10 +102,9 @@
 
 hr {
   height: 1px;
-  margin-bottom: -1px;
   border: none;
   border-bottom: 1px solid $divider;
-  margin-top: 40px;
+  margin: 2em 0;
 }
 
 table {
@@ -113,7 +112,6 @@ table {
   border-collapse: collapse;
   display: table;
   margin: 20px 0;
-  width: 80%;
 }
 table thead tr {
   /* display: table-header-group; */
@@ -156,9 +154,12 @@ table tr th {
   font-family: "Helvetica Neue", Arial, sans-serif;
   text-transform: uppercase;
 }
-table tr th:first-of-type {
-  width: 60%;
+
+figure {
+  text-align: center;
+  font-style: italic;
 }
-table tr th:nth-of-type(4) {
-  width: 80%;
+
+figcaption {
+  margin: 1em 0 0 0;
 }

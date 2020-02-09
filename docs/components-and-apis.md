@@ -71,7 +71,7 @@ Render common user interface controls on any platform using the following compon
   <div class="component">
     <a href="./picker">
       <h3>Picker</h3>
-      <p>Renders the native picker component on iOS and Android.</p>
+      <p>Renders the native picker component on Android and iOS.</p>
     </a>
   </div>
   <div class="component">
@@ -204,12 +204,6 @@ Many of the following components provide wrappers for commonly used Android clas
     </a>
   </div>
   <div class="component">
-    <a href="./toolbarandroid">
-      <h3>ToolbarAndroid</h3>
-      <p>Renders a <code>Toolbar</code> on Android.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./viewpagerandroid">
       <h3>ViewPagerAndroid</h3>
       <p>Container that allows to flip left and right between child views.</p>
@@ -243,7 +237,7 @@ These components may come in handy for certain applications. For an exhaustive l
   <div class="component">
     <a href="./clipboard">
       <h3>Clipboard</h3>
-      <p>Provides an interface for setting and getting content from the clipboard on both iOS and Android.</p>
+      <p>Provides an interface for setting and getting content from the clipboard on both Android and iOS.</p>
     </a>
   </div>
   <div class="component">

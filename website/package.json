@@ -28,7 +28,9 @@
     "prettier:diff": "yarn nit:source",
     "sync-community-repos": "node sync-community-repos.js",
     "sync-guides": "node sync-guides.js",
-    "test": "yarn build"
+    "test": "yarn build",
+    "lint": "cd ../ && alex .",
+    "lintv": "cd ../ && alex"
   },
   "husky": {
     "hooks": {
@@ -36,7 +38,8 @@
     }
   },
   "dependencies": {
-    "docusaurus": "1.12.0",
+    "alex": "^8.0.0",
+    "docusaurus": "1.14.4",
     "highlight.js": "^9.15.10",
     "remarkable": "^2.0.0"
   },

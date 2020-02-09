@@ -72,17 +72,17 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 ```gradle
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  implementation 'com.facebook.fresco:animated-base-support:1.10.0'
+  implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:1.12.0'
+  implementation 'com.facebook.fresco:animated-gif:2.0.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:1.10.0'
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:animated-webp:2.1.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 }
 ```
 
@@ -155,6 +155,7 @@ blurRadius: the blur radius of the blur filter added to the image
 | ------ | -------- |
 | number | No       |
 
+> Tip : IOS you will need to increase `blurRadius` more than `5`
 ---
 
 ### `onLayout`
@@ -201,7 +202,7 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 

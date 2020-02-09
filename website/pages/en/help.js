@@ -89,6 +89,7 @@ class Help extends React.Component {
             <a href="https://www.youtube.com/watch?v=WXYPpY_mElQ">
               React Conf 2018
             </a>
+            {', '}
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
               React Conf 2017
             </a>
@@ -127,7 +128,7 @@ class Help extends React.Component {
           <h3>Reactiflux Chat</h3>
           <p>
             If you need an answer right away, check out the{' '}
-            <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Discord</a>{' '}
+            <a href="https://discord.gg/reactiflux">Reactiflux Discord</a>{' '}
             community. There are usually a number of React Native experts there
             who can help out or point you to somewhere you might want to look.
           </p>

@@ -65,7 +65,7 @@ This example will only ever appear to say "Current state is: active" because the
 
 ### `change`
 
-This even is received when the app state has changed. The listener is called with one of [the current app state values](appstate.md#app-states).
+This event is received when the app state has changed. The listener is called with one of [the current app state values](appstate.md#app-states).
 
 ### `focus`
 
@@ -85,7 +85,7 @@ addEventListener(type, handler);
 
 Add a handler to AppState changes by listening to the `change` event type and providing the handler
 
-TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate `addEventListener` and `removeEventListener` and just use `addListener` and `listener.remove()` directly. That will be a breaking change though, as both the method and event names are different (addListener events are currently required to be globally unique).
+TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate `addEventListener` and `removeEventListener` and use `addListener` and `listener.remove()` directly. That will be a breaking change though, as both the method and event names are different (addListener events are currently required to be globally unique).
 
 ---
 

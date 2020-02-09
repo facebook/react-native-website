@@ -1,18 +1,14 @@
 ---
 id: pushnotificationios
-title: PushNotificationIOS
+title: 🚧 PushNotificationIOS
 ---
 
 > **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
 
-<div class="banner-crna-ejected">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    This section only applies to projects made with <code>react-native init</code>
-    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/notifications/">Notifications</a> in the Expo documentation for the appropriate alternative.
   </p>
 </div>
 
@@ -32,15 +28,11 @@ Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
   - Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
-    ```
-
-    ``
-    ..
-    do
-    pp
-    ..
-    S'
-    ...
+    ```ruby
+    target 'myAwesomeApp' do
+      # Pods for myAwesomeApp
+      pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
+    end
     ```
 
 - [Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library:
@@ -426,7 +418,7 @@ You will never need to instantiate `PushNotificationIOS` yourself. Listening to 
 finish(fetchResult);
 ```
 
-This method is available for remote notifications that have been received via: `application:didReceiveRemoteNotification:fetchCompletionHandler:` https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didReceiveRemoteNotification:fetchCompletionHandler:
+This method is available for remote notifications that have been received via: `application:didReceiveRemoteNotification:fetchCompletionHandler:` https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc
 
 Call this to execute when the remote notification handling is complete. When calling this block, pass in the fetch result value that best describes the results of your operation. You _must_ call this handler and should do so as soon as possible. For a list of possible values, see `PushNotificationIOS.FetchResult`.
 

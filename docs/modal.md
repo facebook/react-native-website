@@ -3,56 +3,46 @@ id: modal
 title: Modal
 ---
 
-The Modal component is a simple way to present content above an enclosing view.
+The Modal component is a basic way to present content above an enclosing view.
 
-> Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
-```jsx
-import React, {Component} from 'react';
+```SnackPlayer name=rn-modal
+import React, {Component, useState} from 'react';
 import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
 
-class ModalExample extends Component {
-  state = {
-    modalVisible: false,
-  };
+export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
+  return (
+    <View style={{marginTop: 22}}>
+      <Modal
+        animationType="slide"
+        transparent={false}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert('Modal has been closed.');
+        }}>
+        <View style={{marginTop: 22}}>
+          <View>
+            <Text>Hello World!</Text>
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
-  }
-
-  render() {
-    return (
-      <View style={{marginTop: 22}}>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
-              <Text>Hello World!</Text>
-
-              <TouchableHighlight
-                onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Hide Modal</Text>
-              </TouchableHighlight>
-            </View>
+            <TouchableHighlight
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}>
+              <Text>Hide Modal</Text>
+            </TouchableHighlight>
           </View>
-        </Modal>
+        </View>
+      </Modal>
 
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-          }}>
-          <Text>Show Modal</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+      <TouchableHighlight
+        onPress={() => {
+          setModalVisible(true);
+        }}>
+        <Text>Show Modal</Text>
+      </TouchableHighlight>
+    </View>
+  );
 }
 ```
 
@@ -62,54 +52,9 @@ class ModalExample extends Component {
 
 ## Props
 
-### `visible`
+### `animated`
 
-The `visible` prop determines whether your modal is visible.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
-
----
-
-### `supportedOrientations`
-
-The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
-
-| Type                                                                                                | Required | Platform |
-| --------------------------------------------------------------------------------------------------- | -------- | -------- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
-
----
-
-### `onRequestClose`
-
-The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
-
-| Type     | Required | Platform                 |
-| -------- | -------- | ------------------------ |
-| function | Yes      | Android, Platform.isTVOS |
-| function | No       | (Others)                 |
-
----
-
-### `onShow`
-
-The `onShow` prop allows passing a function that will be called once the modal has been shown.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
-### `transparent`
-
-The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
 
 ---
 
@@ -139,6 +84,16 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
+### `statusBarTranslucent`
+
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `onDismiss`
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
@@ -159,6 +114,27 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 ---
 
+### `onRequestClose`
+
+The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
+
+| Type     | Required | Platform                 |
+| -------- | -------- | ------------------------ |
+| function | Yes      | Android, Platform.isTVOS |
+| function | No       | (Others)                 |
+
+---
+
+### `onShow`
+
+The `onShow` prop allows passing a function that will be called once the modal has been shown.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `presentationStyle`
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
@@ -176,6 +152,40 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 ---
 
-### `animated`
+### `statusBarTranslucent`
 
-> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `supportedOrientations`
+
+The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+
+| Type                                                                                                | Required | Platform |
+| --------------------------------------------------------------------------------------------------- | -------- | -------- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
+
+---
+
+### `transparent`
+
+The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `visible`
+
+The `visible` prop determines whether your modal is visible.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
