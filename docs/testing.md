@@ -5,7 +5,7 @@ title: Testing
 
 As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
 
-In this guide, we will cover different ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
+In this guide, we will cover different (automated) ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
 
 ## Why Test
 
@@ -13,7 +13,7 @@ We're humans and we make mistakes. Testing is important because it proves that y
 
 There is more value in testing, that perhaps isn't immediately visible: when there is a bug in your code, often the easiest way to fix it is to write a failing test that exposes the bug - then when you fix the bug in your code and re-run the test, it'll pass, meaning the bug is fixed and is never reintroduced into the code base.
 
-Tests can also serve as documentation for new people joining your team - when they have to use code they have never seen before, reading tests can greatly help them to understand how the existing code is intended to be used.
+Tests can also serve as documentation for new people joining your team - when they have to use code they have never seen before, reading tests can greatly help them to understand how the existing code is intended to be used. Last but not least, more automated testing means less time spent with manual QA.
 
 ## Static Analysis
 
@@ -116,52 +116,62 @@ There are several libraries that can help you testing these:
 Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
 
 ```js
-class GroceryShoppingListCreator extends React.Component {
+class GroceryShoppingList extends React.Component {
+  state = {
+    groceryItem: '',
+    items: [],
+  };
+
   render() {
     return (
       <>
         <TextInput
+          value={this.state.groceryItem}
           placeholder="Enter grocery item"
           onChangeText={this.setGroceryItem}
         />
         <Button
           title="Add the item to list"
-          onPress={this.props.addNewItemToShoppingList}
+          onPress={this.addNewItemToShoppingList}
         />
+        {this.state.items.map((item) => (
+          <Text key={item}>{item}</Text>
+        ))}
       </>
     );
   }
+
+  setGroceryItem = (groceryItem) => {
+    this.setState({groceryItem});
+  };
+
+  addNewItemToShoppingList = () => {
+    this.setState((state) => {
+      return {items: [state.groceryItem, ...state.items], groceryItem: ''};
+    });
+  };
 }
 ```
 
-When testing user interactions, test the component from the user perspective: you could write your tests to call `addNewItemToShoppingList` directly, and while such test works, it's very close to the implementation details of your component and would break if you refactor the component.
+When testing user interactions, test the component from the user perspective: you could write a test to call `setGroceryItem` and `addNewItemToShoppingList` directly and make assertions on the component's `state`. While such test would work, it's very close to the implementation details of your component and would break by refactoring it (for example when you'd like to rename some things or rewrite it using hooks).
 
-To counter for that, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component. There are apis that allow to simulate entering text into textinput, tapping buttons and more. An example of how you may fire text change event using `react-native-testing-library`:
-
-```js
-test('updates grocery input', () => {
-  fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
-});
-```
-
-The first parameter is a query function that returns a `ReactTestInstance` and the second parameter is the new text that user entered.
-
-This way, we're not testing what some function is doing - we're testing what happens when a user changes the text in the `TextInput`!
-
-Now that we know how to fire an event, let's take a look at verifying that it caused the expected change in your component: for example, that a certain text is rendered in a `GroceryShoppingList`. Aforementioned component testing libraries expose `query` apis for this purpose. An example may look like this:
+To avoid testing implementation details, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component and query apis that find matching nodes in the rendered output. An example may look like this:
 
 ```js
 test('given empty GroceryShoppingList, user can add an item to it', () => {
-  const {getByTestId, getByText, getAllByText} = render(
+  const {getByPlaceholder, getByText, getAllByText} = render(
     <GroceryShoppingList />,
   );
 
   fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
   fireEvent.press(getByText('Add the item to list'));
+
   const bananaElements = getAllByText('banana');
   expect(bananaElements).toHaveLength(1); // expect 'banana' to be on the list
 });
 ```
+
+In the example, we're not testing how some state changes when you call a function - we're testing what is in the rendered output when a user changes text in the `TextInput` and presses the `Button`!
 
 ### Testing Rendered Output
 
@@ -188,7 +198,7 @@ With snapshot testing, you typically first implement your component and then run
 Snapshots have several weak points:
 
 - For you as a developer or reviewer, it can be hard to tell whether a change in snapshot is intended or whether it's evidence of a bug. Especially large snapshots can quickly become hard to understand and their added value becomes low.
-- When snapshot is created, at that point it is considered to be correct - even in the case when the rendered output is actually wrong.
+- When snapshot is created, at that point it is considered to be correct - even in the case when the rendered output is actually wrong. (related to the first point)
 - When a snapshot fails, it's tempting to update it using the `--updateSnapshot` jest option without taking proper care to investigate whether the change is expected. Certain developer discipline is thus needed.
 
 Snapshots themselves do not ensure that your component render logic is correct, they are merely good at guarding against unexpected changes and for checking that the components in the React tree under test receive the expected props (styles and etc.).
