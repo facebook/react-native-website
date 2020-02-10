@@ -15,49 +15,54 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 Basic usage:
 
 ```SnackPlayer name=basic-android-toast
-import React from 'react';
-import { View, StyleSheet, ToastAndroid, Button } from 'react-native';
-import Constants from 'expo-constants';
+import React from "react";
+import { View, StyleSheet, ToastAndroid, Button } from "react-native";
+import Constants from "expo-constants";
 const App = () => {
-
   const showToast = () => {
-    ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
-  }
+    ToastAndroid.show("A pikachu appeared nearby !", ToastAndroid.SHORT);
+  };
 
   const showToastWithGravity = () => {
     ToastAndroid.showWithGravity(
-      'All Your Base Are Belong To Us',
+      "All Your Base Are Belong To Us",
       ToastAndroid.SHORT,
-      ToastAndroid.CENTER,
+      ToastAndroid.CENTER
     );
-  }
+  };
 
   const showToastWithGravityAndOffset = () => {
     ToastAndroid.showWithGravityAndOffset(
-      'A wild toast appeared!',
+      "A wild toast appeared!",
       ToastAndroid.LONG,
       ToastAndroid.BOTTOM,
       25,
-      50,
+      50
     );
-  }
+  };
 
   return (
     <View style={styles.container}>
       <Button title="Toggle Toast" onPress={() => showToast()} />
-      <Button title="Toggle Toast With Gravity" onPress={() => showToastWithGravity()} />
-      <Button title="Toggle Toast With Gravity & Offset" onPress={() => showToastWithGravityAndOffset()} />
+      <Button
+        title="Toggle Toast With Gravity"
+        onPress={() => showToastWithGravity()}
+      />
+      <Button
+        title="Toggle Toast With Gravity & Offset"
+        onPress={() => showToastWithGravityAndOffset()}
+      />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
-    justifyContent: 'center',
+    flex: 1,
+    justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+    backgroundColor: "#ecf0f1",
+    padding: 8
   }
 });
 
@@ -69,18 +74,18 @@ export default App;
 The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
 ```SnackPlayer name=advanced-android-toast
-import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, ToastAndroid, Button } from 'react-native';
-import Constants from 'expo-constants';
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, ToastAndroid, Button } from "react-native";
+import Constants from "expo-constants";
 
-const Toast = ({visible, message}) => {
+const Toast = ({ visible, message }) => {
   if (visible) {
     ToastAndroid.showWithGravityAndOffset(
       message,
       ToastAndroid.LONG,
       ToastAndroid.BOTTOM,
       25,
-      50,
+      50
     );
     return null;
   }
@@ -89,7 +94,7 @@ const Toast = ({visible, message}) => {
 
 const App = () => {
   const [visibleToast, setvisibleToast] = useState(false);
-  
+
   useEffect(() => setvisibleToast(false), [visibleToast]);
 
   const handleButtonPress = () => {
@@ -102,16 +107,16 @@ const App = () => {
       <Button title="Toggle Toast" onPress={() => handleButtonPress()} />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  }
 });
 
 export default App;
