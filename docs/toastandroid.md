@@ -14,7 +14,7 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 
 Basic usage:
 
-```SnackPlayer name=basic-android-toast
+```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
 import React from "react";
 import { View, StyleSheet, ToastAndroid, Button } from "react-native";
 import Constants from "expo-constants";
@@ -73,7 +73,7 @@ export default App;
 
 The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
-```SnackPlayer name=advanced-android-toast
+```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ToastAndroid, Button } from "react-native";
 import Constants from "expo-constants";
