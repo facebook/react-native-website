@@ -14,32 +14,25 @@ In the following example, the nested title and body text will inherit the `fontF
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
-export default class TextInANest extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
-    };
-  }
-
-  render() {
+export default function TextInANest() {
+  const [titleText,setTitleText] = React.useState("Bird's Nest");
+  const [bodyText,setBodyText] = React.useState("This is not really a bird nest.");
     return (
       <Text style={styles.baseText}>
-        <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
+        <Text style={styles.titleText}>
+          {titleText}{'\n'}{'\n'}
         </Text>
         <Text numberOfLines={5}>
-          {this.state.bodyText}
+          {bodyText}
         </Text>
       </Text>
     );
-  }
 }
 
 const styles = StyleSheet.create({
   baseText: {
     fontFamily: 'Cochin',
+    marginVertical:20
   },
   titleText: {
     fontSize: 20,
@@ -56,17 +49,15 @@ Both Android and iOS allow you to display formatted text by annotating ranges of
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
-export default class BoldAndBeautiful extends Component {
-  render() {
+export default function BoldAndBeautiful() {
     return (
-      <Text style={{fontWeight: 'bold'}}>
+      <Text style={{fontWeight: 'bold', marginVertical:20}}>
         I am bold
         <Text style={{color: 'red'}}>
           and red
         </Text>
       </Text>
     );
-  }
 }
 ```
 
