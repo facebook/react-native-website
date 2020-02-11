@@ -449,14 +449,16 @@ npx react-native init AwesomeProject
 
 ## 编译并运行 React Native 应用
 
-在你的项目目录中运行`yarn react-native run-ios`：
+在你的项目目录中运行`yarn ios`或者`yarn react-native run-ios`：
 
 ```
 cd AwesomeProject
+yarn ios
+# 或者
 yarn react-native run-ios
 ```
 
-> 提示：如果 run-ios 无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
+> 提示：如果此命令无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
 
 很快就应该能看到 iOS 模拟器自动启动并运行你的项目。
 
@@ -474,14 +476,19 @@ yarn react-native run-ios
 
 ## 编译并运行 React Native 应用
 
-确保你先运行了模拟器或者连接了真机，然后在你的项目目录中运行`yarn react-native run-android`：
+确保你先运行了模拟器或者连接了真机，然后在你的项目目录中运行`yarn android`或者`yarn react-native run-android`：
 
 ```
 cd AwesomeProject
+yarn android
+# 或者
 yarn react-native run-android
 ```
 
 如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。注意第一次运行时需要下载大量编译依赖，耗时可能数十分钟。此过程`严重依赖稳定的翻墙工具`，否则将频繁遭遇链接超时和断开，导致无法运行。
+
+也可以尝试阿里云提供的[maven镜像](https://help.aliyun.com/document_detail/102512.html?spm=a2c40.aliyun_maven_repo.0.0.361865e90r2x4b)，将`android/build.gradle`中的`jcenter()`和`google()`分别替换为`maven { url 'https://maven.aliyun.com/repository/jcenter' }`和`maven { url 'https://maven.aliyun.com/repository/google' }`（注意有多处需要替换）。
+
 
 如果你的设备的 Android 版本低于 5.0，则可能在运行时看到红屏，请阅读[在设备上运行](running-on-device.md)这篇文档来按照步骤解决。
 
