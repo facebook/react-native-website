@@ -9,7 +9,61 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```SnackPlayer name=Text
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Text Functional Component Example
+
+import React, { useState } from 'react';
+import { Text, StyleSheet } from 'react-native';
+
+const onPressTitle = () => {
+  console.log('title pressed');
+};
+
+const TextInANest = () => {
+  const titleText = useState('Bird\'s Nest');
+  const bodyText = useState(
+    'This is not really a bird nest.');
+
+  return (
+    <Text style={styles.baseText}>
+      <Text style={styles.titleText} onPress={onPressTitle}>
+        {titleText}
+        {'\n'}
+        {'\n'}
+      </Text>
+      <Text numberOfLines={5}>{bodyText}</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: 'Cochin'
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: 'bold'
+  }
+});
+
+export default TextInANest;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Text Class Component Example
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
@@ -47,11 +101,53 @@ const styles = StyleSheet.create({
 });
 ```
 
+<block class="endBlock syntax" />
+
 ## Nested text
 
 Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```SnackPlayer name=Nested
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Nested Function Component Example
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
+
+const BoldAndBeautiful = () => {
+  return (
+    <Text style={styles.baseText}>
+      I am bold
+      <Text style={styles.innerText}> and red</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontWeight: 'bold'
+  },
+  innerText: {
+    color: 'red'
+  }
+});
+
+export default BoldAndBeautiful;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Nested Class Component Example
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
@@ -68,6 +164,8 @@ export default class BoldAndBeautiful extends Component {
   }
 }
 ```
+
+<block class="endBlock syntax" />
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
