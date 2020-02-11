@@ -76,7 +76,7 @@ function generateProp(propName, prop) {
 }
 
 // Formats information about a prop
-function generateMethod(method) {
+function generateMethod(method, component) {
   const infoTable = generateTable([
     {
       ...(method.rnTags && method.rnTags.platform
@@ -88,12 +88,52 @@ function generateMethod(method) {
   return (
     '### `' +
     method.name +
-    '`' +
+    '()`' +
     '\n' +
     '\n' +
+    generateMethodSignatureBlock(method, component) +
     (method.description ? method.description + '\n\n' : '') +
+    generateMethodSignatureTable(method, component) +
     infoTable
   ).trim();
+}
+
+function lowerFirst(s) {
+  return s[0].toLowerCase() + s.slice(1);
+}
+
+function generateMethodSignatureBlock(method, component) {
+  return (
+    '```jsx\n' +
+    (method.modifiers.includes('static')
+      ? component.displayName + '.'
+      : lowerFirst(component.displayName + '.')) +
+    method.name +
+    '(' +
+    method.params
+      .map(param => (param.optional ? `[${param.name}]` : param.name))
+      .join(', ') +
+    ');' +
+    '\n' +
+    '```\n\n'
+  );
+}
+
+function generateMethodSignatureTable(method, component) {
+  if (!method.params.length) {
+    return '';
+  }
+  return (
+    '**Parameters:**\n\n' +
+    generateTable(
+      method.params.map(param => ({
+        Name: param.name,
+        Type: param.type ? maybeLinkifyType(param.type) : '',
+        Required: param.optional ? 'No' : 'Yes',
+        Description: param.description,
+      }))
+    )
+  );
 }
 
 function maybeLinkifyType(flowType) {
@@ -148,7 +188,8 @@ function generateProps({props, composes}) {
   );
 }
 
-function generateMethods({methods}) {
+function generateMethods(component) {
+  const {methods} = component;
   if (!methods || !methods.length) {
     return '';
   }
@@ -160,7 +201,7 @@ function generateMethods({methods}) {
     [...methods]
       .sort()
       .map(function(method) {
-        return generateMethod(method);
+        return generateMethod(method, component);
       })
       .join('\n\n---\n\n')
   );
@@ -173,18 +214,18 @@ function generateHeader({id, title}) {
   );
 }
 
-function generateMarkdown({id, title}, reactAPI) {
+function generateMarkdown({id, title}, component) {
   const markdownString =
     generateHeader({id, title}) +
     '\n' +
-    reactAPI.description +
+    component.description +
     '\n\n' +
     '---\n\n' +
     '# Reference\n\n' +
-    generateProps(reactAPI) +
-    generateMethods(reactAPI);
+    generateProps(component) +
+    generateMethods(component);
 
-  return markdownString;
+  return markdownString.replace(/\n{3,}/g, '\n\n');
 }
 
 module.exports = generateMarkdown;
