@@ -11,36 +11,38 @@ title: Clipboard
 ## Example
 
 ```SnackPlayer name=Clipboard%20API%20Example
-import React, { useState } from "react";
-import { SafeAreaView, View, Text, TouchableOpacity, Clipboard } from "react-native";
+
+import React, { useState } from "react"
+import { SafeAreaView, View, Text, TouchableOpacity, Clipboard } from "react-native"
 
 const App = () => {
-  const [copiedText, setCopiedText] = useState("");
+  const [copiedText, setCopiedText] = useState("")
 
   const copyToClipboard = () => {
-    Clipboard.setString("hello world");
-  };
+    Clipboard.setString("hello world")
+  }
 
   const fetchCopiedText = async () => {
-    const text = await Clipboard.getString();
-    setCopiedText(text);
-  };
+    const text = await Clipboard.getString()
+    setCopiedText(text)
+  }
 
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <TouchableOpacity onPress={() => copyToClipboard()}>
-          <Text>Click here Copy to Clipboard</Text>
+          <Text>Click here to copy to Clipboard</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => fetchCopiedText()}>
           <Text>View copied text</Text>
         </TouchableOpacity>
+
+        <Text style={{ marginTop: 10, color: "red" }}>{copiedText}</Text>
       </View>
 
-      <Text>{copiedText}</Text>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 export default App;
 ```
