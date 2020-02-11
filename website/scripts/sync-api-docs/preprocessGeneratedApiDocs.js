@@ -44,12 +44,12 @@ function preprocessTagsInDescription(obj) {
 
 // NOTE: This function mutates `docs`.
 function preprocessGeneratedApiDocs(docs) {
-  for (const doc of docs) {
-    if (doc.props) {
-      for (const prop of Object.values(doc.props)) {
+  for (const {component} of docs) {
+    if (component.props) {
+      for (const prop of Object.values(component.props)) {
         preprocessTagsInDescription(prop);
       }
-      for (const prop of doc.methods) {
+      for (const prop of component.methods) {
         preprocessTagsInDescription(prop);
       }
     }
