@@ -31,7 +31,7 @@ export default function TextInANest() {
 const styles = StyleSheet.create({
   baseText: {
     fontFamily: 'Cochin',
-    marginVertical: 20
+    marginVertical: 20,
   },
   titleText: {
     fontSize: 20,
@@ -51,7 +51,7 @@ import { Text } from 'react-native';
 export default function BoldAndBeautiful() {
   render() {
     return (
-      <Text style={{fontWeight: 'bold',marginVertical:20}}>
+      <Text style={{fontWeight: 'bold', marginVertical: 20}}>
         I am bold
         <Text style={{color: 'red'}}>
           and red
