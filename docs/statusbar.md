@@ -9,14 +9,60 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```jsx
-<View>
-  <StatusBar backgroundColor="blue" barStyle="light-content" />
-  <View>
-    <StatusBar hidden={route.statusBarHidden} />
-    ...
-  </View>
-</View>
+```SnackPlayer name=StatusBar%20Android%20and%20iOS%20API%20Example&supportedPlatforms=android,ios
+import React, { useState } from "react";
+import { View, StyleSheet, StatusBar, Button } from "react-native";
+import Constants from "expo-constants";
+
+const App = () => {
+  const styleTypes = ['default', 'light-content', 'dark-content'];
+  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
+  const [statusBarStyle, setstatusBarStyle] = useState(styleTypes[0]);
+
+  const changeSBVisibility = () => {
+    setVisibleStatusBar(!visibleStatusBar);
+  };
+
+  const changeSBStyle = () => {
+    const idx = styleTypes.indexOf(statusBarStyle);
+    if(idx + 1 == styleTypes.length){
+      setstatusBarStyle(styleTypes[0]);
+      return;
+    }
+    setstatusBarStyle(styleTypes[idx+1]);
+    return;
+  };
+
+  return (
+    <View style={styles.container}>
+      <StatusBar backgroundColor="blue" barStyle={statusBarStyle} />
+      <View>
+        <StatusBar hidden={visibleStatusBar} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Toggle StatusBar" onPress={() => changeSBVisibility()} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Change StatusBar Style" onPress={() => changeSBStyle()} />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  buttonContainer:{
+    padding: 10
+  }
+});
+
+export default App;
 ```
 
 ### Imperative API
