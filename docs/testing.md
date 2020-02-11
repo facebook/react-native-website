@@ -20,7 +20,7 @@ Tests can also serve as documentation for new people joining your team - when th
 The first step to improve your code quality is to start using static analysis tools. Static analysis checks your code for errors as you write it, but without running any of that code.
 
 - **Linters** analyze code to catch common errors, such as unused code, help avoid pitfalls or flag style guide no-nos like using tabs instead of spaces (or vice versa, depending on your configuration). Linters are configured by a set of rules - and your code needs to follow them.
-- **Type checking** ensures that the construct you’re passing to a function matches what the function was designed to accept, preventing passing a string to a counting function that expects an integer, for instance.
+- **Type checking** ensures that the construct you’re passing to a function matches what the function was designed to accept, preventing passing a string to a counting function that expects a number, for instance.
 
 React Native comes with two such tools configured out of the box: [ESLint](https://eslint.org/) for linting and [Flow](https://flow.org/en/docs/) for type checking. You can also use [TypeScript](https://www.typescriptlang.org/), which is a typed language that compiles to plain JavaScript.
 
@@ -34,7 +34,7 @@ To help make your app more testable, it’s a good idea to separate the view par
 
 Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering, and your state would be independent on your components - your app’s logic would work without any React components at all!
 
-After writing testable code, it’s time to write some actual tests! (Or if you do test-driven development, you actually write tests first!). We encourage you to explore the topic of testability in other learning resources.
+After writing testable code, it’s time to write some actual tests! (Or if you do test-driven development, you actually write tests first! That way, testability of your code is given.). We encourage you to explore the topic of testability in other learning resources.
 
 The default template of React Native ships with [Jest](https://jestjs.io) testing framework. It includes a preset that's tailored to this environment so you can get productive without tweaking the configuration and mocks straight away. You can use Jest to write all types of tests featured in this guide. Let’s get started!
 
@@ -105,7 +105,7 @@ For example, if you have a button that has an `onPress` listener, you want to te
 
 There are several libraries that can help you testing these:
 
-- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html) developed alongside its core. Provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
+- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html) developed alongside its core. It provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
 - [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) builds on top of React’s test renderer and adds `fireEvent` and `query` apis described in the next paragraph.
 - [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` apis described in the next paragraph.
 
@@ -171,7 +171,7 @@ test('given empty GroceryShoppingList, user can add an item to it', () => {
 });
 ```
 
-In the example, we're not testing how some state changes when you call a function - we're testing what is in the rendered output when a user changes text in the `TextInput` and presses the `Button`!
+In this example, we're not testing how some state changes when you call a function - we're testing what happens when a user changes text in the `TextInput` and presses the `Button`!
 
 ### Testing Rendered Output
 
@@ -209,13 +209,13 @@ We recommend that you only use small snapshots (see [`no-large-snapshots` rule](
 
 In end-to-end (E2E) tests, you verify your app is working as expected on a device (or a simulator / emulator) from the user perspective.
 
-To run them, you build your app in the release configuration and run tests against it. In E2E tests, you no longer think about React components, React Native apis, Redux stores or any business logic - that is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
+This is done by building your app in the release configuration and running the tests against it. In E2E tests, you no longer think about React components, React Native apis, Redux stores or any business logic - that is not the purpose of E2E tests and those are not even accessible to you during E2E testing.
 
-Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can tap buttons or insert text into textinputs the same way a real user would. Then you can make assertions about whether or not certain element exists in the app’s screen, whether or not it’s visible, what text it contains and so on.
+Instead, E2E testing libraries allow you to find and control elements in the screen of your app: for example, you can _actually_ tap buttons or insert text into textinputs the same way a real user would. Then you can make assertions about whether or not certain element exists in the app’s screen, whether or not it’s visible, what text it contains and so on.
 
-E2E tests give you the highest possible confidence that part of your app is working. The tradeoff here is that compared to the previously mentioned types of tests, writing them is more time consuming, they are quite slow to run and more prone to flakiness.
+E2E tests give you the highest possible confidence that part of your app is working. The tradeoff here is that compared to the previously mentioned types of tests, writing them is more time consuming, they are quite slow to run and more prone to flakiness (Flaky test is a test which randomly passes and fails without any change to code.).
 
-A rule of thumb is to mostly cover vital parts of your app, like authentication flow, core functionalities, payments, etc with E2E tests and use faster JS test for the rest. The more tests you add, the more confidence, but also more time spending maintaining and running them. Know the tradeoffs and decide what's best for you.
+A rule of thumb is to mostly cover vital parts of your app, like authentication flow, core functionalities, payments, etc with E2E tests and use faster JS tests for the rest. The more tests you add, the more confidence, but also more time spent maintaining and running them. Know the tradeoffs and decide what's best for you.
 
 There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
 
