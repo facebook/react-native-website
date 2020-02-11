@@ -20,81 +20,37 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 Minimal Example:
 
 ```javascript
-<FlatList
-  data={[{key: 'a'}, {key: 'b'}]}
-  renderItem={({item}) => <Text>{item.key}</Text>}
-/>
-```
+import React from 'react';
+import {StyleSheet, View, FlatList, SafeAreaView, Text} from 'react-native';
 
-More complex, multi-select example demonstrating `PureComponent` usage for perf optimization and avoiding bugs.
+const data = [
+  {id: '00', name: 'Ford'},
+  {id: '01', name: 'Tesla'},
+  {id: '02', name: 'BMW'},
+];
 
-- By binding the `onPressItem` handler, the props will remain `===` and `PureComponent` will prevent wasteful re-renders unless the actual `id`, `selected`, or `title` props change, even if the components rendered in `MyListItem` did not have such optimizations.
-- By passing `extraData={this.state}` to `FlatList` we make sure `FlatList` itself will re-render when the `state.selected` changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is also a `PureComponent` and the prop comparison will not show any changes.
-- `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
-
-```javascript
-class MyListItem extends React.PureComponent {
-  _onPress = () => {
-    this.props.onPressItem(this.props.id);
-  };
-
-  render() {
-    const textColor = this.props.selected ? 'red' : 'black';
-    return (
-      <TouchableOpacity onPress={this._onPress}>
-        <View>
-          <Text style={{color: textColor}}>{this.props.title}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
-}
-
-class MultiSelectList extends React.PureComponent {
-  state = {selected: (new Map(): Map<string, boolean>)};
-
-  _keyExtractor = (item, index) => item.id;
-
-  _onPressItem = (id: string) => {
-    // updater functions are preferred for transactional updates
-    this.setState((state) => {
-      // copy the map rather than modifying state.
-      const selected = new Map(state.selected);
-      selected.set(id, !selected.get(id)); // toggle
-      return {selected};
-    });
-  };
-
-  _renderItem = ({item}) => (
-    <MyListItem
-      id={item.id}
-      onPressItem={this._onPressItem}
-      selected={!!this.state.selected.get(item.id)}
-      title={item.title}
-    />
-  );
-
-  render() {
-    return (
+export default function App() {
+  return (
+    <SafeAreaView>
       <FlatList
-        data={this.props.data}
-        extraData={this.state}
-        keyExtractor={this._keyExtractor}
-        renderItem={this._renderItem}
+        keyExtractor={(item) => item.id}
+        data={data}
+        renderItem={({item}) => {
+          return (
+            <View>
+              <Text>{item.name}</Text>
+            </View>
+          );
+        }}
       />
-    );
-  }
+    </SafeAreaView>
+  );
 }
 ```
 
-This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
+### See also Hooks Example on expo https://snack.expo.io/@lfoliveir4_/example-hooks-flatlist
 
-- Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
-- This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
-- In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
-- By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
-
-Also inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
+### See also Class Example on expo https://snack.expo.io/@lfoliveir4_/example-class-flatlist
 
 ### Props
 
