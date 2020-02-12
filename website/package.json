@@ -41,8 +41,7 @@
     "alex": "^8.0.0",
     "docusaurus": "1.14.4",
     "highlight.js": "^9.15.10",
-    "remarkable": "^2.0.0",
-    "tokenize-comment": "^3.0.1"
+    "remarkable": "^2.0.0"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.2",

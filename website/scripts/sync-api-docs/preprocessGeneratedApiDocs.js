@@ -11,26 +11,41 @@
 // This file may end up in the React Native repo, as part of the
 // `generate-api-docs` script.
 
-const tokenizeComment = require('tokenize-comment');
-
-function joinDescriptionAndExamples(tokenized) {
-  let sections = [];
-  if (tokenized.description) {
-    sections.push(tokenized.description);
+function tokenizeJsdocish(str) {
+  const TAG_RE = /^.*?@([\w-_]+)\s*(.*)\s*$/gm;
+  let match;
+  let sanitized = '';
+  let index = 0;
+  let tokens = [];
+  while ((match = TAG_RE.exec(str)) != null) {
+    if (match.index > index) {
+      tokens.push({type: 'text', value: str.slice(index, match.index)});
+      index = match.index;
+    }
+    tokens.push({type: 'tag', key: match[1], value: match[2].trim()});
+    index = TAG_RE.lastIndex;
   }
-  for (const {raw} of tokenized.examples) {
-    sections.push(raw);
+  if (str.length > index) {
+    tokens.push({type: 'text', value: str.slice(index, str.length)});
+    index = str.length;
   }
-  if (tokenized.footer) {
-    sections.push(tokenized.footer);
-  }
-  return sections.join('\n\n');
+  return {
+    tokens,
+    get text() {
+      return tokens
+        .map(token => (token.type === 'text' ? token.value : ''))
+        .join('');
+    },
+    get tags() {
+      return tokens.filter(token => token.type === 'tag');
+    },
+  };
 }
 
 function preprocessTagsInDescription(obj) {
   if (obj && obj.description) {
-    const descriptionTokenized = tokenizeComment(obj.description);
-    obj.description = joinDescriptionAndExamples(descriptionTokenized);
+    const descriptionTokenized = tokenizeJsdocish(obj.description);
+    obj.description = descriptionTokenized.text;
     obj.rnTags = {};
     const platformTag = descriptionTokenized.tags.find(
       ({key}) => key === 'platform'
