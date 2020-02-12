@@ -60,6 +60,11 @@ function preprocessTagsInDescription(obj) {
 function preprocessGeneratedApiDocs(docs) {
   for (const {component} of docs) {
     if (component.props) {
+      for (const [key, prop] of Object.entries(component.props)) {
+        if (prop.flowType && prop.flowType.name === 'empty') {
+          delete component.props[key];
+        }
+      }
       for (const prop of Object.values(component.props)) {
         preprocessTagsInDescription(prop);
       }
