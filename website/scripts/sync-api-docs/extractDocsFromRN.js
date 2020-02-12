@@ -25,6 +25,7 @@ async function extractDocsFromRN(rnRoot) {
     path.join(rnRoot, '/Libraries/{Components,Image,}/**/*.js'),
     {
       nodir: true,
+      absolute: true,
     }
   );
 
@@ -41,7 +42,8 @@ async function extractDocsFromRN(rnRoot) {
     const result = reactDocs.parse(
       contents,
       reactDocs.resolver.findExportedComponentDefinition,
-      reactDocs.defaultHandlers
+      reactDocs.defaultHandlers,
+      {filename: file}
     );
 
     docs.push({
