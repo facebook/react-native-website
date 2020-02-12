@@ -42,7 +42,9 @@ async function extractDocsFromRN(rnRoot) {
     const result = reactDocs.parse(
       contents,
       reactDocs.resolver.findExportedComponentDefinition,
-      reactDocs.defaultHandlers,
+      reactDocs.defaultHandlers.filter(
+        handler => handler !== reactDocs.handlers.propTypeCompositionHandler
+      ),
       {filename: file}
     );
 
