@@ -871,10 +871,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@motiz88/react-native-docgen@^0.0.0":
-  version "0.0.0"
-  resolved "https://registry.npmjs.org/@motiz88/react-native-docgen/-/react-native-docgen-0.0.0.tgz#62b75b7e045e45150c612c8bd08e39c9cd1a530d"
-  integrity sha512-lL71PvgE7L8jpE+j70/s/aH14gc2AaWeK2gAGNPa+DVs3Sx6DVBk/CszkJSfdK/t7HaeaTIuYdBESj4F600kMg==
+"@motiz88/react-native-docgen@0.0.1":
+  version "0.0.1"
+  resolved "https://registry.npmjs.org/@motiz88/react-native-docgen/-/react-native-docgen-0.0.1.tgz#841352fd6677b1e0ea690717ab533d65f5e5f9d6"
+  integrity sha512-ywgrygYfst18SZz2Aw73MJhZb6gXDrdPhJepUJShCKzA5ati4aIpLQ1QpW1GHVlZw0xqxWp/3wJIbvUgQn3t2A==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/runtime" "^7.7.6"

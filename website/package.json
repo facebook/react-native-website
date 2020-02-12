@@ -44,7 +44,7 @@
     "remarkable": "^2.0.0"
   },
   "devDependencies": {
-    "@motiz88/react-native-docgen": "^0.0.0",
+    "@motiz88/react-native-docgen": "0.0.1",
     "comment-parser": "^0.7.2",
     "front-matter": "^2.3.0",
     "fs-extra": "^5.0.0",
