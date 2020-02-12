@@ -11,7 +11,6 @@
 // This file may end up in the React Native repo, as part of the
 // `generate-api-docs` script.
 
-const parseDocComment = require('comment-parser');
 const tokenizeComment = require('tokenize-comment');
 
 function joinDescriptionAndExamples(tokenized) {
