@@ -11,6 +11,58 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 
 ```SnackPlayer name=StatusBar%20Android%20and%20iOS%20API%20Example&supportedPlatforms=android,ios
 import React, { useState } from "react";
+import { Button, StyleSheet, StatusBar, View } from "react-native";
+
+import Constants from "expo-constants";
+
+const App = () => {
+  const styleTypes = ['dark-content', 'light-content'];
+  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
+  const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
+
+  const changeVisibilityStatusBar = () => {
+    setVisibleStatusBar(!visibleStatusBar);
+  };
+
+  const changeStyleStatusBar = () => {
+    const styleId = styleTypes.indexOf(styleStatusBar) + 1;
+    
+    if(styleId === styleTypes.length){
+      return setStyleStatusBar(styleTypes[0]);
+    }
+    return setStyleStatusBar(styleTypes[styleId]);
+  };
+
+  return (
+    <View style={styles.container}>
+      <StatusBar backgroundColor="blue" barStyle={styleStatusBar} />
+      <View>
+        <StatusBar hidden={visibleStatusBar} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Toggle StatusBar" onPress={() => changeVisibilityStatusBar()} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Change StatusBar Style" onPress={() => changeStyleStatusBar()} />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ECF0F1',
+    padding: 8
+  },
+  buttonContainer:{
+    padding: 10
+  }
+});
+
+export default App;
 import { View, StyleSheet, StatusBar, Button } from "react-native";
 import Constants from "expo-constants";
 
