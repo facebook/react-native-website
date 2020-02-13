@@ -9,15 +9,15 @@ The Modal component is a basic way to present content above an enclosing view.
 
 <block class="functional syntax" />
 
-```SnackPlayer name=rn-modal-function-example
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { Component, useState } from "react";
 import {
+  Alert,
   Modal,
+  StyleSheet,
   Text,
   TouchableHighlight,
-  View,
-  Alert,
-  StyleSheet
+  View
 } from "react-native";
 
 const App = () => {
@@ -58,7 +58,7 @@ const App = () => {
       </TouchableHighlight>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -104,24 +104,24 @@ export default App;
 
 <block class="classical syntax" />
 
-```SnackPlayer name=rn-modal-class-example
-import React, {Component} from 'react';
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
+import React, { Component } from "react";
 import {
+  Alert,
   Modal,
+  StyleSheet,
   Text,
   TouchableHighlight,
-  View,
-  Alert,
-  StyleSheet
+  View
 } from "react-native";
 
 class App extends Component {
   state = {
-    modalVisible: false,
+    modalVisible: false
   };
 
   setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({ modalVisible: visible });
   }
 
   render() {
