@@ -166,7 +166,7 @@ class App extends Component {
         <TouchableHighlight
           style={styles.openButton}
           onPress={() => {
-            setModalVisible(true);
+            this.setModalVisible(true);
           }}
         >
           <Text style={styles.textStyle}>Show Modal</Text>
