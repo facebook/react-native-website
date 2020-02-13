@@ -10,29 +10,38 @@ The Modal component is a basic way to present content above an enclosing view.
 <block class="functional syntax" />
 
 ```SnackPlayer name=rn-modal-function-example
-import React, {Component, useState} from 'react';
-import {Modal, Text, TouchableHighlight, View, Alert, StyleSheet} from 'react-native';
+import React, { Component, useState } from "react";
+import {
+  Modal,
+  Text,
+  TouchableHighlight,
+  View,
+  Alert,
+  StyleSheet
+} from "react-native";
 
-export default function App() {
+const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
   return (
-    <View style={{marginTop: 22, ...styles.centeredView}}>
+    <View style={styles.centeredView}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-        }}>
-        <View style={{marginTop: 22, ...styles.centeredView}}>
-          <View style={{...styles.modalView}}>
+          Alert.alert("Modal has been closed.");
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
 
             <TouchableHighlight
-              style={{...styles.openButton  , backgroundColor: "#2196F3"}}
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
               onPress={() => {
                 setModalVisible(!modalVisible);
-              }}>
+              }}
+            >
               <Text style={styles.textStyle}>Hide Modal</Text>
             </TouchableHighlight>
           </View>
@@ -43,7 +52,8 @@ export default function App() {
         style={styles.openButton}
         onPress={() => {
           setModalVisible(true);
-        }}>
+        }}
+      >
         <Text style={styles.textStyle}>Show Modal</Text>
       </TouchableHighlight>
     </View>
@@ -53,23 +63,24 @@ export default function App() {
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
   },
   modalView: {
     margin: 20,
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    alignItems: 'center',
+    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2,
+      height: 2
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5,
+    elevation: 5
   },
   openButton: {
     backgroundColor: "#F194FF",
@@ -86,17 +97,25 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     textAlign: "center"
   }
-})
+});
 
+export default App;
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=rn-modal-class-example
 import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+import {
+  Modal,
+  Text,
+  TouchableHighlight,
+  View,
+  Alert,
+  StyleSheet
+} from "react-native";
 
-class ModalExample extends Component {
+class App extends Component {
   state = {
     modalVisible: false,
   };
@@ -106,39 +125,86 @@ class ModalExample extends Component {
   }
 
   render() {
+    const { modalVisible } = this.state;
     return (
-      <View style={{marginTop: 22}}>
+      <View style={styles.centeredView}>
         <Modal
           animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
+          transparent={true}
+          visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
-              <Text>Hello World!</Text>
+            Alert.alert("Modal has been closed.");
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
 
               <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                 onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Hide Modal</Text>
+                  setModalVisible(!modalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>Hide Modal</Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
 
         <TouchableHighlight
+          style={styles.openButton}
           onPress={() => {
-            this.setModalVisible(true);
-          }}>
-          <Text>Show Modal</Text>
+            setModalVisible(true);
+          }}
+        >
+          <Text style={styles.textStyle}>Show Modal</Text>
         </TouchableHighlight>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
+
+export default App;
 ```
 
 <block class="endBlock syntax" />
