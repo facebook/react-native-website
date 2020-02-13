@@ -13,14 +13,14 @@ For example, let's say we want to make text that blinks all the time. The text i
 import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 
-function Blink(props) {
-  const [isShowingText,setIsShowingText] = useState(true);
+const Blink = (props) => {
+  const [isShowingText, setIsShowingText] = useState(true);
 
    useEffect(() => {
-     // Toggle the state every second
      const toggle = setInterval(() => {
-     setIsShowingText(!isShowingText);
+       setIsShowingText(!isShowingText);
      }, 1000);
+
      return () => clearInterval(toggle);
   })
 
@@ -28,20 +28,18 @@ function Blink(props) {
     return null;
   }
 
-  return (
-  <Text>{props.text}</Text>
- );
+  return <Text>{props.text}</Text>;
 }
 
 export default function BlinkApp() {
-    return (
-      <View>
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
-      </View>
-    );
+  return (
+    <View style={{marginTop: 50}}>
+      <Blink text='I love to blink' />
+      <Blink text='Yes blinking is so great' />
+      <Blink text='Why did they ever take this out of HTML' />
+      <Blink text='Look at me look at me look at me' />
+    </View>
+  );
 }
 ```
 
