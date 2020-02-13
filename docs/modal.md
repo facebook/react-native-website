@@ -7,6 +7,17 @@ The Modal component is a basic way to present content above an enclosing view.
 
 ### Example
 
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
 <block class="functional syntax" />
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
@@ -120,7 +131,7 @@ class App extends Component {
     modalVisible: false
   };
 
-  setModalVisible(visible) {
+  setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
@@ -143,7 +154,7 @@ class App extends Component {
               <TouchableHighlight
                 style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                 onPress={() => {
-                  setModalVisible(!modalVisible);
+                  this.setModalVisible(!modalVisible);
                 }}
               >
                 <Text style={styles.textStyle}>Hide Modal</Text>
