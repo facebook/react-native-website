@@ -34,7 +34,7 @@
     "Inclusion": ["accessibility"],
     "Performance": ["performance", "optimizing-flatlist-configuration"],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Connectivity": ["network"],
+    "Connectivity": ["network", "security"],
     "Native Components and Modules": [
       "native-modules-setup",
       "direct-manipulation"
