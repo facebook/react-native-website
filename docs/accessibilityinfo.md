@@ -8,65 +8,72 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 Here's a small example illustrating how to use `AccessibilityInfo`:
 
 ```jsx
-class AccessibilityStatusExample extends React.Component {
-  state = {
-    reduceMotionEnabled: false,
-    screenReaderEnabled: false,
-  };
+import React, {useState, useEffect} from 'react';
+import {AccessibilityInfo, View, Text, StyleSheet} from 'react-native';
 
-  componentDidMount() {
+export default function App() {
+  const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
+  const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
+
+  useEffect(() => {
     AccessibilityInfo.addEventListener(
       'reduceMotionChanged',
-      this._handleReduceMotionToggled,
+      handleReduceMotionToggled,
     );
     AccessibilityInfo.addEventListener(
       'screenReaderChanged',
-      this._handleScreenReaderToggled,
+      handleScreenReaderToggled,
     );
 
     AccessibilityInfo.isReduceMotionEnabled().then((reduceMotionEnabled) => {
-      this.setState({reduceMotionEnabled});
+      setReduceMotionEnabled(reduceMotionEnabled);
     });
     AccessibilityInfo.isScreenReaderEnabled().then((screenReaderEnabled) => {
-      this.setState({screenReaderEnabled});
+      setScreenReaderEnabled(screenReaderEnabled);
     });
-  }
+    return () => {
+      AccessibilityInfo.removeEventListener(
+        'reduceMotionChanged',
+        handleReduceMotionToggled,
+      );
 
-  componentWillUnmount() {
-    AccessibilityInfo.removeEventListener(
-      'reduceMotionChanged',
-      this._handleReduceMotionToggled,
-    );
+      AccessibilityInfo.removeEventListener(
+        'screenReaderChanged',
+        handleScreenReaderToggled,
+      );
+    };
+  }, []);
 
-    AccessibilityInfo.removeEventListener(
-      'screenReaderChanged',
-      this._handleScreenReaderToggled,
-    );
-  }
-
-  _handleReduceMotionToggled = (reduceMotionEnabled) => {
-    this.setState({reduceMotionEnabled});
+  const handleReduceMotionToggled = (reduceMotionEnabled) => {
+    setReduceMotionEnabled(reduceMotionEnabled);
   };
 
-  _handleScreenReaderToggled = (screenReaderEnabled) => {
-    this.setState({screenReaderEnabled});
+  const handleScreenReaderToggled = (screenReaderEnabled) => {
+    setScreenReaderEnabled(screenReaderEnabled);
   };
 
-  render() {
-    return (
-      <View>
-        <Text>
-          The reduce motion is{' '}
-          {this.state.reduceMotionEnabled ? 'enabled' : 'disabled'}.
-        </Text>
-        <Text>
-          The screen reader is{' '}
-          {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
-        </Text>
-      </View>
-    );
-  }
+  return (
+    <View style={styles.container}>
+      <Text style={styles.status}>
+        The reduce motion is {reduceMotionEnabled ? 'enabled' : 'disabled'}.
+      </Text>
+      <Text style={styles.status}>
+        The screen reader is {screenReaderEnabled ? 'enabled' : 'disabled'}.
+      </Text>
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  status: {
+    margin: 30,
+  },
+});
 ```
 
 ---
