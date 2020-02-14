@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
 
 ```jsx
 static isBoldTextEnabled()
-````
+```
 
 **iOS-Only.** Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
 
