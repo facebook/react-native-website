@@ -7,6 +7,74 @@ Base implementation for the more convenient [`<FlatList>`](flatlist.md) and [`<S
 
 Virtualization massively improves memory consumption and performance of large lists by maintaining a finite render window of active items and replacing all items outside of the render window with appropriately sized blank space. The window adapts to scrolling behavior, and items are rendered incrementally with low-pri (after any running interactions) if they are far from the visible area, or with hi-pri otherwise to minimize the potential of seeing blank space.
 
+---
+
+### Example usage
+
+```SnackPlayer name=VirtualizedListExample
+import React from 'react';
+import { SafeAreaView, View, VirtualizedList, StyleSheet, Text } from 'react-native';
+import Constants from 'expo-constants';
+
+const DATA = [];
+
+const getItem = (data, index) => {
+  return {
+    id: Math.random().toString(12).substring(0),
+    title: `Item ${index+1}`
+  }
+}
+
+const getItemCount = (data) => {
+  return 50;
+}
+
+const Item = ({ title })=> {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+}
+
+const VirtualizedListExample = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <VirtualizedList
+        data={DATA}
+        initialNumToRender={4}
+        renderItem={({ item }) => <Item title={item.title} />}
+        keyExtractor={item => item.key}
+        getItemCount={getItemCount}
+        getItem={getItem}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    height: 150,
+    justifyContent: 'center',
+    marginVertical: 8,
+    marginHorizontal: 16,
+    padding: 20,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default VirtualizedListExample;
+```
+
+---
+
 Some caveats:
 
 - Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
