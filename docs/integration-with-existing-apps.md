@@ -480,7 +480,7 @@ If you are using Xcode or your favorite editor, build and run your native iOS ap
 
 ```
 # From the root of your project
-$ react-native run-ios
+$ npx react-native run-ios
 ```
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.

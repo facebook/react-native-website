@@ -42,7 +42,7 @@ $ cd android && ./gradlew clean
 That's it! You should now be able to develop and deploy your app as normal:
 
 ```shell
-$ react-native run-android
+$ npx react-native run-android
 ```
 
 > ## Note about Android App Bundles
