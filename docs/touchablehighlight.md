@@ -23,65 +23,124 @@ function MyComponent(props) {
   underlayColor="#DDDDDD"
   onPress={() => alert('Pressed!')}>
   <MyComponent />
-</TouchableHighlight>;
+</TouchableHighlight>
 ```
 
 ### Example
 
-```SnackPlayer name=TouchableHighlight
-import React from 'react'
-import {
-  StyleSheet,
-  TouchableHighlight,
-  Text,
-  View,
-} from 'react-native'
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
+import React from "react";
+import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
 
 export default function TouchableHighlightExample() {
   const [count, setCount] = React.useState(0);
 
   const onPress = () => {
-    setCount(previousCount => previousCount + 1)
-  }
+    setCount(previousCount => previousCount + 1);
+  };
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight
-        style={styles.button}
-        onPress={this.onPress}
-      >
+      <TouchableHighlight style={styles.button} onPress={this.onPress}>
         <Text> Touch Here </Text>
       </TouchableHighlight>
 
       <View style={styles.countContainer}>
-        <Text style={styles.countText}>
-          {count !== 0 ? count : null}
-        </Text>
+        <Text style={styles.countText}>{count !== 0 ? count : null}</Text>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingHorizontal: 10
   },
   button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
     padding: 10
   },
   countContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     padding: 10
   },
   countText: {
-    color: '#FF00FF'
+    color: "#FF00FF"
   }
-})
+});
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
+import React, { Component } from "react";
+import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  onPress = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableHighlight style={styles.button} onPress={this.onPress}>
+          <Text> Touch Here </Text>
+        </TouchableHighlight>
+        <View style={[styles.countContainer]}>
+          <Text style={[styles.countText]}>
+            {this.state.count !== 0 ? this.state.count : null}
+          </Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  },
+  countText: {
+    color: "#FF00FF"
+  }
+});
+```
+<block class="endBlock syntax" />
 
 ### Props
 
