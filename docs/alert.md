@@ -24,46 +24,50 @@ This is an API that works both on Android and iOS and can show static alerts. To
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Alert&supportedPlatforms=ios,android
-import React, {useState} from 'react';
-import {View, StyleSheet, Button, Alert} from 'react-native';
+```SnackPlayer name=Alert%20Function%20Component%Example&supportedPlatforms=ios,android
+import React, { useState } from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
 
-export default function App () {
+export default function App() {
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
-  const createTwoButtonAlert = () => Alert.alert(
-    'Alert Title',
-    'My Alert Msg',
-    [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ],
-    {cancelable: false},
-  );
-
-  const createThreeButtonAlert = () => Alert.alert(
-    'Alert Title',
-    'My Alert Msg',
-    [
-      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ],
-    {cancelable: false},
-  );
+  const createThreeButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Ask me later",
+          onPress: () => console.log("Ask me later pressed")
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
   return (
     <View style={styles.container}>
-      <Button title={"2-Button Alert"} onPress={createTwoButtonAlert}/>
+      <Button title={"2-Button Alert"} onPress={createTwoButtonAlert} />
 
-      <Button title={"3-Button Alert"} onPress={createThreeButtonAlert}/>
+      <Button title={"3-Button Alert"} onPress={createThreeButtonAlert} />
     </View>
   );
 }
@@ -71,55 +75,62 @@ export default function App () {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  },
+    justifyContent: "space-around",
+    alignItems: "center"
+  }
 });
 ```
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Alert&supportedPlatforms=ios,android
-import React, {Component} from 'react';
-import {View, StyleSheet, Button, Alert} from 'react-native';
+```SnackPlayer name=Alert%20Class%20Component%Example&supportedPlatforms=ios,android
+import React, { Component } from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
 
 export default class App extends Component {
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
-  createTwoButtonAlert = () => Alert.alert(
-    'Alert Title',
-    'My Alert Msg',
-    [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ],
-    {cancelable: false},
-  );
-
-  createThreeButtonAlert = () => Alert.alert(
-    'Alert Title',
-    'My Alert Msg',
-    [
-      {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ],
-    {cancelable: false},
-  );
+  createThreeButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Ask me later",
+          onPress: () => console.log("Ask me later pressed")
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
 
   render() {
     return (
       <View style={styles.container}>
-        <Button title={"2-Button Alert"} onPress={this.createTwoButtonAlert}/>
+        <Button title={"2-Button Alert"} onPress={this.createTwoButtonAlert} />
 
-        <Button title={"3-Button Alert"} onPress={this.createThreeButtonAlert}/>
+        <Button
+          title={"3-Button Alert"}
+          onPress={this.createThreeButtonAlert}
+        />
       </View>
     );
   }
@@ -128,9 +139,9 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-around',
-    alignItems: 'center'
-  },
+    justifyContent: "space-around",
+    alignItems: "center"
+  }
 });
 ```
 
