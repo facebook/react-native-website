@@ -25,23 +25,37 @@ This example shows fetching and displaying an image from local storage as well a
 ```SnackPlayer name=Function%20Component%20Example
 
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
-export default function DisplayAnImage() {
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50, 
+    height: 50,
+  },
+  logo: {
+    width: 66, 
+    height: 58,
+  },
+});
+
+const DisplayAnImage = () => {
   return (
-    <View style={{ paddingTop: 50 }}>
+    <View style={styles.container}>
       <Image
-        style={{ width: 50, height: 50 }}
+        style={styles.tinyLogo}
         source={require('@expo/snack-static/react-native-logo.png')}
       />
       <Image
-        style={{ width: 50, height: 50 }}
+        style={styles.tinyLogo}
         source={{
           uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
         }}
       />
       <Image
-        style={{ width: 66, height: 58 }}
+        style={styles.logo}
         source={{
           uri:
             'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
@@ -51,6 +65,7 @@ export default function DisplayAnImage() {
   );
 }
 
+export default DisplayAnImage;
 ```
 
 <block class="classical syntax" />
@@ -58,22 +73,36 @@ export default function DisplayAnImage() {
 ```SnackPlayer name=Class%20Component%20Example
 
 import React, { Component } from 'react';
-import { AppRegistry, View, Image } from 'react-native';
+import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50, 
+    height: 50,
+  },
+  logo: {
+    width: 66, 
+    height: 58,
+  },
+});
 
 export default class DisplayAnImage extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
-          style={{width: 50, height: 50}}
+          style={styles.tinyLogo}
           source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
-          style={{width: 50, height: 50}}
+          style={styles.tinyLogo}
           source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
         />
         <Image
-          style={{width: 66, height: 58}}
+          style={styles.logo}
           source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
         />
       </View>
@@ -118,7 +147,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function DisplayAnImageWithStyle() {
+const DisplayAnImageWithStyle = () => {
   return (
     <View style={styles.container}>
       <Image
@@ -129,6 +158,7 @@ export default function DisplayAnImageWithStyle() {
   );
 }
 
+export default DisplayAnImageWithStyle;
 ```
 
 <block class="classical syntax" />
