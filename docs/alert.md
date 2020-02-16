@@ -24,7 +24,7 @@ This is an API that works both on Android and iOS and can show static alerts. To
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Alert%20Function%20Component%Example&supportedPlatforms=ios,android
+```SnackPlayer name=Alert%20Function%20Component%20Example&supportedPlatforms=ios,android
 import React, { useState } from "react";
 import { View, StyleSheet, Button, Alert } from "react-native";
 
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Alert%20Class%20Component%Example&supportedPlatforms=ios,android
+```SnackPlayer name=Alert%20Class%20Component%20Example&supportedPlatforms=ios,android
 import React, { Component } from "react";
 import { View, StyleSheet, Button, Alert } from "react-native";
 
