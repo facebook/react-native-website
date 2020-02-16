@@ -42,19 +42,19 @@ function MyComponent(props) {
 <block class="functional syntax" />
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
 
 export default function TouchableHighlightExample() {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = useState(0);
 
   const onPress = () => {
-    setCount(previousCount => previousCount + 1);
+    setCount(count + 1);
   };
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight style={styles.button} onPress={this.onPress}>
+      <TouchableHighlight style={styles.button} onPress={onPress}>
         <Text> Touch Here </Text>
       </TouchableHighlight>
 
