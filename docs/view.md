@@ -13,7 +13,7 @@ This example creates a `View` that wraps two boxes with color and a text compone
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default function ViewBoxesWithColorAndText() {
+const ViewBoxesWithColorAndText= () => {
   return (
     <View
       style={{
@@ -27,6 +27,8 @@ export default function ViewBoxesWithColorAndText() {
     </View>
   );
 }
+
+export default ViewBoxesWithColorAndText;
 ```
 
 > `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
