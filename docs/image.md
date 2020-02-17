@@ -113,7 +113,6 @@ export default class DisplayAnImage extends Component {
 ```
 
 <block class="endBlock syntax" />
-```
 
 You can also add `style` to an image:
 
@@ -192,9 +191,6 @@ export default class DisplayAnImageWithStyle extends Component {
 ```
 
 <block class="endBlock syntax" />
-
-
-
 
 ### GIF and WebP support on Android
 
