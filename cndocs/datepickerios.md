@@ -1,7 +1,9 @@
 ---
 id: datepickerios
-title: DatePickerIOS
+title: 🚧 DatePickerIOS
 ---
+
+> **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead. 
 
 使用`DatePickerIOS`来在 iOS 平台上渲染一个日期/时间选择器。这是一个受约束的(Controlled)组件，所以你必须监听`onDateChange`回调函数并且及时更新`date`属性来使得组件更新，否则用户的修改会立刻被撤销来确保当前显示值和`props.date`一致。
 

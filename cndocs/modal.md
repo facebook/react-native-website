@@ -140,6 +140,16 @@ class ModalExample extends Component {
 
 ---
 
+### `statusBarTranslucent`
+
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| 类型 | 必填 | 平台 |
+| ---- | -------- | -------- |
+| bool | 否       | Android  |
+
+---
+
 ### `onDismiss`
 
 `onDismiss`回调会在 modal 被关闭时调用。

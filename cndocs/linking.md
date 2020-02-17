@@ -166,6 +166,8 @@ openURL(url);
 
 > 对于 web 链接来说，协议头("http://", "https://")不能省略！
 
+> This method may behave differently in a simulator e.g. "tel:" links are not able to be handled in the iOS simulator as there's no access to the dialer app.
+
 ---
 
 ### `canOpenURL()`

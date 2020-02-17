@@ -506,3 +506,9 @@ RCT_EXTERN_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 同样的，你也可以使用`RCT_EXTERN_REMAP_MODULE`和`RCT_EXTERN_REMAP_METHOD`来改变导出模块和方法的 JavaScript 调用名称。了解更多信息，请参阅[`RCTBridgeModule`](https://github.com/facebook/react-native/blob/master/React/Base/RCTBridgeModule.h).
 
 > **Important when making third party modules**: Static libraries with Swift are only supported in Xcode 9 and later. In order for the Xcode project to build when you use Swift in the iOS static library you include in the module, your main app project must contain Swift code and a bridging header itself. If your app project does not contain any Swift code, a workaround can be a single empty .swift file and an empty bridging header.
+
+## Reserved Method Names
+
+### invalidate()
+
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/aa0ef15335fe27c0c193e3e968789886d82e82ed/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/18e3303cd46a72668caae46e28c7c6ae69fbf8f8/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.

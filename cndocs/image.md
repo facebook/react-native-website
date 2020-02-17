@@ -151,6 +151,8 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 | ------ | ---- |
 | number | 否   |
 
+> Tip : IOS you will need to increase `blurRadius` more than `5`
+
 ---
 
 ### `onLayout`

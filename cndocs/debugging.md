@@ -157,8 +157,8 @@ You can view installation instructions [in the README](https://github.com/infini
 在运行 RN 应用时，可以在终端中运行如下命令来查看控制台的日志：
 
 ```
-$ react-native log-ios
-$ react-native log-android
+$ npx react-native log-ios
+$ npx react-native log-android
 ```
 
 此外，你也可以在 iOS 模拟器的菜单中选择`Debug → Open System Log...`来查看。如果是 Android 应用，无论是运行在模拟器或是真机上，都可以通过在终端命令行里运行`adb logcat *:S ReactNative:V ReactNativeJS:V`命令来查看。

@@ -482,6 +482,8 @@ Only called for multiline text inputs.
 | -------- | ---- |
 | function | No   |
 
+Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
+
 ---
 
 ### `onTextInput`
@@ -645,6 +647,22 @@ Some functionality that can be performed with this instance is:
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
 | bool | No   | iOS  |
+
+---
+
+### `textAlign`
+
+Align the input text to the left, center, or right sides of the input field.
+
+Possible values for `textAlign` are:
+
+- `left`
+- `center`
+- `right`
+
+| Type | Required |
+| ---- | -------- |
+| enum('left', 'center', 'right') | No     |
 
 ---
 

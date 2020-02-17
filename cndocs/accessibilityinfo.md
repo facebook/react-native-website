@@ -151,7 +151,9 @@ static addEventListener(eventName, handler)
 static setAccessibilityFocus(reactTag)
 ```
 
-将读屏软件的焦点设置到某个 react 组件上。在 Android 上等同于调用 `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`。
+将读屏软件的焦点设置到某个 react 组件上。在 Android 等同于调用 `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`.
+
+> **Note**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
 
 ---
 

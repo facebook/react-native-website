@@ -1,7 +1,9 @@
 ---
 id: progressbarandroid
-title: ProgressBarAndroid
+title: 🚧 ProgressBarAndroid
 ---
+
+> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/react-native-progress-bar-android) instead.
 
 封装了Android平台上的`ProgressBar`的React组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。
 
