@@ -3,16 +3,14 @@ id: toastandroid
 title: ToastAndroid
 ---
 
-This exposes the native ToastAndroid module as a JS module. This has a function 'show' which takes the following parameters:
+React Native's ToastAndroid API exposes the Android platform's ToastAndroid module as a JS module. It provides the method `show(message, duration)` which takes the following parameters:
 
-1. String message: A string with the text to toast
-2. int duration: The duration of the toast. May be ToastAndroid.SHORT or ToastAndroid.LONG
+* _message_ A string with the text to toast
+* _duration_ The duration of the toast—either `ToastAndroid.SHORT` or `ToastAndroid.LONG`
 
-There is also a function `showWithGravity` to specify the layout gravity. May be ToastAndroid.TOP, ToastAndroid.BOTTOM, ToastAndroid.CENTER.
+You can alternatively use `showWithGravity(message, duration, gravity)` to specify where the toast appears in the screen's layout. May be `ToastAndroid.TOP`, `ToastAndroid.BOTTOM` or `ToastAndroid.CENTER`.
 
-The 'showWithGravityAndOffset' function adds on the ability to specify offset These offset values will translate to pixels.
-
-Basic usage:
+The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' method adds the ability to specify an offset with in pixels.
 
 ```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
 import React from "react";
@@ -61,7 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#888888",
     padding: 8
   }
 });
@@ -69,9 +67,9 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-### Advanced usage:
+### Imperative hack
 
-The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
+The ToastAndroid API is imperative, but there is a way to expose a declarative component from it as in this example:
 
 ```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
 import React, { useState, useEffect } from "react";
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: "#ecf0f1",
+    backgroundColor: "#888888",
     padding: 8
   }
 });
