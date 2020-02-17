@@ -4,14 +4,16 @@ title: PushNotificationIOS
 original_id: pushnotificationios
 ---
 
-<div class="banner-crna-ejected">
+> **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
+
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
     This section only applies to projects made with <code>react-native init</code>
     or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
     more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    the <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">guide</a> on
+    the Expo documentation..
   </p>
 </div>
 
@@ -19,10 +21,32 @@ Handle push notifications for your app, including permission handling and icon b
 
 To get up and running, [configure your notifications with Apple](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6) and your server-side system.
 
-[Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library
+React Native version equal or higher than 0.60.0:
 
-- Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
-- Add the following to `Link Binary With Libraries`: `libRCTPushNotification.a`
+- Autolinking in 0.60.0 handles the linking for you!
+
+React Native versions lower than 0.60.0:
+
+Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
+
+- CocoaPods:
+
+  - Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
+
+    ```
+
+    ``
+    ..
+    do
+    pp
+    ..
+    S'
+    ...
+    ```
+
+- [Manually link](linking-libraries-ios.md#manual-linking) the PushNotificationIOS library:
+  - Add the following to your Project: `node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj`
+  - Add the following to `Link Binary With Libraries`: `libRCTPushNotification.a`
 
 Finally, to enable support for `notification` and `register` events you need to augment your AppDelegate.
 
@@ -89,35 +113,6 @@ And then in your AppDelegate implementation add the following:
 
 Then enable Background Modes/Remote notifications to be able to use remote notifications properly. The easiest way to do this is via the project settings. Navigate to Targets -> Your App -> Capabilities -> Background Modes and check Remote notifications. This will automatically enable the required settings.
 
-### Methods
-
-- [`presentLocalNotification`](pushnotificationios.md#presentlocalnotification)
-- [`scheduleLocalNotification`](pushnotificationios.md#schedulelocalnotification)
-- [`cancelAllLocalNotifications`](pushnotificationios.md#cancelalllocalnotifications)
-- [`removeAllDeliveredNotifications`](pushnotificationios.md#removealldeliverednotifications)
-- [`getDeliveredNotifications`](pushnotificationios.md#getdeliverednotifications)
-- [`removeDeliveredNotifications`](pushnotificationios.md#removedeliverednotifications)
-- [`setApplicationIconBadgeNumber`](pushnotificationios.md#setapplicationiconbadgenumber)
-- [`getApplicationIconBadgeNumber`](pushnotificationios.md#getapplicationiconbadgenumber)
-- [`cancelLocalNotifications`](pushnotificationios.md#cancellocalnotifications)
-- [`getScheduledLocalNotifications`](pushnotificationios.md#getscheduledlocalnotifications)
-- [`addEventListener`](pushnotificationios.md#addeventlistener)
-- [`removeEventListener`](pushnotificationios.md#removeeventlistener)
-- [`requestPermissions`](pushnotificationios.md#requestpermissions)
-- [`abandonPermissions`](pushnotificationios.md#abandonpermissions)
-- [`checkPermissions`](pushnotificationios.md#checkpermissions)
-- [`getInitialNotification`](pushnotificationios.md#getinitialnotification)
-- [`constructor`](pushnotificationios.md#constructor)
-- [`finish`](pushnotificationios.md#finish)
-- [`getMessage`](pushnotificationios.md#getmessage)
-- [`getSound`](pushnotificationios.md#getsound)
-- [`getCategory`](pushnotificationios.md#getcategory)
-- [`getAlert`](pushnotificationios.md#getalert)
-- [`getContentAvailable`](pushnotificationios.md#getcontentavailable)
-- [`getBadgeCount`](pushnotificationios.md#getbadgecount)
-- [`getData`](pushnotificationios.md#getdata)
-- [`getThreadID`](pushnotificationios.md#getThreadID)
-
 ---
 
 # Reference
@@ -141,6 +136,7 @@ Schedules the localNotification for immediate presentation.
 details is an object containing:
 
 - `alertBody` : The message displayed in the notification alert.
+- `alertTitle` : The text displayed as the title of the notification alert.
 - `alertAction` : The "action" displayed beneath an actionable notification. Defaults to "view";
 - `soundName` : The sound played when the notification is fired (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).

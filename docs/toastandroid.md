@@ -3,107 +3,122 @@ id: toastandroid
 title: ToastAndroid
 ---
 
-This exposes the native ToastAndroid module as a JS module. This has a function 'show' which takes the following parameters:
+React Native's ToastAndroid API exposes the Android platform's ToastAndroid module as a JS module. It provides the method `show(message, duration)` which takes the following parameters:
 
-1. String message: A string with the text to toast
-2. int duration: The duration of the toast. May be ToastAndroid.SHORT or ToastAndroid.LONG
+* _message_ A string with the text to toast
+* _duration_ The duration of the toast—either `ToastAndroid.SHORT` or `ToastAndroid.LONG`
 
-There is also a function `showWithGravity` to specify the layout gravity. May be ToastAndroid.TOP, ToastAndroid.BOTTOM, ToastAndroid.CENTER.
+You can alternatively use `showWithGravity(message, duration, gravity)` to specify where the toast appears in the screen's layout. May be `ToastAndroid.TOP`, `ToastAndroid.BOTTOM` or `ToastAndroid.CENTER`.
 
-The 'showWithGravityAndOffset' function adds on the ability to specify offset These offset values will translate to pixels.
+The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' method adds the ability to specify an offset with in pixels.
 
-Basic usage:
+```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
+import React from "react";
+import { View, StyleSheet, ToastAndroid, Button } from "react-native";
+import Constants from "expo-constants";
+const App = () => {
+  const showToast = () => {
+    ToastAndroid.show("A pikachu appeared nearby !", ToastAndroid.SHORT);
+  };
 
-```jsx
-import {ToastAndroid} from 'react-native';
+  const showToastWithGravity = () => {
+    ToastAndroid.showWithGravity(
+      "All Your Base Are Belong To Us",
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER
+    );
+  };
 
-ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
-ToastAndroid.showWithGravity(
-  'All Your Base Are Belong To Us',
-  ToastAndroid.SHORT,
-  ToastAndroid.CENTER,
-);
-ToastAndroid.showWithGravityAndOffset(
-  'A wild toast appeared!',
-  ToastAndroid.LONG,
-  ToastAndroid.BOTTOM,
-  25,
-  50,
-);
-```
-
-### Advanced usage:
-
-The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
-
-```jsx
-import React, {Component} from 'react';
-import {View, Button, ToastAndroid} from 'react-native';
-
-// a component that calls the imperative ToastAndroid API
-const Toast = (props) => {
-  if (props.visible) {
+  const showToastWithGravityAndOffset = () => {
     ToastAndroid.showWithGravityAndOffset(
-      props.message,
+      "A wild toast appeared!",
       ToastAndroid.LONG,
       ToastAndroid.BOTTOM,
       25,
-      50,
+      50
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      <Button title="Toggle Toast" onPress={() => showToast()} />
+      <Button
+        title="Toggle Toast With Gravity"
+        onPress={() => showToastWithGravity()}
+      />
+      <Button
+        title="Toggle Toast With Gravity & Offset"
+        onPress={() => showToastWithGravityAndOffset()}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#888888",
+    padding: 8
+  }
+});
+
+export default App;
+```
+
+### Imperative hack
+
+The ToastAndroid API is imperative, but there is a way to expose a declarative component from it as in this example:
+
+```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, ToastAndroid, Button } from "react-native";
+import Constants from "expo-constants";
+
+const Toast = ({ visible, message }) => {
+  if (visible) {
+    ToastAndroid.showWithGravityAndOffset(
+      message,
+      ToastAndroid.LONG,
+      ToastAndroid.BOTTOM,
+      25,
+      50
     );
     return null;
   }
   return null;
 };
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-    };
-  }
+const App = () => {
+  const [visibleToast, setvisibleToast] = useState(false);
 
-  handleButtonPress = () => {
-    this.setState(
-      {
-        visible: true,
-      },
-      () => {
-        this.hideToast();
-      },
-    );
+  useEffect(() => setvisibleToast(false), [visibleToast]);
+
+  const handleButtonPress = () => {
+    setvisibleToast(true);
   };
 
-  hideToast = () => {
-    this.setState({
-      visible: false,
-    });
-  };
+  return (
+    <View style={styles.container}>
+      <Toast visible={visibleToast} message="Example" />
+      <Button title="Toggle Toast" onPress={() => handleButtonPress()} />
+    </View>
+  );
+};
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Toast visible={this.state.visible} message="Example" />
-        <Button title="Toggle Modal" onPress={this.handleButtonPress} />
-      </View>
-    );
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#888888",
+    padding: 8
   }
-}
+});
+
+export default App;
 ```
-
-### Methods
-
-- [`show`](toastandroid.md#show)
-- [`showWithGravity`](toastandroid.md#showwithgravity)
-- [`showWithGravityAndOffset`](toastandroid.md#showwithgravityandoffset)
-
-### Properties
-
-- [`SHORT`](toastandroid.md#short)
-- [`LONG`](toastandroid.md#long)
-- [`TOP`](toastandroid.md#top)
-- [`BOTTOM`](toastandroid.md#bottom)
-- [`CENTER`](toastandroid.md#center)
 
 ---
 
@@ -137,6 +152,8 @@ static showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)
 
 ### `SHORT`
 
+Indicates the duration on the screen.
+
 ```jsx
 ToastAndroid.SHORT;
 ```
@@ -144,6 +161,8 @@ ToastAndroid.SHORT;
 ---
 
 ### `LONG`
+
+Indicates the duration on the screen.
 
 ```jsx
 ToastAndroid.LONG;
@@ -153,6 +172,8 @@ ToastAndroid.LONG;
 
 ### `TOP`
 
+Indicates the position on the screen.
+
 ```jsx
 ToastAndroid.TOP;
 ```
@@ -161,6 +182,8 @@ ToastAndroid.TOP;
 
 ### `BOTTOM`
 
+Indicates the position on the screen.
+
 ```jsx
 ToastAndroid.BOTTOM;
 ```
@@ -168,6 +191,8 @@ ToastAndroid.BOTTOM;
 ---
 
 ### `CENTER`
+
+Indicates the position on the screen.
 
 ```jsx
 ToastAndroid.CENTER;

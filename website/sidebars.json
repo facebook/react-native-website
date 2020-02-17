@@ -2,42 +2,42 @@
   "docs": {
     "The Basics": [
       "getting-started",
-      "tutorial",
-      "props",
-      "state",
-      "style",
-      "height-and-width",
-      "flexbox",
+      "intro-react-native-components",
+      "intro-react",
       "handling-text-input",
-      "handling-touches",
       "using-a-scrollview",
       "using-a-listview",
-      "network",
+      "troubleshooting",
+      "platform-specific-code",
       "more-resources"
     ],
-    "Guides": [
-      "optimizing-flatlist-configuration",
-      "components-and-apis",
-      "platform-specific-code",
-      "navigation",
-      "images",
-      "animations",
-      "accessibility",
-      "improvingux",
-      "timers",
-      "debugging",
-      "performance",
-      "gesture-responder-system",
-      "javascript-environment",
-      "direct-manipulation",
-      "colors",
+    "Environment setup": [
+      "environment-setup",
       "integration-with-existing-apps",
       "building-for-apple-tv",
-      "running-on-device",
-      "upgrading",
-      "troubleshooting",
-      "native-modules-setup",
       "out-of-tree-platforms"
+    ],
+    "Workflow": [
+      "running-on-device",
+      "fast-refresh",
+      "debugging",
+      "typescript",
+      "upgrading"
+    ],
+    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
+    "Interaction": [
+      "handling-touches",
+      "navigation",
+      "animations",
+      "gesture-responder-system"
+    ],
+    "Inclusion": ["accessibility"],
+    "Performance": ["performance", "optimizing-flatlist-configuration"],
+    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "Connectivity": ["network"],
+    "Native Components and Modules": [
+      "native-modules-setup",
+      "direct-manipulation"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -52,12 +52,12 @@
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "removing-default-permissions",
-      "hermes"
+      "removing-default-permissions"
     ]
   },
   "api": {
     "Components": [
+      "components-and-apis",
       "activityindicator",
       "button",
       "datepickerios",
@@ -80,12 +80,12 @@
       "segmentedcontrolios",
       "slider",
       "statusbar",
+      "stylesheet",
       "switch",
       "tabbarios",
       "tabbarios-item",
       "text",
       "textinput",
-      "toolbarandroid",
       "touchablehighlight",
       "touchablenativefeedback",
       "touchableopacity",
@@ -106,6 +106,7 @@
       "backhandler",
       "clipboard",
       "datepickerandroid",
+      "devsettings",
       "dimensions",
       "easing",
       "imageeditor",
@@ -124,7 +125,6 @@
       "shadow-props",
       "share",
       "statusbarios",
-      "stylesheet",
       "systrace",
       "text-style-props",
       "timepickerandroid",

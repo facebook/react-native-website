@@ -69,19 +69,6 @@ class AccessibilityStatusExample extends React.Component {
 }
 ```
 
-### Methods
-
-- [`isBoldTextEnabled`](accessibilityinfo.md#isBoldTextEnabled)
-- [`isGrayscaleEnabled`](accessibilityinfo.md#isGrayscaleEnabled)
-- [`isInvertColorsEnabled`](accessibilityinfo.md#isInvertColorsEnabled)
-- [`isReduceMotionEnabled`](accessibilityinfo.md#isReduceMotionEnabled)
-- [`isReduceTransparencyEnabled`](accessibilityinfo.md#isReduceTransparencyEnabled)
-- [`isScreenReaderEnabled`](accessibilityinfo.md#isScreenReaderEnabled)
-- [`addEventListener`](accessibilityinfo.md#addeventlistener)
-- [`setAccessibilityFocus`](accessibilityinfo.md#setaccessibilityfocus)
-- [`announceForAccessibility`](accessibilityinfo.md#announceforaccessibility)
-- [`removeEventListener`](accessibilityinfo.md#removeeventlistener)
-
 ---
 
 # Reference
@@ -164,7 +151,9 @@ Add an event handler. Supported events:
 static setAccessibilityFocus(reactTag)
 ```
 
-Set accessibility focus to a React component. On Android, this is equivalent to `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`.
+Set accessibility focus to a React component. On Android, this calls `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`.
+
+> **Note**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
 
 ---
 

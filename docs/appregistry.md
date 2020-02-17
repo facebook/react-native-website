@@ -3,14 +3,10 @@ id: appregistry
 title: AppRegistry
 ---
 
-<div class="banner-crna-ejected">
+<div class="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
-    This API only works in projects made with <code>react-native init</code>
-    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    If you are using the managed `expo-cli` workflow there is only ever one entry component registered with `AppRegistry` and it is handled automatically, you do not need to use this API.
   </p>
 </div>
 
@@ -19,26 +15,6 @@ title: AppRegistry
 To "stop" an application when a view should be destroyed, call `AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was passed into `runApplication`. These should always be used as a pair.
 
 `AppRegistry` should be required early in the `require` sequence to make sure the JS execution environment is setup before other modules are required.
-
-### Methods
-
-- [`setWrapperComponentProvider`](appregistry.md#setwrappercomponentprovider)
-- [`registerConfig`](appregistry.md#registerconfig)
-- [`registerComponent`](appregistry.md#registercomponent)
-- [`registerRunnable`](appregistry.md#registerrunnable)
-- [`registerSection`](appregistry.md#registersection)
-- [`getAppKeys`](appregistry.md#getappkeys)
-- [`getSectionKeys`](appregistry.md#getsectionkeys)
-- [`getSections`](appregistry.md#getsections)
-- [`getRunnable`](appregistry.md#getrunnable)
-- [`getRegistry`](appregistry.md#getregistry)
-- [`setComponentProviderInstrumentationHook`](appregistry.md#setcomponentproviderinstrumentationhook)
-- [`runApplication`](appregistry.md#runapplication)
-- [`unmountApplicationComponentAtRootTag`](appregistry.md#unmountapplicationcomponentatroottag)
-- [`registerHeadlessTask`](appregistry.md#registerheadlesstask)
-- [`registerCancellableHeadlessTask`](appregistry.md#registercancellableheadlesstask)
-- [`startHeadlessTask`](appregistry.md#startheadlesstask)
-- [`cancelHeadlessTask`](appregistry.md#cancelheadlesstask)
 
 ---
 

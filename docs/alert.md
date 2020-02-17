@@ -7,24 +7,145 @@ Launches an alert dialog with the specified title and message.
 
 Optionally provide a list of buttons. Tapping any button will fire the respective onPress callback and dismiss the alert. By default, the only button will be an 'OK' button.
 
-This is an API that works both on iOS and Android and can show static alerts. To show an alert that prompts the user to enter some information, see `AlertIOS`; entering text in an alert is common on iOS only.
+This is an API that works both on Android and iOS and can show static alerts. To show an alert that prompts the user to enter some information, see `AlertIOS`; entering text in an alert is common on iOS only.
 
-## Example
+### Example
 
-<table>
-  <tr>
-    <th style="width: 50%;">iOS</th>
-    <th style="width: 50%;">Android</th>
-  </tr>
-  <tr>
-    <td style="width: 50%;">
-      <center><img src="/react-native/docs/assets/Alert/exampleios.gif"></img></center>
-    </td>
-    <td style="width: 50%;">
-      <center><img src="/react-native/docs/assets/Alert/exampleandroid.gif"></img></center>
-    </td>
-  </tr>
-</table>
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Alert%20Function%20Component%20Example&supportedPlatforms=ios,android
+import React, { useState } from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
+
+export default function App() {
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+  const createThreeButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Ask me later",
+          onPress: () => console.log("Ask me later pressed")
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+  return (
+    <View style={styles.container}>
+      <Button title={"2-Button Alert"} onPress={createTwoButtonAlert} />
+
+      <Button title={"3-Button Alert"} onPress={createThreeButtonAlert} />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Alert%20Class%20Component%20Example&supportedPlatforms=ios,android
+import React, { Component } from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
+
+export default class App extends Component {
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+  createThreeButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Ask me later",
+          onPress: () => console.log("Ask me later pressed")
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Button title={"2-Button Alert"} onPress={this.createTwoButtonAlert} />
+
+        <Button
+          title={"3-Button Alert"}
+          onPress={this.createThreeButtonAlert}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 ## iOS
 
@@ -45,7 +166,7 @@ Alternatively, the dismissing behavior can be disabled altogether by providing a
 Example usage:
 
 ```jsx
-// Works on both iOS and Android
+// Works on both Android and iOS
 Alert.alert(
   'Alert Title',
   'My Alert Msg',
@@ -62,10 +183,6 @@ Alert.alert(
 );
 ```
 
-### Methods
-
-- [`alert`](alert.md#alert)
-
 ---
 
 # Reference
@@ -75,5 +192,5 @@ Alert.alert(
 ### `alert()`
 
 ```jsx
-static alert(title, message?, buttons?, options? type?)
+static alert(title, message?, buttons?, options?)
 ```

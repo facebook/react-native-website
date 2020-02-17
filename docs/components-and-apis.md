@@ -20,28 +20,40 @@ Most apps will end up using one of these basic components. You'll want to get yo
 
 <div class="component-grid component-grid-border">
   <div class="component">
-    <h3><a href="./view">View</a></h3>
-    <p>The most fundamental component for building a UI.</p>
+    <a href="./view">
+      <h3>View</h3>
+      <p>The most fundamental component for building a UI.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./text">Text</a></h3>
-    <p>A component for displaying text.</p>
+    <a href="./text">
+      <h3>Text</h3>
+      <p>A component for displaying text.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./image">Image</a></h3>
-    <p>A component for displaying images.</p>
+    <a href="./image">
+      <h3>Image</h3>
+      <p>A component for displaying images.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./textinput">TextInput</a></h3>
-    <p>A component for inputting text into the app via a keyboard.</p>
+    <a href="./textinput">
+      <h3>TextInput</h3>
+      <p>A component for inputting text into the app via a keyboard.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./scrollview">ScrollView</a></h3>
-    <p>Provides a scrolling container that can host multiple components and views.</p>
+    <a href="./scrollview">
+      <h3>ScrollView</h3>
+      <p>Provides a scrolling container that can host multiple components and views.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./stylesheet">StyleSheet</a></h3>
-    <p>Provides an abstraction layer similar to CSS stylesheets.</p>
+    <a href="./stylesheet">
+      <h3>StyleSheet</h3>
+      <p>Provides an abstraction layer similar to CSS stylesheets.</p>
+    </a>
   </div>
 </div>
 
@@ -51,35 +63,47 @@ Render common user interface controls on any platform using the following compon
 
 <div class="component-grid component-grid-border">
   <div class="component">
-    <h3><a href="./button">Button</a></h3>
-    <p>A basic button component for handling touches that should render nicely on any platform.</p>
+    <a href="./button">
+      <h3>Button</h3>
+      <p>A basic button component for handling touches that should render nicely on any platform.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./picker">Picker</a></h3>
-    <p>Renders the native picker component on iOS and Android.</p>
+    <a href="./picker">
+      <h3>Picker</h3>
+      <p>Renders the native picker component on Android and iOS.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./slider">Slider</a></h3>
-    <p>A component used to select a single value from a range of values.</p>
+    <a href="./slider">
+      <h3>Slider</h3>
+      <p>A component used to select a single value from a range of values.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./switch">Switch</a></h3>
-    <p>Renders a boolean input.</p>
+    <a href="./switch">
+      <h3>Switch</h3>
+      <p>Renders a boolean input.</p>
+    </a>
   </div>
 </div>
 
 ## List Views
 
-Unlike the more generic `ScrollView`, the following list view components only render elements that are currently showing on the screen. This makes them a great choice for displaying long lists of data.
+Unlike the more generic [`ScrollView`](./scrollview.md), the following list view components only render elements that are currently showing on the screen. This makes them a great choice for displaying long lists of data.
 
 <div class="component-grid component-grid-border">
   <div class="component">
-    <h3><a href="./flatlist">FlatList</a></h3>
-    <p>A component for rendering performant scrollable lists.</p>
+    <a href="./flatlist">
+      <h3>FlatList</h3>
+      <p>A component for rendering performant scrollable lists.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./sectionlist">SectionList</a></h3>
-    <p>Like <code>FlatList</code>, but for sectioned lists.</p>
+    <a href="./sectionlist">
+      <h3>SectionList</h3>
+      <p>Like <code>FlatList</code>, but for sectioned lists.</p>
+    </a>
   </div>
 </div>
 
@@ -89,40 +113,46 @@ Many of the following components provide wrappers for commonly used UIKit classe
 
 <div class="component-grid component-grid-border">
   <div class="component">
-    <h3><a href="./actionsheetios">ActionSheetIOS</a></h3>
-    <p>API to display an iOS action sheet or share sheet.</p>
+    <a href="./actionsheetios">
+      <h3>ActionSheetIOS</h3>
+      <p>API to display an iOS action sheet or share sheet.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./alertios">AlertIOS</a></h3>
-    <p>Create an iOS alert dialog with a message or create a prompt for user input.</p>
+    <a href="./alertios">
+      <h3>AlertIOS</h3>
+      <p>Create an iOS alert dialog with a message or create a prompt for user input.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./datepickerios">DatePickerIOS</a></h3>
-    <p>Renders a date/time picker (selector) on iOS.</p>
+    <a href="./datepickerios">
+      <h3>DatePickerIOS</h3>
+      <p>Renders a date/time picker (selector) on iOS.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./imagepickerios">ImagePickerIOS</a></h3>
-    <p>Renders a image picker on iOS.</p>
+    <a href="./imagepickerios">
+      <h3>ImagePickerIOS</h3>
+      <p>Renders a image picker on iOS.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./navigatorios">NavigatorIOS</a></h3>
-    <p>A wrapper around <code>UINavigationController</code>, enabling you to implement a navigation stack.</p>
+    <a href="./progressviewios">
+      <h3>ProgressViewIOS</h3>
+      <p>Renders a <code>UIProgressView</code> on iOS.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./progressviewios">ProgressViewIOS</a></h3>
-    <p>Renders a <code>UIProgressView</a></code> on iOS.</p>
+    <a href="./pushnotificationios">
+      <h3>PushNotificationIOS</h3>
+      <p>Handle push notifications for your app, including permission handling and icon badge number.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./pushnotificationios">PushNotificationIOS</a></h3>
-    <p>Handle push notifications for your app, including permission handling and icon badge number.</p>
-  </div>
-  <div class="component">
-    <h3><a href="./segmentedcontrolios">SegmentedControlIOS</a></h3>
-    <p>Renders a <code>UISegmentedControl</code> on iOS.</p>
-  </div>
-  <div class="component">
-    <h3><a href="./tabbarios">TabBarIOS</a></h3>
-    <p>Renders a <code>UITabViewController</code> on iOS. Use with <a href="./tabbarios-item">TabBarIOS.Item</a>.</p>
+    <a href="./segmentedcontrolios">
+      <h3>SegmentedControlIOS</h3>
+      <p>Renders a <code>UISegmentedControl</code> on iOS.</p>
+    </a>
   </div>
 </div>
 
@@ -132,40 +162,52 @@ Many of the following components provide wrappers for commonly used Android clas
 
 <div class="component-grid component-grid-border">
   <div class="component">
-    <h3><a href="./backhandler">BackHandler</a></h3>
-    <p>Detect hardware button presses for back navigation.</p>
+    <a href="./backhandler">
+      <h3>BackHandler</a></h3>
+      <p>Detect hardware button presses for back navigation.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./datepickerandroid">DatePickerAndroid</a></h3>
-    <p>Opens the standard Android date picker dialog.</p>
+    <a href="./datepickerandroid">
+      <h3>DatePickerAndroid</h3>
+      <p>Opens the standard Android date picker dialog.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./drawerlayoutandroid">DrawerLayoutAndroid</a></h3>
-    <p>Renders a <code>DrawerLayout</code> on Android.</p>
+    <a href="./drawerlayoutandroid">
+      <h3>DrawerLayoutAndroid</h3>
+      <p>Renders a <code>DrawerLayout</code> on Android.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./permissionsandroid">PermissionsAndroid</a></h3>
-    <p>Provides access to the permissions model introduced in Android M.</p>
+    <a href="./permissionsandroid">
+      <h3>PermissionsAndroid</a></h3>
+      <p>Provides access to the permissions model introduced in Android M.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./progressbarandroid">ProgressBarAndroid</a></h3>
-    <p>Renders a <code>ProgressBar</code> on Android.</p>
+    <a href="./progressbarandroid">
+      <h3>ProgressBarAndroid</h3>
+      <p>Renders a <code>ProgressBar</code> on Android.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./timepickerandroid">TimePickerAndroid</a></h3>
-    <p>Opens the standard Android time picker dialog.</p>
+    <a href="./timepickerandroid">
+      <h3>TimePickerAndroid</h3>
+      <p>Opens the standard Android time picker dialog.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./toastandroid">ToastAndroid</a></h3>
-    <p>Create an Android Toast alert.</p>
+    <a href="./toastandroid">
+      <h3>ToastAndroid</h3>
+      <p>Create an Android Toast alert.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./toolbarandroid">ToolbarAndroid</a></h3>
-    <p>Renders a <code>Toolbar</code> on Android.</p>
-  </div>
-  <div class="component">
-    <h3><a href="./viewpagerandroid">ViewPagerAndroid</a></h3>
-    <p>Container that allows to flip left and right between child views.</p>
+    <a href="./viewpagerandroid">
+      <h3>ViewPagerAndroid</h3>
+      <p>Container that allows to flip left and right between child views.</p>
+    </a>
   </div>
 </div>
 
@@ -175,51 +217,69 @@ These components may come in handy for certain applications. For an exhaustive l
 
 <div class="component-grid">
   <div class="component">
-    <h3><a href="./activityindicator">ActivityIndicator</a></h3>
-    <p>Displays a circular loading indicator.</p>
+    <a href="./activityindicator">
+      <h3>ActivityIndicator</h3>
+      <p>Displays a circular loading indicator.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./alert">Alert</a></h3>
-    <p>Launches an alert dialog with the specified title and message.</p>
+    <a href="./alert">
+      <h3>Alert</h3>
+      <p>Launches an alert dialog with the specified title and message.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./animated">Animated</a></h3>
-    <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
+    <a href="./animated">
+      <h3>Animated</h3>
+      <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./clipboard">Clipboard</a></h3>
-    <p>Provides an interface for setting and getting content from the clipboard on both iOS and Android.</p>
+    <a href="./clipboard">
+      <h3>Clipboard</h3>
+      <p>Provides an interface for setting and getting content from the clipboard on both Android and iOS.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./dimensions">Dimensions</a></h3>
-    <p>Provides an interface for getting device dimensions.</p>
+    <a href="./dimensions">
+      <h3>Dimensions</h3>
+      <p>Provides an interface for getting device dimensions.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./keyboardavoidingview">KeyboardAvoidingView</a></h3>
-    <p>Provides a view that moves out of the way of the virtual keyboard automatically.</p>
+    <a href="./keyboardavoidingview">
+      <h3>KeyboardAvoidingView</h3>
+      <p>Provides a view that moves out of the way of the virtual keyboard automatically.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./linking">Linking</a></h3>
-    <p>Provides a general interface to interact with both incoming and outgoing app links.</p>
+    <a href="./linking">
+      <h3>Linking</h3>
+      <p>Provides a general interface to interact with both incoming and outgoing app links.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./modal">Modal</a></h3>
-    <p>Provides a simple way to present content above an enclosing view.</p>
+    <a href="./modal">
+      <h3>Modal</h3>
+      <p>Provides a simple way to present content above an enclosing view.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./pixelratio">PixelRatio</a></h3>
-    <p>Provides access to the device pixel density.</p>
+    <a href="./pixelratio">
+      <h3>PixelRatio</h3>
+      <p>Provides access to the device pixel density.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./refreshcontrol">RefreshControl</a></h3>
-    <p>This component is used inside a <code>ScrollView</code> to add pull to refresh functionality.</p>
+    <a href="./refreshcontrol">
+      <h3>RefreshControl</h3>
+      <p>This component is used inside a <code>ScrollView</code> to add pull to refresh functionality.</p>
+    </a>
   </div>
   <div class="component">
-    <h3><a href="./statusbar">StatusBar</a></h3>
-    <p>Component to control the app status bar.</p>
-  </div>
-  <div class="component">
-    <h3><a href="./webview">WebView</a></h3>
-    <p>A component that renders web content in a native view.</p>
+    <a href="./statusbar">
+      <h3>StatusBar</h3>
+      <p>Component to control the app status bar.</p>
+    </a>
   </div>
 </div>

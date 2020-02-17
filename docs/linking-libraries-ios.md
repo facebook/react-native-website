@@ -3,11 +3,11 @@ id: linking-libraries-ios
 title: Linking Libraries
 ---
 
-Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to make it easy to add these features whenever you need them.
+Not every app uses all the native capabilities, and including the code to support all those features would impact the binary size... But we still want to support adding these features whenever you need them.
 
 With that in mind we exposed many of these features as independent static libraries.
 
-For most of the libs it will be as simple as dragging two files, sometimes a third step will be necessary, but no more than that.
+For most of the libs it will be as quick as dragging two files, sometimes a third step will be necessary, but no more than that.
 
 _All the libraries we ship with React Native live on the `Libraries` folder in the root of the repository. Some of them are pure JavaScript, and you only need to `require` it. Other libraries also rely on some native code, in that case you'll have to add these files to your app, otherwise the app will throw an error as soon as you try to use the library._
 
@@ -30,12 +30,12 @@ $ npm install <library-with-native-dependencies> --save
 Link your native dependencies:
 
 ```bash
-$ react-native link
+$ npx react-native link
 ```
 
 Done! All libraries with native dependencies should be successfully linked to your iOS/Android project.
 
-> **_Note:_** If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `react-native link` will link library using Podfile. To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
+> **_Note:_** If your iOS project is using CocoaPods (contains `Podfile`) and linked library has `podspec` file, then `npx react-native link` will link library using Podfile. To support non-trivial Podfiles add `# Add new pods below this line` comment to places where you expect pods to be added.
 
 ### Manual linking
 

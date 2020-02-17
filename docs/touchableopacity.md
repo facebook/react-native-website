@@ -24,7 +24,60 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example%20TouchableOpacity
+import React, { useState } from 'react';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  const handleIncrementCount = () => setCount(prevState => prevState + 1);
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.countContainer}>
+        <Text>Count: {count}</Text>
+      </View>
+      <TouchableOpacity style={styles.button} onPress={handleIncrementCount}>
+        <Text>Touch Here</Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 10,
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
+  },
+  countContainer: {
+    alignItems: 'center',
+    padding: 10,
+  },
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -84,24 +137,7 @@ const styles = StyleSheet.create({
   }
 })
 ```
-
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`style`](touchableopacity.md#style)
-* [`activeOpacity`](touchableopacity.md#activeopacity)
-* [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
-* [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchableopacity.md#nextFocusDown)
-* [`nextFocusForward`](touchableopacity.md#nextFocusForward)
-* [`nextFocusLeft`](touchableopacity.md#nextFocusLeft)
-* [`nextFocusRight`](touchableopacity.md#nextFocusRight)
-* [`nextFocusUp`](touchableopacity.md#nextFocusUp)
-
-### Methods
-
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
+<block class="endBlock syntax" />
 
 ---
 
@@ -109,21 +145,13 @@ const styles = StyleSheet.create({
 
 ## Props
 
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
 ### `style`
 
 | Type       | Required |
 | ---------- | -------- |
 | View.style | No       |
-
----
-
-### `activeOpacity`
-
-Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
 
 ---
 

@@ -15,9 +15,9 @@ const siteConfig = require(process.cwd() + '/siteConfig.js');
 class Help extends React.Component {
   render() {
     return (
-      <div className="pageContainer">
+      <div className="pageContainer HelpPage">
         <Container className="mainContainer documentContainer postContainer">
-          <h1>The React Native Community</h1>
+          <h1 className="postHeaderTitle">The React Native Community</h1>
           <p>
             There are a lot of developers around the world using React Native.
             This is a brief overview of where you can find them.
@@ -86,6 +86,10 @@ class Help extends React.Component {
             React meetups as well. React Native has been covered often in past
             React Conf talks. Videos for these talks can be found online in the
             following playlists:{' '}
+            <a href="https://www.youtube.com/watch?v=WXYPpY_mElQ">
+              React Conf 2018
+            </a>
+            {', '}
             <a href="https://www.youtube.com/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0">
               React Conf 2017
             </a>
@@ -100,7 +104,7 @@ class Help extends React.Component {
             </a>
             {'. '}
             The next <a href="https://conf.reactjs.org/">React Conf</a> will
-            take place October 25 and 26 in Henderson, Nevada. You can also find
+            take place October 24 and 25 in Henderson, Nevada. You can also find
             a list of dedicated React Native conferences{' '}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {'.'}
@@ -124,7 +128,7 @@ class Help extends React.Component {
           <h3>Reactiflux Chat</h3>
           <p>
             If you need an answer right away, check out the{' '}
-            <a href="https://discord.gg/0ZcbPKXt5bZjGY5n">Reactiflux Discord</a>{' '}
+            <a href="https://discord.gg/reactiflux">Reactiflux Discord</a>{' '}
             community. There are usually a number of React Native experts there
             who can help out or point you to somewhere you might want to look.
           </p>

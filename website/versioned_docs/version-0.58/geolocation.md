@@ -48,12 +48,12 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 
 ### Methods
 
-- [`setRNConfiguration`](geolocation.md#setrnconfiguration)
-- [`requestAuthorization`](geolocation.md#requestauthorization)
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
+- [`setRNConfiguration`](#setrnconfiguration)
+- [`requestAuthorization`](#requestauthorization)
+- [`getCurrentPosition`](#getcurrentposition)
+- [`watchPosition`](#watchposition)
+- [`clearWatch`](#clearwatch)
+- [`stopObserving`](#stopobserving)
 
 ---
 

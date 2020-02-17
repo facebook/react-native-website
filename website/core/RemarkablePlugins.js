@@ -1,7 +1,8 @@
 'use strict';
 
 const hljs = require('highlight.js');
-const escapeHtml = require('remarkable').utils.escapeHtml;
+const {utils} = require('remarkable');
+const {escapeHtml} = utils;
 
 // Remove leading "SnackPlayer", "ReactNativeWebPlayer"
 function cleanParams(params) {
@@ -21,6 +22,10 @@ function parseParams(paramString) {
       var pair = pairs[i].split('=');
       params[pair[0]] = pair[1];
     }
+  }
+
+  if (!params.platform) {
+    params.platform = 'web';
   }
 
   return params;
@@ -78,6 +83,9 @@ function SnackPlayer(md) {
     const sampleCode = tokens[idx].content;
     const encodedSampleCode = encodeURIComponent(sampleCode);
     const platform = params.platform ? params.platform : 'ios';
+    const supportedPlatforms = params.supportedPlatforms
+      ? params.supportedPlatforms
+      : 'ios,android,web';
     const rnVersion = params.version ? params.version : 'next';
 
     return (
@@ -91,6 +99,7 @@ function SnackPlayer(md) {
         data-snack-description="${description}"
         data-snack-code="${encodedSampleCode}"
         data-snack-platform="${platform}"
+        data-snack-supported-platforms=${supportedPlatforms}
         data-snack-preview="true"
         style="
           overflow: hidden;
@@ -98,7 +107,7 @@ function SnackPlayer(md) {
           border: 1px solid rgba(0,0,0,.16);
           border-radius: 4px;
           height: 514px;
-          width: 880px;
+          width: 100%;
         "
       >` +
       '</div>' +

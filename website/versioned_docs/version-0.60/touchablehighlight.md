@@ -27,7 +27,7 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=TouchableHighlight
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -111,6 +111,8 @@ const styles = StyleSheet.create({
 # Reference
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `activeOpacity`
 

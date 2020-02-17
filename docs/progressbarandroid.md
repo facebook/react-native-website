@@ -1,58 +1,64 @@
 ---
 id: progressbarandroid
-title: ProgressBarAndroid
+title: 🚧 ProgressBarAndroid
 ---
+
+> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/progress-bar-android) instead.
 
 Android-only React component used to indicate that the app is loading or there is some activity in the app.
 
-Example:
+### Example
 
-```jsx
-import React, {Component} from 'react';
-import {ProgressBarAndroid, StyleSheet, View} from 'react-native';
+```SnackPlayer name=ProgressBarAndroid platform=android
+import React from 'react';
+import {View, StyleSheet, ProgressBarAndroid, Text} from 'react-native';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.example}>
+        <Text>Circle Progress Indicator</Text>
         <ProgressBarAndroid />
+      </View>
+      <View style={styles.example}>
+        <Text>Horizontal Progress Indicator</Text>
         <ProgressBarAndroid styleAttr="Horizontal" />
+      </View>
+      <View style={styles.example}>
+        <Text>Colored Progress Indicator</Text>
         <ProgressBarAndroid styleAttr="Horizontal" color="#2196F3" />
+      </View>
+      <View style={styles.example}>
+        <Text>Fixed Progress Value</Text>
         <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
           progress={0.5}
         />
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-evenly',
-    padding: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  example: {
+    marginVertical: 24,
   },
 });
 ```
-
-### Props
-
-- [View props...](view.md#props)
-
-* [`animating`](progressbarandroid.md#animating)
-* [`color`](progressbarandroid.md#color)
-* [`indeterminate`](progressbarandroid.md#indeterminate)
-* [`progress`](progressbarandroid.md#progress)
-* [`styleAttr`](progressbarandroid.md#styleattr)
-* [`testID`](progressbarandroid.md#testid)
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `animating`
 

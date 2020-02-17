@@ -6,7 +6,7 @@ original_id: navigatorios
 
 `NavigatorIOS` is a wrapper around [`UINavigationController`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UINavigationController_Class/), enabling you to implement a navigation stack. It works exactly the same as it would on a native app using `UINavigationController`, providing the same animations and behavior from UIKIt.
 
-As the name implies, it is only available on iOS. Take a look at [`Navigator`](navigator.md) for a similar solution for your cross-platform needs, or check out [react-native-navigation](https://github.com/wix/react-native-navigation), a component that aims to provide native navigation on both iOS and Android.
+As the name implies, it is only available on iOS. Take a look at [`Navigator`](navigator.md) for a similar solution for your cross-platform needs, or check out [react-native-navigation](https://github.com/wix/react-native-navigation), a component that aims to provide native navigation on both Android and iOS.
 
 To set up the navigator, provide the `initialRoute` prop with a route object. A route object is used to describe each scene that your app navigates to. `initialRoute` represents the first route in your navigator.
 
@@ -209,6 +209,8 @@ The default background color of the navigation bar.
 
 ### `interactivePopGestureEnabled`
 
+<!-- alex ignore dad-mom -->
+
 Boolean value that indicates whether the interactive pop gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
 
 If this prop is not provided, the default behavior is for the back swipe gesture to be enabled when the navigation bar is shown and disabled when the navigation bar is hidden. Once you've provided the `interactivePopGestureEnabled` prop, you can never restore the default behavior.
@@ -317,6 +319,8 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 pop();
 ```
 
+<!-- alex ignore dad-mom -->
+
 Pop back to the previous scene.
 
 ---
@@ -417,6 +421,8 @@ Replaces the previous route/view and transitions back to it.
 ```jsx
 resetTo((route: object));
 ```
+
+<!-- alex ignore dad-mom -->
 
 Replaces the top item and pop to it.
 

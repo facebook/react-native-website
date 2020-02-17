@@ -15,62 +15,13 @@ Some caveats:
 - In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 - By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-### Props
-
-- [`ScrollView` props...](scrollview.md#props)
-- [`renderItem`](virtualizedlist.md#renderitem)
-- [`data`](virtualizedlist.md#data)
-- [`getItem`](virtualizedlist.md#getitem)
-- [`getItemCount`](virtualizedlist.md#getitemcount)
-- [`debug`](virtualizedlist.md#debug)
-- [`extraData`](virtualizedlist.md#extradata)
-- [`getItemLayout`](virtualizedlist.md#getitemlayout)
-- [`initialScrollIndex`](virtualizedlist.md#initialscrollindex)
-- [`inverted`](virtualizedlist.md#inverted)
-- [`CellRendererComponent`](virtualizedlist.md#cellrenderercomponent)
-- [`listKey`](virtualizedlist.md#listKey)
-- [`ListEmptyComponent`](virtualizedlist.md#listemptycomponent)
-- [`ListItemComponent`](virtualizedlist.md#ListItemComponent)
-- [`ListFooterComponent`](virtualizedlist.md#listfootercomponent)
-- [`ListFooterComponentStyle`](virtualizedlist.md#ListFooterComponentStyle)
-- [`ListHeaderComponent`](virtualizedlist.md#listheadercomponent)
-- [`ListHeaderComponentStyle`](virtualizedlist.md#ListHeaderComponentStyle)
-- [`onEndReached`](virtualizedlist.md#onendreached)
-- [`onLayout`](virtualizedlist.md#onlayout)
-- [`onRefresh`](virtualizedlist.md#onrefresh)
-- [`onScrollToIndexFailed`](virtualizedlist.md#onscrolltoindexfailed)
-- [`onViewableItemsChanged`](virtualizedlist.md#onviewableitemschanged)
-- [`refreshing`](virtualizedlist.md#refreshing)
-- [`refreshControl`](virtualizedlist.md#refreshControl)
-- [`removeClippedSubviews`](virtualizedlist.md#removeclippedsubviews)
-- [`renderScrollComponent`](virtualizedlist.md#renderscrollcomponent)
-- [`viewabilityConfig`](virtualizedlist.md#viewabilityconfig)
-- [`viewabilityConfigCallbackPairs`](virtualizedlist.md#viewabilityconfigcallbackpairs)
-- [`horizontal`](virtualizedlist.md#horizontal)
-- [`initialNumToRender`](virtualizedlist.md#initialnumtorender)
-- [`keyExtractor`](virtualizedlist.md#keyextractor)
-- [`maxToRenderPerBatch`](virtualizedlist.md#maxtorenderperbatch)
-- [`onEndReachedThreshold`](virtualizedlist.md#onendreachedthreshold)
-- [`updateCellsBatchingPeriod`](virtualizedlist.md#updatecellsbatchingperiod)
-- [`windowSize`](virtualizedlist.md#windowsize)
-- [`disableVirtualization`](virtualizedlist.md#disablevirtualization)
-- [`progressViewOffset`](virtualizedlist.md#progressviewoffset)
-- [`persistentScrollbar`](virtualizedlist.md#persistentScrollbar)
-
-### Methods
-
-- [`scrollToEnd`](virtualizedlist.md#scrolltoend)
-- [`scrollToIndex`](virtualizedlist.md#scrolltoindex)
-- [`scrollToItem`](virtualizedlist.md#scrolltoitem)
-- [`scrollToOffset`](virtualizedlist.md#scrolltooffset)
-- [`recordInteraction`](virtualizedlist.md#recordinteraction)
-- [`flashScrollIndicators`](virtualizedlist.md#flashscrollindicators)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props).
 
 ### `renderItem`
 

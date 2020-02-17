@@ -10,7 +10,7 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Text
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
 
 ## Nested text
 
-Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Nested
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
@@ -80,7 +80,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+The `<Text>` element is unique relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
 ```jsx
 <Text>
@@ -150,7 +150,7 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
 class MyAppHeaderText extends Component {
@@ -181,54 +181,19 @@ We believe that this more constrained way to style text will yield better apps:
 
 - (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
 
-### Props
-
-- [`accessibilityHint`](text.md#accessibilityhint)
-- [`accessibilityLabel`](text.md#accessibilitylabel)
-- [`accessibilityRole`](text.md#accessibilityrole)
-- [`accessibilityState`](text.md#accessibilitystate)
-- [`accessible`](text.md#accessible)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`dataDetectorType`](text.md#datadetectortype)
-- [`disabled`](text.md#disabled)
-- [`ellipsizeMode`](text.md#ellipsizemode)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`minimumFontScale`](text.md#minimumfontscale)
-- [`nativeID`](text.md#nativeid)
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onLongPress`](text.md#onlongpress)
-- [`onMoveShouldSetResponder`](text.md#onmoveshouldsetresponder)
-- [`onPress`](text.md#onpress)
-- [`onResponderGrant`](text.md#onrespondergrant)
-- [`onResponderMove`](text.md#onrespondermove)
-- [`onResponderRelease`](text.md#onresponderrelease)
-- [`onResponderTerminate`](text.md#onresponderterminate)
-- [`onResponderTerminationRequest`](text.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-- [`onTextLayout`](text.md#ontextlayout)
-- [`pressRetentionOffset`](text.md#pressretentionoffset)
-- [`selectable`](text.md#selectable)
-- [`selectionColor`](text.md#selectioncolor)
-- [`style`](text.md#style)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`testID`](text.md#testid)
-- [`textBreakStrategy`](text.md#textbreakstrategy)
-
 ---
 
 # Reference
 
 ## Props
 
-### `accessibilityHint`
+### `accessible`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+When `true`, indicates that the view is an accessibility element. By default, all the touchable elements are accessible.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -242,60 +207,65 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ---
 
+### `accessibilityHint`
+
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
+
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
+
+---
+
 ### `accessibilityRole`
 
-Tells the screen reader to treat the currently focused on element as having a specific role.
+`accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
 
-Possible values for `AccessibilityRole` is one of:
+`accessibilityRole` can be one of the following:
 
-- `'none'` - The element has no role.
-- `'button'` - The element should be treated as a button.
-- `'link'` - The element should be treated as a link.
-- `'header'` - The element is a header that divides content into sections.
-- `'search'` - The element should be treated as a search field.
-- `'image'` - The element should be treated as an image.
-- `'key'` - The element should be treated like a keyboard key.
-- `'text'` - The element should be treated as text.
-- `'summary'` - The element provides app summary information.
-- `'imagebutton'` - The element has the role of both an image and also a button.
-- `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - Used when the element has no role.
+- `'button'` - Used when the element should be treated as a button.
+- `'link'` - Used when the element should be treated as a link.
+- `'search'` - Used when the text field element should also be treated as a search field.
+- `'image'` - Used when the element should be treated as an image. Can be combined with button or link, for example.
+- `'keyboardkey'` - Used when the element acts as a keyboard key.
+- `'text'` - Used when the element should be treated as static text that cannot change.
+- `'adjustable'` - Used when an element can be "adjusted" (e.g. a slider).
+- `'imagebutton'` - Used when the element should be treated as a button and is also an image.
+- `'header'` - Used when an element acts as a header for a content section (e.g. the title of a navigation bar).
+- `'summary'` - Used when an element can be used to provide a quick summary of current conditions in the app when the app first launches.
+- `'alert'` - Used when an element contains important text to be presented to the user.
+- `'checkbox'` - Used when an element represents a checkbox which can be checked, unchecked, or have mixed checked state.
+- `'combobox'` - Used when an element represents a combo box, which allows the user to select among several choices.
+- `'menu'` - Used when the component is a menu of choices.
+- `'menubar'` - Used when a component is a container of multiple menus.
+- `'menuitem'` - Used to represent an item within a menu.
+- `'progressbar'` - Used to represent a component which indicates progress of a task.
+- `'radio'` - Used to represent a radio button.
+- `'radiogroup'` - Used to represent a group of radio buttons.
+- `'scrollbar'` - Used to represent a scroll bar.
+- `'spinbutton'` - Used to represent a button which opens a list of choices.
+- `'switch'` - Used to represent a switch which can be turned on and off.
+- `'tab'` - Used to represent a tab.
+- `'tablist'` - Used to represent a list of tabs.
+- `'timer'` - Used to represent a timer.
+- `'toolbar'` - Used to represent a tool bar (a container of action buttons or components).
 
-On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
-
-On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
-
-| Type              | Required |
-| ----------------- | -------- |
-| AccessibilityRole | No       |
+| Type   | Required |
+| ------ | -------- |
+| string | No       |
 
 ---
 
 ### `accessibilityState`
 
-Tells the screen reader to treat the currently focused on element as being in a specific state.
+Describes the current state of a component to the user of an assistive technology.
 
-You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: `{selected: true, disabled: true}`.
+See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-Possible values for `AccessibilityState` are:
-
-- `'selected'` - The element is in a selected state.
-- `'disabled'` - The element is in a disabled state.
-
-| Type   | Required |
-| ------ | -------- |
-| object | No       |
-
----
-
-### `accessible`
-
-When set to `true`, indicates that the view is an accessibility element. The default value for a `Text` element is `true`.
-
-See the [Accessibility guide](accessibility.md#accessible-ios-android) for more information.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type                                                                                           | Required |
+| ---------------------------------------------------------------------------------------------- | -------- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
 
 ---
 
@@ -592,7 +562,7 @@ The highlight color of the text.
 
 - **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on iOS and Android Oreo (8.0) or above (API level >= 26). For lower android version it will fallback to `left`.
+  Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
 
 - **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 

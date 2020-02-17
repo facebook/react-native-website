@@ -8,7 +8,7 @@ A React component for displaying different types of images, including network im
 
 This exmaples shows both fetching and displaying an image from local storage as well as on from network.
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View, Image } from 'react-native';
 
@@ -17,7 +17,8 @@ class DisplayAnImage extends Component {
     return (
       <View>
         <Image
-          source={require('/react-native/img/favicon.png')}
+          style={{width: 50, height: 50}}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
           source={{uri: 'http://facebook.github.io/react/assets/logo_og.png'}}
@@ -33,7 +34,7 @@ AppRegistry.registerComponent('DisplayAnImage', () => DisplayAnImage);
 
 You can also add `style` to an image:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View, Image, StyleSheet} from 'react-native';
 
@@ -50,7 +51,7 @@ class DisplayAnImageWithStyle extends Component {
       <View>
         <Image
           style={styles.stretch}
-          source={require('/react-native/img/favicon.png')}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
       </View>
     );
@@ -145,7 +146,7 @@ Determines how to resize the image when the frame doesn't match the raw image di
 
 - `stretch`: Scale width and height independently, This may change the aspect ratio of the src.
 
-- `repeat`: Repeat the image to cover the frame of the view. The image will keep it's size and aspect ratio. (iOS only)
+- `repeat`: Repeat the image to cover the frame of the view. The image will keep its size and aspect ratio. (iOS only)
 
 | Type                                                                 | Required |
 | -------------------------------------------------------------------- | -------- |

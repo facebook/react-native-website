@@ -3,14 +3,10 @@ id: linking
 title: Linking
 ---
 
-<div class="banner-crna-ejected">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    This section only applies to projects made with <code>react-native init</code>
-    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="http://docs.expo.io/versions/latest/workflow/linking/">Linking</a> in the Expo documentation for the appropriate alternative.
   </p>
 </div>
 
@@ -87,10 +83,10 @@ And then on your React component you'll be able to listen to the events on `Link
 ```jsx
 componentDidMount() {
   Linking.addEventListener('url', this._handleOpenURL);
-},
+}
 componentWillUnmount() {
   Linking.removeEventListener('url', this._handleOpenURL);
-},
+}
 _handleOpenURL(event) {
   console.log(event.url);
 }
@@ -117,17 +113,6 @@ Linking.canOpenURL(url)
   })
   .catch((err) => console.error('An error occurred', err));
 ```
-
-### Methods
-
-- [`constructor`](linking.md#constructor)
-- [`addEventListener`](linking.md#addeventlistener)
-- [`removeEventListener`](linking.md#removeeventlistener)
-- [`openURL`](linking.md#openurl)
-- [`canOpenURL`](linking.md#canopenurl)
-- [`openSettings`](linking.md#opensettings)
-- [`getInitialURL`](linking.md#getinitialurl)
-- [`sendIntent`](linking.md#sendintent)
 
 ---
 
@@ -184,6 +169,8 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 > This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check {@code canOpenURL} first.
 
 > For web URLs, the protocol ("http://", "https://") must be set accordingly!
+
+> This method may behave differently in a simulator e.g. "tel:" links are not able to be handled in the iOS simulator as there's no access to the dialer app.
 
 ---
 
