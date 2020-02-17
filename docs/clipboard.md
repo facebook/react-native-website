@@ -10,16 +10,16 @@ title: Clipboard
 
 ## Example
 
-```SnackPlayer name=Clipboard%20API%20Example
+```SnackPlayer name=Clipboard%20API%20Example&supportedPlatforms=ios,android
 
-import React, { useState } from "react"
-import { SafeAreaView, View, Text, TouchableOpacity, Clipboard } from "react-native"
+import React, { useState } from 'react'
+import { SafeAreaView, View, Text, TouchableOpacity, Clipboard, StyleSheet } from 'react-native'
 
 const App = () => {
-  const [copiedText, setCopiedText] = useState("")
+  const [copiedText, setCopiedText] = useState('')
 
   const copyToClipboard = () => {
-    Clipboard.setString("hello world")
+    Clipboard.setString('hello world')
   }
 
   const fetchCopiedText = async () => {
@@ -29,7 +29,7 @@ const App = () => {
 
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={styles.container}>
         <TouchableOpacity onPress={() => copyToClipboard()}>
           <Text>Click here to copy to Clipboard</Text>
         </TouchableOpacity>
@@ -37,14 +37,26 @@ const App = () => {
           <Text>View copied text</Text>
         </TouchableOpacity>
 
-        <Text style={{ marginTop: 10, color: "red" }}>{copiedText}</Text>
+        <Text style={styles.copiedText}>{copiedText}</Text>
       </View>
 
     </SafeAreaView>
   )
 }
 
-export default App;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  copiedText: {
+    marginTop: 10,
+    color: 'red'
+  }
+})
+
+export default App
 ```
 
 # Reference
