@@ -1,12 +1,12 @@
 ---
 id: version-0.61-timepickerandroid
-title: TimePickerAndroid
+title: 🚧 TimePickerAndroid
 original_id: timepickerandroid
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-> `TimePickerAndroid` has been merged with `DatePickerIOS` and `DatePickerAndroid` into a single component called [DateTimePicker](https://github.com/react-native-community/react-native-datetimepicker#react-native-datetimepicker) and will be removed in a future release.
+> **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
 
 本组件会打开一个标准的 Android 时间选择器的对话框。
 

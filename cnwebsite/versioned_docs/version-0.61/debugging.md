@@ -4,7 +4,7 @@ title: 调试
 original_id: debugging
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(91.30%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(8.70%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 ## 开启调试的快捷键
 
@@ -160,8 +160,8 @@ You can view installation instructions [in the README](https://github.com/infini
 在运行 RN 应用时，可以在终端中运行如下命令来查看控制台的日志：
 
 ```
-$ react-native log-ios
-$ react-native log-android
+$ npx react-native log-ios
+$ npx react-native log-android
 ```
 
 此外，你也可以在 iOS 模拟器的菜单中选择`Debug → Open System Log...`来查看。如果是 Android 应用，无论是运行在模拟器或是真机上，都可以通过在终端命令行里运行`adb logcat *:S ReactNative:V ReactNativeJS:V`命令来查看。

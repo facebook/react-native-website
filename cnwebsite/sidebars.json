@@ -2,6 +2,8 @@
   "docs": {
     "入门基础": [
       "getting-started",
+      "intro-react-native-components",
+      "intro-react",
       "tutorial",
       "props",
       "state",
@@ -16,6 +18,7 @@
       "sample-application-movies",
       "more-resources"
     ],
+    "设计": ["style", "height-and-width", "flexbox", "images", "colors"],
     "进阶指南": [
       "components-and-apis",
       "fast-refresh",
@@ -84,10 +87,10 @@
       "segmentedcontrolios",
       "slider",
       "statusbar",
+      "stylesheet",
       "switch",
       "text",
       "textinput",
-      "toolbarandroid",
       "touchablehighlight",
       "touchablenativefeedback",
       "touchableopacity",
@@ -128,7 +131,6 @@
       "settings",
       "shadow-props",
       "share",
-      "stylesheet",
       "systrace",
       "text-style-props",
       "timepickerandroid",

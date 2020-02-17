@@ -4,7 +4,7 @@ title: Dimensions
 original_id: dimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(61.45%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(38.55%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 本模块用于获取设备屏幕的宽高。
 

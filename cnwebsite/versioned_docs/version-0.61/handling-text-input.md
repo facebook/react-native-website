@@ -11,30 +11,24 @@ original_id: handling-text-input
 假如我们要实现当用户输入时，实时将其以单词为单位翻译为另一种文字。我们假设这另一种文字来自某个吃货星球，只有一个单词： 🍕。所以"Hello there Bob"将会被翻译为"🍕🍕🍕"。
 
 ```ReactNativeWebPlayer
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-export default class PizzaTranslator extends Component {
-  state = {
-    text: ''
-  }
-
-  render() {
-    return (
-      <View style={{padding: 10}}>
-        <TextInput
-          style={{height: 40}}
-          placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
-          value={this.state.text}
-        />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
-      </View>
-    );
-  }
-}
+export default function PizzaTranslator() {
+  const [text, setText] = useState('');
+  return (
+    <View style={{padding: 10}}>
+      <TextInput
+        style={{height: 40}}
+        placeholder="Type here to translate!"
+        onChangeText={text => setText(text)}
+        defaultValue={text}
+      />
+      <Text style={{padding: 10, fontSize: 42}}>
+        {text.split(' ').map((word) => word && '🍕').join(' ')}
+      </Text>
+    </View>
+  );
 ```
 
 在上面的例子里，我们把`text`保存到 state 中，因为它会随着时间变化。

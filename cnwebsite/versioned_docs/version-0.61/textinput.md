@@ -4,7 +4,7 @@ title: TextInput
 original_id: textinput
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(96.18%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(3.82%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 TextInput是一个允许用户在应用中通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字，以及多种不同的键盘类型（如纯数字键盘）等等。
 
@@ -485,6 +485,8 @@ Only called for multiline text inputs.
 | -------- | ---- |
 | function | No   |
 
+Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
+
 ---
 
 ### `onTextInput`
@@ -648,6 +650,22 @@ Some functionality that can be performed with this instance is:
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
 | bool | No   | iOS  |
+
+---
+
+### `textAlign`
+
+Align the input text to the left, center, or right sides of the input field.
+
+Possible values for `textAlign` are:
+
+- `left`
+- `center`
+- `right`
+
+| Type | Required |
+| ---- | -------- |
+| enum('left', 'center', 'right') | No     |
 
 ---
 

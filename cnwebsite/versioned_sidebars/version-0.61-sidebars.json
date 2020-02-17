@@ -2,6 +2,8 @@
   "version-0.61-docs": {
     "入门基础": [
       "version-0.61-getting-started",
+      "version-0.61-intro-react-native-components",
+      "version-0.61-intro-react",
       "version-0.61-tutorial",
       "version-0.61-props",
       "version-0.61-state",
@@ -15,6 +17,13 @@
       "version-0.61-network",
       "version-0.61-sample-application-movies",
       "version-0.61-more-resources"
+    ],
+    "设计": [
+      "version-0.61-style",
+      "version-0.61-height-and-width",
+      "version-0.61-flexbox",
+      "version-0.61-images",
+      "version-0.61-colors"
     ],
     "进阶指南": [
       "version-0.61-components-and-apis",
@@ -84,10 +93,10 @@
       "version-0.61-segmentedcontrolios",
       "version-0.61-slider",
       "version-0.61-statusbar",
+      "version-0.61-stylesheet",
       "version-0.61-switch",
       "version-0.61-text",
       "version-0.61-textinput",
-      "version-0.61-toolbarandroid",
       "version-0.61-touchablehighlight",
       "version-0.61-touchablenativefeedback",
       "version-0.61-touchableopacity",
@@ -128,7 +137,6 @@
       "version-0.61-settings",
       "version-0.61-shadow-props",
       "version-0.61-share",
-      "version-0.61-stylesheet",
       "version-0.61-systrace",
       "version-0.61-text-style-props",
       "version-0.61-timepickerandroid",

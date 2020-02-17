@@ -4,7 +4,7 @@ title: Image
 original_id: image
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.79%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(0.21%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 用于显示多种不同类型图片的 React 组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。
 
@@ -153,6 +153,8 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 | 类型   | 必填 |
 | ------ | ---- |
 | number | 否   |
+
+> Tip : IOS you will need to increase `blurRadius` more than `5`
 
 ---
 

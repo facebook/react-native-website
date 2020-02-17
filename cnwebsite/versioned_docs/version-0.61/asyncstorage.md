@@ -1,12 +1,12 @@
 ---
 id: version-0.61-asyncstorage
-title: AsyncStorage
+title: 🚧 AsyncStorage
 original_id: asyncstorage
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.72%), [95537559](https://github.com/search?q=95537559%40qq.com+in%3Aemail&type=Users)(0.28%)
 
- **Deprecated.** Use [react-native-community/react-native-async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
+ **Deprecated.** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
 
 `AsyncStorage`是一个简单的、异步的、持久化的 Key-Value 存储系统，它对于 App 来说是全局性的。可用来代替 LocalStorage。
 

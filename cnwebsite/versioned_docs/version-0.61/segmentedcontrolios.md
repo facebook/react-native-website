@@ -1,12 +1,12 @@
 ---
 id: version-0.61-segmentedcontrolios
-title: SegmentedControlIOS
+title: 🚧 SegmentedControlIOS
 original_id: segmentedcontrolios
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-> **Deprecated.** Use [@react-native-community/react-native-segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
+> **Deprecated.** Use [@react-native-community/segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
 
 使用`SegmentedControlIOS`来在iOS设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
 

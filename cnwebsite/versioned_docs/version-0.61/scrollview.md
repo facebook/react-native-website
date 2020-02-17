@@ -148,7 +148,19 @@ _仅iOS可用的值_
 
 ### `onScroll`
 
-在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用`scrollEventThrottle`属性来控制。The event has the shape `{ nativeEvent: { contentInset: { bottom, left, right, top }, contentOffset: { x, y }, contentSize: { height, width }, layoutMeasurement: { height, width }, zoomScale } }`. All values are numbers.
+在滚动的过程中，每帧最多调用一次此回调函数。调用的频率可以用`scrollEventThrottle`属性来控制。The event has the following shape (all values are numbers):
+
+```js
+{
+  nativeEvent: {
+    contentInset: {bottom, left, right, top},
+    contentOffset: {x, y},
+    contentSize: {height, width},
+    layoutMeasurement: {height, width},
+    zoomScale
+  }
+}
+```
 
 | 类型     | 必填 |
 | -------- | ---- |

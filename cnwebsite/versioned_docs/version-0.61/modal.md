@@ -4,7 +4,7 @@ title: Modal
 original_id: modal
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.86%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.14%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.92%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.08%)
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
@@ -140,6 +140,16 @@ class ModalExample extends Component {
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
+
+---
+
+### `statusBarTranslucent`
+
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| 类型 | 必填 | 平台 |
+| ---- | -------- | -------- |
+| bool | 否       | Android  |
 
 ---
 

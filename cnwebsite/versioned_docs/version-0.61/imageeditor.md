@@ -1,10 +1,12 @@
 ---
 id: version-0.61-imageeditor
-title: ImageEditor
+title: 🚧 ImageEditor
 original_id: imageeditor
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+
+> **Deprecated.** Use [@react-native-community/image-editor](https://github.com/react-native-community/react-native-image-editor) instead.
 
 # 文档
 

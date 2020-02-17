@@ -45,7 +45,7 @@
         "title": "AppState"
       },
       "asyncstorage": {
-        "title": "AsyncStorage"
+        "title": "🚧 AsyncStorage"
       },
       "backhandler": {
         "title": "BackHandler"
@@ -87,13 +87,16 @@
         "title": "Custom WebView"
       },
       "datepickerandroid": {
-        "title": "DatePickerAndroid"
+        "title": "🚧 DatePickerAndroid"
       },
       "datepickerios": {
-        "title": "DatePickerIOS"
+        "title": "🚧 DatePickerIOS"
       },
       "debugging": {
         "title": "调试"
+      },
+      "devsettings": {
+        "title": "DevSettings"
       },
       "dimensions": {
         "title": "Dimensions"
@@ -106,6 +109,9 @@
       },
       "easing": {
         "title": "Easing"
+      },
+      "fast-refresh": {
+        "title": "快速自动刷新 Fast Refresh"
       },
       "flatlist": {
         "title": "FlatList"
@@ -147,10 +153,10 @@
         "title": "ImageBackground"
       },
       "imageeditor": {
-        "title": "ImageEditor"
+        "title": "🚧 ImageEditor"
       },
       "imagepickerios": {
-        "title": "ImagePickerIOS"
+        "title": "🚧 ImagePickerIOS"
       },
       "images": {
         "title": "图片"
@@ -166,6 +172,15 @@
       },
       "interactionmanager": {
         "title": "InteractionManager"
+      },
+      "intro-react-native-components": {
+        "title": "核心组件与原生组件"
+      },
+      "intro-react": {
+        "title": "React基础"
+      },
+      "introduction": {
+        "title": "Introduction"
       },
       "javascript-environment": {
         "title": "JavaScript环境"
@@ -246,7 +261,7 @@
         "title": "Picker"
       },
       "pickerios": {
-        "title": "PickerIOS"
+        "title": "🚧 PickerIOS"
       },
       "pixelratio": {
         "title": "PixelRatio"
@@ -255,10 +270,10 @@
         "title": "特定平台代码"
       },
       "progressbarandroid": {
-        "title": "ProgressBarAndroid"
+        "title": "🚧 ProgressBarAndroid"
       },
       "progressviewios": {
-        "title": "ProgressViewIOS"
+        "title": "🚧 ProgressViewIOS"
       },
       "props": {
         "title": "Props（属性）"
@@ -267,7 +282,7 @@
         "title": "发布自己定制的ReactNative包"
       },
       "pushnotificationios": {
-        "title": "PushNotificationIOS"
+        "title": "🚧 PushNotificationIOS"
       },
       "refreshcontrol": {
         "title": "RefreshControl"
@@ -294,7 +309,7 @@
         "title": "SectionList"
       },
       "segmentedcontrolios": {
-        "title": "SegmentedControlIOS"
+        "title": "🚧 SegmentedControlIOS"
       },
       "settings": {
         "title": "Settings"
@@ -309,7 +324,7 @@
         "title": "打包APK"
       },
       "slider": {
-        "title": "Slider"
+        "title": "🚧 Slider"
       },
       "state": {
         "title": "State（状态）"
@@ -342,16 +357,13 @@
         "title": "TextInput"
       },
       "timepickerandroid": {
-        "title": "TimePickerAndroid"
+        "title": "🚧 TimePickerAndroid"
       },
       "timers": {
         "title": "定时器"
       },
       "toastandroid": {
         "title": "ToastAndroid"
-      },
-      "toolbarandroid": {
-        "title": "ToolbarAndroid"
       },
       "touchablehighlight": {
         "title": "TouchableHighlight"
@@ -396,7 +408,7 @@
         "title": "View"
       },
       "viewpagerandroid": {
-        "title": "ViewPagerAndroid"
+        "title": "🚧 ViewPagerAndroid"
       },
       "virtualizedlist": {
         "title": "VirtualizedList"
@@ -7055,6 +7067,9 @@
       "version-0.61/version-0.61-easing": {
         "title": "Easing"
       },
+      "version-0.61/version-0.61-fast-refresh": {
+        "title": "快速自动刷新 Fast Refresh"
+      },
       "version-0.61/version-0.61-flatlist": {
         "title": "FlatList"
       },
@@ -7365,6 +7380,7 @@
     },
     "categories": {
       "入门基础": "入门基础",
+      "布局设计": "布局设计",
       "进阶指南": "进阶指南",
       "使用指南(iOS)": "使用指南(iOS)",
       "使用指南(Android)": "使用指南(Android)",

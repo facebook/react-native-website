@@ -4,7 +4,7 @@ title: Keyboard
 original_id: keyboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(86.21%), [not.committed.yet](https://github.com/search?q=not.committed.yet+in%3Aemail&type=Users)(13.79%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 `Keyboard`模块用来控制键盘相关的事件。
 
@@ -79,7 +79,7 @@ This can be any of the following
 * `keyboardWillChangeFrame`
 * `keyboardDidChangeFrame`
 
-注意如果你把`android:windowSoftInputMode`设置为`adjustResize`，则在 Android 上只有`keyboardDidShow`和`keyboardDidHide`事件有效。如果`android:windowSoftInputMode`设置为`adjustNothing`，则没有任何事件有效。`keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
+注意如果你把`android:windowSoftInputMode`设置为`adjustResize`或是`adjustPan`，则在 Android 上只有`keyboardDidShow`和`keyboardDidHide`事件有效。如果`android:windowSoftInputMode`设置为`adjustNothing`，则没有任何事件有效。`keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: version-0.61-pushnotificationios
-title: PushNotificationIOS
+title: 🚧 PushNotificationIOS
 original_id: pushnotificationios
 ---
 
@@ -23,15 +23,13 @@ original_id: pushnotificationios
 
 要使用推送通知功能，首先[在苹果后台配置推送通知服务](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6)并且准备好服务端的系统。
 
-Add the PushNotificationIOS library to your Podfile:
-./ios/Podfile
-```
-...
-target 'myAwesomeApp' do
-  # Pods for myAwesomeApp
-...
-  pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
-...
+Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
+
+```ruby
+  target 'myAwesomeApp' do
+    # Pods for myAwesomeApp
+    pod 'React-RCTPushNotification', :path => '../node_modules/react-native/Libraries/PushNotificationIOS'
+  end
 ```
 
 译注: 0.60版本之前的步骤不同，请查看老版本文档。
@@ -416,7 +414,7 @@ You will never need to instantiate `PushNotificationIOS` yourself. Listening to 
 finish(fetchResult);
 ```
 
-This method is available for remote notifications that have been received via: `application:didReceiveRemoteNotification:fetchCompletionHandler:` https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplicationDelegate_Protocol/#//apple_ref/occ/intfm/UIApplicationDelegate/application:didReceiveRemoteNotification:fetchCompletionHandler:
+This method is available for remote notifications that have been received via: `application:didReceiveRemoteNotification:fetchCompletionHandler:` https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application?language=objc
 
 Call this to execute when the remote notification handling is complete. When calling this block, pass in the fetch result value that best describes the results of your operation. You _must_ call this handler and should do so as soon as possible. For a list of possible values, see `PushNotificationIOS.FetchResult`.
 

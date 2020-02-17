@@ -6,8 +6,10 @@
 
 @media only screen and (min-width: 1024px) {
   .docs-prevnext {
-    margin: 0 -9999px 0 -3rem;
-    padding: 2rem 9999px 2rem 3rem;
+    /* margin: 0 -9999px 0 -3rem;
+    padding: 2rem 9999px 2rem 3rem; */
+    padding: 2rem 3rem;
+    margin: 0px -24px 0px -48px;
   }
 }
 
@@ -46,6 +48,7 @@
 
 .button.docs-prev {
   margin-right: auto;
+  margin-left: -0.1rem;
 }
 
 .button.docs-next {

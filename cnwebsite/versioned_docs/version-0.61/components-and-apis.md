@@ -159,10 +159,6 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
     <p>弹出一个Toast提示框。</p>
   </div>
   <div class="component">
-    <h3><a href="../toolbarandroid.html">ToolbarAndroid</a></h3>
-    <p>在顶部渲染一个<code>Toolbar</code>工具栏。</p>
-  </div>
-  <div class="component">
     <h3><a href="../viewpagerandroid.html">ViewPagerAndroid</a></h3>
     <p>可左右翻页滑动的视图容器。</p>
   </div>
