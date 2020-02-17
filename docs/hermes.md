@@ -42,7 +42,7 @@ $ cd android && ./gradlew clean
 That's it! You should now be able to develop and deploy your app as normal:
 
 ```shell
-$ react-native run-android
+$ npx react-native run-android
 ```
 
 > ## Note about Android App Bundles
@@ -63,7 +63,7 @@ const isHermes = () => global.HermesInternal !== null;
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
 ```shell
-$ react-native run-android --variant release
+$ npx react-native run-android --variant release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
