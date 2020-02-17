@@ -350,14 +350,15 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk
 
 你需要关闭现有的命令符提示窗口然后重新打开，这样新的环境变量才能生效。
 
-#### 4. 把 platform-tools 目录添加到环境变量 Path 中
+#### 4. 把一些工具目录添加到环境变量 Path 中
 
-打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` -> `高级` -> `环境变量`，选中**Path**变量，然后点击**编辑**。点击**新建**然后把 platform-tools 目录路径添加进去。
-
-此目录的默认路径为：
+打开`控制面板` -> `系统和安全` -> `系统` -> `高级系统设置` -> `高级` -> `环境变量`，选中**Path**变量，然后点击**编辑**。点击**新建**然后把这些工具目录路径添加进去：platform-tools、emulator、tools、tools/bin
 
 ```powershell
-c:\Users\你的用户名\AppData\Local\Android\Sdk\platform-tools
+%ANDROID_HOME%\platform-tools
+%ANDROID_HOME%\emulator
+%ANDROID_HOME%\tools
+%ANDROID_HOME%\tools\bin
 ```
 
  <block class="native linux android" />
@@ -491,7 +492,6 @@ yarn react-native run-android
 如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。注意第一次运行时需要下载大量编译依赖，耗时可能数十分钟。此过程`严重依赖稳定的翻墙工具`，否则将频繁遭遇链接超时和断开，导致无法运行。
 
 也可以尝试阿里云提供的[maven镜像](https://help.aliyun.com/document_detail/102512.html?spm=a2c40.aliyun_maven_repo.0.0.361865e90r2x4b)，将`android/build.gradle`中的`jcenter()`和`google()`分别替换为`maven { url 'https://maven.aliyun.com/repository/jcenter' }`和`maven { url 'https://maven.aliyun.com/repository/google' }`（注意有多处需要替换）。
-
 
 如果你的设备的 Android 版本低于 5.0，则可能在运行时看到红屏，请阅读[在设备上运行](running-on-device.md)这篇文档来按照步骤解决。
 
