@@ -1,11 +1,11 @@
 ---
 id: timepickerandroid
-title: TimePickerAndroid
+title: 🚧 TimePickerAndroid
 ---
 
-Opens the standard Android time picker dialog.
+> **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
 
-> `TimePickerAndroid` has been merged with `DatePickerIOS` and `DatePickerAndroid` into a single component called [DateTimePicker](https://github.com/react-native-community/react-native-datetimepicker#react-native-datetimepicker) and will be removed in a future release.
+Opens the standard Android time picker dialog.
 
 ### Example
 

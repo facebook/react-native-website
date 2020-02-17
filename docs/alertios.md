@@ -1,9 +1,9 @@
 ---
 id: alertios
-title: AlertIOS
+title: 🚧 AlertIOS
 ---
 
-> **Deprecated.** `AlertIOS` has been moved to [`Alert`](alert.md)
+> **Deprecated.** Use [`Alert`](alert.md) instead.
 
 `AlertIOS` provides functionality to create an iOS alert dialog with a message or create a prompt for user input.
 
