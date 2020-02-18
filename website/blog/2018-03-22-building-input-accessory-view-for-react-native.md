@@ -14,7 +14,7 @@ Three years ago, a GitHub issue was opened to support input accessory view from 
 
 <img src="/react-native/blog/assets/input-accessory-1.png"/>
 
-In the ensuing years, there have been countless '+1s', various workarounds, and zero concrete changes to RN on this issue - until today. Starting with iOS, [we're exposing an API](http://facebook.github.io/react-native/docs/next/inputaccessoryview.html) for accessing the native input accessory view and we are excited to share how we built it.
+In the ensuing years, there have been countless '+1s', various workarounds, and zero concrete changes to RN on this issue - until today. Starting with iOS, [we're exposing an API](/docs/next/inputaccessoryview.html) for accessing the native input accessory view and we are excited to share how we built it.
 
 ## Background
 
@@ -118,6 +118,6 @@ Another example for [Sticky Text Inputs can be found in the repository](https://
 
 ## When will I be able to use this?
 
-The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](http://facebook.github.io/react-native/docs/next/inputaccessoryview.html) will be available in the upcoming v0.55.0 release.
+The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](/docs/next/inputaccessoryview.html) will be available in the upcoming v0.55.0 release.
 
 Happy keyboarding :)
