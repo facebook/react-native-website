@@ -3,15 +3,15 @@ id: security
 title: Security
 ---
 
-Security is an often overlooked aspect when building software. Similarly to how we’ve yet to invent a completely impenetrable lock (bank vaults do, after all, still get broken into), it is also almost impossible to build software to be completely impenetrable. However the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
+Security is an often overlooked aspect when building software. Similarly to how we’ve yet to invent a completely impenetrable lock (bank vaults do, after all, still get broken into), it is also almost impossible to build software to be completely impenetrable. However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
 
-In this guide you will learn about best practices for storing sensitive information, authentication, network security, and tool that will help you secure your application. This is not a preflight checklist—it is a catalogue of options, each of which will help protect your application further.
+In this guide, you will learn about best practices for storing sensitive information, authentication, network security, and tool that will help you secure your application. This is not a preflight checklist—it is a catalogue of options, each of which will help protect your application further.
 
 ## Storing Sensitive Info
 
 Never store sensitive API keys in your app code. Anything included in your code could be accessed in plain text by anyone inspecting the app bundle. Tools like [react-native-dotenv](https://github.com/zetachang/react-native-dotenv) and [react-native-config](https://github.com/luggit/react-native-config/) are great for adding environment-specific variables like API endpoints, but they should not be confused with server-side environment variables, which can often contain secrets and api keys.
 
-If you must have an API key or a secret to access some resource from your app, the most secure way to handle this would be to build an orchestration layer between your app and and the resource. This could be a serverless function (e.g. using AWS Lambda or Google Cloud Functions) which can forward the request with the required API key or secret. Secrets in server side code cannot be accessed by the API consumers the same way secrets in your app code can.
+If you must have an API key or a secret to access some resource from your app, the most secure way to handle this would be to build an orchestration layer between your app and the resource. This could be a serverless function (e.g. using AWS Lambda or Google Cloud Functions) which can forward the request with the required API key or secret. Secrets in server side code cannot be accessed by the API consumers the same way secrets in your app code can.
 
 > **Persisted vs unpersisted** — persisted data is written to the device’s memory, which lets the data be read by your app across application launches without having to do another network request to fetch it or asking the user to re-enter it. But this also can make that data more vulnerable to being accessed by attackers. Unpersisted data is never written to memory—so there's no data to access!
 
@@ -75,7 +75,7 @@ When the operating system has two or more applications to choose from when openi
 
 The OAuth2 authentication protocol is incredibly popular nowadays, prided as the most complete and secure protocol around. The OpenID Connect protocol is also based on this. In OAuth2, the user is asked to authenticate via a third party. On successful completion, this third party redirects back to the requesting application with a verification code which can be exchanged for a JWT — a [JSON Web Token](https://jwt.io/introduction/). JWT is an open standard for securely transmitting information between parties on the web.
 
-On the web, this redirect step is secure, because urls on the web are guaranteed to be unique. This is not true for apps because, as mentioned earlier, there is no centralized method of registering URL schemes! In order to address this security concern, an additional check must be added in the form of PKCE.
+On the web, this redirect step is secure, because URLs on the web are guaranteed to be unique. This is not true for apps because, as mentioned earlier, there is no centralized method of registering URL schemes! In order to address this security concern, an additional check must be added in the form of PKCE.
 
 [PKCE](https://oauth.net/2/pkce/), pronounced “Pixy” stands for Proof of Key Code Exchange, and is an extension to the OAuth 2 spec. This involves adding an additional layer of security which verifies that the authentication and token exchange requests come from the same client. PKCE uses the [SHA 265](https://www.movable-type.co.uk/scripts/sha256.html) Cryptographic Hash Algorithm. SHA 265 creates a unique “signature” for a text or file of any size, but it is
 
