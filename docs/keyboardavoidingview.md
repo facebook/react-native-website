@@ -70,7 +70,7 @@ Inherits [View Props](view.md#props).
 
 Specify how to react to the presence of the keyboard.
 
-_Note: Android and iOS both interact with this prop differently._ _Android may behave better when given no behavior prop at all, whereas iOS is the opposite._
+> Android and iOS both interact with this prop differently. On both iOS and Android, setting `behavior` is recommended.
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |
