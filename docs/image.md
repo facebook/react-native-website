@@ -32,11 +32,11 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   tinyLogo: {
-    width: 50, 
+    width: 50,
     height: 50,
   },
   logo: {
-    width: 66, 
+    width: 66,
     height: 58,
   },
 });
@@ -51,7 +51,7 @@ const DisplayAnImage = () => {
       <Image
         style={styles.tinyLogo}
         source={{
-          uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
         }}
       />
       <Image
@@ -80,11 +80,11 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   tinyLogo: {
-    width: 50, 
+    width: 50,
     height: 50,
   },
   logo: {
-    width: 66, 
+    width: 66,
     height: 58,
   },
 });
@@ -99,7 +99,7 @@ export default class DisplayAnImage extends Component {
         />
         <Image
           style={styles.tinyLogo}
-          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
         />
         <Image
           style={styles.logo}
@@ -115,7 +115,6 @@ export default class DisplayAnImage extends Component {
 <block class="endBlock syntax" />
 
 You can also add `style` to an image:
-
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -438,9 +437,9 @@ When true, indicates the image is an accessibility element.
 
 When the image is resized, the corners of the size specified by `capInsets` will stay a fixed size, but the center content and borders of the image will be stretched. This is useful for creating resizable rounded buttons, shadows, and other resizable assets. More info in the [official Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets).
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
+| Type                                                               | Required | Platform |
+| ------------------------------------------------------------------ | -------- | -------- |
+| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
 
 ---
 
@@ -519,11 +518,11 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| uri | string | Yes | The location of the image. |
-| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No | The function that will be called if there was an error, such as failing to retrieve the image. |
+| Name    | Type     | Required | Description                                                                                          |
+| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| uri     | string   | Yes      | The location of the image.                                                                           |
+| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No       | The function that will be called if there was an error, such as failing to retrieve the image.       |
 
 ---
 
@@ -541,12 +540,12 @@ Does not work for static image resources.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| uri | string | Yes | The location of the image. |
-| headers | object | Yes | The headers for the request. |
-| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No | The function that will be called if there was an error, such as failing toto retrieve the image. |
+| Name    | Type     | Required | Description                                                                                          |
+| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| uri     | string   | Yes      | The location of the image.                                                                           |
+| headers | object   | Yes      | The headers for the request.                                                                         |
+| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
 
 ---
 
@@ -608,8 +607,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| source | number, object | Yes | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+| Name   | Type           | Required | Description                                                                  |
+| ------ | -------------- | -------- | ---------------------------------------------------------------------------- |
+| source | number, object | Yes      | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
 
 > `ImageSource` is an object like `{ uri: '<http location || file path>' }`
