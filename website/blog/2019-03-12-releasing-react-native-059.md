@@ -34,7 +34,7 @@ We want to help people have performant React Native apps by default and are work
 
 ![source of the `metro.config.js` file in the 0.59 template, demonstrating where to enable `inlineRequires`](/react-native/blog/assets/inline-requires.png)
 
-We need the community to let us know how it works before we turn it on by default. When you upgrade to 0.59, there will be a new `metro.config.js` file; flip the options to true and give us [your feedback](https://twitter.com/hashtag/inline-requires)! Read more about inline requires [in the performance docs](https://facebook.github.io/react-native/docs/0.56/performance#inline-requires) to benchmark your app.
+We need the community to let us know how it works before we turn it on by default. When you upgrade to 0.59, there will be a new `metro.config.js` file; flip the options to true and give us [your feedback](https://twitter.com/hashtag/inline-requires)! Read more about inline requires [in the performance docs](/docs/0.56/performance#inline-requires) to benchmark your app.
 
 ## 🚅 Lean core is underway
 

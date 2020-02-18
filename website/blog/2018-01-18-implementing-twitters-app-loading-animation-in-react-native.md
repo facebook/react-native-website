@@ -69,7 +69,7 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
 
 Alrighty. Now that we know what we are building and how the animation works, we can get down to the code — the reason you are really here.
 
-The main piece of this puzzle is [MaskedViewIOS](https://facebook.github.io/react-native/docs/maskedviewios.html), a core React Native component.
+The main piece of this puzzle is [MaskedViewIOS](/docs/maskedviewios.html), a core React Native component.
 
 ```jsx
 import {MaskedViewIOS} from 'react-native';
@@ -107,7 +107,7 @@ This will give us the layers we see below.
 
 ## Now for the Animated part
 
-We have all the pieces we need to make this work, the next step is animating them. To make this animation feel good, we will be utilizing React Native’s [Animated](https://facebook.github.io/react-native/docs/animated.html) API.
+We have all the pieces we need to make this work, the next step is animating them. To make this animation feel good, we will be utilizing React Native’s [Animated](/docs/animated.html) API.
 
 Animated lets us define our animations declaratively in JavaScript. By default, these animations run in JavaScript and tell the native layer what changes to make on every frame. Even though JavaScript will try to update the animation every frame, it will likely not be able to do that fast enough and will cause dropped frames (jank) to occur. Not what we want!
 
