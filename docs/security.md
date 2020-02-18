@@ -92,6 +92,8 @@ During the initial `/authorize` request, the client also sends the `code_challen
 
 This guarantees that only the application that triggered the initial authorization flow would be able to successfully exchange the verification code for a JWT. So even if a malicious application gets access to the verification code, it will be useless on its own. To see this in action, check out [this example](https://aaronparecki.com/oauth-2-simplified/#mobile-apps).
 
+A library to consider for native OAuth is [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth) - an SDK for communicating with OAuth2 providers. It wraps the native [AppAuth-iOS](https://github.com/openid/AppAuth-iOS) and [AppAuth-Android](https://github.com/openid/AppAuth-Android) libraries and supports PKCE, (but only if your Identity Provider supports it)!
+
 ## Network Security
 
 Your APIs should always use [SSL encryption](https://www.ssl.com/faqs/faq-what-is-ssl/). You’ll know the endpoint is secure, because it starts with `https://` instead of `http://`. SSL encryption protects against the requested data being read in plain text between when it leaves the server and before it reaches the client.
