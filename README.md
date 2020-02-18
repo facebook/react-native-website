@@ -107,7 +107,7 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 1.  Some changes may require a server restart to generate new files. (Pages in **/docs** always do!)
 1.  Edits to pages in **/docs** will only be visible in the latest version of the documentation, called "Next," under **/docs/next**. Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
-> `open http://localhost:3000/react-native/versions.html` to see older versions of the docs.
+> `open http://localhost:3000/versions.html` to see older versions of the docs.
 
 ### Test the change
 

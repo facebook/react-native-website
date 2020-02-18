@@ -5,7 +5,7 @@ authorTitle: Developer Advocate at Facebook
 authorURL: https://twitter.com/hectorramos
 authorImageURL: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
 authorTwitter: hectorramos
-hero: /react-native/blog/img/rnmsf-august-2016-hero.jpg
+hero: /blog/img/rnmsf-august-2016-hero.jpg
 category: events
 ---
 

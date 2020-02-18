@@ -5,7 +5,7 @@ authorTitle: Software Engineer at Facebook
 authorURL: https://github.com/mkonicek
 authorImageURL: https://avatars1.githubusercontent.com/u/346214?v=3&s=460
 authorTwitter: martinkonicek
-hero: /react-native/blog/assets/big-hero.png
+hero: /blog/assets/big-hero.png
 category: announcements
 ---
 
