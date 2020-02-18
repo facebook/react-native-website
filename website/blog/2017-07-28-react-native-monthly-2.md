@@ -84,7 +84,7 @@ Here are the notes from each team:
 ### Shoutem
 
 - Finished the process of making the React Native development easier on [Shoutem](https://shoutem.github.io/). You can use all the standard `react-native` commands when developing apps on Shoutem.
-- We did a lot of work trying to figure out how to best approach the profiling on React Native. A big chunk of [documentation](https://facebook.github.io/react-native/performance.md) is outdated, and we'll do our best to create a pull request on the official docs or at least write some of our conclusions in a blog post.
+- We did a lot of work trying to figure out how to best approach the profiling on React Native. A big chunk of [documentation](/docs/performance) is outdated, and we'll do our best to create a pull request on the official docs or at least write some of our conclusions in a blog post.
 - Switching our navigation solution to [react-navigation](https://github.com/react-community/react-navigation), so we might have some feedback soon.
 - We released [a new HTML component](https://github.com/shoutem/ui/tree/develop/html) in our toolkit which transforms the raw HTML to the React Native components tree.
 

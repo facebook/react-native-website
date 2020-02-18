@@ -22,7 +22,7 @@ I was particularly interested in learning more about how React and React Native 
 But first, the event started off with a quick introduction and a brief recap of recent news:
 
 - Did you know that React Native is now the [top Java repository on GitHub](https://twitter.com/jamespearce/status/759637111880359937)?
-- [rnpm](https://github.com/rnpm/rnpm) is now part of React Native core! You can now use `react-native link` in place of `rnpm link` to [install libraries with native dependencies](https://facebook.github.io/react-native/linking-libraries-ios.md).
+- [rnpm](https://github.com/rnpm/rnpm) is now part of React Native core! You can now use `react-native link` in place of `rnpm link` to [install libraries with native dependencies](/docs/linking-libraries-ios).
 - The React Native Meetup community is growing fast! There are now over 4,800 developers across a variety of React Native meetup groups all over the globe.
 
 If [one of these meetups](http://www.meetup.com/find/?allMeetups=false&keywords=react+native&radius=Infinity&userFreeform=San+Francisco%2C+CA&mcId=z94105&mcName=San+Francisco%2C+CA&sort=recommended&eventFilter=mysugg) is held near you, I highly recommend attending!
