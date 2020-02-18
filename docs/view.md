@@ -9,23 +9,27 @@ The most fundamental component for building a UI, `View` is a container that sup
 
 This example creates a `View` that wraps two boxes with color and a text component in a row with padding.
 
-```jsx
-class ViewBoxesWithColorAndText extends Component {
-  render() {
-    return (
-      <View
-        style={{
-          flexDirection: 'row',
-          height: 100,
-          padding: 20,
-        }}>
-        <View style={{backgroundColor: 'blue', flex: 0.3}} />
-        <View style={{backgroundColor: 'red', flex: 0.5}} />
-        <Text>Hello World!</Text>
-      </View>
-    );
-  }
-}
+```SnackPlayer name=Example%20Code
+import React from "react";
+import { View, Text } from "react-native";
+
+const ViewBoxesWithColorAndText = () => {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        height: 100,
+        padding: 20
+      }}
+    >
+      <View style={{ backgroundColor: "blue", flex: 0.3 }} />
+      <View style={{ backgroundColor: "red", flex: 0.5 }} />
+      <Text>Hello World!</Text>
+    </View>
+  );
+};
+
+export default ViewBoxesWithColorAndText;
 ```
 
 > `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
@@ -139,9 +143,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           | Required |
-| ---------------------------------------------------------------------------------------------- | -------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
+| Type | Required |
+| --- | --- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No |
 
 ---
 
@@ -290,9 +294,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type | Required |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No |
 
 ---
 
@@ -594,9 +598,9 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 ---
 
-### `clickable`
+### `focusable`
 
-Determines whether this `View` is clickable or tappable for accessibility hints.
+Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 
 | Type    | Required | Platform |
 | ------- | -------- | -------- |

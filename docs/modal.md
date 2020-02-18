@@ -5,7 +5,6 @@ title: Modal
 
 The Modal component is a basic way to present content above an enclosing view.
 
-> Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
 
 ```SnackPlayer name=rn-modal
 import React, {Component, useState} from 'react';

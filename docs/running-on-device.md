@@ -5,7 +5,7 @@ title: Running On Device
 
 It's always a good idea to test your app on an actual device before releasing it to your users. This document will guide you through the necessary steps to run your React Native app on a device and to get it ready for production.
 
-If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
+If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app—but in order to build and run your app on a device, you will need to eject and install the native code dependencies from the [environment setup guide](environment-setup).
 
 <div class="toggler">
   <ul role="tablist" id="toggle-platform">
@@ -39,7 +39,7 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
 
 <block class="linux windows ios" />
 
-A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to the [Quick Start instructions](getting-started.md) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
+A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to our [environment setup guide](environment-setup) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
 
 <block class="mac ios" />
 
@@ -144,14 +144,14 @@ Seeing `device` in the right column means the device is connected. You must have
 Type the following in your command prompt to install and launch your app on the device:
 
 ```
-$ react-native run-android
+$ npx react-native run-android
 ```
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
 > Hint
 >
-> You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `react-native run-android --variant=release`).
+> You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
 
 <block class="mac windows linux android ios" />
 
@@ -306,7 +306,7 @@ The static bundle is built every time you target a physical device, even in Debu
 
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
-> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `react-native run-ios --configuration Release`).
+> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
 
 <block class="mac windows linux android" />
 

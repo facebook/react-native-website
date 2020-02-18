@@ -2,10 +2,8 @@
   "docs": {
     "The Basics": [
       "getting-started",
-      "tutorial",
-      "props",
-      "state",
-      "style",
+      "intro-react-native-components",
+      "intro-react",
       "handling-text-input",
       "using-a-scrollview",
       "using-a-listview",
@@ -14,6 +12,7 @@
       "more-resources"
     ],
     "Environment setup": [
+      "environment-setup",
       "integration-with-existing-apps",
       "building-for-apple-tv",
       "out-of-tree-platforms"
@@ -25,7 +24,7 @@
       "typescript",
       "upgrading"
     ],
-    "Design": ["colors", "images", "stylesheet", "flexbox", "height-and-width"],
+    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
     "Interaction": [
       "handling-touches",
       "navigation",
@@ -81,12 +80,12 @@
       "segmentedcontrolios",
       "slider",
       "statusbar",
+      "stylesheet",
       "switch",
       "tabbarios",
       "tabbarios-item",
       "text",
       "textinput",
-      "toolbarandroid",
       "touchablehighlight",
       "touchablenativefeedback",
       "touchableopacity",
@@ -94,6 +93,13 @@
       "view",
       "viewpagerandroid",
       "virtualizedlist"
+    ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
     ],
     "APIs": [
       "accessibilityinfo",
@@ -107,14 +113,13 @@
       "backhandler",
       "clipboard",
       "datepickerandroid",
+      "devsettings",
       "dimensions",
       "easing",
       "imageeditor",
       "imagepickerios",
-      "image-style-props",
       "interactionmanager",
       "keyboard",
-      "layout-props",
       "layoutanimation",
       "linking",
       "panresponder",
@@ -122,16 +127,13 @@
       "pixelratio",
       "pushnotificationios",
       "settings",
-      "shadow-props",
       "share",
       "statusbarios",
       "systrace",
-      "text-style-props",
       "timepickerandroid",
       "toastandroid",
       "transforms",
-      "vibration",
-      "view-style-props"
+      "vibration"
     ]
   }
 }

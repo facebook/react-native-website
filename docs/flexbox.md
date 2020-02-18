@@ -23,11 +23,11 @@ In the following example, the red, yellow, and green views are all children in t
 
 - `row` Align children from left to right. If wrapping is enabled, then the next line will start under the first item on the left of the container.
 
-- `column` (**default value**) Align children from top to bottom. If wrapping is enabled, then the next line will start to the left first item on the top of the container.
+- `column` (**default value**) Align children from top to bottom. If wrapping is enabled, then the next line will start to the right of the first item on the top of the container.
 
 - `row-reverse` Align children from right to left. If wrapping is enabled, then the next line will start under the first item on the right of the container.
 
-- `column-reverse` Align children from bottom to top. If wrapping is enabled, then the next line will start to the left first item on the bottom of the container.
+- `column-reverse` Align children from bottom to top. If wrapping is enabled, then the next line will start to the right of the first item on the bottom of the container.
 
 You can learn more [here](https://yogalayout.com/docs/flex-direction).
 
@@ -224,5 +224,3 @@ Check out the interactive [yoga playground](https://yogalayout.com/playground) t
 We've covered the basics, but there are many other styles you may need for layouts. The full list of props that control layout is documented [here](./layout-props.md).
 
 Additionally, you can see some examples from [Wix Engineers](https://medium.com/wix-engineering/the-full-react-native-layout-cheat-sheet-a4147802405c).
-
-We're getting close to being able to build a real application. One thing we are still missing is a way to take user input, so let's move on to [learn how to handle text input with the TextInput component](handling-text-input.md).

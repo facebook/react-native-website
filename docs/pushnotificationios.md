@@ -1,6 +1,6 @@
 ---
 id: pushnotificationios
-title: PushNotificationIOS
+title: 🚧 PushNotificationIOS
 ---
 
 > **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
@@ -132,8 +132,8 @@ details is an object containing:
 - `soundName` : The sound played when the notification is fired (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).
 - `category` : The category of this notification, required for actionable notifications (optional).
-- `userInfo` : An optional object containing additional notification data.
-- `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed.
+- `userInfo` : An object containing additional notification data (optional).
+- `applicationIconBadgeNumber` The number to display as the app's icon badge. The default value of this property is 0, which means that no badge is displayed (optional).
 
 ---
 
@@ -160,9 +160,9 @@ details is an object containing:
 - `soundName` : The sound played when the notification is fired (optional).
 - `isSilent` : If true, the notification will appear without sound (optional).
 - `category` : The category of this notification, required for actionable notifications (optional).
-- `userInfo` : An optional object containing additional notification data.
-- `applicationIconBadgeNumber` (optional) : The number to display as the app's icon badge. Setting the number to 0 removes the icon badge.
-- `repeatInterval` : The interval to repeat as a string. Possible values: `minute`, `hour`, `day`, `week`, `month`, `year`.
+- `userInfo` : An object containing additional notification data (optional).
+- `applicationIconBadgeNumber` The number to display as the app's icon badge. Setting the number to 0 removes the icon badge (optional).
+- `repeatInterval` : The interval to repeat as a string. Possible values: `minute`, `hour`, `day`, `week`, `month`, `year` (optional).
 
 ---
 
@@ -205,8 +205,8 @@ A delivered notification is an object containing:
 - `identifier` : The identifier of this notification.
 - `title` : The title of this notification.
 - `body` : The body of this notification.
-- `category` : The category of this notification, if has one.
-- `userInfo` : An optional object containing additional notification data.
+- `category` : The category of this notification (optional).
+- `userInfo` : An object containing additional notification data (optional).
 - `thread-id` : The thread identifier of this notification, if has one.
 
 ---

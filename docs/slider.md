@@ -1,9 +1,9 @@
 ---
 id: slider
-title: Slider
+title: 🚧 Slider
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-slider](https://github.com/react-native-community/react-native-slider) instead.
+> **Deprecated.** Use [@react-native-community/slider](https://github.com/react-native-community/react-native-slider) instead.
 
 A component used to select a single value from a range of values.
 

@@ -53,7 +53,7 @@ The keys to integrating React Native components into your Android application ar
 
 <block class="objc swift" />
 
-Follow the instructions for building apps with native code from the [Getting Started guide](getting-started.md) to configure your development environment for building React Native apps for iOS.
+Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup) to configure your development environment for building React Native apps for iOS.
 
 ### 1. Set up directory structure
 
@@ -61,7 +61,7 @@ To ensure a smooth experience, create a new folder for your integrated React Nat
 
 <block class="android" />
 
-Follow the instructions for building apps with native code from the [Getting Started guide](getting-started.md) to configure your development environment for building React Native apps for Android.
+Follow the React Native CLI Quickstart in the [environment setup guide](environment-setup) to configure your development environment for building React Native apps for Android.
 
 ### 1. Set up directory structure
 
@@ -480,7 +480,7 @@ If you are using Xcode or your favorite editor, build and run your native iOS ap
 
 ```
 # From the root of your project
-$ react-native run-ios
+$ npx react-native run-ios
 ```
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
@@ -795,7 +795,7 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
 ```
-$ react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
+$ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
 ```
 
 > Don’t forget to replace the paths with correct ones and create the assets folder if it doesn’t exist.
@@ -806,4 +806,4 @@ Now, create a release build of your native app from within Android Studio as usu
 
 ### Now what?
 
-At this point you can continue developing your app as usual. Refer to our [debugging](debugging.md) and [deployment](running-on-device.md) docs to learn more about working with React Native.
+At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.

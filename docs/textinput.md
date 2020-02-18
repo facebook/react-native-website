@@ -645,24 +645,6 @@ The highlight and cursor color of the text input.
 
 ---
 
-### `selectionState`
-
-An instance of `DocumentSelectionState`, this is some state that is responsible for maintaining selection information for a document.
-
-Some functionality that can be performed with this instance is:
-
-- `blur()`
-- `focus()`
-- `update()`
-
-> You can reference `DocumentSelectionState` in [`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)
-
-| Type                   | Required | Platform |
-| ---------------------- | -------- | -------- |
-| DocumentSelectionState | No       | iOS      |
-
----
-
 ### `selectTextOnFocus`
 
 If `true`, all text will automatically be selected on focus.
@@ -703,9 +685,9 @@ Possible values for `textAlign` are:
 - `center`
 - `right`
 
-| Type | Required |
-| ---- | -------- |
-| enum('left', 'center', 'right') | No     |
+| Type                            | Required |
+| ------------------------------- | -------- |
+| enum('left', 'center', 'right') | No       |
 
 ---
 
@@ -753,6 +735,17 @@ Possible values for `textContentType` are:
 | Type                                                                                                                                                                                                                                                                                                                                                                                                       | Required | Platform |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
 | enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | No       | iOS      |
+
+---
+
+### `passwordRules`
+
+When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them.
+In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
 
 ---
 

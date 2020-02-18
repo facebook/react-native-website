@@ -204,12 +204,6 @@ Many of the following components provide wrappers for commonly used Android clas
     </a>
   </div>
   <div class="component">
-    <a href="./toolbarandroid">
-      <h3>ToolbarAndroid</h3>
-      <p>Renders a <code>Toolbar</code> on Android.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./viewpagerandroid">
       <h3>ViewPagerAndroid</h3>
       <p>Container that allows to flip left and right between child views.</p>
