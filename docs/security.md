@@ -57,6 +57,8 @@ In order to use iOS Keychain services or Android Secure Shared Preferences, you 
 - [react-native-sensitive-info](https://github.com/mCodex/react-native-sensitive-info) - secure for iOS, but uses Android Shared Preferences for Android (which is not secure by default). There is however a [fork](https://github.com/mCodex/react-native-sensitive-info/tree/keystore)) that uses Android Keystore
 - [redux-persist-sensitive-storage](https://github.com/CodingZeal/redux-persist-sensitive-storage) - wraps react-native-sensitive-info
 
+> **Be mindful of unintentionally storing or exposing sensitive info.** This could easily happen accidentally, for example saving sensitive form data in redux state and persisting the whole state tree in Async Storage. Or sending user tokens and personal info to an application monitoring service such as Sentry or Crashlytics.
+
 ## Authentication and Deep Linking
 
 Mobile apps have a unique vulnerability that is non-existent in the web: **deep linking**. Deep linking is a way of sending data directly to a native application from an outside source. A deep link looks like `app://` where `app` is your app scheme and anything following the // could be used internally to handle the request.
