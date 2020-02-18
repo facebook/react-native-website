@@ -99,7 +99,7 @@ export default class HelloWorldApp extends Component {
 
 <block class="endBlock syntax" />
 
-You can find more examples of class components in [previous versions of this documentation](/react-native/versions).
+You can find more examples of class components in [previous versions of this documentation](/versions).
 
 ## Developer Notes
 

@@ -27,7 +27,7 @@ In addition, [css-layout](https://github.com/facebook/css-layout) already makes 
 
 The diagram below describes the changes at high level:
 
-![](/react-native/blog/assets/rtl-rn-core-updates.png)
+![](/blog/assets/rtl-rn-core-updates.png)
 
 These include:
 

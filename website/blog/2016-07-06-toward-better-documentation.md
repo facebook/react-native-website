@@ -36,7 +36,7 @@ class ScratchPad extends Component {
 AppRegistry.registerComponent('ScratchPad', () => ScratchPad);
 ```
 
-We think these inline examples, using the [`react-native-web-player`](https://github.com/dabbott/react-native-web-player) module with help from [Devin Abbott](https://twitter.com/devinaabbott), are a great way to learn the basics of React Native, and we have updated our [tutorial for new React Native developers](/react-native/tutorial.md) to use these wherever possible. Check it out - if you have ever been curious to see what would happen if you modified just one little bit of sample code, this is a really nice way to poke around. Also, if you're building developer tools and you want to show a live React Native sample on your own site, [`react-native-web-player`](https://github.com/dabbott/react-native-web-player) can make that straightforward.
+We think these inline examples, using the [`react-native-web-player`](https://github.com/dabbott/react-native-web-player) module with help from [Devin Abbott](https://twitter.com/devinaabbott), are a great way to learn the basics of React Native, and we have updated our [tutorial for new React Native developers](/docs/tutorial.md) to use these wherever possible. Check it out - if you have ever been curious to see what would happen if you modified just one little bit of sample code, this is a really nice way to poke around. Also, if you're building developer tools and you want to show a live React Native sample on your own site, [`react-native-web-player`](https://github.com/dabbott/react-native-web-player) can make that straightforward.
 
 The core simulation engine is provided by [Nicolas Gallagher](https://twitter.com/necolas)'s [`react-native-web`](https://github.com/necolas/react-native-web) project, which provides a way to display React Native components like `Text` and `View` on the web. Check out [`react-native-web`](https://github.com/necolas/react-native-web) if you're interested in building mobile and web experiences that share a large chunk of the codebase.
 
@@ -44,19 +44,19 @@ The core simulation engine is provided by [Nicolas Gallagher](https://twitter.co
 
 In some parts of React Native, there are multiple ways to do things, and we've heard feedback that we could provide better guidance.
 
-We have a new [guide to Navigation](/react-native/navigator-comparison.md) that compares the different approaches and advises on what you should use - `Navigator`, `NavigatorIOS`, `NavigationExperimental`. In the medium term, we're working towards improving and consolidating those interfaces. In the short term, we hope that a better guide will make your life easier.
+We have a new [guide to Navigation](/docs/navigator-comparison.md) that compares the different approaches and advises on what you should use - `Navigator`, `NavigatorIOS`, `NavigationExperimental`. In the medium term, we're working towards improving and consolidating those interfaces. In the short term, we hope that a better guide will make your life easier.
 
-We also have a new [guide to handling touches](/react-native/handling-touches.md) that explains some of the basics of making button-like interfaces, and a brief summary of the different ways to handle touch events.
+We also have a new [guide to handling touches](/docs/handling-touches.md) that explains some of the basics of making button-like interfaces, and a brief summary of the different ways to handle touch events.
 
-Another area we worked on is Flexbox. This includes tutorials on how to [handle layout with Flexbox](/react-native/flexbox.md) and how to control [the size of components](/react-native/height-and-width.md). It also includes an unsexy but hopefully-useful [list of all the props that control layout in React Native](/react-native/layout-props.md).
+Another area we worked on is Flexbox. This includes tutorials on how to [handle layout with Flexbox](/docs/flexbox.md) and how to control [the size of components](/docs/height-and-width.md). It also includes an unsexy but hopefully-useful [list of all the props that control layout in React Native](/docs/layout-props.md).
 
 ## Getting Started
 
 When you start getting a React Native development environment set up on your machine, you do have to do a bunch of installing and configuring things. It's hard to make installation a really fun and exciting experience, but we can at least make it as quick and painless as possible.
 
-We built a [new Getting Started workflow](/react-native/releases/next/getting-started.md) that lets you select your development operating system and your mobile operating system up front, to provide one concise place with all the setup instructions. We also went through the installation process to make sure everything worked and to make sure that every decision point had a clear recommendation. After testing it out on our innocent coworkers, we're pretty sure this is an improvement.
+We built a [new Getting Started workflow](/docs/releases/next/getting-started.md) that lets you select your development operating system and your mobile operating system up front, to provide one concise place with all the setup instructions. We also went through the installation process to make sure everything worked and to make sure that every decision point had a clear recommendation. After testing it out on our innocent coworkers, we're pretty sure this is an improvement.
 
-We also worked on the [guide to integrating React Native into an existing app](/react-native/integration-with-existing-apps.md). Many of the largest apps that use React Native, like the Facebook app itself, actually build part of the app in React Native, and part of it using regular development tools. We hope this guide makes it easier for more people to build apps this way.
+We also worked on the [guide to integrating React Native into an existing app](/docs/integration-with-existing-apps.md). Many of the largest apps that use React Native, like the Facebook app itself, actually build part of the app in React Native, and part of it using regular development tools. We hope this guide makes it easier for more people to build apps this way.
 
 ## We Need Your Help
 

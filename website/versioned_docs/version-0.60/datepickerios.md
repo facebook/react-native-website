@@ -142,7 +142,7 @@ The date picker mode.
 | --------------------------------------------- | -------- |
 | enum('date', 'time', 'datetime', 'countdown') | No       |
 
-Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/docs/assets/DatePickerIOS/mode.png)
+Example with `mode` set to `date`, `time`, and `datetime`: ![](/docs/assets/DatePickerIOS/mode.png)
 
 ---
 

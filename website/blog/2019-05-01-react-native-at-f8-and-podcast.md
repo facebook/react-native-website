@@ -25,7 +25,7 @@ Check out the video on [Facebook's developer website](https://developers.faceboo
 
 ### React Radio Podcast about Open Source
 
-Eli's talk concludes by talking about our recent open source work. We gave [an update on our progress in March](/react-native/blog/2019/03/01/react-native-open-source-update) and recently [Nader Dabit](https://twitter.com/dabit3) and [Gant Laborde](https://twitter.com/GantLaborde) invited Christoph for a chat on their podcast, [React Native Radio](https://devchat.tv/react-native-radio/react-native-open-source-the-react-native-community-feat-christoph-nakazawa/), to chat about React Native in open source.
+Eli's talk concludes by talking about our recent open source work. We gave [an update on our progress in March](/blog/2019/03/01/react-native-open-source-update) and recently [Nader Dabit](https://twitter.com/dabit3) and [Gant Laborde](https://twitter.com/GantLaborde) invited Christoph for a chat on their podcast, [React Native Radio](https://devchat.tv/react-native-radio/react-native-open-source-the-react-native-community-feat-christoph-nakazawa/), to chat about React Native in open source.
 
 #### Highlights from the podcast:
 
