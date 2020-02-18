@@ -89,6 +89,9 @@
       "debugging": {
         "title": "Debugging"
       },
+      "devsettings": {
+        "title": "DevSettings"
+      },
       "dimensions": {
         "title": "Dimensions"
       },
@@ -340,9 +343,6 @@
       },
       "toastandroid": {
         "title": "ToastAndroid"
-      },
-      "toolbarandroid": {
-        "title": "ToolbarAndroid"
       },
       "touchablehighlight": {
         "title": "TouchableHighlight"

@@ -54,7 +54,7 @@ As teams' plans might be of interest to a broader audience, we'll be sharing the
 - Working on making it possible to install npm modules in [Snack](https://snack.expo.io/), will be useful for libraries to add examples to documentation.
 - Working with [Krzysztof](https://github.com/kmagiera) and other people at [Software Mansion](https://github.com/softwaremansion) on a JSC update on Android and a gesture handling library.
 - [Adam Miskiewicz](https://github.com/skevy) is transitioning his focus towards [react-navigation](https://github.com/react-community/react-navigation).
-- [Create React Native App](https://github.com/react-community/create-react-native-app) is in the [Getting Started guide](/docs/getting-started.md) in the docs. Expo wants to encourage library authors to explain clearly whether their lib works with CRNA or not, and if so, explain how to set it up.
+- [Create React Native App](https://github.com/react-community/create-react-native-app) is in the [Getting Started guide](/docs/getting-started) in the docs. Expo wants to encourage library authors to explain clearly whether their lib works with CRNA or not, and if so, explain how to set it up.
 
 ### Facebook
 

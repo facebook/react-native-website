@@ -10,7 +10,7 @@ category: engineering
 
 Many of you have started playing with some of our new List components already after our [teaser announcement in the community group](https://www.facebook.com/groups/react.native.community/permalink/921378591331053), but we are officially announcing them today! No more `ListView`s or `DataSource`s, stale rows, ignored bugs, or excessive memory consumption - with the latest React Native March 2017 release candidate (`0.43-rc.1`) you can pick from the new suite of components what best fits your use-case, with great perf and feature sets out of the box:
 
-### [`<FlatList>`](/docs/flatlist.md)
+### [`<FlatList>`](/docs/flatlist)
 
 This is the workhorse component for simple, performant lists. Provide an array of data and a `renderItem` function and you're good to go:
 
@@ -45,7 +45,7 @@ If you want to render a set of data broken into logical sections, maybe with sec
 />
 ```
 
-### [`<VirtualizedList>`](https://reactnative.dev/native/releases/next/virtualizedlist.md)
+### [`<VirtualizedList>`](/docs/virtualizedlist)
 
 The implementation behind the scenes with a more flexible API. Especially handy if your data is not in a plain array (e.g. an immutable list).
 

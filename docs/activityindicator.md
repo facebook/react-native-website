@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 
 ## Props
 
-Inherits [View Props](view.md#props).
+Inherits [View Props](view#props).
 
 ### `animating`
 
@@ -103,9 +103,9 @@ Whether to show the indicator (true, the default) or hide it (false).
 
 The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type            | Required |
+| --------------- | -------- |
+| [color](colors) | No       |
 
 ---
 
