@@ -16,7 +16,7 @@ React Native is not only for Android and iOS - there are community-supported pro
 
 ## Creating your own React Native platform
 
-Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](https://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
+Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
 
 ### Bundling
 

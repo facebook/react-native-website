@@ -24,7 +24,7 @@ Instead of recompiling your app every time you make a change, you can reload you
 
 You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
 
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading) from the Developer Menu. This will allow you to persist the app's state through reloads.
+You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](/blog/2016/03/24/introducing-hot-reloading) from the Developer Menu. This will allow you to persist the app's state through reloads.
 
 > There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
 

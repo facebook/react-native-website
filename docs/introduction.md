@@ -43,7 +43,7 @@ The above is a Snack Player. It’s a handy tool created by Expo to embed and ru
 
 With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. But since the introduction of React's Hooks API, you can add state and more to function components.
 
-[Hooks were introduced in React Native 0.58.](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
+[Hooks were introduced in React Native 0.58.](/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">

@@ -104,7 +104,7 @@ Leland's talk was also followed by a Q&A session. Overall, Airbnb is satisfied w
 The event ended with some additional React Native news:
 
 - Deco announced their [React Native Showcase](https://www.decosoftware.com/showcase), and invited everyone to add their app to the list.
-- The recent [documentation overhaul](https://facebook.github.io/react-native/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
+- The recent [documentation overhaul](/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
 - Devin Abbott, one of the creators of Deco IDE, will be teaching an introductory [React Native course](https://www.decosoftware.com/course).
 
 ![](/react-native/blog/assets/rnmsf-august-2016-docs.jpg)
