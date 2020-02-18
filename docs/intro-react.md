@@ -278,7 +278,7 @@ export default function CatApp() {
   return (
     <View>
       <Image
-        source="https://facebook.github.io/react-native/docs/assets/p_cat1.png"
+        source="https://reactnative.dev/docs/assets/p_cat1.png"
         style={{width: 200, height: 200}}
       />
       <Text>Hello, I am your cat!</Text>
@@ -390,7 +390,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 <Button
   //..
   disabled={!isHungry}
-  title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
+  title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
 />
 ```
 

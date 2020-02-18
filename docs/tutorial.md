@@ -41,9 +41,9 @@ Then we find the `HelloWorldApp` function, which is a [functional component](htt
 
 The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
 
-The first style that we find is `flex: 1`, the [`flex`](https://facebook.github.io/react-native/docs/layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case, it is the only component, so it will take all the available screen space.
+The first style that we find is `flex: 1`, the [`flex`](layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case, it is the only component, so it will take all the available screen space.
 
-The following style is [`justifyContent`](https://facebook.github.io/react-native/docs/layout-props#justifycontent): "center". This align children of a container in the center of the container's main axis and finally we have [`alignItems`](https://facebook.github.io/react-native/docs/layout-props#alignitems): "center", which align children of a container in the center of the container's cross axis.
+The following style is [`justifyContent`](layout-props#justifycontent): "center". This align children of a container in the center of the container's main axis and finally we have [`alignItems`](layout-props#alignitems): "center", which align children of a container in the center of the container's cross axis.
 
 Some of the things in here might not look like JavaScript to you. Don't panic. _This is the future_.
 
