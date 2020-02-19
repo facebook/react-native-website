@@ -50,52 +50,52 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`source`](webview.md#source)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`injectJavaScript`](webview.md#injectjavascript)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-* [`nativeConfig`](webview.md#nativeconfig)
-* [`onError`](webview.md#onerror)
-* [`onLoad`](webview.md#onload)
-* [`onLoadEnd`](webview.md#onloadend)
-* [`onLoadStart`](webview.md#onloadstart)
-* [`onMessage`](webview.md#onmessage)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`originWhitelist`](webview.md#originwhitelist)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`scalesPageToFit`](webview.md#scalespagetofit)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`style`](webview.md#style)
-* [`decelerationRate`](webview.md#decelerationrate)
-* [`domStorageEnabled`](webview.md#domstorageenabled)
-* [`javaScriptEnabled`](webview.md#javascriptenabled)
-* [`mixedContentMode`](webview.md#mixedcontentmode)
-* [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
-* [`userAgent`](webview.md#useragent)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`allowFileAccess`](webview.md#allowFileAccess)
-* [`bounces`](webview.md#bounces)
-* [`contentInset`](webview.md#contentinset)
-* [`dataDetectorTypes`](webview.md#datadetectortypes)
-* [`scrollEnabled`](webview.md#scrollenabled)
-* [`geolocationEnabled`](webview.md#geolocationenabled)
-* [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
-* [`useWebKit`](webview.md#usewebkit)
-* [`url`](webview.md#url)
-* [`html`](webview.md#html)
+* [`source`](webview#source)
+* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+* [`injectJavaScript`](webview#injectjavascript)
+* [`injectedJavaScript`](webview#injectedjavascript)
+* [`mediaPlaybackRequiresUserAction`](webview#mediaplaybackrequiresuseraction)
+* [`nativeConfig`](webview#nativeconfig)
+* [`onError`](webview#onerror)
+* [`onLoad`](webview#onload)
+* [`onLoadEnd`](webview#onloadend)
+* [`onLoadStart`](webview#onloadstart)
+* [`onMessage`](webview#onmessage)
+* [`onNavigationStateChange`](webview#onnavigationstatechange)
+* [`originWhitelist`](webview#originwhitelist)
+* [`renderError`](webview#rendererror)
+* [`renderLoading`](webview#renderloading)
+* [`scalesPageToFit`](webview#scalespagetofit)
+* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
+* [`startInLoadingState`](webview#startinloadingstate)
+* [`style`](webview#style)
+* [`decelerationRate`](webview#decelerationrate)
+* [`domStorageEnabled`](webview#domstorageenabled)
+* [`javaScriptEnabled`](webview#javascriptenabled)
+* [`mixedContentMode`](webview#mixedcontentmode)
+* [`thirdPartyCookiesEnabled`](webview#thirdpartycookiesenabled)
+* [`userAgent`](webview#useragent)
+* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
+* [`allowFileAccess`](webview#allowFileAccess)
+* [`bounces`](webview#bounces)
+* [`contentInset`](webview#contentinset)
+* [`dataDetectorTypes`](webview#datadetectortypes)
+* [`scrollEnabled`](webview#scrollenabled)
+* [`geolocationEnabled`](webview#geolocationenabled)
+* [`allowUniversalAccessFromFileURLs`](webview#allowUniversalAccessFromFileURLs)
+* [`useWebKit`](webview#usewebkit)
+* [`url`](webview#url)
+* [`html`](webview#html)
 
 ### Methods
 
-- [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`stopLoading`](webview.md#stoploading)
+- [`extraNativeComponentConfig`](webview#extranativecomponentconfig)
+- [`goForward`](webview#goforward)
+- [`goBack`](webview#goback)
+- [`reload`](webview#reload)
+- [`stopLoading`](webview#stoploading)
 
 ---
 
@@ -105,7 +105,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 ### `source`
 
-Loads static HTML or a URI (with optional headers) in the WebView. Note that static HTML will require setting [`originWhitelist`](webview.md#originwhitelist) to `["*"]`.
+Loads static HTML or a URI (with optional headers) in the WebView. Note that static HTML will require setting [`originWhitelist`](webview#originwhitelist) to `["*"]`.
 
 The object passed to `source` can have either of the following shapes:
 
@@ -247,7 +247,7 @@ Function that is invoked when the `WebView` loading starts or ends.
 
 ### `originWhitelist`
 
-List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://*" and "https://*".
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _only_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this safelist, the URL will be handled by the OS. The default safelistlisted origins are "http://*" and "https://*".
 
 | Type             | Required |
 | ---------------- | -------- |
@@ -279,7 +279,7 @@ Function that returns a loading indicator. The startInLoadingState prop must be 
 
 Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale. The default value is `true`.
 
-On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
+On iOS, when [`useWebKit=true`](webview#usewebkit), this prop will not work.
 
 | Type | Required |
 | ---- | -------- |
@@ -425,7 +425,7 @@ Possible values for `dataDetectorTypes` are:
 - `none`
 - `all`
 
-With the [new WebKit](webview.md#usewebkit) implementation, we have three new values:
+With the [new WebKit](webview#usewebkit) implementation, we have three new values:
 
 - `trackingNumber`
 - `flightNumber`

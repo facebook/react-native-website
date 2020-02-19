@@ -9,53 +9,80 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```jsx
-<View>
-  <StatusBar backgroundColor="blue" barStyle="light-content" />
-  <View>
-    <StatusBar hidden={route.statusBarHidden} />
-    ...
-  </View>
-</View>
+```SnackPlayer name=StatusBar%20Android%20and%20iOS%20Component%20Example&supportedPlatforms=android,ios
+import React, { useState } from "react";
+import { Button, Text, StyleSheet, StatusBar, View } from "react-native";
+
+import Constants from "expo-constants";
+
+const App = () => {
+  const styleTypes = ['default','dark-content', 'light-content'];
+  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
+  const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
+
+  const changeVisibilityStatusBar = () => {
+    setVisibleStatusBar(!visibleStatusBar);
+  };
+
+  const changeStyleStatusBar = () => {
+    const styleId = styleTypes.indexOf(styleStatusBar) + 1;
+    
+    if(styleId === styleTypes.length){
+      return setStyleStatusBar(styleTypes[0]);
+    }
+    return setStyleStatusBar(styleTypes[styleId]);
+  };
+
+  return (
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.textStyle}>StatusBar Style: {styleStatusBar}</Text>
+        <Text style={styles.textStyle}>StatusBar Visibility: {!visibleStatusBar ? 'Visible': 'Hidden'}</Text>
+      </View>
+      <StatusBar backgroundColor="blue" barStyle={styleStatusBar} />
+      <View>
+        <StatusBar hidden={visibleStatusBar} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Toggle StatusBar" onPress={() => changeVisibilityStatusBar()} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Change StatusBar Style" onPress={() => changeStyleStatusBar()} />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ECF0F1',
+    padding: 8
+  },
+  buttonContainer:{
+    padding: 10
+  },
+  textStyle:{
+    textAlign: 'center'
+  }
+});
+
+export default App;
 ```
 
 ### Imperative API
 
 For cases where using a component is not ideal, there is also an imperative API exposed as static functions on the component. It is however not recommended to use the static API and the component for the same prop because any value set by the static API will get overridden by the one set by the component in the next render.
 
-### Constants
-
-`currentHeight` (Android only) The height of the status bar.
-
-### Props
-
-- [`animated`](statusbar.md#animated)
-- [`backgroundColor`](statusbar.md#backgroundcolor)
-- [`barStyle`](statusbar.md#barstyle)
-- [`hidden`](statusbar.md#hidden)
-- [`networkActivityIndicatorVisible`](statusbar.md#networkactivityindicatorvisible)
-- [`showHideTransition`](statusbar.md#showhidetransition)
-- [`translucent`](statusbar.md#translucent)
-
-### Methods
-
-- [`popStackEntry`](statusbar.md#popstackentry)
-- [`pushStackEntry`](statusbar.md#pushstackentry)
-- [`replaceStackEntry`](statusbar.md#replacestackentry)
-- [`setBackgroundColor`](statusbar.md#setbackgroundcolor)
-- [`setBarStyle`](statusbar.md#setbarstyle)
-- [`setHidden`](statusbar.md#sethidden)
-- [`setNetworkActivityIndicatorVisible`](statusbar.md#setnetworkactivityindicatorvisible)
-- [`setTranslucent`](statusbar.md#settranslucent)
-
-### Type Definitions
-
-- [`StatusBarAnimation`](statusbar.md#statusbaranimation)
-- [`StatusBarStyle`](statusbar.md#statusbarstyle)
-
 ---
 
 # Reference
+
+## Constants
+
+`currentHeight` (Android only) The height of the status bar.
 
 ## Props
 
@@ -135,7 +162,7 @@ If the status bar is translucent. When translucent is set to true, the app will 
 static popStackEntry(entry: any)
 ```
 
-Pop a StatusBar entry from the stack.
+Get and remove the last StatusBar entry from the stack.
 
 **Parameters:**
 

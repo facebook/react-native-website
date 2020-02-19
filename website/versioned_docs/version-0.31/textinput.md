@@ -6,9 +6,9 @@ original_id: textinput
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
 
-The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
+One use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, TextInput } from 'react-native';
 
@@ -35,7 +35,7 @@ AppRegistry.registerComponent('AwesomeProject', () => UselessTextInput);
 
 Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, View, TextInput } from 'react-native';
 
@@ -190,7 +190,7 @@ If `true`, the text field will blur when submitted. The default value is true fo
 
 ### `defaultValue`
 
-Provides an initial value that will change when the user starts typing. Useful for simple use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
+Provides an initial value that will change when the user starts typing. Useful for use-cases where you do not want to deal with listening to events and updating the value prop to keep the controlled state in sync.
 
 | Type             | Required |
 | ---------------- | -------- |
@@ -441,7 +441,7 @@ The highlight (and cursor on iOS) color of the text input.
 
 ### `value`
 
-The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
+The value to show for the text input. `TextInput` is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses, this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
 | Type             | Required |
 | ---------------- | -------- |

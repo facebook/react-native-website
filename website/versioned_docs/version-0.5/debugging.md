@@ -24,7 +24,7 @@ Instead of recompiling your app every time you make a change, you can reload you
 
 You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
 
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading.html) from the Developer Menu. This will allow you to persist the app's state through reloads.
+You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading) from the Developer Menu. This will allow you to persist the app's state through reloads.
 
 > There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
 
@@ -89,7 +89,7 @@ However, there are some disadvantages:
 
 ## React Developer Tools
 
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
 
 ```
 npm install -g react-devtools
@@ -113,7 +113,7 @@ Open the in-app developer menu and choose "Toggle Inspector". It will bring up a
 
 ![React Native Inspector](/react-native/docs/assets/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
 ![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
 
@@ -137,16 +137,12 @@ You can enable a performance overlay to help you debug performance problems by s
 
 <hr style="margin-top:25px; margin-bottom:25px;"/>
 
-# Debugging in Ejected Apps
+# Native Debugging
 
-<div class="banner-crna-ejected" style="margin-top:25px">
+<div class="banner-native-code-required" style="margin-top:25px">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
@@ -172,6 +168,8 @@ On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/face
 On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
 `adb reverse tcp:8081 tcp:8081`
+
+<!-- alex ignore host -->
 
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 

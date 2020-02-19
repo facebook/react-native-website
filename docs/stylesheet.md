@@ -37,19 +37,6 @@ Code quality:
 - By moving styles away from the render function, you're making the code easier to understand.
 - Naming the styles is a good way to add meaning to the low level components in the render function.
 
-### Methods
-
-- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
-- [`create`](stylesheet.md#create)
-- [`flatten`](stylesheet.md#flatten)
-- [`compose`](stylesheet.md#compose)
-
-### Properties
-
-- [`hairlineWidth`](stylesheet.md#hairlinewidth)
-- [`absoluteFill`](stylesheet.md#absolutefill)
-- [`absoluteFillObject`](stylesheet.md#absoluteFillObject)
-
 ---
 
 # Reference
@@ -91,7 +78,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 Example:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
@@ -109,7 +96,7 @@ StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
 Alternative use:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
@@ -134,7 +121,7 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
 ```jsx
-static compose(style)
+static compose(style1, style2)
 ```
 
 ## Properties
@@ -144,7 +131,7 @@ static compose(style)
 This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
 
 ```jsx
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
     borderBottomWidth: StyleSheet.hairlineWidth,
@@ -163,13 +150,9 @@ A line with hairline width may not be visible if your simulator is downscaled.
 A very common pattern is to create overlays with position absolute and zero positioning (`position: 'absolute', left: 0, right: 0, top: 0, bottom: 0`), so `absoluteFill` can be used for convenience and to reduce duplication of these repeated styles. If you want, absoluteFill can be used to create a customized entry in a StyleSheet, e.g.:
 
 ```jsx
-const styles = StyleSheet.create({
-  wrapper: {
-    ...StyleSheet.absoluteFill,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
-});
+<View style={StyleSheet.absoluteFill}>
+  <SomeOtherView />
+</View>
 ```
 
 ---
@@ -181,7 +164,7 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 ```jsx
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: 10,
     backgroundColor: 'transparent',
   },
@@ -189,3 +172,7 @@ const styles = StyleSheet.create({
 ```
 
 ---
+
+### `absoluteFill` vs. `absoluteFillObject`
+
+Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject` as you can see in the [source code](https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/StyleSheet.js#L255)

@@ -19,7 +19,7 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
-Simple Examples:
+Examples:
 
     <SectionList
       renderItem={({item}) => <ListItem title={item.title} />}
@@ -39,7 +39,7 @@ Simple Examples:
       ]}
     />
 
-This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits it's props (as well as those of `ScrollView`) that aren't explicitly listed here, along with the following caveats:
+This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of `ScrollView`) that aren't explicitly listed here, along with the following caveats:
 
 - Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
 - This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.

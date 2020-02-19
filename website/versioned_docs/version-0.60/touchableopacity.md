@@ -25,17 +25,16 @@ renderButton: function() {
 
 ### Example
 
-```ReactNativeWebPlayer
+```SnackPlayer name=TouchableOpacity
 import React, { Component } from 'react'
 import {
-  AppRegistry,
   StyleSheet,
   TouchableOpacity,
   Text,
   View,
 } from 'react-native'
 
-class App extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = { count: 0 }
@@ -85,27 +84,7 @@ const styles = StyleSheet.create({
     color: '#FF00FF'
   }
 })
-
-AppRegistry.registerComponent('App', () => App)
 ```
-
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`style`](touchableopacity.md#style)
-* [`activeOpacity`](touchableopacity.md#activeopacity)
-* [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
-* [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchableopacity.md#nextFocusDown)
-* [`nextFocusForward`](touchableopacity.md#nextFocusForward)
-* [`nextFocusLeft`](touchableopacity.md#nextFocusLeft)
-* [`nextFocusRight`](touchableopacity.md#nextFocusRight)
-* [`nextFocusUp`](touchableopacity.md#nextFocusUp)
-
-### Methods
-
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
 
 ---
 
@@ -113,21 +92,13 @@ AppRegistry.registerComponent('App', () => App)
 
 ## Props
 
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
 ### `style`
 
 | Type       | Required |
 | ---------- | -------- |
 | View.style | No       |
-
----
-
-### `activeOpacity`
-
-Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
 
 ---
 

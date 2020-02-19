@@ -1,7 +1,8 @@
 'use strict';
 
 const hljs = require('highlight.js');
-const escapeHtml = require('remarkable').utils.escapeHtml;
+const {utils} = require('remarkable');
+const {escapeHtml} = utils;
 
 // Remove leading "SnackPlayer", "ReactNativeWebPlayer"
 function cleanParams(params) {
@@ -21,6 +22,10 @@ function parseParams(paramString) {
       var pair = pairs[i].split('=');
       params[pair[0]] = pair[1];
     }
+  }
+
+  if (!params.platform) {
+    params.platform = 'web';
   }
 
   return params;
@@ -43,22 +48,6 @@ function htmlForCodeBlock(code) {
  * that requires a newer Expo SDK release.
  */
 const LatestSDKVersion = '26.0.0';
-const ReactNativeToExpoSDKVersionMap = {
-  '0.54': '26.0.0',
-  '0.52': '25.0.0',
-  '0.51': '24.0.0',
-  '0.50': '23.0.0',
-  '0.49': '22.0.0',
-  '0.48': '21.0.0',
-  '0.47': '20.0.0',
-  '0.46': '19.0.0',
-  '0.45': '18.0.0',
-  '0.44': '17.0.0',
-  '0.43': '16.0.0',
-  '0.42': '15.0.0',
-  '0.41': '14.0.0',
-};
-
 /**
  * Use the SnackPlayer by including a ```SnackPlayer``` block in markdown.
  *
@@ -94,13 +83,10 @@ function SnackPlayer(md) {
     const sampleCode = tokens[idx].content;
     const encodedSampleCode = encodeURIComponent(sampleCode);
     const platform = params.platform ? params.platform : 'ios';
+    const supportedPlatforms = params.supportedPlatforms
+      ? params.supportedPlatforms
+      : 'ios,android,web';
     const rnVersion = params.version ? params.version : 'next';
-
-    // Default to the latest SDK configured above.
-    const expoVersion =
-      rnVersion === 'next'
-        ? LatestSDKVersion
-        : ReactNativeToExpoSDKVersionMap[version] || LatestSDKVersion;
 
     return (
       '<div class="snack-player">' +
@@ -113,15 +99,15 @@ function SnackPlayer(md) {
         data-snack-description="${description}"
         data-snack-code="${encodedSampleCode}"
         data-snack-platform="${platform}"
+        data-snack-supported-platforms=${supportedPlatforms}
         data-snack-preview="true"
-        data-snack-sdk-version="${expoVersion}"
         style="
           overflow: hidden;
           background: #fafafa;
           border: 1px solid rgba(0,0,0,.16);
           border-radius: 4px;
           height: 514px;
-          width: 880px;
+          width: 100%;
         "
       >` +
       '</div>' +
@@ -142,11 +128,10 @@ function SnackPlayer(md) {
  * E.g.
  * ```ReactNativeWebPlayer platform=android
  * import React from 'react';
- * import { AppRegistry, Text } from 'react-native';
+ * import { Text } from 'react-native';
  *
  * const App = () => <Text>Hello World!</Text>;
- *
- * AppRegistry.registerComponent('MyApp', () => App);
+ * export default App;
  * ```
  */
 function ReactNativeWebPlayer(md) {

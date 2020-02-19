@@ -1,7 +1,9 @@
 ---
 id: timepickerandroid
-title: TimePickerAndroid
+title: 🚧 TimePickerAndroid
 ---
+
+> **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
 
 Opens the standard Android time picker dialog.
 
@@ -21,12 +23,6 @@ try {
   console.warn('Cannot open time picker', message);
 }
 ```
-
-### Methods
-
-- [`open`](timepickerandroid.md#open)
-- [`timeSetAction`](timepickerandroid.md#timesetaction)
-- [`dismissedAction`](timepickerandroid.md#dismissedaction)
 
 ---
 

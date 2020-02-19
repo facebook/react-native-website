@@ -4,15 +4,6 @@ title: Dimensions
 original_id: dimensions
 ---
 
-### Methods
-
-- [`addEventListener`](dimensions.md#addeventlistener)
-- [`get`](dimensions.md#get)
-- [`removeEventListener`](dimensions.md#removeeventlistener)
-- [`set`](dimensions.md#set)
-
----
-
 # Reference
 
 ## Methods
@@ -65,4 +56,4 @@ static set(dims)
 
 This should only be called from native code by sending the didUpdateDimensions event.
 
-@param {object} dims Simple string-keyed object of dimensions to set
+@param {object} dims string-keyed object of dimensions to set

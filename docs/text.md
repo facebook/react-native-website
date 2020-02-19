@@ -9,9 +9,9 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Text
 import React, { Component } from 'react';
-import { AppRegistry, Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
 
 export default class TextInANest extends Component {
   constructor(props) {
@@ -45,18 +45,15 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('TextInANest', () => TextInANest);
 ```
 
 ## Nested text
 
-Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```ReactNativeWebPlayer
+```SnackPlayer name=Nested
 import React, { Component } from 'react';
-import { AppRegistry, Text } from 'react-native';
+import { Text } from 'react-native';
 
 export default class BoldAndBeautiful extends Component {
   render() {
@@ -70,9 +67,6 @@ export default class BoldAndBeautiful extends Component {
     );
   }
 }
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BoldAndBeautiful);
 ```
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
@@ -85,7 +79,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+The `<Text>` element is unique relative to layout: everything inside is no longer using the Flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
 ```jsx
 <Text>
@@ -155,7 +149,7 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
 class MyAppHeaderText extends Component {
@@ -186,41 +180,6 @@ We believe that this more constrained way to style text will yield better apps:
 
 - (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
 
-### Props
-
-- [`accessibilityHint`](text.md#accessibilityhint)
-- [`accessibilityLabel`](text.md#accessibilitylabel)
-- [`accessibilityRole`](text.md#accessibilityrole)
-- [`accessibilityState`](text.md#accessibilitystate)
-- [`accessible`](text.md#accessible)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`dataDetectorType`](text.md#datadetectortype)
-- [`disabled`](text.md#disabled)
-- [`ellipsizeMode`](text.md#ellipsizemode)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`minimumFontScale`](text.md#minimumfontscale)
-- [`nativeID`](text.md#nativeid)
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onLongPress`](text.md#onlongpress)
-- [`onMoveShouldSetResponder`](text.md#onmoveshouldsetresponder)
-- [`onPress`](text.md#onpress)
-- [`onResponderGrant`](text.md#onrespondergrant)
-- [`onResponderMove`](text.md#onrespondermove)
-- [`onResponderRelease`](text.md#onresponderrelease)
-- [`onResponderTerminate`](text.md#onresponderterminate)
-- [`onResponderTerminationRequest`](text.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-- [`onTextLayout`](text.md#ontextlayout)
-- [`pressRetentionOffset`](text.md#pressretentionoffset)
-- [`selectable`](text.md#selectable)
-- [`selectionColor`](text.md#selectioncolor)
-- [`style`](text.md#style)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`testID`](text.md#testid)
-- [`textBreakStrategy`](text.md#textbreakstrategy)
-
 ---
 
 # Reference
@@ -229,7 +188,7 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### `accessibilityHint`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
 | Type   | Required |
 | ------ | -------- |
@@ -597,7 +556,7 @@ The highlight color of the text.
 
 - **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on iOS and Android Oreo (8.0) or above (API level >= 26). For lower android version it will fallback to `left`.
+  Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
 
 - **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 

@@ -1,26 +1,67 @@
 ---
 id: progressviewios
-title: ProgressViewIOS
+title: 🚧 ProgressViewIOS
 ---
 
-Use `ProgressViewIOS` to render a UIProgressView on iOS.
+> **Deprecated.** Use [@react-native-community/progress-view](https://github.com/react-native-community/progress-view) instead.
 
-### Props
+Uses `ProgressViewIOS` to render a UIProgressView on iOS.
 
-- [View props...](view.md#props)
+### Example
 
-* [`progress`](progressviewios.md#progress)
-* [`progressImage`](progressviewios.md#progressimage)
-* [`progressTintColor`](progressviewios.md#progresstintcolor)
-* [`progressViewStyle`](progressviewios.md#progressviewstyle)
-* [`trackImage`](progressviewios.md#trackimage)
-* [`trackTintColor`](progressviewios.md#tracktintcolor)
+```SnackPlayer name=ProgressViewIOS platform=ios
+import React from 'react';
+import {View, StyleSheet, ProgressViewIOS, Text} from 'react-native';
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.example}>
+        <Text>Progress Bar - 0%</Text>
+        <ProgressViewIOS style={styles.progress} />
+      </View>
+      <View style={styles.example}>
+        <Text>Colored Progress Bar - 50%</Text>
+        <ProgressViewIOS
+          style={styles.progress}
+          progressTintColor=""
+          progress={0.5}
+        />
+      </View>
+      <View>
+        <Text>Progress Bar - 100%</Text>
+        <ProgressViewIOS
+          style={styles.progress}
+          progressTintColor="black"
+          progress={1}
+        />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  example: {
+    marginVertical: 20,
+  },
+  progress: {
+    width: 200,
+  },
+});
+```
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `progress`
 

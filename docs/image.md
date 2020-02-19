@@ -9,23 +9,100 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-```ReactNativeWebPlayer
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example
+
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50, 
+    height: 50,
+  },
+  logo: {
+    width: 66, 
+    height: 58,
+  },
+});
+
+const DisplayAnImage = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+        }}
+      />
+      <Image
+        style={styles.logo}
+        source={{
+          uri:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+        }}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImage;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
+
 import React, { Component } from 'react';
-import { AppRegistry, View, Image } from 'react-native';
+import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50, 
+    height: 50,
+  },
+  logo: {
+    width: 66, 
+    height: 58,
+  },
+});
 
 export default class DisplayAnImage extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
-          source={require('/react-native/img/favicon.png')}
+          style={styles.tinyLogo}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
-          style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+          style={styles.tinyLogo}
+          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
         />
         <Image
-          style={{width: 66, height: 58}}
+          style={styles.logo}
           source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
         />
       </View>
@@ -33,20 +110,68 @@ export default class DisplayAnImage extends Component {
   }
 }
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('DisplayAnImage', () => DisplayAnImage);
 ```
+
+<block class="endBlock syntax" />
 
 You can also add `style` to an image:
 
-```ReactNativeWebPlayer
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example
+
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  stretch: {
+    width: 50,
+    height: 200,
+    resizeMode: 'stretch',
+  },
+});
+
+const DisplayAnImageWithStyle = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.stretch}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImageWithStyle;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
+
 import React, { Component } from 'react';
-import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {
     width: 50,
-    height: 200
+    height: 200,
+    resizeMode: 'stretch'
   }
 });
 
@@ -56,19 +181,16 @@ export default class DisplayAnImageWithStyle extends Component {
       <View>
         <Image
           style={styles.stretch}
-          source={require('/react-native/img/favicon.png')}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
       </View>
     );
   }
 }
 
-// skip these lines if using Create React Native App
-AppRegistry.registerComponent(
-  'DisplayAnImageWithStyle',
-  () => DisplayAnImageWithStyle
-);
 ```
+
+<block class="endBlock syntax" />
 
 ### GIF and WebP support on Android
 
@@ -79,51 +201,19 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 ```gradle
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  implementation 'com.facebook.fresco:animated-base-support:1.10.0'
+  implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:1.12.0'
+  implementation 'com.facebook.fresco:animated-gif:2.0.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:1.10.0'
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:animated-webp:2.1.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 }
 ```
-
-### Props
-
-- [`style`](image.md#style)
-- [`blurRadius`](image.md#blurradius)
-- [`onLayout`](image.md#onlayout)
-- [`onLoad`](image.md#onload)
-- [`onLoadEnd`](image.md#onloadend)
-- [`onLoadStart`](image.md#onloadstart)
-- [`resizeMode`](image.md#resizemode)
-- [`source`](image.md#source)
-- [`loadingIndicatorSource`](image.md#loadingindicatorsource)
-- [`onError`](image.md#onerror)
-- [`testID`](image.md#testid)
-- [`resizeMethod`](image.md#resizemethod)
-- [`accessibilityLabel`](image.md#accessibilitylabel)
-- [`accessible`](image.md#accessible)
-- [`capInsets`](image.md#capinsets)
-- [`defaultSource`](image.md#defaultsource)
-- [`onPartialLoad`](image.md#onpartialload)
-- [`onProgress`](image.md#onprogress)
-- [`fadeDuration`](image.md#fadeduration)
-- [`progressiveRenderingEnabled`](image.md#progressiverenderingenabled)
-
-### Methods
-
-- [`getSize`](image.md#getsize)
-- [`getSizeWithHeaders`](image.md#getsizewithheaders)
-- [`prefetch`](image.md#prefetch)
-- [`abortPrefetch`](image.md#abortprefetch)
-- [`queryCache`](image.md#querycache)
-- [`resolveAssetSource`](image.md#resolveassetsource)
 
 ---
 
@@ -194,6 +284,8 @@ blurRadius: the blur radius of the blur filter added to the image
 | ------ | -------- |
 | number | No       |
 
+> Tip : IOS you will need to increase `blurRadius` more than `5`
+
 ---
 
 ### `onLayout`
@@ -240,7 +332,7 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
@@ -346,9 +438,9 @@ When true, indicates the image is an accessibility element.
 
 When the image is resized, the corners of the size specified by `capInsets` will stay a fixed size, but the center content and borders of the image will be stretched. This is useful for creating resizable rounded buttons, shadows, and other resizable assets. More info in the [official Apple documentation](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets).
 
-| Type                                                               | Required | Platform |
-| ------------------------------------------------------------------ | -------- | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       | iOS      |
+| Type | Required | Platform |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No | iOS |
 
 ---
 
@@ -425,15 +517,13 @@ Retrieve the width and height (in pixels) of an image prior to displaying it. Th
 
 In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
 
-Does not work for static image resources.
-
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing to retrieve the image.       |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| uri | string | Yes | The location of the image. |
+| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No | The function that will be called if there was an error, such as failing to retrieve the image. |
 
 ---
 
@@ -451,12 +541,12 @@ Does not work for static image resources.
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| headers | object   | Yes      | The headers for the request.                                                                         |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| uri | string | Yes | The location of the image. |
+| headers | object | Yes | The headers for the request. |
+| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | No | The function that will be called if there was an error, such as failing toto retrieve the image. |
 
 ---
 
@@ -518,8 +608,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **Parameters:**
 
-| Name   | Type           | Required | Description                                                                  |
-| ------ | -------------- | -------- | ---------------------------------------------------------------------------- |
-| source | number, object | Yes      | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| source | number, object | Yes | A number (opaque type returned by require('./foo.png')) or an `ImageSource`. |
 
 > `ImageSource` is an object like `{ uri: '<http location || file path>' }`

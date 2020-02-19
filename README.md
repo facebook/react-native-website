@@ -11,8 +11,6 @@ This repo contains the website configuration and documentation powering the [Rea
 1.  Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/). (needs 1.5 or greater).
 1.  A fork of the repo (for any contributions).
 1.  A clone of the `react-native-website` repo.
-1.  Docusaurus: Run `yarn global add docusaurus-init` or `npm install --global docusaurus-init`
-1.  Prettier: See [Prettier website for installation instructions](https://prettier.io/docs/en/install.html).
 
 ### Installation
 
@@ -27,9 +25,9 @@ This repo contains the website configuration and documentation powering the [Rea
 
 # Overview
 
-If you're here because you would like to contribute an edit or addition to the docs, you'll probably want to take a look at the 'docs/' directory.
+If you would like to *contribute an edit or addition to the docs,* read through our [style guide](STYLEGUIDE.md) before you write anything. All our content is generated from markdown files you can find in the 'docs/' directory. 
 
-To edit the internals of how the site is built, you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the 'website/' directory. Visit the Docusaurus website to learn more about all the available configuration options.
+*To edit the internals of how the site is built,* you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the 'website/' directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
 ## Directory Structure
 
@@ -105,14 +103,15 @@ The 'showcase.json' file contains the list of users that are highlighted in the 
 ### Make the change
 
 1.  Follow the "Running locally" instructions.
-1.  Save the files and check in the browser. Some changes may require a server restart.
-1.  Changes to /docs will only be visible in the latest version of the documentation (master).
+1.  Save the files and check in the browser. 
+1.  Some changes may require a server restart to generate new files. (Pages in **/docs** always do!)
+1.  Edits to pages in **/docs** will only be visible in the latest version of the documentation, called "Next," under **/docs/next**. Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
-`open http://localhost:3000/react-native/versions.html` to see other versions.
+> `open http://localhost:3000/react-native/versions.html` to see older versions of the docs.
 
 ### Test the change
 
-1.  If possible, test any visual changes in all latest versions of common browsers, on both desktop and mobile.
+If possible, test any visual changes in all latest versions of Firefox and Chrome on desktop and Safari and Chrome on mobile.
 
 ### Push it
 

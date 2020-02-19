@@ -7,9 +7,10 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 
 ## The JS API
 
-A task is a simple async function that you register on `AppRegistry`, similar to registering React applications:
+A task is a async function that you register on `AppRegistry`, similar to registering React applications:
 
 ```jsx
+import { AppRegistry } from "react-native";
 AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
 ```
 
@@ -28,6 +29,14 @@ You can do anything in your task such as network requests, timers and so on, as 
 Yes, this does still require some native code, but it's pretty thin. You need to extend `HeadlessJsTaskService` and override `getTaskConfig`, e.g.:
 
 ```java
+package com.your_application_name;
+import android.content.Intent;
+import android.os.Bundle;
+import com.facebook.react.HeadlessJsTaskService;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.jstasks.HeadlessJsTaskConfig;
+import javax.annotation.Nullable;
+
 public class MyTaskService extends HeadlessJsTaskService {
 
   @Override
@@ -70,7 +79,7 @@ getApplicationContext().startService(service);
 
 By default, the headless JS task will not perform any retries. In order to do so, you need to create a `HeadlessJsRetryPolicy` and throw a specfic `Error`.
 
-`LinearCountingRetryPolicy` is an implementation of `HeadlessJsRetryPolicy` that allows you to specify a maximum number of retries with a fixed delay between each attempt. If that does not suit your needs then you can easily implement your own `HeadlessJsRetryPolicy`. These policies can simply be passed as an extra argument to the `HeadlessJsTaskConfig` constructor, e.g.
+`LinearCountingRetryPolicy` is an implementation of `HeadlessJsRetryPolicy` that allows you to specify a maximum number of retries with a fixed delay between each attempt. If that does not suit your needs then you can implement your own `HeadlessJsRetryPolicy`. These policies can be passed as an extra argument to the `HeadlessJsTaskConfig` constructor, e.g.
 
 ```java
 HeadlessJsRetryPolicy retryPolicy = new LinearCountingRetryPolicy(
@@ -106,13 +115,13 @@ If you wish all errors to cause a retry attempt, you will need to catch them and
 
 ## Caveats
 
-- The function passed to `setTimeout` does not always behave as expected. Instead the function is called only when the application is launched again. If you just need to wait, use the retry functionality.
+- The function passed to `setTimeout` does not always behave as expected. Instead the function is called only when the application is launched again. If you only need to wait, use the retry functionality.
 - By default, your app will crash if you try to run a task while the app is in the foreground. This is to prevent developers from shooting themselves in the foot by doing a lot of work in a task and slowing the UI. You can pass a fourth `boolean` argument to control this behaviour.
 - If you start your service from a `BroadcastReceiver`, make sure to call `HeadlessJsTaskService.acquireWakeLockNow()` before returning from `onReceive()`.
 
 ## Example Usage
 
-Service can be started from Java API. First you need to decide when the service should be started and implement your solution accordingly. Here is a simple example that reacts to network connection change.
+Service can be started from Java API. First you need to decide when the service should be started and implement your solution accordingly. Here is an example that reacts to network connection change.
 
 Following lines shows part of Android manifest file for registering broadcast receiver.
 

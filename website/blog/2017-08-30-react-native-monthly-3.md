@@ -45,9 +45,9 @@ Here are the notes from each team:
 
 ### Microsoft
 
-- The new Skype app is built on top of React Native in order to facilitate sharing as much code between platforms as possible. The React Native-based Skype app is currently available in the iOS and Android app stores.
+- The new Skype app is built on top of React Native in order to facilitate sharing as much code between platforms as possible. The React Native-based Skype app is currently available in the Android and iOS app stores.
 - While building the Skype app on React Native, we send pull requests to React Native in order to address bugs and missing features that we come across. So far, we've gotten about [70 pull requests merged](https://github.com/facebook/react-native/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Arigdern%20).
-- React Native enabled us to power both the iOS and Android Skype apps from the same codebase. We also want to use that codebase to power the Skype web app. To help us achieve that goal, we built and open sourced a thin layer on top of React/React Native called [ReactXP](https://microsoft.github.io/reactxp/blog/2017/04/06/introducing-reactxp.html). ReactXP provides a set of cross platform components that get mapped to React Native when targeting iOS/Android and to react-dom when targeting the web. ReactXP's goals are similar to another open source library called React Native for Web. There's a brief description of how the approaches of these libraries differ in the [ReactXP FAQ](https://microsoft.github.io/reactxp/faq.md).
+- React Native enabled us to power both the Android and iOS Skype apps from the same codebase. We also want to use that codebase to power the Skype web app. To help us achieve that goal, we built and open sourced a thin layer on top of React/React Native called [ReactXP](https://microsoft.github.io/reactxp/blog/2017/04/06/introducing-reactxp.html). ReactXP provides a set of cross platform components that get mapped to React Native when targeting iOS/Android and to react-dom when targeting the web. ReactXP's goals are similar to another open source library called React Native for Web. There's a brief description of how the approaches of these libraries differ in the [ReactXP FAQ](https://microsoft.github.io/reactxp/faq.md).
 
 ### Shoutem
 
