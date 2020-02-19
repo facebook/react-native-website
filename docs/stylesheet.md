@@ -37,6 +37,11 @@ Code quality:
 - By moving styles away from the render function, you're making the code easier to understand.
 - Naming the styles is a good way to add meaning to the low level components in the render function.
 
+
+## Theme:
+- you need dark and light theme but It's painfull?
+- check out [@material-native-ui/theme-provider](https://github.com/material-native-ui/theme-provider) and use it without breaking change
+
 ---
 
 # Reference
