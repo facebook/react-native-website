@@ -38,7 +38,7 @@ Initial dimensions are set before `runApplication` is called so they should be a
 
 > Note: Although dimensions are available immediately, they may change (e.g due to device rotation) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
 
-Example: `var {height, width} = Dimensions.get('window');`
+Example: `const {height, width} = Dimensions.get('window');`
 
 **Parameters:**
 
