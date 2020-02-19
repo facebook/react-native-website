@@ -9,7 +9,7 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```SnackPlayer name=rn-statusbar
+```SnackPlayer name=StatusBar
 const App = () => {
   const [hidden, setHidden] = useState(false);
 
