@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
   }
 })
 ```
+
 <block class="endBlock syntax" />
 
 ---

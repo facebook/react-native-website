@@ -15,7 +15,7 @@ export default App = () => {
   const inputAccessoryViewID = 'uniqueID';
   const initialText = 'Placeholder Text';
   const [text, setText] = useState(initialText);
-  
+
   return (
     <>
       <ScrollView keyboardDismissMode="interactive">

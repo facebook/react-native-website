@@ -62,10 +62,10 @@ This function then returns the reference to the listener.
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                                                |
-| ------    | ------   | -------- | -------------------------------------------------------------------------------------------|
-| eventName | string   | Yes      | The `nativeEvent` is the string that identifies the event you're listening for. See below  |
-| callback  | function | Yes      | The function to be called when the event fires                                             |
+| Name      | Type     | Required | Description                                                                               |
+| --------- | -------- | -------- | ----------------------------------------------------------------------------------------- |
+| eventName | string   | Yes      | The `nativeEvent` is the string that identifies the event you're listening for. See below |
+| callback  | function | Yes      | The function to be called when the event fires                                            |
 
 **nativeEvent**
 
@@ -92,10 +92,10 @@ Removes a specific listener.
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                                     |
-| ------    | ------   | -------- | --------------------------------------------------------------------------------|
-| eventName | string   | Yes      | The `nativeEvent` is the string that identifies the event you're listening for  |
-| callback  | function | Yes      | The function to be called when the event fires                                  |
+| Name      | Type     | Required | Description                                                                    |
+| --------- | -------- | -------- | ------------------------------------------------------------------------------ |
+| eventName | string   | Yes      | The `nativeEvent` is the string that identifies the event you're listening for |
+| callback  | function | Yes      | The function to be called when the event fires                                 |
 
 ---
 
@@ -107,12 +107,11 @@ static removeAllListeners(eventName)
 
 Removes all listeners for a specific event type.
 
-
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                           |
-| ------    | ------   | -------- | ----------------------------------------------------------------------|
-| eventType | string   | Yes      | The native event string listeners are watching which will be removed  | 
+| Name      | Type   | Required | Description                                                          |
+| --------- | ------ | -------- | -------------------------------------------------------------------- |
+| eventType | string | Yes      | The native event string listeners are watching which will be removed |
 
 ---
 

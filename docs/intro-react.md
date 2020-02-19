@@ -390,7 +390,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 <Button
   //..
   disabled={!isHungry}
-  title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
+  title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
 />
 ```
 

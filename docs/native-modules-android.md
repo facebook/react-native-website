@@ -336,7 +336,7 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
     });
     ...
   }
-  
+
   componentWillUnmount() {
     this.eventListener.remove(); //Removes the listener
   }

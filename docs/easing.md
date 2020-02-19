@@ -214,7 +214,7 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 ### `in()`
 
 ```jsx
-static in(easing);
+static in easing;
 ```
 
 Runs an easing function forwards.

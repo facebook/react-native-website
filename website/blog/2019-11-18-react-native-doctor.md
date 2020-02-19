@@ -38,22 +38,22 @@ npx @react-native-community/cli doctor
 
 `doctor` currently supports the following checks:
 
-* Node.js (>= 8.3)
-* yarn (>= 1.10)
-* npm (>= 4)
-* Watchman (>= 4), used for watching changes in the filesystem when in development mode.
+- Node.js (>= 8.3)
+- yarn (>= 1.10)
+- npm (>= 4)
+- Watchman (>= 4), used for watching changes in the filesystem when in development mode.
 
 Specific to the Android environment:
 
-* Android SDK (>= 26), the software runtime for Android.
-* Android NDK (>= 19), the native development toolkit for Android.
-* `ANDROID_HOME`, environment variable required by the Android SDK setup.
+- Android SDK (>= 26), the software runtime for Android.
+- Android NDK (>= 19), the native development toolkit for Android.
+- `ANDROID_HOME`, environment variable required by the Android SDK setup.
 
 And to the iOS environment:
 
-* Xcode (>= 10), IDE for developing, building and shipping iOS applications.
-* CocoaPods, library dependency management tool for iOS applications.
-* ios-deploy (optional), library used internally by the CLI to install applications on a physical iOS device.
+- Xcode (>= 10), IDE for developing, building and shipping iOS applications.
+- CocoaPods, library dependency management tool for iOS applications.
+- ios-deploy (optional), library used internally by the CLI to install applications on a physical iOS device.
 
 ## Thanks
 

@@ -46,6 +46,7 @@ $ npx react-native run-android
 ```
 
 > ## Note about Android App Bundles
+>
 > Android app bundles are not yet supported with hermes.
 
 ## Confirming Hermes is in use

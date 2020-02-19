@@ -21,7 +21,14 @@ Example usage:
 
 ```jsx
 import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Platform, UIManager, LayoutAnimation} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Platform,
+  UIManager,
+  LayoutAnimation,
+} from 'react-native';
 
 if (
   Platform.OS === 'android' &&

@@ -2,16 +2,20 @@
 id: dimensions
 title: Dimensions
 ---
+
 ```jsx
-import {Dimensions } from "react-native";
+import {Dimensions} from 'react-native';
 ```
+
 You can get device width and height using below :
 
 Get device screen width and height :
+
 ```jsx
 const screenWidth = Math.round(Dimensions.get('window').width);
 const screenHeight = Math.round(Dimensions.get('window').height);
 ```
+
 # Reference
 
 ## Methods
@@ -42,9 +46,9 @@ Example: `var {height, width} = Dimensions.get('window');`
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                                                   |
-| ------    | ------   | -------- | ----------------------------------------------------------------------------------------------|
-| dim       | string   | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension.  | 
+| Name | Type   | Required | Description                                                                                  |
+| ---- | ------ | -------- | -------------------------------------------------------------------------------------------- |
+| dim  | string | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension. |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -70,6 +74,6 @@ This should only be called from native code by sending the didUpdateDimensions e
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                               |
-| ------    | ------   | -------- | ------------------------------------------|
-| dims      | object   | Yes      | string-keyed object of dimensions to set  | 
+| Name | Type   | Required | Description                              |
+| ---- | ------ | -------- | ---------------------------------------- |
+| dims | object | Yes      | string-keyed object of dimensions to set |
