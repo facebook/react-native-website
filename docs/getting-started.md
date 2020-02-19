@@ -333,7 +333,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The SDK is installed, by default, at the following location:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
+c:\Android\tools\bin
 ```
 
 You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
@@ -347,7 +347,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The default location for this folder is:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+C:\Android\tools\bin\platform-tools
 ```
 
 <block class="native linux android" />
