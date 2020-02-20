@@ -1,11 +1,65 @@
 ---
 id: clipboard
-title: Clipboard
+title: 🚧 Clipboard
 ---
+
+> **Deprecated.** Use [@react-native-community/clipboard](https://github.com/react-native-community/react-native-clipboard) instead.
 
 `Clipboard` gives you an interface for setting and getting content from Clipboard on both Android and iOS
 
 ---
+
+
+## Example
+
+```SnackPlayer name=Clipboard%20API%20Example&supportedPlatforms=ios,android
+
+import React, { useState } from 'react'
+import { SafeAreaView, View, Text, TouchableOpacity, Clipboard, StyleSheet } from 'react-native'
+
+const App = () => {
+  const [copiedText, setCopiedText] = useState('')
+
+  const copyToClipboard = () => {
+    Clipboard.setString('hello world')
+  }
+
+  const fetchCopiedText = async () => {
+    const text = await Clipboard.getString()
+    setCopiedText(text)
+  }
+
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => copyToClipboard()}>
+          <Text>Click here to copy to Clipboard</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => fetchCopiedText()}>
+          <Text>View copied text</Text>
+        </TouchableOpacity>
+
+        <Text style={styles.copiedText}>{copiedText}</Text>
+      </View>
+
+    </SafeAreaView>
+  )
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  copiedText: {
+    marginTop: 10,
+    color: 'red'
+  }
+})
+
+export default App
+```
 
 # Reference
 
@@ -40,11 +94,12 @@ _setContent() {
   Clipboard.setString('hello world');
 }
 ```
+
 **Parameters:**
 
-| Name      | Type     | Required | Description                                |
-| ------    | ------   | -------- | -------------------------------------------|
-| content   | string   | Yes      | The content to be stored in the clipboard  | 
+| Name    | Type   | Required | Description                               |
+| ------- | ------ | -------- | ----------------------------------------- |
+| content | string | Yes      | The content to be stored in the clipboard |
 
 _Notice_
 

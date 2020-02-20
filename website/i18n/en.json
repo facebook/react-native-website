@@ -60,7 +60,7 @@
         "title": "CheckBox"
       },
       "clipboard": {
-        "title": "Clipboard"
+        "title": "🚧 Clipboard"
       },
       "colors": {
         "title": "Color Reference"
@@ -3513,6 +3513,7 @@
       "Guides (iOS)": "Guides (iOS)",
       "Guides (Android)": "Guides (Android)",
       "Components": "Components",
+      "Props": "Props",
       "APIs": "APIs",
       "Guides": "Guides",
       "Contributing": "Contributing"

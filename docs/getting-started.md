@@ -333,7 +333,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The SDK is installed, by default, at the following location:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
+c:\Android\tools\bin
 ```
 
 You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
@@ -347,7 +347,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The default location for this folder is:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+C:\Android\tools\bin\platform-tools
 ```
 
 <block class="native linux android" />
@@ -454,12 +454,20 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
-Run `npx react-native run-ios` inside your React Native project folder:
+Run `react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
+npx react-native start
+```
+
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+
+Run `react-native run-ios` inside your React Native project folder:
+
+```sh
 npx react-native run-ios
 ```
 
@@ -479,19 +487,27 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
-Run `npx react-native start` inside your React Native project folder:
+Run `react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
 On another terminal, run `npx react-native run-android`:
 
 ```sh
 cd AwesomeProject
+npx react-native start
+```
+
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+
+Run `react-native run-android` inside your React Native project folder:
+
+```sh
 npx react-native run-android
 ```
 

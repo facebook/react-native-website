@@ -480,7 +480,7 @@ If you are using Xcode or your favorite editor, build and run your native iOS ap
 
 ```
 # From the root of your project
-$ react-native run-ios
+$ npx react-native run-ios
 ```
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
@@ -795,7 +795,7 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
 ```
-$ react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
+$ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
 ```
 
 > Don’t forget to replace the paths with correct ones and create the assets folder if it doesn’t exist.
