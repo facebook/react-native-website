@@ -29,7 +29,7 @@ if (
 ) {
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-class AnimatedCollapsible extends React.Component {
+class AnimatedCollapsible extends Component {
   state = {expanded: false};
   render() {
     return (
