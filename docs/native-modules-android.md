@@ -368,7 +368,7 @@ We will implement a basic image picker to demonstrate this. The image picker wil
 ```java
 public class ImagePickerModule extends ReactContextBaseJavaModule {
 
-  private static final int IMAGE_PICKER_REQUEST = 467081;
+  private static final int IMAGE_PICKER_REQUEST = 1;
   private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
   private static final String E_PICKER_CANCELLED = "E_PICKER_CANCELLED";
   private static final String E_FAILED_TO_SHOW_PICKER = "E_FAILED_TO_SHOW_PICKER";
