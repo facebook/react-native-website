@@ -9,27 +9,37 @@ You might not want to use `<ImageBackground>` in some cases, since the implement
 
 Note that you must specify some width and height style attributes.
 
-```jsx
-  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
-    <Text>Inside</Text>
-  </ImageBackground>
-```
-
 ## Example
 
 ```SnackPlayer name=ImageBackground
-  import React from 'react';
-  import {View, ImageBackground, Text} from 'react-native'
+import React from 'react';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-  export default function App() {
-    return (
-      <View>
-        <ImageBackground source={{uri: 'https://facebook.github.io/react/logo-og.png'}} style={{width: '100%', height: '100%'}}>
-          <Text style ={{color: 'white', fontSize: 20, alignSelf: 'center'}}>Inside</Text>
-        </ImageBackground>
-      </View>
-    )
+const image = { uri: 'https://facebook.github.io/react/logo-og.png' };
+
+export default App = () => (
+  <View style={styles.container}>
+    <ImageBackground source={image} style={styles.image}>
+      <Text style={styles.text}>Inside</Text>
+    </ImageBackground>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  image: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 30,
+    fontWeight: 'bold',
   }
+});
 ```
 
 ---
