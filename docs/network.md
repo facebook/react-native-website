@@ -54,7 +54,7 @@ function getMoviesFromApi() {
 }
 ```
 
-You can also use the `async`/`await` syntax in a React Native app:
+You can also use the `async` / `await` syntax in a React Native app:
 
 ```jsx
 async function getMoviesFromApiAsync() {
