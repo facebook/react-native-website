@@ -73,57 +73,35 @@ async function getMoviesFromApi() {
 Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
 
 ```SnackPlayer name=Fetch%20Example
-import React from 'react';
-import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
-export default class FetchExample extends React.Component {
+export default App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  constructor(props){
-    super(props);
-    this.state ={ isLoading: true}
-  }
-
-  componentDidMount(){
-    return fetch('https://facebook.github.io/react-native/movies.json')
+  useEffect(() => {
+    fetch('https://facebook.github.io/react-native/movies.json')
       .then((response) => response.json())
-      .then((responseJson) => {
+      .then((json) => setData(json.movies))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  });
 
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.movies,
-        }, function(){
-
-        });
-
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
-  }
-
-
-
-  render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
-    return(
-      <View style={{flex: 1, paddingTop:20}}>
+  return (
+    <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? <ActivityIndicator/> : (
         <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-          keyExtractor={({id}, index) => id}
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.title}, {item.releaseYear}</Text>
+          )}
         />
-      </View>
-    );
-  }
-}
+      )}
+    </View>
+  );
+};
 ```
 
 > By default, iOS will block any request that's not encrypted using [SSL](https://hosting.review/web-hosting-glossary/#12). If you need to fetch from a cleartext URL (one that begins with `http`) you will first need to [add an App Transport Security exception](integration-with-existing-apps.md#test-your-integration). If you know ahead of time what domains you will need access to, it is more secure to add exceptions only for those domains; if the domains are not known until runtime you can [disable ATS completely](integration-with-existing-apps.md#app-transport-security). Note however that from January 2017, [Apple's App Store review will require reasonable justification for disabling ATS](https://forums.developer.apple.com/thread/48979). See [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) for more information.
