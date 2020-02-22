@@ -11,18 +11,49 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 Example:
 
-```jsx
-renderButton: function() {
+```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
+import React, { useState } from "react";
+import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
+import Constants from "expo-constants";
+
+const randomHexColor = () => {
+  return "#000000".replace(/0/g, function() {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+};
+const App = () => {
+  const [rippleColor, setRippleColor] = useState(randomHexColor());
+  const [rippleOverflow, setRippleOverflow] = useState(false);
   return (
-    <TouchableNativeFeedback
-        onPress={this._onPressButton}
-        background={TouchableNativeFeedback.SelectableBackground()}>
-      <View style={{width: 150, height: 100, backgroundColor: 'red'}}>
-        <Text style={{margin: 30}}>Button</Text>
-      </View>
-    </TouchableNativeFeedback>
+    <View style={styles.container}>
+      <TouchableNativeFeedback
+        onPress={() => {
+          setRippleColor(randomHexColor());
+          setRippleOverflow(!rippleOverflow);
+        }}
+        background={TouchableNativeFeedback.Ripple(rippleColor, rippleOverflow)}
+      >
+        <View style={styles.touchable}>
+          <Text style={styles.text}>TouchableNativeFeedback</Text>
+        </View>
+      </TouchableNativeFeedback>
+    </View>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  touchable: { flex: 0.5, borderColor: "black", borderWidth: 1 },
+  text: { alignSelf: "center" }
+});
+
+export default App;
 ```
 
 ---
