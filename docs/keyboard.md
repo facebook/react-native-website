@@ -25,9 +25,9 @@ The Keyboard module allows you to listen for native events and react to them, as
 ```SnackPlayer name=Keyboard%20Function%20Component%20Example
 
 import React, { useEffect } from "react";
-import { Keyboard, TextInput } from "react-native";
+import { Keyboard, TextInput, StyleSheet } from "react-native";
 
-function Example() {
+export default function Example() {
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -48,9 +48,18 @@ function Example() {
     alert("Keyboard Hidden");
   };
 
-  return <TextInput onSubmitEditing={Keyboard.dismiss} />;
+  return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
 }
 
+const s = StyleSheet.create({
+   input:{
+    margin:60,
+    padding: 10,
+    borderWidth: 0.5,
+    borderRadius: 4,
+    backgroundColor: "#fff"
+   }
+})
 
 ```
 
@@ -58,9 +67,9 @@ function Example() {
 
 ```SnackPlayer name=Keyboard%20Class%20Component%20Example
 import React, {Component} from 'react';
-import {Keyboard, TextInput} from 'react-native';
+import {Keyboard, TextInput , StyleSheet} from 'react-native';
 
-class Example extends Component {
+export default class Example extends Component {
   componentDidMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -86,10 +95,19 @@ class Example extends Component {
   }
 
   render() {
-    return <TextInput onSubmitEditing={Keyboard.dismiss} />;
+    return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
   }
 }
 
+const s = StyleSheet.create({
+   input:{
+    margin:60,
+    padding: 10,
+    borderWidth: 0.5,
+    borderRadius: 4,
+    backgroundColor: "#fff"
+   }
+})
 ```
 
 <block class="endBlock syntax" />
