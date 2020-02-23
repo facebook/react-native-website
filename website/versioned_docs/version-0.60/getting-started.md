@@ -360,6 +360,12 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 
 > [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
+<block class="native mac windows linux ios android" />
+
+<h3>React Native Command Line Interface</h3>
+
+React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
+
 <block class="native mac ios" />
 
 <h2>Creating a new application</h2>
