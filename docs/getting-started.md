@@ -333,7 +333,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The SDK is installed, by default, at the following location:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
+c:\Android\tools\bin
 ```
 
 You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
@@ -347,7 +347,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The default location for this folder is:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+C:\Android\tools\bin\platform-tools
 ```
 
 <block class="native linux android" />
@@ -358,13 +358,19 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 
 > [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
+<block class="native mac windows linux ios android" />
+
+<h3>React Native Command Line Interface</h3>
+
+React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
+
 <block class="native mac ios" />
 
 <h2>Creating a new application</h2>
 
 > If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
 
-React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
+You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
 ```sh
 npx react-native init AwesomeProject
@@ -454,12 +460,20 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
-Run `npx react-native run-ios` inside your React Native project folder:
+Run `react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
+npx react-native start
+```
+
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+
+Run `react-native run-ios` inside your React Native project folder:
+
+```sh
 npx react-native run-ios
 ```
 
@@ -479,19 +493,27 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
-Run `npx react-native start` inside your React Native project folder:
+Run `react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
 On another terminal, run `npx react-native run-android`:
 
 ```sh
 cd AwesomeProject
+npx react-native start
+```
+
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+
+Run `react-native run-android` inside your React Native project folder:
+
+```sh
 npx react-native run-android
 ```
 

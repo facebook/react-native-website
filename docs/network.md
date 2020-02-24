@@ -42,11 +42,11 @@ The above examples show how you can make a request. In many cases, you will want
 Networking is an inherently asynchronous operation. Fetch methods will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that makes it straightforward to write code that works in an asynchronous manner:
 
 ```jsx
-function getMoviesFromApiAsync() {
+function getMoviesFromApi() {
   return fetch('https://reactnative.dev/movies.json')
     .then((response) => response.json())
-    .then((responseJson) => {
-      return responseJson.movies;
+    .then((json) => {
+      return json.movies;
     })
     .catch((error) => {
       console.error(error);
@@ -54,14 +54,22 @@ function getMoviesFromApiAsync() {
 }
 ```
 
-You can also use the proposed ES2017 `async`/`await` syntax in a React Native app:
+You can also use the `async` / `await` syntax in a React Native app:
 
 ```jsx
-async function getMoviesFromApi() {
+async function getMoviesFromApiAsync() {
   try {
+<<<<<<< HEAD
     let response = await fetch('https://reactnative.dev/movies.json');
     let responseJson = await response.json();
     return responseJson.movies;
+=======
+    let response = await fetch(
+      'https://facebook.github.io/react-native/movies.json',
+    );
+    let json = await response.json();
+    return json.movies;
+>>>>>>> aa1d0059e5e36adbd72b7fa508fbb89f5a0f41d6
   } catch (error) {
     console.error(error);
   }
@@ -70,59 +78,105 @@ async function getMoviesFromApi() {
 
 Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
 
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
 ```SnackPlayer name=Fetch%20Example
-import React from 'react';
-import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
-export default class FetchExample extends React.Component {
+export default App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  constructor(props){
-    super(props);
-    this.state ={ isLoading: true}
-  }
-
+<<<<<<< HEAD
   componentDidMount(){
     return fetch('https://reactnative.dev/movies.json')
+=======
+  useEffect(() => {
+    fetch('https://facebook.github.io/react-native/movies.json')
+>>>>>>> aa1d0059e5e36adbd72b7fa508fbb89f5a0f41d6
       .then((response) => response.json())
-      .then((responseJson) => {
+      .then((json) => setData(json.movies))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  });
 
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.movies,
-        }, function(){
+  return (
+    <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.title}, {item.releaseYear}</Text>
+          )}
+        />
+      )}
+    </View>
+  );
+};
+```
 
-        });
+<block class="classical syntax" />
 
+```SnackPlayer name=Fetch%20Example
+import React, { Component } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: [],
+      isLoading: true
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://facebook.github.io/react-native/movies.json')
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({ data: json.movies });
       })
-      .catch((error) =>{
-        console.error(error);
+      .catch((error) => console.error(error))
+      .finally(() => {
+        this.setState({ isLoading: false });
       });
   }
 
+  render() {
+    const { data, isLoading } = this.state;
 
-
-  render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
-    return(
-      <View style={{flex: 1, paddingTop:20}}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-          keyExtractor={({id}, index) => id}
-        />
+    return (
+      <View style={{ flex: 1, padding: 24 }}>
+        {isLoading ? <ActivityIndicator/> : (
+          <FlatList
+            data={data}
+            keyExtractor={({ id }, index) => id}
+            renderItem={({ item }) => (
+              <Text>{item.title}, {item.releaseYear}</Text>
+            )}
+          />
+        )}
       </View>
     );
   }
-}
+};
 ```
+
+<block class="endBlock syntax" />
 
 > By default, iOS will block any request that's not encrypted using [SSL](https://hosting.review/web-hosting-glossary/#12). If you need to fetch from a cleartext URL (one that begins with `http`) you will first need to [add an App Transport Security exception](integration-with-existing-apps.md#test-your-integration). If you know ahead of time what domains you will need access to, it is more secure to add exceptions only for those domains; if the domains are not known until runtime you can [disable ATS completely](integration-with-existing-apps.md#app-transport-security). Note however that from January 2017, [Apple's App Store review will require reasonable justification for disabling ATS](https://forums.developer.apple.com/thread/48979). See [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) for more information.
 

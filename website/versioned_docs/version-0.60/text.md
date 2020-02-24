@@ -40,6 +40,7 @@ export default class TextInANest extends Component {
 const styles = StyleSheet.create({
   baseText: {
     fontFamily: 'Cochin',
+    marginVertical: 20,
   },
   titleText: {
     fontSize: 20,

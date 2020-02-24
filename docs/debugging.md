@@ -68,10 +68,9 @@ You can use Safari to debug the iOS version of your app without having to enable
 - Select your app's JSContext: `Develop → Simulator → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
-However, there are some disadvantages:
+While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
 
-1. No sourcemaps when debugging
-2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 
 ## React Developer Tools
 
