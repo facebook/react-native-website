@@ -12,10 +12,10 @@ Note that you must specify some width and height style attributes.
 ## Example
 
 ```SnackPlayer name=ImageBackground
-import React from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
-const image = { uri: 'https://facebook.github.io/react/logo-og.png' };
+const image = { uri: "https://facebook.github.io/react/logo-og.png" };
 
 export default App = () => (
   <View style={styles.container}>
@@ -28,16 +28,16 @@ export default App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: "column"
   },
   image: {
     flex: 1,
-    resizeMode: 'cover',
-    justifyContent: 'center',
+    resizeMode: "cover",
+    justifyContent: "center"
   },
   text: {
     fontSize: 30,
-    fontWeight: 'bold',
+    fontWeight: "bold"
   }
 });
 ```
