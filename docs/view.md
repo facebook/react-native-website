@@ -47,7 +47,7 @@ export default ViewBoxesWithColorAndText;
 
 <block class="classical syntax" />
 
-```SnackPlayer name=View%Class%20Component%20Example
+```SnackPlayer name=View%20Class%20Component%20Example
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
