@@ -116,46 +116,34 @@ There are several libraries that can help you testing these:
 Aside from rendering some UI, your components handle events like `onChangeText` for `TextInput` or `onPress` for `Button`. They may also contain other functions and event callbacks. Consider the following example:
 
 ```js
-class GroceryShoppingList extends React.Component {
-  state = {
-    groceryItem: '',
-    items: [],
-  };
+function GroceryShoppingList() {
+  const [groceryItem, setGroceryItem] = useState('');
+  const [items, setItems] = useState([]);
 
-  render() {
-    return (
-      <>
-        <TextInput
-          value={this.state.groceryItem}
-          placeholder="Enter grocery item"
-          onChangeText={this.setGroceryItem}
-        />
-        <Button
-          title="Add the item to list"
-          onPress={this.addNewItemToShoppingList}
-        />
-        {this.state.items.map((item) => (
-          <Text key={item}>{item}</Text>
-        ))}
-      </>
-    );
-  }
+  const addNewItemToShoppingList = useCallback(() => {
+    setItems([groceryItem, ...items]);
+    setGroceryItem('');
+  }, [groceryItem, items]);
 
-  setGroceryItem = (groceryItem) => {
-    this.setState({groceryItem});
-  };
-
-  addNewItemToShoppingList = () => {
-    this.setState((state) => {
-      return {items: [state.groceryItem, ...state.items], groceryItem: ''};
-    });
-  };
+  return (
+    <>
+      <TextInput
+        value={groceryItem}
+        placeholder="Enter grocery item"
+        onChangeText={(text) => setGroceryItem(text)}
+      />
+      <Button title="Add the item to list" onPress={addNewItemToShoppingList} />
+      {items.map((item) => (
+        <Text key={item}>{item}</Text>
+      ))}
+    </>
+  );
 }
 ```
 
-When testing user interactions, test the component from the user perspective: you could write a test to call `setGroceryItem` and `addNewItemToShoppingList` directly and make assertions on the component's `state`. While such test would work, it's very close to the implementation details of your component and would break by refactoring it (for example when you'd like to rename some things or rewrite it using hooks).
+When testing user interactions, test the component from the user perspective and avoid testing implementation details. Especially React class components are prone to testing their implementation details such as internal state or event handlers. While such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
 
-To avoid testing implementation details, component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library), offer `fireEvent` apis that simulate a user interacting with the component and query apis that find matching nodes in the rendered output. An example may look like this:
+To avoid testing implementation details, prefer using function components (with hooks), which make relying on component internals _harder_. Component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) also facilitate this by careful choice of provided apis. The following example uses `fireEvent` apis that simulate a user interacting with the component and a query function that finds matching nodes in the rendered output.
 
 ```js
 test('given empty GroceryShoppingList, user can add an item to it', () => {
