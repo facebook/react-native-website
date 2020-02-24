@@ -9,7 +9,6 @@ title: 🚧 Clipboard
 
 ---
 
-
 ## Example
 
 ```SnackPlayer name=Clipboard%20API%20Example&supportedPlatforms=ios,android

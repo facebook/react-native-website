@@ -14,7 +14,7 @@ In the first half of 2017, through the joint effort of the Relay Team, the Marke
 
 A typical React Native startup looks something like this:
 
-![](/react-native/blog/assets/RNPerformanceStartup.png)
+![](/blog/assets/RNPerformanceStartup.png)
 
 > Disclaimer: ratios aren't representative and will vary depending on how React Native is configured and used.
 
@@ -38,7 +38,7 @@ One of the reasons we meticulously verified that every millisecond in breakdowns
 
 Together, removing these thread blockage issues reduced the startup time by over 25%.
 
-Production metrics also challenged some of our prior assumptions. For example, we used to pre-load many JavaScript modules on the startup path under the assumption that co-locating modules in one bundle would reduce their initialization cost. However, the cost of pre-loading and co-locating these modules far outweighed the benefits. By re-configuring our inline require blacklists and removing JavaScript modules from the startup path, we were able to avoid loading unnecessary modules such as Relay Classic (when only [Relay Modern](https://facebook.github.io/relay/new-in-relay-modern.md) was necessary). Today, our `RUN_JS_BUNDLE` breakdown is over 75% faster.
+Production metrics also challenged some of our prior assumptions. For example, we used to pre-load many JavaScript modules on the startup path under the assumption that co-locating modules in one bundle would reduce their initialization cost. However, the cost of pre-loading and co-locating these modules far outweighed the benefits. By re-configuring our inline require blacklists and removing JavaScript modules from the startup path, we were able to avoid loading unnecessary modules such as Relay Classic (when only [Relay Modern](https://relay.dev/docs/new-in-relay-modern) was necessary). Today, our `RUN_JS_BUNDLE` breakdown is over 75% faster.
 
 We also found wins by investigating product-specific native modules. For example, by lazily injecting a native module's dependencies, we reduced that native module's cost by 98%. By removing the contention of Marketplace startup with other products, we reduced startup by an equivalent interval.
 

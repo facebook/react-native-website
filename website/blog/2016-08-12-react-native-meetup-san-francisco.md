@@ -5,13 +5,13 @@ authorTitle: Developer Advocate at Facebook
 authorURL: https://twitter.com/hectorramos
 authorImageURL: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
 authorTwitter: hectorramos
-hero: /react-native/blog/img/rnmsf-august-2016-hero.jpg
+hero: /blog/img/rnmsf-august-2016-hero.jpg
 category: events
 ---
 
 Last week I had the opportunity to attend the [React Native Meetup](http://www.meetup.com/React-Native-San-Francisco/photos/27168649/#452793854) at Zynga’s San Francisco office. With around 200 people in attendance, it served as a great place to meet other developers near me that are also interested in React Native.
 
-![](/react-native/blog/assets/rnmsf-august-2016-hero.jpg)
+![](/blog/assets/rnmsf-august-2016-hero.jpg)
 
 I was particularly interested in learning more about how React and React Native are used at companies like Zynga, Netflix, and Airbnb. The agenda for the night would be as follows:
 
@@ -22,7 +22,7 @@ I was particularly interested in learning more about how React and React Native 
 But first, the event started off with a quick introduction and a brief recap of recent news:
 
 - Did you know that React Native is now the [top Java repository on GitHub](https://twitter.com/jamespearce/status/759637111880359937)?
-- [rnpm](https://github.com/rnpm/rnpm) is now part of React Native core! You can now use `react-native link` in place of `rnpm link` to [install libraries with native dependencies](https://facebook.github.io/react-native/linking-libraries-ios.md).
+- [rnpm](https://github.com/rnpm/rnpm) is now part of React Native core! You can now use `react-native link` in place of `rnpm link` to [install libraries with native dependencies](/docs/linking-libraries-ios).
 - The React Native Meetup community is growing fast! There are now over 4,800 developers across a variety of React Native meetup groups all over the globe.
 
 If [one of these meetups](http://www.meetup.com/find/?allMeetups=false&keywords=react+native&radius=Infinity&userFreeform=San+Francisco%2C+CA&mcId=z94105&mcName=San+Francisco%2C+CA&sort=recommended&eventFilter=mysugg) is held near you, I highly recommend attending!
@@ -50,7 +50,7 @@ Photo pickers, on the other hand, are treated similarly on Android and iOS. Ther
 
 Regardless of which approach you settle on, it’s a good idea to minimize the API surface and build app-specific libraries. For example, iOS’s In-App Purchase framework supports one-time, consumable purchases, as well as renewable subscriptions. If your app will only need to support consumable purchases, you may get away with dropping support for subscriptions in your cross-platform library.
 
-![](/react-native/blog/assets/rnmsf-august-2016-netflix.jpg)
+![](/blog/assets/rnmsf-august-2016-netflix.jpg)
 
 There was a brief Q&A session at the end of Clarence’s talk. One of the interesting tid bits that came out of it was that around 80% of the React Native code written for these libraries at Netflix is shared across both Android and iOS.
 
@@ -70,7 +70,7 @@ Airbnb has since moved to a mono repo approach. Fortunately this was already und
 
 This has solved most of the issues they had with the split repo approach. Leland did note that this does cause a higher strain on the version control servers, which may be an issue for smaller companies.
 
-![](/react-native/blog/assets/rnmsf-august-2016-airbnb.jpg)
+![](/blog/assets/rnmsf-august-2016-airbnb.jpg)
 
 ### The Navigation Problem
 
@@ -104,9 +104,9 @@ Leland's talk was also followed by a Q&A session. Overall, Airbnb is satisfied w
 The event ended with some additional React Native news:
 
 - Deco announced their [React Native Showcase](https://www.decosoftware.com/showcase), and invited everyone to add their app to the list.
-- The recent [documentation overhaul](https://facebook.github.io/react-native/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
+- The recent [documentation overhaul](/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
 - Devin Abbott, one of the creators of Deco IDE, will be teaching an introductory [React Native course](https://www.decosoftware.com/course).
 
-![](/react-native/blog/assets/rnmsf-august-2016-docs.jpg)
+![](/blog/assets/rnmsf-august-2016-docs.jpg)
 
 Meetups provide a good opportunity to meet and learn from other developers in the community. I'm looking forward to attending more React Native meetups in the future. If you make it up to one of these, please look out for me and let me know how we can make React Native work better for you!

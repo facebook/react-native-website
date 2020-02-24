@@ -13,7 +13,7 @@ Your grandparents' generation called movies ["moving pictures"](https://www.yout
 
 Now to confuse the matter a little bit, open up the developer menu in your app and toggle `Show Perf Monitor`. You will notice that there are two different frame rates.
 
-![](/react-native/docs/assets/PerfUtil.png)
+![](/docs/assets/PerfUtil.png)
 
 ### JS frame rate (JavaScript thread)
 
@@ -55,7 +55,7 @@ This will automatically remove all `console.*` calls in the release (production)
 
 Use the new [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) component instead. Besides simplifying the API, the new list components also have significant performance enhancements, the main one being nearly constant memory usage for any number of rows.
 
-If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](https://facebook.github.io/react-native/docs/flatlist.html#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
+If your [`FlatList`](flatlist.md) is rendering slow, be sure that you've implemented [`getItemLayout`](flatlist.html#getitemlayout) to optimize rendering speed by skipping measurement of the rendered items.
 
 ### JS FPS plunges when re-rendering a view that hardly changes
 
@@ -67,7 +67,7 @@ Similarly, you can implement `shouldComponentUpdate` and indicate the exact cond
 
 "Slow Navigator transitions" is the most common manifestation of this, but there are other times this can happen. Using InteractionManager can be a good approach, but if the user experience cost is too high to delay work during an animation, then you might want to consider LayoutAnimation.
 
-The Animated API currently calculates each keyframe on-demand on the JavaScript thread unless you [set `useNativeDriver: true`](https://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html#how-do-i-use-this-in-my-app), while LayoutAnimation leverages Core Animation and is unaffected by JS thread and main thread frame drops.
+The Animated API currently calculates each keyframe on-demand on the JavaScript thread unless you [set `useNativeDriver: true`](/blog/2017/02/14/using-native-driver-for-animated.html#how-do-i-use-this-in-my-app), while LayoutAnimation leverages Core Animation and is unaffected by JS thread and main thread frame drops.
 
 One case where I have used this is for animating in a modal (sliding down from top and fading in a translucent overlay) while initializing and perhaps receiving responses for several network requests, rendering the contents of the modal, and updating the view where the modal was opened from. See the Animations guide for more information about how to use LayoutAnimation.
 
@@ -145,13 +145,13 @@ Once the trace starts collecting, perform the animation or interaction you care 
 
 After opening the trace in your browser (preferably Chrome), you should see something like this:
 
-![Example](/react-native/docs/assets/SystraceExample.png)
+![Example](/docs/assets/SystraceExample.png)
 
 > **HINT**: Use the WASD keys to strafe and zoom
 
 If your trace .html file isn't opening correctly, check your browser console for the following:
 
-![ObjectObserveError](/react-native/docs/assets/ObjectObserveError.png)
+![ObjectObserveError](/docs/assets/ObjectObserveError.png)
 
 Since `Object.observe` was deprecated in recent browsers, you may have to open the file from the Google Chrome Tracing tool. You can do so by:
 
@@ -163,7 +163,7 @@ Since `Object.observe` was deprecated in recent browsers, you may have to open t
 >
 > Check this checkbox at the top right of the screen to highlight the 16ms frame boundaries:
 >
-> ![Enable VSync Highlighting](/react-native/docs/assets/SystraceHighlightVSync.png)
+> ![Enable VSync Highlighting](/docs/assets/SystraceHighlightVSync.png)
 >
 > You should see zebra stripes as in the screenshot above. If you don't, try profiling on a different device: Samsung has been known to have issues displaying vsyncs while the Nexus series is generally pretty reliable.
 
@@ -175,37 +175,37 @@ On the left side, you'll see a set of threads which correspond to the timeline r
 
 - **UI Thread.** This is where standard android measure/layout/draw happens. The thread name on the right will be your package name (in my case book.adsmanager) or UI Thread. The events that you see on this thread should look something like this and have to do with `Choreographer`, `traversals`, and `DispatchUI`:
 
-  ![UI Thread Example](/react-native/docs/assets/SystraceUIThreadExample.png)
+  ![UI Thread Example](/docs/assets/SystraceUIThreadExample.png)
 
 - **JS Thread.** This is where JavaScript is executed. The thread name will be either `mqt_js` or `<...>` depending on how cooperative the kernel on your device is being. To identify it if it doesn't have a name, look for things like `JSCall`, `Bridge.executeJSCall`, etc:
 
-  ![JS Thread Example](/react-native/docs/assets/SystraceJSThreadExample.png)
+  ![JS Thread Example](/docs/assets/SystraceJSThreadExample.png)
 
 - **Native Modules Thread.** This is where native module calls (e.g. the `UIManager`) are executed. The thread name will be either `mqt_native_modules` or `<...>`. To identify it in the latter case, look for things like `NativeCall`, `callJavaModuleMethod`, and `onBatchComplete`:
 
-  ![Native Modules Thread Example](/react-native/docs/assets/SystraceNativeModulesThreadExample.png)
+  ![Native Modules Thread Example](/docs/assets/SystraceNativeModulesThreadExample.png)
 
 - **Bonus: Render Thread.** If you're using Android L (5.0) and up, you will also have a render thread in your application. This thread generates the actual OpenGL commands used to draw your UI. The thread name will be either `RenderThread` or `<...>`. To identify it in the latter case, look for things like `DrawFrame` and `queueBuffer`:
 
-  ![Render Thread Example](/react-native/docs/assets/SystraceRenderThreadExample.png)
+  ![Render Thread Example](/docs/assets/SystraceRenderThreadExample.png)
 
 #### Identifying a culprit
 
 A smooth animation should look something like the following:
 
-![Smooth Animation](/react-native/docs/assets/SystraceWellBehaved.png)
+![Smooth Animation](/docs/assets/SystraceWellBehaved.png)
 
 Each change in color is a frame -- remember that in order to display a frame, all our UI work needs to be done by the end of that 16ms period. Notice that no thread is working close to the frame boundary. An application rendering like this is rendering at 60 FPS.
 
 If you noticed chop, however, you might see something like this:
 
-![Choppy Animation from JS](/react-native/docs/assets/SystraceBadJS.png)
+![Choppy Animation from JS](/docs/assets/SystraceBadJS.png)
 
 Notice that the JS thread is executing almost all the time, and across frame boundaries! This app is not rendering at 60 FPS. In this case, **the problem lies in JS**.
 
 You might also see something like this:
 
-![Choppy Animation from UI](/react-native/docs/assets/SystraceBadUI.png)
+![Choppy Animation from UI](/docs/assets/SystraceBadUI.png)
 
 In this case, the UI and render threads are the ones that have work crossing frame boundaries. The UI that we're trying to render on each frame is requiring too much work to be done. In this case, **the problem lies in the native views being rendered**.
 
@@ -215,7 +215,7 @@ At this point, you'll have some very helpful information to inform your next ste
 
 If you identified a JS problem, look for clues in the specific JS that you're executing. In the scenario above, we see `RCTEventEmitter` being called multiple times per frame. Here's a zoom-in of the JS thread from the trace above:
 
-![Too much JS](/react-native/docs/assets/SystraceBadJS2.png)
+![Too much JS](/docs/assets/SystraceBadJS2.png)
 
 This doesn't seem right. Why is it being called so often? Are they actually different events? The answers to these questions will probably depend on your product code. And many times, you'll want to look into [shouldComponentUpdate](https://reactjs.org/docs/react-component.html#shouldcomponentupdate).
 
@@ -230,7 +230,7 @@ If you identified a native UI problem, there are usually two scenarios:
 
 In the first scenario, you'll see a trace that has the UI thread and/or Render Thread looking like this:
 
-![Overloaded GPU](/react-native/docs/assets/SystraceBadUI.png)
+![Overloaded GPU](/docs/assets/SystraceBadUI.png)
 
 Notice the long amount of time spent in `DrawFrame` that crosses frame boundaries. This is time spent waiting for the GPU to drain its command buffer from the previous frame.
 
@@ -245,7 +245,7 @@ If these don't help and you want to dig deeper into what the GPU is actually doi
 
 In the second scenario, you'll see something more like this:
 
-![Creating Views](/react-native/docs/assets/SystraceBadCreateUI.png)
+![Creating Views](/docs/assets/SystraceBadCreateUI.png)
 
 Notice that first the JS thread thinks for a bit, then you see some work done on the native modules thread, followed by an expensive traversal on the UI thread.
 

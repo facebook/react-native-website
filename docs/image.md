@@ -51,7 +51,7 @@ const DisplayAnImage = () => {
       <Image
         style={styles.tinyLogo}
         source={{
-          uri: 'https://facebook.github.io/react-native/img/tiny_logo.png',
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
         }}
       />
       <Image
@@ -99,7 +99,7 @@ export default class DisplayAnImage extends Component {
         />
         <Image
           style={styles.tinyLogo}
-          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
         />
         <Image
           style={styles.logo}

@@ -43,7 +43,7 @@ Networking is an inherently asynchronous operation. Fetch methods will return a 
 
 ```jsx
 function getMoviesFromApi() {
-  return fetch('https://facebook.github.io/react-native/movies.json')
+  return fetch('https://reactnative.dev/movies.json')
     .then((response) => response.json())
     .then((json) => {
       return json.movies;
@@ -60,7 +60,7 @@ You can also use the `async` / `await` syntax in a React Native app:
 async function getMoviesFromApiAsync() {
   try {
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json',
+      'https://reactnative.dev/movies.json',
     );
     let json = await response.json();
     return json.movies;
@@ -94,7 +94,7 @@ export default App = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch('https://facebook.github.io/react-native/movies.json')
+    fetch('https://reactnative.dev/movies.json')
       .then((response) => response.json())
       .then((json) => setData(json.movies))
       .catch((error) => console.error(error))

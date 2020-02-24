@@ -168,6 +168,7 @@ export default class AccessibilityStatusExample extends React.Component {
   });
 }
 ```
+
 <block class="endBlock syntax" />
 
 ---

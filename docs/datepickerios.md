@@ -3,7 +3,7 @@ id: datepickerios
 title: 🚧 DatePickerIOS
 ---
 
-> **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead. 
+> **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
 
 Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a controlled component, so you must hook in to the `onDateChange` callback and update the `date` prop in order for the component to update, otherwise the user's change will be reverted immediately to reflect `props.date` as the source of truth.
 
@@ -142,7 +142,7 @@ Restricts the range of possible date/time values.
 
 Example with `maximumDate` set to December 31, 2017:
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
 
 ---
 
@@ -170,7 +170,7 @@ The interval at which minutes can be selected.
 
 Example with `minuteInterval` set to `10`:
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
 
 ---
 
@@ -182,7 +182,7 @@ The date picker mode.
 | --------------------------------------------- | -------- |
 | enum('date', 'time', 'datetime', 'countdown') | No       |
 
-Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/docs/assets/DatePickerIOS/mode.png)
+Example with `mode` set to `date`, `time`, and `datetime`: ![](/docs/assets/DatePickerIOS/mode.png)
 
 ---
 

@@ -3,9 +3,9 @@ id: animatedvaluexy
 title: AnimatedValueXY
 ---
 
-2D Value for driving 2D animations, such as pan gestures. Almost identical API to normal [`Animated.Value`](animatedvalue.md), but multiplexed. Contains two regular `Animated.Value`s under the hood.
+2D Value for driving 2D animations, such as pan gestures. Almost identical API to normal [`Animated.Value`](animatedvalue), but multiplexed. Contains two regular `Animated.Value`s under the hood.
 
-See also [`Animated`](animated.md).
+See also [`Animated`](animated).
 
 ## Example
 
@@ -47,17 +47,17 @@ class DraggableView extends React.Component {
 
 ### Methods
 
-- [`setValue`](animatedvaluexy.md#setvalue)
-- [`setOffset`](animatedvaluexy.md#setoffset)
-- [`flattenOffset`](animatedvaluexy.md#flattenoffset)
-- [`extractOffset`](animatedvaluexy.md#extractoffset)
-- [`addListener`](animatedvaluexy.md#addlistener)
-- [`removeListener`](animatedvaluexy.md#removelistener)
-- [`removeAllListeners`](animatedvaluexy.md#removealllisteners)
-- [`stopAnimation`](animatedvaluexy.md#stopanimation)
-- [`resetAnimation`](animatedvaluexy.md#resetanimation)
-- [`getLayout`](animatedvaluexy.md#getlayout)
-- [`getTranslateTransform`](animatedvaluexy.md#gettranslatetransform)
+- [`setValue`](animatedvaluexy#setvalue)
+- [`setOffset`](animatedvaluexy#setoffset)
+- [`flattenOffset`](animatedvaluexy#flattenoffset)
+- [`extractOffset`](animatedvaluexy#extractoffset)
+- [`addListener`](animatedvaluexy#addlistener)
+- [`removeListener`](animatedvaluexy#removelistener)
+- [`removeAllListeners`](animatedvaluexy#removealllisteners)
+- [`stopAnimation`](animatedvaluexy#stopanimation)
+- [`resetAnimation`](animatedvaluexy#resetanimation)
+- [`getLayout`](animatedvaluexy#getlayout)
+- [`getTranslateTransform`](animatedvaluexy#gettranslatetransform)
 
 ---
 

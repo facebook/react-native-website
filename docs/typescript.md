@@ -91,68 +91,70 @@ import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
 export interface Props {
-    name: string;
-    enthusiasmLevel?: number;
+  name: string;
+  enthusiasmLevel?: number;
 }
 
 const Hello: React.FC<Props> = (props) => {
-    const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(props.enthusiasmLevel);
+  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
+    props.enthusiasmLevel,
+  );
 
-    const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
-    const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
+  const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
+  const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
 
-    const getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
-    return (
-        <View style={styles.root}>
-            <Text style={styles.greeting}>
-                Hello{' '}
-                {props.name + getExclamationMarks(enthusiasmLevel || 0)}
-            </Text>
+  const getExclamationMarks = (numChars: number) =>
+    Array(numChars + 1).join('!');
+  return (
+    <View style={styles.root}>
+      <Text style={styles.greeting}>
+        Hello {props.name + getExclamationMarks(enthusiasmLevel || 0)}
+      </Text>
 
-            <View style={styles.buttons}>
-                <View style={styles.button}>
-                <Button
-                    title="-"
-                    onPress={onDecrement}
-                    accessibilityLabel="decrement"
-                    color="red"
-                />
-                </View>
-
-                <View style={styles.button}>
-                <Button
-                    title="+"
-                    onPress={onIncrement}
-                    accessibilityLabel="increment"
-                    color="blue"
-                />
-                </View>
-            </View>
+      <View style={styles.buttons}>
+        <View style={styles.button}>
+          <Button
+            title="-"
+            onPress={onDecrement}
+            accessibilityLabel="decrement"
+            color="red"
+          />
         </View>
-    );
-}
+
+        <View style={styles.button}>
+          <Button
+            title="+"
+            onPress={onIncrement}
+            accessibilityLabel="increment"
+            color="blue"
+          />
+        </View>
+      </View>
+    </View>
+  );
+};
 
 // styles
 const styles = StyleSheet.create({
-    root: {
-        alignItems: 'center',
-        alignSelf: 'center',
-    },
-    buttons: {
-        flexDirection: 'row',
-        minHeight: 70,
-        alignItems: 'stretch',
-        alignSelf: 'center',
-        borderWidth: 5,
-    },
-    button: {
-        flex: 1,
-        paddingVertical: 0,
-    },
-    greeting: {
-        color: '#999',
-        fontWeight: 'bold',
-    },
+  root: {
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  buttons: {
+    flexDirection: 'row',
+    minHeight: 70,
+    alignItems: 'stretch',
+    alignSelf: 'center',
+    borderWidth: 5,
+  },
+  button: {
+    flex: 1,
+    paddingVertical: 0,
+  },
+  greeting: {
+    color: '#999',
+    fontWeight: 'bold',
+  },
 });
 
 export default Hello;
@@ -215,12 +217,12 @@ npm install --save-dev babel-plugin-module-resolver
 [ts]: https://www.typescriptlang.org/
 [flow]: https://flow.org
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript
-[babel]: /react-native/docs/javascript-environment#javascript-syntax-transformers
+[babel]: /docs/javascript-environment#javascript-syntax-transformers
 [babel-7-caveats]: https://babeljs.io/docs/en/next/babel-plugin-transform-typescript
 [cheat]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
-[props]: /react-native/docs/props.html
-[state]: /react-native/docs/state.html
+[props]: /docs/props.html
+[state]: /docs/state.html
 [path-map]: https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
 [bpmr]: https://github.com/tleunen/babel-plugin-module-resolver
 [expo]: https://expo.io

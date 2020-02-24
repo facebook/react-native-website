@@ -24,7 +24,7 @@ If you have suggestions for features that you think would be valuable on the roa
 
 Today we're introducing a basic `<Button />` component that looks great on every platform. This addresses one of the most common pieces of feedback we get: React Native is one of the only mobile development toolkits without a button ready to use out of the box.
 
-![Simple Button on Android, iOS](/react-native/blog/assets/button-android-ios.png)
+![Simple Button on Android, iOS](/blog/assets/button-android-ios.png)
 
 ```
 <Button
@@ -36,7 +36,7 @@ Today we're introducing a basic `<Button />` component that looks great on every
 
 Experienced React Native developers know how to make a button: use TouchableOpacity for the default look on iOS, TouchableNativeFeedback for the ripple effect on Android, then apply a few styles. Custom buttons aren't particularly hard to build or install, but we aim to make React Native radically easy to learn. With the addition of a basic button into core, newcomers will be able to develop something awesome in their first day, rather than spending that time formatting a Button and learning about Touchable nuances.
 
-Button is meant to work great and look native on every platform, so it won't support all the bells and whistles that custom buttons do. It is a great starting point, but is not meant to replace all your existing buttons. To learn more, check out the [new Button documentation](https://facebook.github.io/react-native/docs/button), complete with a runnable example!
+Button is meant to work great and look native on every platform, so it won't support all the bells and whistles that custom buttons do. It is a great starting point, but is not meant to replace all your existing buttons. To learn more, check out the [new Button documentation](/docs/button), complete with a runnable example!
 
 ## Speed up `react-native init` using Yarn
 
@@ -48,7 +48,7 @@ $ npm install -g react-native-cli
 
 You should now see “Using yarn” when setting up new apps:
 
-![Using yarn](/react-native/blog/assets/yarn-rncli.png)
+![Using yarn](/blog/assets/yarn-rncli.png)
 
 In simple local testing `react-native init` finished in **about 1 minute on a good network** (vs around 3 minutes when using npm 3.10.8). Installing yarn is optional but highly recommended.
 

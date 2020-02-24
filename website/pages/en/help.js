@@ -62,8 +62,8 @@ class Help extends React.Component {
             The <a href="https://twitter.com/reactjs">React Twitter account</a>{' '}
             covers both React and React Native. Follow the React Native{' '}
             <a href="https://twitter.com/reactnative">Twitter account</a> and{' '}
-            <a href="/react-native/blog/">blog</a> to find out what's happening
-            in the world of React Native.
+            <a href="/blog/">blog</a> to find out what's happening in the world
+            of React Native.
           </p>
           <h3>Proposals</h3>
           <p>

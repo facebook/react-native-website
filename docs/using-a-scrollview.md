@@ -12,8 +12,8 @@ import React from 'react';
 import { Image, ScrollView, Text } from 'react-native';
 
 const logo = {
-  uri: 'https://facebook.github.io/react-native/img/tiny_logo.png', 
-  width: 64, 
+  uri: 'https://reactnative.dev/img/tiny_logo.png',
+  width: 64,
   height: 64
 };
 

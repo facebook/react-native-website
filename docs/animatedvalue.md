@@ -7,23 +7,23 @@ Standard value for driving animations. One `Animated.Value` can drive multiple p
 
 Typically initialized with `new Animated.Value(0);`
 
-See also [`Animated`](animated.md).
+See also [`Animated`](animated).
 
 ### Methods
 
-- [`setValue`](animatedvalue.md#setvalue)
-- [`setOffset`](animatedvalue.md#setoffset)
-- [`flattenOffset`](animatedvalue.md#flattenoffset)
-- [`extractOffset`](animatedvalue.md#extractoffset)
-- [`addListener`](animatedvalue.md#addlistener)
-- [`removeListener`](animatedvalue.md#removelistener)
-- [`removeAllListeners`](animatedvalue.md#removealllisteners)
-- [`stopAnimation`](animatedvalue.md#stopanimation)
-- [`resetAnimation`](animatedvalue.md#resetanimation)
-- [`interpolate`](animatedvalue.md#interpolate)
-- [`animate`](animatedvalue.md#animate)
-- [`stopTracking`](animatedvalue.md#stoptracking)
-- [`track`](animatedvalue.md#track)
+- [`setValue`](animatedvalue#setvalue)
+- [`setOffset`](animatedvalue#setoffset)
+- [`flattenOffset`](animatedvalue#flattenoffset)
+- [`extractOffset`](animatedvalue#extractoffset)
+- [`addListener`](animatedvalue#addlistener)
+- [`removeListener`](animatedvalue#removelistener)
+- [`removeAllListeners`](animatedvalue#removealllisteners)
+- [`stopAnimation`](animatedvalue#stopanimation)
+- [`resetAnimation`](animatedvalue#resetanimation)
+- [`interpolate`](animatedvalue#interpolate)
+- [`animate`](animatedvalue#animate)
+- [`stopTracking`](animatedvalue#stoptracking)
+- [`track`](animatedvalue#track)
 
 ---
 

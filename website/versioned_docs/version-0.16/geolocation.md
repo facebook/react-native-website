@@ -16,7 +16,7 @@ To request access to location, you need to add the following line to your app's 
 
 `<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />`
 
-Geolocation support for Android is planned but not yet open sourced. See [Known Issues](http://facebook.github.io/react-native/known-issues.md#missing-modules-and-native-views).
+Geolocation support for Android is planned but not yet open sourced. See [Known Issues](https://reactnative.dev/known-issues.md#missing-modules-and-native-views).
 
 ### Methods
 
