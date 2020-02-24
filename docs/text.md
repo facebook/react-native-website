@@ -22,26 +22,24 @@ In the following example, the nested title and body text will inherit the `fontF
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Text Functional Component Example
-
-import React, { useState } from 'react';
-import { Text, StyleSheet } from 'react-native';
+```SnackPlayer name=Text%20Functional%20Component%20Example
+import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
 
 const onPressTitle = () => {
-  console.log('title pressed');
+  console.log("title pressed");
 };
 
 const TextInANest = () => {
-  const titleText = useState('Bird\'s Nest');
-  const bodyText = useState(
-    'This is not really a bird nest.');
+  const titleText = useState("Bird's Nest");
+  const bodyText = useState("This is not really a bird nest.");
 
   return (
     <Text style={styles.baseText}>
       <Text style={styles.titleText} onPress={onPressTitle}>
         {titleText}
-        {'\n'}
-        {'\n'}
+        {"\n"}
+        {"\n"}
       </Text>
       <Text numberOfLines={5}>{bodyText}</Text>
     </Text>
@@ -50,29 +48,30 @@ const TextInANest = () => {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Cochin'
+    fontFamily: "Cochin"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold'
+    fontWeight: "bold"
   }
 });
 
 export default TextInANest;
+
 ```
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Text Class Component Example
-import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+```SnackPlayer name=Text%20Class%20Component%20Example
+import React, { Component } from "react";
+import { Text, StyleSheet } from "react-native";
 
 export default class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      bodyText: "This is not really a bird nest."
     };
   }
 
@@ -80,11 +79,11 @@ export default class TextInANest extends Component {
     return (
       <Text style={styles.baseText}>
         <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
+          {this.state.titleText}
+          {"\n"}
+          {"\n"}
         </Text>
-        <Text numberOfLines={5}>
-          {this.state.bodyText}
-        </Text>
+        <Text numberOfLines={5}>{this.state.bodyText}</Text>
       </Text>
     );
   }
@@ -92,12 +91,12 @@ export default class TextInANest extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Cochin',
+    fontFamily: "Cochin"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: "bold"
+  }
 });
 ```
 
@@ -107,20 +106,7 @@ const styles = StyleSheet.create({
 
 Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
-
-```SnackPlayer name=Nested Function Component Example
+```SnackPlayer name=Nested%20Text%20Example
 import React from 'react';
 import { Text, StyleSheet } from 'react-native';
 
@@ -143,26 +129,6 @@ const styles = StyleSheet.create({
 });
 
 export default BoldAndBeautiful;
-```
-
-<block class="classical syntax" />
-
-```SnackPlayer name=Nested Class Component Example
-import React, { Component } from 'react';
-import { Text } from 'react-native';
-
-export default class BoldAndBeautiful extends Component {
-  render() {
-    return (
-      <Text style={{fontWeight: 'bold'}}>
-        I am bold
-        <Text style={{color: 'red'}}>
-          and red
-        </Text>
-      </Text>
-    );
-  }
-}
 ```
 
 <block class="endBlock syntax" />
