@@ -32,7 +32,12 @@
       "gesture-responder-system"
     ],
     "Inclusion": ["accessibility"],
-    "Performance": ["performance", "optimizing-flatlist-configuration"],
+    "Performance": [
+      "performance",
+      "optimizing-flatlist-configuration",
+      "ram-bundles-inline-requires",
+      "profiling"
+    ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Connectivity": ["network"],
     "Native Components and Modules": [
