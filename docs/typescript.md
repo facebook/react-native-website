@@ -217,7 +217,7 @@ npm install --save-dev babel-plugin-module-resolver
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript
 [babel]: /react-native/docs/javascript-environment#javascript-syntax-transformers
 [babel-7-caveats]: https://babeljs.io/docs/en/next/babel-plugin-transform-typescript
-[cheat]: https://github.com/typescript-sheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
+[cheat]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
 [props]: /react-native/docs/props.html
 [state]: /react-native/docs/state.html
