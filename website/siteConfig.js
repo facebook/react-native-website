@@ -24,6 +24,7 @@ const siteConfig = {
   url: 'https://reactnative.dev',
   baseUrl,
   projectName: 'react-native',
+  cname: 'reactnative.dev',
   repoUrl,
   defaultVersionShown,
   users,
