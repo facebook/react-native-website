@@ -59,17 +59,11 @@ You can also use the `async` / `await` syntax in a React Native app:
 ```jsx
 async function getMoviesFromApiAsync() {
   try {
-<<<<<<< HEAD
-    let response = await fetch('https://reactnative.dev/movies.json');
-    let responseJson = await response.json();
-    return responseJson.movies;
-=======
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json',
+      'https://reactnative.dev/movies.json',
     );
     let json = await response.json();
     return json.movies;
->>>>>>> aa1d0059e5e36adbd72b7fa508fbb89f5a0f41d6
   } catch (error) {
     console.error(error);
   }
@@ -99,13 +93,8 @@ export default App = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
-<<<<<<< HEAD
-  componentDidMount(){
-    return fetch('https://reactnative.dev/movies.json')
-=======
   useEffect(() => {
-    fetch('https://facebook.github.io/react-native/movies.json')
->>>>>>> aa1d0059e5e36adbd72b7fa508fbb89f5a0f41d6
+    fetch('https://reactnative.dev/movies.json')
       .then((response) => response.json())
       .then((json) => setData(json.movies))
       .catch((error) => console.error(error))
