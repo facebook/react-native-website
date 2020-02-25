@@ -11,38 +11,33 @@ For example, one basic React Native component is the `Image`. When you create an
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 
-export default class Bananas extends Component {
-  render() {
+export default function Bananas() {
     let pic = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
     return (
-      <Image source={pic} style={{width: 193, height: 110}}/>
+      <Image source={pic} style={{width: 193, height: 110, marginTop:50}}/>
     );
-  }
 }
 ```
 
 Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX. You can put any JavaScript expression inside braces in JSX.
 
-Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place by referring to `this.props` in your `render` function. Here's an example:
+Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place by referring to `props` in your `render` function. Here's an example:
 
 ```SnackPlayer name=Props
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-class Greeting extends Component {
-  render() {
+const Greeting = (props) => {
     return (
       <View style={{alignItems: 'center'}}>
-        <Text>Hello {this.props.name}!</Text>
+        <Text>Hello {props.name}!</Text>
       </View>
     );
-  }
 }
 
-export default class LotsOfGreetings extends Component {
-  render() {
+export default function LotsOfGreetings() {
     return (
       <View style={{alignItems: 'center', top: 50}}>
         <Greeting name='Rexxar' />
@@ -50,7 +45,6 @@ export default class LotsOfGreetings extends Component {
         <Greeting name='Valeera' />
       </View>
     );
-  }
 }
 ```
 
