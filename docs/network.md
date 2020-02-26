@@ -59,9 +59,7 @@ You can also use the `async` / `await` syntax in a React Native app:
 ```jsx
 async function getMoviesFromApiAsync() {
   try {
-    let response = await fetch(
-      'https://reactnative.dev/movies.json',
-    );
+    let response = await fetch('https://reactnative.dev/movies.json');
     let json = await response.json();
     return json.movies;
   } catch (error) {
@@ -134,7 +132,7 @@ export default class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://facebook.github.io/react-native/movies.json')
+    fetch('https://reactnative.dev/movies.json')
       .then((response) => response.json())
       .then((json) => {
         this.setState({ data: json.movies });
