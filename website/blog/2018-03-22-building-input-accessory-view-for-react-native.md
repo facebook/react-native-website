@@ -14,7 +14,7 @@ Three years ago, a GitHub issue was opened to support input accessory view from 
 
 <img src="/blog/assets/input-accessory-1.png"/>
 
-In the ensuing years, there have been countless '+1s', various workarounds, and zero concrete changes to RN on this issue - until today. Starting with iOS, [we're exposing an API](http://reactnative.dev/docs/next/inputaccessoryview.html) for accessing the native input accessory view and we are excited to share how we built it.
+In the ensuing years, there have been countless '+1s', various workarounds, and zero concrete changes to RN on this issue - until today. Starting with iOS, [we're exposing an API](/docs/inputaccessoryview) for accessing the native input accessory view and we are excited to share how we built it.
 
 ## Background
 
