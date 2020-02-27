@@ -10,6 +10,7 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 A task is a async function that you register on `AppRegistry`, similar to registering React applications:
 
 ```jsx
+import {AppRegistry} from 'react-native';
 AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
 ```
 
@@ -28,6 +29,14 @@ You can do anything in your task such as network requests, timers and so on, as 
 Yes, this does still require some native code, but it's pretty thin. You need to extend `HeadlessJsTaskService` and override `getTaskConfig`, e.g.:
 
 ```java
+package com.your_application_name;
+import android.content.Intent;
+import android.os.Bundle;
+import com.facebook.react.HeadlessJsTaskService;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.jstasks.HeadlessJsTaskConfig;
+import javax.annotation.Nullable;
+
 public class MyTaskService extends HeadlessJsTaskService {
 
   @Override

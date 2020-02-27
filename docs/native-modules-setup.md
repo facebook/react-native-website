@@ -18,7 +18,7 @@ Where MyLibrary is the name you would like for the new module. After doing this 
 $ yarn install
 ```
 
-After this is done you can go to your main react app folder (which you created by doing `react-native init MyApp`)
+After this is done you can go to your main react app folder (which you created by doing `npx react-native init MyApp`)
 
 - add your newly created module as a dependency in your package.json
 - run `yarn install` to bring it along from your local npm repository.

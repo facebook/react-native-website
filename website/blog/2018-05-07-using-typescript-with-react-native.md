@@ -24,7 +24,7 @@ In any case, have fun! The original blog post continues below.
 
 ## Prerequisites
 
-Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](https://facebook.github.io/react-native/docs/getting-started.html). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
+Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](/docs/getting-started.html). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
 
 You will also need [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com), and [Yarn](https://yarnpkg.com/lang/en).
 

@@ -16,14 +16,15 @@ try {
   // We only care if we are on the CI server and about to deploy
 }
 const defaultVersionShown = '0.61';
-const baseUrl = '/react-native/';
+const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
-  url: 'https://facebook.github.io',
+  url: 'https://reactnative.dev',
   baseUrl,
   projectName: 'react-native',
+  cname: 'reactnative.dev',
   repoUrl,
   defaultVersionShown,
   users,

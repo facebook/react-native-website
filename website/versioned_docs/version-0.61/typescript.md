@@ -1,6 +1,7 @@
 ---
-id: typescript
+id: version-0.61-typescript
 title: Using TypeScript with React Native
+original_id: typescript
 ---
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
@@ -10,7 +11,7 @@ title: Using TypeScript with React Native
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-npx react-native init MyApp --template react-native-template-typescript
+npx react-native init MyTSProject --template react-native-template-typescript
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
@@ -32,7 +33,7 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
@@ -73,8 +74,6 @@ module.exports = {
 
 4. Rename a JavaScript file to be `*.tsx`
 
-> You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
-
 5. Run `yarn tsc` to type-check your new TypeScript files.
 
 ## How TypeScript and React Native works
@@ -91,73 +90,70 @@ import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
 export interface Props {
-  name: string;
-  enthusiasmLevel?: number;
+    name: string;
+    enthusiasmLevel?: number;
 }
 
 const Hello: React.FC<Props> = (props) => {
-  const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
-    props.enthusiasmLevel,
-  );
+    const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(props.enthusiasmLevel);
 
-  const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
-  const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
+    const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
+    const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
 
-  const getExclamationMarks = (numChars: number) =>
-    Array(numChars + 1).join('!');
-  return (
-    <View style={styles.root}>
-      <Text style={styles.greeting}>
-        Hello {props.name + getExclamationMarks(enthusiasmLevel || 0)}
-      </Text>
+    const getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
+    return (
+        <View style={styles.root}>
+        <Text style={styles.greeting}>
+            Hello{' '}
+            {props.name + getExclamationMarks(enthusiasmLevel || 0)}
+        </Text>
 
-      <View style={styles.buttons}>
-        <View style={styles.button}>
-          <Button
-            title="-"
-            onPress={onDecrement}
-            accessibilityLabel="decrement"
-            color="red"
-          />
+        <View style={styles.buttons}>
+            <View style={styles.button}>
+            <Button
+                title="-"
+                onPress={onDecrement}
+                accessibilityLabel="decrement"
+                color="red"
+            />
+            </View>
+
+            <View style={styles.button}>
+            <Button
+                title="+"
+                onPress={onIncrement}
+                accessibilityLabel="increment"
+                color="blue"
+            />
+            </View>
         </View>
-
-        <View style={styles.button}>
-          <Button
-            title="+"
-            onPress={onIncrement}
-            accessibilityLabel="increment"
-            color="blue"
-          />
         </View>
-      </View>
-    </View>
-  );
-};
+    );
+    }
+}
 
 // styles
 const styles = StyleSheet.create({
-  root: {
-    alignItems: 'center',
-    alignSelf: 'center',
-  },
-  buttons: {
-    flexDirection: 'row',
-    minHeight: 70,
-    alignItems: 'stretch',
-    alignSelf: 'center',
-    borderWidth: 5,
-  },
-  button: {
-    flex: 1,
-    paddingVertical: 0,
-  },
-  greeting: {
-    color: '#999',
-    fontWeight: 'bold',
-  },
+    root: {
+        alignItems: 'center',
+        alignSelf: 'center',
+    },
+    buttons: {
+       flexDirection: 'row',
+        minHeight: 70,
+        alignItems: 'stretch',
+        alignSelf: 'center',
+        borderWidth: 5,
+    },
+    button: {
+        flex: 1,
+        paddingVertical: 0,
+    },
+    greeting: {
+        color: '#999',
+        fontWeight: 'bold',
+    },
 });
-
-export default Hello;
 ```
 
 You can explore the syntax more in the [TypeScript playground][tsplay].
@@ -179,8 +175,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 +     "baseUrl": ".",
 +     "paths": {
 +       "*": ["src/*"],
-+       "tests": ["tests/*"],
-+       "@components/*": ["src/components/*"],
++       "tests": ["tests/*"]
 +     },
     }
 ```
@@ -204,8 +199,7 @@ npm install --save-dev babel-plugin-module-resolver
 +         root: ['./src'],
 +         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
 +         alias: {
-+           "tests": ["./tests/"],
-+           "@components": "./src/components",
++           "test/*": ["./test/"],
 +         }
 +       }
 +     ]
@@ -219,7 +213,7 @@ npm install --save-dev babel-plugin-module-resolver
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript
 [babel]: /docs/javascript-environment#javascript-syntax-transformers
 [babel-7-caveats]: https://babeljs.io/docs/en/next/babel-plugin-transform-typescript
-[cheat]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
+[cheats]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
 [props]: /docs/props.html
 [state]: /docs/state.html

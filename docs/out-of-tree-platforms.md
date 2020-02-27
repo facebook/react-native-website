@@ -15,11 +15,11 @@ React Native is not only for Android and iOS - there are community-supported pro
 
 ## Creating your own React Native platform
 
-Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](https://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
+Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
 
 ### Bundling
 
-As of React Native 0.57 you can now register your React Native platform with React Native's JavaScript bundler, [Metro](https://facebook.github.io/metro/). This means you can pass `--platform example` to `react-native bundle`, and it will look for JavaScript files with the `.example.js` suffix.
+As of React Native 0.57 you can now register your React Native platform with React Native's JavaScript bundler, [Metro](https://facebook.github.io/metro/). This means you can pass `--platform example` to `npx react-native bundle`, and it will look for JavaScript files with the `.example.js` suffix.
 
 To register your platform with RNPM, your module's name must match one of these patterns:
 

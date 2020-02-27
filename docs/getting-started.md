@@ -51,7 +51,7 @@ Now that you have successfully run the app, let's modify it. Open `App.js` in yo
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <h2>Now what?</h3>
 
@@ -204,7 +204,7 @@ If you have already installed Xcode on your system, make sure it is version 9.4 
 
 You will also need to install the Xcode Command Line Tools. Open Xcode, then choose "Preferences..." from the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
-![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 <h4>Installing an iOS Simulator in Xcode</h4>
 
@@ -269,11 +269,11 @@ The SDK Manager can be accessed from the "Welcome to Android Studio" screen. Cli
 
 <block class="native mac android" />
 
-![Android Studio Welcome](/react-native/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
+![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeMacOS.png)
 
 <block class="native windows android" />
 
-![Android Studio Welcome](/react-native/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
+![Android Studio Welcome](/docs/assets/GettingStartedAndroidStudioWelcomeWindows.png)
 
 <block class="native mac windows linux android" />
 
@@ -328,12 +328,12 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
-![ANDROID_HOME Environment Variable](/react-native/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
+![ANDROID_HOME Environment Variable](/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
 The SDK is installed, by default, at the following location:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk
+c:\Android\tools\bin
 ```
 
 You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
@@ -347,7 +347,7 @@ Open the System pane under **System and Security** in the Windows Control Panel,
 The default location for this folder is:
 
 ```powershell
-c:\Users\YOUR_USERNAME\AppData\Local\Android\Sdk\platform-tools
+C:\Android\tools\bin\platform-tools
 ```
 
 <block class="native linux android" />
@@ -358,13 +358,19 @@ Follow the [Watchman installation guide](https://facebook.github.io/watchman/doc
 
 > [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
+<block class="native mac windows linux ios android" />
+
+<h3>React Native Command Line Interface</h3>
+
+React Native has a built-in command line interface. Rather than install and manage a specific version of the CLI globally, we recommend you access the current version at runtime using `npx`, which ships with Node.js. With `npx react-native <command>`, the current stable version of the CLI will be downloaded and executed at the time the command is run.
+
 <block class="native mac ios" />
 
 <h2>Creating a new application</h2>
 
 > If you previously installed a global `react-native-cli` package, please remove it as it may cause unexpected issues.
 
-React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
+You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
 ```sh
 npx react-native init AwesomeProject
@@ -430,7 +436,7 @@ If you have a physical Android device, you can use it for development in place o
 
 If you use Android Studio to open `./AwesomeProject/android`, you can see the list of available Android Virtual Devices (AVDs) by opening the "AVD Manager" from within Android Studio. Look for an icon that looks like this:
 
-![Android Studio AVD Manager](/react-native/docs/assets/GettingStartedAndroidStudioAVD.png)
+![Android Studio AVD Manager](/docs/assets/GettingStartedAndroidStudioAVD.png)
 
 If you have recently installed Android Studio, you will likely need to [create a new AVD](https://developer.android.com/studio/run/managing-avds.html). Select "Create Virtual Device...", then pick any Phone from the list and click "Next", then select the **Pie** API Level 28 image.
 
@@ -454,18 +460,26 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
-Run `npx react-native run-ios` inside your React Native project folder:
+Run `react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
+npx react-native start
+```
+
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+
+Run `react-native run-ios` inside your React Native project folder:
+
+```sh
 npx react-native run-ios
 ```
 
 You should see your new app running in the iOS Simulator shortly.
 
-![AwesomeProject on iOS](/react-native/docs/assets/GettingStartediOSSuccess.png)
+![AwesomeProject on iOS](/docs/assets/GettingStartediOSSuccess.png)
 
 `npx react-native run-ios` is one way to run your app. You can also run it directly from within Xcode.
 
@@ -479,19 +493,27 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
-Run `npx react-native start` inside your React Native project folder:
+Run `react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
 On another terminal, run `npx react-native run-android`:
 
 ```sh
 cd AwesomeProject
+npx react-native start
+```
+
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+
+Run `react-native run-android` inside your React Native project folder:
+
+```sh
 npx react-native run-android
 ```
 
@@ -499,11 +521,11 @@ If everything is set up correctly, you should see your new app running in your A
 
 <block class="native mac android" />
 
-![AwesomeProject on Android](/react-native/docs/assets/GettingStartedAndroidSuccessMacOS.png)
+![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessMacOS.png)
 
 <block class="native windows android" />
 
-![AwesomeProject on Android](/react-native/docs/assets/GettingStartedAndroidSuccessWindows.png)
+![AwesomeProject on Android](/docs/assets/GettingStartedAndroidSuccessWindows.png)
 
 <block class="native mac windows linux android" />
 
@@ -542,7 +564,7 @@ Now that you have successfully run the app, let's modify it.
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
@@ -550,7 +572,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="/react-native/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native mac ios" />
 

@@ -12,7 +12,7 @@ Congratulations! You built your first React Native app. But there’s more to le
 - [Design and layout your app](flexbox)
 - [Debug your app](debugging)
 - [Make your app cross platform](platform-specific-code)
-- [Get involved in the React Native community](/react-native/help)
+- [Get involved in the React Native community](/help)
 
 ## Dive deep
 
@@ -32,7 +32,7 @@ We recommend using the [VS Code](https://code.visualstudio.com/) code editor and
 
 ## Example Apps
 
-Try out apps from the [Showcase](/react-native/showcase/) to see what React Native is capable of! Looking for something more hands on? Check out this [set of example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can look at their source code—try running one on a simulator or device.
+Try out apps from the [Showcase](/showcase/) to see what React Native is capable of! Looking for something more hands on? Check out this [set of example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can look at their source code—try running one on a simulator or device.
 
 ## Find, make, and share your own Native Components and Modules
 
