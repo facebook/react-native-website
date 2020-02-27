@@ -33,7 +33,7 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer 
 # or for npm
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
@@ -162,7 +162,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 - [TypeScript Handbook][ts-handbook]
 - [React's documentation on TypeScript][react-ts]
-- [React + TypeScript Cheatsheets][cheat] has a good overview on how to use React with TypeScript
+- [React + TypeScript Cheatsheets][cheats] has a good overview on how to use React with TypeScript
 
 ## Using Custom Path Aliases with TypeScript
 
