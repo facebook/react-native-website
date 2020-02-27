@@ -10,9 +10,11 @@ import {Dimensions} from 'react-native';
 You can get the application window's width and height using below code:
 
 ```jsx
-const windowWidth = Math.round(Dimensions.get('window').width);
-const windowHeight = Math.round(Dimensions.get('window').height);
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 ```
+
+> Note: Although dimensions are available immediately, they may change (e.g due to device rotation, foldable devices etc) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
 
 If you are targeting foldable devices or devices which can change the screen size or app window size, you can use the event listener available in the Dimensions module as shown in the below example.
 
@@ -123,7 +125,45 @@ const styles = StyleSheet.create({
 
 ### React Native Hooks
 
-You can also try [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from [React native hooks](https://github.com/react-native-community/react-native-hooks) library which makes handling screen/window size changes much simpler.
+React native comes with `useWindowDimensions` which automatically updates the window size when screen size changes
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
+import React from "react";
+import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
+
+export default function App() {
+  const window = useWindowDimensions();
+
+  return (
+    <View style={styles.container}>
+      <Text>{`Window Dimensions: height - ${window.height}, width - ${window.width}`}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
+
+- You can also try [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from [React native hooks](https://github.com/react-native-community/react-native-hooks) library which makes handling screen/window size changes much simpler.
+- [React Native Responsive Dimensions](https://github.com/DaniAkash/react-native-responsive-dimensions) also comes with responsive hooks.
 
 # Reference
 
@@ -151,15 +191,13 @@ static get(dim)
 
 Initial dimensions are set before `runApplication` is called so they should be available before any other require's are run, but may be updated later.
 
-> Note: Although dimensions are available immediately, they may change (e.g due to device rotation) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
-
 Example: `const {height, width} = Dimensions.get('window');`
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| dim | string | Yes | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension. |
+| Name | Type   | Required | Description                                                                                  |
+| ---- | ------ | -------- | -------------------------------------------------------------------------------------------- |
+| dim  | string | Yes      | Name of dimension as defined when calling `set`. @returns {Object?} Value for the dimension. |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
