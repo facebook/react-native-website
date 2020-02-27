@@ -371,6 +371,9 @@
       "upgrading": {
         "title": "Upgrading to new React Native versions"
       },
+      "usewindowdimensions": {
+        "title": "useWindowDimensions"
+      },
       "using-a-listview": {
         "title": "Using List Views"
       },
@@ -2955,7 +2958,7 @@
         "title": "FlatList"
       },
       "version-0.58/version-0.58-geolocation": {
-        "title": "Geolocation"
+        "title": "🚧 Geolocation"
       },
       "version-0.58/version-0.58-image-style-props": {
         "title": "Image Style Props"
@@ -3409,6 +3412,12 @@
       },
       "version-0.61/version-0.61-getting-started": {
         "title": "Getting Started"
+      },
+      "version-0.61/version-0.61-typescript": {
+        "title": "Using TypeScript with React Native"
+      },
+      "version-0.61/version-0.61-usewindowdimensions": {
+        "title": "useWindowDimensions"
       },
       "version-0.7/version-0.7-pushnotificationios": {
         "title": "PushNotificationIOS"
