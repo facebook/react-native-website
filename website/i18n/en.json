@@ -38,6 +38,9 @@
       "app-extensions": {
         "title": "App Extensions"
       },
+      "appearance": {
+        "title": "Appearance"
+      },
       "appregistry": {
         "title": "AppRegistry"
       },
