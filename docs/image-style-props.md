@@ -353,13 +353,6 @@ const styles = StyleSheet.create({
 import React from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "vertical",
-import React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
-
 export default function DisplayAnImageWithStyle() {
   return (
     <View style={styles.container}>
