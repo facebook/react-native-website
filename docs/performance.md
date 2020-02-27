@@ -375,7 +375,7 @@ console.log(
 );
 
 // grab this text blob, and put it in a file named packager/modulePaths.js
-console.log(`module.exports = ${JSON.stringify(loadedModuleNames.sort())};`);
+console.log(`module.exports = ${JSON.stringify(loadedModuleNames.sort(), null, 2)};`);
 ```
 
 When you run your app, you can look in the console and see how many modules have been loaded, and how many are waiting. You may want to read the moduleNames and see if there are any surprises. Note that inline requires are invoked the first time the imports are referenced. You may need to investigate and refactor to ensure only the modules you want are loaded on startup. Note that you can change the Systrace object on require to help debug problematic requires.
