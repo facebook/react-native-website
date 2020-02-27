@@ -127,16 +127,6 @@ const styles = StyleSheet.create({
 
 React native comes with `useWindowDimensions` which automatically updates the window size when screen size changes
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
-
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from "react";
 import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
@@ -159,8 +149,6 @@ const styles = StyleSheet.create({
   }
 });
 ```
-
-<block class="endBlock syntax" />
 
 - You can also try [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from [React native hooks](https://github.com/react-native-community/react-native-hooks) library which makes handling screen/window size changes much simpler.
 - [React Native Responsive Dimensions](https://github.com/DaniAkash/react-native-responsive-dimensions) also comes with responsive hooks.
