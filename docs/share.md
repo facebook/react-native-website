@@ -18,10 +18,11 @@ title: Share
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Function%20Component%20Example
-import React, { Component } from "react";
+```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
+import React from "react";
 import { Share, Button } from "react-native";
-const ShareExample = () => {
+
+export default const ShareExample = () => {
   onShare = async () => {
     try {
       const result = await Share.share({
@@ -43,12 +44,12 @@ const ShareExample = () => {
   };
   return <Button onPress={this.onShare} title="Share" />;
 };
-export default ShareExample;
+
 ```
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Class%20Component%20Example
+```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
 import React, { Component } from "react";
 import { Share, Button } from "react-native";
 
