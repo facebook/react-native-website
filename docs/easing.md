@@ -122,9 +122,9 @@ const SECTIONS = [
   {
     title: "Additional functions",
     data: [
-      { 
-        title: "Bezier", 
-        easing: Easing.bezier(0, 2, 1, -1) 
+      {
+        title: "Bezier",
+        easing: Easing.bezier(0, 2, 1, -1)
       },
       { title: "Circle", easing: Easing.circle },
       { title: "Sin", easing: Easing.sin },
