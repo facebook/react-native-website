@@ -22,7 +22,7 @@ title: Share
 import React from 'react';
 import { Share, View, Button } from 'react-native';
 
-const ShareExample = () => {
+export default ShareExample = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -48,8 +48,6 @@ const ShareExample = () => {
     </View>
   );
 };
-
-export default ShareExample;
 ```
 
 <block class="classical syntax" />
