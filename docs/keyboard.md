@@ -190,3 +190,13 @@ static dismiss()
 ```
 
 Dismisses the active keyboard and removes focus.
+
+---
+
+### `scheduleLayoutAnimation`
+
+```jsx
+static scheduleLayoutAnimation(event)
+```
+
+Useful for syncing TextInput (or other keyboard accessory view) size of position changes with keyboard movements.
