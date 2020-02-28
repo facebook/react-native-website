@@ -8,11 +8,11 @@ Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-i
 ### Example
 
 ```SnackPlayer name=ActionSheetIOS&supportedPlatforms=ios
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { ActionSheetIOS, Button, StyleSheet, Text, View } from "react-native";
 
 export default App = () => {
-  const [result, setResult] = React.useState("🔮");
+  const [result, setResult] = useState("🔮");
 
   const onPress = () =>
     ActionSheetIOS.showActionSheetWithOptions(
