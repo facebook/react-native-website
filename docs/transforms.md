@@ -372,40 +372,6 @@ const styles = StyleSheet.create({
 
 ## Methods
 
-### `decomposedMatrix`
-
-> **Deprecated.** Use the [`transform`](transforms.md#transform) prop instead.
-
-| Type                     | Required |
-| ------------------------ | -------- |
-| DecomposedMatrixPropType | No       |
-
----
-
-### `rotation`
-
-| Type                                                                         | Required |
-| ---------------------------------------------------------------------------- | -------- |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
-
----
-
-### `scaleX`
-
-| Type                                                                         | Required |
-| ---------------------------------------------------------------------------- | -------- |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
-
----
-
-### `scaleY`
-
-| Type                                                                         | Required |
-| ---------------------------------------------------------------------------- | -------- |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
-
----
-
 ### `transform`
 
 `transform` accepts an array of transformation objects. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
@@ -424,25 +390,9 @@ The skew transformations require a string so that the transform may be expressed
 
 ---
 
-### `transformMatrix`
+### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-> **Deprecated.** Use the [`transform`](transforms.md#transform) prop instead.
-
-| Type                    | Required |
-| ----------------------- | -------- |
-| TransformMatrixPropType | No       |
-
----
-
-### `translateX`
-
-| Type                                                                         | Required |
-| ---------------------------------------------------------------------------- | -------- |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
-
----
-
-### `translateY`
+> **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
 
 | Type                                                                         | Required |
 | ---------------------------------------------------------------------------- | -------- |
