@@ -17,25 +17,33 @@ if (Platform.OS === 'android') {
 }
 ```
 
-Example usage:
+## Example
 
 ```SnackPlayer =rn-layoutanimation
+import React, { useState } from "react";
+import { Platform, Text, TouchableOpacity, View } from "react-native";
+
+if (Platform.OS === "android") {
+  if (UIManager.setLayoutAnimationEnabledExperimental) {
+    UIManager.setLayoutAnimationEnabledExperimental(true);
+  }
+}
+
 const App = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <View style={{overflow: 'hidden'}}>
-    <TouchableOpacity
-      onPress={() => {
-        LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-        setExpanded(!expanded);
-      }}>
-      <Text>
-        Press me to {expanded ? 'collapse' : 'expand'}!
-      </Text>
-    </TouchableOpacity>
-    {expanded && <Text>I disappear sometimes!</Text>}
-  </View>
+    <View style={{ overflow: "hidden" }}>
+      <TouchableOpacity
+        onPress={() => {
+          LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+          setExpanded(!expanded);
+        }}
+      >
+        <Text>Press me to {expanded ? "collapse" : "expand"}!</Text>
+      </TouchableOpacity>
+      {expanded && <View>I disappear sometimes!</View>}
+    </View>
   );
 };
 
