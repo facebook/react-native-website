@@ -134,6 +134,7 @@
       "timepickerandroid",
       "toastandroid",
       "transforms",
+      "usewindowdimensions",
       "vibration"
     ]
   }
