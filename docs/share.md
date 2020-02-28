@@ -3,6 +3,95 @@ id: share
 title: Share
 ---
 
+## Example
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
+import React from 'react';
+import { Share, View, Button } from 'react-native';
+
+export default ShareExample = () => {
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  return (
+    <View style={{ marginTop: 50 }}>
+      <Button onPress={onShare} title="Share" />
+    </View>
+  );
+};
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
+import React, { Component } from 'react';
+import { Share, View, Button } from 'react-native';
+
+class ShareExample extends Component {
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
+
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
+  render() {
+    return (
+      <View style={{ marginTop: 50 }}>
+        <Button onPress={this.onShare} title="Share" />
+      </View>
+    );
+  }
+}
+
+export default ShareExample;
+```
+
+<block class="endBlock syntax" />
+
 # Reference
 
 ## Methods
@@ -65,36 +154,3 @@ static dismissedAction()
 
 _iOS Only_. The dialog has been dismissed.
 
-## Basic Example
-
-```jsx
-import React, {Component} from 'react';
-import {Share, Button} from 'react-native';
-
-class ShareExample extends Component {
-  onShare = async () => {
-    try {
-      const result = await Share.share({
-        message:
-          'React Native | A framework for building native apps using React',
-      });
-
-      if (result.action === Share.sharedAction) {
-        if (result.activityType) {
-          // shared with activity type of result.activityType
-        } else {
-          // shared
-        }
-      } else if (result.action === Share.dismissedAction) {
-        // dismissed
-      }
-    } catch (error) {
-      alert(error.message);
-    }
-  };
-
-  render() {
-    return <Button onPress={this.onShare} title="Share" />;
-  }
-}
-```
