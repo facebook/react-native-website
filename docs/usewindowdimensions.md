@@ -15,7 +15,7 @@ const windowHeight = useWindowDimensions().height;
 ```
 ## Example
 
-```SnackPlayer name=useWindowDimensions
+```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from "react";
 import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
 
