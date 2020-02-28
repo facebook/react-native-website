@@ -41,6 +41,151 @@ The following helpers are used to modify other easing functions.
 - [`inOut`](easing.md#inout) makes any easing function symmetrical
 - [`out`](easing.md#out) runs an easing function backwards
 
+### Example
+
+```SnackPlayer name=Easing%20Demo
+import React from "react";
+import { Animated, Button, Easing, SectionList, StatusBar, StyleSheet, Text, View } from "react-native";
+
+export default App = () => {
+  let opacity = new Animated.Value(0);
+
+  const animate = easing => {
+    opacity.setValue(0);
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 1200,
+      easing
+    }).start();
+  };
+
+  const size = opacity.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 80]
+  });
+
+  const animatedStyles = [
+    styles.box,
+    {
+      opacity,
+      width: size,
+      height: size
+    }
+  ];
+
+  return (
+    <View style={styles.container}>
+      <StatusBar hidden={true} />
+      <Text style={styles.title}>
+        Click buttons below to see the Easing!
+      </Text>
+      <View style={styles.boxContainer}>
+        <Animated.View style={animatedStyles} />
+      </View>
+      <SectionList
+        style={styles.list}
+        sections={SECTIONS}
+        keyExtractor={(item) => item.title}
+        renderItem={({ item }) => (
+          <View style={styles.button}>
+            <Button
+              title={item.title}
+              onPress={() => animate(item.easing)}
+            />
+          </View>
+        )}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.listHeader}>{title}</Text>
+        )}
+      />
+    </View>
+  );
+};
+
+const SECTIONS = [
+  {
+    title: "Predefined animations",
+    data: [
+      { title: "Bounce", easing: Easing.bounce },
+      { title: "Ease", easing: Easing.ease },
+      { title: "Elastic", easing: Easing.elastic(4) }
+    ]
+  },
+  {
+    title: "Standard functions",
+    data: [
+      { title: "Linear", easing: Easing.linear },
+      { title: "Quad", easing: Easing.quad },
+      { title: "Cubic", easing: Easing.cubic }
+    ]
+  },
+  {
+    title: "Additional functions",
+    data: [
+      { 
+        title: "Bezier", 
+        easing: Easing.bezier(0, 2, 1, -1) 
+      },
+      { title: "Circle", easing: Easing.circle },
+      { title: "Sin", easing: Easing.sin },
+      { title: "Exp", easing: Easing.exp }
+    ]
+  },
+  {
+    title: "Combinations",
+    data: [
+      {
+        title: "In + Bounce",
+        easing: Easing.in(Easing.bounce)
+      },
+      {
+        title: "Out + Exp",
+        easing: Easing.out(Easing.exp)
+      },
+      {
+        title: "InOut + Elastic",
+        easing: Easing.inOut(Easing.elastic(1))
+      }
+    ]
+  }
+];
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#20232a"
+  },
+  title: {
+    lineHeight: 32,
+    textAlign: "center",
+    color: "#61dafb"
+  },
+  boxContainer: {
+    height: 160,
+    alignItems: "center"
+  },
+  box: {
+    marginTop: 30,
+    borderRadius: 4,
+    backgroundColor: "#61dafb"
+  },
+  list: {
+    backgroundColor: "#fff"
+  },
+  listHeader: {
+    height: 24,
+    lineHeight: 24,
+    paddingHorizontal: 8,
+    backgroundColor: "#f4f4f4",
+    textTransform: "uppercase"
+  },
+  button: {
+    marginHorizontal: 4,
+    marginVertical: 2
+  }
+});
+```
+
 ---
 
 # Reference
@@ -214,7 +359,7 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 ### `in()`
 
 ```jsx
-static in(easing);
+static in easing;
 ```
 
 Runs an easing function forwards.
