@@ -28,30 +28,137 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContentContainer}>
-        <Text style={styles.infoText}>Original Object</Text>
-        <View style={styles.box} />
-        <Text style={styles.infoText}>Scale by 2</Text>
-        <View style={[styles.box, styles.scale]} />
-        <Text style={styles.infoText}>ScaleX by 2</Text>
-        <View style={[styles.box, styles.scaleX]} />
-        <Text style={styles.infoText}>ScaleY by 2</Text>
-        <View style={[styles.box, styles.scaleY]} />
-        <Text style={styles.infoText}>Rotate by 45 deg</Text>
-        <View style={[styles.box, styles.rotate]} />
-        <Text style={styles.infoText}>Rotate X&Z by 45 deg</Text>
-        <View style={[styles.box, styles.rotateX]} />
-        <Text style={styles.infoText}>Rotate Y&Z by 45 deg</Text>
-        <View style={[styles.box, styles.rotateY]} />
-        <Text style={styles.infoText}>SkewX by 45 deg</Text>
-        <View style={[styles.box, styles.skewX]} />
-        <Text style={styles.infoText}>SkewY by 45 deg</Text>
-        <View style={[styles.box, styles.skewY]} />
-        <Text style={styles.infoText}>Skew X&Y by 30 deg</Text>
-        <View style={[styles.box, styles.skewXY]} />
-        <Text style={styles.infoText}>TranslateX by -100 </Text>
-        <View style={[styles.box, styles.translateX]} />
-        <Text style={styles.infoText}>TranslateY by 100 </Text>
-        <View style={[styles.box, styles.translateY]} />
+        <View style={styles.box}>
+          <Text style={styles.infoText}>Original Object</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginVertical: 56,
+              transform: [{ scale: 2 }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>Scale by 2</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{ scaleX: 2 }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>ScaleX by 2</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginVertical: 56,
+              transform: [{ scaleY: 2 }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>ScaleY by 2</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginVertical: 24,
+              transform: [{ rotate: "45deg" }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>Rotate by 45 deg</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{ rotateX: "45deg" }, { rotateZ: "45deg" }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>Rotate X&Z by 45 deg</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginVertical: 24,
+              transform: [{ rotateY: "45deg" }, { rotateZ: "45deg" }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>Rotate Y&Z by 45 deg</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{ skewX: "45deg" }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>SkewX by 45 deg</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginVertical: 56,
+              transform: [{ skewY: "45deg" }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>SkewY by 45 deg</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginVertical: 56,
+              transform: [{ skewX: "30deg" }, { skewY: "30deg" }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>Skew X&Y by 30 deg</Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              transform: [{ translateX: -100 }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>TranslateX by -100 </Text>
+        </View>
+
+        <View
+          style={[
+            styles.box,
+            {
+              marginBottom: 108,
+              transform: [{ translateY: 100 }]
+            }
+          ]}
+        >
+          <Text style={styles.infoText}>TranslateY by 100 </Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -69,52 +176,16 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 5,
     margin: 8,
-    backgroundColor: "blue"
+    backgroundColor: "blue",
+    alignItems: "center",
+    justifyContent: "center"
   },
   infoText: {
     fontSize: 14,
     fontWeight: "bold",
-    margin: 8
-  },
-  scale: {
-    marginVertical: 56,
-    transform: [{ scale: 2 }]
-  },
-  scaleX: {
-    transform: [{ scaleX: 2 }]
-  },
-  scaleY: {
-    marginVertical: 56,
-    transform: [{ scaleY: 2 }]
-  },
-  rotate: {
-    marginVertical: 24,
-    transform: [{ rotate: "45deg" }]
-  },
-  rotateX: {
-    transform: [{ rotateX: "45deg" }, { rotateZ: "45deg" }]
-  },
-  rotateY: {
-    marginVertical: 24,
-    transform: [{ rotateY: "45deg" }, { rotateZ: "45deg" }]
-  },
-  skewX: {
-    transform: [{ skewX: "45deg" }]
-  },
-  skewY: {
-    marginVertical: 56,
-    transform: [{ skewY: "45deg" }]
-  },
-  skewXY: {
-    marginVertical: 56,
-    transform: [{ skewX: "30deg" }, { skewY: "30deg" }]
-  },
-  translateX: {
-    transform: [{ translateX: -100 }]
-  },
-  translateY: {
-    marginBottom: 108,
-    transform: [{ translateY: 100 }]
+    margin: 8,
+    color: "white",
+    textAlign: "center"
   }
 });
 ```
@@ -130,30 +201,137 @@ export default class App extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scrollContentContainer}>
-          <Text style={styles.infoText}>Original Object</Text>
-          <View style={styles.box} />
-          <Text style={styles.infoText}>Scale by 2</Text>
-          <View style={[styles.box, styles.scale]} />
-          <Text style={styles.infoText}>ScaleX by 2</Text>
-          <View style={[styles.box, styles.scaleX]} />
-          <Text style={styles.infoText}>ScaleY by 2</Text>
-          <View style={[styles.box, styles.scaleY]} />
-          <Text style={styles.infoText}>Rotate by 45 deg</Text>
-          <View style={[styles.box, styles.rotate]} />
-          <Text style={styles.infoText}>Rotate X&Z by 45 deg</Text>
-          <View style={[styles.box, styles.rotateX]} />
-          <Text style={styles.infoText}>Rotate Y&Z by 45 deg</Text>
-          <View style={[styles.box, styles.rotateY]} />
-          <Text style={styles.infoText}>SkewX by 45 deg</Text>
-          <View style={[styles.box, styles.skewX]} />
-          <Text style={styles.infoText}>SkewY by 45 deg</Text>
-          <View style={[styles.box, styles.skewY]} />
-          <Text style={styles.infoText}>Skew X&Y by 30 deg</Text>
-          <View style={[styles.box, styles.skewXY]} />
-          <Text style={styles.infoText}>TranslateX by -100 </Text>
-          <View style={[styles.box, styles.translateX]} />
-          <Text style={styles.infoText}>TranslateY by 100 </Text>
-          <View style={[styles.box, styles.translateY]} />
+          <View style={styles.box}>
+            <Text style={styles.infoText}>Original Object</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginVertical: 56,
+                transform: [{ scale: 2 }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>Scale by 2</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                transform: [{ scaleX: 2 }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>ScaleX by 2</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginVertical: 56,
+                transform: [{ scaleY: 2 }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>ScaleY by 2</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginVertical: 24,
+                transform: [{ rotate: "45deg" }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>Rotate by 45 deg</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                transform: [{ rotateX: "45deg" }, { rotateZ: "45deg" }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>Rotate X&Z by 45 deg</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginVertical: 24,
+                transform: [{ rotateY: "45deg" }, { rotateZ: "45deg" }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>Rotate Y&Z by 45 deg</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                transform: [{ skewX: "45deg" }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>SkewX by 45 deg</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginVertical: 56,
+                transform: [{ skewY: "45deg" }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>SkewY by 45 deg</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginVertical: 56,
+                transform: [{ skewX: "30deg" }, { skewY: "30deg" }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>Skew X&Y by 30 deg</Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                transform: [{ translateX: -100 }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>TranslateX by -100 </Text>
+          </View>
+
+          <View
+            style={[
+              styles.box,
+              {
+                marginBottom: 108,
+                transform: [{ translateY: 100 }]
+              }
+            ]}
+          >
+            <Text style={styles.infoText}>TranslateY by 100 </Text>
+          </View>
         </ScrollView>
       </SafeAreaView>
     );
@@ -172,52 +350,16 @@ const styles = StyleSheet.create({
     width: 100,
     borderRadius: 5,
     margin: 8,
-    backgroundColor: "blue"
+    backgroundColor: "blue",
+    alignItems: "center",
+    justifyContent: "center"
   },
   infoText: {
     fontSize: 14,
     fontWeight: "bold",
-    margin: 8
-  },
-  scale: {
-    marginVertical: 56,
-    transform: [{ scale: 2 }]
-  },
-  scaleX: {
-    transform: [{ scaleX: 2 }]
-  },
-  scaleY: {
-    marginVertical: 56,
-    transform: [{ scaleY: 2 }]
-  },
-  rotate: {
-    marginVertical: 24,
-    transform: [{ rotate: "45deg" }]
-  },
-  rotateX: {
-    transform: [{ rotateX: "45deg" }, { rotateZ: "45deg" }]
-  },
-  rotateY: {
-    marginVertical: 24,
-    transform: [{ rotateY: "45deg" }, { rotateZ: "45deg" }]
-  },
-  skewX: {
-    transform: [{ skewX: "45deg" }]
-  },
-  skewY: {
-    marginVertical: 56,
-    transform: [{ skewY: "45deg" }]
-  },
-  skewXY: {
-    marginVertical: 56,
-    transform: [{ skewX: "30deg" }, { skewY: "30deg" }]
-  },
-  translateX: {
-    transform: [{ translateX: -100 }]
-  },
-  translateY: {
-    marginBottom: 108,
-    transform: [{ translateY: 100 }]
+    margin: 8,
+    color: "white",
+    textAlign: "center"
   }
 });
 ```
