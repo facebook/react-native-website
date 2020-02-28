@@ -44,7 +44,7 @@ const ShareExample = () => {
   };
   return (
     <View style={{ marginTop: 50 }}>
-      <Button onPress={() => onShare()} title="Share" />
+      <Button onPress={onShare} title="Share" />
     </View>
   );
 };
