@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   text: {
+    color: "grey",
     fontSize: 30,
     fontWeight: "bold"
   }
