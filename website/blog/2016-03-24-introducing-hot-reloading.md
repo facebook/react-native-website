@@ -43,7 +43,7 @@ Hot Reloading is built on top of a feature [Hot Module Replacement](https://webp
 
 In a nutshell, the HMR update contains the new code of the JS modules that changed. When the runtime receives them, it replaces the old modules' code with the new one:
 
-![](/react-native/blog/assets/hmr-architecture.png)
+![](/blog/assets/hmr-architecture.png)
 
 The HMR update contains a bit more than just the module's code we want to change because replacing it, it's not enough for the runtime to pick up the changes. The problem is that the module system may have already cached the _exports_ of the module we want to update. For instance, say you have an app composed of these two modules:
 
@@ -92,7 +92,7 @@ module.exports = bar;
 
 The Packager will send time's new code to the runtime (step 1), and when `log` gets eventually required the exported function gets executed it will do so with `time`'s changes (step 2):
 
-![](/react-native/blog/assets/hmr-step.png)
+![](/blog/assets/hmr-step.png)
 
 Now say the code of `log` requires `time` as a top level require:
 
@@ -111,7 +111,7 @@ When `log` is required, the runtime will cache its exports and `time`'s one. (st
 
 For `log` to pick up `time` changes, we'll need to clear its cached exports because one of the modules it depends on was hot swapped (step 3). Finally, when `log` gets required again, its factory function will get executed requiring `time` and getting its new code.
 
-![](/react-native/blog/assets/hmr-log.png)
+![](/blog/assets/hmr-log.png)
 
 ## HMR API
 
@@ -136,7 +136,7 @@ Note that only in rare cases you would need to use this API manually. Hot Reload
 
 As we've seen before, sometimes it's not enough only accepting the HMR update because a module that uses the one being hot swapped may have been already executed and its imports cached. For instance, suppose the dependency tree for the movies app example had a top-level `MovieRouter` that depended on the `MovieSearch` and `MovieScreen` views, which depended on the `log` and `time` modules from the previous examples:
 
-![](/react-native/blog/assets/hmr-diamond.png)
+![](/blog/assets/hmr-diamond.png)
 
 If the user accesses the movies' search view but not the other one, all the modules except for `MovieScreen` would have cached exports. If a change is made to module `time`, the runtime will have to clear the exports of `log` for it to pick up `time`'s changes. The process wouldn't finish there: the runtime will repeat this process recursively up until all the parents have been accepted. So, it'll grab the modules that depend on `log` and try to accept them. For `MovieScreen` it can bail, as it hasn't been required yet. For `MovieSearch`, it will have to clear its exports and process its parents recursively. Finally, it will do the same thing for `MovieRouter` and finish there as no modules depends on it.
 
@@ -164,7 +164,7 @@ In order to walk the dependency tree, the runtime receives the inverse dependenc
 
 React components are a bit harder to get to work with Hot Reloading. The problem is that we can't simply replace the old code with the new one as we'd loose the component's state. For React web applications, [Dan Abramov](https://twitter.com/dan_abramov) implemented a babel [transform](http://gaearon.github.io/react-hot-loader/) that uses Webpack's HMR API to solve this issue. In a nutshell, his solution works by creating a proxy for every single React component on _transform time_. The proxies hold the component's state and delegate the lifecycle methods to the actual components, which are the ones we hot reload:
 
-![](/react-native/blog/assets/hmr-proxy.png)
+![](/blog/assets/hmr-proxy.png)
 
 Besides creating the proxy component, the transform also defines the `accept` function with a piece of code to force React to re-render the component. This way, we can hot reload rendering code without losing any of the app's state.
 

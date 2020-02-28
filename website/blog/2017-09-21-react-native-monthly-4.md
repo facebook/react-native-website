@@ -33,7 +33,7 @@ Trying to lower the entry barrier for the developers embracing React Native with
 ### Facebook
 
 - Working on improving `<Text>` and `<TextInput>` components on Android. (Native auto-growing for `<TextInput>`; deeply nested `<Text>` components layout issues; better code structure; performance optimizations).
-- We're still looking for additional contributors who would like to help [triage issues and pull requests](https://facebook.github.io/react-native/maintainers.md#facebook-github-bot).
+- We're still looking for additional contributors who would like to help [triage issues and pull requests](https://reactnative.dev/maintainers.html#facebook-github-bot).
 
 ### Microsoft
 

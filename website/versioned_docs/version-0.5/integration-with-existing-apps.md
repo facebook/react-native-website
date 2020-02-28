@@ -135,13 +135,13 @@ Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a 
 
 <block class="objc swift" />
 
-![Before RN Integration](/react-native/docs/assets/react-native-existing-app-integration-ios-before.png)
+![Before RN Integration](/docs/assets/react-native-existing-app-integration-ios-before.png)
 
 ### Command Line Tools for Xcode
 
 Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
-![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 ### Configuring CocoaPods dependencies
 
@@ -329,7 +329,7 @@ We will tie our React Native component with a new native view in the `ViewContro
 
 You can add a new link on the main game menu to go to the "High Score" React Native page.
 
-![Event Path](/react-native/docs/assets/react-native-add-react-native-integration-link.png)
+![Event Path](/docs/assets/react-native-add-react-native-integration-link.png)
 
 ##### 2. Event Handler
 
@@ -428,7 +428,7 @@ import React
 
 Wire up the new link in the main menu to the newly added event handler method.
 
-![Event Path](/react-native/docs/assets/react-native-add-react-native-integration-wire-up.png)
+![Event Path](/docs/assets/react-native-add-react-native-integration-wire-up.png)
 
 > One of the easier ways to do this is to open the view in the storyboard and right click on the new link. Select something such as the `Touch Up Inside` event, drag that to the storyboard and then select the created method from the list provided.
 
@@ -477,11 +477,11 @@ In our sample application, you should see the link to the "High Scores" and then
 
 Here is the _native_ application home screen:
 
-![Home Screen](/react-native/docs/assets/react-native-add-react-native-integration-example-home-screen.png)
+![Home Screen](/docs/assets/react-native-add-react-native-integration-example-home-screen.png)
 
 Here is the _React Native_ high score screen:
 
-![High Scores](/react-native/docs/assets/react-native-add-react-native-integration-example-high-scores.png)
+![High Scores](/docs/assets/react-native-add-react-native-integration-example-high-scores.png)
 
 > If you are getting module resolution issues when running your application please see [this GitHub issue](https://github.com/facebook/react-native/issues/4968) for information and possible resolution. [This comment](https://github.com/facebook/react-native/issues/4968#issuecomment-220941717) seemed to be the latest possible resolution.
 
@@ -778,7 +778,7 @@ Now build and run your Android app as normal.
 
 Once you reach your React-powered activity inside the app, it should load the JavaScript code from the development server and display:
 
-![Screenshot](/react-native/docs/assets/EmbeddedAppAndroid.png)
+![Screenshot](/docs/assets/EmbeddedAppAndroid.png)
 
 ### Creating a release build in Android Studio
 

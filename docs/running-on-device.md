@@ -55,15 +55,15 @@ Register for an [Apple developer account](https://developer.apple.com/) if you d
 
 Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
 
-![](/react-native/docs/assets/RunningOnDeviceCodeSigning.png)
+**Repeat** this step for the **Tests** target in your project.
 
-Repeat this step for the Tests target in your project.
+![](/docs/assets/RunningOnDeviceCodeSigning.png)
 
 ### 3. Build and Run your app
 
 If everything is set up correctly, your device will be listed as the build target in the Xcode toolbar, and it will also appear in the Devices pane (`⇧⌘2`). You can now press the **Build and run** button (`⌘R`) or select **Run** from the **Product** menu. Your app will launch on your device shortly.
 
-![](/react-native/docs/assets/RunningOnDeviceReady.png)
+![](/docs/assets/RunningOnDeviceReady.png)
 
 > If you run into any issues, please take a look at Apple's [Launching Your App on a Device](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40012582-CH27-SW4) docs.
 
@@ -73,7 +73,7 @@ If everything is set up correctly, your device will be listed as the build targe
 
 Most Android devices can only install and run apps downloaded from Google Play, by default. You will need to enable USB Debugging on your device in order to install your app during development.
 
-To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to **Settings** → **About phone** and then tapping the `Build number` row at the bottom seven times. You can then go back to **Settings** → **Developer options** to enable "USB debugging".
+To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to **Settings** → **About phone** and then tapping the `Build number` row at the bottom seven times. You can then go back to **Settings** → **System** → **Developer options** to enable "USB debugging".
 
 ### 2. Plug in your device via USB
 
@@ -144,14 +144,14 @@ Seeing `device` in the right column means the device is connected. You must have
 Type the following in your command prompt to install and launch your app on the device:
 
 ```
-$ react-native run-android
+$ npx react-native run-android
 ```
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
 > Hint
 >
-> You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `react-native run-android --variant=release`).
+> You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
 
 <block class="mac windows linux android ios" />
 
@@ -161,7 +161,7 @@ $ react-native run-android
 
 You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Developer menu](debugging.md#accessing-the-in-app-developer-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
 
-![](/react-native/docs/assets/DeveloperMenu.png)
+![](/docs/assets/DeveloperMenu.png)
 
 ### Troubleshooting
 
@@ -181,7 +181,7 @@ Make sure your laptop and your phone are on the **same** Wi-Fi network.
 
 Make sure that the build script detected the IP address of your machine correctly (e.g. 10.0.1.123).
 
-![](/react-native/docs/assets/XcodeBuildIP.png)
+![](/docs/assets/XcodeBuildIP.png)
 
 Open the **Report navigator** tab, select the last **Build** and search for `xip.io`. The IP address which gets embedded in the app should match your machines IP address plus the domain `.xip.io` (e.g. 10.0.1.123.xip.io)
 
@@ -281,7 +281,7 @@ Building an app for distribution in the App Store requires using the `Release` s
 
 To configure your app to be built using the `Release` scheme, go to **Product** → **Scheme** → **Edit Scheme**. Select the **Run** tab in the sidebar, then set the Build Configuration dropdown to `Release`.
 
-![](/react-native/docs/assets/ConfigureReleaseScheme.png)
+![](/docs/assets/ConfigureReleaseScheme.png)
 
 #### Pro Tips
 
@@ -306,7 +306,7 @@ The static bundle is built every time you target a physical device, even in Debu
 
 You can now build your app for release by tapping `⌘B` or selecting **Product** → **Build** from the menu bar. Once built for release, you'll be able to distribute the app to beta testers and submit the app to the App Store.
 
-> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `react-native run-ios --configuration Release`).
+> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
 
 <block class="mac windows linux android" />
 

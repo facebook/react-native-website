@@ -11,13 +11,13 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`disabled`](checkbox.md#disabled)
-* [`onChange`](checkbox.md#onchange)
-* [`onValueChange`](checkbox.md#onvaluechange)
-* [`testID`](checkbox.md#testid)
-* [`value`](checkbox.md#value)
+* [`disabled`](checkbox#disabled)
+* [`onChange`](checkbox#onchange)
+* [`onValueChange`](checkbox#onvaluechange)
+* [`testID`](checkbox#testid)
+* [`value`](checkbox#value)
 
 ---
 

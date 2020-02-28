@@ -62,7 +62,7 @@ Animations can also be combined in complex ways using composition functions such
 
 `Animated.ValueXY` is handy for 2D animations, like panning, and there are other helpful additions like `setOffset` and `getLayout` to aid with typical interaction patterns, like drag-and-drop.
 
-You can see more example usage in `AnimationExample.js`, the Gratuitous Animation App, and [Animations documentation guide](http://facebook.github.io/react-native/animations.md).
+You can see more example usage in `AnimationExample.js`, the Gratuitous Animation App, and [Animations documentation guide](animations).
 
 Note that `Animated` is designed to be fully serializable so that animations can be run in a high performace way, independent of the normal JavaScript event loop. This does influence the API, so keep that in mind when it seems a little trickier to do something compared to a fully synchronous system. Checkout `Animated.Value.addListener` as a way to work around some of these limitations, but use it sparingly since it might have performance implications in the future.
 

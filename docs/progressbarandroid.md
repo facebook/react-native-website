@@ -1,7 +1,9 @@
 ---
 id: progressbarandroid
-title: ProgressBarAndroid
+title: 🚧 ProgressBarAndroid
 ---
+
+> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/progress-bar-android) instead.
 
 Android-only React component used to indicate that the app is loading or there is some activity in the app.
 
@@ -110,9 +112,9 @@ Style of the ProgressBar. One of:
 - SmallInverse
 - LargeInverse
 
-| Type | Required |
-| --- | --- |
-| enum('Horizontal', 'Normal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | No |
+| Type                                                                                      | Required |
+| ----------------------------------------------------------------------------------------- | -------- |
+| enum('Horizontal', 'Normal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | No       |
 
 ---
 

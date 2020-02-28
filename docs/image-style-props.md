@@ -3,6 +3,511 @@ id: image-style-props
 title: Image Style Props
 ---
 
+### Examples
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Image%20Style%20Props%20Function%20Component%20Example
+import React from "react";
+import { View, Image, Text, StyleSheet } from "react-native";
+
+export default function DisplayAnImageWithStyle() {
+  return (
+    <View style={styles.container}>
+      <View>
+        <Image
+          style={{
+            resizeMode: "cover",
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>resizeMode : cover</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            resizeMode: "contain",
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>resizeMode : contain</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            resizeMode: "stretch",
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>resizeMode : stretch</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            resizeMode: "repeat",
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>resizeMode : repeat</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            resizeMode: "center",
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>resizeMode : center</Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Image%20Style%20Props%20Class%20Component%20Example
+import React, { Component } from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default class DisplayAnImageWithStyle extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View>
+          <Image
+            style={{
+              resizeMode: "cover",
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>resizeMode : cover</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              resizeMode: "contain",
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>resizeMode : contain</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              resizeMode: "stretch",
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>resizeMode : stretch</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              resizeMode: "repeat",
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>resizeMode : repeat</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              resizeMode: "center",
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>resizeMode : center</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+
+```
+
+<block class="endBlock syntax" />
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Style%20Border%20Radius%20Function%20Component%20Example
+import React from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default function DisplayAnImageWithStyle() {
+  return (
+    <View style={styles.container}>
+      <View>
+        <Image
+          style={{
+            borderTopRightRadius: 20,
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>borderTopRightRadius</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            borderBottomRightRadius: 20,
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>borderBottomRightRadius</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            borderBottomLeftRadius: 20,
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>borderBottomLeftRadius</Text>
+      </View>
+      <View>
+        <Image
+          style={{
+            borderTopLeftRadius: 20,
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>borderTopLeftRadius</Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Style%20Border%20Radius%20Class%20Component%20Example
+import React, { Component } from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default class DisplayAnImageWithStyle extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View>
+          <Image
+            style={{
+              borderTopRightRadius: 20,
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>borderTopRightRadius</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              borderBottomRightRadius: 20,
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>borderBottomRightRadius</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              borderBottomLeftRadius: 20,
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>borderBottomLeftRadius</Text>
+        </View>
+        <View>
+          <Image
+            style={{
+              borderTopLeftRadius: 20,
+              height: 100,
+              width: 200
+            }}
+            source={require("@expo/snack-static/react-native-logo.png")}
+          />
+          <Text>borderTopLeftRadius</Text>
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Function%20Component%20Example
+import React from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default function DisplayAnImageWithStyle() {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={{
+          borderColor: "red",
+          borderWidth: 5,
+          height: 100,
+          width: 200
+        }}
+        source={require("@expo/snack-static/react-native-logo.png")}
+      />
+      <Text>
+        <Text>borderColor & borderWidth</Text>
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Class%20Component%20Example
+import React, { Component } from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default class DisplayAnImageWithStyle extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={{
+            borderColor: "red",
+            borderWidth: 5,
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>borderColor & borderWidth</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Style%20tintColor%20Function%20Component
+import React from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default function DisplayAnImageWithStyle() {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={{
+          tintColor: "#000000",
+          resizeMode: "contain",
+          height: 100,
+          width: 200
+        }}
+        source={require("@expo/snack-static/react-native-logo.png")}
+      />
+      <Text>tintColor</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Style%20tintColor%20Class%20Component
+import React, { Component } from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+export default class DisplayAnImageWithStyle extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={{
+            tintColor: "#000000",
+            resizeMode: "contain",
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>tintColor</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "space-around",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
+
 # Reference
 
 ## Props

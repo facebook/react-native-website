@@ -5,20 +5,22 @@ title: Button
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
 
-If this button doesn't look right for your app, you can build your own button using [TouchableOpacity](touchableopacity.md) or [TouchableNativeFeedback](touchablenativefeedback.md). For inspiration, look at the [source code for this button component](https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js). Or, take a look at the [wide variety of button components built by the community](https://js.coach/react-native?search=button).
+If this button doesn't look right for your app, you can build your own button using [TouchableOpacity](touchableopacity) or [TouchableNativeFeedback](touchablenativefeedback). For inspiration, look at the [source code for this button component](https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js). Or, take a look at the [wide variety of button components built by the community](https://js.coach/react-native?search=button).
+
+```jsx
+<Button
+  onPress={onPressLearnMore}
+  title="Learn More"
+  color="#841584"
+  accessibilityLabel="Learn more about this purple button"
+/>
+```
 
 ### Example
 
-```SnackPlayer name=rn-buttons
+```SnackPlayer name=Buttons
 import React from 'react';
-import {
-  StyleSheet,
-  Button,
-  View,
-  SafeAreaView,
-  Text,
-  Alert,
-} from 'react-native';
+import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
 import Constants from 'expo-constants';
 
 function Separator() {
@@ -144,9 +146,9 @@ Text to display for blindness accessibility features
 
 Color of the text (iOS), or background color of the button (Android)
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type            | Required |
+| --------------- | -------- |
+| [color](colors) | No       |
 
 ---
 

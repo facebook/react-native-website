@@ -13,7 +13,7 @@ category: built-with-reactnative
 You can check out the app at [https://www.build.com/app](https://www.build.com/app).
 
 <p align="center">
-  <img src="/react-native/blog/assets/build-com-blog-image.jpg" />
+  <img src="/blog/assets/build-com-blog-image.jpg" />
 </p>
 
 ## Features
