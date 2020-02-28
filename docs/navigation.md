@@ -29,7 +29,7 @@ Next, install the required peer dependencies. You need to run different commands
   expo install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
   ```
 
-- If you have an bare React Native project, install the dependencies with `npm`:
+- If you have a bare React Native project, install the dependencies with `npm`:
 
   ```sh
   npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
