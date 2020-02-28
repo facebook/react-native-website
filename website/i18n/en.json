@@ -3410,6 +3410,9 @@
       "version-0.61/version-0.61-debugging": {
         "title": "Debugging"
       },
+      "version-0.61/version-0.61-dimensions": {
+        "title": "Dimensions"
+      },
       "version-0.61/version-0.61-fast-refresh": {
         "title": "Fast Refresh"
       },
