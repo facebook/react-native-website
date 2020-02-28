@@ -8,30 +8,29 @@ Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-i
 ### Example
 
 ```SnackPlayer name=ActionSheetIOS&supportedPlatforms=ios
-import React, { useState } from 'react';
-import { ActionSheetIOS, Button, StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { ActionSheetIOS, Button, StyleSheet, Text, View } from "react-native";
 
 export default App = () => {
-  const [result, setResult] = useState('🔮');
+  const [result, setResult] = React.useState("🔮");
 
-  const onPress = () => (
+  const onPress = () =>
     ActionSheetIOS.showActionSheetWithOptions(
       {
-        options: ['Cancel', 'Generate number', 'Reset'],
+        options: ["Cancel", "Generate number", "Reset"],
         destructiveButtonIndex: 2,
-        cancelButtonIndex: 0,
+        cancelButtonIndex: 0
       },
-      (buttonIndex) => {
+      buttonIndex => {
         if (buttonIndex === 0) {
           // cancel action
         } else if (buttonIndex === 1) {
           setResult(Math.floor(Math.random() * 100) + 1);
         } else if (buttonIndex === 2) {
-          setResult('🔮');
+          setResult("🔮");
         }
       }
-    )
-  );
+    );
 
   return (
     <View style={styles.container}>
@@ -44,11 +43,11 @@ export default App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   result: {
     fontSize: 64,
-    textAlign: 'center'
+    textAlign: "center"
   }
 });
 ```
