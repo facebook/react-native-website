@@ -75,12 +75,6 @@ These common user interface controls will render on any platform.
     </a>
   </div>
   <div class="component">
-    <a href="./slider">
-      <h3>Slider</h3>
-      <p>A component used to select a single value from a range of values.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./switch">
       <h3>Switch</h3>
       <p>Renders a boolean input.</p>
@@ -118,42 +112,6 @@ Many of the following components provide wrappers for commonly used UIKit classe
       <p>API to display an iOS action sheet or share sheet.</p>
     </a>
   </div>
-  <div class="component">
-    <a href="./alertios">
-      <h3>AlertIOS</h3>
-      <p>Create an iOS alert dialog with a message or create a prompt for user input.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./datepickerios">
-      <h3>DatePickerIOS</h3>
-      <p>Renders a date/time picker (selector) on iOS.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./imagepickerios">
-      <h3>ImagePickerIOS</h3>
-      <p>Renders a image picker on iOS.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./progressviewios">
-      <h3>ProgressViewIOS</h3>
-      <p>Renders a <code>UIProgressView</code> on iOS.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./pushnotificationios">
-      <h3>PushNotificationIOS</h3>
-      <p>Handle push notifications for your app, including permission handling and icon badge number.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./segmentedcontrolios">
-      <h3>SegmentedControlIOS</h3>
-      <p>Renders a <code>UISegmentedControl</code> on iOS.</p>
-    </a>
-  </div>
 </div>
 
 ## Android Components and APIs
@@ -165,12 +123,6 @@ Many of the following components provide wrappers for commonly used Android clas
     <a href="./backhandler">
       <h3>BackHandler</a></h3>
       <p>Detect hardware button presses for back navigation.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./datepickerandroid">
-      <h3>DatePickerAndroid</h3>
-      <p>Opens the standard Android date picker dialog.</p>
     </a>
   </div>
   <div class="component">
@@ -186,27 +138,9 @@ Many of the following components provide wrappers for commonly used Android clas
     </a>
   </div>
   <div class="component">
-    <a href="./progressbarandroid">
-      <h3>ProgressBarAndroid</h3>
-      <p>Renders a <code>ProgressBar</code> on Android.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./timepickerandroid">
-      <h3>TimePickerAndroid</h3>
-      <p>Opens the standard Android time picker dialog.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./toastandroid">
       <h3>ToastAndroid</h3>
       <p>Create an Android Toast alert.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./viewpagerandroid">
-      <h3>ViewPagerAndroid</h3>
-      <p>Container that allows to flip left and right between child views.</p>
     </a>
   </div>
 </div>
@@ -232,12 +166,6 @@ These components may be useful for certain applications. For an exhaustive list 
     <a href="./animated">
       <h3>Animated</h3>
       <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./clipboard">
-      <h3>Clipboard</h3>
-      <p>Provides an interface for setting and getting content from the clipboard on both Android and iOS.</p>
     </a>
   </div>
   <div class="component">
@@ -283,3 +211,4 @@ These components may be useful for certain applications. For an exhaustive list 
     </a>
   </div>
 </div>
+<br/>
