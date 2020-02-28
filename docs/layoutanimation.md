@@ -19,21 +19,21 @@ if (Platform.OS === 'android') {
 
 ## Example
 
-```SnackPlayer =rn-layoutanimation
-import React, { useState } from "react";
-import { Platform, Text, TouchableOpacity, View } from "react-native";
+```SnackPlayer=LayoutAnimation
+iimport React, { useState } from "react";
+import { LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View } from "react-native";
 
-if (Platform.OS === "android") {
-  if (UIManager.setLayoutAnimationEnabledExperimental) {
-    UIManager.setLayoutAnimationEnabledExperimental(true);
-  }
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
 }
-
 const App = () => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <View style={{ overflow: "hidden" }}>
+    <View style={style.container}>
       <TouchableOpacity
         onPress={() => {
           LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
@@ -42,12 +42,31 @@ const App = () => {
       >
         <Text>Press me to {expanded ? "collapse" : "expand"}!</Text>
       </TouchableOpacity>
-      {expanded && <View>I disappear sometimes!</View>}
+      {expanded && (
+        <View style={style.tile}>
+          <Text>I disappear sometimes!</Text>
+        </View>
+      )}
     </View>
   );
 };
 
+const style = StyleSheet.create({
+  tile: {
+    background: "lightGrey",
+    borderWidth: 0.5,
+    borderColor: "#d6d7da"
+  },
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    overflow: "hidden"
+  }
+});
+
 export default App;
+
 ```
 
 ---
