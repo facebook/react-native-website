@@ -19,15 +19,15 @@ title: Share
 <block class="functional syntax" />
 
 ```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
-import React from "react";
-import { Share, Button } from "react-native";
+import React from 'react';
+import { Share, View, Button } from 'react-native';
 
-export default const ShareExample = () => {
-  onShare = async () => {
+const ShareExample = () => {
+  const onShare = async () => {
     try {
       const result = await Share.share({
         message:
-          "React Native | A framework for building native apps using React"
+          'React Native | A framework for building native apps using React',
       });
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -42,23 +42,28 @@ export default const ShareExample = () => {
       alert(error.message);
     }
   };
-  return <Button onPress={this.onShare} title="Share" />;
+  return (
+    <View style={{ marginTop: 50 }}>
+      <Button onPress={() => onShare()} title="Share" />
+    </View>
+  );
 };
 
+export default ShareExample;
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
-import React, { Component } from "react";
-import { Share, Button } from "react-native";
+import React, { Component } from 'react';
+import { Share, View, Button } from 'react-native';
 
-export default class ShareExample extends Component {
+class ShareExample extends Component {
   onShare = async () => {
     try {
       const result = await Share.share({
         message:
-          "React Native | A framework for building native apps using React"
+          'React Native | A framework for building native apps using React',
       });
 
       if (result.action === Share.sharedAction) {
@@ -76,9 +81,15 @@ export default class ShareExample extends Component {
   };
 
   render() {
-    return <Button onPress={this.onShare} title="Share" />;
+    return (
+      <View style={{ marginTop: 50 }}>
+        <Button onPress={this.onShare} title="Share" />
+      </View>
+    );
   }
 }
+
+export default ShareExample;
 ```
 
 <block class="endBlock syntax" />
