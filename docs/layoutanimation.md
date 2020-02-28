@@ -20,7 +20,7 @@ if (Platform.OS === 'android') {
 ## Example
 
 ```SnackPlayer=LayoutAnimation
-iimport React, { useState } from "react";
+import React, { useState } from "react";
 import { LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View } from "react-native";
 
 if (
