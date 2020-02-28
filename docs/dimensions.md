@@ -9,7 +9,7 @@ title: Dimensions
 import {Dimensions} from 'react-native';
 ```
 
-You can get the application window's width and height using below code:
+You can get the application window's width and height using the following code:
 
 ```jsx
 const windowWidth = Dimensions.get('window').width;

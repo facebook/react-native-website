@@ -38,6 +38,9 @@
       "app-extensions": {
         "title": "App Extensions"
       },
+      "appearance": {
+        "title": "Appearance"
+      },
       "appregistry": {
         "title": "AppRegistry"
       },
@@ -72,7 +75,7 @@
         "title": "Communication between native and React Native"
       },
       "components-and-apis": {
-        "title": "Components and APIs"
+        "title": "Core Components and APIs"
       },
       "custom-webview-android": {
         "title": "Custom WebView"
@@ -3521,10 +3524,11 @@
       "Native Components and Modules": "Native Components and Modules",
       "Guides (iOS)": "Guides (iOS)",
       "Guides (Android)": "Guides (Android)",
-      "Components": "Components",
+      "Core Components": "Core Components",
       "Props": "Props",
       "APIs": "APIs",
       "Guides": "Guides",
+      "Components": "Components",
       "Contributing": "Contributing"
     }
   },
