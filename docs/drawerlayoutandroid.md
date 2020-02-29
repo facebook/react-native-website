@@ -7,25 +7,72 @@ React component that wraps the platform `DrawerLayout` (Android only). The Drawe
 
 Example:
 
-```jsx
-render: function() {
-  var navigationView = (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android
+import React, {useState} from "react";
+import {
+  Button,
+  DrawerLayoutAndroid,
+  Text,
+  StyleSheet,
+  View,
+} from "react-native";
+import Constants from "expo-constants";
+
+const App = () => {
+  const [drawerPosition, setDrawerPosition] = useState("left");
+  const changeDrawerPosition = () => {
+    if (drawerPosition === "left") {
+      setDrawerPosition("right");
+    } else {
+      setDrawerPosition("left");
+    }
+  };
+
+  const navigationView = (
+    <View style={styles.navigationContainer}>
+      <Text style={{margin: 10, fontSize: 15}}>I'm in the Drawer!</Text>
     </View>
   );
+
   return (
     <DrawerLayoutAndroid
       drawerWidth={300}
-      drawerPosition={DrawerLayoutAndroid.positions.Left}
+      drawerPosition={drawerPosition}
       renderNavigationView={() => navigationView}>
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+      <View style={styles.container}>
+        <Text style={{margin: 10, fontSize: 15}}>
+          DrawerLayoutAndroid example
+        </Text>
+        <Button
+          title="Change Drawer Position"
+          onPress={() => changeDrawerPosition()}
+        />
+        <Text style={{margin: 10, fontSize: 15}}>
+          Drawer on the {drawerPosition}
+        </Text>
       </View>
     </DrawerLayoutAndroid>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8,
+  },
+  navigationContainer: {
+    flex: 1,
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#fff",
+    padding: 8,
+  },
+});
+
+export default App;
 ```
 
 ---
