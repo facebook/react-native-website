@@ -58,11 +58,11 @@ Function called whenever the navigation view has been closed.
 
 ### `drawerPosition`
 
-Specifies the side of the screen from which the drawer will slide in.
+Specifies the side of the screen from which the drawer will slide in. By default it is set to `left`.
 
-| Type                                                                      | Required |
-| ------------------------------------------------------------------------- | -------- |
-| enum(DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right) | No       |
+| Type                  | Required |
+| --------------------- | -------- |
+| enum('left', 'right') | No       |
 
 ---
 
