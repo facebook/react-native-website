@@ -7,8 +7,6 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 `TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
 
-### Usage Example
-
 ```jsx
 function MyComponent(props) {
   return (
@@ -21,6 +19,56 @@ function MyComponent(props) {
 <TouchableWithoutFeedback onPress={() => alert('Pressed!')}>
   <MyComponent />
 </TouchableWithoutFeedback>;
+```
+
+### Example
+
+```SnackPlayer name=TouchableWithoutFeedback
+
+import React, { useState } from "react";
+import { StyleSheet, TouchableWithoutFeedback, Text, View } from "react-native";
+
+export default function TouchableWithoutFeedbackExample() {
+  const [count, setCount] = useState(0);
+
+  const onPress = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <View style={styles.container}>
+      <TouchableWithoutFeedback onPress={onPress}>
+        <View style={styles.button}>
+          <Text> Touch Here </Text>
+        </View>
+      </TouchableWithoutFeedback>
+
+      <View style={styles.countContainer}>
+        <Text style={styles.countText}>{count !== 0 ? count : null}</Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  },
+  countText: {
+    color: "#FF00FF"
+  }
+});
 ```
 
 ---
