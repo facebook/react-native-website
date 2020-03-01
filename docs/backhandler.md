@@ -163,7 +163,7 @@ If you are using React Navigation to navigate across different screens, you can 
 
 ## Backhandler hook
 
-[React Native Hooks](https://github.com/react-native-community/hooks#usebackhandler) has a nice `useBackHandler` hook which will simplify setting up event listeners with an easy to use API.
+[React Native Hooks](https://github.com/react-native-community/hooks#usebackhandler) has a nice `useBackHandler` hook which will simplify the process of setting up event listeners.
 
 ---
 
