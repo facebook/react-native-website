@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#20232a"
   },
   title: {
-    lineHeight: 32,
+    marginTop: 10,
     textAlign: "center",
     color: "#61dafb"
   },
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   box: {
-    marginTop: 30,
+    marginTop: 32,
     borderRadius: 4,
     backgroundColor: "#61dafb"
   },
@@ -173,9 +173,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff"
   },
   listHeader: {
-    height: 24,
-    lineHeight: 24,
     paddingHorizontal: 8,
+    paddingVertical: 4,
     backgroundColor: "#f4f4f4",
     color: "#999",
     fontSize: 12,
