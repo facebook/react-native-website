@@ -27,6 +27,51 @@ We have to be careful when to do this rounding. You never want to work with roun
 
 In React Native, everything in JavaScript and within the layout engine works with arbitrary precision numbers. It's only when we set the position and dimensions of the native element on the main thread that we round. Also, rounding is done relative to the root rather than the parent, again to avoid accumulating rounding errors.
 
+### Example
+
+```SnackPlayer name=PixelRatio%20Example
+import React from "react";
+import { PixelRatio, StyleSheet, Text, TextInput, View } from "react-native";
+
+export default App = () => {
+  const size = 234;
+  return (
+    <View style={styles.container}>
+      <Text>Current Pixel Ratio is:</Text>
+      <Text style={styles.value}>
+        {PixelRatio.get()}
+      </Text>
+      <Text>Current Font Scale is:</Text>
+      <Text style={styles.value}>
+        {PixelRatio.getFontScale()}
+      </Text>
+      <br />
+      <Text>On this device image in size of:</Text>
+      <Text style={styles.value}>
+        {size} px
+      </Text>
+      <Text>Will be rendered as:</Text>
+      <Text style={styles.value}>
+        {PixelRatio.getPixelSizeForLayoutSize(size)} px
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  value: {
+    fontSize: 24,
+    marginBottom: 12,
+    marginTop: 4
+  }
+});
+```
+
 ---
 
 # Reference
