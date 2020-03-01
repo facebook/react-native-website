@@ -45,7 +45,7 @@ The following helpers are used to modify other easing functions.
 
 ```SnackPlayer name=Easing%20Demo
 import React from "react";
-import { Animated, Button, Easing, SectionList, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Animated, Easing, SectionList, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default App = () => {
   let opacity = new Animated.Value(0);
@@ -77,7 +77,7 @@ export default App = () => {
     <View style={styles.container}>
       <StatusBar hidden={true} />
       <Text style={styles.title}>
-        Click buttons below to see the Easing!
+        Press rows below to preview the Easing!
       </Text>
       <View style={styles.boxContainer}>
         <Animated.View style={animatedStyles} />
@@ -87,12 +87,12 @@ export default App = () => {
         sections={SECTIONS}
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
-          <View style={styles.button}>
-            <Button
-              title={item.title}
-              onPress={() => animate(item.easing)}
-            />
-          </View>
+          <TouchableOpacity 
+            onPress={() => animate(item.easing)} 
+            style={styles.listRow}
+          >
+            <Text>{item.title}</Text>
+          </TouchableOpacity>
         )}
         renderSectionHeader={({ section: { title } }) => (
           <Text style={styles.listHeader}>{title}</Text>
@@ -177,11 +177,12 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     paddingHorizontal: 8,
     backgroundColor: "#f4f4f4",
+    color: "#999",
+    fontSize: 12,
     textTransform: "uppercase"
   },
-  button: {
-    marginHorizontal: 4,
-    marginVertical: 2
+  listRow: {
+    padding: 8
   }
 });
 ```
