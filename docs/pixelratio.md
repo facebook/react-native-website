@@ -3,7 +3,7 @@ id: pixelratio
 title: PixelRatio
 ---
 
-`PixelRatio` gives you access to the device's pixel density and fontScales.
+`PixelRatio` gives you access to the device's pixel density and font scale.
 
 ## Fetching a correctly sized image
 
@@ -103,22 +103,22 @@ static get()
 
 Returns the device pixel density. Some examples:
 
-- PixelRatio.get() === 1
+- `PixelRatio.get() === 1`
   - [mdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 1.5
+- `PixelRatio.get() === 1.5`
   - [hdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 2
-  - iPhone 4, 4S
-  - iPhone 5, 5C, 5S
-  - iPhone 6, 7, 8
+- `PixelRatio.get() === 2`
+  - iPhone SE, 6S, 7, 8
   - iPhone XR
+  - iPhone 11
   - [xhdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 3
-  - iPhone 6 Plus, 7 Plus, 8 Plus
+- `PixelRatio.get() === 3`
+  - iPhone 6S Plus, 7 Plus, 8 Plus
   - iPhone X, XS, XS Max
+  - iPhone 11 Pro, 11 Pro Max
   - Pixel, Pixel 2
   - [xxhdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 3.5
+- `PixelRatio.get() === 3.5`
   - Nexus 6
   - Pixel XL, Pixel 2 XL
   - [xxxhdpi Android devices](https://material.io/tools/devices/)
@@ -128,21 +128,22 @@ Returns the device pixel density. Some examples:
 ### `getFontScale()`
 
 ```jsx
-static getFontScale()
+static getFontScale(): number
 ```
 
 Returns the scaling factor for font sizes. This is the ratio that is used to calculate the absolute font size, so any elements that heavily depend on that should use this to do calculations.
 
-If a font scale is not set, this returns the device pixel ratio.
+* on Android value reflects the user preference set in Settings > Display > Font size, 
+* on iOS it will always return the default pixel ratio.
 
-Currently this is only implemented on Android and reflects the user preference set in Settings > Display > Font size, on iOS it will always return the default pixel ratio. @platform android
+If a font scale is not set, this returns the device pixel ratio.
 
 ---
 
 ### `getPixelSizeForLayoutSize()`
 
 ```jsx
-static getPixelSizeForLayoutSize(layoutSize)
+static getPixelSizeForLayoutSize(layoutSize: number): number
 ```
 
 Converts a layout size (dp) to pixel size (px).
@@ -154,7 +155,7 @@ Guaranteed to return an integer number.
 ### `roundToNearestPixel()`
 
 ```jsx
-static roundToNearestPixel(layoutSize)
+static roundToNearestPixel(layoutSize: number): number
 ```
 
 Rounds a layout size (dp) to the nearest layout size that corresponds to an integer number of pixels. For example, on a device with a PixelRatio of 3, `PixelRatio.roundToNearestPixel(8.4) = 8.33`, which corresponds to exactly (8.33 \* 3) = 25 pixels.
