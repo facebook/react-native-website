@@ -3,7 +3,7 @@ id: pixelratio
 title: PixelRatio
 ---
 
-PixelRatio class gives access to the device pixel density.
+`PixelRatio` gives you access to the device's pixel density and fontScales.
 
 ## Fetching a correctly sized image
 
@@ -31,36 +31,52 @@ In React Native, everything in JavaScript and within the layout engine works wit
 
 ```SnackPlayer name=PixelRatio%20Example
 import React from "react";
-import { PixelRatio, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, PixelRatio, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 export default App = () => {
-  const size = 234;
+  const length = 50;
   return (
-    <View style={styles.container}>
-      <Text>Current Pixel Ratio is:</Text>
-      <Text style={styles.value}>
-        {PixelRatio.get()}
-      </Text>
-      <Text>Current Font Scale is:</Text>
-      <Text style={styles.value}>
-        {PixelRatio.getFontScale()}
-      </Text>
-      <br />
-      <Text>On this device image in size of:</Text>
-      <Text style={styles.value}>
-        {size} px
-      </Text>
-      <Text>Will be rendered as:</Text>
-      <Text style={styles.value}>
-        {PixelRatio.getPixelSizeForLayoutSize(size)} px
-      </Text>
-    </View>
+    <ScrollView style={styles.scrollContainer}>
+      <View style={styles.container}>
+        <Text>Current Pixel Ratio is:</Text>
+        <Text style={styles.value}>{PixelRatio.get()}</Text>
+      </View>
+      <View style={styles.container}>
+        <Text>Current Font Scale is:</Text>
+        <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
+      </View>
+      <View style={styles.container}>      
+        <Text>On this device images with a layout width of</Text>
+      <Text style={styles.value}>{length} px</Text>
+      <Image
+        source={{ uri: "https://reactnative.dev/docs/assets/p_cat1.png" }}
+        style={{ width: length, height: length }}
+      />
+      </View>
+      <View style={styles.container}>      
+        <Text>require images with a pixel width of</Text>
+        <Text style={styles.value}>
+          {PixelRatio.getPixelSizeForLayoutSize(length)} px
+        </Text>
+        <Image
+          source={{ uri: "https://reactnative.dev/docs/assets/p_cat1.png" }}
+          style={{
+            width: PixelRatio.getPixelSizeForLayoutSize(length),
+            height: PixelRatio.getPixelSizeForLayoutSize(length)
+          }}
+        />
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flext: 1,
+    marginTop: "2em",
+    justifyContent: "center",
+  },
   container: {
-    flex: 1,
     justifyContent: "center",
     alignItems: "center"
   },
