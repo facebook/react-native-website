@@ -33,42 +33,43 @@ In React Native, everything in JavaScript and within the layout engine works wit
 import React from "react";
 import { Image, PixelRatio, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
-export default App = () => {
-  const length = 50;
-  return (
-    <ScrollView style={styles.scrollContainer}>
-      <View style={styles.container}>
-        <Text>Current Pixel Ratio is:</Text>
-        <Text style={styles.value}>{PixelRatio.get()}</Text>
-      </View>
-      <View style={styles.container}>
-        <Text>Current Font Scale is:</Text>
-        <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
-      </View>
-      <View style={styles.container}>      
-        <Text>On this device images with a layout width of</Text>
-      <Text style={styles.value}>{length} px</Text>
-      <Image
-        source={{ uri: "https://reactnative.dev/docs/assets/p_cat1.png" }}
-        style={{ width: length, height: length }}
-      />
-      </View>
-      <View style={styles.container}>      
-        <Text>require images with a pixel width of</Text>
-        <Text style={styles.value}>
-          {PixelRatio.getPixelSizeForLayoutSize(length)} px
-        </Text>
-        <Image
-          source={{ uri: "https://reactnative.dev/docs/assets/p_cat1.png" }}
-          style={{
-            width: PixelRatio.getPixelSizeForLayoutSize(length),
-            height: PixelRatio.getPixelSizeForLayoutSize(length)
-          }}
-        />
-      </View>
-    </ScrollView>
-  );
+const size = 50;
+const cat = {
+  uri: "https://reactnative.dev/docs/assets/p_cat1.png",
+  width: size,
+  height: size
 };
+
+export default App = () => (
+  <ScrollView style={styles.scrollContainer}>
+    <View style={styles.container}>
+      <Text>Current Pixel Ratio is:</Text>
+      <Text style={styles.value}>{PixelRatio.get()}</Text>
+    </View>
+    <View style={styles.container}>
+      <Text>Current Font Scale is:</Text>
+      <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
+    </View>
+    <View style={styles.container}>
+      <Text>On this device images with a layout width of</Text>
+      <Text style={styles.value}>{size} px</Text>
+      <Image source={cat} />
+    </View>
+    <View style={styles.container}>
+      <Text>require images with a pixel width of</Text>
+      <Text style={styles.value}>
+        {PixelRatio.getPixelSizeForLayoutSize(size)} px
+      </Text>
+      <Image
+        source={cat}
+        style={{
+          width: PixelRatio.getPixelSizeForLayoutSize(size),
+          height: PixelRatio.getPixelSizeForLayoutSize(size)
+        }}
+      />
+    </View>
+  </ScrollView>
+);
 
 const styles = StyleSheet.create({
   scrollContainer: {
