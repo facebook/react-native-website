@@ -220,7 +220,7 @@ TV next focus up (see documentation for the View component).
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
-| bool | No       | iOS      |
+| bool | No       | Android  |
 
 ## Methods
 
