@@ -234,7 +234,7 @@
         "title": "PanResponder"
       },
       "performance": {
-        "title": "Performance"
+        "title": "Performance Overview"
       },
       "permissionsandroid": {
         "title": "PermissionsAndroid"
@@ -257,6 +257,9 @@
       "platform-specific-code": {
         "title": "Platform Specific Code"
       },
+      "profiling": {
+        "title": "Profiling"
+      },
       "progressbarandroid": {
         "title": "🚧 ProgressBarAndroid"
       },
@@ -268,6 +271,9 @@
       },
       "pushnotificationios": {
         "title": "🚧 PushNotificationIOS"
+      },
+      "ram-bundles-inline-requires": {
+        "title": "RAM Bundles and Inline Requires"
       },
       "refreshcontrol": {
         "title": "RefreshControl"
