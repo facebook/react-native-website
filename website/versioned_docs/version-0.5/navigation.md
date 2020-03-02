@@ -12,7 +12,7 @@ If you'd like to achieve a native look and feel on both Android and iOS, or you'
 
 ## React Navigation
 
-The community solution to navigation is a standalone library that allows developers to set up the screens of an app with a few lines of code. Assuming you are on the latest react-native version.
+The community solution to navigation is a standalone library that allows developers to set up the screens of an app with a few lines of code.
 
 The first step is to install in your project:
 
