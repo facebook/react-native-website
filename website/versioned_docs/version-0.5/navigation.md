@@ -22,24 +22,10 @@ yarn add react-navigation
 # npm install react-navigation
 ```
 
-The second step is to install additional dependencies such as `react-native-gesture-handler`, `react-native-reanimated`, and `react-native-screens`:
+The second step is to install additional dependencies such as `react-native-gesture-handler`, `react-native-reanimated`, `react-native-screens`, `react-native-safe-area-context`, and `@react-native-community/masked-view`:
 
 ```
-yarn add react-native-gesture-handler
-# or with npm
-# npm install --save react-native-gesture-handler
-```
-
-```
-yarn add react-native-reanimated
-# or with npm
-# npm install --save react-native-reanimated
-```
-
-```
-yarn add react-native-screens
-# or with npm
-# npm install --save react-native-screens
+npm install --save react-navigation react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
 ```
 
 To complete your installation on **iOS**, make sure you have [Cocoapods](https://cocoapods.org/). Then run:
