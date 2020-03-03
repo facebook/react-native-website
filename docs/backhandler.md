@@ -3,19 +3,16 @@ id: backhandler
 title: BackHandler
 ---
 
-Detect hardware button presses for back navigation.
+The Backhandler API detects hardware button presses for back navigation, lets you register event listeners for the system's back action, and lets you control how your application responds. It is Android-only.
 
-Backhandler lets you register event listeners for the system's back action and helps you control how your application should respond.
+The event subscriptions are called in reverse order (i.e. the last registered subscription is called first). 
 
-The event subscriptions are called in reverse order (i.e. last registered subscription first), and if one subscription returns true then subscriptions registered earlier will not be called. Beware: If your app shows an opened `Modal`, BackHandler will not publish any events ([see `Modal` docs](modal#onrequestclose)).
+* **If one subscription returns true,** then subscriptions registered earlier will not be called. 
+* **If no subscription returns true or none are registered,** it programmatically invokes the default back button functionality to exit the app.
 
-Android: Detect hardware back button presses, and programmatically invoke the default back button functionality to exit the app if there are no listeners or if none of the listeners return true.
+> **Warning for modal users:** If your app shows an opened `Modal`, `BackHandler` will not publish any events ([see `Modal` docs](modal#onrequestclose)).
 
-tvOS: Detect presses of the menu button on the TV remote. (Still to be implemented: programmatically disable menu button handling functionality to exit the app if there are no listeners or if none of the listeners return true.)
-
-iOS: Not applicable.
-
-Example:
+## Pattern
 
 ```jsx
 BackHandler.addEventListener('hardwareBackPress', function() {
@@ -42,7 +39,9 @@ BackHandler.addEventListener('hardwareBackPress', function() {
 });
 ```
 
-The following example implements a classic scenario where you can get confirmation from the user if they want to exit the app
+## Example 
+
+The following example implements a scenario where you confirm if the user wants to exit the app:
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
