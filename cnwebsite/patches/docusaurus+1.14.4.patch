@@ -1,5 +1,5 @@
 diff --git a/node_modules/docusaurus/lib/core/Head.js b/node_modules/docusaurus/lib/core/Head.js
-index f8a8548..8146d90 100644
+index f8a8548..0947a97 100644
 --- a/node_modules/docusaurus/lib/core/Head.js
 +++ b/node_modules/docusaurus/lib/core/Head.js
 @@ -22,7 +22,7 @@ class Head extends React.Component {
@@ -25,22 +25,22 @@ index f8a8548..8146d90 100644
            />
          )}
 -        <script src={`${this.props.config.baseUrl}js/scrollSpy.js`} />
-+        <script src={`${this.props.config.cdnUrl}js/scrollSpy.js`} />
++        <script src={`${this.props.config.cdnStaticUrl}js/scrollSpy.js`} />
          {this.props.config.usePrism && (
            <link
              rel="stylesheet"
 -            href={`${this.props.config.baseUrl}css/prism.css`}
-+            href={`${this.props.config.cdnUrl}css/prism.css`}
++            href={`${this.props.config.cdnStaticUrl}css/prism.css`}
            />
          )}
          {/* Site defined code. Keep these at the end to avoid overriding. */}
          <link
            rel="stylesheet"
 -          href={`${this.props.config.baseUrl}css/main.css`}
-+          href={`${this.props.config.cdnUrl}css/main.css`}
++          href={`${this.props.config.cdnStaticUrl}css/main.css`}
          />
 -        <script src={`${this.props.config.baseUrl}js/codetabs.js`} />
-+        <script src={`${this.props.config.cdnUrl}js/codetabs.js`} />
++        <script src={`${this.props.config.cdnStaticUrl}js/codetabs.js`} />
        </head>
      );
    }

@@ -16,6 +16,7 @@ const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const bbsUrl = 'http://bbs.reactnative.cn';
 const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/';
+const cdnStaticUrl = cdnUrl + 'cnwebsite/static/';
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
@@ -27,6 +28,7 @@ const defaultVersionShown = '0.61';
 const siteConfig = {
   adData: {},
   cdnUrl,
+  cdnStaticUrl,
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
   bbsUrl,
@@ -96,9 +98,9 @@ const siteConfig = {
     // 'https://snack.expo.io/embed.js',
     'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
     // 'https://buttons.github.io/buttons.js',
-    cdnUrl + 'cnwebsite/static/js/codeblocks.js',
-    cdnUrl + 'cnwebsite/static/js/tabs.js',
-    cdnUrl + 'cnwebsite/static/js/doccode.js', 
+    cdnStaticUrl + 'js/codeblocks.js',
+    cdnStaticUrl + 'js/tabs.js',
+    cdnStaticUrl + 'js/doccode.js', 
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',
