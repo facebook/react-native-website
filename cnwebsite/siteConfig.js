@@ -14,6 +14,7 @@ const RemarkablePlugins = require('./core/RemarkablePlugins');
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const bbsUrl = 'http://bbs.reactnative.cn';
+const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/';
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
@@ -91,10 +92,10 @@ const siteConfig = {
   scripts: [
     // 'https://snack.expo.io/embed.js',
     'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
-    'https://buttons.github.io/buttons.js',
-    baseUrl + 'js/codeblocks.js',
-    baseUrl + 'js/tabs.js',
-    baseUrl + 'js/doccode.js',
+    // 'https://buttons.github.io/buttons.js',
+    cdnUrl + 'js/codeblocks.js',
+    cdnUrl + 'js/tabs.js',
+    cdnUrl + 'js/doccode.js', 
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',
