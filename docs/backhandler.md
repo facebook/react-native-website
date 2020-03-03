@@ -5,10 +5,10 @@ title: BackHandler
 
 The Backhandler API detects hardware button presses for back navigation, lets you register event listeners for the system's back action, and lets you control how your application responds. It is Android-only.
 
-The event subscriptions are called in reverse order (i.e. the last registered subscription is called first). 
+The event subscriptions are called in reverse order (i.e. the last registered subscription is called first).
 
-* **If one subscription returns true,** then subscriptions registered earlier will not be called. 
-* **If no subscription returns true or none are registered,** it programmatically invokes the default back button functionality to exit the app.
+- **If one subscription returns true,** then subscriptions registered earlier will not be called.
+- **If no subscription returns true or none are registered,** it programmatically invokes the default back button functionality to exit the app.
 
 > **Warning for modal users:** If your app shows an opened `Modal`, `BackHandler` will not publish any events ([see `Modal` docs](modal#onrequestclose)).
 
@@ -39,7 +39,7 @@ BackHandler.addEventListener('hardwareBackPress', function() {
 });
 ```
 
-## Example 
+## Example
 
 The following example implements a scenario where you confirm if the user wants to exit the app:
 
@@ -129,7 +129,7 @@ export default class App extends Component {
   }
 
   componentWillUnmount() {
-    backHandler.remove();
+    this.backHandler.remove();
   }
 
   render() {
