@@ -9,7 +9,7 @@ The most basic workflow for creating an animation is to create an `Animated.Valu
 
 > The animated value should not be modified directly like Javascript variables hence it is usually kept as a state variable in class components. Functional components with hooks can use `useRef` hook which returns a mutable ref object whose `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
-The following example contains a simple view which will fade in & fade out based on the animated value `fadeAnim`
+The following example contains a `View` which will fade in & fade out based on the animated value `fadeAnim`
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
