@@ -8,13 +8,14 @@
  */
 
 const RemarkablePlugins = require('./core/RemarkablePlugins');
+const packgeJson = require('./package.json');
 
 // const users = require("./showcase.json");
 
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const bbsUrl = 'http://bbs.reactnative.cn';
-const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/cnwebsite/static/';
+const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/';
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
@@ -25,6 +26,7 @@ try {
 const defaultVersionShown = '0.61';
 const siteConfig = {
   adData: {},
+  cdnUrl,
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
   bbsUrl,
@@ -87,15 +89,16 @@ const siteConfig = {
   ],
   highlight: {
     theme: 'solarized-dark',
+    version: packageJson.dependencies['highlight.js'].replace('^', '')
   },
   gaTrackingId: 'UA-63485149-4',
   scripts: [
     // 'https://snack.expo.io/embed.js',
     'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
     // 'https://buttons.github.io/buttons.js',
-    cdnUrl + 'js/codeblocks.js',
-    cdnUrl + 'js/tabs.js',
-    cdnUrl + 'js/doccode.js', 
+    cdnUrl + 'cnwebsite/static/js/codeblocks.js',
+    cdnUrl + 'cnwebsite/static/js/tabs.js',
+    cdnUrl + 'cnwebsite/static/js/doccode.js', 
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',

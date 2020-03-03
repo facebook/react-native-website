@@ -26,11 +26,14 @@
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
     "sync-guides": "node sync-guides.js",
-    "test": "yarn build"
+    "test": "yarn build",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "docusaurus": "1.14.4",
-    "highlight.js": "^9.15.10",
+    "highlight.js": "^9.18.1",
+    "patch-package": "^6.2.1",
+    "postinstall-postinstall": "^2.0.0",
     "remarkable": "^2.0.0"
   },
   "devDependencies": {
