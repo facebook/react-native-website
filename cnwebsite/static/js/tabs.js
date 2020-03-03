@@ -190,7 +190,7 @@ function guessPlatformAndOS() {
     var isWindows = navigator.platform === 'Win32';
     displayTab('platform', isMac ? 'ios' : 'android');
     displayTab('os', isMac ? 'mac' : isWindows ? 'windows' : 'linux');
-    displayTab('guide', 'quickstart');
+    displayTab('guide', 'native');
     displayTab('language', 'objc');
     displayTabs('syntax', 'functional');
     displayTabs('devNotes', 'webNote');
