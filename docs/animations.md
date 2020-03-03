@@ -16,11 +16,11 @@ The [`Animated`](animated) API is designed to concisely express a wide variety o
 For example, a container view that fades in when it is mounted may look like this:
 
 ```SnackPlayer
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Animated, Text, View } from 'react-native';
 
 const FadeInView = (props) => {
-  const [fadeAnim] = useState(new Animated.Value(0))  // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
 
   React.useEffect(() => {
     Animated.timing(
@@ -236,6 +236,133 @@ onPanResponderMove={Animated.event(
   {dx: pan.x, dy: pan.y}
 ])}
 ```
+
+#### Example
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Animated
+import React, { useRef } from "react";
+import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+
+export default function App() {
+  const pan = useRef(new Animated.ValueXY()).current;
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([
+        null,
+        { dx: pan.x, dy: pan.y }
+      ]),
+      onPanResponderRelease: () => {
+        Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
+      }
+    })
+  ).current;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titleText}>Drag & Release this box!</Text>
+      <Animated.View
+        style={{
+          transform: [{ translateX: pan.x }, { translateY: pan.y }]
+        }}
+        {...panResponder.panHandlers}
+      >
+        <View style={styles.box} />
+      </Animated.View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold"
+  },
+  box: {
+    height: 150,
+    width: 150,
+    backgroundColor: "blue",
+    borderRadius: 5
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Animated
+import React, { Component } from "react";
+import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+
+export default class App extends Component {
+  pan = new Animated.ValueXY();
+  panResponder = PanResponder.create({
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderMove: Animated.event([
+      null,
+      { dx: this.pan.x, dy: this.pan.y }
+    ]),
+    onPanResponderRelease: () => {
+      Animated.spring(this.pan, { toValue: { x: 0, y: 0 } }).start();
+    }
+  });
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.titleText}>Drag & Release this box!</Text>
+        <Animated.View
+          style={{
+            transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
+          }}
+          {...this.panResponder.panHandlers}
+        >
+          <View style={styles.box} />
+        </Animated.View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold"
+  },
+  box: {
+    height: 150,
+    width: 150,
+    backgroundColor: "blue",
+    borderRadius: 5
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 ### Responding to the current animation value
 
