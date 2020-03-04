@@ -37,15 +37,14 @@ export default function TouchableWithoutFeedbackExample() {
 
   return (
     <View style={styles.container}>
+      <View style={styles.countContainer}>
+        <Text style={styles.countText}>Count: {count}</Text>
+      </View>
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.button}>
           <Text> Touch Here </Text>
         </View>
       </TouchableWithoutFeedback>
-
-      <View style={styles.countContainer}>
-        <Text style={styles.countText}>{count !== 0 ? count : null}</Text>
-      </View>
     </View>
   );
 }
