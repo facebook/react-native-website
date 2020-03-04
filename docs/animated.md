@@ -3,13 +3,36 @@ id: animated
 title: Animated
 ---
 
-The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
+The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
-The most basic workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`
+The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-> The animated value should not be modified directly like Javascript variables hence it is usually kept as a state variable in class components. Functional components with hooks can use `useRef` hook which returns a mutable ref object whose `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
-The following example contains a `View` which will fade in & fade out based on the animated value `fadeAnim`
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Using with Function Components
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Using with Class Components
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle. 
+
+<block class="classical syntax" />
+
+> Don't modify the animated value directly. It is usually stored as a [state variable](intro-react#state) in class components.
+
+<block class="endBlock syntax" />
+
+
+## Example
+
+The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -36,7 +59,7 @@ export default function App() {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 5000
+      duration: 2000
     }).start();
   };
 
@@ -44,7 +67,7 @@ export default function App() {
     // Will change fadeAnim value to 0 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 5000
+      duration: 2000
     }).start();
   };
 
@@ -107,7 +130,7 @@ class App extends Component {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 5000
+      duration: 2000
     }).start();
   };
 
@@ -115,7 +138,7 @@ class App extends Component {
     // Will change fadeAnim value to 0 in 5 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
-      duration: 5000
+      duration: 2000
     }).start();
   };
 
