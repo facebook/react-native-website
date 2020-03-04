@@ -39,7 +39,7 @@ A `gestureState` object has the following:
 - `vy` - current velocity of the gesture
 - `numberActiveTouches` - Number of touches currently on screen
 
-### Basic Usage
+## Usage Pattern
 
 ```jsx
 const ExampleComponent = () => {
@@ -82,7 +82,7 @@ const ExampleComponent = () => {
 };
 ```
 
-### Working Example
+## Example
 
 `PanResponder` works with `Animated` API to help build complex gestures in the UI. The following example contains an animated `View` component which can be dragged freely across the screen
 
@@ -227,7 +227,7 @@ const styles = StyleSheet.create({
 
 <block class="endBlock syntax" />
 
-Try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js)
+Try the [PanResponder example in RNTester](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js).
 
 ---
 
