@@ -7,25 +7,66 @@ React component that wraps the platform `DrawerLayout` (Android only). The Drawe
 
 Example:
 
-```jsx
-render: function() {
-  var navigationView = (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android
+import React, { useState } from "react";
+import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
+
+const App = () => {
+  const [drawerPosition, setDrawerPosition] = useState("left");
+  const changeDrawerPosition = () => {
+    if (drawerPosition === "left") {
+      setDrawerPosition("right");
+    } else {
+      setDrawerPosition("left");
+    }
+  };
+
+  const navigationView = (
+    <View style={styles.navigationContainer}>
+      <Text style={{ margin: 10, fontSize: 15 }}>I'm in the Drawer!</Text>
     </View>
   );
+
   return (
     <DrawerLayoutAndroid
       drawerWidth={300}
-      drawerPosition={DrawerLayoutAndroid.positions.Left}
-      renderNavigationView={() => navigationView}>
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+      drawerPosition={drawerPosition}
+      renderNavigationView={() => navigationView}
+    >
+      <View style={styles.container}>
+        <Text style={{ margin: 10, fontSize: 15 }}>
+          DrawerLayoutAndroid example
+        </Text>
+        <Button
+          title="Change Drawer Position"
+          onPress={() => changeDrawerPosition()}
+        />
+        <Text style={{ margin: 10, fontSize: 15 }}>
+          Drawer on the {drawerPosition}! Swipe from the side to see!
+        </Text>
       </View>
     </DrawerLayoutAndroid>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: "50px",
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  navigationContainer: {
+    flex: 1,
+    paddingTop:  "50px",
+    backgroundColor: "#fff",
+    padding: 8
+  }
+});
+
+export default App;
 ```
 
 ---
@@ -58,11 +99,11 @@ Function called whenever the navigation view has been closed.
 
 ### `drawerPosition`
 
-Specifies the side of the screen from which the drawer will slide in.
+Specifies the side of the screen from which the drawer will slide in. By default it is set to `left`.
 
-| Type                                                                      | Required |
-| ------------------------------------------------------------------------- | -------- |
-| enum(DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right) | No       |
+| Type                  | Required |
+| --------------------- | -------- |
+| enum('left', 'right') | No       |
 
 ---
 
