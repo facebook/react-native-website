@@ -9,15 +9,7 @@ Vibrates the device.
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
 import React from "react";
-import {
-  Button,
-  Platform,
-  Text,
-  Vibration,
-  View,
-  SafeAreaView,
-  StyleSheet
-} from "react-native";
+import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
 
 function Separator() {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
