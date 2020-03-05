@@ -136,6 +136,10 @@ This example will only ever appear to say "Current state is: active" because the
 
 This event is received when the app state has changed. The listener is called with one of [the current app state values](appstate#app-states).
 
+### `memoryWarning`
+
+This event is used in the need of throwing memory warning or releasing it.
+
 ### `focus`
 
 [Android only] Received when the app gains focus (the user is interacting with the app).
