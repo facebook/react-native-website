@@ -7,6 +7,8 @@ Do not use unless you have a very good reason. All elements that respond to pres
 
 `TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.
 
+## Usage Pattern
+
 ```jsx
 function MyComponent(props) {
   return (
@@ -21,10 +23,9 @@ function MyComponent(props) {
 </TouchableWithoutFeedback>;
 ```
 
-### Example
+## Example
 
 ```SnackPlayer name=TouchableWithoutFeedback
-
 import React, { useState } from "react";
 import { StyleSheet, TouchableWithoutFeedback, Text, View } from "react-native";
 
@@ -42,7 +43,7 @@ export default function TouchableWithoutFeedbackExample() {
       </View>
       <TouchableWithoutFeedback onPress={onPress}>
         <View style={styles.button}>
-          <Text> Touch Here </Text>
+          <Text>Touch Here</Text>
         </View>
       </TouchableWithoutFeedback>
     </View>
