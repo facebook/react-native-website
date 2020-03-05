@@ -219,3 +219,7 @@ We hope you enjoyed and, what's more important, learned something from this guid
 - [Jest docs](https://jestjs.io/docs/en/tutorial-react-native)
 - [Detox](https://github.com/wix/detox/)
 - [Appium](http://appium.io/)
+
+---
+
+_This guide originally authored and contributed in full by [Vojtech Novak](https://twitter.com/vonovak)._
