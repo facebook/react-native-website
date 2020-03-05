@@ -335,6 +335,9 @@
       "systrace": {
         "title": "Systrace"
       },
+      "testing": {
+        "title": "Testing"
+      },
       "text-style-props": {
         "title": "Text Style Props"
       },
