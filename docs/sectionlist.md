@@ -431,7 +431,7 @@ flashScrollIndicators();
 
 Displays the scroll indicators momentarily.
 
-| Platfrom |
+| Platform |
 | -------- |
 | iOS      |
 
