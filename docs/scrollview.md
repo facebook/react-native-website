@@ -19,7 +19,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 `FlatList` is also handy if you want to render separators between your items, multiple columns, infinite scroll loading, or any number of other features it supports out of the box.
 
-### Example
+## Example
 
 ```SnackPlayer name=ScrollView
 import React from 'react';

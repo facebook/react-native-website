@@ -26,7 +26,7 @@ function MyComponent(props) {
 </TouchableHighlight>
 ```
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -141,23 +141,6 @@ const styles = StyleSheet.create({
 });
 ```
 <block class="endBlock syntax" />
-
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`activeOpacity`](touchablehighlight.md#activeopacity)
-* [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
-* [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
-* [`style`](touchablehighlight.md#style)
-* [`underlayColor`](touchablehighlight.md#underlaycolor)
-* [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchablehighlight.md#nextFocusDown)
-* [`nextFocusForward`](touchablehighlight.md#nextFocusForward)
-* [`nextFocusLeft`](touchablehighlight.md#nextFocusLeft)
-* [`nextFocusRight`](touchablehighlight.md#nextFocusRight)
-* [`nextFocusUp`](touchablehighlight.md#nextFocusUp)
-* [`testOnly_pressed`](touchablehighlight.md#testOnly_pressed)
 
 ---
 

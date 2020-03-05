@@ -7,9 +7,7 @@ Base implementation for the more convenient [`<FlatList>`](flatlist.md) and [`<S
 
 Virtualization massively improves memory consumption and performance of large lists by maintaining a finite render window of active items and replacing all items outside of the render window with appropriately sized blank space. The window adapts to scrolling behavior, and items are rendered incrementally with low-pri (after any running interactions) if they are far from the visible area, or with hi-pri otherwise to minimize the potential of seeing blank space.
 
----
-
-### Example usage
+## Example
 
 ```SnackPlayer name=VirtualizedListExample
 import React from 'react';
