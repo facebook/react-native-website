@@ -177,6 +177,10 @@ figcaption {
   color: #000;
 }
 
+.onPageNav a code {
+  padding: 0;
+}
+
 .onPageNav ul ul {
   padding: 8px 0 0 16px;
 }
