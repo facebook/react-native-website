@@ -5,7 +5,7 @@ title: Vibration
 
 Vibrates the device.
 
-### Example
+## Example
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
 import React from "react";
