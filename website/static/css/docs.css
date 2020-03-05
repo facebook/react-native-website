@@ -163,3 +163,26 @@ figure {
 figcaption {
   margin: 1em 0 0 0;
 }
+
+/* Right side navigation */
+
+.onPageNav a,
+.onPageNav a:hover {
+  display: block;
+  background: none;
+  border-bottom: 0;
+}
+
+.onPageNav a:hover {
+  color: #000;
+}
+
+.onPageNav ul ul {
+  padding: 8px 0 0 16px;
+}
+
+.onPageNav .toc-headings > li > a.active {
+  border-left: 4px solid #61dafb;
+  margin-left: -15px;
+  padding-left: 11px;
+}
