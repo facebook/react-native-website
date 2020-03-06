@@ -7,7 +7,6 @@ The `Animated` library is designed to make animations fluid, powerful, and painl
 
 The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
@@ -21,14 +20,13 @@ The core workflow for creating an animation is to create an `Animated.Value`, ho
 
 <block class="functional syntax" />
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle. 
+> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
 <block class="classical syntax" />
 
 > Don't modify the animated value directly. It is usually stored as a [state variable](intro-react#state) in class components.
 
 <block class="endBlock syntax" />
-
 
 ## Example
 
@@ -215,6 +213,12 @@ In most cases, you will be using `timing()`. By default, it uses a symmetric eas
 ### Working with animations
 
 Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
+
+```jsx
+Animated.timing({}).start(({finished}) => {
+  /* completion callback */
+});
+```
 
 ### Using the native driver
 
@@ -518,7 +522,7 @@ Config is an object that may have the following options:
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.aa
 
 ---
 
@@ -526,6 +530,30 @@ Advanced imperative API for snooping on animated events that are passed in throu
 
 ```jsx
 static unforkEvent(event, listener)
+```
+
+---
+
+### `start()`
+
+```jsx
+static start([callback]: ?(result?: {finished: boolean}) => void)
+```
+
+Animations are started by calling start() on your animation. start() takes a completion callback that will be called when the animation is done or when the animation is done because stop() was called on it before it could finish.
+
+**Parameters:**
+
+| Name     | Type                            | Required | Description                                                                                                                                                     |
+| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+
+Start example with callback:
+
+```jsx
+Animated.timing({}).start(({finished}) => {
+  /* completion callback */
+});
 ```
 
 ## Properties
