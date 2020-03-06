@@ -122,7 +122,7 @@ To change the animation or gesture properties of the scene, provide a `configure
 />
 ```
 
-In the above example, the newly pushed scene will float up from the bottom. See `Navigator.SceneConfigs` for default animations and more info on available [scene config options](navigator.md#configurescene).
+In the above example, the newly pushed scene will float up from the bottom. See `Navigator.SceneConfigs` for default animations and more info on available [scene config options](navigator#configurescene).
 
 ### Props
 
