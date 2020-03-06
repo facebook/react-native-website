@@ -5,7 +5,7 @@ title: ActionSheetIOS
 
 Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/) component.
 
-### Example
+## Example
 
 ```SnackPlayer name=ActionSheetIOS&supportedPlatforms=ios
 import React, { useState } from "react";

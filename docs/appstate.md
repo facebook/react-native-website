@@ -18,7 +18,7 @@ AppState is frequently used to determine the intent and proper behavior when han
 
 For more information, see [Apple's documentation](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)
 
-### Basic Usage
+## Basic Usage
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 

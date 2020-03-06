@@ -18,7 +18,7 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
-### Example
+## Example
 
 ```SnackPlayer name=SectionList
 import React from 'react';
@@ -101,52 +101,13 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 - In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 - By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-### Props
-
-- [`ScrollView` props...](scrollview.md#props)
-
-Required props:
-
-- [`renderItem`](sectionlist.md#renderitem)
-- [`sections`](sectionlist.md#sections)
-
-Optional props:
-
-- [`extraData`](sectionlist.md#extradata)
-- [`initialNumToRender`](sectionlist.md#initialnumtorender)
-- [`inverted`](sectionlist.md#inverted)
-- [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-- [`keyExtractor`](sectionlist.md#keyextractor)
-- [`legacyImplementation`](sectionlist.md#legacyimplementation)
-- [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-- [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-- [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-- [`onEndReached`](sectionlist.md#onendreached)
-- [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-- [`onRefresh`](sectionlist.md#onrefresh)
-- [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-- [`refreshing`](sectionlist.md#refreshing)
-- [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-- [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-- [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-- [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-- [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
-
-### Methods
-
-- [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
-- [`recordInteraction`](sectionlist.md#recordinteraction)
-- [`scrollToLocation`](sectionlist.md#scrolltolocation)
-
-### Type Definitions
-
-- [`Section`](sectionlist.md#section)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props).
 
 ### `renderItem`
 

@@ -41,7 +41,7 @@ The following helpers are used to modify other easing functions.
 - [`inOut`](easing.md#inout) makes any easing function symmetrical
 - [`out`](easing.md#out) runs an easing function backwards
 
-### Example
+## Example
 
 ```SnackPlayer name=Easing%20Demo
 import React from "react";

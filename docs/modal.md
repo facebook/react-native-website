@@ -5,7 +5,7 @@ title: Modal
 
 The Modal component is a basic way to present content above an enclosing view.
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">

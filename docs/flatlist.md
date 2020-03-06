@@ -18,7 +18,7 @@ A performant interface for rendering basic, flat lists, supporting the most hand
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
-### Basic Example:
+## Example
 
 ```SnackPlayer name=flatlist-simple
 import React from 'react';

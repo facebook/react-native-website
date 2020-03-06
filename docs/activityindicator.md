@@ -5,7 +5,7 @@ title: ActivityIndicator
 
 Displays a circular loading indicator.
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">

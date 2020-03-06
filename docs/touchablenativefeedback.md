@@ -9,7 +9,7 @@ At the moment it only supports having a single View instance as a child node, as
 
 Background drawable of native feedback touchable can be customized with `background` property.
 
-Example:
+## Example
 
 ```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
 import React, { useState } from "react";
