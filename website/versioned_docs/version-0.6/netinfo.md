@@ -66,14 +66,14 @@ To request network info, you need to add the following line to your app's `Andro
 
 ### Methods
 
-- [`addEventListener`](netinfo.md#addeventlistener)
-- [`removeEventListener`](netinfo.md#removeeventlistener)
-- [`getConnectionInfo`](netinfo.md#getconnectioninfo)
-- [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+- [`addEventListener`](netinfo#addeventlistener)
+- [`removeEventListener`](netinfo#removeeventlistener)
+- [`getConnectionInfo`](netinfo#getconnectioninfo)
+- [`isConnectionExpensive`](netinfo#isconnectionexpensive)
 
 ### Properties
 
-- [`isConnected`](netinfo.md#isconnected)
+- [`isConnected`](netinfo#isconnected)
 
 ---
 
