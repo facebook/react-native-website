@@ -381,7 +381,7 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk
 
 > **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译。这里有中文网提供的[国内下载链接](http://bbs.reactnative.cn/topic/4301/)。
 
-> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/
+> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
 
 > **必须要看的注意事项三**：请`不要`单独使用常见的关键字作为项目名（如class, native, new, package等等）。请`不要`使用与核心模块同名的项目名（如react, react-native等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
 
