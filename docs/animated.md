@@ -556,6 +556,26 @@ Animated.timing({}).start(({finished}) => {
 });
 ```
 
+---
+
+### `stop()`
+
+```jsx
+static stop()
+```
+
+Stops any running animation.
+
+---
+
+### `reset()`
+
+```jsx
+static reset()
+```
+
+Stops any running animation and resets the value to its original.
+
 ## Properties
 
 ### `Value`
