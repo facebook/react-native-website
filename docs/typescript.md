@@ -10,7 +10,7 @@ title: Using TypeScript with React Native
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-npx react-native init MyApp --template react-native-template-typescript
+npx react-native init MyApp --template typescript
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
