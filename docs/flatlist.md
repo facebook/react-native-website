@@ -498,7 +498,7 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists.
+This may improve scroll performance for large lists. On Android the default value is true
 
 > Note: May have bugs (missing content) in some circumstances - use at your own risk.
 
