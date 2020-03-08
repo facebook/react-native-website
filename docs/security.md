@@ -96,6 +96,8 @@ This guarantees that only the application that triggered the initial authorizati
 
 A library to consider for native OAuth is [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth) - an SDK for communicating with OAuth2 providers. It wraps the native [AppAuth-iOS](https://github.com/openid/AppAuth-iOS) and [AppAuth-Android](https://github.com/openid/AppAuth-Android) libraries and supports PKCE, (but only if your Identity Provider supports it)!
 
+![OAuth2 with PKCE](/react-native/docs/assets/oauth-pkce.png)
+
 ## Network Security
 
 Your APIs should always use [SSL encryption](https://www.ssl.com/faqs/faq-what-is-ssl/). You’ll know the endpoint is secure, because it starts with `https://` instead of `http://`. SSL encryption protects against the requested data being read in plain text between when it leaves the server and before it reaches the client.
