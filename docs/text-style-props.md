@@ -6,53 +6,43 @@ title: Text Style Props
 ### Example
 
 ```SnackPlayer name=TextStyleProps&supportedPlatforms=android,ios
-import React, { useState } from 'react';
-import {
-  FlatList,
-  Platform,
-  ScrollView,
-  Slider,
-  StyleSheet,
-  Switch,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-import Constants from 'expo-constants';
+import React, { useState } from "react";
+import { FlatList, Platform, ScrollView, Slider, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
+import Constants from "expo-constants";
 
-const fontStyles = ['normal', 'italic'];
+const fontStyles = ["normal", "italic"];
 const fontVariants = [
   undefined,
-  'small-caps',
-  'oldstyle-nums',
-  'lining-nums',
-  'tabular-nums',
-  'proportional-nums',
+  "small-caps",
+  "oldstyle-nums",
+  "lining-nums",
+  "tabular-nums",
+  "proportional-nums"
 ];
 const fontWeights = [
-  'normal',
-  'bold',
-  '100',
-  '200',
-  '300',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
+  "normal",
+  "bold",
+  "100",
+  "200",
+  "300",
+  "400",
+  "500",
+  "600",
+  "700",
+  "800",
+  "900"
 ];
-const textAlignments = ['auto', 'left', 'right', 'center', 'justify'];
+const textAlignments = ["auto", "left", "right", "center", "justify"];
 const textDecorationLines = [
-  'none',
-  'underline',
-  'line-through',
-  'underline line-through',
+  "none",
+  "underline",
+  "line-through",
+  "underline line-through"
 ];
-const textDecorationStyles = ['solid', 'double', 'dotted', 'dashed'];
-const textTransformations = ['none', 'uppercase', 'lowercase', 'capitalize'];
-const textAlignmentsVertical = ['auto', 'top', 'bottom', 'center'];
-const writingDirections = ['auto', 'ltr', 'rtl'];
+const textDecorationStyles = ["solid", "double", "dotted", "dashed"];
+const textTransformations = ["none", "uppercase", "lowercase", "capitalize"];
+const textAlignmentsVertical = ["auto", "top", "bottom", "center"];
+const writingDirections = ["auto", "ltr", "rtl"];
 
 export default function App() {
   const [fontSize, setFontSize] = useState(10);
@@ -71,7 +61,7 @@ export default function App() {
   const [textShadowRadius, setTextShadowRadius] = useState(0);
   const [textShadowOffset, setTextShadowOffset] = useState({
     height: 0,
-    width: 0,
+    width: 0
   });
 
   return (
@@ -94,9 +84,10 @@ export default function App() {
             textDecorationStyle: textDecorationStyles[textDecorationStyleIdx],
             writingDirection: writingDirections[writingDirectionIdx],
             textShadowOffset,
-            textShadowRadius,
-          },
-        ]}>
+            textShadowRadius
+          }
+        ]}
+      >
         Lorem Ipsum is simply dummy text of the printing and typesetting
         industry. 112 Likes
       </Text>
@@ -182,7 +173,7 @@ export default function App() {
             onSelected={setTextTransformIdx}
           />
         </View>
-        {Platform.OS === 'android' && (
+        {Platform.OS === "android" && (
           <View style={styles.platformContainer}>
             <Text style={styles.platformContainerTitle}>
               Android only properties
@@ -200,7 +191,7 @@ export default function App() {
             />
           </View>
         )}
-        {Platform.OS === 'ios' && (
+        {Platform.OS === "ios" && (
           <View style={styles.platformContainer}>
             <Text style={styles.platformContainerTitle}>
               iOS only properties
@@ -228,10 +219,10 @@ function CustomSwitch({ label, handleValueChange, value }) {
   return (
     <>
       <Text style={styles.title}>{label}</Text>
-      <View style={{ alignItems: 'flex-start' }}>
+      <View style={{ alignItems: "flex-start" }}>
         <Switch
-          trackColor={{ false: '#767577', true: '#DAA520' }}
-          thumbColor={value ? '#DAA520' : '#f4f3f4'}
+          trackColor={{ false: "#767577", true: "#DAA520" }}
+          thumbColor={value ? "#DAA520" : "#f4f3f4"}
           onValueChange={handleValueChange}
           value={value}
         />
@@ -246,7 +237,7 @@ function CustomSlider({
   step = 1,
   minimumValue = 0,
   maximumValue = 10,
-  value,
+  value
 }) {
   return (
     <>
@@ -285,15 +276,17 @@ function CustomPicker({ label, data, currentIndex, onSelected }) {
                 <View
                   style={[
                     styles.itemStyleHorizontal,
-                    selected && styles.itemSelectedStyleHorizontal,
-                  ]}>
+                    selected && styles.itemSelectedStyleHorizontal
+                  ]}
+                >
                   <Text
                     style={{
-                      textAlign: 'center',
-                      color: selected ? 'black' : 'grey',
-                      fontWeight: selected ? 'bold' : 'normal',
-                    }}>
-                    {item + ''}
+                      textAlign: "center",
+                      color: selected ? "black" : "grey",
+                      fontWeight: selected ? "bold" : "normal"
+                    }}
+                  >
+                    {item + ""}
                   </Text>
                 </View>
               </TouchableWithoutFeedback>
@@ -309,48 +302,49 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
+    backgroundColor: "#ecf0f1",
+    padding: 8
   },
   paragraph: {
-    color: 'black',
-    textDecorationColor: 'yellow',
-    textShadowColor: 'red',
+    color: "black",
+    textDecorationColor: "yellow",
+    textShadowColor: "red",
     textShadowRadius: 1,
-    margin: 24,
+    margin: 24
   },
   wrapperHorizontal: {
     height: 54,
-    justifyContent: 'center',
-    color: 'black',
-    marginBottom: 12,
+    justifyContent: "center",
+    color: "black",
+    marginBottom: 12
   },
   itemStyleHorizontal: {
     marginRight: 10,
     height: 50,
     padding: 8,
     borderWidth: 1,
-    borderColor: 'grey',
+    borderColor: "grey",
     borderRadius: 25,
-    textAlign: 'center',
-    justifyContent: 'center',
+    textAlign: "center",
+    justifyContent: "center"
   },
   itemSelectedStyleHorizontal: {
     borderWidth: 2,
-    borderColor: '#DAA520',
+    borderColor: "#DAA520"
   },
   platformContainer: {
     marginTop: 8,
-    borderTopWidth: 1,
+    borderTopWidth: 1
   },
   platformContainerTitle: {
-    marginTop: 8,
+    marginTop: 8
   },
   title: {
-    fontWeight: 'bold',
-    marginVertical: 4,
-  },
+    fontWeight: "bold",
+    marginVertical: 4
+  }
 });
+
 ```
 
 # Reference
