@@ -113,6 +113,79 @@ const styles = StyleSheet.create({
 });
 ```
 
+### Advanced
+
+```SnackPlayer name=InteractionManager%20Function%20Component%20Advanced%20Example&supportedPlatforms=ios,android
+import * as React from 'react';
+import {
+  Alert,
+  Animated,
+  InteractionManager,
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
+const instructions = Platform.select({
+  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
+  android:
+    'Double tap R on your keyboard to reload,\n' +
+    'Shake or press menu button for dev menu',
+});
+
+const useMount = (func) => React.useEffect(() => func(), [])
+
+// You can create a custom interaction/animation and add
+// support for InteractionManager
+const useCustomInteraction = (timeLocked = 2000) => {
+  useMount(() => {
+    const handle = InteractionManager.createInteractionHandle();
+
+    setTimeout(
+      () => InteractionManager.clearInteractionHandle(handle),
+      timeLocked
+    );
+
+    return () => InteractionManager.clearInteractionHandle(handle);
+  });
+};
+
+function Ball({ onInteractionIsDone }) {
+  useCustomInteraction()
+
+  // Running a method after the interaction
+  useMount(() => {
+    InteractionManager.runAfterInteractions(() => onInteractionIsDone());
+  });
+
+  return <Animated.View style={[styles.ball]} />;
+}
+
+function App() {
+  const [show, setShow] = React.useState(false);
+
+  return (
+    <View style={styles.container}>
+      <Text>{instructions}</Text>
+      <Ball onInteractionIsDone={() => Alert.alert('Interaction is done')} />
+    </View>
+  );
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  ball: {
+    width: 100,
+    height: 100,
+    backgroundColor: 'salmon',
+    borderRadius: 100,
+  },
+});
+```
+
 > **Note**: InteractionManager.runAfterInteractions() is not working properly on web, triggering immediately any function without wait to the interaction is finished.
 
 # Reference
