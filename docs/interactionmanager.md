@@ -90,8 +90,6 @@ const Ball = ({ onShown }) => {
 };
 
 const App = () => {
-  const [show, setShow] = React.useState(false);
-
   return (
     <View style={styles.container}>
       <Text>{instructions}</Text>
