@@ -42,7 +42,7 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 ### Basic
 
 ```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Alert,
   Animated,
@@ -50,20 +50,20 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
 } from "react-native";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
     "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
+    "Shake or press menu button for dev menu",
 });
 
 const useMount = func => useEffect(() => func(), []);
 
 const useFadeIn = (duration = 5000) => {
-  const [opacity] = React.useState(new Animated.Value(0));
+  const [opacity] = useState(new Animated.Value(0));
 
   // Running the animation when the component is mounted
   useMount(() => {
@@ -71,14 +71,14 @@ const useFadeIn = (duration = 5000) => {
     // behaviour you can set isInteraction to false to disabled that.
     Animated.timing(opacity, {
       toValue: 1,
-      duration
+      duration,
     }).start();
   });
 
   return opacity;
 };
 
-function Ball({ onShown }) {
+const Ball = ({ onShown }) => {
   const opacity = useFadeIn();
 
   // Running a method after the animation
@@ -87,9 +87,9 @@ function Ball({ onShown }) {
   });
 
   return <Animated.View style={[styles.ball, { opacity }]} />;
-}
+};
 
-function App() {
+const App = () => {
   const [show, setShow] = React.useState(false);
 
   return (
@@ -98,7 +98,7 @@ function App() {
       <Ball onShown={() => Alert.alert("Animation is done")} />
     </View>
   );
-}
+};
 
 export default App;
 
@@ -108,9 +108,10 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     backgroundColor: "salmon",
-    borderRadius: 100
-  }
+    borderRadius: 100,
+  },
 });
+
 ```
 
 ### Advanced
@@ -124,14 +125,14 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
 } from "react-native";
 
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
     "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
+    "Shake or press menu button for dev menu",
 });
 
 const useMount = func => useEffect(() => func(), []);
@@ -151,7 +152,7 @@ const useCustomInteraction = (timeLocked = 2000) => {
   });
 };
 
-function Ball({ onInteractionIsDone }) {
+const Ball = ({ onInteractionIsDone }) => {
   useCustomInteraction();
 
   // Running a method after the interaction
@@ -160,18 +161,16 @@ function Ball({ onInteractionIsDone }) {
   });
 
   return <Animated.View style={[styles.ball]} />;
-}
+};
 
-function App() {
-  const [show, setShow] = React.useState(false);
-
+const App = () => {
   return (
     <View style={styles.container}>
       <Text>{instructions}</Text>
       <Ball onInteractionIsDone={() => Alert.alert("Interaction is done")} />
     </View>
   );
-}
+};
 
 export default App;
 
@@ -181,8 +180,8 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     backgroundColor: "salmon",
-    borderRadius: 100
-  }
+    borderRadius: 100,
+  },
 });
 ```
 
