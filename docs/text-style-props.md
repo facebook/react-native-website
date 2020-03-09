@@ -5,7 +5,7 @@ title: Text Style Props
 
 ### Example
 
-```SnackPlayer name=TextStyleProps
+```SnackPlayer name=TextStyleProps&supportedPlatforms=android,ios
 import React, { useState } from 'react';
 import {
   FlatList,
