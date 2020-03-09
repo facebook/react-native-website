@@ -39,7 +39,9 @@ By default, queued tasks are executed together in a loop in one `setImmediate` b
 
 ## Example
 
-```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
+### Basic
+
+```SnackPlayer name=InteractionManager%20Function%20Component%20Basic%20Example&supportedPlatforms=ios,android
 import * as React from 'react';
 import {
   Alert,
@@ -58,17 +60,20 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const useFadeIn = (duration = 5000, useNativeDriver = true) => {
+const useMount = (func) => React.useEffect(() => func(), [])
+
+const useFadeIn = (duration = 5000) => {
   const [opacity] = React.useState(new Animated.Value(0));
 
-  // Running the animation
-  React.useEffect(() => {
+  // Running the animation when the component is mounted
+  useMount(() => {
+    // Animated.timing() create a interaction handle by default, if you want to disabled that
+    // behaviour you can set isInteraction to false to disabled that.
     Animated.timing(opacity, {
       toValue: 1,
       duration,
-      useNativeDriver,
     }).start();
-  }, []);
+  });
 
   return opacity;
 };
@@ -77,9 +82,9 @@ function Ball({ onShown }) {
   const opacity = useFadeIn();
 
   // Running a method after the animation
-  React.useEffect(() => {
+  useMount(() => {
     InteractionManager.runAfterInteractions(() => onShown());
-  }, []);
+  });
 
   return <Animated.View style={[styles.ball, { opacity }]} />;
 }
@@ -107,6 +112,8 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+> **Note**: InteractionManager.runAfterInteractions() is not working properly on web, triggering immediately any function without wait to the interaction is finished.
 
 # Reference
 
