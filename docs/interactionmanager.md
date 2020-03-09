@@ -58,15 +58,15 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-const useFadeIn = () => {
+const useFadeIn = (duration = 5000, useNativeDriver = true) => {
   const [opacity] = React.useState(new Animated.Value(0));
 
   // Running the animation
   React.useEffect(() => {
     Animated.timing(opacity, {
       toValue: 1,
-      duration: 5000,
-      useNativeDriver: true,
+      duration,
+      useNativeDriver,
     }).start();
   }, []);
 
