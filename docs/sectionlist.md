@@ -33,7 +33,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 <block class="functional syntax" />
 
-```SnackPlayer name=SectionList
+```SnackPlayer name=SectionList%20Example
 import React from 'react';
 import {
   StyleSheet,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 
 <block class="classical syntax" />
 
-```SnackPlayer name=SectionList
+```SnackPlayer name=SectionList%20Example
 import React, {Component} from 'react';
 import {
   StyleSheet,
