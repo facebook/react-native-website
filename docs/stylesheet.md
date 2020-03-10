@@ -51,20 +51,22 @@ Code quality:
 ### `setStyleAttributePreprocessor()`
 
 ```jsx
-static setStyleAttributePreprocessor(property, process)
+static setStyleAttributePreprocessor(property: string, process: (propValue: any) => any)
 ```
 
-WARNING: EXPERIMENTAL. Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+> **WARNING: EXPERIMENTAL.** Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
 
 Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
 
-### `flatten`
+### `flatten()`
+
+```jsx
+static flatten(style: array<object>): object
+```
 
 Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
 
-> _NOTE_: Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
-
-Example:
+> **NOTE:** Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
 
 ```SnackPlayer name=Flatten
 import React from 'react';
@@ -109,7 +111,11 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 
 ---
 
-### `compose`
+### `compose()`
+
+```jsx
+static compose(style1: object, style2: object): object | array<object>
+```
 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
@@ -300,6 +306,6 @@ const styles = StyleSheet.create({
 
 ---
 
-### `absoluteFill` vs. `absoluteFillObject`
+## `absoluteFill` vs. `absoluteFillObject`
 
 Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject`.
