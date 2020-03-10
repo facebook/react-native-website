@@ -19,7 +19,7 @@ if (Platform.OS === 'android') {
 
 ## Example
 
-```SnackPlayer name=LayoutAnimation
+```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { useState } from "react";
 import { LayoutAnimation, Platform, StyleSheet, Text, TouchableOpacity, UIManager, View } from "react-native";
 
@@ -87,10 +87,10 @@ Schedules an animation to happen on the next layout.
 
 #### Parameters:
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| config | object | Yes | See config description below. |
-| onAnimationDidEnd | function | No | Called when the animation finished. Only supported on iOS. |
+| Name              | Type     | Required | Description                                                |
+| ----------------- | -------- | -------- | ---------------------------------------------------------- |
+| config            | object   | Yes      | See config description below.                              |
+| onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
 
 The `config` parameter is an object with the keys below. [`create`](layoutanimation.md#create) returns a valid object for `config`, and the [`Presets`](layoutanimation.md#presets) objects can also all be passed as the `config`.
 
@@ -120,15 +120,167 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 
 Example usage:
 
-```js
-LayoutAnimation.configureNext(
-  LayoutAnimation.create(
-    500,
-    LayoutAnimation.Types.spring,
-    LayoutAnimation.Properties.scaleXY,
-  ),
-);
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
+import React, { Component, useState } from "react";
+import {
+  View,
+  Platform,
+  UIManager,
+  LayoutAnimation,
+  StyleSheet,
+  Button
+} from "react-native";
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+export default function App() {
+  const [boxPosition, setBoxPosition] = useState("left");
+
+  const toggleBox = () => {
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(
+        500,
+        LayoutAnimation.Types.spring,
+        LayoutAnimation.Properties.scaleXY
+      )
+    );
+    setBoxPosition(boxPosition === "left" ? "right" : "left");
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <Button title="Toggle Layout" onPress={toggleBox} />
+      </View>
+      <View
+        style={[styles.box, boxPosition === "left" ? null : styles.moveRight]}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "center"
+  },
+  box: {
+    height: 100,
+    width: 100,
+    borderRadius: 5,
+    margin: 8,
+    backgroundColor: "blue"
+  },
+  moveRight: {
+    alignSelf: "flex-end",
+    height: 200,
+    width: 200
+  },
+  buttonContainer: {
+    alignSelf: "center"
+  }
+});
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
+import React, { Component } from "react";
+import {
+  View,
+  Platform,
+  UIManager,
+  LayoutAnimation,
+  StyleSheet,
+  Button
+} from "react-native";
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+export default class App extends Component {
+  state = {
+    boxPosition: "left"
+  };
+
+  toggleBox = () => {
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(
+        500,
+        LayoutAnimation.Types.spring,
+        LayoutAnimation.Properties.scaleXY
+      )
+    );
+    this.setState({
+      boxPosition: this.state.boxPosition === "left" ? "right" : "left"
+    });
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.buttonContainer}>
+          <Button title="Toggle Layout" onPress={this.toggleBox} />
+        </View>
+        <View
+          style={[
+            styles.box,
+            this.state.boxPosition === "left" ? null : styles.moveRight
+          ]}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "center"
+  },
+  box: {
+    height: 100,
+    width: 100,
+    borderRadius: 5,
+    margin: 8,
+    backgroundColor: "blue"
+  },
+  moveRight: {
+    alignSelf: "flex-end",
+    height: 200,
+    width: 200
+  },
+  buttonContainer: {
+    alignSelf: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 ## Properties
 
@@ -164,11 +316,11 @@ An enumeration of layout properties to be animated to be used in the [`create`](
 
 A set of predefined animation configs to pass into [`configureNext`](layoutanimation.md#configurenext).
 
-| Presets | Value |
-| --- | --- |
-| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')` |
-| linear | `create(500, 'linear', 'opacity')` |
-| spring | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
+| Presets       | Value                                                                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
+| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
+| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
 
 ---
 
@@ -187,3 +339,221 @@ Calls `configureNext()` with `Presets.linear`.
 ### `spring()`
 
 Calls `configureNext()` with `Presets.spring`.
+
+Example usage:
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
+import React, { useState } from "react";
+import {
+  View,
+  Platform,
+  UIManager,
+  LayoutAnimation,
+  StyleSheet,
+  Button
+} from "react-native";
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+export default function App() {
+  const [firstBoxPosition, setFirstBoxPosition] = useState("left");
+  const [secondBoxPosition, setSecondBoxPosition] = useState("left");
+  const [thirdBoxPosition, setThirdBoxPosition] = useState("left");
+
+  const toggleFirstBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setFirstBoxPosition(firstBoxPosition === "left" ? "right" : "left");
+  };
+
+  const toggleSecondBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+    setSecondBoxPosition(secondBoxPosition === "left" ? "right" : "left");
+  };
+
+  const toggleThirdBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    setThirdBoxPosition(thirdBoxPosition === "left" ? "right" : "left");
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <Button title="EaseInEaseOut" onPress={toggleFirstBox} />
+      </View>
+      <View
+        style={[
+          styles.box,
+          firstBoxPosition === "left" ? null : styles.moveRight
+        ]}
+      />
+      <View style={styles.buttonContainer}>
+        <Button title="Linear" onPress={toggleSecondBox} />
+      </View>
+      <View
+        style={[
+          styles.box,
+          secondBoxPosition === "left" ? null : styles.moveRight
+        ]}
+      />
+      <View style={styles.buttonContainer}>
+        <Button title="Spring" onPress={toggleThirdBox} />
+      </View>
+      <View
+        style={[
+          styles.box,
+          thirdBoxPosition === "left" ? null : styles.moveRight
+        ]}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "center"
+  },
+  box: {
+    height: 100,
+    width: 100,
+    borderRadius: 5,
+    margin: 8,
+    backgroundColor: "blue"
+  },
+  moveRight: {
+    alignSelf: "flex-end"
+  },
+  buttonContainer: {
+    alignSelf: "center"
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
+import React, { Component } from "react";
+import {
+  View,
+  Platform,
+  UIManager,
+  LayoutAnimation,
+  StyleSheet,
+  Button
+} from "react-native";
+
+if (
+  Platform.OS === "android" &&
+  UIManager.setLayoutAnimationEnabledExperimental
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
+export default class App extends Component {
+  state = {
+    firstBoxPosition: "left",
+    secondBoxPosition: "left",
+    thirdBoxPosition: "left"
+  };
+
+  toggleFirstBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    this.setState({
+      firstBoxPosition:
+        this.state.firstBoxPosition === "left" ? "right" : "left"
+    });
+  };
+
+  toggleSecondBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
+    this.setState({
+      secondBoxPosition:
+        this.state.secondBoxPosition === "left" ? "right" : "left"
+    });
+  };
+
+  toggleThirdBox = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
+    this.setState({
+      thirdBoxPosition:
+        this.state.thirdBoxPosition === "left" ? "right" : "left"
+    });
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.buttonContainer}>
+          <Button title="EaseInEaseOut" onPress={this.toggleFirstBox} />
+        </View>
+        <View
+          style={[
+            styles.box,
+            this.state.firstBoxPosition === "left" ? null : styles.moveRight
+          ]}
+        />
+        <View style={styles.buttonContainer}>
+          <Button title="Linear" onPress={this.toggleSecondBox} />
+        </View>
+        <View
+          style={[
+            styles.box,
+            this.state.secondBoxPosition === "left" ? null : styles.moveRight
+          ]}
+        />
+        <View style={styles.buttonContainer}>
+          <Button title="Spring" onPress={this.toggleThirdBox} />
+        </View>
+        <View
+          style={[
+            styles.box,
+            this.state.thirdBoxPosition === "left" ? null : styles.moveRight
+          ]}
+        />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "flex-start",
+    justifyContent: "center"
+  },
+  box: {
+    height: 100,
+    width: 100,
+    borderRadius: 5,
+    margin: 8,
+    backgroundColor: "blue"
+  },
+  moveRight: {
+    alignSelf: "flex-end"
+  },
+  buttonContainer: {
+    alignSelf: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
