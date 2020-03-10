@@ -47,7 +47,7 @@ import Constants from 'expo-constants';
 const DATA = [
   {
     title: 'Main dishes',
-    data: ['Pizza', 'Burger', 'Rendang'],
+    data: ['Pizza', 'Burger', 'Risotto'],
   },
   {
     title: 'Sides',
@@ -121,7 +121,7 @@ import Constants from 'expo-constants';
 const DATA = [
   {
     title: 'Main dishes',
-    data: ['Pizza', 'Burger', 'Rendang'],
+    data: ['Pizza', 'Burger', 'Risotto'],
   },
   {
     title: 'Sides',
