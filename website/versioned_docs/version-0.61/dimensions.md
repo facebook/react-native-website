@@ -4,7 +4,7 @@ title: Dimensions
 original_id: dimensions
 ---
 
-> [`useWindowDimensions`](useWindowDimensions) is the preffered API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+> [`useWindowDimensions`](usewindowdimensions) is the preffered API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
 
 ```jsx
 import {Dimensions} from 'react-native';
