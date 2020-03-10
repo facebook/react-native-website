@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-> **Note**: InteractionManager.runAfterInteractions() is not working properly on web, triggering immediately any function without wait to the interaction is finished.
+> **Note**: `InteractionManager.runAfterInteractions()` is not working properly on web. It triggers immediately without waiting until the interaction is finished.
 
 # Reference
 
