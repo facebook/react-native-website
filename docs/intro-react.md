@@ -56,15 +56,15 @@ Your component starts as a function:
 function Cat() {}
 ```
 
-Whatever a function component returns is rendered as a **React element.** `Cat` will render a `<Text>` element:
+You can think of components as blueprints. Whatever a function component returns is rendered as a **React element.** React elements let you describe what you want to see on the screen.
+
+Here the `Cat` component will render a `<Text>` element:
 
 ```jsx
 function Cat() {
   return <Text>Hello, I am your cat!</Text>;
 }
 ```
-
-Here, `Cat` is the component, a blueprint. What it returns, `<Text>`, is a React element, an object that describes the Views that the compnent represents.
 
 You can export your function component with JavaScript’s [`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
 
