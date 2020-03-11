@@ -1,11 +1,16 @@
 ---
 id: testing
 title: Testing
+hero: /docs/assets/diagram_react-native-components.svg
+author: Vojtech Novak
+authorURL: https://twitter.com/vonovak
 ---
 
 As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
 
 In this guide, we will cover different, automated ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
+
+<img src="/docs/assets/diagram_testing.svg" alt="Testing is a cycle of fixing, testing, and either passing to release or failing back into testing." />
 
 ## Why Test
 
@@ -76,6 +81,8 @@ When the object being tested has any dependencies, you’ll often need to mock t
 
 The great thing about unit tests is that they are quick to write and run. Therefore, as you work, you get fast feedback about whether your tests are passing. Jest even has an option to continuously run tests that are related to code you’re editing: [Watch mode](https://jestjs.io/docs/en/cli#watch).
 
+<img src="/docs/assets/p_tests-unit.svg" alt=" " />
+
 ### Mocking
 
 Sometimes, when your tested objects have external dependencies, you’ll want to “mock them out.” “Mocking” is when you replace some dependency of your code with your own implementation.
@@ -104,6 +111,8 @@ In integration testing, real individual units are combined (same as in your app)
 > - Makes a network call to other application
 > - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
 
+<img src="/docs/assets/p_tests-integration.svg" alt=" " />
+
 ## Component Tests
 
 React components are responsible for rendering your app, and users will directly interact with their output. Even if your app's business logic has high testing coverage and is correct, without component tests you may still deliver a broken UI to your users. Component tests could fall into both unit and integration testing, but because they are such a core part of React Native, we'll cover them separately.
@@ -122,6 +131,8 @@ There are several libraries that can help you testing these:
 - [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
 
 > Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
+
+<img src="/docs/assets/p_tests-component.svg" alt=" " />
 
 ### Testing User Interactions
 
@@ -205,6 +216,8 @@ Snapshots themselves do not ensure that your component render logic is correct, 
 
 We recommend that you only use small snapshots (see [`no-large-snapshots` rule](https://github.com/jest-community/eslint-plugin-jest/blob/master/docs/rules/no-large-snapshots.md)). If you want to test a _change_ between two React component states, use [`snapshot-diff`](https://github.com/jest-community/snapshot-diff). When in doubt, prefer explicit expectations as described in the previous paragraph.
 
+<img src="/docs/assets/p_tests-snapshot.svg" alt=" " />
+
 ## End-to-End Tests
 
 In end-to-end (E2E) tests, you verify your app is working as expected on a device (or a simulator / emulator) from the user perspective.
@@ -222,6 +235,8 @@ E2E tests give you the highest possible confidence that part of your app is work
 Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
 
 There are several E2E testing tools available: in the React Native community, [Detox](https://github.com/wix/detox/) is a popular framework because it’s tailored for React Native apps. Another popular library in the space of iOS and Android apps is [Appium](http://appium.io/).
+
+<img src="/docs/assets/p_tests-e2e.svg" alt=" " />
 
 ## Summary
 
