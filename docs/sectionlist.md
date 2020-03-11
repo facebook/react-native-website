@@ -34,40 +34,40 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 <block class="functional syntax" />
 
 ```SnackPlayer name=SectionList%20Example
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
-  SectionList,
-} from 'react-native';
-import Constants from 'expo-constants';
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
 
 const DATA = [
   {
-    title: 'Main dishes',
-    data: ['Pizza', 'Burger', 'Risotto'],
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
   },
   {
-    title: 'Sides',
-    data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
   },
   {
-    title: 'Drinks',
-    data: ['Water', 'Coke', 'Beer'],
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
   },
   {
-    title: 'Desserts',
-    data: ['Cheese Cake', 'Ice Cream'],
-  },
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
 ];
 
 const Item = ({ title }) => (
   <View style={styles.item}>
     <Text style={styles.title}>{title}</Text>
   </View>
-)
+);
 
 const App = () => (
   <SafeAreaView style={styles.container}>
@@ -80,7 +80,7 @@ const App = () => (
       )}
     />
   </SafeAreaView>
-)
+);
 
 export default App;
 
@@ -88,60 +88,60 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Constants.statusBarHeight,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: "#f9c2ff",
     padding: 20,
-    marginVertical: 8,
+    marginVertical: 8
   },
   header: {
     fontSize: 32,
-    backgroundColor: '#fff'
+    backgroundColor: "#fff"
   },
   title: {
-    fontSize: 24,
-  },
+    fontSize: 24
+  }
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=SectionList%20Example
-import React, {Component} from 'react';
+import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
-  SectionList,
-} from 'react-native';
-import Constants from 'expo-constants';
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
 
 const DATA = [
   {
-    title: 'Main dishes',
-    data: ['Pizza', 'Burger', 'Risotto'],
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
   },
   {
-    title: 'Sides',
-    data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
   },
   {
-    title: 'Drinks',
-    data: ['Water', 'Coke', 'Beer'],
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
   },
   {
-    title: 'Desserts',
-    data: ['Cheese Cake', 'Ice Cream'],
-  },
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
 ];
 
-Item = ({title}) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-)
+Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
 class App extends Component {
   render() {
@@ -156,9 +156,8 @@ class App extends Component {
           )}
         />
       </SafeAreaView>
-    )
+    );
   }
-
 }
 
 export default App;
@@ -167,21 +166,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Constants.statusBarHeight,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: "#f9c2ff",
     padding: 20,
-    marginVertical: 8,
+    marginVertical: 8
   },
   header: {
     fontSize: 32,
-    backgroundColor: '#fff'
+    backgroundColor: "#fff"
   },
   title: {
-    fontSize: 24,
-  },
+    fontSize: 24
+  }
 });
+]
 ```
 
 <block class="endBlock syntax" />
