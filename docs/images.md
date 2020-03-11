@@ -95,11 +95,11 @@ Many of the images you will display in your app will not be available at compile
 
 ```jsx
 // GOOD
-<Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+<Image source={{uri: 'https://reactjs.org/logo-og.png'}}
        style={{width: 400, height: 400}} />
 
 // BAD
-<Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}} />
+<Image source={{uri: 'https://reactjs.org/logo-og.png'}} />
 ```
 
 ### Network Requests for Images
@@ -109,7 +109,7 @@ If you would like to set such things as the HTTP-Verb, Headers or a Body along w
 ```jsx
 <Image
   source={{
-    uri: 'https://facebook.github.io/react/logo-og.png',
+    uri: 'https://reactjs.org/logo-og.png',
     method: 'POST',
     headers: {
       Pragma: 'no-cache',
@@ -153,7 +153,7 @@ In some cases you might only want to display an image if it is already in the lo
 ```jsx
 <Image
   source={{
-    uri: 'https://facebook.github.io/react/logo-og.png',
+    uri: 'https://reactjs.org/logo-og.png',
     cache: 'only-if-cached',
   }}
   style={{width: 400, height: 400}}

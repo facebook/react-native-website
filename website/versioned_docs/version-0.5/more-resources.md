@@ -8,7 +8,7 @@ If you only read through this website, you should be able to build a pretty cool
 
 ## Popular Libraries
 
-If you're using React Native, you probably already know about [React](https://facebook.github.io/react/). So I feel a bit silly mentioning this. But if you haven't, check out React - it's the best way to build a modern website.
+If you're using React Native, you probably already know about [React](https://reactjs.org/). So I feel a bit silly mentioning this. But if you haven't, check out React - it's the best way to build a modern website.
 
 One common question is how to handle the "state" of your React Native application. The most popular library for this is [Redux](http://redux.js.org/). Don't be afraid of how often Redux uses the word "reducer" - it's a pretty basic library, and there's also a nice [series of videos](https://egghead.io/courses/getting-started-with-redux) explaining it.
 
