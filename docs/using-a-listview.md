@@ -15,7 +15,7 @@ This example creates a basic `FlatList` of hardcoded data. Each item in the `dat
 import React from 'react';
 import { FlatList, StyleSheet, Text, View } from 'react-native';
 
-export default function FlatListBasics() {
+export default FlatListBasics = () => {
     return (
       <View style={styles.container}>
         <FlatList
@@ -56,7 +56,7 @@ If you want to render a set of data broken into logical sections, maybe with sec
 import React from 'react';
 import { SectionList, StyleSheet, Text, View } from 'react-native';
 
-export default function SectionListBasics() {
+export default SectionListBasics = () => {
     return (
       <View style={styles.container}>
         <SectionList
