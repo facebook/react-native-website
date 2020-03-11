@@ -686,6 +686,16 @@ Displays the scroll indicators momentarily.
 
 ---
 
+### `getNativeScrollRef()`
+
+```jsx
+getNativeScrollRef();
+```
+
+Provides a reference to the underlying scroll component
+
+---
+
 ### `getScrollResponder()`
 
 ```jsx
