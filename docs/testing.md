@@ -4,6 +4,7 @@ title: Testing
 hero: /docs/assets/diagram_react-native-components.svg
 author: Vojtech Novak
 authorURL: https://twitter.com/vonovak
+description: This guide introduces React Native developers to the key concepts behind testing, how to write good tests, and what kinds of tests you can incorporate into your workflow.
 ---
 
 As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
