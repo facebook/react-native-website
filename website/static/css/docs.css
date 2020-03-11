@@ -190,3 +190,19 @@ figcaption {
   margin-left: -15px;
   padding-left: 11px;
 }
+
+/* Custom */
+
+.content-banner {
+  background: #99d5e7;
+  padding: 1em;
+  position: relative;
+  overflow: hidden;
+}
+
+.content-banner-img {
+  width: 25%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
