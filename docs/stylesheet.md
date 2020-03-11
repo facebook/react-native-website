@@ -121,7 +121,11 @@ import { StyleSheet, Text, View } from "react-native";
 
 export default App = () => (
   <View style={page.container}>
-    <Text style={finalStyle}>React Native</Text>
+    <Text style={flattenStyle}>React Native</Text>
+    <Text>Flatten Style</Text>
+    <Text style={page.code}>
+      {JSON.stringify(flattenStyle, null, 2)}
+    </Text>
   </View>
 );
 
@@ -132,23 +136,31 @@ const page = StyleSheet.create({
     alignItems: "center"
   },
   text: {
+    fontSize: 14,
+    color: "#000"
+  },
+  code: {
+    marginTop: 12,
+    padding: 12,
+    borderRadius: 8,
+    color: "#666",
+    backgroundColor: "#eaeaea"
+  }
+});
+
+const typography = StyleSheet.create({
+  header: {
+    color: "#61dafb",
     fontSize: 30,
     fontWeight: "bold",
-    color: "#FFF"
+    marginBottom: 36
   }
 });
 
-const lists = StyleSheet.create({
-  selectedListItem: {
-    color: "#61dafb"
-  }
-});
-
-const finalStyle = StyleSheet.flatten([
+const flattenStyle = StyleSheet.flatten([
   page.text,
-  lists.selectedListItem
+  typography.header
 ]);
-// returns { fontSize: 30, fontWeight: 'bold', color: '#61dafb' }
 ```
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
