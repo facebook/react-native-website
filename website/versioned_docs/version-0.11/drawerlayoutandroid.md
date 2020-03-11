@@ -27,19 +27,19 @@ render: function() {
 
 ### Props
 
-- [`renderNavigationView`](drawerlayoutandroid.md#rendernavigationview)
-- [`drawerPosition`](drawerlayoutandroid.md#drawerposition)
-- [`drawerWidth`](drawerlayoutandroid.md#drawerwidth)
-- [`keyboardDismissMode`](drawerlayoutandroid.md#keyboarddismissmode)
-- [`onDrawerClose`](drawerlayoutandroid.md#ondrawerclose)
-- [`onDrawerOpen`](drawerlayoutandroid.md#ondraweropen)
-- [`onDrawerSlide`](drawerlayoutandroid.md#ondrawerslide)
-- [`onDrawerStateChanged`](drawerlayoutandroid.md#ondrawerstatechanged)
+- [`renderNavigationView`](drawerlayoutandroid#rendernavigationview)
+- [`drawerPosition`](drawerlayoutandroid#drawerposition)
+- [`drawerWidth`](drawerlayoutandroid#drawerwidth)
+- [`keyboardDismissMode`](drawerlayoutandroid#keyboarddismissmode)
+- [`onDrawerClose`](drawerlayoutandroid#ondrawerclose)
+- [`onDrawerOpen`](drawerlayoutandroid#ondraweropen)
+- [`onDrawerSlide`](drawerlayoutandroid#ondrawerslide)
+- [`onDrawerStateChanged`](drawerlayoutandroid#ondrawerstatechanged)
 
 ### Methods
 
-- [`openDrawer`](drawerlayoutandroid.md#opendrawer)
-- [`closeDrawer`](drawerlayoutandroid.md#closedrawer)
+- [`openDrawer`](drawerlayoutandroid#opendrawer)
+- [`closeDrawer`](drawerlayoutandroid#closedrawer)
 
 ---
 
