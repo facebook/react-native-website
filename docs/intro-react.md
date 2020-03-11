@@ -56,7 +56,9 @@ Your component starts as a function:
 function Cat() {}
 ```
 
-Whatever a function component returns is rendered as a React element. `Cat` will render a `<Text>` element:
+You can think of components as blueprints. Whatever a function component returns is rendered as a **React element.** React elements let you describe what you want to see on the screen.
+
+Here the `Cat` component will render a `<Text>` element:
 
 ```jsx
 function Cat() {
