@@ -136,8 +136,9 @@ const page = StyleSheet.create({
     alignItems: "center"
   },
   text: {
+    color: "#000",
     fontSize: 14,
-    color: "#000"
+    fontWeight: "bold"
   },
   code: {
     marginTop: 12,
@@ -152,7 +153,6 @@ const typography = StyleSheet.create({
   header: {
     color: "#61dafb",
     fontSize: 30,
-    fontWeight: "bold",
     marginBottom: 36
   }
 });
