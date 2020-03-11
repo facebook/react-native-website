@@ -5,39 +5,38 @@ title: StyleSheet
 
 A StyleSheet is an abstraction similar to CSS StyleSheets
 
-Creates a StyleSheet style reference from the given object:
-
-```SnackPlayer name=Create
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-const isActive = true;
+```SnackPlayer name=StyleSheet
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 export default App = () => (
   <View style={styles.container}>
-    <Text style={[styles.title, isActive && styles.activeTitle]}>Inside</Text>
+    <Text style={styles.title}>React Native</Text>
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 4,
-    borderWidth: 2,
-    borderColor: '#d6d7da',
-    padding: 4,
-    backgroundColor: '#eaeaea'
+    flex: 1,
+    padding: 24,
+    backgroundColor: "#eaeaea"
   },
   title: {
-    fontSize: 19,
-    fontWeight: 'bold',
-  },
-  activeTitle: {
-    color: 'red',
-  },
+    marginTop: 16,
+    paddingVertical: 8,
+    borderWidth: 4,
+    borderColor: "#20232a",
+    borderRadius: 6,
+    backgroundColor: "#61dafb",
+    color: "#20232a",
+    textAlign: "center",
+    fontSize: 30,
+    fontWeight: "bold"
+  }
 });
 ```
 
-Code quality:
+Code quality tips:
 
 - By moving styles away from the render function, you're making the code easier to understand.
 - Naming the styles is a good way to add meaning to the low level components in the render function.
@@ -47,69 +46,6 @@ Code quality:
 # Reference
 
 ## Methods
-
-### `setStyleAttributePreprocessor()`
-
-```jsx
-static setStyleAttributePreprocessor(property: string, process: (propValue: any) => any)
-```
-
-> **WARNING: EXPERIMENTAL.** Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
-
-Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
-
-### `flatten()`
-
-```jsx
-static flatten(style: array<object>): object
-```
-
-Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
-
-> **NOTE:** Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
-
-```SnackPlayer name=Flatten
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
-export default App = () => (
-  <View>
-    <Text style={styles}>Inside</Text>
-  </View>
-);
-
-const page = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#000000',
-    flexDirection: 'column',
-  },
-  text: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: '#FFFFFF'
-  },
-
-});
-
-const lists = StyleSheet.create({
-  listItem: {
-    flex: 1,
-    fontSize: 16,
-    color: 'white',
-  },
-  selectedListItem: {
-    color: 'green',
-  },
-});
-
-const styles = StyleSheet.flatten([page.text, lists.selectedListItem]);
-// returns { flex: 1, fontSize: 16, color: 'green' }
-```
-
-This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
-
----
 
 ### `compose()`
 
@@ -125,67 +61,111 @@ import { StyleSheet, Text, View } from 'react-native';
 
 export default App = () => (
   <View style={container}>
-    <Text style={text}>Inside</Text>
+    <Text style={text}>React Native</Text>
   </View>
 );
 
 const page = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000000',
-    flexDirection: 'column',
+    padding: 24,
+    backgroundColor: '#fff',
   },
   text: {
     fontSize: 30,
-    fontWeight: 'bold',
-    color: '#FFFFFF'
+    color: '#000'
   },
 });
 
 const lists = StyleSheet.create({
-  listItem: {
+  listContainer: {
     flex: 1,
-    fontSize: 16,
-    color: 'white',
-    backgroundColor: 'yellow',
+    backgroundColor: '#61dafb',
   },
-  selectedListItem: {
+  listItem: {
     fontStyle: 'italic',
-    color: 'green',
+    fontWeight: 'bold'
   },
 });
 
-const container = StyleSheet.compose(page.container, lists.listItem);
-const text = StyleSheet.compose(page.text, lists.selectedListItem);
+const container = StyleSheet.compose(page.container, lists.listContainer);
+const text = StyleSheet.compose(page.text, lists.listItem);
+
 ```
 
-## Properties
+---
 
-### `hairlineWidth`
+### `create()`
 
-This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
+```jsx
+static create(obj: object): object
+```
 
-```SnackPlayer name=hairlineWidth
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+Creates a StyleSheet style reference from the given object.
+
+---
+
+### `flatten()`
+
+```jsx
+static flatten(style: array<object>): object
+```
+
+Flattens an array of style objects, into one aggregated style object. Alternatively, this method can be used to lookup IDs, returned by `StyleSheet.register`.
+
+> **NOTE:** Exercise caution as abusing this can tax you in terms of optimizations. IDs enable optimizations through the bridge and memory in general. Referring to style objects directly will deprive you of these optimizations.
+
+```SnackPlayer name=Flatten
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 export default App = () => (
-  <View>
-    <Text style={space.separator}>Inside</Text>
+  <View style={page.container}>
+    <Text style={finalStyle}>React Native</Text>
   </View>
 );
 
-const space = StyleSheet.create({
-  separator: {
-    borderBottomColor: 'red',
-    borderBottomWidth: StyleSheet.hairlineWidth,
+const page = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    alignItems: "center"
   },
+  text: {
+    fontSize: 30,
+    fontWeight: "bold",
+    color: "#FFF"
+  }
 });
+
+const lists = StyleSheet.create({
+  selectedListItem: {
+    color: "#61dafb"
+  }
+});
+
+const finalStyle = StyleSheet.flatten([
+  page.text,
+  lists.selectedListItem
+]);
+// returns { fontSize: 30, fontWeight: 'bold', color: '#61dafb' }
 ```
 
-This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
+This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
 
-A line with hairline width may not be visible if your simulator is downscaled.
+---
+
+### `setStyleAttributePreprocessor()`
+
+> **WARNING: EXPERIMENTAL.** Breaking changes will probably happen a lot and will not be reliably announced. The whole thing might be deleted, who knows? Use at your own risk.
+
+```jsx
+static setStyleAttributePreprocessor(property: string, process: (propValue: any) => any)
+```
+
+Sets a function to use to pre-process a style property value. This is used internally to process color and transform values. You should not use this unless you really know what you are doing and have exhausted other options.
+
+## Properties
 
 ---
 
@@ -242,7 +222,6 @@ const styles = StyleSheet.create({
     fontSize: 80
   }
 });
-
 ```
 
 ---
@@ -303,6 +282,40 @@ const styles = StyleSheet.create({
   }
 });
 ```
+
+---
+
+### `hairlineWidth`
+
+This is defined as the width of a thin line on the platform. It can be used as the thickness of a border or division between two elements. Example:
+
+```SnackPlayer name=hairlineWidth
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default App = () => (
+  <View style={styles.container}>
+    <Text style={styles.row}>React</Text>
+    <Text style={styles.row}>Native</Text>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24
+  },
+  row: {
+    padding: 4,
+    borderBottomColor: "red",
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
+});
+```
+
+This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
+
+A line with hairline width may not be visible if your simulator is downscaled.
 
 ---
 
