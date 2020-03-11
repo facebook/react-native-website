@@ -26,9 +26,9 @@ renderButton: function() {
 
 ### Props
 
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback#props)
 
-* [`background`](touchablenativefeedback.md#background)
+* [`background`](touchablenativefeedback#background)
 
 ### Methods
 
