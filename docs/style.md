@@ -10,10 +10,13 @@ The `style` prop can be a plain old JavaScript object. That's what we usually us
 As a component grows in complexity, it is often cleaner to use `StyleSheet.create` to define several styles in one place. Here's an example:
 
 ```SnackPlayer name=Style
-import React, { Component } from 'react';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 50,
+  },
   bigBlue: {
     color: 'blue',
     fontWeight: 'bold',
@@ -24,17 +27,15 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class LotsOfStyles extends Component {
-  render() {
+export default LotsOfStyles = () => {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.red}>just red</Text>
         <Text style={styles.bigBlue}>just bigBlue</Text>
         <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
         <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
       </View>
     );
-  }
 }
 ```
 
