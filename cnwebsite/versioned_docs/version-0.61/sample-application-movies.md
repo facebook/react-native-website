@@ -34,7 +34,7 @@ react-native init SampleAppMovies
 
 ### 模拟数据
 
-> 译注：本文的示例代码使用了 ES6 语法，可能和其他文档写法不一致。但 React Native 从 0.18 之后，新建项目默认已经采用了 ES6 语法，故我们推荐不熟悉 ES6 与 ES5 区别的朋友先读读[这篇文章](http://bbs.reactnative.cn/topic/15)，另外还可以看看[阮一峰老师的书](http://es6.ruanyifeng.com/)。
+> 译注：本文的示例代码使用了 ES6 语法，可能和其他文档写法不一致。但 React Native 从 0.18 之后，新建项目默认已经采用了 ES6 语法，故我们推荐不熟悉 ES6 与 ES5 区别的朋友先读读[阮一峰老师的书](http://es6.ruanyifeng.com/)。
 
 在我们真正从 Rotten Tomatoes(_译注：一个国外的电影社区_)抓取数据之前，我们先制造一些模拟数据来练一练手。在 Facebook 我们通常在 JS 文件的开头，紧跟着 import 语句之后声明一个常量，不过这不重要，你可以把它放在`App.js`的任意位置：
 

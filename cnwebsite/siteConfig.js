@@ -14,7 +14,6 @@ const packgeJson = require('./package.json');
 
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
-const bbsUrl = 'http://bbs.reactnative.cn';
 const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/';
 const cdnStaticUrl = cdnUrl + 'cnwebsite/static/';
 let communityRepos = [];
@@ -26,12 +25,10 @@ try {
 }
 const defaultVersionShown = '0.61';
 const siteConfig = {
-  adData: {},
   cdnUrl,
   cdnStaticUrl,
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
-  bbsUrl,
   baseUrl,
   projectName: 'react-native',
   repoUrl,
@@ -42,15 +39,14 @@ const siteConfig = {
     '//github.com/reactnativecn/react-native-website/blob/production/cndocs/',
   headerLinks: [
     {doc: 'getting-started', label: '文档'},
-    // { href: "//ke.qq.com/course/197101", label: "课程", external: true },
     // { blog: true, label: "博客" },
     {doc: 'activityindicator', label: 'API'},
-    {
-      href: '//bbs.reactnative.cn/category/3/blogs',
-      external: true,
-      label: '博客',
-    },
-    {href: '//bbs.reactnative.cn', external: true, label: '讨论'},
+    // {
+    //   href: '//bbs.reactnative.cn/category/3/blogs',
+    //   external: true,
+    //   label: '博客',
+    // },
+    {href: '//github.com/reactnativecn/react-native-website/issues', external: true, label: '讨论'},
     {href: '//update.reactnative.cn', label: '热更新', external: true},
     {page: 'about', label: '关于'},
     {search: true},

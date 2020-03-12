@@ -286,22 +286,22 @@ class MiniShowcase extends React.Component {
 //   ga("send", "event", "ad", "clicked", gainfo);
 // };
 
-const Banner = () => {
-  const {
-    banner: {img, text, link, topicId, gainfo},
-  } = siteConfig.adData;
-  return (
-    <div className="vip">
-      <a
-        target="_blank"
-        href={link || siteConfig.bbsUrl + '/topic/' + topicId}
-        // onClick={() => onAdClicked(gainfo)}
-      >
-        <img title={text} src={siteConfig.baseUrl + 'img' + img} />
-      </a>
-    </div>
-  );
-};
+// const Banner = () => {
+//   const {
+//     banner: {img, text, link, topicId, gainfo},
+//   } = siteConfig.adData;
+//   return (
+//     <div className="vip">
+//       <a
+//         target="_blank"
+//         href={link || siteConfig.bbsUrl + '/topic/' + topicId}
+//         // onClick={() => onAdClicked(gainfo)}
+//       >
+//         <img title={text} src={siteConfig.baseUrl + 'img' + img} />
+//       </a>
+//     </div>
+//   );
+// };
 
 class Index extends React.Component {
   render() {

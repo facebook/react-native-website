@@ -75,13 +75,12 @@ If you know that you'll eventually need to include your own native code, Create 
 
 Create React Native App configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported.
 
-If you're integrating React Native into an existing project, you'll want to skip Create React Native App and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Native.
-
+If you're integrating React Native into an existing project, you'll want to skip Create React Native App and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Nat
 <block class="native mac windows linux ios android" />
 
 根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
 
-如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供[求助讨论区](https://bbs.reactnative.cn/category/4)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
+如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看[求助讨论区](https://github.com/reactnativecn/react-native-website/issues)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
 
 <div class="toggler">
   <span>开发平台：</span>
@@ -467,7 +466,7 @@ yarn react-native run-ios
 
 `yarn react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
 
-> 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看论坛的[求助专区](http://bbs.reactnative.cn/category/4)。
+> 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看[讨论区](https://github.com/reactnativecn/react-native-website/issues)。
 
 ### 在真机上运行
 
@@ -506,7 +505,7 @@ yarn react-native run-android
 
 > 译注：建议在`run-android`成功后再尝试使用 Android Studio 启动。请不要轻易点击 Android Studio 中可能弹出的建议更新项目中某依赖项的建议，否则可能导致无法运行。
 
-> 如果你无法正常运行，遇到奇奇怪怪的红屏错误，先回头`仔细对照文档检查`，然后可以看看论坛的[求助专区](http://bbs.reactnative.cn/category/4)。不同时期不同版本可能会碰到不同的问题，我们会在论坛中及时解答更新。但请注意**_千万不要_**执行 bundle 命令，那样会导致代码完全无法刷新。
+> 如果你无法正常运行，遇到奇奇怪怪的红屏错误，先回头`仔细对照文档检查`，然后可以看看[问题讨论区](https://github.com/reactnativecn/react-native-website/issues)。不同时期不同版本可能会碰到不同的问题，我们会在论坛中及时解答更新。但请注意**_千万不要_**执行 bundle 命令，那样会导致代码完全无法刷新。
 
 <block class="native mac ios android" />
 
