@@ -8,7 +8,7 @@
  */
 
 const RemarkablePlugins = require('./core/RemarkablePlugins');
-const packgeJson = require('./package.json');
+const packageJson = require('./package.json');
 
 // const users = require("./showcase.json");
 
