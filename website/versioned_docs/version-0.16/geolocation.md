@@ -20,10 +20,10 @@ Geolocation support for Android is planned but not yet open sourced. See [Known 
 
 ### Methods
 
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
+- [`getCurrentPosition`](geolocation#getcurrentposition)
+- [`watchPosition`](geolocation#watchposition)
+- [`clearWatch`](geolocation#clearwatch)
+- [`stopObserving`](geolocation#stopobserving)
 
 ---
 

@@ -32,9 +32,9 @@ renderButton: function() {
 
 ### Methods
 
-- [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
-- [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
-- [`Ripple`](touchablenativefeedback.md#ripple)
+- [`SelectableBackground`](touchablenativefeedback#selectablebackground)
+- [`SelectableBackgroundBorderless`](touchablenativefeedback#selectablebackgroundborderless)
+- [`Ripple`](touchablenativefeedback#ripple)
 
 ---
 
