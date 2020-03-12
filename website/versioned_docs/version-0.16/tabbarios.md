@@ -31,9 +31,9 @@ Background color of the tab bar
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 

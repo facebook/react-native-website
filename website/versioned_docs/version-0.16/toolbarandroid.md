@@ -33,19 +33,19 @@ onActionSelected: function(position) {
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`overflowIcon`](toolbarandroid.md#overflowicon)
-* [`actions`](toolbarandroid.md#actions)
-* [`navIcon`](toolbarandroid.md#navicon)
-* [`onActionSelected`](toolbarandroid.md#onactionselected)
-* [`onIconClicked`](toolbarandroid.md#oniconclicked)
-* [`logo`](toolbarandroid.md#logo)
-* [`subtitle`](toolbarandroid.md#subtitle)
-* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-* [`testID`](toolbarandroid.md#testid)
-* [`title`](toolbarandroid.md#title)
-* [`titleColor`](toolbarandroid.md#titlecolor)
+* [`overflowIcon`](toolbarandroid#overflowicon)
+* [`actions`](toolbarandroid#actions)
+* [`navIcon`](toolbarandroid#navicon)
+* [`onActionSelected`](toolbarandroid#onactionselected)
+* [`onIconClicked`](toolbarandroid#oniconclicked)
+* [`logo`](toolbarandroid#logo)
+* [`subtitle`](toolbarandroid#subtitle)
+* [`subtitleColor`](toolbarandroid#subtitlecolor)
+* [`testID`](toolbarandroid#testid)
+* [`title`](toolbarandroid#title)
+* [`titleColor`](toolbarandroid#titlecolor)
 
 ---
 
