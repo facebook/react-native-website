@@ -18,5 +18,5 @@ cnwebsite/build/
 cnwebsite/community-repos.json
 cnwebsite/yarn.lock
 cnwebsite/node_modules
-cnwebsite/i18n/*
+cnwebsite/i18n/
 cnwebsite/dist/

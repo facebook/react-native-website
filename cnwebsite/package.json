@@ -27,7 +27,7 @@
     "prettier:diff": "yarn nit:source",
     "sync-guides": "node sync-guides.js",
     "test": "yarn build",
-    "postinstall": "patch-package"
+    "postinstall": "rm -rf node_modules/docusaurus && yarn && patch-package"
   },
   "dependencies": {
     "docusaurus": "1.14.4",
