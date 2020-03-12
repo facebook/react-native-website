@@ -16,7 +16,8 @@ const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/';
 const cdnStaticUrl = cdnUrl + 'cnwebsite/static/';
-const docusaurusStaticUrl = 'https://cdn.jsdelivr.net/gh/facebook/docusaurus/packages/docusaurus-1.x/lib/static/';
+const docusaurusVersion = packageJson.dependencies.docusaurus.replace('^', '');
+const docusaurusStaticUrl = `https://cdn.jsdelivr.net/gh/facebook/docusaurus@${docusaurusVersion}/packages/docusaurus-1.x/lib/static/`;
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
