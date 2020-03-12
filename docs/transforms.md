@@ -3,7 +3,7 @@ id: transforms
 title: Transforms
 ---
 
-Transforms are style properties that will help you modify the appearance and position of your components using 2D or 3D transformations. However, once you apply transforms, the layouts remain the same around the transformed component hence it might overlap with the nearby components. You can apply margin to the transformed component or the nearby components to prevent such overlaps. The following example increases the margin of the transformed component whenever it overlaps with the nearby components after a transform.
+Transforms are style properties that will help you modify the appearance and position of your components using 2D or 3D transformations. However, once you apply transforms, the layouts remain the same around the transformed component hence it might overlap with the nearby components. You can apply margin to the transformed component, the nearby components or padding to the container to prevent such overlaps.
 
 ## Example
 
@@ -22,169 +22,117 @@ Transforms are style properties that will help you modify the appearance and pos
 
 ```SnackPlayer name=Transforms
 import React from "react";
-import { SafeAreaView, Text, View, ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
-export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContentContainer}>
-        <View style={styles.box}>
-          <Text style={styles.infoText}>Original Object</Text>
-        </View>
+export default App = () => (
+  <SafeAreaView style={styles.container}>
+    <ScrollView
+      contentContainerStyle={styles.scrollContentContainer}
+    >
+      <View style={styles.box}>
+        <Text style={styles.text}>Original Object</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginVertical: 56,
-              transform: [{ scale: 2 }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>Scale by 2</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ scale: 2 }]
+      }]}>
+        <Text style={styles.text}>Scale by 2</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              transform: [{ scaleX: 2 }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>ScaleX by 2</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ scaleX: 2 }]
+      }]}>
+        <Text style={styles.text}>ScaleX by 2</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginVertical: 56,
-              transform: [{ scaleY: 2 }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>ScaleY by 2</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ scaleY: 2 }]
+      }]}>
+        <Text style={styles.text}>ScaleY by 2</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginVertical: 24,
-              transform: [{ rotate: "45deg" }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>Rotate by 45 deg</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ rotate: "45deg" }]
+      }]}>
+        <Text style={styles.text}>Rotate by 45 deg</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              transform: [{ rotateX: "45deg" }, { rotateZ: "45deg" }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>Rotate X&Z by 45 deg</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [
+          { rotateX: "45deg" },
+          { rotateZ: "45deg" }
+        ]
+      }]}>
+        <Text style={styles.text}>Rotate X&Z by 45 deg</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginVertical: 24,
-              transform: [{ rotateY: "45deg" }, { rotateZ: "45deg" }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>Rotate Y&Z by 45 deg</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [
+          { rotateY: "45deg" },
+          { rotateZ: "45deg" }
+        ]
+      }]}>
+        <Text style={styles.text}>Rotate Y&Z by 45 deg</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              transform: [{ skewX: "45deg" }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>SkewX by 45 deg</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ skewX: "45deg" }]
+      }]}>
+        <Text style={styles.text}>SkewX by 45 deg</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginVertical: 56,
-              transform: [{ skewY: "45deg" }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>SkewY by 45 deg</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ skewY: "45deg" }]
+      }]}>
+        <Text style={styles.text}>SkewY by 45 deg</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginVertical: 56,
-              transform: [{ skewX: "30deg" }, { skewY: "30deg" }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>Skew X&Y by 30 deg</Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [
+          { skewX: "30deg" },
+          { skewY: "30deg" }
+        ]
+      }]}>
+        <Text style={styles.text}>Skew X&Y by 30 deg</Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              transform: [{ translateX: -100 }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>TranslateX by -100 </Text>
-        </View>
+      <View style={[styles.box, {
+        transform: [{ translateX: -50 }]
+      }]}>
+        <Text style={styles.text}>TranslateX by -50 </Text>
+      </View>
 
-        <View
-          style={[
-            styles.box,
-            {
-              marginBottom: 108,
-              transform: [{ translateY: 100 }]
-            }
-          ]}
-        >
-          <Text style={styles.infoText}>TranslateY by 100 </Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+      <View style={[styles.box, {
+        transform: [{ translateY: 50 }]
+      }]}>
+        <Text style={styles.text}>TranslateY by 50 </Text>
+      </View>
+    </ScrollView>
+  </SafeAreaView>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1
   },
   scrollContentContainer: {
-    alignItems: "center"
+    alignItems: "center",
+    paddingBottom: 60
   },
   box: {
     height: 100,
     width: 100,
     borderRadius: 5,
-    margin: 8,
-    backgroundColor: "blue",
+    marginVertical: 40,
+    backgroundColor: "#61dafb",
     alignItems: "center",
     justifyContent: "center"
   },
-  infoText: {
+  text: {
     fontSize: 14,
     fontWeight: "bold",
     margin: 8,
-    color: "white",
+    color: "#000",
     textAlign: "center"
   }
 });
@@ -194,143 +142,92 @@ const styles = StyleSheet.create({
 
 ```SnackPlayer name=Transforms
 import React, { Component } from "react";
-import { SafeAreaView, Text, View, ScrollView, StyleSheet } from "react-native";
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
 export default class App extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollContentContainer}>
+        <ScrollView
+          contentContainerStyle={styles.scrollContentContainer}
+        >
           <View style={styles.box}>
-            <Text style={styles.infoText}>Original Object</Text>
+            <Text style={styles.text}>Original Object</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginVertical: 56,
-                transform: [{ scale: 2 }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>Scale by 2</Text>
+          <View style={[styles.box, {
+            transform: [{ scale: 2 }]
+          }]}>
+            <Text style={styles.text}>Scale by 2</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                transform: [{ scaleX: 2 }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>ScaleX by 2</Text>
+          <View style={[styles.box, {
+            transform: [{ scaleX: 2 }]
+          }]}>
+            <Text style={styles.text}>ScaleX by 2</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginVertical: 56,
-                transform: [{ scaleY: 2 }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>ScaleY by 2</Text>
+          <View style={[styles.box, {
+            transform: [{ scaleY: 2 }]
+          }]}>
+            <Text style={styles.text}>ScaleY by 2</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginVertical: 24,
-                transform: [{ rotate: "45deg" }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>Rotate by 45 deg</Text>
+          <View style={[styles.box, {
+            transform: [{ rotate: "45deg" }]
+          }]}>
+            <Text style={styles.text}>Rotate by 45 deg</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                transform: [{ rotateX: "45deg" }, { rotateZ: "45deg" }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>Rotate X&Z by 45 deg</Text>
+          <View style={[styles.box, {
+            transform: [
+              { rotateX: "45deg" },
+              { rotateZ: "45deg" }
+            ]
+          }]}>
+            <Text style={styles.text}>Rotate X&Z by 45 deg</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginVertical: 24,
-                transform: [{ rotateY: "45deg" }, { rotateZ: "45deg" }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>Rotate Y&Z by 45 deg</Text>
+          <View style={[styles.box, {
+            transform: [
+              { rotateY: "45deg" },
+              { rotateZ: "45deg" }
+            ]
+          }]}>
+            <Text style={styles.text}>Rotate Y&Z by 45 deg</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                transform: [{ skewX: "45deg" }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>SkewX by 45 deg</Text>
+          <View style={[styles.box, {
+            transform: [{ skewX: "45deg" }]
+          }]}>
+            <Text style={styles.text}>SkewX by 45 deg</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginVertical: 56,
-                transform: [{ skewY: "45deg" }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>SkewY by 45 deg</Text>
+          <View style={[styles.box, {
+            transform: [{ skewY: "45deg" }]
+          }]}>
+            <Text style={styles.text}>SkewY by 45 deg</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginVertical: 56,
-                transform: [{ skewX: "30deg" }, { skewY: "30deg" }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>Skew X&Y by 30 deg</Text>
+          <View style={[styles.box, {
+            transform: [
+              { skewX: "30deg" },
+              { skewY: "30deg" }
+            ]
+          }]}>
+            <Text style={styles.text}>Skew X&Y by 30 deg</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                transform: [{ translateX: -100 }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>TranslateX by -100 </Text>
+          <View style={[styles.box, {
+            transform: [{ translateX: -50 }]
+          }]}>
+            <Text style={styles.text}>TranslateX by -50</Text>
           </View>
 
-          <View
-            style={[
-              styles.box,
-              {
-                marginBottom: 108,
-                transform: [{ translateY: 100 }]
-              }
-            ]}
-          >
-            <Text style={styles.infoText}>TranslateY by 100 </Text>
+          <View style={[styles.box, {
+            transform: [{ translateY: 50 }]
+          }]}>
+            <Text style={styles.text}>TranslateY by 50</Text>
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -343,22 +240,23 @@ const styles = StyleSheet.create({
     flex: 1
   },
   scrollContentContainer: {
-    alignItems: "center"
+    alignItems: "center",
+    paddingBottom: 60
   },
   box: {
     height: 100,
     width: 100,
     borderRadius: 5,
-    margin: 8,
-    backgroundColor: "blue",
+    marginVertical: 40,
+    backgroundColor: "#61dafb",
     alignItems: "center",
     justifyContent: "center"
   },
-  infoText: {
+  text: {
     fontSize: 14,
     fontWeight: "bold",
     margin: 8,
-    color: "white",
+    color: "#000",
     textAlign: "center"
   }
 });
@@ -372,28 +270,28 @@ const styles = StyleSheet.create({
 
 ## Methods
 
-### `transform`
+### `transform()`
 
 `transform` accepts an array of transformation objects. Each object specifies the property that will be transformed as the key, and the value to use in the transformation. Objects should not be combined. Use a single key/value pair per object.
 
 The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
 
-`transform([{ rotateX: '45deg' }, { rotateZ: '0.785398rad' }])`
+```js
+transform([{rotateX: '45deg'}, {rotateZ: '0.785398rad'}]);
+```
 
 The skew transformations require a string so that the transform may be expressed in degrees (deg). For example:
 
-`transform([{ skewX: '45deg' }])`
+```js
+transform([{skewX: '45deg'}]);
+```
 
-| Type                                                                                                                                                                                                                                                                                                                                                    | Required |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| array of object: {perspective: number}, ,object: {rotate: string}, ,object: {rotateX: string}, ,object: {rotateY: string}, ,object: {rotateZ: string}, ,object: {scale: number}, ,object: {scaleX: number}, ,object: {scaleY: number}, ,object: {translateX: number}, ,object: {translateY: number}, ,object: {skewX: string}, ,object: {skewY: string} | No       |
+| Type                                                                                                                                                                                                                                                  | Required |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} | No       |
 
 ---
 
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
 > **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
-
-| Type                                                                         | Required |
-| ---------------------------------------------------------------------------- | -------- |
-| deprecatedPropType(ReactPropTypes.number, 'Use the transform prop instead.') | No       |
