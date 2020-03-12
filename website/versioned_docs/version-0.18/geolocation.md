@@ -18,10 +18,10 @@ To request access to location, you need to add the following line to your app's 
 
 ### Methods
 
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
+- [`getCurrentPosition`](geolocation#getcurrentposition)
+- [`watchPosition`](geolocation#watchposition)
+- [`clearWatch`](geolocation#clearwatch)
+- [`stopObserving`](geolocation#stopobserving)
 
 ---
 
