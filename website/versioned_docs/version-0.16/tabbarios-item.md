@@ -6,16 +6,16 @@ original_id: tabbarios-item
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`badge`](tabbarios-item.md#badge)
-* [`icon`](tabbarios-item.md#icon)
-* [`onPress`](tabbarios-item.md#onpress)
-* [`selected`](tabbarios-item.md#selected)
-* [`selectedIcon`](tabbarios-item.md#selectedicon)
-* [`style`](tabbarios-item.md#style)
-* [`systemIcon`](tabbarios-item.md#systemicon)
-* [`title`](tabbarios-item.md#title)
+* [`badge`](tabbarios-item#badge)
+* [`icon`](tabbarios-item#icon)
+* [`onPress`](tabbarios-item#onpress)
+* [`selected`](tabbarios-item#selected)
+* [`selectedIcon`](tabbarios-item#selectedicon)
+* [`style`](tabbarios-item#style)
+* [`systemIcon`](tabbarios-item#systemicon)
+* [`title`](tabbarios-item#title)
 
 ---
 
