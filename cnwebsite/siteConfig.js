@@ -16,6 +16,7 @@ const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/';
 const cdnStaticUrl = cdnUrl + 'cnwebsite/static/';
+const docusaurusStaticUrl = 'https://cdn.jsdelivr.net/gh/facebook/docusaurus/packages/docusaurus-1.x/lib/static/';
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
@@ -27,6 +28,7 @@ const defaultVersionShown = '0.61';
 const siteConfig = {
   cdnUrl,
   cdnStaticUrl,
+  docusaurusStaticUrl,
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
   baseUrl,
