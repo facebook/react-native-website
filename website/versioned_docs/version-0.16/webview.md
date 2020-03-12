@@ -10,35 +10,35 @@ Note that WebView is only supported on iOS for now, see https://reactnative.dev/
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`scrollEnabled`](webview.md#scrollenabled)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`contentInset`](webview.md#contentinset)
-* [`html`](webview.md#html)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`bounces`](webview.md#bounces)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`style`](webview.md#style)
-* [`url`](webview.md#url)
-* [`javaScriptEnabledAndroid`](webview.md#javascriptenabledandroid)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`scalesPageToFit`](webview.md#scalespagetofit)
+* [`scrollEnabled`](webview#scrollenabled)
+* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+* [`contentInset`](webview#contentinset)
+* [`html`](webview#html)
+* [`injectedJavaScript`](webview#injectedjavascript)
+* [`onNavigationStateChange`](webview#onnavigationstatechange)
+* [`renderError`](webview#rendererror)
+* [`renderLoading`](webview#renderloading)
+* [`bounces`](webview#bounces)
+* [`startInLoadingState`](webview#startinloadingstate)
+* [`style`](webview#style)
+* [`url`](webview#url)
+* [`javaScriptEnabledAndroid`](webview#javascriptenabledandroid)
+* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
+* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
+* [`scalesPageToFit`](webview#scalespagetofit)
 
 ### Methods
 
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`updateNavigationState`](webview.md#updatenavigationstate)
-- [`getWebViewHandle`](webview.md#getwebviewhandle)
-- [`onLoadingStart`](webview.md#onloadingstart)
-- [`onLoadingError`](webview.md#onloadingerror)
-- [`onLoadingFinish`](webview.md#onloadingfinish)
+- [`goForward`](webview#goforward)
+- [`goBack`](webview#goback)
+- [`reload`](webview#reload)
+- [`updateNavigationState`](webview#updatenavigationstate)
+- [`getWebViewHandle`](webview#getwebviewhandle)
+- [`onLoadingStart`](webview#onloadingstart)
+- [`onLoadingError`](webview#onloadingerror)
+- [`onLoadingFinish`](webview#onloadingfinish)
 
 ---
 
@@ -130,9 +130,9 @@ Sets the JS to be injected when the webpage loads.
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 
