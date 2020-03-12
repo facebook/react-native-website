@@ -68,4 +68,4 @@ export default function App() {
 
 Because React Native uses the same API structure as React components, you’ll need to understand React component APIs to get started. The [next section](intro-react) makes for a quick introduction or refresher on the topic. However, if you’re already familiar with React, feel free to [skip ahead](handling-text-input).
 
-<img src="assets" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native.">
+<img src="assets/diagram_react-native-components.svg" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native.">
