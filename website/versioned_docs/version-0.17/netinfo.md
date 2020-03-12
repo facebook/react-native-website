@@ -89,14 +89,14 @@ NetInfo.isConnected.addEventListener(
 
 ### Methods
 
-- [`addEventListener`](netinfo.md#addeventlistener)
-- [`removeEventListener`](netinfo.md#removeeventlistener)
-- [`fetch`](netinfo.md#fetch)
-- [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+- [`addEventListener`](netinfo#addeventlistener)
+- [`removeEventListener`](netinfo#removeeventlistener)
+- [`fetch`](netinfo#fetch)
+- [`isConnectionExpensive`](netinfo#isconnectionexpensive)
 
 ### Properties
 
-- [`isConnected`](netinfo.md#isconnected)
+- [`isConnected`](netinfo#isconnected)
 
 ---
 
