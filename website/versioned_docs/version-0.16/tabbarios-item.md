@@ -77,9 +77,9 @@ A custom icon when the tab is selected. It is ignored when a system icon is defi
 
 React style object.
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 
