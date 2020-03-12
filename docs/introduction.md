@@ -5,7 +5,9 @@ description: This helpful guide lays out the prerequisites for learning React Na
 ---
 
 <div class="content-banner">
-  Welcome to the very start of your React Native journey! If you're looking for environment setup instructions, they've moved to <a href="environment-setup">their own section</a>. Continue reading for an introduction to the documentation, Native Components, React, and more!
+  <p>
+    Welcome to the very start of your React Native journey! If you're looking for environment setup instructions, they've moved to <a href="environment-setup">their own section</a>. Continue reading for an introduction to the documentation, Native Components, React, and more!
+  </p>
   <img class="content-banner-img" src="/docs/assets/p_android-ios-devices.svg" alt=" " />
 </div>
 
