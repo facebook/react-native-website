@@ -30,9 +30,9 @@ static setWrapperComponentProvider(provider)
 
 **Parameters:**
 
-| Name     | Type            | Required | Description |
-| -------- | --------------- | -------- | ----------- |
-| provider | React Component | yes      | See below.  |
+| Name     | Type              | Required |
+| -------- | ----------------- | -------- |
+| provider | ComponentProvider | yes      |
 
 ---
 
@@ -44,9 +44,9 @@ static enableArchitectureIndicator(enabled)
 
 **Parameters:**
 
-| Name    | Type    | Required | Description |
-| ------- | ------- | -------- | ----------- |
-| enabled | boolean | yes      | See below.  |
+| Name    | Type    | Required |
+| ------- | ------- | -------- |
+| enabled | boolean | yes      |
 
 ---
 
@@ -65,7 +65,7 @@ static registerConfig([config])
 Valid `AppConfig` keys are:
 
 - 'appKey' (string)- Required.
-- 'component' (React Component) - Optional.
+- 'component' (ComponentProvider) - Optional.
 - 'run' (Function) - Optional.
 - 'section' (boolean) - Optional.
 
@@ -79,11 +79,11 @@ static registerComponent(appKey, componentProvider, section?)
 
 **Parameters:**
 
-| Name              | Type            | Required | Description |
-| ----------------- | --------------- | -------- | ----------- |
-| appKey            | string          | yes      | See below.  |
-| componentProvider | React Component | yes      | See below.  |
-| section           | boolean         | no       | See below.  |
+| Name              | Type              | Required |
+| ----------------- | ----------------- | -------- |
+| appKey            | string            | yes      |
+| componentProvider | ComponentProvider | yes      |
+| section           | boolean           | no       |
 
 ---
 
@@ -95,10 +95,10 @@ static registerRunnable(appKey, run)
 
 **Parameters:**
 
-| Name   | Type     | Required | Description |
-| ------ | -------- | -------- | ----------- |
-| appKey | string   | yes      | See below.  |
-| run    | Function | yes      | See below.  |
+| Name   | Type     | Required |
+| ------ | -------- | -------- |
+| appKey | string   | yes      |
+| run    | Function | yes      |
 
 ---
 
@@ -110,10 +110,10 @@ static registerSection(appKey, component)
 
 **Parameters:**
 
-| Name      | Type            | Required | Description |
-| --------- | --------------- | -------- | ----------- |
-| appKey    | string          | yes      | See below.  |
-| component | React Component | yes      | See below.  |
+| Name      | Type              | Required |
+| --------- | ----------------- | -------- |
+| appKey    | string            | yes      |
+| component | ComponentProvider | yes      |
 
 ---
 
@@ -141,6 +141,11 @@ Returns an Array of SectionKeys
 static getSections()
 ```
 
+Returns all Runnables which is an object with key of `AppKeys` and value of type of `Runnable` which consist of:
+
+- 'component' (ComponentProvider).
+- 'run' (Function).
+
 ---
 
 ### `getRunnable()`
@@ -148,6 +153,11 @@ static getSections()
 ```jsx
 static getRunnable(appKey)
 ```
+
+Returns a `Runnable` object which consist of:
+
+- 'component' (ComponentProvider).
+- 'run' (Function).
 
 ---
 
@@ -157,6 +167,11 @@ static getRunnable(appKey)
 static getRegistry()
 ```
 
+Returns a type `Registry` which consist of:
+
+- 'sections' (Array of strings).
+- 'runnables' (Runnables).
+
 ---
 
 ### `setComponentProviderInstrumentationHook()`
@@ -164,6 +179,19 @@ static getRegistry()
 ```jsx
 static setComponentProviderInstrumentationHook(hook)
 ```
+
+**Parameters:**
+
+| Name | Type     | Required | Description |
+| ---- | -------- | -------- | ----------- |
+| hook | Function | yes      | See below.  |
+
+A valid `hook` accepts the following as arguments:
+
+- 'component' (ComponentProvider)- Required.
+- 'scopedPerformanceLogger' (IPerformanceLogger)- Required.
+
+The `hook` function returns a React Component
 
 ---
 
@@ -173,6 +201,15 @@ static setComponentProviderInstrumentationHook(hook)
 static runApplication(appKey, appParameters)
 ```
 
+Loads the JavaScript bundle and runs the app.
+
+**Parameters:**
+
+| Name          | Type   | Required |
+| ------------- | ------ | -------- |
+| appKey        | string | yes      |
+| appParameters | any    | yes      |
+
 ---
 
 ### `unmountApplicationComponentAtRootTag()`
@@ -180,6 +217,14 @@ static runApplication(appKey, appParameters)
 ```jsx
 static unmountApplicationComponentAtRootTag(rootTag)
 ```
+
+Stops an application when a view should be destroyed.
+
+**Parameters:**
+
+| Name    | Type   | Required |
+| ------- | ------ | -------- |
+| rootTag | number | yes      |
 
 ---
 
@@ -191,6 +236,16 @@ static registerHeadlessTask(taskKey, taskProvider)
 
 Register a headless task. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context.
 
+**Parameters:**
+
+| Name         | Type         | Required | Description |
+| ------------ | ------------ | -------- | ----------- |
+| taskKey      | String       | yes      | See below.  |
+| taskProvider | TaskProvider | yes      | See below.  |
+
+- A valid `TaskProvider` is a function that returns a `Task`.
+- A `Task` is a function that accepts any data as argument and returns a Promise that resolves to undefined.
+
 ---
 
 ### `registerCancellableHeadlessTask()`
@@ -200,6 +255,19 @@ static registerCancellableHeadlessTask(taskKey, taskProvider, taskCancelProvider
 ```
 
 Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. @param taskCancelProvider a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.
+
+**Parameters:**
+
+| Name               | Type               | Required | Description |
+| ------------------ | ------------------ | -------- | ----------- |
+| taskKey            | String             | yes      | See below.  |
+| taskProvider       | TaskProvider       | yes      | See below.  |
+| taskCancelProvider | TaskCancelProvider | yes      | See below.  |
+
+- A valid `TaskProvider` is a function that returns a `Task`.
+- A `Task` is a function that accepts any data as argument and returns a Promise that resolves to undefined.
+- A valid `TaskCancelProvider` is a function that returns a `TaskCanceller`.
+- A `TaskCanceller` is a function that accepts no argument and returns void.
 
 ---
 
@@ -213,6 +281,14 @@ Only called from native code. Starts a headless task.
 
 @param taskId the native id for this task instance to keep track of its execution @param taskKey the key for the task to start @param data the data to pass to the task
 
+**Parameters:**
+
+| Name    | Type   | Required |
+| ------- | ------ | -------- |
+| taskId  | number | yes      |
+| taskKey | string | yes      |
+| data    | any    | yes      |
+
 ---
 
 ### `cancelHeadlessTask()`
@@ -224,3 +300,10 @@ static cancelHeadlessTask(taskId, taskKey)
 Only called from native code. Cancels a headless task.
 
 @param taskId the native id for this task instance that was used when startHeadlessTask was called @param taskKey the key for the task that was used when startHeadlessTask was called
+
+**Parameters:**
+
+| Name    | Type   | Required |
+| ------- | ------ | -------- |
+| taskId  | number | yes      |
+| taskKey | string | yes      |
