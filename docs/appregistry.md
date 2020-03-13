@@ -28,13 +28,46 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 static setWrapperComponentProvider(provider)
 ```
 
+**Parameters:**
+
+| Name     | Type            | Required | Description |
+| -------- | --------------- | -------- | ----------- |
+| provider | React Component | yes      | See below.  |
+
+---
+
+### `enableArchitectureIndicator()`
+
+```jsx
+static enableArchitectureIndicator(enabled)
+```
+
+**Parameters:**
+
+| Name    | Type    | Required | Description |
+| ------- | ------- | -------- | ----------- |
+| enabled | boolean | yes      | See below.  |
+
 ---
 
 ### `registerConfig()`
 
 ```jsx
-static registerConfig(config)
+static registerConfig([config])
 ```
+
+**Parameters:**
+
+| Name   | Type      | Required | Description |
+| ------ | --------- | -------- | ----------- |
+| config | AppConfig | yes      | See below.  |
+
+Valid `AppConfig` keys are:
+
+- 'appKey' (string)- Required.
+- 'component' (React Component) - Optional.
+- 'run' (Function) - Optional.
+- 'section' (boolean) - Optional.
 
 ---
 
@@ -44,6 +77,14 @@ static registerConfig(config)
 static registerComponent(appKey, componentProvider, section?)
 ```
 
+**Parameters:**
+
+| Name              | Type            | Required | Description |
+| ----------------- | --------------- | -------- | ----------- |
+| appKey            | string          | yes      | See below.  |
+| componentProvider | React Component | yes      | See below.  |
+| section           | boolean         | no       | See below.  |
+
 ---
 
 ### `registerRunnable()`
@@ -51,6 +92,13 @@ static registerComponent(appKey, componentProvider, section?)
 ```jsx
 static registerRunnable(appKey, run)
 ```
+
+**Parameters:**
+
+| Name   | Type     | Required | Description |
+| ------ | -------- | -------- | ----------- |
+| appKey | string   | yes      | See below.  |
+| run    | Function | yes      | See below.  |
 
 ---
 
@@ -60,6 +108,13 @@ static registerRunnable(appKey, run)
 static registerSection(appKey, component)
 ```
 
+**Parameters:**
+
+| Name      | Type            | Required | Description |
+| --------- | --------------- | -------- | ----------- |
+| appKey    | string          | yes      | See below.  |
+| component | React Component | yes      | See below.  |
+
 ---
 
 ### `getAppKeys()`
@@ -68,13 +123,15 @@ static registerSection(appKey, component)
 static getAppKeys()
 ```
 
----
+Returns an Array of AppKeys
 
 ### `getSectionKeys()`
 
 ```jsx
 static getSectionKeys()
 ```
+
+Returns an Array of SectionKeys
 
 ---
 
