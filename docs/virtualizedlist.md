@@ -285,14 +285,6 @@ Styling for internal View for ListHeaderComponent
 
 ---
 
-### `onLayout?????`
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
 ### `onRefresh`
 
 ```jsx
@@ -597,7 +589,7 @@ flashScrollIndicators();
 ### `getScrollResponder()`
 
 ```jsx
-getScrollResponder()=> ?ScrollResponderType;
+getScrollResponder () => ?ScrollResponderType;
 ```
 
 Provides a handle to the underlying scroll responder. Note that `this._scrollRef` might not be a `ScrollView`, so we need to check that it responds to `getScrollResponder` before calling it.
@@ -607,7 +599,7 @@ Provides a handle to the underlying scroll responder. Note that `this._scrollRef
 ### `getScrollableNode()`
 
 ```jsx
-getScrollableNode()=> ?number;
+getScrollableNode () => ?number;
 ```
 
 ---
@@ -615,7 +607,7 @@ getScrollableNode()=> ?number;
 ### `getScrollRef()`
 
 ```jsx
-getScrollRef()=> | ?React.ElementRef<typeof ScrollView>
+getScrollRef () => | ?React.ElementRef<typeof ScrollView>
     | ?React.ElementRef<typeof View>;
 ```
 
@@ -632,13 +624,24 @@ setNativeProps((props: Object));
 ### `getChildContext()`
 
 ```jsx
-getChildContext((props: Object));
+getChildContext () => Object;
 ```
+
+The `Object` returned consist of:
+
+- 'virtualizedList' (Object). This object consist of the following
+  - getScrollMetrics' (Function). Returns an object with following properties: `{ contentLength: number, dOffset: number, dt: number, offset: number, timestamp: number, velocity: number, visibleLength: number }`.
+  - 'horizontal' (boolean) - Optional.
+  - 'getOutermostParentListRef' (Function).
+  - 'getNestedChildState' (Function) - Returns ChildListState .
+  - 'registerAsNestedChild' (Function). This accept an object with following properties `{ cellKey: string, key: string, ref: VirtualizedList, parentDebugInfo: ListDebugInfo }`. It returns a ChildListState
+  - 'unregisterAsNestedChild' (Function). This takes an object with following properties, `{ key: string, state: ChildListState }`
+  - 'debugInfo' (ListDebugInfo).
 
 ---
 
 ### `hasMore()`
 
 ```jsx
-hasMore()=> boolean;
+hasMore () => boolean;
 ```
