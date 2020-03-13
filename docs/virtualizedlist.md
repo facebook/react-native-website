@@ -205,6 +205,16 @@ Each cell is rendered using this element. Can be a React Component Class,or a re
 
 ---
 
+### `ItemSeparatorComponent`
+
+Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
+
+| Type                | Required |
+| ------------------- | -------- |
+| component, function | No       |
+
+---
+
 ### `listKey`
 
 A unique identifier for this list. If there are multiple VirtualizedLists at the same level of nesting within another VirtualizedList, this key is necessary for virtualization to work properly.
@@ -275,7 +285,7 @@ Styling for internal View for ListHeaderComponent
 
 ---
 
-### `onLayout`
+### `onLayout?????`
 
 | Type     | Required |
 | -------- | -------- |
@@ -412,7 +422,7 @@ How many items to render in the initial batch. This should be enough to fill the
 
 | Type   | Required |
 | ------ | -------- |
-| number | No       |
+| number | Yes      |
 
 ---
 
@@ -515,7 +525,12 @@ Set this when offset is needed for the loading indicator to show correctly.
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([params]: object));
+scrollToEnd((params: object));
+
+Valid `params` consist of:
+
+- 'animated' (boolean). Optional default is true.
+
 ```
 
 ---
@@ -526,6 +541,13 @@ scrollToEnd(([params]: object));
 scrollToIndex((params: object));
 ```
 
+Valid `params` consist of:
+
+- 'animated' (boolean). Optional.
+- 'index' (number). Required.
+- 'viewOffset' (number). Optional.
+- 'viewPosition' (number). Optional.
+
 ---
 
 ### `scrollToItem()`
@@ -533,6 +555,12 @@ scrollToIndex((params: object));
 ```jsx
 scrollToItem((params: object));
 ```
+
+Valid `params` consist of:
+
+- 'animated' (boolean). Optional.
+- 'item' (Item). Required.
+- 'viewPosition' (number). Optional.
 
 ---
 
@@ -562,4 +590,55 @@ recordInteraction();
 
 ```jsx
 flashScrollIndicators();
+```
+
+---
+
+### `getScrollResponder()`
+
+```jsx
+getScrollResponder()=> ?ScrollResponderType;
+```
+
+Provides a handle to the underlying scroll responder. Note that `this._scrollRef` might not be a `ScrollView`, so we need to check that it responds to `getScrollResponder` before calling it.
+
+---
+
+### `getScrollableNode()`
+
+```jsx
+getScrollableNode()=> ?number;
+```
+
+---
+
+### `getScrollRef()`
+
+```jsx
+getScrollRef()=> | ?React.ElementRef<typeof ScrollView>
+    | ?React.ElementRef<typeof View>;
+```
+
+---
+
+### `setNativeProps()`
+
+```jsx
+setNativeProps((props: Object));
+```
+
+---
+
+### `getChildContext()`
+
+```jsx
+getChildContext((props: Object));
+```
+
+---
+
+### `hasMore()`
+
+```jsx
+hasMore()=> boolean;
 ```
