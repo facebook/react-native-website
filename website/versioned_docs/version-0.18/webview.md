@@ -8,36 +8,36 @@ Renders a native WebView.
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`style`](webview.md#style)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`html`](webview.md#html)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`contentInset`](webview.md#contentinset)
-* [`url`](webview.md#url)
-* [`domStorageEnabledAndroid`](webview.md#domstorageenabledandroid)
-* [`javaScriptEnabledAndroid`](webview.md#javascriptenabledandroid)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`bounces`](webview.md#bounces)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`scalesPageToFit`](webview.md#scalespagetofit)
-* [`scrollEnabled`](webview.md#scrollenabled)
+* [`style`](webview#style)
+* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+* [`html`](webview#html)
+* [`injectedJavaScript`](webview#injectedjavascript)
+* [`onNavigationStateChange`](webview#onnavigationstatechange)
+* [`renderError`](webview#rendererror)
+* [`renderLoading`](webview#renderloading)
+* [`startInLoadingState`](webview#startinloadingstate)
+* [`contentInset`](webview#contentinset)
+* [`url`](webview#url)
+* [`domStorageEnabledAndroid`](webview#domstorageenabledandroid)
+* [`javaScriptEnabledAndroid`](webview#javascriptenabledandroid)
+* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
+* [`bounces`](webview#bounces)
+* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
+* [`scalesPageToFit`](webview#scalespagetofit)
+* [`scrollEnabled`](webview#scrollenabled)
 
 ### Methods
 
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`updateNavigationState`](webview.md#updatenavigationstate)
-- [`getWebViewHandle`](webview.md#getwebviewhandle)
-- [`onLoadingStart`](webview.md#onloadingstart)
-- [`onLoadingError`](webview.md#onloadingerror)
-- [`onLoadingFinish`](webview.md#onloadingfinish)
+- [`goForward`](webview#goforward)
+- [`goBack`](webview#goback)
+- [`reload`](webview#reload)
+- [`updateNavigationState`](webview#updatenavigationstate)
+- [`getWebViewHandle`](webview#getwebviewhandle)
+- [`onLoadingStart`](webview#onloadingstart)
+- [`onLoadingError`](webview#onloadingerror)
+- [`onLoadingFinish`](webview#onloadingfinish)
 
 ---
 
@@ -47,9 +47,9 @@ Renders a native WebView.
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 

@@ -33,22 +33,22 @@ onActionSelected: function(position) {
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`overflowIcon`](toolbarandroid.md#overflowicon)
-* [`actions`](toolbarandroid.md#actions)
-* [`contentInsetStart`](toolbarandroid.md#contentinsetstart)
-* [`logo`](toolbarandroid.md#logo)
-* [`navIcon`](toolbarandroid.md#navicon)
-* [`onActionSelected`](toolbarandroid.md#onactionselected)
-* [`onIconClicked`](toolbarandroid.md#oniconclicked)
-* [`contentInsetEnd`](toolbarandroid.md#contentinsetend)
-* [`rtl`](toolbarandroid.md#rtl)
-* [`subtitle`](toolbarandroid.md#subtitle)
-* [`subtitleColor`](toolbarandroid.md#subtitlecolor)
-* [`testID`](toolbarandroid.md#testid)
-* [`title`](toolbarandroid.md#title)
-* [`titleColor`](toolbarandroid.md#titlecolor)
+* [`overflowIcon`](toolbarandroid#overflowicon)
+* [`actions`](toolbarandroid#actions)
+* [`contentInsetStart`](toolbarandroid#contentinsetstart)
+* [`logo`](toolbarandroid#logo)
+* [`navIcon`](toolbarandroid#navicon)
+* [`onActionSelected`](toolbarandroid#onactionselected)
+* [`onIconClicked`](toolbarandroid#oniconclicked)
+* [`contentInsetEnd`](toolbarandroid#contentinsetend)
+* [`rtl`](toolbarandroid#rtl)
+* [`subtitle`](toolbarandroid#subtitle)
+* [`subtitleColor`](toolbarandroid#subtitlecolor)
+* [`testID`](toolbarandroid#testid)
+* [`title`](toolbarandroid#title)
+* [`titleColor`](toolbarandroid#titlecolor)
 
 ---
 
