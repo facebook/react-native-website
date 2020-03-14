@@ -227,9 +227,9 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 `flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). See https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap for more details. Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
 
-| Type                   | Required |
-| ---------------------- | -------- |
-| enum('wrap', 'nowrap') | No       |
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('wrap', 'nowrap', 'wrap-reverse') | No       |
 
 ---
 
