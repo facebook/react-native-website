@@ -3,9 +3,9 @@ id: security
 title: Security
 ---
 
-Security is an often overlooked aspect when building software. Similarly to how we’ve yet to invent a completely impenetrable lock (bank vaults do, after all, still get broken into), it is also almost impossible to build software to be completely impenetrable. However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
+Security is often overlooked when building apps. It is true that it is impossible to build software that is completely impenetrable—we’ve yet to invent a completely impenetrable lock (bank vaults do, after all, still get broken into). However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
 
-In this guide, you will learn about best practices for storing sensitive information, authentication, network security, and tool that will help you secure your application. This is not a preflight checklist—it is a catalogue of options, each of which will help protect your application further.
+In this guide, you will learn about best practices for storing sensitive information, authentication, network security, and tools that will help you secure your app. This is not a preflight checklist—it is a catalogue of options, each of which will help further protect your app and users.
 
 ## Storing Sensitive Info
 
@@ -13,31 +13,37 @@ Never store sensitive API keys in your app code. Anything included in your code 
 
 If you must have an API key or a secret to access some resource from your app, the most secure way to handle this would be to build an orchestration layer between your app and the resource. This could be a serverless function (e.g. using AWS Lambda or Google Cloud Functions) which can forward the request with the required API key or secret. Secrets in server side code cannot be accessed by the API consumers the same way secrets in your app code can.
 
-> **Persisted vs unpersisted** — persisted data is written to the device’s memory, which lets the data be read by your app across application launches without having to do another network request to fetch it or asking the user to re-enter it. But this also can make that data more vulnerable to being accessed by attackers. Unpersisted data is never written to memory—so there's no data to access!
-
 **For persisted user data, choose the right type of storage based on its sensitivity.** As your app is used, you’ll often find the need to save data on the device, whether to support your app being used offline, cut down on network requests or save your user’s access token between sessions so they wouldn’t have to re-authenticate each time they use the app.
+
+> **Persisted vs unpersisted** — persisted data is written to the device’s memory, which lets the data be read by your app across application launches without having to do another network request to fetch it or asking the user to re-enter it. But this also can make that data more vulnerable to being accessed by attackers. Unpersisted data is never written to memory—so there's no data to access!
 
 ### Async Storage
 
 [Async Storage](https://github.com/react-native-community/async-storage) is a community-maintained module for React Native that provides an asynchronous, unencrypted, key-value store. Async Storage is not shared between apps: every app has its own sandbox environment and has no access to data from other apps.
 
-Async storage is primarily used for persisting data:
+| **Do** use asynch storage when...             | **Don't** use asynch storage for... |
+|-----------------------------------------------|-------------------------------------|
+| Persisting non-sensitive data across app runs | Token storage                       |
+| Persisting Redux state                        | Secrets                             |
+| Persisting GraphQL state                      |                                     |
+| Storing global app-wide variables             |                                     |
 
-- Persisting non-sensitive data across app runs
-- Persisting Redux state
-- Persisting GraphQL state
-- Storing global app-wide variables
+<div class="toggler">
+  <span>Developer Notes</span>
+  <span role="tablist" class="toggle-devNotes">
+    <button role="tab" class="button-webNote active" onclick="displayTabs('devNotes', 'webNote')" aria-selected="true">Web</button>
+  </span>
+</div>
 
-Do not use this for:
+<block class="webNote devNotes" />
 
-- Token storage
-- Secrets
+> Async Storage is the React Native equivalent of Local Storage from the web
 
-> **Web note:** Async Storage is the React Native equivalent of Local Storage from the web
+<block class="endBlock devNotes" />
 
 ### Secure Storage
 
-React Native does not come bundled with any way of storing sensitive data. However, there are pre-existing solutions for both platforms.
+React Native does not come bundled with any way of storing sensitive data. However, there are pre-existing solutions for Android and iOS platforms.
 
 #### iOS - Keychain Services
 
@@ -79,7 +85,7 @@ The OAuth2 authentication protocol is incredibly popular nowadays, prided as the
 
 On the web, this redirect step is secure, because URLs on the web are guaranteed to be unique. This is not true for apps because, as mentioned earlier, there is no centralized method of registering URL schemes! In order to address this security concern, an additional check must be added in the form of PKCE.
 
-[PKCE](https://oauth.net/2/pkce/), pronounced “Pixy” stands for Proof of Key Code Exchange, and is an extension to the OAuth 2 spec. This involves adding an additional layer of security which verifies that the authentication and token exchange requests come from the same client. PKCE uses the [SHA 265](https://www.movable-type.co.uk/scripts/sha256.html) Cryptographic Hash Algorithm. SHA 265 creates a unique “signature” for a text or file of any size, but it is
+[PKCE](https://oauth.net/2/pkce/), pronounced “Pixy” stands for Proof of Key Code Exchange, and is an extension to the OAuth 2 spec. This involves adding an additional layer of security which verifies that the authentication and token exchange requests come from the same client. PKCE uses the [SHA 265](https://www.movable-type.co.uk/scripts/sha256.html) Cryptographic Hash Algorithm. SHA 265 creates a unique “signature” for a text or file of any size, but it is:
 
 - Always the same length regardless of the input file
 - Guaranteed to be always produce the same result for the same input
@@ -94,13 +100,15 @@ During the initial `/authorize` request, the client also sends the `code_challen
 
 This guarantees that only the application that triggered the initial authorization flow would be able to successfully exchange the verification code for a JWT. So even if a malicious application gets access to the verification code, it will be useless on its own. To see this in action, check out [this example](https://aaronparecki.com/oauth-2-simplified/#mobile-apps).
 
-A library to consider for native OAuth is [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth) - an SDK for communicating with OAuth2 providers. It wraps the native [AppAuth-iOS](https://github.com/openid/AppAuth-iOS) and [AppAuth-Android](https://github.com/openid/AppAuth-Android) libraries and supports PKCE, (but only if your Identity Provider supports it)!
+A library to consider for native OAuth is [react-native-app-auth](https://github.com/FormidableLabs/react-native-app-auth). React-native-app-auth is an SDK for communicating with OAuth2 providers. It wraps the native [AppAuth-iOS](https://github.com/openid/AppAuth-iOS) and [AppAuth-Android](https://github.com/openid/AppAuth-Android) libraries and can support PKCE.
+
+> React-native-app-auth can support PKCE only if your Identity Provider supports it.
 
 ![OAuth2 with PKCE](/react-native/docs/assets/oauth-pkce.png)
 
 ## Network Security
 
-Your APIs should always use [SSL encryption](https://www.ssl.com/faqs/faq-what-is-ssl/). You’ll know the endpoint is secure, because it starts with `https://` instead of `http://`. SSL encryption protects against the requested data being read in plain text between when it leaves the server and before it reaches the client.
+Your APIs should always use [SSL encryption](https://www.ssl.com/faqs/faq-what-is-ssl/). SSL encryption protects against the requested data being read in plain text between when it leaves the server and before it reaches the client. You’ll know the endpoint is secure, because it starts with `https://` instead of `http://`. 
 
 ### SSL Pinning
 
