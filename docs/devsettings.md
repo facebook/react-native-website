@@ -20,8 +20,8 @@ static addMenuItem(title: string, handler: function)
 Add a custom menu item to the developer menu:
 
 ```jsx
-DevSettings.addMenuItem("Show Secret Dev Screen", () => {
-  Alert.alert("Showing secret dev screen!");
+DevSettings.addMenuItem('Show Secret Dev Screen', () => {
+  Alert.alert('Showing secret dev screen!');
 });
 ```
 
