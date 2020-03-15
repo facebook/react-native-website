@@ -61,7 +61,7 @@ useWindowDimensions().height;
 
 ### `scale`
 
-The ]pixel ratio of the device your app is running on.
+The pixel ratio of the device your app is running on.
 
 ```jsx
 useWindowDimensions().scale;
