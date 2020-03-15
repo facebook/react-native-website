@@ -3,30 +3,45 @@ id: linking
 title: Linking
 ---
 
-<div class="banner-native-code-required">
-  <h3>Projects with Native Code Only</h3>
-  <p>
-    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="http://docs.expo.io/versions/latest/workflow/linking/">Linking</a> in the Expo documentation for the appropriate alternative.
-  </p>
-</div>
+> **Projects with Native Code Only:** The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on [Linking](http://docs.expo.io/versions/latest/workflow/linking/) in the Expo documentation for the appropriate alternative.
 
 `Linking` gives you a general interface to interact with both incoming and outgoing app links.
 
-### Basic Usage
+Every Link (URL) has a URL Scheme, some websites are prefixed with `https://` or `http://` and the `http` is the URL Scheme. Let's call it scheme for short.
 
-#### Handling deep links
+In addition to `https`, you're likely also familiar with the `mailto` scheme. When you open a link with the mailto scheme, your operating system will open an installed mail application. Similarly, there are schemes for making phone calls and sending SMS. Read more about [built-in URL](#built-in-url-schemes) schemes below.
 
-If your app was launched from an external url registered to your app you can access and handle it from any component you want with:
+Just like using the mailto scheme, it's possible to link to other applications by using custom url schemes. For example, when you get a **Magic Link** email from Slack, the **Launch Slack** button is an anchor tag with an href that looks something like: `slack://secret/magic-login/other-secret`. Like with Slack, you can tell the operating system that you want to handle a custom scheme. When the Slack app opens, it receives the URL that was used to open it. This is often referred to as deep linking. Read more about how to [get the deep link](#get-the-deep-link) into your app.
 
-```jsx
-componentDidMount() {
-  Linking.getInitialURL().then((url) => {
-    if (url) {
-      console.log('Initial url is: ' + url);
-    }
-  }).catch(err => console.error('An error occurred', err));
-}
-```
+Custom URL scheme isn't the only way to open your application on mobile. You don't want to use a custom URL scheme in links in the email because then the links would be broken on desktop. Instead, you want to use a regular `https` links such as `https://www.myapp.io/records/1234546`. and on mobile you want that link open your app. Android calls it **Deep Links** (Universal Links - iOS).
+
+### Built-in URL Schemes
+
+As mentioned in the introduction, there are some URL schemes for core functionality that exist on every platform. The following is a non-exhaustive list, but covers the most commonly used schemes.
+
+| Scheme           | Description                                | iOS | Android |
+| ---------------- | ------------------------------------------ | --- | ------- |
+| `mailto`         | Open mail app, eg: mailto: support@expo.io | ✅  | ✅      |
+| `tel`            | Open phone app, eg: tel:+123456789         | ✅  | ✅      |
+| `sms`            | Open SMS app, eg: sms:+123456789           | ✅  | ✅      |
+| `https` / `http` | Open web browser app, eg: https://expo.io  | ✅  | ✅      |
+
+### Enabling Deep Links
+
+If you want to enable deep links in your app, please the below guide:
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Android
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      iOS
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
 
 > For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
 
@@ -38,7 +53,9 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
   android:launchMode="singleTask">
 ```
 
-NOTE: On iOS, you'll need to link `RCTLinking` to your project by following the steps described [here](linking-libraries-ios.md#manual-linking). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+<block class="classical syntax" />
+
+> **NOTE:** On iOS, you'll need to link `RCTLinking` to your project by following the steps described [here](linking-libraries-ios.md#manual-linking). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
 
 ```objectivec
 // iOS 9.x or newer
@@ -78,43 +95,190 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 }
 ```
 
-And then on your React component you'll be able to listen to the events on `Linking` as follows:
+<block class="endBlock syntax" />
 
-```jsx
-componentDidMount() {
-  Linking.addEventListener('url', this._handleOpenURL);
-}
-componentWillUnmount() {
-  Linking.removeEventListener('url', this._handleOpenURL);
-}
-_handleOpenURL(event) {
-  console.log(event.url);
-}
-```
+### Handling Deep Links
 
-#### Opening external links
+There are two ways to handle URLs that open your app.
 
-To start the corresponding activity for a link (web URL, email, contact etc.), call:
+#### 1. If the app is already open, the app is foregrounded and a Linking event is fired
 
-```jsx
-Linking.openURL(url).catch((err) => console.error('An error occurred', err));
-```
+You can handle these events with `Linking.addEventListener(url, callback)`.
 
-If you want to check if any installed app can handle a given URL beforehand you can call:
+#### 2. If the app is not already open, it is opened and the url is passed in as the initialURL
 
-```jsx
-Linking.canOpenURL(url)
-  .then((supported) => {
-    if (!supported) {
-      console.log("Can't handle url: " + url);
-    } else {
-      return Linking.openURL(url);
-    }
-  })
-  .catch((err) => console.error('An error occurred', err));
-```
+You can handle these events with `Linking.getInitialURL(url)` -- it returns a Promise that resolves to the url, if there is one.
 
 ---
+
+## Example
+
+### Open Links and Deep Links (Universal Links)
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
+import React, { useCallback } from "react";
+import { Alert, Button, Linking, StyleSheet, View } from "react-native";
+
+const supportedURL = "https://google.com";
+
+const unsupportedURL = "slack://open?team=123456";
+
+const OpenURLButton = ({ url, children }) => {
+  const handlePress = useCallback(async () => {
+    // Checking if the link is supported for links with custom URL scheme.
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+      await Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
+  }, [url]);
+
+  return <Button title={children} onPress={handlePress} />;
+};
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <OpenURLButton url={supportedURL}>Open Supported URL</OpenURLButton>
+      <OpenURLButton url={unsupportedURL}>Open Unsupported URL</OpenURLButton>
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+});
+```
+
+### Open Custom Settings
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
+import React, { useCallback } from "react";
+import { Button, Linking, StyleSheet, View } from "react-native";
+
+const OpenSettingsButton = ({ children }) => {
+  const handlePress = useCallback(async () => {
+    // Open the custom settings if the app has one
+    await Linking.openSettings();
+  }, []);
+
+  return <Button title={children} onPress={handlePress} />;
+};
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <OpenSettingsButton>Open Settings</OpenSettingsButton>
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+});
+```
+
+### Get the Deep Link
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=ios,android
+import React, { useState, useEffect } from "react";
+import { Linking, StyleSheet, Text, View } from "react-native";
+
+const useMount = func => useEffect(() => func(), []);
+
+const useInitialURL = () => {
+  const [url, setUrl] = useState(null);
+  const [processing, setProcessing] = useState(true);
+
+  useMount(() => {
+    const getUrlAsync = async () => {
+      // Get the deep link used to open the app
+      const initialUrl = await Linking.getInitialURL();
+
+      // The setTimeout is just for testing purpose
+      setTimeout(() => {
+        setUrl(initialUrl);
+        setProcessing(false);
+      }, 1000);
+    };
+
+    getUrlAsync();
+  });
+
+  return { url, processing };
+};
+
+const App = () => {
+  const { url: initialUrl, processing } = useInitialURL();
+
+  return (
+    <View style={styles.container}>
+      <Text>
+        {processing
+          ? `Processing the initial url from a deep link`
+          : `The deep link is: ${initialUrl || "None"}`}
+      </Text>
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+});
+```
+
+### Send Intents (Android)
+
+```SnackPlayer name=Linking%20Function%20Component%20Example&supportedPlatforms=android
+import React, { useCallback } from "react";
+import { Alert, Button, Linking, StyleSheet, View } from "react-native";
+
+const SendIntentButton = ({ action, extras, children }) => {
+  const handlePress = useCallback(async () => {
+    try {
+      await Linking.sendIntent(action, extras);
+    } catch (e) {
+      Alert.alert(e.message);
+    }
+  }, [action, extras]);
+
+  return <Button title={children} onPress={handlePress} />;
+};
+
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <SendIntentButton action="android.intent.action.POWER_USAGE_SUMMARY">
+        Power Usage Summary
+      </SendIntentButton>
+      <SendIntentButton
+        action="android.settings.APP_NOTIFICATION_SETTINGS"
+        extras={[
+          { "android.provider.extra.APP_PACKAGE": "com.facebook.katana" },
+        ]}
+      >
+        App Notification Settings
+      </SendIntentButton>
+    </View>
+  );
+};
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+});
+```
 
 # Reference
 
