@@ -181,7 +181,6 @@ const styles = StyleSheet.create({
     fontSize: 24
   }
 });
-]
 ```
 
 <block class="endBlock syntax" />
