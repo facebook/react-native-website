@@ -282,16 +282,6 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 ---
 
-### `legacyImplementation`
-
-The legacy implementation is no longer supported.
-
-| Type      | Required |
-| --------- | -------- |
-| [boolean] | No       |
-
----
-
 ### `ListEmptyComponent`
 
 Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
