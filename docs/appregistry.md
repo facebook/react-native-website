@@ -12,6 +12,18 @@ title: AppRegistry
 
 `AppRegistry` is the JS entry point to running all React Native apps. App root components should register themselves with `AppRegistry.registerComponent`, then the native system can load the bundle for the app and then actually run the app when it's ready by invoking `AppRegistry.runApplication`.
 
+```jsx
+import {Text, AppRegistry} from 'react-native';
+
+const App = (props) => (
+  <View>
+    <Text>App1</Text>
+  </View>
+);
+
+AppRegistry.registerComponent('Appname', () => App);
+```
+
 To "stop" an application when a view should be destroyed, call `AppRegistry.unmountApplicationComponentAtRootTag` with the tag that was passed into `runApplication`. These should always be used as a pair.
 
 `AppRegistry` should be required early in the `require` sequence to make sure the JS execution environment is setup before other modules are required.
@@ -235,6 +247,8 @@ static registerHeadlessTask(taskKey, taskProvider)
 ```
 
 Register a headless task. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context.
+
+This is a way to run tasks in JavaScript while your app is in the background. It can be used, for example, to sync fresh data, handle push notifications, or play music.
 
 **Parameters:**
 
