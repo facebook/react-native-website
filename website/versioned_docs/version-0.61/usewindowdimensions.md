@@ -14,7 +14,6 @@ import {useWindowDimensions} from 'react-native';
 const windowWidth = useWindowDimensions().width;
 const windowHeight = useWindowDimensions().height;
 ```
-
 ## Example
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
@@ -61,7 +60,7 @@ useWindowDimensions().height;
 
 ### `scale`
 
-The pixel ratio of the device your app is running on.
+The ]pixel ratio of the device your app is running on. 
 
 ```jsx
 useWindowDimensions().scale;
