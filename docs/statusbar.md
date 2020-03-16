@@ -26,7 +26,7 @@ const App = () => {
 
   const changeStyleStatusBar = () => {
     const styleId = styleTypes.indexOf(styleStatusBar) + 1;
-
+    
     if(styleId === styleTypes.length){
       return setStyleStatusBar(styleTypes[0]);
     }

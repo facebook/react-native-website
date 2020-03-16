@@ -87,8 +87,8 @@ export default App = () => {
         sections={SECTIONS}
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => animate(item.easing)}
+          <TouchableOpacity 
+            onPress={() => animate(item.easing)} 
             style={styles.listRow}
           >
             <Text>{item.title}</Text>

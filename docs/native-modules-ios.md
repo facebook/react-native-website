@@ -336,6 +336,7 @@ static func requiresMainQueueSetup() -> Bool {
 }
 ```
 
+
 If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with `NO`.
 
 ### Enum Constants

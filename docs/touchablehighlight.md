@@ -23,7 +23,7 @@ function MyComponent(props) {
   underlayColor="#DDDDDD"
   onPress={() => alert('Pressed!')}>
   <MyComponent />
-</TouchableHighlight>;
+</TouchableHighlight>
 ```
 
 ## Example
@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
   }
 });
 ```
-
 <block class="endBlock syntax" />
 
 ---

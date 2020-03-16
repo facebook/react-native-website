@@ -3,7 +3,7 @@ id: picker
 title: Picker
 ---
 
-Renders the native picker component on Android and iOS.
+Renders the native picker component on Android and iOS. 
 
 ## Example
 
@@ -125,3 +125,4 @@ Used to locate this view in end-to-end tests.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
+

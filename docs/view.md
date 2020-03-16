@@ -183,9 +183,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           | Required |
-| ---------------------------------------------------------------------------------------------- | -------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
+| Type | Required |
+| --- | --- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No |
 
 ---
 
@@ -334,9 +334,9 @@ For example, if a touchable view has a height of 20 the touchable height can be 
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type | Required |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No |
 
 ---
 
