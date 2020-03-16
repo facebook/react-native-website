@@ -4,7 +4,7 @@ title: ToolbarAndroid
 original_id: toolbarandroid
 ---
 
-> **NOTE**: Toolbar Android has been deprecated and removed from the package since React Native v0.61.0
+> **NOTE**: Toolbar Android has been deprecated and removed from the package since React Native v0.61.0. Use [@react-native-community/toolbar-android](https://github.com/react-native-community/toolbar-android) instead.
 
 React component that wraps the Android-only [`Toolbar` widget][0]. A Toolbar can display a logo, navigation icon (e.g. hamburger menu), a title & subtitle and a list of actions. The title and subtitle are expanded so the logo and navigation icons are displayed on the left, title and subtitle in the middle and the actions on the right.
 
