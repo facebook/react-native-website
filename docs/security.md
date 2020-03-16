@@ -104,7 +104,7 @@ A library to consider for native OAuth is [react-native-app-auth](https://github
 
 > React-native-app-auth can support PKCE only if your Identity Provider supports it.
 
-![OAuth2 with PKCE](/react-native/docs/assets/oauth-pkce.png)
+![OAuth2 with PKCE](/docs/assets/diagram_pkce.svg)
 
 ## Network Security
 
@@ -116,7 +116,7 @@ Using https endpoints could still leave your data vulnerable to interception. Wi
 
 **SSL pinning** is a technique that can be used on the client side to avoid this attack. It works by embedding (or pinning) a list of trusted certificates to the client during development, so that only the requests signed with one of the trusted certificates will be accepted, and any self-signed certificates will not be.
 
-When using SSL pinning, you should be mindful of certificate expiry. Certificates expire every 1-2 years and when one does, it’ll need to be updated in the app as well as on the server. As soon as the certificate on the server has been updated, any apps with the old certificate embedded in them will cease to work.
+> When using SSL pinning, you should be mindful of certificate expiry. Certificates expire every 1-2 years and when one does, it’ll need to be updated in the app as well as on the server. As soon as the certificate on the server has been updated, any apps with the old certificate embedded in them will cease to work.
 
 ## Summary
 
