@@ -39,7 +39,7 @@ In the next section, you will start combining these Core Components to learn abo
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
-import { View, Text, Image, ScrollView, TextInput } from 'react-native';
+import {View, Text, Image, ScrollView, TextInput} from 'react-native';
 
 export default function App() {
   return (
@@ -47,13 +47,16 @@ export default function App() {
       <Text>Some text</Text>
       <View>
         <Text>Some more text</Text>
-        <Image source="https://reactnative.dev/docs/assets/p_cat2.png" style={{width: 200, height: 200}}/>
+        <Image
+          source="https://reactnative.dev/docs/assets/p_cat2.png"
+          style={{width: 200, height: 200}}
+        />
       </View>
       <TextInput
         style={{
           height: 40,
           borderColor: 'gray',
-          borderWidth: 1
+          borderWidth: 1,
         }}
         defaultValue="You can type in me"
       />

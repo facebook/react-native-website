@@ -4,10 +4,10 @@ title: Shadow Props
 ---
 
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios
-import React, { useState } from "react";
-import { Text, View, StyleSheet, Slider } from "react-native";
+import React, {useState} from 'react';
+import {Text, View, StyleSheet, Slider} from 'react-native';
 
-function ShadowPropSlider({ label, value, ...props }) {
+function ShadowPropSlider({label, value, ...props}) {
   return (
     <>
       <Text>
@@ -32,11 +32,11 @@ export default function App() {
           {
             shadowOffset: {
               width: shadowOffsetWidth,
-              height: -shadowOffsetHeight
+              height: -shadowOffsetHeight,
             },
             shadowOpacity,
-            shadowRadius
-          }
+            shadowRadius,
+          },
         ]}
       />
       <View style={styles.controls}>
@@ -45,21 +45,21 @@ export default function App() {
           minimumValue={-50}
           maximumValue={50}
           value={shadowOffsetWidth}
-          onValueChange={val => setShadowOffsetWidth(val)}
+          onValueChange={(val) => setShadowOffsetWidth(val)}
         />
         <ShadowPropSlider
           label="shadowOffset - Y"
           minimumValue={-50}
           maximumValue={50}
           value={shadowOffsetHeight}
-          onValueChange={val => setShadowOffsetHeight(val)}
+          onValueChange={(val) => setShadowOffsetHeight(val)}
         />
         <ShadowPropSlider
           label="shadowRadius"
           minimumValue={0}
           maximumValue={100}
           value={shadowRadius}
-          onValueChange={val => setShadowRadius(val)}
+          onValueChange={(val) => setShadowRadius(val)}
         />
         <ShadowPropSlider
           label="shadowOpacity"
@@ -67,7 +67,7 @@ export default function App() {
           maximumValue={1}
           step={0.05}
           value={shadowOpacity}
-          onValueChange={val => setShadowOpacity(val)}
+          onValueChange={(val) => setShadowOpacity(val)}
         />
       </View>
     </View>
@@ -77,21 +77,21 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-around",
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    justifyContent: 'space-around',
+    backgroundColor: '#ecf0f1',
+    padding: 8,
   },
   square: {
-    alignSelf: "center",
-    backgroundColor: "white",
+    alignSelf: 'center',
+    backgroundColor: 'white',
     borderRadius: 4,
     height: 150,
-    shadowColor: "black",
-    width: 150
+    shadowColor: 'black',
+    width: 150,
   },
   controls: {
-    paddingHorizontal: 12
-  }
+    paddingHorizontal: 12,
+  },
 });
 ```
 

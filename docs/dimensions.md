@@ -36,30 +36,34 @@ If you are targeting foldable devices or devices which can change the screen siz
 <block class="functional syntax" />
 
 ```SnackPlayer name=Dimensions
-import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import React, {useState, useEffect} from 'react';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 
 export default function App() {
-  const [dimensions, setDimensions] = useState({ window, screen });
+  const [dimensions, setDimensions] = useState({window, screen});
 
-  const onChange = ({ window, screen }) => {
-    setDimensions({ window, screen });
+  const onChange = ({window, screen}) => {
+    setDimensions({window, screen});
   };
 
   useEffect(() => {
-    Dimensions.addEventListener("change", onChange);
+    Dimensions.addEventListener('change', onChange);
     return () => {
-      Dimensions.removeEventListener("change", onChange);
+      Dimensions.removeEventListener('change', onChange);
     };
   });
 
   return (
     <View style={styles.container}>
-      <Text>{`Window Dimensions: height - ${dimensions.window.height}, width - ${dimensions.window.width}`}</Text>
-      <Text>{`Screen Dimensions: height - ${dimensions.screen.height}, width - ${dimensions.screen.width}`}</Text>
+      <Text>{`Window Dimensions: height - ${
+        dimensions.window.height
+      }, width - ${dimensions.window.width}`}</Text>
+      <Text>{`Screen Dimensions: height - ${
+        dimensions.screen.height
+      }, width - ${dimensions.screen.width}`}</Text>
     </View>
   );
 }
@@ -67,48 +71,52 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Dimensions
-import React, { Component } from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import React, {Component} from 'react';
+import {View, StyleSheet, Text, Dimensions} from 'react-native';
 
-const window = Dimensions.get("window");
-const screen = Dimensions.get("screen");
+const window = Dimensions.get('window');
+const screen = Dimensions.get('screen');
 
 export default class App extends Component {
   state = {
     dimensions: {
       window,
-      screen
-    }
+      screen,
+    },
   };
 
-  onChange = ({ window, screen }) => {
-    this.setState({ dimensions: { window, screen } });
+  onChange = ({window, screen}) => {
+    this.setState({dimensions: {window, screen}});
   };
 
   componentDidMount() {
-    Dimensions.addEventListener("change", this.onChange);
+    Dimensions.addEventListener('change', this.onChange);
   }
 
   componentWillUnmount() {
-    Dimensions.removeEventListener("change", this.onChange);
+    Dimensions.removeEventListener('change', this.onChange);
   }
 
   render() {
-    const { dimensions } = this.state;
+    const {dimensions} = this.state;
 
     return (
       <View style={styles.container}>
-        <Text>{`Window Dimensions: height - ${dimensions.window.height}, width - ${dimensions.window.width}`}</Text>
-        <Text>{`Screen Dimensions: height - ${dimensions.screen.height}, width - ${dimensions.screen.width}`}</Text>
+        <Text>{`Window Dimensions: height - ${
+          dimensions.window.height
+        }, width - ${dimensions.window.width}`}</Text>
+        <Text>{`Screen Dimensions: height - ${
+          dimensions.screen.height
+        }, width - ${dimensions.screen.width}`}</Text>
       </View>
     );
   }
@@ -117,9 +125,9 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 ```
 

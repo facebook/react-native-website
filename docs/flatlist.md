@@ -22,7 +22,7 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 
 ```SnackPlayer name=flatlist-simple
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import {SafeAreaView, View, FlatList, StyleSheet, Text} from 'react-native';
 import Constants from 'expo-constants';
 
 const DATA = [
@@ -40,7 +40,7 @@ const DATA = [
   },
 ];
 
-function Item({ title }) {
+function Item({title}) {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
@@ -53,8 +53,8 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => <Item title={item.title} />}
-        keyExtractor={item => item.id}
+        renderItem={({item}) => <Item title={item.title} />}
+        keyExtractor={(item) => item.id}
       />
     </SafeAreaView>
   );
@@ -110,15 +110,14 @@ const DATA = [
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
+function Item({id, title, selected, onSelect}) {
   return (
     <TouchableOpacity
       onPress={() => onSelect(id)}
       style={[
         styles.item,
-        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-      ]}
-    >
+        {backgroundColor: selected ? '#6e3b6e' : '#f9c2ff'},
+      ]}>
       <Text style={styles.title}>{title}</Text>
     </TouchableOpacity>
   );
@@ -128,7 +127,7 @@ export default function App() {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
-    id => {
+    (id) => {
       const newSelected = new Map(selected);
       newSelected.set(id, !selected.get(id));
 
@@ -141,7 +140,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => (
+        renderItem={({item}) => (
           <Item
             id={item.id}
             title={item.title}
@@ -149,7 +148,7 @@ export default function App() {
             onSelect={onSelect}
           />
         )}
-        keyExtractor={item => item.id}
+        keyExtractor={(item) => item.id}
         extraData={selected}
       />
     </SafeAreaView>

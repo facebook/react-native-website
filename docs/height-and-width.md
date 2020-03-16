@@ -10,17 +10,17 @@ A component's height and width determine its size on the screen.
 The general way to set the dimensions of a component is by adding a fixed `width` and `height` to style. All dimensions in React Native are unitless, and represent density-independent pixels.
 
 ```SnackPlayer name=Height%20and%20Width
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 
 export default function FixedDimensionsBasics() {
-    return (
-      <View>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
-        <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
-      </View>
-    );
+  return (
+    <View>
+      <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+      <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+      <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
+    </View>
+  );
 }
 ```
 
@@ -33,20 +33,20 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 > A component can only expand to fill available space if its parent has dimensions greater than 0. If a parent does not have either a fixed `width` and `height` or `flex`, the parent will have dimensions of 0 and the `flex` children will not be visible.
 
 ```SnackPlayer name=Flex%20Dimensions
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 
 export default function FlexDimensionsBasics() {
-    return (
-      // Try removing the `flex: 1` on the parent View.
-      // The parent will not have dimensions, so the children can't expand.
-      // What if you add `height: 300` instead of `flex: 1`?
-      <View style={{flex: 1}}>
-        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
-        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
-      </View>
-    );
+  return (
+    // Try removing the `flex: 1` on the parent View.
+    // The parent will not have dimensions, so the children can't expand.
+    // What if you add `height: 300` instead of `flex: 1`?
+    <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+      <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+      <View style={{flex: 3, backgroundColor: 'steelblue'}} />
+    </View>
+  );
 }
 ```
 

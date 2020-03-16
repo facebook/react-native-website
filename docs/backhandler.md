@@ -57,26 +57,26 @@ The following example implements a scenario where you confirm if the user wants 
 <block class="functional syntax" />
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { useEffect } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {useEffect} from 'react';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 export default function App() {
   useEffect(() => {
     const backAction = () => {
-      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      Alert.alert('Hold on!', 'Are you sure you want to go back?', [
         {
-          text: "Cancel",
+          text: 'Cancel',
           onPress: () => null,
-          style: "cancel"
+          style: 'cancel',
         },
-        { text: "YES", onPress: () => BackHandler.exitApp() }
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
       ]);
       return true;
     };
 
     const backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      backAction
+      'hardwareBackPress',
+      backAction,
     );
 
     return () => backHandler.remove();
@@ -92,39 +92,39 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { Component } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 export default class App extends Component {
   backAction = () => {
-    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
-        text: "Cancel",
+        text: 'Cancel',
         onPress: () => null,
-        style: "cancel"
+        style: 'cancel',
       },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
     ]);
     return true;
   };
 
   componentDidMount() {
     this.backHandler = BackHandler.addEventListener(
-      "hardwareBackPress",
-      this.backAction
+      'hardwareBackPress',
+      this.backAction,
     );
   }
 
@@ -144,13 +144,13 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 ```
 
@@ -174,27 +174,27 @@ Additionally `BackHandler.removeEventListener` can also be used to clear the eve
 <block class="functional syntax" />
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { useEffect } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {useEffect} from 'react';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 export default function App() {
   const backAction = () => {
-    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
-        text: "Cancel",
+        text: 'Cancel',
         onPress: () => null,
-        style: "cancel"
+        style: 'cancel',
       },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
     ]);
     return true;
   };
 
   useEffect(() => {
-    BackHandler.addEventListener("hardwareBackPress", backAction);
+    BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () =>
-      BackHandler.removeEventListener("hardwareBackPress", backAction);
+      BackHandler.removeEventListener('hardwareBackPress', backAction);
   }, []);
 
   return (
@@ -207,41 +207,41 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=BackHandler&supportedPlatforms=android
-import React, { Component } from "react";
-import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+import React, {Component} from 'react';
+import {Text, View, StyleSheet, BackHandler, Alert} from 'react-native';
 
 export default class App extends Component {
   backAction = () => {
-    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+    Alert.alert('Hold on!', 'Are you sure you want to go back?', [
       {
-        text: "Cancel",
+        text: 'Cancel',
         onPress: () => null,
-        style: "cancel"
+        style: 'cancel',
       },
-      { text: "YES", onPress: () => BackHandler.exitApp() }
+      {text: 'YES', onPress: () => BackHandler.exitApp()},
     ]);
     return true;
   };
 
   componentDidMount() {
-    BackHandler.addEventListener("hardwareBackPress", this.backAction);
+    BackHandler.addEventListener('hardwareBackPress', this.backAction);
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener("hardwareBackPress", this.backAction);
+    BackHandler.removeEventListener('hardwareBackPress', this.backAction);
   }
 
   render() {
@@ -256,13 +256,13 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   text: {
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: 'bold',
+  },
 });
 ```
 

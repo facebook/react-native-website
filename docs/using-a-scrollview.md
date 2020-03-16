@@ -9,49 +9,49 @@ This example creates a vertical `ScrollView` with both images and text mixed tog
 
 ```SnackPlayer name=Using%20ScrollView
 import React from 'react';
-import { Image, ScrollView, Text } from 'react-native';
+import {Image, ScrollView, Text} from 'react-native';
 
 const logo = {
   uri: 'https://reactnative.dev/img/tiny_logo.png',
   width: 64,
-  height: 64
+  height: 64,
 };
 
-export default App = () => (
+export default (App = () => (
   <ScrollView>
-    <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
+    <Text style={{fontSize: 96}}>Scroll me plz</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{ fontSize: 96 }}>If you like</Text>
+    <Text style={{fontSize: 96}}>If you like</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{ fontSize: 96 }}>Scrolling down</Text>
+    <Text style={{fontSize: 96}}>Scrolling down</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{ fontSize: 96 }}>What's the best</Text>
+    <Text style={{fontSize: 96}}>What's the best</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{ fontSize: 96 }}>Framework around?</Text>
+    <Text style={{fontSize: 96}}>Framework around?</Text>
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
     <Image source={logo} />
-    <Text style={{ fontSize: 80 }}>React Native</Text>
+    <Text style={{fontSize: 80}}>React Native</Text>
   </ScrollView>
-);
+));
 ```
 
 ScrollViews can be configured to allow paging through views using swiping gestures by using the `pagingEnabled` props. Swiping horizontally between views can also be implemented on Android using the [ViewPager](https://github.com/react-native-community/react-native-viewpager) component.

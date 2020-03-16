@@ -21,8 +21,8 @@ Displays a circular loading indicator.
 <block class="functional syntax" />
 
 ```SnackPlayer name=ActivityIndicator%20Function%20Component%20Example
-import React from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 
 export default function App() {
   return (
@@ -38,21 +38,21 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=ActivityIndicator%20Class%20Component%20Example
-import React, { Component } from "react";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
 
 export default class App extends Component {
   render() {
@@ -70,15 +70,14 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: 'center',
   },
   horizontal: {
-    flexDirection: "row",
-    justifyContent: "space-around",
-    padding: 10
-  }
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10,
+  },
 });
-
 ```
 
 <block class="endBlock syntax" />

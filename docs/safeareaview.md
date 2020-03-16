@@ -13,7 +13,7 @@ To use, wrap your top level view with a `SafeAreaView` with a `flex: 1` style ap
 
 ```SnackPlayer name=SafeAreaView
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView } from 'react-native';
+import {StyleSheet, Text, SafeAreaView} from 'react-native';
 
 export default function App() {
   return (

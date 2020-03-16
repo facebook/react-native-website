@@ -23,75 +23,69 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 <block class="functional syntax" />
 
 ```SnackPlayer name=TouchableOpacity%20Function%20Component%20Example
-import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, {useState} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
-export default App = () => {
+export default (App = () => {
   const [count, setCount] = useState(0);
-  const onPress = () => setCount(prevCount => prevCount + 1);
+  const onPress = () => setCount((prevCount) => prevCount + 1);
 
   return (
     <View style={styles.container}>
       <View style={styles.countContainer}>
         <Text>Count: {count}</Text>
       </View>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={onPress}
-      >
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text>Press Here</Text>
       </TouchableOpacity>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
+    justifyContent: 'center',
+    paddingHorizontal: 10,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
-  }
+    alignItems: 'center',
+    padding: 10,
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=TouchableOpacity%20Class%20Component%20Example
-import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import React, {Component} from 'react';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = {count: 0};
   }
 
   onPress = () => {
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
   };
 
   render() {
-    const { count } = this.state;
+    const {count} = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.countContainer}>
           <Text>Count: {count}</Text>
         </View>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={this.onPress}
-        >
+        <TouchableOpacity style={styles.button} onPress={this.onPress}>
           <Text>Press Here</Text>
         </TouchableOpacity>
       </View>
@@ -102,18 +96,18 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
+    justifyContent: 'center',
+    paddingHorizontal: 10,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
-  }
+    alignItems: 'center',
+    padding: 10,
+  },
 });
 ```
 

@@ -25,22 +25,19 @@ This will render a blue label on iOS, and a blue rounded rectangle with light te
 Go ahead and play around with the `Button` component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right, then click on "Tap to Play" to preview the app.
 
 ```SnackPlayer name=Button%20Basics
-import React, { Component } from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import React, {Component} from 'react';
+import {Button, StyleSheet, View} from 'react-native';
 
 export default class ButtonBasics extends Component {
   _onPressButton() {
-    alert('You tapped the button!')
+    alert('You tapped the button!');
   }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.buttonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="Press Me"
-          />
+          <Button onPress={this._onPressButton} title="Press Me" />
         </View>
         <View style={styles.buttonContainer}>
           <Button
@@ -50,15 +47,8 @@ export default class ButtonBasics extends Component {
           />
         </View>
         <View style={styles.alternativeLayoutButtonContainer}>
-          <Button
-            onPress={this._onPressButton}
-            title="This looks great!"
-          />
-          <Button
-            onPress={this._onPressButton}
-            title="OK!"
-            color="#841584"
-          />
+          <Button onPress={this._onPressButton} title="This looks great!" />
+          <Button onPress={this._onPressButton} title="OK!" color="#841584" />
         </View>
       </View>
     );
@@ -67,17 +57,17 @@ export default class ButtonBasics extends Component {
 
 const styles = StyleSheet.create({
   container: {
-   flex: 1,
-   justifyContent: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
   buttonContainer: {
-    margin: 20
+    margin: 20,
   },
   alternativeLayoutButtonContainer: {
     margin: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'
-  }
+    justifyContent: 'space-between',
+  },
 });
 ```
 
@@ -100,18 +90,26 @@ In some cases, you may want to detect when a user presses and holds a view for a
 Let's see all of these in action:
 
 ```SnackPlayer name=Touchables
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, View } from 'react-native';
+import React, {Component} from 'react';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableNativeFeedback,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 
 export default class Touchables extends Component {
   _onPressButton() {
-    alert('You tapped the button!')
+    alert('You tapped the button!');
   }
 
   _onLongPressButton() {
-    alert('You long-pressed the button!')
+    alert('You long-pressed the button!');
   }
-
 
   render() {
     return (
@@ -127,20 +125,28 @@ export default class Touchables extends Component {
           </View>
         </TouchableOpacity>
         <TouchableNativeFeedback
-            onPress={this._onPressButton}
-            background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
+          onPress={this._onPressButton}
+          background={
+            Platform.OS === 'android'
+              ? TouchableNativeFeedback.SelectableBackground()
+              : ''
+          }>
           <View style={styles.button}>
-            <Text style={styles.buttonText}>TouchableNativeFeedback {Platform.OS !== 'android' ? '(Android only)' : ''}</Text>
+            <Text style={styles.buttonText}>
+              TouchableNativeFeedback{' '}
+              {Platform.OS !== 'android' ? '(Android only)' : ''}
+            </Text>
           </View>
         </TouchableNativeFeedback>
-        <TouchableWithoutFeedback
-            onPress={this._onPressButton}
-            >
+        <TouchableWithoutFeedback onPress={this._onPressButton}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>TouchableWithoutFeedback</Text>
           </View>
         </TouchableWithoutFeedback>
-        <TouchableHighlight onPress={this._onPressButton} onLongPress={this._onLongPressButton} underlayColor="white">
+        <TouchableHighlight
+          onPress={this._onPressButton}
+          onLongPress={this._onLongPressButton}
+          underlayColor="white">
           <View style={styles.button}>
             <Text style={styles.buttonText}>Touchable with Long Press</Text>
           </View>
@@ -153,19 +159,19 @@ export default class Touchables extends Component {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 60,
-    alignItems: 'center'
+    alignItems: 'center',
   },
   button: {
     marginBottom: 30,
     width: 260,
     alignItems: 'center',
-    backgroundColor: '#2196F3'
+    backgroundColor: '#2196F3',
   },
   buttonText: {
     textAlign: 'center',
     padding: 20,
-    color: 'white'
-  }
+    color: 'white',
+  },
 });
 ```
 

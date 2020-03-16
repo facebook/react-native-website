@@ -32,8 +32,8 @@ In the following example, the red, yellow, and green views are all children in t
 You can learn more [here](https://yogalayout.com/docs/flex-direction).
 
 ```SnackPlayer name=Flex%20Direction
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 
 export default class FlexDirectionBasics extends Component {
   render() {
@@ -46,7 +46,7 @@ export default class FlexDirectionBasics extends Component {
       </View>
     );
   }
-};
+}
 ```
 
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
@@ -78,26 +78,27 @@ Layout direction specifies the direction in which children and text in a hierarc
 You can learn more [here](https://yogalayout.com/docs/justify-content).
 
 ```SnackPlayer name=Justify%20Content
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 
 export default class JustifyContentBasics extends Component {
   render() {
     return (
       // Try setting `justifyContent` to `center`.
       // Try setting `flexDirection` to `row`.
-      <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
-};
+}
 ```
 
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
@@ -121,8 +122,8 @@ export default class JustifyContentBasics extends Component {
 You can learn more [here](https://yogalayout.com/docs/align-items).
 
 ```SnackPlayer name=Align%20Items
-import React, { Component } from 'react';
-import { View } from 'react-native';
+import React, {Component} from 'react';
+import {View} from 'react-native';
 
 export default class AlignItemsBasics extends Component {
   render() {
@@ -130,19 +131,20 @@ export default class AlignItemsBasics extends Component {
       // Try setting `alignItems` to 'flex-start'
       // Try setting `justifyContent` to `flex-end`.
       // Try setting `flexDirection` to `row`.
-      <View style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'stretch',
-      }}>
+      <View
+        style={{
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'stretch',
+        }}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{height: 50, backgroundColor: 'skyblue'}} />
         <View style={{height: 100, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
-};
+}
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)

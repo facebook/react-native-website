@@ -29,14 +29,12 @@ This introduction lets you get started immediately in your browser with interact
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
 export default function YourApp() {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>
-        Try editing me! 🎉
-      </Text>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text>Try editing me! 🎉</Text>
     </View>
   );
 }
@@ -67,14 +65,15 @@ With React, you can make components using either classes or functions. Originall
 
 ```SnackPlayer name=Hello%20World%20Function%20Component
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
 export default function HelloWorldApp() {
   return (
-    <View style={{
+    <View
+      style={{
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
       }}>
       <Text>Hello, world!</Text>
     </View>
@@ -85,23 +84,23 @@ export default function HelloWorldApp() {
 <block class="classical syntax" />
 
 ```SnackPlayer name=Hello%20World%20Class%20Component
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
 export default class HelloWorldApp extends Component {
   render() {
     return (
-      <View style={{
+      <View
+        style={{
           flex: 1,
-          justifyContent: "center",
-          alignItems: "center"
+          justifyContent: 'center',
+          alignItems: 'center',
         }}>
         <Text>Hello, world!</Text>
       </View>
     );
   }
 }
-
 ```
 
 <block class="endBlock syntax" />

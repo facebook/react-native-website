@@ -62,23 +62,23 @@ Composite components are not backed by a native view, so you cannot call `setNat
 
 ```SnackPlayer name=setNativeProps%20with%20Composite%20Components
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = (props) => {
-    return (
-      <View style={{marginTop: 50}}>
-        <Text>{props.label}</Text>
-      </View>
-    )
-}
+  return (
+    <View style={{marginTop: 50}}>
+      <Text>{props.label}</Text>
+    </View>
+  );
+};
 
-export default App = () => {
-    return (
-      <TouchableOpacity>
-        <MyButton label="Press me!" />
-      </TouchableOpacity>
-    )
-}
+export default (App = () => {
+  return (
+    <TouchableOpacity>
+      <MyButton label="Press me!" />
+    </TouchableOpacity>
+  );
+});
 ```
 
 If you run this you will immediately see this error: `Touchable child must either be native or forward setNativeProps to a native component`. This occurs because `MyButton` isn't directly backed by a native view whose opacity should be set. You can think about it like this: if you define a component with `createReactClass` you would not expect to be able to set a style prop on it and have that work - you would need to pass the style prop down to a child, unless you are wrapping a native component. Similarly, we are going to forward `setNativeProps` to a native-backed child component.
@@ -89,27 +89,30 @@ All we need to do is provide a `setNativeProps` method on our component that cal
 
 ```SnackPlayer name=Forwarding%20setNativeProps
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 
 const MyButton = (props) => {
   setNativeProps = (nativeProps) => {
     _root.setNativeProps(nativeProps);
-  }
+  };
 
-    return (
-      <View style={{marginTop: 50}} ref={component => _root = component} {...props}>
-        <Text>{props.label}</Text>
-      </View>
-    )
-}
+  return (
+    <View
+      style={{marginTop: 50}}
+      ref={(component) => (_root = component)}
+      {...props}>
+      <Text>{props.label}</Text>
+    </View>
+  );
+};
 
-export default App = () => {
-    return (
-      <TouchableOpacity>
-        <MyButton label="Press me!" />
-      </TouchableOpacity>
-    )
-}
+export default (App = () => {
+  return (
+    <TouchableOpacity>
+      <MyButton label="Press me!" />
+    </TouchableOpacity>
+  );
+});
 ```
 
 You can now use `MyButton` inside of `TouchableOpacity`! A sidenote for clarity: we used the [ref callback](https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element) syntax here, rather than the traditional string-based ref.
@@ -122,25 +125,31 @@ Another very common use case of `setNativeProps` is to clear the value of a Text
 
 ```SnackPlayer name=Clear%20text
 import React from 'react';
-import { TextInput, Text, TouchableOpacity, View } from 'react-native';
+import {TextInput, Text, TouchableOpacity, View} from 'react-native';
 
-export default App = () => {
+export default (App = () => {
   clearText = () => {
-     _textInput.setNativeProps({text: ''});
-  }
+    _textInput.setNativeProps({text: ''});
+  };
 
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <TextInput
-          ref={component => _textInput = component}
-          style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
-        />
-        <TouchableOpacity onPress={clearText}>
-          <Text>Clear text</Text>
-        </TouchableOpacity>
-      </View>
-    );
-}
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <TextInput
+        ref={(component) => (_textInput = component)}
+        style={{
+          height: 50,
+          width: 200,
+          marginHorizontal: 20,
+          borderWidth: 1,
+          borderColor: '#ccc',
+        }}
+      />
+      <TouchableOpacity onPress={clearText}>
+        <Text>Clear text</Text>
+      </TouchableOpacity>
+    </View>
+  );
+});
 ```
 
 ## Avoiding conflicts with the render function

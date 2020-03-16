@@ -26,16 +26,12 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 import React, {useState} from 'react';
 import {DatePickerIOS, View, StyleSheet} from 'react-native';
 
-export default function App () {
-
+export default function App() {
   const [chosenDate, setChosenDate] = useState(new Date());
 
   return (
     <View style={styles.container}>
-      <DatePickerIOS
-        date={chosenDate}
-        onDateChange={setChosenDate}
-      />
+      <DatePickerIOS date={chosenDate} onDateChange={setChosenDate} />
     </View>
   );
 }

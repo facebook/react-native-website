@@ -36,23 +36,23 @@ To see the current state, you can check `AppState.currentState`, which will be k
 <block class="functional syntax" />
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
-import React, { useEffect, useState } from "react";
-import { AppState, StyleSheet, Text, View } from "react-native";
+import React, {useEffect, useState} from 'react';
+import {AppState, StyleSheet, Text, View} from 'react-native';
 
 const AppStateExample = () => {
   const [appState, setAppState] = useState(AppState.currentState);
 
   useEffect(() => {
-    AppState.addEventListener("change", _handleAppStateChange);
+    AppState.addEventListener('change', _handleAppStateChange);
 
     return () => {
-      AppState.removeEventListener("change", _handleAppStateChange);
+      AppState.removeEventListener('change', _handleAppStateChange);
     };
   }, []);
 
-  const _handleAppStateChange = nextAppState => {
-    if (appState.match(/inactive|background/) && nextAppState === "active") {
-      console.log("App has come to the foreground!");
+  const _handleAppStateChange = (nextAppState) => {
+    if (appState.match(/inactive|background/) && nextAppState === 'active') {
+      console.log('App has come to the foreground!');
     }
     setAppState(nextAppState);
   };
@@ -67,9 +67,9 @@ const AppStateExample = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 
 export default AppStateExample;
@@ -78,30 +78,30 @@ export default AppStateExample;
 <block class="classical syntax" />
 
 ```SnackPlayer name=AppState%20Class%20Component%20Example
-import React, { Component } from "react";
-import { AppState, StyleSheet, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {AppState, StyleSheet, Text, View} from 'react-native';
 
 export default class AppStateExample extends Component {
   state = {
-    appState: AppState.currentState
+    appState: AppState.currentState,
   };
 
   componentDidMount() {
-    AppState.addEventListener("change", this._handleAppStateChange);
+    AppState.addEventListener('change', this._handleAppStateChange);
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener("change", this._handleAppStateChange);
+    AppState.removeEventListener('change', this._handleAppStateChange);
   }
 
-  _handleAppStateChange = nextAppState => {
+  _handleAppStateChange = (nextAppState) => {
     if (
       this.state.appState.match(/inactive|background/) &&
-      nextAppState === "active"
+      nextAppState === 'active'
     ) {
-      console.log("App has come to the foreground!");
+      console.log('App has come to the foreground!');
     }
-    this.setState({ appState: nextAppState });
+    this.setState({appState: nextAppState});
   };
 
   render() {
@@ -116,9 +116,9 @@ export default class AppStateExample extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
 ```
 

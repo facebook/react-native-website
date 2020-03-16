@@ -46,8 +46,8 @@ The following example contains a `View` which will fade in and fade out based on
 <block class="functional syntax" />
 
 ```SnackPlayer name=Animated
-import React, { useRef } from "react";
-import { Animated, Text, View, StyleSheet, Button } from "react-native";
+import React, {useRef} from 'react';
+import {Animated, Text, View, StyleSheet, Button} from 'react-native';
 
 export default function App() {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -57,7 +57,7 @@ export default function App() {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 2000
+      duration: 2000,
     }).start();
   };
 
@@ -65,7 +65,7 @@ export default function App() {
     // Will change fadeAnim value to 0 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 2000
+      duration: 2000,
     }).start();
   };
 
@@ -75,10 +75,9 @@ export default function App() {
         style={[
           styles.fadingContainer,
           {
-            opacity: fadeAnim // Bind opacity to animated value
-          }
-        ]}
-      >
+            opacity: fadeAnim, // Bind opacity to animated value
+          },
+        ]}>
         <Text style={styles.fadingText}>Fading View!</Text>
       </Animated.View>
       <View style={styles.buttonRow}>
@@ -92,43 +91,43 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fadingContainer: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: "powderblue"
+    backgroundColor: 'powderblue',
   },
   fadingText: {
     fontSize: 28,
-    textAlign: "center",
-    margin: 10
+    textAlign: 'center',
+    margin: 10,
   },
   buttonRow: {
-    flexDirection: "row",
-    marginVertical: 16
-  }
+    flexDirection: 'row',
+    marginVertical: 16,
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Animated
-import React, { Component } from "react";
-import { Animated, Text, View, StyleSheet, Button } from "react-native";
+import React, {Component} from 'react';
+import {Animated, Text, View, StyleSheet, Button} from 'react-native';
 
 class App extends Component {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
   state = {
-    fadeAnim: new Animated.Value(0)
+    fadeAnim: new Animated.Value(0),
   };
 
   fadeIn = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
-      duration: 2000
+      duration: 2000,
     }).start();
   };
 
@@ -136,7 +135,7 @@ class App extends Component {
     // Will change fadeAnim value to 0 in 5 seconds
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
-      duration: 2000
+      duration: 2000,
     }).start();
   };
 
@@ -147,10 +146,9 @@ class App extends Component {
           style={[
             styles.fadingContainer,
             {
-              opacity: this.state.fadeAnim // Bind opacity to animated value
-            }
-          ]}
-        >
+              opacity: this.state.fadeAnim, // Bind opacity to animated value
+            },
+          ]}>
           <Text style={styles.fadingText}>Fading View!</Text>
         </Animated.View>
         <View style={styles.buttonRow}>
@@ -165,23 +163,23 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fadingContainer: {
     paddingVertical: 8,
     paddingHorizontal: 16,
-    backgroundColor: "powderblue"
+    backgroundColor: 'powderblue',
   },
   fadingText: {
     fontSize: 28,
-    textAlign: "center",
-    margin: 10
+    textAlign: 'center',
+    margin: 10,
   },
   buttonRow: {
-    flexDirection: "row",
-    marginVertical: 16
-  }
+    flexDirection: 'row',
+    marginVertical: 16,
+  },
 });
 
 export default App;

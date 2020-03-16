@@ -10,13 +10,13 @@ Component to control the app status bar.
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
 ```SnackPlayer name=StatusBar%20Android%20and%20iOS%20Component%20Example&supportedPlatforms=android,ios
-import React, { useState } from "react";
-import { Button, Text, StyleSheet, StatusBar, View } from "react-native";
+import React, {useState} from 'react';
+import {Button, Text, StyleSheet, StatusBar, View} from 'react-native';
 
-import Constants from "expo-constants";
+import Constants from 'expo-constants';
 
 const App = () => {
-  const styleTypes = ['default','dark-content', 'light-content'];
+  const styleTypes = ['default', 'dark-content', 'light-content'];
   const [visibleStatusBar, setVisibleStatusBar] = useState(false);
   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
 
@@ -26,8 +26,8 @@ const App = () => {
 
   const changeStyleStatusBar = () => {
     const styleId = styleTypes.indexOf(styleStatusBar) + 1;
-    
-    if(styleId === styleTypes.length){
+
+    if (styleId === styleTypes.length) {
       return setStyleStatusBar(styleTypes[0]);
     }
     return setStyleStatusBar(styleTypes[styleId]);
@@ -37,17 +37,25 @@ const App = () => {
     <View style={styles.container}>
       <View>
         <Text style={styles.textStyle}>StatusBar Style: {styleStatusBar}</Text>
-        <Text style={styles.textStyle}>StatusBar Visibility: {!visibleStatusBar ? 'Visible': 'Hidden'}</Text>
+        <Text style={styles.textStyle}>
+          StatusBar Visibility: {!visibleStatusBar ? 'Visible' : 'Hidden'}
+        </Text>
       </View>
       <StatusBar backgroundColor="blue" barStyle={styleStatusBar} />
       <View>
         <StatusBar hidden={visibleStatusBar} />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="Toggle StatusBar" onPress={() => changeVisibilityStatusBar()} />
+        <Button
+          title="Toggle StatusBar"
+          onPress={() => changeVisibilityStatusBar()}
+        />
       </View>
       <View style={styles.buttonContainer}>
-        <Button title="Change StatusBar Style" onPress={() => changeStyleStatusBar()} />
+        <Button
+          title="Change StatusBar Style"
+          onPress={() => changeStyleStatusBar()}
+        />
       </View>
     </View>
   );
@@ -59,14 +67,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingTop: Constants.statusBarHeight,
     backgroundColor: '#ECF0F1',
-    padding: 8
+    padding: 8,
   },
-  buttonContainer:{
-    padding: 10
+  buttonContainer: {
+    padding: 10,
   },
-  textStyle:{
-    textAlign: 'center'
-  }
+  textStyle: {
+    textAlign: 'center',
+  },
 });
 
 export default App;

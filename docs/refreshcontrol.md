@@ -19,7 +19,7 @@ import {
 import Constants from 'expo-constants';
 
 function wait(timeout) {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, timeout);
   });
 }
@@ -39,8 +39,7 @@ export default function App() {
         contentContainerStyle={styles.scrollView}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-      >
+        }>
         <Text>Pull down to see RefreshControl indicator</Text>
       </ScrollView>
     </SafeAreaView>

@@ -20,7 +20,14 @@ If this button doesn't look right for your app, you can build your own button us
 
 ```SnackPlayer name=Buttons
 import React from 'react';
-import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
+import {
+  StyleSheet,
+  Button,
+  View,
+  SafeAreaView,
+  Text,
+  Alert,
+} from 'react-native';
 import Constants from 'expo-constants';
 
 function Separator() {

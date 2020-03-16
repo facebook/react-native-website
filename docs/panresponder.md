@@ -100,11 +100,10 @@ const ExampleComponent = () => {
 <block class="functional syntax" />
 
 ```SnackPlayer name=PanResponder
-import React, { useRef } from "react";
-import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+import React, {useRef} from 'react';
+import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 export default function App() {
-
   const pan = useRef(new Animated.ValueXY()).current;
 
   const panResponder = useRef(
@@ -113,19 +112,14 @@ export default function App() {
       onPanResponderGrant: () => {
         pan.setOffset({
           x: pan.x._value,
-          y: pan.y._value
+          y: pan.y._value,
         });
       },
-      onPanResponderMove: Animated.event(
-        [
-          null,
-          { dx: pan.x, dy: pan.y }
-        ]
-      ),
+      onPanResponderMove: Animated.event([null, {dx: pan.x, dy: pan.y}]),
       onPanResponderRelease: () => {
         pan.flattenOffset();
-      }
-    })
+      },
+    }),
   ).current;
 
   return (
@@ -133,10 +127,9 @@ export default function App() {
       <Text style={styles.titleText}>Drag this box!</Text>
       <Animated.View
         style={{
-          transform: [{ translateX: pan.x }, { translateY: pan.y }]
+          transform: [{translateX: pan.x}, {translateY: pan.y}],
         }}
-        {...panResponder.panHandlers}
-      >
+        {...panResponder.panHandlers}>
         <View style={styles.box} />
       </Animated.View>
     </View>
@@ -146,28 +139,28 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleText: {
     fontSize: 14,
     lineHeight: 24,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   box: {
     height: 150,
     width: 150,
-    backgroundColor: "blue",
-    borderRadius: 5
-  }
+    backgroundColor: 'blue',
+    borderRadius: 5,
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=PanResponder
-import React, { Component } from "react";
-import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+import React, {Component} from 'react';
+import {Animated, View, StyleSheet, PanResponder, Text} from 'react-native';
 
 export default class App extends Component {
   pan = new Animated.ValueXY();
@@ -176,16 +169,16 @@ export default class App extends Component {
     onPanResponderGrant: () => {
       this.pan.setOffset({
         x: this.pan.x._value,
-        y: this.pan.y._value
+        y: this.pan.y._value,
       });
     },
     onPanResponderMove: Animated.event([
       null,
-      { dx: this.pan.x, dy: this.pan.y }
+      {dx: this.pan.x, dy: this.pan.y},
     ]),
     onPanResponderRelease: () => {
       this.pan.flattenOffset();
-    }
+    },
   });
 
   render() {
@@ -194,10 +187,9 @@ export default class App extends Component {
         <Text style={styles.titleText}>Drag this box!</Text>
         <Animated.View
           style={{
-            transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
+            transform: [{translateX: this.pan.x}, {translateY: this.pan.y}],
           }}
-          {...this.panResponder.panHandlers}
-        >
+          {...this.panResponder.panHandlers}>
           <View style={styles.box} />
         </Animated.View>
       </View>
@@ -208,20 +200,20 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   titleText: {
     fontSize: 14,
     lineHeight: 24,
-    fontWeight: "bold"
+    fontWeight: 'bold',
   },
   box: {
     height: 150,
     width: 150,
-    backgroundColor: "blue",
-    borderRadius: 5
-  }
+    backgroundColor: 'blue',
+    borderRadius: 5,
+  },
 });
 ```
 

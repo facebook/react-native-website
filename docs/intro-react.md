@@ -34,12 +34,10 @@ The rest of this introduction to React uses cats in its examples: friendly, appr
 
 ```SnackPlayer name=Your%20Cat
 import React from 'react';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
 export default function Cat() {
-  return (
-    <Text>Hello, I am your cat!</Text>
-  );
+  return <Text>Hello, I am your cat!</Text>;
 }
 ```
 
@@ -79,14 +77,12 @@ export default function Cat() {
 Class components tend to be a bit more verbose than function components.
 
 ```SnackPlayer name=Your%20Cat
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+import React, {Component} from 'react';
+import {Text} from 'react-native';
 
 export default class Cat extends Component {
   render() {
-    return (
-      <Text>Hello, I am your cat!</Text>
-    );
+    return <Text>Hello, I am your cat!</Text>;
   }
 }
 ```
@@ -135,13 +131,11 @@ React and React Native use **JSX,** a syntax that lets you write elements inside
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
 export default function Cat() {
-  const name = "Maru";
-  return (
-    <Text>Hello, I am {name}!</Text>
-  );
+  const name = 'Maru';
+  return <Text>Hello, I am {name}!</Text>;
 }
 ```
 
@@ -149,18 +143,14 @@ Any JavaScript expression will work between curly braces, including function cal
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
-import { Text } from 'react-native';
+import {Text} from 'react-native';
 
 export default function Cat() {
   function getFullName(firstName, secondName, thirdName) {
-    return firstName + " " + secondName + " " + thirdName;
+    return firstName + ' ' + secondName + ' ' + thirdName;
   }
 
-  return (
-    <Text>
-      Hello, I am {getFullName("Rum", "Tum", "Tugger")}!
-    </Text>
-  );
+  return <Text>Hello, I am {getFullName('Rum', 'Tum', 'Tugger')}!</Text>;
 }
 ```
 
@@ -176,7 +166,7 @@ For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [
 
 ```SnackPlayer name=Custom%20Components
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 
 export default function Cat() {
   return (
@@ -186,7 +176,7 @@ export default function Cat() {
         style={{
           height: 40,
           borderColor: 'gray',
-          borderWidth: 1
+          borderWidth: 1,
         }}
         defaultValue="Name me!"
       />
@@ -217,7 +207,7 @@ You can render this component multiple times and multiple places without repeati
 
 ```SnackPlayer name=Multiple%20Components
 import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import {Text, TextInput, View} from 'react-native';
 
 function Cat() {
   return (
@@ -249,7 +239,7 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
-import { Text, View } from 'react-native';
+import {Text, View} from 'react-native';
 
 function Cat(props) {
   return (
@@ -274,7 +264,7 @@ Most of React Native’s Core Components can be customized with props, too. For 
 
 ```SnackPlayer name=Props
 import React from 'react';
-import { Text, View, Image } from 'react-native';
+import {Text, View, Image} from 'react-native';
 
 export default function CatApp() {
   return (
@@ -319,8 +309,8 @@ The following example takes place in a cat cafe where two hungry cats are waitin
 You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html). A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
 ```SnackPlayer name=State
-import React, { useState } from "react";
-import { Button, Text, View } from "react-native";
+import React, {useState} from 'react';
+import {Button, Text, View} from 'react-native';
 
 function Cat(props) {
   const [isHungry, setIsHungry] = useState(true);
@@ -328,14 +318,14 @@ function Cat(props) {
   return (
     <View>
       <Text>
-        I am {props.name}, and I am {isHungry ? "hungry" : "full"}!
+        I am {props.name}, and I am {isHungry ? 'hungry' : 'full'}!
       </Text>
       <Button
         onPress={() => {
           setIsHungry(false);
         }}
         disabled={!isHungry}
-        title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
+        title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
       />
     </View>
   );
@@ -416,26 +406,26 @@ export default function Cafe() {
 The older class components approach is a little different when it comes to state.
 
 ```SnackPlayer name=State%20and%20Class%20Components
-import React, { Component } from "react";
-import { Button, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {Button, Text, View} from 'react-native';
 
 export class Cat extends Component {
-  state = { isHungry: true };
+  state = {isHungry: true};
 
   render(props) {
     return (
       <View>
         <Text>
           I am {this.props.name}, and I am
-          {this.state.isHungry ? " hungry" : " full"}!
+          {this.state.isHungry ? ' hungry' : ' full'}!
         </Text>
         <Button
           onPress={() => {
-            this.setState({ isHungry: false });
+            this.setState({isHungry: false});
           }}
           disabled={!this.state.isHungry}
           title={
-            this.state.isHungry ? "Pour me some milk, please!" : "Thank you!"
+            this.state.isHungry ? 'Pour me some milk, please!' : 'Thank you!'
           }
         />
       </View>

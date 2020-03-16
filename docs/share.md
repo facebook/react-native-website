@@ -20,9 +20,9 @@ title: Share
 
 ```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
 import React from 'react';
-import { Share, View, Button } from 'react-native';
+import {Share, View, Button} from 'react-native';
 
-export default ShareExample = () => {
+export default (ShareExample = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -43,18 +43,18 @@ export default ShareExample = () => {
     }
   };
   return (
-    <View style={{ marginTop: 50 }}>
+    <View style={{marginTop: 50}}>
       <Button onPress={onShare} title="Share" />
     </View>
   );
-};
+});
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
-import React, { Component } from 'react';
-import { Share, View, Button } from 'react-native';
+import React, {Component} from 'react';
+import {Share, View, Button} from 'react-native';
 
 class ShareExample extends Component {
   onShare = async () => {
@@ -80,7 +80,7 @@ class ShareExample extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 50 }}>
+      <View style={{marginTop: 50}}>
         <Button onPress={this.onShare} title="Share" />
       </View>
     );
@@ -153,4 +153,3 @@ static dismissedAction()
 ```
 
 _iOS Only_. The dialog has been dismissed.
-

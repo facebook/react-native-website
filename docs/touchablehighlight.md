@@ -23,7 +23,7 @@ function MyComponent(props) {
   underlayColor="#DDDDDD"
   onPress={() => alert('Pressed!')}>
   <MyComponent />
-</TouchableHighlight>
+</TouchableHighlight>;
 ```
 
 ## Example
@@ -42,8 +42,8 @@ function MyComponent(props) {
 <block class="functional syntax" />
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
-import React, { useState } from "react";
-import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import React, {useState} from 'react';
+import {StyleSheet, TouchableHighlight, Text, View} from 'react-native';
 
 export default function TouchableHighlightExample() {
   const [count, setCount] = useState(0);
@@ -68,39 +68,39 @@ export default function TouchableHighlightExample() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
+    justifyContent: 'center',
+    paddingHorizontal: 10,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
+    alignItems: 'center',
+    padding: 10,
   },
   countText: {
-    color: "#FF00FF"
-  }
+    color: '#FF00FF',
+  },
 });
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
-import React, { Component } from "react";
-import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import React, {Component} from 'react';
+import {StyleSheet, TouchableHighlight, Text, View} from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { count: 0 };
+    this.state = {count: 0};
   }
 
   onPress = () => {
     this.setState({
-      count: this.state.count + 1
+      count: this.state.count + 1,
     });
   };
 
@@ -123,23 +123,24 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    paddingHorizontal: 10
+    justifyContent: 'center',
+    paddingHorizontal: 10,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    alignItems: 'center',
+    backgroundColor: '#DDDDDD',
+    padding: 10,
   },
   countContainer: {
-    alignItems: "center",
-    padding: 10
+    alignItems: 'center',
+    padding: 10,
   },
   countText: {
-    color: "#FF00FF"
-  }
+    color: '#FF00FF',
+  },
 });
 ```
+
 <block class="endBlock syntax" />
 
 ---

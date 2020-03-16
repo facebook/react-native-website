@@ -63,13 +63,13 @@ Your own components can also use `props`. This lets you make a single component 
 
 ```SnackPlayer name=Hello%20Props
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   center: {
-    alignItems: 'center'
-  }
-})
+    alignItems: 'center',
+  },
+});
 
 function Greeting(props) {
   return (
@@ -82,9 +82,9 @@ function Greeting(props) {
 function LotsOfGreetings() {
   return (
     <View style={[styles.center, {top: 50}]}>
-      <Greeting name='Rexxar' />
-      <Greeting name='Jaina' />
-      <Greeting name='Valeera' />
+      <Greeting name="Rexxar" />
+      <Greeting name="Jaina" />
+      <Greeting name="Valeera" />
     </View>
   );
 }
@@ -115,41 +115,31 @@ As shown in the image, there is no difference in handling the `state` between [R
 In the following example we will show the same above counter example using classes.
 
 ```SnackPlayer name=Hello%20Classes
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native'
+import React, {Component} from 'react';
+import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
 class App extends Component {
   state = {
-    count: 0
-  }
+    count: 0,
+  };
 
   onPress = () => {
     this.setState({
-      count: this.state.count + 1
-    })
-  }
+      count: this.state.count + 1,
+    });
+  };
 
- render() {
+  render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-        >
-         <Text>Click me</Text>
+        <TouchableOpacity style={styles.button} onPress={this.onPress}>
+          <Text>Click me</Text>
         </TouchableOpacity>
         <View style={styles.countContainer}>
-          <Text>
-            You clicked { this.state.count } times
-          </Text>
+          <Text>You clicked {this.state.count} times</Text>
         </View>
       </View>
-    )
+    );
   }
 }
 
@@ -163,9 +153,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-    marginBottom: '10'
-  }
-})
+    marginBottom: '10',
+  },
+});
 
 export default App;
 ```

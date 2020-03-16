@@ -23,51 +23,54 @@ The Keyboard module allows you to listen for native events and react to them, as
 <block class="functional syntax" />
 
 ```SnackPlayer name=Keyboard%20Function%20Component%20Example
-
-import React, { useEffect } from "react";
-import { Keyboard, TextInput, StyleSheet } from "react-native";
+import React, {useEffect} from 'react';
+import {Keyboard, TextInput, StyleSheet} from 'react-native';
 
 export default function Example() {
-
   useEffect(() => {
-    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
-    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+    Keyboard.addListener('keyboardDidShow', _keyboardDidShow);
+    Keyboard.addListener('keyboardDidHide', _keyboardDidHide);
 
     // cleanup function
     return () => {
-      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
-      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+      Keyboard.removeListener('keyboardDidShow', _keyboardDidShow);
+      Keyboard.removeListener('keyboardDidHide', _keyboardDidHide);
     };
   }, []);
 
   const _keyboardDidShow = () => {
-    alert("Keyboard Shown");
+    alert('Keyboard Shown');
   };
 
   const _keyboardDidHide = () => {
-    alert("Keyboard Hidden");
+    alert('Keyboard Hidden');
   };
 
-  return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
+  return (
+    <TextInput
+      style={s.input}
+      placeholder="Click here ..."
+      onSubmitEditing={Keyboard.dismiss}
+    />
+  );
 }
 
 const s = StyleSheet.create({
-   input:{
-    margin:60,
+  input: {
+    margin: 60,
     padding: 10,
     borderWidth: 0.5,
     borderRadius: 4,
-    backgroundColor: "#fff"
-   }
-})
-
+    backgroundColor: '#fff',
+  },
+});
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Keyboard%20Class%20Component%20Example
 import React, {Component} from 'react';
-import {Keyboard, TextInput , StyleSheet} from 'react-native';
+import {Keyboard, TextInput, StyleSheet} from 'react-native';
 
 export default class Example extends Component {
   componentDidMount() {
@@ -95,19 +98,25 @@ export default class Example extends Component {
   }
 
   render() {
-    return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
+    return (
+      <TextInput
+        style={s.input}
+        placeholder="Click here ..."
+        onSubmitEditing={Keyboard.dismiss}
+      />
+    );
   }
 }
 
 const s = StyleSheet.create({
-   input:{
-    margin:60,
+  input: {
+    margin: 60,
     padding: 10,
     borderWidth: 0.5,
     borderRadius: 4,
-    backgroundColor: "#fff"
-   }
-})
+    backgroundColor: '#fff',
+  },
+});
 ```
 
 <block class="endBlock syntax" />

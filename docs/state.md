@@ -10,34 +10,34 @@ In general, you should initialize `state` in the constructor, and then call `set
 For example, let's say we want to make text that blinks all the time. The text itself gets set once when the blinking component gets created, so the text itself is a `prop`. The "whether the text is currently on or off" changes over time, so that should be kept in `state`.
 
 ```SnackPlayer name=State
-import React, { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Text, View} from 'react-native';
 
 const Blink = (props) => {
   const [isShowingText, setIsShowingText] = useState(true);
 
-   useEffect(() => {
-     const toggle = setInterval(() => {
-       setIsShowingText(!isShowingText);
-     }, 1000);
+  useEffect(() => {
+    const toggle = setInterval(() => {
+      setIsShowingText(!isShowingText);
+    }, 1000);
 
-     return () => clearInterval(toggle);
-  })
+    return () => clearInterval(toggle);
+  });
 
   if (!isShowingText) {
     return null;
   }
 
   return <Text>{props.text}</Text>;
-}
+};
 
 export default function BlinkApp() {
   return (
     <View style={{marginTop: 50}}>
-      <Blink text='I love to blink' />
-      <Blink text='Yes blinking is so great' />
-      <Blink text='Why did they ever take this out of HTML' />
-      <Blink text='Look at me look at me look at me' />
+      <Blink text="I love to blink" />
+      <Blink text="Yes blinking is so great" />
+      <Blink text="Why did they ever take this out of HTML" />
+      <Blink text="Look at me look at me look at me" />
     </View>
   );
 }
