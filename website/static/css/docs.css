@@ -185,6 +185,10 @@ figcaption {
   padding: 8px 0 0 16px;
 }
 
+.onPageNav ul ul li {
+  padding-bottom: 4px;
+}
+
 .onPageNav .toc-headings > li > a.active {
   border-left: 4px solid #61dafb;
   margin-left: -15px;
