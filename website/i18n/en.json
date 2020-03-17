@@ -386,6 +386,9 @@
       "upgrading": {
         "title": "Upgrading to new React Native versions"
       },
+      "usecolorscheme": {
+        "title": "useColorScheme"
+      },
       "usewindowdimensions": {
         "title": "useWindowDimensions"
       },

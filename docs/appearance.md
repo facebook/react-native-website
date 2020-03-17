@@ -7,18 +7,7 @@ title: Appearance
 import {Appearance} from 'react-native';
 ```
 
-Exposes information about the user's appearance preferences.
-
-You can use the Appearance module to determine if the user prefers a dark color scheme:
-
-```jsx
-const colorScheme = Appearance.getColorScheme();
-if (colorScheme === 'dark') {
-  // Use dark color scheme
-}
-```
-
-Although the color scheme is available immediately, this may change (e.g scheduled color scheme change at sunrise or sunset). Any rendering logic or styles that depend on the user preferred color scheme should try to call this function on every render, rather than caching the value (for example, using a context and the `useColorScheme` hook, or using inline styles rather than setting a value in a `StyleSheet`).
+The `Appearance` module exposes information about the user's appearance preferences, such as their preferred color scheme (light or dark).
 
 <div class="toggler">
   <span>Developer Notes</span>
@@ -31,7 +20,7 @@ Although the color scheme is available immediately, this may change (e.g schedul
 
 <block class="webNote devNotes" />
 
-> The Appearance API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
+> The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
 
 <block class="androidNote devNotes" />
 
@@ -43,20 +32,18 @@ Although the color scheme is available immediately, this may change (e.g schedul
 
 <block class="endBlock devNotes" />
 
-### `useColorScheme` Hook
+## Example
 
-The `useColorScheme` React hook provides and subscribes to color scheme updates:
+You can use the `Appearance` module to determine if the user prefers a dark color scheme:
 
 ```jsx
-import {Text, useColorScheme} from 'react-native';
-
-const MyComponent = () => {
-  const colorScheme = useColorScheme();
-  return <Text>useColorScheme(): {colorScheme}</Text>;
-};
+const colorScheme = Appearance.getColorScheme();
+if (colorScheme === 'dark') {
+  // Use dark color scheme
+}
 ```
 
-You can find a complete example that demonstrates the use of this hook alongside a React context to add support for light and dark themes to your application in [`AppearanceExample.js`](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/Appearance/AppearanceExample.js).
+Although the color scheme is available immediately, this may change (e.g. scheduled color scheme change at sunrise or sunset). Any rendering logic or styles that depend on the user preferred color scheme should try to call this function on every render, rather than caching the value. For example, you may use the [`useColorScheme`](usecolorscheme) React hook as it provides and subscribes to color scheme updates, or you may use inline styles rather than setting a value in a `StyleSheet`.
 
 # Reference
 
