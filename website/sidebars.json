@@ -140,6 +140,7 @@
       "timepickerandroid",
       "toastandroid",
       "transforms",
+      "usecolorscheme",
       "usewindowdimensions",
       "vibration"
     ]
