@@ -296,6 +296,9 @@
       "sectionlist": {
         "title": "SectionList"
       },
+      "security": {
+        "title": "Security"
+      },
       "segmentedcontrolios": {
         "title": "🚧 SegmentedControlIOS"
       },
