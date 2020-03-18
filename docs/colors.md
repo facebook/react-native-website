@@ -14,7 +14,7 @@ React Native supports `rgb()` and `rgba()` in both hexadecimal and functional no
 - `'#f0ff'` (#rgba)
 - `'#ff00ff00'` (#rrggbbaa)
 - `'rgb(255, 0, 255)'`
-- `'rgba(255, 255, 255, 1.0)'`
+- `'rgba(255, 0, 255, 1.0)'`
 
 ## Hue Saturation Lightness (HSL)
 
@@ -29,7 +29,7 @@ React Native supports also colors as an `int` values (in RGB color mode):
 
 - `0xff00ff00` (0xrrggbbaa)
 
-> **_Note:_** This might appear similar to the Android [Color](https://developer.android.com/reference/android/graphics/Color) format but on Android values are stored in SRGB color mode (0xaarrggbb).
+> **_Note:_** This might appear similar to the Android [Color](https://developer.android.com/reference/android/graphics/Color) ints representation but on Android values are stored in SRGB color mode (0xaarrggbb).
 
 ## Named colors
 
