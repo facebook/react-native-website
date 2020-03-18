@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
 
 `Platform.OS` will be `ios` when running on iOS and `android` when running on Android.
 
-There is also a `Platform.select` method available, that given an object containing Platform.OS as keys, returns the value for the platform you are currently running on.
+There is also a `Platform.select` method available, that given an object containing Platform.OS as keys, returns the value for the platform you are currently running on. When the platform does not match any of the keys, it will return the value for `default` key (if any).
 
 ```jsx
 import {Platform, StyleSheet} from 'react-native';
@@ -39,8 +39,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'red',
       },
       android: {
-        backgroundColor: 'blue',
+        backgroundColor: 'green',
       },
+      default: {
+        // other platforms, web for example
+        backgroundColor: 'blue',
+      }
     }),
   },
 });
