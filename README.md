@@ -4,10 +4,10 @@ This repo contains the website configuration and documentation powering the [Rea
 
 ## Contents
 
-- [Getting started](#-requirements)
-- [Overview](#-building-your-first-react-native-app)
-- [Website configuration](#-documentation)
-- [Contributing](#-upgrading)
+- [Getting started](#-getting-started)
+- [Overview](#-overview)
+- [Website configuration](#-website-configuration)
+- [Contributing](#-contributing)
 - [License](#-license)
 
 ## 📋 Getting started
