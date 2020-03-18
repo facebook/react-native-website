@@ -6,10 +6,9 @@ title: View Style Props
 ### Example
 
 ```SnackPlayer name=ViewStyleProps
-import React, { Component } from "react";
+import React from "react";
 import { View, StyleSheet } from "react-native";
-export default class ViewStyleProps extends Component {
-  render() {
+export default ViewStyleProps = () => {
     return (
       <View style={styles.container}>
         <View style={styles.top} />
@@ -17,7 +16,6 @@ export default class ViewStyleProps extends Component {
         <View style={styles.bottom} />
       </View>
     );
-  }
 }
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +36,6 @@ const styles = StyleSheet.create({
     flex: 0.3,
     backgroundColor: "beige",
     borderWidth: 5,
-    borderColor: "black"
   },
   bottom: {
     flex: 0.3,
