@@ -257,7 +257,7 @@ Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
 
-> If this fails with errors mentioning `xcrun`, make sure that in Xcode in Preferences > Locations the Command Line Tools are assigned.
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in **Preferences > Locations** the Command Line Tools are assigned.
 
 <block class="swift" />
 
