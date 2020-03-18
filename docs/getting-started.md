@@ -220,6 +220,12 @@ Using the default Ruby install will require you to use `sudo` when installing ge
 sudo gem install cocoapods
 ```
 
+If you face errors about a header file not found try to install this package:
+
+/Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+
+And try again
+
 For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
 <block class="native linux android" />
