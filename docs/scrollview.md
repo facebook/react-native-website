@@ -243,7 +243,7 @@ Sometimes a scrollview takes up more space than its content fills. When this is 
 
 ---
 
-### `endFillColor`
+### `fadingEdgeLength`
 
 Fades out the edges of the the scroll content.
 
