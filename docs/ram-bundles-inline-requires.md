@@ -16,8 +16,8 @@ Inline requires delay the requiring of a module or file until that file is actua
 ### VeryExpensive.js
 
 ```js
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+import React, {Component} from 'react';
+import {Text} from 'react-native';
 // ... import some very expensive modules
 
 // You may want to log at the file level to verify when this is happening
@@ -34,13 +34,13 @@ export default class VeryExpensive extends Component {
 ### Optimized.js
 
 ```js
-import React, { Component } from 'react';
-import { TouchableOpacity, View, Text } from 'react-native';
+import React, {Component} from 'react';
+import {TouchableOpacity, View, Text} from 'react-native';
 
 let VeryExpensive = null;
 
 export default class Optimized extends Component {
-  state = { needsExpensive: false };
+  state = {needsExpensive: false};
 
   didPress = () => {
     if (VeryExpensive == null) {
@@ -54,7 +54,7 @@ export default class Optimized extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 20 }}>
+      <View style={{marginTop: 20}}>
         <TouchableOpacity onPress={this.didPress}>
           <Text>Load</Text>
         </TouchableOpacity>
@@ -110,32 +110,34 @@ In your root file (index.(ios|android).js) you can add the following after the i
 const modules = require.getModules();
 const moduleIds = Object.keys(modules);
 const loadedModuleNames = moduleIds
-  .filter(moduleId => modules[moduleId].isInitialized)
-  .map(moduleId => modules[moduleId].verboseName);
+  .filter((moduleId) => modules[moduleId].isInitialized)
+  .map((moduleId) => modules[moduleId].verboseName);
 const waitingModuleNames = moduleIds
-  .filter(moduleId => !modules[moduleId].isInitialized)
-  .map(moduleId => modules[moduleId].verboseName);
+  .filter((moduleId) => !modules[moduleId].isInitialized)
+  .map((moduleId) => modules[moduleId].verboseName);
 
 // make sure that the modules you expect to be waiting are actually waiting
 console.log(
   'loaded:',
   loadedModuleNames.length,
   'waiting:',
-  waitingModuleNames.length
+  waitingModuleNames.length,
 );
 
 // grab this text blob, and put it in a file named packager/modulePaths.js
-console.log(`module.exports = ${JSON.stringify(loadedModuleNames.sort(), null, 2)};`);
+console.log(
+  `module.exports = ${JSON.stringify(loadedModuleNames.sort(), null, 2)};`,
+);
 ```
 
 When you run your app, you can look in the console and see how many modules have been loaded, and how many are waiting. You may want to read the moduleNames and see if there are any surprises. Note that inline requires are invoked the first time the imports are referenced. You may need to investigate and refactor to ensure only the modules you want are loaded on startup. Note that you can change the Systrace object on require to help debug problematic requires.
 
 ```js
 require.Systrace.beginEvent = (message) => {
-  if(message.includes(problematicModule)) {
+  if (message.includes(problematicModule)) {
     throw new Error();
   }
-}
+};
 ```
 
 Every app is different, but it may make sense to only load the modules you need for the very first screen. When you are satisfied, put the output of the loadedModuleNames into a file named `packager/modulePaths.js`.
@@ -156,18 +158,18 @@ const config = {
   transformer: {
     getTransformOptions: () => {
       const moduleMap = {};
-      modulePaths.forEach(path => {
+      modulePaths.forEach((path) => {
         if (fs.existsSync(path)) {
           moduleMap[resolve(path)] = true;
         }
       });
       return {
         preloadedModules: moduleMap,
-        transform: { inlineRequires: { blacklist: moduleMap } },
+        transform: {inlineRequires: {blacklist: moduleMap}},
       };
     },
   },
-  projectRoot:ROOT_FOLDER,
+  projectRoot: ROOT_FOLDER,
 };
 
 module.exports = config;
