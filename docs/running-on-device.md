@@ -287,7 +287,7 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 As your App Bundle grows in size, you may start to see a blank screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
 
-```objc
+```objectivec
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
   UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
   launchScreenView.frame = self.window.bounds;
@@ -296,7 +296,7 @@ As your App Bundle grows in size, you may start to see a blank screen flash betw
 
 The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
 
-```shell
+```sh
  if [ "${CONFIGURATION}" == "Debug" ]; then
   export SKIP_BUNDLING=true
  fi
