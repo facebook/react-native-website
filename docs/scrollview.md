@@ -243,6 +243,18 @@ Sometimes a scrollview takes up more space than its content fills. When this is 
 
 ---
 
+### `endFillColor`
+
+Fades out the edges of the the scroll content.
+
+If the value is greater than 0, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
+
+| Type               | Required | Default | Platform |
+| ------------------ | -------- | ------- | -------- |
+| number             | No       | 0       | Android  |
+
+---
+
 ### `horizontal`
 
 When true, the scroll view's children are arranged horizontally in a row instead of vertically in a column. The default value is false.
