@@ -1,14 +1,22 @@
-# [reactnative.dev](https://reactnative.dev/) &middot; [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+# [reactnative.dev](https://reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs.md) [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 
-## Getting started
+## Contents
+
+- [Getting started](#-requirements)
+- [Overview](#-building-your-first-react-native-app)
+- [Website configuration](#-documentation)
+- [Contributing](#-upgrading)
+- [License](#-license)
+
+## 📋 Getting started
 
 ### Prerequisites
 
-1.  Git
-1.  Node: install version 8 or greater.
-1.  Yarn: See [Yarn website for installation instructions](https://yarnpkg.com/lang/en/docs/install/). (needs 1.5 or greater).
+1.  [Git](https://git-scm.com/downloads)
+1.  [Node](https://nodejs.org/en/download/) (version 10 or greater).
+1.  [Yarn](https://yarnpkg.com/lang/en/docs/install/) (version 1.5 or greater).
 1.  A fork of the repo (for any contributions).
 1.  A clone of the `react-native-website` repo.
 
@@ -23,13 +31,13 @@ This repo contains the website configuration and documentation powering the [Rea
 1.  `yarn start` to start the development server (powered by Docusaurus) (or `npm start`, if not using Yarn).
 1.  `open http://localhost:3000/` to open the site in your favorite browser.
 
-# Overview
+## 📖 Overview
 
 If you would like to _contribute an edit or addition to the docs,_ read through our [style guide](STYLEGUIDE.md) before you write anything. All our content is generated from markdown files you can find in the 'docs/' directory.
 
 _To edit the internals of how the site is built,_ you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the 'website/' directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
-## Directory Structure
+### Directory Structure
 
 The following is a high-level overview of relevant files and folders.
 
@@ -66,7 +74,7 @@ react-native-website/
     └── versions.json
 ```
 
-## Documentation sources
+### Documentation sources
 
 As mentioned above, the 'docs/' folder contains the source files for all of the docs in the React Native website. In most cases, you will want to edit the files within this directory. If you're adding a new doc or you need to alter the order the docs appear in the sidebar, take a look at the 'sidebars.json' file in the 'website/' directory. The sidebars file contains a list of document ids that should match those defined in the header metadata (aka frontmatter) of the docs markdown files.
 
@@ -84,7 +92,7 @@ Docusaurus keeps track of the list of versions for the site in the 'website/vers
 1.  `cd website` to go into the website portion of the project.
 1.  Run `yarn run version <newVersion>` where `<newVersion>` is the new version being released.
 
-## Website configuration
+## 🔧 Website configuration
 
 The main config file for the website can be found at 'website/siteConfig.js'. This file tells [Docusaurus how to build the website](http://docusaurus.io/docs/en/site-config.html). Edits to this file are rarely necessary.
 
@@ -92,7 +100,7 @@ The 'pages/' subdirectory contains the React components that make up the non-doc
 
 The 'showcase.json' file contains the list of users that are highlighted in the React Native showcase.
 
-## Contributing
+## 👏 Contributing
 
 ### Create a branch
 
@@ -122,9 +130,7 @@ If possible, test any visual changes in all latest versions of Firefox and Chrom
 1.  Follow GitHub's instructions.
 1.  If possible, include screenshots of visual changes.
 
----
-
-## License
+## 📄 License
 
 React Native is [MIT licensed](./LICENSE).
 
