@@ -55,7 +55,6 @@ react-native-website/
     ├── core/
     ├── pages/
     │   └── en/
-    │       ├── ...
     │       ├── index.js
     │       └── ...
     ├── static/
@@ -68,6 +67,7 @@ react-native-website/
     ├── versioned_sidebars/
     │   ├── version-0.5-sidebars.json
     │   └── ...
+    ├── package.json
     ├── showcase.json
     ├── sidebars.json
     ├── siteConfig.js
