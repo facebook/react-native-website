@@ -130,7 +130,7 @@ Make sure that you replace `22b8` with the identifier you get in the above comma
 
 Now check that your device is properly connecting to ADB, the Android Debug Bridge, by running `adb devices`.
 
-```
+```sh
 $ adb devices
 List of devices attached
 emulator-5554 offline   # Google emulator
@@ -143,7 +143,7 @@ Seeing `device` in the right column means the device is connected. You must have
 
 Type the following in your command prompt to install and launch your app on the device:
 
-```
+```sh
 $ npx react-native run-android
 ```
 
@@ -218,13 +218,13 @@ You can use this method if your device is running Android 5.0 (Lollipop) or newe
 
 Run the following in a command prompt:
 
-```
+```sh
 $ adb -s <device name> reverse tcp:8081 tcp:8081
 ```
 
 To find the device name, run the following adb command:
 
-```
+```sh
 $ adb devices
 ```
 

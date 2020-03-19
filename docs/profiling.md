@@ -23,7 +23,7 @@ The first step for debugging this jank is to answer the fundamental question of 
 
 First, connect a device that exhibits the stuttering you want to investigate to your computer via USB and get it to the point right before the navigation/animation you want to profile. Run `systrace` as follows:
 
-```
+```sh
 $ <path_to_android_sdk>/platform-tools/systrace/systrace.py --time=10 -o trace.html sched gfx view -a <your_package_name>
 ```
 

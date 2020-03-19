@@ -15,7 +15,7 @@ Many developers struggle with installing and configuring React Native’s curren
 
 Try creating a new project (replace with suitable yarn commands if you have it installed):
 
-```
+```sh
 $ npm i -g create-react-native-app
 $ create-react-native-app my-project
 $ cd my-project
