@@ -38,7 +38,7 @@ import { View } from 'react-native';
 export default FlexDirectionBasics = () => {
     return (
       // Try setting `flexDirection` to `column`.
-      <View style={{flex: 1, flexDirection: 'row', marginTop: 20}}>
+      <View style={{flex: 1, flexDirection: 'row'}}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
@@ -87,7 +87,6 @@ export default JustifyContentBasics = () => {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-between',
-        marginTop: 20,
       }}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
@@ -131,7 +130,6 @@ export default AlignItemsBasics = () => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'stretch',
-        marginTop: 20
       }}>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
         <View style={{height: 50, backgroundColor: 'skyblue'}} />
