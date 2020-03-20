@@ -249,3 +249,12 @@ article iframe {
     max-width: 100%;
   }
 }
+
+.color-box {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin: 2px 8px 0 0;
+  border: 0.05rem solid $deepdark;
+  border-radius: 3px;
+}
