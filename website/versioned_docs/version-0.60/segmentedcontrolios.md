@@ -19,7 +19,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
   values={['One', 'Two']}
   selectedIndex={this.state.selectedIndex}
   onChange={(event) => {
-    this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+    this.setState({ selectedIndex: event.nativeEvent.selectedSegmentIndex });
   }}
 />
 ```

@@ -13,7 +13,7 @@ The tail end of these changes were landed in [this commit](https://github.com/fa
 To opt into this new implementation, please use the [`useWebKit`](/docs/next/webview#usewebkit) prop:
 
 ```js
-<WebView useWebKit={true} source={{url: 'https://www.google.com'}} />
+<WebView useWebKit={true} source={{ url: 'https://www.google.com' }} />
 ```
 
 ## Improvements

@@ -17,7 +17,7 @@ Creating an iOS prompt:
 
 ```jsx
 AlertIOS.prompt('Enter a value', null, (text) =>
-  console.log('You entered ' + text),
+  console.log('You entered ' + text)
 );
 ```
 
@@ -56,13 +56,13 @@ AlertIOS.alert(
     {
       text: 'Cancel',
       onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel',
+      style: 'cancel'
     },
     {
       text: 'Install',
-      onPress: () => console.log('Install Pressed'),
-    },
-  ],
+      onPress: () => console.log('Install Pressed')
+    }
+  ]
 );
 ```
 
@@ -97,14 +97,14 @@ AlertIOS.prompt(
     {
       text: 'Cancel',
       onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel',
+      style: 'cancel'
     },
     {
       text: 'OK',
-      onPress: (password) => console.log('OK Pressed, password: ' + password),
-    },
+      onPress: (password) => console.log('OK Pressed, password: ' + password)
+    }
   ],
-  'secure-text',
+  'secure-text'
 );
 ```
 
@@ -118,7 +118,7 @@ AlertIOS.prompt(
   null,
   (text) => console.log('Your username is ' + text),
   null,
-  'default',
+  'default'
 );
 ```
 

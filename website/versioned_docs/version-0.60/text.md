@@ -158,7 +158,7 @@ class MyAppHeaderText extends Component {
   render() {
     return (
       <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+        <Text style={{ fontSize: 20 }}>{this.props.children}</Text>
       </MyAppText>
     );
   }
@@ -170,9 +170,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
 ```jsx
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: 'bold' }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: 'red' }}>and red</Text>
 </Text>
 ```
 

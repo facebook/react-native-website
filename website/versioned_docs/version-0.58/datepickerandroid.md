@@ -10,15 +10,15 @@ Opens the standard Android date picker dialog.
 
 ```jsx
 try {
-  const {action, year, month, day} = await DatePickerAndroid.open({
+  const { action, year, month, day } = await DatePickerAndroid.open({
     // Use `new Date()` for current date.
     // May 25 2020. Month 0 is January.
-    date: new Date(2020, 4, 25),
+    date: new Date(2020, 4, 25)
   });
   if (action !== DatePickerAndroid.dismissedAction) {
     // Selected year, month (0-11), day
   }
-} catch ({code, message}) {
+} catch ({ code, message }) {
   console.warn('Cannot open date picker', message);
 }
 ```

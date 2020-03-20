@@ -75,7 +75,7 @@ module.exports = {
   },
   getSourceExts() {
     return ['ts', 'tsx'];
-  },
+  }
 };
 ```
 
@@ -172,7 +172,7 @@ Create a `components` directory and add the following example.
 ```ts
 // components/Hello.tsx
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export interface Props {
   name: string;
@@ -192,14 +192,14 @@ export class Hello extends React.Component<Props, State> {
     }
 
     this.state = {
-      enthusiasmLevel: props.enthusiasmLevel || 1,
+      enthusiasmLevel: props.enthusiasmLevel || 1
     };
   }
 
   onIncrement = () =>
-    this.setState({enthusiasmLevel: this.state.enthusiasmLevel + 1});
+    this.setState({ enthusiasmLevel: this.state.enthusiasmLevel + 1 });
   onDecrement = () =>
-    this.setState({enthusiasmLevel: this.state.enthusiasmLevel - 1});
+    this.setState({ enthusiasmLevel: this.state.enthusiasmLevel - 1 });
   getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
 
   render() {
@@ -239,23 +239,23 @@ export class Hello extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   buttons: {
     flexDirection: 'row',
     minHeight: 70,
     alignItems: 'stretch',
     alignSelf: 'center',
-    borderWidth: 5,
+    borderWidth: 5
   },
   button: {
     flex: 1,
-    paddingVertical: 0,
+    paddingVertical: 0
   },
   greeting: {
     color: '#999',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 ```
 
@@ -281,7 +281,7 @@ Now let's create a `__tests__` folder in the `components` directory and add a te
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {Hello} from '../Hello';
+import { Hello } from '../Hello';
 
 it('renders correctly with defaults', () => {
   const button = renderer

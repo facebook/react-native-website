@@ -24,7 +24,7 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 ### Example
 
 ```jsx
-import {PermissionsAndroid} from 'react-native';
+import { PermissionsAndroid } from 'react-native';
 
 async function requestCameraPermission() {
   try {
@@ -37,8 +37,8 @@ async function requestCameraPermission() {
           'so you can take awesome pictures.',
         buttonNeutral: 'Ask Me Later',
         buttonNegative: 'Cancel',
-        buttonPositive: 'OK',
-      },
+        buttonPositive: 'OK'
+      }
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
       console.log('You can use the camera');

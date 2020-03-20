@@ -66,15 +66,15 @@ _iOS Only_. The dialog has been dismissed.
 ## Basic Example
 
 ```jsx
-import React, {Component} from 'react';
-import {Share, Button} from 'react-native';
+import React, { Component } from 'react';
+import { Share, Button } from 'react-native';
 
 class ShareExample extends Component {
   onShare = async () => {
     try {
       const result = await Share.share({
         message:
-          'React Native | A framework for building native apps using React',
+          'React Native | A framework for building native apps using React'
       });
 
       if (result.action === Share.sharedAction) {

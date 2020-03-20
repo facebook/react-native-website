@@ -33,7 +33,7 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer 
+yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
@@ -68,7 +68,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 ```js
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 };
 ```
 

@@ -30,9 +30,9 @@ If the cropping process is successful, the resultant cropped image will be store
 
 ```jsx
 cropData = {
-  offset: {x: number, y: number},
-  size: {width: number, height: number},
-  displaySize: {width: number, height: number},
-  resizeMode: 'contain/cover/stretch',
+  offset: { x: number, y: number },
+  size: { width: number, height: number },
+  displaySize: { width: number, height: number },
+  resizeMode: 'contain/cover/stretch'
 };
 ```

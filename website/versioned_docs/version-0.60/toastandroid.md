@@ -16,20 +16,20 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 Basic usage:
 
 ```jsx
-import {ToastAndroid} from 'react-native';
+import { ToastAndroid } from 'react-native';
 
 ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
 ToastAndroid.showWithGravity(
   'All Your Base Are Belong To Us',
   ToastAndroid.SHORT,
-  ToastAndroid.CENTER,
+  ToastAndroid.CENTER
 );
 ToastAndroid.showWithGravityAndOffset(
   'A wild toast appeared!',
   ToastAndroid.LONG,
   ToastAndroid.BOTTOM,
   25,
-  50,
+  50
 );
 ```
 
@@ -38,8 +38,8 @@ ToastAndroid.showWithGravityAndOffset(
 The ToastAndroid API is imperative and this might present itself as an issue, but there is actually a way(hack) to expose a declarative component from it. See an example below:
 
 ```jsx
-import React, {Component} from 'react';
-import {View, Button, ToastAndroid} from 'react-native';
+import React, { Component } from 'react';
+import { View, Button, ToastAndroid } from 'react-native';
 
 // a component that calls the imperative ToastAndroid API
 const Toast = (props) => {
@@ -49,7 +49,7 @@ const Toast = (props) => {
       ToastAndroid.LONG,
       ToastAndroid.BOTTOM,
       25,
-      50,
+      50
     );
     return null;
   }
@@ -60,24 +60,24 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false,
+      visible: false
     };
   }
 
   handleButtonPress = () => {
     this.setState(
       {
-        visible: true,
+        visible: true
       },
       () => {
         this.hideToast();
-      },
+      }
     );
   };
 
   hideToast = () => {
     this.setState({
-      visible: false,
+      visible: false
     });
   };
 

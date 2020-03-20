@@ -173,8 +173,8 @@ Component testing libraries such as [`react-native-testing-library`](https://git
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
-  const {getByPlaceholder, getByText, getAllByText} = render(
-    <GroceryShoppingList />,
+  const { getByPlaceholder, getByText, getAllByText } = render(
+    <GroceryShoppingList />
   );
 
   fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');

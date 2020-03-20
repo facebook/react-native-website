@@ -13,8 +13,8 @@ Animated.timing(
   // Animate value over time
   this.state.fadeAnim, // The value to drive
   {
-    toValue: 1, // Animate to final value of 1
-  },
+    toValue: 1 // Animate to final value of 1
+  }
 ).start(); // Start the animation
 ```
 
@@ -44,7 +44,7 @@ In most cases, you will be using `timing()`. By default, it uses a symmetric eas
 Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
 
 ```jsx
-this.animateValue.spring({}).start(({finished}) => {
+this.animateValue.spring({}).start(({ finished }) => {
   if (finished) {
     console.log('Animation was completed');
   } else {

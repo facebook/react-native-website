@@ -123,8 +123,8 @@ LayoutAnimation.configureNext(
   LayoutAnimation.create(
     500,
     LayoutAnimation.Types.spring,
-    LayoutAnimation.Properties.scaleXY,
-  ),
+    LayoutAnimation.Properties.scaleXY
+  )
 );
 ```
 

@@ -145,9 +145,9 @@ To use your custom web view, you'll need to create a class for it. Your class mu
 To get your native component, you must use `requireNativeComponent`: the same as for regular custom components. However, you must pass in an extra third argument, `WebView.extraNativeComponentConfig`. This third argument contains prop types that are only required for native code.
 
 ```jsx
-import React, {Component, PropTypes} from 'react';
-import {WebView, requireNativeComponent, NativeModules} from 'react-native';
-const {CustomWebViewManager} = NativeModules;
+import React, { Component, PropTypes } from 'react';
+import { WebView, requireNativeComponent, NativeModules } from 'react-native';
+const { CustomWebViewManager } = NativeModules;
 
 export default class CustomWebView extends Component {
   static propTypes = WebView.propTypes;
@@ -158,7 +158,7 @@ export default class CustomWebView extends Component {
         {...this.props}
         nativeConfig={{
           component: RCTCustomWebView,
-          viewManager: CustomWebViewManager,
+          viewManager: CustomWebViewManager
         }}
       />
     );
@@ -168,7 +168,7 @@ export default class CustomWebView extends Component {
 const RCTCustomWebView = requireNativeComponent(
   'RCTCustomWebView',
   CustomWebView,
-  WebView.extraNativeComponentConfig,
+  WebView.extraNativeComponentConfig
 );
 ```
 
@@ -183,15 +183,15 @@ export default class CustomWebView extends Component {
   static propTypes = {
     ...WebView.propTypes,
     finalUrl: PropTypes.string,
-    onNavigationCompleted: PropTypes.func,
+    onNavigationCompleted: PropTypes.func
   };
 
   static defaultProps = {
-    finalUrl: 'about:blank',
+    finalUrl: 'about:blank'
   };
 
   _onNavigationCompleted = (event) => {
-    const {onNavigationCompleted} = this.props;
+    const { onNavigationCompleted } = this.props;
     onNavigationCompleted && onNavigationCompleted(event);
   };
 
@@ -203,9 +203,9 @@ export default class CustomWebView extends Component {
           component: RCTCustomWebView,
           props: {
             finalUrl: this.props.finalUrl,
-            onNavigationCompleted: this._onNavigationCompleted,
+            onNavigationCompleted: this._onNavigationCompleted
           },
-          viewManager: CustomWebViewManager,
+          viewManager: CustomWebViewManager
         }}
       />
     );
@@ -225,8 +225,8 @@ const RCTCustomWebView = requireNativeComponent(
     ...WebView.extraNativeComponentConfig,
     nativeOnly: {
       ...WebView.extraNativeComponentConfig.nativeOnly,
-      onScrollToBottom: true,
-    },
-  },
+      onScrollToBottom: true
+    }
+  }
 );
 ```

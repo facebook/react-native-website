@@ -65,7 +65,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 Now, from your JavaScript file you can call the method like this:
 
 ```jsx
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 var CalendarManager = NativeModules.CalendarManager;
 CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
 ```
@@ -122,7 +122,7 @@ You would then call this from JavaScript by using either:
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.getTime(),
+  date.getTime()
 ); // passing date as number of milliseconds since Unix epoch
 ```
 
@@ -132,7 +132,7 @@ or
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.toISOString(),
+  date.toISOString()
 ); // passing date as ISO-8601 string
 ```
 
@@ -157,7 +157,7 @@ and call it from JavaScript:
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.getTime(),
-  description: '...',
+  description: '...'
 });
 ```
 
@@ -188,7 +188,7 @@ CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
   } else {
-    this.setState({events: events});
+    this.setState({ events: events });
   }
 });
 ```
@@ -225,7 +225,7 @@ async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
 
-    this.setState({events});
+    this.setState({ events });
   } catch (e) {
     console.error(e);
   }
@@ -335,7 +335,6 @@ static func requiresMainQueueSetup() -> Bool {
     return true
 }
 ```
-
 
 If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with `NO`.
 

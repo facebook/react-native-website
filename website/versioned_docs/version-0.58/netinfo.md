@@ -12,7 +12,7 @@ NetInfo.getConnectionInfo().then((connectionInfo) => {
     'Initial, type: ' +
       connectionInfo.type +
       ', effectiveType: ' +
-      connectionInfo.effectiveType,
+      connectionInfo.effectiveType
   );
 });
 function handleFirstConnectivityChange(connectionInfo) {
@@ -20,11 +20,11 @@ function handleFirstConnectivityChange(connectionInfo) {
     'First change, type: ' +
       connectionInfo.type +
       ', effectiveType: ' +
-      connectionInfo.effectiveType,
+      connectionInfo.effectiveType
   );
   NetInfo.removeEventListener(
     'connectionChange',
-    handleFirstConnectivityChange,
+    handleFirstConnectivityChange
   );
 }
 NetInfo.addEventListener('connectionChange', handleFirstConnectivityChange);

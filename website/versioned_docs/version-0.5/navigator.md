@@ -9,16 +9,16 @@ original_id: navigator
 To set up the `Navigator` you provide one or more objects called routes, to identify each scene. You also provide a `renderScene` function that renders the scene for each route object.
 
 ```jsx
-import React, {Component} from 'react';
-import {Text, Navigator, TouchableHighlight} from 'react-native';
+import React, { Component } from 'react';
+import { Text, Navigator, TouchableHighlight } from 'react-native';
 
 export default class NavAllDay extends Component {
   render() {
     return (
       <Navigator
-        initialRoute={{title: 'Awesome Scene', index: 0}}
+        initialRoute={{ title: 'Awesome Scene', index: 0 }}
         renderScene={(route, navigator) => <Text>Hello {route.title}!</Text>}
-        style={{padding: 100}}
+        style={{ padding: 100 }}
       />
     );
   }

@@ -11,17 +11,17 @@ Here's a small example illustrating how to use `AccessibilityInfo`:
 ```jsx
 class ScreenReaderStatusExample extends React.Component {
   state = {
-    screenReaderEnabled: false,
+    screenReaderEnabled: false
   };
 
   componentDidMount() {
     AccessibilityInfo.addEventListener(
       'change',
-      this._handleScreenReaderToggled,
+      this._handleScreenReaderToggled
     );
     AccessibilityInfo.fetch().done((isEnabled) => {
       this.setState({
-        screenReaderEnabled: isEnabled,
+        screenReaderEnabled: isEnabled
       });
     });
   }
@@ -29,13 +29,13 @@ class ScreenReaderStatusExample extends React.Component {
   componentWillUnmount() {
     AccessibilityInfo.removeEventListener(
       'change',
-      this._handleScreenReaderToggled,
+      this._handleScreenReaderToggled
     );
   }
 
   _handleScreenReaderToggled = (isEnabled) => {
     this.setState({
-      screenReaderEnabled: isEnabled,
+      screenReaderEnabled: isEnabled
     });
   };
 

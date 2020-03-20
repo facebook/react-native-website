@@ -724,7 +724,7 @@ Note: The weird function signature is due to the fact that, for historical reaso
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: {animated: boolean, duration: number}));
+scrollToEnd(([options]: { animated: boolean, duration: number }));
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.

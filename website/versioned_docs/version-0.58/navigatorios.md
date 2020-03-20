@@ -12,8 +12,8 @@ To set up the navigator, provide the `initialRoute` prop with a route object. A 
 
 ```jsx
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {NavigatorIOS, Text, TouchableHighlight, View} from 'react-native';
+import React, { Component } from 'react';
+import { NavigatorIOS, Text, TouchableHighlight, View } from 'react-native';
 
 export default class NavigatorIOSApp extends Component {
   render() {
@@ -21,9 +21,9 @@ export default class NavigatorIOSApp extends Component {
       <NavigatorIOS
         initialRoute={{
           component: MyScene,
-          title: 'My Initial Scene',
+          title: 'My Initial Scene'
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
     );
   }
@@ -32,12 +32,12 @@ export default class NavigatorIOSApp extends Component {
 class MyScene extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
+    navigator: PropTypes.object.isRequired
   };
 
   _onForward = () => {
     this.props.navigator.push({
-      title: 'Scene',
+      title: 'Scene'
     });
   };
 
@@ -86,11 +86,11 @@ class MyView extends Component {
     const nextRoute = {
       component: MyView,
       title: 'Bar That',
-      passProps: {myProp: 'bar'},
+      passProps: { myProp: 'bar' }
     };
     return (
       <TouchableHighlight onPress={() => this._handleNextPress(nextRoute)}>
-        <Text style={{marginTop: 200, alignSelf: 'center'}}>
+        <Text style={{ marginTop: 200, alignSelf: 'center' }}>
           See you on the other nav {this.props.myProp}!
         </Text>
       </TouchableHighlight>
@@ -107,7 +107,7 @@ class NavvyIOS extends Component {
     this.refs.nav.push({
       component: MyView,
       title: 'Genius',
-      passProps: {myProp: 'genius'},
+      passProps: { myProp: 'genius' }
     });
   }
 
@@ -118,11 +118,11 @@ class NavvyIOS extends Component {
         initialRoute={{
           component: MyView,
           title: 'Foo This',
-          passProps: {myProp: 'foo'},
+          passProps: { myProp: 'foo' },
           rightButtonTitle: 'Add',
-          onRightButtonPress: () => this._handleNavigationRequest(),
+          onRightButtonPress: () => this._handleNavigationRequest()
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
     );
   }

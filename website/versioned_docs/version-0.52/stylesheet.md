@@ -89,8 +89,8 @@ Creates a StyleSheet style reference from the given object.
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
 });
 ```
 
@@ -115,8 +115,8 @@ const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFillObject,
     top: 10,
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: 'transparent'
+  }
 });
 ```
 
@@ -135,11 +135,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
@@ -153,11 +153,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten(styles.listItem);

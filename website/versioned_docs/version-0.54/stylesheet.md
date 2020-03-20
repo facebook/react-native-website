@@ -88,11 +88,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
@@ -106,11 +106,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten(styles.listItem);
@@ -142,8 +142,8 @@ Sets a function to use to pre-process a style property value. This is used inter
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
 });
 ```
 
@@ -168,8 +168,8 @@ const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFillObject,
     top: 10,
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: 'transparent'
+  }
 });
 ```
 

@@ -153,4 +153,3 @@ static dismissedAction()
 ```
 
 _iOS Only_. The dialog has been dismissed.
-

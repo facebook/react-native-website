@@ -71,7 +71,7 @@ Lists are used in many contexts, so we packed the new components full of feature
   ```jsx
   <FlatList
     data={this.state.data}
-    renderItem={({item}) => (
+    renderItem={({ item }) => (
       <MyItem
         item={item}
         onPress={() =>
@@ -79,8 +79,8 @@ Lists are used in many contexts, so we packed the new components full of feature
             selected: {
               // New instance breaks `===`
               ...oldState.selected, // copy old data
-              [item.key]: !oldState.selected[item.key], // toggle
-            },
+              [item.key]: !oldState.selected[item.key] // toggle
+            }
           }))
         }
         selected={

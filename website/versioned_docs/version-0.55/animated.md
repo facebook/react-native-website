@@ -13,8 +13,8 @@ Animated.timing(
   // Animate value over time
   this.state.fadeAnim, // The value to drive
   {
-    toValue: 1, // Animate to final value of 1
-  },
+    toValue: 1 // Animate to final value of 1
+  }
 ).start(); // Start the animation
 ```
 

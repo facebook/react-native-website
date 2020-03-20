@@ -34,11 +34,11 @@ RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
 
 ```jsx
 import React from 'react';
-import {View, Image} from 'react-native';
+import { View, Image } from 'react-native';
 
 export default class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
-    return <Image source={{uri: imgURI}} />;
+    return <Image source={{ uri: imgURI }} />;
   }
   render() {
     return <View>{this.props.images.map(this.renderImage)}</View>;

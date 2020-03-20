@@ -47,7 +47,7 @@ Here is how you do it: To define your `Cat` component, first use JavaScript’s 
 
 ```jsx
 import React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 ```
 
 Your component starts as a function:
@@ -94,7 +94,7 @@ export default class Cat extends Component {
 You additionally import `Component` from React:
 
 ```jsx
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 ```
 
 Your component starts as a class extending `Component` instead of as a function:
@@ -354,7 +354,7 @@ export default function Cafe() {
 First, you will want to import `useState` from React like so:
 
 ```jsx
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 ```
 
 Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
@@ -458,14 +458,14 @@ export default class Cafe extends Component {
 As always with class components, you must import the `Component` class from React:
 
 ```jsx
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 ```
 
 In class components, state is stored in a state object:
 
 ```jsx
 export class Cat extends Component {
-  state = {isHungry: true};
+  state = { isHungry: true };
   //..
 }
 ```

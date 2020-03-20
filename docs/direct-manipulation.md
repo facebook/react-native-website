@@ -194,7 +194,7 @@ Like `measure()`, but measures the view relative to an ancestor, specified as `r
 As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
 
 ```jsx
-import {findNodeHandle} from 'react-native';
+import { findNodeHandle } from 'react-native';
 ```
 
 ### focus()

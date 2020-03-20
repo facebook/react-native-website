@@ -171,7 +171,7 @@ Create a new JavaScript file named `ToastExample.js` with the content below:
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 module.exports = NativeModules.ToastExample;
 ```
 
@@ -230,7 +230,7 @@ UIManager.measureLayout(
   },
   (x, y, width, height) => {
     console.log(x + ':' + y + ':' + width + ':' + height);
-  },
+  }
 );
 ```
 
@@ -280,9 +280,9 @@ The JavaScript counterpart of this method returns a Promise. This means you can 
 ```jsx
 async function measureLayout() {
   try {
-    var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
+    var { relativeX, relativeY, width, height } = await UIManager.measureLayout(
       100,
-      100,
+      100
     );
 
     console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);

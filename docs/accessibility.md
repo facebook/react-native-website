@@ -35,7 +35,8 @@ To use, set the `accessibilityLabel` property to a custom string on your View, T
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Tap me!"
-  onPress={this._onPress}>
+  onPress={this._onPress}
+>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
   </View>
@@ -55,7 +56,8 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
   accessible={true}
   accessibilityLabel="Go back"
   accessibilityHint="Navigates to the previous screen"
-  onPress={this._onPress}>
+  onPress={this._onPress}
+>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Back</Text>
   </View>
@@ -230,9 +232,9 @@ To handle action requests, a component must implement an `onAccessibilityAction`
 <View
   accessible={true}
   accessibilityActions={[
-    {name: 'cut', label: 'cut'},
-    {name: 'copy', label: 'copy'},
-    {name: 'paste', label: 'paste'},
+    { name: 'cut', label: 'cut' },
+    { name: 'copy', label: 'copy' },
+    { name: 'paste', label: 'paste' }
   ]}
   onAccessibilityAction={(event) => {
     switch (event.nativeEvent.actionName) {

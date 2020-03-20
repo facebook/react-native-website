@@ -12,9 +12,9 @@ You should get a higher resolution image if you are on a high pixel density devi
 ```jsx
 var image = getImage({
   width: PixelRatio.getPixelSizeForLayoutSize(200),
-  height: PixelRatio.getPixelSizeForLayoutSize(100),
+  height: PixelRatio.getPixelSizeForLayoutSize(100)
 });
-<Image source={image} style={{width: 200, height: 100}} />;
+<Image source={image} style={{ width: 200, height: 100 }} />;
 ```
 
 ## Pixel grid snapping
@@ -133,8 +133,8 @@ static getFontScale(): number
 
 Returns the scaling factor for font sizes. This is the ratio that is used to calculate the absolute font size, so any elements that heavily depend on that should use this to do calculations.
 
-* on Android value reflects the user preference set in Settings > Display > Font size, 
-* on iOS it will always return the default pixel ratio.
+- on Android value reflects the user preference set in Settings > Display > Font size,
+- on iOS it will always return the default pixel ratio.
 
 If a font scale is not set, this returns the device pixel ratio.
 

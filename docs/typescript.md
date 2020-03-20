@@ -69,7 +69,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 ```js
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 };
 ```
 
@@ -90,7 +90,7 @@ You can provide an interface for a React Component's [Props][props] and [State][
 ```tsx
 // components/Hello.tsx
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export interface Props {
   name: string;
@@ -99,7 +99,7 @@ export interface Props {
 
 const Hello: React.FC<Props> = (props) => {
   const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
-    props.enthusiasmLevel,
+    props.enthusiasmLevel
   );
 
   const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
@@ -140,23 +140,23 @@ const Hello: React.FC<Props> = (props) => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   buttons: {
     flexDirection: 'row',
     minHeight: 70,
     alignItems: 'stretch',
     alignSelf: 'center',
-    borderWidth: 5,
+    borderWidth: 5
   },
   button: {
     flex: 1,
-    paddingVertical: 0,
+    paddingVertical: 0
   },
   greeting: {
     color: '#999',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 
 export default Hello;

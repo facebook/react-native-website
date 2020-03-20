@@ -285,7 +285,7 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
@@ -309,18 +309,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 // Module name
@@ -591,7 +591,7 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import { AppRegistry, StyleSheet, Text, View } from 'react-native';
 
 class HelloWorld extends React.Component {
   render() {
@@ -605,13 +605,13 @@ class HelloWorld extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
+    margin: 10
+  }
 });
 
 AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);

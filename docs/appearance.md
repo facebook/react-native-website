@@ -4,7 +4,7 @@ title: Appearance
 ---
 
 ```jsx
-import {Appearance} from 'react-native';
+import { Appearance } from 'react-native';
 ```
 
 Exposes information about the user's appearance preferences.
@@ -48,7 +48,7 @@ Although the color scheme is available immediately, this may change (e.g schedul
 The `useColorScheme` React hook provides and subscribes to color scheme updates:
 
 ```jsx
-import {Text, useColorScheme} from 'react-native';
+import { Text, useColorScheme } from 'react-native';
 
 const MyComponent = () => {
   const colorScheme = useColorScheme();

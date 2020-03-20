@@ -9,15 +9,15 @@ original_id: webview
 `WebView` renders web content in a native view.
 
 ```jsx
-import React, {Component} from 'react';
-import {WebView} from 'react-native';
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
 
 class MyWeb extends Component {
   render() {
     return (
       <WebView
-        source={{uri: 'https://github.com/facebook/react-native'}}
-        style={{marginTop: 20}}
+        source={{ uri: 'https://github.com/facebook/react-native' }}
+        style={{ marginTop: 20 }}
       />
     );
   }
@@ -27,15 +27,15 @@ class MyWeb extends Component {
 Minimal example with inline HTML:
 
 ```jsx
-import React, {Component} from 'react';
-import {WebView} from 'react-native';
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
 
 class MyInlineWeb extends Component {
   render() {
     return (
       <WebView
         originWhitelist={['*']}
-        source={{html: '<h1>Hello world</h1>'}}
+        source={{ html: '<h1>Hello world</h1>' }}
       />
     );
   }

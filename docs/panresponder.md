@@ -74,8 +74,8 @@ const ExampleComponent = () => {
         // Returns whether this component should block native components from becoming the JS
         // responder. Returns true by default. Is currently only supported on android.
         return true;
-      },
-    }),
+      }
+    })
   ).current;
 
   return <View {...panResponder.panHandlers} />;

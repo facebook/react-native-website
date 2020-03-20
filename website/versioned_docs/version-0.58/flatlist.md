@@ -22,8 +22,8 @@ Minimal Example:
 
 ```jsx
 <FlatList
-  data={[{key: 'a'}, {key: 'b'}]}
-  renderItem={({item}) => <Text>{item.key}</Text>}
+  data={[{ key: 'a' }, { key: 'b' }]}
+  renderItem={({ item }) => <Text>{item.key}</Text>}
 />
 ```
 
@@ -44,7 +44,7 @@ class MyListItem extends React.PureComponent {
     return (
       <TouchableOpacity onPress={this._onPress}>
         <View>
-          <Text style={{color: textColor}}>{this.props.title}</Text>
+          <Text style={{ color: textColor }}>{this.props.title}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -52,7 +52,7 @@ class MyListItem extends React.PureComponent {
 }
 
 class MultiSelectList extends React.PureComponent {
-  state = {selected: (new Map(): Map<string, boolean>)};
+  state = { selected: (new Map(): Map<string, boolean>) };
 
   _keyExtractor = (item, index) => item.id;
 
@@ -62,11 +62,11 @@ class MultiSelectList extends React.PureComponent {
       // copy the map rather than modifying state.
       const selected = new Map(state.selected);
       selected.set(id, !selected.get(id)); // toggle
-      return {selected};
+      return { selected };
     });
   };
 
-  _renderItem = ({item}) => (
+  _renderItem = ({ item }) => (
     <MyListItem
       id={item.id}
       onPressItem={this._onPressItem}

@@ -72,10 +72,10 @@ Alrighty. Now that we know what we are building and how the animation works, we 
 The main piece of this puzzle is [MaskedViewIOS](/docs/maskedviewios.html), a core React Native component.
 
 ```jsx
-import {MaskedViewIOS} from 'react-native';
+import { MaskedViewIOS } from 'react-native';
 
 <MaskedViewIOS maskElement={<Text>Basic Mask</Text>}>
-  <View style={{backgroundColor: 'blue'}} />
+  <View style={{ backgroundColor: 'blue' }} />
 </MaskedViewIOS>;
 ```
 
@@ -88,14 +88,15 @@ What we want to do is render our blue layer, and then on top render our masked a
   fullScreenBlueLayer;
 }
 <MaskedViewIOS
-  style={{flex: 1}}
+  style={{ flex: 1 }}
   maskElement={
     <View style={styles.centeredFullScreen}>
       <Image source={twitterLogo} />
     </View>
-  }>
+  }
+>
   {fullScreenWhiteLayer}
-  <View style={{flex: 1}}>
+  <View style={{ flex: 1 }}>
     <MyApp />
   </View>
 </MaskedViewIOS>;
@@ -136,7 +137,7 @@ Our initial component state will be the following.
 
 ```jsx
 state = {
-  loadingProgress: new Animated.Value(0),
+  loadingProgress: new Animated.Value(0)
 };
 ```
 
@@ -146,7 +147,7 @@ When we are ready to begin the animation, we tell Animated to animate this value
 Animated.timing(this.state.loadingProgress, {
   toValue: 100,
   duration: 1000,
-  useNativeDriver: true, // This is important!
+  useNativeDriver: true // This is important!
 }).start();
 ```
 
@@ -171,9 +172,9 @@ const opacityClearToVisible = {
   opacity: loadingProgress.interpolate({
     inputRange: [0, 15, 30],
     outputRange: [0, 0, 1],
-    extrapolate: 'clamp',
+    extrapolate: 'clamp'
     // clamp means when the input is 30-100, output should stay at 1
-  }),
+  })
 };
 
 const imageScale = {
@@ -181,10 +182,10 @@ const imageScale = {
     {
       scale: loadingProgress.interpolate({
         inputRange: [0, 10, 100],
-        outputRange: [1, 0.8, 70],
-      }),
-    },
-  ],
+        outputRange: [1, 0.8, 70]
+      })
+    }
+  ]
 };
 
 const appScale = {
@@ -192,10 +193,10 @@ const appScale = {
     {
       scale: loadingProgress.interpolate({
         inputRange: [0, 100],
-        outputRange: [1.1, 1],
-      }),
-    },
-  ],
+        outputRange: [1.1, 1]
+      })
+    }
+  ]
 };
 ```
 
@@ -209,7 +210,7 @@ return (
   <View style={styles.fullScreen}>
     {fullScreenBlueLayer}
     <MaskedViewIOS
-      style={{flex: 1}}
+      style={{ flex: 1 }}
       maskElement={
         <View style={styles.centeredFullScreen}>
           <Animated.Image
@@ -217,9 +218,10 @@ return (
             source={twitterLogo}
           />
         </View>
-      }>
+      }
+    >
       {fullScreenWhiteLayer}
-      <Animated.View style={[opacityClearToVisible, appScale, {flex: 1}]}>
+      <Animated.View style={[opacityClearToVisible, appScale, { flex: 1 }]}>
         {this.props.children}
       </Animated.View>
     </MaskedViewIOS>
@@ -237,10 +239,10 @@ To know when we can clean them up, we need to know when the animation is complet
 Animated.timing(this.state.loadingProgress, {
   toValue: 100,
   duration: 1000,
-  useNativeDriver: true,
+  useNativeDriver: true
 }).start(() => {
   this.setState({
-    animationDone: true,
+    animationDone: true
   });
 });
 ```

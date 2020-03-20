@@ -16,7 +16,7 @@ The `AsyncStorage` JavaScript code is a facade that provides a clear JavaScript 
 Importing the `AsyncStorage` library:
 
 ```jsx
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 ```
 
 Persisting data:
@@ -129,12 +129,12 @@ Example:
 let UID123_object = {
   name: 'Chris',
   age: 30,
-  traits: {hair: 'brown', eyes: 'brown'},
+  traits: { hair: 'brown', eyes: 'brown' }
 };
 // You only need to define what will be added or updated
 let UID123_delta = {
   age: 31,
-  traits: {eyes: 'blue', shoe_size: 10},
+  traits: { eyes: 'blue', shoe_size: 10 }
 };
 
 AsyncStorage.setItem('UID123', JSON.stringify(UID123_object), () => {
@@ -305,35 +305,35 @@ Example:
 let UID234_object = {
   name: 'Chris',
   age: 30,
-  traits: {hair: 'brown', eyes: 'brown'},
+  traits: { hair: 'brown', eyes: 'brown' }
 };
 
 // first user, delta values
 let UID234_delta = {
   age: 31,
-  traits: {eyes: 'blue', shoe_size: 10},
+  traits: { eyes: 'blue', shoe_size: 10 }
 };
 
 // second user, initial values
 let UID345_object = {
   name: 'Marge',
   age: 25,
-  traits: {hair: 'blonde', eyes: 'blue'},
+  traits: { hair: 'blonde', eyes: 'blue' }
 };
 
 // second user, delta values
 let UID345_delta = {
   age: 26,
-  traits: {eyes: 'green', shoe_size: 6},
+  traits: { eyes: 'green', shoe_size: 6 }
 };
 
 let multi_set_pairs = [
   ['UID234', JSON.stringify(UID234_object)],
-  ['UID345', JSON.stringify(UID345_object)],
+  ['UID345', JSON.stringify(UID345_object)]
 ];
 let multi_merge_pairs = [
   ['UID234', JSON.stringify(UID234_delta)],
-  ['UID345', JSON.stringify(UID345_delta)],
+  ['UID345', JSON.stringify(UID345_delta)]
 ];
 
 AsyncStorage.multiSet(multi_set_pairs, (err) => {

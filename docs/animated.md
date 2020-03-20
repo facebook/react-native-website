@@ -215,7 +215,7 @@ In most cases, you will be using `timing()`. By default, it uses a symmetric eas
 Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
 
 ```jsx
-Animated.timing({}).start(({finished}) => {
+Animated.timing({}).start(({ finished }) => {
   /* completion callback */
 });
 ```
@@ -551,7 +551,7 @@ Animations are started by calling start() on your animation. start() takes a com
 Start example with callback:
 
 ```jsx
-Animated.timing({}).start(({finished}) => {
+Animated.timing({}).start(({ finished }) => {
   /* completion callback */
 });
 ```

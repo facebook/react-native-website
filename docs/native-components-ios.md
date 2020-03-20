@@ -92,7 +92,7 @@ Now to actually disable zooming, we set the property in JS:
 
 ```jsx
 // MyApp.js
-<MapView zoomEnabled={false} style={{flex: 1}} />
+<MapView zoomEnabled={false} style={{ flex: 1 }} />
 ```
 
 To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
@@ -101,7 +101,7 @@ To document the properties (and which values they accept) of our MapView compone
 // MapView.js
 import PropTypes from 'prop-types';
 import React from 'react';
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 class MapView extends React.Component {
   render() {
@@ -114,7 +114,7 @@ MapView.propTypes = {
    * A Boolean value that determines whether the user may use pinch
    * gestures to zoom in and out of the map.
    */
-  zoomEnabled: PropTypes.bool,
+  zoomEnabled: PropTypes.bool
 };
 
 var RNTMap = requireNativeComponent('RNTMap', MapView);
@@ -240,7 +240,7 @@ Sometimes your native component will have some reserved properties that you don'
 
 ```jsx
 var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
-  nativeOnly: {onChange: true},
+  nativeOnly: { onChange: true }
 });
 ```
 
@@ -417,7 +417,7 @@ class MyNativeView extends React.Component<> {
       ReactNative.findNodeHandle(this),
       UIManager.getViewManagerConfig('RNCMyNativeView').Commands
         .callNativeMethod,
-      [],
+      []
     );
   };
 
