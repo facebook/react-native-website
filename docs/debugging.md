@@ -143,7 +143,7 @@ You can view installation instructions [in the README](https://github.com/infini
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```
+```sh
 $ npx react-native log-ios
 $ npx react-native log-android
 ```

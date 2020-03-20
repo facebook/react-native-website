@@ -121,7 +121,7 @@ React components are responsible for rendering your app, and users will directly
 For testing React components, there are two things you may want to test:
 
 - Interaction: to ensure the component behaves correctly when interacted with by a user (eg. when user presses a button)
-- Rendering: to ensure the component render output used by React is correct (eg. the button's appearance and placementin the UI)
+- Rendering: to ensure the component render output used by React is correct (eg. the button's appearance and placement in the UI)
 
 For example, if you have a button that has an `onPress` listener, you want to test that the button both appears correctly and that tapping the button is correctly handled by the component.
 
@@ -165,11 +165,22 @@ function GroceryShoppingList() {
 }
 ```
 
-When testing user interactions, test the component from the user perspective—what's on the page? What changes when interacted with? Avoid testing implementation details like objects or state—while such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
+When testing user interactions, test the component from the user perspective—what's on the page? What changes when interacted with?
 
-> React class components are especially prone to testing their implementation details such as internal state or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+As a rule of thumb, prefer using things users can see or hear:
 
-Component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching nodes in the rendered output.
+- make assertions using rendered text or [accessibility helpers](https://reactnative.dev/docs/accessibility#accessibility-properties)
+
+Conversely, you should avoid:
+
+- making assertions on component props or state
+- testID queries
+
+Avoid testing implementation details like props or state—while such tests work, they are not oriented toward how users will interact with the component and tend to break by refactoring (for example when you'd like to rename some things or rewrite class component using hooks).
+
+> React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
+
+Component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {

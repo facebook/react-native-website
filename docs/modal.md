@@ -20,7 +20,7 @@ The Modal component is a basic way to present content above an enclosing view.
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Modal
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { Component, useState } from "react";
 import {
   Alert,

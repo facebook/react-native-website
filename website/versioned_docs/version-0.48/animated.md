@@ -191,7 +191,7 @@ Config is an object that may have the following options:
 static spring(value, config)
 ```
 
-Spring animation based on Rebound and [Origami](https://facebook.github.io/origami/). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
+Spring animation based on Rebound and [Origami](https://origami.design/). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
 
 Config is an object that may have the following options. Note that you can only define bounciness/speed or tension/friction but not both:
 

@@ -77,23 +77,31 @@ export default App;
 
 Inherits [View Props](view.md#props).
 
-### `renderNavigationView`
+### `drawerBackgroundColor`
 
-The navigation view that will be rendered to the side of the screen and can be pulled in.
+Specifies the background color of the drawer. The default value is `white`. If you want to set the opacity of the drawer, use rgba. Example:
 
-| Type     | Required |
-| -------- | -------- |
-| function | Yes      |
+```jsx
+return <DrawerLayoutAndroid drawerBackgroundColor="rgba(0,0,0,0.5)" />;
+```
+
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
-### `onDrawerClose`
+### `drawerLockMode`
 
-Function called whenever the navigation view has been closed.
+Specifies the lock mode of the drawer. The drawer can be locked in 3 states:
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+- unlocked (default), meaning that the drawer will respond (open/close) to touch gestures.
+- locked-closed, meaning that the drawer will stay closed and not respond to gestures.
+- locked-open, meaning that the drawer will stay opened and not respond to gestures. The drawer may still be opened and closed programmatically (`openDrawer`/`closeDrawer`).
+
+| Type                                             | Required |
+| ------------------------------------------------ | -------- |
+| enum('unlocked', 'locked-closed', 'locked-open') | No       |
 
 ---
 
@@ -130,17 +138,13 @@ Determines whether the keyboard gets dismissed in response to a drag.
 
 ---
 
-### `drawerLockMode`
+### `onDrawerClose`
 
-Specifies the lock mode of the drawer. The drawer can be locked in 3 states:
+Function called whenever the navigation view has been closed.
 
-- unlocked (default), meaning that the drawer will respond (open/close) to touch gestures.
-- locked-closed, meaning that the drawer will stay closed and not respond to gestures.
-- locked-open, meaning that the drawer will stay opened and not respond to gestures. The drawer may still be opened and closed programmatically (`openDrawer`/`closeDrawer`).
-
-| Type                                             | Required |
-| ------------------------------------------------ | -------- |
-| enum('unlocked', 'locked-closed', 'locked-open') | No       |
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
 
 ---
 
@@ -178,17 +182,13 @@ Function called when the drawer state has changed. The drawer can be in 3 states
 
 ---
 
-### `drawerBackgroundColor`
+### `renderNavigationView`
 
-Specifies the background color of the drawer. The default value is `white`. If you want to set the opacity of the drawer, use rgba. Example:
+The navigation view that will be rendered to the side of the screen and can be pulled in.
 
-```jsx
-return <DrawerLayoutAndroid drawerBackgroundColor="rgba(0,0,0,0.5)" />;
-```
-
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type     | Required |
+| -------- | -------- |
+| function | Yes      |
 
 ---
 
@@ -202,16 +202,6 @@ Make the drawer take the entire screen and draw the background of the status bar
 
 ## Methods
 
-### `openDrawer()`
-
-```jsx
-openDrawer();
-```
-
-Opens the drawer.
-
----
-
 ### `closeDrawer()`
 
 ```jsx
@@ -219,3 +209,13 @@ closeDrawer();
 ```
 
 Closes the drawer.
+
+---
+
+### `openDrawer()`
+
+```jsx
+openDrawer();
+```
+
+Opens the drawer.

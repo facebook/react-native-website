@@ -64,24 +64,20 @@ Composite components are not backed by a native view, so you cannot call `setNat
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-class MyButton extends React.Component {
-  render() {
+const MyButton = (props) => {
     return (
-      <View>
-        <Text>{this.props.label}</Text>
+      <View style={{marginTop: 50}}>
+        <Text>{props.label}</Text>
       </View>
     )
-  }
 }
 
-export default class App extends React.Component {
-  render() {
+export default App = () => {
     return (
       <TouchableOpacity>
         <MyButton label="Press me!" />
       </TouchableOpacity>
     )
-  }
 }
 ```
 
@@ -95,28 +91,24 @@ All we need to do is provide a `setNativeProps` method on our component that cal
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-class MyButton extends React.Component {
+const MyButton = (props) => {
   setNativeProps = (nativeProps) => {
-    this._root.setNativeProps(nativeProps);
+    _root.setNativeProps(nativeProps);
   }
 
-  render() {
     return (
-      <View ref={component => this._root = component} {...this.props}>
-        <Text>{this.props.label}</Text>
+      <View style={{marginTop: 50}} ref={component => _root = component} {...props}>
+        <Text>{props.label}</Text>
       </View>
     )
-  }
 }
 
-export default class App extends React.Component {
-  render() {
+export default App = () => {
     return (
       <TouchableOpacity>
         <MyButton label="Press me!" />
       </TouchableOpacity>
     )
-  }
 }
 ```
 
@@ -132,24 +124,22 @@ Another very common use case of `setNativeProps` is to clear the value of a Text
 import React from 'react';
 import { TextInput, Text, TouchableOpacity, View } from 'react-native';
 
-export default class App extends React.Component {
+export default App = () => {
   clearText = () => {
-    this._textInput.setNativeProps({text: ''});
+     _textInput.setNativeProps({text: ''});
   }
 
-  render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <TextInput
-          ref={component => this._textInput = component}
+          ref={component => _textInput = component}
           style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
         />
-        <TouchableOpacity onPress={this.clearText}>
+        <TouchableOpacity onPress={clearText}>
           <Text>Clear text</Text>
         </TouchableOpacity>
       </View>
     );
-  }
 }
 ```
 

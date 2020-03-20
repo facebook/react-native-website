@@ -296,6 +296,9 @@
       "sectionlist": {
         "title": "SectionList"
       },
+      "security": {
+        "title": "Security"
+      },
       "segmentedcontrolios": {
         "title": "🚧 SegmentedControlIOS"
       },
@@ -382,6 +385,9 @@
       },
       "upgrading": {
         "title": "Upgrading to new React Native versions"
+      },
+      "usecolorscheme": {
+        "title": "useColorScheme"
       },
       "usewindowdimensions": {
         "title": "useWindowDimensions"
@@ -3534,8 +3540,8 @@
       "JavaScript Runtime": "JavaScript Runtime",
       "Connectivity": "Connectivity",
       "Native Components and Modules": "Native Components and Modules",
-      "Guides (iOS)": "Guides (iOS)",
       "Guides (Android)": "Guides (Android)",
+      "Guides (iOS)": "Guides (iOS)",
       "Core Components": "Core Components",
       "Props": "Props",
       "APIs": "APIs",
