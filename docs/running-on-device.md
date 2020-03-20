@@ -130,7 +130,7 @@ Make sure that you replace `22b8` with the identifier you get in the above comma
 
 Now check that your device is properly connecting to ADB, the Android Debug Bridge, by running `adb devices`.
 
-```
+```sh
 $ adb devices
 List of devices attached
 emulator-5554 offline   # Google emulator
@@ -143,7 +143,7 @@ Seeing `device` in the right column means the device is connected. You must have
 
 Type the following in your command prompt to install and launch your app on the device:
 
-```
+```sh
 $ npx react-native run-android
 ```
 
@@ -218,13 +218,13 @@ You can use this method if your device is running Android 5.0 (Lollipop) or newe
 
 Run the following in a command prompt:
 
-```
+```sh
 $ adb -s <device name> reverse tcp:8081 tcp:8081
 ```
 
 To find the device name, run the following adb command:
 
-```
+```sh
 $ adb devices
 ```
 
@@ -287,7 +287,7 @@ To configure your app to be built using the `Release` scheme, go to **Product** 
 
 As your App Bundle grows in size, you may start to see a blank screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
 
-```objc
+```objectivec
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
   UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
   launchScreenView.frame = self.window.bounds;
@@ -296,7 +296,7 @@ As your App Bundle grows in size, you may start to see a blank screen flash betw
 
 The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
 
-```shell
+```sh
  if [ "${CONFIGURATION}" == "Debug" ]; then
   export SKIP_BUNDLING=true
  fi
