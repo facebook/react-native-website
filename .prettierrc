@@ -15,12 +15,12 @@
       "files": "*.md",
       "options": {
         "arrowParens": "always",
-        "bracketSpacing": false,
-        "jsxBracketSameLine": true,
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
         "printWidth": 80,
         "proseWrap": "never",
         "singleQuote": true,
-        "trailingComma": "all"
+        "trailingComma": "none"
       }
     }
   ]
