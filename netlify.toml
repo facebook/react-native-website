@@ -2,3 +2,10 @@
   base    = "cnwebsite"
   publish = "build/react-native"
   command = "sed -i -e \"s|const baseUrl .*|const baseUrl = '/';|g\" siteConfig.js && yarn install && node netlify-reduce-versions && yarn build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+	cache-control = '''
+  public,
+	max-age=86400'''
