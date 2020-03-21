@@ -6,6 +6,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-	cache-control = '''
-  public,
-	max-age=86400'''
+	cache-control = "public,max-age=86400"
