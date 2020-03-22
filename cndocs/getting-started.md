@@ -51,7 +51,7 @@ Now that you have successfully run the app, let's modify it. Open `App.js` in yo
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ## Now what?
 
@@ -75,8 +75,7 @@ If you know that you'll eventually need to include your own native code, Create 
 
 Create React Native App configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) to find out what versions are supported.
 
-If you're integrating React Native into an existing project, you'll want to skip Create React Native App and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Nat
-<block class="native mac windows linux ios android" />
+If you're integrating React Native into an existing project, you'll want to skip Create React Native App and go directly to setting up the native build environment. Select "Building Projects with Native Code" above for instructions on configuring a native build environment for React Nat <block class="native mac windows linux ios android" />
 
 根据你所使用的操作系统、针对的目标平台不同，具体步骤有所不同。如果想同时开发 iOS 和 Android 也没问题，你只需要先选一个平台开始，另一个平台的环境搭建只是稍有不同。
 
@@ -154,7 +153,7 @@ brew install watchman
 # 使用nrm工具切换淘宝源
 npx nrm use taobao
 
-# 如果之后需要切换回官方源可使用 
+# 如果之后需要切换回官方源可使用
 npx nrm use npm
 ```
 
@@ -180,7 +179,7 @@ npx nrm use npm
 # 使用nrm工具切换淘宝源
 npx nrm use taobao
 
-# 如果之后需要切换回官方源可使用 
+# 如果之后需要切换回官方源可使用
 npx nrm use npm
 ```
 
@@ -226,7 +225,7 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 1
 
 React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高版本）。你可以在命令行中输入
 
-> `javac -version`（请注意是java`c`，不是java）来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到 [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
+> `javac -version`（请注意是 java`c`，不是 java）来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到 [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 
 <block class="native mac linux windows android" />
 
@@ -373,13 +372,13 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk
 
 > 如果你之前全局安装过旧的`react-native-cli`命令行工具，请使用`npm uninstall -g react-native-cli`卸载掉它以避免一些冲突。
 
-使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用node自带的`npx`命令来使用（注意init 命令默认会创建最新的版本）：
+使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用 node 自带的`npx`命令来使用（注意 init 命令默认会创建最新的版本）：
 
 > **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译。这里有中文网提供的[国内下载链接](http://bbs.reactnative.cn/topic/4301/)。
 
-> **必须要看的注意事项二**：0.60 及以上版本依赖CocoaPods安装。CocoaPods的仓库在国内也很难访问。如果在CocoaPods的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
+> **必须要看的注意事项二**：0.60 及以上版本依赖 CocoaPods 安装。CocoaPods 的仓库在国内也很难访问。如果在 CocoaPods 的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
 
-> **必须要看的注意事项三**：请`不要`单独使用常见的关键字作为项目名（如class, native, new, package等等）。请`不要`使用与核心模块同名的项目名（如react, react-native等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
+> **必须要看的注意事项三**：请`不要`单独使用常见的关键字作为项目名（如 class, native, new, package 等等）。请`不要`使用与核心模块同名的项目名（如 react, react-native 等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
 
 ```sh
 npx react-native init AwesomeProject
@@ -395,9 +394,9 @@ npx react-native init AwesomeProject
 
 > 如果你之前全局安装过旧的`react-native-cli`命令行工具，请使用`npm uninstall -g react-native-cli`卸载掉它以避免一些冲突。
 
-使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用node自带的`npx`命令来使用（注意init 命令默认会创建最新的版本）：
+使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用 node 自带的`npx`命令来使用（注意 init 命令默认会创建最新的版本）：
 
-> **注意**：请`不要`单独使用常见的关键字作为项目名（如class, native, new, package等等）。请`不要`使用与核心模块同名的项目名（如react, react-native等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
+> **注意**：请`不要`单独使用常见的关键字作为项目名（如 class, native, new, package 等等）。请`不要`使用与核心模块同名的项目名（如 react, react-native 等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
 
 ```sh
 npx react-native init AwesomeProject
@@ -458,13 +457,13 @@ yarn ios
 yarn react-native run-ios
 ```
 
-> 提示：如果此命令无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
+> 提示：如果此命令无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意 0.60 版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
 
 很快就应该能看到 iOS 模拟器自动启动并运行你的项目。
 
 ![AwesomeProject on iOS](assets/GettingStartediOSSuccess.png)
 
-`yarn react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意0.60版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
+`yarn react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意 0.60 版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
 
 > 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看[讨论区](https://github.com/reactnativecn/react-native-website/issues)。
 
@@ -487,7 +486,7 @@ yarn react-native run-android
 
 如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。注意第一次运行时需要下载大量编译依赖，耗时可能数十分钟。此过程`严重依赖稳定的翻墙工具`，否则将频繁遭遇链接超时和断开，导致无法运行。
 
-也可以尝试阿里云提供的[maven镜像](https://help.aliyun.com/document_detail/102512.html?spm=a2c40.aliyun_maven_repo.0.0.361865e90r2x4b)，将`android/build.gradle`中的`jcenter()`和`google()`分别替换为`maven { url 'https://maven.aliyun.com/repository/jcenter' }`和`maven { url 'https://maven.aliyun.com/repository/google' }`（注意有多处需要替换）。
+也可以尝试阿里云提供的[maven 镜像](https://help.aliyun.com/document_detail/102512.html?spm=a2c40.aliyun_maven_repo.0.0.361865e90r2x4b)，将`android/build.gradle`中的`jcenter()`和`google()`分别替换为`maven { url 'https://maven.aliyun.com/repository/jcenter' }`和`maven { url 'https://maven.aliyun.com/repository/google' }`（注意有多处需要替换）。
 
 如果你的设备的 Android 版本低于 5.0，则可能在运行时看到红屏，请阅读[在设备上运行](running-on-device.md)这篇文档来按照步骤解决。
 
@@ -538,7 +537,7 @@ yarn react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
@@ -546,7 +545,7 @@ yarn react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native mac ios" />
 

@@ -5,7 +5,7 @@ title: 🚧 SegmentedControlIOS
 
 > **Deprecated.** Use [@react-native-community/segmented-control](https://github.com/react-native-community/react-native-segmented-control) instead.
 
-使用`SegmentedControlIOS`来在iOS设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
+使用`SegmentedControlIOS`来在 iOS 设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
 
 #### Programmatically changing selected index
 
@@ -23,7 +23,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 />
 ```
 
-<center><img src="/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
+<center><img src="assets/SegmentedControlIOS/example.gif" width="360"></img></center>
 
 ---
 
@@ -36,10 +36,10 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 If false the user won't be able to interact with the control. Default value is true.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
-<center><img src="/docs/assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
+<center><img src="assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
 
 ---
 
@@ -48,10 +48,10 @@ If false the user won't be able to interact with the control. Default value is t
 If true, then selecting a segment won't persist visually. The `onValueChange` callback will still work as expected.
 
 | 类型 | 必填 |
-| ---- | -------- |
-| bool | 否       |
+| ---- | ---- |
+| bool | 否   |
 
-<center><img src="/docs/assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
+<center><img src="assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
 
 ---
 
@@ -60,8 +60,8 @@ If true, then selecting a segment won't persist visually. The `onValueChange` ca
 Callback that is called when the user taps a segment; passes the event as an argument
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -70,8 +70,8 @@ Callback that is called when the user taps a segment; passes the event as an arg
 Callback that is called when the user taps a segment; passes the segment's value as an argument
 
 | 类型     | 必填 |
-| -------- | -------- |
-| function | 否       |
+| -------- | ---- |
+| function | 否   |
 
 ---
 
@@ -80,8 +80,8 @@ Callback that is called when the user taps a segment; passes the segment's value
 The index in `props.values` of the segment to be (pre)selected.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -90,10 +90,10 @@ The index in `props.values` of the segment to be (pre)selected.
 Accent color of the control.
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
-<center><img src="/docs/assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
+<center><img src="assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
 
 ---
 
@@ -102,5 +102,5 @@ Accent color of the control.
 The labels for the control's segment buttons, in order.
 
 | 类型            | 必填 |
-| --------------- | -------- |
-| array of string | 否       |
+| --------------- | ---- |
+| array of string | 否   |

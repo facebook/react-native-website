@@ -18,10 +18,10 @@ title: Alert
   </tr>
   <tr>
     <td style="width: 50%;">
-      <center><img src="/docs/assets/Alert/exampleios.gif"></img></center>
+      <center><img src="assets/Alert/exampleios.gif"></img></center>
     </td>
     <td style="width: 50%;">
-      <center><img src="/docs/assets/Alert/exampleandroid.gif"></img></center>
+      <center><img src="assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>
 </table>
