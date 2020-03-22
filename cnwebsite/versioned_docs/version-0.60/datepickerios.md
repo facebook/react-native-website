@@ -50,22 +50,24 @@ const styles = StyleSheet.create({
 })
 ```
 
-<center><img src="/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
+<center><img src="assets/DatePickerIOS/example.gif" width="360"></img></center>
 
 ### 查看 Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`date`](datepickerios.md#date)
-- [`initialDate`](datepickerios.md#initialDate)
-* [`locale`](datepickerios.md#locale)
-- [`maximumDate`](datepickerios.md#maximumdate)
-- [`minimumDate`](datepickerios.md#minimumdate)
-- [`minuteInterval`](datepickerios.md#minuteinterval)
-- [`mode`](datepickerios.md#mode)
-- [`onChange`](datepickerios.md#onChange)
-- [`onDateChange`](datepickerios.md#ondatechange)
-- [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
+* [`date`](datepickerios.md#date)
+* [`initialDate`](datepickerios.md#initialDate)
+
+- [`locale`](datepickerios.md#locale)
+
+* [`maximumDate`](datepickerios.md#maximumdate)
+* [`minimumDate`](datepickerios.md#minimumdate)
+* [`minuteInterval`](datepickerios.md#minuteinterval)
+* [`mode`](datepickerios.md#mode)
+* [`onChange`](datepickerios.md#onChange)
+* [`onDateChange`](datepickerios.md#ondatechange)
+* [`timeZoneOffsetInMinutes`](datepickerios.md#timezoneoffsetinminutes)
 
 ---
 
@@ -119,7 +121,7 @@ This is called when the user changes the date or time in the UI. The first and o
 
 Example with `maximumDate` set to December 31, 2017:
 
-<center><img src="/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
+<center><img src="assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
 
 ---
 
@@ -147,7 +149,7 @@ See [`maximumDate`](datepickerios.md#maximumdate) for an example image.
 
 Example with `minuteInterval` set to `10`:
 
-<center><img src="/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
+<center><img src="assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
 
 ---
 

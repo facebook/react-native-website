@@ -130,7 +130,7 @@ Now that you have successfully run the app, let's modify it. Open `App.js` in yo
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ## Now what?
 
@@ -309,8 +309,7 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 9
 
 React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高版本）。你可以在命令行中输入
 
-> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到
-> [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
+> `javac -version`来查看你当前安装的 JDK 版本。如果版本不合要求，则可以到 [官网](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)上下载。
 
 <block class="native mac linux windows android" />
 
@@ -639,7 +638,7 @@ react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
@@ -647,7 +646,7 @@ react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native mac ios" />
 

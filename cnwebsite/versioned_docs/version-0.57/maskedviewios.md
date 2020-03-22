@@ -51,15 +51,15 @@ class MyMaskedView extends React.Component {
 
 下面的截图分别演示了把`<View>`，`<Text>`以及`<Image>`放在蒙版下的效果。所以基本上你可以把任何组件放在蒙版下。
 
-<center><img src="/docs/assets/MaskedViewIOS/example.png" width="200"></img></center>
+<center><img src="assets/MaskedViewIOS/example.png" width="200"></img></center>
 
 **由`maskElement`所指定的视图的 alpha 通道值（透明度）决定了被盖住的视图可以透出的程度。** 完全不透明或部分透明的像素会使得蒙版下的内容显示出来，而完全透明的像素则会盖住蒙版下的内容。
 
 ### 查看 Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`maskElement`](maskedviewios.md#maskelement)
+* [`maskElement`](maskedviewios.md#maskelement)
 
 ---
 

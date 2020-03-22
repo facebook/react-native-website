@@ -3,6 +3,7 @@ id: version-0.55-alert
 title: Alert
 original_id: alert
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 启动一个提示对话框，包含对应的标题和信息。
@@ -20,10 +21,10 @@ original_id: alert
   </tr>
   <tr>
     <td style="width: 50%;">
-      <center><img src="/docs/assets/Alert/exampleios.gif"></img></center>
+      <center><img src="assets/Alert/exampleios.gif"></img></center>
     </td>
     <td style="width: 50%;">
-      <center><img src="/docs/assets/Alert/exampleandroid.gif"></img></center>
+      <center><img src="assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>
 </table>
@@ -60,7 +61,7 @@ Alert.alert(
 
 ### 查看方法
 
-* [`alert`](alert.md#alert)
+- [`alert`](alert.md#alert)
 
 ---
 
