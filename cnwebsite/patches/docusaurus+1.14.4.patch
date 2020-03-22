@@ -1,5 +1,5 @@
 diff --git a/node_modules/docusaurus/lib/core/Head.js b/node_modules/docusaurus/lib/core/Head.js
-index f8a8548..00132cd 100644
+index f8a8548..4987cbe 100644
 --- a/node_modules/docusaurus/lib/core/Head.js
 +++ b/node_modules/docusaurus/lib/core/Head.js
 @@ -22,7 +22,7 @@ class Head extends React.Component {
@@ -20,7 +20,7 @@ index f8a8548..00132cd 100644
          )}
          {this.props.config.scrollToTop && (
            <script
-@@ -168,11 +168,11 @@ class Head extends React.Component {
+@@ -168,19 +168,19 @@ class Head extends React.Component {
              }}
            />
          )}
@@ -34,9 +34,10 @@ index f8a8548..00132cd 100644
            />
          )}
          {/* Site defined code. Keep these at the end to avoid overriding. */}
-@@ -180,7 +180,7 @@ class Head extends React.Component {
+         <link
            rel="stylesheet"
-           href={`${this.props.config.baseUrl}css/main.css`}
+-          href={`${this.props.config.baseUrl}css/main.css`}
++          href={`https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/main.css`}
          />
 -        <script src={`${this.props.config.baseUrl}js/codetabs.js`} />
 +        <script src={`${this.props.config.docusaurusStaticUrl}js/codetabs.js`} />
