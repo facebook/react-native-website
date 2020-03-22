@@ -43,3 +43,25 @@ index f8a8548..00132cd 100644
        </head>
      );
    }
+diff --git a/node_modules/docusaurus/lib/server/docs.js b/node_modules/docusaurus/lib/server/docs.js
+index 3602ded..b1024f2 100644
+--- a/node_modules/docusaurus/lib/server/docs.js
++++ b/node_modules/docusaurus/lib/server/docs.js
+@@ -102,6 +102,7 @@ function mdToHtmlify(oldContent, mdToHtml, metadata, siteConfig) {
+   return content;
+ }
+ 
++const docsAssetsLocation = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs';
+ function getMarkup(rawContent, mdToHtml, metadata, siteConfig) {
+   // generate table of contents
+   let content = insertTOC(rawContent);
+@@ -110,9 +111,6 @@ function getMarkup(rawContent, mdToHtml, metadata, siteConfig) {
+   content = mdToHtmlify(content, mdToHtml, metadata, siteConfig);
+ 
+   // replace any relative links to static assets (not in fenced code blocks) to absolute links
+-  const docsAssetsLocation = siteConfig.docsUrl
+-    ? `${siteConfig.baseUrl}${siteConfig.docsUrl}`
+-    : siteConfig.baseUrl.substring(0, siteConfig.baseUrl.length - 1);
+   content = replaceAssetsLink(content, docsAssetsLocation);
+ 
+   const DocsLayout = require('../core/DocsLayout.js');

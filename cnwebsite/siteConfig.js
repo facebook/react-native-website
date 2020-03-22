@@ -27,6 +27,7 @@ try {
 }
 const defaultVersionShown = '0.61';
 const siteConfig = {
+  organizationName: 'reactnativecn',
   cdnUrl,
   cdnStaticUrl,
   docusaurusStaticUrl,
