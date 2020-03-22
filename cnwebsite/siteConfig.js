@@ -14,10 +14,7 @@ const packageJson = require('./package.json');
 
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
-const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@production/';
-const cdnStaticUrl = cdnUrl + 'cnwebsite/static/';
-const docusaurusVersion = packageJson.dependencies.docusaurus.replace('^', '');
-const docusaurusStaticUrl = `https://cdn.jsdelivr.net/gh/facebook/docusaurus@${docusaurusVersion}/packages/docusaurus-1.x/lib/static/`;
+const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
@@ -29,8 +26,6 @@ const defaultVersionShown = '0.61';
 const siteConfig = {
   organizationName: 'reactnativecn',
   cdnUrl,
-  cdnStaticUrl,
-  docusaurusStaticUrl,
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
   baseUrl,
@@ -57,9 +52,9 @@ const siteConfig = {
     {href: repoUrl, label: 'GitHub'},
     {href: '//zh-hans.reactjs.org/', external: true, label: 'React'},
   ],
-  headerIcon: 'img/header_logo.svg',
-  footerIcon: 'img/header_logo.png',
-  favicon: 'img/favicon.ico',
+  headerIcon: cdnUrl + 'img/header_logo.svg',
+  footerIcon: cdnUrl + 'img/header_logo.png',
+  favicon: cdnUrl + 'img/favicon.ico',
   colors: {
     brand: '#61dafb', // electric blue
     dark: '#282c34', // dark blue
@@ -98,9 +93,9 @@ const siteConfig = {
     // 'https://snack.expo.io/embed.js',
     'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
     // 'https://buttons.github.io/buttons.js',
-    cdnStaticUrl + 'js/codeblocks.js',
-    cdnStaticUrl + 'js/tabs.js',
-    cdnStaticUrl + 'js/doccode.js', 
+    cdnUrl + 'js/codeblocks.js',
+    cdnUrl + 'js/tabs.js',
+    cdnUrl + 'js/doccode.js', 
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',

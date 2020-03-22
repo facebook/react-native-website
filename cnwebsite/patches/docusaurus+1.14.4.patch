@@ -1,5 +1,5 @@
 diff --git a/node_modules/docusaurus/lib/core/Head.js b/node_modules/docusaurus/lib/core/Head.js
-index f8a8548..4987cbe 100644
+index f8a8548..87b030a 100644
 --- a/node_modules/docusaurus/lib/core/Head.js
 +++ b/node_modules/docusaurus/lib/core/Head.js
 @@ -22,7 +22,7 @@ class Head extends React.Component {
@@ -11,6 +11,15 @@ index f8a8548..4987cbe 100644
  
      // ensure the siteUrl variable ends with a single slash
      const siteUrl = `${(
+@@ -69,7 +69,7 @@ class Head extends React.Component {
+         )}
+         <link
+           rel="shortcut icon"
+-          href={this.props.config.baseUrl + this.props.config.favicon}
++          href={this.props.config.favicon}
+         />
+         {this.props.config.algolia && (
+           <link
 @@ -147,7 +147,7 @@ class Head extends React.Component {
            )}
  
@@ -25,25 +34,38 @@ index f8a8548..4987cbe 100644
            />
          )}
 -        <script src={`${this.props.config.baseUrl}js/scrollSpy.js`} />
-+        <script src={`${this.props.config.docusaurusStaticUrl}js/scrollSpy.js`} />
++        <script src={`${this.props.config.cdnUrl}js/scrollSpy.js`} />
          {this.props.config.usePrism && (
            <link
              rel="stylesheet"
 -            href={`${this.props.config.baseUrl}css/prism.css`}
-+            href={`${this.props.config.docusaurusStaticUrl}css/prism.css`}
++            href={`${this.props.config.cdnUrl}css/prism.css`}
            />
          )}
          {/* Site defined code. Keep these at the end to avoid overriding. */}
          <link
            rel="stylesheet"
 -          href={`${this.props.config.baseUrl}css/main.css`}
-+          href={`https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/css/main.css`}
++          href={`${this.props.config.cdnUrl}css/main.css`}
          />
 -        <script src={`${this.props.config.baseUrl}js/codetabs.js`} />
-+        <script src={`${this.props.config.docusaurusStaticUrl}js/codetabs.js`} />
++        <script src={`${this.props.config.cdnUrl}js/codetabs.js`} />
        </head>
      );
    }
+diff --git a/node_modules/docusaurus/lib/core/nav/HeaderNav.js b/node_modules/docusaurus/lib/core/nav/HeaderNav.js
+index 0b3d468..b8160ce 100644
+--- a/node_modules/docusaurus/lib/core/nav/HeaderNav.js
++++ b/node_modules/docusaurus/lib/core/nav/HeaderNav.js
+@@ -309,7 +309,7 @@ class HeaderNav extends React.Component {
+               {siteConfig.headerIcon && (
+                 <img
+                   className="logo"
+-                  src={this.props.baseUrl + siteConfig.headerIcon}
++                  src={siteConfig.headerIcon}
+                   alt={siteConfig.title}
+                 />
+               )}
 diff --git a/node_modules/docusaurus/lib/server/docs.js b/node_modules/docusaurus/lib/server/docs.js
 index 3602ded..b1024f2 100644
 --- a/node_modules/docusaurus/lib/server/docs.js
