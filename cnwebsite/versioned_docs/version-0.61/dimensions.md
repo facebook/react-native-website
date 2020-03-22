@@ -11,10 +11,9 @@ original_id: dimensions
 ```jsx
 import {Dimensions } from "react-native";
 ```
-You can get device width and height using below :
 
+你可以用下面的方法来获取设备的宽高：
 
-Get device screen width and height :
 ```jsx
 const screenWidth = Math.round(Dimensions.get('window').width);
 const screenHeight = Math.round(Dimensions.get('window').height);
