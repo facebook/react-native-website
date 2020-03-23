@@ -12,12 +12,11 @@ It's always a good idea to test your app on an actual device before releasing it
 If you used Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app. In order to build and run your app on a device, you will need to eject and install the native code dependencies from the [Getting Started guide](getting-started.md).
 
 <div class="toggler">
-
-  <ul role="tablist" >
+   <ul role="tablist" id="toggle-platform">
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
     </li>
-    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="-1" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
+    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
       Android
     </li>
   </ul>
@@ -34,10 +33,12 @@ If you used Create React Native App to set up your project, you can preview your
 <block class="linux windows mac ios android" />
 
 <div class="toggler">
-<span>开发平台：</span>
-<a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-<a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
-<a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+  <span>开发平台：</span>
+  <span role="tablist" id="toggle-os">
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
+  </span>
 </div>
 
 <block class="linux windows ios" />

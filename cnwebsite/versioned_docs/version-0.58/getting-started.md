@@ -10,11 +10,11 @@ original_id: getting-started
 欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。如果你已经搭好了环境，那么可以尝试一下[编写 Hello World](tutorial.md)。
 
 <div class="toggler">
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-guide">
     <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="0" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
       完整原生环境
     </li>
-    <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="-1" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
+    <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
       简易沙盒环境
     </li>
   </ul>
@@ -91,12 +91,19 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <div class="toggler">
   <span>开发平台：</span>
-  <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-  <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
-  <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+  <span role="tablist" id="toggle-os">
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
+  </span>
+</div>
+
+<div class="toggler">
   <span>目标平台：</span>
-  <a href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
-  <a href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  <span role="tablist" id="toggle-platform">
+    <button role="tab" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
+    <button role="tab" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  </span>
 </div>
 
 <block class="native linux windows ios" />

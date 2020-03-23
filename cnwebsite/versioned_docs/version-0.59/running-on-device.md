@@ -12,12 +12,11 @@ original_id: running-on-device
 如果使用Create React Native App来建立工程，可以通过Expo App扫描QR代码在设备上预览app。为了在设备上编译和运行app，需要逐出并从[搭建开发环境](getting-started.md)安装原生代码依赖。
 
 <div class="toggler">
-
-  <ul role="tablist" >
+   <ul role="tablist" id="toggle-platform">
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
     </li>
-    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="-1" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
+    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
       Android
     </li>
   </ul>
@@ -34,10 +33,12 @@ original_id: running-on-device
 <block class="linux windows mac ios android" />
 
 <div class="toggler">
-<span>开发平台：</span>
-<a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-<a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
-<a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+  <span>开发平台：</span>
+  <span role="tablist" id="toggle-os">
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
+  </span>
 </div>
 
 <block class="linux windows ios" />

@@ -9,11 +9,11 @@ original_id: getting-started
 欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。如果你已经搭好了环境，那么可以尝试一下[编写 Hello World](tutorial.md)。
 
 <div class="toggler">
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-guide">
     <li id="native" class="button-native" aria-selected="false" role="tab" tabindex="0" aria-controls="nativetab" onclick="displayTab('guide', 'native')">
       完整原生环境
     </li>
-    <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="-1" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
+    <li id="quickstart" class="button-quickstart" aria-selected="false" role="tab" tabindex="0" aria-controls="quickstarttab" onclick="displayTab('guide', 'quickstart')">
       简易沙盒环境
     </li>
   </ul>
@@ -88,14 +88,22 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows 环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
 
+
 <div class="toggler">
   <span>开发平台：</span>
-  <a href="javascript:void(0);" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-  <a href="javascript:void(0);" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
-  <a href="javascript:void(0);" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+  <span role="tablist" id="toggle-os">
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
+  </span>
+</div>
+
+<div class="toggler">
   <span>目标平台：</span>
-  <a href="javascript:void(0);" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
-  <a href="javascript:void(0);" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  <span role="tablist" id="toggle-platform">
+    <button role="tab" class="button-ios" onclick="displayTab('platform', 'ios')">iOS</a>
+    <button role="tab" class="button-android" onclick="displayTab('platform', 'android')">Android</a>
+  </span>
 </div>
 
 <block class="native linux windows ios" />

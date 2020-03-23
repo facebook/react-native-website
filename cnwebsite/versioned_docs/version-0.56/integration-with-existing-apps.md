@@ -11,7 +11,7 @@ original_id: integration-with-existing-apps
 具体的步骤根据你所开发的目标平台不同而不同。
 
 <div class="toggler">
-  <ul role="tablist" >
+  <ul role="tablist" id="toggle-language">
     <li id="objc" class="button-objc" aria-selected="false" role="tab" tabindex="0" aria-controls="objctab" onclick="displayTab('language', 'objc')">
       iOS (Objective-C)
     </li>
