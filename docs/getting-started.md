@@ -389,7 +389,7 @@ npx react-native init AwesomeProject --version X.XX.X
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
 ```sh
-npx react-native init AwesomeTSProject --template react-native-template-typescript
+npx react-native init AwesomeTSProject --template typescript
 ```
 
 > **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
@@ -419,7 +419,7 @@ npx react-native init AwesomeProject --version X.XX.X
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
 ```sh
-npx react-native init AwesomeTSProject --template react-native-template-typescript
+npx react-native init AwesomeTSProject --template typescript
 ```
 
 <block class="native mac windows linux android" />
