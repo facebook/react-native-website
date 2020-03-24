@@ -76,7 +76,6 @@
       "safeareaview",
       "scrollview",
       "sectionlist",
-      "slider",
       "statusbar",
       "switch",
       "text",
@@ -89,26 +88,12 @@
       {
         "type": "subcategory",
         "label": "Android Components",
-        "ids": [
-          "drawerlayoutandroid",
-          "progressbarandroid",
-          "touchablenativefeedback",
-          "viewpagerandroid"
-        ]
+        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
         "type": "subcategory",
         "label": "iOS Components",
-        "ids": [
-          "datepickerios",
-          "inputaccessoryview",
-          "maskedviewios",
-          "pickerios",
-          "progressviewios",
-          "segmentedcontrolios",
-          "tabbarios",
-          "tabbarios-item"
-        ]
+        "ids": ["inputaccessoryview", "maskedviewios"]
       }
     ],
     "Props": [
@@ -125,12 +110,9 @@
       "appearance",
       "appregistry",
       "appstate",
-      "asyncstorage",
-      "clipboard",
       "devsettings",
       "dimensions",
       "easing",
-      "imageeditor",
       "interactionmanager",
       "keyboard",
       "layoutanimation",
@@ -150,25 +132,12 @@
       {
         "type": "subcategory",
         "label": "Android APIs",
-        "ids": [
-          "backhandler",
-          "datepickerandroid",
-          "permissionsandroid",
-          "timepickerandroid",
-          "toastandroid"
-        ]
+        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
       },
       {
         "type": "subcategory",
         "label": "iOS APIs",
-        "ids": [
-          "actionsheetios",
-          "alertios",
-          "imagepickerios",
-          "pushnotificationios",
-          "settings",
-          "statusbarios"
-        ]
+        "ids": ["actionsheetios", "settings"]
       }
     ]
   }
