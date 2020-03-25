@@ -3422,6 +3422,21 @@
       "version-0.60/version-0.60-virtualizedlist": {
         "title": "VirtualizedList"
       },
+      "version-0.61/version-0.61-alertios": {
+        "title": "🚧 AlertIOS"
+      },
+      "version-0.61/version-0.61-asyncstorage": {
+        "title": "🚧 AsyncStorage"
+      },
+      "version-0.61/version-0.61-clipboard": {
+        "title": "🚧 Clipboard"
+      },
+      "version-0.61/version-0.61-datepickerandroid": {
+        "title": "🚧 DatePickerAndroid"
+      },
+      "version-0.61/version-0.61-datepickerios": {
+        "title": "🚧 DatePickerIOS"
+      },
       "version-0.61/version-0.61-debugging": {
         "title": "Debugging"
       },
@@ -3434,11 +3449,44 @@
       "version-0.61/version-0.61-getting-started": {
         "title": "Getting Started"
       },
+      "version-0.61/version-0.61-imageeditor": {
+        "title": "🚧 ImageEditor"
+      },
+      "version-0.61/version-0.61-imagepickerios": {
+        "title": "🚧 ImagePickerIOS"
+      },
+      "version-0.61/version-0.61-pickerios": {
+        "title": "🚧 PickerIOS"
+      },
+      "version-0.61/version-0.61-progressbarandroid": {
+        "title": "🚧 ProgressBarAndroid"
+      },
+      "version-0.61/version-0.61-progressviewios": {
+        "title": "🚧 ProgressViewIOS"
+      },
+      "version-0.61/version-0.61-pushnotificationios": {
+        "title": "🚧 PushNotificationIOS"
+      },
+      "version-0.61/version-0.61-segmentedcontrolios": {
+        "title": "🚧 SegmentedControlIOS"
+      },
+      "version-0.61/version-0.61-slider": {
+        "title": "🚧 Slider"
+      },
+      "version-0.61/version-0.61-statusbarios": {
+        "title": "🚧 StatusBarIOS"
+      },
+      "version-0.61/version-0.61-timepickerandroid": {
+        "title": "🚧 TimePickerAndroid"
+      },
       "version-0.61/version-0.61-typescript": {
         "title": "Using TypeScript with React Native"
       },
       "version-0.61/version-0.61-usewindowdimensions": {
         "title": "useWindowDimensions"
+      },
+      "version-0.61/version-0.61-viewpagerandroid": {
+        "title": "🚧 ViewPagerAndroid"
       },
       "version-0.7/version-0.7-pushnotificationios": {
         "title": "PushNotificationIOS"
