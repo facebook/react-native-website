@@ -342,7 +342,7 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 <h4>4. Add platform-tools to Path</h4>
 
-Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
+Open the System under **System and Security** in the Windows Control Panel, then click on **Advanced system settings...** and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
 
 The default location for this folder is:
 
