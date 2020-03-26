@@ -62,6 +62,7 @@
     "Components": [
       "version-0.61-activityindicator",
       "version-0.61-button",
+      "version-0.61-checkbox",
       "version-0.61-datepickerios",
       "version-0.61-drawerlayoutandroid",
       "version-0.61-flatlist",

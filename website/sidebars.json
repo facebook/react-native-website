@@ -88,7 +88,7 @@
       {
         "type": "subcategory",
         "label": "Android Components",
-        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+        "ids": ["checkbox", "drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
         "type": "subcategory",

@@ -99,6 +99,7 @@
         "type": "subcategory",
         "label": "Android Components",
         "ids": [
+          "version-0.62-checkbox",
           "version-0.62-drawerlayoutandroid",
           "version-0.62-touchablenativefeedback"
         ]

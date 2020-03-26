@@ -7,17 +7,48 @@ Renders a boolean input (Android only).
 
 This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
 
-@keyword checkbox @keyword toggle
+## Example
 
-### Props
+```SnackPlayer name=CheckBox%20Component%20Example&supportedPlatforms=android,web
+import React, { useState } from "react";
+import { CheckBox, Text, StyleSheet, View } from "react-native";
 
-- [View props...](view#props)
+export default App = () => {
+  const [isSelected, setSelection] = useState(false);
 
-* [`disabled`](checkbox#disabled)
-* [`onChange`](checkbox#onchange)
-* [`onValueChange`](checkbox#onvaluechange)
-* [`testID`](checkbox#testid)
-* [`value`](checkbox#value)
+  return (
+    <View style={styles.container}>
+      <View style={styles.checkboxContainer}>
+        <CheckBox
+          value={isSelected}
+          onValueChange={setSelection}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Do you like React Native?</Text>
+      </View>
+      <Text>Is CheckBox selected: {isSelected ? "👍" : "👎"}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  label: {
+    margin: 8,
+  },
+});
+```
 
 ---
 
@@ -25,9 +56,13 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ## Props
 
+Inherits [View Props](view#props).
+
+---
+
 ### `disabled`
 
-If true the user won't be able to toggle the checkbox. Default value is false.
+If true the user won't be able to toggle the checkbox. Default value is `false`.
 
 | Type | Required |
 | ---- | -------- |
@@ -67,7 +102,7 @@ Used to locate this view in end-to-end tests.
 
 ### `value`
 
-The value of the checkbox. If true the checkbox will be turned on. Default value is false.
+The value of the checkbox. If true the checkbox will be turned on. Default value is `false`.
 
 | Type | Required |
 | ---- | -------- |
