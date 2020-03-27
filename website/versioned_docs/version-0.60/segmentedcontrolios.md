@@ -14,14 +14,38 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ## Example
 
-```jsx
-<SegmentedControlIOS
-  values={['One', 'Two']}
-  selectedIndex={this.state.selectedIndex}
-  onChange={(event) => {
-    this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-  }}
-/>
+```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios
+import React, { useState } from "react";
+import { SegmentedControlIOS, StyleSheet, Text, View } from "react-native";
+
+export default App = () => {
+  const [index, setIndex] = useState(0);
+  return (
+    <View style={styles.container}>
+      <SegmentedControlIOS
+        values={['One', 'Two']}
+        selectedIndex={index}
+        onChange={(event) => {
+          setIndex(event.nativeEvent.selectedSegmentIndex);
+        }}
+      />
+      <Text style={styles.text}>
+        Selected index: {index}
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: "center"
+  },
+  text: {
+    marginTop: 24
+  }
+});
 ```
 
 ---
