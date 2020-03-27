@@ -4,7 +4,7 @@ This repo contains the website configuration and documentation powering the [Rea
 
 ## Contents
 
-- [Getting started](#-getting-started)
+- [Getting started](#%EF%B8%8F-getting-started)
 - [Overview](#-overview)
 - [Website configuration](#-website-configuration)
 - [Contributing](#-contributing)
@@ -108,18 +108,19 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 
 1.  `git checkout master` from any folder in your local `react-native-website` repository.
 1.  `git pull origin master` to ensure you have the latest main code.
-1.  `git checkout -b the-name-of-my-branch` (replacing `the-name-of-my-branch` with a suitable name) to create a branch.
+1.  `git checkout -b the-name-of-my-branch` to create a branch.
+    > replace `the-name-of-my-branch` with a suitable name, such as `update-animations-page`
 
 ### Make the change
 
 1.  Follow the "[Running locally](#running-locally)" instructions.
 1.  Save the files and check in the browser.
 1.  Some changes may require a server restart to generate new files. (Pages in `docs` always do!)
-1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", under `docs/next`.
+1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under `docs/next` path.
 
 Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
-> `open http://localhost:3000/versions.html` to see older versions of the docs.
+> Visit http://localhost:3000/versions to see the list of all versions of the docs.
 
 ### Test the change
 
