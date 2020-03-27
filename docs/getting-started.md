@@ -326,7 +326,11 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 <block class="native windows android" />
 
-Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+1. Open the **Windows Control Panel.** 
+2. Under **System and Security,** open **System.**
+3. Click on **Advanced system settings...**
+4. Then click on **Environment Variables...** 
+5. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
 ![ANDROID_HOME Environment Variable](/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
@@ -342,7 +346,13 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 <h4>4. Add platform-tools to Path</h4>
 
-Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
+1. Open the **Windows Control Panel.** 
+2. Under **System and Security,** open **System.**
+3. Click on **Advanced system settings...**
+4. Then click on **Environment Variables...** 
+5. Select the **Path** variable.
+6. Click **Edit.** 
+7. Click **New** and add the path to platform-tools to the list.
 
 The default location for this folder is:
 
