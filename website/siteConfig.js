@@ -66,6 +66,8 @@ const siteConfig = {
   },
   facebookAppId: '1677033832619985',
   twitter: 'reactnative',
+  twitterImage: 'img/logo-og.png',
+  ogImage: 'img/logo-og.png',
   markdownPlugins: [
     RemarkablePlugins.SnackPlayer,
     RemarkablePlugins.ReactNativeWebPlayer,
