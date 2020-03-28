@@ -222,7 +222,7 @@ import { Text, TextInput, View } from 'react-native';
 function Cat() {
   return (
     <View>
-      <Text>I am a also cat!</Text>
+      <Text>I am also a cat!</Text>
     </View>
   );
 }
