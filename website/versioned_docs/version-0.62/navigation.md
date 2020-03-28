@@ -85,10 +85,10 @@ function MyStack() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={Home}
+          component={HomeScreen}
           options={{title: 'Welcome'}}
         />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -109,6 +109,10 @@ function HomeScreen({navigation}) {
       onPress={() => navigation.navigate('Profile', {name: 'Jane'})}
     />
   );
+}
+
+function ProfileScreen({navigation}) {
+  return <Text>This is Jane's Profile</Text>;
 }
 ```
 
