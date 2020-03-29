@@ -35,7 +35,7 @@ React Native has many Core Components for everything from form controls to activ
 | `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
 | `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
 
-In the next section, you will start combining these Core Components to learn about how React works. Have a play with them here now!
+In the next section, you will start combining these Core Components to learn about how React Native works. Have a play with them here now!
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
