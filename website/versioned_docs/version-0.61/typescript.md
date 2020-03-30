@@ -11,7 +11,8 @@ original_id: typescript
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-npx react-native init MyTSProject --template react-native-template-typescript
+# Template version is specifically for React Native 0.61
+npx react-native init MyTSProject --template react-native-template-typescript@6.3.16
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:

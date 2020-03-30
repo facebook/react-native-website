@@ -11,6 +11,7 @@ original_id: typescript
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
+# Template version is specifically for React Native 0.60
 npx react-native init MyTSProject --template react-native-template-typescript@6.2.0
 ```
 
@@ -33,7 +34,7 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer 
+yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
