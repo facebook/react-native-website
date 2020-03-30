@@ -338,7 +338,7 @@
       "systrace": {
         "title": "Systrace"
       },
-      "testing": {
+      "testing-overview": {
         "title": "Testing"
       },
       "text-style-props": {
@@ -3779,7 +3779,7 @@
       "version-0.62/version-0.62-systrace": {
         "title": "Systrace"
       },
-      "version-0.62/version-0.62-testing": {
+      "version-0.62/version-0.62-testing-overview": {
         "title": "Testing"
       },
       "version-0.62/version-0.62-text-style-props": {
