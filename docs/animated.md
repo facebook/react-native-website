@@ -580,7 +580,7 @@ Stops any running animation and resets the value to its original.
 
 ### `Value`
 
-Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
+Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`, which return an animated value with `setValue` methord, it's especially useful when you want to re-initialize it after complete an animate.
 
 ---
 
