@@ -8,40 +8,40 @@ Renders a native WebView.
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`scalesPageToFit`](webview.md#scalespagetofit)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-* [`onError`](webview.md#onerror)
-* [`onLoad`](webview.md#onload)
-* [`onLoadEnd`](webview.md#onloadend)
-* [`onLoadStart`](webview.md#onloadstart)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`contentInset`](webview.md#contentinset)
-* [`source`](webview.md#source)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`style`](webview.md#style)
-* [`decelerationRate`](webview.md#decelerationrate)
-* [`domStorageEnabled`](webview.md#domstorageenabled)
-* [`javaScriptEnabled`](webview.md#javascriptenabled)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`bounces`](webview.md#bounces)
-* [`scrollEnabled`](webview.md#scrollenabled)
-* [`url`](webview.md#url)
-* [`html`](webview.md#html)
+* [`scalesPageToFit`](webview#scalespagetofit)
+* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
+* [`injectedJavaScript`](webview#injectedjavascript)
+* [`mediaPlaybackRequiresUserAction`](webview#mediaplaybackrequiresuseraction)
+* [`onError`](webview#onerror)
+* [`onLoad`](webview#onload)
+* [`onLoadEnd`](webview#onloadend)
+* [`onLoadStart`](webview#onloadstart)
+* [`onNavigationStateChange`](webview#onnavigationstatechange)
+* [`renderError`](webview#rendererror)
+* [`renderLoading`](webview#renderloading)
+* [`contentInset`](webview#contentinset)
+* [`source`](webview#source)
+* [`startInLoadingState`](webview#startinloadingstate)
+* [`style`](webview#style)
+* [`decelerationRate`](webview#decelerationrate)
+* [`domStorageEnabled`](webview#domstorageenabled)
+* [`javaScriptEnabled`](webview#javascriptenabled)
+* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
+* [`bounces`](webview#bounces)
+* [`scrollEnabled`](webview#scrollenabled)
+* [`url`](webview#url)
+* [`html`](webview#html)
 
 ### Methods
 
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`stopLoading`](webview.md#stoploading)
-- [`getWebViewHandle`](webview.md#getwebviewhandle)
+- [`goForward`](webview#goforward)
+- [`goBack`](webview#goback)
+- [`reload`](webview#reload)
+- [`stopLoading`](webview#stoploading)
+- [`getWebViewHandle`](webview#getwebviewhandle)
 
 ---
 
@@ -193,9 +193,9 @@ Loads static html or a uri (with optional headers) in the WebView.
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 

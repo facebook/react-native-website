@@ -6,13 +6,13 @@ original_id: tabbarios
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`barTintColor`](tabbarios.md#bartintcolor)
-* [`style`](tabbarios.md#style)
-* [`tintColor`](tabbarios.md#tintcolor)
-* [`translucent`](tabbarios.md#translucent)
-* [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
+* [`barTintColor`](tabbarios#bartintcolor)
+* [`style`](tabbarios#style)
+* [`tintColor`](tabbarios#tintcolor)
+* [`translucent`](tabbarios#translucent)
+* [`unselectedTintColor`](tabbarios#unselectedtintcolor)
 
 ---
 
@@ -24,17 +24,17 @@ original_id: tabbarios
 
 Background color of the tab bar
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type            | Required |
+| --------------- | -------- |
+| [color](colors) | No       |
 
 ---
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 
@@ -42,9 +42,9 @@ Background color of the tab bar
 
 Color of the currently selected tab icon
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type            | Required |
+| --------------- | -------- |
+| [color](colors) | No       |
 
 ---
 
@@ -62,6 +62,6 @@ A Boolean value that indicates whether the tab bar is translucent
 
 Color of text on unselected tabs
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type            | Required |
+| --------------- | -------- |
+| [color](colors) | No       |
