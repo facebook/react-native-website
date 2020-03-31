@@ -84,7 +84,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 <block class="native mac windows linux ios android" />
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing native application, or if you "ejected" from <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
 
@@ -386,7 +386,7 @@ You can use React Native's built-in command line interface to generate a new pro
 npx react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+This is not necessary if you are integrating React Native into an existing native application, if you "ejected" from Expo, or if you're adding iOS support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 <h3>[Optional] Using a specific version or template</h3>
 
@@ -416,7 +416,7 @@ React Native has a built-in command line interface, which you can use to generat
 npx react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+This is not necessary if you are integrating React Native into an existing native application, if you "ejected" from Expo, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 <h3>[Optional] Using a specific version or template</h3>
 
