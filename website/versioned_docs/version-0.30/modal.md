@@ -6,7 +6,7 @@ original_id: modal
 
 The Modal component is a way to present content above an enclosing view.
 
-_Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator. Go [here](navigator-comparison.md) to compare navigation options._
+_Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator. Go [here](navigator.md) to compare navigation options._
 
 ```jsx
 import React, {Component} from 'react';

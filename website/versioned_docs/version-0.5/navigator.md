@@ -126,33 +126,33 @@ In the above example, the newly pushed scene will float up from the bottom. See 
 
 ### Props
 
-- [`configureScene`](navigator.md#configurescene)
-- [`initialRoute`](navigator.md#initialroute)
-- [`initialRouteStack`](navigator.md#initialroutestack)
-- [`navigationBar`](navigator.md#navigationbar)
-- [`navigator`](navigator.md#navigator)
-- [`onDidFocus`](navigator.md#ondidfocus)
-- [`onWillFocus`](navigator.md#onwillfocus)
-- [`renderScene`](navigator.md#renderscene)
-- [`sceneStyle`](navigator.md#scenestyle)
+- [`configureScene`](navigator#configurescene)
+- [`initialRoute`](navigator#initialroute)
+- [`initialRouteStack`](navigator#initialroutestack)
+- [`navigationBar`](navigator#navigationbar)
+- [`navigator`](navigator#navigator)
+- [`onDidFocus`](navigator#ondidfocus)
+- [`onWillFocus`](navigator#onwillfocus)
+- [`renderScene`](navigator#renderscene)
+- [`sceneStyle`](navigator#scenestyle)
 
 ### Methods
 
-- [`immediatelyResetRouteStack`](navigator.md#immediatelyresetroutestack)
-- [`jumpTo`](navigator.md#jumpto)
-- [`jumpForward`](navigator.md#jumpforward)
-- [`jumpBack`](navigator.md#jumpback)
-- [`push`](navigator.md#push)
-- [`popN`](navigator.md#popn)
-- [`pop`](navigator.md#pop)
-- [`replaceAtIndex`](navigator.md#replaceatindex)
-- [`replace`](navigator.md#replace)
-- [`replacePrevious`](navigator.md#replaceprevious)
-- [`popToTop`](navigator.md#poptotop)
-- [`popToRoute`](navigator.md#poptoroute)
-- [`replacePreviousAndPop`](navigator.md#replacepreviousandpop)
-- [`resetTo`](navigator.md#resetto)
-- [`getCurrentRoutes`](navigator.md#getcurrentroutes)
+- [`immediatelyResetRouteStack`](navigator#immediatelyresetroutestack)
+- [`jumpTo`](navigator#jumpto)
+- [`jumpForward`](navigator#jumpforward)
+- [`jumpBack`](navigator#jumpback)
+- [`push`](navigator#push)
+- [`popN`](navigator#popn)
+- [`pop`](navigator#pop)
+- [`replaceAtIndex`](navigator#replaceatindex)
+- [`replace`](navigator#replace)
+- [`replacePrevious`](navigator#replaceprevious)
+- [`popToTop`](navigator#poptotop)
+- [`popToRoute`](navigator#poptoroute)
+- [`replacePreviousAndPop`](navigator#replacepreviousandpop)
+- [`resetTo`](navigator#resetto)
+- [`getCurrentRoutes`](navigator#getcurrentroutes)
 
 ---
 
@@ -273,9 +273,9 @@ Required function which renders the scene for a given route. Will be invoked wit
 
 Styles to apply to the container of each scene.
 
-| Type              | Required |
-| ----------------- | -------- |
-| [style](style.md) | No       |
+| Type           | Required |
+| -------------- | -------- |
+| [style](style) | No       |
 
 ## Methods
 
