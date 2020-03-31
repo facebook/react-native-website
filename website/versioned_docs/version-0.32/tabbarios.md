@@ -6,14 +6,14 @@ original_id: tabbarios
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`barTintColor`](tabbarios.md#bartintcolor)
-* [`itemPositioning`](tabbarios.md#itempositioning)
-* [`style`](tabbarios.md#style)
-* [`tintColor`](tabbarios.md#tintcolor)
-* [`translucent`](tabbarios.md#translucent)
-* [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
+* [`barTintColor`](tabbarios#bartintcolor)
+* [`itemPositioning`](tabbarios#itempositioning)
+* [`style`](tabbarios#style)
+* [`tintColor`](tabbarios#tintcolor)
+* [`translucent`](tabbarios#translucent)
+* [`unselectedTintColor`](tabbarios#unselectedtintcolor)
 
 ---
 

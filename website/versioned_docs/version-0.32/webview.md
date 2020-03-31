@@ -26,34 +26,34 @@ You can use this component to navigate back and forth in the web view's history 
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`source`](webview.md#source)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-* [`onError`](webview.md#onerror)
-* [`onLoad`](webview.md#onload)
-* [`onLoadEnd`](webview.md#onloadend)
-* [`onLoadStart`](webview.md#onloadstart)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`scalesPageToFit`](webview.md#scalespagetofit)
-* [`contentInset`](webview.md#contentinset)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`style`](webview.md#style)
-* [`decelerationRate`](webview.md#decelerationrate)
-* [`domStorageEnabled`](webview.md#domstorageenabled)
-* [`javaScriptEnabled`](webview.md#javascriptenabled)
-* [`userAgent`](webview.md#useragent)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`bounces`](webview.md#bounces)
-* [`dataDetectorTypes`](webview.md#datadetectortypes)
-* [`scrollEnabled`](webview.md#scrollenabled)
-* [`url`](webview.md#url)
-* [`html`](webview.md#html)
+* [`source`](webview#source)
+* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
+* [`injectedJavaScript`](webview#injectedjavascript)
+* [`mediaPlaybackRequiresUserAction`](webview#mediaplaybackrequiresuseraction)
+* [`onError`](webview#onerror)
+* [`onLoad`](webview#onload)
+* [`onLoadEnd`](webview#onloadend)
+* [`onLoadStart`](webview#onloadstart)
+* [`onNavigationStateChange`](webview#onnavigationstatechange)
+* [`renderError`](webview#rendererror)
+* [`renderLoading`](webview#renderloading)
+* [`scalesPageToFit`](webview#scalespagetofit)
+* [`contentInset`](webview#contentinset)
+* [`startInLoadingState`](webview#startinloadingstate)
+* [`style`](webview#style)
+* [`decelerationRate`](webview#decelerationrate)
+* [`domStorageEnabled`](webview#domstorageenabled)
+* [`javaScriptEnabled`](webview#javascriptenabled)
+* [`userAgent`](webview#useragent)
+* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
+* [`bounces`](webview#bounces)
+* [`dataDetectorTypes`](webview#datadetectortypes)
+* [`scrollEnabled`](webview#scrollenabled)
+* [`url`](webview#url)
+* [`html`](webview#html)
 
 ---
 
@@ -215,9 +215,9 @@ Boolean value that forces the `WebView` to show the loading view on the first lo
 
 The style to apply to the `WebView`.
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 
