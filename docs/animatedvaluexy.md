@@ -1,63 +1,60 @@
 ---
 id: animatedvaluexy
-title: AnimatedValueXY
+title: Animated.ValueXY
 ---
 
 2D Value for driving 2D animations, such as pan gestures. Almost identical API to normal [`Animated.Value`](animatedvalue), but multiplexed. Contains two regular `Animated.Value`s under the hood.
 
-See also [`Animated`](animated).
-
 ## Example
 
-```jsx
-class DraggableView extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      pan: new Animated.ValueXY(), // inits to zero
-    };
-    this.state.panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([
-        null,
-        {
-          dx: this.state.pan.x, // x,y are Animated.Value
-          dy: this.state.pan.y,
-        },
-      ]),
-      onPanResponderRelease: () => {
-        Animated.spring(
-          this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}}, // Back to zero
-        ).start();
+```SnackPlayer name=Animated.ValueXY
+import React, { useRef } from "react";
+import { Animated, PanResponder, StyleSheet, View } from "react-native";
+
+export default DraggableView = () => {
+  const pan = useRef(new Animated.ValueXY()).current;
+
+  const panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onPanResponderMove: Animated.event([
+      null,
+      {
+        dx: pan.x, // x,y are Animated.Value
+        dy: pan.y,
       },
-    });
-  }
-  render() {
-    return (
+    ]),
+    onPanResponderRelease: () => {
+      Animated.spring(
+        pan, // Auto-multiplexed
+        { toValue: { x: 0, y: 0 } } // Back to zero
+      ).start();
+    },
+  });
+
+  return (
+    <View style={styles.container}>
       <Animated.View
-        {...this.state.panResponder.panHandlers}
-        style={this.state.pan.getLayout()}>
-        {this.props.children}
-      </Animated.View>
-    );
-  }
-}
+        {...panResponder.panHandlers}
+        style={[pan.getLayout(), styles.box]}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  box: {
+    backgroundColor: "#61dafb",
+    width: 80,
+    height: 80,
+    borderRadius: 4,
+  },
+});
 ```
-
-### Methods
-
-- [`setValue`](animatedvaluexy#setvalue)
-- [`setOffset`](animatedvaluexy#setoffset)
-- [`flattenOffset`](animatedvaluexy#flattenoffset)
-- [`extractOffset`](animatedvaluexy#extractoffset)
-- [`addListener`](animatedvaluexy#addlistener)
-- [`removeListener`](animatedvaluexy#removelistener)
-- [`removeAllListeners`](animatedvaluexy#removealllisteners)
-- [`stopAnimation`](animatedvaluexy#stopanimation)
-- [`resetAnimation`](animatedvaluexy#resetanimation)
-- [`getLayout`](animatedvaluexy#getlayout)
-- [`getTranslateTransform`](animatedvaluexy#gettranslatetransform)
 
 ---
 

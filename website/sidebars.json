@@ -107,6 +107,8 @@
       "accessibilityinfo",
       "alert",
       "animated",
+      "animatedvalue",
+      "animatedvaluexy",
       "appearance",
       "appregistry",
       "appstate",

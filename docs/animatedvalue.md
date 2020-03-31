@@ -1,29 +1,11 @@
 ---
 id: animatedvalue
-title: AnimatedValue
+title: Animated.Value
 ---
 
 Standard value for driving animations. One `Animated.Value` can drive multiple properties in a synchronized fashion, but can only be driven by one mechanism at a time. Using a new mechanism (e.g. starting a new animation, or calling `setValue`) will stop any previous ones.
 
 Typically initialized with `new Animated.Value(0);`
-
-See also [`Animated`](animated).
-
-### Methods
-
-- [`setValue`](animatedvalue#setvalue)
-- [`setOffset`](animatedvalue#setoffset)
-- [`flattenOffset`](animatedvalue#flattenoffset)
-- [`extractOffset`](animatedvalue#extractoffset)
-- [`addListener`](animatedvalue#addlistener)
-- [`removeListener`](animatedvalue#removelistener)
-- [`removeAllListeners`](animatedvalue#removealllisteners)
-- [`stopAnimation`](animatedvalue#stopanimation)
-- [`resetAnimation`](animatedvalue#resetanimation)
-- [`interpolate`](animatedvalue#interpolate)
-- [`animate`](animatedvalue#animate)
-- [`stopTracking`](animatedvalue#stoptracking)
-- [`track`](animatedvalue#track)
 
 ---
 
