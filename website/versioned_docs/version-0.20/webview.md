@@ -8,42 +8,42 @@ Renders a native WebView.
 
 ### Props
 
-- [View props...](view.md#props)
+- [View props...](view#props)
 
-* [`source`](webview.md#source)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`scalesPageToFit`](webview.md#scalespagetofit)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`onError`](webview.md#onerror)
-* [`onLoad`](webview.md#onload)
-* [`onLoadEnd`](webview.md#onloadend)
-* [`onLoadStart`](webview.md#onloadstart)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`contentInset`](webview.md#contentinset)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`style`](webview.md#style)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`domStorageEnabled`](webview.md#domstorageenabled)
-* [`javaScriptEnabled`](webview.md#javascriptenabled)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`bounces`](webview.md#bounces)
-* [`decelerationRate`](webview.md#decelerationrate)
-* [`scrollEnabled`](webview.md#scrollenabled)
-* [`url`](webview.md#url)
-* [`html`](webview.md#html)
+* [`source`](webview#source)
+* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+* [`scalesPageToFit`](webview#scalespagetofit)
+* [`injectedJavaScript`](webview#injectedjavascript)
+* [`onError`](webview#onerror)
+* [`onLoad`](webview#onload)
+* [`onLoadEnd`](webview#onloadend)
+* [`onLoadStart`](webview#onloadstart)
+* [`onNavigationStateChange`](webview#onnavigationstatechange)
+* [`renderError`](webview#rendererror)
+* [`renderLoading`](webview#renderloading)
+* [`contentInset`](webview#contentinset)
+* [`startInLoadingState`](webview#startinloadingstate)
+* [`style`](webview#style)
+* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
+* [`domStorageEnabled`](webview#domstorageenabled)
+* [`javaScriptEnabled`](webview#javascriptenabled)
+* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
+* [`bounces`](webview#bounces)
+* [`decelerationRate`](webview#decelerationrate)
+* [`scrollEnabled`](webview#scrollenabled)
+* [`url`](webview#url)
+* [`html`](webview#html)
 
 ### Methods
 
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`updateNavigationState`](webview.md#updatenavigationstate)
-- [`getWebViewHandle`](webview.md#getwebviewhandle)
-- [`onLoadingStart`](webview.md#onloadingstart)
-- [`onLoadingError`](webview.md#onloadingerror)
-- [`onLoadingFinish`](webview.md#onloadingfinish)
+- [`goForward`](webview#goforward)
+- [`goBack`](webview#goback)
+- [`reload`](webview#reload)
+- [`updateNavigationState`](webview#updatenavigationstate)
+- [`getWebViewHandle`](webview#getwebviewhandle)
+- [`onLoadingStart`](webview#onloadingstart)
+- [`onLoadingError`](webview#onloadingerror)
+- [`onLoadingFinish`](webview#onloadingfinish)
 
 ---
 
@@ -175,9 +175,9 @@ Function that returns a loading indicator.
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 
