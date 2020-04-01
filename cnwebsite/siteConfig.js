@@ -47,7 +47,7 @@ const siteConfig = {
     //   label: '博客',
     // },
     {href: '//github.com/reactnativecn/react-native-website/issues', external: true, label: '讨论'},
-    {href: '//update.reactnative.cn', label: '热更新', external: true},
+    {href: '//update.react-native.cn', label: '热更新', external: true},
     {page: 'about', label: '关于'},
     {search: true},
     {href: repoUrl, label: 'GitHub'},
