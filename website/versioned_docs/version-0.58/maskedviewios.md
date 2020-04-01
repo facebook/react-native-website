@@ -49,7 +49,7 @@ class MyMaskedView extends React.Component {
 
 The following image demonstrates that you can put almost anything behind the mask. The three examples shown are masked `<View>`, `<Text>`, and `<Image>`.
 
-<center><img src="/react-native/docs/assets/MaskedViewIOS/example.png" width="200"></img></center>
+<center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/MaskedViewIOS/example.png" width="200"></img></center>
 
 **The alpha channel of the view rendered by the `maskElement` prop determines how much of the view's content and background shows through.** Fully or partially opaque pixels allow the underlying content to show through but fully transparent pixels block that content.
 

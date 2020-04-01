@@ -21,10 +21,10 @@ original_id: alert
   </tr>
   <tr>
     <td style="width: 50%;">
-      <center><img src="assets/Alert/exampleios.gif"></img></center>
+      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleios.gif"></img></center>
     </td>
     <td style="width: 50%;">
-      <center><img src="assets/Alert/exampleandroid.gif"></img></center>
+      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>
 </table>

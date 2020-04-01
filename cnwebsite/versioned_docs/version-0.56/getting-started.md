@@ -55,7 +55,7 @@ Now that you have successfully run the app, let's modify it. Open `App.js` in yo
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 ## Now what?
 
@@ -570,7 +570,7 @@ react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native windows linux android" />
 
@@ -578,7 +578,7 @@ react-native run-android
 
 恭喜！你已经成功运行并修改了你的第一个 React Native 应用。
 
-<center><img src="assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <block class="native mac ios" />
 

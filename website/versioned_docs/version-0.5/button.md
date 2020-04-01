@@ -6,7 +6,7 @@ original_id: button
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
 
-<center><img src="/react-native/docs/assets/buttonExample.png"></img></center>
+<center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/buttonExample.png"></img></center>
 
 If this button doesn't look right for your app, you can build your own button using [TouchableOpacity](touchableopacity.md) or [TouchableNativeFeedback](touchablenativefeedback.md). For inspiration, look at the [source code for this button component](https://github.com/facebook/react-native/blob/master/Libraries/Components/Button.js). Or, take a look at the [wide variety of button components built by the community](https://js.coach/react-native?search=button).
 

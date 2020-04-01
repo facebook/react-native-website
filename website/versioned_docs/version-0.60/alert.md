@@ -19,10 +19,10 @@ This is an API that works both on Android and iOS and can show static alerts. To
   </tr>
   <tr>
     <td style="width: 50%;">
-      <center><img src="/react-native/docs/assets/Alert/exampleios.gif"></img></center>
+      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleios.gif"></img></center>
     </td>
     <td style="width: 50%;">
-      <center><img src="/react-native/docs/assets/Alert/exampleandroid.gif"></img></center>
+      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>
 </table>
