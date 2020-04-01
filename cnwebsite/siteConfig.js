@@ -22,7 +22,7 @@ try {
   // We don't care if there are no repos synced locally
   // We only care if we are on the CI server and about to deploy
 }
-const defaultVersionShown = '0.61';
+const defaultVersionShown = '0.62';
 const siteConfig = {
   organizationName: 'reactnativecn',
   cname: 'www.react-native.cn',
