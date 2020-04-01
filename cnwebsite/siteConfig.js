@@ -25,7 +25,7 @@ try {
 const defaultVersionShown = '0.61';
 const siteConfig = {
   organizationName: 'reactnativecn',
-  // cname: 'www.react-native.cn',
+  cname: 'www.react-native.cn',
   cdnUrl,
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
