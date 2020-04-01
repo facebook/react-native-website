@@ -224,6 +224,27 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 1
 
 ![Xcode Command Line Tools](assets/GettingStartedXcodeCommandLineTools.png)
 
+<h4>CocoaPods</h4>
+
+[CocoaPods](https://cocoapods.org/)是用Ruby编写的包管理器。从0.60版本开始react native的iOS版本需要使用CocoaPods来管理依赖。你可以使用下面的命令来安装cocoapods。
+
+> 当然安装可能也不顺利，请尝试翻墙或寻找一些国内可用的镜像源。
+
+
+```sh
+sudo gem install cocoapods
+```
+
+或者可以使用brew来安装
+
+```sh
+brew install cocoapods
+```
+
+> 另外目前最新版本似乎不能在ruby2.6版本以下安装，意味着如果你使用的macOS版本低于10.15 (Catalina) 则无法直接安装。可以尝试安装较旧一些的版本。如`sudo gem install cocoapods -v 1.8.4`，参考issue链接 <https://github.com/CocoaPods/CocoaPods/issues/9568>
+
+要了解更多信息，可以访问[CocoaPods的官网](https://guides.cocoapods.org/using/getting-started.html)。
+
 <block class="native mac linux android" />
 
 ### Java Development Kit
