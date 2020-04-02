@@ -4,13 +4,13 @@ title: BackAndroid
 original_id: backandroid
 ---
 
-Deprecated. Use [`BackHandler`](backhandler.md) instead.
+Deprecated. Use [`BackHandler`](backhandler) instead.
 
 ### Methods
 
-- [`exitApp`](backandroid.md#exitapp)
-- [`addEventListener`](backandroid.md#addeventlistener)
-- [`removeEventListener`](backandroid.md#removeeventlistener)
+- [`exitApp`](backandroid#exitapp)
+- [`addEventListener`](backandroid#addeventlistener)
+- [`removeEventListener`](backandroid#removeeventlistener)
 
 ---
 
