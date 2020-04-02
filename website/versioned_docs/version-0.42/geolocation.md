@@ -24,10 +24,10 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 
 ### Methods
 
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
+- [`getCurrentPosition`](geolocation#getcurrentposition)
+- [`watchPosition`](geolocation#watchposition)
+- [`clearWatch`](geolocation#clearwatch)
+- [`stopObserving`](geolocation#stopobserving)
 
 ---
 
