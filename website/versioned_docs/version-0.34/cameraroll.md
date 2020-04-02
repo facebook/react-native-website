@@ -8,9 +8,9 @@ original_id: cameraroll
 
 ### Methods
 
-- [`saveImageWithTag`](cameraroll.md#saveimagewithtag)
-- [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
-- [`getPhotos`](cameraroll.md#getphotos)
+- [`saveImageWithTag`](cameraroll#saveimagewithtag)
+- [`saveToCameraRoll`](cameraroll#savetocameraroll)
+- [`getPhotos`](cameraroll#getphotos)
 
 ---
 
