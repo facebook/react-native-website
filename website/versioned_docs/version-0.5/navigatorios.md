@@ -74,27 +74,27 @@ var MyView = React.createClass({
 
 ### Props
 
-- [`initialRoute`](navigatorios.md#initialroute)
-- [`barTintColor`](navigatorios.md#bartintcolor)
-- [`itemWrapperStyle`](navigatorios.md#itemwrapperstyle)
-- [`navigationBarHidden`](navigatorios.md#navigationbarhidden)
-- [`tintColor`](navigatorios.md#tintcolor)
-- [`titleTextColor`](navigatorios.md#titletextcolor)
+- [`initialRoute`](navigatorios#initialroute)
+- [`barTintColor`](navigatorios#bartintcolor)
+- [`itemWrapperStyle`](navigatorios#itemwrapperstyle)
+- [`navigationBarHidden`](navigatorios#navigationbarhidden)
+- [`tintColor`](navigatorios#tintcolor)
+- [`titleTextColor`](navigatorios#titletextcolor)
 
 ### Methods
 
-- [`push`](navigatorios.md#push)
-- [`popN`](navigatorios.md#popn)
-- [`pop`](navigatorios.md#pop)
-- [`replaceAtIndex`](navigatorios.md#replaceatindex)
-- [`replace`](navigatorios.md#replace)
-- [`replacePrevious`](navigatorios.md#replaceprevious)
-- [`popToTop`](navigatorios.md#poptotop)
-- [`popToRoute`](navigatorios.md#poptoroute)
-- [`replacePreviousAndPop`](navigatorios.md#replacepreviousandpop)
-- [`resetTo`](navigatorios.md#resetto)
-- [`handleNavigationComplete`](navigatorios.md#handlenavigationcomplete)
-- [`renderNavigationStackItems`](navigatorios.md#rendernavigationstackitems)
+- [`push`](navigatorios#push)
+- [`popN`](navigatorios#popn)
+- [`pop`](navigatorios#pop)
+- [`replaceAtIndex`](navigatorios#replaceatindex)
+- [`replace`](navigatorios#replace)
+- [`replacePrevious`](navigatorios#replaceprevious)
+- [`popToTop`](navigatorios#poptotop)
+- [`popToRoute`](navigatorios#poptoroute)
+- [`replacePreviousAndPop`](navigatorios#replacepreviousandpop)
+- [`resetTo`](navigatorios#resetto)
+- [`handleNavigationComplete`](navigatorios#handlenavigationcomplete)
+- [`renderNavigationStackItems`](navigatorios#rendernavigationstackitems)
 
 ---
 
@@ -106,9 +106,9 @@ var MyView = React.createClass({
 
 NavigatorIOS uses "route" objects to identify child views, their props, and navigation bar configuration. "push" and all the other navigation operations expect routes to be like this:
 
-| Type                                                                                                                                                                                                                                                                                                                                                      | Required |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| object: {component: function,title: string,passProps: object,backButtonIcon: Image.propTypes.source,backButtonTitle: string,leftButtonIcon: Image.propTypes.source,leftButtonTitle: string,onLeftButtonPress: function,rightButtonIcon: Image.propTypes.source,rightButtonTitle: string,onRightButtonPress: function,wrapperStyle: [View](view.md#style)} | Yes      |
+| Type                                                                                                                                                                                                                                                                                                                                                   | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| object: {component: function,title: string,passProps: object,backButtonIcon: Image.propTypes.source,backButtonTitle: string,leftButtonIcon: Image.propTypes.source,leftButtonTitle: string,onLeftButtonPress: function,rightButtonIcon: Image.propTypes.source,rightButtonTitle: string,onRightButtonPress: function,wrapperStyle: [View](view#style)} | Yes      |
 
 ---
 
@@ -126,9 +126,9 @@ The background color of the navigation bar
 
 The default wrapper style for components in the navigator. A common use case is to set the backgroundColor for every page
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 

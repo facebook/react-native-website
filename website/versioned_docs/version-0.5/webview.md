@@ -6,30 +6,30 @@ original_id: webview
 
 ### Props
 
-- [`renderError`](webview.md#rendererror)
-- [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`contentInset`](webview.md#contentinset)
-- [`html`](webview.md#html)
-- [`javaScriptEnabledAndroid`](webview.md#javascriptenabledandroid)
-- [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-- [`bounces`](webview.md#bounces)
-- [`renderLoading`](webview.md#renderloading)
-- [`scrollEnabled`](webview.md#scrollenabled)
-- [`shouldInjectAJAXHandler`](webview.md#shouldinjectajaxhandler)
-- [`startInLoadingState`](webview.md#startinloadingstate)
-- [`style`](webview.md#style)
-- [`url`](webview.md#url)
+- [`renderError`](webview#rendererror)
+- [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
+- [`contentInset`](webview#contentinset)
+- [`html`](webview#html)
+- [`javaScriptEnabledAndroid`](webview#javascriptenabledandroid)
+- [`onNavigationStateChange`](webview#onnavigationstatechange)
+- [`bounces`](webview#bounces)
+- [`renderLoading`](webview#renderloading)
+- [`scrollEnabled`](webview#scrollenabled)
+- [`shouldInjectAJAXHandler`](webview#shouldinjectajaxhandler)
+- [`startInLoadingState`](webview#startinloadingstate)
+- [`style`](webview#style)
+- [`url`](webview#url)
 
 ### Methods
 
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`updateNavigationState`](webview.md#updatenavigationstate)
-- [`getWebWiewHandle`](webview.md#getwebwiewhandle)
-- [`onLoadingStart`](webview.md#onloadingstart)
-- [`onLoadingError`](webview.md#onloadingerror)
-- [`onLoadingFinish`](webview.md#onloadingfinish)
+- [`goForward`](webview#goforward)
+- [`goBack`](webview#goback)
+- [`reload`](webview#reload)
+- [`updateNavigationState`](webview#updatenavigationstate)
+- [`getWebWiewHandle`](webview#getwebwiewhandle)
+- [`onLoadingStart`](webview#onloadingstart)
+- [`onLoadingError`](webview#onloadingerror)
+- [`onLoadingFinish`](webview#onloadingfinish)
 
 ---
 
@@ -129,9 +129,9 @@ Used for android only, JS is enabled by default for WebView on iOS
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
 
 ---
 

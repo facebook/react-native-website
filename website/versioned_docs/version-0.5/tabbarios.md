@@ -6,7 +6,7 @@ original_id: tabbarios
 
 ### Props
 
-- [`style`](tabbarios.md#style)
+- [`style`](tabbarios#style)
 
 ---
 
@@ -16,6 +16,6 @@ original_id: tabbarios
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [View](view#style) | No       |
