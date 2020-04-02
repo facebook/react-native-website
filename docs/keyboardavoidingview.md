@@ -14,7 +14,7 @@ import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, Touc
 const keyBoardAvoidingComponent = () => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.Os == "ios" ? "padding" : "height"}
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
       style={styles.container}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
