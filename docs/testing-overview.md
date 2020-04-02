@@ -108,7 +108,7 @@ In integration testing, real individual units are combined (same as in your app)
 > Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
 >
 > - Combines several modules of your app as described above
-> - Uses an external system (such as a native module or a `node_modules` dependency)
+> - Uses an external system (such as a `node_modules` dependency)
 > - Makes a network call to other application (such as the weather service API)
 > - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
 
