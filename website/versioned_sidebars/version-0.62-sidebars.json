@@ -141,6 +141,7 @@
         "type": "subcategory",
         "label": "Hooks",
         "ids": [
+          "version-0.62-platformcolor",
           "version-0.62-usecolorscheme",
           "version-0.62-usewindowdimensions"
         ]

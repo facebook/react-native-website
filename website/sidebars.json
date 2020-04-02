@@ -127,7 +127,7 @@
       {
         "type": "subcategory",
         "label": "Hooks",
-        "ids": ["usecolorscheme", "usewindowdimensions"]
+        "ids": ["platformcolor", "usecolorscheme", "usewindowdimensions"]
       },
       {
         "type": "subcategory",
