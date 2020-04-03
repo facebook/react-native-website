@@ -3707,9 +3707,6 @@
       "version-0.62/version-0.62-platform-specific-code": {
         "title": "Platform Specific Code"
       },
-      "version-0.62/version-0.62-platformcolor": {
-        "title": "PlatformColor"
-      },
       "version-0.62/version-0.62-profiling": {
         "title": "Profiling"
       },
