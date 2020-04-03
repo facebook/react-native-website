@@ -14,13 +14,13 @@ In this guide, we will cover different, automated ways to ensure your app works 
 
 ## Why Test
 
-We're humans, and humans make mistakes. Testing is important because it helps you uncover these mistakes or verifies that your code is working. Perhaps even more importantly, testing ensures that your code continues to work in the future as you add new features, refactor the existing ones, or upgrade major dependencies of your project.
+We're humans, and humans make mistakes. Testing is important because it helps you uncover these mistakes and verifies that your code is working. Perhaps even more importantly, testing ensures that your code continues to work in the future as you add new features, refactor the existing ones, or upgrade major dependencies of your project.
 
 There is more value in testing than you might realize. One of the best ways to fix a bug in your code is to write a failing test that exposes it. Then when you fix the bug and re-run the test, if it passes it means the bug is fixed, never reintroduced into the code base.
 
 Tests can also serve as documentation for new people joining your team. For people who have never seen a codebase before, reading tests can help them understand how the existing code works.
 
-Last but not least, more automated testing means less time spent with manual <abbr title="Quality Assurance">QA</abbr>, freeing up valuable development time.
+Last but not least, more automated testing means less time spent with manual <abbr title="Quality Assurance">QA</abbr>, freeing up valuable time.
 
 ## Static Analysis
 
@@ -41,7 +41,7 @@ To make your app more testable, start by separating the view part of your app—
 
 Theoretically, you could go so far as to move all logic and data fetching out of your components. This way your components would be solely dedicated to rendering. Your state would be entirely independent of your components. Your app’s logic would work without any React components at all!
 
-> We encourage you to further explore the topic of testabile coding in other learning resources.
+> We encourage you to further explore the topic of testable code in other learning resources.
 
 ## Writing Tests
 
@@ -107,8 +107,9 @@ In integration testing, real individual units are combined (same as in your app)
 
 > Please note that the terminology around what integration testing means is not always consistent. Also, the line between what is a unit test and what is an integration test may not always be clear. For this guide, your test falls into "integration testing" if it:
 >
-> - Uses an external system (such as weather service API)
-> - Makes a network call to other application
+> - Combines several modules of your app as described above
+> - Uses an external system
+> - Makes a network call to other application (such as the weather service API)
 > - Does any kind of file or database <abbr title="Input/Output">I/O</abbr>
 
 <img src="/docs/assets/p_tests-integration.svg" alt=" " />
@@ -240,7 +241,7 @@ Instead, E2E testing libraries allow you to find and control elements in the scr
 E2E tests give you the highest possible confidence that part of your app is working. The tradeoffs include:
 
 - writing them is more time consuming compared to the other types of tests
-- they can be slower to run
+- they are slower to run
 - they are more prone to flakiness (a "flaky" test is a test which randomly passes and fails without any change to code)
 
 Try to cover the vital parts of your app with E2E tests: authentication flow, core functionalities, payments, etc. Use faster JS tests for the non-vital parts of your app. The more tests you add, the higher your confidence, but also, the more time you'll spend maintaining and running them. Consider the tradeoffs and decide what's best for you.
