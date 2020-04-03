@@ -119,6 +119,7 @@
       "linking",
       "panresponder",
       "pixelratio",
+      "platformcolor",
       "share",
       "stylesheet",
       "systrace",
@@ -127,7 +128,7 @@
       {
         "type": "subcategory",
         "label": "Hooks",
-        "ids": ["platformcolor", "usecolorscheme", "usewindowdimensions"]
+        "ids": ["usecolorscheme", "usewindowdimensions"]
       },
       {
         "type": "subcategory",
