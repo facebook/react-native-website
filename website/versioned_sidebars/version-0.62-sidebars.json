@@ -106,7 +106,7 @@
       {
         "type": "subcategory",
         "label": "iOS Components",
-        "ids": ["version-0.62-inputaccessoryview", "version-0.62-maskedviewios"]
+        "ids": ["version-0.62-inputaccessoryview"]
       }
     ],
     "Props": [
