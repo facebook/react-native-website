@@ -11,7 +11,7 @@ tvOS(即 Apple TV 机顶盒)：监听遥控器上的后退按钮事件（阻止�
 
 iOS：尚无作用。
 
-监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。Beware: If your app shows an opened `Modal`, BackHandler will not publish any events ([see `Modal` docs](modal.md#onrequestclose)).
+监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。注意：如果app当前打开了一个`Modal`窗口，则BackHandler不会触发事件。([查看`Modal`的文档](modal.md#onrequestclose)).
 
 示例：
 
