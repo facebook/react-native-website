@@ -110,6 +110,8 @@ The background color of the status bar.
 
 Sets the color of the status bar text.
 
+On Android, this will only have an impact on API versions 23 and above.
+
 | Type                                             | Required |
 | ------------------------------------------------ | -------- |
 | enum('default', 'light-content', 'dark-content') | No       |
