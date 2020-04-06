@@ -60,9 +60,7 @@ import {NavigationContainer} from '@react-navigation/native';
 
 export default function App() {
   return (
-    <NavigationContainer>
-      {/* Rest of your app code */}
-    </NavigationContainer>
+    <NavigationContainer>{/* Rest of your app code */}</NavigationContainer>
   );
 }
 ```
@@ -86,10 +84,10 @@ function MyStack() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={Home}
+          component={HomeScreen}
           options={{title: 'Welcome'}}
         />
-        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -110,6 +108,9 @@ function HomeScreen({navigation}) {
       onPress={() => navigation.navigate('Profile', {name: 'Jane'})}
     />
   );
+}
+function ProfileScreen() {
+  return <Text>This is Jane's profile</Text>;
 }
 ```
 
