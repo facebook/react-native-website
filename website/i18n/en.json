@@ -60,7 +60,7 @@
         "title": "Button"
       },
       "checkbox": {
-        "title": "CheckBox"
+        "title": "🚧 CheckBox"
       },
       "clipboard": {
         "title": "🚧 Clipboard"
@@ -3427,6 +3427,9 @@
       },
       "version-0.61/version-0.61-asyncstorage": {
         "title": "🚧 AsyncStorage"
+      },
+      "version-0.61/version-0.61-checkbox": {
+        "title": "🚧 CheckBox"
       },
       "version-0.61/version-0.61-clipboard": {
         "title": "🚧 Clipboard"
