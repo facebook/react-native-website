@@ -136,20 +136,20 @@ At least one of URL and message is required.
 
 ---
 
-### `sharedAction()`
+### `sharedAction`
 
 ```jsx
-static sharedAction()
+static sharedAction
 ```
 
 The content was successfully shared.
 
 ---
 
-### `dismissedAction()`
+### `dismissedAction`
 
 ```jsx
-static dismissedAction()
+static dismissedAction
 ```
 
 _iOS Only_. The dialog has been dismissed.
