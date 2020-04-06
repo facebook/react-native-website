@@ -8,7 +8,7 @@ title: Handling Text Input
 For example, let's say that as the user types, you're translating their words into a different language. In this new language, every single word is written the same way: 🍕. So the sentence "Hello there Bob" would be translated as "🍕🍕🍕".
 
 ```SnackPlayer name=Handling%20Text%20Input
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
 export default function PizzaTranslator() {
