@@ -65,3 +65,5 @@ Supported color schemes:
 - null: The user has not indicated a preferred color theme.
 
 See also: `useColorScheme` hook.
+
+> Note: `getColorScheme()` will always return `light` when debugging with Chrome.
