@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-This will result in a container having `flex: 1` on both platforms, a red background color on iOS, and a blue background color on Android.
+This will result in a container having `flex: 1` on both platforms, a red background color on iOS, a green background color on Android, and a blue background on other platforms.
 
 Since it accepts `any` value, you can also use it to return platform specific component, like below:
 
