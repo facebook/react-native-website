@@ -6,7 +6,7 @@ original_id: cameraroll
 
 `CameraRoll` provides access to the local camera roll or photo library.
 
-On iOS, the `CameraRoll` API requires the `RCTCameraRoll` library to be linked. You can refer to [Linking Libraries (iOS)](linking-libraries-ios.md) to learn more.
+On iOS, the `CameraRoll` API requires the `RCTCameraRoll` library to be linked. You can refer to [Linking Libraries (iOS)](linking-libraries-ios) to learn more.
 
 ### Permissions
 
@@ -16,8 +16,8 @@ If you are targeting devices running iOS 11 or later, you will also need to add 
 
 ### Methods
 
-- [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
-- [`getPhotos`](cameraroll.md#getphotos)
+- [`saveToCameraRoll`](cameraroll#savetocameraroll)
+- [`getPhotos`](cameraroll#getphotos)
 
 ---
 

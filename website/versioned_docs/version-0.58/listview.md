@@ -4,7 +4,7 @@ title: ListView
 original_id: listview
 ---
 
-DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](/blog/2017/03/13/better-list-views) for more details.
+DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist) or [`SectionList`](sectionlist) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](/blog/2017/03/13/better-list-views) for more details.
 
 ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](/docs/listviewdatasource.html), populate it with a flat array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
 
@@ -41,32 +41,32 @@ There are a few performance operations designed to make ListView scroll smoothly
 
 ### Props
 
-- [ScrollView props...](scrollview.md#props)
+- [ScrollView props...](scrollview#props)
 
-* [`dataSource`](listview.md#datasource)
-* [`initialListSize`](listview.md#initiallistsize)
-* [`onEndReachedThreshold`](listview.md#onendreachedthreshold)
-* [`pageSize`](listview.md#pagesize)
-* [`renderRow`](listview.md#renderrow)
-* [`renderScrollComponent`](listview.md#renderscrollcomponent)
-* [`scrollRenderAheadDistance`](listview.md#scrollrenderaheaddistance)
-* [`stickyHeaderIndices`](listview.md#stickyheaderindices)
-* [`enableEmptySections`](listview.md#enableemptysections)
-* [`renderHeader`](listview.md#renderheader)
-* [`onEndReached`](listview.md#onendreached)
-* [`stickySectionHeadersEnabled`](listview.md#stickysectionheadersenabled)
-* [`renderSectionHeader`](listview.md#rendersectionheader)
-* [`renderSeparator`](listview.md#renderseparator)
-* [`onChangeVisibleRows`](listview.md#onchangevisiblerows)
-* [`removeClippedSubviews`](listview.md#removeclippedsubviews)
-* [`renderFooter`](listview.md#renderfooter)
+* [`dataSource`](listview#datasource)
+* [`initialListSize`](listview#initiallistsize)
+* [`onEndReachedThreshold`](listview#onendreachedthreshold)
+* [`pageSize`](listview#pagesize)
+* [`renderRow`](listview#renderrow)
+* [`renderScrollComponent`](listview#renderscrollcomponent)
+* [`scrollRenderAheadDistance`](listview#scrollrenderaheaddistance)
+* [`stickyHeaderIndices`](listview#stickyheaderindices)
+* [`enableEmptySections`](listview#enableemptysections)
+* [`renderHeader`](listview#renderheader)
+* [`onEndReached`](listview#onendreached)
+* [`stickySectionHeadersEnabled`](listview#stickysectionheadersenabled)
+* [`renderSectionHeader`](listview#rendersectionheader)
+* [`renderSeparator`](listview#renderseparator)
+* [`onChangeVisibleRows`](listview#onchangevisiblerows)
+* [`removeClippedSubviews`](listview#removeclippedsubviews)
+* [`renderFooter`](listview#renderfooter)
 
 ### Methods
 
-- [`getMetrics`](listview.md#getmetrics)
-- [`scrollTo`](listview.md#scrollto)
-- [`scrollToEnd`](listview.md#scrolltoend)
-- [`flashScrollIndicators`](listview.md#flashscrollindicators)
+- [`getMetrics`](listview#getmetrics)
+- [`scrollTo`](listview#scrollto)
+- [`scrollToEnd`](listview#scrolltoend)
+- [`flashScrollIndicators`](listview#flashscrollindicators)
 
 ---
 
@@ -76,7 +76,7 @@ There are a few performance operations designed to make ListView scroll smoothly
 
 ### `dataSource`
 
-An instance of [ListView.DataSource](listviewdatasource.md) to use
+An instance of [ListView.DataSource](listviewdatasource) to use
 
 | Type               | Required |
 | ------------------ | -------- |
