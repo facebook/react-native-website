@@ -16,7 +16,7 @@ If this button doesn't look right for your app, you can build your own button us
 />
 ```
 
-### Example
+## Example
 
 ```SnackPlayer name=Buttons
 import React from 'react';

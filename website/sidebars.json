@@ -21,6 +21,7 @@
       "running-on-device",
       "fast-refresh",
       "debugging",
+      "testing-overview",
       "typescript",
       "upgrading"
     ],
@@ -32,12 +33,24 @@
       "gesture-responder-system"
     ],
     "Inclusion": ["accessibility"],
-    "Performance": ["performance", "optimizing-flatlist-configuration"],
+    "Performance": [
+      "performance",
+      "optimizing-flatlist-configuration",
+      "ram-bundles-inline-requires",
+      "profiling"
+    ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Connectivity": ["network"],
+    "Connectivity": ["network", "security"],
     "Native Components and Modules": [
       "native-modules-setup",
       "direct-manipulation"
+    ],
+    "Guides (Android)": [
+      "native-modules-android",
+      "native-components-android",
+      "headless-js-android",
+      "signed-apk-android",
+      "removing-default-permissions"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -46,53 +59,42 @@
       "running-on-simulator-ios",
       "communication-ios",
       "app-extensions"
-    ],
-    "Guides (Android)": [
-      "native-modules-android",
-      "native-components-android",
-      "headless-js-android",
-      "signed-apk-android",
-      "removing-default-permissions"
     ]
   },
   "api": {
-    "Components": [
+    "Core Components": [
       "components-and-apis",
       "activityindicator",
       "button",
-      "datepickerios",
-      "drawerlayoutandroid",
       "flatlist",
       "image",
       "imagebackground",
-      "inputaccessoryview",
       "keyboardavoidingview",
-      "maskedviewios",
       "modal",
       "picker",
-      "pickerios",
-      "progressbarandroid",
-      "progressviewios",
       "refreshcontrol",
       "safeareaview",
       "scrollview",
       "sectionlist",
-      "segmentedcontrolios",
-      "slider",
       "statusbar",
-      "stylesheet",
       "switch",
-      "tabbarios",
-      "tabbarios-item",
       "text",
       "textinput",
       "touchablehighlight",
-      "touchablenativefeedback",
       "touchableopacity",
       "touchablewithoutfeedback",
       "view",
-      "viewpagerandroid",
-      "virtualizedlist"
+      "virtualizedlist",
+      {
+        "type": "subcategory",
+        "label": "Android Components",
+        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS Components",
+        "ids": ["inputaccessoryview", "maskedviewios"]
+      }
     ],
     "Props": [
       "image-style-props",
@@ -103,37 +105,40 @@
     ],
     "APIs": [
       "accessibilityinfo",
-      "actionsheetios",
       "alert",
-      "alertios",
       "animated",
+      "appearance",
       "appregistry",
       "appstate",
-      "asyncstorage",
-      "backhandler",
-      "clipboard",
-      "datepickerandroid",
       "devsettings",
       "dimensions",
       "easing",
-      "imageeditor",
-      "imagepickerios",
       "interactionmanager",
       "keyboard",
       "layoutanimation",
       "linking",
       "panresponder",
-      "permissionsandroid",
       "pixelratio",
-      "pushnotificationios",
-      "settings",
       "share",
-      "statusbarios",
+      "stylesheet",
       "systrace",
-      "timepickerandroid",
-      "toastandroid",
       "transforms",
-      "vibration"
+      "vibration",
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": ["actionsheetios", "settings"]
+      }
     ]
   }
 }

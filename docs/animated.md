@@ -3,19 +3,191 @@ id: animated
 title: Animated
 ---
 
-The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
+The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
-The most basic workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
+The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-```jsx
-Animated.timing(
-  // Animate value over time
-  this.state.fadeAnim, // The value to drive
-  {
-    toValue: 1, // Animate to final value of 1
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Using with Function Components
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Using with Class Components
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+
+<block class="classical syntax" />
+
+> Don't modify the animated value directly. It is usually stored as a [state variable](intro-react#state) in class components.
+
+<block class="endBlock syntax" />
+
+## Example
+
+The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Animated
+import React, { useRef } from "react";
+import { Animated, Text, View, StyleSheet, Button } from "react-native";
+
+export default function App() {
+  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000
+    }).start();
+  };
+
+  const fadeOut = () => {
+    // Will change fadeAnim value to 0 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 2000
+    }).start();
+  };
+
+  return (
+    <View style={styles.container}>
+      <Animated.View
+        style={[
+          styles.fadingContainer,
+          {
+            opacity: fadeAnim // Bind opacity to animated value
+          }
+        ]}
+      >
+        <Text style={styles.fadingText}>Fading View!</Text>
+      </Animated.View>
+      <View style={styles.buttonRow}>
+        <Button title="Fade In" onPress={fadeIn} />
+        <Button title="Fade Out" onPress={fadeOut} />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
-).start(); // Start the animation
+  fadingContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: "powderblue"
+  },
+  fadingText: {
+    fontSize: 28,
+    textAlign: "center",
+    margin: 10
+  },
+  buttonRow: {
+    flexDirection: "row",
+    marginVertical: 16
+  }
+});
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Animated
+import React, { Component } from "react";
+import { Animated, Text, View, StyleSheet, Button } from "react-native";
+
+class App extends Component {
+  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  state = {
+    fadeAnim: new Animated.Value(0)
+  };
+
+  fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 1,
+      duration: 2000
+    }).start();
+  };
+
+  fadeOut = () => {
+    // Will change fadeAnim value to 0 in 5 seconds
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 0,
+      duration: 2000
+    }).start();
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Animated.View
+          style={[
+            styles.fadingContainer,
+            {
+              opacity: this.state.fadeAnim // Bind opacity to animated value
+            }
+          ]}
+        >
+          <Text style={styles.fadingText}>Fading View!</Text>
+        </Animated.View>
+        <View style={styles.buttonRow}>
+          <Button title="Fade In" onPress={this.fadeIn} />
+          <Button title="Fade Out" onPress={this.fadeOut} />
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  fadingContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: "powderblue"
+  },
+  fadingText: {
+    fontSize: 28,
+    textAlign: "center",
+    margin: 10
+  },
+  buttonRow: {
+    flexDirection: "row",
+    marginVertical: 16
+  }
+});
+
+export default App;
+```
+
+<block class="endBlock syntax" />
 
 Refer to the [Animations](animations#animated-api) guide to see additional examples of `Animated` in action.
 
@@ -41,6 +213,12 @@ In most cases, you will be using `timing()`. By default, it uses a symmetric eas
 ### Working with animations
 
 Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
+
+```jsx
+Animated.timing({}).start(({finished}) => {
+  /* completion callback */
+});
+```
 
 ### Using the native driver
 
@@ -344,7 +522,7 @@ Config is an object that may have the following options:
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.aa
 
 ---
 
@@ -353,6 +531,50 @@ Advanced imperative API for snooping on animated events that are passed in throu
 ```jsx
 static unforkEvent(event, listener)
 ```
+
+---
+
+### `start()`
+
+```jsx
+static start([callback]: ?(result?: {finished: boolean}) => void)
+```
+
+Animations are started by calling start() on your animation. start() takes a completion callback that will be called when the animation is done or when the animation is done because stop() was called on it before it could finish.
+
+**Parameters:**
+
+| Name     | Type                            | Required | Description                                                                                                                                                     |
+| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+
+Start example with callback:
+
+```jsx
+Animated.timing({}).start(({finished}) => {
+  /* completion callback */
+});
+```
+
+---
+
+### `stop()`
+
+```jsx
+static stop()
+```
+
+Stops any running animation.
+
+---
+
+### `reset()`
+
+```jsx
+static reset()
+```
+
+Stops any running animation and resets the value to its original.
 
 ## Properties
 

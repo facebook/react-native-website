@@ -19,7 +19,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 `FlatList` is also handy if you want to render separators between your items, multiple columns, infinite scroll loading, or any number of other features it supports out of the box.
 
-### Example
+## Example
 
 ```SnackPlayer name=ScrollView
 import React from 'react';
@@ -240,6 +240,18 @@ Sometimes a scrollview takes up more space than its content fills. When this is 
 | Type               | Required | Platform |
 | ------------------ | -------- | -------- |
 | [color](colors.md) | No       | Android  |
+
+---
+
+### `fadingEdgeLength`
+
+Fades out the edges of the the scroll content.
+
+If the value is greater than 0, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
+
+| Type               | Required | Default | Platform |
+| ------------------ | -------- | ------- | -------- |
+| number             | No       | 0       | Android  |
 
 ---
 
@@ -504,7 +516,7 @@ See [RefreshControl](refreshcontrol.md).
 
 ### `removeClippedSubviews`
 
-Experimental: When true, offscreen child views (whose `overflow` value is `hidden`) are removed from their native backing superview when offscreen. This can improve scrolling performance on long lists. The default value is true.
+Experimental: When true, offscreen child views (whose `overflow` value is `hidden`) are removed from their native backing superview when offscreen. This can improve scrolling performance on long lists.
 
 | Type | Required |
 | ---- | -------- |

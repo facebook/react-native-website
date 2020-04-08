@@ -9,7 +9,7 @@ Uses `ProgressViewIOS` to render a UIProgressView on iOS.
 
 ### Example
 
-```SnackPlayer name=ProgressViewIOS platform=ios
+```SnackPlayer name=ProgressViewIOS&supportedPlatforms=ios
 import React from 'react';
 import {View, StyleSheet, ProgressViewIOS, Text} from 'react-native';
 

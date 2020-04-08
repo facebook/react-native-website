@@ -15,7 +15,7 @@ try {
   // We don't care if there are no repos synced locally
   // We only care if we are on the CI server and about to deploy
 }
-const defaultVersionShown = '0.61';
+const defaultVersionShown = '0.62';
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
@@ -66,11 +66,22 @@ const siteConfig = {
   },
   facebookAppId: '1677033832619985',
   twitter: 'reactnative',
+  twitterImage: 'img/logo-og.png',
+  ogImage: 'img/logo-og.png',
   markdownPlugins: [
     RemarkablePlugins.SnackPlayer,
     RemarkablePlugins.ReactNativeWebPlayer,
   ],
-  usePrism: ['javascript', 'js', 'jsx', 'java', 'objective-c', 'json'],
+  usePrism: [
+    'javascript',
+    'js',
+    'jsx',
+    'java',
+    'objective-c',
+    'json',
+    'sh',
+    'tsx',
+  ],
   highlight: {
     theme: 'solarized-dark',
   },

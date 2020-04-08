@@ -562,7 +562,16 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 ### `onTextLayout`
 
-TODO.
+Invoked on Text layout
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| function: (event: TextLayoutEvent) => mixed | No       |
+
+- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
+  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
+
+---
 
 ### `pressRetentionOffset`
 

@@ -3,18 +3,127 @@ id: dimensions
 title: Dimensions
 ---
 
+> [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+
 ```jsx
 import {Dimensions} from 'react-native';
 ```
 
-You can get device width and height using below :
-
-Get device screen width and height :
+You can get the application window's width and height using the following code:
 
 ```jsx
-const screenWidth = Math.round(Dimensions.get('window').width);
-const screenHeight = Math.round(Dimensions.get('window').height);
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 ```
+
+> Although dimensions are available immediately, they may change (e.g due to device rotation, foldable devices etc) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
+
+If you are targeting foldable devices or devices which can change the screen size or app window size, you can use the event listener available in the Dimensions module as shown in the below example.
+
+## Example
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Dimensions
+import React, { useState, useEffect } from "react";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
+
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
+
+export default function App() {
+  const [dimensions, setDimensions] = useState({ window, screen });
+
+  const onChange = ({ window, screen }) => {
+    setDimensions({ window, screen });
+  };
+
+  useEffect(() => {
+    Dimensions.addEventListener("change", onChange);
+    return () => {
+      Dimensions.removeEventListener("change", onChange);
+    };
+  });
+
+  return (
+    <View style={styles.container}>
+      <Text>{`Window Dimensions: height - ${dimensions.window.height}, width - ${dimensions.window.width}`}</Text>
+      <Text>{`Screen Dimensions: height - ${dimensions.screen.height}, width - ${dimensions.screen.width}`}</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Dimensions
+import React, { Component } from "react";
+import { View, StyleSheet, Text, Dimensions } from "react-native";
+
+const window = Dimensions.get("window");
+const screen = Dimensions.get("screen");
+
+export default class App extends Component {
+  state = {
+    dimensions: {
+      window,
+      screen
+    }
+  };
+
+  onChange = ({ window, screen }) => {
+    this.setState({ dimensions: { window, screen } });
+  };
+
+  componentDidMount() {
+    Dimensions.addEventListener("change", this.onChange);
+  }
+
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this.onChange);
+  }
+
+  render() {
+    const { dimensions } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <Text>{`Window Dimensions: height - ${dimensions.window.height}, width - ${dimensions.window.width}`}</Text>
+        <Text>{`Screen Dimensions: height - ${dimensions.screen.height}, width - ${dimensions.screen.width}`}</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 # Reference
 
@@ -29,6 +138,8 @@ static addEventListener(type, handler)
 Add an event handler. Supported events:
 
 - `change`: Fires when a property within the `Dimensions` object changes. The argument to the event handler is an object with `window` and `screen` properties whose values are the same as the return values of `Dimensions.get('window')` and `Dimensions.get('screen')`, respectively.
+  - `window` - Size of the visible Application window
+  - `screen` - Size of the device's screen
 
 ---
 
@@ -39,8 +150,6 @@ static get(dim)
 ```
 
 Initial dimensions are set before `runApplication` is called so they should be available before any other require's are run, but may be updated later.
-
-> Note: Although dimensions are available immediately, they may change (e.g due to device rotation) so any rendering logic or styles that depend on these constants should try to call this function on every render, rather than caching the value (for example, using inline styles rather than setting a value in a `StyleSheet`).
 
 Example: `const {height, width} = Dimensions.get('window');`
 

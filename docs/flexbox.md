@@ -9,7 +9,7 @@ You will normally use a combination of `flexDirection`, `alignItems`, and `justi
 
 > Flexbox works the same way in React Native as it does in CSS on the web, with a few exceptions. The defaults are different, with `flexDirection` defaulting to `column` instead of `row`, and the `flex` parameter only supporting a single number.
 
-### Flex
+## Flex
 
 [`flex`](layout-props#flex) will define how your items are going to **“fill”** over the available space along your main axis. Space will be divided according to each element's flex property.
 
@@ -17,7 +17,7 @@ In the following example, the red, yellow, and green views are all children in t
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
-#### Flex Direction
+## Flex Direction
 
 [`flexDirection`](layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
 
@@ -32,11 +32,10 @@ In the following example, the red, yellow, and green views are all children in t
 You can learn more [here](https://yogalayout.com/docs/flex-direction).
 
 ```SnackPlayer name=Flex%20Direction
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
-export default class FlexDirectionBasics extends Component {
-  render() {
+export default FlexDirectionBasics = () => {
     return (
       // Try setting `flexDirection` to `column`.
       <View style={{flex: 1, flexDirection: 'row'}}>
@@ -45,13 +44,12 @@ export default class FlexDirectionBasics extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
-  }
 };
 ```
 
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
 
-### Layout Direction
+## Layout Direction
 
 Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default, React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
 
@@ -59,7 +57,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `RTL` Text and children are laid out from right to left. Margin and padding applied to the start of an element are applied on the right side.
 
-#### Justify Content
+## Justify Content
 
 [`justifyContent`](layout-props#justifycontent) describes how to align children within the main axis of their container. For example, you can use this property to center a child horizontally within a container with `flexDirection` set to `row` or vertically within a container with `flexDirection` set to `column`.
 
@@ -78,11 +76,10 @@ Layout direction specifies the direction in which children and text in a hierarc
 You can learn more [here](https://yogalayout.com/docs/justify-content).
 
 ```SnackPlayer name=Justify%20Content
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
-export default class JustifyContentBasics extends Component {
-  render() {
+export default JustifyContentBasics = () => {
     return (
       // Try setting `justifyContent` to `center`.
       // Try setting `flexDirection` to `row`.
@@ -96,13 +93,12 @@ export default class JustifyContentBasics extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
-  }
 };
 ```
 
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
 
-#### Align Items
+## Align Items
 
 [`alignItems`](layout-props#alignitems) describes how to align children along the cross axis of their container. Align items is very similar to `justifyContent` but instead of applying to the main axis, `alignItems` applies to the cross axis.
 
@@ -121,11 +117,10 @@ export default class JustifyContentBasics extends Component {
 You can learn more [here](https://yogalayout.com/docs/align-items).
 
 ```SnackPlayer name=Align%20Items
-import React, { Component } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 
-export default class AlignItemsBasics extends Component {
-  render() {
+export default AlignItemsBasics = () => {
     return (
       // Try setting `alignItems` to 'flex-start'
       // Try setting `justifyContent` to `flex-end`.
@@ -141,19 +136,18 @@ export default class AlignItemsBasics extends Component {
         <View style={{height: 100, backgroundColor: 'steelblue'}} />
       </View>
     );
-  }
 };
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)
 
-### Align Self
+## Align Self
 
 [`alignSelf`](layout-props#alignself) has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. `alignSelf` overrides any option set by the parent with `alignItems`.
 
 ![Align Self](https://cdn-images-1.medium.com/max/800/1*J1JCoKwLCokX9JXVBvP71g.png)
 
-### Align Content
+## Align Content
 
 [alignContent](layout-props#aligncontent) defines the distribution of lines along the cross-axis. This only has effect when items are wrapped to multiple lines using `flexWrap`.
 
@@ -167,13 +161,13 @@ export default class AlignItemsBasics extends Component {
 
 - `space-between` Evenly space wrapped lines across the container's main axis, distributing the remaining space between the lines.
 
-- `space-around` Evenly space wrapped lines across the container's main axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the begining of the first line and the end of the last line.
+- `space-around` Evenly space wrapped lines across the container's main axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
 
 You can learn more [here](https://yogalayout.com/docs/align-content).
 
 ![Align Content](https://cdn-images-1.medium.com/max/800/1*cC2XFyCF_igp20Ombt4wBw.png)
 
-### Flex Wrap
+## Flex Wrap
 
 The [`flexWrap`](layout-props#flexwrap) property is set on containers and it controls what happens when children overflow the size of the container along the main axis. By default, children are forced into a single line (which can shrink elements). If wrapping is allowed, items are wrapped into multiple lines along the main axis if needed.
 
@@ -181,7 +175,7 @@ When wrapping lines, `alignContent` can be used to specify how the lines are pla
 
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 
-### Flex Basis, Grow, and Shrink
+## Flex Basis, Grow, and Shrink
 
 - [`flexGrow`](layout-props#flexgrow) describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.
 
@@ -195,7 +189,7 @@ When wrapping lines, `alignContent` can be used to specify how the lines are pla
 
 You can learn more [here](https://yogalayout.com/docs/flex).
 
-### Width and Height
+## Width and Height
 
 The `width` property specifies the width of an element's content area. Similarly, the `height` property specifies the height of an element's content area.
 
@@ -207,17 +201,17 @@ Both `width` and `height` can take the following values:
 
 - `percentage` Defines the width or height in percentage of its parent's width or height, respectively.
 
-### Absolute & Relative Layout
+## Absolute & Relative Layout
 
 The `position` type of an element defines how it is positioned within its parent.
 
-`relative` (**default value**) By default, an element is positioned relatively. This means an element is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent elements.
+- `relative` (**default value**) By default, an element is positioned relatively. This means an element is positioned according to the normal flow of the layout, and then offset relative to that position based on the values of `top`, `right`, `bottom`, and `left`. The offset does not affect the position of any sibling or parent elements.
 
-`absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
+- `absolute` When positioned absolutely, an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
 
 ![Absolute & Relative Layoutp](https://cdn-images-1.medium.com/max/800/1*NlPeRQCQK3Vb5nyjL0Mqxw.png)
 
-#### Going Deeper
+## Going Deeper
 
 Check out the interactive [yoga playground](https://yogalayout.com/playground) that you can use to get a better understanding of flexbox.
 

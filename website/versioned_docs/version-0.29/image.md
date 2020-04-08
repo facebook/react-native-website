@@ -21,7 +21,7 @@ class DisplayAnImage extends Component {
           source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
-          source={{uri: 'http://facebook.github.io/react/assets/logo_og.png'}}
+          source={{uri: 'https://reactjs.org/logo-og.png'}}
         />
       </View>
     );

@@ -18,7 +18,7 @@ A performant interface for rendering basic, flat lists, supporting the most hand
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
-### Basic Example:
+## Example
 
 ```SnackPlayer name=flatlist-simple
 import React from 'react';
@@ -498,7 +498,7 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists.
+This may improve scroll performance for large lists. On Android the default value is true
 
 > Note: May have bugs (missing content) in some circumstances - use at your own risk.
 
@@ -683,6 +683,16 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getNativeScrollRef()`
+
+```jsx
+getNativeScrollRef();
+```
+
+Provides a reference to the underlying scroll component
 
 ---
 

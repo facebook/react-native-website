@@ -62,6 +62,7 @@
     "Components": [
       "version-0.61-activityindicator",
       "version-0.61-button",
+      "version-0.61-checkbox",
       "version-0.61-datepickerios",
       "version-0.61-drawerlayoutandroid",
       "version-0.61-flatlist",
@@ -132,6 +133,7 @@
       "version-0.61-timepickerandroid",
       "version-0.61-toastandroid",
       "version-0.61-transforms",
+      "version-0.61-usewindowdimensions",
       "version-0.61-vibration",
       "version-0.61-view-style-props"
     ]

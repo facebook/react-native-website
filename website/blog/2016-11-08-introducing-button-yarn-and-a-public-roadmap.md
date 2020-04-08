@@ -42,7 +42,7 @@ Button is meant to work great and look native on every platform, so it won't sup
 
 You can now use [Yarn](https://yarnpkg.com/), the new package manager for JavaScript, to speed up `react-native init` significantly. To see the speedup please [install yarn](https://yarnpkg.com/en/docs/install) and upgrade your `react-native-cli` to 1.2.0:
 
-```
+```sh
 $ npm install -g react-native-cli
 ```
 

@@ -1,10 +1,10 @@
 ---
 id: version-0.59-maskedviewios
-title: MaskedViewIOS
+title: 🚧 MaskedViewIOS
 original_id: maskedviewios
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-masked-view](https://github.com/react-native-community/react-native-masked-view) instead.
+> **Deprecated.** Use [@react-native-community/masked-view](https://github.com/react-native-community/react-native-masked-view) instead.
 
 Renders the child view with a mask specified in the `maskElement` prop.
 

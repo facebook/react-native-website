@@ -7,14 +7,14 @@ Native modules are usually distributed as npm packages, except that on top of th
 
 To get set up with the basic project structure for a native module we will use a third party tool [create-react-native-module](https://github.com/brodybits/create-react-native-module). You can go ahead further and dive deep into how that library works, for our needs we will only need:
 
-```
+```sh
 $ yarn global add create-react-native-module
 $ create-react-native-module MyLibrary
 ```
 
 Where MyLibrary is the name you would like for the new module. After doing this you will navigate into `MyLibrary` folder and install the npm package to be locally available for your computer by doing:
 
-```
+```sh
 $ yarn install
 ```
 

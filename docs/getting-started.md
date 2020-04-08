@@ -244,8 +244,8 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 - `Android SDK`
 - `Android SDK Platform`
-- `Performance (Intel ® HAXM)` ([See here for AMD](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
 - `Android Virtual Device`
+- If you are not already using Hyper-V: `Performance (Intel ® HAXM)` ([See here for AMD or Hyper-V](https://android-developers.googleblog.com/2018/07/android-emulator-amd-processor-hyper-v.html))
 
 <block class="native linux android" />
 
@@ -326,7 +326,11 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 <block class="native windows android" />
 
-Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+1. Open the **Windows Control Panel.** 
+2. Under **System and Security,** open **System.**
+3. Click on **Advanced system settings...**
+4. Then click on **Environment Variables...** 
+5. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
 ![ANDROID_HOME Environment Variable](/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
@@ -342,7 +346,13 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 
 <h4>4. Add platform-tools to Path</h4>
 
-Open the System pane under **System and Security** in the Windows Control Panel, then click on **Change settings...**. Open the **Advanced** tab and click on **Environment Variables...**. Select the **Path** variable, then click **Edit**. Click **New** and add the path to platform-tools to the list.
+1. Open the **Windows Control Panel.** 
+2. Under **System and Security,** open **System.**
+3. Click on **Advanced system settings...**
+4. Then click on **Environment Variables...** 
+5. Select the **Path** variable.
+6. Click **Edit.** 
+7. Click **New** and add the path to platform-tools to the list.
 
 The default location for this folder is:
 
@@ -354,9 +364,9 @@ C:\Android\tools\bin\platform-tools
 
 <h3>Watchman</h3>
 
-Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
+Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install/#buildinstall) to compile and install Watchman from source.
 
-> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
+> [Watchman](https://facebook.github.io/watchman/docs/install/) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
 <block class="native mac windows linux ios android" />
 
@@ -389,8 +399,10 @@ npx react-native init AwesomeProject --version X.XX.X
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
 ```sh
-npx react-native init AwesomeTSProject --template typescript
+npx react-native init AwesomeTSProject --template react-native-template-typescript
 ```
+
+> **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
 
 <block class="native mac windows linux android" />
 
@@ -417,7 +429,7 @@ npx react-native init AwesomeProject --version X.XX.X
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
 ```sh
-npx react-native init AwesomeTSProject --template typescript
+npx react-native init AwesomeTSProject --template react-native-template-typescript
 ```
 
 <block class="native mac windows linux android" />

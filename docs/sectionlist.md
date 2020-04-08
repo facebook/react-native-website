@@ -18,81 +18,172 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
-### Example
+## Example
 
-```SnackPlayer name=SectionList
-import React from 'react';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=SectionList%20Example
+import React from "react";
 import {
   StyleSheet,
   Text,
   View,
   SafeAreaView,
-  SectionList,
-} from 'react-native';
-import Constants from 'expo-constants';
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
 
 const DATA = [
   {
-    title: 'Main dishes',
-    data: ['Pizza', 'Burger', 'Risotto'],
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
   },
   {
-    title: 'Sides',
-    data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
   },
   {
-    title: 'Drinks',
-    data: ['Water', 'Coke', 'Beer'],
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
   },
   {
-    title: 'Desserts',
-    data: ['Cheese Cake', 'Ice Cream'],
-  },
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
 ];
 
-function Item({ title }) {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-}
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
-export default function App() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <SectionList
-        sections={DATA}
-        keyExtractor={(item, index) => item + index}
-        renderItem={({ item }) => <Item title={item} />}
-        renderSectionHeader={({ section: { title } }) => (
-          <Text style={styles.header}>{title}</Text>
-        )}
-      />
-    </SafeAreaView>
-  );
-}
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => <Item title={item} />}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+    />
+  </SafeAreaView>
+);
+
+export default App;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Constants.statusBarHeight,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
   item: {
-    backgroundColor: '#f9c2ff',
+    backgroundColor: "#f9c2ff",
     padding: 20,
-    marginVertical: 8,
+    marginVertical: 8
   },
   header: {
     fontSize: 32,
-    backgroundColor: '#fff'
+    backgroundColor: "#fff"
   },
   title: {
-    fontSize: 24,
-  },
+    fontSize: 24
+  }
 });
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=SectionList%20Example
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+class App extends Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <SectionList
+          sections={DATA}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => <Item title={item} />}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
 
@@ -101,52 +192,13 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 - In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 - By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-### Props
-
-- [`ScrollView` props...](scrollview.md#props)
-
-Required props:
-
-- [`renderItem`](sectionlist.md#renderitem)
-- [`sections`](sectionlist.md#sections)
-
-Optional props:
-
-- [`extraData`](sectionlist.md#extradata)
-- [`initialNumToRender`](sectionlist.md#initialnumtorender)
-- [`inverted`](sectionlist.md#inverted)
-- [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-- [`keyExtractor`](sectionlist.md#keyextractor)
-- [`legacyImplementation`](sectionlist.md#legacyimplementation)
-- [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-- [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-- [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-- [`onEndReached`](sectionlist.md#onendreached)
-- [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-- [`onRefresh`](sectionlist.md#onrefresh)
-- [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-- [`refreshing`](sectionlist.md#refreshing)
-- [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-- [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-- [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-- [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-- [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
-
-### Methods
-
-- [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
-- [`recordInteraction`](sectionlist.md#recordinteraction)
-- [`scrollToLocation`](sectionlist.md#scrolltolocation)
-
-### Type Definitions
-
-- [`Section`](sectionlist.md#section)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props).
 
 ### `renderItem`
 
@@ -227,16 +279,6 @@ Used to extract a unique key for a given item at the specified index. Key is use
 | Type                                  | Required |
 | ------------------------------------- | -------- |
 | (item: Item, index: number) => string | Yes      |
-
----
-
-### `legacyImplementation`
-
-The legacy implementation is no longer supported.
-
-| Type      | Required |
-| --------- | -------- |
-| [boolean] | No       |
 
 ---
 
@@ -431,7 +473,7 @@ flashScrollIndicators();
 
 Displays the scroll indicators momentarily.
 
-| Platfrom |
+| Platform |
 | -------- |
 | iOS      |
 

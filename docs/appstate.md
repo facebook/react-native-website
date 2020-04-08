@@ -18,42 +18,111 @@ AppState is frequently used to determine the intent and proper behavior when han
 
 For more information, see [Apple's documentation](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)
 
-### Basic Usage
+## Basic Usage
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
-```jsx
-import React, {Component} from 'react';
-import {AppState, Text} from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-class AppStateExample extends Component {
+<block class="functional syntax" />
+
+```SnackPlayer name=AppState%20Function%20Component%20Example
+import React, { useEffect, useState } from "react";
+import { AppState, StyleSheet, Text, View } from "react-native";
+
+const AppStateExample = () => {
+  const [appState, setAppState] = useState(AppState.currentState);
+
+  useEffect(() => {
+    AppState.addEventListener("change", _handleAppStateChange);
+
+    return () => {
+      AppState.removeEventListener("change", _handleAppStateChange);
+    };
+  }, []);
+
+  const _handleAppStateChange = nextAppState => {
+    if (appState.match(/inactive|background/) && nextAppState === "active") {
+      console.log("App has come to the foreground!");
+    }
+    setAppState(nextAppState);
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>Current state is: {appState}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+
+export default AppStateExample;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=AppState%20Class%20Component%20Example
+import React, { Component } from "react";
+import { AppState, StyleSheet, Text, View } from "react-native";
+
+export default class AppStateExample extends Component {
   state = {
-    appState: AppState.currentState,
+    appState: AppState.currentState
   };
 
   componentDidMount() {
-    AppState.addEventListener('change', this._handleAppStateChange);
+    AppState.addEventListener("change", this._handleAppStateChange);
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
+    AppState.removeEventListener("change", this._handleAppStateChange);
   }
 
-  _handleAppStateChange = (nextAppState) => {
+  _handleAppStateChange = nextAppState => {
     if (
       this.state.appState.match(/inactive|background/) &&
-      nextAppState === 'active'
+      nextAppState === "active"
     ) {
-      console.log('App has come to the foreground!');
+      console.log("App has come to the foreground!");
     }
-    this.setState({appState: nextAppState});
+    this.setState({ appState: nextAppState });
   };
 
   render() {
-    return <Text>Current state is: {this.state.appState}</Text>;
+    return (
+      <View style={styles.container}>
+        <Text>Current state is: {this.state.appState}</Text>
+      </View>
+    );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
 ```
+
+<block class="endBlock syntax" />
 
 This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily.
 
@@ -66,6 +135,10 @@ This example will only ever appear to say "Current state is: active" because the
 ### `change`
 
 This event is received when the app state has changed. The listener is called with one of [the current app state values](appstate#app-states).
+
+### `memoryWarning`
+
+This event is used in the need of throwing memory warning or releasing it.
 
 ### `focus`
 

@@ -56,7 +56,9 @@ Your component starts as a function:
 function Cat() {}
 ```
 
-Whatever a function component returns is rendered as a React element. `Cat` will render a `<Text>` element:
+You can think of components as blueprints. Whatever a function component returns is rendered as a **React element.** React elements let you describe what you want to see on the screen.
+
+Here the `Cat` component will render a `<Text>` element:
 
 ```jsx
 function Cat() {
@@ -143,7 +145,7 @@ export default function Cat() {
 }
 ```
 
-Any JavaScript expression will work between curly braces, including function calls like `{getFullName("Rum", Tum", "Tugger")}`:
+Any JavaScript expression will work between curly braces, including function calls like `{getFullName("Rum", "Tum", "Tugger")}`:
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
@@ -220,7 +222,7 @@ import { Text, TextInput, View } from 'react-native';
 function Cat() {
   return (
     <View>
-      <Text>I am a also cat!</Text>
+      <Text>I am also a cat!</Text>
     </View>
   );
 }
@@ -295,7 +297,7 @@ You can build many things with props and the Core Components [`Text`](text), [`I
 
 ## State
 
-While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. State is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
 
 > As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time.
 

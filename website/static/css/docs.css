@@ -163,3 +163,69 @@ figure {
 figcaption {
   margin: 1em 0 0 0;
 }
+
+/* Right side navigation */
+
+.onPageNav a,
+.onPageNav a:hover {
+  display: block;
+  background: none;
+  border-bottom: 0;
+}
+
+.onPageNav a:hover {
+  color: #000;
+}
+
+.onPageNav a code {
+  padding: 0;
+}
+
+.onPageNav ul ul {
+  padding: 8px 0 0 16px;
+}
+
+.onPageNav ul ul li {
+  padding-bottom: 4px;
+}
+
+.onPageNav .toc-headings > li > a.active {
+  border-left: 4px solid #61dafb;
+  margin-left: -15px;
+  padding-left: 11px;
+}
+
+/* Custom */
+
+.content-banner {
+  background: #99d5e7;
+  padding: 1em;
+  margin-bottom: 2em;
+  position: relative;
+  overflow: hidden;
+  width: calc(100% + 2em);
+  left: -1em;
+}
+
+.content-banner p {
+  width: calc(75% - 2em);
+  margin: 0;
+}
+
+.content-banner-img {
+  width: 25%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.content-banner a:link,
+.content-banner a:visited,
+.content-banner a:hover,
+.content-banner a:active,
+.content-banner a:focus {
+  border-bottom-width: 2px;
+  background: none;
+  color: #134484;
+  border-bottom-color: #134484;
+}

@@ -1,8 +1,10 @@
 ---
 id: version-0.58-geolocation
-title: Geolocation
+title: 🚧 Geolocation
 original_id: geolocation
 ---
+
+> **Deprecated.** Use [@react-native-community/geolocation](https://github.com/react-native-community/react-native-geolocation) instead.
 
 The Geolocation API extends the [Geolocation web spec](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation).
 

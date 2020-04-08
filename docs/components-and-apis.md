@@ -1,9 +1,9 @@
 ---
 id: components-and-apis
-title: Components and APIs
+title: Core Components and APIs
 ---
 
-React Native provides a number of built-in components. You will find a full list of components and APIs on the sidebar to the left. If you're not sure where to get started, take a look at the following categories:
+React Native provides a number of built-in [Core Components](intro-react-native-components) ready for you to use in your app. You can find them all in the left sidebar (or menu above, if you are on a narrow screen). If you're not sure where to get started, take a look at the following categories:
 
 - [Basic Components](components-and-apis#basic-components)
 - [User Interface](components-and-apis#user-interface)
@@ -12,11 +12,11 @@ React Native provides a number of built-in components. You will find a full list
 - [Android-specific](components-and-apis#android-components-and-apis)
 - [Others](components-and-apis#others)
 
-You're not limited to the components and APIs bundled with React Native. React Native is a community of thousands of developers. If you're looking for a library that does something specific, search the npm registry for packages mentioning [react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal), or check out [Awesome React Native](http://www.awesome-react-native.com/) for a curated list.
+You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If you're looking for a library that does something specific, search the npm registry for packages mentioning [react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal) or check out [Awesome React Native](http://www.awesome-react-native.com/) for a curated list.
 
 ## Basic Components
 
-Most apps will end up using one of these basic components. You'll want to get yourself familiarized with all of these if you're new to React Native.
+Most apps will end up using one of these basic components.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -59,7 +59,7 @@ Most apps will end up using one of these basic components. You'll want to get yo
 
 ## User Interface
 
-Render common user interface controls on any platform using the following components. For platform specific components, keep reading.
+These common user interface controls will render on any platform.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -75,12 +75,6 @@ Render common user interface controls on any platform using the following compon
     </a>
   </div>
   <div class="component">
-    <a href="./slider">
-      <h3>Slider</h3>
-      <p>A component used to select a single value from a range of values.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./switch">
       <h3>Switch</h3>
       <p>Renders a boolean input.</p>
@@ -90,7 +84,7 @@ Render common user interface controls on any platform using the following compon
 
 ## List Views
 
-Unlike the more generic [`ScrollView`](./scrollview), the following list view components only render elements that are currently showing on the screen. This makes them a great choice for displaying long lists of data.
+Unlike the more generic [`ScrollView`](./scrollview), the following list view components only render elements that are currently showing on the screen. This makes them a performant choice for displaying long lists of data.
 
 <div class="component-grid component-grid-border">
   <div class="component">
@@ -118,42 +112,6 @@ Many of the following components provide wrappers for commonly used UIKit classe
       <p>API to display an iOS action sheet or share sheet.</p>
     </a>
   </div>
-  <div class="component">
-    <a href="./alertios">
-      <h3>AlertIOS</h3>
-      <p>Create an iOS alert dialog with a message or create a prompt for user input.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./datepickerios">
-      <h3>DatePickerIOS</h3>
-      <p>Renders a date/time picker (selector) on iOS.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./imagepickerios">
-      <h3>ImagePickerIOS</h3>
-      <p>Renders a image picker on iOS.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./progressviewios">
-      <h3>ProgressViewIOS</h3>
-      <p>Renders a <code>UIProgressView</code> on iOS.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./pushnotificationios">
-      <h3>PushNotificationIOS</h3>
-      <p>Handle push notifications for your app, including permission handling and icon badge number.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./segmentedcontrolios">
-      <h3>SegmentedControlIOS</h3>
-      <p>Renders a <code>UISegmentedControl</code> on iOS.</p>
-    </a>
-  </div>
 </div>
 
 ## Android Components and APIs
@@ -165,12 +123,6 @@ Many of the following components provide wrappers for commonly used Android clas
     <a href="./backhandler">
       <h3>BackHandler</a></h3>
       <p>Detect hardware button presses for back navigation.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./datepickerandroid">
-      <h3>DatePickerAndroid</h3>
-      <p>Opens the standard Android date picker dialog.</p>
     </a>
   </div>
   <div class="component">
@@ -186,34 +138,16 @@ Many of the following components provide wrappers for commonly used Android clas
     </a>
   </div>
   <div class="component">
-    <a href="./progressbarandroid">
-      <h3>ProgressBarAndroid</h3>
-      <p>Renders a <code>ProgressBar</code> on Android.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./timepickerandroid">
-      <h3>TimePickerAndroid</h3>
-      <p>Opens the standard Android time picker dialog.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./toastandroid">
       <h3>ToastAndroid</h3>
       <p>Create an Android Toast alert.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./viewpagerandroid">
-      <h3>ViewPagerAndroid</h3>
-      <p>Container that allows to flip left and right between child views.</p>
     </a>
   </div>
 </div>
 
 ## Others
 
-These components may come in handy for certain applications. For an exhaustive list of components and APIs, check out the sidebar to the left.
+These components may be useful for certain applications. For an exhaustive list of components and APIs, check out the sidebar to the left (or menu above, if you are on a narrow screen).
 
 <div class="component-grid">
   <div class="component">
@@ -232,12 +166,6 @@ These components may come in handy for certain applications. For an exhaustive l
     <a href="./animated">
       <h3>Animated</h3>
       <p>A library for creating fluid, powerful animations that are easy to build and maintain.</p>
-    </a>
-  </div>
-  <div class="component">
-    <a href="./clipboard">
-      <h3>Clipboard</h3>
-      <p>Provides an interface for setting and getting content from the clipboard on both Android and iOS.</p>
     </a>
   </div>
   <div class="component">
@@ -283,3 +211,4 @@ These components may come in handy for certain applications. For an exhaustive l
     </a>
   </div>
 </div>
+<br/>
