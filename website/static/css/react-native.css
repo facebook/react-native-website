@@ -75,13 +75,15 @@ body,
 }
 
 p a,
-li a {
+li a,
+article td a {
   background-color: rgba(187, 239, 253, 0.3);
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 p a:hover,
-li a:hover {
+li a:hover,
+article td a:hover {
   background-color: #bbeffd;
   border-bottom-color: $text;
 }
