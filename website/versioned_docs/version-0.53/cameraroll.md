@@ -4,7 +4,7 @@ title: CameraRoll
 original_id: cameraroll
 ---
 
-`CameraRoll` provides access to the local camera roll / gallery. Before using this you must link the `RCTCameraRoll` library. You can refer to [Linking](linking-libraries-ios.md) for help.
+`CameraRoll` provides access to the local camera roll / gallery. Before using this you must link the `RCTCameraRoll` library. You can refer to [Linking](linking-libraries-ios) for help.
 
 ### Permissions
 
@@ -12,9 +12,9 @@ The user's permission is required in order to access the Camera Roll on devices 
 
 ### Methods
 
-- [`=`](cameraroll.md#)
-- [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
-- [`getPhotos`](cameraroll.md#getphotos)
+- [`=`](cameraroll#)
+- [`saveToCameraRoll`](cameraroll#savetocameraroll)
+- [`getPhotos`](cameraroll#getphotos)
 
 ---
 

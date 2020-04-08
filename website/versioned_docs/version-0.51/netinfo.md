@@ -121,15 +121,15 @@ The rest of the connectivity types are hidden by the Android API, but can be use
 
 ### Methods
 
-- [`addEventListener`](netinfo.md#addeventlistener)
-- [`removeEventListener`](netinfo.md#removeeventlistener)
-- [`fetch`](netinfo.md#fetch)
-- [`getConnectionInfo`](netinfo.md#getconnectioninfo)
-- [`isConnectionExpensive`](netinfo.md#isconnectionexpensive)
+- [`addEventListener`](netinfo#addeventlistener)
+- [`removeEventListener`](netinfo#removeeventlistener)
+- [`fetch`](netinfo#fetch)
+- [`getConnectionInfo`](netinfo#getconnectioninfo)
+- [`isConnectionExpensive`](netinfo#isconnectionexpensive)
 
 ### Properties
 
-- [`isConnected`](netinfo.md#isconnected)
+- [`isConnected`](netinfo#isconnected)
 
 ---
 

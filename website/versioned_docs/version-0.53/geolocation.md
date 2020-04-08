@@ -16,7 +16,7 @@ As a browser polyfill, this API is available through the `navigator.geolocation`
     This section only applies to projects made with <code>react-native init</code>
     or to those made with Create React Native App which have since ejected. For
     more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
+    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING" target="_blank">guide</a> on
     the Create React Native App repository.
   </p>
 </div>
@@ -44,12 +44,12 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 
 ### Methods
 
-- [`setRNConfiguration`](geolocation.md#setrnconfiguration)
-- [`requestAuthorization`](geolocation.md#requestauthorization)
-- [`getCurrentPosition`](geolocation.md#getcurrentposition)
-- [`watchPosition`](geolocation.md#watchposition)
-- [`clearWatch`](geolocation.md#clearwatch)
-- [`stopObserving`](geolocation.md#stopobserving)
+- [`setRNConfiguration`](geolocation#setrnconfiguration)
+- [`requestAuthorization`](geolocation#requestauthorization)
+- [`getCurrentPosition`](geolocation#getcurrentposition)
+- [`watchPosition`](geolocation#watchposition)
+- [`clearWatch`](geolocation#clearwatch)
+- [`stopObserving`](geolocation#stopobserving)
 
 ---
 
