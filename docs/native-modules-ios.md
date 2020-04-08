@@ -62,7 +62,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 @end
 ```
 
-Now, from your JavaScript file you can call the method like this:
+Now, from your JavaScript file you can call the method like this (after making sure to rebuild):
 
 ```jsx
 import {NativeModules} from 'react-native';
