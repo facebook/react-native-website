@@ -4,7 +4,7 @@ title: PlatformColor
 ---
 
 ```
-PlatformColor(string)
+PlatformColor(color1, [color2, ...colorN])
 ```
 
 Use the `PlatformColor` function to access native colors on the target platform via supplying the native color’s corresponding string value. You pass a string to the `PlatformColor` function, and provided it exists on that platform, that native color will be applied to the control or Javascript component specified in your style. All native color logic also translates if applicable, meaning if the native color specified is themes and/or high contrast sensitive, that logic will also transfer to the JavaScript component being colored.
