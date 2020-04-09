@@ -42,44 +42,10 @@ The `DynamicColorIOS` function is a platform color type specific to iOS. `Dynami
 At runtime, the system will chose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
 
 ```
-function DynamicColorsExample() {
-  return Platform.OS === 'ios' ? (
-    <View style={styles.column}>
-      <View style={styles.row}>
-        <Text style={styles.labelCell}>
-          DynamicColorIOS({'{\n'}
-          {'  '}light: 'red', dark: 'blue'{'\n'}
-          {'}'})
-        </Text>
-        <View
-          style={{
-            ...styles.colorCell,
-            backgroundColor: DynamicColorIOS({light: 'red', dark: 'blue'}),
-          }}
-        />
-      </View>
-      <View style={styles.row}>
-        <Text style={styles.labelCell}>
-          DynamicColorIOS({'{\n'}
-          {'  '}light: PlatformColor('systemBlueColor'),{'\n'}
-          {'  '}dark: PlatformColor('systemRedColor'),{'\n'}
-          {'}'})
-        </Text>
-        <View
-          style={{
-            ...styles.colorCell,
-            backgroundColor: DynamicColorIOS({
-              light: PlatformColor('systemBlueColor'),
-              dark: PlatformColor('systemRedColor'),
-            }),
-          }}
-        />
-      </View>
-    </View>
-  ) : (
-    <Text style={styles.labelCell}>Not applicable on this platform</Text>
-  );
-}
+const headerTextColor = DynamicColorIOS({
+  dark: PlatformColor('labelColor'),
+  light: PlatformColor('secondaryLabelColor')
+});
 ```
 
 The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)
