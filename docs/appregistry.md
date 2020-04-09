@@ -3,12 +3,10 @@ id: appregistry
 title: AppRegistry
 ---
 
-<div class="banner-native-code-required">
-  <h3>Project with Native Code Required</h3>
-  <p>
-    If you are using the managed `expo-cli` workflow there is only ever one entry component registered with `AppRegistry` and it is handled automatically, you do not need to use this API.
-  </p>
-</div>
+### Project with Native Code Required
+
+If you are using the managed `expo-cli` workflow there is only ever one entry component registered with `AppRegistry` and it is handled automatically, you do not need to use this API.
+
 
 `AppRegistry` is the JS entry point to running all React Native apps. App root components should register themselves with `AppRegistry.registerComponent`, then the native system can load the bundle for the app and then actually run the app when it's ready by invoking `AppRegistry.runApplication`.
 
