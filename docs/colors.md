@@ -34,7 +34,7 @@ React Native supports also colors as an `int` values (in RGB color mode):
 ## DynamicColorIOS
 
 ```jsx
-DynamicColorIOS({light: [Object object], dark: [Object object]}): [Object object]
+DynamicColorIOS({light: color, dark: color});
 ```
 
 The `DynamicColorIOS` function is a platform color type specific to iOS. `DynamicColorIOS` takes a single argument as an object with two keys: light and dark.
