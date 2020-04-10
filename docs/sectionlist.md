@@ -248,7 +248,7 @@ How many items to render in the initial batch. This should be enough to fill the
 
 | Type   | Required |
 | ------ | -------- |
-| number | Yes      |
+| number | No       |
 
 ---
 
