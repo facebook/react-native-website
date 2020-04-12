@@ -8,9 +8,9 @@ const About = () => (
       {`
 “React Native中文网”由以下人员维护：
 
-[天地之灵](http://github.com/tdzl2003) 
-
 [晴明](http://github.com/sunnylqm)
+
+[天地之灵](http://github.com/tdzl2003) 
 
 React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶属于Facebook。
 
@@ -19,26 +19,22 @@ React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶�
 ### QQ群
 
 “React Native中文网”的维护人员和其他参与者都在  
-> 1群： 439022088（已满）   
-2群： 488376556（已满）   
-3群： 527104912（已满）  
-4群： 170754112（已满）  
-5群： 138811944（已满）  
-6群： 446548027（已满）  
-7群： 115487854（已满）  
-8群： 317323710（已满）  
-9群： 128731649（已满）  
-10群： 578728219（已满）
+> 主群：578728219
+1群： 439022088   
+2群： 488376556   
+3群： 527104912  
+4群： 170754112  
+5群： 138811944  
+6群： 446548027  
+7群： 115487854  
+8群： 317323710  
+9群： 128731649
    
-讨论交流。所有群里都会经常发布许多新的教程和资讯。
+讨论交流。群里会经常发布许多新的教程和资讯。
 
-### 付费技术支持
+### 技术支持与商务合作
 
-需要量身订做、随叫随到的完善技术支持？请联络[QQ:402740419](tencent://message/?uin=402740419&Site=react-native.cn&Menu=yes) 或[通过猪八戒平台对我们进行雇佣](http://shop.zbj.com/14338306/)
-
-### 高级商务合作
-
-如果您想要更深入地定制化服务，比如<span style="background:#96E164">技术内部培训、项目技术咨询管理、项目解决方案</span>等，请联系：__王先生 [18513831297](tel:18513831297) [wuxieken@qq.com](mailto:wuxieken@qq.com)__
+需要量身订做、随叫随到的完善技术支持？或是更深入地定制化服务，比如<span style="background:#96E164">技术内部培训、项目技术咨询管理、项目解决方案</span>等，请联系：QQ 34731408 或 [hi@charmlot.com](mailto:hi@charmlot.com)
 
 ## 版权声明
 
@@ -90,11 +86,9 @@ React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶�
 
 ## 关于我们
 
-React Native中文网是由杭州欧石南网络科技有限公司创办的，提供与React Native相关的文档、资讯以及教程。React Native是一个跨平台移动APP开发框架，着力于提高多平台开发的开发效率，使你能够在JavaScript 和react的基础上获得完全一致的开发体验，构建世界一流的原生app.
+React Native中文网是由武汉青罗网络科技有限公司创办的，提供与React Native相关的文档、资讯以及教程。React Native是一个跨平台移动APP开发框架，着力于提高多平台开发的开发效率，使你能够在JavaScript 和react的基础上获得完全一致的开发体验，构建世界一流的原生app.
 
-地址：杭州市西湖区古墩路616号同人精华大厦2座1516室
-
-邮箱：[eliza@hzerica.cn](mailto:eliza@hzerica.cn)
+邮箱：[hi@charmlot.com](mailto:hi@charmlot.com)
 `}
     </MarkdownBlock>
   </div>
