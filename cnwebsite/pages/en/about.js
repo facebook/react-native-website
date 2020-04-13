@@ -19,7 +19,7 @@ React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶�
 ### QQ群
 
 “React Native中文网”的维护人员和其他参与者都在  
-> 主群：578728219
+> 主群：578728219  
 1群： 439022088   
 2群： 488376556   
 3群： 527104912  
@@ -34,7 +34,7 @@ React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶�
 
 ### 技术支持与商务合作
 
-需要量身订做、随叫随到的完善技术支持？或是更深入地定制化服务，比如<span style="background:#96E164">技术内部培训、项目技术咨询管理、项目解决方案</span>等，请联系：QQ 34731408 或 [hi@charmlot.com](mailto:hi@charmlot.com)
+需要量身订做、随叫随到的完善技术支持？或是更深入地定制化服务，如技术内部培训、项目技术咨询管理、项目解决方案等，请联系：QQ 34731408 或 [hi@charmlot.com](mailto:hi@charmlot.com)
 
 ## 版权声明
 
@@ -86,7 +86,7 @@ React Native及相关标识版权由©Facebook Inc.所有。本网站并非隶�
 
 ## 关于我们
 
-React Native中文网是由武汉青罗网络科技有限公司创办的，提供与React Native相关的文档、资讯以及教程。React Native是一个跨平台移动APP开发框架，着力于提高多平台开发的开发效率，使你能够在JavaScript 和react的基础上获得完全一致的开发体验，构建世界一流的原生app.
+React Native中文网现由武汉青罗网络科技有限公司运营，提供与React Native相关的文档、资讯以及教程。React Native是一个跨平台移动APP开发框架，着力于提高多平台开发的开发效率，使你能够在JavaScript 和react的基础上获得完全一致的开发体验，构建世界一流的原生app.
 
 邮箱：[hi@charmlot.com](mailto:hi@charmlot.com)
 `}
