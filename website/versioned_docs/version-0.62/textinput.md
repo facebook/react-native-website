@@ -782,7 +782,9 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
 
-## <!-- alex enable simple -->
+<!-- alex enable simple -->
+
+---
 
 ### `underlineColorAndroid`
 
