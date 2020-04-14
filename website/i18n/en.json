@@ -257,6 +257,9 @@
       "platform-specific-code": {
         "title": "Platform Specific Code"
       },
+      "platformcolor": {
+        "title": "PlatformColor"
+      },
       "profiling": {
         "title": "Profiling"
       },

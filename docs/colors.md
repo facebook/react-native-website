@@ -31,6 +31,25 @@ React Native supports also colors as an `int` values (in RGB color mode):
 
 > **_Note:_** This might appear similar to the Android [Color](https://developer.android.com/reference/android/graphics/Color) ints representation but on Android values are stored in SRGB color mode (0xaarrggbb).
 
+## DynamicColorIOS
+
+```jsx
+DynamicColorIOS({light: color, dark: color});
+```
+
+The `DynamicColorIOS` function is a platform color type specific to iOS. `DynamicColorIOS` takes a single argument as an object with two keys: light and dark.
+
+At runtime, the system will chose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
+
+```
+const headerTextColor = DynamicColorIOS({
+  dark: PlatformColor('labelColor'),
+  light: PlatformColor('secondaryLabelColor')
+});
+```
+
+The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)
+
 ## Named colors
 
 In React Native you can also use color name strings as values.
