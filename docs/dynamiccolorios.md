@@ -35,9 +35,11 @@ At runtime, the system will chose which of the two colors to display depending o
 
 ## Example
 
-```
-const headerTextColor = DynamicColorIOS({
-  dark: PlatformColor('labelColor'),
-  light: PlatformColor('secondaryLabelColor')
+```jsx
+import { DynamicColorIOS } from 'react-native';
+
+const customDynamicTextColor = DynamicColorIOS({
+  dark: 'lightskyblue',
+  light: 'midnightblue',
 });
 ```

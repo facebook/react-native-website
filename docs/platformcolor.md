@@ -25,32 +25,30 @@ You can use the `PlatformColor` function to access native colors on the target p
 For a full list of the types of system colors supported, see:
 
 - [Android R.attr](https://developer.android.com/reference/android/R.attr)
-- [iOS Color](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/)
+- [iOS Color](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#dynamic-system-colors)
 
 ## Example
 
-```
+```jsx
 import React from 'react';
-import { Text, View, StyleSheet, PlatformColor, Platform } from 'react-native';
+import { Platform, PlatformColor, StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View>
-      <Text style={styles.labelCell}>
-        I am a special label color!
-      </Text>
-    </View>
-  );
-}
+export default App = () => (
+  <View>
+    <Text style={styles.labelCell}>
+      I am a special label color!
+    </Text>
+  </View>
+);
 
 const styles = StyleSheet.create({
-   labelCell: {
+  labelCell: {
     flex: 1,
     alignItems: 'stretch',
     ...Platform.select({
-      ios: {color: PlatformColor('labelColor')},
-      android: {color: PlatformColor('?attr/colorControlNormal')},
-      default: {color: 'black'},
+      ios: { color: PlatformColor('labelColor') },
+      android: { color: PlatformColor('?attr/colorControlNormal') },
+      default: { color: 'black' },
     }),
   },
 });

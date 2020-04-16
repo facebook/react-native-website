@@ -112,7 +112,6 @@
       "appstate",
       "devsettings",
       "dimensions",
-      "dynamiccolorios",
       "easing",
       "interactionmanager",
       "keyboard",
@@ -139,7 +138,7 @@
       {
         "type": "subcategory",
         "label": "iOS APIs",
-        "ids": ["actionsheetios", "settings"]
+        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
   }

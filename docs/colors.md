@@ -44,12 +44,6 @@ In React Native you can also use color name strings as values.
 
 > **_Note:_** React Native only supports lowercase color names. Uppercase color names are not supported.
 
-## Named colors
-
-In React Native you can also use color name strings as values.
-
-> **_Note:_** React Native only supports lowercase color names. Uppercase color names are not supported.
-
 ### `transparent`
 
 This is a shortcut for `rgba(0,0,0,0)`, same like in [CSS3](https://www.w3.org/TR/css-color-3/#transparent).
