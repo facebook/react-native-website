@@ -104,6 +104,9 @@
       "drawerlayoutandroid": {
         "title": "DrawerLayoutAndroid"
       },
+      "dynamiccolorios": {
+        "title": "DynamicColorIOS"
+      },
       "easing": {
         "title": "Easing"
       },

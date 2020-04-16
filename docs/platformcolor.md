@@ -7,7 +7,20 @@ title: PlatformColor
 PlatformColor(color1, [color2, ...colorN])
 ```
 
-Use the `PlatformColor` function to access native colors on the target platform via supplying the native color’s corresponding string value. You pass a string to the `PlatformColor` function, and provided it exists on that platform, that native color will be applied to the control or Javascript component specified in your style. All native color logic also translates if applicable, meaning if the native color specified is themes and/or high contrast sensitive, that logic will also transfer to the JavaScript component being colored.
+You can use the `PlatformColor` function to access native colors on the target platform by supplying the native color’s corresponding string value. You pass a string to the `PlatformColor` function, and provided it exists on that platform, that native color will be applied to the control or Javascript component specified in your style. All native color logic also translates if applicable, meaning if the native color specified is themes and/or high contrast sensitive, that logic will also transfer to the JavaScript component being colored.
+
+<div class="toggler">
+  <span>Developer Notes</span>
+  <span role="tablist" class="toggle-devNotes">
+    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
+  </span>
+</div>
+
+<block class="webNote devNotes" />
+
+> If you’re familiar with design systems, another way of thinking about this is that `PlatformColor` lets you tap into the local design system's color tokens so your app can blend right in!
+
+<block class="endBlock devNotes" />
 
 For a full list of the types of system colors supported, see:
 
