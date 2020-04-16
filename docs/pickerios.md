@@ -3,7 +3,7 @@ id: pickerios
 title: 🚧 PickerIOS
 ---
 
-> **Deprecated.** Use [Picker](picker.md) instead.
+> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
 
 ---
 
