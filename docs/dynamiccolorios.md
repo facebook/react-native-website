@@ -19,12 +19,17 @@ At runtime, the system will chose which of the two colors to display depending o
   <span>Developer Notes</span>
   <span role="tablist" class="toggle-devNotes">
     <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
+    <button role="tab" class="button-iosNote" onclick="displayTabs('devNotes', 'iosNote')">iOS</button>
   </span>
 </div>
 
 <block class="webNote devNotes" />
 
 > If you’re familiar `@media (prefers-color-scheme: dark)` in CSS, this is similar! Only instead of defining all the colors in a media query, you define which color to use under what circumstances right there where you're using it. Neat!
+
+<block class="iosNote devNotes" />
+
+> The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)
 
 <block class="endBlock devNotes" />
 
@@ -36,5 +41,3 @@ const headerTextColor = DynamicColorIOS({
   light: PlatformColor('secondaryLabelColor')
 });
 ```
-
-> The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)
