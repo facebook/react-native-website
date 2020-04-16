@@ -9,11 +9,11 @@ The `DynamicColorIOS` function is a platform color type specific to iOS.
 DynamicColorIOS({light: color, dark: color});
 ```
 
-`DynamicColorIOS` takes a single argument as an object with two keys: `light` and `dark`. These correspond to the colors you want to use for "light mode" and "dark mode".
+`DynamicColorIOS` takes a single argument as an object with two keys: `dark` and `light`. These correspond to the colors you want to use for "light mode" and "dark mode" on iOS.
 
 > In the future, more keys might become available for different user preferences, like high contrast.
 
-At runtime, the system will chose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
+At runtime, the system will choose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
 
 <div class="toggler">
   <span>Developer Notes</span>
