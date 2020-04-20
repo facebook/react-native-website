@@ -25,7 +25,7 @@ You can use the `PlatformColor` function to access native colors on the target p
 For a full list of the types of system colors supported, see:
 
 - [Android R.attr](https://developer.android.com/reference/android/R.attr)
-- [iOS Color](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/color/#dynamic-system-colors)
+- [iOS Color](https://developer.apple.com/documentation/uikit/uicolor/ui_element_colors?language=objc)
 
 ## Example
 
