@@ -82,13 +82,13 @@ If true, doesn't play Android system sound on press.
 
 Enables the Android ripple effect and configures its color.
 
-| Type       | Required | Platform |
-| ---------- | -------- | -------- |
-| ColorValue | No       | Android  |
+| Type                                         | Required | Platform |
+| -------------------------------------------- | -------- | -------- |
+| [color](https://reactnative.dev/docs/colors) | No       | Android  |
 
 ### `children`
 
-Either children or a render prop that receives a boolean reflecting whether the component is currently pressed.
+Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
 | Type       | Required |
 | ---------- | -------- |
