@@ -25,7 +25,7 @@ At runtime, the system will choose which of the two colors to display depending 
 
 <block class="webNote devNotes" />
 
-> If you’re familiar `@media (prefers-color-scheme: dark)` in CSS, this is similar! Only instead of defining all the colors in a media query, you define which color to use under what circumstances right there where you're using it. Neat!
+> If you’re familiar with `@media (prefers-color-scheme: dark)` in CSS, this is similar! Only instead of defining all the colors in a media query, you define which color to use under what circumstances right there where you're using it. Neat!
 
 <block class="iosNote devNotes" />
 
