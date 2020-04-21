@@ -14,7 +14,7 @@ Pressable is a primitive core component wrapper that is used to detect various t
 ## Example
 
 ```
-import * as React from 'react';
+import React, { useState } from 'react';
 import {
   Pressable,
   StyleSheet,
