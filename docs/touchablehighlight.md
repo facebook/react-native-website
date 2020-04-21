@@ -23,7 +23,7 @@ function MyComponent(props) {
   underlayColor="#DDDDDD"
   onPress={() => alert('Pressed!')}>
   <MyComponent />
-</TouchableHighlight>
+</TouchableHighlight>;
 ```
 
 ## Example
@@ -43,23 +43,23 @@ function MyComponent(props) {
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
 import React, { useState } from "react";
-import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 export default function TouchableHighlightExample() {
   const [count, setCount] = useState(0);
-
-  const onPress = () => {
-    setCount(count + 1);
-  };
+  const onPress = () => setCount(count + 1);
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight style={styles.button} onPress={onPress}>
-        <Text> Touch Here </Text>
+      <TouchableHighlight onPress={onPress}>
+        <View style={styles.button}>
+          <Text>Touch Here</Text>
+        </View>
       </TouchableHighlight>
-
       <View style={styles.countContainer}>
-        <Text style={styles.countText}>{count !== 0 ? count : null}</Text>
+        <Text style={styles.countText}>
+          {count ? count : null}
+        </Text>
       </View>
     </View>
   );
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
 
 ```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
 import React, { Component } from "react";
-import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
 export default class App extends Component {
   constructor(props) {
@@ -107,12 +107,14 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.button} onPress={this.onPress}>
-          <Text> Touch Here </Text>
+        <TouchableHighlight onPress={this.onPress}>
+          <View style={styles.button}>
+            <Text>Touch Here</Text>
+          </View>
         </TouchableHighlight>
         <View style={[styles.countContainer]}>
           <Text style={[styles.countText]}>
-            {this.state.count !== 0 ? this.state.count : null}
+            {this.state.count ? this.state.count : null}
           </Text>
         </View>
       </View>
@@ -140,6 +142,7 @@ const styles = StyleSheet.create({
   }
 });
 ```
+
 <block class="endBlock syntax" />
 
 ---
