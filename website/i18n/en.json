@@ -2219,6 +2219,9 @@
       "version-0.5/version-0.5-interactionmanager": {
         "title": "InteractionManager"
       },
+      "version-0.5/version-0.5-intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
       "version-0.5/version-0.5-javascript-environment": {
         "title": "JavaScript Environment"
       },
