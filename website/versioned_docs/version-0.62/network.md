@@ -98,7 +98,7 @@ export default App = () => {
       .then((json) => setData(json.movies))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
