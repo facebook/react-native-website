@@ -54,8 +54,10 @@ export default function TouchableHighlightExample() {
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight style={styles.button} onPress={onPress}>
-        <Text> Touch Here </Text>
+      <TouchableHighlight onPress={onPress}>
+        <View style={styles.button}>
+          <Text> Touch Here </Text>
+        </View>
       </TouchableHighlight>
 
       <View style={styles.countContainer}>
@@ -107,8 +109,10 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.button} onPress={this.onPress}>
-          <Text> Touch Here </Text>
+        <TouchableHighlight onPress={this.onPress}>
+          <View style={styles.button}>
+            <Text> Touch Here </Text>
+          </View>
         </TouchableHighlight>
         <View style={[styles.countContainer]}>
           <Text style={[styles.countText]}>
