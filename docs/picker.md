@@ -1,9 +1,11 @@
 ---
 id: picker
-title: Picker
+title: 🚧 Picker
 ---
 
-Renders the native picker component on Android and iOS. 
+> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
+
+Renders the native picker component on Android and iOS.
 
 ## Example
 
@@ -125,4 +127,3 @@ Used to locate this view in end-to-end tests.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
-

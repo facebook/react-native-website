@@ -249,7 +249,7 @@
         "title": "Picker Style Props"
       },
       "picker": {
-        "title": "Picker"
+        "title": "🚧 Picker"
       },
       "pickerios": {
         "title": "🚧 PickerIOS"
@@ -3705,7 +3705,7 @@
         "title": "PermissionsAndroid"
       },
       "version-0.62/version-0.62-picker": {
-        "title": "Picker"
+        "title": "🚧 Picker"
       },
       "version-0.62/version-0.62-pixelratio": {
         "title": "PixelRatio"
