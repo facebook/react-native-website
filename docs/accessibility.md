@@ -159,7 +159,7 @@ Assign this property to a custom function which will be called when someone perf
 
 ### accessibilityLiveRegion (Android)
 
-When components dynamically change, we want TalkBack to alert the end user. This is made possible by the ‘accessibilityLiveRegion’ property. It can be set to ‘none’, ‘polite’ and ‘assertive’:
+When components dynamically change, we want TalkBack to alert the end user. This is made possible by the `accessibilityLiveRegion` property. It can be set to `none`, `polite` and `assertive`:
 
 - **none** Accessibility services should not announce changes to this view.
 - **polite** Accessibility services should announce changes to this view.
@@ -176,20 +176,20 @@ When components dynamically change, we want TalkBack to alert the end user. This
 </Text>
 ```
 
-In the above example method \_addOne changes the state.count variable. As soon as an end user clicks the TouchableWithoutFeedback, TalkBack reads text in the Text view because of its 'accessibilityLiveRegion=”polite”' property.
+In the above example method \_addOne changes the state.count variable. As soon as an end user clicks the TouchableWithoutFeedback, TalkBack reads text in the Text view because of its `accessibilityLiveRegion=”polite”` property.
 
 ### importantForAccessibility (Android)
 
-In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The ‘importantForAccessibility’ property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to ‘auto’, ‘yes’, ‘no’ and ‘no-hide-descendants’ (the last value will force accessibility services to ignore the component and all of its children).
+In the case of two overlapping UI components with the same parent, default accessibility focus can have unpredictable behavior. The `importantForAccessibility` property will resolve this by controlling if a view fires accessibility events and if it is reported to accessibility services. It can be set to `auto`, `yes`, `no` and `no-hide-descendants` (the last value will force accessibility services to ignore the component and all of its children).
 
 ```jsx
 <View style={styles.container}>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'green'}} importantForAccessibility=”yes”>
+    backgroundColor: 'green'}} importantForAccessibility="yes">
     <Text> First layout </Text>
   </View>
   <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'yellow'}} importantForAccessibility=”no-hide-descendants”>
+    backgroundColor: 'yellow'}} importantForAccessibility="no-hide-descendants">
     <Text> Second layout </Text>
   </View>
 </View>
