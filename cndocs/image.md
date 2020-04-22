@@ -9,7 +9,7 @@ title: Image
 
 > 请注意对于网络和 base64 数据的图片需要手动指定尺寸！
 
-```SnackPlayer
+```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 
@@ -18,7 +18,8 @@ export default class DisplayAnImage extends Component {
     return (
       <View>
         <Image
-          source={require('/react-native/img/favicon.png')}
+          style={{width: 50, height: 50}}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
           style={{width: 50, height: 50}}
@@ -36,14 +37,15 @@ export default class DisplayAnImage extends Component {
 
 你可以给图片添加`style`属性：
 
-```SnackPlayer
+```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {
     width: 50,
-    height: 200
+    height: 200,
+    resizeMode: 'stretch'
   }
 });
 
@@ -53,7 +55,7 @@ export default class DisplayAnImageWithStyle extends Component {
       <View>
         <Image
           style={styles.stretch}
-          source={require('/react-native/img/favicon.png')}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
       </View>
     );

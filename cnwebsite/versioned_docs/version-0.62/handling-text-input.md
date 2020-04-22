@@ -10,7 +10,7 @@ original_id: handling-text-input
 
 假如我们要实现当用户输入时，实时将其以单词为单位翻译为另一种文字。我们假设这另一种文字来自某个吃货星球，只有一个单词： 🍕。所以"Hello there Bob"将会被翻译为"🍕🍕🍕"。
 
-```SnackPlayer
+```SnackPlayer name=Handling%20Text%20Input
 import React, { Component, useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
