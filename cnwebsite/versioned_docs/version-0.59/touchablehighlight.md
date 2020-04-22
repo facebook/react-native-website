@@ -8,9 +8,9 @@ original_id: touchablehighlight
 
 本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低，同时会有一个底层的颜色透过而被用户看到，使得视图变暗或变亮。
 
-在底层实现上，实际会创建一个新的视图到视图层级中，如果使用的方法不正确，有时候会导致一些不希望出现的视觉效果。譬如没有给视图的backgroundColor显式声明一个不透明的颜色。
+在底层实现上，实际会创建一个新的视图到视图层级中，如果使用的方法不正确，有时候会导致一些不希望出现的视觉效果。譬如没有给视图的 backgroundColor 显式声明一个不透明的颜色。
 
-注意`TouchableHighlight`只支持一个子节点（不能没有子节点也不能多于一个）。如果你希望包含多个子组件，可以用一个View来包装它们。
+注意`TouchableHighlight`只支持一个子节点（不能没有子节点也不能多于一个）。如果你希望包含多个子组件，可以用一个 View 来包装它们。
 
 例子：
 
@@ -29,7 +29,7 @@ renderButton: function() {
 
 ### 示例
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   AppRegistry,
@@ -93,17 +93,17 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('App', () => App)
 ```
 
-### 查看Props
+### 查看 Props
 
-* [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
+- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
 
-- [`activeOpacity`](touchablehighlight.md#activeopacity)
-- [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
-- [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
-- [`style`](touchablehighlight.md#style)
-- [`underlayColor`](touchablehighlight.md#underlaycolor)
-- [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
-- [`tvParallaxProperties`](touchablehighlight.md#tvparallaxproperties)
+* [`activeOpacity`](touchablehighlight.md#activeopacity)
+* [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
+* [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
+* [`style`](touchablehighlight.md#style)
+* [`underlayColor`](touchablehighlight.md#underlaycolor)
+* [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
+* [`tvParallaxProperties`](touchablehighlight.md#tvparallaxproperties)
 
 ---
 
@@ -113,7 +113,7 @@ AppRegistry.registerComponent('App', () => App)
 
 ### `activeOpacity`
 
-指定封装的视图在被触摸操作激活时以多少不透明度显示（0到1之间，默认值为0.85）。需要设置`underlayColor`。
+指定封装的视图在被触摸操作激活时以多少不透明度显示（0 到 1 之间，默认值为 0.85）。需要设置`underlayColor`。
 
 | 类型   | 必填 |
 | ------ | ---- |

@@ -82,7 +82,7 @@ const siteConfig = {
   // facebookAppId: "1677033832619985",
   // twitter: "reactnative",
   markdownPlugins: [
-    // RemarkablePlugins.SnackPlayer,
+    RemarkablePlugins.SnackPlayer,
     RemarkablePlugins.ReactNativeWebPlayer,
   ],
   highlight: {
@@ -97,6 +97,7 @@ const siteConfig = {
     cdnUrl + 'js/codeblocks.js',
     cdnUrl + 'js/tabs.js',
     cdnUrl + 'js/doccode0325.js', 
+    cdnUrl + 'js/snack.js', 
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',
