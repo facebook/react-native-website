@@ -22,7 +22,7 @@ import {
   View,
 } from 'react-native';
 
-export default function App() => {
+export default App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   let textLog = '';
