@@ -22,7 +22,7 @@ import {
   View,
 } from 'react-native';
 
-export default function App() {
+export default function App() => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   let textLog = '';
@@ -39,7 +39,10 @@ export default function App() {
             setTimesPressed(current => current + 1);
           }}>
           {({pressed}) => (
-            <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+            <Text
+              style={[styles.text, pressed ? styles.textPress : styles.textRest]}>
+              {pressed ? 'Pressed!' : 'Press Me'}
+            </Text>
           )}
         </Pressable>
       </View>
@@ -54,6 +57,12 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
    },
+  textRest: {
+    color: '#000000',
+   },
+   textPress: {
+     color: '#595959',
+    },
    logBox: {
     padding: 20,
     margin: 10,
