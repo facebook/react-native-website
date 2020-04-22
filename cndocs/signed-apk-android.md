@@ -99,9 +99,9 @@ $ react-native run-android --variant=release
 
 ### 针对不同的 CPU 架构生成 APK 以减小 APK 文件的大小
 
-默认情况下，生成的 APK 会同时包含针对于 x86 和 ARMv7a 两种 CPU 架构的原生代码。这样可以让我们更方便的向其他人分享这个 APK，因为它几乎可以运行在所有的 Android 设备上。但是，这会导致所有设备上都有一些根本不会运行的代码，白白占据了空间。目前安卓设备绝大多数是 ARM 架构，因此对于大部分应用来说可以考虑去掉 x86 架构的支持。
+默认情况下，生成的 APK 会同时包含针对于 x86 和 ARMv7a 两种 CPU 架构的原生代码。这样可以让我们更方便的向其他人分享这个 APK，因为它几乎可以运行在所有的 Android 设备上。但是，这会导致所有设备上都有一些根本不会运行的代码，白白占据了空间。目前安卓设备绝大多数是 ARM 架构，因此对于大部分应用来说可以考虑去掉 x86 架构的支持（但是请注意模拟器大部分是 x86 架构，因此去掉 x86 架构后将无法在模拟器上运行）。
 
-你可以在`android/app/build.gradle`中修改如下代码（false 改为 true）来生成针对不同 CPU 架构的 APK。
+你可以在`android/app/build.gradle`中修改如下代码（false 改为 true）来生成多个针对不同 CPU 架构的 APK。
 
 ```diff
 - ndk {
@@ -111,7 +111,7 @@ $ react-native run-android --variant=release
 + def enableSeparateBuildPerCPUArchitecture = true
 ```
 
-你可以把这上面打包生成的两个 APK 都上传到支持对用户设备 CPU 架构定位的应用程序商店，例如 Google Play 和 Amazon AppStore，用户将自动获得相应的 APK。如果您想上传到其他市场，例如 APKFiles（不支持一个应用有多个 APK 文件），可以修改下面的代码，来额外生成一个适用不同 CPU 架构的通用 APK。
+你可以把这上面打包生成的多个 APK 都上传到支持对用户设备 CPU 架构定位的应用程序商店，例如 Google Play 和 Amazon AppStore，用户将自动获得相应的 APK。如果您想上传到其他市场，例如 APKFiles（不支持一个应用有多个 APK 文件），可以修改下面的代码，来额外生成一个适用不同 CPU 架构的通用 APK。
 
 ```diff
 - universalApk false
