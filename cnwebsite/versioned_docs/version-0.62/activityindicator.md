@@ -10,7 +10,7 @@ original_id: activityindicator
 
 ### 示例
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   ActivityIndicator,

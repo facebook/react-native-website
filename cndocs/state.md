@@ -5,18 +5,18 @@ title: State（状态）
 
 我们使用两种数据来控制一个组件：`props`和`state`。`props`是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。对于需要改变的数据，我们需要使用`state`。
 
-一般来说，你需要在class中声明一个`state`对象，然后在需要修改时调用`setState`方法。
+一般来说，你需要在 class 中声明一个`state`对象，然后在需要修改时调用`setState`方法。
 
 假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个`prop`。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到`state`中。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
 class Blink extends Component {
   // 声明state对象
   state = { isShowingText: true };
-  
+
   componentDidMount() {
     // 每1000毫秒对showText状态做一次取反操作
     setInterval(() => {

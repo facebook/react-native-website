@@ -5,7 +5,7 @@ title: TouchableOpacity
 
 本组件用于封装视图，使其可以正确响应触摸操作。当按下的时候，封装的视图的不透明度会降低。
 
-不透明度的变化是通过把子元素封装在一个`Animated.View`中来实现的，这个动画视图会被添加到视图层级中，少数情况下有可能会影响到布局。（译注：此组件与TouchableHighlight的区别在于并没有额外的颜色变化，更适于一般场景。）
+不透明度的变化是通过把子元素封装在一个`Animated.View`中来实现的，这个动画视图会被添加到视图层级中，少数情况下有可能会影响到布局。（译注：此组件与 TouchableHighlight 的区别在于并没有额外的颜色变化，更适于一般场景。）
 
 例子：
 
@@ -24,7 +24,7 @@ renderButton: function() {
 
 ### 示例
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   StyleSheet,
@@ -103,7 +103,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `activeOpacity`
 
-指定封装的视图在被触摸操作激活时以多少不透明度显示（0到1之间）。默认值为0.2。
+指定封装的视图在被触摸操作激活时以多少不透明度显示（0 到 1 之间）。默认值为 0.2。
 
 | 类型   | 必填 |
 | ------ | ---- |

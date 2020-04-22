@@ -10,7 +10,7 @@ original_id: props
 
 以常见的基础组件`Image`为例，在创建一个图片时，可以传入一个名为`source`的 prop 来指定要显示的图片的地址，以及使用名为`style`的 prop 来控制其尺寸。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Image } from 'react-native';
 
@@ -32,7 +32,7 @@ export default class Bananas extends Component {
 
 自定义的组件也可以使用`props`。通过在不同的场景使用不同的属性定制，可以尽量提高自定义组件的复用范畴。只需在`render`函数中引用`this.props`，然后按需处理即可。下面是一个例子：
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 

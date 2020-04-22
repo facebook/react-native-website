@@ -10,7 +10,7 @@ original_id: text
 
 在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Text, StyleSheet } from 'react-native';
 
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 
 在iOS和Android中显示格式化文本的方法类似，都是提供你想显示的文本内容，然后使用范围标注来指定一些格式（在iOS上是用`NSAttributedString`，Android上则是`SpannableString`）。这种用法非常繁琐。在React Native中，我们决定采用和Web一致的设计，这样你可以把相同格式的文本嵌套包裹起来：
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 
@@ -83,7 +83,7 @@ export default class BoldAndBeautiful extends Component {
 
 On iOS, you can nest views within your Text component. Here's an example:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
@@ -234,8 +234,8 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| 类型 | 必填 |
-| ---- | ---- |
+| 类型   | 必填 |
+| ------ | ---- |
 | string | 否   |
 
 ---

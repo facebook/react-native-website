@@ -12,7 +12,7 @@ original_id: image
 
 > 请注意对于网络和 base64 数据的图片需要手动指定尺寸！
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 
@@ -39,7 +39,7 @@ export default class DisplayAnImage extends Component {
 
 你可以给图片添加`style`属性：
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
@@ -288,8 +288,8 @@ Similarly to `source`, this property represents the resource used to render the 
 
 设置一段文字。当用户与图片交互时，读屏器（无障碍功能）会朗读你所设置的这段文字。
 
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
+| 类型   | 必填 | 平台 |
+| ------ | ---- | ---- |
 | string | 否   | iOS  |
 
 ---

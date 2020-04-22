@@ -13,9 +13,9 @@ title: 使用Flexbox布局
 
 ### Flex
 
-[`flex`](layout-props#flex) 属性决定元素在主轴上如何**填满**可用区域。整个区域会根据每个元素设置的flex属性值被分割成多个部分。
+[`flex`](layout-props#flex) 属性决定元素在主轴上如何**填满**可用区域。整个区域会根据每个元素设置的 flex 属性值被分割成多个部分。
 
-在下面的例子中，在设置了`flex: 1`的容器view中，有红色，黄色和绿色三个子view。红色view设置了`flex: 1`，黄色view设置了`flex: 2`，绿色view设置了`flex: 3`。**1+2+3 = 6**，这意味着红色view占据整个区域的`1/6`，黄色view占据整个区域的`2/6`，绿色view占据整个区域的`3/6`。
+在下面的例子中，在设置了`flex: 1`的容器 view 中，有红色，黄色和绿色三个子 view。红色 view 设置了`flex: 1`，黄色 view 设置了`flex: 2`，绿色 view 设置了`flex: 3`。**1+2+3 = 6**，这意味着红色 view 占据整个区域的`1/6`，黄色 view 占据整个区域的`2/6`，绿色 view 占据整个区域的`3/6`。
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
@@ -23,7 +23,7 @@ title: 使用Flexbox布局
 
 在组件的`style`中指定`flexDirection`可以决定布局的**主轴**。子元素是应该沿着**水平轴(`row`)**方向排列，还是沿着**竖直轴(`column`)**方向排列呢？默认值是**竖直轴(`column`)**方向。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
@@ -53,7 +53,7 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 在组件的 style 中指定`justifyContent`可以决定其子元素沿着**主轴**的**排列方式**。子元素是应该靠近主轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`、`space-around`、`space-between`以及`space-evenly`。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { View } from 'react-native';
 
@@ -82,7 +82,7 @@ export default class JustifyContentBasics extends Component {
 
 > 注意：要使`stretch`选项生效的话，子元素在次轴方向上不能有固定的尺寸。以下面的代码为例：只有将子元素样式中的`width: 50`去掉之后，`alignItems: 'stretch'`才能生效。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { View } from 'react-native';
 

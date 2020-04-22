@@ -10,7 +10,7 @@ A component which enables customization of the keyboard input accessory view on 
 
 To use this component wrap your custom toolbar with the InputAccessoryView component, and set a `nativeID`. Then, pass that `nativeID` as the `inputAccessoryViewID` of whatever `TextInput` you desire. A simple example:
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { useState } from 'react';
 import { Button, InputAccessoryView, ScrollView, TextInput } from 'react-native';
 export default App = () => {

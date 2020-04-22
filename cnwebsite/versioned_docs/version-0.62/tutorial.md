@@ -14,7 +14,7 @@ React Native 看起来很像 React，只不过其基础组件是原生组件而�
 
 根据历史悠久的“传统”，我们也来写一个“Hello, world!”：
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 

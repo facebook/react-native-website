@@ -29,7 +29,7 @@ renderButton: function() {
 
 ### 示例
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   StyleSheet,

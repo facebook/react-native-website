@@ -10,7 +10,7 @@ original_id: using-a-scrollview
 
 下面的示例代码创建了一个垂直滚动的`ScrollView`，其中还混杂了图片和文字组件。
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react';
 import { ScrollView, Image, Text } from 'react-native';
 

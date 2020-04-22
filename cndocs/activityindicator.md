@@ -7,7 +7,7 @@ title: ActivityIndicator
 
 ### 示例
 
-```ReactNativeWebPlayer
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   ActivityIndicator,
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
 
 ### `color`
 
-滚轮的前景颜色（iOS上默认为灰色，安卓上默认为深绿色）。
+滚轮的前景颜色（iOS 上默认为灰色，安卓上默认为深绿色）。
 
 | 类型               | 必填 |
 | ------------------ | ---- |
