@@ -39,7 +39,8 @@ export default (App = () => {
           },
           styles.wrapperCustom,
         ]}>
-        <Text style={styles.text}>Press Me</Text>
+        {({pressed}) => (<Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>)}
+
       </Pressable>
       <View style={styles.logBox}>
         <Text testID="pressable_press_console">{textLog}</Text>
