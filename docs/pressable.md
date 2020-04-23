@@ -13,16 +13,11 @@ Pressable is a Core Component wrapper that can detect various types of interacti
 
 ## Example
 
-```
-import React, { useState } from 'react';
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+```js
+import React, {useState} from 'react';
+import {Pressable, StyleSheet, Text, View} from 'react-native';
 
-export default App = () => {
+export default (App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   let textLog = '';
@@ -35,35 +30,33 @@ export default App = () => {
   return (
     <View>
       <Pressable
-          onPress={() => {
-            setTimesPressed(current => current + 1);
-          }}>
-          {({pressed}) => (
-            <Text
-              style={[styles.text, pressed ? styles.textPress : styles.textRest]}>
-              {pressed ? 'Pressed!' : 'Press Me'}
-            </Text>
-          )}
-        </Pressable>
-      </View>
+        onPress={() => {
+          setTimesPressed((current) => current + 1);
+        }}
+        style={({pressed}) => [
+          {
+            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'white',
+          },
+          styles.wrapperCustom,
+        ]}>
+        <Text style={styles.text}>Press Me</Text>
+      </Pressable>
       <View style={styles.logBox}>
         <Text testID="pressable_press_console">{textLog}</Text>
       </View>
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   text: {
     fontSize: 16,
-   },
-  textRest: {
-    color: '#000000',
-   },
-   textPress: {
-     color: '#595959',
-    },
-   logBox: {
+  },
+  wrapperCustom: {
+    borderRadius: 8,
+    padding: 6,
+  },
+  logBox: {
     padding: 20,
     margin: 10,
     borderWidth: StyleSheet.hairlineWidth,
