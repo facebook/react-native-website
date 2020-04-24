@@ -22,7 +22,7 @@ If you must have an API key or a secret to access some resource from your app, t
 [Async Storage](https://github.com/react-native-community/async-storage) is a community-maintained module for React Native that provides an asynchronous, unencrypted, key-value store. Async Storage is not shared between apps: every app has its own sandbox environment and has no access to data from other apps.
 
 | **Do** use asynch storage when...             | **Don't** use asynch storage for... |
-|-----------------------------------------------|-------------------------------------|
+| --------------------------------------------- | ----------------------------------- |
 | Persisting non-sensitive data across app runs | Token storage                       |
 | Persisting Redux state                        | Secrets                             |
 | Persisting GraphQL state                      |                                     |
@@ -108,7 +108,7 @@ A library to consider for native OAuth is [react-native-app-auth](https://github
 
 ## Network Security
 
-Your APIs should always use [SSL encryption](https://www.ssl.com/faqs/faq-what-is-ssl/). SSL encryption protects against the requested data being read in plain text between when it leaves the server and before it reaches the client. You’ll know the endpoint is secure, because it starts with `https://` instead of `http://`. 
+Your APIs should always use [SSL encryption](https://www.ssl.com/faqs/faq-what-is-ssl/). SSL encryption protects against the requested data being read in plain text between when it leaves the server and before it reaches the client. You’ll know the endpoint is secure, because it starts with `https://` instead of `http://`.
 
 ### SSL Pinning
 
