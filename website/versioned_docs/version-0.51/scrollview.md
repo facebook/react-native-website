@@ -193,9 +193,7 @@ Fires at most once per frame during scrolling. The frequency of the events can b
 
 ### `pagingEnabled`
 
-When true, the scroll view stops on multiples of the scroll view's size when scrolling. This can be used for horizontal pagination. The default value is false.
-
-Note: Vertical pagination is not supported on Android.
+When true, the scroll view stops on multiples of the scroll view's size when scrolling. This can be used for horizontal and vertical pagination. The default value is false.
 
 | Type | Required |
 | ---- | -------- |
