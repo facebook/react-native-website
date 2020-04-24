@@ -83,7 +83,8 @@ const Ball = ({ onShown }) => {
 
   // Running a method after the animation
   useMount(() => {
-    InteractionManager.runAfterInteractions(() => onShown());
+    const interactionPromise = InteractionManager.runAfterInteractions(() => onShown());
+    return () => interactionPromise.cancel();
   });
 
   return <Animated.View style={[styles.ball, { opacity }]} />;
