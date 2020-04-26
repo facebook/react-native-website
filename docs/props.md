@@ -37,7 +37,7 @@ const Greeting = (props) => {
     );
 }
 
-export default function LotsOfGreetings() {
+export default LotsOfGreetings = () => {
     return (
       <View style={{alignItems: 'center', top: 50}}>
         <Greeting name='Rexxar' />
