@@ -29,7 +29,7 @@ function MyComponent(props) {
 import React, { useState } from "react";
 import { StyleSheet, TouchableWithoutFeedback, Text, View } from "react-native";
 
-export default function TouchableWithoutFeedbackExample() {
+export default TouchableWithoutFeedbackExample = () => {
   const [count, setCount] = useState(0);
 
   const onPress = () => {
@@ -161,9 +161,9 @@ Describes the current state of a component to the user of an assistive technolog
 
 See the [Accessibility guide](accessibility.md#accessibilitystate-ios-android) for more information.
 
-| Type                                                                                           | Required |
-| ---------------------------------------------------------------------------------------------- | -------- |
-| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No       |
+| Type | Required |
+| --- | --- |
+| object: {disabled: bool, selected: bool, checked: bool or 'mixed', busy: bool, expanded: bool} | No |
 
 ---
 
@@ -247,9 +247,9 @@ If true, disable all interactions for this component.
 
 This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type | Required |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No |
 
 ### `onBlur`
 
@@ -325,9 +325,9 @@ Called as soon as the touch is released even before onPress.
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type | Required |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | No |
 
 ---
 
