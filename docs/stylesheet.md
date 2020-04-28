@@ -5,6 +5,8 @@ title: StyleSheet
 
 A StyleSheet is an abstraction similar to CSS StyleSheets
 
+> **NOTE:** As it is now there are no performance benefits of using `StyleSheet` instead of plain objects. 
+
 ```SnackPlayer name=StyleSheet
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
