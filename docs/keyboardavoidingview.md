@@ -8,7 +8,7 @@ It is a component to solve the common problem of views that need to move out of 
 ## Example
 
 ```SnackPlayer name=KeyboardAvoidingView&supportedPlatforms=android,ios
-import React, { Component } from 'react';
+import React from 'react';
 import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard  } from 'react-native';
 
 const KeyboardAvoidingComponent = () => {
