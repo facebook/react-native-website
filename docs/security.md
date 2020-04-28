@@ -21,7 +21,7 @@ If you must have an API key or a secret to access some resource from your app, t
 
 [Async Storage](https://github.com/react-native-community/async-storage) is a community-maintained module for React Native that provides an asynchronous, unencrypted, key-value store. Async Storage is not shared between apps: every app has its own sandbox environment and has no access to data from other apps.
 
-| **Do** use asynch storage when...             | **Don't** use asynch storage for... |
+| **Do** use async storage when...             | **Don't** use async storage for... |
 |-----------------------------------------------|-------------------------------------|
 | Persisting non-sensitive data across app runs | Token storage                       |
 | Persisting Redux state                        | Secrets                             |
