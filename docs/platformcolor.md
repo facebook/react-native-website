@@ -24,8 +24,10 @@ You can use the `PlatformColor` function to access native colors on the target p
 
 For a full list of the types of system colors supported, see:
 
-- [Android R.attr](https://developer.android.com/reference/android/R.attr)
-- [iOS Color](https://developer.apple.com/documentation/uikit/uicolor/ui_element_colors?language=objc)
+- Android:
+  - [R.attr](https://developer.android.com/reference/android/R.attr) - `?attr` prefix
+  - [R.color](https://developer.android.com/reference/android/R.color) - `@android:color` prefix
+- [iOS UIColor](https://developer.apple.com/documentation/uikit/uicolor/ui_element_colors)
 
 ## Example
 
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
     ...Platform.select({
-      ios: { color: PlatformColor('labelColor') },
+      ios: { color: PlatformColor('label') },
       android: { color: PlatformColor('?attr/colorControlNormal') },
       default: { color: 'black' },
     }),
