@@ -102,9 +102,9 @@ class AppList extends React.Component {
 
     return (
       <p>
-        {linkAppStore}
-        {linkAppStore && linkPlayStore ? ' · ' : ''}
         {linkPlayStore}
+        {linkPlayStore && linkAppStore ? ' · ' : ''}
+        {linkAppStore}
       </p>
     );
   }
