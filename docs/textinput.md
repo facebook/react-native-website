@@ -8,15 +8,20 @@ A foundational component for inputting text into the app via a keyboard. Props p
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 
-export default function UselessTextInput() {
-  const [value, onChangeText] = React.useState('Useless Placeholder');
+export default UselessTextInput = () => {
+  const [value, onChangeText] = useState('Useless Placeholder');
 
   return (
     <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+      style={{ 
+        height: 40, 
+        borderColor: 'gray', 
+        borderWidth: 1,
+        marginTop: 50, 
+       }}
       onChangeText={text => onChangeText(text)}
       value={value}
     />
@@ -29,10 +34,10 @@ Two methods exposed via the native element are .focus() and .blur() that will fo
 Note that some props are only available with `multiline={true/false}`. Additionally, border styles that apply to only one side of the element (e.g., `borderBottomColor`, `borderLeftWidth`, etc.) will not be applied if `multiline=false`. To achieve the same effect, you can wrap your `TextInput` in a `View`:
 
 ```SnackPlayer name=TextInput
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { View, TextInput } from 'react-native';
 
-function UselessTextInput(props) {
+const UselessTextInput = (props) => {
   return (
     <TextInput
       {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
@@ -42,8 +47,8 @@ function UselessTextInput(props) {
   );
 }
 
-export default function UselessTextInputMultiline() {
-  const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
+export default UselessTextInputMultiline = () => {
+  const [value, onChangeText] = useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
   // color.
@@ -53,6 +58,7 @@ export default function UselessTextInputMultiline() {
         backgroundColor: value,
         borderBottomColor: '#000000',
         borderBottomWidth: 1,
+        marginTop: 50,
       }}>
       <UselessTextInput
         multiline
