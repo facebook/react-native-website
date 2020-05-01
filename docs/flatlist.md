@@ -40,7 +40,7 @@ const DATA = [
   },
 ];
 
-function Item({ title }) {
+const Item = ({ title }) => {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
@@ -48,7 +48,7 @@ function Item({ title }) {
   );
 }
 
-export default function App() {
+export default App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -85,7 +85,7 @@ More complex, multi-select example demonstrating `` usage for perf optimization 
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 ```SnackPlayer name=flatlist-selectable
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -110,7 +110,7 @@ const DATA = [
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
+const Item = ({ id, title, selected, onSelect }) => {
   return (
     <TouchableOpacity
       onPress={() => onSelect(id)}
@@ -124,10 +124,10 @@ function Item({ id, title, selected, onSelect }) {
   );
 }
 
-export default function App() {
-  const [selected, setSelected] = React.useState(new Map());
+export default App = () => {
+  const [selected, setSelected] = useState(new Map());
 
-  const onSelect = React.useCallback(
+  const onSelect = useCallback(
     id => {
       const newSelected = new Map(selected);
       newSelected.set(id, !selected.get(id));
