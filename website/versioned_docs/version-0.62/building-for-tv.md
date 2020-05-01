@@ -12,7 +12,7 @@ TV devices support has been implemented with the intention of making existing Re
       Android
     </li>
     <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
-      iOS
+      🚧 iOS
     </li>
   </ul>
 </div>
