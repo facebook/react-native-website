@@ -36,7 +36,7 @@ At runtime, the system will choose which of the two colors to display depending 
 ## Example
 
 ```jsx
-import { DynamicColorIOS } from 'react-native';
+import {DynamicColorIOS} from 'react-native';
 
 const customDynamicTextColor = DynamicColorIOS({
   dark: 'lightskyblue',
