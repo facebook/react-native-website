@@ -191,7 +191,7 @@ target 'NumberTileGame' do
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
-  pod 'ReactCommon/jscallinvoker', :path => "../node_modules/react-native/ReactCommon"
+  pod 'ReactCommon/callinvoker', :path => "../node_modules/react-native/ReactCommon"
   pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
   pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
@@ -250,7 +250,7 @@ You should see output such as:
 Analyzing dependencies
 Fetching podspec for `React` from `../node_modules/react-native`
 Downloading dependencies
-Installing React (0.26.0)
+Installing React (0.62.0)
 Generating Pods project
 Integrating client project
 Sending stats
