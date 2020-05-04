@@ -1,10 +1,10 @@
 ---
 id: version-0.58-webview
-title: WebView
+title: 🚧 WebView
 original_id: webview
 ---
 
-> **Warning** Please use the [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) fork of this component instead. To reduce the surface area of React Native, `<WebView/>` is going to be removed from the React Native core. For more information, please read [The Slimmening proposal](https://github.com/react-native-community/discussions-and-proposals/issues/6).
+> **Deprecated.** Use [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) instead.
 
 `WebView` renders web content in a native view.
 
@@ -48,60 +48,15 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 > **Security Warning:** Currently, `onMessage` and `postMessage` do not allow specifying an origin. This can lead to cross-site scripting attacks if an unexpected document is loaded within a `WebView` instance. Please refer to the MDN documentation for [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) for more details on the security implications of this.
 
-### Props
-
-- [View props...](view#props)
-
-* [`source`](webview#source)
-* [`automaticallyAdjustContentInsets`](webview#automaticallyadjustcontentinsets)
-* [`injectJavaScript`](webview#injectjavascript)
-* [`injectedJavaScript`](webview#injectedjavascript)
-* [`mediaPlaybackRequiresUserAction`](webview#mediaplaybackrequiresuseraction)
-* [`nativeConfig`](webview#nativeconfig)
-* [`onError`](webview#onerror)
-* [`onLoad`](webview#onload)
-* [`onLoadEnd`](webview#onloadend)
-* [`onLoadStart`](webview#onloadstart)
-* [`onMessage`](webview#onmessage)
-* [`onNavigationStateChange`](webview#onnavigationstatechange)
-* [`originWhitelist`](webview#originwhitelist)
-* [`renderError`](webview#rendererror)
-* [`renderLoading`](webview#renderloading)
-* [`scalesPageToFit`](webview#scalespagetofit)
-* [`onShouldStartLoadWithRequest`](webview#onshouldstartloadwithrequest)
-* [`startInLoadingState`](webview#startinloadingstate)
-* [`style`](webview#style)
-* [`decelerationRate`](webview#decelerationrate)
-* [`domStorageEnabled`](webview#domstorageenabled)
-* [`javaScriptEnabled`](webview#javascriptenabled)
-* [`mixedContentMode`](webview#mixedcontentmode)
-* [`thirdPartyCookiesEnabled`](webview#thirdpartycookiesenabled)
-* [`userAgent`](webview#useragent)
-* [`allowsInlineMediaPlayback`](webview#allowsinlinemediaplayback)
-* [`allowFileAccess`](webview#allowFileAccess)
-* [`bounces`](webview#bounces)
-* [`contentInset`](webview#contentinset)
-* [`dataDetectorTypes`](webview#datadetectortypes)
-* [`scrollEnabled`](webview#scrollenabled)
-* [`geolocationEnabled`](webview#geolocationenabled)
-* [`allowUniversalAccessFromFileURLs`](webview#allowUniversalAccessFromFileURLs)
-* [`useWebKit`](webview#usewebkit)
-* [`url`](webview#url)
-* [`html`](webview#html)
-
-### Methods
-
-- [`extraNativeComponentConfig`](webview#extranativecomponentconfig)
-- [`goForward`](webview#goforward)
-- [`goBack`](webview#goback)
-- [`reload`](webview#reload)
-- [`stopLoading`](webview#stoploading)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
+
+---
 
 ### `source`
 
