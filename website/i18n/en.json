@@ -27,10 +27,10 @@
         "title": "Animated"
       },
       "animatedvalue": {
-        "title": "AnimatedValue"
+        "title": "Animated.Value"
       },
       "animatedvaluexy": {
-        "title": "AnimatedValueXY"
+        "title": "Animated.ValueXY"
       },
       "animations": {
         "title": "Animations"

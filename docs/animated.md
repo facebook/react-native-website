@@ -582,11 +582,15 @@ Stops any running animation and resets the value to its original.
 
 Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
 
+You can read more about `Animated.Value` API on the separate [page](animatedvalue).
+
 ---
 
 ### `ValueXY`
 
 2D value class for driving 2D animations, such as pan gestures.
+
+You can read more about `Animated.ValueXY` API on the separate [page](animatedvaluexy).
 
 ---
 
