@@ -358,9 +358,11 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 
 ### `in()`
 
+<!-- prettier-ignore-start -->
 ```jsx
-static in easing;
+static in(easing);
 ```
+<!-- prettier-ignore-end -->
 
 Runs an easing function forwards.
 
