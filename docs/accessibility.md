@@ -191,7 +191,7 @@ In the case of two overlapping UI components with the same parent, default acces
       top: 10,
       right: 10,
       height: 100,
-      backgroundColor: 'green',
+      backgroundColor: 'green'
     }}
     importantForAccessibility="yes">
     <Text> First layout </Text>
@@ -203,7 +203,7 @@ In the case of two overlapping UI components with the same parent, default acces
       top: 10,
       right: 10,
       height: 100,
-      backgroundColor: 'yellow',
+      backgroundColor: 'yellow'
     }}
     importantForAccessibility="no-hide-descendants">
     <Text> Second layout </Text>
@@ -246,9 +246,9 @@ To handle action requests, a component must implement an `onAccessibilityAction`
 <View
   accessible={true}
   accessibilityActions={[
-    {name: 'cut', label: 'cut'},
-    {name: 'copy', label: 'copy'},
-    {name: 'paste', label: 'paste'},
+    { name: 'cut', label: 'cut' },
+    { name: 'copy', label: 'copy' },
+    { name: 'paste', label: 'paste' }
   ]}
   onAccessibilityAction={(event) => {
     switch (event.nativeEvent.actionName) {

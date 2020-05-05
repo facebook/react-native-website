@@ -25,12 +25,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
-  }),
+    secondParam: 'yourOtherValue'
+  })
 });
 ```
 
@@ -60,7 +60,9 @@ You can also use the proposed ES2017 `async`/`await` syntax in a React Native ap
 ```jsx
 async function getMoviesFromApi() {
   try {
-    let response = await fetch('https://reactnative.dev/movies.json');
+    let response = await fetch(
+      'https://reactnative.dev/movies.json'
+    );
     let responseJson = await response.json();
     return responseJson.movies;
   } catch (error) {

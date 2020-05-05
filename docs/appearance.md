@@ -4,7 +4,7 @@ title: Appearance
 ---
 
 ```jsx
-import {Appearance} from 'react-native';
+import { Appearance } from 'react-native';
 ```
 
 The `Appearance` module exposes information about the user's appearance preferences, such as their preferred color scheme (light or dark).

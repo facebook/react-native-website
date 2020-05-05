@@ -13,9 +13,9 @@ You should get a higher resolution image if you are on a high pixel density devi
 ```jsx
 var image = getImage({
   width: PixelRatio.getPixelSizeForLayoutSize(200),
-  height: PixelRatio.getPixelSizeForLayoutSize(100),
+  height: PixelRatio.getPixelSizeForLayoutSize(100)
 });
-<Image source={image} style={{width: 200, height: 100}} />;
+<Image source={image} style={{ width: 200, height: 100 }} />;
 ```
 
 ## Pixel grid snapping

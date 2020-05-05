@@ -156,7 +156,10 @@ function GroceryShoppingList() {
         placeholder="Enter grocery item"
         onChangeText={(text) => setGroceryItem(text)}
       />
-      <Button title="Add the item to list" onPress={addNewItemToShoppingList} />
+      <Button
+        title="Add the item to list"
+        onPress={addNewItemToShoppingList}
+      />
       {items.map((item) => (
         <Text key={item}>{item}</Text>
       ))}
@@ -184,11 +187,14 @@ Component testing libraries such as [`react-native-testing-library`](https://git
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
-  const {getByPlaceholder, getByText, getAllByText} = render(
-    <GroceryShoppingList />,
+  const { getByPlaceholder, getByText, getAllByText } = render(
+    <GroceryShoppingList />
   );
 
-  fireEvent.changeText(getByPlaceholder('Enter grocery item'), 'banana');
+  fireEvent.changeText(
+    getByPlaceholder('Enter grocery item'),
+    'banana'
+  );
   fireEvent.press(getByText('Add the item to list'));
 
   const bananaElements = getAllByText('banana');

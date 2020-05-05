@@ -12,26 +12,26 @@ The example below shows how to use `Slider` to change a value used by `Text`. Th
 
 ```jsx
 import React from 'react';
-import {StyleSheet, Text, View, Slider} from 'react-native';
+import { StyleSheet, Text, View, Slider } from 'react-native';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: 50,
+      value: 50
     };
   }
 
   change(value) {
     this.setState(() => {
       return {
-        value: parseFloat(value),
+        value: parseFloat(value)
       };
     });
   }
 
   render() {
-    const {value} = this.state;
+    const { value } = this.state;
     return (
       <View style={styles.container}>
         <Text style={styles.text}>{String(value)}</Text>
@@ -50,12 +50,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   text: {
     fontSize: 50,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 ```
 

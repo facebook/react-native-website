@@ -181,12 +181,12 @@ Even after the initial RTL-compatible app release, you will likely need to itera
 
 _onDirectionChange = () => {
   I18nManager.forceRTL(!this.state.isRTL);
-  this.setState({isRTL: !this.state.isRTL});
+  this.setState({ isRTL: !this.state.isRTL });
   Alert.alert(
     'Reload this page',
     'Please reload this page to change the UI direction! ' +
       'All examples in this app will be affected. ' +
-      'Check them out to see what they look like in RTL layout.',
+      'Check them out to see what they look like in RTL layout.'
   );
 };
 ```

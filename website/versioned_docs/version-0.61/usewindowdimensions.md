@@ -5,7 +5,7 @@ original_id: usewindowdimensions
 ---
 
 ```jsx
-import {useWindowDimensions} from 'react-native';
+import { useWindowDimensions } from 'react-native';
 ```
 
 `useWindowDimensions` automatically updates `width` and `height` values when screen size changes. You can get your application window's width and height like so:

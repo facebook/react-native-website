@@ -33,11 +33,19 @@ For a full list of the types of system colors supported, see:
 
 ```jsx
 import React from 'react';
-import {Platform, PlatformColor, StyleSheet, Text, View} from 'react-native';
+import {
+  Platform,
+  PlatformColor,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 export default (App = () => (
   <View>
-    <Text style={styles.labelCell}>I am a special label color!</Text>
+    <Text style={styles.labelCell}>
+      I am a special label color!
+    </Text>
   </View>
 ));
 
@@ -46,11 +54,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'stretch',
     ...Platform.select({
-      ios: {color: PlatformColor('label')},
-      android: {color: PlatformColor('?attr/colorControlNormal')},
-      default: {color: 'black'},
-    }),
-  },
+      ios: { color: PlatformColor('label') },
+      android: {
+        color: PlatformColor('?attr/colorControlNormal')
+      },
+      default: { color: 'black' }
+    })
+  }
 });
 ```
 

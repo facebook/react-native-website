@@ -21,8 +21,14 @@ if (Platform.OS === 'android') {
 Example usage:
 
 ```jsx
-import React, {Component} from 'react';
-import {View, Text, TouchableOpacity, Platform, UIManager} from 'react-native';
+import React, { Component } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Platform,
+  UIManager
+} from 'react-native';
 
 if (
   Platform.OS === 'android' &&
@@ -31,20 +37,25 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 class AnimatedCollapsible extends React.Component {
-  state = {expanded: false};
+  state = { expanded: false };
   render() {
     return (
-      <View style={{overflow: 'hidden'}}>
+      <View style={{ overflow: 'hidden' }}>
         <TouchableOpacity
           onPress={() => {
-            LayoutAnimation.configureNext(LayoutAnimation.Presets.spring);
-            this.setState({expanded: !this.state.expanded});
+            LayoutAnimation.configureNext(
+              LayoutAnimation.Presets.spring
+            );
+            this.setState({ expanded: !this.state.expanded });
           }}>
           <Text>
-            Press me to {this.state.expanded ? 'collapse' : 'expand'}!
+            Press me to{' '}
+            {this.state.expanded ? 'collapse' : 'expand'}!
           </Text>
         </TouchableOpacity>
-        {this.state.expanded && <Text>I disappear sometimes!</Text>}
+        {this.state.expanded && (
+          <Text>I disappear sometimes!</Text>
+        )}
       </View>
     );
   }
@@ -105,8 +116,8 @@ LayoutAnimation.configureNext(
   LayoutAnimation.create(
     500,
     LayoutAnimation.Types.spring,
-    LayoutAnimation.Properties.scaleXY,
-  ),
+    LayoutAnimation.Properties.scaleXY
+  )
 );
 ```
 
