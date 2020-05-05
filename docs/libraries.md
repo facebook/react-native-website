@@ -24,7 +24,7 @@ To install a library in your project, navigate to your project directory in your
 npm install react-native-webview
 ```
 
-The library that we have just installed includes native code, and we need to link to our app before we use it.
+The library that we installed includes native code, and we need to link to our app before we use it.
 
 ## Linking Native Code on iOS
 

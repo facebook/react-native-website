@@ -1,9 +1,10 @@
 ---
-id: libraries
+id: version-0.62-libraries
 title: Using Libraries
 author: Brent Vatne
 authorURL: https://twitter.com/notbrent
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
+original_id: libraries
 ---
 
 React Native provides a set of built-in [Core Components and APIs](./components-and-apis) ready to use in your app. You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If the Core Components and APIs don't have what you are looking for, you may be able to find and install a library from the community to add the functionality to your app.
@@ -24,7 +25,7 @@ To install a library in your project, navigate to your project directory in your
 npm install react-native-webview
 ```
 
-The library that we have just installed includes native code, and we need to link to our app before we use it.
+The library that we installed includes native code, and we need to link to our app before we use it.
 
 ## Linking Native Code on iOS
 
