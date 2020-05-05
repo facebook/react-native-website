@@ -14,7 +14,7 @@
     "Environment setup": [
       "version-0.62-environment-setup",
       "version-0.62-integration-with-existing-apps",
-      "version-0.62-building-for-apple-tv",
+      "version-0.62-building-for-tv",
       "version-0.62-out-of-tree-platforms"
     ],
     "Workflow": [

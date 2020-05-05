@@ -14,7 +14,7 @@
     "Environment setup": [
       "environment-setup",
       "integration-with-existing-apps",
-      "building-for-apple-tv",
+      "building-for-tv",
       "out-of-tree-platforms"
     ],
     "Workflow": [

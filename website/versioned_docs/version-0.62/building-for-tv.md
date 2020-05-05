@@ -1,22 +1,25 @@
 ---
-id: building-for-apple-tv
+id: version-0.62-building-for-tv
 title: Building For TV Devices
+original_id: building-for-tv
 ---
 
 TV devices support has been implemented with the intention of making existing React Native applications work on Apple TV and Android TV, with few or no changes needed in the JavaScript code for the applications.
 
 <div class="toggler">
   <ul role="tablist" id="toggle-platform">
-    <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
-      iOS
-    </li>
     <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
       Android
+    </li>
+    <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
+      🚧 iOS
     </li>
   </ul>
 </div>
 
 <block class="ios" />
+
+> **Deprecated.** Use [react-native-tvos](https://github.com/react-native-community/react-native-tvos) instead. For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
 
 The RNTester app supports Apple TV; use the `RNTester-tvOS` build target to build for tvOS.
 
