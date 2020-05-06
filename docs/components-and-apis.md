@@ -12,7 +12,7 @@ React Native provides a number of built-in [Core Components](intro-react-native-
 - [Android-specific](components-and-apis#android-components-and-apis)
 - [Others](components-and-apis#others)
 
-You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If you're looking for a library that does something specific, search the npm registry for packages mentioning [react-native](https://www.npmjs.com/search?q=react-native&page=1&ranking=optimal) or check out [Awesome React Native](http://www.awesome-react-native.com/) for a curated list.
+You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If you're looking for a library that does something specific, refer [this guide about finding libraries](libraries#finding-libraries).
 
 ## Basic Components
 
