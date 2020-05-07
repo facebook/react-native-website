@@ -6,7 +6,7 @@ title: DynamicColorIOS
 The `DynamicColorIOS` function is a platform color type specific to iOS.
 
 ```jsx
-DynamicColorIOS({light: color, dark: color});
+DynamicColorIOS({ light: color, dark: color });
 ```
 
 `DynamicColorIOS` takes a single argument as an object with two keys: `dark` and `light`. These correspond to the colors you want to use for "light mode" and "dark mode" on iOS.
@@ -40,6 +40,6 @@ import { DynamicColorIOS } from 'react-native';
 
 const customDynamicTextColor = DynamicColorIOS({
   dark: 'lightskyblue',
-  light: 'midnightblue',
+  light: 'midnightblue'
 });
 ```

@@ -184,12 +184,28 @@ In the case of two overlapping UI components with the same parent, default acces
 
 ```jsx
 <View style={styles.container}>
-  <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'green'}} importantForAccessibility="yes">
+  <View
+    style={{
+      position: 'absolute',
+      left: 10,
+      top: 10,
+      right: 10,
+      height: 100,
+      backgroundColor: 'green'
+    }}
+    importantForAccessibility="yes">
     <Text> First layout </Text>
   </View>
-  <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'yellow'}} importantForAccessibility="no-hide-descendants">
+  <View
+    style={{
+      position: 'absolute',
+      left: 10,
+      top: 10,
+      right: 10,
+      height: 100,
+      backgroundColor: 'yellow'
+    }}
+    importantForAccessibility="no-hide-descendants">
     <Text> Second layout </Text>
   </View>
 </View>
@@ -230,9 +246,9 @@ To handle action requests, a component must implement an `onAccessibilityAction`
 <View
   accessible={true}
   accessibilityActions={[
-    {name: 'cut', label: 'cut'},
-    {name: 'copy', label: 'copy'},
-    {name: 'paste', label: 'paste'},
+    { name: 'cut', label: 'cut' },
+    { name: 'copy', label: 'copy' },
+    { name: 'paste', label: 'paste' }
   ]}
   onAccessibilityAction={(event) => {
     switch (event.nativeEvent.actionName) {

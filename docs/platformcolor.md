@@ -4,7 +4,7 @@ title: PlatformColor
 ---
 
 ```js
-PlatformColor(color1, [color2, ...colorN])
+PlatformColor(color1, [color2, ...colorN]);
 ```
 
 You can use the `PlatformColor` function to access native colors on the target platform by supplying the native color’s corresponding string value. You pass a string to the `PlatformColor` function, and provided it exists on that platform, that native color will be applied to the control or Javascript component specified in your style. All native color logic also translates if applicable, meaning if the native color specified is themes and/or high contrast sensitive, that logic will also transfer to the JavaScript component being colored.
@@ -33,15 +33,21 @@ For a full list of the types of system colors supported, see:
 
 ```jsx
 import React from 'react';
-import { Platform, PlatformColor, StyleSheet, Text, View } from 'react-native';
+import {
+  Platform,
+  PlatformColor,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
-export default App = () => (
+export default (App = () => (
   <View>
     <Text style={styles.labelCell}>
       I am a special label color!
     </Text>
   </View>
-);
+));
 
 const styles = StyleSheet.create({
   labelCell: {
@@ -49,10 +55,12 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     ...Platform.select({
       ios: { color: PlatformColor('label') },
-      android: { color: PlatformColor('?attr/colorControlNormal') },
-      default: { color: 'black' },
-    }),
-  },
+      android: {
+        color: PlatformColor('?attr/colorControlNormal')
+      },
+      default: { color: 'black' }
+    })
+  }
 });
 ```
 
