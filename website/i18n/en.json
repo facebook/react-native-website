@@ -194,6 +194,9 @@
       "layoutanimation": {
         "title": "LayoutAnimation"
       },
+      "libraries": {
+        "title": "Using Libraries"
+      },
       "linking-libraries-ios": {
         "title": "Linking Libraries"
       },
@@ -3658,6 +3661,9 @@
       },
       "version-0.62/version-0.62-layoutanimation": {
         "title": "LayoutAnimation"
+      },
+      "version-0.62/version-0.62-libraries": {
+        "title": "Using Libraries"
       },
       "version-0.62/version-0.62-linking-libraries-ios": {
         "title": "Linking Libraries"
