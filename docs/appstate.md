@@ -60,7 +60,7 @@ const AppStateExample = () => {
   
   return (
     <View style={styles.container}>
-      <Text>Current state is: {appState}</Text>
+      <Text>Current state is: {appState.current}</Text>
     </View>
   );
 };
