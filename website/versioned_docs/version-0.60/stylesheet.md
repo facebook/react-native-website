@@ -13,15 +13,15 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
     borderWidth: 0.5,
-    borderColor: '#d6d7da',
+    borderColor: '#d6d7da'
   },
   title: {
     fontSize: 19,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   activeTitle: {
-    color: 'red',
-  },
+    color: 'red'
+  }
 });
 ```
 
@@ -29,7 +29,12 @@ Use a StyleSheet:
 
 ```jsx
 <View style={styles.container}>
-  <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
+  <Text
+    style={[
+      styles.title,
+      this.props.isActive && styles.activeTitle
+    ]}
+  />
 </View>
 ```
 
@@ -83,11 +88,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
@@ -101,11 +106,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten(styles.listItem);
@@ -135,8 +140,8 @@ This is defined as the width of a thin line on the platform. It can be used as t
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
 });
 ```
 
@@ -153,8 +158,8 @@ A very common pattern is to create overlays with position absolute and zero posi
 ```jsx
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFill,
-  },
+    ...StyleSheet.absoluteFill
+  }
 });
 ```
 
@@ -169,8 +174,8 @@ const styles = StyleSheet.create({
   wrapper: {
     ...StyleSheet.absoluteFillObject,
     top: 10,
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: 'transparent'
+  }
 });
 ```
 

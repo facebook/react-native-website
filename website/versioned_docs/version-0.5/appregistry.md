@@ -44,7 +44,9 @@ To "stop" an application when a view should be destroyed, call `AppRegistry.unmo
 ### `registerComponent()`
 
 ```jsx
-AppRegistry.registerComponent(appKey, componentProvider, [section]);
+AppRegistry.registerComponent(appKey, componentProvider, [
+  section
+]);
 ```
 
 Registers an app's root component.

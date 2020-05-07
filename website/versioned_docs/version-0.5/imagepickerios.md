@@ -36,7 +36,11 @@ ImagePickerIOS.canUseCamera(callback);
 ### `openCameraDialog()`
 
 ```jsx
-ImagePickerIOS.openCameraDialog(config, successCallback, cancelCallback);
+ImagePickerIOS.openCameraDialog(
+  config,
+  successCallback,
+  cancelCallback
+);
 ```
 
 ---
@@ -44,5 +48,9 @@ ImagePickerIOS.openCameraDialog(config, successCallback, cancelCallback);
 ### `openSelectDialog()`
 
 ```jsx
-ImagePickerIOS.openSelectDialog(config, successCallback, cancelCallback);
+ImagePickerIOS.openSelectDialog(
+  config,
+  successCallback,
+  cancelCallback
+);
 ```

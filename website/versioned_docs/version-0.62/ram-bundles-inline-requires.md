@@ -17,8 +17,8 @@ Inline requires delay the requiring of a module or file until that file is actua
 ### VeryExpensive.js
 
 ```js
-import React, {Component} from 'react';
-import {Text} from 'react-native';
+import React, { Component } from 'react';
+import { Text } from 'react-native';
 // ... import some very expensive modules
 
 // You may want to log at the file level to verify when this is happening
@@ -35,13 +35,13 @@ export default class VeryExpensive extends Component {
 ### Optimized.js
 
 ```js
-import React, {Component} from 'react';
-import {TouchableOpacity, View, Text} from 'react-native';
+import React, { Component } from 'react';
+import { TouchableOpacity, View, Text } from 'react-native';
 
 let VeryExpensive = null;
 
 export default class Optimized extends Component {
-  state = {needsExpensive: false};
+  state = { needsExpensive: false };
 
   didPress = () => {
     if (VeryExpensive == null) {
@@ -49,13 +49,13 @@ export default class Optimized extends Component {
     }
 
     this.setState(() => ({
-      needsExpensive: true,
+      needsExpensive: true
     }));
   };
 
   render() {
     return (
-      <View style={{marginTop: 20}}>
+      <View style={{ marginTop: 20 }}>
         <TouchableOpacity onPress={this.didPress}>
           <Text>Load</Text>
         </TouchableOpacity>
@@ -122,12 +122,16 @@ console.log(
   'loaded:',
   loadedModuleNames.length,
   'waiting:',
-  waitingModuleNames.length,
+  waitingModuleNames.length
 );
 
 // grab this text blob, and put it in a file named packager/modulePaths.js
 console.log(
-  `module.exports = ${JSON.stringify(loadedModuleNames.sort(), null, 2)};`,
+  `module.exports = ${JSON.stringify(
+    loadedModuleNames.sort(),
+    null,
+    2
+  )};`
 );
 ```
 
@@ -166,11 +170,11 @@ const config = {
       });
       return {
         preloadedModules: moduleMap,
-        transform: {inlineRequires: {blacklist: moduleMap}},
+        transform: { inlineRequires: { blacklist: moduleMap } }
       };
-    },
+    }
   },
-  projectRoot: ROOT_FOLDER,
+  projectRoot: ROOT_FOLDER
 };
 
 module.exports = config;

@@ -50,7 +50,7 @@ As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
 YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
 
 ```jsx
-import {YellowBox} from 'react-native';
+import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ...']);
 ```
 

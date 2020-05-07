@@ -185,12 +185,12 @@ In the case of two overlapping UI components with the same parent, default acces
 ```jsx
 <View style={styles.container}>
   <View
-    style={[styles.layout, {backgroundColor: 'green'}]}
+    style={[styles.layout, { backgroundColor: 'green' }]}
     importantForAccessibility="yes">
     <Text>First layout</Text>
   </View>
   <View
-    style={[styles.layout, {backgroundColor: 'yellow'}]}
+    style={[styles.layout, { backgroundColor: 'yellow' }]}
     importantForAccessibility="no-hide-descendants">
     <Text>Second layout</Text>
   </View>
@@ -232,9 +232,9 @@ To handle action requests, a component must implement an `onAccessibilityAction`
 <View
   accessible={true}
   accessibilityActions={[
-    {name: 'cut', label: 'cut'},
-    {name: 'copy', label: 'copy'},
-    {name: 'paste', label: 'paste'},
+    { name: 'cut', label: 'cut' },
+    { name: 'copy', label: 'copy' },
+    { name: 'paste', label: 'paste' }
   ]}
   onAccessibilityAction={(event) => {
     switch (event.nativeEvent.actionName) {

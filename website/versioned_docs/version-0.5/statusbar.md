@@ -138,7 +138,10 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 ### `setHidden()`
 
 ```jsx
-StatusBar.setHidden((hidden: boolean), ([animation]: StatusBarAnimation));
+StatusBar.setHidden(
+  (hidden: boolean),
+  ([animation]: StatusBarAnimation)
+);
 ```
 
 Show or hide the status bar.
@@ -155,7 +158,10 @@ Show or hide the status bar.
 ### `setBarStyle()`
 
 ```jsx
-StatusBar.setBarStyle((style: StatusBarStyle), ([animated]: boolean));
+StatusBar.setBarStyle(
+  (style: StatusBarStyle),
+  ([animated]: boolean)
+);
 ```
 
 Set the status bar style.
@@ -188,7 +194,10 @@ Control the visibility of the network activity indicator.
 ### `setBackgroundColor()`
 
 ```jsx
-StatusBar.setBackgroundColor((color: string), ([animated]: boolean));
+StatusBar.setBackgroundColor(
+  (color: string),
+  ([animated]: boolean)
+);
 ```
 
 Set the background color for the status bar.

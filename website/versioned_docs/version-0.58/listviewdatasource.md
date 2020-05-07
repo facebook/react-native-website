@@ -90,7 +90,11 @@ Note: This function does NOT clone the data in this data source. It only passes 
 ### `cloneWithRowsAndSections()`
 
 ```jsx
-cloneWithRowsAndSections(dataBlob, sectionIdentities, rowIdentities);
+cloneWithRowsAndSections(
+  dataBlob,
+  sectionIdentities,
+  rowIdentities
+);
 ```
 
 This performs the same function as the `cloneWithRows` function but here you also specify what your `sectionIdentities` are. If you don't care about sections you should safely be able to use `cloneWithRows`.

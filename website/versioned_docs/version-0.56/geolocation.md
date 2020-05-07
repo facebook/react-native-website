@@ -92,7 +92,11 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```jsx
-Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
+Geolocation.getCurrentPosition(
+  geo_success,
+  [geo_error],
+  [geo_options]
+);
 ```
 
 Invokes the success callback once with the latest location info.

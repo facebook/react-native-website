@@ -7,7 +7,7 @@ title: Layout Props
 
 ### Example
 
-The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`. 
+The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`.
 
 ```SnackPlayer name=LayoutProps%20Example
 import React, { useState } from 'react';

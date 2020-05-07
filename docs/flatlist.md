@@ -49,11 +49,15 @@ function Item({ title }) {
 }
 
 export default function App() {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => <Item title={item.title} />}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
@@ -137,18 +141,20 @@ export default function App() {
     [selected],
   );
 
+  const renderItem = ({ item }) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      selected={!!selected.get(item.id)}
+      onSelect={onSelect}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => (
-          <Item
-            id={item.id}
-            title={item.title}
-            selected={!!selected.get(item.id)}
-            onSelect={onSelect}
-          />
-        )}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selected}
       />
@@ -191,7 +197,7 @@ Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another
 ### `renderItem`
 
 ```jsx
-renderItem({item, index, separators});
+renderItem({ item, index, separators });
 ```
 
 Takes an item from `data` and renders it into the list.
