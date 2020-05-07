@@ -67,3 +67,19 @@ Supported color schemes:
 See also: `useColorScheme` hook.
 
 > Note: `getColorScheme()` will always return `light` when debugging with Chrome.
+
+### `addChangeListener()`
+
+```jsx
+static addChangeListener(listener)
+```
+
+Add an event handler that is fired when appearance preferences change.
+
+### `removeChangeListener()`
+
+```jsx
+static removeChangeListener(listener)
+```
+
+Remove an event handler.
