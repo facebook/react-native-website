@@ -39,8 +39,9 @@ export default (App = () => {
           },
           styles.wrapperCustom,
         ]}>
-        {({pressed}) => (<Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>)}
-
+        {({pressed}) => (
+          <Text style={styles.text}>{pressed ? 'Pressed!' : 'Press Me'}</Text>
+        )}
       </Pressable>
       <View style={styles.logBox}>
         <Text testID="pressable_press_console">{textLog}</Text>
@@ -66,6 +67,34 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+## Pressable Implementation Details/Flow
+
+`Pressable` uses `Pressability` under the covers. Which only assumes that there exists a `HitRect` node. The `PressRect` is an abstract box that is extended beyond the `HitRect`.
+
+```
+┌────────────────────────┐
+│  ┌──────────────────┐  │ - Presses start anywhere within `HitRect`, which
+│  │  ┌────────────┐  │  │   is expanded via the prop `hitSlop`.
+│  │  │ VisualRect │  │  │
+│  │  └────────────┘  │  │ - When pressed down for sufficient amount of time
+│  │    HitRect       │  │   before letting up, `VisualRect` activates for
+│  └──────────────────┘  │   as long as the press stays within `PressRect`.
+│       PressRect    o   │
+└────────────────────│───┘
+       Out Region   └────── `PressRect`, which is expanded via the prop
+                            `pressRectOffset`, allows presses to move
+                            beyond `HitRect` while maintaining activation
+                            and being eligible for a "press".
+```
+
+### `HitRect`
+
+This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button.
+
+> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+
+For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/16ea9ba8133a5340ed6751ec7d49bf03a0d4c5ea/Libraries/Pressability/Pressability.js#L347).
 
 ---
 
@@ -157,9 +186,9 @@ Called when a touch is released before `onPress`.
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type       | Required |
-| ---------- | -------- |
-| RectOrSize | No       |
+| Type         | Required |
+| ------------ | -------- |
+| Rect or Size | No       |
 
 ### `style`
 

@@ -3,6 +3,8 @@ id: touchablewithoutfeedback
 title: TouchableWithoutFeedback
 ---
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.
 
 `TouchableWithoutFeedback` supports only one child. If you wish to have several child components, wrap them in a View. Importantly, `TouchableWithoutFeedback` works by cloning its child and applying responder props to it. It is therefore required that any intermediary components pass through those props to the underlying React Native component.

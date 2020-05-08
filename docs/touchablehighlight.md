@@ -3,6 +3,8 @@ id: touchablehighlight
 title: TouchableHighlight
 ---
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view.
 
 The underlay comes from wrapping the child in a new View, which can affect layout, and sometimes cause unwanted visual artifacts if not used correctly, for example if the backgroundColor of the wrapped view isn't explicitly set to an opaque color.
@@ -23,7 +25,7 @@ function MyComponent(props) {
   underlayColor="#DDDDDD"
   onPress={() => alert('Pressed!')}>
   <MyComponent />
-</TouchableHighlight>
+</TouchableHighlight>;
 ```
 
 ## Example
@@ -140,6 +142,7 @@ const styles = StyleSheet.create({
   }
 });
 ```
+
 <block class="endBlock syntax" />
 
 ---
