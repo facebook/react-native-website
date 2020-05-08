@@ -96,6 +96,7 @@ _Note: In order for Google Play to accept AAB format the App Signing by Google P
 Before uploading the release build to the Play Store, make sure you test it thoroughly. First uninstall any previous version of the app you already have installed. Install it on the device using:
 
 ```sh
+$ cd - # Go back to project root
 $ npx react-native run-android --variant=release
 ```
 
