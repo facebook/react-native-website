@@ -516,13 +516,6 @@ npx react-native start
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-On another terminal, run `npx react-native run-android`:
-
-```sh
-cd AwesomeProject
-npx react-native start
-```
-
 `react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
 Run `react-native run-android` inside your React Native project folder:
