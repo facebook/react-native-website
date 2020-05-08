@@ -40,7 +40,6 @@ import React, { useEffect, useRef } from "react";
 import { AppState, StyleSheet, Text, View } from "react-native";
 
 const AppStateExample = () => {
-
   const appState = useRef(AppState.currentState);
 
   useEffect(() => {
@@ -57,7 +56,7 @@ const AppStateExample = () => {
     }
     appState.current = nextAppState;
   };
-  
+
   return (
     <View style={styles.container}>
       <Text>Current state is: {appState.current}</Text>
