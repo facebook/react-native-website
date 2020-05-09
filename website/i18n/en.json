@@ -3314,6 +3314,9 @@
       "version-0.60/version-0.60-modal": {
         "title": "Modal"
       },
+      "version-0.60/version-0.60-native-modules-ios": {
+        "title": "Native Modules"
+      },
       "version-0.60/version-0.60-out-of-tree-platforms": {
         "title": "Out-of-Tree Platforms"
       },
@@ -3469,6 +3472,9 @@
       },
       "version-0.61/version-0.61-imagepickerios": {
         "title": "🚧 ImagePickerIOS"
+      },
+      "version-0.61/version-0.61-native-modules-ios": {
+        "title": "Native Modules"
       },
       "version-0.61/version-0.61-pickerios": {
         "title": "🚧 PickerIOS"
