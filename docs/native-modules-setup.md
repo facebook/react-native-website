@@ -26,3 +26,5 @@ $ yarn example android
 ```
 
 \** For a less opinionated setup, have a look at the third party tool [create-react-native-module](https://github.com/brodybits/create-react-native-module)
+
+After this, you will be able to continue to [Native Modules (iOS)](native-modules-ios) or [Native Modules (Android)](native-modules-android) to add in some code.
