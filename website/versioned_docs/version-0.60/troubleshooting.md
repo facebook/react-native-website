@@ -1,6 +1,7 @@
 ---
-id: troubleshooting
+id: version-0.60-troubleshooting
 title: Troubleshooting
+original_id: troubleshooting
 ---
 
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
@@ -13,13 +14,13 @@ The [Metro bundler][metro] runs on port 8081. If another process is already usin
 
 Run the following command to find the id for the process that is listening on port 8081:
 
-```sh
+```
 $ sudo lsof -i :8081
 ```
 
 Then run the following to terminate the process:
 
-```sh
+```
 $ kill -9 <PID>
 ```
 
@@ -29,8 +30,8 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
-```sh
-$ npx react-native start --port=8088
+```
+$ react-native start --port=8088
 ```
 
 You will also need to update your applications to load the JavaScript bundle from the new port. If running on device from Xcode, you can do this by updating occurrences of `8081` to your chosen port in the `node_modules/react-native/React/React.xcodeproj/project.pbxproj` file.
@@ -93,17 +94,17 @@ Try [downgrading your Gradle version to 1.2.3](https://github.com/facebook/react
 
 ## react-native init hangs
 
-If you run into issues where running `npx react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
+If you run into issues where running `react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
 
 ```
-npx react-native init --verbose
+react-native init --verbose
 ```
 
 ## Unable to start react-native package manager (on Linux)
 
 ### Case 1: Error "code":"ENOSPC","errno":"ENOSPC"
 
-Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, run this command in your terminal window
+Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, just run this command in your terminal window
 
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p

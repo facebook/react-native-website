@@ -157,7 +157,7 @@ $ react-native log-android
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the packager.
+> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the bundler.
 
 ## Debugging on a device with Chrome Developer Tools
 
