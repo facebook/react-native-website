@@ -39,7 +39,7 @@ Hot reloading is available as of 0.22, you can enable it:
 
 Now that we've seen why we want it and how to use it, the fun part begins: how it actually works.
 
-Hot Reloading is built on top of a feature [Hot Module Replacement](https://webpack.github.io/hot-module-replacement-with-webpack.md), or HMR. It was first introduced by Webpack and we implemented it inside of React Native Packager. HMR makes the Packager watch for file changes and send HMR updates to a thin HMR runtime included on the app.
+Hot Reloading is built on top of a feature [Hot Module Replacement](https://webpack.github.io/hot-module-replacement-with-webpack.md), or HMR. It was first introduced by Webpack and we implemented it inside of the [Metro bundler][metro]. HMR makes the Packager watch for file changes and send HMR updates to a thin HMR runtime included on the app.
 
 In a nutshell, the HMR update contains the new code of the JS modules that changed. When the runtime receives them, it replaces the old modules' code with the new one:
 
@@ -205,3 +205,5 @@ When you change a reducer, the code to accept that reducer will be sent to the c
 If you are interested in helping making hot reloading better, I encourage you to read [Dan Abramov's post around the future of hot reloading](https://medium.com/@dan_abramov/hot-reloading-in-react-1140438583bf#.jmivpvmz4) and to contribute. For example, Johny Days is going to [make it work with multiple connected clients](https://github.com/facebook/react-native/pull/6179). We're relying on you all to maintain and improve this feature.
 
 With React Native, we have the opportunity to rethink the way we build apps in order to make it a great developer experience. Hot reloading is only one piece of the puzzle, what other crazy hacks can we do to make it better?
+
+[metro]: https://facebook.github.io/metro/

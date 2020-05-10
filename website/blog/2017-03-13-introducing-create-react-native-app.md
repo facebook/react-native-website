@@ -22,7 +22,7 @@ $ cd my-project
 $ npm start
 ```
 
-This will start the React Native packager and print a QR code. Open it in the [Expo app](https://expo.io) to load your JavaScript. Calls to `console.log` are forwarded to your terminal. You can make use of any standard React Native APIs as well as the [Expo SDK](https://docs.expo.io/versions/latest/sdk/index.html).
+This will start the [Metro bundler][metro] and print a QR code. Open it in the [Expo app](https://expo.io) to load your JavaScript. Calls to `console.log` are forwarded to your terminal. You can make use of any standard React Native APIs as well as the [Expo SDK](https://docs.expo.io/versions/latest/sdk/index.html).
 
 ## What about native code?
 
@@ -33,3 +33,5 @@ You can run `npm run eject` to get a project very similar to what `react-native 
 ## Questions? Feedback?
 
 Create React Native App is now stable enough for general use, which means we’re very eager to hear about your experience using it! You can find me [on Twitter](https://twitter.com/dika10sune) or open an issue on [the GitHub repository](https://github.com/react-community/create-react-native-app). Pull requests are very welcome!
+
+[metro]: https://facebook.github.io/metro/

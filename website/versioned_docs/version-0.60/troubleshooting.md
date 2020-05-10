@@ -8,7 +8,7 @@ These are some common issues you may run into while setting up React Native. If 
 
 ### Port already in use
 
-The React Native packager runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the packager uses.
+The [Metro bundler][metro] runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the bundler uses.
 
 #### Terminating a process on port 8081
 
@@ -109,3 +109,5 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+[metro]: https://facebook.github.io/metro/
