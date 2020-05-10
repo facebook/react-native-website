@@ -8,7 +8,7 @@ These are some common issues you may run into while setting up React Native. If 
 
 ### Port already in use
 
-The [Metro bundler][metro] runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the packager uses.
+The [Metro bundler][metro] runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the bundler uses.
 
 #### Terminating a process on port 8081
 
@@ -28,7 +28,7 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 #### Using a port other than 8081
 
-You can configure the packager to use a port other than 8081 by using the `port` parameter:
+You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
 ```
 $ react-native start --port=8088

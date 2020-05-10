@@ -28,7 +28,7 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 #### Using a port other than 8081
 
-You can configure the packager to use a port other than 8081 by using the `port` parameter:
+You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
 ```sh
 $ npx react-native start --port=8088
