@@ -1,22 +1,17 @@
 ---
 id: pickerios
-title: PickerIOS
+title: 🚧 PickerIOS
 ---
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`itemStyle`](pickerios.md#itemstyle)
-* [`onValueChange`](pickerios.md#onvaluechange)
-* [`onChange`](pickerios.md#onchange)
-* [`selectedValue`](pickerios.md#selectedvalue)
+> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `itemStyle`
 

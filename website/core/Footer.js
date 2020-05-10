@@ -47,6 +47,9 @@ class Footer extends React.Component {
             <a href="https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md">
               Contributor Guide
             </a>
+            <a href="https://dev.to/t/reactnative" target="_blank">
+              DEV Community
+            </a>
           </div>
           <div>
             <h5>More Resources</h5>
@@ -57,7 +60,7 @@ class Footer extends React.Component {
             <a href="https://github.com/facebook/react-native" target="_blank">
               GitHub
             </a>
-            <a href="http://reactjs.org" target="_blank">
+            <a href="https://reactjs.org" target="_blank">
               React
             </a>
           </div>

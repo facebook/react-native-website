@@ -18,37 +18,172 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 
 If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
 
-Simple Examples:
+## Example
 
-```jsx
-// Example 1 (Homogeneous Rendering)
-<SectionList
-  renderItem={({item, index, section}) => <Text key={index}>{item}</Text>}
-  renderSectionHeader={({section: {title}}) => (
-    <Text style={{fontWeight: 'bold'}}>{title}</Text>
-  )}
-  sections={[
-    {title: 'Title1', data: ['item1', 'item2']},
-    {title: 'Title2', data: ['item3', 'item4']},
-    {title: 'Title3', data: ['item5', 'item6']},
-  ]}
-  keyExtractor={(item, index) => item + index}
-/>
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=SectionList%20Example
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => <Item title={item} />}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+    />
+  </SafeAreaView>
+);
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
 ```
 
-```jsx
-// Example 2 (Heterogeneous Rendering / No Section Headers)
-const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
+<block class="classical syntax" />
 
-<SectionList
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
-  sections={[
-    { title: 'Title1', data: ['item1', 'item2'], renderItem: overrideRenderItem },
-    { title: 'Title2', data: ['item3', 'item4'] },
-    { title: 'Title3', data: ['item5', 'item6'] },
-  ]}
-/>
+```SnackPlayer name=SectionList%20Example
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+class App extends Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <SectionList
+          sections={DATA}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => <Item title={item} />}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
+}
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
 ```
+
+<block class="endBlock syntax" />
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
 
@@ -57,82 +192,13 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 - In order to constrain memory and enable smooth scrolling, content is rendered asynchronously offscreen. This means it's possible to scroll faster than the fill rate and momentarily see blank content. This is a tradeoff that can be adjusted to suit the needs of each application, and we are working on improving it behind the scenes.
 - By default, the list looks for a `key` prop on each item and uses that for the React key. Alternatively, you can provide a custom `keyExtractor` prop.
 
-### Props
-
-- [`ScrollView` props...](scrollview.md#props)
-
-Required props:
-
-- [`sections`](sectionlist.md#sections)
-- [`renderItem`](sectionlist.md#renderitem)
-
-Optional props:
-
-- [`initialNumToRender`](sectionlist.md#initialnumtorender)
-- [`keyExtractor`](sectionlist.md#keyextractor)
-- [`onEndReached`](sectionlist.md#onendreached)
-- [`extraData`](sectionlist.md#extradata)
-- [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-- [`inverted`](sectionlist.md#inverted)
-- [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-- [`legacyImplementation`](sectionlist.md#legacyimplementation)
-- [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-- [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-- [`onRefresh`](sectionlist.md#onrefresh)
-- [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-- [`refreshing`](sectionlist.md#refreshing)
-- [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-- [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-- [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-- [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-- [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-- [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
-
-### Methods
-
-- [`scrollToLocation`](sectionlist.md#scrolltolocation)
-- [`recordInteraction`](sectionlist.md#recordinteraction)
-- [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
-
-### Type Definitions
-
-- [`Section`](sectionlist.md#section)
-
 ---
 
 # Reference
 
 ## Props
 
-### `sections`
-
-The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
-
-| Type                                        | Required |
-| ------------------------------------------- | -------- |
-| array of [Section](sectionlist.md#section)s | Yes      |
-
----
-
-### `initialNumToRender`
-
-How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
-
-| Type   | Required |
-| ------ | -------- |
-| number | Yes      |
-
----
-
-### `keyExtractor`
-
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the React key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does. Note that this sets keys for each item, but each overall section still needs its own key.
-
-| Type                                  | Required |
-| ------------------------------------- | -------- |
-| (item: Item, index: number) => string | Yes      |
-
----
+Inherits [ScrollView Props](scrollview.md#props).
 
 ### `renderItem`
 
@@ -156,13 +222,13 @@ The render function will be passed an object with the following keys:
 
 ---
 
-### `onEndReached`
+### `sections`
 
-Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
+The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
 
 | Type                                        | Required |
 | ------------------------------------------- | -------- |
-| [(info: {distanceFromEnd: number}) => void] | No       |
+| array of [Section](sectionlist.md#section)s | Yes      |
 
 ---
 
@@ -176,13 +242,13 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 ---
 
-### `ItemSeparatorComponent`
+### `initialNumToRender`
 
-Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Section]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
+How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, function, element] | No       |
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
 
 ---
 
@@ -196,9 +262,9 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 ---
 
-### `ListFooterComponent`
+### `ItemSeparatorComponent`
 
-Rendered at the very end of the list. Can be a React Component Class, a render function, or a rendered element.
+Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Section]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
 | Type                           | Required |
 | ------------------------------ | -------- |
@@ -206,11 +272,13 @@ Rendered at the very end of the list. Can be a React Component Class, a render f
 
 ---
 
-### `legacyImplementation`
+### `keyExtractor`
 
-| Type      | Required |
-| --------- | -------- |
-| [boolean] | No       |
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the React key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does. Note that this sets keys for each item, but each overall section still needs its own key.
+
+| Type                                  | Required |
+| ------------------------------------- | -------- |
+| (item: Item, index: number) => string | Yes      |
 
 ---
 
@@ -221,6 +289,36 @@ Rendered when the list is empty. Can be a React Component Class, a render functi
 | Type                           | Required |
 | ------------------------------ | -------- |
 | [component, function, element] | No       |
+
+---
+
+### `ListFooterComponent`
+
+Rendered at the very end of the list. Can be a React Component Class, a render function, or a rendered element.
+
+| Type                           | Required |
+| ------------------------------ | -------- |
+| [component, function, element] | No       |
+
+---
+
+### `ListHeaderComponent`
+
+Rendered at the very beginning of the list. Can be a React Component Class, a render function, or a rendered element.
+
+| Type                         | Required |
+| ---------------------------- | -------- |
+| component, function, element | No       |
+
+---
+
+### `onEndReached`
+
+Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| [(info: {distanceFromEnd: number}) => void] | No       |
 
 ---
 
@@ -288,16 +386,6 @@ This may improve scroll performance for large lists.
 | Type    | Required |
 | ------- | -------- |
 | boolean | No       |
-
----
-
-### `ListHeaderComponent`
-
-Rendered at the very beginning of the list. Can be a React Component Class, a render function, or a rendered element.
-
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
 
 ---
 
@@ -384,6 +472,10 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+| Platform |
+| -------- |
+| iOS      |
 
 ## Type Definitions
 

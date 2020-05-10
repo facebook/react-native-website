@@ -3,17 +3,17 @@ id: communication-android
 title: Communication between native and React Native
 ---
 
-In [Integrating with Existing Apps guide](integration-with-existing-apps.md) and [Native UI Components guide](native-components-android.md) we learn how to embed React Native in a native component and vice versa. When we mix native and React Native components, we'll eventually find a need to communicate between these two worlds. Some ways to achieve that have been already mentioned in other guides. This article summarizes available techniques.
+In [Integrating with Existing Apps guide](integration-with-existing-apps) and [Native UI Components guide](native-components-android) we learn how to embed React Native in a native component and vice versa. When we mix native and React Native components, we'll eventually find a need to communicate between these two worlds. Some ways to achieve that have been already mentioned in other guides. This article summarizes available techniques.
 
 ## Introduction
 
 React Native is inspired by React, so the basic idea of the information flow is similar. The flow in React is one-directional. We maintain a hierarchy of components, in which each component depends only on its parent and its own internal state. We do this with properties: data is passed from a parent to its children in a top-down manner. If an ancestor component relies on the state of its descendant, one should pass down a callback to be used by the descendant to update the ancestor.
 
-The same concept applies to React Native. As long as we are building our application purely within the framework, we can drive our app with properties and callbacks. But, when we mix React Native and native components, we need some special, cross-language mechanisms that would allow us to pass information between them.
+The same concept applies to React Native. As long as we are building our application purely within the framework, we can drive our app with properties and callbacks. But, when we mix React Native and native components, we need some specific, cross-language mechanisms that would allow us to pass information between them.
 
 ## Properties
 
-Properties are the simplest way of cross-component communication. So we need a way to pass properties both from native to React Native, and from React Native to native.
+Properties are the most straightforward way of cross-component communication. So we need a way to pass properties both from native to React Native, and from React Native to native.
 
 ### Passing properties from native to React Native
 
@@ -41,11 +41,11 @@ public class MainActivity extends ReactActivity {
 
 ```jsx
 import React from 'react';
-import {View, Image} from 'react-native';
+import { View, Image } from 'react-native';
 
 export default class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
-    return <Image source={{uri: imgURI}} />;
+    return <Image source={{ uri: imgURI }} />;
   }
   render() {
     return <View>{this.props.images.map(this.renderImage)}</View>;
@@ -74,13 +74,13 @@ There is no way to update only a few properties at a time. We suggest that you b
 
 ### Passing properties from React Native to native
 
-The problem exposing properties of native components is covered in detail in [this article](native-components-android.md#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation). In short, properties that are to be reflected in JavaScript needs to be exposed as setter method annotated with `@ReactProp`, then just use them in React Native as if the component was an ordinary React Native component.
+The problem exposing properties of native components is covered in detail in [this article](native-components-android#3-expose-view-property-setters-using-reactprop-or-reactpropgroup-annotation). In short, properties that are to be reflected in JavaScript needs to be exposed as setter method annotated with `@ReactProp`, then use them in React Native as if the component was an ordinary React Native component.
 
 ### Limits of properties
 
 The main drawback of cross-language properties is that they do not support callbacks, which would allow us to handle bottom-up data bindings. Imagine you have a small RN view that you want to be removed from the native parent view as a result of a JS action. There is no way to do that with props, as the information would need to go bottom-up.
 
-Although we have a flavor of cross-language callbacks ([described here](native-modules-android.md#callbacks)), these callbacks are not always the thing we need. The main problem is that they are not intended to be passed as properties. Rather, this mechanism allows us to trigger a native action from JS, and handle the result of that action in JS.
+Although we have a flavor of cross-language callbacks ([described here](native-modules-android#callbacks)), these callbacks are not always the thing we need. The main problem is that they are not intended to be passed as properties. Rather, this mechanism allows us to trigger a native action from JS, and handle the result of that action in JS.
 
 ## Other ways of cross-language interaction (events and native modules)
 
@@ -90,7 +90,7 @@ React Native enables you to perform cross-language function calls. You can execu
 
 ### Calling React Native functions from native (events)
 
-Events are described in detail in [this article](native-components-android.md#events). Note that using events gives us no guarantees about execution time, as the event is handled on a separate thread.
+Events are described in detail in [this article](native-components-android#events). Note that using events gives us no guarantees about execution time, as the event is handled on a separate thread.
 
 Events are powerful, because they allow us to change React Native components without needing a reference to them. However, there are some pitfalls that you can fall into while using them:
 
@@ -100,6 +100,6 @@ Events are powerful, because they allow us to change React Native components wit
 
 ### Calling native functions from React Native (native modules)
 
-Native modules are Java classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android.md).
+Native modules are Java classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android).
 
 > **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.

@@ -3,14 +3,10 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-<div class="banner-crna-ejected">
+<div class="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
-    This API only works in projects made with <code>react-native init</code>
-    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/permissions/">Permissions</a> in the Expo documentation for the appropriate alternative.
   </p>
 </div>
 
@@ -22,33 +18,134 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 
 ### Example
 
-```jsx
-import {PermissionsAndroid} from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-async function requestCameraPermission() {
+<block class="functional syntax" />
+
+```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
+import React from "react";
+import { StyleSheet, Text, View, SafeAreaView, PermissionsAndroid, Button } from "react-native";
+import Constants from "expo-constants";
+
+const requestCameraPermission = async () => {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.CAMERA,
       {
-        title: 'Cool Photo App Camera Permission',
+        title: "Cool Photo App Camera Permission",
         message:
-          'Cool Photo App needs access to your camera ' +
-          'so you can take awesome pictures.',
-        buttonNeutral: 'Ask Me Later',
-        buttonNegative: 'Cancel',
-        buttonPositive: 'OK',
-      },
+          "Cool Photo App needs access to your camera " +
+          "so you can take awesome pictures.",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK"
+      }
     );
     if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-      console.log('You can use the camera');
+      console.log("You can use the camera");
     } else {
-      console.log('Camera permission denied');
+      console.log("Camera permission denied");
     }
   } catch (err) {
     console.warn(err);
   }
-}
+};
+
+const App = () => (
+  <View style={styles.container}>
+    <Text style={styles.item}>Try permissions</Text>
+    <Button title="request permissions" onPress={requestCameraPermission} />
+  </View>
+);
+
+export default App;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  item: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center"
+  }
+});
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
+import React, { Component } from "react";
+import { StyleSheet, Text, View, SafeAreaView, PermissionsAndroid, Button } from "react-native";
+import Constants from "expo-constants";
+
+const requestCameraPermission = async () => {
+  try {
+    const granted = await PermissionsAndroid.request(
+      PermissionsAndroid.PERMISSIONS.CAMERA,
+      {
+        title: "Cool Photo App Camera Permission",
+        message:
+          "Cool Photo App needs access to your camera " +
+          "so you can take awesome pictures.",
+        buttonNeutral: "Ask Me Later",
+        buttonNegative: "Cancel",
+        buttonPositive: "OK"
+      }
+    );
+    if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+      console.log("You can use the camera");
+    } else {
+      console.log("Camera permission denied");
+    }
+  } catch (err) {
+    console.warn(err);
+  }
+};
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.item}>Try permissions</Text>
+        <Button title="request permissions" onPress={requestCameraPermission} />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  item: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 ### Permissions that require prompting the user
 
@@ -86,13 +183,6 @@ Available as constants under `PermissionsAndroid.RESULTS`:
 - `GRANTED`: 'granted'
 - `DENIED`: 'denied'
 - `NEVER_ASK_AGAIN`: 'never_ask_again'
-
-### Methods
-
-- [`constructor`](permissionsandroid.md#constructor)
-- [`check`](permissionsandroid.md#check)
-- [`request`](permissionsandroid.md#request)
-- [`requestMultiple`](permissionsandroid.md#requestmultiple)
 
 ---
 

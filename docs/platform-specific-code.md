@@ -3,9 +3,9 @@ id: platform-specific-code
 title: Platform Specific Code
 ---
 
-When building a cross-platform app, you'll want to re-use as much code as possible. Scenarios may arise where it makes sense for the code to be different, for example you may want to implement separate visual components for iOS and Android.
+When building a cross-platform app, you'll want to re-use as much code as possible. Scenarios may arise where it makes sense for the code to be different, for example you may want to implement separate visual components for Android and iOS.
 
-React Native provides two ways to easily organize your code and separate it by platform:
+React Native provides two ways to organize your code and separate it by platform:
 
 - Using the [`Platform` module](platform-specific-code.md#platform-module).
 - Using [platform-specific file extensions](platform-specific-code.md#platform-specific-extensions).
@@ -17,43 +17,56 @@ Certain components may have properties that work on one platform only. All of th
 React Native provides a module that detects the platform in which the app is running. You can use the detection logic to implement platform-specific code. Use this option when only small parts of a component are platform-specific.
 
 ```jsx
-import {Platform, StyleSheet} from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  height: Platform.OS === 'ios' ? 200 : 100,
+  height: Platform.OS === 'ios' ? 200 : 100
 });
 ```
 
 `Platform.OS` will be `ios` when running on iOS and `android` when running on Android.
 
-There is also a `Platform.select` method available, that given an object containing Platform.OS as keys, returns the value for the platform you are currently running on.
+There is also a `Platform.select` method available, that given an object where keys can be one of `'ios' | 'android' | 'native' | 'default'`, returns the most fitting value for the platform you are currently running on. That is, if you're running on a phone, `ios` and `android` keys will take preference. If those are not specified, `native` key will be used and then the `default` key.
 
 ```jsx
-import {Platform, StyleSheet} from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     ...Platform.select({
       ios: {
-        backgroundColor: 'red',
+        backgroundColor: 'red'
       },
       android: {
-        backgroundColor: 'blue',
+        backgroundColor: 'green'
       },
-    }),
-  },
+      default: {
+        // other platforms, web for example
+        backgroundColor: 'blue'
+      }
+    })
+  }
 });
 ```
 
-This will result in a container having `flex: 1` on both platforms, a red background color on iOS, and a blue background color on Android.
+This will result in a container having `flex: 1` on both platforms, a red background color on iOS, a green background color on Android, and a blue background on other platforms.
 
 Since it accepts `any` value, you can also use it to return platform specific component, like below:
 
 ```jsx
 const Component = Platform.select({
   ios: () => require('ComponentIOS'),
-  android: () => require('ComponentAndroid'),
+  android: () => require('ComponentAndroid')
+})();
+
+<Component />;
+```
+
+```jsx
+const Component = Platform.select({
+  native: () => require('ComponentForNative'),
+  default: () => require('ComponentForWeb')
 })();
 
 <Component />;
@@ -64,7 +77,7 @@ const Component = Platform.select({
 On Android, the `Platform` module can also be used to detect the version of the Android Platform in which the app is running:
 
 ```jsx
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
 if (Platform.Version === 25) {
   console.log('Running on Nougat!');
@@ -76,7 +89,7 @@ if (Platform.Version === 25) {
 On iOS, the `Version` is a result of `-[UIDevice systemVersion]`, which is a string with the current version of the operating system. An example of the system version is "10.3". For example, to detect the major version number on iOS:
 
 ```jsx
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 
 const majorVersionIOS = parseInt(Platform.Version, 10);
 if (majorVersionIOS <= 9) {

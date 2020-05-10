@@ -9,19 +9,19 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 ### Example
 
 ```jsx
-import React, {Component} from 'react';
-import {DatePickerIOS, View, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { DatePickerIOS, View, StyleSheet } from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {chosenDate: new Date()};
+    this.state = { chosenDate: new Date() };
 
     this.setDate = this.setDate.bind(this);
   }
 
   setDate(newDate) {
-    this.setState({chosenDate: newDate});
+    this.setState({ chosenDate: newDate });
   }
 
   render() {
@@ -39,12 +39,12 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
 ```
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/example.gif" width="360"></img></center>
 
 ### Props
 
@@ -99,7 +99,7 @@ Restricts the range of possible date/time values.
 
 Example with `maximumDate` set to December 31, 2017:
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/maximumDate.gif" width="360"></img></center>
 
 ---
 
@@ -127,7 +127,7 @@ The interval at which minutes can be selected.
 
 Example with `minuteInterval` set to `10`:
 
-<center><img src="/react-native/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
+<center><img src="/docs/assets/DatePickerIOS/minuteInterval.png" width="360"></img></center>
 
 ---
 
@@ -139,7 +139,7 @@ The date picker mode.
 | -------------------------------- | -------- |
 | enum('date', 'time', 'datetime') | No       |
 
-Example with `mode` set to `date`, `time`, and `datetime`: ![](/react-native/docs/assets/DatePickerIOS/mode.png)
+Example with `mode` set to `date`, `time`, and `datetime`: ![](/docs/assets/DatePickerIOS/mode.png)
 
 ---
 

@@ -24,20 +24,26 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
 ```jsx
-import React, {Component} from 'react';
-import {AppState, Text} from 'react-native';
+import React, { Component } from 'react';
+import { AppState, Text } from 'react-native';
 
 class AppStateExample extends Component {
   state = {
-    appState: AppState.currentState,
+    appState: AppState.currentState
   };
 
   componentDidMount() {
-    AppState.addEventListener('change', this._handleAppStateChange);
+    AppState.addEventListener(
+      'change',
+      this._handleAppStateChange
+    );
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener('change', this._handleAppStateChange);
+    AppState.removeEventListener(
+      'change',
+      this._handleAppStateChange
+    );
   }
 
   _handleAppStateChange = (nextAppState) => {
@@ -47,7 +53,7 @@ class AppStateExample extends Component {
     ) {
       console.log('App has come to the foreground!');
     }
-    this.setState({appState: nextAppState});
+    this.setState({ appState: nextAppState });
   };
 
   render() {
@@ -57,21 +63,6 @@ class AppStateExample extends Component {
 ```
 
 This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily.
-
-### Methods
-
-- [`addEventListener`](appstate.md#addeventlistener)
-- [`removeEventListener`](appstate.md#removeeventlistener)
-
-### Supported events
-
-- [`change`](appstate.md#change)
-- [`focus`](appstate.md#focus)
-- [`blur`](appstate.md#blur)
-
-### Properties
-
-- [`currentState`](appstate.md#currentState)
 
 ---
 
@@ -101,7 +92,7 @@ addEventListener(type, handler);
 
 Add a handler to AppState changes by listening to the `change` event type and providing the handler
 
-TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate `addEventListener` and `removeEventListener` and just use `addListener` and `listener.remove()` directly. That will be a breaking change though, as both the method and event names are different (addListener events are currently required to be globally unique).
+<!-- TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate `addEventListener` and `removeEventListener` and use `addListener` and `listener.remove()` directly. That will be a breaking change though, as both the method and event names are different (addListener events are currently required to be globally unique). -->
 
 ---
 

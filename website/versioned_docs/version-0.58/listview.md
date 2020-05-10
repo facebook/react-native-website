@@ -4,9 +4,9 @@ title: ListView
 original_id: listview
 ---
 
-DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](https://facebook.github.io/react-native/blog/2017/03/13/better-list-views) for more details.
+DEPRECATED - use one of the new list components, such as [`FlatList`](flatlist.md) or [`SectionList`](sectionlist.md) for bounded memory use, fewer bugs, better performance, an easier to use API, and more features. Check out this [blog post](/blog/2017/03/13/better-list-views) for more details.
 
-ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](listviewdatasource.md), populate it with a simple array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
+ListView - A core component designed for efficient display of vertically scrolling lists of changing data. The minimal API is to create a [`ListView.DataSource`](/docs/listviewdatasource.html), populate it with a flat array of data blobs, and instantiate a `ListView` component with that data source and a `renderRow` callback which takes a blob from the data array and returns a renderable component.
 
 Minimal example:
 
@@ -14,9 +14,11 @@ Minimal example:
 class MyComponent extends Component {
   constructor() {
     super();
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
     this.state = {
-      dataSource: ds.cloneWithRows(['row 1', 'row 2']),
+      dataSource: ds.cloneWithRows(['row 1', 'row 2'])
     };
   }
 

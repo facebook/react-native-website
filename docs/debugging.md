@@ -3,34 +3,21 @@ id: debugging
 title: Debugging
 ---
 
-## Enabling Keyboard Shortcuts
-
-React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
-
 ## Accessing the In-App Developer Menu
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
 
-![](/react-native/docs/assets/DeveloperMenu.png)
+![](/docs/assets/DeveloperMenu.png)
 
 > The Developer Menu is disabled in release (production) builds.
 
-## Reloading JavaScript
+## Enabling Fast Refresh
 
-Instead of recompiling your app every time you make a change, you can reload your app's JavaScript code instantly. To do so, select "Reload" from the Developer Menu. You can also press `⌘R` in the iOS Simulator, or tap `R` twice on Android emulators.
+Fast Refresh is a React Native feature that allows you to get near-instant feedback for changes in your React components. While debugging, it can help to have [Fast Refresh](fast-refresh.md) enabled. Fast Refresh is enabled by default, and you can toggle "Enable Fast Refresh" in the React Native developer menu. When enabled, most of your edits should be visible within a second or two.
 
-### Automatic reloading
+## Enabling Keyboard Shortcuts
 
-You can speed up your development times by having your app reload automatically any time your code changes. Automatic reloading can be enabled by selecting "Enable Live Reload" from the Developer Menu.
-
-You may even go a step further and keep your app running as new versions of your files are injected into the JavaScript bundle automatically by enabling [Hot Reloading](https://facebook.github.io/react-native/blog/2016/03/24/introducing-hot-reloading) from the Developer Menu. This will allow you to persist the app's state through reloads.
-
-> There are some instances where hot reloading cannot be implemented perfectly. If you run into any issues, use a full reload to reset your app.
-
-You will need to rebuild your app for changes to take effect in certain situations:
-
-- You have added new resources to your native app's bundle, such as an image in `Images.xcassets` on iOS or the `res/drawable` folder on Android.
-- You have modified native code (Objective-C/Swift on iOS or Java/C++ on Android).
+React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
 ## In-app Errors and Warnings
 
@@ -49,7 +36,7 @@ As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
 YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
 
 ```jsx
-import {YellowBox} from 'react-native';
+import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ...']);
 ```
 
@@ -81,14 +68,15 @@ You can use Safari to debug the iOS version of your app without having to enable
 - Select your app's JSContext: `Develop → Simulator → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
-However, there are some disadvantages:
+While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
 
-1. No sourcemaps when debugging
-2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 
 ## React Developer Tools
 
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react-devtools/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+
+> Note: Version 4 of `react-devtools` requires `react-native` version 0.62 or higher to work properly.
 
 ```
 npm install -g react-devtools
@@ -100,7 +88,7 @@ Now run `react-devtools` from the terminal to launch the standalone DevTools app
 react-devtools
 ```
 
-![React DevTools](/react-native/docs/assets/ReactDevTools.png)
+![React DevTools](/docs/assets/ReactDevTools.png)
 
 It should connect to your simulator within a few seconds.
 
@@ -110,11 +98,11 @@ It should connect to your simulator within a few seconds.
 
 Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
-![React Native Inspector](/react-native/docs/assets/Inspector.gif)
+![React Native Inspector](/docs/assets/Inspector.gif)
 
-However, when `react-devtools` is running, Inspector will enter a special collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
+However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
-![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
+![React DevTools Inspector Integration](/docs/assets/ReactDevToolsInspector.gif)
 
 You can choose "Toggle Inspector" in the same menu to exit this mode.
 
@@ -128,7 +116,7 @@ Make sure that the dropdown in the top left corner of the Chrome console says `d
 
 Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
 
-![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.gif)
+![React DevTools Chrome Console Integration](/docs/assets/ReactDevToolsDollarR.gif)
 
 ## Performance Monitor
 
@@ -136,16 +124,18 @@ You can enable a performance overlay to help you debug performance problems by s
 
 <hr style="margin-top:25px; margin-bottom:25px;"/>
 
-# Debugging in Ejected Apps
+## Debugging Application State
 
-<div class="banner-crna-ejected" style="margin-top:25px">
+[Reactotron](https://github.com/infinitered/reactotron) is an open-source desktop app that allows you to inspect Redux or MobX-State-Tree application state as well as view custom logs, run custom commands such as resetting state, store and restore state snapshots, and other helpful debugging features for React Native apps.
+
+You can view installation instructions [in the README](https://github.com/infinitered/reactotron). If you're using Expo, here is an article detailing [how to install on Expo](https://shift.infinite.red/start-using-reactotron-in-your-expo-project-today-in-3-easy-steps-a03d11032a7a).
+
+# Native Debugging
+
+<div class="banner-native-code-required" style="margin-top:25px">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The remainder of this guide only applies to projects made with <code>react-native init</code>
-    or to those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
@@ -153,9 +143,9 @@ You can enable a performance overlay to help you debug performance problems by s
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```
-$ react-native log-ios
-$ react-native log-android
+```sh
+$ npx react-native log-ios
+$ npx react-native log-android
 ```
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
@@ -171,6 +161,8 @@ On iOS devices, open the file [`RCTWebSocketExecutor.m`](https://github.com/face
 On Android 5.0+ devices connected via USB, you can use the [`adb` command line tool](http://developer.android.com/tools/help/adb.html) to setup port forwarding from the device to your computer:
 
 `adb reverse tcp:8081 tcp:8081`
+
+<!-- alex ignore host-hostess -->
 
 Alternatively, select "Dev Settings" from the Developer Menu, then update the "Debug server host for device" setting to match the IP address of your computer.
 

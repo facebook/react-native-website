@@ -1,7 +1,8 @@
 'use strict';
 
 const hljs = require('highlight.js');
-const escapeHtml = require('remarkable').utils.escapeHtml;
+const {utils} = require('remarkable');
+const {escapeHtml} = utils;
 
 // Remove leading "SnackPlayer", "ReactNativeWebPlayer"
 function cleanParams(params) {
@@ -23,6 +24,10 @@ function parseParams(paramString) {
     }
   }
 
+  if (!params.platform) {
+    params.platform = 'web';
+  }
+
   return params;
 }
 
@@ -34,15 +39,6 @@ function htmlForCodeBlock(code) {
   );
 }
 
-/**
- * Expo SDKs lag stable React Native versions by a week or two.
- * This mapping informs the SnackPlayer which version of Expo whenever
- * a React Native version param is passed. There's no harm in keeping this
- * list up to date, but in practical terms you will only need to do so
- * whenever an example that uses the SnackPlayer is updated with code
- * that requires a newer Expo SDK release.
- */
-const LatestSDKVersion = '26.0.0';
 /**
  * Use the SnackPlayer by including a ```SnackPlayer``` block in markdown.
  *
@@ -78,6 +74,9 @@ function SnackPlayer(md) {
     const sampleCode = tokens[idx].content;
     const encodedSampleCode = encodeURIComponent(sampleCode);
     const platform = params.platform ? params.platform : 'ios';
+    const supportedPlatforms = params.supportedPlatforms
+      ? params.supportedPlatforms
+      : 'ios,android,web';
     const rnVersion = params.version ? params.version : 'next';
 
     return (
@@ -91,6 +90,7 @@ function SnackPlayer(md) {
         data-snack-description="${description}"
         data-snack-code="${encodedSampleCode}"
         data-snack-platform="${platform}"
+        data-snack-supported-platforms=${supportedPlatforms}
         data-snack-preview="true"
         style="
           overflow: hidden;
@@ -98,7 +98,7 @@ function SnackPlayer(md) {
           border: 1px solid rgba(0,0,0,.16);
           border-radius: 4px;
           height: 514px;
-          width: 880px;
+          width: 100%;
         "
       >` +
       '</div>' +
@@ -133,7 +133,7 @@ function ReactNativeWebPlayer(md) {
     env,
     self
   ) {
-    const WEB_PLAYER_VERSION = '1.10.0';
+    const WEB_PLAYER_VERSION = '2.0.0-alpha.8';
 
     let sampleCode = tokens[idx].content;
     let hash = `#code=${encodeURIComponent(sampleCode)}`;

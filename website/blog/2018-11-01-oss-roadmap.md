@@ -8,9 +8,9 @@ authorTwitter: hectorramos
 category: announcements
 ---
 
-![](/react-native/blog/assets/oss-roadmap-hero.jpg)
+![](/blog/assets/oss-roadmap-hero.jpg)
 
-This year, the React Native team has focused on a large scale [re-architecture of React Native](https://github.com/react-native-community/discussions-and-proposals/issues/4). As Sophie mentioned in her [State of React Native post,](http://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018) we've sketched out a plan to better support the thriving population of React Native users and collaborators outside of Facebook. It's now time to share more details about what we've been working on. Before I do so, I'd like to lay out our long-term vision for React Native in open source.
+This year, the React Native team has focused on a large scale [re-architecture of React Native](https://github.com/react-native-community/discussions-and-proposals/issues/4). As Sophie mentioned in her [State of React Native post,](/blog/2018/06/14/state-of-react-native-2018) we've sketched out a plan to better support the thriving population of React Native users and collaborators outside of Facebook. It's now time to share more details about what we've been working on. Before I do so, I'd like to lay out our long-term vision for React Native in open source.
 
 Our vision for React Native is...
 
@@ -57,7 +57,7 @@ Facebook will consume React Native via the public API, the same way open source 
 
 ## 📣 Communication
 
-React Native is one of the [top open source projects on GitHub](https://octoverse.github.com/projects) by contributor count. That makes us really happy, and we'd like to keep it going. We'll continue working on initiatives that lead to involved contributors, such as increased transparency and open discussion. The documentation is one of the first things someone new to React Native will encounter, yet it has not been a priority. We'd like to fix that, starting with bringing back auto-generated API reference docs, creating additional content focused on creating [quality user experiences](http://facebook.github.io/react-native/docs/improvingux), and improving our [release notes](https://github.com/react-native-community/react-native-releases/issues/47).
+React Native is one of the [top open source projects on GitHub](https://octoverse.github.com/projects) by contributor count. That makes us really happy, and we'd like to keep it going. We'll continue working on initiatives that lead to involved contributors, such as increased transparency and open discussion. The documentation is one of the first things someone new to React Native will encounter, yet it has not been a priority. We'd like to fix that, starting with bringing back auto-generated API reference docs, creating additional content focused on creating [quality user experiences](/docs/improvingux), and improving our [release notes](https://github.com/react-native-community/react-native-releases/issues/47).
 
 ## Timeline
 

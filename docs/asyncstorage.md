@@ -1,22 +1,22 @@
 ---
 id: asyncstorage
-title: AsyncStorage
+title: 🚧 AsyncStorage
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
+> **Deprecated.** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
 
-`AsyncStorage` is a simple, unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
+`AsyncStorage` is an unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
 It is recommended that you use an abstraction on top of `AsyncStorage` instead of `AsyncStorage` directly for anything more than light usage since it operates globally.
 
 On iOS, `AsyncStorage` is backed by native code that stores small values in a serialized dictionary and larger values in separate files. On Android, `AsyncStorage` will use either [RocksDB](http://rocksdb.org/) or SQLite based on what is available.
 
-The `AsyncStorage` JavaScript code is a simple facade that provides a clear JavaScript API, real `Error` objects, and simple non-multi functions. Each method in the API returns a `Promise` object.
+The `AsyncStorage` JavaScript code is a facade that provides a clear JavaScript API, real `Error` objects, and non-multi functions. Each method in the API returns a `Promise` object.
 
 Importing the `AsyncStorage` library:
 
 ```jsx
-import {AsyncStorage} from 'react-native';
+import { AsyncStorage } from 'react-native';
 ```
 
 Persisting data:
@@ -24,7 +24,10 @@ Persisting data:
 ```jsx
 _storeData = async () => {
   try {
-    await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+    await AsyncStorage.setItem(
+      '@MySuperStore:key',
+      'I like to save it.'
+    );
   } catch (error) {
     // Error saving data
   }
@@ -46,20 +49,6 @@ _retrieveData = async () => {
   }
 };
 ```
-
-### Methods
-
-- [`getItem`](asyncstorage.md#getitem)
-- [`setItem`](asyncstorage.md#setitem)
-- [`removeItem`](asyncstorage.md#removeitem)
-- [`mergeItem`](asyncstorage.md#mergeitem)
-- [`clear`](asyncstorage.md#clear)
-- [`getAllKeys`](asyncstorage.md#getallkeys)
-- [`flushGetRequests`](asyncstorage.md#flushgetrequests)
-- [`multiGet`](asyncstorage.md#multiget)
-- [`multiSet`](asyncstorage.md#multiset)
-- [`multiRemove`](asyncstorage.md#multiremove)
-- [`multiMerge`](asyncstorage.md#multimerge)
 
 ---
 
@@ -143,21 +132,29 @@ Example:
 let UID123_object = {
   name: 'Chris',
   age: 30,
-  traits: {hair: 'brown', eyes: 'brown'},
+  traits: { hair: 'brown', eyes: 'brown' }
 };
 // You only need to define what will be added or updated
 let UID123_delta = {
   age: 31,
-  traits: {eyes: 'blue', shoe_size: 10},
+  traits: { eyes: 'blue', shoe_size: 10 }
 };
 
-AsyncStorage.setItem('UID123', JSON.stringify(UID123_object), () => {
-  AsyncStorage.mergeItem('UID123', JSON.stringify(UID123_delta), () => {
-    AsyncStorage.getItem('UID123', (err, result) => {
-      console.log(result);
-    });
-  });
-});
+AsyncStorage.setItem(
+  'UID123',
+  JSON.stringify(UID123_object),
+  () => {
+    AsyncStorage.mergeItem(
+      'UID123',
+      JSON.stringify(UID123_delta),
+      () => {
+        AsyncStorage.getItem('UID123', (err, result) => {
+          console.log(result);
+        });
+      }
+    );
+  }
+);
 
 // Console log result:
 // => {'name':'Chris','age':31,'traits':
@@ -319,35 +316,35 @@ Example:
 let UID234_object = {
   name: 'Chris',
   age: 30,
-  traits: {hair: 'brown', eyes: 'brown'},
+  traits: { hair: 'brown', eyes: 'brown' }
 };
 
 // first user, delta values
 let UID234_delta = {
   age: 31,
-  traits: {eyes: 'blue', shoe_size: 10},
+  traits: { eyes: 'blue', shoe_size: 10 }
 };
 
 // second user, initial values
 let UID345_object = {
   name: 'Marge',
   age: 25,
-  traits: {hair: 'blonde', eyes: 'blue'},
+  traits: { hair: 'blonde', eyes: 'blue' }
 };
 
 // second user, delta values
 let UID345_delta = {
   age: 26,
-  traits: {eyes: 'green', shoe_size: 6},
+  traits: { eyes: 'green', shoe_size: 6 }
 };
 
 let multi_set_pairs = [
   ['UID234', JSON.stringify(UID234_object)],
-  ['UID345', JSON.stringify(UID345_object)],
+  ['UID345', JSON.stringify(UID345_object)]
 ];
 let multi_merge_pairs = [
   ['UID234', JSON.stringify(UID234_delta)],
-  ['UID345', JSON.stringify(UID345_delta)],
+  ['UID345', JSON.stringify(UID345_delta)]
 ];
 
 AsyncStorage.multiSet(multi_set_pairs, (err) => {

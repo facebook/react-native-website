@@ -15,9 +15,9 @@ This involved changing [css-layout](https://github.com/facebook/css-layout), the
 
 To battle test the RTL support in production, the latest version of the **Facebook Ads Manager** app (the first cross-platform 100% RN app) is now available in Arabic and Hebrew with RTL layouts for both [iOS](https://itunes.apple.com/app/id964397083) and [Android](https://play.google.com/store/apps/details?id=com.facebook.adsmanager). Here is how it looks like in those RTL languages:
 
-<img src="/react-native/blog/assets/rtl-ama-ios-arabic.png" width="280" style="margin:10px">
+<img src="/blog/assets/rtl-ama-ios-arabic.png" width="280" style="margin:10px">
 
-<img src="/react-native/blog/assets/rtl-ama-android-hebrew.png" width="280" style="margin:10px">
+<img src="/blog/assets/rtl-ama-android-hebrew.png" width="280" style="margin:10px">
 
 ## Overview Changes in RN for RTL support
 
@@ -27,7 +27,7 @@ In addition, [css-layout](https://github.com/facebook/css-layout) already makes 
 
 The diagram below describes the changes at high level:
 
-![](/react-native/blog/assets/rtl-rn-core-updates.png)
+![](/blog/assets/rtl-rn-core-updates.png)
 
 These include:
 
@@ -74,11 +74,11 @@ In general, most components are already RTL-ready, for example:
 
 - Left-to-Right Layout
 
-<img src="/react-native/blog/assets/rtl-demo-listitem-ltr.png" width="300">
+<img src="/blog/assets/rtl-demo-listitem-ltr.png" width="300">
 
 - Right-to-Left Layout
 
-<img src="/react-native/blog/assets/rtl-demo-listitem-rtl.png" width="300">
+<img src="/blog/assets/rtl-demo-listitem-rtl.png" width="300">
 
 However, there are several cases to be aware of, for which you will need the [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js). In [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js), there is a constant `isRTL` to tell if layout of app is RTL or not, so that you can make the necessary changes according to the layout.
 
@@ -88,11 +88,11 @@ If your component has icons or images, they will be displayed the same way in LT
 
 - Left-to-Right Layout
 
-<img src="/react-native/blog/assets/rtl-demo-icon-ltr.png" width="300">
+<img src="/blog/assets/rtl-demo-icon-ltr.png" width="300">
 
 - Right-to-Left Layout
 
-<img src="/react-native/blog/assets/rtl-demo-icon-rtl.png" width="300">
+<img src="/blog/assets/rtl-demo-icon-rtl.png" width="300">
 
 Here are two ways to flip the icon according to the direction:
 
@@ -117,13 +117,13 @@ Here are two ways to flip the icon according to the direction:
 
 #### Gestures and Animations
 
-In iOS and Android development, when you change to RTL layout, the gestures and animations are the opposite of LTR layout. Currently, in RN, gestures and animations are not supported on RN core code level, but on components level. The good news is, some of these components already support RTL today, such as [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js) and [`NavigationExperimental`](https://github.com/facebook/react-native/tree/master/Libraries/NavigationExperimental). However, other components with gestures will need to support RTL manually.
+In Android and iOS development, when you change to RTL layout, the gestures and animations are the opposite of LTR layout. Currently, in RN, gestures and animations are not supported on RN core code level, but on components level. The good news is, some of these components already support RTL today, such as [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js) and [`NavigationExperimental`](https://github.com/facebook/react-native/tree/master/Libraries/NavigationExperimental). However, other components with gestures will need to support RTL manually.
 
 A good example to illustrate gesture RTL support is [`SwipeableRow`](https://github.com/facebook/react-native/blob/38a6eec0db85a5204e85a9a92b4dee2db9641671/Libraries/Experimental/SwipeableRow/SwipeableRow.js).
 
 <p align="center">
-  <img src="/react-native/blog/assets/rtl-demo-swipe-ltr.png" width="280" style="margin:10px">
-  <img src="/react-native/blog/assets/rtl-demo-swipe-rtl.png" width="280" style="margin:10px">
+  <img src="/blog/assets/rtl-demo-swipe-ltr.png" width="280" style="margin:10px">
+  <img src="/blog/assets/rtl-demo-swipe-rtl.png" width="280" style="margin:10px">
 </p>
 
 ##### Gestures Example
@@ -162,7 +162,7 @@ _animateBounceBack(duration: number): void {
 Even after the initial RTL-compatible app release, you will likely need to iterate on new features. To improve development efficiency, [`I18nManager`](https://github.com/facebook/react-native/blob/f0fb228ec76ed49e6ed6d786d888e8113b8959a2/Libraries/Utilities/I18nManager.js) provides the `forceRTL()` function for faster RTL testing without changing the test device language. You might want to provide a simple switch for this in your app. Here's an example from the RTL example in the RNTester:
 
 <p align="center">
-  <img src="/react-native/blog/assets/rtl-demo-forcertl.png" width="300">
+  <img src="/blog/assets/rtl-demo-forcertl.png" width="300">
 </p>
 
 ```js
@@ -181,12 +181,12 @@ Even after the initial RTL-compatible app release, you will likely need to itera
 
 _onDirectionChange = () => {
   I18nManager.forceRTL(!this.state.isRTL);
-  this.setState({isRTL: !this.state.isRTL});
+  this.setState({ isRTL: !this.state.isRTL });
   Alert.alert(
     'Reload this page',
     'Please reload this page to change the UI direction! ' +
       'All examples in this app will be affected. ' +
-      'Check them out to see what they look like in RTL layout.',
+      'Check them out to see what they look like in RTL layout.'
   );
 };
 ```
@@ -197,7 +197,7 @@ When working on a new feature, you can easily toggle this button and reload the 
 
 The RTL support should cover most of the UX in your app; however, there are some limitations for now:
 
-- Text alignment behaviors differ in iOS and Android
+- Text alignment behaviors differ in Android and iOS
   - In iOS, the default text alignment depends on the active language bundle, they are consistently on one side. In Android, the default text alignment depends on the language of the text content, i.e. English will be left-aligned and Arabic will be right-aligned.
   - In theory, this should be made consistent across platform, but some people may prefer one behavior to another when using an app. More user experience research may be needed to find out the best practice for text alignment.
 

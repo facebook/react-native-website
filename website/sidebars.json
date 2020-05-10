@@ -2,42 +2,56 @@
   "docs": {
     "The Basics": [
       "getting-started",
-      "tutorial",
-      "props",
-      "state",
-      "style",
-      "height-and-width",
-      "flexbox",
+      "intro-react-native-components",
+      "intro-react",
       "handling-text-input",
-      "handling-touches",
       "using-a-scrollview",
       "using-a-listview",
-      "network",
+      "troubleshooting",
+      "platform-specific-code",
       "more-resources"
     ],
-    "Guides": [
-      "optimizing-flatlist-configuration",
-      "components-and-apis",
-      "platform-specific-code",
-      "navigation",
-      "images",
-      "animations",
-      "accessibility",
-      "improvingux",
-      "timers",
-      "debugging",
-      "performance",
-      "gesture-responder-system",
-      "javascript-environment",
-      "direct-manipulation",
-      "colors",
+    "Environment setup": [
+      "environment-setup",
       "integration-with-existing-apps",
-      "building-for-apple-tv",
-      "running-on-device",
-      "upgrading",
-      "troubleshooting",
-      "native-modules-setup",
+      "building-for-tv",
       "out-of-tree-platforms"
+    ],
+    "Workflow": [
+      "running-on-device",
+      "fast-refresh",
+      "debugging",
+      "testing-overview",
+      "libraries",
+      "typescript",
+      "upgrading"
+    ],
+    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
+    "Interaction": [
+      "handling-touches",
+      "navigation",
+      "animations",
+      "gesture-responder-system"
+    ],
+    "Inclusion": ["accessibility"],
+    "Performance": [
+      "performance",
+      "optimizing-flatlist-configuration",
+      "ram-bundles-inline-requires",
+      "profiling"
+    ],
+    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "Connectivity": ["network", "security"],
+    "Native Components and Modules": [
+      "native-modules-setup",
+      "direct-manipulation"
+    ],
+    "Guides (Android)": [
+      "native-modules-android",
+      "native-components-android",
+      "headless-js-android",
+      "signed-apk-android",
+      "removing-default-permissions"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -46,92 +60,88 @@
       "running-on-simulator-ios",
       "communication-ios",
       "app-extensions"
-    ],
-    "Guides (Android)": [
-      "native-modules-android",
-      "native-components-android",
-      "headless-js-android",
-      "signed-apk-android",
-      "removing-default-permissions",
-      "hermes"
     ]
   },
   "api": {
-    "Components": [
+    "Core Components": [
+      "components-and-apis",
       "activityindicator",
       "button",
-      "datepickerios",
-      "drawerlayoutandroid",
       "flatlist",
       "image",
       "imagebackground",
-      "inputaccessoryview",
       "keyboardavoidingview",
-      "maskedviewios",
       "modal",
-      "picker",
-      "pickerios",
-      "progressbarandroid",
-      "progressviewios",
       "refreshcontrol",
       "safeareaview",
       "scrollview",
       "sectionlist",
-      "segmentedcontrolios",
-      "slider",
       "statusbar",
       "switch",
-      "tabbarios",
-      "tabbarios-item",
       "text",
       "textinput",
-      "toolbarandroid",
       "touchablehighlight",
-      "touchablenativefeedback",
       "touchableopacity",
       "touchablewithoutfeedback",
       "view",
-      "viewpagerandroid",
-      "virtualizedlist"
+      "virtualizedlist",
+      {
+        "type": "subcategory",
+        "label": "Android Components",
+        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS Components",
+        "ids": ["inputaccessoryview", "maskedviewios"]
+      }
+    ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
     ],
     "APIs": [
       "accessibilityinfo",
-      "actionsheetios",
       "alert",
-      "alertios",
       "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
       "appregistry",
       "appstate",
-      "asyncstorage",
-      "backhandler",
-      "clipboard",
-      "datepickerandroid",
+      "devsettings",
       "dimensions",
       "easing",
-      "imageeditor",
-      "imagepickerios",
-      "image-style-props",
       "interactionmanager",
       "keyboard",
-      "layout-props",
       "layoutanimation",
       "linking",
       "panresponder",
-      "permissionsandroid",
       "pixelratio",
-      "pushnotificationios",
-      "settings",
-      "shadow-props",
+      "platformcolor",
       "share",
-      "statusbarios",
       "stylesheet",
       "systrace",
-      "text-style-props",
-      "timepickerandroid",
-      "toastandroid",
       "transforms",
       "vibration",
-      "view-style-props"
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
+      }
     ]
   }
 }

@@ -18,7 +18,7 @@ renderImages: function() {
       />
       <Image
         style={styles.logo}
-        source={{uri: 'http://facebook.github.io/react/assets/logo_og.png'}}
+        source={{uri: 'https://reactjs.org/logo-og.png'}}
       />
     </View>
   );

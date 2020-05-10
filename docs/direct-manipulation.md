@@ -7,7 +7,7 @@ It is sometimes necessary to make changes directly to a component without using 
 
 > Use setNativeProps when frequent re-rendering creates a performance bottleneck
 >
-> Direct manipulation will not be a tool that you reach for frequently; you will typically only be using it for creating continuous animations to avoid the overhead of rendering the component hierarchy and reconciling many views. `setNativeProps` is imperative and stores state in the native layer (DOM, UIView, etc.) and not within your React components, which makes your code more difficult to reason about. Before you use it, try to solve your problem with `setState` and [shouldComponentUpdate](http://facebook.github.io/react/advanced-performance.md#shouldcomponentupdate-in-action).
+> Direct manipulation will not be a tool that you reach for frequently; you will typically only be using it for creating continuous animations to avoid the overhead of rendering the component hierarchy and reconciling many views. `setNativeProps` is imperative and stores state in the native layer (DOM, UIView, etc.) and not within your React components, which makes your code more difficult to reason about. Before you use it, try to solve your problem with `setState` and [shouldComponentUpdate](https://reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action).
 
 ## setNativeProps with TouchableOpacity
 
@@ -54,7 +54,7 @@ render() {
 
 This is computationally intensive compared to the original example - React needs to re-render the component hierarchy each time the opacity changes, even though other properties of the view and its children haven't changed. Usually this overhead isn't a concern but when performing continuous animations and responding to gestures, judiciously optimizing your components can improve your animations' fidelity.
 
-If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](https://github.com/facebook/react-native/blob/master/Libraries/Renderer/oss/ReactNativeRenderer-prod.js) you will notice that it is a wrapper around `RCTUIManager.updateView` - this is the exact same function call that results from re-rendering - see [receiveComponent in ReactNativeBaseComponent](https://github.com/facebook/react-native/blob/fb2ec1ea47c53c2e7b873acb1cb46192ac74274e/Libraries/Renderer/oss/ReactNativeRenderer-prod.js#L5793-L5813).
+If you look at the implementation of `setNativeProps` in [NativeMethodsMixin](https://github.com/facebook/react-native/blob/master/Libraries/Renderer/implementations/ReactNativeRenderer-prod.js) you will notice that it is a wrapper around `RCTUIManager.updateView` - this is the exact same function call that results from re-rendering - see [receiveComponent in ReactNativeBaseComponent](https://github.com/facebook/react-native/blob/fb2ec1ea47c53c2e7b873acb1cb46192ac74274e/Libraries/Renderer/oss/ReactNativeRenderer-prod.js#L5793-L5813).
 
 ## Composite components and setNativeProps
 
@@ -64,24 +64,20 @@ Composite components are not backed by a native view, so you cannot call `setNat
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-class MyButton extends React.Component {
-  render() {
+const MyButton = (props) => {
     return (
-      <View>
-        <Text>{this.props.label}</Text>
+      <View style={{marginTop: 50}}>
+        <Text>{props.label}</Text>
       </View>
     )
-  }
 }
 
-export default class App extends React.Component {
-  render() {
+export default App = () => {
     return (
       <TouchableOpacity>
         <MyButton label="Press me!" />
       </TouchableOpacity>
     )
-  }
 }
 ```
 
@@ -95,28 +91,24 @@ All we need to do is provide a `setNativeProps` method on our component that cal
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-class MyButton extends React.Component {
+const MyButton = (props) => {
   setNativeProps = (nativeProps) => {
-    this._root.setNativeProps(nativeProps);
+    _root.setNativeProps(nativeProps);
   }
 
-  render() {
     return (
-      <View ref={component => this._root = component} {...this.props}>
-        <Text>{this.props.label}</Text>
+      <View style={{marginTop: 50}} ref={component => _root = component} {...props}>
+        <Text>{props.label}</Text>
       </View>
     )
-  }
 }
 
-export default class App extends React.Component {
-  render() {
+export default App = () => {
     return (
       <TouchableOpacity>
         <MyButton label="Press me!" />
       </TouchableOpacity>
     )
-  }
 }
 ```
 
@@ -132,24 +124,22 @@ Another very common use case of `setNativeProps` is to clear the value of a Text
 import React from 'react';
 import { TextInput, Text, TouchableOpacity, View } from 'react-native';
 
-export default class App extends React.Component {
+export default App = () => {
   clearText = () => {
-    this._textInput.setNativeProps({text: ''});
+     _textInput.setNativeProps({text: ''});
   }
 
-  render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <TextInput
-          ref={component => this._textInput = component}
-          style={{height: 50, flex: 1, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
+          ref={component => _textInput = component}
+          style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
         />
-        <TouchableOpacity onPress={this.clearText}>
+        <TouchableOpacity onPress={clearText}>
           <Text>Clear text</Text>
         </TouchableOpacity>
       </View>
     );
-  }
 }
 ```
 
@@ -176,7 +166,7 @@ Determines the location on screen, width, and height of the given view and retur
 - pageX
 - pageY
 
-Note that these measurements are not available until after the rendering has been completed in native. If you need the measurements as soon as possible, consider using the [`onLayout` prop](view.md#onlayout) instead.
+Note that these measurements are not available until after the rendering has been completed in native. If you need the measurements as soon as possible and you don't need `pageX` and `pageY`, consider using the [`onLayout` prop](view.md#onlayout) instead.
 
 ### measureInWindow(callback)
 
@@ -194,7 +184,7 @@ Like `measure()`, but measures the view relative to an ancestor, specified as `r
 As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
 
 ```jsx
-import {findNodeHandle} from 'react-native';
+import { findNodeHandle } from 'react-native';
 ```
 
 ### focus()

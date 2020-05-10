@@ -56,7 +56,7 @@ Register for an [Apple developer account](https://developer.apple.com/) if you d
 
 Select your project in the Xcode Project Navigator, then select your main target (it should share the same name as your project). Look for the "General" tab. Go to "Signing" and make sure your Apple developer account or team is selected under the Team dropdown. Do the same for the tests target (it ends with Tests, and is below your main target).
 
-![](/react-native/docs/assets/RunningOnDeviceCodeSigning.png)
+![](/docs/assets/RunningOnDeviceCodeSigning.png)
 
 Repeat this step for the Tests target in your project.
 
@@ -64,7 +64,7 @@ Repeat this step for the Tests target in your project.
 
 If everything is set up correctly, your device will be listed as the build target in the Xcode toolbar, and it will also appear in the Devices pane (`⇧⌘2`). You can now press the **Build and run** button (`⌘R`) or select **Run** from the **Product** menu. Your app will launch on your device shortly.
 
-![](/react-native/docs/assets/RunningOnDeviceReady.png)
+![](/docs/assets/RunningOnDeviceReady.png)
 
 > If you run into any issues, please take a look at Apple's [Launching Your App on a Device](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40012582-CH27-SW4) docs.
 
@@ -162,7 +162,7 @@ $ react-native run-android
 
 You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Developer menu](debugging.md#accessing-the-in-app-developer-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
 
-![](/react-native/docs/assets/DeveloperMenu.png)
+![](/docs/assets/DeveloperMenu.png)
 
 ### Troubleshooting
 
@@ -182,7 +182,7 @@ Make sure your laptop and your phone are on the **same** Wi-Fi network.
 
 Make sure that the build script detected the IP address of your machine correctly (e.g. 10.0.1.123).
 
-![](/react-native/docs/assets/XcodeBuildIP.png)
+![](/docs/assets/XcodeBuildIP.png)
 
 Open the **Report navigator** tab, select the last **Build** and search for `xip.io`. The IP address which gets embedded in the app should match your machines IP address plus the domain `.xip.io` (e.g. 10.0.1.123.xip.io)
 
@@ -253,6 +253,7 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
+   <!-- alex ignore host -->
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
 7. Go back to the **Developer menu** and select **Reload JS**.
@@ -281,11 +282,11 @@ Building an app for distribution in the App Store requires using the `Release` s
 
 To configure your app to be built using the `Release` scheme, go to **Product** → **Scheme** → **Edit Scheme**. Select the **Run** tab in the sidebar, then set the Build Configuration dropdown to `Release`.
 
-![](/react-native/docs/assets/ConfigureReleaseScheme.png)
+![](/docs/assets/ConfigureReleaseScheme.png)
 
 #### Pro Tips
 
-As your App Bundle grows in size, you may start to see a white screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
+As your App Bundle grows in size, you may start to see a blank screen flash between your splash screen and the display of your root application view. If this is the case, you can add the following code to `AppDelegate.m` in order to keep your splash screen displayed during the transition.
 
 ```objc
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"

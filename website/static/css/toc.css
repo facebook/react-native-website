@@ -35,7 +35,7 @@
   }
 }
 
-.container.docsNavContainer {
+.docsNavContainer {
   overflow: visible;
   flex: 0 0 280px;
   margin-right: 0;
@@ -52,25 +52,29 @@
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle {
   color: $subtle;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle.collapsible:hover {
   color: $text;
 }
 
+.toc .toggleNav .navGroup .navGroupSubcategoryTitle {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 0 4px;
+}
+
 .toc .toggleNav ul {
-  padding: 0px;
+  padding: 0;
   padding-right: 10px;
 }
 
 .toc .toggleNav ul li a {
   color: $text;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .toc .toggleNav ul li a:hover {

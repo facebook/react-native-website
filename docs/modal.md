@@ -3,72 +3,222 @@ id: modal
 title: Modal
 ---
 
-The Modal component is a simple way to present content above an enclosing view.
+The Modal component is a basic way to present content above an enclosing view.
 
-> Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator.
+## Example
 
-```jsx
-import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-class ModalExample extends Component {
+<block class="functional syntax" />
+
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
+import React, { useState } from "react";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View
+} from "react-native";
+
+const App = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  return (
+    <View style={styles.centeredView}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+      </Modal>
+
+      <TouchableHighlight
+        style={styles.openButton}
+        onPress={() => {
+          setModalVisible(true);
+        }}
+      >
+        <Text style={styles.textStyle}>Show Modal</Text>
+      </TouchableHighlight>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
+import React, { Component } from "react";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View
+} from "react-native";
+
+class App extends Component {
   state = {
-    modalVisible: false,
+    modalVisible: false
   };
 
-  setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
   }
 
   render() {
+    const { modalVisible } = this.state;
     return (
-      <View style={{marginTop: 22}}>
+      <View style={styles.centeredView}>
         <Modal
           animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
+          transparent={true}
+          visible={modalVisible}
           onRequestClose={() => {
-            Alert.alert('Modal has been closed.');
-          }}>
-          <View style={{marginTop: 22}}>
-            <View>
-              <Text>Hello World!</Text>
+            Alert.alert("Modal has been closed.");
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
 
               <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                 onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
-                }}>
-                <Text>Hide Modal</Text>
+                  this.setModalVisible(!modalVisible);
+                }}
+              >
+                <Text style={styles.textStyle}>Hide Modal</Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
 
         <TouchableHighlight
+          style={styles.openButton}
           onPress={() => {
             this.setModalVisible(true);
-          }}>
-          <Text>Show Modal</Text>
+          }}
+        >
+          <Text style={styles.textStyle}>Show Modal</Text>
         </TouchableHighlight>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
+
+export default App;
 ```
 
-### Props
-
-- [`visible`](modal.md#visible)
-- [`supportedOrientations`](modal.md#supportedorientations)
-- [`onRequestClose`](modal.md#onrequestclose)
-- [`onShow`](modal.md#onshow)
-- [`transparent`](modal.md#transparent)
-- [`animationType`](modal.md#animationtype)
-- [`hardwareAccelerated`](modal.md#hardwareaccelerated)
-- [`onDismiss`](modal.md#ondismiss)
-- [`onOrientationChange`](modal.md#onorientationchange)
-- [`presentationStyle`](modal.md#presentationstyle)
-- [`animated`](modal.md#animated)
+<block class="endBlock syntax" />
 
 ---
 
@@ -76,54 +226,9 @@ class ModalExample extends Component {
 
 ## Props
 
-### `visible`
+### `animated`
 
-The `visible` prop determines whether your modal is visible.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
-
----
-
-### `supportedOrientations`
-
-The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
-
-| Type                                                                                                | Required | Platform |
-| --------------------------------------------------------------------------------------------------- | -------- | -------- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
-
----
-
-### `onRequestClose`
-
-The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
-
-| Type     | Required | Platform                 |
-| -------- | -------- | ------------------------ |
-| function | Yes      | Android, Platform.isTVOS |
-| function | No       | (Others)                 |
-
----
-
-### `onShow`
-
-The `onShow` prop allows passing a function that will be called once the modal has been shown.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
-### `transparent`
-
-The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
 
 ---
 
@@ -153,6 +258,16 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
+### `statusBarTranslucent`
+
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
+
+---
+
 ### `onDismiss`
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
@@ -173,6 +288,27 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 ---
 
+### `onRequestClose`
+
+The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
+
+| Type     | Required | Platform                 |
+| -------- | -------- | ------------------------ |
+| function | Yes      | Android, Platform.isTVOS |
+| function | No       | (Others)                 |
+
+---
+
+### `onShow`
+
+The `onShow` prop allows passing a function that will be called once the modal has been shown.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `presentationStyle`
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
@@ -190,6 +326,40 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 ---
 
-### `animated`
+### `statusBarTranslucent`
 
-> **Deprecated.** Use the [`animationType`](modal.md#animationtype) prop instead.
+The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `supportedOrientations`
+
+The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+
+| Type                                                                                                | Required | Platform |
+| --------------------------------------------------------------------------------------------------- | -------- | -------- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
+
+---
+
+### `transparent`
+
+The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
+### `visible`
+
+The `visible` prop determines whether your modal is visible.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |

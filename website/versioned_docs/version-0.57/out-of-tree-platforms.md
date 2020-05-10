@@ -4,7 +4,7 @@ title: Out-of-Tree Platforms
 original_id: out-of-tree-platforms
 ---
 
-React Native is not just for Android and iOS - there are community-supported projects that bring it to other platforms, such as:
+React Native is not only for Android and iOS - there are community-supported projects that bring it to other platforms, such as:
 
 - [React Native Windows](https://github.com/Microsoft/react-native-windows) - React Native support for Microsoft's Universal Windows Platform (UWP) and the Windows Presentation Foundation (WPF)
 - [React Native DOM](https://github.com/vincentriemer/react-native-dom) - An experimental, comprehensive port of React Native to the web. (Not to be confused with [React Native Web](https://github.com/necolas/react-native-web), which has different goals)
@@ -13,7 +13,7 @@ React Native is not just for Android and iOS - there are community-supported pro
 
 ## Creating your own React Native platform
 
-Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](https://facebook.github.io/react-native/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
+Right now the process of creating a React Native platform from scratch is not very well documented - one of the goals of the upcoming re-architecture ([Fabric](/blog/2018/06/14/state-of-react-native-2018)) is to make maintaining a platform easier.
 
 ### Bundling
 

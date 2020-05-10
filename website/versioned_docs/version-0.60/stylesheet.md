@@ -13,15 +13,15 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: 4,
     borderWidth: 0.5,
-    borderColor: '#d6d7da',
+    borderColor: '#d6d7da'
   },
   title: {
     fontSize: 19,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   activeTitle: {
-    color: 'red',
-  },
+    color: 'red'
+  }
 });
 ```
 
@@ -29,7 +29,12 @@ Use a StyleSheet:
 
 ```jsx
 <View style={styles.container}>
-  <Text style={[styles.title, this.props.isActive && styles.activeTitle]} />
+  <Text
+    style={[
+      styles.title,
+      this.props.isActive && styles.activeTitle
+    ]}
+  />
 </View>
 ```
 
@@ -37,19 +42,6 @@ Code quality:
 
 - By moving styles away from the render function, you're making the code easier to understand.
 - Naming the styles is a good way to add meaning to the low level components in the render function.
-
-### Methods
-
-- [`setStyleAttributePreprocessor`](stylesheet.md#setstyleattributepreprocessor)
-- [`create`](stylesheet.md#create)
-- [`flatten`](stylesheet.md#flatten)
-- [`compose`](stylesheet.md#compose)
-
-### Properties
-
-- [`hairlineWidth`](stylesheet.md#hairlinewidth)
-- [`absoluteFill`](stylesheet.md#absolutefill)
-- [`absoluteFillObject`](stylesheet.md#absoluteFillObject)
 
 ---
 
@@ -96,11 +88,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten([styles.listItem, styles.selectedListItem]);
@@ -114,11 +106,11 @@ var styles = StyleSheet.create({
   listItem: {
     flex: 1,
     fontSize: 16,
-    color: 'white',
+    color: 'white'
   },
   selectedListItem: {
-    color: 'green',
-  },
+    color: 'green'
+  }
 });
 
 StyleSheet.flatten(styles.listItem);
@@ -135,7 +127,7 @@ This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve 
 Combines two styles such that `style2` will override any styles in `style1`. If either style is falsy, the other one is returned without allocating an array, saving allocations and maintaining reference equality for PureComponent checks.
 
 ```jsx
-static compose(style)
+static compose(style1, style2)
 ```
 
 ## Properties
@@ -148,8 +140,8 @@ This is defined as the width of a thin line on the platform. It can be used as t
 var styles = StyleSheet.create({
   separator: {
     borderBottomColor: '#bbb',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
+    borderBottomWidth: StyleSheet.hairlineWidth
+  }
 });
 ```
 
@@ -166,10 +158,8 @@ A very common pattern is to create overlays with position absolute and zero posi
 ```jsx
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFill,
-    top: 10,
-    backgroundColor: 'transparent',
-  },
+    ...StyleSheet.absoluteFill
+  }
 });
 ```
 
@@ -182,11 +172,15 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 ```jsx
 const styles = StyleSheet.create({
   wrapper: {
-    ...StyleSheet.absoluteFill,
+    ...StyleSheet.absoluteFillObject,
     top: 10,
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: 'transparent'
+  }
 });
 ```
 
 ---
+
+### `absoluteFill` vs. `absoluteFillObject`
+
+Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject` as you can see in the [source code](https://github.com/facebook/react-native/blob/master/Libraries/StyleSheet/StyleSheet.js#L255)

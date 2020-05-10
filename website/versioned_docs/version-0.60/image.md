@@ -10,7 +10,7 @@ This example shows fetching and displaying an image from local storage as well a
 
 > Note that for network and data images, you will need to manually specify the dimensions of your image!
 
-```SnackPlayer name=Image&platform=web
+```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
 
@@ -19,11 +19,12 @@ export default class DisplayAnImage extends Component {
     return (
       <View>
         <Image
-          source={require('/react-native/img/favicon.png')}
+          style={{width: 50, height: 50}}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
           style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/docs/assets/favicon.png'}}
+          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
         />
         <Image
           style={{width: 66, height: 58}}
@@ -37,14 +38,15 @@ export default class DisplayAnImage extends Component {
 
 You can also add `style` to an image:
 
-```SnackPlayer name=Image&platform=web
+```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   stretch: {
     width: 50,
-    height: 200
+    height: 200,
+    resizeMode: 'stretch'
   }
 });
 
@@ -54,7 +56,7 @@ export default class DisplayAnImageWithStyle extends Component {
       <View>
         <Image
           style={styles.stretch}
-          source={require('/react-native/img/favicon.png')}
+          source={require('@expo/snack-static/react-native-logo.png')}
         />
       </View>
     );
@@ -71,51 +73,19 @@ You will need to add some optional modules in `android/app/build.gradle`, depend
 ```gradle
 dependencies {
   // If your app supports Android versions before Ice Cream Sandwich (API level 14)
-  implementation 'com.facebook.fresco:animated-base-support:1.10.0'
+  implementation 'com.facebook.fresco:animated-base-support:1.3.0'
 
   // For animated GIF support
-  implementation 'com.facebook.fresco:animated-gif:1.12.0'
+  implementation 'com.facebook.fresco:animated-gif:2.0.0'
 
   // For WebP support, including animated WebP
-  implementation 'com.facebook.fresco:animated-webp:1.10.0'
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:animated-webp:2.1.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 
   // For WebP support, without animations
-  implementation 'com.facebook.fresco:webpsupport:1.10.0'
+  implementation 'com.facebook.fresco:webpsupport:2.0.0'
 }
 ```
-
-### Props
-
-- [`style`](image.md#style)
-- [`blurRadius`](image.md#blurradius)
-- [`onLayout`](image.md#onlayout)
-- [`onLoad`](image.md#onload)
-- [`onLoadEnd`](image.md#onloadend)
-- [`onLoadStart`](image.md#onloadstart)
-- [`resizeMode`](image.md#resizemode)
-- [`source`](image.md#source)
-- [`loadingIndicatorSource`](image.md#loadingindicatorsource)
-- [`onError`](image.md#onerror)
-- [`testID`](image.md#testid)
-- [`resizeMethod`](image.md#resizemethod)
-- [`accessibilityLabel`](image.md#accessibilitylabel)
-- [`accessible`](image.md#accessible)
-- [`capInsets`](image.md#capinsets)
-- [`defaultSource`](image.md#defaultsource)
-- [`onPartialLoad`](image.md#onpartialload)
-- [`onProgress`](image.md#onprogress)
-- [`fadeDuration`](image.md#fadeduration)
-- [`progressiveRenderingEnabled`](image.md#progressiverenderingenabled)
-
-### Methods
-
-- [`getSize`](image.md#getsize)
-- [`getSizeWithHeaders`](image.md#getsizewithheaders)
-- [`prefetch`](image.md#prefetch)
-- [`abortPrefetch`](image.md#abortprefetch)
-- [`queryCache`](image.md#querycache)
-- [`resolveAssetSource`](image.md#resolveassetsource)
 
 ---
 
@@ -232,7 +202,7 @@ e.g., `onLoadStart={(e) => this.setState({loading: true})}`
 
 ### `resizeMode`
 
-Determines how to resize the image when the frame doesn't match the raw image dimensions.
+Determines how to resize the image when the frame doesn't match the raw image dimensions. Defaults to `cover`.
 
 - `cover`: Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or larger than the corresponding dimension of the view (minus padding).
 
@@ -416,8 +386,6 @@ Image.getSize(uri, success, [failure]);
 Retrieve the width and height (in pixels) of an image prior to displaying it. This method can fail if the image cannot be found, or fails to download.
 
 In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
-
-Does not work for static image resources.
 
 **Parameters:**
 

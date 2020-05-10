@@ -4,7 +4,7 @@ title: Upgrading to new React Native versions
 original_id: upgrading
 ---
 
-Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it easy for you.
+Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it straightforward for you.
 
 ## Expo projects
 
@@ -30,10 +30,10 @@ Run the following command to start the process of upgrading to the latest versio
 react-native upgrade
 ```
 
-You may specify a React Native version by passing an argument, e.g. to upgrade to `0.59.0-rc.0` run:
+You may specify a React Native version by passing an argument, e.g. to upgrade to `0.61.0-rc.0` run:
 
 ```sh
-react-native upgrade 0.59.0-rc.0
+react-native upgrade 0.61.0-rc.0
 ```
 
 The project is upgraded using `git apply` with 3-way merge, it may happen that you'll need to resolve a few conflicts after it's finished.
@@ -89,7 +89,7 @@ yarn add react@{{REACT_VERSION}}
 
 #### 3. Upgrade your project files
 
-The new release may contain updates to other files that are generated when you run `react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you can just rebuild the project and continue developing.
+The new release may contain updates to other files that are generated when you run `react-native init`, those files are listed after the `package.json` in the Upgrade Helper page. If there aren't other changes then you can rebuild the project and continue developing.
 
 In case there are changes then you can either update them manually by copying and pasting from the changes in the page or you can do it with the React Native CLI upgrade command by running:
 
@@ -99,7 +99,7 @@ react-native upgrade
 
 This will check your files against the latest template and perform the following:
 
-- If there is a new file in the template, it is simply created.
+- If there is a new file in the template, it is created.
 - If a file in the template is identical to your file, it is skipped.
 - If a file is different in your project than the template, you will be prompted; you have options to keep your file or overwrite it with the template version.
 

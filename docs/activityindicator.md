@@ -5,16 +5,54 @@ title: ActivityIndicator
 
 Displays a circular loading indicator.
 
-### Example
+## Example
 
-```SnackPlayer name=activityindicator&platform=web
-import React, { Component } from 'react'
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native'
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=ActivityIndicator%20Function%20Component%20Example
+import React from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={[styles.container, styles.horizontal]}>
+      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="small" color="#00ff00" />
+      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="small" color="#00ff00" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
+  }
+});
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=ActivityIndicator%20Class%20Component%20Example
+import React, { Component } from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
 export default class App extends Component {
   render() {
@@ -25,37 +63,31 @@ export default class App extends Component {
         <ActivityIndicator size="large" color="#0000ff" />
         <ActivityIndicator size="small" color="#00ff00" />
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: "center"
   },
   horizontal: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
+    flexDirection: "row",
+    justifyContent: "space-around",
     padding: 10
   }
-})
+});
+
 ```
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`animating`](activityindicator.md#animating)
-* [`color`](activityindicator.md#color)
-* [`hidesWhenStopped`](activityindicator.md#hideswhenstopped)
-* [`size`](activityindicator.md#size)
-
----
+<block class="endBlock syntax" />
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view#props).
 
 ### `animating`
 
@@ -71,9 +103,9 @@ Whether to show the indicator (true, the default) or hide it (false).
 
 The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type            | Required |
+| --------------- | -------- |
+| [color](colors) | No       |
 
 ---
 
@@ -91,6 +123,6 @@ Whether the indicator should hide when not animating (true by default).
 
 Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
 
-| Type                            | Required |
-| ------------------------------- | -------- |
+| Type                           | Required |
+| ------------------------------ | -------- |
 | enum('small', 'large'), number | No       |

@@ -25,7 +25,7 @@ renderButton: function() {
 
 ### Example
 
-```SnackPlayer platform=web
+```SnackPlayer
 import React, { Component } from 'react'
 import {
   AppRegistry,

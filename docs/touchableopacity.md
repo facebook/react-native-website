@@ -5,109 +5,127 @@ title: TouchableOpacity
 
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
 
-Opacity is controlled by wrapping the children in an Animated.View, which is added to the view hierarchy. Be aware that this can affect layout.
+Opacity is controlled by wrapping the children in an `Animated.View`, which is added to the view hierarchy. Be aware that this can affect layout.
 
-Example:
+## Example
 
-```jsx
-renderButton: function() {
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=TouchableOpacity%20Function%20Component%20Example
+import React, { useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+export default App = () => {
+  const [count, setCount] = useState(0);
+  const onPress = () => setCount(prevCount => prevCount + 1);
+
   return (
-    <TouchableOpacity onPress={this._onPressButton}>
-      <Image
+    <View style={styles.container}>
+      <View style={styles.countContainer}>
+        <Text>Count: {count}</Text>
+      </View>
+      <TouchableOpacity
         style={styles.button}
-        source={require('./myButton.png')}
-      />
-    </TouchableOpacity>
+        onPress={onPress}
+      >
+        <Text>Press Here</Text>
+      </TouchableOpacity>
+    </View>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  }
+});
 ```
 
-### Example
+<block class="classical syntax" />
 
-```SnackPlayer name=TouchableOpacity&platform=web
-import React, { Component } from 'react'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,
-} from 'react-native'
+```SnackPlayer name=TouchableOpacity%20Class%20Component%20Example
+import React, { Component } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default class App extends Component {
   constructor(props) {
-    super(props)
-    this.state = { count: 0 }
+    super(props);
+    this.state = { count: 0 };
   }
 
   onPress = () => {
     this.setState({
-      count: this.state.count+1
-    })
-  }
+      count: this.state.count + 1
+    });
+  };
 
- render() {
-   return (
-     <View style={styles.container}>
-       <TouchableOpacity
-         style={styles.button}
-         onPress={this.onPress}
-       >
-         <Text> Touch Here </Text>
-       </TouchableOpacity>
-       <View style={[styles.countContainer]}>
-         <Text style={[styles.countText]}>
-            { this.state.count !== 0 ? this.state.count: null}
-          </Text>
+  render() {
+    const { count } = this.state;
+    return (
+      <View style={styles.container}>
+        <View style={styles.countContainer}>
+          <Text>Count: {count}</Text>
         </View>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={this.onPress}
+        >
+          <Text>Press Here</Text>
+        </TouchableOpacity>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     paddingHorizontal: 10
   },
   button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
     padding: 10
   },
   countContainer: {
-    alignItems: 'center',
+    alignItems: "center",
     padding: 10
-  },
-  countText: {
-    color: '#FF00FF'
   }
-})
+});
 ```
 
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`style`](touchableopacity.md#style)
-* [`activeOpacity`](touchableopacity.md#activeopacity)
-* [`tvParallaxProperties`](touchableopacity.md#tvparallaxproperties)
-* [`hasTVPreferredFocus`](touchableopacity.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchableopacity.md#nextFocusDown)
-* [`nextFocusForward`](touchableopacity.md#nextFocusForward)
-* [`nextFocusLeft`](touchableopacity.md#nextFocusLeft)
-* [`nextFocusRight`](touchableopacity.md#nextFocusRight)
-* [`nextFocusUp`](touchableopacity.md#nextFocusUp)
-
-### Methods
-
-- [`setOpacityTo`](touchableopacity.md#setopacityto)
+<block class="endBlock syntax" />
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `style`
 
@@ -119,7 +137,7 @@ const styles = StyleSheet.create({
 
 ### `activeOpacity`
 
-Determines what the opacity of the wrapped view should be when touch is active. Defaults to 0.2.
+Determines what the opacity of the wrapped view should be when touch is active. Defaults to `0.2`.
 
 | Type   | Required |
 | ------ | -------- |
@@ -131,7 +149,14 @@ Determines what the opacity of the wrapped view should be when touch is active. 
 
 _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
-enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0. pressMagnification: Defaults to 1.0. pressDuration: Defaults to 0.3. pressDelay: Defaults to 0.0.
+- `enabled`: If `true`, parallax effects are enabled. Defaults to `true`.
+- `shiftDistanceX`: Defaults to `2.0`.
+- `shiftDistanceY`: Defaults to `2.0`.
+- `tiltAngle`: Defaults to `0.05`.
+- `magnification`: Defaults to `1.0`.
+- `pressMagnification`: Defaults to `1.0`.
+- `pressDuration`: Defaults to `0.3`.
+- `pressDelay`: Defaults to `0.0`.
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -195,7 +220,7 @@ TV next focus up (see documentation for the View component).
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
-| bool | No       | iOS      |
+| bool | No       | Android  |
 
 ## Methods
 

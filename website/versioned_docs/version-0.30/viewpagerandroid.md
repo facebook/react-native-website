@@ -108,7 +108,7 @@ Function called when the page scrolling state has changed. The page scrolling st
 
 - idle, meaning there is no interaction with the page scroller happening at the time
 - dragging, meaning there is currently an interaction with the page scroller
-- settling, meaning that there was an interaction with the page scroller, and the page scroller is now finishing it's closing or opening animation
+- settling, meaning that there was an interaction with the page scroller, and the page scroller is now finishing its closing or opening animation
 
 | Type                | Required |
 | ------------------- | -------- |

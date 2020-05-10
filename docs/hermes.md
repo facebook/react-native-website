@@ -4,12 +4,18 @@ title: Using Hermes
 ---
 
 <a href="https://hermesengine.dev">
-  <img width="300" height="300" style="float: right; margin: -30px 4px 0;" src="/react-native/docs/assets/HermesLogo.svg"/>
+  <img width="300" height="300" style="float: right; margin: -30px 4px 0;" src="/docs/assets/HermesLogo.svg"/>
 </a>
 
-[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for running React Native apps on Android. For many apps, simply enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
+[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for running React Native apps on Android. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
 
-First, ensure you're using at least version 0.60.2 of React Native. If you're upgrading an existing app ensure everything works before trying to switch to Hermes.
+First, ensure you're using at least version 0.60.4 of React Native.
+
+If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. Make especially sure that all changes to `android/app/build.gradle` have been applied, as detailed by the [React Native upgrade helper](https://react-native-community.github.io/upgrade-helper/?from=0.59.0). After upgrading the app, make sure everything works before trying to switch to Hermes.
+
+> ## Note for Windows users.
+>
+> Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 
 Edit your `android/app/build.gradle` file and make the change illustrated below:
 
@@ -21,40 +27,45 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
   ]
 ```
 
-Also, if you're using ProGuard, you will need to add this rule in `proguard-rules.pro` :
+Also, if you're using ProGuard, you will need to add these rules in `proguard-rules.pro` :
 
 ```
 -keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
 ```
 
 Next, if you've already built your app at least once, clean the build:
 
-```shell
+```sh
 $ cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as normal:
 
-```shell
-$ react-native run-android
+```sh
+$ npx react-native run-android
 ```
+
+> ## Note about Android App Bundles
+>
+> Android app bundles are not yet supported with hermes.
 
 ## Confirming Hermes is in use
 
-If you've just created a new app from scratch you should see if Hermes is enabled in the welcome view:
+If you've recently created a new app from scratch, you should see if Hermes is enabled in the welcome view:
 
-![Where to find JS engine status in AwesomeProject](/react-native/docs/assets/HermesApp.jpg)
+![Where to find JS engine status in AwesomeProject](/docs/assets/HermesApp.jpg)
 
 A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
 
 ```jsx
-const isHermes = () => global.HermesInternal != null;
+const isHermes = () => global.HermesInternal !== null;
 ```
 
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
-```shell
-$ react-native run-android --variant release
+```sh
+$ npx react-native run-android --variant release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.
@@ -71,10 +82,10 @@ Once you know where the Metro server is listening, you can connect with Chrome u
 
 2. Use the `Configure...` button to add the Metro server address (typically `localhost:8081` as described above).
 
-![Configure button in Chrome DevTools devices page](/react-native/docs/assets/HermesDebugChromeConfig.png)
+![Configure button in Chrome DevTools devices page](/docs/assets/HermesDebugChromeConfig.png)
 
-![Dialog for adding Chrome DevTools network targets](/react-native/docs/assets/HermesDebugChromeMetroAddress.png)
+![Dialog for adding Chrome DevTools network targets](/docs/assets/HermesDebugChromeMetroAddress.png)
 
-3. You should now see a "Hermes React Native" target with an "inspect" link which can be used to bring up debugger. If you don't see the "inspect" link, make sure the Metro server is running. ![Target inspect link](/react-native/docs/assets/HermesDebugChromeInspect.png)
+3. You should now see a "Hermes React Native" target with an "inspect" link which can be used to bring up debugger. If you don't see the "inspect" link, make sure the Metro server is running. ![Target inspect link](/docs/assets/HermesDebugChromeInspect.png)
 
-4. You can now use the Chrome debug tools. For example, to breakpoint the next time some JavaScript is run, click on the pause button and trigger an action in your app which would cause JavaScript to execute. ![Pause button in debug tools](/react-native/docs/assets/HermesDebugChromePause.png)
+4. You can now use the Chrome debug tools. For example, to breakpoint the next time some JavaScript is run, click on the pause button and trigger an action in your app which would cause JavaScript to execute. ![Pause button in debug tools](/docs/assets/HermesDebugChromePause.png)

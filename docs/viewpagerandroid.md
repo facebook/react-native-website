@@ -1,9 +1,9 @@
 ---
 id: viewpagerandroid
-title: ViewPagerAndroid
+title: 🚧 ViewPagerAndroid
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
+> **Deprecated.** Use [@react-native-community/viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
 
 Container that allows to flip left and right between child views. Each child view of the `ViewPagerAndroid` will be treated as a separate page and will be stretched to fill the `ViewPagerAndroid`.
 
@@ -41,30 +41,13 @@ const styles = {
 }
 ```
 
-### Props
-
-- [View props...](view.md#props)
-
-- [`initialPage`](viewpagerandroid.md#initialpage)
-- [`keyboardDismissMode`](viewpagerandroid.md#keyboarddismissmode)
-- [`onPageScroll`](viewpagerandroid.md#onpagescroll)
-- [`onPageScrollStateChanged`](viewpagerandroid.md#onpagescrollstatechanged)
-- [`onPageSelected`](viewpagerandroid.md#onpageselected)
-- [`pageMargin`](viewpagerandroid.md#pagemargin)
-- [`peekEnabled`](viewpagerandroid.md#peekenabled)
-- [`scrollEnabled`](viewpagerandroid.md#scrollenabled)
-- [`setPage`](viewpagerandroid.md#setpage)
-- [`setPageWithoutAnimation`](viewpagerandroid.md#setpagewithoutanimation)
-
-### Type Definitions
-
-- [`ViewPagerScrollState`](viewpagerandroid.md#viewpagerscrollstate)
-
 ---
 
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `initialPage`
 

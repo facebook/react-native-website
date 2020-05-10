@@ -28,7 +28,7 @@ render: function() {
 },
 ```
 
-Now MyView will be rendered by the navigator. It will recieve the route object in the `route` prop, a navigator, and all of the props specified in `passProps`.
+Now MyView will be rendered by the navigator. It will receive the route object in the `route` prop, a navigator, and all of the props specified in `passProps`.
 
 See the initialRoute propType for a complete definition of a route.
 

@@ -12,8 +12,13 @@ To set up the navigator, provide the `initialRoute` prop with a route object. A 
 
 ```jsx
 import PropTypes from 'prop-types';
-import React, {Component} from 'react';
-import {NavigatorIOS, Text, TouchableHighlight, View} from 'react-native';
+import React, { Component } from 'react';
+import {
+  NavigatorIOS,
+  Text,
+  TouchableHighlight,
+  View
+} from 'react-native';
 
 export default class NavigatorIOSApp extends Component {
   render() {
@@ -21,9 +26,9 @@ export default class NavigatorIOSApp extends Component {
       <NavigatorIOS
         initialRoute={{
           component: MyScene,
-          title: 'My Initial Scene',
+          title: 'My Initial Scene'
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
     );
   }
@@ -32,12 +37,12 @@ export default class NavigatorIOSApp extends Component {
 class MyScene extends Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    navigator: PropTypes.object.isRequired,
+    navigator: PropTypes.object.isRequired
   };
 
   _onForward = () => {
     this.props.navigator.push({
-      title: 'Scene',
+      title: 'Scene'
     });
   };
 
@@ -86,11 +91,12 @@ class MyView extends Component {
     const nextRoute = {
       component: MyView,
       title: 'Bar That',
-      passProps: {myProp: 'bar'},
+      passProps: { myProp: 'bar' }
     };
     return (
-      <TouchableHighlight onPress={() => this._handleNextPress(nextRoute)}>
-        <Text style={{marginTop: 200, alignSelf: 'center'}}>
+      <TouchableHighlight
+        onPress={() => this._handleNextPress(nextRoute)}>
+        <Text style={{ marginTop: 200, alignSelf: 'center' }}>
           See you on the other nav {this.props.myProp}!
         </Text>
       </TouchableHighlight>
@@ -107,7 +113,7 @@ class NavvyIOS extends Component {
     this.refs.nav.push({
       component: MyView,
       title: 'Genius',
-      passProps: {myProp: 'genius'},
+      passProps: { myProp: 'genius' }
     });
   }
 
@@ -118,11 +124,12 @@ class NavvyIOS extends Component {
         initialRoute={{
           component: MyView,
           title: 'Foo This',
-          passProps: {myProp: 'foo'},
+          passProps: { myProp: 'foo' },
           rightButtonTitle: 'Add',
-          onRightButtonPress: () => this._handleNavigationRequest(),
+          onRightButtonPress: () =>
+            this._handleNavigationRequest()
         }}
-        style={{flex: 1}}
+        style={{ flex: 1 }}
       />
     );
   }
@@ -201,7 +208,7 @@ NavigatorIOS uses `route` objects to identify child views, their props, and navi
 
 ### `barStyle`
 
-The style of the navigation bar. Supported values are 'default', 'black'. Use 'black' instead of setting `barTintColor` to black. This produces a navigation bar with the native iOS style with higher translucency.
+The style of the navigation bar. Supported values are `default`, `black`. Use `black` instead of setting `barTintColor` to `black`. This produces a navigation bar with the native iOS style with higher translucency.
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -221,7 +228,7 @@ The default background color of the navigation bar.
 
 ### `interactivePopGestureEnabled`
 
-Boolean value that indicates whether the interactive pop gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
+Boolean value that indicates whether the interactive `pop` gesture is enabled. This is useful for enabling/disabling the back swipe navigation gesture.
 
 If this prop is not provided, the default behavior is for the back swipe gesture to be enabled when the navigation bar is shown and disabled when the navigation bar is hidden. Once you've provided the `interactivePopGestureEnabled` prop, you can never restore the default behavior.
 
@@ -329,7 +336,7 @@ Go back N scenes at once. When N=1, behavior matches `pop()`.
 pop();
 ```
 
-Pop back to the previous scene.
+Get the previous scene by its route
 
 ---
 
@@ -430,7 +437,7 @@ Replaces the previous route/view and transitions back to it.
 resetTo((route: object));
 ```
 
-Replaces the top item and pop to it.
+Replaces the top item and `pop` to it.
 
 **Parameters:**
 

@@ -6,7 +6,7 @@ original_id: textinput
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
 
-The simplest use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A simple example:
+The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A basic example:
 
 ```
   <TextInput
@@ -114,7 +114,7 @@ If true, the text field will blur when submitted. The default value is true for 
 
 ### `defaultValue`
 
-Provides an initial value that will change when the user starts typing. Useful for simple use-cases where you don't want to deal with listening to events and updating the value prop to keep the controlled state in sync.
+Provides an initial value that will change when the user starts typing. Useful for basic use-cases where you don't want to deal with listening to events and updating the value prop to keep the controlled state in sync.
 
 | Type   | Required |
 | ------ | -------- |
@@ -300,7 +300,7 @@ Styles
 
 ### `value`
 
-The value to show for the text input. TextInput is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to simply setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
+The value to show for the text input. TextInput is a controlled component, which means the native value will be forced to match this value prop if provided. For most uses this works great, but in some cases this may cause flickering - one common cause is preventing edits by keeping value the same. In addition to only setting the same value, either set `editable={false}`, or set/update `maxLength` to prevent unwanted edits without flicker.
 
 | Type   | Required |
 | ------ | -------- |

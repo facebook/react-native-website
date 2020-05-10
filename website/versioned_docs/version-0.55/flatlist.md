@@ -4,7 +4,7 @@ title: FlatList
 original_id: flatlist
 ---
 
-A performant interface for rendering simple, flat lists, supporting the most handy features:
+A performant interface for rendering painless flat lists, supporting the most handy features:
 
 - Fully cross-platform.
 - Optional horizontal mode.
@@ -180,7 +180,7 @@ Example usage:
 
 ### `data`
 
-For simplicity, data is just a plain array. If you want to use something else, like an immutable list, use the underlying [`VirtualizedList`](virtualizedlist.md) directly.
+For simplicity, data is only a plain array. If you want to use something else, like an immutable list, use the underlying [`VirtualizedList`](virtualizedlist.md) directly.
 
 | Type  | Required |
 | ----- | -------- |
@@ -254,7 +254,7 @@ A marker property for telling the list to re-render (since it implements `PureCo
 (data, index) => {length: number, offset: number, index: number}
 ```
 
-`getItemLayout` is an optional optimization that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient, and is easy to use if you have fixed height items, for example:
+`getItemLayout` is an optional optimization that let us skip measurement of dynamic content if you know the height of items a priori. `getItemLayout` is the most efficient, and is handy to use if you have fixed height items, for example:
 
 ```jsx
   getItemLayout={(data, index) => (
@@ -539,7 +539,7 @@ Valid `params` keys are:
 
 - 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 - 'index' (number) - The index to scroll to. Required.
-- 'viewOffset' (number) - A fixed number of pixels to offset the final target position. Required.
+- 'viewOffset' (number) - A fixed number of pixels to offset the final target position.
 - 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---

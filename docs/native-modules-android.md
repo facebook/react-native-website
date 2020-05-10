@@ -9,7 +9,7 @@ We designed React Native such that it is possible for you to write real native c
 
 ## Native Module Setup
 
-Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is, from NPM's perspective just like any other media asset, meaning there isn't anything special about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
+Native modules are usually distributed as npm packages, apart from the typical javascript files and resources they will contain an Android library project. This project is (from NPM's perspective) similar to any other media asset, meaning there isn't anything unique about it from this point of view. To get the basic scaffolding make sure to read [Native Modules Setup](native-modules-setup) guide first.
 
 ### Enable Gradle
 
@@ -40,12 +40,14 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class ToastModule extends ReactContextBaseJavaModule {
+  private static ReactApplicationContext reactContext;
 
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
-  public ToastModule(ReactApplicationContext reactContext) {
-    super(reactContext);
+  ToastModule(ReactApplicationContext context) {
+    super(context);
+    reactContext = context;
   }
 }
 ```
@@ -84,7 +86,7 @@ To expose a method to JavaScript a Java method must be annotated using `@ReactMe
 
 The following argument types are supported for methods annotated with `@ReactMethod` and they directly map to their JavaScript equivalents
 
-```
+```text
 Boolean -> Bool
 Integer -> Number
 Double -> Number
@@ -147,13 +149,16 @@ import com.your-app-name.CustomToastPackage; // <-- Add this line with your pack
 ...
 
 protected List<ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-            new MainReactPackage(),
-            new CustomToastPackage()); // <-- Add this line with your package name.
+  @SuppressWarnings("UnnecessaryLocalVariable")
+  List<ReactPackage> packages = new PackageList(this).getPackages();
+  // Packages that cannot be autolinked yet can be added manually here, for example:
+  // packages.add(new MyReactNativePackage());
+  packages.add(new CustomToastPackage()); // <-- Add this line with your package name.
+  return packages;
 }
 ```
 
-To make it simpler to access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
+To access your new functionality from JavaScript, it is common to wrap the native module in a JavaScript module. This is not necessary but saves the consumers of your library the need to pull it off of `NativeModules` each time. This JavaScript file also becomes a good location for you to add any JavaScript side functionality.
 
 Create a new JavaScript file named `ToastExample.js` with the content below:
 
@@ -166,7 +171,7 @@ Create a new JavaScript file named `ToastExample.js` with the content below:
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 module.exports = NativeModules.ToastExample;
 ```
 
@@ -184,7 +189,7 @@ Please make sure this JavaScript is in the same hierarchy as `ToastExample.js`.
 
 ### Callbacks
 
-Native modules also support a special kind of argument - a callback. In most cases it is used to provide the function call result to JavaScript.
+Native modules also support a unique kind of argument - a callback. In most cases it is used to provide the function call result to JavaScript.
 
 ```java
 import com.facebook.react.bridge.Callback;
@@ -225,7 +230,7 @@ UIManager.measureLayout(
   },
   (x, y, width, height) => {
     console.log(x + ':' + y + ':' + width + ':' + height);
-  },
+  }
 );
 ```
 
@@ -275,12 +280,16 @@ The JavaScript counterpart of this method returns a Promise. This means you can 
 ```jsx
 async function measureLayout() {
   try {
-    var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
-      100,
-      100,
-    );
+    var {
+      relativeX,
+      relativeY,
+      width,
+      height
+    } = await UIManager.measureLayout(100, 100);
 
-    console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);
+    console.log(
+      relativeX + ':' + relativeY + ':' + width + ':' + height
+    );
   } catch (e) {
     console.error(e);
   }
@@ -300,6 +309,8 @@ Native modules can signal events to JavaScript without being invoked directly. T
 ```java
 ...
 import com.facebook.react.modules.core.DeviceEventManagerModule;
+import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.Arguments;
 ...
 private void sendEvent(ReactContext reactContext,
                        String eventName,
@@ -310,48 +321,29 @@ private void sendEvent(ReactContext reactContext,
 }
 ...
 WritableMap params = Arguments.createMap();
+params.putString("eventProperty", "someValue");
 ...
-sendEvent(reactContext, "keyboardWillShow", params);
+sendEvent(reactContext, "EventReminder", params);
 ```
 
-JavaScript modules can then register to receive events by `addListenerOn` using the `Subscribable` mixin.
+JavaScript modules can then register to receive events by `addListener` on the NativeEventEmitter class.
 
 ```jsx
-import { DeviceEventEmitter } from 'react-native';
+import { NativeEventEmitter, NativeModules } from 'react-native';
 ...
-
-var ScrollResponderMixin = {
-  mixins: [Subscribable.Mixin],
-
 
   componentDidMount() {
     ...
-    this.addListenerOn(DeviceEventEmitter,
-                       'keyboardWillShow',
-                       this.scrollResponderKeyboardWillShow);
+    const eventEmitter = new NativeEventEmitter(NativeModules.ToastExample);
+    this.eventListener = eventEmitter.addListener('EventReminder', (event) => {
+       console.log(event.eventProperty) // "someValue"
+    });
     ...
-  },
-  scrollResponderKeyboardWillShow:function(e: Event) {
-    this.keyboardWillOpenTo = e;
-    this.props.onKeyboardWillShow && this.props.onKeyboardWillShow(e);
-  },
-```
+  }
 
-You can also directly use the `DeviceEventEmitter` module to listen for events.
-
-```jsx
-...
-componentDidMount() {
-  this.subscription = DeviceEventEmitter.addListener('keyboardWillShow', function(e: Event) {
-    // handle event
-  });
-}
-
-componentWillUnmount() {
-  // When you want to stop listening to new events, simply call .remove() on the subscription
-  this.subscription.remove();
-}
-...
+  componentWillUnmount() {
+    this.eventListener.remove(); //Removes the listener
+  }
 ```
 
 ### Getting activity result from `startActivityForResult`
@@ -375,12 +367,12 @@ public void onActivityResult(
 }
 ```
 
-We will implement a simple image picker to demonstrate this. The image picker will expose the method `pickImage` to JavaScript, which will return the path of the image when called.
+We will implement a basic image picker to demonstrate this. The image picker will expose the method `pickImage` to JavaScript, which will return the path of the image when called.
 
 ```java
 public class ImagePickerModule extends ReactContextBaseJavaModule {
 
-  private static final int IMAGE_PICKER_REQUEST = 467081;
+  private static final int IMAGE_PICKER_REQUEST = 1;
   private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
   private static final String E_PICKER_CANCELLED = "E_PICKER_CANCELLED";
   private static final String E_FAILED_TO_SHOW_PICKER = "E_FAILED_TO_SHOW_PICKER";
@@ -412,7 +404,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
     }
   };
 
-  public ImagePickerModule(ReactApplicationContext reactContext) {
+  ImagePickerModule(ReactApplicationContext reactContext) {
     super(reactContext);
 
     // Add the listener for `onActivityResult`

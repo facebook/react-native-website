@@ -10,7 +10,7 @@ category: announcements
 
 Upgrading to new versions of React Native has been difficult. You might have seen something like this before:
 
-![](/react-native/blog/assets/git-upgrade-conflict.png)
+![](/blog/assets/git-upgrade-conflict.png)
 
 None of those options is ideal. By overwriting the file we lose our local changes. By not overwriting we don't get the latest updates.
 
@@ -43,11 +43,11 @@ $ react-native-git-upgrade 0.38.0
 
 Example output:
 
-![](/react-native/blog/assets/git-upgrade-output.png)
+![](/blog/assets/git-upgrade-output.png)
 
 You can also run `react-native-git-upgrade` with no arguments to upgrade to the latest version of React Native.
 
-We try to preserve your changes in iOS and Android build files, so you don't need to run `react-native link` after an upgrade.
+We try to preserve your changes in Android and iOS build files, so you don't need to run `react-native link` after an upgrade.
 
 We have designed the implementation to be as little intrusive as possible. It is entirely based on a local Git repository created on-the-fly in a temporary directory. It won't interfere with your project repository (no matter what VCS you use: Git, SVN, Mercurial, ... or none). Your sources are restored in case of unexpected errors.
 

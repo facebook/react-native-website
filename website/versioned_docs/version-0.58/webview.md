@@ -1,23 +1,25 @@
 ---
 id: version-0.58-webview
-title: WebView
+title: 🚧 WebView
 original_id: webview
 ---
 
-> **Warning** Please use the [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) fork of this component instead. To reduce the surface area of React Native, `<WebView/>` is going to be removed from the React Native core. For more information, please read [The Slimmening proposal](https://github.com/react-native-community/discussions-and-proposals/issues/6).
+> **Deprecated.** Use [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) instead.
 
 `WebView` renders web content in a native view.
 
 ```jsx
-import React, {Component} from 'react';
-import {WebView} from 'react-native';
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
 
 class MyWeb extends Component {
   render() {
     return (
       <WebView
-        source={{uri: 'https://github.com/facebook/react-native'}}
-        style={{marginTop: 20}}
+        source={{
+          uri: 'https://github.com/facebook/react-native'
+        }}
+        style={{ marginTop: 20 }}
       />
     );
   }
@@ -27,15 +29,15 @@ class MyWeb extends Component {
 Minimal example with inline HTML:
 
 ```jsx
-import React, {Component} from 'react';
-import {WebView} from 'react-native';
+import React, { Component } from 'react';
+import { WebView } from 'react-native';
 
 class MyInlineWeb extends Component {
   render() {
     return (
       <WebView
         originWhitelist={['*']}
-        source={{html: '<h1>Hello world</h1>'}}
+        source={{ html: '<h1>Hello world</h1>' }}
       />
     );
   }
@@ -48,64 +50,19 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 > **Security Warning:** Currently, `onMessage` and `postMessage` do not allow specifying an origin. This can lead to cross-site scripting attacks if an unexpected document is loaded within a `WebView` instance. Please refer to the MDN documentation for [`Window.postMessage()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage) for more details on the security implications of this.
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`source`](webview.md#source)
-* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-* [`injectJavaScript`](webview.md#injectjavascript)
-* [`injectedJavaScript`](webview.md#injectedjavascript)
-* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-* [`nativeConfig`](webview.md#nativeconfig)
-* [`onError`](webview.md#onerror)
-* [`onLoad`](webview.md#onload)
-* [`onLoadEnd`](webview.md#onloadend)
-* [`onLoadStart`](webview.md#onloadstart)
-* [`onMessage`](webview.md#onmessage)
-* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-* [`originWhitelist`](webview.md#originwhitelist)
-* [`renderError`](webview.md#rendererror)
-* [`renderLoading`](webview.md#renderloading)
-* [`scalesPageToFit`](webview.md#scalespagetofit)
-* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-* [`startInLoadingState`](webview.md#startinloadingstate)
-* [`style`](webview.md#style)
-* [`decelerationRate`](webview.md#decelerationrate)
-* [`domStorageEnabled`](webview.md#domstorageenabled)
-* [`javaScriptEnabled`](webview.md#javascriptenabled)
-* [`mixedContentMode`](webview.md#mixedcontentmode)
-* [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
-* [`userAgent`](webview.md#useragent)
-* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-* [`allowFileAccess`](webview.md#allowFileAccess)
-* [`bounces`](webview.md#bounces)
-* [`contentInset`](webview.md#contentinset)
-* [`dataDetectorTypes`](webview.md#datadetectortypes)
-* [`scrollEnabled`](webview.md#scrollenabled)
-* [`geolocationEnabled`](webview.md#geolocationenabled)
-* [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
-* [`useWebKit`](webview.md#usewebkit)
-* [`url`](webview.md#url)
-* [`html`](webview.md#html)
-
-### Methods
-
-- [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
-- [`goForward`](webview.md#goforward)
-- [`goBack`](webview.md#goback)
-- [`reload`](webview.md#reload)
-- [`stopLoading`](webview.md#stoploading)
-
 ---
 
 # Reference
 
 ## Props
 
+Inherits [View Props](view.md#props).
+
+---
+
 ### `source`
 
-Loads static HTML or a URI (with optional headers) in the WebView. Note that static HTML will require setting [`originWhitelist`](webview.md#originwhitelist) to `["*"]`.
+Loads static HTML or a URI (with optional headers) in the WebView. Note that static HTML will require setting [`originWhitelist`](webview#originwhitelist) to `["*"]`.
 
 The object passed to `source` can have either of the following shapes:
 
@@ -247,7 +204,7 @@ Function that is invoked when the `WebView` loading starts or ends.
 
 ### `originWhitelist`
 
-List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://*" and "https://*".
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _only_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this safelist, the URL will be handled by the OS. The default safelistlisted origins are "http://*" and "https://*".
 
 | Type             | Required |
 | ---------------- | -------- |
@@ -279,7 +236,7 @@ Function that returns a loading indicator. The startInLoadingState prop must be 
 
 Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale. The default value is `true`.
 
-On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
+On iOS, when [`useWebKit=true`](webview#usewebkit), this prop will not work.
 
 | Type | Required |
 | ---- | -------- |
@@ -425,7 +382,7 @@ Possible values for `dataDetectorTypes` are:
 - `none`
 - `all`
 
-With the [new WebKit](webview.md#usewebkit) implementation, we have three new values:
+With the [new WebKit](webview#usewebkit) implementation, we have three new values:
 
 - `trackingNumber`
 - `flightNumber`

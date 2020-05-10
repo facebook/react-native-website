@@ -566,11 +566,11 @@ Setting `paddingVertical` is like setting both of `paddingTop` and `paddingBotto
 
 ### `position`
 
-`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always just relative to the parent.
+`position` in React Native is similar to regular CSS, but everything is set to `relative` by default, so `absolute` positioning is always relative to the parent.
 
 If you want to position a child using specific numbers of logical pixels relative to its parent, set the child to have `absolute` position.
 
-If you want to position a child relative to something that is not its parent, just don't use styles for that. Use the component tree.
+If you want to position a child relative to something that is not its parent, don't use styles for that. Use the component tree.
 
 See https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
 
@@ -648,7 +648,7 @@ On iOS, `zIndex` may require `View`s to be siblings of each other for it to work
 
 ### `direction`
 
-`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://facebook.github.io/yoga/docs/rtl/ for more details.
+`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://yogalayout.com/docs/layout-direction/ for more details.
 
 | Type                          | Required | Platform |
 | ----------------------------- | -------- | -------- |

@@ -9,16 +9,69 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```SnackPlayer name=Text&platform=web
-import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Text%20Functional%20Component%20Example
+import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
+
+const onPressTitle = () => {
+  console.log("title pressed");
+};
+
+const TextInANest = () => {
+  const titleText = useState("Bird's Nest");
+  const bodyText = useState("This is not really a bird nest.");
+
+  return (
+    <Text style={styles.baseText}>
+      <Text style={styles.titleText} onPress={onPressTitle}>
+        {titleText}
+        {"\n"}
+        {"\n"}
+      </Text>
+      <Text numberOfLines={5}>{bodyText}</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  }
+});
+
+export default TextInANest;
+
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Text%20Class%20Component%20Example
+import React, { Component } from "react";
+import { Text, StyleSheet } from "react-native";
 
 export default class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      bodyText: "This is not really a bird nest."
     };
   }
 
@@ -26,11 +79,11 @@ export default class TextInANest extends Component {
     return (
       <Text style={styles.baseText}>
         <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
+          {this.state.titleText}
+          {"\n"}
+          {"\n"}
         </Text>
-        <Text numberOfLines={5}>
-          {this.state.bodyText}
-        </Text>
+        <Text numberOfLines={5}>{this.state.bodyText}</Text>
       </Text>
     );
   }
@@ -38,36 +91,45 @@ export default class TextInANest extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Cochin',
+    fontFamily: "Cochin"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: "bold"
+  }
 });
 ```
 
 ## Nested text
 
-Both iOS and Android allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
+Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```SnackPlayer name=Nested&platform=web
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+```SnackPlayer name=Nested%20Text%20Example
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-export default class BoldAndBeautiful extends Component {
-  render() {
-    return (
-      <Text style={{fontWeight: 'bold'}}>
-        I am bold
-        <Text style={{color: 'red'}}>
-          and red
-        </Text>
-      </Text>
-    );
+const BoldAndBeautiful = () => {
+  return (
+    <Text style={styles.baseText}>
+      I am bold
+      <Text style={styles.innerText}> and red</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontWeight: 'bold'
+  },
+  innerText: {
+    color: 'red'
   }
-}
+});
+
+export default BoldAndBeautiful;
 ```
+
+<block class="endBlock syntax" />
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
@@ -79,7 +141,7 @@ Behind the scenes, React Native converts this to a flat `NSAttributedString` or 
 
 ## Containers
 
-The `<Text>` element is special relative to layout: everything inside is no longer using the flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
+The `<Text>` element is unique relative to layout: everything inside is no longer using the Flexbox layout but using text layout. This means that elements inside of a `<Text>` are no longer rectangles, but wrap when they see the end of the line.
 
 ```jsx
 <Text>
@@ -149,14 +211,16 @@ You also lose the ability to set up a default font for an entire subtree. Meanwh
 </View>
 ```
 
-Assuming that `MyAppText` is a component that simply renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
+Assuming that `MyAppText` is a component that only renders out its children into a `Text` component with styling, then `MyAppHeaderText` can be defined as follows:
 
 ```jsx
 class MyAppHeaderText extends Component {
   render() {
     return (
       <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+        <Text style={{ fontSize: 20 }}>
+          {this.props.children}
+        </Text>
       </MyAppText>
     );
   }
@@ -168,9 +232,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
 ```jsx
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: 'bold' }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: 'red' }}>and red</Text>
 </Text>
 ```
 
@@ -180,41 +244,6 @@ We believe that this more constrained way to style text will yield better apps:
 
 - (Implementor) The implementation of React Native is also simplified. We do not need to have a `fontFamily` field on every single element, and we do not need to potentially traverse the tree up to the root every time we display a text node. The style inheritance is only encoded inside of the native Text component and doesn't leak to other components or the system itself.
 
-### Props
-
-- [`accessibilityHint`](text.md#accessibilityhint)
-- [`accessibilityLabel`](text.md#accessibilitylabel)
-- [`accessibilityRole`](text.md#accessibilityrole)
-- [`accessibilityState`](text.md#accessibilitystate)
-- [`accessible`](text.md#accessible)
-- [`adjustsFontSizeToFit`](text.md#adjustsfontsizetofit)
-- [`allowFontScaling`](text.md#allowfontscaling)
-- [`dataDetectorType`](text.md#datadetectortype)
-- [`disabled`](text.md#disabled)
-- [`ellipsizeMode`](text.md#ellipsizemode)
-- [`maxFontSizeMultiplier`](text.md#maxfontsizemultiplier)
-- [`minimumFontScale`](text.md#minimumfontscale)
-- [`nativeID`](text.md#nativeid)
-- [`numberOfLines`](text.md#numberoflines)
-- [`onLayout`](text.md#onlayout)
-- [`onLongPress`](text.md#onlongpress)
-- [`onMoveShouldSetResponder`](text.md#onmoveshouldsetresponder)
-- [`onPress`](text.md#onpress)
-- [`onResponderGrant`](text.md#onrespondergrant)
-- [`onResponderMove`](text.md#onrespondermove)
-- [`onResponderRelease`](text.md#onresponderrelease)
-- [`onResponderTerminate`](text.md#onresponderterminate)
-- [`onResponderTerminationRequest`](text.md#onresponderterminationrequest)
-- [`onStartShouldSetResponder`](text.md#onstartshouldsetresponder)
-- [`onTextLayout`](text.md#ontextlayout)
-- [`pressRetentionOffset`](text.md#pressretentionoffset)
-- [`selectable`](text.md#selectable)
-- [`selectionColor`](text.md#selectioncolor)
-- [`style`](text.md#style)
-- [`suppressHighlighting`](text.md#suppresshighlighting)
-- [`testID`](text.md#testid)
-- [`textBreakStrategy`](text.md#textbreakstrategy)
-
 ---
 
 # Reference
@@ -223,7 +252,7 @@ We believe that this more constrained way to style text will yield better apps:
 
 ### `accessibilityHint`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
 | Type   | Required |
 | ------ | -------- |
@@ -535,7 +564,16 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 ### `onTextLayout`
 
-TODO.
+Invoked on Text layout
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| function: (event: TextLayoutEvent) => mixed | No       |
+
+- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
+  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
+
+---
 
 ### `pressRetentionOffset`
 
@@ -591,7 +629,7 @@ The highlight color of the text.
 
 - **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
 
-  Specifies text alignment. The value 'justify' is only supported on iOS and Android Oreo (8.0) or above (API level >= 26). For lower android version it will fallback to `left`.
+  Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
 
 - **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
 

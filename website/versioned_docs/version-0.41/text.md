@@ -10,7 +10,7 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```SnackPlayer platform=web
+```SnackPlayer
 import React, { Component } from 'react';
 import { AppRegistry, Text, StyleSheet } from 'react-native';
 
@@ -89,7 +89,7 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 When set to `true`, indicates that the view is an accessibility element. The default value for a `Text` element is `true`.
 
-See the [Accessibility guide](/react-native/accessibility.md#accessible-ios-android) for more information.
+See the [Accessibility guide](accessibility.md#accessible-ios-android) for more information.
 
 | Type | Required |
 | ---- | -------- |

@@ -11,10 +11,10 @@ You can find a visualization of some common easing functions at http://easings.n
 
 The `Easing` module provides several predefined animations through the following methods:
 
-- [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
+- [`back`](easing.md#back) provides a basic animation where the object goes slightly back before moving forward
 - [`bounce`](easing.md#bounce) provides a bouncing animation
-- [`ease`](easing.md#ease) provides a simple inertial animation
-- [`elastic`](easing.md#elastic) provides a simple spring interaction
+- [`ease`](easing.md#ease) provides a basic inertial animation
+- [`elastic`](easing.md#elastic) provides a basic spring interaction
 
 ### Standard functions
 
@@ -41,25 +41,150 @@ The following helpers are used to modify other easing functions.
 - [`inOut`](easing.md#inout) makes any easing function symmetrical
 - [`out`](easing.md#out) runs an easing function backwards
 
-### Methods
+## Example
 
-- [`step0`](easing.md#step0)
-- [`step1`](easing.md#step1)
-- [`linear`](easing.md#linear)
-- [`ease`](easing.md#ease)
-- [`quad`](easing.md#quad)
-- [`cubic`](easing.md#cubic)
-- [`poly`](easing.md#poly)
-- [`sin`](easing.md#sin)
-- [`circle`](easing.md#circle)
-- [`exp`](easing.md#exp)
-- [`elastic`](easing.md#elastic)
-- [`back`](easing.md#back)
-- [`bounce`](easing.md#bounce)
-- [`bezier`](easing.md#bezier)
-- [`in`](easing.md#in)
-- [`out`](easing.md#out)
-- [`inOut`](easing.md#inout)
+```SnackPlayer name=Easing%20Demo
+import React from "react";
+import { Animated, Easing, SectionList, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+export default App = () => {
+  let opacity = new Animated.Value(0);
+
+  const animate = easing => {
+    opacity.setValue(0);
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 1200,
+      easing
+    }).start();
+  };
+
+  const size = opacity.interpolate({
+    inputRange: [0, 1],
+    outputRange: [0, 80]
+  });
+
+  const animatedStyles = [
+    styles.box,
+    {
+      opacity,
+      width: size,
+      height: size
+    }
+  ];
+
+  return (
+    <View style={styles.container}>
+      <StatusBar hidden={true} />
+      <Text style={styles.title}>
+        Press rows below to preview the Easing!
+      </Text>
+      <View style={styles.boxContainer}>
+        <Animated.View style={animatedStyles} />
+      </View>
+      <SectionList
+        style={styles.list}
+        sections={SECTIONS}
+        keyExtractor={(item) => item.title}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => animate(item.easing)}
+            style={styles.listRow}
+          >
+            <Text>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.listHeader}>{title}</Text>
+        )}
+      />
+    </View>
+  );
+};
+
+const SECTIONS = [
+  {
+    title: "Predefined animations",
+    data: [
+      { title: "Bounce", easing: Easing.bounce },
+      { title: "Ease", easing: Easing.ease },
+      { title: "Elastic", easing: Easing.elastic(4) }
+    ]
+  },
+  {
+    title: "Standard functions",
+    data: [
+      { title: "Linear", easing: Easing.linear },
+      { title: "Quad", easing: Easing.quad },
+      { title: "Cubic", easing: Easing.cubic }
+    ]
+  },
+  {
+    title: "Additional functions",
+    data: [
+      {
+        title: "Bezier",
+        easing: Easing.bezier(0, 2, 1, -1)
+      },
+      { title: "Circle", easing: Easing.circle },
+      { title: "Sin", easing: Easing.sin },
+      { title: "Exp", easing: Easing.exp }
+    ]
+  },
+  {
+    title: "Combinations",
+    data: [
+      {
+        title: "In + Bounce",
+        easing: Easing.in(Easing.bounce)
+      },
+      {
+        title: "Out + Exp",
+        easing: Easing.out(Easing.exp)
+      },
+      {
+        title: "InOut + Elastic",
+        easing: Easing.inOut(Easing.elastic(1))
+      }
+    ]
+  }
+];
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#20232a"
+  },
+  title: {
+    marginTop: 10,
+    textAlign: "center",
+    color: "#61dafb"
+  },
+  boxContainer: {
+    height: 160,
+    alignItems: "center"
+  },
+  box: {
+    marginTop: 32,
+    borderRadius: 4,
+    backgroundColor: "#61dafb"
+  },
+  list: {
+    backgroundColor: "#fff"
+  },
+  listHeader: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    backgroundColor: "#f4f4f4",
+    color: "#999",
+    fontSize: 12,
+    textTransform: "uppercase"
+  },
+  listRow: {
+    padding: 8
+  }
+});
+```
 
 ---
 
@@ -105,7 +230,7 @@ http://cubic-bezier.com/#0,0,1,1
 static ease(t)
 ```
 
-A simple inertial interaction, similar to an object slowly accelerating to speed.
+A basic inertial interaction, similar to an object slowly accelerating to speed.
 
 http://cubic-bezier.com/#.42,0,1,1
 
@@ -189,7 +314,7 @@ http://easings.net/#easeInExpo
 static elastic(bounciness)
 ```
 
-A simple elastic interaction, similar to a spring oscillating back and forth.
+A basic elastic interaction, similar to a spring oscillating back and forth.
 
 Default bounciness is 1, which overshoots a little bit once. 0 bounciness doesn't overshoot at all, and bounciness of N > 1 will overshoot about N times.
 
@@ -203,7 +328,7 @@ http://easings.net/#easeInElastic
 static back(s)
 ```
 
-Use with `Animated.parallel()` to create a simple effect where the object animates back slightly as the animation starts.
+Use with `Animated.parallel()` to create a basic effect where the object animates back slightly as the animation starts.
 
 ---
 
@@ -213,7 +338,7 @@ Use with `Animated.parallel()` to create a simple effect where the object animat
 static bounce(t)
 ```
 
-Provides a simple bouncing effect.
+Provides a basic bouncing effect.
 
 http://easings.net/#easeInBounce
 
@@ -233,9 +358,11 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 
 ### `in()`
 
+<!-- prettier-ignore-start -->
 ```jsx
-static in easing;
+static in(easing);
 ```
+<!-- prettier-ignore-end -->
 
 Runs an easing function forwards.
 

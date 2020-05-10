@@ -10,11 +10,11 @@ The `FlatList` component displays a scrolling list of changing, but similarly st
 
 The `FlatList` component requires two props: `data` and `renderItem`. `data` is the source of information for the list. `renderItem` takes one item from the source and returns a formatted component to render.
 
-This example creates a simple `FlatList` of hardcoded data. Each item in the `data` props is rendered as a `Text` component. The `FlatListBasics` component then renders the `FlatList` and all `Text` components.
+This example creates a basic `FlatList` of hardcoded data. Each item in the `data` props is rendered as a `Text` component. The `FlatListBasics` component then renders the `FlatList` and all `Text` components.
 
 ```SnackPlayer name=FlatList%20Basics
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View } from 'react-native';
 
 export default class FlatListBasics extends Component {
   render() {
@@ -23,6 +23,8 @@ export default class FlatListBasics extends Component {
         <FlatList
           data={[
             {key: 'Devin'},
+            {key: 'Dan'},
+            {key: 'Dominic'},
             {key: 'Jackson'},
             {key: 'James'},
             {key: 'Joel'},
@@ -49,16 +51,13 @@ const styles = StyleSheet.create({
     height: 44,
   },
 })
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => FlatListBasics);
 ```
 
 If you want to render a set of data broken into logical sections, maybe with section headers, similar to `UITableView`s on iOS, then a [SectionList](sectionlist.md) is the way to go.
 
 ```SnackPlayer name=SectionList%20Basics
 import React, { Component } from 'react';
-import { AppRegistry, SectionList, StyleSheet, Text, View } from 'react-native';
+import { SectionList, StyleSheet, Text, View } from 'react-native';
 
 export default class SectionListBasics extends Component {
   render() {
@@ -66,7 +65,7 @@ export default class SectionListBasics extends Component {
       <View style={styles.container}>
         <SectionList
           sections={[
-            {title: 'D', data: ['Devin']},
+            {title: 'D', data: ['Devin', 'Dan', 'Dominic']},
             {title: 'J', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
           ]}
           renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
@@ -98,9 +97,6 @@ const styles = StyleSheet.create({
     height: 44,
   },
 })
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => SectionListBasics);
 ```
 
 One of the most common uses for a list view is displaying data that you fetch from a server. To do that, you will need to [learn about networking in React Native](network.md).

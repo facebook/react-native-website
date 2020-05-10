@@ -4,13 +4,6 @@ title: ActionSheetIOS
 original_id: actionsheetios
 ---
 
-### Methods
-
-- [`showActionSheetWithOptions`](actionsheetios.md#showactionsheetwithoptions)
-- [`showShareActionSheetWithOptions`](actionsheetios.md#showshareactionsheetwithoptions)
-
----
-
 # Reference
 
 ## Methods
@@ -40,13 +33,13 @@ ActionSheetIOS.showActionSheetWithOptions(
   {
     options: ['Cancel', 'Remove'],
     destructiveButtonIndex: 1,
-    cancelButtonIndex: 0,
+    cancelButtonIndex: 0
   },
   (buttonIndex) => {
     if (buttonIndex === 1) {
       /* destructive action */
     }
-  },
+  }
 );
 ```
 

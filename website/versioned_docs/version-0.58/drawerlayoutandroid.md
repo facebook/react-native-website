@@ -159,10 +159,12 @@ Function called when the drawer state has changed. The drawer can be in 3 states
 
 ### `drawerBackgroundColor`
 
-Specifies the background color of the drawer. The default value is white. If you want to set the opacity of the drawer, use rgba. Example:
+Specifies the background color of the drawer. The default value is `white`. If you want to set the opacity of the drawer, use rgba. Example:
 
 ```jsx
-return <DrawerLayoutAndroid drawerBackgroundColor="rgba(0,0,0,0.5)" />;
+return (
+  <DrawerLayoutAndroid drawerBackgroundColor="rgba(0,0,0,0.5)" />
+);
 ```
 
 | Type               | Required |

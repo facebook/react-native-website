@@ -8,7 +8,7 @@ Launches an alert dialog with the specified title and message.
 
 Optionally provide a list of buttons. Tapping any button will fire the respective onPress callback and dismiss the alert. By default, the only button will be an 'OK' button.
 
-This is an API that works both on iOS and Android and can show static alerts. To show an alert that prompts the user to enter some information, see `AlertIOS`; entering text in an alert is common on iOS only.
+This is an API that works both on Android and iOS and can show static alerts. To show an alert that prompts the user to enter some information, see `AlertIOS`; entering text in an alert is common on iOS only.
 
 ## Example
 
@@ -19,10 +19,10 @@ This is an API that works both on iOS and Android and can show static alerts. To
   </tr>
   <tr>
     <td style="width: 50%;">
-      <center><img src="/react-native/docs/assets/Alert/exampleios.gif"></img></center>
+      <center><img src="/docs/assets/Alert/exampleios.gif"></img></center>
     </td>
     <td style="width: 50%;">
-      <center><img src="/react-native/docs/assets/Alert/exampleandroid.gif"></img></center>
+      <center><img src="/docs/assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>
 </table>
@@ -46,7 +46,7 @@ Alternatively, the dismissing behavior can be disabled altogether by providing a
 Example usage:
 
 ```
-// Works on both iOS and Android
+// Works on both Android and iOS
 Alert.alert(
   'Alert Title',
   'My Alert Msg',

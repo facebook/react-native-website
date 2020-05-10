@@ -3,28 +3,200 @@ id: animated
 title: Animated
 ---
 
-The `Animated` library is designed to make animations fluid, powerful, and easy to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and simple `start`/`stop` methods to control time-based animation execution.
+The `Animated` library is designed to make animations fluid, powerful, and painless to build and maintain. `Animated` focuses on declarative relationships between inputs and outputs, configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
-The simplest workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`:
+The core workflow for creating an animation is to create an `Animated.Value`, hook it up to one or more style attributes of an animated component, and then drive updates via animations using `Animated.timing()`.
 
-```jsx
-Animated.timing(
-  // Animate value over time
-  this.state.fadeAnim, // The value to drive
-  {
-    toValue: 1, // Animate to final value of 1
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Using with Function Components
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Using with Class Components
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+
+<block class="classical syntax" />
+
+> Don't modify the animated value directly. It is usually stored as a [state variable](intro-react#state) in class components.
+
+<block class="endBlock syntax" />
+
+## Example
+
+The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Animated
+import React, { useRef } from "react";
+import { Animated, Text, View, StyleSheet, Button } from "react-native";
+
+export default function App() {
+  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 2000
+    }).start();
+  };
+
+  const fadeOut = () => {
+    // Will change fadeAnim value to 0 in 5 seconds
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 2000
+    }).start();
+  };
+
+  return (
+    <View style={styles.container}>
+      <Animated.View
+        style={[
+          styles.fadingContainer,
+          {
+            opacity: fadeAnim // Bind opacity to animated value
+          }
+        ]}
+      >
+        <Text style={styles.fadingText}>Fading View!</Text>
+      </Animated.View>
+      <View style={styles.buttonRow}>
+        <Button title="Fade In" onPress={fadeIn} />
+        <Button title="Fade Out" onPress={fadeOut} />
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
   },
-).start(); // Start the animation
+  fadingContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: "powderblue"
+  },
+  fadingText: {
+    fontSize: 28,
+    textAlign: "center",
+    margin: 10
+  },
+  buttonRow: {
+    flexDirection: "row",
+    marginVertical: 16
+  }
+});
 ```
 
-Refer to the [Animations](animations.md#animated-api) guide to see additional examples of `Animated` in action.
+<block class="classical syntax" />
+
+```SnackPlayer name=Animated
+import React, { Component } from "react";
+import { Animated, Text, View, StyleSheet, Button } from "react-native";
+
+class App extends Component {
+  // fadeAnim will be used as the value for opacity. Initial Value: 0
+  state = {
+    fadeAnim: new Animated.Value(0)
+  };
+
+  fadeIn = () => {
+    // Will change fadeAnim value to 1 in 5 seconds
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 1,
+      duration: 2000
+    }).start();
+  };
+
+  fadeOut = () => {
+    // Will change fadeAnim value to 0 in 5 seconds
+    Animated.timing(this.state.fadeAnim, {
+      toValue: 0,
+      duration: 2000
+    }).start();
+  };
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Animated.View
+          style={[
+            styles.fadingContainer,
+            {
+              opacity: this.state.fadeAnim // Bind opacity to animated value
+            }
+          ]}
+        >
+          <Text style={styles.fadingText}>Fading View!</Text>
+        </Animated.View>
+        <View style={styles.buttonRow}>
+          <Button title="Fade In" onPress={this.fadeIn} />
+          <Button title="Fade Out" onPress={this.fadeOut} />
+        </View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  fadingContainer: {
+    paddingVertical: 8,
+    paddingHorizontal: 16,
+    backgroundColor: "powderblue"
+  },
+  fadingText: {
+    fontSize: 28,
+    textAlign: "center",
+    margin: 10
+  },
+  buttonRow: {
+    flexDirection: "row",
+    marginVertical: 16
+  }
+});
+
+export default App;
+```
+
+<block class="endBlock syntax" />
+
+Refer to the [Animations](animations#animated-api) guide to see additional examples of `Animated` in action.
 
 ## Overview
 
 There are two value types you can use with `Animated`:
 
-- [`Animated.Value()`](animated.md#value) for single values
-- [`Animated.ValueXY()`](animated.md#valuexy) for vectors
+- [`Animated.Value()`](animated#value) for single values
+- [`Animated.ValueXY()`](animated#valuexy) for vectors
 
 `Animated.Value` can bind to style properties or other props, and can be interpolated as well. A single `Animated.Value` can drive any number of properties.
 
@@ -32,9 +204,9 @@ There are two value types you can use with `Animated`:
 
 `Animated` provides three types of animation types. Each animation type provides a particular animation curve that controls how your values animate from their initial value to the final value:
 
-- [`Animated.decay()`](animated.md#decay) starts with an initial velocity and gradually slows to a stop.
-- [`Animated.spring()`](animated.md#spring) provides a simple spring physics model.
-- [`Animated.timing()`](animated.md#timing) animates a value over time using [easing functions](easing.md).
+- [`Animated.decay()`](animated#decay) starts with an initial velocity and gradually slows to a stop.
+- [`Animated.spring()`](animated#spring) provides a basic spring physics model.
+- [`Animated.timing()`](animated#timing) animates a value over time using [easing functions](easing).
 
 In most cases, you will be using `timing()`. By default, it uses a symmetric easeInOut curve that conveys the gradual acceleration of an object to full speed and concludes by gradually decelerating to a stop.
 
@@ -42,17 +214,23 @@ In most cases, you will be using `timing()`. By default, it uses a symmetric eas
 
 Animations are started by calling `start()` on your animation. `start()` takes a completion callback that will be called when the animation is done. If the animation finished running normally, the completion callback will be invoked with `{finished: true}`. If the animation is done because `stop()` was called on it before it could finish (e.g. because it was interrupted by a gesture or another animation), then it will receive `{finished: false}`.
 
+```jsx
+Animated.timing({}).start(({ finished }) => {
+  /* completion callback */
+});
+```
+
 ### Using the native driver
 
 By using the native driver, we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
 
-You can use the native driver by specifying `useNativeDriver: true` in your animation configuration. See the [Animations](animations.md#using-the-native-driver) guide to learn more.
+You can use the native driver by specifying `useNativeDriver: true` in your animation configuration. See the [Animations](animations#using-the-native-driver) guide to learn more.
 
 ### Animatable components
 
-Only animatable components can be animated. These special components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
+Only animatable components can be animated. These unique components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
 
-- [`createAnimatedComponent()`](animated.md#createanimatedcomponent) can be used to make a component animatable.
+- [`createAnimatedComponent()`](animated#createanimatedcomponent) can be used to make a component animatable.
 
 `Animated` exports the following animatable components using the above wrapper:
 
@@ -67,12 +245,12 @@ Only animatable components can be animated. These special components do the magi
 
 Animations can also be combined in complex ways using composition functions:
 
-- [`Animated.delay()`](animated.md#delay) starts an animation after a given delay.
-- [`Animated.parallel()`](animated.md#parallel) starts a number of animations at the same time.
-- [`Animated.sequence()`](animated.md#sequence) starts the animations in order, waiting for each to complete before starting the next.
-- [`Animated.stagger()`](animated.md#stagger) starts animations in order and in parallel, but with successive delays.
+- [`Animated.delay()`](animated#delay) starts an animation after a given delay.
+- [`Animated.parallel()`](animated#parallel) starts a number of animations at the same time.
+- [`Animated.sequence()`](animated#sequence) starts the animations in order, waiting for each to complete before starting the next.
+- [`Animated.stagger()`](animated#stagger) starts animations in order and in parallel, but with successive delays.
 
-Animations can also be chained together simply by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](animations.md#tracking-dynamic-values) in the Animations guide.
+Animations can also be chained together by setting the `toValue` of one animation to be another `Animated.Value`. See [Tracking dynamic values](animations#tracking-dynamic-values) in the Animations guide.
 
 By default, if one animation is stopped or interrupted, then all other animations in the group are also stopped.
 
@@ -80,25 +258,25 @@ By default, if one animation is stopped or interrupted, then all other animation
 
 You can combine two animated values via addition, subtraction, multiplication, division, or modulo to make a new animated value:
 
-- [`Animated.add()`](animated.md#add)
-- [`Animated.subtract()`](animated.md#subtract)
-- [`Animated.divide()`](animated.md#divide)
-- [`Animated.modulo()`](animated.md#modulo)
-- [`Animated.multiply()`](animated.md#multiply)
+- [`Animated.add()`](animated#add)
+- [`Animated.subtract()`](animated#subtract)
+- [`Animated.divide()`](animated#divide)
+- [`Animated.modulo()`](animated#modulo)
+- [`Animated.multiply()`](animated#multiply)
 
 ### Interpolation
 
 The `interpolate()` function allows input ranges to map to different output ranges. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value. It uses linear interpolation by default but also supports easing functions.
 
-- [`interpolate()`](animated.md#interpolate)
+- [`interpolate()`](animated#interpolate)
 
-Read more about interpolation in the [Animation](animations.md#interpolation) guide.
+Read more about interpolation in the [Animation](animations#interpolation) guide.
 
 ### Handling gestures and other events
 
 Gestures, like panning or scrolling, and other events can map directly to animated values using `Animated.event()`. This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
 
-- [`Animated.event()`](animated.md#event)
+- [`Animated.event()`](animated#event)
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
@@ -113,35 +291,6 @@ For example, when working with horizontal scrolling gestures, you would do the f
     }]
  )}
 ```
-
-### Methods
-
-- [`decay`](animated.md#decay)
-- [`timing`](animated.md#timing)
-- [`spring`](animated.md#spring)
-- [`add`](animated.md#add)
-- [`subtract`](animated.md#subtract)
-- [`divide`](animated.md#divide)
-- [`multiply`](animated.md#multiply)
-- [`modulo`](animated.md#modulo)
-- [`diffClamp`](animated.md#diffclamp)
-- [`delay`](animated.md#delay)
-- [`sequence`](animated.md#sequence)
-- [`parallel`](animated.md#parallel)
-- [`stagger`](animated.md#stagger)
-- [`loop`](animated.md#loop)
-- [`event`](animated.md#event)
-- [`forkEvent`](animated.md#forkevent)
-- [`unforkEvent`](animated.md#unforkevent)
-
-### Properties
-
-- [`Value`](animated.md#value)
-- [`ValueXY`](animated.md#valuexy)
-- [`Interpolation`](animated.md#interpolation)
-- [`Node`](animated.md#node)
-- [`createAnimatedComponent`](animated.md#createanimatedcomponent)
-- [`attachNativeEvent`](animated.md#attachnativeevent)
 
 ---
 
@@ -174,7 +323,7 @@ Config is an object that may have the following options:
 static timing(value, config)
 ```
 
-Animates a value along a timed easing curve. The [`Easing`](easing.md) module has tons of predefined curves, or you can use your own function.
+Animates a value along a timed easing curve. The [`Easing`](easing) module has tons of predefined curves, or you can use your own function.
 
 Config is an object that may have the following options:
 
@@ -198,14 +347,14 @@ Config is an object that may have the following options.
 
 Note that you can only define one of bounciness/speed, tension/friction, or stiffness/damping/mass, but not more than one:
 
-The friction/tension or bounciness/speed options match the spring model in [Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
+The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
 
 - `friction`: Controls "bounciness"/overshoot. Default 7.
 - `tension`: Controls speed. Default 40.
 - `speed`: Controls speed of the animation. Default 12.
 - `bounciness`: Controls bounciness. Default 8.
 
-Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation primitive.
+Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
 
 - `stiffness`: The spring stiffness coefficient. Default 100.
 - `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
@@ -331,7 +480,7 @@ Array of animations may run in parallel (overlap), but are started in sequence w
 static loop(animation, config?)
 ```
 
-Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the UI thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
+Loops a given animation continuously, so that each time it reaches the end, it resets and begins again from the start. Will loop without blocking the JS thread if the child animation is set to `useNativeDriver: true`. In addition, loops can prevent `VirtualizedList`-based components from rendering more rows while the animation is running. You can pass `isInteraction: false` in the child animation config to fix this.
 
 Config is an object that may have the following options:
 
@@ -373,7 +522,7 @@ Config is an object that may have the following options:
 static forkEvent(event, listener)
 ```
 
-Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a simple javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
+Advanced imperative API for snooping on animated events that are passed in through props. It permits to add a new javascript listener to an existing `AnimatedEvent`. If `animatedEvent` is a javascript listener, it will merge the 2 listeners into a single one, and if `animatedEvent` is null/undefined, it will assign the javascript listener directly. Use values directly where possible.
 
 ---
 
@@ -383,17 +532,65 @@ Advanced imperative API for snooping on animated events that are passed in throu
 static unforkEvent(event, listener)
 ```
 
+---
+
+### `start()`
+
+```jsx
+static start([callback]: ?(result?: {finished: boolean}) => void)
+```
+
+Animations are started by calling start() on your animation. start() takes a completion callback that will be called when the animation is done or when the animation is done because stop() was called on it before it could finish.
+
+**Parameters:**
+
+| Name     | Type                            | Required | Description                                                                                                                                                     |
+| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+
+Start example with callback:
+
+```jsx
+Animated.timing({}).start(({ finished }) => {
+  /* completion callback */
+});
+```
+
+---
+
+### `stop()`
+
+```jsx
+static stop()
+```
+
+Stops any running animation.
+
+---
+
+### `reset()`
+
+```jsx
+static reset()
+```
+
+Stops any running animation and resets the value to its original.
+
 ## Properties
 
 ### `Value`
 
 Standard value class for driving animations. Typically initialized with `new Animated.Value(0);`
 
+You can read more about `Animated.Value` API on the separate [page](animatedvalue).
+
 ---
 
 ### `ValueXY`
 
 2D value class for driving 2D animations, such as pan gestures.
+
+You can read more about `Animated.ValueXY` API on the separate [page](animatedvaluexy).
 
 ---
 

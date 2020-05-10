@@ -24,7 +24,7 @@ In any case, have fun! The original blog post continues below.
 
 ## Prerequisites
 
-Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](https://facebook.github.io/react-native/docs/getting-started.html). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
+Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](/docs/getting-started.html). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
 
 You will also need [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com), and [Yarn](https://yarnpkg.com/lang/en).
 
@@ -75,7 +75,7 @@ module.exports = {
   },
   getSourceExts() {
     return ['ts', 'tsx'];
-  },
+  }
 };
 ```
 
@@ -172,7 +172,7 @@ Create a `components` directory and add the following example.
 ```ts
 // components/Hello.tsx
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export interface Props {
   name: string;
@@ -188,19 +188,26 @@ export class Hello extends React.Component<Props, State> {
     super(props);
 
     if ((props.enthusiasmLevel || 0) <= 0) {
-      throw new Error('You could be a little more enthusiastic. :D');
+      throw new Error(
+        'You could be a little more enthusiastic. :D'
+      );
     }
 
     this.state = {
-      enthusiasmLevel: props.enthusiasmLevel || 1,
+      enthusiasmLevel: props.enthusiasmLevel || 1
     };
   }
 
   onIncrement = () =>
-    this.setState({enthusiasmLevel: this.state.enthusiasmLevel + 1});
+    this.setState({
+      enthusiasmLevel: this.state.enthusiasmLevel + 1
+    });
   onDecrement = () =>
-    this.setState({enthusiasmLevel: this.state.enthusiasmLevel - 1});
-  getExclamationMarks = (numChars: number) => Array(numChars + 1).join('!');
+    this.setState({
+      enthusiasmLevel: this.state.enthusiasmLevel - 1
+    });
+  getExclamationMarks = (numChars: number) =>
+    Array(numChars + 1).join('!');
 
   render() {
     return (
@@ -239,23 +246,23 @@ export class Hello extends React.Component<Props, State> {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   buttons: {
     flexDirection: 'row',
     minHeight: 70,
     alignItems: 'stretch',
     alignSelf: 'center',
-    borderWidth: 5,
+    borderWidth: 5
   },
   button: {
     flex: 1,
-    paddingVertical: 0,
+    paddingVertical: 0
   },
   greeting: {
     color: '#999',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 ```
 
@@ -281,7 +288,7 @@ Now let's create a `__tests__` folder in the `components` directory and add a te
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import {Hello} from '../Hello';
+import { Hello } from '../Hello';
 
 it('renders correctly with defaults', () => {
   const button = renderer

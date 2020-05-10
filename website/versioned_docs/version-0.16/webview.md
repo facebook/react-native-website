@@ -6,7 +6,7 @@ original_id: webview
 
 Renders a native WebView.
 
-Note that WebView is only supported on iOS for now, see https://facebook.github.io/react-native/known-issues.md
+Note that WebView is only supported on iOS for now, see https://reactnative.dev/known-issues.md
 
 ### Props
 

@@ -17,21 +17,23 @@ A performant interface for rendering sectioned lists, supporting the most handy 
 - Pull to Refresh.
 - Scroll loading.
 
-If you don't need section support and want a simpler interface, use [`<FlatList>`](flatlist.md).
+If you don't need section support and want a clearer interface, use [`<FlatList>`](flatlist.md).
 
-Simple Examples:
+Small Examples:
 
 ```jsx
 // Example 1 (Homogeneous Rendering)
 <SectionList
-  renderItem={({item, index, section}) => <Text key={index}>{item}</Text>}
-  renderSectionHeader={({section: {title}}) => (
-    <Text style={{fontWeight: 'bold'}}>{title}</Text>
+  renderItem={({ item, index, section }) => (
+    <Text key={index}>{item}</Text>
+  )}
+  renderSectionHeader={({ section: { title } }) => (
+    <Text style={{ fontWeight: 'bold' }}>{title}</Text>
   )}
   sections={[
-    {title: 'Title1', data: ['item1', 'item2']},
-    {title: 'Title2', data: ['item3', 'item4']},
-    {title: 'Title3', data: ['item5', 'item6']},
+    { title: 'Title1', data: ['item1', 'item2'] },
+    { title: 'Title2', data: ['item3', 'item4'] },
+    { title: 'Title3', data: ['item5', 'item6'] }
   ]}
   keyExtractor={(item, index) => item + index}
 />

@@ -21,22 +21,25 @@
         "title": "Alert"
       },
       "alertios": {
-        "title": "AlertIOS"
+        "title": "🚧 AlertIOS"
       },
       "animated": {
         "title": "Animated"
       },
       "animatedvalue": {
-        "title": "AnimatedValue"
+        "title": "Animated.Value"
       },
       "animatedvaluexy": {
-        "title": "AnimatedValueXY"
+        "title": "Animated.ValueXY"
       },
       "animations": {
         "title": "Animations"
       },
       "app-extensions": {
         "title": "App Extensions"
+      },
+      "appearance": {
+        "title": "Appearance"
       },
       "appregistry": {
         "title": "AppRegistry"
@@ -45,22 +48,22 @@
         "title": "AppState"
       },
       "asyncstorage": {
-        "title": "AsyncStorage"
+        "title": "🚧 AsyncStorage"
       },
       "backhandler": {
         "title": "BackHandler"
       },
-      "building-for-apple-tv": {
+      "building-for-tv": {
         "title": "Building For TV Devices"
       },
       "button": {
         "title": "Button"
       },
       "checkbox": {
-        "title": "CheckBox"
+        "title": "🚧 CheckBox"
       },
       "clipboard": {
-        "title": "Clipboard"
+        "title": "🚧 Clipboard"
       },
       "colors": {
         "title": "Color Reference"
@@ -72,7 +75,7 @@
         "title": "Communication between native and React Native"
       },
       "components-and-apis": {
-        "title": "Components and APIs"
+        "title": "Core Components and APIs"
       },
       "custom-webview-android": {
         "title": "Custom WebView"
@@ -81,13 +84,16 @@
         "title": "Custom WebView"
       },
       "datepickerandroid": {
-        "title": "DatePickerAndroid"
+        "title": "🚧 DatePickerAndroid"
       },
       "datepickerios": {
-        "title": "DatePickerIOS"
+        "title": "🚧 DatePickerIOS"
       },
       "debugging": {
         "title": "Debugging"
+      },
+      "devsettings": {
+        "title": "DevSettings"
       },
       "dimensions": {
         "title": "Dimensions"
@@ -98,8 +104,14 @@
       "drawerlayoutandroid": {
         "title": "DrawerLayoutAndroid"
       },
+      "dynamiccolorios": {
+        "title": "DynamicColorIOS"
+      },
       "easing": {
         "title": "Easing"
+      },
+      "fast-refresh": {
+        "title": "Fast Refresh"
       },
       "flatlist": {
         "title": "FlatList"
@@ -110,8 +122,8 @@
       "gesture-responder-system": {
         "title": "Gesture Responder System"
       },
-      "getting-started": {
-        "title": "Getting Started"
+      "environment-setup": {
+        "title": "Setting up the development environment"
       },
       "handling-text-input": {
         "title": "Handling Text Input"
@@ -138,10 +150,10 @@
         "title": "ImageBackground"
       },
       "imageeditor": {
-        "title": "ImageEditor"
+        "title": "🚧 ImageEditor"
       },
       "imagepickerios": {
-        "title": "ImagePickerIOS"
+        "title": "🚧 ImagePickerIOS"
       },
       "images": {
         "title": "Images"
@@ -158,6 +170,15 @@
       "interactionmanager": {
         "title": "InteractionManager"
       },
+      "intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
+      "intro-react": {
+        "title": "React Fundamentals"
+      },
+      "getting-started": {
+        "title": "Introduction"
+      },
       "javascript-environment": {
         "title": "JavaScript Environment"
       },
@@ -172,6 +193,9 @@
       },
       "layoutanimation": {
         "title": "LayoutAnimation"
+      },
+      "libraries": {
+        "title": "Using Libraries"
       },
       "linking-libraries-ios": {
         "title": "Linking Libraries"
@@ -216,7 +240,7 @@
         "title": "PanResponder"
       },
       "performance": {
-        "title": "Performance"
+        "title": "Performance Overview"
       },
       "permissionsandroid": {
         "title": "PermissionsAndroid"
@@ -228,10 +252,10 @@
         "title": "Picker Style Props"
       },
       "picker": {
-        "title": "Picker"
+        "title": "🚧 Picker"
       },
       "pickerios": {
-        "title": "PickerIOS"
+        "title": "🚧 PickerIOS"
       },
       "pixelratio": {
         "title": "PixelRatio"
@@ -239,17 +263,26 @@
       "platform-specific-code": {
         "title": "Platform Specific Code"
       },
+      "platformcolor": {
+        "title": "PlatformColor"
+      },
+      "profiling": {
+        "title": "Profiling"
+      },
       "progressbarandroid": {
-        "title": "ProgressBarAndroid"
+        "title": "🚧 ProgressBarAndroid"
       },
       "progressviewios": {
-        "title": "ProgressViewIOS"
+        "title": "🚧 ProgressViewIOS"
       },
       "props": {
         "title": "Props"
       },
       "pushnotificationios": {
-        "title": "PushNotificationIOS"
+        "title": "🚧 PushNotificationIOS"
+      },
+      "ram-bundles-inline-requires": {
+        "title": "RAM Bundles and Inline Requires"
       },
       "refreshcontrol": {
         "title": "RefreshControl"
@@ -272,8 +305,11 @@
       "sectionlist": {
         "title": "SectionList"
       },
+      "security": {
+        "title": "Security"
+      },
       "segmentedcontrolios": {
-        "title": "SegmentedControlIOS"
+        "title": "🚧 SegmentedControlIOS"
       },
       "settings": {
         "title": "Settings"
@@ -288,7 +324,7 @@
         "title": "Publishing to Google Play Store"
       },
       "slider": {
-        "title": "Slider"
+        "title": "🚧 Slider"
       },
       "state": {
         "title": "State"
@@ -297,7 +333,7 @@
         "title": "StatusBar"
       },
       "statusbarios": {
-        "title": "StatusBarIOS"
+        "title": "🚧 StatusBarIOS"
       },
       "style": {
         "title": "Style"
@@ -311,6 +347,9 @@
       "systrace": {
         "title": "Systrace"
       },
+      "testing-overview": {
+        "title": "Testing"
+      },
       "text-style-props": {
         "title": "Text Style Props"
       },
@@ -321,16 +360,13 @@
         "title": "TextInput"
       },
       "timepickerandroid": {
-        "title": "TimePickerAndroid"
+        "title": "🚧 TimePickerAndroid"
       },
       "timers": {
         "title": "Timers"
       },
       "toastandroid": {
         "title": "ToastAndroid"
-      },
-      "toolbarandroid": {
-        "title": "ToolbarAndroid"
       },
       "touchablehighlight": {
         "title": "TouchableHighlight"
@@ -353,8 +389,17 @@
       "tutorial": {
         "title": "Learn the Basics"
       },
+      "typescript": {
+        "title": "Using TypeScript with React Native"
+      },
       "upgrading": {
         "title": "Upgrading to new React Native versions"
+      },
+      "usecolorscheme": {
+        "title": "useColorScheme"
+      },
+      "usewindowdimensions": {
+        "title": "useWindowDimensions"
       },
       "using-a-listview": {
         "title": "Using List Views"
@@ -372,7 +417,7 @@
         "title": "View"
       },
       "viewpagerandroid": {
-        "title": "ViewPagerAndroid"
+        "title": "🚧 ViewPagerAndroid"
       },
       "virtualizedlist": {
         "title": "VirtualizedList"
@@ -2069,7 +2114,7 @@
       "version-0.5/version-0.5-backhandler": {
         "title": "BackHandler"
       },
-      "version-0.5/version-0.5-building-for-apple-tv": {
+      "version-0.5/version-0.5-building-for-tv": {
         "title": "Building For TV Devices"
       },
       "version-0.5/version-0.5-button": {
@@ -2177,6 +2222,9 @@
       "version-0.5/version-0.5-interactionmanager": {
         "title": "InteractionManager"
       },
+      "version-0.5/version-0.5-intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
       "version-0.5/version-0.5-javascript-environment": {
         "title": "JavaScript Environment"
       },
@@ -2242,6 +2290,9 @@
       },
       "version-0.5/version-0.5-network": {
         "title": "Networking"
+      },
+      "version-0.5/version-0.5-optimizing-flatlist-configuration": {
+        "title": "Optimizing Flatlist Configuration"
       },
       "version-0.5/version-0.5-panresponder": {
         "title": "PanResponder"
@@ -2313,7 +2364,7 @@
         "title": "Share"
       },
       "version-0.5/version-0.5-signed-apk-android": {
-        "title": "Generating Signed APK"
+        "title": "Publishing to Google Play Store"
       },
       "version-0.5/version-0.5-slider": {
         "title": "Slider"
@@ -2916,7 +2967,7 @@
         "title": "Button"
       },
       "version-0.58/version-0.58-cameraroll": {
-        "title": "CameraRoll"
+        "title": "🚧 CameraRoll"
       },
       "version-0.58/version-0.58-communication-android": {
         "title": "Communication between native and React Native"
@@ -2937,7 +2988,7 @@
         "title": "FlatList"
       },
       "version-0.58/version-0.58-geolocation": {
-        "title": "Geolocation"
+        "title": "🚧 Geolocation"
       },
       "version-0.58/version-0.58-image-style-props": {
         "title": "Image Style Props"
@@ -3072,7 +3123,7 @@
         "title": "ViewPagerAndroid"
       },
       "version-0.58/version-0.58-webview": {
-        "title": "WebView"
+        "title": "🚧 WebView"
       },
       "version-0.59/version-0.59-appregistry": {
         "title": "AppRegistry"
@@ -3083,9 +3134,6 @@
       "version-0.59/version-0.59-image-style-props": {
         "title": "Image Style Props"
       },
-      "version-0.59/version-0.59-images": {
-        "title": "Images"
-      },
       "version-0.59/version-0.59-imagestore": {
         "title": "ImageStore"
       },
@@ -3093,7 +3141,7 @@
         "title": "Linking"
       },
       "version-0.59/version-0.59-maskedviewios": {
-        "title": "MaskedViewIOS"
+        "title": "🚧 MaskedViewIOS"
       },
       "version-0.59/version-0.59-netinfo": {
         "title": "NetInfo"
@@ -3164,9 +3212,6 @@
       "version-0.6/version-0.6-touchablewithoutfeedback": {
         "title": "TouchableWithoutFeedback"
       },
-      "version-0.60/version-0.60-accessibility": {
-        "title": "Accessibility"
-      },
       "version-0.60/version-0.60-accessibilityinfo": {
         "title": "AccessibilityInfo"
       },
@@ -3179,14 +3224,11 @@
       "version-0.60/version-0.60-alert": {
         "title": "Alert"
       },
+      "version-0.60/version-0.60-alertios": {
+        "title": "AlertIOS"
+      },
       "version-0.60/version-0.60-animated": {
         "title": "Animated"
-      },
-      "version-0.60/version-0.60-animations": {
-        "title": "Animations"
-      },
-      "version-0.60/version-0.60-app-extensions": {
-        "title": "App Extensions"
       },
       "version-0.60/version-0.60-appregistry": {
         "title": "AppRegistry"
@@ -3194,29 +3236,32 @@
       "version-0.60/version-0.60-appstate": {
         "title": "AppState"
       },
+      "version-0.60/version-0.60-asyncstorage": {
+        "title": "AsyncStorage"
+      },
       "version-0.60/version-0.60-backhandler": {
         "title": "BackHandler"
       },
       "version-0.60/version-0.60-button": {
         "title": "Button"
       },
+      "version-0.60/version-0.60-clipboard": {
+        "title": "Clipboard"
+      },
       "version-0.60/version-0.60-communication-android": {
         "title": "Communication between native and React Native"
       },
-      "version-0.60/version-0.60-components-and-apis": {
-        "title": "Components and APIs"
+      "version-0.60/version-0.60-datepickerandroid": {
+        "title": "DatePickerAndroid"
       },
       "version-0.60/version-0.60-datepickerios": {
         "title": "DatePickerIOS"
       },
-      "version-0.60/version-0.60-debugging": {
-        "title": "Debugging"
-      },
       "version-0.60/version-0.60-dimensions": {
         "title": "Dimensions"
       },
-      "version-0.60/version-0.60-direct-manipulation": {
-        "title": "Direct Manipulation"
+      "version-0.60/version-0.60-drawerlayoutandroid": {
+        "title": "DrawerLayoutAndroid"
       },
       "version-0.60/version-0.60-easing": {
         "title": "Easing"
@@ -3224,32 +3269,32 @@
       "version-0.60/version-0.60-flatlist": {
         "title": "FlatList"
       },
-      "version-0.60/version-0.60-flexbox": {
-        "title": "Layout with Flexbox"
-      },
       "version-0.60/version-0.60-getting-started": {
         "title": "Getting Started"
-      },
-      "version-0.60/version-0.60-handling-text-input": {
-        "title": "Handling Text Input"
-      },
-      "version-0.60/version-0.60-headless-js-android": {
-        "title": "Headless JS"
       },
       "version-0.60/version-0.60-hermes": {
         "title": "Using Hermes"
       },
+      "version-0.60/version-0.60-image-style-props": {
+        "title": "Image Style Props"
+      },
       "version-0.60/version-0.60-image": {
         "title": "Image"
+      },
+      "version-0.60/version-0.60-imagebackground": {
+        "title": "ImageBackground"
+      },
+      "version-0.60/version-0.60-imageeditor": {
+        "title": "ImageEditor"
       },
       "version-0.60/version-0.60-imagepickerios": {
         "title": "ImagePickerIOS"
       },
-      "version-0.60/version-0.60-images": {
-        "title": "Images"
+      "version-0.60/version-0.60-inputaccessoryview": {
+        "title": "InputAccessoryView"
       },
-      "version-0.60/version-0.60-javascript-environment": {
-        "title": "JavaScript Environment"
+      "version-0.60/version-0.60-interactionmanager": {
+        "title": "InteractionManager"
       },
       "version-0.60/version-0.60-keyboard": {
         "title": "Keyboard"
@@ -3269,44 +3314,35 @@
       "version-0.60/version-0.60-modal": {
         "title": "Modal"
       },
-      "version-0.60/version-0.60-more-resources": {
-        "title": "More Resources"
-      },
-      "version-0.60/version-0.60-native-components-ios": {
-        "title": "Native UI Components"
-      },
-      "version-0.60/version-0.60-native-modules-android": {
-        "title": "Native Modules"
-      },
-      "version-0.60/version-0.60-navigation": {
-        "title": "Navigating Between Screens"
-      },
-      "version-0.60/version-0.60-optimizing-flatlist-configuration": {
-        "title": "Optimizing Flatlist Configuration"
-      },
       "version-0.60/version-0.60-out-of-tree-platforms": {
         "title": "Out-of-Tree Platforms"
       },
       "version-0.60/version-0.60-panresponder": {
         "title": "PanResponder"
       },
-      "version-0.60/version-0.60-performance": {
-        "title": "Performance"
+      "version-0.60/version-0.60-permissionsandroid": {
+        "title": "PermissionsAndroid"
+      },
+      "version-0.60/version-0.60-picker": {
+        "title": "Picker"
       },
       "version-0.60/version-0.60-pickerios": {
         "title": "PickerIOS"
       },
+      "version-0.60/version-0.60-pixelratio": {
+        "title": "PixelRatio"
+      },
       "version-0.60/version-0.60-progressbarandroid": {
         "title": "ProgressBarAndroid"
+      },
+      "version-0.60/version-0.60-progressviewios": {
+        "title": "ProgressViewIOS"
       },
       "version-0.60/version-0.60-pushnotificationios": {
         "title": "PushNotificationIOS"
       },
-      "version-0.60/version-0.60-removing-default-permissions": {
-        "title": "Removing Default Permissions"
-      },
-      "version-0.60/version-0.60-running-on-simulator-ios": {
-        "title": "Running On Simulator"
+      "version-0.60/version-0.60-refreshcontrol": {
+        "title": "RefreshControl"
       },
       "version-0.60/version-0.60-safeareaview": {
         "title": "SafeAreaView"
@@ -3317,23 +3353,26 @@
       "version-0.60/version-0.60-sectionlist": {
         "title": "SectionList"
       },
+      "version-0.60/version-0.60-segmentedcontrolios": {
+        "title": "SegmentedControlIOS"
+      },
       "version-0.60/version-0.60-settings": {
         "title": "Settings"
       },
-      "version-0.60/version-0.60-signed-apk-android": {
-        "title": "Publishing to Google Play Store"
+      "version-0.60/version-0.60-shadow-props": {
+        "title": "Shadow Props"
+      },
+      "version-0.60/version-0.60-share": {
+        "title": "Share"
       },
       "version-0.60/version-0.60-slider": {
         "title": "Slider"
       },
-      "version-0.60/version-0.60-state": {
-        "title": "State"
-      },
       "version-0.60/version-0.60-statusbar": {
         "title": "StatusBar"
       },
-      "version-0.60/version-0.60-style": {
-        "title": "Style"
+      "version-0.60/version-0.60-statusbarios": {
+        "title": "StatusBarIOS"
       },
       "version-0.60/version-0.60-stylesheet": {
         "title": "StyleSheet"
@@ -3353,8 +3392,11 @@
       "version-0.60/version-0.60-textinput": {
         "title": "TextInput"
       },
-      "version-0.60/version-0.60-timers": {
-        "title": "Timers"
+      "version-0.60/version-0.60-timepickerandroid": {
+        "title": "TimePickerAndroid"
+      },
+      "version-0.60/version-0.60-toastandroid": {
+        "title": "ToastAndroid"
       },
       "version-0.60/version-0.60-toolbarandroid": {
         "title": "ToolbarAndroid"
@@ -3374,14 +3416,11 @@
       "version-0.60/version-0.60-transforms": {
         "title": "Transforms"
       },
-      "version-0.60/version-0.60-troubleshooting": {
-        "title": "Troubleshooting"
+      "version-0.60/version-0.60-typescript": {
+        "title": "Using TypeScript with React Native"
       },
-      "version-0.60/version-0.60-upgrading": {
-        "title": "Upgrading to new React Native versions"
-      },
-      "version-0.60/version-0.60-using-a-scrollview": {
-        "title": "Using a ScrollView"
+      "version-0.60/version-0.60-vibration": {
+        "title": "Vibration"
       },
       "version-0.60/version-0.60-view-style-props": {
         "title": "View Style Props"
@@ -3389,7 +3428,442 @@
       "version-0.60/version-0.60-view": {
         "title": "View"
       },
+      "version-0.60/version-0.60-viewpagerandroid": {
+        "title": "ViewPagerAndroid"
+      },
       "version-0.60/version-0.60-virtualizedlist": {
+        "title": "VirtualizedList"
+      },
+      "version-0.61/version-0.61-alertios": {
+        "title": "🚧 AlertIOS"
+      },
+      "version-0.61/version-0.61-asyncstorage": {
+        "title": "🚧 AsyncStorage"
+      },
+      "version-0.61/version-0.61-checkbox": {
+        "title": "🚧 CheckBox"
+      },
+      "version-0.61/version-0.61-clipboard": {
+        "title": "🚧 Clipboard"
+      },
+      "version-0.61/version-0.61-datepickerandroid": {
+        "title": "🚧 DatePickerAndroid"
+      },
+      "version-0.61/version-0.61-datepickerios": {
+        "title": "🚧 DatePickerIOS"
+      },
+      "version-0.61/version-0.61-debugging": {
+        "title": "Debugging"
+      },
+      "version-0.61/version-0.61-dimensions": {
+        "title": "Dimensions"
+      },
+      "version-0.61/version-0.61-fast-refresh": {
+        "title": "Fast Refresh"
+      },
+      "version-0.61/version-0.61-getting-started": {
+        "title": "Getting Started"
+      },
+      "version-0.61/version-0.61-imageeditor": {
+        "title": "🚧 ImageEditor"
+      },
+      "version-0.61/version-0.61-imagepickerios": {
+        "title": "🚧 ImagePickerIOS"
+      },
+      "version-0.61/version-0.61-pickerios": {
+        "title": "🚧 PickerIOS"
+      },
+      "version-0.61/version-0.61-progressbarandroid": {
+        "title": "🚧 ProgressBarAndroid"
+      },
+      "version-0.61/version-0.61-progressviewios": {
+        "title": "🚧 ProgressViewIOS"
+      },
+      "version-0.61/version-0.61-pushnotificationios": {
+        "title": "🚧 PushNotificationIOS"
+      },
+      "version-0.61/version-0.61-segmentedcontrolios": {
+        "title": "🚧 SegmentedControlIOS"
+      },
+      "version-0.61/version-0.61-slider": {
+        "title": "🚧 Slider"
+      },
+      "version-0.61/version-0.61-statusbarios": {
+        "title": "🚧 StatusBarIOS"
+      },
+      "version-0.61/version-0.61-timepickerandroid": {
+        "title": "🚧 TimePickerAndroid"
+      },
+      "version-0.61/version-0.61-typescript": {
+        "title": "Using TypeScript with React Native"
+      },
+      "version-0.61/version-0.61-usewindowdimensions": {
+        "title": "useWindowDimensions"
+      },
+      "version-0.61/version-0.61-viewpagerandroid": {
+        "title": "🚧 ViewPagerAndroid"
+      },
+      "version-0.62/version-0.62-accessibility": {
+        "title": "Accessibility"
+      },
+      "version-0.62/version-0.62-accessibilityinfo": {
+        "title": "AccessibilityInfo"
+      },
+      "version-0.62/version-0.62-actionsheetios": {
+        "title": "ActionSheetIOS"
+      },
+      "version-0.62/version-0.62-activityindicator": {
+        "title": "ActivityIndicator"
+      },
+      "version-0.62/version-0.62-alert": {
+        "title": "Alert"
+      },
+      "version-0.62/version-0.62-alertios": {
+        "title": "🚧 AlertIOS"
+      },
+      "version-0.62/version-0.62-animated": {
+        "title": "Animated"
+      },
+      "version-0.62/version-0.62-animatedvalue": {
+        "title": "AnimatedValue"
+      },
+      "version-0.62/version-0.62-animatedvaluexy": {
+        "title": "AnimatedValueXY"
+      },
+      "version-0.62/version-0.62-animations": {
+        "title": "Animations"
+      },
+      "version-0.62/version-0.62-appearance": {
+        "title": "Appearance"
+      },
+      "version-0.62/version-0.62-appregistry": {
+        "title": "AppRegistry"
+      },
+      "version-0.62/version-0.62-appstate": {
+        "title": "AppState"
+      },
+      "version-0.62/version-0.62-backhandler": {
+        "title": "BackHandler"
+      },
+      "version-0.62/version-0.62-building-for-tv": {
+        "title": "Building For TV Devices"
+      },
+      "version-0.62/version-0.62-button": {
+        "title": "Button"
+      },
+      "version-0.62/version-0.62-checkbox": {
+        "title": "🚧 CheckBox"
+      },
+      "version-0.62/version-0.62-clipboard": {
+        "title": "🚧 Clipboard"
+      },
+      "version-0.62/version-0.62-colors": {
+        "title": "Color Reference"
+      },
+      "version-0.62/version-0.62-communication-android": {
+        "title": "Communication between native and React Native"
+      },
+      "version-0.62/version-0.62-communication-ios": {
+        "title": "Communication between native and React Native"
+      },
+      "version-0.62/version-0.62-components-and-apis": {
+        "title": "Core Components and APIs"
+      },
+      "version-0.62/version-0.62-datepickerandroid": {
+        "title": "🚧 DatePickerAndroid"
+      },
+      "version-0.62/version-0.62-datepickerios": {
+        "title": "🚧 DatePickerIOS"
+      },
+      "version-0.62/version-0.62-debugging": {
+        "title": "Debugging"
+      },
+      "version-0.62/version-0.62-devsettings": {
+        "title": "DevSettings"
+      },
+      "version-0.62/version-0.62-dimensions": {
+        "title": "Dimensions"
+      },
+      "version-0.62/version-0.62-direct-manipulation": {
+        "title": "Direct Manipulation"
+      },
+      "version-0.62/version-0.62-drawerlayoutandroid": {
+        "title": "DrawerLayoutAndroid"
+      },
+      "version-0.62/version-0.62-easing": {
+        "title": "Easing"
+      },
+      "version-0.62/version-0.62-fast-refresh": {
+        "title": "Fast Refresh"
+      },
+      "version-0.62/version-0.62-flatlist": {
+        "title": "FlatList"
+      },
+      "version-0.62/version-0.62-flexbox": {
+        "title": "Layout with Flexbox"
+      },
+      "version-0.62/version-0.62-environment-setup": {
+        "title": "Setting up the development environment"
+      },
+      "version-0.62/version-0.62-handling-text-input": {
+        "title": "Handling Text Input"
+      },
+      "version-0.62/version-0.62-handling-touches": {
+        "title": "Handling Touches"
+      },
+      "version-0.62/version-0.62-headless-js-android": {
+        "title": "Headless JS"
+      },
+      "version-0.62/version-0.62-height-and-width": {
+        "title": "Height and Width"
+      },
+      "version-0.62/version-0.62-hermes": {
+        "title": "Using Hermes"
+      },
+      "version-0.62/version-0.62-image-style-props": {
+        "title": "Image Style Props"
+      },
+      "version-0.62/version-0.62-image": {
+        "title": "Image"
+      },
+      "version-0.62/version-0.62-imagebackground": {
+        "title": "ImageBackground"
+      },
+      "version-0.62/version-0.62-inputaccessoryview": {
+        "title": "InputAccessoryView"
+      },
+      "version-0.62/version-0.62-integration-with-existing-apps": {
+        "title": "Integration with Existing Apps"
+      },
+      "version-0.62/version-0.62-interactionmanager": {
+        "title": "InteractionManager"
+      },
+      "version-0.62/version-0.62-intro-react-native-components": {
+        "title": "Core Components and Native Components"
+      },
+      "version-0.62/version-0.62-intro-react": {
+        "title": "React Fundamentals"
+      },
+      "version-0.62/version-0.62-getting-started": {
+        "title": "Introduction"
+      },
+      "version-0.62/version-0.62-javascript-environment": {
+        "title": "JavaScript Environment"
+      },
+      "version-0.62/version-0.62-keyboard": {
+        "title": "Keyboard"
+      },
+      "version-0.62/version-0.62-keyboardavoidingview": {
+        "title": "KeyboardAvoidingView"
+      },
+      "version-0.62/version-0.62-layout-props": {
+        "title": "Layout Props"
+      },
+      "version-0.62/version-0.62-layoutanimation": {
+        "title": "LayoutAnimation"
+      },
+      "version-0.62/version-0.62-libraries": {
+        "title": "Using Libraries"
+      },
+      "version-0.62/version-0.62-linking-libraries-ios": {
+        "title": "Linking Libraries"
+      },
+      "version-0.62/version-0.62-linking": {
+        "title": "Linking"
+      },
+      "version-0.62/version-0.62-modal": {
+        "title": "Modal"
+      },
+      "version-0.62/version-0.62-more-resources": {
+        "title": "More Resources"
+      },
+      "version-0.62/version-0.62-native-components-android": {
+        "title": "Native UI Components"
+      },
+      "version-0.62/version-0.62-native-components-ios": {
+        "title": "Native UI Components"
+      },
+      "version-0.62/version-0.62-native-modules-android": {
+        "title": "Native Modules"
+      },
+      "version-0.62/version-0.62-native-modules-ios": {
+        "title": "Native Modules"
+      },
+      "version-0.62/version-0.62-native-modules-setup": {
+        "title": "Native Modules Setup"
+      },
+      "version-0.62/version-0.62-navigation": {
+        "title": "Navigating Between Screens"
+      },
+      "version-0.62/version-0.62-network": {
+        "title": "Networking"
+      },
+      "version-0.62/version-0.62-optimizing-flatlist-configuration": {
+        "title": "Optimizing Flatlist Configuration"
+      },
+      "version-0.62/version-0.62-out-of-tree-platforms": {
+        "title": "Out-of-Tree Platforms"
+      },
+      "version-0.62/version-0.62-panresponder": {
+        "title": "PanResponder"
+      },
+      "version-0.62/version-0.62-performance": {
+        "title": "Performance Overview"
+      },
+      "version-0.62/version-0.62-permissionsandroid": {
+        "title": "PermissionsAndroid"
+      },
+      "version-0.62/version-0.62-picker": {
+        "title": "🚧 Picker"
+      },
+      "version-0.62/version-0.62-pixelratio": {
+        "title": "PixelRatio"
+      },
+      "version-0.62/version-0.62-platform-specific-code": {
+        "title": "Platform Specific Code"
+      },
+      "version-0.62/version-0.62-profiling": {
+        "title": "Profiling"
+      },
+      "version-0.62/version-0.62-progressbarandroid": {
+        "title": "🚧 ProgressBarAndroid"
+      },
+      "version-0.62/version-0.62-progressviewios": {
+        "title": "🚧 ProgressViewIOS"
+      },
+      "version-0.62/version-0.62-props": {
+        "title": "Props"
+      },
+      "version-0.62/version-0.62-pushnotificationios": {
+        "title": "🚧 PushNotificationIOS"
+      },
+      "version-0.62/version-0.62-ram-bundles-inline-requires": {
+        "title": "RAM Bundles and Inline Requires"
+      },
+      "version-0.62/version-0.62-refreshcontrol": {
+        "title": "RefreshControl"
+      },
+      "version-0.62/version-0.62-removing-default-permissions": {
+        "title": "Removing Default Permissions"
+      },
+      "version-0.62/version-0.62-running-on-device": {
+        "title": "Running On Device"
+      },
+      "version-0.62/version-0.62-running-on-simulator-ios": {
+        "title": "Running On Simulator"
+      },
+      "version-0.62/version-0.62-safeareaview": {
+        "title": "SafeAreaView"
+      },
+      "version-0.62/version-0.62-scrollview": {
+        "title": "ScrollView"
+      },
+      "version-0.62/version-0.62-sectionlist": {
+        "title": "SectionList"
+      },
+      "version-0.62/version-0.62-security": {
+        "title": "Security"
+      },
+      "version-0.62/version-0.62-settings": {
+        "title": "Settings"
+      },
+      "version-0.62/version-0.62-shadow-props": {
+        "title": "Shadow Props"
+      },
+      "version-0.62/version-0.62-share": {
+        "title": "Share"
+      },
+      "version-0.62/version-0.62-signed-apk-android": {
+        "title": "Publishing to Google Play Store"
+      },
+      "version-0.62/version-0.62-slider": {
+        "title": "🚧 Slider"
+      },
+      "version-0.62/version-0.62-state": {
+        "title": "State"
+      },
+      "version-0.62/version-0.62-statusbar": {
+        "title": "StatusBar"
+      },
+      "version-0.62/version-0.62-style": {
+        "title": "Style"
+      },
+      "version-0.62/version-0.62-stylesheet": {
+        "title": "StyleSheet"
+      },
+      "version-0.62/version-0.62-switch": {
+        "title": "Switch"
+      },
+      "version-0.62/version-0.62-systrace": {
+        "title": "Systrace"
+      },
+      "version-0.62/version-0.62-testing-overview": {
+        "title": "Testing"
+      },
+      "version-0.62/version-0.62-text-style-props": {
+        "title": "Text Style Props"
+      },
+      "version-0.62/version-0.62-text": {
+        "title": "Text"
+      },
+      "version-0.62/version-0.62-textinput": {
+        "title": "TextInput"
+      },
+      "version-0.62/version-0.62-timepickerandroid": {
+        "title": "🚧 TimePickerAndroid"
+      },
+      "version-0.62/version-0.62-toastandroid": {
+        "title": "ToastAndroid"
+      },
+      "version-0.62/version-0.62-touchablehighlight": {
+        "title": "TouchableHighlight"
+      },
+      "version-0.62/version-0.62-touchablenativefeedback": {
+        "title": "TouchableNativeFeedback"
+      },
+      "version-0.62/version-0.62-touchableopacity": {
+        "title": "TouchableOpacity"
+      },
+      "version-0.62/version-0.62-touchablewithoutfeedback": {
+        "title": "TouchableWithoutFeedback"
+      },
+      "version-0.62/version-0.62-transforms": {
+        "title": "Transforms"
+      },
+      "version-0.62/version-0.62-troubleshooting": {
+        "title": "Troubleshooting"
+      },
+      "version-0.62/version-0.62-tutorial": {
+        "title": "Learn the Basics"
+      },
+      "version-0.62/version-0.62-typescript": {
+        "title": "Using TypeScript with React Native"
+      },
+      "version-0.62/version-0.62-upgrading": {
+        "title": "Upgrading to new React Native versions"
+      },
+      "version-0.62/version-0.62-usecolorscheme": {
+        "title": "useColorScheme"
+      },
+      "version-0.62/version-0.62-usewindowdimensions": {
+        "title": "useWindowDimensions"
+      },
+      "version-0.62/version-0.62-using-a-listview": {
+        "title": "Using List Views"
+      },
+      "version-0.62/version-0.62-using-a-scrollview": {
+        "title": "Using a ScrollView"
+      },
+      "version-0.62/version-0.62-vibration": {
+        "title": "Vibration"
+      },
+      "version-0.62/version-0.62-view-style-props": {
+        "title": "View Style Props"
+      },
+      "version-0.62/version-0.62-view": {
+        "title": "View"
+      },
+      "version-0.62/version-0.62-virtualizedlist": {
         "title": "VirtualizedList"
       },
       "version-0.7/version-0.7-pushnotificationios": {
@@ -3483,11 +3957,22 @@
     },
     "categories": {
       "The Basics": "The Basics",
-      "Guides": "Guides",
-      "Guides (iOS)": "Guides (iOS)",
+      "Environment setup": "Environment setup",
+      "Workflow": "Workflow",
+      "Design": "Design",
+      "Interaction": "Interaction",
+      "Inclusion": "Inclusion",
+      "Performance": "Performance",
+      "JavaScript Runtime": "JavaScript Runtime",
+      "Connectivity": "Connectivity",
+      "Native Components and Modules": "Native Components and Modules",
       "Guides (Android)": "Guides (Android)",
-      "Components": "Components",
+      "Guides (iOS)": "Guides (iOS)",
+      "Core Components": "Core Components",
+      "Props": "Props",
       "APIs": "APIs",
+      "Guides": "Guides",
+      "Components": "Components",
       "Contributing": "Contributing"
     }
   },

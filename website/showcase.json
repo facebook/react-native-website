@@ -23,7 +23,7 @@
     "linkAppStore": "https://itunes.apple.com/us/app/facebook/id1266461465",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.analytics",
     "infoLink": "https://analytics.facebook.com/blog",
-    "infoTitle": "Using React Native App to Measure the Business Impact of Instagram and Pages in Facebook Analytics",
+    "infoTitle": "",
     "pinned": true
   },
   {
@@ -36,12 +36,29 @@
     "pinned": true
   },
   {
-    "name": "F8",
-    "icon": "f8.png",
-    "linkAppStore": "https://itunes.apple.com/it/app/f8/id853467066?l=en&mt=8",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.f8",
-    "infoLink": "http://makeitopen.com/docs/en/1-1-planning.html",
-    "infoTitle": "Tutorial: Building the F8 conference app",
+    "name": "Oculus",
+    "icon": "oculus.png",
+    "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Skype",
+    "icon": "skype.png",
+    "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
+    "infoLink": "https://dev.skype.com/react",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Discord",
+    "icon": "discord.png",
+    "linkAppStore": "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
+    "infoLink": "https://blog.discord.com/how-discord-achieves-native-ios-performance-with-react-native-390c84dcd502",
+    "infoTitle": "How Discord achieves native iOS performance with React Native",
     "pinned": true
   },
   {
@@ -63,28 +80,19 @@
     "pinned": true
   },
   {
-    "name": "Skype",
-    "icon": "skype.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
-    "infoLink": "https://blogs.skype.com/",
-    "infoTitle": "Supporting React Native at Skype",
-    "pinned": true
-  },
-  {
     "name": "Tesla",
     "icon": "tesla.png",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.teslamotors.tesla",
     "linkAppStore": "https://itunes.apple.com/us/app/tesla-motors/id582007913?mt=8",
     "infoLink": "https://www.tesla.com/blog",
-    "infoTitle": "Using React Native for improved designs and quality",
+    "infoTitle": "",
     "pinned": true
   },
   {
-    "name": "Uber",
-    "icon": "uber.png",
+    "name": "Uber Eats",
+    "icon": "ubereats.png",
     "infoLink": "https://eng.uber.com/ubereats-react-native/",
-    "infoTitle": "Powering UberEATS with React Native and Uber Engineering",
+    "infoTitle": "Powering Uber Eats with React Native",
     "pinned": true
   },
   {
@@ -103,6 +111,15 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android",
     "infoLink": "https://www.wix.com/wix-lp/wix-app",
     "infoTitle": "Get the New Wix App!",
+    "pinned": true
+  },
+  {
+    "name": "Salesforce",
+    "icon": "salesforce.png",
+    "linkAppStore": "https://itunes.apple.com/us/app/salesforce/id404249815?mt=8",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
+    "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
+    "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": true
   },
   {
@@ -148,12 +165,13 @@
     "pinned": false
   },
   {
-    "name": "Discord",
-    "icon": "discord.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
-    "infoLink": "https://blog.discordapp.com/why-discord-is-sticking-with-react-native-ccc34be0d427",
-    "infoTitle": "Why Discord is Sticking with React Native",
-    "pinned": true
+    "name": "F8",
+    "icon": "f8.png",
+    "linkAppStore": "https://itunes.apple.com/it/app/f8/id853467066?l=en&mt=8",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.facebook.f8",
+    "infoLink": "http://makeitopen.com/docs/en/1-1-planning.html",
+    "infoTitle": "Tutorial: Building the F8 conference app",
+    "pinned": false
   },
   {
     "name": "Gyroscope",
@@ -220,15 +238,6 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.adidas.glitch&cm_sp=FOOTBALL-_-UNDEFINED-_-CTA-DOWNLOAD-ANDROID",
     "infoLink": "https://medium.com/possible-cee/how-we-have-been-breaking-patterns-with-the-adidas-glitch-d734340fd40e",
     "infoTitle": "Building Adidas GLITCH app with React Native",
-    "pinned": false
-  },
-  {
-    "name": "Salesforce",
-    "icon": "salesforce.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/salesforce/id404249815?mt=8",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
-    "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
-    "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
     "pinned": false
   }
 ]

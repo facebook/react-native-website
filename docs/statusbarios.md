@@ -1,10 +1,8 @@
 ---
 id: statusbarios
-title: StatusBarIOS
+title: 🚧 StatusBarIOS
 ---
 
-Use `StatusBar` for mutating the status bar.
+> **Deprecated.** Use [`StatusBar`](statusbar.md) for mutating the status bar.
 
 ---
-
-# Reference

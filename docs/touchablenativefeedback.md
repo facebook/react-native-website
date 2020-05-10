@@ -9,47 +9,60 @@ At the moment it only supports having a single View instance as a child node, as
 
 Background drawable of native feedback touchable can be customized with `background` property.
 
-Example:
+## Example
 
-```jsx
-renderButton: function() {
+```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
+import React, { useState } from "react";
+import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
+import Constants from "expo-constants";
+
+const randomHexColor = () => {
+  return "#000000".replace(/0/g, function() {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+};
+const App = () => {
+  const [rippleColor, setRippleColor] = useState(randomHexColor());
+  const [rippleOverflow, setRippleOverflow] = useState(false);
   return (
-    <TouchableNativeFeedback
-        onPress={this._onPressButton}
-        background={TouchableNativeFeedback.SelectableBackground()}>
-      <View style={{width: 150, height: 100, backgroundColor: 'red'}}>
-        <Text style={{margin: 30}}>Button</Text>
-      </View>
-    </TouchableNativeFeedback>
+    <View style={styles.container}>
+      <TouchableNativeFeedback
+        onPress={() => {
+          setRippleColor(randomHexColor());
+          setRippleOverflow(!rippleOverflow);
+        }}
+        background={TouchableNativeFeedback.Ripple(rippleColor, rippleOverflow)}
+      >
+        <View style={styles.touchable}>
+          <Text style={styles.text}>TouchableNativeFeedback</Text>
+        </View>
+      </TouchableNativeFeedback>
+    </View>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  touchable: { flex: 0.5, borderColor: "black", borderWidth: 1 },
+  text: { alignSelf: "center" }
+});
+
+export default App;
 ```
-
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`background`](touchablenativefeedback.md#background)
-* [`useForeground`](touchablenativefeedback.md#useforeground)
-* [`hasTVPreferredFocus`](touchablenativefeedback.md#hasTVPreferredFocus)
-* [`nextFocusDown`](touchablenativefeedback.md#nextFocusDown)
-* [`nextFocusForward`](touchablenativefeedback.md#nextFocusForward)
-* [`nextFocusLeft`](touchablenativefeedback.md#nextFocusLeft)
-* [`nextFocusRight`](touchablenativefeedback.md#nextFocusRight)
-* [`nextFocusUp`](touchablenativefeedback.md#nextFocusUp)
-
-### Methods
-
-- [`SelectableBackground`](touchablenativefeedback.md#selectablebackground)
-- [`SelectableBackgroundBorderless`](touchablenativefeedback.md#selectablebackgroundborderless)
-- [`Ripple`](touchablenativefeedback.md#ripple)
-- [`canUseNativeForeground`](touchablenativefeedback.md#canusenativeforeground)
 
 ---
 
 # Reference
 
 ## Props
+
+Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `background`
 
@@ -163,10 +176,10 @@ Creates an object that represents ripple drawable with specified color (as a str
 
 **Parameters:**
 
-| Name       | Type    | Required | Description                                  |
-| ---------- | ------- | -------- | -------------------------------------------- |
-| color      | string  | Yes      | The ripple color                             |
-| borderless | boolean | Yes      | If the ripple can render outside it's bounds |
+| Name       | Type    | Required | Description                                 |
+| ---------- | ------- | -------- | ------------------------------------------- |
+| color      | string  | Yes      | The ripple color                            |
+| borderless | boolean | Yes      | If the ripple can render outside its bounds |
 
 ---
 

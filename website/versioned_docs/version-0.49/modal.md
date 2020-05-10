@@ -4,26 +4,31 @@ title: Modal
 original_id: modal
 ---
 
-The Modal component is a simple way to present content above an enclosing view.
+The Modal component is a basic way to present content above an enclosing view.
 
 _Note: If you need more control over how to present modals over the rest of your app, then consider using a top-level Navigator._
 
 ```jsx
-import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View} from 'react-native';
+import React, { Component } from 'react';
+import {
+  Modal,
+  Text,
+  TouchableHighlight,
+  View
+} from 'react-native';
 
 class ModalExample extends Component {
   state = {
-    modalVisible: false,
+    modalVisible: false
   };
 
   setModalVisible(visible) {
-    this.setState({modalVisible: visible});
+    this.setState({ modalVisible: visible });
   }
 
   render() {
     return (
-      <View style={{marginTop: 22}}>
+      <View style={{ marginTop: 22 }}>
         <Modal
           animationType="slide"
           transparent={false}
@@ -31,7 +36,7 @@ class ModalExample extends Component {
           onRequestClose={() => {
             alert('Modal has been closed.');
           }}>
-          <View style={{marginTop: 22}}>
+          <View style={{ marginTop: 22 }}>
             <View>
               <Text>Hello World!</Text>
 

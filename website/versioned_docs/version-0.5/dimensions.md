@@ -23,7 +23,7 @@ static set(dims)
 
 This should only be called from native code.
 
-@param {object} dims Simple string-keyed object of dimensions to set
+@param {object} dims string-keyed object of dimensions to set
 
 ---
 
