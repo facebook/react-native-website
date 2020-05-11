@@ -3,7 +3,12 @@ id: linking
 title: Linking
 ---
 
-> **Projects with Native Code Only:** The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on [Linking](http://docs.expo.io/versions/latest/workflow/linking/) in the Expo documentation for the appropriate alternative.
+<div class="banner-native-code-required">
+  <h3>Projects with Native Code Only</h3>
+  <p>
+    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="http://docs.expo.io/versions/latest/workflow/linking/">Linking</a> in the Expo documentation for the appropriate alternative.
+  </p>
+</div>
 
 `Linking` gives you a general interface to interact with both incoming and outgoing app links.
 

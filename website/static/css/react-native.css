@@ -260,3 +260,41 @@ article iframe {
   border: 0.05rem solid $deepdark;
   border-radius: 3px;
 }
+
+/* "Native Code Required" banner */
+
+.banner-native-code-required {
+  position: relative;
+  overflow: hidden;
+  background: rgba(201, 60, 110, 0.1);
+  padding: 24px 48px 24px 24px;
+  margin-bottom: 24px;
+  border-left: 8px solid #c93c6e;
+}
+
+.banner-native-code-required h2,
+.banner-native-code-required h3 {
+  color: #c93c6e;
+  margin-top: 0;
+}
+
+.banner-native-code-required h2:before,
+.banner-native-code-required h3:before {
+  content: " ";
+  float: left;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #c93c6e;
+  background-image: url(../img/expo-logo.png);
+  background-size: contain;
+  margin-right: 12px;
+}
+
+.banner-native-code-required p {
+  margin-bottom: 0;
+}
+
+.banner-native-code-required code {
+  background-color: rgba(133, 85, 102, 0.1);
+}
