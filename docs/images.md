@@ -11,7 +11,7 @@ React Native provides a unified way of managing images and other media assets in
 <Image source={require('./my-icon.png')} />
 ```
 
-The image name is resolved the same way JS modules are resolved. In the example above, the packager will look for `my-icon.png` in the same folder as the component that requires it. Also, if you have `my-icon.ios.png` and `my-icon.android.png`, the packager will pick the correct file for the platform.
+The image name is resolved the same way JS modules are resolved. In the example above, the bundler will look for `my-icon.png` in the same folder as the component that requires it. Also, if you have `my-icon.ios.png` and `my-icon.android.png`, the bundler will pick the correct file for the platform.
 
 You can also use the `@2x` and `@3x` suffixes to provide images for different screen densities. If you have the following file structure:
 
@@ -30,9 +30,9 @@ You can also use the `@2x` and `@3x` suffixes to provide images for different sc
 <Image source={require('./img/check.png')} />
 ```
 
-...the packager will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
+...the bundler will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
 
-On Windows, you might need to restart the packager if you add new images to your project.
+On Windows, you might need to restart the bundler if you add new images to your project.
 
 Here are some benefits that you get:
 
@@ -41,7 +41,7 @@ Here are some benefits that you get:
 3. No global namespace, i.e. you don't have to worry about name collisions.
 4. Only the images that are actually used will be packaged into your app.
 5. Adding and changing images doesn't require app recompilation, you can refresh the simulator as you normally do.
-6. The packager knows the image dimensions, no need to duplicate it in the code.
+6. The bundler knows the image dimensions, no need to duplicate it in the code.
 7. Images can be distributed via [npm](https://www.npmjs.com/) packages.
 
 In order for this to work, the image name in `require` has to be known statically.
@@ -67,7 +67,7 @@ Note that image sources required this way include size (width, height) info for 
 
 ## Static Non-Image Resources
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
+The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [bundler defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
 
 You can add support for other types by adding an [`assetExts` resolver option](https://facebook.github.io/metro/docs/configuration#resolver-options) in your [Metro configuration](https://facebook.github.io/metro/docs/configuration).
 
