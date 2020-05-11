@@ -472,7 +472,7 @@ cd AwesomeProject
 npx react-native start
 ```
 
-The command above starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
 To start the application run `npx react-native run-ios` inside your React Native project folder:
 
