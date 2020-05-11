@@ -474,18 +474,33 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+<h3>Step 1: Start Metro</h3>
 
-Run `npx react-native start` inside your React Native project folder:
+First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+
+To start Metro, run `npx react-native start` inside your React Native project folder:
 
 ```sh
-cd AwesomeProject
 npx react-native start
 ```
 
-The command above starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+`react-native start` starts Metro Bundler.
 
-To start the application run `npx react-native run-ios` inside your React Native project folder:
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+<block class="webNote devNotes" />
+
+> Metro is a lot like webpack—for React Native apps.
+
+<block class="androidNote devNotes" />
+
+> Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
+
+<block class="endBlock devNotes" />
+
+<h3>Step 2: Start your application</h3>
+
+Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
 ```sh
 npx react-native run-ios
@@ -507,18 +522,33 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+<h3>Step 1: Start Metro</h3>
 
-Run `npx react-native start` inside your React Native project folder:
+First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+
+To start Metro, run `npx react-native start` inside your React Native project folder:
 
 ```sh
-cd AwesomeProject
 npx react-native start
 ```
 
-The command above starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+`react-native start` starts Metro Bundler.
 
-To start the application run `npx react-native run-android` inside your React Native project folder:
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+<block class="webNote devNotes" />
+
+> Metro is a lot like webpack—for React Native apps.
+
+<block class="androidNote devNotes" />
+
+> Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
+
+<block class="endBlock devNotes" />
+
+<h3>Step 2: Start your application</h3>
+
+Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
 ```sh
 npx react-native run-android
