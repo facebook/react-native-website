@@ -51,7 +51,7 @@ export default ViewBoxesWithColorAndText;
 import React, { Component } from "react";
 import { View, Text } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View
@@ -68,6 +68,8 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

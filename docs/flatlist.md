@@ -40,7 +40,7 @@ const DATA = [
   },
 ];
 
-function Item({ title }) {
+const Item = ({ title }) => {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
@@ -48,7 +48,7 @@ function Item({ title }) {
   );
 }
 
-export default function App() {
+const App = () => {
   const renderItem = ({ item }) => (
     <Item title={item.title} />
   );
@@ -79,6 +79,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+export default App;
 ```
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
@@ -114,7 +116,7 @@ const DATA = [
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
+const Item = ({ id, title, selected, onSelect }) => {
   return (
     <TouchableOpacity
       onPress={() => onSelect(id)}
@@ -128,7 +130,7 @@ function Item({ id, title, selected, onSelect }) {
   );
 }
 
-export default function App() {
+const App = () => {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
@@ -177,6 +179,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+export default App;
 ```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
