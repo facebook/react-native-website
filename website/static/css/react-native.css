@@ -286,8 +286,10 @@ article iframe {
   height: 32px;
   border-radius: 4px;
   background-color: #c93c6e;
-  background-image: url(../img/expo-logo.png);
-  background-size: contain;
+  background-image: url(../img/expo-logo.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
   margin-right: 12px;
 }
 
