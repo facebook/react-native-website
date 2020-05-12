@@ -44,7 +44,7 @@ const textTransformations = ["none", "uppercase", "lowercase", "capitalize"];
 const textAlignmentsVertical = ["auto", "top", "bottom", "center"];
 const writingDirections = ["auto", "ltr", "rtl"];
 
-export default function App() {
+const App = () => {
   const [fontSize, setFontSize] = useState(10);
   const [fontStyleIdx, setFontStyleIdx] = useState(0);
   const [fontWeightIdx, setFontWeightIdx] = useState(0);
@@ -215,7 +215,7 @@ export default function App() {
   );
 }
 
-function CustomSwitch({ label, handleValueChange, value }) {
+const CustomSwitch = ({ label, handleValueChange, value }) => {
   return (
     <>
       <Text style={styles.title}>{label}</Text>
@@ -231,14 +231,14 @@ function CustomSwitch({ label, handleValueChange, value }) {
   );
 }
 
-function CustomSlider({
+const CustomSlider = ({
   label,
   handleValueChange,
   step = 1,
   minimumValue = 0,
   maximumValue = 10,
   value
-}) {
+}) => {
   return (
     <>
       {label && (
@@ -259,7 +259,7 @@ function CustomSlider({
   );
 }
 
-function CustomPicker({ label, data, currentIndex, onSelected }) {
+const CustomPicker = ({ label, data, currentIndex, onSelected }) => {
   return (
     <>
       <Text style={styles.title}>{label}</Text>
@@ -345,6 +345,7 @@ const styles = StyleSheet.create({
   }
 });
 
+export default App;
 ```
 
 # Reference
