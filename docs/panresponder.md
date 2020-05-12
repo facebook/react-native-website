@@ -106,8 +106,7 @@ const ExampleComponent = () => {
 import React, { useRef } from "react";
 import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
 
-export default function App() {
-
+const App = () => {
   const pan = useRef(new Animated.ValueXY()).current;
 
   const panResponder = useRef(
@@ -164,6 +163,8 @@ const styles = StyleSheet.create({
     borderRadius: 5
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -172,7 +173,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   pan = new Animated.ValueXY();
   panResponder = PanResponder.create({
     onMoveShouldSetPanResponder: () => true,
@@ -226,6 +227,8 @@ const styles = StyleSheet.create({
     borderRadius: 5
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

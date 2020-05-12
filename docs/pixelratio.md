@@ -40,7 +40,7 @@ const cat = {
   height: size
 };
 
-export default App = () => (
+const App = () => (
   <ScrollView style={styles.scrollContainer}>
     <View style={styles.container}>
       <Text>Current Pixel Ratio is:</Text>
@@ -87,6 +87,8 @@ const styles = StyleSheet.create({
     marginTop: 4
   }
 });
+
+export default App;
 ```
 
 ---

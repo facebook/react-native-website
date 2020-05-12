@@ -28,7 +28,7 @@ This is an API that works both on Android and iOS and can show static alerts. To
 import React, { useState } from "react";
 import { View, StyleSheet, Button, Alert } from "react-native";
 
-export default function App() {
+const App = () => {
   const createTwoButtonAlert = () =>
     Alert.alert(
       "Alert Title",
@@ -79,6 +79,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { View, StyleSheet, Button, Alert } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   createTwoButtonAlert = () =>
     Alert.alert(
       "Alert Title",
@@ -143,6 +145,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

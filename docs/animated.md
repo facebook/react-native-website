@@ -49,7 +49,7 @@ The following example contains a `View` which will fade in and fade out based on
 import React, { useRef } from "react";
 import { Animated, Text, View, StyleSheet, Button } from "react-native";
 
-export default function App() {
+const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
@@ -110,6 +110,8 @@ const styles = StyleSheet.create({
     marginVertical: 16
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />

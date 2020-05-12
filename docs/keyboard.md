@@ -27,7 +27,7 @@ The Keyboard module allows you to listen for native events and react to them, as
 import React, { useEffect } from "react";
 import { Keyboard, TextInput, StyleSheet } from "react-native";
 
-export default function Example() {
+const Example = () => {
 
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
@@ -61,6 +61,7 @@ const s = StyleSheet.create({
    }
 })
 
+export default Example;
 ```
 
 <block class="classical syntax" />
@@ -69,7 +70,7 @@ const s = StyleSheet.create({
 import React, {Component} from 'react';
 import {Keyboard, TextInput , StyleSheet} from 'react-native';
 
-export default class Example extends Component {
+class Example extends Component {
   componentDidMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -108,6 +109,8 @@ const s = StyleSheet.create({
     backgroundColor: "#fff"
    }
 })
+
+export default Example;
 ```
 
 <block class="endBlock syntax" />

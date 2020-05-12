@@ -24,7 +24,7 @@ Transforms are style properties that will help you modify the appearance and pos
 import React from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
-export default App = () => (
+const App = () => (
   <SafeAreaView style={styles.container}>
     <ScrollView
       contentContainerStyle={styles.scrollContentContainer}
@@ -136,6 +136,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -144,7 +146,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <SafeAreaView style={styles.container}>
@@ -260,6 +262,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

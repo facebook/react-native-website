@@ -47,7 +47,7 @@ The following helpers are used to modify other easing functions.
 import React from "react";
 import { Animated, Easing, SectionList, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   let opacity = new Animated.Value(0);
 
   const animate = easing => {
@@ -184,6 +184,8 @@ const styles = StyleSheet.create({
     padding: 8
   }
 });
+
+export default App;
 ```
 
 ---

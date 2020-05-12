@@ -99,8 +99,6 @@ const App = () => {
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
   ball: {
@@ -111,6 +109,7 @@ const styles = StyleSheet.create({
   },
 });
 
+export default App;
 ```
 
 ### Advanced
@@ -171,8 +170,6 @@ const App = () => {
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
   ball: {
@@ -182,6 +179,8 @@ const styles = StyleSheet.create({
     borderRadius: 100,
   },
 });
+
+export default App;
 ```
 
 > **Note**: `InteractionManager.runAfterInteractions()` is not working properly on web. It triggers immediately without waiting until the interaction is finished.

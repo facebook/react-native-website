@@ -81,7 +81,7 @@ export default AppStateExample;
 import React, { Component } from "react";
 import { AppState, StyleSheet, Text, View } from "react-native";
 
-export default class AppStateExample extends Component {
+class AppStateExample extends Component {
   state = {
     appState: AppState.currentState
   };
@@ -120,6 +120,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default AppStateExample;
 ```
 
 <block class="endBlock syntax" />

@@ -24,11 +24,11 @@ Vibrates the device.
 import React from "react";
 import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
 
-function Separator() {
+const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
 
-const App =  () =>  {
+const App = () => {
 
   const ONE_SECOND_IN_MS = 1000;
 
@@ -104,20 +104,20 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App
+export default App;
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
-import React from "react";
+import React, { Component } from "react";
 import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
 
-function Separator() {
+const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
 
-export default class App extends React.Component {
+class App extends Component {
   render() {
     const ONE_SECOND_IN_MS = 1000;
 
@@ -193,6 +193,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />
