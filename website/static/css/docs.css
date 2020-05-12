@@ -229,3 +229,27 @@ figcaption {
   color: #134484;
   border-bottom-color: #134484;
 }
+
+/*
+  Mark pages as "new" using href attribute:
+  - to show badge in all versions use "PAGEID"
+  - to restrict badge only to the current/default version use "docs/PAGEID"
+  - to restrict badge only to the next version use "next/PAGEID"
+*/
+
+.navItem[href*="dynamiccolorios"]:after,
+.navItem[href*="platformcolor"]:after {
+  content: "new";
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  margin: -1px 0 -1px 10px;
+  padding: 3px 6px;
+  border: 1px solid #86b300;
+  border-radius: 3px;
+  color: #86b300;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 600;
+}
