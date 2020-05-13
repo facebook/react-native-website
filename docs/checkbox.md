@@ -15,7 +15,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 import React, { useState } from "react";
 import { CheckBox, Text, StyleSheet, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   const [isSelected, setSelection] = useState(false);
 
   return (
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
     margin: 8,
   },
 });
+
+export default App;
 ```
 
 ---

@@ -36,11 +36,13 @@ The rest of this introduction to React uses cats in its examples: friendly, appr
 import React from 'react';
 import { Text } from 'react-native';
 
-export default function Cat() {
+const Cat = () => {
   return (
     <Text>Hello, I am your cat!</Text>
   );
 }
+
+export default Cat;
 ```
 
 Here is how you do it: To define your `Cat` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/docs/next/text) Core Component:
@@ -69,9 +71,11 @@ function Cat() {
 You can export your function component with JavaScript’s [`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
 
 ```jsx
-export default function Cat() {
+const Cat = () => {
   return <Text>Hello, I am your cat!</Text>;
 }
+
+export default Cat;
 ```
 
 <block class="classical syntax" />
@@ -137,12 +141,14 @@ React and React Native use **JSX,** a syntax that lets you write elements inside
 import React from 'react';
 import { Text } from 'react-native';
 
-export default function Cat() {
+const Cat = () => {
   const name = "Maru";
   return (
     <Text>Hello, I am {name}!</Text>
   );
 }
+
+export default Cat;
 ```
 
 Any JavaScript expression will work between curly braces, including function calls like `{getFullName("Rum", "Tum", "Tugger")}`:
@@ -151,7 +157,7 @@ Any JavaScript expression will work between curly braces, including function cal
 import React from 'react';
 import { Text } from 'react-native';
 
-export default function Cat() {
+const Cat() {
   function getFullName(firstName, secondName, thirdName) {
     return firstName + " " + secondName + " " + thirdName;
   }
@@ -162,6 +168,8 @@ export default function Cat() {
     </Text>
   );
 }
+
+export default Cat;
 ```
 
 You can think of curly braces as creating a portal into JS functionality in your JSX!
@@ -178,7 +186,7 @@ For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-export default function Cat() {
+const Cat = () => {
   return (
     <View>
       <Text>Hello, I am...</Text>
@@ -193,6 +201,8 @@ export default function Cat() {
     </View>
   );
 }
+
+export default Cat;
 ```
 
 <div class="toggler">
@@ -227,7 +237,7 @@ function Cat() {
   );
 }
 
-export default function Cafe() {
+const Cafe = () => {
   return (
     <View>
       <Text>Welcome!</Text>
@@ -237,6 +247,8 @@ export default function Cafe() {
     </View>
   );
 }
+
+export default Cafe;
 ```
 
 Any component that renders other components is a **parent component.** Here, `Cafe` is the parent component and each `Cat` is a **child component.**
@@ -259,7 +271,7 @@ function Cat(props) {
   );
 }
 
-export default function Cafe() {
+const Cafe = () => {
   return (
     <View>
       <Cat name="Maru" />
@@ -268,6 +280,8 @@ export default function Cafe() {
     </View>
   );
 }
+
+export default Cafe;
 ```
 
 Most of React Native’s Core Components can be customized with props, too. For example, when using [`Image`](image), you pass it a prop named [`source`](image#source) to define what image it shows:
@@ -276,7 +290,7 @@ Most of React Native’s Core Components can be customized with props, too. For 
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
-export default function CatApp() {
+const CatApp = () => {
   return (
     <View>
       <Image
@@ -287,6 +301,8 @@ export default function CatApp() {
     </View>
   );
 }
+
+export default CatApp;
 ```
 
 `Image` has [many different props](image#props), including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
@@ -341,7 +357,7 @@ function Cat(props) {
   );
 }
 
-export default function Cafe() {
+const Cafe = () => {
   return (
     <>
       <Cat name="Munkustrap" />
@@ -349,6 +365,8 @@ export default function Cafe() {
     </>
   );
 }
+
+export default Cafe;
 ```
 
 First, you will want to import `useState` from React like so:
@@ -401,7 +419,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 Finally, put your cats inside a `Cafe` component:
 
 ```jsx
-export default function Cafe() {
+const Cafe = () => {
   return (
     <>
       <Cat name="Munkustrap" />
@@ -409,6 +427,8 @@ export default function Cafe() {
     </>
   );
 }
+
+export default Cafe;
 ```
 
 <block class="classical syntax" />

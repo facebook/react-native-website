@@ -25,7 +25,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 import React, { useState, useEffect } from "react";
 import { AccessibilityInfo, View, Text, StyleSheet } from "react-native";
 
-export default function App() {
+const App = () => {
   const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
   const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
 
@@ -88,6 +88,8 @@ const styles = StyleSheet.create({
     margin: 30
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />

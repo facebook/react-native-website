@@ -22,7 +22,7 @@ title: Image Style Props
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
-export default function DisplayAnImageWithStyle() {
+const DisplayAnImageWithStyle = () => {
   return (
     <View style={styles.container}>
       <View>
@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   }
 });
 
+export default DisplayAnImageWithStyle;
 ```
 
 <block class="classical syntax" />
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
 import React from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
-export default function DisplayAnImageWithStyle() {
+const DisplayAnImageWithStyle = () => {
   return (
     <View style={styles.container}>
       <View>
@@ -261,6 +262,7 @@ const styles = StyleSheet.create({
   }
 });
 
+export default DisplayAnImageWithStyle;
 ```
 
 <block class="classical syntax" />
@@ -353,7 +355,7 @@ const styles = StyleSheet.create({
 import React from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
-export default function DisplayAnImageWithStyle() {
+const DisplayAnImageWithStyle = () => {
   return (
     <View style={styles.container}>
       <Image
@@ -382,6 +384,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default DisplayAnImageWithStyle;
 ```
 
 <block class="classical syntax" />
@@ -440,7 +444,7 @@ const styles = StyleSheet.create({
 import React from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
-export default function DisplayAnImageWithStyle() {
+const DisplayAnImageWithStyle = () => {
   return (
     <View style={styles.container}>
       <Image
@@ -467,6 +471,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default DisplayAnImageWithStyle;
 ```
 
 <block class="classical syntax" />

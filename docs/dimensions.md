@@ -42,7 +42,7 @@ import { View, StyleSheet, Text, Dimensions } from "react-native";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-export default function App() {
+const App = () => {
   const [dimensions, setDimensions] = useState({ window, screen });
 
   const onChange = ({ window, screen }) => {
@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
