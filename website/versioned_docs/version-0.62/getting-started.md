@@ -355,9 +355,9 @@ C:\Android\tools\bin\platform-tools
 
 <h3>Watchman</h3>
 
-Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install.html#buildinstall) to compile and install Watchman from source.
+Follow the [Watchman installation guide](https://facebook.github.io/watchman/docs/install#buildinstall) to compile and install Watchman from source.
 
-> [Watchman](https://facebook.github.io/watchman/docs/install.html) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
+> [Watchman](https://facebook.github.io/watchman/docs/install) is a tool by Facebook for watching changes in the filesystem. It is highly recommended you install it for better performance and increased compatibility in certain edge cases (translation: you may be able to get by without installing this, but your mileage may vary; installing this now may save you from a headache later).
 
 <block class="native mac windows linux ios android" />
 
@@ -463,18 +463,18 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-Run `react-native start` inside your React Native project folder:
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+Run `npx react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
-
 `react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
-Run `react-native run-ios` inside your React Native project folder:
+To start the application run `npx react-native run-ios` inside your React Native project folder:
 
 ```sh
 npx react-native run-ios
@@ -496,25 +496,18 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-Run `react-native start` inside your React Native project folder:
-
-```sh
-cd AwesomeProject
-npx react-native start
-```
-
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-On another terminal, run `npx react-native run-android`:
+Run `npx react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
-`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+The command above starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
-Run `react-native run-android` inside your React Native project folder:
+To start the application run `npx react-native run-android` inside your React Native project folder:
 
 ```sh
 npx react-native run-android

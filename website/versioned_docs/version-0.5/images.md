@@ -12,7 +12,7 @@ React Native provides a unified way of managing images and other media assets in
 <Image source={require('./my-icon.png')} />
 ```
 
-The image name is resolved the same way JS modules are resolved. In the example above, the packager will look for `my-icon.png` in the same folder as the component that requires it. Also, if you have `my-icon.ios.png` and `my-icon.android.png`, the packager will pick the correct file for the platform.
+The image name is resolved the same way JS modules are resolved. In the example above, the bundler will look for `my-icon.png` in the same folder as the component that requires it. Also, if you have `my-icon.ios.png` and `my-icon.android.png`, the bundler will pick the correct file for the platform.
 
 You can also use the `@2x` and `@3x` suffixes to provide images for different screen densities. If you have the following file structure:
 
@@ -31,9 +31,9 @@ You can also use the `@2x` and `@3x` suffixes to provide images for different sc
 <Image source={require('./img/check.png')} />
 ```
 
-...the packager will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
+...the bundler will bundle and serve the image corresponding to device's screen density. For example, `check@2x.png`, will be used on an iPhone 7, while`check@3x.png` will be used on an iPhone 7 Plus or a Nexus 5. If there is no image matching the screen density, the closest best option will be selected.
 
-On Windows, you might need to restart the packager if you add new images to your project.
+On Windows, you might need to restart the bundler if you add new images to your project.
 
 Here are some benefits that you get:
 
@@ -42,7 +42,7 @@ Here are some benefits that you get:
 3. No global namespace, i.e. you don't have to worry about name collisions.
 4. Only the images that are actually used will be packaged into your app.
 5. Adding and changing images doesn't require app recompilation, you can refresh the simulator as you normally do.
-6. The packager knows the image dimensions, no need to duplicate it in the code.
+6. The bundler knows the image dimensions, no need to duplicate it in the code.
 7. Images can be distributed via [npm](https://www.npmjs.com/) packages.
 
 In order for this to work, the image name in `require` has to be known statically.
@@ -52,7 +52,9 @@ In order for this to work, the image name in `require` has to be known staticall
 <Image source={require('./my-icon.png')} />;
 
 // BAD
-var icon = this.props.active ? 'my-icon-active' : 'my-icon-inactive';
+var icon = this.props.active
+  ? 'my-icon-active'
+  : 'my-icon-inactive';
 <Image source={require('./' + icon + '.png')} />;
 
 // GOOD
@@ -66,7 +68,7 @@ Note that image sources required this way include size (width, height) info for 
 
 ## Static Non-Image Resources
 
-The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [packager defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
+The `require` syntax described above can be used to statically include audio, video or document files in your project as well. Most common file types are supported including `.mp3`, `.wav`, `.mp4`, `.mov`, `.html` and `.pdf`. See [bundler defaults](https://github.com/facebook/metro/blob/master/packages/metro-config/src/defaults/defaults.js#L14-L44) for the full list.
 
 You can add support for other types by adding an [`assetExts` resolver option](https://facebook.github.io/metro/docs/en/configuration#assetexts) in your [Metro configuration](https://facebook.github.io/metro/docs/en/configuration).
 
@@ -79,13 +81,19 @@ If you are building a hybrid app (some UIs in React Native, some UIs in platform
 For images included via Xcode asset catalogs or in the Android drawable folder, use the image name without the extension:
 
 ```jsx
-<Image source={{uri: 'app_icon'}} style={{width: 40, height: 40}} />
+<Image
+  source={{ uri: 'app_icon' }}
+  style={{ width: 40, height: 40 }}
+/>
 ```
 
 For images in the Android assets folder, use the `asset:/` scheme:
 
 ```jsx
-<Image source={{uri: 'asset:/app_icon.png'}} style={{width: 40, height: 40}} />
+<Image
+  source={{ uri: 'asset:/app_icon.png' }}
+  style={{ width: 40, height: 40 }}
+/>
 ```
 
 These approaches provide no safety checks. It's up to you to guarantee that those images are available in the application. Also you have to specify image dimensions manually.
@@ -113,11 +121,11 @@ If you would like to set such things as the HTTP-Verb, Headers or a Body along w
     uri: 'https://reactjs.org/logo-og.png',
     method: 'POST',
     headers: {
-      Pragma: 'no-cache',
+      Pragma: 'no-cache'
     },
-    body: 'Your Body goes here',
+    body: 'Your Body goes here'
   }}
-  style={{width: 400, height: 400}}
+  style={{ width: 400, height: 400 }}
 />
 ```
 
@@ -133,11 +141,11 @@ Sometimes, you might be getting encoded image data from a REST API call. You can
   style={{
     width: 51,
     height: 51,
-    resizeMode: 'contain',
+    resizeMode: 'contain'
   }}
   source={{
     uri:
-      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+      'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='
   }}
 />
 ```
@@ -155,9 +163,9 @@ In some cases you might only want to display an image if it is already in the lo
 <Image
   source={{
     uri: 'https://reactjs.org/logo-og.png',
-    cache: 'only-if-cached',
+    cache: 'only-if-cached'
   }}
-  style={{width: 400, height: 400}}
+  style={{ width: 400, height: 400 }}
 />
 ```
 
@@ -186,7 +194,7 @@ For example, the result of `require('./my-icon.png')` might be:
 In React Native, one interesting decision is that the `src` attribute is named `source` and doesn't take a string but an object with a `uri` attribute.
 
 ```jsx
-<Image source={{uri: 'something.jpg'}} />
+<Image source={{ uri: 'something.jpg' }} />
 ```
 
 On the infrastructure side, the reason is that it allows us to attach metadata to this object. For example if you are using `require('./my-icon.png')`, then we add information about its actual location and size (don't rely on this fact, it might change in the future!). This is also future proofing, for example we may want to support sprites at some point, instead of outputting `{uri: ...}`, we can output `{uri: ..., crop: {left: 10, top: 50, width: 20, height: 40}}` and transparently support spriting on all the existing call sites.

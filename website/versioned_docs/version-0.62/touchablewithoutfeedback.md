@@ -13,7 +13,7 @@ Do not use unless you have a very good reason. All elements that respond to pres
 ```jsx
 function MyComponent(props) {
   return (
-    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
+    <View {...props} style={{ flex: 1, backgroundColor: '#fff' }}>
       <Text>My Component</Text>
     </View>
   );

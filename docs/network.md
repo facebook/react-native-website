@@ -24,12 +24,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
-  }),
+    secondParam: 'yourOtherValue'
+  })
 });
 ```
 
@@ -59,7 +59,9 @@ You can also use the `async` / `await` syntax in a React Native app:
 ```jsx
 async function getMoviesFromApiAsync() {
   try {
-    let response = await fetch('https://reactnative.dev/movies.json');
+    let response = await fetch(
+      'https://reactnative.dev/movies.json'
+    );
     let json = await response.json();
     return json.movies;
   } catch (error) {
@@ -97,7 +99,7 @@ export default App = () => {
       .then((json) => setData(json.movies))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   return (
     <View style={{ flex: 1, padding: 24 }}>

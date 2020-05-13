@@ -42,18 +42,21 @@ public class MainActivity extends ReactActivity {
 
 ```jsx
 import React from 'react';
-import {AppRegistry, View, Image} from 'react-native';
+import { AppRegistry, View, Image } from 'react-native';
 
 class ImageBrowserApp extends React.Component {
   renderImage(imgURI) {
-    return <Image source={{uri: imgURI}} />;
+    return <Image source={{ uri: imgURI }} />;
   }
   render() {
     return <View>{this.props.images.map(this.renderImage)}</View>;
   }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => ImageBrowserApp);
+AppRegistry.registerComponent(
+  'AwesomeProject',
+  () => ImageBrowserApp
+);
 ```
 
 `ReactRootView` provides a read-write property `appProperties`. After `appProperties` is set, the React Native app is re-rendered with new properties. The update is only performed when the new updated properties differ from the previous ones.

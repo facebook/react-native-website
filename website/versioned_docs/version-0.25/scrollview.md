@@ -516,7 +516,12 @@ Deprecated. Use `RefreshControl` instead.
 ### `scrollTo()`
 
 ```jsx
-scrollTo(([y]: number), object, ([x]: number), ([animated]: boolean));
+scrollTo(
+  ([y]: number),
+  object,
+  ([x]: number),
+  ([animated]: boolean)
+);
 ```
 
 Scrolls to a given x, y offset, either immediately or with a smooth animation.

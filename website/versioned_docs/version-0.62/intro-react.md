@@ -48,7 +48,7 @@ Here is how you do it: To define your `Cat` component, first use JavaScript’s 
 
 ```jsx
 import React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 ```
 
 Your component starts as a function:
@@ -95,7 +95,7 @@ export default class Cat extends Component {
 You additionally import `Component` from React:
 
 ```jsx
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 ```
 
 Your component starts as a class extending `Component` instead of as a function:
@@ -281,7 +281,7 @@ export default function CatApp() {
   return (
     <View>
       <Image
-        source="https://reactnative.dev/docs/assets/p_cat1.png"
+        source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
         style={{width: 200, height: 200}}
       />
       <Text>Hello, I am your cat!</Text>
@@ -298,7 +298,7 @@ You can build many things with props and the Core Components [`Text`](text), [`I
 
 ## State
 
-While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. State is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
 
 > As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time.
 
@@ -355,7 +355,7 @@ export default function Cafe() {
 First, you will want to import `useState` from React like so:
 
 ```jsx
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 ```
 
 Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
@@ -459,14 +459,14 @@ export default class Cafe extends Component {
 As always with class components, you must import the `Component` class from React:
 
 ```jsx
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 ```
 
 In class components, state is stored in a state object:
 
 ```jsx
 export class Cat extends Component {
-  state = {isHungry: true};
+  state = { isHungry: true };
   //..
 }
 ```
@@ -499,7 +499,11 @@ When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to 
 <Button
   // ..
   disabled={!this.state.isHungry}
-  title={this.state.isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
+  title={
+    this.state.isHungry
+      ? 'Pour me some milk, please!'
+      : 'Thank you!'
+  }
 />
 ```
 

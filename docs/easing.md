@@ -87,8 +87,8 @@ export default App = () => {
         sections={SECTIONS}
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
-          <TouchableOpacity 
-            onPress={() => animate(item.easing)} 
+          <TouchableOpacity
+            onPress={() => animate(item.easing)}
             style={styles.listRow}
           >
             <Text>{item.title}</Text>
@@ -358,9 +358,11 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 
 ### `in()`
 
+<!-- prettier-ignore-start -->
 ```jsx
 static in(easing);
 ```
+<!-- prettier-ignore-end -->
 
 Runs an easing function forwards.
 

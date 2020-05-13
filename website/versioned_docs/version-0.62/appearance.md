@@ -5,7 +5,7 @@ original_id: appearance
 ---
 
 ```jsx
-import {Appearance} from 'react-native';
+import { Appearance } from 'react-native';
 ```
 
 The `Appearance` module exposes information about the user's appearance preferences, such as their preferred color scheme (light or dark).
@@ -67,3 +67,19 @@ Supported color schemes:
 See also: `useColorScheme` hook.
 
 > Note: `getColorScheme()` will always return `light` when debugging with Chrome.
+
+### `addChangeListener()`
+
+```jsx
+static addChangeListener(listener)
+```
+
+Add an event handler that is fired when appearance preferences change.
+
+### `removeChangeListener()`
+
+```jsx
+static removeChangeListener(listener)
+```
+
+Remove an event handler.

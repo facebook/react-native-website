@@ -36,11 +36,11 @@ To see the current state, you can check `AppState.currentState`, which will be k
 <block class="functional syntax" />
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { AppState, StyleSheet, Text, View } from "react-native";
 
 const AppStateExample = () => {
-  const [appState, setAppState] = useState(AppState.currentState);
+  const appState = useRef(AppState.currentState);
 
   useEffect(() => {
     AppState.addEventListener("change", _handleAppStateChange);
@@ -50,16 +50,16 @@ const AppStateExample = () => {
     };
   }, []);
 
-  const _handleAppStateChange = nextAppState => {
-    if (appState.match(/inactive|background/) && nextAppState === "active") {
+  const _handleAppStateChange = (nextAppState) => {
+    if (appState.current.match(/inactive|background/) && nextAppState === "active") {
       console.log("App has come to the foreground!");
     }
-    setAppState(nextAppState);
+    appState.current = nextAppState;
   };
 
   return (
     <View style={styles.container}>
-      <Text>Current state is: {appState}</Text>
+      <Text>Current state is: {appState.current}</Text>
     </View>
   );
 };

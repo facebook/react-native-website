@@ -27,10 +27,10 @@
         "title": "Animated"
       },
       "animatedvalue": {
-        "title": "AnimatedValue"
+        "title": "Animated.Value"
       },
       "animatedvaluexy": {
-        "title": "AnimatedValueXY"
+        "title": "Animated.ValueXY"
       },
       "animations": {
         "title": "Animations"
@@ -53,7 +53,7 @@
       "backhandler": {
         "title": "BackHandler"
       },
-      "building-for-apple-tv": {
+      "building-for-tv": {
         "title": "Building For TV Devices"
       },
       "button": {
@@ -103,6 +103,9 @@
       },
       "drawerlayoutandroid": {
         "title": "DrawerLayoutAndroid"
+      },
+      "dynamiccolorios": {
+        "title": "DynamicColorIOS"
       },
       "easing": {
         "title": "Easing"
@@ -191,6 +194,9 @@
       "layoutanimation": {
         "title": "LayoutAnimation"
       },
+      "libraries": {
+        "title": "Using Libraries"
+      },
       "linking-libraries-ios": {
         "title": "Linking Libraries"
       },
@@ -246,7 +252,7 @@
         "title": "Picker Style Props"
       },
       "picker": {
-        "title": "Picker"
+        "title": "🚧 Picker"
       },
       "pickerios": {
         "title": "🚧 PickerIOS"
@@ -2111,7 +2117,7 @@
       "version-0.5/version-0.5-backhandler": {
         "title": "BackHandler"
       },
-      "version-0.5/version-0.5-building-for-apple-tv": {
+      "version-0.5/version-0.5-building-for-tv": {
         "title": "Building For TV Devices"
       },
       "version-0.5/version-0.5-button": {
@@ -2218,6 +2224,9 @@
       },
       "version-0.5/version-0.5-interactionmanager": {
         "title": "InteractionManager"
+      },
+      "version-0.5/version-0.5-intro-react-native-components": {
+        "title": "Core Components and Native Components"
       },
       "version-0.5/version-0.5-javascript-environment": {
         "title": "JavaScript Environment"
@@ -2961,7 +2970,7 @@
         "title": "Button"
       },
       "version-0.58/version-0.58-cameraroll": {
-        "title": "CameraRoll"
+        "title": "🚧 CameraRoll"
       },
       "version-0.58/version-0.58-communication-android": {
         "title": "Communication between native and React Native"
@@ -3117,7 +3126,7 @@
         "title": "ViewPagerAndroid"
       },
       "version-0.58/version-0.58-webview": {
-        "title": "WebView"
+        "title": "🚧 WebView"
       },
       "version-0.59/version-0.59-appregistry": {
         "title": "AppRegistry"
@@ -3307,6 +3316,9 @@
       },
       "version-0.60/version-0.60-modal": {
         "title": "Modal"
+      },
+      "version-0.60/version-0.60-native-modules-ios": {
+        "title": "Native Modules"
       },
       "version-0.60/version-0.60-out-of-tree-platforms": {
         "title": "Out-of-Tree Platforms"
@@ -3539,7 +3551,7 @@
       "version-0.62/version-0.62-backhandler": {
         "title": "BackHandler"
       },
-      "version-0.62/version-0.62-building-for-apple-tv": {
+      "version-0.62/version-0.62-building-for-tv": {
         "title": "Building For TV Devices"
       },
       "version-0.62/version-0.62-button": {
@@ -3656,6 +3668,9 @@
       "version-0.62/version-0.62-layoutanimation": {
         "title": "LayoutAnimation"
       },
+      "version-0.62/version-0.62-libraries": {
+        "title": "Using Libraries"
+      },
       "version-0.62/version-0.62-linking-libraries-ios": {
         "title": "Linking Libraries"
       },
@@ -3705,7 +3720,7 @@
         "title": "PermissionsAndroid"
       },
       "version-0.62/version-0.62-picker": {
-        "title": "Picker"
+        "title": "🚧 Picker"
       },
       "version-0.62/version-0.62-pixelratio": {
         "title": "PixelRatio"

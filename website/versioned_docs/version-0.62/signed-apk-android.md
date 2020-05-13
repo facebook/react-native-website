@@ -102,7 +102,7 @@ $ npx react-native run-android --variant=release
 
 Note that `--variant=release` is only available if you've set up signing as described above.
 
-You can kill any running packager instances, since all your framework and JavaScript code is bundled in the APK's assets.
+You can terminate any running bundler instances, since all your framework and JavaScript code is bundled in the APK's assets.
 
 ### Publishing to other stores
 

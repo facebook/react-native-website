@@ -286,7 +286,12 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
@@ -298,7 +303,9 @@ class RNHighScores extends React.Component {
     ));
     return (
       <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>2048 High Scores!</Text>
+        <Text style={styles.highScoresTitle}>
+          2048 High Scores!
+        </Text>
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );
@@ -310,18 +317,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 // Module name
@@ -346,7 +353,7 @@ You can add a new link on the main game menu to go to the "High Score" React Nat
 
 We will now add an event handler from the menu link. A method will be added to the main `ViewController` of your application. This is where `RCTRootView` comes into play.
 
-When you build a React Native application, you use the React Native packager to create an `index.bundle` that will be served by the React Native server. Inside `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module.
+When you build a React Native application, you use the Metro bundler to create an `index.bundle` that will be served by the React Native server. Inside `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module.
 
 We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
 
@@ -445,7 +452,7 @@ Wire up the new link in the main menu to the newly added event handler method.
 
 ### Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the React Native packager to build the `index.bundle` package and the server running on `localhost` to serve it.
+You have now done all the basic steps to integrate React Native with your current application. Now we will start the Metro bundler to build the `index.bundle` package and the server running on `localhost` to serve it.
 
 ##### 1. Add App Transport Security exception
 
@@ -555,7 +562,7 @@ This is only used in dev mode when reloading JavaScript from the development ser
 
 ### Cleartext Traffic (API level 28+)
 
-> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. The changes below allow cleartext traffic in debug builds.
+> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the Metro bundler. The changes below allow cleartext traffic in debug builds.
 
 #### 1. Apply the `usesCleartextTraffic` option to your Debug `AndroidManifest.xml`
 
@@ -592,7 +599,12 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class HelloWorld extends React.Component {
   render() {
@@ -606,16 +618,19 @@ class HelloWorld extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
+    margin: 10
+  }
 });
 
-AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
+AppRegistry.registerComponent(
+  'MyReactNativeApp',
+  () => HelloWorld
+);
 ```
 
 ##### 3. Configure permissions for development error overlay
@@ -773,7 +788,7 @@ Now your activity is ready to run some JavaScript code.
 
 ### Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the React Native packager to build the `index.bundle` package and the server running on localhost to serve it.
+You have now done all the basic steps to integrate React Native with your current application. Now we will start the Metro bundler to build the `index.bundle` package and the server running on localhost to serve it.
 
 ##### 1. Run the packager
 

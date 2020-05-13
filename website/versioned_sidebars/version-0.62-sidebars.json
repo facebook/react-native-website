@@ -14,7 +14,7 @@
     "Environment setup": [
       "version-0.62-environment-setup",
       "version-0.62-integration-with-existing-apps",
-      "version-0.62-building-for-apple-tv",
+      "version-0.62-building-for-tv",
       "version-0.62-out-of-tree-platforms"
     ],
     "Workflow": [
@@ -22,6 +22,7 @@
       "version-0.62-fast-refresh",
       "version-0.62-debugging",
       "version-0.62-testing-overview",
+      "version-0.62-libraries",
       "version-0.62-typescript",
       "version-0.62-upgrading"
     ],
@@ -81,7 +82,6 @@
       "version-0.62-imagebackground",
       "version-0.62-keyboardavoidingview",
       "version-0.62-modal",
-      "version-0.62-picker",
       "version-0.62-refreshcontrol",
       "version-0.62-safeareaview",
       "version-0.62-scrollview",

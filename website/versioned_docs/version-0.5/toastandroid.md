@@ -16,18 +16,21 @@ The 'showWithGravityAndOffset' function adds on the ability to specify offset Th
 Basic usage:
 
 ```jsx
-ToastAndroid.show('A pikachu appeared nearby !', ToastAndroid.SHORT);
+ToastAndroid.show(
+  'A pikachu appeared nearby !',
+  ToastAndroid.SHORT
+);
 ToastAndroid.showWithGravity(
   'All Your Base Are Belong To Us',
   ToastAndroid.SHORT,
-  ToastAndroid.CENTER,
+  ToastAndroid.CENTER
 );
 ToastAndroid.showWithGravityAndOffset(
   'A wild toast appeared!',
   ToastAndroid.LONG,
   ToastAndroid.BOTTOM,
   25,
-  50,
+  50
 );
 ```
 
@@ -75,7 +78,7 @@ ToastAndroid.showWithGravityAndOffset(
   duration,
   gravity,
   xOffset,
-  yOffset,
+  yOffset
 );
 ```
 

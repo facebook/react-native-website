@@ -5,7 +5,7 @@ original_id: dimensions
 ---
 
 ```jsx
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 ```
 
 You can get the application window's width and height using below code:

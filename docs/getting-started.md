@@ -326,11 +326,10 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 <block class="native windows android" />
 
-1. Open the **Windows Control Panel.** 
-2. Under **System and Security,** open **System.**
-3. Click on **Advanced system settings...**
-4. Then click on **Environment Variables...** 
-5. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
+1. Open the **Windows Control Panel.**
+2. Click on **User Accounts,** then click **User Accounts** again
+3. Click on **Change my environment variables**
+4. Click on **New...** to create a new `ANDROID_HOME` user variable that points to the path to your Android SDK:
 
 ![ANDROID_HOME Environment Variable](/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
@@ -344,15 +343,18 @@ You can find the actual location of the SDK in the Android Studio "Preferences" 
 
 Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
 
+1. Open powershell
+2. Copy and paste **Get-ChildItem -Path Env:\\** into powershell
+3. Verify `ANDROID_HOME` has been added
+
 <h4>4. Add platform-tools to Path</h4>
 
-1. Open the **Windows Control Panel.** 
-2. Under **System and Security,** open **System.**
-3. Click on **Advanced system settings...**
-4. Then click on **Environment Variables...** 
-5. Select the **Path** variable.
-6. Click **Edit.** 
-7. Click **New** and add the path to platform-tools to the list.
+1. Open the **Windows Control Panel.**
+2. Click on **User Accounts,** then click **User Accounts** again
+3. Click on **Change my environment variables**
+4. Select the **Path** variable.
+5. Click **Edit.**
+6. Click **New** and add the path to platform-tools to the list.
 
 The default location for this folder is:
 
@@ -472,18 +474,18 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h2>Running your React Native application</h2>
 
-Run `react-native start` inside your React Native project folder:
+> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+
+Run `npx react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
-> If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
+The command above starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
-`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
-
-Run `react-native run-ios` inside your React Native project folder:
+To start the application run `npx react-native run-ios` inside your React Native project folder:
 
 ```sh
 npx react-native run-ios
@@ -505,25 +507,18 @@ The above command will automatically run your app on the iOS Simulator by defaul
 
 <h2>Running your React Native application</h2>
 
-Run `react-native start` inside your React Native project folder:
-
-```sh
-cd AwesomeProject
-npx react-native start
-```
-
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-On another terminal, run `npx react-native run-android`:
+Run `npx react-native start` inside your React Native project folder:
 
 ```sh
 cd AwesomeProject
 npx react-native start
 ```
 
-`react-native start` starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
+The command above starts Metro Bundler, which you can read more about [here](https://facebook.github.io/metro/).
 
-Run `react-native run-android` inside your React Native project folder:
+To start the application run `npx react-native run-android` inside your React Native project folder:
 
 ```sh
 npx react-native run-android

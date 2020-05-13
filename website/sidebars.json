@@ -14,7 +14,7 @@
     "Environment setup": [
       "environment-setup",
       "integration-with-existing-apps",
-      "building-for-apple-tv",
+      "building-for-tv",
       "out-of-tree-platforms"
     ],
     "Workflow": [
@@ -22,6 +22,7 @@
       "fast-refresh",
       "debugging",
       "testing-overview",
+      "libraries",
       "typescript",
       "upgrading"
     ],
@@ -71,7 +72,6 @@
       "imagebackground",
       "keyboardavoidingview",
       "modal",
-      "picker",
       "pressable",
       "refreshcontrol",
       "safeareaview",
@@ -108,6 +108,8 @@
       "accessibilityinfo",
       "alert",
       "animated",
+      "animatedvalue",
+      "animatedvaluexy",
       "appearance",
       "appregistry",
       "appstate",
@@ -139,7 +141,7 @@
       {
         "type": "subcategory",
         "label": "iOS APIs",
-        "ids": ["actionsheetios", "settings"]
+        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
   }

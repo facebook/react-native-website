@@ -249,9 +249,9 @@ Fades out the edges of the the scroll content.
 
 If the value is greater than 0, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
 
-| Type               | Required | Default | Platform |
-| ------------------ | -------- | ------- | -------- |
-| number             | No       | 0       | Android  |
+| Type   | Required | Default | Platform |
+| ------ | -------- | ------- | -------- |
+| number | No       | 0       | Android  |
 
 ---
 
@@ -736,7 +736,7 @@ Note: The weird function signature is due to the fact that, for historical reaso
 ### `scrollToEnd()`
 
 ```jsx
-scrollToEnd(([options]: {animated: boolean, duration: number}));
+scrollToEnd(([options]: { animated: boolean, duration: number }));
 ```
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.

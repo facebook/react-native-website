@@ -66,9 +66,12 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 Now, from your JavaScript file you can call the method like this:
 
 ```jsx
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 var CalendarManager = NativeModules.CalendarManager;
-CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
+CalendarManager.addEvent(
+  'Birthday Party',
+  '4 Privet Drive, Surrey'
+);
 ```
 
 > **NOTE**: JavaScript method names
@@ -123,7 +126,7 @@ You would then call this from JavaScript by using either:
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.getTime(),
+  date.getTime()
 ); // passing date as number of milliseconds since Unix epoch
 ```
 
@@ -133,7 +136,7 @@ or
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.toISOString(),
+  date.toISOString()
 ); // passing date as ISO-8601 string
 ```
 
@@ -158,7 +161,7 @@ and call it from JavaScript:
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.getTime(),
-  description: '...',
+  description: '...'
 });
 ```
 
@@ -189,7 +192,7 @@ CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
   } else {
-    this.setState({events: events});
+    this.setState({ events: events });
   }
 });
 ```
@@ -226,7 +229,7 @@ async function updateEvents() {
   try {
     var events = await CalendarManager.findEvents();
 
-    this.setState({events});
+    this.setState({ events });
   } catch (e) {
     console.error(e);
   }
@@ -433,8 +436,6 @@ const subscription = calendarManagerEmitter.addListener(
 subscription.remove();
 ```
 
-For more examples of sending events to JavaScript, see [`RCTLocationObserver`](https://github.com/facebook/react-native/blob/master/Libraries/Geolocation/RCTLocationObserver.m).
-
 ### Optimizing for zero listeners
 
 You will receive a warning if you expend resources unnecessarily by emitting an event while there are no listeners. To avoid this, and to optimize your module's workload (e.g. by unsubscribing from upstream notifications or pausing background tasks), you can override `startObserving` and `stopObserving` in your `RCTEventEmitter` subclass.
@@ -521,4 +522,4 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 ### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/aa0ef15335fe27c0c193e3e968789886d82e82ed/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/18e3303cd46a72668caae46e28c7c6ae69fbf8f8/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.

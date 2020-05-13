@@ -102,9 +102,9 @@ class AppList extends React.Component {
 
     return (
       <p>
-        {linkAppStore}
-        {linkAppStore && linkPlayStore ? ' · ' : ''}
         {linkPlayStore}
+        {linkPlayStore && linkAppStore ? ' · ' : ''}
+        {linkAppStore}
       </p>
     );
   }
@@ -128,13 +128,18 @@ class Showcase extends React.Component {
             <div className="logos">
               <AppList apps={apps} />
             </div>
-            <p>Some of these are hybrid native/React Native apps.</p>
             <p>
-              <span>A curated list of </span>
+              <a href="https://forms.gle/BdNf3v5hemV9D5c86">
+                Fill out this form to apply to the customer spotlight.
+              </a>
+            </p>
+            <p>
+              A curated list of{' '}
               <a href="https://github.com/ReactNativeNews/React-Native-Apps">
                 open source React Native apps
-              </a>
-              <span> is also being kept by React Native News.</span>
+              </a>{' '}
+              is also being kept by{' '}
+              <a href="https://infinite.red/react-native">Infinite Red</a>.
             </p>
           </div>
         </Container>

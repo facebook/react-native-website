@@ -91,7 +91,10 @@ Creates an object that represent android theme's default background for borderle
 ### `Ripple()`
 
 ```jsx
-TouchableNativeFeedback.Ripple((color: string), (borderless: boolean));
+TouchableNativeFeedback.Ripple(
+  (color: string),
+  (borderless: boolean)
+);
 ```
 
 Creates an object that represents ripple drawable with specified color (as a string). If property `borderless` evaluates to true the ripple will render outside of the view bounds (see native actionbar buttons as an example of that behavior). This background type is available on Android API level 21+.
