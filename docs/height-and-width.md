@@ -21,7 +21,7 @@ const FixedDimensionsBasics = () => {
         <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
       </View>
     );
-}
+};
 
 export default FixedDimensionsBasics;
 ```
@@ -49,7 +49,7 @@ const FlexDimensionsBasics = () => {
         <View style={{flex: 3, backgroundColor: 'steelblue'}} />
       </View>
     );
-}
+};
 
 export default FlexDimensionsBasics;
 ```

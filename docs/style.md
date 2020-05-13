@@ -11,7 +11,7 @@ As a component grows in complexity, it is often cleaner to use `StyleSheet.creat
 
 ```SnackPlayer name=Style
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native';
 
 const LotsOfStyles = () => {
     return (
@@ -22,7 +22,7 @@ const LotsOfStyles = () => {
         <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
       </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
