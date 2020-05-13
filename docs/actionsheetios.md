@@ -11,7 +11,7 @@ Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-i
 import React, { useState } from "react";
 import { ActionSheetIOS, Button, StyleSheet, Text, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   const [result, setResult] = useState("🔮");
 
   const onPress = () =>
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 # Reference

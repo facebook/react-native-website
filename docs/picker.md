@@ -13,7 +13,7 @@ Renders the native picker component on Android and iOS.
 import React, { useState } from "react";
 import { View, Picker, StyleSheet } from "react-native";
 
-export default function App() {
+const App = () => {
   const [selectedValue, setSelectedValue] = useState("java");
   return (
     <View style={styles.container}>
@@ -36,6 +36,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 ---

@@ -60,7 +60,7 @@ The following example implements a scenario where you confirm if the user wants 
 import React, { useEffect } from "react";
 import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
 
-export default function App() {
+const App = () => {
   useEffect(() => {
     const backAction = () => {
       Alert.alert("Hold on!", "Are you sure you want to go back?", [
@@ -100,6 +100,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -177,7 +179,7 @@ Additionally `BackHandler.removeEventListener` can also be used to clear the eve
 import React, { useEffect } from "react";
 import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
 
-export default function App() {
+const App = () => {
   const backAction = () => {
     Alert.alert("Hold on!", "Are you sure you want to go back?", [
       {
@@ -215,6 +217,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />

@@ -258,7 +258,7 @@ import {
 
 const images = new Array(6).fill('https://images.unsplash.com/photo-1556740749-887f6717d7e4');
 
-export default function App() {
+const App = () => {
   const scrollX = useRef(new Animated.Value(0)).current;
 
   const { width: windowWidth } = useWindowDimensions();
@@ -367,6 +367,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -554,7 +556,7 @@ onPanResponderMove={Animated.event(
 import React, { useRef } from "react";
 import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
 
-export default function App() {
+const App = () => {
   const pan = useRef(new Animated.ValueXY()).current;
   const panResponder = useRef(
     PanResponder.create({
@@ -602,6 +604,8 @@ const styles = StyleSheet.create({
     borderRadius: 5
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
