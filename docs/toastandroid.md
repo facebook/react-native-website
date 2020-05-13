@@ -16,6 +16,7 @@ The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' met
 import React from "react";
 import { View, StyleSheet, ToastAndroid, Button } from "react-native";
 import Constants from "expo-constants";
+
 const App = () => {
   const showToast = () => {
     ToastAndroid.show("A pikachu appeared nearby !", ToastAndroid.SHORT);

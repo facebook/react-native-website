@@ -11,7 +11,7 @@ title: Settings
 import React, { useState } from "react";
 import { Button, Settings, StyleSheet, Text, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   const [data, setData] = useState(Settings.get("data"));
 
   const storeData = data => {
@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
     marginVertical: 12
   }
 });
+
+export default App;
 ```
 
 ---
