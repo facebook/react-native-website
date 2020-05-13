@@ -15,7 +15,7 @@ To use, wrap your top level view with a `SafeAreaView` with a `flex: 1` style ap
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
-export default function App() {
+const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Page content</Text>
@@ -28,6 +28,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+export default App;
 ```
 
 ---

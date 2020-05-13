@@ -63,7 +63,7 @@ You can think of components as blueprints. Whatever a function component returns
 Here the `Cat` component will render a `<Text>` element:
 
 ```jsx
-function Cat() {
+const Cat = () => {
   return <Text>Hello, I am your cat!</Text>;
 }
 ```
@@ -157,8 +157,8 @@ Any JavaScript expression will work between curly braces, including function cal
 import React from 'react';
 import { Text } from 'react-native';
 
-const Cat() {
-  function getFullName(firstName, secondName, thirdName) {
+const Cat = () => {
+  const getFullName = (firstName, secondName, thirdName) => {
     return firstName + " " + secondName + " " + thirdName;
   }
 
@@ -229,7 +229,7 @@ You can render this component multiple times and multiple places without repeati
 import React from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-function Cat() {
+const Cat = () => {
   return (
     <View>
       <Text>I am also a cat!</Text>
@@ -263,7 +263,7 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 import React from 'react';
 import { Text, View } from 'react-native';
 
-function Cat(props) {
+const Cat = (props) => {
   return (
     <View>
       <Text>Hello, I am {props.name}!</Text>
@@ -338,7 +338,7 @@ You can add state to a component by calling [React’s `useState` Hook](https://
 import React, { useState } from "react";
 import { Button, Text, View } from "react-native";
 
-function Cat(props) {
+const Cat = (props) => {
   const [isHungry, setIsHungry] = useState(true);
 
   return (
@@ -378,7 +378,7 @@ import React, { useState } from 'react';
 Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
 
 ```jsx
-function Cat(props) {
+const Cat = (props) => {
   const [isHungry, setIsHungry] = useState(true);
   // ...
 }

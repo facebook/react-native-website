@@ -24,7 +24,7 @@ Vibrates the device.
 import React from "react";
 import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
 
-function Separator() {
+const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
 
@@ -113,7 +113,7 @@ export default App
 import React from "react";
 import { Button, Platform, Text, Vibration, View, SafeAreaView, StyleSheet } from "react-native";
 
-function Separator() {
+const Separator = () => {
   return <View style={Platform.OS === "android" ? styles.separator : null} />;
 }
 

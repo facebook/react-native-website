@@ -15,7 +15,7 @@ In accordance with the ancient traditions of our people, we must first build an 
 import React from 'react';
 import { Text, View } from 'react-native';
 
-function HelloWorldApp() {
+const HelloWorldApp = () => {
   return (
     <View
       style={{
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function Greeting(props) {
+const Greeting = (props) => {
   return (
     <View style={styles.center}>
       <Text>Hello {props.name}!</Text>
@@ -79,7 +79,7 @@ function Greeting(props) {
   );
 }
 
-function LotsOfGreetings() {
+const LotsOfGreetings = () => {
   return (
     <View style={[styles.center, {top: 50}]}>
       <Greeting name='Rexxar' />

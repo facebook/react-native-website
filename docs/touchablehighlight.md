@@ -10,7 +10,7 @@ The underlay comes from wrapping the child in a new View, which can affect layou
 TouchableHighlight must have one child (not zero or more than one). If you wish to have several child components, wrap them in a View.
 
 ```jsx
-function MyComponent(props) {
+const MyComponent = (props) => {
   return (
     <View {...props} style={{ flex: 1, backgroundColor: '#fff' }}>
       <Text>My Component</Text>
@@ -45,7 +45,7 @@ function MyComponent(props) {
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
-export default function TouchableHighlightExample() {
+const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(count + 1);
 
@@ -84,6 +84,8 @@ const styles = StyleSheet.create({
     color: "#FF00FF"
   }
 });
+
+export default TouchableHighlightExample;
 ```
 
 <block class="classical syntax" />

@@ -31,7 +31,7 @@ const Blink = (props) => {
   return <Text>{props.text}</Text>;
 }
 
-export default function BlinkApp() {
+const BlinkApp = () => {
   return (
     <View style={{marginTop: 50}}>
       <Blink text='I love to blink' />
@@ -41,6 +41,8 @@ export default function BlinkApp() {
     </View>
   );
 }
+
+export default BlinkApp;
 ```
 
 In a real application, you probably won't be setting state with a timer. You might set state when you have new data from the server, or from user input. You can also use a state container like [Redux](https://redux.js.org/) or [Mobx](https://mobx.js.org/) to control your data flow. In that case you would use Redux or Mobx to modify your state rather than calling `setState` directly.

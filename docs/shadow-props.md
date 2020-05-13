@@ -7,7 +7,7 @@ title: Shadow Props
 import React, { useState } from "react";
 import { Text, View, StyleSheet, Slider } from "react-native";
 
-function ShadowPropSlider({ label, value, ...props }) {
+const ShadowPropSlider = ({ label, value, ...props }) => {
   return (
     <>
       <Text>
@@ -18,7 +18,7 @@ function ShadowPropSlider({ label, value, ...props }) {
   );
 }
 
-export default function App() {
+const App = () => {
   const [shadowOffsetWidth, setShadowOffsetWidth] = useState(0);
   const [shadowOffsetHeight, setShadowOffsetHeight] = useState(0);
   const [shadowRadius, setShadowRadius] = useState(0);
@@ -93,6 +93,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12
   }
 });
+
+export default App;
 ```
 
 # Reference

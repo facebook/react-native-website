@@ -151,7 +151,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-export default function App() {
+const App = () => {
   const [boxPosition, setBoxPosition] = useState("left");
 
   const toggleBox = () => {
@@ -199,6 +199,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />

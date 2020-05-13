@@ -40,7 +40,7 @@ const DATA = [
   },
 ];
 
-function Item({ title }) {
+const Item = ({ title }) => {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
@@ -116,7 +116,7 @@ const DATA = [
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
+const Item = ({ id, title, selected, onSelect }) => {
   return (
     <TouchableOpacity
       onPress={() => onSelect(id)}
