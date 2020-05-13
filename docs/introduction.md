@@ -31,7 +31,7 @@ This introduction lets you get started immediately in your browser with interact
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function YourApp() {
+const YourApp = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>
@@ -40,6 +40,8 @@ export default function YourApp() {
     </View>
   );
 }
+
+export default YourApp;
 ```
 
 The above is a Snack Player. It’s a handy tool created by Expo to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with it in your browser. Go ahead and try changing the "Try editing me!" text above to "Hello, world!"
@@ -69,7 +71,7 @@ With React, you can make components using either classes or functions. Originall
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function HelloWorldApp() {
+const HelloWorldApp = () => {
   return (
     <View style={{
         flex: 1,
@@ -80,6 +82,8 @@ export default function HelloWorldApp() {
     </View>
   );
 }
+
+export default HelloWorldApp;
 ```
 
 <block class="classical syntax" />
@@ -88,7 +92,7 @@ export default function HelloWorldApp() {
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-export default class HelloWorldApp extends Component {
+class HelloWorldApp extends Component {
   render() {
     return (
       <View style={{
@@ -102,6 +106,7 @@ export default class HelloWorldApp extends Component {
   }
 }
 
+export default HelloWorldApp;
 ```
 
 <block class="endBlock syntax" />

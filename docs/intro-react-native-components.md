@@ -41,7 +41,7 @@ In the next section, you will start combining these Core Components to learn abo
 import React from 'react';
 import { View, Text, Image, ScrollView, TextInput } from 'react-native';
 
-export default function App() {
+const App = () => {
   return (
     <ScrollView>
       <Text>Some text</Text>
@@ -65,6 +65,8 @@ export default function App() {
     </ScrollView>
   );
 }
+
+export default App;
 ```
 
 ---
