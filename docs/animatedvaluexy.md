@@ -11,7 +11,7 @@ title: Animated.ValueXY
 import React, { useRef } from "react";
 import { Animated, PanResponder, StyleSheet, View } from "react-native";
 
-const App = () => {
+const DraggableView = () => {
   const pan = useRef(new Animated.ValueXY()).current;
 
   const panResponder = PanResponder.create({
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default DraggableView;
 ```
 
 ---
