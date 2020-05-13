@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
 });
 
 const randomHexColor = () => {
-  return '#000000'.replace(/0/g, function() {
+  return '#000000'.replace(/0/g, () => {
     return (~~(Math.random() * 16)).toString(16);
   });
 };
