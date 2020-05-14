@@ -3,8 +3,6 @@ id: touchablenativefeedback
 title: TouchableNativeFeedback
 ---
 
-> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
-
 A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.
 
 At the moment it only supports having a single View instance as a child node, as it's implemented by replacing that View with another instance of RCTView node with some additional properties set.
