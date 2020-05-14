@@ -3,6 +3,8 @@ id: touchableopacity
 title: TouchableOpacity
 ---
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
 
 Opacity is controlled by wrapping the children in an `Animated.View`, which is added to the view hierarchy. Be aware that this can affect layout.

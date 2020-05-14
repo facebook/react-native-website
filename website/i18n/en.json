@@ -266,6 +266,9 @@
       "platformcolor": {
         "title": "PlatformColor"
       },
+      "pressable": {
+        "title": "Pressable"
+      },
       "profiling": {
         "title": "Profiling"
       },
