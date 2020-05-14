@@ -16,8 +16,8 @@ Pressable is a Core Component wrapper that can detect various stages of press in
 On an element wrapped by `Pressable`:
 
 1. [`onPressIn`](#onpressin) is called when a press is activated—before `onPress` is called.
-2. [`onPress`](#onpress) is called when a single press gesture is triggered.
-3. [`onLongPress`](#onlongpress) is called only if the press gesture is activated beyond 500ms or the time set with [`delayLongPress`](#delaylongpress).
+2. [`onPress`](#onpress) is called when a single press gesture is triggered, 130 milliseconds from `onPressIn`.
+3. [`onLongPress`](#onlongpress) is called only if the press gesture is activated beyond 500ms from `onPressIn` or the time set with [`delayLongPress`](#delaylongpress).
 4. [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
 
   <img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
@@ -126,11 +126,11 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `delayLongPress`
 
-Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
+Duration (in milliseconds) from `onPress` before `onLongPress` is called.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | No       | 500     |
 
 ### `disabled`
 
@@ -150,7 +150,7 @@ Sets additional distance outside of element in which a press can be detected.
 
 ### `onLongPress`
 
-Called when a press event lasts longer than 500 milliseconds.
+Called when a press event lasts longer than 500 milliseconds. Delay can be customized with [`delayLongPress`](#delaylongpress).
 
 | Type       | Required |
 | ---------- | -------- |
@@ -158,7 +158,7 @@ Called when a press event lasts longer than 500 milliseconds.
 
 ### `onPress`
 
-Called when a single tap gesture is detected, after `onPressIn`.
+Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`.
 
 | Type       | Required |
 | ---------- | -------- |
@@ -166,7 +166,7 @@ Called when a single tap gesture is detected, after `onPressIn`.
 
 ### `onPressIn`
 
-Called when a touch is engaged, before `onPress`.
+Called immediately when a touch is engaged, before `onPress`.
 
 | Type       | Required |
 | ---------- | -------- |
@@ -180,7 +180,7 @@ Called when a touch is released.
 | ---------- | -------- |
 | PressEvent | No       |
 
-### `pressRectOffset`
+### `pressRetentionOffset`
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
