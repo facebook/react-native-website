@@ -43,7 +43,7 @@ Fingers are not the most precise instruments, and it is not uncommon for users t
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-export default (App = () => {
+const App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   let textLog = '';
@@ -78,7 +78,7 @@ export default (App = () => {
       </View>
     </View>
   );
-});
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -96,33 +96,35 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9'
   }
 });
+
+export default App;
 ```
 
 ## Props
 
-### `android_disableSound`
+### `android_disableSound` <div class="label android">Android</div>
 
 If true, doesn't play Android system sound on press.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| boolean | No       | Android  |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
-### `android_rippleColor`
+### `android_rippleColor` <div class="label android">Android</div>
 
 Enables the Android ripple effect and configures its color.
 
-| Type                                         | Required | Platform |
-| -------------------------------------------- | -------- | -------- |
-| [color](https://reactnative.dev/docs/colors) | No       | Android  |
+| Type                                         | Required |
+| -------------------------------------------- | -------- |
+| [color](https://reactnative.dev/docs/colors) | No       |
 
 ### `children`
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| Type       | Required |
-| ---------- | -------- |
-| React.Node | No       |
+| Type         | Required |
+| ------------ | -------- |
+| [React.Node] | No       |
 
 ### `delayLongPress`
 
@@ -136,41 +138,41 @@ Duration (in milliseconds) from `onPress` before `onLongPress` is called.
 
 Whether the press behavior is disabled.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
 ### `hitSlop`
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type       | Required |
-| ---------- | -------- |
-| RectOrSize | No       |
+| Type       | Representation                                                                         | Required |
+| ---------- | -------------------------------------------------------------------------------------- | -------- |
+| RectOrSize | number <hr/> object `{ bottom: ?number, left: ?number, right: ?number, top: ?number }` | No       |
 
 ### `onLongPress`
 
 Called when a press event lasts longer than 500 milliseconds. Delay can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type         | Required |
+| ------------ | -------- |
+| [PressEvent] | No       |
 
 ### `onPress`
 
 Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`.
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type         | Required |
+| ------------ | -------- |
+| [PressEvent] | No       |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPress`.
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type         | Required |
+| ------------ | -------- |
+| [PressEvent] | No       |
 
 ### `onPressOut`
 
@@ -182,11 +184,11 @@ Called when a touch is released.
 
 ### `pressRetentionOffset`
 
-Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
+Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered. Default value: `{ bottom: 30, left: 20, right: 20, top: 20 }`.
 
-| Type         | Required |
-| ------------ | -------- |
-| Rect or Size | No       |
+| Type       | Representation                                                                         | Required |
+| ---------- | -------------------------------------------------------------------------------------- | -------- |
+| RectOrSize | number <hr/> object `{ bottom: ?number, left: ?number, right: ?number, top: ?number }` | No       |
 
 ### `style`
 
@@ -200,6 +202,9 @@ Either view styles or a function that receives a boolean reflecting whether the 
 
 Used only for documentation or testing (e.g. snapshot testing).
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
+
+[pressevent]: https://github.com/facebook/react-native/blob/master/Libraries/Types/CoreEventTypes.js#L88-L101
+[react.node]: https://github.com/facebook/react/blob/master/packages/shared/ReactTypes.js#L10-L16

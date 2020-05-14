@@ -154,6 +154,9 @@ table tr th {
   font-family: "Helvetica Neue", Arial, sans-serif;
   text-transform: uppercase;
 }
+table tr td hr {
+  margin: 10px 0;
+}
 
 figure {
   text-align: center;
@@ -193,6 +196,48 @@ figcaption {
   border-left: 4px solid #61dafb;
   margin-left: -15px;
   padding-left: 11px;
+}
+
+/* Labels */
+
+.label {
+  display: inline-block;
+  position: relative;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 4px;
+}
+
+.label.android {
+  background: #a4c936;
+}
+
+.label.ios {
+  background: #222;
+}
+
+h3 .label {
+  top: -1px;
+  margin-left: 12px;
+}
+
+/* Label as dot in the right sidebar */
+
+.onPageNav .label {
+  display: inline-block;
+  padding: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  margin-left: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: transparent;
 }
 
 /* Custom */
@@ -238,7 +283,8 @@ figcaption {
 */
 
 .navItem[href*="dynamiccolorios"]:after,
-.navItem[href*="platformcolor"]:after {
+.navItem[href*="platformcolor"]:after,
+.navItem[href*="pressable"]:after {
   content: "new";
   display: inline-block;
   position: relative;
