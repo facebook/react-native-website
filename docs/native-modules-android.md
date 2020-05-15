@@ -278,7 +278,7 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
 ```jsx
-async function measureLayout() {
+const measureLayout = async () => {
   try {
     var {
       relativeX,

@@ -58,13 +58,15 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
       {/* Rest of your app code */}
     </NavigationContainer>
   );
 }
+
+export default App;
 ```
 
 Now you are ready to build and run your app on the device/simulator.
@@ -80,7 +82,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 const Stack = createStackNavigator();
 
-function MyStack() {
+const MyStack = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
@@ -103,7 +105,7 @@ You can set options such as the screen title for each screen in the `options` pr
 Each screen takes a `component` prop that is a React component. Those components receive a prop called `navigation` which has various methods to link to other screens. For example, you can use `navigation.navigate` to go to the `Profile` screen:
 
 ```jsx
-function HomeScreen({ navigation }) {
+const HomeScreen = ({ navigation }) => {
   return (
     <Button
       title="Go to Jane's profile"
@@ -113,7 +115,7 @@ function HomeScreen({ navigation }) {
     />
   );
 }
-function ProfileScreen() {
+const ProfileScreen = () => {
   return <Text>This is Jane's profile</Text>;
 }
 ```
