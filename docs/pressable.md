@@ -149,9 +149,9 @@ Whether the press behavior is disabled.
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
-| [`RectOrSize`](rectorsize) or number | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [`Rect`](rect) or number | No       |
 
 ### `onLongPress`
 
@@ -189,9 +189,9 @@ Called when a touch is released.
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered. Default value: `{ bottom: 30, left: 20, right: 20, top: 20 }`.
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
-| [`RectOrSize`](rectorsize) or number | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [`Rect`](rect) or number | No       |
 
 ### `style`
 
