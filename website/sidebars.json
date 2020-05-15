@@ -143,6 +143,7 @@
         "label": "iOS APIs",
         "ids": ["actionsheetios", "dynamiccolorios", "settings"]
       }
-    ]
+    ],
+    "Object Types": ["rectorsize"]
   }
 }

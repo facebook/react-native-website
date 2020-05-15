@@ -3,24 +3,29 @@ id: native-modules-setup
 title: Native Modules Setup
 ---
 
-Native modules are usually distributed as npm packages, except that on top of the usual Javascript they will include some native code per platform. To understand more about npm packages you may find [this guide](https://docs.npmjs.com/getting-started/publishing-npm-packages) useful.
+Native modules are usually distributed as npm packages, except that on top of the usual Javascript they will include some native code per platform. To understand more about npm packages you may find [this guide](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) useful.
 
-To get set up with the basic project structure for a native module we will use a third party tool [create-react-native-module](https://github.com/brodybits/create-react-native-module). You can go ahead further and dive deep into how that library works, for our needs we will only need:
-
-```sh
-$ yarn global add create-react-native-module
-$ create-react-native-module MyLibrary
-```
-
-Where MyLibrary is the name you would like for the new module. After doing this you will navigate into `MyLibrary` folder and install the npm package to be locally available for your computer by doing:
+To get set up with the basic project structure for a native module we will use the community tool called [Bob](https://github.com/react-native-community/bob). You can go ahead further and dive deep into how that library works, but for our needs we will only execute the basic `create` script:
 
 ```sh
-$ yarn install
+npx @react-native-community/bob create react-native-awesome-module
 ```
 
-After this is done you can go to your main react app folder (which you created by doing `npx react-native init MyApp`)
+Where `react-native-awesome-module` is the name you would like for the new module. After doing this you will navigate into `react-native-awesome-module` folder and bootstrap the example project by running:
 
-- add your newly created module as a dependency in your package.json
-- run `yarn install` to bring it along from your local npm repository.
+```sh
+yarn bootstrap
+```
 
-After this, you will be able to continue to [Native Modules (iOS)](native-modules-ios) or [Native Modules (Android)](native-modules-android) to add in some code. Make sure to read the README.md within your `MyLibrary` Directory for platform-specific instructions on how to include the project.
+When the bootstrap is done, you will be able to start the example app by executing one of the following commands:
+
+```sh
+# Android app
+yarn example android
+# iOS app
+yarn example ios
+```
+
+When all steps above are done, you will be able to continue with [Android Native Modules](native-modules-android) or [iOS Native Modules](native-modules-ios) guides to add in some code.
+
+> For a less opinionated setup, have a look at the third party tool [create-react-native-module](https://github.com/brodybits/create-react-native-module).

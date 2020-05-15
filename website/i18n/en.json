@@ -287,6 +287,9 @@
       "ram-bundles-inline-requires": {
         "title": "RAM Bundles and Inline Requires"
       },
+      "rectorsize": {
+        "title": "RectOrSize Object Type"
+      },
       "refreshcontrol": {
         "title": "RefreshControl"
       },
@@ -393,10 +396,10 @@
         "title": "Learn the Basics"
       },
       "typescript": {
-        "title": "Using TypeScript with React Native"
+        "title": "Using TypeScript"
       },
       "upgrading": {
-        "title": "Upgrading to new React Native versions"
+        "title": "Upgrading to new versions"
       },
       "usecolorscheme": {
         "title": "useColorScheme"
@@ -3977,6 +3980,7 @@
       "Core Components": "Core Components",
       "Props": "Props",
       "APIs": "APIs",
+      "Object Types": "Object Types",
       "Guides": "Guides",
       "Components": "Components",
       "Contributing": "Contributing"
