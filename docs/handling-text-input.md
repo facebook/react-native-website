@@ -11,7 +11,7 @@ For example, let's say that as the user types, you're translating their words in
 import React, { useState } from 'react';
 import { Text, TextInput, View } from 'react-native';
 
-export default function PizzaTranslator() {
+const PizzaTranslator = () => {
   const [text, setText] = useState('');
   return (
     <View style={{padding: 10}}>
@@ -27,6 +27,8 @@ export default function PizzaTranslator() {
     </View>
   );
 }
+
+export default PizzaTranslator;
 ```
 
 In this example, we store `text` in the state, because it changes over time.
