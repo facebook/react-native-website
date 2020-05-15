@@ -122,17 +122,17 @@ Enables the Android ripple effect and configures its color.
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| Type         | Required |
-| ------------ | -------- |
-| [React.Node] | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [React Node](react-node) | No       |
 
 ### `delayLongPress`
 
-Duration (in milliseconds) from `onPress` before `onLongPress` is called.
+Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
 | Type   | Required | Default |
 | ------ | -------- | ------- |
-| number | No       | 500     |
+| number | No       | 370     |
 
 ### `disabled`
 
@@ -146,13 +146,13 @@ Whether the press behavior is disabled.
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type       | Representation                                                                         | Required |
-| ---------- | -------------------------------------------------------------------------------------- | -------- |
-| RectOrSize | number <hr/> object `{ bottom: ?number, left: ?number, right: ?number, top: ?number }` | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| [`RectOrSize`](rectorsize) or number | No       |
 
 ### `onLongPress`
 
-Called when a press event lasts longer than 500 milliseconds. Delay can be customized with [`delayLongPress`](#delaylongpress).
+Like `onPress`, but called if the time after `onPressIn` is triggered lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
 | Type         | Required |
 | ------------ | -------- |
@@ -160,7 +160,7 @@ Called when a press event lasts longer than 500 milliseconds. Delay can be custo
 
 ### `onPress`
 
-Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`.
+Called after `onPressOut`.
 
 | Type         | Required |
 | ------------ | -------- |
@@ -168,7 +168,7 @@ Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`
 
 ### `onPressIn`
 
-Called immediately when a touch is engaged, before `onPress`.
+Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
 | Type         | Required |
 | ------------ | -------- |
@@ -176,7 +176,7 @@ Called immediately when a touch is engaged, before `onPress`.
 
 ### `onPressOut`
 
-Called when a touch is released.
+Called when a touch is released, after `onPressIn` but just before `onPress`.
 
 | Type       | Required |
 | ---------- | -------- |
@@ -186,17 +186,17 @@ Called when a touch is released.
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered. Default value: `{ bottom: 30, left: 20, right: 20, top: 20 }`.
 
-| Type       | Representation                                                                         | Required |
-| ---------- | -------------------------------------------------------------------------------------- | -------- |
-| RectOrSize | number <hr/> object `{ bottom: ?number, left: ?number, right: ?number, top: ?number }` | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| [`RectOrSize`](rectorsize) or number | No       |
 
 ### `style`
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type                                                           | Required |
-| -------------------------------------------------------------- | -------- |
-| [ViewStyleProp](https://reactnative.dev/docs/view-style-props) | No       |
+| Type | Required |
+| --- | --- |
+| [ViewStyleProp](https://reactnative.dev/docs/view-style-props) | No |
 
 ### `testOnly_pressed`
 
@@ -207,4 +207,3 @@ Used only for documentation or testing (e.g. snapshot testing).
 | boolean | No       | `false` |
 
 [pressevent]: https://github.com/facebook/react-native/blob/master/Libraries/Types/CoreEventTypes.js#L88-L101
-[react.node]: https://github.com/facebook/react/blob/master/packages/shared/ReactTypes.js#L10-L16
