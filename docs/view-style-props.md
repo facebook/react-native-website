@@ -9,7 +9,7 @@ title: View Style Props
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-export default ViewStyleProps = () => {
+const ViewStyleProps = () => {
     return (
       <View style={styles.container}>
         <View style={styles.top} />
@@ -47,6 +47,8 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 20,
   },
 });
+
+export default ViewStyleProps;
 ```
 
 # Reference
