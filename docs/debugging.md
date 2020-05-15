@@ -132,10 +132,10 @@ You can view installation instructions [in the README](https://github.com/infini
 
 # Native Debugging
 
-<div class="banner-native-code-required" style="margin-top:25px">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
+    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
