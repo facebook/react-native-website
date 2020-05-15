@@ -393,10 +393,10 @@
         "title": "Learn the Basics"
       },
       "typescript": {
-        "title": "Using TypeScript with React Native"
+        "title": "Using TypeScript"
       },
       "upgrading": {
-        "title": "Upgrading to new React Native versions"
+        "title": "Upgrading to new versions"
       },
       "usecolorscheme": {
         "title": "useColorScheme"
