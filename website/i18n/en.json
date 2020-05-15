@@ -287,6 +287,9 @@
       "ram-bundles-inline-requires": {
         "title": "RAM Bundles and Inline Requires"
       },
+      "rectorsize": {
+        "title": "RectOrSize Object Type"
+      },
       "refreshcontrol": {
         "title": "RefreshControl"
       },
@@ -3977,6 +3980,7 @@
       "Core Components": "Core Components",
       "Props": "Props",
       "APIs": "APIs",
+      "Object Types": "Object Types",
       "Guides": "Guides",
       "Components": "Components",
       "Contributing": "Contributing"
