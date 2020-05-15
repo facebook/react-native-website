@@ -13,7 +13,7 @@ The general way to set the dimensions of a component is by adding a fixed `width
 import React from 'react';
 import { View } from 'react-native';
 
-export default FixedDimensionsBasics = () => {
+const FixedDimensionsBasics = () => {
     return (
       <View>
         <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
@@ -21,7 +21,9 @@ export default FixedDimensionsBasics = () => {
         <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
       </View>
     );
-}
+};
+
+export default FixedDimensionsBasics;
 ```
 
 Setting dimensions this way is common for components that should always render at exactly the same size, regardless of screen dimensions.
@@ -36,7 +38,7 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 import React from 'react';
 import { View } from 'react-native';
 
-export default FlexDimensionsBasics = () => {
+const FlexDimensionsBasics = () => {
     return (
       // Try removing the `flex: 1` on the parent View.
       // The parent will not have dimensions, so the children can't expand.
@@ -47,7 +49,9 @@ export default FlexDimensionsBasics = () => {
         <View style={{flex: 3, backgroundColor: 'steelblue'}} />
       </View>
     );
-}
+};
+
+export default FlexDimensionsBasics;
 ```
 
 After you can control a component's size, the next step is to [learn how to lay it out on the screen](flexbox.md).

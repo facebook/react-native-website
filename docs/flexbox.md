@@ -35,7 +35,7 @@ You can learn more [here](https://yogalayout.com/docs/flex-direction).
 import React from 'react';
 import { View } from 'react-native';
 
-export default FlexDirectionBasics = () => {
+const FlexDirectionBasics = () => {
     return (
       // Try setting `flexDirection` to `column`.
       <View style={{flex: 1, flexDirection: 'row'}}>
@@ -45,6 +45,8 @@ export default FlexDirectionBasics = () => {
       </View>
     );
 };
+
+export default FlexDirectionBasics;
 ```
 
 ![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
@@ -79,7 +81,7 @@ You can learn more [here](https://yogalayout.com/docs/justify-content).
 import React from 'react';
 import { View } from 'react-native';
 
-export default JustifyContentBasics = () => {
+const JustifyContentBasics = () => {
     return (
       // Try setting `justifyContent` to `center`.
       // Try setting `flexDirection` to `row`.
@@ -94,6 +96,8 @@ export default JustifyContentBasics = () => {
       </View>
     );
 };
+
+export default JustifyContentBasics;
 ```
 
 ![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
@@ -120,7 +124,7 @@ You can learn more [here](https://yogalayout.com/docs/align-items).
 import React from 'react';
 import { View } from 'react-native';
 
-export default AlignItemsBasics = () => {
+const AlignItemsBasics = () => {
     return (
       // Try setting `alignItems` to 'flex-start'
       // Try setting `justifyContent` to `flex-end`.
@@ -137,6 +141,8 @@ export default AlignItemsBasics = () => {
       </View>
     );
 };
+
+export default AlignitemsBasics;
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)
