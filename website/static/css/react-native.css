@@ -266,15 +266,15 @@ article iframe {
 .banner-native-code-required {
   position: relative;
   overflow: hidden;
-  background: rgba(201, 60, 110, 0.1);
+  background: #eeebfe;
   padding: 24px 48px 24px 24px;
   margin-bottom: 24px;
-  border-left: 8px solid #c93c6e;
+  border-left: 8px solid #6170af;
 }
 
 .banner-native-code-required h2,
 .banner-native-code-required h3 {
-  color: #c93c6e;
+  color: #6170af;
   margin-top: 0;
 }
 
@@ -285,7 +285,7 @@ article iframe {
   width: 32px;
   height: 32px;
   border-radius: 4px;
-  background-color: #c93c6e;
+  background-color: #6170af;
   background-image: url(../img/expo-logo.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -298,5 +298,5 @@ article iframe {
 }
 
 .banner-native-code-required code {
-  background-color: rgba(133, 85, 102, 0.1);
+  background-color: rgba(89, 91, 145, 0.1);
 }
