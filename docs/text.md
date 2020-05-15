@@ -66,7 +66,7 @@ export default TextInANest;
 import React, { Component } from "react";
 import { Text, StyleSheet } from "react-native";
 
-export default class TextInANest extends Component {
+class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,6 +98,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+export default TextInANest;
 ```
 
 ## Nested text

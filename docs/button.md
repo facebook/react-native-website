@@ -23,11 +23,11 @@ import React from 'react';
 import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
 import Constants from 'expo-constants';
 
-function Separator() {
+const Separator = () => {
   return <View style={styles.separator} />;
 }
 
-export default function App() {
+const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
@@ -104,6 +104,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth,
   },
 });
+
+export default App;
 ```
 
 ---

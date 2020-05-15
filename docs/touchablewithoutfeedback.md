@@ -31,7 +31,7 @@ function MyComponent(props) {
 import React, { useState } from "react";
 import { StyleSheet, TouchableWithoutFeedback, Text, View } from "react-native";
 
-export default function TouchableWithoutFeedbackExample() {
+const TouchableWithoutFeedbackExample = () => {
   const [count, setCount] = useState(0);
 
   const onPress = () => {
@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
     color: "#FF00FF"
   }
 });
+
+export default TouchableWithoutFeedbackExample;
 ```
 
 ---

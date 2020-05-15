@@ -24,7 +24,7 @@ Displays a circular loading indicator.
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-export default function App() {
+const App = () => {
   return (
     <View style={[styles.container, styles.horizontal]}>
       <ActivityIndicator size="large" color="#0000ff" />
@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -54,7 +56,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={[styles.container, styles.horizontal]}>
@@ -79,6 +81,7 @@ const styles = StyleSheet.create({
   }
 });
 
+export default App;
 ```
 
 <block class="endBlock syntax" />

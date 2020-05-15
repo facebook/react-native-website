@@ -28,7 +28,7 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(prevCount => prevCount + 1);
 
@@ -63,6 +63,8 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -71,7 +73,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = { count: 0 };
@@ -117,6 +119,8 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

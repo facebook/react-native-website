@@ -18,13 +18,13 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 
-function wait(timeout) {
+const wait = (timeout) => {
   return new Promise(resolve => {
     setTimeout(resolve, timeout);
   });
 }
 
-export default function App() {
+const App = () => {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
 ```
 
 **Note:** `refreshing` is a controlled prop, this is why it needs to be set to true in the `onRefresh` function otherwise the refresh indicator will stop immediately.

@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class DisplayAnImage extends Component {
+class DisplayAnImage extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -112,6 +112,7 @@ export default class DisplayAnImage extends Component {
   }
 }
 
+export default DisplayAnImage;
 ```
 
 <block class="endBlock syntax" />
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class DisplayAnImageWithStyle extends Component {
+class DisplayAnImageWithStyle extends Component {
   render() {
     return (
       <View>
@@ -189,6 +190,7 @@ export default class DisplayAnImageWithStyle extends Component {
   }
 }
 
+export default DisplayAnImageWithStyle;
 ```
 
 <block class="endBlock syntax" />

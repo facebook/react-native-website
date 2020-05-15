@@ -47,7 +47,7 @@ function MyComponent(props) {
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
-export default function TouchableHighlightExample() {
+const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(count + 1);
 
@@ -86,6 +86,8 @@ const styles = StyleSheet.create({
     color: "#FF00FF"
   }
 });
+
+export default TouchableHighlightExample;
 ```
 
 <block class="classical syntax" />
@@ -94,7 +96,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = { count: 0 };
@@ -143,6 +145,8 @@ const styles = StyleSheet.create({
     color: "#FF00FF"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />
