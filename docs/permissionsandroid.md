@@ -67,8 +67,6 @@ const App = () => (
   </View>
 );
 
-export default App;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -84,6 +82,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -117,7 +117,7 @@ const requestCameraPermission = async () => {
   }
 };
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -126,7 +126,7 @@ export default class App extends Component {
       </View>
     );
   }
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -143,6 +143,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />
