@@ -26,7 +26,7 @@ title: Systrace
 import React from "react";
 import { Button, Text, View, StyleSheet, Systrace } from "react-native";
 
-const App =  () =>  {
+const App = () =>  {
 
   const enableProfiling = () => {
     Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
@@ -67,24 +67,24 @@ const styles = StyleSheet.create({
   }
 });
 
-export default App
+export default App;
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=Systrace%20Class%20Component%20Example
-import React from "react";
+import React, { Component } from "react";
 import { Button, Text, View, StyleSheet, Systrace } from "react-native";
 
-export default class App extends React.Component {
+class App extends Component {
 
-  enableProfiling(){
+  enableProfiling = () => {
     Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
     Systrace.beginEvent('event_label')
     Systrace.counterEvent('event_label', 10);
   }
 
-  stopProfiling(){
+  stopProfiling = () => {
     Systrace.endEvent()
   }
 
@@ -118,6 +118,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

@@ -149,11 +149,11 @@ const App = () => {
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
+
+export default App;
 ```
 
 ### Open Custom Settings
@@ -179,11 +179,11 @@ const App = () => {
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
+
+export default App;
 ```
 
 ### Get the Deep Link
@@ -230,11 +230,11 @@ const App = () => {
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
+
+export default App;
 ```
 
 ### Send Intents (Android)
@@ -273,11 +273,11 @@ const App = () => {
   );
 };
 
-export default App;
-
 const styles = StyleSheet.create({
   container: { flex: 1, justifyContent: "center", alignItems: "center" },
 });
+
+export default App;
 ```
 
 # Reference

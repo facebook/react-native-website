@@ -66,7 +66,6 @@ const style = StyleSheet.create({
 });
 
 export default App;
-
 ```
 
 <block class="endBlock syntax" />
@@ -134,7 +133,7 @@ Example usage:
 <block class="functional syntax" />
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import {
   View,
   Platform,
@@ -151,7 +150,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-export default function App() {
+const App = () => {
   const [boxPosition, setBoxPosition] = useState("left");
 
   const toggleBox = () => {
@@ -199,6 +198,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -221,7 +222,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-export default class App extends Component {
+class App extends Component {
   state = {
     boxPosition: "left"
   };
@@ -278,6 +279,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />
@@ -373,7 +376,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-export default function App() {
+const App = () => {
   const [firstBoxPosition, setFirstBoxPosition] = useState("left");
   const [secondBoxPosition, setSecondBoxPosition] = useState("left");
   const [thirdBoxPosition, setThirdBoxPosition] = useState("left");
@@ -446,6 +449,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -468,7 +473,7 @@ if (
   UIManager.setLayoutAnimationEnabledExperimental(true);
 }
 
-export default class App extends Component {
+class App extends Component {
   state = {
     firstBoxPosition: "left",
     secondBoxPosition: "left",
@@ -554,6 +559,8 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

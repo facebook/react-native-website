@@ -9,7 +9,7 @@ A StyleSheet is an abstraction similar to CSS StyleSheets
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default App = () => (
+const App = () => (
   <View style={styles.container}>
     <Text style={styles.title}>React Native</Text>
   </View>
@@ -34,6 +34,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+export default App;
 ```
 
 Code quality tips:
@@ -59,7 +61,7 @@ Combines two styles such that `style2` will override any styles in `style1`. If 
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default App = () => (
+const App = () => (
   <View style={container}>
     <Text style={text}>React Native</Text>
   </View>
@@ -91,6 +93,7 @@ const lists = StyleSheet.create({
 const container = StyleSheet.compose(page.container, lists.listContainer);
 const text = StyleSheet.compose(page.text, lists.listItem);
 
+export default App;
 ```
 
 ---
@@ -119,7 +122,7 @@ Flattens an array of style objects, into one aggregated style object. Alternativ
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default App = () => (
+const App = () => (
   <View style={page.container}>
     <Text style={flattenStyle}>React Native</Text>
     <Text>Flatten Style</Text>
@@ -161,6 +164,8 @@ const flattenStyle = StyleSheet.flatten([
   page.text,
   typography.header
 ]);
+
+export default App;
 ```
 
 This method internally uses `StyleSheetRegistry.getStyleByID(style)` to resolve style objects represented by IDs. Thus, an array of style objects (instances of `StyleSheet.create()`), are individually resolved to, their respective objects, merged as one and then returned. This also explains the alternative use.
@@ -189,7 +194,7 @@ A very common pattern is to create overlays with position absolute and zero posi
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default App = () => (
+const App = () => (
   <View style={styles.container}>
     <View style={styles.box1}>
       <Text style={styles.text}>1</Text>
@@ -234,6 +239,8 @@ const styles = StyleSheet.create({
     fontSize: 80
   }
 });
+
+export default App;
 ```
 
 ---
@@ -246,7 +253,7 @@ Sometimes you may want `absoluteFill` but with a couple tweaks - `absoluteFillOb
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default App = () => (
+const App = () => (
   <View style={styles.container}>
     <View style={styles.box1}>
       <Text style={styles.text}>1</Text>
@@ -293,6 +300,8 @@ const styles = StyleSheet.create({
     fontSize: 80
   }
 });
+
+export default App;
 ```
 
 ---
@@ -305,7 +314,7 @@ This is defined as the width of a thin line on the platform. It can be used as t
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-export default App = () => (
+const App = () => (
   <View style={styles.container}>
     <Text style={styles.row}>React</Text>
     <Text style={styles.row}>Native</Text>
@@ -323,6 +332,8 @@ const styles = StyleSheet.create({
     borderBottomWidth: StyleSheet.hairlineWidth
   }
 });
+
+export default App;
 ```
 
 This constant will always be a round number of pixels (so a line defined by it can look crisp) and will try to match the standard width of a thin line on the underlying platform. However, you should not rely on it being a constant size, because on different platforms and screen densities its value may be calculated differently.
