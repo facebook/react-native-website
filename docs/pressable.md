@@ -18,10 +18,10 @@ On an element wrapped by `Pressable`:
 - [`onPressIn`](#onpressin) is called when a press is activated.
 - [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
 
-After pressing [`onPressIn`], one of two things will happen:
+After pressing [`onPressIn`](#onpressin), one of two things will happen:
 
-1. The person will remove their finger, triggering [`onPressOut`] followed by [`onPress`](#onpress).
-2. The person will leave their finger longer than 379 milliseconds, triggering [`onLongPress`](#onlongpress). ([`onPressOut`] still fires when they remove their finger.)
+1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
+2. The person will leave their finger longer than 379 milliseconds, triggering [`onLongPress`](#onlongpress). ([`onPressOut`](#onpressout) still fires when they remove their finger.)
 
 <img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
 
@@ -149,57 +149,57 @@ Whether the press behavior is disabled.
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [`Rect`](rect) or number | No       |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ### `onLongPress`
 
 Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type         | Required |
-| ------------ | -------- |
-| [PressEvent] | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type         | Required |
-| ------------ | -------- |
-| [PressEvent] | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type         | Required |
-| ------------ | -------- |
-| [PressEvent] | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `pressRetentionOffset`
 
-Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered. Default value: `{ bottom: 30, left: 20, right: 20, top: 20 }`.
+Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type                     | Required |
-| ------------------------ | -------- |
-| [`Rect`](rect) or number | No       |
+| Type                   | Required | Default                                        |
+| ---------------------- | -------- | ---------------------------------------------- |
+| [Rect](rect) or number | No       | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
 
 ### `style`
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type | Required |
-| --- | --- |
-| [ViewStyleProp](https://reactnative.dev/docs/view-style-props) | No |
+| Type                                                           | Required |
+| -------------------------------------------------------------- | -------- |
+| [ViewStyleProp](https://reactnative.dev/docs/view-style-props) | No       |
 
 ### `testOnly_pressed`
 
@@ -208,5 +208,3 @@ Used only for documentation or testing (e.g. snapshot testing).
 | Type    | Required | Default |
 | ------- | -------- | ------- |
 | boolean | No       | `false` |
-
-[pressevent]: https://github.com/facebook/react-native/blob/master/Libraries/Types/CoreEventTypes.js#L88-L101
