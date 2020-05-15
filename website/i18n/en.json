@@ -293,8 +293,8 @@
       "react-node": {
         "title": "React Node Object Type"
       },
-      "rectorsize": {
-        "title": "RectOrSize Object Type"
+      "rect": {
+        "title": "Rect Object Type"
       },
       "refreshcontrol": {
         "title": "RefreshControl"

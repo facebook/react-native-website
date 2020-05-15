@@ -3,7 +3,7 @@ id: pressevent
 title: PressEvent Object Type
 ---
 
-`PressEvent` object is returned in the callback as a result of user press interaction, for example `onPress` in [Button](button) component. This object cannot be mutated (it's read only).
+`PressEvent` object is returned in the callback as a result of user press interaction, for example `onPress` in [Button](button) component.
 
 ## Example
 
@@ -25,7 +25,7 @@ title: PressEvent Object Type
 
 ### `changedTouches`
 
-TODO
+Array of all PressEvents that have changed since the last event.
 
 | Type                 | Optional |
 | -------------------- | -------- |
@@ -41,7 +41,7 @@ Amount of force used during the 3D Touch press. Returns the float value in range
 
 ### `identifier`
 
-Unique for session number identifier assigned to the event.
+Unique numeric identifier assigned to the event.
 
 | Type   | Optional |
 | ------ | -------- |
@@ -49,7 +49,7 @@ Unique for session number identifier assigned to the event.
 
 ### `locationX`
 
-Touch origin X coordinate inside touchable area.
+Touch origin X coordinate inside touchable area (relative to the element).
 
 | Type   | Optional |
 | ------ | -------- |
@@ -57,7 +57,7 @@ Touch origin X coordinate inside touchable area.
 
 ### `locationY`
 
-Touch origin Y coordinate inside touchable area.
+Touch origin Y coordinate inside touchable area (relative to the element).
 
 | Type   | Optional |
 | ------ | -------- |
@@ -65,7 +65,7 @@ Touch origin Y coordinate inside touchable area.
 
 ### `pageX`
 
-Touch origin X coordinate on the screen (root view).
+Touch origin X coordinate on the screen (relative to the root view).
 
 | Type   | Optional |
 | ------ | -------- |
@@ -73,7 +73,7 @@ Touch origin X coordinate on the screen (root view).
 
 ### `pageY`
 
-Touch origin Y coordinate on the screen (root view).
+Touch origin Y coordinate on the screen (relative to the root view).
 
 | Type   | Optional |
 | ------ | -------- |
@@ -81,7 +81,7 @@ Touch origin Y coordinate on the screen (root view).
 
 ### `target`
 
-TODO
+The node id of the element receiving the PressEvent.
 
 | Type   | Optional |
 | ------ | -------- |
@@ -89,7 +89,7 @@ TODO
 
 ### `timestamp`
 
-Timestamp value when a press event occured. Value is represented in miliseconds.
+Timestamp value when a PressEvent occured. Value is represented in miliseconds.
 
 | Type   | Optional |
 | ------ | -------- |
@@ -97,7 +97,7 @@ Timestamp value when a press event occured. Value is represented in miliseconds.
 
 ### `touches`
 
-TODO
+Array of all current PressEvents on the screen.
 
 | Type                 | Optional |
 | -------------------- | -------- |
@@ -111,5 +111,8 @@ TODO
 - [ScrollView](scrollview)
 - [Text](text)
 - [TextInput](textinput)
+- [TouchableHighlight](touchablenativefeedback)
+- [TouchableOpacity](touchablewithoutfeedback)
 - [TouchableNativeFeedback](touchablenativefeedback)
 - [TouchableWithoutFeedback](touchablewithoutfeedback)
+- [View](view)
