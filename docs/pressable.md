@@ -15,14 +15,17 @@ Pressable is a Core Component wrapper that can detect various stages of press in
 
 On an element wrapped by `Pressable`:
 
-1. [`onPressIn`](#onpressin) is called when a press is activated—before `onPress` is called.
-2. [`onPress`](#onpress) is called when a single press gesture is triggered, 130 milliseconds from `onPressIn`.
-3. [`onLongPress`](#onlongpress) is called only if the press gesture is activated beyond 500ms from `onPressIn` or the time set with [`delayLongPress`](#delaylongpress).
-4. [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
+- [`onPressIn`](#onpressin) is called when a press is activated.
+- [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
 
-  <img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
+After pressing [`onPressIn`], one of two things will happen:
 
-Fingers are not the most precise instruments, and it is not uncommon for users to "fat finger" an interface—to activate the wrong thing or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
+1. The person will remove their finger, triggering [`onPressOut`] followed by [`onPress`](#onpress).
+2. The person will leave their finger longer than 379 milliseconds, triggering [`onLongPress`](#onlongpress). ([`onPressOut`] still fires when they remove their finger.)
+
+<img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
+
+Fingers are not the most precise instruments, and it is common for users to "fat finger" an interface—to activate the wrong thing or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
 
 `PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
 
@@ -152,7 +155,7 @@ Sets additional distance outside of element in which a press can be detected.
 
 ### `onLongPress`
 
-Like `onPress`, but called if the time after `onPressIn` is triggered lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
+Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
 | Type         | Required |
 | ------------ | -------- |
@@ -176,7 +179,7 @@ Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
 ### `onPressOut`
 
-Called when a touch is released, after `onPressIn` but just before `onPress`.
+Called when a touch is released.
 
 | Type       | Required |
 | ---------- | -------- |
