@@ -103,7 +103,7 @@ TODO
 | -------------------- | -------- |
 | array of PressEvents | No       |
 
-## Components using this object
+## Used by
 
 - [Button](button)
 - [PanResponder](panresponder)
