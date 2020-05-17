@@ -4,18 +4,18 @@ title: React基础
 description: To understand React Native fully, you need a solid foundation in React. This short introduction to React can help you get started or get refreshed.
 ---
 
-React Native runs on [React](https://reactjs.org/), a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
+React Native的基础是[React](https://reactjs.org/)， 是在web端非常流行的开源UI框架。要想掌握React Native，先了解React框架本身是非常有帮助的。本文旨在为初学者介绍一些react的入门知识。
 
-We’re going to cover the core concepts behind React:
+本文主要会探讨以下几个React的核心概念：
 
-- components
+- components 组件
 - JSX
-- props
-- state
+- props 属性
+- state 状态
 
-If you want to dig deeper, we encourage you to check out [React’s official documentation](https://reactjs.org/docs/getting-started.html).
+如果你想更深一步学习，我们建议你阅读[React的官方文档](https://zh-hans.reactjs.org/)，它也提供有中文版。
 
-## Your first component
+## 尝试编写一个组件
 
 The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:
 
@@ -159,7 +159,7 @@ You can think of curly braces as creating a portal into JS functionality in your
 
 > Because JSX is included in the React library, it won’t work if you don’t have `import React from 'react'` at the top of your file!
 
-## Custom Components
+## 自定义组件
 
 You’ve already met [React Native’s Core Components](intro-react-native-components). React lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.
 
@@ -227,9 +227,9 @@ Any component that renders other components is a **parent component.** Here, `Ca
 
 You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique element—which you can customize with props.
 
-## Props
+## Props 属性
 
-**Props** is short for “properties.” Props let you customize React components. For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
+**Props** 是“properties”（属性）的简写。 Props let you customize React components. For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
@@ -252,7 +252,7 @@ export default function Cafe() {
 }
 ```
 
-Most of React Native’s Core Components can be customized with props, too. For example, when using [`Image`](image), you pass it a prop named [`source`](image#source) to define what image it shows:
+React Native的绝大多数核心组件都提供了可定制的props。For example, when using [`Image`](image), you pass it a prop named [`source`](image#source) to define what image it shows:
 
 ```SnackPlayer name=Props
 import React from 'react';
@@ -274,7 +274,7 @@ export default function CatApp() {
 
 > Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
-## State
+## State 状态
 
 While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
 
@@ -325,7 +325,7 @@ export default function Cafe() {
 }
 ```
 
-First, you will want to import `useState` from React like so:
+首先要从react中引入`useState`：
 
 ```jsx
 import React, {useState} from 'react';
@@ -428,7 +428,7 @@ As always with class components, you must import the `Component` class from Reac
 import React, {Component} from 'react';
 ```
 
-In class components, state is stored in a state object:
+在class组件中， state以对象的形式存放：
 
 ```jsx
 export class Cat extends Component {

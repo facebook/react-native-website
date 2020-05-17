@@ -316,11 +316,11 @@ React Native 需要通过环境变量来了解你的 Android SDK 装在什么路
 
 <block class="native mac linux android" />
 
-具体的做法是把下面的命令加入到`~/.bash_profile`文件中：
+具体的做法是把下面的命令加入到shell的配置文件中。如果你的shell是zsh，则配置文件为`~/.zshrc`，如果是bash则为`~/.bash_profile`（可以使用`echo $0`命令查看你所使用的shell。）：
 
 <block class="native mac android" />
 
-> 译注：~表示用户目录，即`/Users/你的用户名/`，而小数点开头的文件在 Finder 中是隐藏的，并且这个文件有可能并不存在。可在终端下使用`vi ~/.bash_profile`命令创建或编辑。如不熟悉 vi 操作，请点击[这里](http://www.eepw.com.cn/article/48018.htm)学习。
+> 译注：~表示用户目录，即`/Users/你的用户名/`，而小数点开头的文件在 Finder 中是隐藏的，并且这个文件有可能并不存在。可在终端下使用`vi ~/.zshrc`命令创建或编辑。如不熟悉 vi 操作，请点击[这里](http://www.eepw.com.cn/article/48018.htm)学习。
 
 ```
 # 如果你不是通过Android Studio安装的sdk，则其路径可能不同，请自行确定清楚。
@@ -344,9 +344,7 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 
 <block class="native mac linux android" />
 
-> 如果你的命令行不是 bash，而是例如 zsh 等其他，请使用对应的配置文件。
-
-使用`source $HOME/.bash_profile`命令来使环境变量设置立即生效（否则重启后才生效）。可以使用`echo $ANDROID_HOME`检查此变量是否已正确设置。
+使用`source $HOME/.zshrc`命令来使环境变量设置立即生效（否则重启后才生效）。可以使用`echo $ANDROID_HOME`检查此变量是否已正确设置。
 
 > 请确保你正常指定了 Android SDK 路径。你可以在 Android Studio 的"Preferences"菜单中查看 SDK 的真实路径，具体是**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
