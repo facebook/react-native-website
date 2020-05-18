@@ -15,14 +15,17 @@ Pressable is a Core Component wrapper that can detect various stages of press in
 
 On an element wrapped by `Pressable`:
 
-1. [`onPressIn`](#onpressin) is called when a press is activated—before `onPress` is called.
-2. [`onPress`](#onpress) is called when a single press gesture is triggered, 130 milliseconds from `onPressIn`.
-3. [`onLongPress`](#onlongpress) is called only if the press gesture is activated beyond 500ms from `onPressIn` or the time set with [`delayLongPress`](#delaylongpress).
-4. [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
+- [`onPressIn`](#onpressin) is called when a press is activated.
+- [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
 
-  <img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
+After pressing [`onPressIn`](#onpressin), one of two things will happen:
 
-Fingers are not the most precise instruments, and it's not uncommon for users to "fat finger" an interface—to activate the wrong thing or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
+1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
+2. The person will leave their finger longer than 379 milliseconds, triggering [`onLongPress`](#onlongpress). ([`onPressOut`](#onpressout) still fires when they remove their finger.)
+
+<img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
+
+Fingers are not the most precise instruments, and it is common for users to "fat finger" an interface—to activate the wrong thing or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
 
 `PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
 
@@ -43,7 +46,7 @@ Fingers are not the most precise instruments, and it's not uncommon for users to
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-export default (App = () => {
+const App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   let textLog = '';
@@ -78,7 +81,7 @@ export default (App = () => {
       </View>
     </View>
   );
-});
+};
 
 const styles = StyleSheet.create({
   text: {
@@ -96,97 +99,99 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9'
   }
 });
+
+export default App;
 ```
 
 ## Props
 
-### `android_disableSound`
+### `android_disableSound` <div class="label android">Android</div>
 
 If true, doesn't play Android system sound on press.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| boolean | No       | Android  |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
-### `android_rippleColor`
+### `android_rippleColor` <div class="label android">Android</div>
 
 Enables the Android ripple effect and configures its color.
 
-| Type                                         | Required | Platform |
-| -------------------------------------------- | -------- | -------- |
-| [color](https://reactnative.dev/docs/colors) | No       | Android  |
+| Type                                         | Required |
+| -------------------------------------------- | -------- |
+| [color](https://reactnative.dev/docs/colors) | No       |
 
 ### `children`
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| Type       | Required |
-| ---------- | -------- |
-| React.Node | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [React Node](react-node) | No       |
 
 ### `delayLongPress`
 
-Duration (in milliseconds) from `onPress` before `onLongPress` is called.
+Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
 | Type   | Required | Default |
 | ------ | -------- | ------- |
-| number | No       | 500     |
+| number | No       | 370     |
 
 ### `disabled`
 
 Whether the press behavior is disabled.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
 ### `hitSlop`
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type       | Required |
-| ---------- | -------- |
-| RectOrSize | No       |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ### `onLongPress`
 
-Called when a press event lasts longer than 500 milliseconds. Delay can be customized with [`delayLongPress`](#delaylongpress).
+Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPress`
 
-Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`.
+Called after `onPressOut`.
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressIn`
 
-Called immediately when a touch is engaged, before `onPress`.
+Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `pressRetentionOffset`
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type         | Required |
-| ------------ | -------- |
-| Rect or Size | No       |
+| Type                   | Required | Default                                        |
+| ---------------------- | -------- | ---------------------------------------------- |
+| [Rect](rect) or number | No       | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
 
 ### `style`
 
@@ -200,6 +205,6 @@ Either view styles or a function that receives a boolean reflecting whether the 
 
 Used only for documentation or testing (e.g. snapshot testing).
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |

@@ -269,6 +269,9 @@
       "pressable": {
         "title": "Pressable"
       },
+      "pressevent": {
+        "title": "PressEvent Object Type"
+      },
       "profiling": {
         "title": "Profiling"
       },
@@ -287,8 +290,11 @@
       "ram-bundles-inline-requires": {
         "title": "RAM Bundles and Inline Requires"
       },
-      "rectorsize": {
-        "title": "RectOrSize Object Type"
+      "react-node": {
+        "title": "React Node Object Type"
+      },
+      "rect": {
+        "title": "Rect Object Type"
       },
       "refreshcontrol": {
         "title": "RefreshControl"

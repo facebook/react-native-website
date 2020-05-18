@@ -159,6 +159,9 @@ table tr th {
 table tr td hr {
   margin: 10px 0;
 }
+table tr td hr {
+  margin: 10px 0;
+}
 
 figure {
   text-align: center;
@@ -285,7 +288,8 @@ h3 .label {
 */
 
 .navItem[href*="dynamiccolorios"]:after,
-.navItem[href*="platformcolor"]:after {
+.navItem[href*="platformcolor"]:after,
+.navItem[href*="pressable"]:after {
   content: "new";
   display: inline-block;
   position: relative;

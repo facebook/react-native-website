@@ -1,9 +1,9 @@
 ---
-id: rectorsize
-title: RectOrSize Object Type
+id: rect
+title: Rect Object Type
 ---
 
-`RectOrSize` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.
+`Rect` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.
 
 ## Example
 
@@ -41,3 +41,7 @@ title: RectOrSize Object Type
 | Type                        | Required |
 | --------------------------- | -------- |
 | number, `null`, `undefined` | No       |
+
+## Used by
+
+- [`Presssable`](pressable)
