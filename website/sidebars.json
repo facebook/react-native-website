@@ -144,6 +144,6 @@
         "ids": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ],
-    "Object Types": ["pressevent", "rect", "react-node"]
+    "Object Types": ["pressevent", "react-node", "rect"]
   }
 }
