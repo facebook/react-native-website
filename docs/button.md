@@ -116,7 +116,7 @@ export default App;
 
 ### `onPress`
 
-Handler to be called when the user taps the button
+Handler to be called when the user taps the button. The first function argument is an event in form of [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -126,7 +126,7 @@ Handler to be called when the user taps the button
 
 ### `title`
 
-Text to display inside the button
+Text to display inside the button.
 
 | Type   | Required |
 | ------ | -------- |
@@ -136,7 +136,7 @@ Text to display inside the button
 
 ### `accessibilityLabel`
 
-Text to display for blindness accessibility features
+Text to display for blindness accessibility features.
 
 | Type   | Required |
 | ------ | -------- |
@@ -146,7 +146,7 @@ Text to display for blindness accessibility features
 
 ### `color`
 
-Color of the text (iOS), or background color of the button (Android)
+Color of the text (iOS), or background color of the button (Android).
 
 | Type            | Required |
 | --------------- | -------- |
