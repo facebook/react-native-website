@@ -108,7 +108,7 @@ hr {
 }
 
 table {
-  border: 1px solid #b0b0b0;
+  border: 1px solid #dfe2e5;
   border-collapse: collapse;
   display: table;
   margin: 20px 0;
@@ -155,6 +155,7 @@ table tr th {
   text-transform: uppercase;
   padding: 6px 10px;
   font-size: 12px;
+  vertical-align: middle;
 }
 table tr td hr {
   margin: 10px 0;
@@ -236,8 +237,8 @@ h3 .label {
 .onPageNav .label {
   display: inline-block;
   padding: 0;
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 100%;
   margin-left: 4px;
   white-space: nowrap;
