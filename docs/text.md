@@ -472,7 +472,7 @@ e.g., `onLongPress={this.increaseSize}>`
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
+`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -482,7 +482,7 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 ### `onPress`
 
-This function is called on press.
+This function is called on press. The first function argument is an event in form of [PressEvent](pressevent).
 
 e.g., `onPress={() => console.log('1st')}`
 
@@ -496,7 +496,7 @@ e.g., `onPress={() => console.log('1st')}`
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
-`View.props.onResponderGrant: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderGrant: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -508,7 +508,7 @@ The View is now responding for touch events. This is the time to highlight and s
 
 The user is moving their finger.
 
-`View.props.onResponderMove: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderMove: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -520,7 +520,7 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-`View.props.onResponderRelease: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderRelease: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -532,7 +532,7 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-`View.props.onResponderTerminate: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderTerminate: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -544,7 +544,7 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-`View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -556,7 +556,7 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
 
-`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
+`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -581,9 +581,9 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ---
 

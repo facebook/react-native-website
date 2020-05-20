@@ -44,4 +44,7 @@ title: Rect Object Type
 
 ## Used by
 
+- [`Image`](image)
 - [`Presssable`](pressable)
+- [`Text`](text)
+- [`TouchableWithoutFeedback`](touchablewithoutfeedback)
