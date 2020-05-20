@@ -28,7 +28,7 @@ class Footer extends React.Component {
             <a href={baseUrl + 'help'}>The React Native Community</a>
             <a href={baseUrl + 'showcase'}>Who's using React Native?</a>
             <a
-              href="http://stackoverflow.com/questions/tagged/react-native"
+              href="https://stackoverflow.com/questions/tagged/react-native"
               target="_blank">
               Ask Questions on Stack Overflow
             </a>
