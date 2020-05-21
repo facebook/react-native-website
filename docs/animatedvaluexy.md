@@ -76,7 +76,7 @@ Directly set the value. This will stop any animations running on the value and u
 
 | Name  | Type   | Required | Description |
 | ----- | ------ | -------- | ----------- |
-| value | number | Yes      |             |
+| value | number | Yes      | Value       |
 
 ---
 
@@ -90,9 +90,9 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 **Parameters:**
 
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| offset | number | Yes      |             |
+| Name   | Type   | Required | Description  |
+| ------ | ------ | -------- | ------------ |
+| offset | number | Yes      | Offset value |
 
 ---
 
