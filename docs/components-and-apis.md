@@ -69,12 +69,6 @@ These common user interface controls will render on any platform.
     </a>
   </div>
   <div class="component">
-    <a href="./picker">
-      <h3>Picker</h3>
-      <p>Renders the native picker component on Android and iOS.</p>
-    </a>
-  </div>
-  <div class="component">
     <a href="./switch">
       <h3>Switch</h3>
       <p>Renders a boolean input.</p>
