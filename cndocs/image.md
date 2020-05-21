@@ -225,7 +225,7 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
-目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
+目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。此外iOS还支持几种RAW格式。请参考Apple的官方文档来了解目前支持哪些相机型号的raw格式(对于iOS 13请访问 https://support.apple.com/en-us/HT210191)。
 
 | 类型                | 必填 |
 | ------------------- | ---- |
@@ -241,7 +241,7 @@ Similarly to `source`, this property represents the resource used to render the 
 | ------------------------------------- | ---- |
 | array of ImageSourcePropTypes, number | 否   |
 
-> Can accept a number as returned by `require('./image.jpg')`
+> 可以接受`require('./image.jpg')`
 
 ---
 
@@ -356,7 +356,7 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 
 ### `fadeDuration`
 
-Android only. By default, it is 300ms.
+渐入的动画持续时间。仅Android可用。默认为 300ms.
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -408,12 +408,12 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| Name | Type | Required | Description |
+| 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
-| uri | string | Yes | The location of the image. |
-| headers | object | Yes | The headers for the request. |
-| success | function | Yes | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No | The function that will be called if there was an error, such as failing toto retrieve the image. |
+| uri | string | 是 | 图片地址 |
+| headers | object | 是 | 请求的headers |
+| success | function | 是 | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | 否 | The function that will be called if there was an error, such as failing toto retrieve the image. |
 
 ---
 
