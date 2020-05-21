@@ -17,7 +17,7 @@ export default App = () => {
   const inputAccessoryViewID = 'uniqueID';
   const initialText = 'Placeholder Text';
   const [text, setText] = useState(initialText);
-  
+
   return (
     <>
       <ScrollView keyboardDismissMode="interactive">
@@ -76,5 +76,5 @@ An ID which is used to associate this `InputAccessoryView` to specified TextInpu
 
 # 已知问题
 
-* [react-native#18997](https://github.com/facebook/react-native/issues/18997): 不支持多行的`TextInput`
-* [react-native#20157](https://github.com/facebook/react-native/issues/20157): 不能和底部tab栏一起使用
+- [react-native#18997](https://github.com/facebook/react-native/issues/18997): 不支持多行的`TextInput`
+- [react-native#20157](https://github.com/facebook/react-native/issues/20157): 不能和底部 tab 栏一起使用

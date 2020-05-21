@@ -12,7 +12,6 @@ original_id: image
 
 > 请注意对于网络和 base64 数据的图片需要手动指定尺寸！
 
-
 ```SnackPlayer name=Image
 import React, { Component } from 'react';
 import { View, Image } from 'react-native';
@@ -102,46 +101,46 @@ dependencies {
 | ----- | ---- |
 | style | 否   |
 
-* [布局属性...](layout-props.md#props)
+- [布局属性...](layout-props.md#props)
 
-* [阴影属性...](shadow-props.md#props)
+- [阴影属性...](shadow-props.md#props)
 
-* [动画变换 Transforms...](transforms.md#props)
+- [动画变换 Transforms...](transforms.md#props)
 
-* **`borderTopRightRadius`**: number
+- **`borderTopRightRadius`**: number
 
-* **`backfaceVisibility`**: enum('visible', 'hidden')
+- **`backfaceVisibility`**: enum('visible', 'hidden')
 
-* **`borderBottomLeftRadius`**: number
+- **`borderBottomLeftRadius`**: number
 
-* **`borderBottomRightRadius`**: number
+- **`borderBottomRightRadius`**: number
 
-* **`borderColor`**: [color](colors.md)
+- **`borderColor`**: [color](colors.md)
 
-* **`borderRadius`**: number
+- **`borderRadius`**: number
 
-* **`borderTopLeftRadius`**: number
+- **`borderTopLeftRadius`**: number
 
-* **`backgroundColor`**: [color](colors.md)
+- **`backgroundColor`**: [color](colors.md)
 
-* **`borderWidth`**: number
+- **`borderWidth`**: number
 
-* **`opacity`**: number
+- **`opacity`**: number
 
-* **`overflow`**: enum('visible', 'hidden')
+- **`overflow`**: enum('visible', 'hidden')
 
-* **`resizeMode`**: Object.keys(ImageResizeMode)
+- **`resizeMode`**: Object.keys(ImageResizeMode)
 
-* **`tintColor`**: [color](colors.md)
+- **`tintColor`**: [color](colors.md)
 
   为所有非透明的像素指定一个颜色。
 
-* **`overlayColor`**: string (_Android_)
+- **`overlayColor`**: string (_Android_)
 
   当图片有圆角的时候，指定一个颜色用于填充圆角处的空白。虽然一般情况下圆角处是透明的，但在某些情况下，Android 并不支持圆角透明，比如：
 
-  * 某些 resize 模式比如'contain'
-  * GIF 动画
+  - 某些 resize 模式比如'contain'
+  - GIF 动画
 
   常见的用法就是在不能圆角透明时，设置`overlayColor`和背景色一致。
 
@@ -207,15 +206,15 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 决定当组件尺寸和图片尺寸不成比例的时候如何调整图片的大小。默认值为`cover`。
 
-* `cover`: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都大于等于容器视图的尺寸（如果容器有 padding 内衬的话，则相应减去）。**译注**：这样图片完全覆盖甚至超出容器，容器中不留任何空白。
+- `cover`: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都大于等于容器视图的尺寸（如果容器有 padding 内衬的话，则相应减去）。**译注**：这样图片完全覆盖甚至超出容器，容器中不留任何空白。
 
-* `contain`: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都小于等于容器视图的尺寸（如果容器有 padding 内衬的话，则相应减去）。**译注**：这样图片完全被包裹在容器中，容器中可能留有空白。
+- `contain`: 在保持图片宽高比的前提下缩放图片，直到宽度和高度都小于等于容器视图的尺寸（如果容器有 padding 内衬的话，则相应减去）。**译注**：这样图片完全被包裹在容器中，容器中可能留有空白。
 
-* `stretch`: 拉伸图片且不维持宽高比，直到宽高都刚好填满容器。
+- `stretch`: 拉伸图片且不维持宽高比，直到宽高都刚好填满容器。
 
-* `repeat`: 重复平铺图片直到填满容器。图片会维持原始尺寸，但是当尺寸超过容器时会在保持宽高比的前提下缩放到能被容器包裹。
+- `repeat`: 重复平铺图片直到填满容器。图片会维持原始尺寸，但是当尺寸超过容器时会在保持宽高比的前提下缩放到能被容器包裹。
 
-* `center`: 居中不拉伸。
+- `center`: 居中不拉伸。
 
 | 类型                                                    | 必填 |
 | ------------------------------------------------------- | ---- |
@@ -229,7 +228,7 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
-目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。In addition, iOS supports several RAW image formats. Refer to Apple's documentation for the current list of supported camera models (for iOS 12, see https://support.apple.com/en-ca/HT208967).
+目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。此外iOS还支持几种RAW格式。请参考Apple的官方文档来了解目前支持哪些相机型号的raw格式(对于iOS 13请访问 https://support.apple.com/en-us/HT210191)。
 
 | 类型                | 必填 |
 | ------------------- | ---- |
@@ -245,7 +244,7 @@ Similarly to `source`, this property represents the resource used to render the 
 | ------------------------------------- | ---- |
 | array of ImageSourcePropTypes, number | 否   |
 
-> Can accept a number as returned by `require('./image.jpg')`
+> 可以接受`require('./image.jpg')`
 
 ---
 
@@ -273,11 +272,11 @@ Similarly to `source`, this property represents the resource used to render the 
 
 当图片实际尺寸和容器样式尺寸不一致时，决定以怎样的策略来调整图片的尺寸。默认为`auto`。
 
-* `auto`: 使用启发式算法来在`resize`和`scale`中自动决定。
+- `auto`: 使用启发式算法来在`resize`和`scale`中自动决定。
 
-* `resize`: 在图片解码之前，使用软件算法对其在内存中的数据进行修改。当图片尺寸比容器尺寸大得多时，应该优先使用此选项。
+- `resize`: 在图片解码之前，使用软件算法对其在内存中的数据进行修改。当图片尺寸比容器尺寸大得多时，应该优先使用此选项。
 
-* `scale`: 对图片进行缩放。和`resize`相比，`scale`速度更快（一般有硬件加速），而且图片质量更优。在图片尺寸比容器尺寸小或者只是稍大一点时，应该优先使用此选项。
+- `scale`: 对图片进行缩放。和`resize`相比，`scale`速度更快（一般有硬件加速），而且图片质量更优。在图片尺寸比容器尺寸小或者只是稍大一点时，应该优先使用此选项。
 
 关于`resize`和`scale`的详细说明请参考<http://frescolib.org/docs/resizing.html>。
 
@@ -311,9 +310,9 @@ Similarly to `source`, this property represents the resource used to render the 
 
 当图片被缩放的时候，capInsets 指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9 图。了解更多信息，可以参见[苹果官方文档](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets)。
 
-| 类型                                                               | 必填 | 平台 |
-| ------------------------------------------------------------------ | ---- | ---- |
-| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | 否 | iOS |
 
 ---
 
@@ -328,13 +327,13 @@ Similarly to `source`, this property represents the resource used to render the 
 
 If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
 
-* `uri` - 是一个表示图片的资源标识的字符串，它可以是一个本地文件路径或是一个静态资源引用（使用`require(相对路径)`来引用）。
-* `width`, `height` - 如果你知道图片的尺寸，那么可以在这里指定。这一尺寸会被用作`<Image/>`组件的默认尺寸。
-* `scale` - 图片的缩放系数。默认是 1.0，意味着每一个图片像素都对应一个设备独立像素（DIP）。
+- `uri` - 是一个表示图片的资源标识的字符串，它可以是一个本地文件路径或是一个静态资源引用（使用`require(相对路径)`来引用）。
+- `width`, `height` - 如果你知道图片的尺寸，那么可以在这里指定。这一尺寸会被用作`<Image/>`组件的默认尺寸。
+- `scale` - 图片的缩放系数。默认是 1.0，意味着每一个图片像素都对应一个设备独立像素（DIP）。
 
-* `number` - 静态图片引用语法`require('./image.jpg')`所返回的资源 id。
+- `number` - 静态图片引用语法`require('./image.jpg')`所返回的资源 id。
 
-> **注意：** 在Android的debug版本上本属性不会生效（但在release版本中会生效）。
+> **注意：** 在 Android 的 debug 版本上本属性不会生效（但在 release 版本中会生效）。
 
 ---
 
@@ -360,7 +359,7 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 
 ### `fadeDuration`
 
-Android only. By default, it is 300ms.
+渐入的动画持续时间。仅Android可用。默认为 300ms.
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -375,7 +374,6 @@ Android only. When true, enables progressive jpeg streaming. https://frescolib.o
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
-
 
 ## 方法
 
@@ -413,12 +411,12 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **Parameters:**
 
-| Name    | Type     | Required | Description                                                                                          |
-| ------- | -------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| uri     | string   | Yes      | The location of the image.                                                                           |
-| headers | object   | Yes      | The headers for the request.                                                                         |
-| success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| uri | string | 是 | 图片地址 |
+| headers | object | 是 | 请求的headers |
+| success | function | 是 | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | 否 | The function that will be called if there was an error, such as failing toto retrieve the image. |
 
 ---
 
@@ -480,8 +478,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **参数：**
 
-| 名称   | 类型           | 必填 | 说明                                                                           |
-| ------ | -------------- | ---- | ------------------------------------------------------------------------------ |
-| source | number, object | 是   | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| source | number, object | 是 | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
 
 > `ImageSource`是一个对象，其结构为`{ uri: '<http location || file path>' }`
