@@ -187,6 +187,10 @@ In the case of two overlapping UI components with the same parent, default acces
 
 In the above example, the `yellow` layout and its descendants are completely invisible to TalkBack and all other accessibility services. So we can use overlapping views with the same parent without confusing TalkBack.
 
+### `onAccessibilityEscape` <div class="label ios">iOS</div>
+
+Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
+
 ### `onAccessibilityTap`
 
 Use this property to assign a custom function to be called when someone activates an accessible element by double tapping on it while it's selected.
@@ -194,10 +198,6 @@ Use this property to assign a custom function to be called when someone activate
 ### `onMagicTap` <div class="label ios">iOS</div>
 
 Assign this property to a custom function which will be called when someone performs the "magic tap" gesture, which is a double-tap with two fingers. A magic tap function should perform the most relevant action a user could take on a component. In the Phone app on iPhone, a magic tap answers a phone call, or ends the current one. If the selected element does not have an `onMagicTap` function, the system will traverse up the view hierarchy until it finds a view that does.
-
-### `onAccessibilityEscape` <div class="label ios">iOS</div>
-
-Assign this property to a custom function which will be called when someone performs the "escape" gesture, which is a two finger Z shaped gesture. An escape function should move back hierarchically in the user interface. This can mean moving up or back in a navigation hierarchy or dismissing a modal user interface. If the selected element does not have an `onAccessibilityEscape` function, the system will attempt to traverse up the view hierarchy until it finds a view that does or bonk to indicate it was unable to find one.
 
 ## Accessibility Actions
 
