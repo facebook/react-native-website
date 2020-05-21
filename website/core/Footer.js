@@ -10,37 +10,25 @@ const React = require('react');
 class Footer extends React.Component {
   render() {
     const currentYear = new Date().getFullYear();
+    const {baseUrl} = this.props.config;
     return (
       <footer className="nav-footer" id="footer">
         <section className="sitemap">
           <div>
             <h5>Docs</h5>
-            <a href={this.props.config.baseUrl + 'docs/getting-started.html'}>
-              Getting Started
-            </a>
-            <a href={this.props.config.baseUrl + 'docs/tutorial.html'}>
-              Tutorial
-            </a>
-            <a
-              href={
-                this.props.config.baseUrl + 'docs/components-and-apis.html'
-              }>
+            <a href={baseUrl + 'docs/getting-started'}>Getting Started</a>
+            <a href={baseUrl + 'docs/tutorial'}>Tutorial</a>
+            <a href={baseUrl + 'docs/components-and-apis'}>
               Components and APIs
             </a>
-            <a href={this.props.config.baseUrl + 'docs/more-resources.html'}>
-              More Resources
-            </a>
+            <a href={baseUrl + 'docs/more-resources'}>More Resources</a>
           </div>
           <div>
             <h5>Community</h5>
-            <a href={this.props.config.baseUrl + 'help.html'}>
-              The React Native Community
-            </a>
-            <a href={this.props.config.baseUrl + 'showcase.html'}>
-              Who's using React Native?
-            </a>
+            <a href={baseUrl + 'help'}>The React Native Community</a>
+            <a href={baseUrl + 'showcase'}>Who's using React Native?</a>
             <a
-              href="http://stackoverflow.com/questions/tagged/react-native"
+              href="https://stackoverflow.com/questions/tagged/react-native"
               target="_blank">
               Ask Questions on Stack Overflow
             </a>
@@ -53,7 +41,7 @@ class Footer extends React.Component {
           </div>
           <div>
             <h5>More Resources</h5>
-            <a href={this.props.config.baseUrl + 'blog/'}>Blog</a>
+            <a href={baseUrl + 'blog'}>Blog</a>
             <a href="https://twitter.com/reactnative" target="_blank">
               Twitter
             </a>
@@ -65,13 +53,12 @@ class Footer extends React.Component {
             </a>
           </div>
         </section>
-
         <a
           href="https://code.facebook.com/projects/"
           target="_blank"
           className="fbOpenSource">
           <img
-            src={this.props.config.baseUrl + 'img/oss_logo.png'}
+            src={baseUrl + 'img/oss_logo.png'}
             alt="Facebook Open Source"
             width="170"
             height="45"
