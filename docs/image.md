@@ -232,50 +232,13 @@ dependencies {
 | ----- | -------- |
 | style | No       |
 
-- [Layout Props...](layout-props.md#props)
+- [Image Style Props...](image-style-props#props)
 
-- [Shadow Props...](shadow-props.md#props)
+- [Layout Props...](layout-props#props)
 
-- [Transforms...](transforms.md#props)
+- [Shadow Props...](shadow-props#props)
 
-- **`borderTopRightRadius`**: number
-
-- **`backfaceVisibility`**: enum('visible', 'hidden')
-
-- **`borderBottomLeftRadius`**: number
-
-- **`borderBottomRightRadius`**: number
-
-- **`borderColor`**: [color](colors.md)
-
-- **`borderRadius`**: number
-
-- **`borderTopLeftRadius`**: number
-
-- **`backgroundColor`**: [color](colors.md)
-
-- **`borderWidth`**: number
-
-- **`opacity`**: number
-
-- **`overflow`**: enum('visible', 'hidden')
-
-- **`resizeMode`**: Object.keys(ImageResizeMode)
-
-- **`tintColor`**: [color](colors.md)
-
-  Changes the color of all the non-transparent pixels to the tintColor.
-
-- **`overlayColor`**: string (_Android_)
-
-  When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
-
-  - Certain resize modes, such as 'contain'
-  - Animated GIFs
-
-  A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
-
-  For details of how this works under the hood, see http://frescolib.org/docs/rounded-corners-and-circles.html
+- [Transforms...](transforms#props)
 
 ---
 
