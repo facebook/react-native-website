@@ -34,9 +34,9 @@ ignite new MyTSProject
 1. Add TypeScript and the types for React Native and Jest to your project.
 
 ```sh
-yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add --dev typescript @babel/plugin-transform-typescript @types/jest @types/react @types/react-native @types/react-test-renderer 
 # or for npm
-npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install --save-dev typescript @babel/plugin-transform-typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
@@ -64,7 +64,17 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 }
 ```
 
-3. Create a `jest.config.js` file to configure Jest to use TypeScript
+3. Update your `babel.config.js` file with the Babel Plugin
+
+```diff
+module.exports = {
++  plugins: ['module:@babel/plugin-transform-typescript'],
+  presets: ['module:metro-react-native-babel-preset'],
+};
+
+```
+
+4. Create a `jest.config.js` file to configure Jest to use TypeScript
 
 ```js
 module.exports = {
@@ -73,11 +83,11 @@ module.exports = {
 };
 ```
 
-4. Rename a JavaScript file to be `*.tsx`
+5. Rename a JavaScript file to be `*.tsx`
 
 > You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
 
-5. Run `yarn tsc` to type-check your new TypeScript files.
+6. Run `tsc --noEmit` to type-check your new TypeScript files.
 
 ## How TypeScript and React Native works
 
