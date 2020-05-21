@@ -3,26 +3,59 @@ id: touchablenativefeedback
 title: TouchableNativeFeedback
 ---
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 A wrapper for making views respond properly to touches (Android only). On Android this component uses native state drawable to display touch feedback.
 
 At the moment it only supports having a single View instance as a child node, as it's implemented by replacing that View with another instance of RCTView node with some additional properties set.
 
 Background drawable of native feedback touchable can be customized with `background` property.
 
-Example:
+## Example
 
-```jsx
-renderButton: function() {
+```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
+import React, { useState } from "react";
+import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
+import Constants from "expo-constants";
+
+const randomHexColor = () => {
+  return "#000000".replace(/0/g, function() {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+};
+const App = () => {
+  const [rippleColor, setRippleColor] = useState(randomHexColor());
+  const [rippleOverflow, setRippleOverflow] = useState(false);
   return (
-    <TouchableNativeFeedback
-        onPress={this._onPressButton}
-        background={TouchableNativeFeedback.SelectableBackground()}>
-      <View style={{width: 150, height: 100, backgroundColor: 'red'}}>
-        <Text style={{margin: 30}}>Button</Text>
-      </View>
-    </TouchableNativeFeedback>
+    <View style={styles.container}>
+      <TouchableNativeFeedback
+        onPress={() => {
+          setRippleColor(randomHexColor());
+          setRippleOverflow(!rippleOverflow);
+        }}
+        background={TouchableNativeFeedback.Ripple(rippleColor, rippleOverflow)}
+      >
+        <View style={styles.touchable}>
+          <Text style={styles.text}>TouchableNativeFeedback</Text>
+        </View>
+      </TouchableNativeFeedback>
+    </View>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  touchable: { flex: 0.5, borderColor: "black", borderWidth: 1 },
+  text: { alignSelf: "center" }
+});
+
+export default App;
 ```
 
 ---
@@ -118,37 +151,38 @@ TV next focus up (see documentation for the View component).
 ### `SelectableBackground()`
 
 ```jsx
-static SelectableBackground()
+static SelectableBackground(rippleRadius: ?number)
 ```
 
-Creates an object that represents android theme's default background for selectable elements (?android:attr/selectableItemBackground).
+Creates an object that represents android theme's default background for selectable elements (?android:attr/selectableItemBackground). `rippleRadius` parameter controls the radius of the ripple effect.
 
 ---
 
 ### `SelectableBackgroundBorderless()`
 
 ```jsx
-static SelectableBackgroundBorderless()
+static SelectableBackgroundBorderless(rippleRadius: ?number)
 ```
 
-Creates an object that represent android theme's default background for borderless selectable elements (?android:attr/selectableItemBackgroundBorderless). Available on android API level 21+.
+Creates an object that represent android theme's default background for borderless selectable elements (?android:attr/selectableItemBackgroundBorderless). Available on android API level 21+. `rippleRadius` parameter controls the radius of the ripple effect.
 
 ---
 
 ### `Ripple()`
 
 ```jsx
-static Ripple(color: string, borderless: boolean)
+static Ripple(color: string, borderless: boolean, rippleRadius: ?number)
 ```
 
 Creates an object that represents ripple drawable with specified color (as a string). If property `borderless` evaluates to true the ripple will render outside of the view bounds (see native actionbar buttons as an example of that behavior). This background type is available on Android API level 21+.
 
 **Parameters:**
 
-| Name       | Type    | Required | Description                                  |
-| ---------- | ------- | -------- | -------------------------------------------- |
-| color      | string  | Yes      | The ripple color                             |
-| borderless | boolean | Yes      | If the ripple can render outside its bounds |
+| Name         | Type    | Required | Description                                 |
+| ------------ | ------- | -------- | ------------------------------------------- |
+| color        | string  | Yes      | The ripple color                            |
+| borderless   | boolean | Yes      | If the ripple can render outside its bounds |
+| rippleRadius | ?number | No       | controls the radius of the ripple effect    |
 
 ---
 

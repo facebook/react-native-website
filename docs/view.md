@@ -9,24 +9,70 @@ The most fundamental component for building a UI, `View` is a container that sup
 
 This example creates a `View` that wraps two boxes with color and a text component in a row with padding.
 
-```jsx
-class ViewBoxesWithColorAndText extends Component {
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=View%20Function%20Component%20Example
+import React from "react";
+import { View, Text } from "react-native";
+
+const ViewBoxesWithColorAndText = () => {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        height: 100,
+        padding: 20
+      }}
+    >
+      <View style={{ backgroundColor: "blue", flex: 0.3 }} />
+      <View style={{ backgroundColor: "red", flex: 0.5 }} />
+      <Text>Hello World!</Text>
+    </View>
+  );
+};
+
+export default ViewBoxesWithColorAndText;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=View%20Class%20Component%20Example
+import React, { Component } from "react";
+import { View, Text } from "react-native";
+
+class App extends Component {
   render() {
     return (
       <View
         style={{
-          flexDirection: 'row',
+          flexDirection: "row",
           height: 100,
-          padding: 20,
-        }}>
-        <View style={{backgroundColor: 'blue', flex: 0.3}} />
-        <View style={{backgroundColor: 'red', flex: 0.5}} />
+          padding: 20
+        }}
+      >
+        <View style={{ backgroundColor: "blue", flex: 0.3 }} />
+        <View style={{ backgroundColor: "red", flex: 0.5 }} />
         <Text>Hello World!</Text>
       </View>
     );
   }
 }
+
+export default App;
 ```
+
+<block class="endBlock syntax" />
 
 > `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
 

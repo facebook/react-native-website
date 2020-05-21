@@ -4,6 +4,13 @@ title: Introduction
 description: This helpful guide lays out the prerequisites for learning React Native, using these docs, and setting up your environment.
 ---
 
+<div class="content-banner">
+  <p>
+    Welcome to the very start of your React Native journey! If you're looking for environment setup instructions, they've moved to <a href="environment-setup">their own section</a>. Continue reading for an introduction to the documentation, Native Components, React, and more!
+  </p>
+  <img class="content-banner-img" src="/docs/assets/p_android-ios-devices.svg" alt=" " />
+</div>
+
 Many different kinds of people use React Native: from advanced iOS developers to React beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
 
 ## How to use these docs
@@ -24,7 +31,7 @@ This introduction lets you get started immediately in your browser with interact
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function YourApp() {
+const YourApp = () => {
   return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <Text>
@@ -33,6 +40,8 @@ export default function YourApp() {
     </View>
   );
 }
+
+export default YourApp;
 ```
 
 The above is a Snack Player. It’s a handy tool created by Expo to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with it in your browser. Go ahead and try changing the "Try editing me!" text above to "Hello, world!"
@@ -43,7 +52,7 @@ The above is a Snack Player. It’s a handy tool created by Expo to embed and ru
 
 With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. But since the introduction of React's Hooks API, you can add state and more to function components.
 
-[Hooks were introduced in React Native 0.58.](https://facebook.github.io/react-native/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
+[Hooks were introduced in React Native 0.58.](/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -62,7 +71,7 @@ With React, you can make components using either classes or functions. Originall
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function HelloWorldApp() {
+const HelloWorldApp = () => {
   return (
     <View style={{
         flex: 1,
@@ -73,6 +82,8 @@ export default function HelloWorldApp() {
     </View>
   );
 }
+
+export default HelloWorldApp;
 ```
 
 <block class="classical syntax" />
@@ -81,7 +92,7 @@ export default function HelloWorldApp() {
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-export default class HelloWorldApp extends Component {
+class HelloWorldApp extends Component {
   render() {
     return (
       <View style={{
@@ -95,11 +106,12 @@ export default class HelloWorldApp extends Component {
   }
 }
 
+export default HelloWorldApp;
 ```
 
 <block class="endBlock syntax" />
 
-You can find more examples of class components in [previous versions of this documentation](/react-native/versions).
+You can find more examples of class components in [previous versions of this documentation](/versions).
 
 ## Developer Notes
 

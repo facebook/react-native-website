@@ -88,7 +88,7 @@ Next, make sure you have [installed the yarn package manager](https://yarnpkg.co
 
 Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
-```
+```sh
 $ yarn add react-native
 ```
 
@@ -98,7 +98,7 @@ This will print a message similar to the following (scroll up in the yarn output
 
 This is OK, it means we also need to install React:
 
-```
+```sh
 $ yarn add react@version_printed_above
 ```
 
@@ -114,7 +114,7 @@ Add `node_modules/` to your `.gitignore` file.
 
 We recommend installing CocoaPods using [Homebrew](http://brew.sh/).
 
-```
+```sh
 $ brew install cocoapods
 ```
 
@@ -134,13 +134,13 @@ Assume the [app for integration](https://github.com/JoelMarcey/swift-2048) is a 
 
 <block class="objc swift" />
 
-![Before RN Integration](/react-native/docs/assets/react-native-existing-app-integration-ios-before.png)
+![Before RN Integration](/docs/assets/react-native-existing-app-integration-ios-before.png)
 
 ### Command Line Tools for Xcode
 
 Install the Command Line Tools. Choose "Preferences..." in the Xcode menu. Go to the Locations panel and install the tools by selecting the most recent version in the Command Line Tools dropdown.
 
-![Xcode Command Line Tools](/react-native/docs/assets/GettingStartedXcodeCommandLineTools.png)
+![Xcode Command Line Tools](/docs/assets/GettingStartedXcodeCommandLineTools.png)
 
 ### Configuring CocoaPods dependencies
 
@@ -150,7 +150,7 @@ The list of supported `subspec`s is available in [`/node_modules/react-native/Re
 
 You can specify which `subspec`s your app will depend on in a `Podfile` file. The easiest way to create a `Podfile` is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
 
-```
+```sh
 $ pod init
 ```
 
@@ -191,7 +191,7 @@ target 'NumberTileGame' do
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
-  pod 'ReactCommon/jscallinvoker', :path => "../node_modules/react-native/ReactCommon"
+  pod 'ReactCommon/callinvoker', :path => "../node_modules/react-native/ReactCommon"
   pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
   pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
@@ -240,7 +240,7 @@ end
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
-```
+```sh
 $ pod install
 ```
 
@@ -250,14 +250,14 @@ You should see output such as:
 Analyzing dependencies
 Fetching podspec for `React` from `../node_modules/react-native`
 Downloading dependencies
-Installing React (0.26.0)
+Installing React (0.62.0)
 Generating Pods project
 Integrating client project
 Sending stats
 Pod installation complete! There are 3 dependencies from the Podfile and 1 total pod installed.
 ```
 
-> If this fails with errors mentioning `xcrun`, make sure that in Xcode in Preferences > Locations the Command Line Tools are assigned.
+> If this fails with errors mentioning `xcrun`, make sure that in Xcode in **Preferences > Locations** the Command Line Tools are assigned.
 
 <block class="swift" />
 
@@ -285,7 +285,12 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
@@ -297,7 +302,9 @@ class RNHighScores extends React.Component {
     ));
     return (
       <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>2048 High Scores!</Text>
+        <Text style={styles.highScoresTitle}>
+          2048 High Scores!
+        </Text>
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );
@@ -309,18 +316,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 // Module name
@@ -339,13 +346,13 @@ We will tie our React Native component with a new native view in the `ViewContro
 
 You can add a new link on the main game menu to go to the "High Score" React Native page.
 
-![Event Path](/react-native/docs/assets/react-native-add-react-native-integration-link.png)
+![Event Path](/docs/assets/react-native-add-react-native-integration-link.png)
 
 ##### 2. Event Handler
 
 We will now add an event handler from the menu link. A method will be added to the main `ViewController` of your application. This is where `RCTRootView` comes into play.
 
-When you build a React Native application, you use the React Native packager to create an `index.bundle` that will be served by the React Native server. Inside `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module.
+When you build a React Native application, you use the [Metro bundler][metro] to create an `index.bundle` that will be served by the React Native server. Inside `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module.
 
 We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
 
@@ -438,13 +445,13 @@ import React
 
 Wire up the new link in the main menu to the newly added event handler method.
 
-![Event Path](/react-native/docs/assets/react-native-add-react-native-integration-wire-up.png)
+![Event Path](/docs/assets/react-native-add-react-native-integration-wire-up.png)
 
 > One of the easier ways to do this is to open the view in the storyboard and right click on the new link. Select something such as the `Touch Up Inside` event, drag that to the storyboard and then select the created method from the list provided.
 
 ### Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the React Native packager to build the `index.bundle` package and the server running on `localhost` to serve it.
+You have now done all the basic steps to integrate React Native with your current application. Now we will start the [Metro bundler][metro] to build the `index.bundle` package and the server running on `localhost` to serve it.
 
 ##### 1. Add App Transport Security exception
 
@@ -470,7 +477,7 @@ Apple has blocked implicit cleartext HTTP resource loading. So we need to add th
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
-```
+```sh
 $ npm start
 ```
 
@@ -480,18 +487,18 @@ If you are using Xcode or your favorite editor, build and run your native iOS ap
 
 ```
 # From the root of your project
-$ react-native run-ios
+$ npx react-native run-ios
 ```
 
 In our sample application, you should see the link to the "High Scores" and then when you click on that you will see the rendering of your React Native component.
 
 Here is the _native_ application home screen:
 
-![Home Screen](/react-native/docs/assets/react-native-add-react-native-integration-example-home-screen.png)
+![Home Screen](/docs/assets/react-native-add-react-native-integration-example-home-screen.png)
 
 Here is the _React Native_ high score screen:
 
-![High Scores](/react-native/docs/assets/react-native-add-react-native-integration-example-high-scores.png)
+![High Scores](/docs/assets/react-native-add-react-native-integration-example-high-scores.png)
 
 > If you are getting module resolution issues when running your application please see [this GitHub issue](https://github.com/facebook/react-native/issues/4968) for information and possible resolution. [This comment](https://github.com/facebook/react-native/issues/4968#issuecomment-220941717) seemed to be the latest possible resolution.
 
@@ -554,7 +561,7 @@ This is only used in dev mode when reloading JavaScript from the development ser
 
 ### Cleartext Traffic (API level 28+)
 
-> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the React Native packager. The changes below allow cleartext traffic in debug builds.
+> Starting with Android 9 (API level 28), cleartext traffic is disabled by default; this prevents your application from connecting to the [Metro bundler][metro]. The changes below allow cleartext traffic in debug builds.
 
 #### 1. Apply the `usesCleartextTraffic` option to your Debug `AndroidManifest.xml`
 
@@ -591,7 +598,12 @@ In your `index.js`, create your component. In our sample here, we will add a `<T
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class HelloWorld extends React.Component {
   render() {
@@ -605,16 +617,19 @@ class HelloWorld extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
+    margin: 10
+  }
 });
 
-AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
+AppRegistry.registerComponent(
+  'MyReactNativeApp',
+  () => HelloWorld
+);
 ```
 
 ##### 3. Configure permissions for development error overlay
@@ -655,7 +670,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 Let's add some native code in order to start the React Native runtime and tell it to render our JS component. To do this, we're going to create an `Activity` that creates a `ReactRootView`, starts a React application inside it and sets it as the main content view.
 
-> If you are targetting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
+> If you are targeting Android version <5, use the `AppCompatActivity` class from the `com.android.support:appcompat` package instead of `Activity`.
 
 ```java
 public class MyReactActivity extends Activity implements DefaultHardwareBackBtnHandler {
@@ -772,13 +787,13 @@ Now your activity is ready to run some JavaScript code.
 
 ### Test your integration
 
-You have now done all the basic steps to integrate React Native with your current application. Now we will start the React Native packager to build the `index.bundle` package and the server running on localhost to serve it.
+You have now done all the basic steps to integrate React Native with your current application. Now we will start the [Metro bundler][metro] to build the `index.bundle` package and the server running on localhost to serve it.
 
 ##### 1. Run the packager
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
-```
+```sh
 $ yarn start
 ```
 
@@ -788,14 +803,14 @@ Now build and run your Android app as normal.
 
 Once you reach your React-powered activity inside the app, it should load the JavaScript code from the development server and display:
 
-![Screenshot](/react-native/docs/assets/EmbeddedAppAndroid.png)
+![Screenshot](/docs/assets/EmbeddedAppAndroid.png)
 
 ### Creating a release build in Android Studio
 
 You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
-```
-$ react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
+```sh
+$ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
 ```
 
 > Don’t forget to replace the paths with correct ones and create the assets folder if it doesn’t exist.
@@ -807,3 +822,5 @@ Now, create a release build of your native app from within Android Studio as usu
 ### Now what?
 
 At this point you can continue developing your app as usual. Refer to our [debugging](debugging) and [deployment](running-on-device) docs to learn more about working with React Native.
+
+[metro]: https://facebook.github.io/metro/

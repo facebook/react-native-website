@@ -7,19 +7,19 @@ These are some common issues you may run into while setting up React Native. If 
 
 ### Port already in use
 
-The React Native packager runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the packager uses.
+The [Metro bundler][metro] runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the bundler uses.
 
 #### Terminating a process on port 8081
 
 Run the following command to find the id for the process that is listening on port 8081:
 
-```
+```sh
 $ sudo lsof -i :8081
 ```
 
 Then run the following to terminate the process:
 
-```
+```sh
 $ kill -9 <PID>
 ```
 
@@ -27,10 +27,10 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 #### Using a port other than 8081
 
-You can configure the packager to use a port other than 8081 by using the `port` parameter:
+You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
-```
-$ react-native start --port=8088
+```sh
+$ npx react-native start --port=8088
 ```
 
 You will also need to update your applications to load the JavaScript bundle from the new port. If running on device from Xcode, you can do this by updating occurrences of `8081` to your chosen port in the `node_modules/react-native/React/React.xcodeproj/project.pbxproj` file.
@@ -93,10 +93,10 @@ Try [downgrading your Gradle version to 1.2.3](https://github.com/facebook/react
 
 ## react-native init hangs
 
-If you run into issues where running `react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
+If you run into issues where running `npx react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
 
 ```
-react-native init --verbose
+npx react-native init --verbose
 ```
 
 ## Unable to start react-native package manager (on Linux)
@@ -108,3 +108,5 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+[metro]: https://facebook.github.io/metro/

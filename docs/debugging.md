@@ -7,7 +7,7 @@ title: Debugging
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
 
-![](/react-native/docs/assets/DeveloperMenu.png)
+![](/docs/assets/DeveloperMenu.png)
 
 > The Developer Menu is disabled in release (production) builds.
 
@@ -36,7 +36,7 @@ As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
 YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
 
 ```jsx
-import {YellowBox} from 'react-native';
+import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ...']);
 ```
 
@@ -68,10 +68,9 @@ You can use Safari to debug the iOS version of your app without having to enable
 - Select your app's JSContext: `Develop → Simulator → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
-However, there are some disadvantages:
+While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
 
-1. No sourcemaps when debugging
-2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 
 ## React Developer Tools
 
@@ -89,7 +88,7 @@ Now run `react-devtools` from the terminal to launch the standalone DevTools app
 react-devtools
 ```
 
-![React DevTools](/react-native/docs/assets/ReactDevTools.png)
+![React DevTools](/docs/assets/ReactDevTools.png)
 
 It should connect to your simulator within a few seconds.
 
@@ -99,11 +98,11 @@ It should connect to your simulator within a few seconds.
 
 Open the in-app developer menu and choose "Toggle Inspector". It will bring up an overlay that lets you tap on any UI element and see information about it:
 
-![React Native Inspector](/react-native/docs/assets/Inspector.gif)
+![React Native Inspector](/docs/assets/Inspector.gif)
 
 However, when `react-devtools` is running, Inspector will enter a collapsed mode, and instead use the DevTools as primary UI. In this mode, clicking on something in the simulator will bring up the relevant components in the DevTools:
 
-![React DevTools Inspector Integration](/react-native/docs/assets/ReactDevToolsInspector.gif)
+![React DevTools Inspector Integration](/docs/assets/ReactDevToolsInspector.gif)
 
 You can choose "Toggle Inspector" in the same menu to exit this mode.
 
@@ -117,7 +116,7 @@ Make sure that the dropdown in the top left corner of the Chrome console says `d
 
 Then select a React component in React DevTools. There is a search box at the top that helps you find one by name. As soon as you select it, it will be available as `$r` in the Chrome console, letting you inspect its props, state, and instance properties.
 
-![React DevTools Chrome Console Integration](/react-native/docs/assets/ReactDevToolsDollarR.gif)
+![React DevTools Chrome Console Integration](/docs/assets/ReactDevToolsDollarR.gif)
 
 ## Performance Monitor
 
@@ -133,10 +132,10 @@ You can view installation instructions [in the README](https://github.com/infini
 
 # Native Debugging
 
-<div class="banner-native-code-required" style="margin-top:25px">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
+    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
@@ -144,14 +143,14 @@ You can view installation instructions [in the README](https://github.com/infini
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```
+```sh
 $ npx react-native log-ios
 $ npx react-native log-android
 ```
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the packager.
+> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the bundler.
 
 ## Debugging on a device with Chrome Developer Tools
 

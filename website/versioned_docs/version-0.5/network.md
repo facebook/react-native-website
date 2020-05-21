@@ -25,12 +25,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
-  }),
+    secondParam: 'yourOtherValue'
+  })
 });
 ```
 
@@ -44,7 +44,7 @@ Networking is an inherently asynchronous operation. Fetch methods will return a 
 
 ```jsx
 function getMoviesFromApiAsync() {
-  return fetch('https://facebook.github.io/react-native/movies.json')
+  return fetch('https://reactnative.dev/movies.json')
     .then((response) => response.json())
     .then((responseJson) => {
       return responseJson.movies;
@@ -61,7 +61,7 @@ You can also use the proposed ES2017 `async`/`await` syntax in a React Native ap
 async function getMoviesFromApi() {
   try {
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json',
+      'https://reactnative.dev/movies.json'
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -85,7 +85,7 @@ export default class FetchExample extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('https://facebook.github.io/react-native/movies.json')
+    return fetch('https://reactnative.dev/movies.json')
       .then((response) => response.json())
       .then((responseJson) => {
 

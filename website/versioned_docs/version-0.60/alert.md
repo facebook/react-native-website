@@ -19,10 +19,10 @@ This is an API that works both on Android and iOS and can show static alerts. To
   </tr>
   <tr>
     <td style="width: 50%;">
-      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleios.gif"></img></center>
+      <center><img src="/docs/assets/Alert/exampleios.gif"></img></center>
     </td>
     <td style="width: 50%;">
-      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleandroid.gif"></img></center>
+      <center><img src="/docs/assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>
 </table>
@@ -51,15 +51,18 @@ Alert.alert(
   'Alert Title',
   'My Alert Msg',
   [
-    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+    {
+      text: 'Ask me later',
+      onPress: () => console.log('Ask me later pressed')
+    },
     {
       text: 'Cancel',
       onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel',
+      style: 'cancel'
     },
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
+    { text: 'OK', onPress: () => console.log('OK Pressed') }
   ],
-  {cancelable: false},
+  { cancelable: false }
 );
 ```
 

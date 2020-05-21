@@ -171,7 +171,7 @@ Create a new JavaScript file named `ToastExample.js` with the content below:
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 module.exports = NativeModules.ToastExample;
 ```
 
@@ -230,7 +230,7 @@ UIManager.measureLayout(
   },
   (x, y, width, height) => {
     console.log(x + ':' + y + ':' + width + ':' + height);
-  },
+  }
 );
 ```
 
@@ -278,14 +278,18 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
 ```jsx
-async function measureLayout() {
+const measureLayout = async () => {
   try {
-    var {relativeX, relativeY, width, height} = await UIManager.measureLayout(
-      100,
-      100,
-    );
+    var {
+      relativeX,
+      relativeY,
+      width,
+      height
+    } = await UIManager.measureLayout(100, 100);
 
-    console.log(relativeX + ':' + relativeY + ':' + width + ':' + height);
+    console.log(
+      relativeX + ':' + relativeY + ':' + width + ':' + height
+    );
   } catch (e) {
     console.error(e);
   }
@@ -336,7 +340,7 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
     });
     ...
   }
-  
+
   componentWillUnmount() {
     this.eventListener.remove(); //Removes the listener
   }
@@ -368,7 +372,7 @@ We will implement a basic image picker to demonstrate this. The image picker wil
 ```java
 public class ImagePickerModule extends ReactContextBaseJavaModule {
 
-  private static final int IMAGE_PICKER_REQUEST = 467081;
+  private static final int IMAGE_PICKER_REQUEST = 1;
   private static final String E_ACTIVITY_DOES_NOT_EXIST = "E_ACTIVITY_DOES_NOT_EXIST";
   private static final String E_PICKER_CANCELLED = "E_PICKER_CANCELLED";
   private static final String E_FAILED_TO_SHOW_PICKER = "E_FAILED_TO_SHOW_PICKER";

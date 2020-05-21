@@ -18,7 +18,7 @@ A performant interface for rendering basic, flat lists, supporting the most hand
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
-### Basic Example:
+## Example
 
 ```SnackPlayer name=flatlist-simple
 import React from 'react';
@@ -40,7 +40,7 @@ const DATA = [
   },
 ];
 
-function Item({ title }) {
+const Item = ({ title }) => {
   return (
     <View style={styles.item}>
       <Text style={styles.title}>{title}</Text>
@@ -48,12 +48,16 @@ function Item({ title }) {
   );
 }
 
-export default function App() {
+const App = () => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => <Item title={item.title} />}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
@@ -75,6 +79,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+export default App;
 ```
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
@@ -110,7 +116,7 @@ const DATA = [
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
+const Item = ({ id, title, selected, onSelect }) => {
   return (
     <TouchableOpacity
       onPress={() => onSelect(id)}
@@ -124,7 +130,7 @@ function Item({ id, title, selected, onSelect }) {
   );
 }
 
-export default function App() {
+const App = () => {
   const [selected, setSelected] = React.useState(new Map());
 
   const onSelect = React.useCallback(
@@ -137,18 +143,20 @@ export default function App() {
     [selected],
   );
 
+  const renderItem = ({ item }) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      selected={!!selected.get(item.id)}
+      onSelect={onSelect}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => (
-          <Item
-            id={item.id}
-            title={item.title}
-            selected={!!selected.get(item.id)}
-            onSelect={onSelect}
-          />
-        )}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
         extraData={selected}
       />
@@ -171,6 +179,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+export default App;
 ```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
@@ -191,7 +201,7 @@ Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another
 ### `renderItem`
 
 ```jsx
-renderItem({item, index, separators});
+renderItem({ item, index, separators });
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -498,7 +508,7 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists.
+This may improve scroll performance for large lists. On Android the default value is true
 
 > Note: May have bugs (missing content) in some circumstances - use at your own risk.
 
@@ -683,6 +693,16 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getNativeScrollRef()`
+
+```jsx
+getNativeScrollRef();
+```
+
+Provides a reference to the underlying scroll component
 
 ---
 

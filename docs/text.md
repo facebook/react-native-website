@@ -9,16 +9,69 @@ A React component for displaying text.
 
 In the following example, the nested title and body text will inherit the `fontFamily` from `styles.baseText`, but the title provides its own additional styles. The title and body will stack on top of each other on account of the literal newlines:
 
-```SnackPlayer name=Text
-import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-export default class TextInANest extends Component {
+<block class="functional syntax" />
+
+```SnackPlayer name=Text%20Functional%20Component%20Example
+import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
+
+const onPressTitle = () => {
+  console.log("title pressed");
+};
+
+const TextInANest = () => {
+  const titleText = useState("Bird's Nest");
+  const bodyText = useState("This is not really a bird nest.");
+
+  return (
+    <Text style={styles.baseText}>
+      <Text style={styles.titleText} onPress={onPressTitle}>
+        {titleText}
+        {"\n"}
+        {"\n"}
+      </Text>
+      <Text numberOfLines={5}>{bodyText}</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  }
+});
+
+export default TextInANest;
+
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Text%20Class%20Component%20Example
+import React, { Component } from "react";
+import { Text, StyleSheet } from "react-native";
+
+class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      bodyText: "This is not really a bird nest."
     };
   }
 
@@ -26,11 +79,11 @@ export default class TextInANest extends Component {
     return (
       <Text style={styles.baseText}>
         <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
+          {this.state.titleText}
+          {"\n"}
+          {"\n"}
         </Text>
-        <Text numberOfLines={5}>
-          {this.state.bodyText}
-        </Text>
+        <Text numberOfLines={5}>{this.state.bodyText}</Text>
       </Text>
     );
   }
@@ -38,36 +91,47 @@ export default class TextInANest extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Cochin',
+    fontFamily: "Cochin"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: "bold"
+  }
 });
+
+export default TextInANest;
 ```
 
 ## Nested text
 
 Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
 
-```SnackPlayer name=Nested
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+```SnackPlayer name=Nested%20Text%20Example
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-export default class BoldAndBeautiful extends Component {
-  render() {
-    return (
-      <Text style={{fontWeight: 'bold'}}>
-        I am bold
-        <Text style={{color: 'red'}}>
-          and red
-        </Text>
-      </Text>
-    );
+const BoldAndBeautiful = () => {
+  return (
+    <Text style={styles.baseText}>
+      I am bold
+      <Text style={styles.innerText}> and red</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontWeight: 'bold'
+  },
+  innerText: {
+    color: 'red'
   }
-}
+});
+
+export default BoldAndBeautiful;
 ```
+
+<block class="endBlock syntax" />
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
@@ -156,7 +220,9 @@ class MyAppHeaderText extends Component {
   render() {
     return (
       <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+        <Text style={{ fontSize: 20 }}>
+          {this.props.children}
+        </Text>
       </MyAppText>
     );
   }
@@ -168,9 +234,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
 ```jsx
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: 'bold' }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: 'red' }}>and red</Text>
 </Text>
 ```
 
@@ -500,7 +566,16 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 ### `onTextLayout`
 
-TODO.
+Invoked on Text layout
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| function: (event: TextLayoutEvent) => mixed | No       |
+
+- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
+  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
+
+---
 
 ### `pressRetentionOffset`
 

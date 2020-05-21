@@ -22,7 +22,7 @@ This project started about a year ago, when Expo built the li.st app on Android.
 
 First, let's check out how animations currently work using Animated with the JS driver. When using Animated, you declare a graph of nodes that represent the animations that you want to perform, and then use a driver to update an Animated value using a predefined curve. You may also update an Animated value by connecting it to an event of a `View` using `Animated.event`.
 
-![](/react-native/blog/assets/animated-diagram.png)
+![](/blog/assets/animated-diagram.png)
 
 Here's a breakdown of the steps for an animation and where it happens:
 

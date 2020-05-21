@@ -1,26 +1,43 @@
 ---
 id: picker
-title: Picker
+title: 🚧 Picker
 ---
 
-Renders the native picker component on Android and iOS. Example:
+> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
+
+Renders the native picker component on Android and iOS.
+
+## Example
 
 ```SnackPlayer name=picker
-import React, { useState } from 'react';
-import { Picker } from 'react-native';
+import React, { useState } from "react";
+import { View, Picker, StyleSheet } from "react-native";
 
-export default function App() {
-  const [selectedValue, setSelectedValue] = useState('java');
+const App = () => {
+  const [selectedValue, setSelectedValue] = useState("java");
   return (
-    <Picker
-      selectedValue={selectedValue}
-      style={{ height: 50, width: 150 }}
-      onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-      <Picker.Item label="Java" value="java" />
-      <Picker.Item label="JavaScript" value="js" />
-    </Picker>
+    <View style={styles.container}>
+      <Picker
+        selectedValue={selectedValue}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" />
+      </Picker>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 40,
+    alignItems: "center"
+  }
+});
+
+export default App;
 ```
 
 ---
@@ -112,4 +129,3 @@ Used to locate this view in end-to-end tests.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
-

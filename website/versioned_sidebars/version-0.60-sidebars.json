@@ -3,8 +3,6 @@
     "The Basics": [
       "version-0.60-getting-started",
       "version-0.60-tutorial",
-      "version-0.60-props",
-      "version-0.60-state",
       "version-0.60-style",
       "version-0.60-height-and-width",
       "version-0.60-flexbox",
@@ -33,7 +31,7 @@
       "version-0.60-direct-manipulation",
       "version-0.60-colors",
       "version-0.60-integration-with-existing-apps",
-      "version-0.60-building-for-apple-tv",
+      "version-0.60-building-for-tv",
       "version-0.60-running-on-device",
       "version-0.60-upgrading",
       "version-0.60-troubleshooting",

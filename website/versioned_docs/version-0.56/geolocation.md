@@ -40,7 +40,7 @@ Android API >= 18 Positions will also contain a `mocked` boolean to indicate if 
 <p>
   Android API >= 23 Requires an additional step to check for, and request
   the ACCESS_FINE_LOCATION permission using
-  the <a href="https://facebook.github.io/react-native/docs/permissionsandroid.html" target="_blank">PermissionsAndroid API</a>.
+  the <a href="/docs/permissionsandroid.html" target="_blank">PermissionsAndroid API</a>.
   Failure to do so may result in a hard crash.
 </p>
 
@@ -92,7 +92,11 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```jsx
-Geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
+Geolocation.getCurrentPosition(
+  geo_success,
+  [geo_error],
+  [geo_options]
+);
 ```
 
 Invokes the success callback once with the latest location info.

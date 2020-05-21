@@ -57,9 +57,9 @@ Here are the notes from each team:
 ### Facebook
 
 - Facebook is internally exploring being able to embed native [ComponentKit](http://componentkit.org/) and [Litho](https://fblitho.com/) components inside of React Native.
-- Contributions to React Native are very welcome! If you are wondering how you can contribute, the ["How to Contribute" guide](http://facebook.github.io/react-native/contributing.md) describes our development process and lays out the steps to send your first pull request. There are other ways to contribute that do not require writing code, such as by triaging issues or updating the docs.
+- Contributions to React Native are very welcome! If you are wondering how you can contribute, the ["How to Contribute" guide](https://github.com/facebook/react-native-website/blob/master/CONTRIBUTING.md) describes our development process and lays out the steps to send your first pull request. There are other ways to contribute that do not require writing code, such as by triaging issues or updating the docs.
   - At the time of writing, React Native has **635** [open issues](https://github.com/facebook/react-native/issues) and **249** [open pull requests](https://github.com/facebook/react-native/pulls). This is overwhelming for our maintainers, and when things get fixed internally, it is difficult to ensure the relevant tasks are updated.
-  - We are unsure what the best approach is to handle this while keeping the community satisfied. Some (but not all!) options include closing stale issues, giving significantly more people permissions to manage issues, and automatically closing issues that do not follow the issue template. We wrote a ["What to Expect from Maintainers"](http://facebook.github.io/react-native/maintainers.md) guide to set expectations and avoid surprises. If you have ideas on how we can make this experience better for maintainers as well as ensuring people opening issues and pull requests feel heard and valued, please let us know!
+  - We are unsure what the best approach is to handle this while keeping the community satisfied. Some (but not all!) options include closing stale issues, giving significantly more people permissions to manage issues, and automatically closing issues that do not follow the issue template. We wrote a ["What to Expect from Maintainers"](/docs/maintainers.html) guide to set expectations and avoid surprises. If you have ideas on how we can make this experience better for maintainers as well as ensuring people opening issues and pull requests feel heard and valued, please let us know!
 
 ### GeekyAnts
 
@@ -84,7 +84,7 @@ Here are the notes from each team:
 ### Shoutem
 
 - Finished the process of making the React Native development easier on [Shoutem](https://shoutem.github.io/). You can use all the standard `react-native` commands when developing apps on Shoutem.
-- We did a lot of work trying to figure out how to best approach the profiling on React Native. A big chunk of [documentation](https://facebook.github.io/react-native/performance.md) is outdated, and we'll do our best to create a pull request on the official docs or at least write some of our conclusions in a blog post.
+- We did a lot of work trying to figure out how to best approach the profiling on React Native. A big chunk of [documentation](/docs/performance) is outdated, and we'll do our best to create a pull request on the official docs or at least write some of our conclusions in a blog post.
 - Switching our navigation solution to [react-navigation](https://github.com/react-community/react-navigation), so we might have some feedback soon.
 - We released [a new HTML component](https://github.com/shoutem/ui/tree/develop/html) in our toolkit which transforms the raw HTML to the React Native components tree.
 

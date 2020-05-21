@@ -77,7 +77,7 @@ For example, if we want to create a 2-second long animation of an object that sl
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
-  duration: 2000,
+  duration: 2000
 }).start();
 ```
 
@@ -94,19 +94,19 @@ Animated.sequence([
   // decay, then spring to start and twirl
   Animated.decay(position, {
     // coast to a stop
-    velocity: {x: gestureState.vx, y: gestureState.vy}, // velocity from gesture release
-    deceleration: 0.997,
+    velocity: { x: gestureState.vx, y: gestureState.vy }, // velocity from gesture release
+    deceleration: 0.997
   }),
   Animated.parallel([
     // after decay, in parallel:
     Animated.spring(position, {
-      toValue: {x: 0, y: 0}, // return to start
+      toValue: { x: 0, y: 0 } // return to start
     }),
     Animated.timing(twirl, {
       // and twirl
-      toValue: 360,
-    }),
-  ]),
+      toValue: 360
+    })
+  ])
 ]).start(); // start the sequence group
 ```
 
@@ -125,7 +125,7 @@ const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
 Animated.spring(a, {
-  toValue: 2,
+  toValue: 2
 }).start();
 ```
 
@@ -138,7 +138,7 @@ A mapping to convert a 0-1 range to a 0-100 range would be:
 ```jsx
 value.interpolate({
   inputRange: [0, 1],
-  outputRange: [0, 100],
+  outputRange: [0, 100]
 });
 ```
 
@@ -161,7 +161,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 ```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
-  outputRange: [300, 0, 1, 0, 0],
+  outputRange: [300, 0, 1, 0, 0]
 });
 ```
 
@@ -187,7 +187,7 @@ Input | Output
 ```jsx
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ['0deg', '360deg'],
+  outputRange: ['0deg', '360deg']
 });
 ```
 
@@ -198,12 +198,12 @@ value.interpolate({
 Animated values can also track other values. Set the `toValue` of an animation to another animated value instead of a plain number. For example, a "Chat Heads" animation like the one used by Messenger on Android could be implemented with a `spring()` pinned on another animated value, or with `timing()` and a `duration` of 0 for rigid tracking. They can also be composed with interpolations:
 
 ```jsx
-Animated.spring(follower, {toValue: leader}).start();
+Animated.spring(follower, { toValue: leader }).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
-    outputRange: [1, 0],
-  }),
+    outputRange: [1, 0]
+  })
 }).start();
 ```
 
@@ -249,7 +249,7 @@ You may notice that there is no clear way to read the current value while animat
 
 ### Using the native driver
 
-The `Animated` API is designed to be serializable. By using the [native driver](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated), we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
+The `Animated` API is designed to be serializable. By using the [native driver](/blog/2017/02/14/using-native-driver-for-animated), we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
 
 To use the native driver for normal animations add `useNativeDriver: true` to the animation config when starting it.
 
@@ -257,7 +257,7 @@ To use the native driver for normal animations add `useNativeDriver: true` to th
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
-  useNativeDriver: true, // <-- Add this
+  useNativeDriver: true // <-- Add this
 }).start();
 ```
 
@@ -272,11 +272,11 @@ The native driver also works with `Animated.event`. This is especially useful fo
     [
       {
         nativeEvent: {
-          contentOffset: {y: this.state.animatedValue},
-        },
-      },
+          contentOffset: { y: this.state.animatedValue }
+        }
+      }
     ],
-    {useNativeDriver: true}, // <-- Add this
+    { useNativeDriver: true } // <-- Add this
   )}>
   {content}
 </Animated.ScrollView>
@@ -298,10 +298,10 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 <Animated.View
   style={{
     transform: [
-      {scale: this.state.scale},
-      {rotateY: this.state.rotateY},
-      {perspective: 1000}, // without this line this Animation will not render on Android while working fine on iOS
-    ],
+      { scale: this.state.scale },
+      { rotateY: this.state.rotateY },
+      { perspective: 1000 } // without this line this Animation will not render on Android while working fine on iOS
+    ]
   }}
 />
 ```
@@ -406,4 +406,4 @@ As mentioned [in the Direct Manipulation section](direct-manipulation.md), `setN
 
 We could use this in the Rebound example to update the scale - this might be helpful if the component that we are updating is deeply nested and hasn't been optimized with `shouldComponentUpdate`.
 
-If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated). You may also want to defer any computationally intensive work until after animations are complete, using the [InteractionManager](interactionmanager.md). You can monitor the frame rate by using the In-App Developer Menu "FPS Monitor" tool.
+If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](/blog/2017/02/14/using-native-driver-for-animated). You may also want to defer any computationally intensive work until after animations are complete, using the [InteractionManager](interactionmanager.md). You can monitor the frame rate by using the In-App Developer Menu "FPS Monitor" tool.

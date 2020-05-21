@@ -13,8 +13,8 @@ Animated.timing(
   // Animate value over time
   this.state.fadeAnim, // The value to drive
   {
-    toValue: 1, // Animate to final value of 1
-  },
+    toValue: 1 // Animate to final value of 1
+  }
 ).start(); // Start the animation
 ```
 
@@ -191,7 +191,7 @@ Config is an object that may have the following options:
 static spring(value, config)
 ```
 
-Spring animation based on Rebound and [Origami](https://facebook.github.io/origami/). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
+Spring animation based on Rebound and [Origami](https://origami.design/). Tracks velocity state to create fluid motions as the `toValue` updates, and can be chained together.
 
 Config is an object that may have the following options:
 
@@ -529,7 +529,7 @@ class DraggableView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pan: new Animated.ValueXY(), // inits to zero
+      pan: new Animated.ValueXY() // inits to zero
     };
     this.state.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -537,15 +537,15 @@ class DraggableView extends React.Component {
         null,
         {
           dx: this.state.pan.x, // x,y are Animated.Value
-          dy: this.state.pan.y,
-        },
+          dy: this.state.pan.y
+        }
       ]),
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}}, // Back to zero
+          { toValue: { x: 0, y: 0 } } // Back to zero
         ).start();
-      },
+      }
     });
   }
   render() {

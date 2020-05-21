@@ -10,7 +10,10 @@ Headless JS is a way to run tasks in JavaScript while your app is in the backgro
 A task is a async function that you register on `AppRegistry`, similar to registering React applications:
 
 ```jsx
-AppRegistry.registerHeadlessTask('SomeTaskName', () => require('SomeTaskName'));
+import { AppRegistry } from 'react-native';
+AppRegistry.registerHeadlessTask('SomeTaskName', () =>
+  require('SomeTaskName')
+);
 ```
 
 Then, in `SomeTaskName.js`:
@@ -28,6 +31,14 @@ You can do anything in your task such as network requests, timers and so on, as 
 Yes, this does still require some native code, but it's pretty thin. You need to extend `HeadlessJsTaskService` and override `getTaskConfig`, e.g.:
 
 ```java
+package com.your_application_name;
+import android.content.Intent;
+import android.os.Bundle;
+import com.facebook.react.HeadlessJsTaskService;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.jstasks.HeadlessJsTaskConfig;
+import javax.annotation.Nullable;
+
 public class MyTaskService extends HeadlessJsTaskService {
 
   @Override
@@ -68,7 +79,7 @@ getApplicationContext().startService(service);
 
 ## Retries
 
-By default, the headless JS task will not perform any retries. In order to do so, you need to create a `HeadlessJsRetryPolicy` and throw a specfic `Error`.
+By default, the headless JS task will not perform any retries. In order to do so, you need to create a `HeadlessJsRetryPolicy` and throw a specific `Error`.
 
 `LinearCountingRetryPolicy` is an implementation of `HeadlessJsRetryPolicy` that allows you to specify a maximum number of retries with a fixed delay between each attempt. If that does not suit your needs then you can implement your own `HeadlessJsRetryPolicy`. These policies can be passed as an extra argument to the `HeadlessJsTaskConfig` constructor, e.g.
 

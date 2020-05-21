@@ -5,7 +5,7 @@ title: RefreshControl
 
 This component is used inside a ScrollView or ListView to add pull to refresh functionality. When the ScrollView is at `scrollY: 0`, swiping down triggers an `onRefresh` event.
 
-### Example
+## Example
 
 ```SnackPlayer name=RefreshControl&supportedPlatforms=ios,android
 import React from 'react';
@@ -18,20 +18,20 @@ import {
 } from 'react-native';
 import Constants from 'expo-constants';
 
-function wait(timeout) {
+const wait = (timeout) => {
   return new Promise(resolve => {
     setTimeout(resolve, timeout);
   });
 }
 
-export default function App() {
+const App = () => {
   const [refreshing, setRefreshing] = React.useState(false);
 
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
 
     wait(2000).then(() => setRefreshing(false));
-  }, [refreshing]);
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -59,6 +59,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
 ```
 
 **Note:** `refreshing` is a controlled prop, this is why it needs to be set to true in the `onRefresh` function otherwise the refresh indicator will stop immediately.

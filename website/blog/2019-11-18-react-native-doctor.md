@@ -14,7 +14,7 @@ Here it is in action:
 
 <p style="text-align: center;">
   <video width="700" controls="controls" autoplay style="border-radius: 5px;">
-    <source type="video/mp4" src="/react-native/img/homepage/DoctorCommand.mp4"></source>
+    <source type="video/mp4" src="/img/homepage/DoctorCommand.mp4"></source>
   </video>
 </p>
 
@@ -23,7 +23,7 @@ Here it is in action:
 The `doctor` command currently supports most of the software and libraries that React Native relies on, such as CocoaPods, Xcode and Android SDK. With `doctor` we'll find issues with your development environment and give you the option to automatically fix them. If `doctor` is not able to fix an issue, it will display a message and a helpful link explaining how to fix it manually as the following:
 
 <p style="text-align: center;">
-  <img width="700" src="/react-native/img/DoctorManualInstallationMessage.png" alt="Doctor command with a link to help on Android SDK's installation" title="Doctor command with a link to help on Android SDK's installation" />
+  <img width="700" src="/img/DoctorManualInstallationMessage.png" alt="Doctor command with a link to help on Android SDK's installation" title="Doctor command with a link to help on Android SDK's installation" />
 </p>
 
 ## Try it now
@@ -38,22 +38,22 @@ npx @react-native-community/cli doctor
 
 `doctor` currently supports the following checks:
 
-* Node.js (>= 8.3)
-* yarn (>= 1.10)
-* npm (>= 4)
-* Watchman (>= 4), used for watching changes in the filesystem when in development mode.
+- Node.js (>= 8.3)
+- yarn (>= 1.10)
+- npm (>= 4)
+- Watchman (>= 4), used for watching changes in the filesystem when in development mode.
 
 Specific to the Android environment:
 
-* Android SDK (>= 26), the software runtime for Android.
-* Android NDK (>= 19), the native development toolkit for Android.
-* `ANDROID_HOME`, environment variable required by the Android SDK setup.
+- Android SDK (>= 26), the software runtime for Android.
+- Android NDK (>= 19), the native development toolkit for Android.
+- `ANDROID_HOME`, environment variable required by the Android SDK setup.
 
 And to the iOS environment:
 
-* Xcode (>= 10), IDE for developing, building and shipping iOS applications.
-* CocoaPods, library dependency management tool for iOS applications.
-* ios-deploy (optional), library used internally by the CLI to install applications on a physical iOS device.
+- Xcode (>= 10), IDE for developing, building and shipping iOS applications.
+- CocoaPods, library dependency management tool for iOS applications.
+- ios-deploy (optional), library used internally by the CLI to install applications on a physical iOS device.
 
 ## Thanks
 

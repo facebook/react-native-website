@@ -5,22 +5,22 @@ title: Animations
 
 Animations are very important to create a great user experience. Stationary objects must overcome inertia as they start moving. Objects in motion have momentum and rarely come to a stop immediately. Animations allow you to convey physically believable motion in your interface.
 
-React Native provides two complementary animation systems: [`Animated`](animations.md#animated-api) for granular and interactive control of specific values, and [`LayoutAnimation`](animations.md#layoutanimation-api) for animated global layout transactions.
+React Native provides two complementary animation systems: [`Animated`](animations#animated-api) for granular and interactive control of specific values, and [`LayoutAnimation`](animations#layoutanimation-api) for animated global layout transactions.
 
 ## `Animated` API
 
-The [`Animated`](animated.md) API is designed to concisely express a wide variety of interesting animation and interaction patterns in a very performant way. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
+The [`Animated`](animated) API is designed to concisely express a wide variety of interesting animation and interaction patterns in a very performant way. `Animated` focuses on declarative relationships between inputs and outputs, with configurable transforms in between, and `start`/`stop` methods to control time-based animation execution.
 
 `Animated` exports six animatable component types: `View`, `Text`, `Image`, `ScrollView`, `FlatList` and `SectionList`, but you can also create your own using `Animated.createAnimatedComponent()`.
 
 For example, a container view that fades in when it is mounted may look like this:
 
 ```SnackPlayer
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Animated, Text, View } from 'react-native';
 
 const FadeInView = (props) => {
-  const [fadeAnim] = useState(new Animated.Value(0))  // Initial value for opacity: 0
+  const fadeAnim = useRef(new Animated.Value(0)).current  // Initial value for opacity: 0
 
   React.useEffect(() => {
     Animated.timing(
@@ -30,7 +30,7 @@ const FadeInView = (props) => {
         duration: 10000,
       }
     ).start();
-  }, [])
+  }, [fadeAnim])
 
   return (
     <Animated.View                 // Special animatable View
@@ -66,7 +66,7 @@ This is done in an optimized way that is faster than calling `setState` and re-r
 
 Animations are heavily configurable. Custom and predefined easing functions, delays, durations, decay factors, spring constants, and more can all be tweaked depending on the type of animation.
 
-`Animated` provides several animation types, the most commonly used one being [`Animated.timing()`](animated.md#timing). It supports animating a value over time using one of various predefined easing functions, or you can use your own. Easing functions are typically used in animation to convey gradual acceleration and deceleration of objects.
+`Animated` provides several animation types, the most commonly used one being [`Animated.timing()`](animated#timing). It supports animating a value over time using one of various predefined easing functions, or you can use your own. Easing functions are typically used in animation to convey gradual acceleration and deceleration of objects.
 
 By default, `timing` will use an easeInOut curve that conveys gradual acceleration to full speed and concludes by gradually decelerating to a stop. You can specify a different easing function by passing an `easing` parameter. Custom `duration` or even a `delay` before the animation starts is also supported.
 
@@ -76,11 +76,11 @@ For example, if we want to create a 2-second long animation of an object that sl
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
-  duration: 2000,
+  duration: 2000
 }).start();
 ```
 
-Take a look at the [Configuring animations](animated.md#configuring-animations) section of the `Animated` API reference to learn more about all the config parameters supported by the built-in animations.
+Take a look at the [Configuring animations](animated#configuring-animations) section of the `Animated` API reference to learn more about all the config parameters supported by the built-in animations.
 
 ### Composing animations
 
@@ -93,29 +93,29 @@ Animated.sequence([
   // decay, then spring to start and twirl
   Animated.decay(position, {
     // coast to a stop
-    velocity: {x: gestureState.vx, y: gestureState.vy}, // velocity from gesture release
-    deceleration: 0.997,
+    velocity: { x: gestureState.vx, y: gestureState.vy }, // velocity from gesture release
+    deceleration: 0.997
   }),
   Animated.parallel([
     // after decay, in parallel:
     Animated.spring(position, {
-      toValue: {x: 0, y: 0}, // return to start
+      toValue: { x: 0, y: 0 } // return to start
     }),
     Animated.timing(twirl, {
       // and twirl
-      toValue: 360,
-    }),
-  ]),
+      toValue: 360
+    })
+  ])
 ]).start(); // start the sequence group
 ```
 
 If one animation is stopped or interrupted, then all other animations in the group are also stopped. `Animated.parallel` has a `stopTogether` option that can be set to `false` to disable this.
 
-You can find a full list of composition methods in the [Composing animations](animated.md#composing-animations) section of the `Animated` API reference.
+You can find a full list of composition methods in the [Composing animations](animated#composing-animations) section of the `Animated` API reference.
 
 ### Combining animated values
 
-You can [combine two animated values](animated.md#combining-animated-values) via addition, multiplication, division, or modulo to make a new animated value.
+You can [combine two animated values](animated#combining-animated-values) via addition, multiplication, division, or modulo to make a new animated value.
 
 There are some cases where an animated value needs to invert another animated value for calculation. An example is inverting a scale (2x --> 0.5x):
 
@@ -124,7 +124,7 @@ const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
 Animated.spring(a, {
-  toValue: 2,
+  toValue: 2
 }).start();
 ```
 
@@ -137,7 +137,7 @@ A basic mapping to convert a 0-1 range to a 0-100 range would be:
 ```jsx
 value.interpolate({
   inputRange: [0, 1],
-  outputRange: [0, 100],
+  outputRange: [0, 100]
 });
 ```
 
@@ -155,12 +155,12 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
   }}
 ```
 
-[`interpolate()`](animated.md#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
+[`interpolate()`](animated#interpolate) supports multiple range segments as well, which is handy for defining dead zones and other handy tricks. For example, to get a negation relationship at -300 that goes to 0 at -100, then back up to 1 at 0, and then back down to zero at 100 followed by a dead-zone that remains at 0 for everything beyond that, you could do:
 
 ```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
-  outputRange: [300, 0, 1, 0, 0],
+  outputRange: [300, 0, 1, 0, 0]
 });
 ```
 
@@ -186,23 +186,23 @@ Input | Output
 ```jsx
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ['0deg', '360deg'],
+  outputRange: ['0deg', '360deg']
 });
 ```
 
-`interpolate()` also supports arbitrary easing functions, many of which are already implemented in the [`Easing`](easing.md) module. `interpolate()` also has configurable behavior for extrapolating the `outputRange`. You can set the extrapolation by setting the `extrapolate`, `extrapolateLeft`, or `extrapolateRight` options. The default value is `extend` but you can use `clamp` to prevent the output value from exceeding `outputRange`.
+`interpolate()` also supports arbitrary easing functions, many of which are already implemented in the [`Easing`](easing) module. `interpolate()` also has configurable behavior for extrapolating the `outputRange`. You can set the extrapolation by setting the `extrapolate`, `extrapolateLeft`, or `extrapolateRight` options. The default value is `extend` but you can use `clamp` to prevent the output value from exceeding `outputRange`.
 
 ### Tracking dynamic values
 
 Animated values can also track other values by setting the `toValue` of an animation to another animated value instead of a plain number. For example, a "Chat Heads" animation like the one used by Messenger on Android could be implemented with a `spring()` pinned on another animated value, or with `timing()` and a `duration` of 0 for rigid tracking. They can also be composed with interpolations:
 
 ```jsx
-Animated.spring(follower, {toValue: leader}).start();
+Animated.spring(follower, { toValue: leader }).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
-    outputRange: [1, 0],
-  }),
+    outputRange: [1, 0]
+  })
 }).start();
 ```
 
@@ -210,7 +210,7 @@ The `leader` and `follower` animated values would be implemented using `Animated
 
 ### Tracking gestures
 
-Gestures, like panning or scrolling, and other events can map directly to animated values using [`Animated.event`](animated.md#event). This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
+Gestures, like panning or scrolling, and other events can map directly to animated values using [`Animated.event`](animated#event). This is done with a structured map syntax so that values can be extracted from complex event objects. The first level is an array to allow mapping across multiple args, and that array contains nested objects.
 
 For example, when working with horizontal scrolling gestures, you would do the following in order to map `event.nativeEvent.contentOffset.x` to `scrollX` (an `Animated.Value`):
 
@@ -226,6 +226,306 @@ For example, when working with horizontal scrolling gestures, you would do the f
  )}
 ```
 
+The following example implements a horizontal scrolling carousel where the scroll position indicators are animated using the `Animated.event` used in the `ScrollView`
+
+#### ScrollView with Animated Event Example
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Animated&supportedPlatforms=ios,android
+import React, { useRef } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  StyleSheet,
+  View,
+  ImageBackground,
+  Animated,
+  useWindowDimensions
+} from "react-native";
+
+const images = new Array(6).fill('https://images.unsplash.com/photo-1556740749-887f6717d7e4');
+
+const App = () => {
+  const scrollX = useRef(new Animated.Value(0)).current;
+
+  const { width: windowWidth } = useWindowDimensions();
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.scrollContainer}>
+        <ScrollView
+          horizontal={true}
+          style={styles.scrollViewStyle}
+          pagingEnabled
+          showsHorizontalScrollIndicator={false}
+          onScroll={Animated.event([
+            {
+              nativeEvent: {
+                contentOffset: {
+                  x: scrollX
+                }
+              }
+            }
+          ])}
+          scrollEventThrottle={1}
+        >
+          {images.map((image, imageIndex) => {
+            return (
+              <View
+                style={{ width: windowWidth, height: 250 }}
+                key={imageIndex}
+              >
+                <ImageBackground source={{ uri: image }} style={styles.card}>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.infoText}>
+                      {"Image - " + imageIndex}
+                    </Text>
+                  </View>
+                </ImageBackground>
+              </View>
+            );
+          })}
+        </ScrollView>
+        <View style={styles.indicatorContainer}>
+          {images.map((image, imageIndex) => {
+            const width = scrollX.interpolate({
+              inputRange: [
+                windowWidth * (imageIndex - 1),
+                windowWidth * imageIndex,
+                windowWidth * (imageIndex + 1)
+              ],
+              outputRange: [8, 16, 8],
+              extrapolate: "clamp"
+            });
+            return (
+              <Animated.View
+                key={imageIndex}
+                style={[styles.normalDot, { width }]}
+              />
+            );
+          })}
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  scrollContainer: {
+    height: 300,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  card: {
+    flex: 1,
+    marginVertical: 4,
+    marginHorizontal: 16,
+    borderRadius: 5,
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  textContainer: {
+    backgroundColor: "rgba(0,0,0, 0.7)",
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+    borderRadius: 5
+  },
+  infoText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold"
+  },
+  normalDot: {
+    height: 8,
+    width: 8,
+    borderRadius: 4,
+    backgroundColor: "silver",
+    marginHorizontal: 4
+  },
+  indicatorContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Animated&supportedPlatforms=ios,android
+import React, { Component } from "react";
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  StyleSheet,
+  View,
+  ImageBackground,
+  Animated,
+  Dimensions
+} from "react-native";
+
+const images = new Array(6).fill('https://images.unsplash.com/photo-1556740749-887f6717d7e4');
+
+const window = Dimensions.get("window");
+
+export default class App extends Component {
+  scrollX = new Animated.Value(0);
+
+  state = {
+    dimensions: {
+      window
+    }
+  };
+
+  onDimensionsChange = ({ window }) => {
+    this.setState({ dimensions: { window } });
+  };
+
+  componentDidMount() {
+    Dimensions.addEventListener("change", this.onDimensionsChange);
+  }
+
+  componentWillUnmount() {
+    Dimensions.removeEventListener("change", this.onDimensionsChange);
+  }
+
+  render() {
+    const windowWidth = this.state.dimensions.window.width;
+
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.scrollContainer}>
+          <ScrollView
+            horizontal={true}
+            style={styles.scrollViewStyle}
+            pagingEnabled
+            showsHorizontalScrollIndicator={false}
+            onScroll={Animated.event([
+              {
+                nativeEvent: {
+                  contentOffset: {
+                    x: this.scrollX
+                  }
+                }
+              }
+            ])}
+            scrollEventThrottle={1}
+          >
+            {images.map((image, imageIndex) => {
+              return (
+                <View
+                  style={{
+                    width: windowWidth,
+                    height: 250
+                  }}
+                  key={imageIndex}
+                >
+                  <ImageBackground source={{ uri: image }} style={styles.card}>
+                    <View style={styles.textContainer}>
+                      <Text style={styles.infoText}>
+                        {"Image - " + imageIndex}
+                      </Text>
+                    </View>
+                  </ImageBackground>
+                </View>
+              );
+            })}
+          </ScrollView>
+          <View style={styles.indicatorContainer}>
+            {images.map((image, imageIndex) => {
+              const width = this.scrollX.interpolate({
+                inputRange: [
+                  windowWidth * (imageIndex - 1),
+                  windowWidth * imageIndex,
+                  windowWidth * (imageIndex + 1)
+                ],
+                outputRange: [8, 16, 8],
+                extrapolate: "clamp"
+              });
+              return (
+                <Animated.View
+                  key={imageIndex}
+                  style={[styles.normalDot, { width }]}
+                />
+              );
+            })}
+          </View>
+        </View>
+      </SafeAreaView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  scrollContainer: {
+    height: 300,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  card: {
+    flex: 1,
+    marginVertical: 4,
+    marginHorizontal: 16,
+    borderRadius: 5,
+    overflow: "hidden",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  textContainer: {
+    backgroundColor: "rgba(0,0,0, 0.7)",
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+    borderRadius: 5
+  },
+  infoText: {
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold"
+  },
+  normalDot: {
+    height: 8,
+    width: 8,
+    borderRadius: 4,
+    backgroundColor: "silver",
+    marginHorizontal: 4
+  },
+  indicatorContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
+```
+
+<block class="endBlock syntax" />
+
 When using `PanResponder`, you could use the following code to extract the x and y positions from `gestureState.dx` and `gestureState.dy`. We use a `null` in the first position of the array, as we are only interested in the second argument passed to the `PanResponder` handler, which is the `gestureState`.
 
 ```jsx
@@ -236,6 +536,135 @@ onPanResponderMove={Animated.event(
   {dx: pan.x, dy: pan.y}
 ])}
 ```
+
+#### PanResponder with Animated Event Example
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Animated
+import React, { useRef } from "react";
+import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+
+const App = () => {
+  const pan = useRef(new Animated.ValueXY()).current;
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderMove: Animated.event([
+        null,
+        { dx: pan.x, dy: pan.y }
+      ]),
+      onPanResponderRelease: () => {
+        Animated.spring(pan, { toValue: { x: 0, y: 0 } }).start();
+      }
+    })
+  ).current;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titleText}>Drag & Release this box!</Text>
+      <Animated.View
+        style={{
+          transform: [{ translateX: pan.x }, { translateY: pan.y }]
+        }}
+        {...panResponder.panHandlers}
+      >
+        <View style={styles.box} />
+      </Animated.View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold"
+  },
+  box: {
+    height: 150,
+    width: 150,
+    backgroundColor: "blue",
+    borderRadius: 5
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Animated
+import React, { Component } from "react";
+import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+
+export default class App extends Component {
+  pan = new Animated.ValueXY();
+  panResponder = PanResponder.create({
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderMove: Animated.event([
+      null,
+      { dx: this.pan.x, dy: this.pan.y }
+    ]),
+    onPanResponderRelease: () => {
+      Animated.spring(this.pan, { toValue: { x: 0, y: 0 } }).start();
+    }
+  });
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.titleText}>Drag & Release this box!</Text>
+        <Animated.View
+          style={{
+            transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
+          }}
+          {...this.panResponder.panHandlers}
+        >
+          <View style={styles.box} />
+        </Animated.View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold"
+  },
+  box: {
+    height: 150,
+    width: 150,
+    backgroundColor: "blue",
+    borderRadius: 5
+  }
+});
+```
+
+<block class="endBlock syntax" />
 
 ### Responding to the current animation value
 
@@ -248,7 +677,7 @@ You may notice that there is no clear way to read the current value while animat
 
 ### Using the native driver
 
-The `Animated` API is designed to be serializable. By using the [native driver](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated), we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
+The `Animated` API is designed to be serializable. By using the [native driver](/blog/2017/02/14/using-native-driver-for-animated), we send everything about the animation to native before starting the animation, allowing native code to perform the animation on the UI thread without having to go through the bridge on every frame. Once the animation has started, the JS thread can be blocked without affecting the animation.
 
 Using the native driver for normal animations is straightforward. You can add `useNativeDriver: true` to the animation config when starting it.
 
@@ -256,7 +685,7 @@ Using the native driver for normal animations is straightforward. You can add `u
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
-  useNativeDriver: true, // <-- Add this
+  useNativeDriver: true // <-- Add this
 }).start();
 ```
 
@@ -271,11 +700,11 @@ The native driver also works with `Animated.event`. This is especially useful fo
     [
       {
         nativeEvent: {
-          contentOffset: {y: this.state.animatedValue},
-        },
-      },
+          contentOffset: { y: this.state.animatedValue }
+        }
+      }
     ],
-    {useNativeDriver: true}, // <-- Add this
+    { useNativeDriver: true } // <-- Add this
   )}>
   {content}
 </Animated.ScrollView>
@@ -297,10 +726,10 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 <Animated.View
   style={{
     transform: [
-      {scale: this.state.scale},
-      {rotateY: this.state.rotateY},
-      {perspective: 1000}, // without this line this Animation will not render on Android while working fine on iOS
-    ],
+      { scale: this.state.scale },
+      { rotateY: this.state.rotateY },
+      { perspective: 1000 } // without this line this Animation will not render on Android while working fine on iOS
+    ]
   }}
 />
 ```
@@ -325,7 +754,7 @@ UIManager.setLayoutAnimationEnabledExperimental &&
   UIManager.setLayoutAnimationEnabledExperimental(true);
 ```
 
-```SnackPlayer
+```SnackPlayer name=LayoutAnimations&supportedPlatforms=ios,android
 import React from 'react';
 import {
   NativeModules,
@@ -401,8 +830,8 @@ This example uses a preset value, you can customize the animations as you need, 
 
 ### `setNativeProps`
 
-As mentioned [in the Direct Manipulation section](direct-manipulation.md), `setNativeProps` allows us to modify properties of native-backed components (components that are actually backed by native views, unlike composite components) directly, without having to `setState` and re-render the component hierarchy.
+As mentioned [in the Direct Manipulation section](direct-manipulation), `setNativeProps` allows us to modify properties of native-backed components (components that are actually backed by native views, unlike composite components) directly, without having to `setState` and re-render the component hierarchy.
 
 We could use this in the Rebound example to update the scale - this might be helpful if the component that we are updating is deeply nested and hasn't been optimized with `shouldComponentUpdate`.
 
-If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated). You may also want to defer any computationally intensive work until after animations are complete, using the [InteractionManager](interactionmanager.md). You can monitor the frame rate by using the In-App Developer Menu "FPS Monitor" tool.
+If you find your animations with dropping frames (performing below 60 frames per second), look into using `setNativeProps` or `shouldComponentUpdate` to optimize them. Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](/blog/2017/02/14/using-native-driver-for-animated). You may also want to defer any computationally intensive work until after animations are complete, using the [InteractionManager](interactionmanager). You can monitor the frame rate by using the In-App Developer Menu "FPS Monitor" tool.

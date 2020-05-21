@@ -3,18 +3,18 @@ id: keyboardavoidingview
 title: KeyboardAvoidingView
 ---
 
-It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its height, position, or bottom padding based on the position of the keyboard.
+It is a component to solve the common problem of views that need to move out of the way of the virtual keyboard. It can automatically adjust either its height, position, or bottom padding based on the keyboard height.
 
-### Example usage
+## Example
 
-```SnackPlayer name=KeyboardAvoidingView
-import React, { Component } from 'react';
+```SnackPlayer name=KeyboardAvoidingView&supportedPlatforms=android,ios
+import React from 'react';
 import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard  } from 'react-native';
 
-const keyBoardAvoidingComponent = () => {
+const KeyboardAvoidingComponent = () => {
   return (
     <KeyboardAvoidingView
-      behavior={Platform.Os == "ios" ? "padding" : "height"}
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
       style={styles.container}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default keyBoardAvoidingComponent;
+export default KeyboardAvoidingComponent;
 ```
 
 ---
@@ -70,7 +70,7 @@ Inherits [View Props](view.md#props).
 
 Specify how to react to the presence of the keyboard.
 
-_Note: Android and iOS both interact with this prop differently._ _Android may behave better when given no behavior prop at all, whereas iOS is the opposite._
+> Android and iOS both interact with this prop differently. On both iOS and Android, setting `behavior` is recommended.
 
 | Type                                  | Required |
 | ------------------------------------- | -------- |

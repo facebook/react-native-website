@@ -556,7 +556,7 @@ On iOS, `zIndex` may require `View`s to be siblings of each other for it to work
 
 ### `direction`
 
-`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://facebook.github.io/yoga/docs/rtl/ for more details.
+`direction` specifies the directional flow of the user interface. The default is `inherit`, except for root node which will have value based on the current locale. See https://yogalayout.com/docs/layout-direction/ for more details.
 
 | Type                          | Required | Platform |
 | ----------------------------- | -------- | -------- |

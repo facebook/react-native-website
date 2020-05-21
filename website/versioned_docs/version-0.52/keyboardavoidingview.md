@@ -8,7 +8,7 @@ It is a component to solve the common problem of views that need to move out of 
 
 ### Example
 
-![](/react-native/docs/assets/KeyboardAvoidingView/example.gif)
+![](/docs/assets/KeyboardAvoidingView/example.gif)
 
 ### Props
 

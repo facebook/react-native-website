@@ -13,20 +13,20 @@ class FadeInView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fadeAnim: new Animated.Value(0), // init opacity 0
+      fadeAnim: new Animated.Value(0) // init opacity 0
     };
   }
   componentDidMount() {
     Animated.timing(
       // Uses easing functions
       this.state.fadeAnim, // The value to drive
-      {toValue: 1}, // Configuration
+      { toValue: 1 } // Configuration
     ).start(); // Don't forget start!
   }
   render() {
     return (
       <Animated.View // Special animatable View
-        style={{opacity: this.state.fadeAnim}}>
+        style={{ opacity: this.state.fadeAnim }}>
         {' '}
         // Binds
         {this.props.children}
@@ -62,7 +62,7 @@ Animations can also be combined in complex ways using composition functions such
 
 `Animated.ValueXY` is handy for 2D animations, like panning, and there are other helpful additions like `setOffset` and `getLayout` to aid with typical interaction patterns, like drag-and-drop.
 
-You can see more example usage in `AnimationExample.js`, the Gratuitous Animation App, and [Animations documentation guide](http://facebook.github.io/react-native/animations.md).
+You can see more example usage in `AnimationExample.js`, the Gratuitous Animation App, and [Animations documentation guide](animations).
 
 Note that `Animated` is designed to be fully serializable so that animations can be run in a high performace way, independent of the normal JavaScript event loop. This does influence the API, so keep that in mind when it seems a little trickier to do something compared to a fully synchronous system. Checkout `Animated.Value.addListener` as a way to work around some of these limitations, but use it sparingly since it might have performance implications in the future.
 
@@ -330,7 +330,7 @@ class DraggableView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pan: new Animated.ValueXY(), // inits to zero
+      pan: new Animated.ValueXY() // inits to zero
     };
     this.state.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
@@ -338,15 +338,15 @@ class DraggableView extends React.Component {
         null,
         {
           dx: this.state.pan.x, // x,y are Animated.Value
-          dy: this.state.pan.y,
-        },
+          dy: this.state.pan.y
+        }
       ]),
       onPanResponderRelease: () => {
         Animated.spring(
           this.state.pan, // Auto-multiplexed
-          {toValue: {x: 0, y: 0}}, // Back to zero
+          { toValue: { x: 0, y: 0 } } // Back to zero
         ).start();
-      },
+      }
     });
   }
   render() {
