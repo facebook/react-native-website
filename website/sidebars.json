@@ -63,47 +63,6 @@
     ]
   },
   "api": {
-    "Core Components": [
-      "components-and-apis",
-      "activityindicator",
-      "button",
-      "flatlist",
-      "image",
-      "imagebackground",
-      "keyboardavoidingview",
-      "modal",
-      "pressable",
-      "refreshcontrol",
-      "safeareaview",
-      "scrollview",
-      "sectionlist",
-      "statusbar",
-      "switch",
-      "text",
-      "textinput",
-      "touchablehighlight",
-      "touchableopacity",
-      "touchablewithoutfeedback",
-      "view",
-      "virtualizedlist",
-      {
-        "type": "subcategory",
-        "label": "Android Components",
-        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
-      },
-      {
-        "type": "subcategory",
-        "label": "iOS Components",
-        "ids": ["inputaccessoryview", "maskedviewios"]
-      }
-    ],
-    "Props": [
-      "image-style-props",
-      "layout-props",
-      "shadow-props",
-      "text-style-props",
-      "view-style-props"
-    ],
     "APIs": [
       "accessibilityinfo",
       "alert",
@@ -145,5 +104,48 @@
       }
     ],
     "Object Types": ["pressevent", "react-node", "rect"]
+  },
+  "components": {
+    "Core Components": [
+      "components-and-apis",
+      "activityindicator",
+      "button",
+      "flatlist",
+      "image",
+      "imagebackground",
+      "keyboardavoidingview",
+      "modal",
+      "pressable",
+      "refreshcontrol",
+      "safeareaview",
+      "scrollview",
+      "sectionlist",
+      "statusbar",
+      "switch",
+      "text",
+      "textinput",
+      "touchablehighlight",
+      "touchableopacity",
+      "touchablewithoutfeedback",
+      "view",
+      "virtualizedlist",
+      {
+        "type": "subcategory",
+        "label": "Android Components",
+        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS Components",
+        "ids": ["inputaccessoryview", "maskedviewios"]
+      }
+    ],
+    "Props": [
+      "image-style-props",
+      "layout-props",
+      "shadow-props",
+      "text-style-props",
+      "view-style-props"
+    ]
   }
 }
