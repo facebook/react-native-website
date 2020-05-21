@@ -102,8 +102,7 @@
         "label": "iOS APIs",
         "ids": ["actionsheetios", "dynamiccolorios", "settings"]
       }
-    ],
-    "Object Types": ["pressevent", "react-node", "rect"]
+    ]
   },
   "components": {
     "Core Components": [
@@ -146,6 +145,7 @@
       "shadow-props",
       "text-style-props",
       "view-style-props"
-    ]
+    ],
+    "Object Types": ["pressevent", "react-node", "rect"]
   }
 }
