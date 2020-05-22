@@ -278,10 +278,12 @@ You should re-enable ATS prior to building your app for production by removing t
 
 ### 2. 配置release scheme
 
-需要在Xcode使用`Release` scheme编译在App Store发布的app。 `Release`编译的Apps将自动禁用app内开发者菜单,这将阻止用户无意地访问生产下的菜单。这也将本地打包JavaScript，所以可以将app安装在设备上，在没有连接电脑的时候测试。
+需要在Xcode使用`Release` scheme编译在App Store发布的app。`Release`版本的应用会自动禁用开发者菜单，同时也会将js文件和静态图片打包压缩后内置到包中，这样应用可以在本地读取而无需访问开发服务器（同时这样一来你也无法再调试，需要调试请将Buiid Configuration再改为debug）。  
 
+由于发布版本已经内置了js文件，因而也无法再通过开发服务器来实时更新。面向用户的热更新，请使用专门的[热更新服务](https://pushy.reactnative.cn)。  
 
-配置app为用`Release` scheme编译，前往**Product** → **Scheme** → **Edit Scheme**。选择侧边栏的**Run**标签，然后设置下拉的Build Configuration为`Release`。
+要配置app为使用`Release` scheme编译，请前往**Product** → **Scheme** → **Edit Scheme**。选择侧边栏的**Run**标签，然后设置下拉的Build Configuration为`Release`。
+
 
 
 ![](assets/ConfigureReleaseScheme.png)
