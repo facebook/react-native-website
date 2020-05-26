@@ -252,6 +252,8 @@ article iframe {
   }
 }
 
+/* Color preview box */
+
 .color-box {
   float: left;
   width: 24px;
@@ -259,6 +261,12 @@ article iframe {
   margin: 2px 8px 0 0;
   border: 0.05rem solid $deepdark;
   border-radius: 3px;
+}
+
+td .color-box {
+  border-color: #6e6d6d;
+  width: 20px;
+  height: 20px;
 }
 
 /* "Native Code Required" banner */
