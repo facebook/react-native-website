@@ -256,18 +256,11 @@ figcaption {
   border-right-color: #222;
 }
 
-.label.required {
-  background: #fa5035;
-}
-.label.required:before {
-  border-right-color: #fa5035;
-}
-
 .label.tv {
-  background: #7e70ce;
+  background: #6170af;
 }
 .label.tv:before {
-  border-right-color: #7e70ce;
+  border-right-color: #6170af;
 }
 
 h3 .label {

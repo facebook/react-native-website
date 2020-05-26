@@ -112,9 +112,9 @@ export default App;
 
 Handler to be called when the user taps the button. The first function argument is an event in form of [PressEvent](pressevent).
 
-| Type     | Required                              |
-| -------- | ------------------------------------- |
-| function | <div class="label required">Yes</div> |
+| Type     | Required |
+| -------- | -------- |
+| function | Yes      |
 
 ---
 
@@ -122,9 +122,9 @@ Handler to be called when the user taps the button. The first function argument 
 
 Text to display inside the button. On Android the given title will be converted to the uppercased form.
 
-| Type   | Required                              |
-| ------ | ------------------------------------- |
-| string | <div class="label required">Yes</div> |
+| Type   | Required |
+| ------ | -------- |
+| string | Yes      |
 
 ---
 
