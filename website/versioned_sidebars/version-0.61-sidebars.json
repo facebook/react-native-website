@@ -17,7 +17,6 @@
     ],
     "Guides": [
       "version-0.61-fast-refresh",
-      "version-0.61-components-and-apis",
       "version-0.61-platform-specific-code",
       "version-0.61-navigation",
       "version-0.61-images",
@@ -58,8 +57,9 @@
       "version-0.61-hermes"
     ]
   },
-  "version-0.61-api": {
+  "version-0.61-components": {
     "Components": [
+      "version-0.61-components-and-apis",
       "version-0.61-activityindicator",
       "version-0.61-button",
       "version-0.61-checkbox",
@@ -96,7 +96,9 @@
       "version-0.61-view",
       "version-0.61-viewpagerandroid",
       "version-0.61-virtualizedlist"
-    ],
+    ]
+  },
+  "version-0.61-api": {
     "APIs": [
       "version-0.61-accessibilityinfo",
       "version-0.61-actionsheetios",

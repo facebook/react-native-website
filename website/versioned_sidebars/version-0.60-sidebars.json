@@ -14,7 +14,6 @@
       "version-0.60-more-resources"
     ],
     "Guides": [
-      "version-0.60-components-and-apis",
       "version-0.60-platform-specific-code",
       "version-0.60-navigation",
       "version-0.60-images",
@@ -55,8 +54,9 @@
       "version-0.60-hermes"
     ]
   },
-  "version-0.60-api": {
+  "version-0.60-components": {
     "Components": [
+      "version-0.60-components-and-apis",
       "version-0.60-activityindicator",
       "version-0.60-button",
       "version-0.60-datepickerios",
@@ -92,7 +92,9 @@
       "version-0.60-view",
       "version-0.60-viewpagerandroid",
       "version-0.60-virtualizedlist"
-    ],
+    ]
+  },
+  "version-0.60-api": {
     "APIs": [
       "version-0.60-accessibilityinfo",
       "version-0.60-actionsheetios",

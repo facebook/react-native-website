@@ -72,7 +72,7 @@
       "version-0.62-app-extensions"
     ]
   },
-  "version-0.62-api": {
+  "version-0.62-components": {
     "Core Components": [
       "version-0.62-components-and-apis",
       "version-0.62-activityindicator",
@@ -115,7 +115,9 @@
       "version-0.62-shadow-props",
       "version-0.62-text-style-props",
       "version-0.62-view-style-props"
-    ],
+    ]
+  },
+  "version-0.62-api": {
     "APIs": [
       "version-0.62-accessibilityinfo",
       "version-0.62-alert",
