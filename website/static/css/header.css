@@ -112,12 +112,14 @@ li.navSearchWrapper {
 @media only screen and (max-width: 1024px) {
   .reactNavSearchWrapper input#search_input_react {
     border-radius: 0.25rem;
-    background-color: $dark;
+    background-color: $tintColor;
+    color: $deepdark;
     height: 30px;
   }
 
   .reactNavSearchWrapper input#search_input_react:focus {
-    background-color: $light;
+    background-color: $tintColor;
+    color: $deepdark;
   }
 }
 
@@ -171,14 +173,27 @@ li.navSearchWrapper {
   box-sizing: initial;
 }
 
+.navSearchWrapper:before {
+  border: 3px solid #717171;
+}
+.navSearchWrapper::after {
+  background: #717171;
+}
+
 input#search_input_react {
   /* Make as wide as the expanded state in the docusaurus default */
   width: 220px;
-  background-color: $dark;
+  background-color: $tintColor;
+  color: $deepdark;
   border-radius: 0.25rem;
   transition: background-color 150ms ease-in-out;
 }
 
+input#search_input_react::placeholder {
+  color: #717171;
+}
+
 input#search_input_react:focus {
-  background-color: $light;
+  background-color: $tintColor;
+  color: $deepdark;
 }
