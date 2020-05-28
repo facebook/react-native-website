@@ -143,7 +143,7 @@ class App extends Component {
         >
          <Text>Click me</Text>
         </TouchableOpacity>
-        <View style={styles.countContainer}>
+        <View>
           <Text>
             You clicked { this.state.count } times
           </Text>
