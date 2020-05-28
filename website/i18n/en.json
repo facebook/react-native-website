@@ -3965,6 +3965,7 @@
     },
     "links": {
       "Docs": "Docs",
+      "Components": "Components",
       "API": "API",
       "Community": "Community",
       "Blog": "Blog",
@@ -3983,9 +3984,9 @@
       "Native Components and Modules": "Native Components and Modules",
       "Guides (Android)": "Guides (Android)",
       "Guides (iOS)": "Guides (iOS)",
+      "APIs": "APIs",
       "Core Components": "Core Components",
       "Props": "Props",
-      "APIs": "APIs",
       "Object Types": "Object Types",
       "Guides": "Guides",
       "Components": "Components",

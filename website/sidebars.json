@@ -63,6 +63,48 @@
     ]
   },
   "api": {
+    "APIs": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "interactionmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platformcolor",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
+      }
+    ]
+  },
+  "components": {
     "Core Components": [
       "components-and-apis",
       "activityindicator",
@@ -103,46 +145,6 @@
       "shadow-props",
       "text-style-props",
       "view-style-props"
-    ],
-    "APIs": [
-      "accessibilityinfo",
-      "alert",
-      "animated",
-      "animatedvalue",
-      "animatedvaluexy",
-      "appearance",
-      "appregistry",
-      "appstate",
-      "devsettings",
-      "dimensions",
-      "easing",
-      "interactionmanager",
-      "keyboard",
-      "layoutanimation",
-      "linking",
-      "panresponder",
-      "pixelratio",
-      "platformcolor",
-      "share",
-      "stylesheet",
-      "systrace",
-      "transforms",
-      "vibration",
-      {
-        "type": "subcategory",
-        "label": "Hooks",
-        "ids": ["usecolorscheme", "usewindowdimensions"]
-      },
-      {
-        "type": "subcategory",
-        "label": "Android APIs",
-        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
-      },
-      {
-        "type": "subcategory",
-        "label": "iOS APIs",
-        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
-      }
     ],
     "Object Types": ["pressevent", "react-node", "rect"]
   }
