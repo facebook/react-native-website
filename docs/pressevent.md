@@ -83,9 +83,9 @@ Touch origin Y coordinate on the screen (relative to the root view).
 
 The node id of the element receiving the PressEvent.
 
-| Type   | Optional |
-| ------ | -------- |
-| number | Yes      |
+| Type                        | Optional |
+| --------------------------- | -------- |
+| number, `null`, `undefined` | No       |
 
 ### `timestamp`
 
