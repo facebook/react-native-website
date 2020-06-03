@@ -75,7 +75,7 @@ If you know that you'll eventually need to include your own native code, Expo is
 
 Expo CLI configures your project to use the most recent React Native version that is supported by the Expo client app. The Expo client app usually gains support for a given React Native version about a week after the React Native version is released as stable. You can check [this document](https://docs.expo.io/versions/latest/sdk/overview/#sdk-version) to find out what versions are supported.
 
-If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
+If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment.
 
 ---
 
