@@ -85,9 +85,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
 
----
-
-<div class="toggler">
+<div class="toggler cli first">
   <strong>💻&ensp;Development OS:&ensp;</strong>
   <span role="tablist" id="toggle-os">
     <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
@@ -95,8 +93,7 @@ The instructions are a bit different depending on your development operating sys
     <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</button>
   </span>
 </div>
-
-<div class="toggler">
+<div class="toggler cli">
   <strong>📱&ensp;Target OS:&ensp;</strong>
   <span role="tablist" id="toggle-platform">
     <button role="tab" class="button-android" onclick="displayTab('platform', 'android')">Android</button>

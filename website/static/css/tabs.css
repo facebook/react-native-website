@@ -89,3 +89,25 @@ block.active {
     display: block;
   }
 }
+
+/* CLI togglers */
+
+.toggler.cli.first {
+  margin-top: 24px;
+}
+
+.toggler.cli button {
+  border: 2px solid $divider;
+  overflow: hidden;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: border 0.33s;
+}
+
+.toggler.cli button.active {
+  border: 2px solid $brand;
+}
+
+.toggler button.active::after {
+  display: none;
+}
