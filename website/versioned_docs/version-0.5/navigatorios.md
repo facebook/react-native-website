@@ -72,30 +72,6 @@ var MyView = React.createClass({
 });
 ```
 
-### Props
-
-- [`initialRoute`](navigatorios.md#initialroute)
-- [`barTintColor`](navigatorios.md#bartintcolor)
-- [`itemWrapperStyle`](navigatorios.md#itemwrapperstyle)
-- [`navigationBarHidden`](navigatorios.md#navigationbarhidden)
-- [`tintColor`](navigatorios.md#tintcolor)
-- [`titleTextColor`](navigatorios.md#titletextcolor)
-
-### Methods
-
-- [`push`](navigatorios.md#push)
-- [`popN`](navigatorios.md#popn)
-- [`pop`](navigatorios.md#pop)
-- [`replaceAtIndex`](navigatorios.md#replaceatindex)
-- [`replace`](navigatorios.md#replace)
-- [`replacePrevious`](navigatorios.md#replaceprevious)
-- [`popToTop`](navigatorios.md#poptotop)
-- [`popToRoute`](navigatorios.md#poptoroute)
-- [`replacePreviousAndPop`](navigatorios.md#replacepreviousandpop)
-- [`resetTo`](navigatorios.md#resetto)
-- [`handleNavigationComplete`](navigatorios.md#handlenavigationcomplete)
-- [`renderNavigationStackItems`](navigatorios.md#rendernavigationstackitems)
-
 ---
 
 # Reference
