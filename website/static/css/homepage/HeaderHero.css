@@ -77,6 +77,8 @@
   color: $brand;
 }
 
+/* End announcement banner override */
+
 @media only screen and (min-width: 961px) {
   .HeaderHero .TwoColumns {
     grid-template-columns: 3fr 1fr;
