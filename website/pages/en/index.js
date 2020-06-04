@@ -28,7 +28,7 @@ import {Text, View} from 'react-native';
 import {Header} from './Header';
 import {heading} from './Typography';
 
-const WelcomeScreen = () => 
+const WelcomeScreen = () =>
   <View>
     <Header title="Welcome to React Native"/>
     <Text style={heading}>Step One</Text>
@@ -77,7 +77,7 @@ Twitter
   `,
   community: `
 In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
-Today, React Native is supported by contributions from individuals and companies around the world 
+Today, React Native is supported by contributions from individuals and companies around the world
 including [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software Mansion].
 
 Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
@@ -255,6 +255,15 @@ function LogoAnimation() {
 function HeaderHero() {
   return (
     <Section background="dark" className="HeaderHero">
+      <div className="announcement">
+        <div className="announcement-inner">
+          Black Lives Matter.{' '}
+          <a href="https://support.eji.org/give/153413/#!/donation/checkout">
+            Support the Equal Justice Initiative
+          </a>
+          .
+        </div>
+      </div>
       <div className="socialLinks">
         <TwitterButton />
         <GitHubButton />
