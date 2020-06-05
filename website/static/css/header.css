@@ -205,12 +205,11 @@ input#search_input_react:focus {
 }
 
 .announcement {
-  background-color: #20232a;
+  background-color: #191b21;
   color: #fff;
   font-weight: bold;
   font-size: 24px;
   padding: 30px;
-  margin: 0 auto 28px;
   text-align: center;
   height: 100px;
 }
@@ -251,6 +250,12 @@ input#search_input_react:focus {
 @media only screen and (min-width: 1024px) {
   .navPusher {
     padding-top: 160px;
+  }
+  .docsNavContainer {
+    top: 136px;
+  }
+  .onPageNav {
+    top: 172px;
   }
 }
 
