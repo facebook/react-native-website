@@ -197,3 +197,64 @@ input#search_input_react:focus {
   background-color: $tintColor;
   color: $deepdark;
 }
+
+/* Overrides for the announcement banner */
+.announcement {
+  background-color: #20232a;
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 30px;
+  margin: 0 auto 28px;
+  text-align: center;
+  height: 100px;
+}
+
+.announcement-inner {
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+.announcement-inner a {
+  text-decoration: underline;
+  display: inline-block;
+  color: $brand;
+}
+
+.announcement-inner a:hover {
+  color: #fff;
+}
+
+@media only screen and (max-width: 700px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 160px;
+  }
+  .navPusher {
+    padding-top: 210px;
+  }
+  .announcement {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .announcement {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .navPusher {
+    padding-top: 160px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 160px;
+  }
+  .navPusher {
+    padding-top: 210px;
+  }
+}
+/* End announcement banner override */

@@ -255,15 +255,6 @@ function LogoAnimation() {
 function HeaderHero() {
   return (
     <Section background="dark" className="HeaderHero">
-      <div className="announcement">
-        <div className="announcement-inner">
-          Black Lives Matter.{' '}
-          <a href="https://support.eji.org/give/153413/#!/donation/checkout">
-            Support the Equal Justice Initiative
-          </a>
-          .
-        </div>
-      </div>
       <div className="socialLinks">
         <TwitterButton />
         <GitHubButton />
