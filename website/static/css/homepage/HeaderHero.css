@@ -49,36 +49,6 @@
   justify-content: center;
 }
 
-/* Override for the announcement banner */
-.HeaderHero.HeaderHero {
-  padding-top: 0;
-}
-
-.HeaderHero .announcement {
-  background-color: #20232a;
-  color: #fff;
-  font-weight: bold;
-  font-size: 24px;
-  padding: 48px;
-  margin: 0 auto 28px;
-  text-align: center;
-}
-
-.HeaderHero .announcement-inner {
-  margin: 0 auto;
-  max-width: 768px;
-}
-
-.HeaderHero .announcement-inner a {
-  text-decoration: underline;
-}
-
-.HeaderHero .announcement-inner a:hover {
-  color: $brand;
-}
-
-/* End announcement banner override */
-
 @media only screen and (min-width: 961px) {
   .HeaderHero .TwoColumns {
     grid-template-columns: 3fr 1fr;
