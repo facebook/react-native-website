@@ -199,6 +199,11 @@ input#search_input_react:focus {
 }
 
 /* Overrides for the announcement banner */
+.slidingNav {
+  /* On mobile, the nav needs pointer events to pass through to the banner. */
+  pointer-events: none;
+}
+
 .announcement {
   background-color: #20232a;
   color: #fff;
