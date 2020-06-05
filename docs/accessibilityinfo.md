@@ -39,10 +39,10 @@ const App = () => {
       handleScreenReaderToggled
     );
 
-    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
+    AccessibilityInfo.isReduceMotionEnabled()().then(reduceMotionEnabled => {
       setReduceMotionEnabled(reduceMotionEnabled);
     });
-    AccessibilityInfo.fetch().then(screenReaderEnabled => {
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
       setScreenReaderEnabled(screenReaderEnabled);
     });
     return () => {
@@ -115,10 +115,10 @@ class AccessibilityStatusExample extends Component {
       this._handleScreenReaderToggled
     );
 
-    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
       this.setState({ reduceMotionEnabled });
     });
-    AccessibilityInfo.fetch().then(screenReaderEnabled => {
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
       this.setState({ screenReaderEnabled });
     });
   }
