@@ -199,18 +199,33 @@ input#search_input_react:focus {
 }
 
 /* Overrides for the announcement banner */
+.navPusher,
+header a,
+header li:after {
+  filter: grayscale();
+}
+
+.fixedHeaderContainer {
+  height: auto;
+}
+
+.headerWrapper.wrapper {
+  padding-top: 100px;
+}
+
 .navigationSlider .slidingNav {
   height: 60px;
 }
 
 .announcement {
-  background-color: #191b21;
   color: #fff;
   font-weight: bold;
   font-size: 24px;
   padding: 30px;
   text-align: center;
   height: 100px;
+  position: absolute;
+  width: 100%;
 }
 
 .announcement-inner {
@@ -264,6 +279,9 @@ input#search_input_react:focus {
   }
   .navPusher {
     padding-top: 210px;
+  }
+  .navSearchWrapper {
+    top: 114px;
   }
 }
 /* End announcement banner override */
