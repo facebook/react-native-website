@@ -9,6 +9,6 @@ Once you have your React Native project initialized, you can run `npx react-nati
 
 ## Specifying a device
 
-You can specify the device the simulator should run with the `--simulator` flag, followed by the device name as a string. The default is `"iPhone X"`. If you wish to run your app on an iPhone 5s, run `npx react-native run-ios --simulator="iPhone 5s"`.
+You can specify the device the simulator should run with the `--simulator` flag, followed by the device name as a string. The default is `"iPhone 11"`. If you wish to run your app on an iPhone SE, run `npx react-native run-ios --simulator="iPhone SE"`.
 
 The device names correspond to the list of devices available in Xcode. You can check your available devices by running `xcrun simctl list devices` from the console.

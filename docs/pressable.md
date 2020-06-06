@@ -113,13 +113,13 @@ If true, doesn't play Android system sound on press.
 | ------- | ------- |
 | boolean | `false` |
 
-### `android_rippleColor` <div class="label android">Android</div>
+### `android_ripple` <div class="label android">Android</div>
 
-Enables the Android ripple effect and configures its color.
+Enables the Android ripple effect and configures its properties.
 
-| Type                                         |
-| -------------------------------------------- |
-| [color](https://reactnative.dev/docs/colors) |
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| [RippleConfig](pressable#rippleconfig) | No       |
 
 ### `children`
 
@@ -197,14 +197,32 @@ Additional distance outside of this view in which a touch is considered a press 
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type                                                           |
-| -------------------------------------------------------------- |
-| [ViewStyleProp](https://reactnative.dev/docs/view-style-props) |
+| Type                              | Required |
+| --------------------------------- | -------- |
+| [ViewStyleProp](view-style-props) | No       |
 
 ### `testOnly_pressed`
 
 Used only for documentation or testing (e.g. snapshot testing).
 
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
+
+## Type Definitions
+
+### RippleConfig
+
+Ripple effect configuration for the `android_ripple` property.
+
+| Type   |
+| ------ |
+| object |
+
+**Properties:**
+
+| Name       | Type            | Required | Description                                         |
+| ---------- | --------------- | -------- | --------------------------------------------------- |
+| color      | [color](colors) | No       | Defines the color of the ripple effect.             |
+| borderless | boolean         | No       | Defines if ripple effect should not include border. |
+| radius     | number          | No       | Defines the radius of the ripple effect.            |
