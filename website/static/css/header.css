@@ -199,12 +199,6 @@ input#search_input_react:focus {
 }
 
 /* Overrides for the announcement banner */
-.navPusher,
-header a,
-header li:after {
-  filter: grayscale();
-}
-
 .fixedHeaderContainer {
   height: auto;
 }
