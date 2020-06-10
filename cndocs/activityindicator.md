@@ -5,27 +5,86 @@ title: ActivityIndicator
 
 显示一个圆形的 loading 提示符号。
 
-### 示例
+## 示例
 
-```SnackPlayer name=ActivityIndicator
-import React from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-export default App = () => (
-  <View style={styles.container}>
-    <ActivityIndicator size="large" color="#0000ff" />
-    <ActivityIndicator size="small" color="#00ff00" />
-  </View>
-);
+<block class="functional syntax" />
+
+```SnackPlayer name=ActivityIndicator%20Function%20Component%20Example
+import React from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+
+const App = () => {
+  return (
+    <View style={[styles.container, styles.horizontal]}>
+      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="small" color="#00ff00" />
+      <ActivityIndicator size="large" color="#0000ff" />
+      <ActivityIndicator size="small" color="#00ff00" />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
   }
 });
+
+export default App;
 ```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=ActivityIndicator%20Class%20Component%20Example
+import React, { Component } from "react";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+
+class App extends Component {
+  render() {
+    return (
+      <View style={[styles.container, styles.horizontal]}>
+        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="small" color="#00ff00" />
+        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="small" color="#00ff00" />
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
+  }
+});
+
+export default App;
+```
+
+<block class="endBlock syntax" />
 
 # 文档
 
