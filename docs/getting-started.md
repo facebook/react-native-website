@@ -294,6 +294,16 @@ The React Native tools require some environment variables to be set up in order 
 
 <block class="native mac linux android" />
 
+Open the Terminal and open your `$HOME/.bash_profile` or `$HOME/.bashrc` using `GNU nano`.
+
+From your terminal, enter `nano` and the filename you want to edit.
+
+** For instance **
+
+```sh
+nano ~/.bash_profile
+```
+
 Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` config file:
 
 <block class="native mac android" />
