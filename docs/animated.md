@@ -57,7 +57,7 @@ const App = () => {
     // Will change fadeAnim value to 1 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 2000
+      duration: 5000
     }).start();
   };
 
@@ -65,7 +65,7 @@ const App = () => {
     // Will change fadeAnim value to 0 in 5 seconds
     Animated.timing(fadeAnim, {
       toValue: 0,
-      duration: 2000
+      duration: 5000
     }).start();
   };
 
