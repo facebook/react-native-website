@@ -5,51 +5,42 @@ title: State（状态）
 
 我们使用两种数据来控制一个组件：`props`和`state`。`props`是在父组件中指定，而且一经指定，在被指定的组件的生命周期中则不再改变。对于需要改变的数据，我们需要使用`state`。
 
-一般来说，你需要在 class 中声明一个`state`对象，然后在需要修改时调用`setState`方法。
-
 假如我们需要制作一段不停闪烁的文字。文字内容本身在组件创建时就已经指定好了，所以文字内容应该是一个`prop`。而文字的显示或隐藏的状态（快速的显隐切换就产生了闪烁的效果）则是随着时间变化的，因此这一状态应该写到`state`中。
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=State
+import React, { useState, useEffect } from 'react';
 import { Text, View } from 'react-native';
 
-class Blink extends Component {
-  // 声明state对象
-  state = { isShowingText: true };
+const Blink = (props) => {
+  const [isShowingText, setIsShowingText] = useState(true);
 
-  componentDidMount() {
-    // 每1000毫秒对showText状态做一次取反操作
-    setInterval(() => {
-      this.setState({
-        isShowingText: !this.state.isShowingText
-      });
-    }, 1000);
+   useEffect(() => {
+     const toggle = setInterval(() => {
+       setIsShowingText(!isShowingText);
+     }, 1000);
+
+     return () => clearInterval(toggle);
+  })
+
+  if (!isShowingText) {
+    return null;
   }
 
-  render() {
-    // 根据当前showText的值决定是否显示text内容
-    if (!this.state.isShowingText) {
-      return null;
-    }
-
-    return (
-      <Text>{this.props.text}</Text>
-    );
-  }
+  return <Text>{props.text}</Text>;
 }
 
-export default class BlinkApp extends Component {
-  render() {
-    return (
-      <View>
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
-      </View>
-    );
-  }
+const BlinkApp = () => {
+  return (
+    <View style={{marginTop: 50}}>
+      <Blink text='I love to blink' />
+      <Blink text='Yes blinking is so great' />
+      <Blink text='Why did they ever take this out of HTML' />
+      <Blink text='Look at me look at me look at me' />
+    </View>
+  );
 }
+
+export default BlinkApp;
 ```
 
 实际开发中，我们一般不会在定时器函数（setInterval、setTimeout 等）中来操作 state。典型的场景是在接收到服务器返回的新数据，或者在用户输入数据之后。你也可以使用一些“状态容器”比如[Redux](http://redux.js.org/index.html)来统一管理数据流。

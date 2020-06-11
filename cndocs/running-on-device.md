@@ -56,7 +56,7 @@ A Mac is required in order to build your app for iOS devices. Alternatively, you
 
 如果没有[Apple developer account](https://developer.apple.com/)，先注册。
 
-在Xcode Project导航中选择project，然后选择main target（它应该和project共享同样的名字）。查找"General"标签。前往"Signing"并确保在"Team"下拉下选择了开发者账号或团队。tests target（以Tests结束，在main target下面）所做相同。
+在Xcode Project导航中选择project，然后选择main target（它应该和project共享同样的名字）。查找"General"标签。前往"Signing"并确保在"Team"下拉下选择了开发者账号或团队。tests target（以Tests结尾，在main target下面）也需要重复同样的操作。
 
 ![](assets/RunningOnDeviceCodeSigning.png)
 
@@ -133,7 +133,7 @@ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev"' | 
 
 下面检查你的设备是否能正确连接到 ADB（Android Debug Bridge），使用`adb devices`命令：
 
-```
+```sh
 $ adb devices
 List of devices attached
 emulator-5554 offline   # Google emulator
@@ -146,13 +146,13 @@ emulator-5554 offline   # Google emulator
 
 ### 3. 运行应用
 
-现在你可以运行`react-native run-android`来在设备上安装并启动应用了。
+现在你可以运行`npx react-native run-android`来在设备上安装并启动应用了。
 
 > If you get a "bridge configuration isn't available" error, see [Using adb reverse](running-on-device.md#method-1-using-adb-reverse-recommended).
 
 > 提示
 >
-> 你还可以运行`react-native run-android --variant=release`来安装 release 版的应用。当然你需要[先配置好签名](signed-apk-android.html)，且此时无法再开启开发者菜单。注意在 debug 和 release 版本间来回切换安装时可能会报错签名不匹配，此时需要先卸载前一个版本再尝试安装。
+> 你还可以运行`npx react-native run-android --variant=release`来安装 release 版的应用。当然你需要[先配置好签名](signed-apk-android.html)，且此时无法再开启开发者菜单。注意在 debug 和 release 版本间来回切换安装时可能会报错签名不匹配，此时需要先卸载前一个版本再尝试安装。
 
 <block class="mac windows linux android ios" />
 
@@ -307,7 +307,7 @@ The static bundle is built every time you target a physical device, even in Debu
 
 现在可以通过点击`⌘B`或从菜单栏选择 **Product** → **Build** 编译发布app。一旦编译发布，就能够向beta测试者发布app，提交app到App Store。
 
-> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `react-native run-ios --configuration Release`).
+> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
 
 <block class="mac windows linux android" />
 

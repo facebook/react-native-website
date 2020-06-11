@@ -83,9 +83,155 @@ onPanResponderMove: (event, gestureState) => {}
   },
 ```
 
-### 可运行的例子
+## Example
 
-要想看看可以直接使用的例子，请参阅[官方示例 RNTester 中的 PanResponder](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js)
+`PanResponder` works with `Animated` API to help build complex gestures in the UI. The following example contains an animated `View` component which can be dragged freely across the screen
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=PanResponder
+import React, { useRef } from "react";
+import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+
+const App = () => {
+  const pan = useRef(new Animated.ValueXY()).current;
+
+  const panResponder = useRef(
+    PanResponder.create({
+      onMoveShouldSetPanResponder: () => true,
+      onPanResponderGrant: () => {
+        pan.setOffset({
+          x: pan.x._value,
+          y: pan.y._value
+        });
+      },
+      onPanResponderMove: Animated.event(
+        [
+          null,
+          { dx: pan.x, dy: pan.y }
+        ]
+      ),
+      onPanResponderRelease: () => {
+        pan.flattenOffset();
+      }
+    })
+  ).current;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.titleText}>Drag this box!</Text>
+      <Animated.View
+        style={{
+          transform: [{ translateX: pan.x }, { translateY: pan.y }]
+        }}
+        {...panResponder.panHandlers}
+      >
+        <View style={styles.box} />
+      </Animated.View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold"
+  },
+  box: {
+    height: 150,
+    width: 150,
+    backgroundColor: "blue",
+    borderRadius: 5
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=PanResponder
+import React, { Component } from "react";
+import { Animated, View, StyleSheet, PanResponder, Text } from "react-native";
+
+class App extends Component {
+  pan = new Animated.ValueXY();
+  panResponder = PanResponder.create({
+    onMoveShouldSetPanResponder: () => true,
+    onPanResponderGrant: () => {
+      this.pan.setOffset({
+        x: this.pan.x._value,
+        y: this.pan.y._value
+      });
+    },
+    onPanResponderMove: Animated.event([
+      null,
+      { dx: this.pan.x, dy: this.pan.y }
+    ]),
+    onPanResponderRelease: () => {
+      this.pan.flattenOffset();
+    }
+  });
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.titleText}>Drag this box!</Text>
+        <Animated.View
+          style={{
+            transform: [{ translateX: this.pan.x }, { translateY: this.pan.y }]
+          }}
+          {...this.panResponder.panHandlers}
+        >
+          <View style={styles.box} />
+        </Animated.View>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  titleText: {
+    fontSize: 14,
+    lineHeight: 24,
+    fontWeight: "bold"
+  },
+  box: {
+    height: 150,
+    width: 150,
+    backgroundColor: "blue",
+    borderRadius: 5
+  }
+});
+
+export default App;
+```
+
+<block class="endBlock syntax" />
+
+还可以看看[官方示例 RNTester 中的 PanResponder](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js).
 
 ---
 

@@ -9,24 +9,25 @@ title: 样式
 
 实际开发中组件的样式会越来越复杂，我们建议使用`StyleSheet.create`来集中定义组件的样式。比如像下面这样：
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Style
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class LotsOfStyles extends Component {
-  render() {
+const LotsOfStyles = () => {
     return (
-      <View>
+      <View style={styles.container}>
         <Text style={styles.red}>just red</Text>
         <Text style={styles.bigBlue}>just bigBlue</Text>
         <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
         <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
       </View>
     );
-  }
-}
+};
 
 const styles = StyleSheet.create({
+  container: {
+    marginTop: 50,
+  },
   bigBlue: {
     color: 'blue',
     fontWeight: 'bold',
@@ -36,6 +37,8 @@ const styles = StyleSheet.create({
     color: 'red',
   },
 });
+
+export default LotsOfStyles;
 ```
 
 常见的做法是按顺序声明和使用`style`属性，以借鉴 CSS 中的“层叠”做法（即后声明的属性会覆盖先声明的同名属性）。

@@ -11,7 +11,7 @@ TextInput是一个允许用户在应用中通过键盘输入文本的基本组�
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
-export default function UselessTextInput() {
+const UselessTextInput = () => {
   const [value, onChangeText] = React.useState('Useless Placeholder');
 
   return (
@@ -22,6 +22,8 @@ export default function UselessTextInput() {
     />
   );
 }
+
+export default UselessTextInput;
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
@@ -612,24 +614,6 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 ---
 
-### `selectionState`
-
-An instance of `DocumentSelectionState`，可以控制一个文档中哪段文字被选中的状态。
-
-Some functionality that can be performed with this instance is:
-
-* `blur()`
-* `focus()`
-* `update()`
-
-> 参阅[`vendor/document/selection/DocumentSelectionState.js`](https://github.com/facebook/react-native/blob/master/Libraries/vendor/document/selection/DocumentSelectionState.js)源码中的`DocumentSelectionState`
-
-| 类型                   | 必填 | 平台 |
-| ---------------------- | ---- | ---- |
-| DocumentSelectionState | No   | iOS  |
-
----
-
 ### `selectTextOnFocus`
 
 如果为true，当获得焦点的时候，所有的文字都会被选中。
@@ -711,6 +695,18 @@ Possible values for `textContentType` are:
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- |
 | enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | 否   | iOS  |
 
+---
+
+### `passwordRules`
+
+When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
+
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| string | No       | iOS      |
+
+---
+
 ### `style`
 
 Note that not all Text styles are supported, an incomplete list of what is not supported includes:
@@ -726,11 +722,11 @@ Note that not all Text styles are supported, an incomplete list of what is not s
 
 see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more detail.
 
-[Styles](style.md)
+[Styles](style)
 
 | 类型                  | 必填 |
 | --------------------- | ---- |
-| [Text](text.md#style) | No   |
+| [Text](text#style) | No   |
 
 ---
 

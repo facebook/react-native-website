@@ -15,6 +15,48 @@ ScrollView内部的其他响应者尚无法阻止ScrollView本身成为响应者
 
 此外`FlatList`还可以方便地渲染行间分隔线，支持多列布局，无限滚动加载等等。
 
+## 示例
+
+```SnackPlayer name=ScrollView
+import React from 'react';
+import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import Constants from 'expo-constants';
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <ScrollView style={styles.scrollView}>
+        <Text style={styles.text}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </Text>
+      </ScrollView>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  scrollView: {
+    backgroundColor: 'pink',
+    marginHorizontal: 20,
+  },
+  text: {
+    fontSize: 42,
+  },
+});
+
+export default App;
+```
+
 ---
 
 # 文档
@@ -209,7 +251,7 @@ _仅iOS可用的值_
 
 ### `removeClippedSubviews`
 
-（实验特性）：当此属性为true时，屏幕之外的子视图（子视图的`overflow`样式需要设为`hidden`）会被移除。这个可以提升大列表的滚动性能。默认值为true。
+（实验特性）：当此属性为true时，屏幕之外的子视图（子视图的`overflow`样式需要设为`hidden`）会被移除。这个可以提升大列表的滚动性能。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -312,6 +354,18 @@ When true, ScrollView will emit updateChildFrames data in scroll events, otherwi
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
+
+---
+
+### `fadingEdgeLength`
+
+Fades out the edges of the the scroll content.
+
+If the value is greater than 0, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
+
+| Type   | Required | Default | Platform |
+| ------ | -------- | ------- | -------- |
+| number | No       | 0       | Android  |
 
 ---
 

@@ -7,16 +7,69 @@ title: Text
 
 在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。
 
-```SnackPlayer
-import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-export default class TextInANest extends Component {
+<block class="functional syntax" />
+
+```SnackPlayer name=Text%20Functional%20Component%20Example
+import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
+
+const onPressTitle = () => {
+  console.log("title pressed");
+};
+
+const TextInANest = () => {
+  const titleText = useState("Bird's Nest");
+  const bodyText = useState("This is not really a bird nest.");
+
+  return (
+    <Text style={styles.baseText}>
+      <Text style={styles.titleText} onPress={onPressTitle}>
+        {titleText}
+        {"\n"}
+        {"\n"}
+      </Text>
+      <Text numberOfLines={5}>{bodyText}</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  }
+});
+
+export default TextInANest;
+
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Text%20Class%20Component%20Example
+import React, { Component } from "react";
+import { Text, StyleSheet } from "react-native";
+
+class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      bodyText: "This is not really a bird nest."
     };
   }
 
@@ -24,11 +77,11 @@ export default class TextInANest extends Component {
     return (
       <Text style={styles.baseText}>
         <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
+          {this.state.titleText}
+          {"\n"}
+          {"\n"}
         </Text>
-        <Text numberOfLines={5}>
-          {this.state.bodyText}
-        </Text>
+        <Text numberOfLines={5}>{this.state.bodyText}</Text>
       </Text>
     );
   }
@@ -36,36 +89,46 @@ export default class TextInANest extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Cochin',
+    fontFamily: "Cochin"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: "bold"
+  }
 });
 
+export default TextInANest;
 ```
+
+<block class="endBlock syntax" />
 
 ## 嵌套文本
 
 在 iOS 和 Android 中显示格式化文本的方法类似，都是提供你想显示的文本内容，然后使用范围标注来指定一些格式（在 iOS 上是用`NSAttributedString`，Android 上则是`SpannableString`）。这种用法非常繁琐。在 React Native 中，我们决定采用和 Web 一致的设计，这样你可以把相同格式的文本嵌套包裹起来：
 
-```SnackPlayer
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+```SnackPlayer name=Nested%20Text%20Example
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-export default class BoldAndBeautiful extends Component {
-  render() {
-    return (
-      <Text style={{fontWeight: 'bold'}}>
-        I am bold
-        <Text style={{color: 'red'}}>
-          and red
-        </Text>
-      </Text>
-    );
+const BoldAndBeautiful = () => {
+  return (
+    <Text style={styles.baseText}>
+      I am bold
+      <Text style={styles.innerText}> and red</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontWeight: 'bold'
+  },
+  innerText: {
+    color: 'red'
   }
-}
+});
+
+export default BoldAndBeautiful;
 ```
 
 而实际上在框架内部，这会生成一个扁平结构的`NSAttributedString`或是`SpannableString`，包含以下信息：
@@ -323,6 +386,19 @@ Used to locate this view from native code.
 | 类型     | 必填 |
 | -------- | ---- |
 | function | 否   |
+
+---
+
+### `onTextLayout`
+
+Invoked on Text layout
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| function: (event: TextLayoutEvent) => mixed | No       |
+
+- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
+  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
 
 ---
 

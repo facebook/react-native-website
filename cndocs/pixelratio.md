@@ -3,7 +3,7 @@ id: pixelratio
 title: PixelRatio
 ---
 
-PixelRatio 类提供了访问设备的像素密度的方法。
+`PixelRatio` 可以获取到设备的像素密度和字体缩放比。
 
 ## 根据像素密度获取指定大小的图片
 
@@ -29,6 +29,66 @@ const image = getImage({
 
 在 React Native 中，所有 JS 中的东西，包括布局引擎，都使用任意精度的数值。我们只在主线程最后设置原生组件的位置和坐标的时候才去做对齐工作。而且，对齐是相对于屏幕进行的，而非相对于父元素进行，进一步避免近似误差的累积。
 
+## Example
+
+```SnackPlayer name=PixelRatio%20Example
+import React from "react";
+import { Image, PixelRatio, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+const size = 50;
+const cat = {
+  uri: "https://reactnative.dev/docs/assets/p_cat1.png",
+  width: size,
+  height: size
+};
+const App = () => (
+  <ScrollView style={styles.scrollContainer}>
+    <View style={styles.container}>
+      <Text>Current Pixel Ratio is:</Text>
+      <Text style={styles.value}>{PixelRatio.get()}</Text>
+    </View>
+    <View style={styles.container}>
+      <Text>Current Font Scale is:</Text>
+      <Text style={styles.value}>{PixelRatio.getFontScale()}</Text>
+    </View>
+    <View style={styles.container}>
+      <Text>On this device images with a layout width of</Text>
+      <Text style={styles.value}>{size} px</Text>
+      <Image source={cat} />
+    </View>
+    <View style={styles.container}>
+      <Text>require images with a pixel width of</Text>
+      <Text style={styles.value}>
+        {PixelRatio.getPixelSizeForLayoutSize(size)} px
+      </Text>
+      <Image
+        source={cat}
+        style={{
+          width: PixelRatio.getPixelSizeForLayoutSize(size),
+          height: PixelRatio.getPixelSizeForLayoutSize(size)
+        }}
+      />
+    </View>
+  </ScrollView>
+);
+const styles = StyleSheet.create({
+  scrollContainer: {
+    flext: 1,
+    marginTop: "2em",
+    justifyContent: "center",
+  },
+  container: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  value: {
+    fontSize: 24,
+    marginBottom: 12,
+    marginTop: 4
+  }
+});
+export default App;
+```
+
 ---
 
 # 文档
@@ -43,21 +103,22 @@ static get()
 
 返回设备的像素密度，例如：
 
-- PixelRatio.get() === 1
+- `PixelRatio.get() === 1`
   - [mdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 1.5
+- `PixelRatio.get() === 1.5`
   - [hdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 2
-  - iPhone 4, 4S
-  - iPhone 5, 5C, 5S
-  - iPhone 6, 7, 8
+- `PixelRatio.get() === 2`
+  - iPhone SE, 6S, 7, 8
+  - iPhone XR
+  - iPhone 11
   - [xhdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 3
-  - iPhone 6 Plus, 7 Plus, 8 Plus
+- `PixelRatio.get() === 3`
+  - iPhone 6S Plus, 7 Plus, 8 Plus
   - iPhone X, XS, XS Max
+  - iPhone 11 Pro, 11 Pro Max
   - Pixel, Pixel 2
   - [xxhdpi Android devices](https://material.io/tools/devices/)
-- PixelRatio.get() === 3.5
+- `PixelRatio.get() === 3.5`
   - Nexus 6
   - Pixel XL, Pixel 2 XL
   - [xxxhdpi Android devices](https://material.io/tools/devices/)
@@ -67,21 +128,24 @@ static get()
 ### `getFontScale()`
 
 ```jsx
-static getFontScale()
+static getFontScale(): number
 ```
 
 返回字体大小缩放比例。这个比例可以用于计算绝对的字体大小，所以很多深度依赖字体大小的组件需要用此函数的结果进行计算。
 
+- Android上对应的是用户选项里的“设置 > 显示 > 字体大小”。
+- iOS上对应的是用户选项里的**Settings > Display & Brightness > Text Size**, value can also be updated in **Settings > Accessibilty > Display & Test Size > Larger Text**
+
 如果没有设置字体缩放大小，它会直接返回设备的像素密度。
 
-目前这个函数仅仅在 Android 设备上实现了，它会体现用户选项里的“设置 > 显示 > 字体大小”。在 iOS 设备上它会直接返回默认的像素密度。
+目前这个函数仅仅在 Android 设备上实现了，在 iOS 设备上它会直接返回默认的像素密度。
 
 ---
 
 ### `getPixelSizeForLayoutSize()`
 
 ```jsx
-static getPixelSizeForLayoutSize(layoutSize)
+static getPixelSizeForLayoutSize(layoutSize: number): number
 ```
 
 将一个布局尺寸(dp)转换为像素尺寸(px)。

@@ -18,37 +18,172 @@ title: SectionList
 
 如果你的列表不需要分组(section)，那么可以使用结构更简单的[`<FlatList>`](flatlist.md)。
 
-简单的例子：
+## Example
 
-```jsx
-// Example 1 (Homogeneous Rendering)
-<SectionList
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
-  renderSectionHeader={({ section: { title } }) => (
-    <Text style={{ fontWeight: "bold" }}>{title}</Text>
-  )}
-  sections={[
-    { title: "Title1", data: ["item1", "item2"] },
-    { title: "Title2", data: ["item3", "item4"] },
-    { title: "Title3", data: ["item5", "item6"] }
-  ]}
-  keyExtractor={(item, index) => item + index}
-/>
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=SectionList%20Example
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => <Item title={item} />}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+    />
+  </SafeAreaView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
+
+export default App;
 ```
 
-```jsx
-// Example 2 (Heterogeneous Rendering / No Section Headers)
-const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
+<block class="classical syntax" />
 
-<SectionList
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
-  sections={[
-    { title: 'Title1', data: ['item1', 'item2'], renderItem: overrideRenderItem },
-    { title: 'Title2', data: ['item3', 'item4'] },
-    { title: 'Title3', data: ['item5', 'item6'] },
-  ]}
-/>
+```SnackPlayer name=SectionList%20Example
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+class App extends Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <SectionList
+          sections={DATA}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => <Item title={item} />}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
+
+export default App;
 ```
+
+<block class="endBlock syntax" />
 
 本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md))的 props）。此外还有下面这些需要注意的事项：
 
@@ -57,52 +192,13 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 - 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，而我们也在设法持续改进。
 - 默认情况下每行都需要提供一个不重复的key属性。你也可以提供一个`keyExtractor`函数来生成key。
 
-### 查看Props
-
-* [`ScrollView` props...](scrollview.md#props)
-
-必须的props:
-
-* [`sections`](sectionlist.md#sections)
-* [`renderItem`](sectionlist.md#renderitem)
-
-可选的props:
-
-* [`initialNumToRender`](sectionlist.md#initialnumtorender)
-* [`keyExtractor`](sectionlist.md#keyextractor)
-* [`onEndReached`](sectionlist.md#onendreached)
-* [`extraData`](sectionlist.md#extradata)
-* [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-* [`inverted`](sectionlist.md#inverted)
-* [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-* [`legacyImplementation`](sectionlist.md#legacyimplementation)
-* [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-* [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-* [`onRefresh`](sectionlist.md#onrefresh)
-* [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-* [`refreshing`](sectionlist.md#refreshing)
-* [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-* [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-* [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-* [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-* [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-* [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
-
-### 查看方法
-
-* [`scrollToLocation`](sectionlist.md#scrolltolocation)
-* [`recordInteraction`](sectionlist.md#recordinteraction)
-* [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
-
-### 查看类型定义
-
-* [`Section`](sectionlist.md#section)
-
 ---
 
 # 文档
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props).
 
 ### `sections`
 
@@ -120,7 +216,7 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 
 | 类型   | 必填 |
 | ------ | ---- |
-| number | 是   |
+| number | 否   |
 
 ---
 
@@ -203,14 +299,6 @@ The render function will be passed an object with the following keys:
 | 类型                           | 必填 |
 | ------------------------------ | ---- |
 | [component, function, element] | 否   |
-
----
-
-### `legacyImplementation`
-
-| 类型      | 必填 |
-| --------- | ---- |
-| [boolean] | 否   |
 
 ---
 

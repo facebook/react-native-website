@@ -9,14 +9,67 @@ title: StatusBar
 
 由于`StatusBar`可以在任意视图中加载，可以放置多个且后加载的会覆盖先加载的。因此在配合导航器使用时，请务必考虑清楚`StatusBar`的放置顺序。
 
-```jsx
-<View>
-  <StatusBar backgroundColor="blue" barStyle="light-content" />
-  <View>
-    <StatusBar hidden={route.statusBarHidden} />
-    ...
-  </View>
-</View>
+```SnackPlayer name=StatusBar%20Android%20and%20iOS%20Component%20Example&supportedPlatforms=android,ios
+import React, { useState } from "react";
+import { Button, Text, StyleSheet, StatusBar, View } from "react-native";
+
+import Constants from "expo-constants";
+
+const App = () => {
+  const styleTypes = ['default','dark-content', 'light-content'];
+  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
+  const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
+
+  const changeVisibilityStatusBar = () => {
+    setVisibleStatusBar(!visibleStatusBar);
+  };
+
+  const changeStyleStatusBar = () => {
+    const styleId = styleTypes.indexOf(styleStatusBar) + 1;
+
+    if(styleId === styleTypes.length){
+      return setStyleStatusBar(styleTypes[0]);
+    }
+    return setStyleStatusBar(styleTypes[styleId]);
+  };
+
+  return (
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.textStyle}>StatusBar Style: {styleStatusBar}</Text>
+        <Text style={styles.textStyle}>StatusBar Visibility: {!visibleStatusBar ? 'Visible': 'Hidden'}</Text>
+      </View>
+      <StatusBar backgroundColor="blue" barStyle={styleStatusBar} />
+      <View>
+        <StatusBar hidden={visibleStatusBar} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Toggle StatusBar" onPress={() => changeVisibilityStatusBar()} />
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button title="Change StatusBar Style" onPress={() => changeStyleStatusBar()} />
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ECF0F1',
+    padding: 8
+  },
+  buttonContainer:{
+    padding: 10
+  },
+  textStyle:{
+    textAlign: 'center'
+  }
+});
+
+export default App;
 ```
 
 ### 静态API
@@ -56,6 +109,8 @@ title: StatusBar
 ### `barStyle`
 
 设置状态栏文本的颜色。
+
+On Android, this will only have an impact on API versions 23 and above.
 
 | 类型                                             | 必填 |
 | ------------------------------------------------ | ---- |

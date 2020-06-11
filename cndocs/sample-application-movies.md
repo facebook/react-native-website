@@ -7,6 +7,8 @@ title: 示例教程：电影列表
 
 在本示例教程中，我们将编写一个简单的应用，可以从电影数据库中取得最近正在上映的 25 部电影，并在一个`FlatList`中展示出来。
 
+> 注意：此文档编写时间较早，组件采用class形式，可能与本网站其他函数式组件代码风格不一致，请留意写法上的区别。
+
 ## 准备工作
 
 React Native 需要一些基础的配置工作，你可以参考[开始使用 React Native](getting-started.md)来进行。
@@ -14,7 +16,7 @@ React Native 需要一些基础的配置工作，你可以参考[开始使用 Re
 在所有依赖的软件都已经安装完毕后，请创建一个 React Native 工程和我们一起开始这次示例：
 
 ```
-react-native init SampleAppMovies
+npx react-native init SampleAppMovies
 ```
 
 这个命令会初始化一个工程、下载 React Native 的所有源代码和依赖包，最后在`SampleAppMovies/iOS/SampleAppMovies.xcodeproj`和`SampleAppMovies/android/app`下分别创建一个新的 XCode 工程(iOS)和一个 gradle 工程(Android)。
@@ -27,11 +29,9 @@ react-native init SampleAppMovies
 
 ### Hello World
 
-`react-native init`命令会创建一个指定名字的应用，我们刚才输入的命令就创建了一个名为 SampleAppMovies 的应用。这是一个简单的 Hello World 应用。你可以编辑`App.js`来做一些改动，然后在模拟器中按 ⌘+R 来看到修改的结果。
+`npx react-native init`命令会创建一个指定名字的应用，我们刚才输入的命令就创建了一个名为 SampleAppMovies 的应用。这是一个简单的 Hello World 应用。你可以编辑`App.js`来做一些改动，然后在模拟器中按 ⌘+R 来看到修改的结果。
 
 ### 模拟数据
-
-> 译注：本文的示例代码使用了 ES6 语法，可能和其他文档写法不一致。但 React Native 从 0.18 之后，新建项目默认已经采用了 ES6 语法，故我们推荐不熟悉 ES6 与 ES5 区别的朋友读读[阮一峰老师的书](http://es6.ruanyifeng.com/)。
 
 在我们真正从 Rotten Tomatoes(_译注：一个国外的电影社区_)抓取数据之前，我们先制造一些模拟数据来练一练手。在 Facebook 我们通常在 JS 文件的开头，紧跟着 import 语句之后声明一个常量，不过这不重要，你可以把它放在`App.js`的任意位置：
 

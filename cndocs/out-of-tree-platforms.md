@@ -11,6 +11,7 @@ React Native is not just for Android and iOS - there are community-supported pro
 - [React Native macOS](https://github.com/ptmt/react-native-macos) - An experimental React Native fork targeting macOS and Cocoa
 - [React Native tvOS](https://github.com/react-native-community/react-native-tvos) - adaptation of React Native for Apple tvOS
 - [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program(微信小程序).
+- [Proton Native](https://github.com/kusti8/proton-native) - A wrapper for React Native, using Qt to target Linux, MacOS, and Windows.
 
 ## Creating your own React Native platform
 
@@ -18,7 +19,7 @@ Right now the process of creating a React Native platform from scratch is not ve
 
 ### Bundling
 
-As of React Native 0.57 you can now register your React Native platform with React Native's JavaScript bundler, [Metro](https://facebook.github.io/metro/). This means you can pass `--platform example` to `react-native bundle`, and it will look for JavaScript files with the `.example.js` suffix.
+As of React Native 0.57 you can now register your React Native platform with React Native's JavaScript bundler, [Metro](https://facebook.github.io/metro/). This means you can pass `--platform example` to `npx react-native bundle`, and it will look for JavaScript files with the `.example.js` suffix.
 
 To register your platform with RNPM, your module's name must match one of these patterns:
 
