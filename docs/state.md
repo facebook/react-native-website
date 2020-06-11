@@ -5,8 +5,6 @@ title: State
 
 There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
 
-In general, you should initialize `state` in the constructor, and then call `setState` when you want to change it.
-
 For example, let's say we want to make text that blinks all the time. The text itself gets set once when the blinking component gets created, so the text itself is a `prop`. The "whether the text is currently on or off" changes over time, so that should be kept in `state`.
 
 ```SnackPlayer name=State
