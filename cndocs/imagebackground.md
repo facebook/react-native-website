@@ -9,38 +9,64 @@ You might not want to use `<ImageBackground>` in some cases, since the implement
 
 Note that you must specify some width and height style attributes.
 
-## Example
+## 示例
 
-```jsx
-return (
-  <ImageBackground source={...} style={{width: '100%', height: '100%'}}>
-    <Text>Inside</Text>
-  </ImageBackground>
+```SnackPlayer name=ImageBackground
+import React from "react";
+import { ImageBackground, StyleSheet, Text, View } from "react-native";
+
+const image = { uri: "https://reactjs.org/logo-og.png" };
+
+const App = () => (
+  <View style={styles.container}>
+    <ImageBackground source={image} style={styles.image}>
+      <Text style={styles.text}>Inside</Text>
+    </ImageBackground>
+  </View>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: "column"
+  },
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  },
+  text: {
+    color: "grey",
+    fontSize: 30,
+    fontWeight: "bold"
+  }
+});
+
+export default App;
 ```
 
 ---
 
-# Reference
+# 文档
 
 ## Props
 
 ### `style`
 
-| Type                               | Required |
+| 类型                               | 必填 |
 | ---------------------------------- | -------- |
-| [view styles](view-style-props.md) | No       |
+| [view styles](view-style-props.md) | 否       |
 
 ### `imageStyle`
 
-| Type                                 | Required |
+| 类型                                 | 必填 |
 | ------------------------------------ | -------- |
-| [image styles](image-style-props.md) | No       |
+| [image styles](image-style-props.md) | 否       |
 
 ### `imageRef`
 
 Allows to set a reference to the inner `Image` component
 
-| Type                                                  | Required |
+| 类型                                                  | 必填 |
 | ----------------------------------------------------- | -------- |
-| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) | No       |
+| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) | 否       |

@@ -7,8 +7,6 @@ title: Button
 
 这个组件的样式是固定的。所以如果它的外观并不怎么搭配你的设计，那你需要使用`TouchableOpacity`或是`TouchableNativeFeedback`组件来定制自己所需要的按钮，视频教程[如何制作一个按钮](http://v.youku.com/v_show/id_XMTQ5OTE3MjkzNg==.html?f=26822355&from=y1.7-1.3)讲述了完整的过程。或者你也可以在 github.com 网站上搜索 'react native button' 来看看社区其他人的作品。
 
-示例：
-
 ```
 import { Button } from 'react-native';
 ...
@@ -21,7 +19,97 @@ import { Button } from 'react-native';
 />
 ```
 
----
+## 示例
+
+```SnackPlayer name=Buttons
+import React from 'react';
+import { StyleSheet, Button, View, SafeAreaView, Text, Alert } from 'react-native';
+import Constants from 'expo-constants';
+
+const Separator = () => {
+  return <View style={styles.separator} />;
+}
+
+const App = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <View>
+        <Text style={styles.title}>
+          The title and onPress handler are required. It is recommended to set
+          accessibilityLabel to help make your app usable by everyone.
+        </Text>
+        <Button
+          title="Press me"
+          onPress={() => Alert.alert('Simple Button pressed')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          Adjust the color in a way that looks standard on each platform. On
+          iOS, the color prop controls the color of the text. On Android, the
+          color adjusts the background color of the button.
+        </Text>
+        <Button
+          title="Press me"
+          color="#f194ff"
+          onPress={() => Alert.alert('Button with adjusted color pressed')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          All interaction for the component are disabled.
+        </Text>
+        <Button
+          title="Press me"
+          disabled
+          onPress={() => Alert.alert('Cannot press this one')}
+        />
+      </View>
+      <Separator />
+      <View>
+        <Text style={styles.title}>
+          This layout strategy lets the title define the width of the button.
+        </Text>
+        <View style={styles.fixToText}>
+          <Button
+            title="Left button"
+            onPress={() => Alert.alert('Left button pressed')}
+          />
+          <Button
+            title="Right button"
+            onPress={() => Alert.alert('Right button pressed')}
+          />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16,
+  },
+  title: {
+    textAlign: 'center',
+    marginVertical: 8,
+  },
+  fixToText: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  separator: {
+    marginVertical: 8,
+    borderBottomColor: '#737373',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+});
+
+export default App;
+```
 
 # 文档
 
@@ -63,7 +151,7 @@ import { Button } from 'react-native';
 
 | 类型               | 必填 |
 | ------------------ | ---- |
-| [color](colors.md) | 否   |
+| [color](colors) | 否   |
 
 ---
 

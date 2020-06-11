@@ -3,7 +3,7 @@ id: communication-ios
 title: 和原生端通信
 ---
 
-通过[植入原生应用](integration-with-existing-apps.md)和[原生 UI 组件](native-component-ios.md)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
+通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](native-component-ios)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
 
 ## 简介
 
@@ -81,7 +81,7 @@ rootView.appProperties = @{@"images" : imageList};
 
 跨语言属性的主要缺点是不支持回调方法，因而无法实现自下而上的数据绑定。设想你有一个小的 RN 视图，当一个 JS 动作触发时你想从原生的父视图中移除它。此时你会发现根本做不到，因为信息需要自下而上进行传递。
 
-虽然我们有跨语言回调（[参阅这里](native-modules-ios.md#回调函数)），但是这些回调函数并不总能满足需求。最主要的问题是它们并不是被设计来当作属性进行传递。这一机制的本意是允许我们从 JS 触发一个原生动作，然后用 JS 处理那个动作的处理结果。
+虽然我们有跨语言回调（[参阅这里](native-modules-ios#回调函数)），但是这些回调函数并不总能满足需求。最主要的问题是它们并不是被设计来当作属性进行传递。这一机制的本意是允许我们从 JS 触发一个原生动作，然后用 JS 处理那个动作的处理结果。
 
 ## 其他的跨语言交互（事件和原生模块）
 
@@ -91,7 +91,7 @@ React Native 允许使用跨语言的函数调用。你可以在 JS 中调用原
 
 ### 从原生代码调用 React Natvie 函数（事件）
 
-事件的详细用法在这篇[文章](native-component-ios.md#事件)中进行了讨论。注意使用事件无法确保执行的时间，因为事件的处理函数是在单独的线程中执行。
+事件的详细用法在这篇[文章](native-component-ios#事件)中进行了讨论。注意使用事件无法确保执行的时间，因为事件的处理函数是在单独的线程中执行。
 
 事件很强大，它可以不需要引用直接修改 React Native 组件。但是，当你使用时要注意下面这些陷阱：
 
@@ -103,11 +103,11 @@ React Native 允许使用跨语言的函数调用。你可以在 JS 中调用原
 
 ### 从 React Native 中调用原生方法（原生模块）
 
-原生模块是 JS 中也可以使用的 Objective-C 类。一般来说这样的每一个模块的实例都是在每一次通过 JS bridge 通信时创建的。他们可以导出任意的函数和常量给 React Native。相关细节可以参阅这篇[文章](native-modules-ios.md#content)。
+原生模块是 JS 中也可以使用的 Objective-C 类。一般来说这样的每一个模块的实例都是在每一次通过 JS bridge 通信时创建的。他们可以导出任意的函数和常量给 React Native。相关细节可以参阅这篇[文章](native-modules-ios#content)。
 
 事实上原生模块的单实例模式限制了嵌入。假设我们有一个 React Native 组件被嵌入了一个原生视图，并且我们希望更新原生的父视图。使用原生模块机制，我们可以导出一个函数，不仅要接收预设参数，还要接收父视图的标识。这个标识将会用来获得父视图的引用以更新父视图。那样的话，我们需要维持模块中标识到原生模块的映射。虽然这个解决办法很复杂，它仍被用在了管理所有 React Native 视图的`RCTUIManager`类中，
 
-原生模块同样可以暴露已有的原生库给 JS，[地理定位库](https://github.com/facebook/react-native/tree/master/Libraries/Geolocation)就是一个现成的例子。
+原生模块同样可以暴露已有的原生库给 JS，[地理定位库](https://github.com/react-native-community/react-native-geolocation)就是一个现成的例子。
 
 > 警告：所有原生模块共享同一个命名空间。创建新模块时注意避免命名冲突。
 
@@ -117,7 +117,7 @@ React Native 允许使用跨语言的函数调用。你可以在 JS 中调用原
 
 ### 在 React Native 中嵌入一个原生组件
 
-这个情况在[这篇文章](native-component-ios.md#样式)中进行了讨论。基本上，由于所有的原生视图都是`UIView`的子集，大多数类型和尺寸属性将和你期望的一样可以使用。
+这个情况在[这篇文章](native-component-ios#样式)中进行了讨论。基本上，由于所有的原生视图都是`UIView`的子集，大多数类型和尺寸属性将和你期望的一样可以使用。
 
 ### 在原生中嵌入一个 React Native 组件
 

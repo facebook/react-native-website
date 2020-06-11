@@ -9,38 +9,111 @@ title: Keyboard
 
 `Keyboard`模块可以监听原生键盘事件以做出相应回应，比如收回键盘。
 
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Keyboard%20Function%20Component%20Example
+
+import React, { useEffect } from "react";
+import { Keyboard, TextInput, StyleSheet } from "react-native";
+
+const Example = () => {
+
+  useEffect(() => {
+    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
+    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+
+    // cleanup function
+    return () => {
+      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
+      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+    };
+  }, []);
+
+  const _keyboardDidShow = () => {
+    alert("Keyboard Shown");
+  };
+
+  const _keyboardDidHide = () => {
+    alert("Keyboard Hidden");
+  };
+
+  return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
+}
+
+const s = StyleSheet.create({
+   input:{
+    margin:60,
+    padding: 10,
+    borderWidth: 0.5,
+    borderRadius: 4,
+    backgroundColor: "#fff"
+   }
+})
+
+export default Example;
 ```
-import React, { Component } from 'react';
-import { Keyboard, TextInput } from 'react-native';
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Keyboard%20Class%20Component%20Example
+import React, {Component} from 'react';
+import {Keyboard, TextInput , StyleSheet} from 'react-native';
 
 class Example extends Component {
-  componentDidMount () {
-    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+  componentDidMount() {
+    this.keyboardDidShowListener = Keyboard.addListener(
+      'keyboardDidShow',
+      this._keyboardDidShow,
+    );
+    this.keyboardDidHideListener = Keyboard.addListener(
+      'keyboardDidHide',
+      this._keyboardDidHide,
+    );
   }
 
-  componentWillUnmount () {
+  componentWillUnmount() {
     this.keyboardDidShowListener.remove();
     this.keyboardDidHideListener.remove();
   }
 
-  _keyboardDidShow () {
+  _keyboardDidShow() {
     alert('Keyboard Shown');
   }
 
-  _keyboardDidHide () {
+  _keyboardDidHide() {
     alert('Keyboard Hidden');
   }
 
   render() {
-    return (
-      <TextInput
-        onSubmitEditing={Keyboard.dismiss}
-      />
-    );
+    return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
   }
 }
+
+const s = StyleSheet.create({
+   input:{
+    margin:60,
+    padding: 10,
+    borderWidth: 0.5,
+    borderRadius: 4,
+    backgroundColor: "#fff"
+   }
+})
+
+export default Example;
 ```
+
+<block class="endBlock syntax" />
 
 ---
 
@@ -114,3 +187,13 @@ static dismiss()
 ```
 
 把弹出的键盘收回去，同时使当前的文本框失去焦点。
+
+---
+
+### `scheduleLayoutAnimation`
+
+```jsx
+static scheduleLayoutAnimation(event)
+```
+
+Useful for syncing TextInput (or other keyboard accessory view) size of position changes with keyboard movements.

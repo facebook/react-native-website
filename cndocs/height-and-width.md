@@ -9,21 +9,21 @@ title: 高度与宽度
 
 最简单的给组件设定尺寸的方式就是在样式中指定固定的`width`和`height`。React Native 中的尺寸都是无单位的，表示的是与设备像素密度无关的逻辑像素点。
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Height%20and%20Width
+import React from 'react';
 import { View } from 'react-native';
 
-export default class FixedDimensionsBasics extends Component {
-  render() {
-    return (
-      <View>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
-        <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
-      </View>
-    );
-  }
-}
+const FixedDimensionsBasics = () => {
+  return (
+    <View>
+      <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+      <View style={{width: 100, height: 100, backgroundColor: 'skyblue'}} />
+      <View style={{width: 150, height: 150, backgroundColor: 'steelblue'}} />
+    </View>
+  );
+};
+
+export default FixedDimensionsBasics;
 ```
 
 这样给组件设置尺寸也是一种常见的模式，比如要求在不同尺寸的屏幕上都显示成一样的大小。
@@ -34,24 +34,24 @@ export default class FixedDimensionsBasics extends Component {
 
 > 组件能够撑满剩余空间的前提是其父容器的尺寸不为零。如果父容器既没有固定的`width`和`height`，也没有设定`flex`，则父容器的尺寸为零。其子组件如果使用了`flex`，也是无法显示的。
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Flex%20Dimensions
+import React from 'react';
 import { View } from 'react-native';
 
-export default class FlexDimensionsBasics extends Component {
-  render() {
-    return (
-      // 试试去掉父View中的`flex: 1`。
-      // 则父View不再具有尺寸，因此子组件也无法再撑开。
-      // 然后再用`height: 300`来代替父View的`flex: 1`试试看？
-      <View style={{flex: 1}}>
-        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
-        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
-        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
-      </View>
-    );
-  }
-}
+const FlexDimensionsBasics = () => {
+  return (
+    // 试试去掉父View中的`flex: 1`。
+    // 则父View不再具有尺寸，因此子组件也无法再撑开。
+    // 然后再用`height: 300`来代替父View的`flex: 1`试试看？
+    <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+      <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+      <View style={{flex: 3, backgroundColor: 'steelblue'}} />
+    </View>
+  );
+};
+
+export default FlexDimensionsBasics;
 ```
 
 当你熟练掌握了如何控制组件的尺寸后，下一步可以[学习如何在屏幕上排列组件了](flexbox.md)。

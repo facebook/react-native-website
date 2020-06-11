@@ -23,12 +23,11 @@ title: 使用Flexbox布局
 
 在组件的`style`中指定`flexDirection`可以决定布局的**主轴**。子元素是应该沿着**水平轴(`row`)**方向排列，还是沿着**竖直轴(`column`)**方向排列呢？默认值是**竖直轴(`column`)**方向。
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Flex%20Direction
+import React from 'react';
 import { View } from 'react-native';
 
-export default class FlexDirectionBasics extends Component {
-  render() {
+const FlexDirectionBasics = () => {
     return (
       // 尝试把`flexDirection`改为`column`看看
       <View style={{flex: 1, flexDirection: 'row'}}>
@@ -37,11 +36,14 @@ export default class FlexDirectionBasics extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
-  }
 };
+
+export default FlexDirectionBasics;
 ```
 
-### Layout Direction
+![Flex Direction](https://cdn-images-1.medium.com/max/800/1*rA7IbuUsJWsx6evKAsabVw.png)
+
+## Layout Direction
 
 Layout direction specifies the direction in which children and text in a hierarchy should be laid out. Layout direction also affects what edge `start` and `end` refer to. By default React Native lays out with LTR layout direction. In this mode `start` refers to left and `end` refers to right.
 
@@ -49,16 +51,15 @@ Layout direction specifies the direction in which children and text in a hierarc
 
 - `RTL` Text and children and laid out from right to left. Margin and padding applied the start of an element are applied on the right side.
 
-### Justify Content
+## Justify Content
 
 在组件的 style 中指定`justifyContent`可以决定其子元素沿着**主轴**的**排列方式**。子元素是应该靠近主轴的起始端还是末尾段分布呢？亦或应该均匀分布？对应的这些可选项有：`flex-start`、`center`、`flex-end`、`space-around`、`space-between`以及`space-evenly`。
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Justify%20Content
+import React from 'react';
 import { View } from 'react-native';
 
-export default class JustifyContentBasics extends Component {
-  render() {
+const JustifyContentBasics = () => {
     return (
       // 尝试把`justifyContent`改为`center`看看
       // 尝试把`flexDirection`改为`row`看看
@@ -72,9 +73,12 @@ export default class JustifyContentBasics extends Component {
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
       </View>
     );
-  }
 };
+
+export default JustifyContentBasics;
 ```
+
+![Justify Content](https://cdn-images-1.medium.com/max/800/1*i5TVlme-TisAVvD5ax2yPA.png)
 
 ### Align Items
 
@@ -82,16 +86,15 @@ export default class JustifyContentBasics extends Component {
 
 > 注意：要使`stretch`选项生效的话，子元素在次轴方向上不能有固定的尺寸。以下面的代码为例：只有将子元素样式中的`width: 50`去掉之后，`alignItems: 'stretch'`才能生效。
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Align%20Items
+import React from 'react';
 import { View } from 'react-native';
 
-export default class AlignItemsBasics extends Component {
-  render() {
+const AlignItemsBasics = () => {
     return (
-      // 尝试把`alignItems`改为`flex-start`看看
-      // 尝试把`justifyContent`改为`flex-end`看看
-      // 尝试把`flexDirection`改为`row`看看
+      // Try setting `alignItems` to 'flex-start'
+      // Try setting `justifyContent` to `flex-end`.
+      // Try setting `flexDirection` to `row`.
       <View style={{
         flex: 1,
         flexDirection: 'column',
@@ -103,19 +106,22 @@ export default class AlignItemsBasics extends Component {
         <View style={{height: 100, backgroundColor: 'steelblue'}} />
       </View>
     );
-  }
 };
+
+export default AlignitemsBasics;
 ```
 
-### Align Self
+![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)
 
-[`alignSelf`](https://facebook.github.io/react-native/docs/layout-props#alignself) has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. `alignSelf` overrides any option set by the parent with `alignItems`.
+## Align Self
+
+[`alignSelf`](layout-props#alignself) has the same options and effect as `alignItems` but instead of affecting the children within a container, you can apply this property to a single child to change its alignment within its parent. `alignSelf` overrides any option set by the parent with `alignItems`.
 
 ![Align Self](https://cdn-images-1.medium.com/max/800/1*J1JCoKwLCokX9JXVBvP71g.png)
 
-### Align Content
+## Align Content
 
-[alignContent](https://facebook.github.io/react-native/docs/layout-props#aligncontent) defines the distribution of lines along the cross-axis. This only has effect when items are wrapped to multiple lines using `flexWrap`.
+[alignContent](layout-props#aligncontent) defines the distribution of lines along the cross-axis. This only has effect when items are wrapped to multiple lines using `flexWrap`.
 
 - `flex-start` (**default value**) Align wrapped lines to the start of the container's cross axis.
 
@@ -135,29 +141,29 @@ LEARN MORE [HERE](https://yogalayout.com/docs/align-content)
 
 ![Align Content](https://cdn-images-1.medium.com/max/800/1*cC2XFyCF_igp20Ombt4wBw.png)
 
-### Flex Wrap
+## Flex Wrap
 
-The [`flexWrap`](https://facebook.github.io/react-native/docs/layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed.
+The [`flexWrap`](layout-props#flexwrap) property is set on containers and controls what happens when children overflow the size of the container along the main axis. By default children are forced into a single line (which can shrink elements). If wrapping is allowed items are wrapped into multiple lines along the main axis if needed.
 
 When wrapping lines `alignContent` can be used to specify how the lines are placed in the container. learn more [here](https://yogalayout.com/docs/flex-wrap)
 
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 
-### Flex Basis, Grow, and Shrink
+## Flex Basis, Grow, and Shrink
 
-- [`flexGrow`](https://facebook.github.io/react-native/docs/layout-props#flexgrow) describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.
+- [`flexGrow`](layout-props#flexgrow) describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.
 
   flexGrow accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the child’s flex grow value.
 
-- [`flexShrink`](https://facebook.github.io/react-native/docs/layout-props#flexshrink) describes how to shrink children along the main axis in the case that the total size of the children overflow the size of the container on the main axis. Flex shrink is very similar to flex grow and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.
+- [`flexShrink`](layout-props#flexshrink) describes how to shrink children along the main axis in the case that the total size of the children overflow the size of the container on the main axis. Flex shrink is very similar to flex grow and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.
 
   Flex shrink accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the child’s flex shrink value.
 
-- [`flexBasis`](https://facebook.github.io/react-native/docs/layout-props#flexbasis) is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The flex basis of an item is the default size of that item, the size of the item before any flex grow and flex shrink calculations are performed.
+- [`flexBasis`](layout-props#flexbasis) is an axis-independent way of providing the default size of an item along the main axis. Setting the flex basis of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The flex basis of an item is the default size of that item, the size of the item before any flex grow and flex shrink calculations are performed.
 
 LEARN MORE [HERE](https://yogalayout.com/docs/flex)
 
-### Width and Height
+## Width and Height
 
 The `width` property in Yoga specifies the width of the element's content area. Similarly height property specifies the `height` of the element's content area.
 
@@ -169,7 +175,7 @@ Both `width` and `height` can take following values:
 
 - `percentage` Defines the width or height in percentage of its parent's width or height respectively.
 
-### Absolute & Relative Layout
+## 绝对与相对定位
 
 The `position` type of an element defines how it is positioned within its parent.
 
@@ -177,9 +183,9 @@ The `position` type of an element defines how it is positioned within its parent
 
 `absolute` When positioned absolutely an element doesn't take part in the normal layout flow. It is instead laid out independent of its siblings. The position is determined based on the `top`, `right`, `bottom`, and `left` values.
 
-![Absolute & Relative Layoutp](https://cdn-images-1.medium.com/max/800/1*NlPeRQCQK3Vb5nyjL0Mqxw.png)
+![Absolute & Relative Layout](https://cdn-images-1.medium.com/max/800/1*NlPeRQCQK3Vb5nyjL0Mqxw.png)
 
-### 深入学习
+## 深入学习
 
 Check out the interactive [yoga playground](https://yogalayout.com/playground) that you can use to get a better understanding of flexbox.
 

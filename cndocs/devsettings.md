@@ -14,7 +14,7 @@ The `DevSettings` module exposes methods for customizing settings for developers
 ### `addMenuItem()`
 
 ```jsx
- addMenuItem(title: string, handler: () => )
+static addMenuItem(title: string, handler: function)
 ```
 
 在开发者菜单中添加一个自定义的菜单项：
@@ -23,4 +23,16 @@ The `DevSettings` module exposes methods for customizing settings for developers
 DevSettings.addMenuItem('Show Secret Dev Screen', () => {
   Alert.alert('Showing secret dev screen!');
 });
+```
+
+### `reload()`
+
+```jsx
+static reload()
+```
+
+Reload the application. Can be invoked directly or on user interaction:
+
+```jsx
+<Button title="Reload" onPress={() => DevSettings.reload()} />
 ```

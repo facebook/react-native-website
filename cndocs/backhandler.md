@@ -3,61 +3,281 @@ id: backhandler
 title: BackHandler
 ---
 
-监听设备上的后退按钮事件。
+BackHandler API用于监听设备上的后退按钮事件，可以调用你自己的函数来处理后退行为。此API仅能在Android上使用。
 
-Android：监听后退按钮事件。如果没有添加任何监听函数，或者所有的监听函数都返回 false，则会执行默认行为，退出应用。
+回调函数是倒序执行的（即后添加的函数先执行）。
+- **如果某一个函数返回 true**，则后续的函数都不会被调用。
+- **如果没有添加任何监听函数，或者所有的监听函数都返回 false**，则会执行默认行为，退出应用。
+  
+> 注意：如果app当前打开了一个`Modal`窗口，则BackHandler不会触发事件。([查看`Modal`的文档](modal.md#onrequestclose)).
 
-tvOS(即 Apple TV 机顶盒)：监听遥控器上的后退按钮事件（阻止应用退出的功能尚未实现）。
-
-iOS：尚无作用。
-
-监听函数是按倒序的顺序执行（即后添加的函数先执行）。如果某一个函数返回 true，则后续的函数都不会被调用。注意：如果app当前打开了一个`Modal`窗口，则BackHandler不会触发事件。([查看`Modal`的文档](modal.md#onrequestclose)).
-
-示例：
+## 用法
 
 ```jsx
-BackHandler.addEventListener("hardwareBackPress", function() {
-  // this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现！
+BackHandler.addEventListener('hardwareBackPress', function() {
+  /**
+   * this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现
+   * 一般来说都要配合导航器组件使用
+   */
 
   if (!this.onMainScreen()) {
     this.goBack();
+    /**
+     * 返回true时会阻止事件冒泡传递，因而不会执行默认的后退行为
+     */
     return true;
   }
+  /**
+   * 返回false时会使事件继续传递，触发其他注册的监听函数，或是系统默认的后退行为
+   */
   return false;
 });
 ```
 
-在生命周期方法中使用的示例：
+## 示例
 
-```jsx
-  componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
-  }
+The following example implements a scenario where you confirm if the user wants to exit the app:
 
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
-  }
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
 
-  handleBackPress = () => {
-    this.goBack(); // works best when the goBack is async
-    return true;
+<block class="functional syntax" />
+
+```SnackPlayer name=BackHandler&supportedPlatforms=android
+import React, { useEffect } from "react";
+import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+
+const App = () => {
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Hold on!", "Are you sure you want to go back?", [
+        {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel"
+        },
+        { text: "YES", onPress: () => BackHandler.exitApp() }
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Click Back button!</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold"
   }
+});
+
+export default App;
 ```
 
-在生命周期方法中使用的另一种写法：
+<block class="classical syntax" />
 
-```jsx
+```SnackPlayer name=BackHandler&supportedPlatforms=android
+import React, { Component } from "react";
+import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+
+class App extends Component {
+  backAction = () => {
+    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      {
+        text: "Cancel",
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: "YES", onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
+
   componentDidMount() {
-    this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
-      this.goBack(); // works best when the goBack is async
-      return true;
-    });
+    this.backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      this.backAction
+    );
   }
 
   componentWillUnmount() {
     this.backHandler.remove();
   }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Click Back button!</Text>
+      </View>
+    );
+  }
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold"
+  }
+});
+
+export default App;
 ```
+
+<block class="endBlock syntax" />
+
+`BackHandler.addEventListener` creates an event listener & returns a `NativeEventSubscription` object which should be cleared using `NativeEventSubscription.remove` method.
+
+Additionally `BackHandler.removeEventListener` can also be used to clear the event listener. Ensure the callback has the reference to the same function used in the `addEventListener` call as shown the following example ﹣
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=BackHandler&supportedPlatforms=android
+import React, { useEffect } from "react";
+import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+
+const App = () => {
+  const backAction = () => {
+    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      {
+        text: "Cancel",
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: "YES", onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener("hardwareBackPress", backAction);
+
+    return () =>
+      BackHandler.removeEventListener("hardwareBackPress", backAction);
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Click Back button!</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold"
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=BackHandler&supportedPlatforms=android
+import React, { Component } from "react";
+import { Text, View, StyleSheet, BackHandler, Alert } from "react-native";
+
+class App extends Component {
+  backAction = () => {
+    Alert.alert("Hold on!", "Are you sure you want to go back?", [
+      {
+        text: "Cancel",
+        onPress: () => null,
+        style: "cancel"
+      },
+      { text: "YES", onPress: () => BackHandler.exitApp() }
+    ]);
+    return true;
+  };
+
+  componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.backAction);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.backAction);
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Click Back button!</Text>
+      </View>
+    );
+  }
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold"
+  }
+});
+
+export default App;
+```
+
+<block class="endBlock syntax" />
+
+## Usage with React Navigation
+
+If you are using React Navigation to navigate across different screens, you can follow their guide on [Custom Android back button behaviour](https://reactnavigation.org/docs/custom-android-back-button-handling/)
+
+## Backhandler hook
+
+[React Native Hooks](https://github.com/react-native-community/hooks#usebackhandler) has a nice `useBackHandler` hook which will simplify the process of setting up event listeners.
 
 ---
 

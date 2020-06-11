@@ -18,13 +18,69 @@ title: FlatList
 
 如果需要分组/类/区（section），请使用[`<SectionList>`](sectionlist.md).
 
-一个最简单的例子：
+## 示例
 
-```jsx
-  <FlatList
-    data={[{key: 'a'}, {key: 'b'}]}
-    renderItem={({item}) => <Text>{item.key}</Text>}
-  />
+```SnackPlayer name=flatlist-simple
+import React from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import Constants from 'expo-constants';
+
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
+
+const Item = ({ title }) => {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+}
+
+const App = () => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default App;
 ```
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
@@ -35,61 +91,98 @@ To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop.
 * 给`FlatList`指定`extraData={this.state}`属性，是为了保证`state.selected`变化时，能够正确触发`FlatList`的更新。如果不指定此属性，则`FlatList`不会触发更新，因为它是一个`PureComponent`，其 props 在`===`比较中没有变化则不会触发更新。
 * `keyExtractor`属性指定使用 id 作为列表每一项的 key。
 
+```SnackPlayer name=flatlist-selectable
+import React from 'react';
+import {
+  SafeAreaView,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+  Text,
+} from 'react-native';
+import Constants from 'expo-constants';
 
-    class MyListItem extends React.PureComponent {
-      _onPress = () => {
-        this.props.onPressItem(this.props.id);
-      };
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d72',
+    title: 'Third Item',
+  },
+];
 
-      render() {
-        const textColor = this.props.selected ? "red" : "black";
-        return (
-          <TouchableOpacity onPress={this._onPress}>
-            <View>
-              <Text style={{ color: textColor }}>
-                {this.props.title}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        );
-      }
-    }
+const Item = ({ id, title, selected, onSelect }) => {
+  return (
+    <TouchableOpacity
+      onPress={() => onSelect(id)}
+      style={[
+        styles.item,
+        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
+      ]}
+    >
+      <Text style={styles.title}>{title}</Text>
+    </TouchableOpacity>
+  );
+}
 
-    class MultiSelectList extends React.PureComponent {
-      state = {selected: (new Map(): Map<string, boolean>)};
+const App = () => {
+  const [selected, setSelected] = React.useState(new Map());
 
-      _keyExtractor = (item, index) => item.id;
+  const onSelect = React.useCallback(
+    id => {
+      const newSelected = new Map(selected);
+      newSelected.set(id, !selected.get(id));
 
-      _onPressItem = (id: string) => {
-        // updater functions are preferred for transactional updates
-        this.setState((state) => {
-          // copy the map rather than modifying state.
-          const selected = new Map(state.selected);
-          selected.set(id, !selected.get(id)); // toggle
-          return {selected};
-        });
-      };
+      setSelected(newSelected);
+    },
+    [selected],
+  );
 
-      _renderItem = ({item}) => (
-        <MyListItem
-          id={item.id}
-          onPressItem={this._onPressItem}
-          selected={!!this.state.selected.get(item.id)}
-          title={item.title}
-        />
-      );
+  const renderItem = ({ item }) => (
+    <Item
+      id={item.id}
+      title={item.title}
+      selected={!!selected.get(item.id)}
+      onSelect={onSelect}
+    />
+  );
 
-      render() {
-        return (
-          <FlatList
-            data={this.props.data}
-            extraData={this.state}
-            keyExtractor={this._keyExtractor}
-            renderItem={this._renderItem}
-          />
-        );
-      }
-    }
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+        extraData={selected}
+      />
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default App;
+```
 
 本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md))的 props），但在本文档中没有列出。此外还有下面这些需要注意的事项：
 
@@ -395,7 +488,7 @@ May not have full feature parity and is meant for debugging and performance comp
 
 ### `removeClippedSubviews`
 
-对于大列表启用本属性可能可以提高性能。
+对于大列表启用本属性可能可以提高性能。在android上此项默认启用。
 
 > 注意：有些情况下会有 bug（比如内容无法显示）。请谨慎使用。
 
@@ -580,6 +673,16 @@ flashScrollIndicators();
 ```
 
 短暂地显示滚动指示器。
+
+---
+
+### `getNativeScrollRef()`
+
+```jsx
+getNativeScrollRef();
+```
+
+Provides a reference to the underlying scroll component
 
 ---
 

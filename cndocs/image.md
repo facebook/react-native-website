@@ -9,35 +9,163 @@ title: Image
 
 > 请注意对于网络和 base64 数据的图片需要手动指定尺寸！
 
-```SnackPlayer name=Image
-import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+## Examples
 
-export default class DisplayAnImage extends Component {
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example
+
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
+
+const DisplayAnImage = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      />
+      <Image
+        style={styles.logo}
+        source={{
+          uri:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+        }}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImage;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
+
+import React, { Component } from 'react';
+import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
+
+class DisplayAnImage extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
-          style={{width: 50, height: 50}}
+          style={styles.tinyLogo}
           source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
-          style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+          style={styles.tinyLogo}
+          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
         />
         <Image
-          style={{width: 66, height: 58}}
+          style={styles.logo}
           source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
         />
       </View>
     );
   }
 }
+
+export default DisplayAnImage;
 ```
+
+<block class="endBlock syntax" />
 
 你可以给图片添加`style`属性：
 
-```SnackPlayer name=Image
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example
+
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  stretch: {
+    width: 50,
+    height: 200,
+    resizeMode: 'stretch',
+  },
+});
+
+const DisplayAnImageWithStyle = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.stretch}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImageWithStyle;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
+
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
@@ -49,7 +177,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class DisplayAnImageWithStyle extends Component {
+class DisplayAnImageWithStyle extends Component {
   render() {
     return (
       <View>
@@ -61,7 +189,11 @@ export default class DisplayAnImageWithStyle extends Component {
     );
   }
 }
+
+export default DisplayAnImageWithStyle;
 ```
+
+<block class="endBlock syntax" />
 
 ### 在 Android 上支持 GIF 和 WebP 格式图片
 

@@ -3,21 +3,60 @@ id: keyboardavoidingview
 title: KeyboardAvoidingView
 ---
 
-本组件用于解决一个常见的尴尬问题：手机上弹出的键盘常常会挡住当前的视图。本组件可以自动根据键盘的位置，调整自身的 height 或底部的 padding，以避免被遮挡。
+本组件用于解决一个常见的尴尬问题：手机上弹出的键盘常常会挡住当前的视图。本组件可以自动根据键盘的高度，调整自身的 height 或底部的 padding，以避免被遮挡。
 
-用法：
+## 示例
 
+```SnackPlayer name=KeyboardAvoidingView&supportedPlatforms=android,ios
+import React from 'react';
+import { View, KeyboardAvoidingView, TextInput, StyleSheet, Text, Platform, TouchableWithoutFeedback, Button, Keyboard  } from 'react-native';
+
+const KeyboardAvoidingComponent = () => {
+  return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS == "ios" ? "padding" : "height"}
+      style={styles.container}
+    >
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.inner}>
+          <Text style={styles.header}>Header</Text>
+          <TextInput placeholder="Username" style={styles.textInput} />
+          <View style={styles.btnContainer}>
+            <Button title="Submit" onPress={() => null} />
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  inner: {
+    padding: 24,
+    flex: 1,
+    justifyContent: "space-around"
+  },
+  header: {
+    fontSize: 36,
+    marginBottom: 48
+  },
+  textInput: {
+    height: 40,
+    borderColor: "#000000",
+    borderBottomWidth: 1,
+    marginBottom: 36
+  },
+  btnContainer: {
+    backgroundColor: "white",
+    marginTop: 12
+  }
+});
+
+export default KeyboardAvoidingComponent;
 ```
-import { KeyboardAvoidingView } from 'react-native';
-
-<KeyboardAvoidingView style={styles.container} behavior="padding" enabled>
-  ... 在这里放置需要根据键盘调整位置的组件 ...
-</KeyboardAvoidingView>
-```
-
-### 示例
-
-![](assets/KeyboardAvoidingView/example.gif)
 
 ---
 
@@ -39,7 +78,7 @@ import { KeyboardAvoidingView } from 'react-native';
 
 Specify how to react to the presence of the keyboard.
 
-_注意：Android 和 iOS 在此属性上表现并不一致。_ _Android 可能不指定此属性更好，而 iOS 可能相反。_
+> Android 和 iOS 在此属性上表现并不一致。但我们建议在两个平台上都明确设置此属性。
 
 | 类型                                  | 必填 |
 | ------------------------------------- | ---- |

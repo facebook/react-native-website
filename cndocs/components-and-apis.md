@@ -1,16 +1,16 @@
 ---
 id: components-and-apis
-title: 组件和API
+title: 核心组件和API
 ---
 
-React Native 提供了一些内置的组件。你可以在网站的左侧看到组件的完整列表。如果你不知道从哪看起，那么可以先看一下下面这个简单的分类：
+React Native 提供了一些内置的[核心组件](intro-react-native-components)供你使用。你可以在网站的左侧看到组件的完整列表。如果你不知道从哪看起，那么可以先看一下下面这个简单的分类：
 
-- [基础组件](components-and-apis.md#基础组件)
-- [交互控件](components-and-apis.md#交互控件)
-- [列表视图](components-and-apis.md#列表视图)
-- [iOS 独有组件](components-and-apis.md#iOS独有的组件和API)
-- [Android 独有组件](components-and-apis.md#Android独有的组件和API)
-- [其他](components-and-apis.md#其他)
+- [基础组件](components-and-apis#基础组件)
+- [交互控件](components-and-apis#交互控件)
+- [列表视图](components-and-apis#列表视图)
+- [iOS 独有组件](components-and-apis#iOS独有的组件和API)
+- [Android 独有组件](components-and-apis#Android独有的组件和API)
+- [其他](components-and-apis#其他)
 
 需要说明的是，你不会被局限在这些内置组件上。React Native 是大开源社区的作品，所以你还可以在 github 或是 npm 上搜索到带有`react native`关键字的大量的第三方组件。
 
@@ -85,55 +85,23 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
 
 ## iOS 独有的组件和 API
 
-下面很多组件都是对常用的 UIKit 类的封装。
+下面的组件都是对常用的 UIKit 类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="actionsheetios">ActionSheetIOS</a></h3>
     <p>从设备底部弹出一个显示一个ActionSheet弹出框选项菜单或分享菜单。</p>
   </div>
-  <div class="component">
-    <h3><a href="alertios">AlertIOS</a></h3>
-    <p>弹出一个提示对话框，还可以带有输入框。</p>
-  </div>
-  <div class="component">
-    <h3><a href="datepickerios">DatePickerIOS</a></h3>
-    <p>显示一个日期/时间选择器。</p>
-  </div>
-  <div class="component">
-    <h3><a href="imagepickerios">ImagePickerIOS</a></h3>
-    <p>插入图片。</p>
-  </div>
-  <div class="component">
-    <h3><a href="progressviewios">ProgressViewIOS</a></h3>
-    <p>渲染一个<code>UIProgressView</a></code>进度条。</p>
-  </div>
-  <div class="component">
-    <h3><a href="pushnotificationios">PushNotificationIOS</a></h3>
-    <p>管理推送通知，包括权限处理和应用角标数字。</p>
-  </div>
-  <div class="component">
-    <h3><a href="segmentedcontrolios">SegmentedControlIOS</a></h3>
-    <p>渲染一个<code>UISegmentedControl</code>顶部选项卡布局</p>
-  </div>
-  <div class="component">
-    <h3><a href="tabbarios">TabBarIOS</a></h3>
-    <p>渲染一个<code>UITabViewController</code>底部选项卡布局。需要和<a href="tabbarios-item">TabBarIOS.Item</a>搭配使用。</p>
-  </div>
 </div>
 
 ## Android 独有的组件和 API
 
-下面很多组件提供了对 Andriod 常用类的封装。
+下面的组件提供了对 Andriod 常用类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">
     <h3><a href="backhandler">BackHandler</a></h3>
     <p>监听并处理设备上的返回按钮。</p>
-  </div>
-  <div class="component">
-    <h3><a href="datepickerandroid">DatePickerAndroid</a></h3>
-    <p>打开日期选择器。</p>
   </div>
   <div class="component">
     <h3><a href="drawerlayoutandroid">DrawerLayoutAndroid</a></h3>
@@ -144,20 +112,8 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
     <p>对Android 6.0引入的权限模型的封装。</p>
   </div>
   <div class="component">
-    <h3><a href="progressbarandroid">ProgressBarAndroid</a></h3>
-    <p>渲染一个<code>ProgressBar</code>进度条。</p>
-  </div>
-  <div class="component">
-    <h3><a href="timepickerandroid">TimePickerAndroid</a></h3>
-    <p>打开时间选择器。</p>
-  </div>
-  <div class="component">
     <h3><a href="toastandroid">ToastAndroid</a></h3>
     <p>弹出一个Toast提示框。</p>
-  </div>
-  <div class="component">
-    <h3><a href="viewpagerandroid">ViewPagerAndroid</a></h3>
-    <p>可左右翻页滑动的视图容器。</p>
   </div>
 </div>
 
@@ -181,10 +137,6 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
   <div class="component">
     <h3><a href="cameraroll">CameraRoll</a></h3>
     <p>访问本地相册。</p>
-  </div>
-  <div class="component">
-    <h3><a href="clipboard">Clipboard</a></h3>
-    <p>读写剪贴板内容。</p>
   </div>
   <div class="component">
     <h3><a href="dimensions">Dimensions</a></h3>
