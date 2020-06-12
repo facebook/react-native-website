@@ -35,10 +35,10 @@ The following example contains a `View` which will fade in and fade out based on
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -347,12 +347,12 @@ Config 参数有以下这些属性：
 
 注意你不能同时定义 bounciness/speed、tension/friction 或 stiffness/damping/mass 这三组数据，只能指定其中一组：
 
-friction/tension 或 bounciness/speed 选项符合[Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), 或是 [Origami](http://origami.design/)中的spring模型定义。
+friction/tension 或 bounciness/speed 选项符合[Facebook Pop](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), 或是 [Origami](http://origami.design/)中的 spring 模型定义。
 
-- `friction`: 控制弹性/幅度。默认值7。
-- `tension`: 控制速度。默认值40.
-- `speed`: 控制动画速度。默认值12.
-- `bounciness`: 控制弹性。默认值8.
+- `friction`: 控制弹性/幅度。默认值 7。
+- `tension`: 控制速度。默认值 40.
+- `speed`: 控制动画速度。默认值 12.
+- `bounciness`: 控制弹性。默认值 8.
 
 Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
 
@@ -480,11 +480,11 @@ static stagger(time, animations)
 static loop(animation, config?)
 ```
 
-无限循环一个指定的动画，从头到尾周而复始。如果此循环的子动画设置了`useNativeDriver: true`则不会阻塞JS线程的执行。此外循环可能导致基于`VirtualizedList`的列表不能加载更多行，此时可以在子动画中设置`isInteraction: false`来修复此问题。
- 
- Config is an object that may have the following options:
- 
- * `iterations`: Number of times the animation should loop. Default `-1` (infinite).
+无限循环一个指定的动画，从头到尾周而复始。如果此循环的子动画设置了`useNativeDriver: true`则不会阻塞 JS 线程的执行。此外循环可能导致基于`VirtualizedList`的列表不能加载更多行，此时可以在子动画中设置`isInteraction: false`来修复此问题。
+
+Config is an object that may have the following options:
+
+- `iterations`: Number of times the animation should loop. Default `-1` (infinite).
 
 ---
 
@@ -544,9 +544,9 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **Parameters:**
 
-| Name     | Type                            | Required | Description                                                                                                                                                     |
-| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| callback | ?(result?: {finished: boolean}) | No | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
 
@@ -575,7 +575,6 @@ static reset()
 ```
 
 Stops any running animation and resets the value to its original.
-
 
 ## 属性
 

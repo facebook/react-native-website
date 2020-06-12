@@ -23,7 +23,7 @@ class MyWeb extends Component {
 }
 ```
 
-还可以直接嵌入html代码：
+还可以直接嵌入 html 代码：
 
 ```
 import React, { Component } from 'react';
@@ -48,52 +48,52 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 ### 查看 Props
 
-* [View props...](view.md#props)
+- [View props...](view.md#props)
 
-- [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
-- [`allowFileAccess`](webview.md#allowFileAccess)
-- [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
-- [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
-- [`bounces`](webview.md#bounces)
-- [`contentInset`](webview.md#contentinset)
-- [`dataDetectorTypes`](webview.md#datadetectortypes)
-- [`decelerationRate`](webview.md#decelerationrate)
-- [`domStorageEnabled`](webview.md#domstorageenabled)
-- [`geolocationEnabled`](webview.md#geolocationenabled)
-- [`html`](webview.md#html)
-- [`injectedJavaScript`](webview.md#injectedjavascript)
-- [`injectJavaScript`](webview.md#injectjavascript)
-- [`javaScriptEnabled`](webview.md#javascriptenabled)
-- [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
-- [`mixedContentMode`](webview.md#mixedcontentmode)
-- [`nativeConfig`](webview.md#nativeconfig)
-- [`onError`](webview.md#onerror)
-- [`onLoad`](webview.md#onload)
-- [`onLoadEnd`](webview.md#onloadend)
-- [`onLoadStart`](webview.md#onloadstart)
-- [`onMessage`](webview.md#onmessage)
-- [`onNavigationStateChange`](webview.md#onnavigationstatechange)
-- [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
-- [`originWhitelist`](webview.md#originwhitelist)
-- [`renderError`](webview.md#rendererror)
-- [`renderLoading`](webview.md#renderloading)
-- [`scalesPageToFit`](webview.md#scalespagetofit)
-- [`scrollEnabled`](webview.md#scrollenabled)
-- [`startInLoadingState`](webview.md#startinloadingstate)
-- [`source`](webview.md#source)
-- [`style`](webview.md#style)
-- [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
-- [`useWebKit`](webview.md#usewebkit)
-- [`userAgent`](webview.md#useragent)
-- [`url`](webview.md#url)
+* [`allowsInlineMediaPlayback`](webview.md#allowsinlinemediaplayback)
+* [`allowFileAccess`](webview.md#allowFileAccess)
+* [`allowUniversalAccessFromFileURLs`](webview.md#allowUniversalAccessFromFileURLs)
+* [`automaticallyAdjustContentInsets`](webview.md#automaticallyadjustcontentinsets)
+* [`bounces`](webview.md#bounces)
+* [`contentInset`](webview.md#contentinset)
+* [`dataDetectorTypes`](webview.md#datadetectortypes)
+* [`decelerationRate`](webview.md#decelerationrate)
+* [`domStorageEnabled`](webview.md#domstorageenabled)
+* [`geolocationEnabled`](webview.md#geolocationenabled)
+* [`html`](webview.md#html)
+* [`injectedJavaScript`](webview.md#injectedjavascript)
+* [`injectJavaScript`](webview.md#injectjavascript)
+* [`javaScriptEnabled`](webview.md#javascriptenabled)
+* [`mediaPlaybackRequiresUserAction`](webview.md#mediaplaybackrequiresuseraction)
+* [`mixedContentMode`](webview.md#mixedcontentmode)
+* [`nativeConfig`](webview.md#nativeconfig)
+* [`onError`](webview.md#onerror)
+* [`onLoad`](webview.md#onload)
+* [`onLoadEnd`](webview.md#onloadend)
+* [`onLoadStart`](webview.md#onloadstart)
+* [`onMessage`](webview.md#onmessage)
+* [`onNavigationStateChange`](webview.md#onnavigationstatechange)
+* [`onShouldStartLoadWithRequest`](webview.md#onshouldstartloadwithrequest)
+* [`originWhitelist`](webview.md#originwhitelist)
+* [`renderError`](webview.md#rendererror)
+* [`renderLoading`](webview.md#renderloading)
+* [`scalesPageToFit`](webview.md#scalespagetofit)
+* [`scrollEnabled`](webview.md#scrollenabled)
+* [`startInLoadingState`](webview.md#startinloadingstate)
+* [`source`](webview.md#source)
+* [`style`](webview.md#style)
+* [`thirdPartyCookiesEnabled`](webview.md#thirdpartycookiesenabled)
+* [`useWebKit`](webview.md#usewebkit)
+* [`userAgent`](webview.md#useragent)
+* [`url`](webview.md#url)
 
 ### 查看方法
 
-* [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
-* [`goForward`](webview.md#goforward)
-* [`goBack`](webview.md#goback)
-* [`reload`](webview.md#reload)
-* [`stopLoading`](webview.md#stoploading)
+- [`extraNativeComponentConfig`](webview.md#extranativecomponentconfig)
+- [`goForward`](webview.md#goforward)
+- [`goBack`](webview.md#goback)
+- [`reload`](webview.md#reload)
+- [`stopLoading`](webview.md#stoploading)
 
 ---
 
@@ -113,13 +113,13 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 
 ### `allowFileAccess`
 
- Boolean that sets whether the `WebView` has access to the file system. The default value is `false`.
+Boolean that sets whether the `WebView` has access to the file system. The default value is `false`.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | Android  |
 
- ---
+---
 
 ### `geolocationEnabled`
 
@@ -133,21 +133,21 @@ Set whether Geolocation is enabled in the `WebView`. The default value is `false
 
 ### `source`
 
-在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。注意如果是载入html代码，则需要设置`originWhitelist`，比如可以设为`["*"]`来允许运行本地代码。
+在 WebView 中载入一段静态的 html 代码或是一个 url（还可以附带一些 header 选项）。注意如果是载入 html 代码，则需要设置`originWhitelist`，比如可以设为`["*"]`来允许运行本地代码。
 
 The object passed to `source` can have either of the following shapes:
 
 **Load uri**
 
-* `uri` (string) - The URI to load in the `WebView`. Can be a local or remote file.
-* `method` (string) - The HTTP Method to use. Defaults to GET if not specified. On Android, the only supported methods are GET and POST.
-* `headers` (object) - Additional HTTP headers to send with the request. On Android, this can only be used with GET requests.
-* `body` (string) - The HTTP body to send with the request. This must be a valid UTF-8 string, and will be sent exactly as specified, with no additional encoding (e.g. URL-escaping or base64) applied. On Android, this can only be used with POST requests.
+- `uri` (string) - The URI to load in the `WebView`. Can be a local or remote file.
+- `method` (string) - The HTTP Method to use. Defaults to GET if not specified. On Android, the only supported methods are GET and POST.
+- `headers` (object) - Additional HTTP headers to send with the request. On Android, this can only be used with GET requests.
+- `body` (string) - The HTTP body to send with the request. This must be a valid UTF-8 string, and will be sent exactly as specified, with no additional encoding (e.g. URL-escaping or base64) applied. On Android, this can only be used with POST requests.
 
 **Static HTML**
 
-* `html` (string) - A static HTML page to display in the WebView.
-* `baseUrl` (string) - The base URL to be used for any relative links in the HTML.
+- `html` (string) - A static HTML page to display in the WebView.
+- `baseUrl` (string) - The base URL to be used for any relative links in the HTML.
 
 | 类别   | 必填 |
 | ------ | ---- |
@@ -201,9 +201,9 @@ The object passed to `source` can have either of the following shapes:
 
 The `nativeConfig` prop expects an object with the following keys:
 
-* `component` (any)
-* `props` (object)
-* `viewManager` (object)
+- `component` (any)
+- `props` (object)
+- `viewManager` (object)
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -349,8 +349,8 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 指定一个浮点数，用于设置在用户停止触摸之后，此视图应以多快的速度停止滚动。也可以指定预设的字符串值，如"normal"和"fast"，分别对应 UIScrollViewDecelerationRateNormal 和 UIScrollViewDecelerationRateFast。
 
-* normal: 0.998
-* fast: 0.99 (ios web view 默认)
+- normal: 0.998
+- fast: 0.99 (ios web view 默认)
 
 | 类型   | 必填 | 平台 |
 | ------ | ---- | ---- |
@@ -382,9 +382,9 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 指定混合内容模式。即 WebView 是否应该允许安全链接（https）页面中加载非安全链接（http）的内容,
 
-* `never` (默认) - WebView 不允许安全链接页面中加载非安全链接的内容
-* `always` - WebView 允许安全链接页面中加载非安全链接的内容。
-* `compatibility` - WebView 会尽量和浏览器当前对待此情况的行为一致
+- `never` (默认) - WebView 不允许安全链接页面中加载非安全链接的内容
+- `always` - WebView 允许安全链接页面中加载非安全链接的内容。
+- `compatibility` - WebView 会尽量和浏览器当前对待此情况的行为一致
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -416,8 +416,8 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 布尔值，控制 HTML5 视频是在内部播放(非全屏)还是使用原生的全屏控制器。默认为 `false`。
 
-> **注意** : 
-> 
+> **注意** :
+>
 > 为了确保内联播放，除了这个属性需要被设置成`true`, 在 html 代码中视频元素也需要包含 `webkit-playsinline`属性。
 
 | 类型 | 必填 | 平台 |
@@ -440,9 +440,9 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left: 0, bottom: 0, right: 0}`。
 
-| 类型                                                               | 必填 | 平台 |
-| ------------------------------------------------------------------ | ---- | ---- |
-| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | 否 | iOS |
 
 ---
 
@@ -454,19 +454,19 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 可用的 `dataDetectorTypes` 如下:
 
-* `phoneNumber`
-* `link`
-* `address`
-* `calendarEvent`
-* `none`
-* `all`
+- `phoneNumber`
+- `link`
+- `address`
+- `calendarEvent`
+- `none`
+- `all`
 
 如果启用新的[WKWebView](webview.md#usewebkit)实现，还有额外的三个值可用：
 
-* `trackingNumber`
-* `flightNumber`
-* `lookupSuggestion`
-  
+- `trackingNumber`
+- `flightNumber`
+- `lookupSuggestion`
+
 | 类型             | 必填 | 平台 |
 | ---------------- | ---- | ---- |
 | string, or array | 否   | iOS  |
@@ -485,7 +485,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 ### `useWebKit`
 
-设置true的时候会使用新的WKWebView来代替老的UIWebView。
+设置 true 的时候会使用新的 WKWebView 来代替老的 UIWebView。
 
 | 类型    | 必填 | 平台 |
 | ------- | ---- | ---- |
@@ -495,7 +495,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 ### `url`
 
-**已过期.** 请使用 `source` 属性代替.
+**已过时.** 请使用 `source` 属性代替.
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -505,7 +505,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 ### `html`
 
-**已过期.** 请使用 `source` 属性代替.
+**已过时.** 请使用 `source` 属性代替.
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -525,7 +525,7 @@ static extraNativeComponentConfig()
 goForward();
 ```
 
-根据webview的历史访问记录往前一个页面。
+根据 webview 的历史访问记录往前一个页面。
 
 ### `goBack()`
 
@@ -533,7 +533,7 @@ goForward();
 goBack();
 ```
 
-根据webview的历史访问记录往后一个页面。
+根据 webview 的历史访问记录往后一个页面。
 
 ### `reload()`
 

@@ -12,10 +12,10 @@ title: Keyboard
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -133,21 +133,21 @@ static addListener(eventName, callback)
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                            |
-| --------- | -------- | -------- | ------------------------------------------------------ |
-| eventName | string   | Yes      | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
-| callback  | function | Yes      | 事件触发时调用的 js 函数                               |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| eventName | string | Yes | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
+| callback | function | Yes | 事件触发时调用的 js 函数 |
 
 **nativeEvent**
 
 This can be any of the following
 
-* `keyboardWillShow`
-* `keyboardDidShow`
-* `keyboardWillHide`
-* `keyboardDidHide`
-* `keyboardWillChangeFrame`
-* `keyboardDidChangeFrame`
+- `keyboardWillShow`
+- `keyboardDidShow`
+- `keyboardWillHide`
+- `keyboardDidHide`
+- `keyboardWillChangeFrame`
+- `keyboardDidChangeFrame`
 
 注意如果你把`android:windowSoftInputMode`设置为`adjustResize`或是`adjustPan`，则在 Android 上只有`keyboardDidShow`和`keyboardDidHide`事件有效。如果`android:windowSoftInputMode`设置为`adjustNothing`，则没有任何事件有效。`keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
 
@@ -163,10 +163,10 @@ static removeListener(eventName, callback)
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                      |
-| --------- | -------- | -------- | -------------------------------- |
-| eventName | string   | Yes      | 要移除监听函数的原生事件类型名称 |
-| callback  | function | Yes      | 要移除的监听函数                 |
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| eventName | string | Yes | 要移除监听函数的原生事件类型名称 |
+| callback | function | Yes | 要移除的监听函数 |
 
 ---
 

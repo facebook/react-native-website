@@ -10,10 +10,10 @@ Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式�
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -240,9 +240,9 @@ export default App;
 
 `supportedOrientations`用于指定在设备切换横竖屏方向时，modal 会在哪些屏幕朝向下跟随旋转。在 iOS 上，除了本属性外，还会受到应用的 Info.plist 文件中`UISupportedInterfaceOrientations`的限制。如果还设置了`presentationStyle`属性为`pageSheet`或`formSheet`，则在 iOS 上本属性将被忽略。
 
-| 类型                                                                                                | 必填 | 平台 |
-| --------------------------------------------------------------------------------------------------- | ---- | ---- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否   | iOS  |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否 | iOS |
 
 ---
 
@@ -269,7 +269,7 @@ export default App;
 
 ### `transparent`
 
-`transparent` 属性是指背景是否透明，默认为白色，将这个属性设为：true 的时候弹出一个透明背景层的modal。
+`transparent` 属性是指背景是否透明，默认为白色，将这个属性设为：true 的时候弹出一个透明背景层的 modal。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -281,9 +281,9 @@ export default App;
 
 `animationType`指定了 modal 的动画类型。
 
-* `slide` 从底部滑入滑出。
-* `fade` 淡入淡出。
-* `none` 没有动画，直接蹦出来。
+- `slide` 从底部滑入滑出。
+- `fade` 淡入淡出。
+- `none` 没有动画，直接蹦出来。
 
 默认值为`none`。
 
@@ -307,9 +307,9 @@ export default App;
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -337,13 +337,13 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 `presentationStyle`决定 modal（在较大屏幕的设备比如 iPad 或是 Plus 机型）如何展现。更多细节请参阅<https://developer.apple.com/reference/uikit/uimodalpresentationstyle>。
 
-* `fullScreen`完全盖满屏幕。
-* `pageSheet`竖直方向几乎盖满，水平居中，左右留出一定空白（仅用于大屏设备）。
-* `formSheet`竖直和水平都居中，四周都留出一定空白（仅用于大屏设备）。
-* `overFullScreen`完全盖满屏幕，同时允许透明。
+- `fullScreen`完全盖满屏幕。
+- `pageSheet`竖直方向几乎盖满，水平居中，左右留出一定空白（仅用于大屏设备）。
+- `formSheet`竖直和水平都居中，四周都留出一定空白（仅用于大屏设备）。
+- `overFullScreen`完全盖满屏幕，同时允许透明。
 
 默认会根据`transparent`属性而设置为`overFullScreen`或是`fullScreen`。
 
-| 类型                                                           | 必填 | 平台 |
-| -------------------------------------------------------------- | ---- | ---- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否   | iOS  |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否 | iOS |

@@ -3,18 +3,19 @@ id: backhandler
 title: BackHandler
 ---
 
-BackHandler API用于监听设备上的后退按钮事件，可以调用你自己的函数来处理后退行为。此API仅能在Android上使用。
+BackHandler API 用于监听设备上的后退按钮事件，可以调用你自己的函数来处理后退行为。此 API 仅能在 Android 上使用。
 
 回调函数是倒序执行的（即后添加的函数先执行）。
+
 - **如果某一个函数返回 true**，则后续的函数都不会被调用。
 - **如果没有添加任何监听函数，或者所有的监听函数都返回 false**，则会执行默认行为，退出应用。
-  
-> 注意：如果app当前打开了一个`Modal`窗口，则BackHandler不会触发事件。([查看`Modal`的文档](modal.md#onrequestclose)).
+
+> 注意：如果 app 当前打开了一个`Modal`窗口，则 BackHandler 不会触发事件。([查看`Modal`的文档](modal.md#onrequestclose)).
 
 ## 用法
 
 ```jsx
-BackHandler.addEventListener('hardwareBackPress', function() {
+BackHandler.addEventListener('hardwareBackPress', function () {
   /**
    * this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现
    * 一般来说都要配合导航器组件使用
@@ -41,9 +42,9 @@ The following example implements a scenario where you confirm if the user wants 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+    <lClass组件示例"button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
       Class Component Example
     </li>
   </ul>
@@ -162,9 +163,9 @@ Additionally `BackHandler.removeEventListener` can also be used to clear the eve
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+    <lClass组件示例"button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
       Class Component Example
     </li>
   </ul>

@@ -10,10 +10,10 @@ title: AccessibilityInfo
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>

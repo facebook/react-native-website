@@ -3,10 +3,51 @@ id: view
 title: View
 ---
 
-作为创建 UI 时最基础的组件，View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，View 都会直接对应一个平台的原生视图，无论它是 UIView、div还是 android.view.View。下面的例子创建了一个 View，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
+作为创建 UI 时最基础的组件，View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，View 都会直接对应一个平台的原生视图，无论它是 UIView、div 还是 android.view.View。下面的例子创建了一个 View，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
 
-```jsx
-class ViewColoredBoxesWithText extends Component {
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=View%20Function%20Component%20Example
+import React from "react";
+import { View, Text } from "react-native";
+
+const ViewBoxesWithColorAndText = () => {
+  return (
+    <View
+      style={{
+        flexDirection: "row",
+        height: 100,
+        padding: 20
+      }}
+    >
+      <View style={{ backgroundColor: "blue", flex: 0.3 }} />
+      <View style={{ backgroundColor: "red", flex: 0.5 }} />
+      <Text>Hello World!</Text>
+    </View>
+  );
+};
+
+export default ViewBoxesWithColorAndText;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=View%20Class%20Component%20Example
+import React, { Component } from "react";
+import { View, Text } from "react-native";
+
+class App extends Component {
   render() {
     return (
       <View
@@ -23,7 +64,11 @@ class ViewColoredBoxesWithText extends Component {
     );
   }
 }
+
+export default App;
 ```
+
+<block class="endBlock syntax" />
 
 > View 的设计初衷是和 StyleSheet 搭配使用，这样可以使代码更清晰并且获得更高的性能。尽管内联样式也同样可以使用。
 
@@ -31,16 +76,16 @@ class ViewColoredBoxesWithText extends Component {
 
 用于 `View` 响应属性 (例如, `onResponderMove`), 合成触摸事件采用以下的格式:
 
-* `nativeEvent`
-  * `changedTouches` - 从上一次事件以来的触摸事件数组。
-  * `identifier` - 触摸事件的 ID。
-  * `locationX` - 触摸事件相对元素位置的 X 坐标。
-  * `locationY` - 触摸事件相对元素位置的 Y 坐标。
-  * `pageX` - 触摸事件相对根元素位置的 X 坐标。
-  * `pageY` - 触摸事件相对根元素位置的 Y 坐标。
-  * `target` - 接收触摸事件的元素 ID.
-  * `timestamp` - 触摸事件的时间标记，用来计算速度.
-  * `touches` - 屏幕上所有当前触摸事件的数组.
+- `nativeEvent`
+  - `changedTouches` - 从上一次事件以来的触摸事件数组。
+  - `identifier` - 触摸事件的 ID。
+  - `locationX` - 触摸事件相对元素位置的 X 坐标。
+  - `locationY` - 触摸事件相对元素位置的 Y 坐标。
+  - `pageX` - 触摸事件相对根元素位置的 X 坐标。
+  - `pageY` - 触摸事件相对根元素位置的 Y 坐标。
+  - `target` - 接收触摸事件的元素 ID.
+  - `timestamp` - 触摸事件的时间标记，用来计算速度.
+  - `touches` - 屏幕上所有当前触摸事件的数组.
 
 ---
 
@@ -80,7 +125,6 @@ An accessibility hint helps users understand what will happen when they perform 
 
 ---
 
-
 ### `hitSlop`
 
 定义触摸事件在距离视图多远以内时可以触发的。典型的接口规范建议触摸目标至少要 30-40 点/密度-独立像素。
@@ -89,9 +133,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 > 触摸范围不会扩展到父视图之外，另外如果触摸到两个重叠的视图，Z-index 高的元素会优先。
 
-| 类型                                                               | 必填 |
-| ------------------------------------------------------------------ | ---- |
-| object: {top: number, left: number, bottom: number, right: number} | 否   |
+| 类型 | 必填 |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | 否 |
 
 ---
 
@@ -165,8 +209,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 ### `onMoveShouldSetResponderCapture`
 
-如果父视图想要阻止子视图响应 touch move 事件时，它就应该设置这个方法并返回 `true`
-`View.props.onMoveShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。
+如果父视图想要阻止子视图响应 touch move 事件时，它就应该设置这个方法并返回 `true` `View.props.onMoveShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -178,10 +221,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 这个视图开始响应触摸事件。此时需要高亮告诉用户正在响应。（译者注：对于大部分的触摸处理，你只需要用 TouchableHighlight 或 TouchableOpacity 包装你的组件。阅读 Touchable.js。）
 
-`View.props.onResponderGrant: (event) => {}`,其中 event 是一个合成触摸事件。
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+`View.props.onResponderGrant: (event) => {}`,其中 event 是一个合成触摸事件。 | 类型 | 必填 | | -------- | ---- | | function | 否 |
 
 ---
 
@@ -259,10 +299,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 如果父视图想要阻止子视图响应 touch start 事件，它就应该设置这个方法并返回 true。
 
-`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。 | 类型 | 必填 | | -------- | ---- | | function | 否 |
 
 ---
 
@@ -270,9 +307,9 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 用于控制当前视图是否可以作为触控事件的目标。
 
-* auto：视图可以作为触控事件的目标。
-* none：视图不能作为触控事件的目标。
-* box-none：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在 CSS 中这样设置:
+- auto：视图可以作为触控事件的目标。
+- none：视图不能作为触控事件的目标。
+- box-none：视图自身不能作为触控事件的目标，但其子视图可以。类似于你在 CSS 中这样设置:
 
 ```
 .box-none {
@@ -283,7 +320,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 }
 ```
 
-* `'box-only'`:视图自身可以作为触控事件的目标，但其子视图不能。类似于你在 CSS 中这样设置:
+- `'box-only'`:视图自身可以作为触控事件的目标，但其子视图不能。类似于你在 CSS 中这样设置:
 
 ```
 .box-only {
@@ -338,9 +375,9 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 告知无障碍服务当此视图更新时，是否要通知用户。只对 Android API >= 19 的设备有效。可用的值为:
 
-* `'none'` - 无障碍服务不应该通知.
-* `'polite'`- 无障碍服务应该通知.
-* `'assertive'` - 无障碍服务应该打断当前的播报然立即通知用户.
+- `'none'` - 无障碍服务不应该通知.
+- `'polite'`- 无障碍服务应该通知.
+- `'assertive'` - 无障碍服务应该打断当前的播报然立即通知用户.
 
 可以阅读[Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) 了解更多信息。
 
@@ -366,16 +403,16 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 可用的值:
 
-* `'auto'` - 系统来决定这个视图对于辅助功能是否重要 - 默认(推荐)。
-* `'yes'` - 这个视图对于辅助功能而言重要。
-* `'no'` - 这个视图对辅助功能不重要。
-* `'no-hide-descendants'` - 这个视图，以及所有的后代视图，都对于辅助功能不重要。
+- `'auto'` - 系统来决定这个视图对于辅助功能是否重要 - 默认(推荐)。
+- `'yes'` - 这个视图对于辅助功能而言重要。
+- `'no'` - 这个视图对辅助功能不重要。
+- `'no-hide-descendants'` - 这个视图，以及所有的后代视图，都对于辅助功能不重要。
 
 了解更多信息，可以阅读 [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility)。
 
-| 类型                                             | 必填 | 平台    |
-| ------------------------------------------------ | ---- | ------- |
-| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否   | Android |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否 | Android |
 
 ---
 
@@ -409,20 +446,19 @@ Tells the screen reader to treat the currently focused on element as having a sp
 
 Possible values for `AccessibilityRole` is one of:
 
-* `'none'` - The element has no role.
-* `'button'` - The element should be treated as a button.
-* `'link'` - The element should be treated as a link.
-* `'header'` - The element is a header that divides content into sections.
-* `'search'` - The element should be treated as a search field.
-* `'image'` - The element should be treated as an image.
-* `'key'` - The element should be treated like a keyboard key.
-* `'text'` - The element should be treated as text.
-* `'summary'` - The element provides app summary information.
-* `'imagebutton'` - The element has the role of both an image and also a button.
-* `'adjustable'` - The element allows adjustment over a range of values.
+- `'none'` - The element has no role.
+- `'button'` - The element should be treated as a button.
+- `'link'` - The element should be treated as a link.
+- `'header'` - The element is a header that divides content into sections.
+- `'search'` - The element should be treated as a search field.
+- `'image'` - The element should be treated as an image.
+- `'key'` - The element should be treated like a keyboard key.
+- `'text'` - The element should be treated as text.
+- `'summary'` - The element provides app summary information.
+- `'imagebutton'` - The element has the role of both an image and also a button.
+- `'adjustable'` - The element allows adjustment over a range of values.
 
-On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'.
-See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
@@ -436,12 +472,12 @@ On Android, these roles have similar functionality on TalkBack as adding Accessi
 
 Tells the screen reader to treat the currently focused on element as being in a specific state.
 
-You can provide one state, no state, or both states. The states must be passed in through an array.
-Ex: ['selected'] or ['selected', 'disabled']
+You can provide one state, no state, or both states. The states must be passed in through an array. Ex: ['selected'] or ['selected', 'disabled']
 
 Possible values for `AccessibilityStates` are:
-* `'selected'` - The element is in a selcted state.
-* `'disabled'` - The element is in a disabled state.
+
+- `'selected'` - The element is in a selcted state.
+- `'disabled'` - The element is in a disabled state.
 
 | 类型                        | 必填 |
 | --------------------------- | ---- |
@@ -496,7 +532,6 @@ See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors)
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
-
 
 ### `nextFocusDown`
 

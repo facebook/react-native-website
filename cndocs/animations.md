@@ -9,8 +9,7 @@ React Native 提供了两个互补的动画系统：用于创建精细的交互�
 
 ## `Animated`
 
-[`Animated`](animated)使得开发者可以简洁地实现各种各样的动画和交互方式，并且具备极高的性能。`Animated`旨在以声明的形式来定义动画的输入与输出，在其中建立一个可配置的变化函数，然后使用`start/stop`方法来控制动画按顺序执行。
-`Animated`仅封装了6个可以动画化的组件：`View`、`Text`、`Image`、`ScrollView`、`FlatList`和`SectionList`，不过你也可以使用`Animated.createAnimatedComponent()`来封装你自己的组件。下面是一个在加载时带有淡入动画效果的视图：
+[`Animated`](animated)使得开发者可以简洁地实现各种各样的动画和交互方式，并且具备极高的性能。`Animated`旨在以声明的形式来定义动画的输入与输出，在其中建立一个可配置的变化函数，然后使用`start/stop`方法来控制动画按顺序执行。 `Animated`仅封装了 6 个可以动画化的组件：`View`、`Text`、`Image`、`ScrollView`、`FlatList`和`SectionList`，不过你也可以使用`Animated.createAnimatedComponent()`来封装你自己的组件。下面是一个在加载时带有淡入动画效果的视图：
 
 ```SnackPlayer
 import React, { useRef, useEffect } from 'react';
@@ -55,9 +54,9 @@ export default () => {
 
 我们来分解一下这个过程。在`FadeInView`的构造函数里，我们创建了一个名为`fadeAnim`的`Animated.Value`，并放在`state`中。而`View`的透明度是和这个值绑定的。
 
-组件加载时，透明度首先设为 0。然后一个easing动画开始改变`fadeAnim`值，同时会导致所有与其相关联的值（本例中是透明度）也逐帧更新，最终和`fadeAnim`一样变为1。
+组件加载时，透明度首先设为 0。然后一个 easing 动画开始改变`fadeAnim`值，同时会导致所有与其相关联的值（本例中是透明度）也逐帧更新，最终和`fadeAnim`一样变为 1。
 
-这一过程经过特别优化，执行效率会远高于反复调用`setState`和多次重渲染。 
+这一过程经过特别优化，执行效率会远高于反复调用`setState`和多次重渲染。
 
 因为这一过程是纯声明式的，因此还有进一步优化的空间，比如我们可以把这些声明的配置序列化后发送到一个高优先级的线程上运行。
 
@@ -69,7 +68,7 @@ export default () => {
 
 By default, `timing` will use a easeInOut curve that conveys gradual acceleration to full speed and concludes by gradually decelerating to a stop. You can specify a different easing function by passing a `easing` parameter. Custom `duration` or even a `delay` before the animation starts is also supported.
 
-下面这个例子创建了一个2秒长的动画，在移动目标到最终位置前会稍微往后退一点：
+下面这个例子创建了一个 2 秒长的动画，在移动目标到最终位置前会稍微往后退一点：
 
 ```jsx
 Animated.timing(this.state.xPosition, {
@@ -185,7 +184,7 @@ value.interpolate({
 ```jsx
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ["0deg", "360deg"]
+  outputRange: ['0deg', '360deg']
 });
 ```
 
@@ -232,10 +231,10 @@ The following example implements a horizontal scrolling carousel where the scrol
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -525,10 +524,10 @@ onPanResponderMove={Animated.event(
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -646,8 +645,8 @@ const styles = StyleSheet.create({
 
 你可能会注意到这里没有一个明显的方法来在动画的过程中读取当前的值——这是出于优化的角度考虑，有些值只有在原生代码运行阶段中才知道。如果你需要在 JavaScript 中响应当前的值，有两种可能的办法：
 
-* `spring.stopAnimation(callback)`会停止动画并且把最终的值作为参数传递给回调函数`callback`——这在处理手势动画的时候非常有用。
-* `spring.addListener(callback)`会在动画的执行过程中持续异步调用`callback`回调函数，提供一个最近的值作为参数。这在用于触发状态切换的时候非常有用，譬如当用户拖拽一个东西靠近的时候弹出一个新的气泡选项。不过这个状态切换可能并不会十分灵敏，因为它不像许多连续手势操作（如旋转）那样在 60fps 下运行。
+- `spring.stopAnimation(callback)`会停止动画并且把最终的值作为参数传递给回调函数`callback`——这在处理手势动画的时候非常有用。
+- `spring.addListener(callback)`会在动画的执行过程中持续异步调用`callback`回调函数，提供一个最近的值作为参数。这在用于触发状态切换的时候非常有用，譬如当用户拖拽一个东西靠近的时候弹出一个新的气泡选项。不过这个状态切换可能并不会十分灵敏，因为它不像许多连续手势操作（如旋转）那样在 60fps 下运行。
 
 `Animated` is designed to be fully serializable so that animations can be run in a high performance way, independent of the normal JavaScript event loop. This does influence the API, so keep that in mind when it seems a little trickier to do something compared to a fully synchronous system. Check out `Animated.Value.addListener` as a way to work around some of these limitations, but use it sparingly since it might have performance implications in the future.
 
@@ -681,8 +680,7 @@ Animated.timing(this.state.animatedValue, {
       }
     ],
     { useNativeDriver: true } // <-- 加上这一行
-  )}
->
+  )}>
   {content}
 </Animated.ScrollView>
 ```
@@ -715,8 +713,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
 
 The RNTester app has various examples of `Animated` in use:
 
-* [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/examples/Animated/AnimatedGratuitousApp)
-* [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/NativeAnimation/NativeAnimationsExample.js)
+- [AnimatedGratuitousApp](https://github.com/facebook/react-native/tree/master/RNTester/js/examples/Animated/AnimatedGratuitousApp)
+- [NativeAnimationsExample](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/NativeAnimation/NativeAnimationsExample.js)
 
 ## `LayoutAnimation` API
 

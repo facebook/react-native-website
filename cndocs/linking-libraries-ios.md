@@ -25,7 +25,7 @@ $ npm install 某个带有原生依赖的库
 
 #### 第二步
 
-运行以下命令，它会根据`package.json`文件中的`dependencies`和`devDependencies`记录来链接所有需要链接的库（注意一些老的教程和文档可能会提到`rnpm link`命令，此命令已过期不再使用，由下面这个命令代替）：
+运行以下命令，它会根据`package.json`文件中的`dependencies`和`devDependencies`记录来链接所有需要链接的库（注意一些老的教程和文档可能会提到`rnpm link`命令，此命令已过时不再使用，由下面这个命令代替）：
 
 ```bash
 $ npx react-native link

@@ -89,6 +89,16 @@ const siteConfig = {
     theme: 'solarized-dark',
     version: packageJson.dependencies['highlight.js'].replace('^', '')
   },
+  usePrism: [
+    'javascript',
+    'js',
+    'jsx',
+    'java',
+    'objective-c',
+    'json',
+    'sh',
+    'tsx',
+  ],
   gaTrackingId: 'UA-63485149-4',
   scripts: [
     // 'https://snack.expo.io/embed.js',

@@ -7,6 +7,65 @@ title: VirtualizedList
 
 Vritualization 通过维护一个有限的渲染窗口（其中包含可见的元素），并将渲染窗口之外的元素全部用合适的定长空白空间代替的方式，极大的改善了内存消耗以及在有大量数据情况下的使用性能。这个渲染窗口能响应滚动行为。当一个元素离可视区太远时，它就有一个较低优先级；否则就获得一个较高的优先级。渲染窗口通过这种方式逐步渲染其中的元素（在进行了任何交互之后），以尽量减少出现空白区域的可能性。
 
+## 示例
+
+```SnackPlayer name=VirtualizedListExample
+import React from 'react';
+import { SafeAreaView, View, VirtualizedList, StyleSheet, Text } from 'react-native';
+import Constants from 'expo-constants';
+const DATA = [];
+const getItem = (data, index) => {
+  return {
+    id: Math.random().toString(12).substring(0),
+    title: `Item ${index+1}`
+  }
+}
+const getItemCount = (data) => {
+  return 50;
+}
+const Item = ({ title })=> {
+  return (
+    <View style={styles.item}>
+      <Text style={styles.title}>{title}</Text>
+    </View>
+  );
+}
+const VirtualizedListExample = () => {
+  return (
+    <SafeAreaView style={styles.container}>
+      <VirtualizedList
+        data={DATA}
+        initialNumToRender={4}
+        renderItem={({ item }) => <Item title={item.title} />}
+        keyExtractor={item => item.key}
+        getItemCount={getItemCount}
+        getItem={getItem}
+      />
+    </SafeAreaView>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    height: 150,
+    justifyContent: 'center',
+    marginVertical: 8,
+    marginHorizontal: 16,
+    padding: 20,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+export default VirtualizedListExample;
+```
+
+---
+
 注意事项：
 
 * 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
@@ -139,6 +198,26 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 ---
 
+### `ItemSeparatorComponent`
+
+Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
+
+| Type                | Required |
+| ------------------- | -------- |
+| component, function | No       |
+
+---
+
+### `listKey`
+
+A unique identifier for this list. If there are multiple VirtualizedLists at the same level of nesting within another VirtualizedList, this key is necessary for virtualization to work properly.
+
+| Type   | Required |
+| ------ | -------- |
+| string | True     |
+
+---
+
 ### `ListEmptyComponent`
 
 当列表为空时渲染。可以是一个 React 类，或者一个渲染函数，或者一个已渲染的元素。
@@ -146,6 +225,16 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 | 类型                         | 必填 |
 | ---------------------------- | ---- |
 | component, function, element | 否   |
+
+---
+
+### `ListItemComponent`
+
+Each data item is rendered using this element. Can be a React Component Class, or a render function
+
+| Type                | Required |
+| ------------------- | -------- |
+| component, function | No       |
 
 ---
 
@@ -159,6 +248,16 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 ---
 
+### `ListFooterComponentStyle`
+
+Styling for internal View for ListFooterComponent
+
+| Type          | Required |
+| ------------- | -------- |
+| ViewStyleProp | No       |
+
+---
+
 ### `ListHeaderComponent`
 
 在所有子项最上面渲染的组件（列表头部）.可以是一个 React 类，或者一个渲染函数，或者一个已渲染的元素。
@@ -169,11 +268,13 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 ---
 
-### `onLayout`
+### `ListHeaderComponentStyle`
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+Styling for internal View for ListHeaderComponent
+
+| Type          | Required |
+| ------------- | -------- |
+| ViewStyleProp | No       |
 
 ---
 
@@ -233,6 +334,16 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 | 类型    | 必填 |
 | ------- | ---- |
 | boolean | 否   |
+
+---
+
+### `refreshControl`
+
+A custom refresh control element. When set, it overrides the default <RefreshControl> component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
+
+| Type    | Required |
+| ------- | -------- |
+| element | No       |
 
 ---
 
@@ -372,11 +483,19 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 ### `disableVirtualization`
 
-**已过时.** : Virtualization 提供了显著的性能和内存优化，并且完全卸载了位于可视区之外的 react 实例。当且仅当为了调试，你才可以关闭这个特性。
+**已过时** : Virtualization 提供了显著的性能和内存优化，并且完全卸载了位于可视区之外的 react 实例。当且仅当为了调试，你才可以关闭这个特性。
 
 | 类型 | 必填 |
 | ---- | ---- |
 |      | 否   |
+
+---
+
+### `persistentScrollbar`
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 
@@ -396,6 +515,11 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 scrollToEnd(([params]: object));
 ```
 
+Valid `params` consist of:
+
+- 'animated' (boolean). Optional default is true.
+
+
 ---
 
 ### `scrollToIndex()`
@@ -404,6 +528,13 @@ scrollToEnd(([params]: object));
 scrollToIndex((params: object));
 ```
 
+Valid `params` consist of:
+
+- 'animated' (boolean). Optional.
+- 'index' (number). Required.
+- 'viewOffset' (number). Optional.
+- 'viewPosition' (number). Optional.
+
 ---
 
 ### `scrollToItem()`
@@ -411,6 +542,12 @@ scrollToIndex((params: object));
 ```jsx
 scrollToItem((params: object));
 ```
+
+Valid `params` consist of:
+
+- 'animated' (boolean). Optional.
+- 'item' (Item). Required.
+- 'viewPosition' (number). Optional.
 
 ---
 
@@ -440,4 +577,66 @@ recordInteraction();
 
 ```jsx
 flashScrollIndicators();
+```
+
+---
+
+### `getScrollResponder()`
+
+```jsx
+getScrollResponder () => ?ScrollResponderType;
+```
+
+Provides a handle to the underlying scroll responder. Note that `this._scrollRef` might not be a `ScrollView`, so we need to check that it responds to `getScrollResponder` before calling it.
+
+---
+
+### `getScrollableNode()`
+
+```jsx
+getScrollableNode () => ?number;
+```
+
+---
+
+### `getScrollRef()`
+
+```jsx
+getScrollRef () => | ?React.ElementRef<typeof ScrollView>
+    | ?React.ElementRef<typeof View>;
+```
+
+---
+
+### `setNativeProps()`
+
+```jsx
+setNativeProps((props: Object));
+```
+
+---
+
+### `getChildContext()`
+
+```jsx
+getChildContext () => Object;
+```
+
+The `Object` returned consist of:
+
+- 'virtualizedList' (Object). This object consist of the following
+  - getScrollMetrics' (Function). Returns an object with following properties: `{ contentLength: number, dOffset: number, dt: number, offset: number, timestamp: number, velocity: number, visibleLength: number }`.
+  - 'horizontal' (boolean) - Optional.
+  - 'getOutermostParentListRef' (Function).
+  - 'getNestedChildState' (Function) - Returns ChildListState .
+  - 'registerAsNestedChild' (Function). This accept an object with following properties `{ cellKey: string, key: string, ref: VirtualizedList, parentDebugInfo: ListDebugInfo }`. It returns a ChildListState
+  - 'unregisterAsNestedChild' (Function). This takes an object with following properties, `{ key: string, state: ChildListState }`
+  - 'debugInfo' (ListDebugInfo).
+
+---
+
+### `hasMore()`
+
+```jsx
+hasMore () => boolean;
 ```

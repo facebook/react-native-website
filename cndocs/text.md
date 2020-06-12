@@ -10,10 +10,10 @@ title: Text
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -228,7 +228,9 @@ html {
 
 ```jsx
 <View>
-  <MyAppText>这个组件包含了一个默认的字体样式，用于整个应用的文本</MyAppText>
+  <MyAppText>
+    这个组件包含了一个默认的字体样式，用于整个应用的文本
+  </MyAppText>
   <MyAppHeaderText>这个组件包含了用于标题的样式</MyAppHeaderText>
 </View>
 ```
@@ -240,7 +242,9 @@ class MyAppHeaderText extends Component {
   render() {
     return (
       <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+        <Text style={{ fontSize: 20 }}>
+          {this.props.children}
+        </Text>
       </MyAppText>
     );
   }
@@ -252,9 +256,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native 实际上还是有一部分样式继承的实现，不过仅限于文本标签的子树。在下面的代码里，第二部分会在加粗的同时又显示为红色：
 
 ```jsx
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: 'bold' }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: 'red' }}>and red</Text>
 </Text>
 ```
 
@@ -406,9 +410,9 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| 类型                                                               | 必填 |
-| ------------------------------------------------------------------ | ---- |
-| object: {top: number, left: number, bottom: number, right: number} | 否   |
+| 类型 | 必填 |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | 否 |
 
 ---
 
@@ -566,9 +570,9 @@ Possible values for `dataDetectorType` are:
 - `'none'`
 - `'all'`
 
-| Type                                                | Required | Platform |
-| --------------------------------------------------- | -------- | -------- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
+| Type | Required | Platform |
+| --- | --- | --- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No | Android |
 
 ---
 

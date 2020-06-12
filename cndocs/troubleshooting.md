@@ -7,19 +7,19 @@ These are some common issues you may run into while setting up React Native. If 
 
 ### Port already in use
 
-The React Native packager runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the packager uses.
+The [Metro bundler][metro] runs on port 8081. If another process is already using that port, you can either terminate that process, or change the port that the bundler uses.
 
 #### Terminating a process on port 8081
 
-Run the following command on a Mac to find the id for the process that is listening on port 8081:
+Run the following command to find the id for the process that is listening on port 8081:
 
-```
+```sh
 $ sudo lsof -i :8081
 ```
 
 Then run the following to terminate the process:
 
-```
+```sh
 $ kill -9 <PID>
 ```
 
@@ -27,10 +27,10 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 #### Using a port other than 8081
 
-You can configure the packager to use a port other than 8081 by using the `port` parameter:
+You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
-```
-$ react-native start --port=8088
+```sh
+$ npx react-native start --port=8088
 ```
 
 You will also need to update your applications to load the JavaScript bundle from the new port. If running on device from Xcode, you can do this by updating occurrences of `8081` to your chosen port in the `node_modules/react-native/React/React.xcodeproj/project.pbxproj` file.
@@ -61,6 +61,10 @@ pod 'React', :path => '../node_modules/react-native', :subspecs => [
 
 Next, make sure you have run `pod install` and that a `Pods/` directory has been created in your project with React installed. CocoaPods will instruct you to use the generated `.xcworkspace` file henceforth to be able to use these installed dependencies.
 
+#### React Native does not compile when being used as a CocoaPod
+
+There is a CocoaPods plugin called [cocoapods-fix-react-native](https://github.com/orta/cocoapods-fix-react-native) which handles any potential post-fixing of the source code due to differences when using a dependency manager.
+
 #### Argument list too long: recursive header expansion failed
 
 In the project's build settings, `User Search Header Paths` and `Header Search Paths` are two configs that specify where Xcode should look for `#import` header files specified in the code. For Pods, CocoaPods uses a default array of specific folders to look in. Verify that this particular config is not overwritten, and that none of the folders configured are too large. If one of the folders is a large folder, Xcode will attempt to recursively search the entire directory and throw above error at some point.
@@ -89,18 +93,20 @@ Try [downgrading your Gradle version to 1.2.3](https://github.com/facebook/react
 
 ## react-native init hangs
 
-If you run into issues where running `react-native init` hangs in your system, try running it again in verbose mode and refering to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
+If you run into issues where running `npx react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
 
 ```
-react-native init --verbose
+npx react-native init --verbose
 ```
 
 ## Unable to start react-native package manager (on Linux)
 
 ### Case 1: Error "code":"ENOSPC","errno":"ENOSPC"
 
-Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, just run this command in your terminal window
+Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, run this command in your terminal window
 
 ```
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
+
+[metro]: https://facebook.github.io/metro/

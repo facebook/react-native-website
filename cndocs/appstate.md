@@ -9,12 +9,12 @@ AppState 通常在处理推送通知的时候用来决定内容和对应的行�
 
 ### App States
 
-* `active` - 应用正在前台运行
-* `background` - 应用正在后台运行。用户可能面对以下几种情况：
-  * 在别的应用中
-  * 停留在桌面
-  * 对 Android 来说还可能处在另一个`Activity`中（即便是由你的应用拉起的）
-* [iOS] `inactive` - 此状态表示应用正在前后台的切换过程中，或是处在系统的多任务视图，又或是处在来电状态中。
+- `active` - 应用正在前台运行
+- `background` - 应用正在后台运行。用户可能面对以下几种情况：
+  - 在别的应用中
+  - 停留在桌面
+  - 对 Android 来说还可能处在另一个`Activity`中（即便是由你的应用拉起的）
+- [iOS] `inactive` - 此状态表示应用正在前后台的切换过程中，或是处在系统的多任务视图，又或是处在来电状态中。
 
 要了解更多信息，可以阅读[Apple 的文档](https://developer.apple.com/documentation/uikit/app_and_scenes/managing_your_app_s_life_cycle)。
 
@@ -25,10 +25,10 @@ AppState 通常在处理推送通知的时候用来决定内容和对应的行�
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>

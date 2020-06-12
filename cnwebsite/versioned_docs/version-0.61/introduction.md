@@ -18,6 +18,7 @@ You can start here and read through these docs linearly like a book; or you can 
 To work with React Native, you will need to have an understanding of JavaScript fundamentals. If you’re new to JavaScript or need a refresher, you can [dive in](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [brush up](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) at Mozilla Developer Network.
 
 > While we do our best to assume no prior knowledge of React, Android, or iOS development, these are valuable topics of study for the aspiring React Native developer. Where sensible, we have linked to resources and articles that go more in depth.
+
 ## Interactive examples
 
 This introduction lets you get started immediately in your browser with interactive examples like this one:
@@ -39,6 +40,7 @@ export default function YourApp() {
 The above is a Snack Player. It’s a handy tool created by Expo to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with it in your browser. Go ahead and try changing the "Try editing me!" text above to "Hello, world!"
 
 > Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](environment-setup) and paste the code examples into your `App.js` file there. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
+
 ## Function Components and Class Components
 
 With React, you can make components using either classes or functions. Originally, class components were the only components that could have state. But since the introduction of React's Hooks API, you can add state and more to function components.
@@ -48,10 +50,10 @@ With React, you can make components using either classes or functions. Originall
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -113,14 +115,11 @@ People from many different development backgrounds are learning React Native. Yo
 
 <block class="webNote devNotes" />
 
-> Web developers may be familiar with this concept.
-<block class="androidNote devNotes" />
+> Web developers may be familiar with this concept. <block class="androidNote devNotes" />
 
-> Android developers may be familiar with this concept.
-<block class="iosNote devNotes" />
+> Android developers may be familiar with this concept. <block class="iosNote devNotes" />
 
-> iOS developers may be familiar with this concept.
-<block class="endBlock devNotes" />
+> iOS developers may be familiar with this concept. <block class="endBlock devNotes" />
 
 ## Formatting
 

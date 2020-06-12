@@ -8,7 +8,7 @@ title: Dimensions
 > [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
 
 ```jsx
-import {Dimensions } from "react-native";
+import { Dimensions } from 'react-native';
 ```
 
 你可以用下面的方法来获取设备的宽高：
@@ -27,10 +27,10 @@ If you are targeting foldable devices or devices which can change the screen siz
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -149,9 +149,9 @@ static get(dim)
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                                                   |
-| ------    | ------   | -------- | ----------------------------------------------------------------------------------------------|
-| dim       | string   | Yes      | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。  | 
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| dim | string | Yes | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -191,7 +191,6 @@ static set(dims)
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                               |
-| ------    | ------   | -------- | ------------------------------------------|
-| dims      | object   | Yes      | string-keyed object of dimensions to set  | 
-
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| dims | object | Yes | string-keyed object of dimensions to set |

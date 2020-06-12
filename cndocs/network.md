@@ -24,12 +24,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
-  }),
+    secondParam: 'yourOtherValue'
+  })
 });
 ```
 
@@ -39,9 +39,9 @@ fetch('https://mywebsite.com/endpoint/', {
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/x-www-form-urlencoded'
   },
-  body: 'key1=value1&key2=value2',
+  body: 'key1=value1&key2=value2'
 });
 ```
 
@@ -57,7 +57,9 @@ fetch('https://mywebsite.com/endpoint/', {
 
 ```jsx
 function getMoviesFromApiAsync() {
-  return fetch('https://facebook.github.io/react-native/movies.json')
+  return fetch(
+    'https://facebook.github.io/react-native/movies.json'
+  )
     .then((response) => response.json())
     .then((responseJson) => {
       return responseJson.movies;
@@ -76,7 +78,7 @@ async function getMoviesFromApi() {
   try {
     // 注意这里的await语句，其所在的函数必须有async关键字声明
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json',
+      'https://facebook.github.io/react-native/movies.json'
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -91,10 +93,10 @@ async function getMoviesFromApi() {
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>

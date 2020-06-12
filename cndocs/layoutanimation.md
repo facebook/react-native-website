@@ -90,16 +90,16 @@ static configureNext(config, onAnimationDidEnd?)
 
 #### 参数：
 
-| 名称              | 类型     | 必填 | 说明                                |
-| ----------------- | -------- | ---- | ----------------------------------- |
-| config            | object   | 是   | 看下面的说明。                      |
-| onAnimationDidEnd | function | 否   | 动画结束后的回调。目前仅 iOS 可用。 |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| config | object | 是 | 看下面的说明。 |
+| onAnimationDidEnd | function | 否 | 动画结束后的回调。目前仅 iOS 可用。 |
 
 ##### config
 
-* `duration` 动画持续时间，单位是毫秒。
-* `create`，配置创建新视图时的动画。（参阅`Anim`类型）
-* `update`，配置被更新的视图的动画。（参阅`Anim`类型）
+- `duration` 动画持续时间，单位是毫秒。
+- `create`，配置创建新视图时的动画。（参阅`Anim`类型）
+- `update`，配置被更新的视图的动画。（参阅`Anim`类型）
 
 ---
 
@@ -116,10 +116,10 @@ Example usage:
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
@@ -313,11 +313,11 @@ An enumeration of layout properties to be animated to be used in the [`create`](
 
 A set of predefined animation config.
 
-| Presets       | Value                                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
-| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
-| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
+| Presets | Value |
+| --- | --- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')` |
+| linear | `create(500, 'linear', 'opacity')` |
+| spring | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
 
 ---
 
@@ -342,10 +342,10 @@ Example usage:
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
+      函数组件示例
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
+      Class组件示例
     </li>
   </ul>
 </div>
