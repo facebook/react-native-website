@@ -177,7 +177,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 To use custom path aliases with TypeScript, you need to set the path aliases to work from both Babel and TypeScript. Here's how:
 
-1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `test/File.tsx`:
+1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `tests/File.tsx`:
 
 ```diff
     "target": "esnext",

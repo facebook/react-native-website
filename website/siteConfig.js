@@ -32,7 +32,8 @@ const siteConfig = {
   editUrl: 'https://github.com/facebook/react-native-website/blob/master/docs/',
   headerLinks: [
     {doc: 'getting-started', label: 'Docs'},
-    {doc: 'activityindicator', label: 'API'},
+    {doc: 'components-and-apis', label: 'Components'},
+    {doc: 'accessibilityinfo', label: 'API'},
     {page: 'help', label: 'Community'},
     {blog: true, label: 'Blog'},
     {search: true},
@@ -94,6 +95,7 @@ const siteConfig = {
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
     baseUrl + 'js/docs-rating.js',
+    baseUrl + 'js/announcement.js',
   ],
   cleanUrl: true,
   scrollToTop: true,

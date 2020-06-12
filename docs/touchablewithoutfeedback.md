@@ -209,7 +209,7 @@ See the [Accessibility guide](accessibility.md#accessibilityvalue-ios-android) f
 
 ### `delayLongPress`
 
-Delay in ms, from onPressIn, before onLongPress is called.
+Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
 | Type   | Required |
 | ------ | -------- |
@@ -219,7 +219,7 @@ Delay in ms, from onPressIn, before onLongPress is called.
 
 ### `delayPressIn`
 
-Delay in ms, from the start of the touch, before onPressIn is called.
+Duration (in milliseconds), from the start of the touch, before `onPressIn` is called.
 
 | Type   | Required |
 | ------ | -------- |
@@ -229,7 +229,7 @@ Delay in ms, from the start of the touch, before onPressIn is called.
 
 ### `delayPressOut`
 
-Delay in ms, from the release of the touch, before onPressOut is called.
+Duration (in milliseconds), from the release of the touch, before `onPressOut` is called.
 
 | Type   | Required |
 | ------ | -------- |
@@ -249,11 +249,13 @@ If true, disable all interactions for this component.
 
 ### `hitSlop`
 
-This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button. ** NOTE ** The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+This defines how far your touch can start away from the button. This is added to `pressRetentionOffset` when moving off of the button.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ### `onBlur`
 
@@ -289,6 +291,8 @@ Invoked on mount and layout changes with
 
 ### `onLongPress`
 
+Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
+
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
@@ -297,7 +301,7 @@ Invoked on mount and layout changes with
 
 ### `onPress`
 
-Called when the touch is released, but not if cancelled (e.g. by a scroll that steals the responder lock).
+Called when the touch is released, but not if cancelled (e.g. by a scroll that steals the responder lock). The first function argument is an event in form of [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -307,7 +311,7 @@ Called when the touch is released, but not if cancelled (e.g. by a scroll that s
 
 ### `onPressIn`
 
-Called as soon as the touchable element is pressed and invoked even before onPress. This can be useful when making network requests.
+Called as soon as the touchable element is pressed and invoked even before onPress. This can be useful when making network requests. The first function argument is an event in form of [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -317,7 +321,7 @@ Called as soon as the touchable element is pressed and invoked even before onPre
 
 ### `onPressOut`
 
-Called as soon as the touch is released even before onPress.
+Called as soon as the touch is released even before onPress. The first function argument is an event in form of [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -329,9 +333,9 @@ Called as soon as the touch is released even before onPress.
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ---
 
@@ -360,13 +364,3 @@ If true, doesn't play a system sound on touch.
 | Type    | Required | Platform |
 | ------- | -------- | -------- |
 | Boolean | No       | Android  |
-
----
-
-## Type Definitions
-
-### Event
-
-| Type   |
-| ------ |
-| Object |

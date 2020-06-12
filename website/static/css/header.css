@@ -112,12 +112,14 @@ li.navSearchWrapper {
 @media only screen and (max-width: 1024px) {
   .reactNavSearchWrapper input#search_input_react {
     border-radius: 0.25rem;
-    background-color: $dark;
+    background-color: $tintColor;
+    color: $deepdark;
     height: 30px;
   }
 
   .reactNavSearchWrapper input#search_input_react:focus {
-    background-color: $light;
+    background-color: $tintColor;
+    color: $deepdark;
   }
 }
 
@@ -171,14 +173,109 @@ li.navSearchWrapper {
   box-sizing: initial;
 }
 
+.navSearchWrapper:before {
+  border: 3px solid #717171;
+}
+.navSearchWrapper::after {
+  background: #717171;
+}
+
 input#search_input_react {
   /* Make as wide as the expanded state in the docusaurus default */
   width: 220px;
-  background-color: $dark;
+  background-color: $tintColor;
+  color: $deepdark;
   border-radius: 0.25rem;
   transition: background-color 150ms ease-in-out;
 }
 
-input#search_input_react:focus {
-  background-color: $light;
+input#search_input_react::placeholder {
+  color: #717171;
 }
+
+input#search_input_react:focus {
+  background-color: $tintColor;
+  color: $deepdark;
+}
+
+/* Overrides for the announcement banner */
+.fixedHeaderContainer {
+  height: auto;
+}
+
+.headerWrapper.wrapper {
+  padding-top: 100px;
+}
+
+.navigationSlider .slidingNav {
+  height: 60px;
+}
+
+.announcement {
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 30px;
+  text-align: center;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+}
+
+.announcement-inner {
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+.announcement-inner a {
+  text-decoration: underline;
+  display: inline-block;
+  color: $brand;
+}
+
+.announcement-inner a:hover {
+  color: #fff;
+}
+
+@media only screen and (max-width: 700px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 160px;
+  }
+  .navPusher {
+    padding-top: 210px;
+  }
+  .announcement {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .announcement {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .navPusher {
+    padding-top: 160px;
+  }
+  .docsNavContainer {
+    top: 136px;
+  }
+  .onPageNav {
+    top: 172px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 160px;
+  }
+  .navPusher {
+    padding-top: 210px;
+  }
+  .navSearchWrapper {
+    top: 114px;
+  }
+}
+/* End announcement banner override */

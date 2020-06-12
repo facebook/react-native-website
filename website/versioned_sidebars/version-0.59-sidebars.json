@@ -54,8 +54,9 @@
       "version-0.59-removing-default-permissions"
     ]
   },
-  "version-0.59-api": {
+  "version-0.59-components": {
     "Components": [
+      "version-0.59-components-and-apis",
       "version-0.59-activityindicator",
       "version-0.59-button",
       "version-0.59-datepickerios",
@@ -92,7 +93,9 @@
       "version-0.59-viewpagerandroid",
       "version-0.59-virtualizedlist",
       "version-0.59-webview"
-    ],
+    ]
+  },
+  "version-0.59-api": {
     "APIs": [
       "version-0.59-accessibilityinfo",
       "version-0.59-actionsheetios",
