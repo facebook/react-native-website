@@ -27,12 +27,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
-  }),
+    secondParam: 'yourOtherValue'
+  })
 });
 ```
 
@@ -42,9 +42,9 @@ fetch('https://mywebsite.com/endpoint/', {
 fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
+    'Content-Type': 'application/x-www-form-urlencoded'
   },
-  body: 'key1=value1&key2=value2',
+  body: 'key1=value1&key2=value2'
 });
 ```
 
@@ -60,7 +60,9 @@ fetch('https://mywebsite.com/endpoint/', {
 
 ```jsx
 function getMoviesFromApiAsync() {
-  return fetch('https://facebook.github.io/react-native/movies.json')
+  return fetch(
+    'https://facebook.github.io/react-native/movies.json'
+  )
     .then((response) => response.json())
     .then((responseJson) => {
       return responseJson.movies;
@@ -79,7 +81,7 @@ async function getMoviesFromApi() {
   try {
     // 注意这里的await语句，其所在的函数必须有async关键字声明
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json',
+      'https://facebook.github.io/react-native/movies.json'
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -91,59 +93,100 @@ async function getMoviesFromApi() {
 
 别忘了 catch 住`fetch`可能抛出的异常，否则出错时你可能看不到任何提示。
 
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
 ```SnackPlayer name=Fetch%20Example
-import React from 'react';
-import { FlatList, ActivityIndicator, Text, View  } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
 
-export default class FetchExample extends React.Component {
+export default App = () => {
+  const [isLoading, setLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  constructor(props){
+  useEffect(() => {
+    fetch('https://reactnative.dev/movies.json')
+      .then((response) => response.json())
+      .then((json) => setData(json.movies))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return (
+    <View style={{ flex: 1, padding: 24 }}>
+      {isLoading ? <ActivityIndicator/> : (
+        <FlatList
+          data={data}
+          keyExtractor={({ id }, index) => id}
+          renderItem={({ item }) => (
+            <Text>{item.title}, {item.releaseYear}</Text>
+          )}
+        />
+      )}
+    </View>
+  );
+};
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Fetch%20Example
+import React, { Component } from 'react';
+import { ActivityIndicator, FlatList, Text, View } from 'react-native';
+
+export default class App extends Component {
+  constructor(props) {
     super(props);
-    this.state ={ isLoading: true}
+
+    this.state = {
+      data: [],
+      isLoading: true
+    };
   }
 
-  componentDidMount(){
-    return fetch('https://facebook.github.io/react-native/movies.json')
+  componentDidMount() {
+    fetch('https://reactnative.dev/movies.json')
       .then((response) => response.json())
-      .then((responseJson) => {
-
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.movies,
-        }, function(){
-
-        });
-
+      .then((json) => {
+        this.setState({ data: json.movies });
       })
-      .catch((error) =>{
-        console.error(error);
+      .catch((error) => console.error(error))
+      .finally(() => {
+        this.setState({ isLoading: false });
       });
   }
 
+  render() {
+    const { data, isLoading } = this.state;
 
-
-  render(){
-
-    if(this.state.isLoading){
-      return(
-        <View style={{flex: 1, padding: 20}}>
-          <ActivityIndicator/>
-        </View>
-      )
-    }
-
-    return(
-      <View style={{flex: 1, paddingTop:20}}>
-        <FlatList
-          data={this.state.dataSource}
-          renderItem={({item}) => <Text>{item.title}, {item.releaseYear}</Text>}
-          keyExtractor={(item, index) => item.id}
-        />
+    return (
+      <View style={{ flex: 1, padding: 24 }}>
+        {isLoading ? <ActivityIndicator/> : (
+          <FlatList
+            data={data}
+            keyExtractor={({ id }, index) => id}
+            renderItem={({ item }) => (
+              <Text>{item.title}, {item.releaseYear}</Text>
+            )}
+          />
+        )}
       </View>
     );
   }
-}
+};
 ```
+
+<block class="endBlock syntax" />
 
 > 默认情况下，iOS 会阻止所有 http 的请求，以督促开发者使用 https。如果你仍然需要使用 http 协议，那么首先需要添加一个 App Transport Security 的例外，详细可参考[这篇帖子](https://segmentfault.com/a/1190000002933776)。
 

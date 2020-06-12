@@ -21,91 +21,187 @@ original_id: sectionlist
 
 如果你的列表不需要分组(section)，那么可以使用结构更简单的[`<FlatList>`](flatlist.md)。
 
-简单的例子：
+## Example
 
-```jsx
-// Example 1 (Homogeneous Rendering)
-<SectionList
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
-  renderSectionHeader={({ section: { title } }) => (
-    <Text style={{ fontWeight: "bold" }}>{title}</Text>
-  )}
-  sections={[
-    { title: "Title1", data: ["item1", "item2"] },
-    { title: "Title2", data: ["item3", "item4"] },
-    { title: "Title3", data: ["item5", "item6"] }
-  ]}
-  keyExtractor={(item, index) => item + index}
-/>
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=SectionList%20Example
+import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const App = () => (
+  <SafeAreaView style={styles.container}>
+    <SectionList
+      sections={DATA}
+      keyExtractor={(item, index) => item + index}
+      renderItem={({ item }) => <Item title={item} />}
+      renderSectionHeader={({ section: { title } }) => (
+        <Text style={styles.header}>{title}</Text>
+      )}
+    />
+  </SafeAreaView>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
+
+export default App;
 ```
 
-```jsx
-// Example 2 (Heterogeneous Rendering / No Section Headers)
-const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text key={index}>Override{item}</Text>
+<block class="classical syntax" />
 
-<SectionList
-  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
-  sections={[
-    { title: 'Title1', data: ['item1', 'item2'], renderItem: overrideRenderItem },
-    { title: 'Title2', data: ['item3', 'item4'] },
-    { title: 'Title3', data: ['item5', 'item6'] },
-  ]}
-/>
+```SnackPlayer name=SectionList%20Example
+import React, { Component } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  SectionList
+} from "react-native";
+import Constants from "expo-constants";
+
+const DATA = [
+  {
+    title: "Main dishes",
+    data: ["Pizza", "Burger", "Risotto"]
+  },
+  {
+    title: "Sides",
+    data: ["French Fries", "Onion Rings", "Fried Shrimps"]
+  },
+  {
+    title: "Drinks",
+    data: ["Water", "Coke", "Beer"]
+  },
+  {
+    title: "Desserts",
+    data: ["Cheese Cake", "Ice Cream"]
+  }
+];
+
+Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+class App extends Component {
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        <SectionList
+          sections={DATA}
+          keyExtractor={(item, index) => item + index}
+          renderItem={({ item }) => <Item title={item} />}
+          renderSectionHeader={({ section: { title } }) => (
+            <Text style={styles.header}>{title}</Text>
+          )}
+        />
+      </SafeAreaView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  item: {
+    backgroundColor: "#f9c2ff",
+    padding: 20,
+    marginVertical: 8
+  },
+  header: {
+    fontSize: 32,
+    backgroundColor: "#fff"
+  },
+  title: {
+    fontSize: 24
+  }
+});
+
+export default App;
 ```
+
+<block class="endBlock syntax" />
 
 本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md))的 props）。此外还有下面这些需要注意的事项：
 
 - 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
-- 本组件继承自`PureComponent`而非通常的`Component`，这意味着如果其`props`在`浅比较`中是相等的，则不会重新渲染。所以请先检查你的`renderItem`函数所依赖的`props`数据（包括`data`属性以及可能用到的父组件的state），如果是一个引用类型（Object或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的Object或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下[js中的基本类型和引用类型](https://segmentfault.com/a/1190000002789651)。）
+- 本组件继承自`PureComponent`而非通常的`Component`，这意味着如果其`props`在`浅比较`中是相等的，则不会重新渲染。所以请先检查你的`renderItem`函数所依赖的`props`数据（包括`data`属性以及可能用到的父组件的 state），如果是一个引用类型（Object 或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下[js 中的基本类型和引用类型](https://segmentfault.com/a/1190000002789651)。）
 - 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，而我们也在设法持续改进。
-- 默认情况下每行都需要提供一个不重复的key属性。你也可以提供一个`keyExtractor`函数来生成key。
-
-### 查看Props
-
-* [`ScrollView` props...](scrollview.md#props)
-
-必须的props:
-
-* [`sections`](sectionlist.md#sections)
-* [`renderItem`](sectionlist.md#renderitem)
-
-可选的props:
-
-* [`initialNumToRender`](sectionlist.md#initialnumtorender)
-* [`keyExtractor`](sectionlist.md#keyextractor)
-* [`onEndReached`](sectionlist.md#onendreached)
-* [`extraData`](sectionlist.md#extradata)
-* [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent)
-* [`inverted`](sectionlist.md#inverted)
-* [`ListFooterComponent`](sectionlist.md#listfootercomponent)
-* [`legacyImplementation`](sectionlist.md#legacyimplementation)
-* [`ListEmptyComponent`](sectionlist.md#listemptycomponent)
-* [`onEndReachedThreshold`](sectionlist.md#onendreachedthreshold)
-* [`onRefresh`](sectionlist.md#onrefresh)
-* [`onViewableItemsChanged`](sectionlist.md#onviewableitemschanged)
-* [`refreshing`](sectionlist.md#refreshing)
-* [`removeClippedSubviews`](sectionlist.md#removeclippedsubviews)
-* [`ListHeaderComponent`](sectionlist.md#listheadercomponent)
-* [`renderSectionFooter`](sectionlist.md#rendersectionfooter)
-* [`renderSectionHeader`](sectionlist.md#rendersectionheader)
-* [`SectionSeparatorComponent`](sectionlist.md#sectionseparatorcomponent)
-* [`stickySectionHeadersEnabled`](sectionlist.md#stickysectionheadersenabled)
-
-### 查看方法
-
-* [`scrollToLocation`](sectionlist.md#scrolltolocation)
-* [`recordInteraction`](sectionlist.md#recordinteraction)
-* [`flashScrollIndicators`](sectionlist.md#flashscrollindicators)
-
-### 查看类型定义
-
-* [`Section`](sectionlist.md#section)
+- 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个`keyExtractor`函数来生成 key。
 
 ---
 
 # 文档
 
 ## Props
+
+Inherits [ScrollView Props](scrollview.md#props).
 
 ### `sections`
 
@@ -123,13 +219,13 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 
 | 类型   | 必填 |
 | ------ | ---- |
-| number | 是   |
+| number | 否   |
 
 ---
 
 ### `keyExtractor`
 
-此函数用于为给定的item生成一个不重复的key。Key的作用是使React能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取item.key作为key值。若item.key也不存在，则使用数组下标。注意这只设置了每行（item）的key，对于每个组（section）仍然需要另外设置key。
+此函数用于为给定的 item 生成一个不重复的 key。Key 的作用是使 React 能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取 item.key 作为 key 值。若 item.key 也不存在，则使用数组下标。注意这只设置了每行（item）的 key，对于每个组（section）仍然需要另外设置 key。
 
 | 类型                                  | 必填 |
 | ------------------------------------- | ---- |
@@ -139,7 +235,7 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 
 ### `renderItem`
 
-用来渲染每一个section中的每一个列表项的默认渲染器。可以在section级别上进行覆盖重写。必须返回一个react组件。
+用来渲染每一个 section 中的每一个列表项的默认渲染器。可以在 section 级别上进行覆盖重写。必须返回一个 react 组件。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -147,15 +243,15 @@ const overrideRenderItem = ({ item, index, section: { title, data } }) => <Text 
 
 The render function will be passed an object with the following keys:
 
-* 'item' (object) - the item object as specified in this section's `data` key
-* 'index' (number) - Item's index within the section.
-* 'section' (object) - The full section object as specified in `sections`.
-* 'separators' (object) - An object with the following keys:
-  * 'highlight' (function) - `() => void`
-  * 'unhighlight' (function) - `() => void`
-  * 'updateProps' (function) - `(select, newProps) => void`
-    * 'select' (enum) - possible values are 'leading', 'trailing'
-    * 'newProps' (object)
+- 'item' (object) - the item object as specified in this section's `data` key
+- 'index' (number) - Item's index within the section.
+- 'section' (object) - The full section object as specified in `sections`.
+- 'separators' (object) - An object with the following keys:
+  - 'highlight' (function) - `() => void`
+  - 'unhighlight' (function) - `() => void`
+  - 'updateProps' (function) - `(select, newProps) => void`
+    - 'select' (enum) - possible values are 'leading', 'trailing'
+    - 'newProps' (object)
 
 ---
 
@@ -171,7 +267,7 @@ The render function will be passed an object with the following keys:
 
 ### `extraData`
 
-如果有除`data`以外的数据用在列表中（不论是用在`renderItem`还是Header或者Footer中），请在此属性中指定。同时此数据在修改时也需要先修改其引用地址（比如先复制到一个新的Object或者数组中），然后再修改其值，否则界面很可能不会刷新。
+如果有除`data`以外的数据用在列表中（不论是用在`renderItem`还是 Header 或者 Footer 中），请在此属性中指定。同时此数据在修改时也需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -191,7 +287,7 @@ The render function will be passed an object with the following keys:
 
 ### `inverted`
 
-翻转滚动方向。实质是将scale变换设置为-1。
+翻转滚动方向。实质是将 scale 变换设置为-1。
 
 | 类型      | 必填 |
 | --------- | ---- |
@@ -209,14 +305,6 @@ The render function will be passed an object with the following keys:
 
 ---
 
-### `legacyImplementation`
-
-| 类型      | 必填 |
-| --------- | ---- |
-| [boolean] | 否   |
-
----
-
 ### `ListEmptyComponent`
 
 当列表数据为空时渲染的组件。
@@ -229,7 +317,7 @@ The render function will be passed an object with the following keys:
 
 ### `onEndReachedThreshold`
 
-决定当距离内容最底部还有多远时触发`onEndReached`回调。注意此参数是一个比值而非像素单位。比如，0.5表示距离内容最底部的距离为当前列表可见长度的一半时触发。
+决定当距离内容最底部还有多远时触发`onEndReached`回调。注意此参数是一个比值而非像素单位。比如，0.5 表示距离内容最底部的距离为当前列表可见长度的一半时触发。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -239,7 +327,7 @@ The render function will be passed an object with the following keys:
 
 ### `onRefresh`
 
-如果设置了此选项，则会在列表头部添加一个标准的[`RefreshControl`](refreshcontrol.md)控件，以便实现“下拉刷新”的功能。同时你需要正确设置`refreshing`属性。如果你想把刷新控件往下移动一些（比如100个pt），可以设置`progressViewOffset={100}`。
+如果设置了此选项，则会在列表头部添加一个标准的[`RefreshControl`](refreshcontrol.md)控件，以便实现“下拉刷新”的功能。同时你需要正确设置`refreshing`属性。如果你想把刷新控件往下移动一些（比如 100 个 pt），可以设置`progressViewOffset={100}`。
 
 | 类型         | 必填 |
 | ------------ | ---- |
@@ -257,8 +345,8 @@ The render function will be passed an object with the following keys:
 
 The function will be passed an object with the following keys:
 
-* 'viewableItems' (array of `ViewToken`s)
-* 'changed' (array of `ViewToken`s)
+- 'viewableItems' (array of `ViewToken`s)
+- 'changed' (array of `ViewToken`s)
 
 The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
@@ -274,7 +362,7 @@ The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
 ### `refreshing`
 
-在等待加载新数据时将此属性设为true，列表就会显示出一个正在加载的符号。
+在等待加载新数据时将此属性设为 true，列表就会显示出一个正在加载的符号。
 
 | 类型      | 必填 |
 | --------- | ---- |
@@ -316,7 +404,7 @@ This may improve scroll performance for large lists.
 
 ### `renderSectionHeader`
 
-在每个section的头部渲染。在iOS上，这些headers是默认粘接在`ScrollView`的顶部的. 参见[`stickySectionHeadersEnabled`]。
+在每个 section 的头部渲染。在 iOS 上，这些 headers 是默认粘接在`ScrollView`的顶部的. 参见[`stickySectionHeadersEnabled`]。
 
 | 类型                                                 | 必填 |
 | ---------------------------------------------------- | ---- |
@@ -336,7 +424,7 @@ This may improve scroll performance for large lists.
 
 ### `stickySectionHeadersEnabled`
 
-当下一个section把它的前一个section的可视区推离屏幕的时候，让这个section的header粘连在屏幕的顶端。这个属性在iOS上是默认可用的，因为这是iOS的平台规范。
+当下一个 section 把它的前一个 section 的可视区推离屏幕的时候，让这个 section 的 header 粘连在屏幕的顶端。这个属性在 iOS 上是默认可用的，因为这是 iOS 的平台规范。
 
 | 类型    | 必填 |
 | ------- | ---- |
@@ -350,7 +438,7 @@ This may improve scroll performance for large lists.
 scrollToLocation(params);
 ```
 
-将可视区内位于特定`sectionIndex` 或 `itemIndex` (section内)位置的列表项，滚动到可视区的制定位置。比如说，`viewPosition` 为0时将这个列表项滚动到可视区顶部 (可能会被顶部粘接的header覆盖), 为1时将它滚动到可视区底部, 为0.5时将它滚动到可视区中央。
+将可视区内位于特定`sectionIndex` 或  `itemIndex` (section 内)位置的列表项，滚动到可视区的制定位置。比如说，`viewPosition` 为 0 时将这个列表项滚动到可视区顶部 (可能会被顶部粘接的 header 覆盖), 为 1 时将它滚动到可视区底部, 为 0.5 时将它滚动到可视区中央。
 
 > 注意: 如果没有设置`getItemLayout`或是`onScrollToIndexFailed`，就不能滚动到位于外部渲染区的位置。
 
@@ -362,11 +450,11 @@ scrollToLocation(params);
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'itemIndex' (number) - Index within section for the item to scroll to. Required.
-* 'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
-* 'viewOffset' (number) - 一个以像素为单位，到最终位置偏移距离的固定值，比如为了弥补粘接的header所占据的空间。
-* 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'itemIndex' (number) - Index within section for the item to scroll to. Required.
+- 'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
+- 'viewOffset' (number) - 一个以像素为单位，到最终位置偏移距离的固定值，比如为了弥补粘接的 header 所占据的空间。
+- 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---
 
@@ -400,10 +488,10 @@ An object that identifies the data to be rendered for a given section.
 
 **属性：**
 
-| 名称                     | 类型                         | 说明                                                                                                                                                                   |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`的data 属性](flatlist.md#data).                                                   |
-| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
-| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| data | array | The data for rendering items in this section. Array of objects, much like [`FlatList`的 data 属性](flatlist.md#data). |
+| [key] | string | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default. |
+| [renderItem] | function | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list. |
 | [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+| [keyExtractor] | function | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor). |

@@ -4,7 +4,7 @@ title: 快速刷新
 original_id: fast-refresh
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(50.00%), [itellboy](https://github.com/search?q=itellboy%40foxmail.com+in%3Aemail&type=Users)(50.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(63.83%), [itellboy](https://github.com/search?q=itellboy%40foxmail.com+in%3Aemail&type=Users)(36.17%)
 
 快速刷新是 React Native 一个特性，在修改组件的时候快速刷新会给你一个即时的反馈。快速刷新默认是开启的，可以通过调整 React Native 开发者菜单里面的 "Enable Fast Refresh" 来开启或关闭。在快速刷新开启的时候，大多数的修改能在一到两秒之内呈现。
 
@@ -24,7 +24,7 @@ original_id: fast-refresh
 
 If you have [error boundaries](https://reactjs.org/docs/error-boundaries.html) in your app (which is a good idea for graceful failures in production), they will retry rendering on the next edit after a redbox. In that sense, having an error boundary can prevent you from always getting kicked out to the root app screen. However, keep in mind that error boundaries shouldn't be _too_ granular. They are used by React in production, and should always be designed intentionally.
 
-## 限制条件
+## 限制
 
 当你正在编辑的时候，快速刷新会尝试保持组件里面的本地 state，但仅限于这种保持是安全的情况。以下是一些在你编辑文件之后，组件本地的 state 被重置的原因：
 
@@ -38,4 +38,13 @@ If you have [error boundaries](https://reactjs.org/docs/error-boundaries.html) i
 
 - 快速刷新默认保持函数组件（和 Hooks）的本地 state。
 - 有时候你可能想要 _强制_ 状态被重置，某个组件被重新挂载。例如你正在调试一个发生在挂载期间的动画，这种情况是很有用的。为了做到这一点，你可以在文件的任何地方增加 `// @refresh reset`。这个指令是文件的本地指令，指示快速刷新在每次编辑时重新加载该文件中定义的组件。
-- 在快速刷新的会话期间，你可以在编辑的组件里面放置 `console.log` 或者 `debugger;`
+
+## Fast Refresh and Hooks
+
+When possible, Fast Refresh attempts to preserve the state of your component between edits. In particular, `useState` and `useRef` preserve their previous values as long as you don't change their arguments or the order of the Hook calls.
+
+Hooks with dependencies—such as `useEffect`, `useMemo`, and `useCallback`—will _always_ update during Fast Refresh. Their list of dependencies will be ignored while Fast Refresh is happening.
+
+For example, when you edit `useMemo(() => x * 2, [x])` to `useMemo(() => x * 10, [x])`, it will re-run even though `x` (the dependency) has not changed. If React didn't do that, your edit wouldn't reflect on the screen!
+
+Sometimes, this can lead to unexpected results. For example, even a `useEffect` with an empty array of dependencies would still re-run once during Fast Refresh. However, writing code resilient to an occasional re-running of `useEffect` is a good practice even without Fast Refresh. This makes it easier for you to later introduce new dependencies to it.

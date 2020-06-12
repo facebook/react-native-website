@@ -45,20 +45,20 @@ export default function Cat() {
 }
 ```
 
-Here is how you do it: To define your `Cat` component, first use JavaScript’s [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) to import React and React Native’s [`Text`](/react-native/docs/next/text) Core Component:
+要定义一个`Cat`组件，第一步要使用[`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)语句来引入`React`以及`React Native`的[`Text`](/react-native/docs/next/text)组件：
 
 ```jsx
 import React from 'react';
 import { Text } from 'react-native';
 ```
 
-Your component starts as a function:
+然后一个简单的函数就可以作为一个组件：
 
 ```jsx
 function Cat() {}
 ```
 
-Whatever a function component returns is rendered as a React element. `Cat` will render a `<Text>` element:
+这个函数的`返回值`就会被渲染为一个React元素。这里`Cat`会渲染一个`<Text>`元素：
 
 ```jsx
 function Cat() {
@@ -66,7 +66,7 @@ function Cat() {
 }
 ```
 
-You can export your function component with JavaScript’s [`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
+这里我们还使用了[`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)语句来导出这个组件，以使其可以在其他地方引入使用：
 
 ```jsx
 export default function Cat() {
@@ -96,13 +96,13 @@ export default class Cat extends Component {
 import React, { Component } from 'react';
 ```
 
-Your component starts as a class extending `Component` instead of as a function:
+定义组件首先要继承(extends)自`Component`：
 
 ```jsx
 class Cat extends Component {}
 ```
 
-Class components have a `render()` function. Whatever is returned inside it is rendered as a React element:
+Class组件必须有一个`render()`函数，它的返回值会被渲染为一个React元素：
 
 ```jsx
 class Cat extends Component {
@@ -112,7 +112,7 @@ class Cat extends Component {
 }
 ```
 
-And as with function components, you can export your class component:
+和函数组件一样，我们也可以导出class组件：
 
 ```jsx
 export default class Cat extends Component {
@@ -124,11 +124,11 @@ export default class Cat extends Component {
 
 <block class="endBlock syntax" />
 
-> This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help. Now take a closer look at that `return` statement. `<Text>Hello, I am your cat!</Text>` is using a kind of JavaScript syntax that makes writing elements convenient: JSX.
+> 上面只是导出组件的写法之一。你还可以看看这篇博客整理[handy cheatsheet on JavaScript imports and exports](https://www.samanthaming.com/tidbits/79-module-cheatsheet/)整理的各种不同的写法。下面我们来看看这个`return` 语句。`<Text>Hello, I am your cat!</Text>`是一种简化React元素的写法，这种语法名字叫做JSX。
 
 ## JSX
 
-React 和 React Native 都使用**JSX 语法**，a syntax that lets you write elements inside JavaScript like so: `<Text>Hello, I am your cat!</Text>`. The React docs have [a comprehensive guide to JSX](https://reactjs.org/docs/jsx-in-depth.html) you can reference to learn even more. Because JSX is JavaScript, you can use variables inside it. Here you are declaring a name for the cat, `name`, and embedding it with curly braces inside `<Text>`.
+React 和 React Native 都使用**JSX 语法**，这种语法使得你可以在JavaScript中直接输出元素：`<Text>Hello, I am your cat!</Text>`。React的文档有一份完整的[JSX指南](https://zh-hans.reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper)可供你参考。因为JSX本质上也就是JavaScript，所以你可以在其中直接使用变量。这里我们为猫猫的名字声明了一个变量`name`，并且用括号把它放在了`<Text>`之中。
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';

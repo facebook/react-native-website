@@ -1,7 +1,7 @@
 ---
-id: version-0.62-building-for-apple-tv
+id: version-0.62-building-for-tv
 title: 为电视和机顶盒制作应用
-original_id: building-for-apple-tv
+original_id: building-for-tv
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
@@ -9,17 +9,19 @@ original_id: building-for-apple-tv
 目前的 React Native 应用只需在 JavaScript 端简单修改甚至无需修改，在电视和机顶盒设备上就基本可用了。
 
 <div class="toggler">
-   <ul role="tablist" id="toggle-platform">
-    <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
-      iOS
-    </li>
+  <ul role="tablist" id="toggle-platform">
     <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
       Android
+    </li>
+    <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
+      🚧 iOS
     </li>
   </ul>
 </div>
 
 <block class="ios" />
+
+> **Deprecated.** Use [react-native-tvos](https://github.com/react-native-community/react-native-tvos) instead. For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
 
 源代码仓库里的[RNTester 演示应用](https://github.com/facebook/react-native/tree/master/RNTester)支持在 Apple TV 上运行，使用`RNTester-tvOS`编译目标来在 tvOS 上编译运行。
 

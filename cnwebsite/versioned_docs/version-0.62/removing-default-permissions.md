@@ -18,7 +18,7 @@ original_id: removing-default-permissions
 
 1.  我们首先可以考虑移除`READ_PHONE_STATE`、`WRITE_EXTERNAL_STORAGE`和 `READ_EXTERNAL_STORAGE`三项非必需的权限。即便你使用了`AsyncStorage`也不需要这三个权限，所以移除是很安全的。当你以后需要使用时，还可以再加回来。
 2.  打开`android/app/src/main/AndroidManifest.xml`文件。
-3.  Even though these three permissions are not listed in the manifest they get added in. We add the three permissions with `tools:node="remove"` attribute, to make sure it gets removed during build. Note that the package identifier will be different, for below it is "com.myapp" because the project was created with `react-native init myapp`.
+3.  Even though these three permissions are not listed in the manifest they get added in. We add the three permissions with `tools:node="remove"` attribute, to make sure it gets removed during build. Note that the package identifier will be different, for below it is "com.myapp" because the project was created with `npx react-native init myapp`.
 
     ```diff
     <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -54,8 +54,9 @@ original_id: removing-default-permissions
     </manifest>
     ```
 
-That's it. We did not remove the `INTERNET` permission as pretty much all apps use it. Now whenever you create a production APK all these 4 permissions will be removed. When you create a debug APK (`react-native run-android`) it will install the APK with all four permissions removed.
+That's it. We did not remove the `INTERNET` permission as pretty much all apps use it. Now whenever you create a production APK all these 4 permissions will be removed. When you create a debug APK (`npx react-native run-android`) it will install the APK with all four permissions removed.
 
 ## Hint
+
 If your App is free to use in the App-Store and there is no "In-App-Purchase" possible in your App, you also can remove: 
     - android.vending.CHECK_LICENSE

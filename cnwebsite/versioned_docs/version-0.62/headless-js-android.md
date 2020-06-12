@@ -13,7 +13,10 @@ Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来�
 首先我们要通过`AppRegistry`来注册一个异步函数，这个函数我们称之为“任务”。注册方式类似在 index.js 中注册 RN 应用：
 
 ```jsx
-AppRegistry.registerHeadlessTask("SomeTaskName", () => require("SomeTaskName"));
+import { AppRegistry } from 'react-native';
+AppRegistry.registerHeadlessTask('SomeTaskName', () =>
+  require('SomeTaskName')
+);
 ```
 
 然后创建 require 中引用的`SomeTaskName.js`文件:
@@ -31,6 +34,14 @@ module.exports = async taskData => {
 没错，我们还需要一些原生代码，但是请放心并不麻烦。首先需要像下面这样继承`HeadlessJsTaskService`，然后覆盖`getTaskConfig`方法的实现：
 
 ```java
+package com.your_application_name;
+import android.content.Intent;
+import android.os.Bundle;
+import com.facebook.react.HeadlessJsTaskService;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.jstasks.HeadlessJsTaskConfig;
+import javax.annotation.Nullable;
+
 public class MyTaskService extends HeadlessJsTaskService {
 
   @Override

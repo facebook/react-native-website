@@ -319,7 +319,7 @@ console.log(CalendarManager.firstDayOfTheWeek);
 
 但是注意这个常量仅仅在初始化的时候导出了一次，所以即使你在运行期间改变`constantToExport`返回的值，也不会影响到 JavaScript 环境下所得到的结果。
 
-### Implementing `+ requiresMainQueueSetup`
+### 实现 `+ requiresMainQueueSetup`
 
 If you override `- constantsToExport` then you should also implement `+ requiresMainQueueSetup` to let React Native know if your module needs to be initialized on the main thread. Otherwise you will see a warning that in the future your module may be initialized on a background thread unless you explicitly opt out with `+ requiresMainQueueSetup`:
 
@@ -329,6 +329,18 @@ If you override `- constantsToExport` then you should also implement `+ requires
   return YES;  // only do this if your module initialization relies on calling UIKit!
 }
 ```
+
+```Swift
+// Swift
+// CalendarManager.swift
+@objc(CalendarManager)
+class CalendarManager: NSObject, RCTBridgeModule {
+static func moduleName() -> String! {
+      return "CalendarManager";
+}
+static func requiresMainQueueSetup() -> Bool {
+    return true
+}
 
 If your module does not require access to UIKit, then you should respond to `+ requiresMainQueueSetup` with `NO`.
 
@@ -425,8 +437,6 @@ const subscription = calendarManagerEmitter.addListener(
 // 别忘了取消订阅，通常在componentWillUnmount生命周期方法中实现。
 subscription.remove();
 ```
-
-更多给 JavaScript 发送事件的例子请参考[`RCTLocationObserver`](https://github.com/facebook/react-native/blob/master/Libraries/Geolocation/RCTLocationObserver.m)。
 
 ### 优化无监听处理的事件
 

@@ -14,7 +14,7 @@ original_id: hermes
 
 First, ensure you're using at least version 0.60.4 of React Native.
 
-If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/react-native/docs/upgrading) for how to do this. Make especially sure that all changes to `android/app/build.gradle` have been applied, as detailed by the [React Native upgrade helper](https://react-native-community.github.io/upgrade-helper/?from=0.59.0). After upgrading the app, make sure everything works before trying to switch to Hermes.
+If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. Make especially sure that all changes to `android/app/build.gradle` have been applied, as detailed by the [React Native upgrade helper](https://react-native-community.github.io/upgrade-helper/?from=0.59.0). After upgrading the app, make sure everything works before trying to switch to Hermes.
 
 > ## Note for Windows users.
 >
@@ -30,23 +30,28 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
   ]
 ```
 
-Also, if you're using ProGuard, you will need to add this rule in `proguard-rules.pro` :
+Also, if you're using ProGuard, you will need to add these rule in `proguard-rules.pro` :
 
 ```
 -keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
 ```
 
 Next, if you've already built your app at least once, clean the build:
 
-```shell
+```sh
 $ cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as normal:
 
-```shell
-$ react-native run-android
+```sh
+$ npx react-native run-android
 ```
+
+> ## Note about Android App Bundles
+>
+> Android app bundles are supported from react-native 0.62.0 and up.
 
 ## Confirming Hermes is in use
 
@@ -63,7 +68,7 @@ const isHermes = () => global.HermesInternal != null;
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
 ```shell
-$ react-native run-android --variant release
+$ npx react-native run-android --variant release
 ```
 
 This will compile JavaScript to bytecode during build time which will improve your app's startup speed on device.

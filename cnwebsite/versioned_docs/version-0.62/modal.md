@@ -4,61 +4,224 @@ title: Modal
 original_id: modal
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.92%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(1.08%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.71%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(0.29%)
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
-```jsx
-import React, { Component } from "react";
-import { Modal, Text, TouchableHighlight, View } from "react-native";
+## 示例
 
-class ModalExample extends Component {
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
+import React, { useState } from "react";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View
+} from "react-native";
+
+const App = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  return (
+    <View style={styles.centeredView}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+
+            <TouchableHighlight
+              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
+              onPress={() => {
+                setModalVisible(!modalVisible);
+              }}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </TouchableHighlight>
+          </View>
+        </View>
+      </Modal>
+
+      <TouchableHighlight
+        style={styles.openButton}
+        onPress={() => {
+          setModalVisible(true);
+        }}
+      >
+        <Text style={styles.textStyle}>Show Modal</Text>
+      </TouchableHighlight>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
+import React, { Component } from "react";
+import {
+  Alert,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableHighlight,
+  View
+} from "react-native";
+
+class App extends Component {
   state = {
     modalVisible: false
   };
 
-  setModalVisible(visible) {
+  setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   }
 
   render() {
+    const { modalVisible } = this.state;
     return (
-      <View style={{ marginTop: 22 }}>
+      <View style={styles.centeredView}>
         <Modal
           animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
+          transparent={true}
+          visible={modalVisible}
           onRequestClose={() => {
-            alert("Modal has been closed.");
+            Alert.alert("Modal has been closed.");
           }}
         >
-          <View style={{ marginTop: 22 }}>
-            <View>
-              <Text>Hello World!</Text>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>Hello World!</Text>
 
               <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
                 onPress={() => {
-                  this.setModalVisible(!this.state.modalVisible);
+                  this.setModalVisible(!modalVisible);
                 }}
               >
-                <Text>Hide Modal</Text>
+                <Text style={styles.textStyle}>Hide Modal</Text>
               </TouchableHighlight>
             </View>
           </View>
         </Modal>
 
         <TouchableHighlight
+          style={styles.openButton}
           onPress={() => {
             this.setModalVisible(true);
           }}
         >
-          <Text>Show Modal</Text>
+          <Text style={styles.textStyle}>Show Modal</Text>
         </TouchableHighlight>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: "#F194FF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
+
+export default App;
 ```
+
+<block class="endBlock syntax" />
 
 ---
 
@@ -80,9 +243,9 @@ class ModalExample extends Component {
 
 `supportedOrientations`用于指定在设备切换横竖屏方向时，modal 会在哪些屏幕朝向下跟随旋转。在 iOS 上，除了本属性外，还会受到应用的 Info.plist 文件中`UISupportedInterfaceOrientations`的限制。如果还设置了`presentationStyle`属性为`pageSheet`或`formSheet`，则在 iOS 上本属性将被忽略。
 
-| 类型                                                                                                | 必填 | 平台 |
-| --------------------------------------------------------------------------------------------------- | ---- | ---- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否   | iOS  |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否 | iOS |
 
 ---
 
@@ -109,7 +272,7 @@ class ModalExample extends Component {
 
 ### `transparent`
 
-`transparent` 属性是指背景是否透明，默认为白色，将这个属性设为：true 的时候弹出一个透明背景层的modal。
+`transparent` 属性是指背景是否透明，默认为白色，将这个属性设为：true 的时候弹出一个透明背景层的 modal。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -121,9 +284,9 @@ class ModalExample extends Component {
 
 `animationType`指定了 modal 的动画类型。
 
-* `slide` 从底部滑入滑出。
-* `fade` 淡入淡出。
-* `none` 没有动画，直接蹦出来。
+- `slide` 从底部滑入滑出。
+- `fade` 淡入淡出。
+- `none` 没有动画，直接蹦出来。
 
 默认值为`none`。
 
@@ -147,9 +310,9 @@ class ModalExample extends Component {
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必填 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
@@ -177,13 +340,13 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 `presentationStyle`决定 modal（在较大屏幕的设备比如 iPad 或是 Plus 机型）如何展现。更多细节请参阅<https://developer.apple.com/reference/uikit/uimodalpresentationstyle>。
 
-* `fullScreen`完全盖满屏幕。
-* `pageSheet`竖直方向几乎盖满，水平居中，左右留出一定空白（仅用于大屏设备）。
-* `formSheet`竖直和水平都居中，四周都留出一定空白（仅用于大屏设备）。
-* `overFullScreen`完全盖满屏幕，同时允许透明。
+- `fullScreen`完全盖满屏幕。
+- `pageSheet`竖直方向几乎盖满，水平居中，左右留出一定空白（仅用于大屏设备）。
+- `formSheet`竖直和水平都居中，四周都留出一定空白（仅用于大屏设备）。
+- `overFullScreen`完全盖满屏幕，同时允许透明。
 
 默认会根据`transparent`属性而设置为`overFullScreen`或是`fullScreen`。
 
-| 类型                                                           | 必填 | 平台 |
-| -------------------------------------------------------------- | ---- | ---- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否   | iOS  |
+| 类型 | 必填 | 平台 |
+| --- | --- | --- |
+| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否 | iOS |

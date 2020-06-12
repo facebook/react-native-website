@@ -4,22 +4,75 @@ title: Text
 original_id: text
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.60%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(0.40%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.66%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(0.34%)
 
 一个用于显示文本的 React 组件，并且它也支持嵌套、样式，以及触摸处理。
 
 在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。
 
-```SnackPlayer
-import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
 
-export default class TextInANest extends Component {
+<block class="functional syntax" />
+
+```SnackPlayer name=Text%20Functional%20Component%20Example
+import React, { useState } from "react";
+import { Text, StyleSheet } from "react-native";
+
+const onPressTitle = () => {
+  console.log("title pressed");
+};
+
+const TextInANest = () => {
+  const titleText = useState("Bird's Nest");
+  const bodyText = useState("This is not really a bird nest.");
+
+  return (
+    <Text style={styles.baseText}>
+      <Text style={styles.titleText} onPress={onPressTitle}>
+        {titleText}
+        {"\n"}
+        {"\n"}
+      </Text>
+      <Text numberOfLines={5}>{bodyText}</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold"
+  }
+});
+
+export default TextInANest;
+
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Text%20Class%20Component%20Example
+import React, { Component } from "react";
+import { Text, StyleSheet } from "react-native";
+
+class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
       titleText: "Bird's Nest",
-      bodyText: 'This is not really a bird nest.'
+      bodyText: "This is not really a bird nest."
     };
   }
 
@@ -27,11 +80,11 @@ export default class TextInANest extends Component {
     return (
       <Text style={styles.baseText}>
         <Text style={styles.titleText} onPress={this.onPressTitle}>
-          {this.state.titleText}{'\n'}{'\n'}
+          {this.state.titleText}
+          {"\n"}
+          {"\n"}
         </Text>
-        <Text numberOfLines={5}>
-          {this.state.bodyText}
-        </Text>
+        <Text numberOfLines={5}>{this.state.bodyText}</Text>
       </Text>
     );
   }
@@ -39,36 +92,46 @@ export default class TextInANest extends Component {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: 'Cochin',
+    fontFamily: "Cochin"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: "bold"
+  }
 });
 
+export default TextInANest;
 ```
+
+<block class="endBlock syntax" />
 
 ## 嵌套文本
 
 在 iOS 和 Android 中显示格式化文本的方法类似，都是提供你想显示的文本内容，然后使用范围标注来指定一些格式（在 iOS 上是用`NSAttributedString`，Android 上则是`SpannableString`）。这种用法非常繁琐。在 React Native 中，我们决定采用和 Web 一致的设计，这样你可以把相同格式的文本嵌套包裹起来：
 
-```SnackPlayer
-import React, { Component } from 'react';
-import { Text } from 'react-native';
+```SnackPlayer name=Nested%20Text%20Example
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-export default class BoldAndBeautiful extends Component {
-  render() {
-    return (
-      <Text style={{fontWeight: 'bold'}}>
-        I am bold
-        <Text style={{color: 'red'}}>
-          and red
-        </Text>
-      </Text>
-    );
+const BoldAndBeautiful = () => {
+  return (
+    <Text style={styles.baseText}>
+      I am bold
+      <Text style={styles.innerText}> and red</Text>
+    </Text>
+  );
+};
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontWeight: 'bold'
+  },
+  innerText: {
+    color: 'red'
   }
-}
+});
+
+export default BoldAndBeautiful;
 ```
 
 而实际上在框架内部，这会生成一个扁平结构的`NSAttributedString`或是`SpannableString`，包含以下信息：
@@ -168,7 +231,9 @@ html {
 
 ```jsx
 <View>
-  <MyAppText>这个组件包含了一个默认的字体样式，用于整个应用的文本</MyAppText>
+  <MyAppText>
+    这个组件包含了一个默认的字体样式，用于整个应用的文本
+  </MyAppText>
   <MyAppHeaderText>这个组件包含了用于标题的样式</MyAppHeaderText>
 </View>
 ```
@@ -180,7 +245,9 @@ class MyAppHeaderText extends Component {
   render() {
     return (
       <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+        <Text style={{ fontSize: 20 }}>
+          {this.props.children}
+        </Text>
       </MyAppText>
     );
   }
@@ -192,9 +259,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native 实际上还是有一部分样式继承的实现，不过仅限于文本标签的子树。在下面的代码里，第二部分会在加粗的同时又显示为红色：
 
 ```jsx
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: 'bold' }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: 'red' }}>and red</Text>
 </Text>
 ```
 
@@ -329,13 +396,26 @@ Used to locate this view from native code.
 
 ---
 
+### `onTextLayout`
+
+Invoked on Text layout
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| function: (event: TextLayoutEvent) => mixed | No       |
+
+- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
+  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
+
+---
+
 ### `pressRetentionOffset`
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| 类型                                                               | 必填 |
-| ------------------------------------------------------------------ | ---- |
-| object: {top: number, left: number, bottom: number, right: number} | 否   |
+| 类型 | 必填 |
+| --- | --- |
+| object: {top: number, left: number, bottom: number, right: number} | 否 |
 
 ---
 
@@ -493,9 +573,9 @@ Possible values for `dataDetectorType` are:
 - `'none'`
 - `'all'`
 
-| Type                                                | Required | Platform |
-| --------------------------------------------------- | -------- | -------- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
+| Type | Required | Platform |
+| --- | --- | --- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No | Android |
 
 ---
 

@@ -1,26 +1,57 @@
 ---
 id: version-0.62-checkbox
-title: CheckBox
+title: 🚧 CheckBox
 original_id: checkbox
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
+> **Deprecated.** Use [@react-native-community/checkbox](https://github.com/react-native-community/react-native-checkbox) instead.
+
 渲染一个单选框（目前仅 Android 可用）。
 
 This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
 
-@keyword checkbox @keyword toggle
+## 示例
 
-### Props
-
-* [View props...](view.md#props)
-
-- [`disabled`](checkbox.md#disabled)
-- [`onChange`](checkbox.md#onchange)
-- [`onValueChange`](checkbox.md#onvaluechange)
-- [`testID`](checkbox.md#testid)
-- [`value`](checkbox.md#value)
+```SnackPlayer name=CheckBox%20Component%20Example&supportedPlatforms=android,web
+import React, { useState } from "react";
+import { CheckBox, Text, StyleSheet, View } from "react-native";
+const App = () => {
+  const [isSelected, setSelection] = useState(false);
+  return (
+    <View style={styles.container}>
+      <View style={styles.checkboxContainer}>
+        <CheckBox
+          value={isSelected}
+          onValueChange={setSelection}
+          style={styles.checkbox}
+        />
+        <Text style={styles.label}>Do you like React Native?</Text>
+      </View>
+      <Text>Is CheckBox selected: {isSelected ? "👍" : "👎"}</Text>
+    </View>
+  );
+};
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  checkboxContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
+  checkbox: {
+    alignSelf: "center",
+  },
+  label: {
+    margin: 8,
+  },
+});
+export default App;
+```
 
 ---
 
@@ -28,9 +59,11 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ## Props
 
+继承所有[View的Props](view#props).
+
 ### `disabled`
 
-If true the user won't be able to toggle the checkbox. Default value is false.
+If true the user won't be able to toggle the checkbox. Default value is `false`.
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -70,7 +103,7 @@ Invoked with the new value when the value changes.
 
 ### `value`
 
-The value of the checkbox. If true the checkbox will be turned on. Default value is false.
+The value of the checkbox. If true the checkbox will be turned on. Default value is `false`.
 
 | 类型 | 必填 |
 | ---- | ---- |

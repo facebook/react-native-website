@@ -4,7 +4,7 @@ title: 直接操作
 original_id: direct-manipulation
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.51%), [306703082](https://github.com/search?q=306703082%40qq.com+in%3Aemail&type=Users)(0.49%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.49%), [306703082](https://github.com/search?q=306703082%40qq.com+in%3Aemail&type=Users)(0.51%)
 
 有时候我们需要直接改动组件并触发局部的刷新，但不使用 state 或是 props。譬如在浏览器中使用 React 库，有时候会需要直接修改一个 DOM 节点，而在手机 App 中操作 View 时也会碰到同样的情况。在 React Native 中，`setNativeProps`就是等价于直接操作 DOM 节点的方法。
 
@@ -67,24 +67,20 @@ render() {
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-class MyButton extends React.Component {
-  render() {
+const MyButton = (props) => {
     return (
-      <View>
-        <Text>{this.props.label}</Text>
+      <View style={{marginTop: 50}}>
+        <Text>{props.label}</Text>
       </View>
     )
-  }
 }
 
-export default class App extends React.Component {
-  render() {
+export default App = () => {
     return (
       <TouchableOpacity>
         <MyButton label="Press me!" />
       </TouchableOpacity>
     )
-  }
 }
 ```
 
@@ -98,28 +94,24 @@ export default class App extends React.Component {
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-class MyButton extends React.Component {
+const MyButton = (props) => {
   setNativeProps = (nativeProps) => {
-    this._root.setNativeProps(nativeProps);
+    _root.setNativeProps(nativeProps);
   }
 
-  render() {
     return (
-      <View ref={component => this._root = component} {...this.props}>
-        <Text>{this.props.label}</Text>
+      <View style={{marginTop: 50}} ref={component => _root = component} {...props}>
+        <Text>{props.label}</Text>
       </View>
     )
-  }
 }
 
-export default class App extends React.Component {
-  render() {
+export default App = () => {
     return (
       <TouchableOpacity>
         <MyButton label="Press me!" />
       </TouchableOpacity>
     )
-  }
 }
 ```
 
@@ -135,24 +127,22 @@ Another very common use case of `setNativeProps` is to clear the value of a Text
 import React from 'react';
 import { TextInput, Text, TouchableOpacity, View } from 'react-native';
 
-export default class App extends React.Component {
+export default App = () => {
   clearText = () => {
-    this._textInput.setNativeProps({text: ''});
+     _textInput.setNativeProps({text: ''});
   }
 
-  render() {
     return (
       <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <TextInput
-          ref={component => this._textInput = component}
+          ref={component => _textInput = component}
           style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
         />
-        <TouchableOpacity onPress={this.clearText}>
+        <TouchableOpacity onPress={clearText}>
           <Text>Clear text</Text>
         </TouchableOpacity>
       </View>
     );
-  }
 }
 ```
 

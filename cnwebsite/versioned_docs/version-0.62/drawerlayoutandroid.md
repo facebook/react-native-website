@@ -4,40 +4,84 @@ title: DrawerLayoutAndroid
 original_id: drawerlayoutandroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(88.04%), [troy](https://github.com/search?q=troy%40tencoe.com+in%3Aemail&type=Users)(11.96%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(90.35%), [troy](https://github.com/search?q=troy%40tencoe.com+in%3Aemail&type=Users)(9.65%)
 
 封装了 Android 平台`DrawerLayout`的 React 组件。抽屉（通常用于导航切换）是通过`renderNavigationView`方法渲染的，并且 DrawerLayoutAndroid 的直接子视图会成为主视图（用于放置内容）。导航视图一开始在屏幕上并不可见，不过可以从`drawerPosition`指定的窗口侧面拖拽出来，并且抽屉的宽度可以使用`drawerWidth`属性来指定。
 
 > 译注：此组件仅能在 Android 上使用。我们推荐使用跨平台的[react-navigation](https://reactnavigation.org/)中的 DrawerNavigation 来代替此组件。
 
-示例：
+## 示例
 
-```
-render: function() {
+```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android
+import React, { useState } from "react";
+import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
+
+const App = () => {
+  const [drawerPosition, setDrawerPosition] = useState("left");
+  const changeDrawerPosition = () => {
+    if (drawerPosition === "left") {
+      setDrawerPosition("right");
+    } else {
+      setDrawerPosition("left");
+    }
+  };
+
   const navigationView = (
-    <View style={{flex: 1, backgroundColor: '#fff'}}>
-      <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
+    <View style={styles.navigationContainer}>
+      <Text style={{ margin: 10, fontSize: 15 }}>I'm in the Drawer!</Text>
     </View>
   );
+
   return (
     <DrawerLayoutAndroid
       drawerWidth={300}
-      drawerPosition={DrawerLayoutAndroid.positions.Left}
-      renderNavigationView={() => navigationView}>
-      <View style={{flex: 1, alignItems: 'center'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>Hello</Text>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'right'}}>World!</Text>
+      drawerPosition={drawerPosition}
+      renderNavigationView={() => navigationView}
+    >
+      <View style={styles.container}>
+        <Text style={{ margin: 10, fontSize: 15 }}>
+          DrawerLayoutAndroid example
+        </Text>
+        <Button
+          title="Change Drawer Position"
+          onPress={() => changeDrawerPosition()}
+        />
+        <Text style={{ margin: 10, fontSize: 15 }}>
+          Drawer on the {drawerPosition}! Swipe from the side to see!
+        </Text>
       </View>
     </DrawerLayoutAndroid>
   );
-},
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: "50px",
+    backgroundColor: "#ecf0f1",
+    padding: 8
+  },
+  navigationContainer: {
+    flex: 1,
+    paddingTop:  "50px",
+    backgroundColor: "#fff",
+    padding: 8
+  }
+});
+
+export default App;
 ```
+
 
 ---
 
 # 文档
 
 ## Props
+
+继承所有[View的Props](view#props).
 
 ### `renderNavigationView`
 

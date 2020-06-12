@@ -6,11 +6,63 @@ original_id: touchablewithoutfeedback
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 除非你有一个很好的理由，否则不要用这个组件。所有能够响应触屏操作的元素在触屏后都应该有一个视觉上的反馈（然而本组件没有任何视觉反馈），这也是为什么一个"web"应用总是显得不够"原生"的主要原因之一。
 
 注意`TouchableWithoutFeedback`只支持一个子节点（不能没有子节点也不能多于一个）。如果你希望包含多个子组件，可以用一个View来包装它们。
 
 > 译注：常见的使用场景比如想实现点击空白处触发某个操作，那么就可以把空白部分用`TouchableWithoutFeedback`包起来，或者绝对定位覆盖住。
+
+## 示例
+
+```SnackPlayer name=TouchableWithoutFeedback
+import React, { useState } from "react";
+import { StyleSheet, TouchableWithoutFeedback, Text, View } from "react-native";
+
+const TouchableWithoutFeedbackExample = () => {
+  const [count, setCount] = useState(0);
+
+  const onPress = () => {
+    setCount(count + 1);
+  };
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.countContainer}>
+        <Text style={styles.countText}>Count: {count}</Text>
+      </View>
+      <TouchableWithoutFeedback onPress={onPress}>
+        <View style={styles.button}>
+          <Text>Touch Here</Text>
+        </View>
+      </TouchableWithoutFeedback>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: "center",
+    backgroundColor: "#DDDDDD",
+    padding: 10
+  },
+  countContainer: {
+    alignItems: "center",
+    padding: 10
+  },
+  countText: {
+    color: "#FF00FF"
+  }
+});
+
+export default TouchableWithoutFeedbackExample;
+```
 
 ---
 

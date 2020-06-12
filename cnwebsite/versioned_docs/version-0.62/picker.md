@@ -1,23 +1,44 @@
 ---
 id: version-0.62-picker
-title: Picker
+title: 🚧 Picker
 original_id: picker
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。用例：
+> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
 
-```js
-<Picker
-  selectedValue={this.state.language}
-  style={{height: 50, width: 100}}
-  onValueChange={(itemValue, itemIndex) =>
-    this.setState({language: itemValue})
-  }>
-  <Picker.Item label="Java" value="java" />
-  <Picker.Item label="JavaScript" value="js" />
-</Picker>
+本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。
+
+```SnackPlayer name=picker
+import React, { useState } from "react";
+import { View, Picker, StyleSheet } from "react-native";
+
+const App = () => {
+  const [selectedValue, setSelectedValue] = useState("java");
+  return (
+    <View style={styles.container}>
+      <Picker
+        selectedValue={selectedValue}
+        style={{ height: 50, width: 150 }}
+        onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
+      >
+        <Picker.Item label="Java" value="java" />
+        <Picker.Item label="JavaScript" value="js" />
+      </Picker>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 40,
+    alignItems: "center"
+  }
+});
+
+export default App;
 ```
 
 ---

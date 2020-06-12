@@ -6,10 +6,132 @@ original_id: systrace
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
+`Systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
 
-# 文档
+## Example
 
-## 方法
+`Systrace` allows you to mark JavaScript (JS) events with a tag and an integer value. Capture the non-Timed JS events in EasyProfiler.
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Systrace%20Function%20Component%20Example
+import React from "react";
+import { Button, Text, View, StyleSheet, Systrace } from "react-native";
+
+const App = () =>  {
+
+  const enableProfiling = () => {
+    Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
+    Systrace.beginEvent('event_label')
+    Systrace.counterEvent('event_label', 10);
+  }
+
+  const stopProfiling = () => {
+    Systrace.endEvent()
+  }
+
+  return (
+    <View style={styles.container}>
+      <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
+      <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> enableProfiling()}/>
+      <Button title="Stop capturing" onPress={()=> stopProfiling()} color="#FF0000"/>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 44,
+    padding: 8
+  },
+   header: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  paragraph: {
+    margin: 24,
+    textAlign: "center"
+  }
+});
+
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Systrace%20Class%20Component%20Example
+import React, { Component } from "react";
+import { Button, Text, View, StyleSheet, Systrace } from "react-native";
+
+class App extends Component {
+
+  enableProfiling = () => {
+    Systrace.setEnabled(true); // Call setEnabled to turn on the profiling.
+    Systrace.beginEvent('event_label')
+    Systrace.counterEvent('event_label', 10);
+  }
+
+  stopProfiling = () => {
+    Systrace.endEvent()
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={[styles.header, styles.paragraph]}>React Native Systrace API</Text>
+        <Button title="Capture the non-Timed JS events in EasyProfiler" onPress={()=> this.enableProfiling()}/>
+        <Button title="Stop capturing" onPress={()=> this.stopProfiling()} color="#FF0000"/>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingTop: 44,
+    padding: 8
+  },
+   header: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  paragraph: {
+    margin: 24,
+    textAlign: "center"
+  }
+});
+
+export default App;
+```
+
+<block class="endBlock syntax" />
+
+---
+
+# Reference
+
+## Methods
 
 ### `installReactHook()`
 
@@ -41,7 +163,7 @@ static isEnabled()
 static beginEvent(profileName?, args?)
 ```
 
-beginEvent/endEvent for starting and then ending a profile within the same call stack frame
+beginEvent/endEvent for starting and then ending a profile within the same call stack frame.
 
 ---
 
@@ -59,7 +181,7 @@ static endEvent()
 static beginAsyncEvent(profileName?)
 ```
 
-beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either occur on another thread or out of the current stack frame, eg await the returned cookie variable should be used as input into the endAsyncEvent call to end the profile
+beginAsyncEvent/endAsyncEvent for starting and then ending a profile where the end can either occur on another thread or out of the current stack frame, eg await the returned cookie variable should be used as input into the endAsyncEvent call to end the profile.
 
 ---
 
@@ -77,48 +199,4 @@ static endAsyncEvent(profileName?, cookie?)
 static counterEvent(profileName?, value?)
 ```
 
-Register the value to the profileName on the systrace timeline
-
----
-
-### `attachToRelayProfiler()`
-
-```jsx
-static attachToRelayProfiler(relayProfiler)
-```
-
-Relay profiles use await calls, so likely occur out of current stack frame therefore async variant of profiling is used
-
----
-
-### `swizzleJSON()`
-
-```jsx
-static swizzleJSON()
-```
-
-This is not called by default due to performance overhead, but it's useful for finding traces which spend too much time in JSON.
-
----
-
-### `measureMethods()`
-
-```jsx
-static measureMethods(object, objectName, methodNames)
-```
-
-Measures multiple methods of a class. For example, the following will return the `parse` and `stringify` methods of the JSON class: Systrace.measureMethods(JSON, 'JSON', ['parse', 'stringify']);
-
-@param object @param objectName @param methodNames Map from method names to method display names.
-
----
-
-### `measure()`
-
-```jsx
-static measure(objName, fnName, func)
-```
-
-Returns an profiled version of the input function. For example, you can: JSON.parse = Systrace.measure('JSON', 'parse', JSON.parse);
-
-@param objName @param fnName @param {function} func @return {function} replacement function
+Register the value to the profileName on the systrace timeline.

@@ -1,6 +1,6 @@
 ---
 id: version-0.62-animatedvalue
-title: AnimatedValue
+title: Animated.Value
 original_id: animatedvalue
 ---
 
@@ -9,24 +9,6 @@ original_id: animatedvalue
 驱动动画的一维标量值. 一个`Animated.Value`可以同步地驱动多个属性，但每次只能以一种动画机制变化。如果改用了其他动画机制（例如开始一个新的动画或是调用`setValue`），则会停止先前的动画。
 
 一般这样来初始化`new Animated.Value(0);`
-
-相关文档请参考[`Animated`](animated.md).
-
-### 查看方法
-
-* [`setValue`](animatedvalue.md#setvalue)
-* [`setOffset`](animatedvalue.md#setoffset)
-* [`flattenOffset`](animatedvalue.md#flattenoffset)
-* [`extractOffset`](animatedvalue.md#extractoffset)
-* [`addListener`](animatedvalue.md#addlistener)
-* [`removeListener`](animatedvalue.md#removelistener)
-* [`removeAllListeners`](animatedvalue.md#removealllisteners)
-* [`stopAnimation`](animatedvalue.md#stopanimation)
-* [`resetAnimation`](animatedvalue.md#resetanimation)
-* [`interpolate`](animatedvalue.md#interpolate)
-* [`animate`](animatedvalue.md#animate)
-* [`stopTracking`](animatedvalue.md#stoptracking)
-* [`track`](animatedvalue.md#track)
 
 ---
 

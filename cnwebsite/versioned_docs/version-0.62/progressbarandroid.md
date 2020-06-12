@@ -6,44 +6,55 @@ original_id: progressbarandroid
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/react-native-progress-bar-android) instead.
+> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/progress-bar-android) instead.
 
 封装了Android平台上的`ProgressBar`的React组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。
 
-例子：
+### 示例
 
-```
-import React, { Component } from "react";
-import {
-  ProgressBarAndroid,
-  StyleSheet,
-  View
-} from "react-native";
+```SnackPlayer name=ProgressBarAndroid&supportedPlatforms=android
+import React from 'react';
+import {View, StyleSheet, ProgressBarAndroid, Text} from 'react-native';
 
-export default class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.example}>
+        <Text>Circle Progress Indicator</Text>
         <ProgressBarAndroid />
+      </View>
+      <View style={styles.example}>
+        <Text>Horizontal Progress Indicator</Text>
         <ProgressBarAndroid styleAttr="Horizontal" />
+      </View>
+      <View style={styles.example}>
+        <Text>Colored Progress Indicator</Text>
         <ProgressBarAndroid styleAttr="Horizontal" color="#2196F3" />
+      </View>
+      <View style={styles.example}>
+        <Text>Fixed Progress Value</Text>
         <ProgressBarAndroid
           styleAttr="Horizontal"
           indeterminate={false}
           progress={0.5}
         />
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "space-evenly",
-    padding: 10
-  }
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  example: {
+    marginVertical: 24,
+  },
 });
+
+export default App;
 ```
 
 ---

@@ -14,24 +14,39 @@ React Native 看起来很像 React，只不过其基础组件是原生组件而�
 
 根据历史悠久的“传统”，我们也来写一个“Hello, world!”：
 
-```SnackPlayer
-import React, { Component } from 'react';
+```SnackPlayer name=Hello%20World
+import React from 'react';
 import { Text, View } from 'react-native';
 
-export default class HelloWorldApp extends Component {
-  render() {
-    return (
-        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-          <Text>Hello, world!</Text>
-        </View>
-    );
-  }
+const HelloWorldApp = () => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+      }}>
+      <Text>Hello, world!</Text>
+    </View>
+  )
 }
+export default HelloWorldApp;
 ```
 
-你可以新建一个项目，然后用上面的代码覆盖你的`App.js`文件，然后运行看看。
+你可以直接在上面的编辑器里改改试试，也可以新建一个项目，然后用上面的代码覆盖你的`App.js`文件，然后运行看看。
 
 ## 那这段代码是什么意思呢？
+
+1. First of all, we need to import `React` to be able to use `JSX`, which will then be transformed to the native components of each platform.
+2. On line 2, we import the `Text` and `View` components from `react-native`
+
+Then we find the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
+
+The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
+
+The first style that we find is `flex: 1`, the [`flex`](layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case, it is the only component, so it will take all the available screen space.
+
+The following style is [`justifyContent`](layout-props#justifycontent): "center". This align children of a container in the center of the container's main axis and finally we have [`alignItems`](layout-props#alignitems): "center", which align children of a container in the center of the container's cross axis.
 
 初看这段代码，可能觉得并不像 JavaScript——没错，这是“未来”的 JavaScript.
 

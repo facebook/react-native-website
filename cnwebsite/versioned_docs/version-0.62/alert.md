@@ -12,22 +12,135 @@ original_id: alert
 
 本接口可以在 iOS 和 Android 上显示一个静态的提示框。如果要在显示提示框的同时接受用户输入一些信息，那你可能需要[`AlertIOS`](alertios.md)。
 
-## 示例
+### 示例
 
-<table>
-  <tr>
-    <th style="width: 50%;">iOS</th>
-    <th style="width: 50%;">Android</th>
-  </tr>
-  <tr>
-    <td style="width: 50%;">
-      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleios.gif"></img></center>
-    </td>
-    <td style="width: 50%;">
-      <center><img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/Alert/exampleandroid.gif"></img></center>
-    </td>
-  </tr>
-</table>
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Alert%20Function%20Component%20Example&supportedPlatforms=ios,android
+import React, { useState } from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
+const App = () => {
+  const createTwoButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+  const createThreeButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Ask me later",
+          onPress: () => console.log("Ask me later pressed")
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+  return (
+    <View style={styles.container}>
+      <Button title={"2-Button Alert"} onPress={createTwoButtonAlert} />
+      <Button title={"3-Button Alert"} onPress={createThreeButtonAlert} />
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
+  }
+});
+export default App;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Alert%20Class%20Component%20Example&supportedPlatforms=ios,android
+import React, { Component } from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
+class App extends Component {
+  createTwoButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+  createThreeButtonAlert = () =>
+    Alert.alert(
+      "Alert Title",
+      "My Alert Msg",
+      [
+        {
+          text: "Ask me later",
+          onPress: () => console.log("Ask me later pressed")
+        },
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ],
+      { cancelable: false }
+    );
+  render() {
+    return (
+      <View style={styles.container}>
+        <Button title={"2-Button Alert"} onPress={this.createTwoButtonAlert} />
+        <Button
+          title={"3-Button Alert"}
+          onPress={this.createThreeButtonAlert}
+        />
+      </View>
+    );
+  }
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "space-around",
+    alignItems: "center"
+  }
+});
+export default App;
+```
+
+<block class="endBlock syntax" />
 
 ## iOS
 
@@ -39,7 +152,7 @@ original_id: alert
 
 如果你只指定一个按钮，则它具有“积极态”的属性（比如“确定”）；两个按钮，则分别是“消极态”和“积极态”（比如“取消”和“确定”）；三个按钮则意味着“中间态”、“消极态”和“积极态”（比如“稍候再说”，“取消”，“确定”）。
 
-在 Android 上默认情况下点击提示框的外面会自动取消提示框。你可以提供一个额外参数来处理这一事件：`{ onDismiss: () => {} }`。
+在 Android 上默认情况下点击提示框的外面会自动取消提示框。你可以在`options`中提供一个额外参数来处理这一事件：`{ onDismiss: () => {} }`。
 
 还有另外一个参数也可以用来阻止提示框被自动取消，即`{ cancelable: false }`。
 

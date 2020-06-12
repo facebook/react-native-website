@@ -4,7 +4,7 @@ title: 调试
 original_id: debugging
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.91%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com+in%3Aemail&type=Users)(1.09%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.92%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com+in%3Aemail&type=Users)(1.08%)
 
 ## 开启调试的快捷键
 
@@ -81,10 +81,11 @@ You can use Safari to debug the iOS version of your app without having to enable
 
 - Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
 - Select your app's JSContext: `Develop → Simulator → JSContext`
-- Safari's Web Inspector should open which has a Console and a Debugger However, there are some disadvantages:
+- Safari's Web Inspector should open which has a Console and a Debugger
 
-1. No sourcemaps when debugging
-2. Every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
+
+However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
 
 ## React Developer Tools
 
@@ -148,10 +149,10 @@ You can view installation instructions [in the README](https://github.com/infini
 
 # 原生端调试
 
-<div class="banner-native-code-required" style="margin-top:25px">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
+    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
@@ -159,7 +160,7 @@ You can view installation instructions [in the README](https://github.com/infini
 
 在运行 RN 应用时，可以在终端中运行如下命令来查看控制台的日志：
 
-```
+```sh
 $ npx react-native log-ios
 $ npx react-native log-android
 ```

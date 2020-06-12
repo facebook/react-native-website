@@ -26,7 +26,7 @@ original_id: handling-touches
 
 ![](assets/Button.png)
 
-再试试下面这个使用`Button`的例子吧。你可以点击"Tap to Play"来预览真实效果。（下面会显示一个嵌在网页中的手机模拟器，国内用户可能打不开这个网页模拟器，或速度非常慢）。
+再试试下面这个使用`Button`的例子吧。你可以点击"Tap to Play"来预览真实效果。
 
 ```SnackPlayer name=Button%20Basics
 import React, { Component } from 'react';

@@ -12,35 +12,163 @@ original_id: image
 
 > 请注意对于网络和 base64 数据的图片需要手动指定尺寸！
 
-```SnackPlayer name=Image
-import React, { Component } from 'react';
-import { View, Image } from 'react-native';
+## Examples
 
-export default class DisplayAnImage extends Component {
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example
+
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
+
+const DisplayAnImage = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.tinyLogo}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://reactnative.dev/img/tiny_logo.png',
+        }}
+      />
+      <Image
+        style={styles.logo}
+        source={{
+          uri:
+            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+        }}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImage;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
+
+import React, { Component } from 'react';
+import { AppRegistry, View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
+
+class DisplayAnImage extends Component {
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image
-          style={{width: 50, height: 50}}
+          style={styles.tinyLogo}
           source={require('@expo/snack-static/react-native-logo.png')}
         />
         <Image
-          style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react-native/img/tiny_logo.png'}}
+          style={styles.tinyLogo}
+          source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
         />
         <Image
-          style={{width: 66, height: 58}}
+          style={styles.logo}
           source={{uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=='}}
         />
       </View>
     );
   }
 }
+
+export default DisplayAnImage;
 ```
+
+<block class="endBlock syntax" />
 
 你可以给图片添加`style`属性：
 
-```SnackPlayer name=Image
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Function%20Component%20Example
+
+import React from 'react';
+import { View, Image, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  stretch: {
+    width: 50,
+    height: 200,
+    resizeMode: 'stretch',
+  },
+});
+
+const DisplayAnImageWithStyle = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={styles.stretch}
+        source={require('@expo/snack-static/react-native-logo.png')}
+      />
+    </View>
+  );
+}
+
+export default DisplayAnImageWithStyle;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example
+
 import React, { Component } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 
@@ -52,7 +180,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class DisplayAnImageWithStyle extends Component {
+class DisplayAnImageWithStyle extends Component {
   render() {
     return (
       <View>
@@ -64,7 +192,11 @@ export default class DisplayAnImageWithStyle extends Component {
     );
   }
 }
+
+export default DisplayAnImageWithStyle;
 ```
+
+<block class="endBlock syntax" />
 
 ### 在 Android 上支持 GIF 和 WebP 格式图片
 
@@ -228,7 +360,7 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
-目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。此外iOS还支持几种RAW格式。请参考Apple的官方文档来了解目前支持哪些相机型号的raw格式(对于iOS 13请访问 https://support.apple.com/en-us/HT210191)。
+目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。此外 iOS 还支持几种 RAW 格式。请参考 Apple 的官方文档来了解目前支持哪些相机型号的 raw 格式(对于 iOS 13 请访问 https://support.apple.com/en-us/HT210191)。
 
 | 类型                | 必填 |
 | ------------------- | ---- |
@@ -359,7 +491,7 @@ If passing an object, the general shape is `{uri: string, width: number, height:
 
 ### `fadeDuration`
 
-渐入的动画持续时间。仅Android可用。默认为 300ms.
+渐入的动画持续时间。仅 Android 可用。默认为 300ms.
 
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
@@ -414,7 +546,7 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 | 名称 | 类型 | 必填 | 说明 |
 | --- | --- | --- | --- |
 | uri | string | 是 | 图片地址 |
-| headers | object | 是 | 请求的headers |
+| headers | object | 是 | 请求的 headers |
 | success | function | 是 | The function that will be called if the image was successfully found and width and height retrieved. |
 | failure | function | 否 | The function that will be called if there was an error, such as failing toto retrieve the image. |
 

@@ -6,20 +6,68 @@ original_id: share
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-## Basic Example
+## 示例
 
-```jsx
-import React, {Component} from 'react'
-import {Share, Button} from 'react-native'
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      函数组件示例
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class组件示例
+    </li>
+  </ul>
+</div>
 
-class ShareExample extends Component {
+<block class="functional syntax" />
 
-  async onShare = () => {
+```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
+import React from 'react';
+import { Share, View, Button } from 'react-native';
+
+const ShareExample = () => {
+  const onShare = async () => {
     try {
       const result = await Share.share({
         message:
           'React Native | A framework for building native apps using React',
-      })
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+  return (
+    <View style={{ marginTop: 50 }}>
+      <Button onPress={onShare} title="Share" />
+    </View>
+  );
+};
+
+export default ShareExample;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
+import React, { Component } from 'react';
+import { Share, View, Button } from 'react-native';
+
+class ShareExample extends Component {
+  onShare = async () => {
+    try {
+      const result = await Share.share({
+        message:
+          'React Native | A framework for building native apps using React',
+      });
 
       if (result.action === Share.sharedAction) {
         if (result.activityType) {
@@ -37,12 +85,17 @@ class ShareExample extends Component {
 
   render() {
     return (
-      <Button onPress={this.onShare}>Share</Button>
+      <View style={{ marginTop: 50 }}>
+        <Button onPress={this.onShare} title="Share" />
+      </View>
     );
   }
-
 }
+
+export default ShareExample;
 ```
+
+<block class="endBlock syntax" />
 
 ---
 
@@ -76,7 +129,7 @@ static share(content, options)
 #### Android
 
 - `title` - title of the message
-  
+
 ### Options
 
 #### iOS
@@ -91,20 +144,20 @@ static share(content, options)
 
 ---
 
-### `sharedAction()`
+### `sharedAction`
 
 ```jsx
-static sharedAction()
+static sharedAction
 ```
 
 表示内容已成功分享。
 
 ---
 
-### `dismissedAction()`
+### `dismissedAction`
 
 ```jsx
-static dismissedAction()
+static dismissedAction
 ```
 
 表示对话框被取消。仅限 iOS。

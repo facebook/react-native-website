@@ -1,12 +1,56 @@
 ---
 id: version-0.62-clipboard
-title: Clipboard
+title: 🚧 Clipboard
 original_id: clipboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.08%), [774866545](https://github.com/search?q=774866545%40qq.com+in%3Aemail&type=Users)(1.92%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.96%), [774866545](https://github.com/search?q=774866545%40qq.com+in%3Aemail&type=Users)(1.04%)
+
+> **Deprecated.** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
 
 `Clipboard`组件可以在 iOS 和 Android 的剪贴板中读写内容。
+
+## 示例
+
+```SnackPlayer name=Clipboard%20API%20Example&supportedPlatforms=ios,android
+import React, { useState } from 'react'
+import { SafeAreaView, View, Text, TouchableOpacity, Clipboard, StyleSheet } from 'react-native'
+const App = () => {
+  const [copiedText, setCopiedText] = useState('')
+  const copyToClipboard = () => {
+    Clipboard.setString('hello world')
+  }
+  const fetchCopiedText = async () => {
+    const text = await Clipboard.getString()
+    setCopiedText(text)
+  }
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => copyToClipboard()}>
+          <Text>Click here to copy to Clipboard</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => fetchCopiedText()}>
+          <Text>View copied text</Text>
+        </TouchableOpacity>
+        <Text style={styles.copiedText}>{copiedText}</Text>
+      </View>
+    </SafeAreaView>
+  )
+}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  copiedText: {
+    marginTop: 10,
+    color: 'red'
+  }
+})
+export default App
+```
 
 ---
 

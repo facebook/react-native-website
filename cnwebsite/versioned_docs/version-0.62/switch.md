@@ -10,13 +10,47 @@ original_id: switch
 
 注意这是一个“受控组件”（controlled component）。你必须使用`onValueChange`回调来更新`value`属性以响应用户的操作。如果不更新`value`属性，组件只会按一开始给定的`value`值来渲染且保持不变，看上去就像完全点不动。  
 
-@keyword checkbox @keyword toggle @keyword 单选 @keyword 多选
+## 示例
+
+```SnackPlayer name=Switch
+import React, { useState } from "react";
+import { View, Switch, StyleSheet } from "react-native";
+
+const App = () => {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  return (
+    <View style={styles.container}>
+      <Switch
+        trackColor={{ false: "#767577", true: "#81b0ff" }}
+        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+        ios_backgroundColor="#3e3e3e"
+        onValueChange={toggleSwitch}
+        value={isEnabled}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
+
+export default App;
+```
 
 ---
 
 # 文档
 
 ## Props
+
+Inherits [View Props](view#props).
 
 ### `disabled`
 
