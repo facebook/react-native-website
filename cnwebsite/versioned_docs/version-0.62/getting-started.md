@@ -395,9 +395,9 @@ c:\Users\你的用户名\AppData\Local\Android\Sdk
 
 使用 React Native 内建的命令行工具来创建一个名为"AwesomeProject"的新项目。这个命令行工具不需要安装，可以直接用 node 自带的`npx`命令来使用（注意 init 命令默认会创建最新的版本）：
 
-> **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译，请务必使用稳定的代理软件。
+> **必须要看的注意事项一**：0.45 及以上版本需要依赖 boost 等几个很难下载成功的第三方库编译，请务必使用稳定的代理软件并确定其配置对命令行有效。
 
-> **必须要看的注意事项二**：0.60 及以上版本依赖 CocoaPods 安装。CocoaPods 的仓库在国内也很难访问。如果在 CocoaPods 的安装步骤卡很久，可以试一下[这个国内镜像](https://mirror.tuna.tsinghua.edu.cn/help/CocoaPods/)
+> **必须要看的注意事项二**：0.60 及以上版本的原生依赖是通过 CocoaPods 集成安装的。CocoaPods 的仓库在国内也很难访问。如果在 CocoaPods 的依赖安装步骤卡很久（命令行停在Installing CocoaPods dependencies），请务必使用稳定的代理软件并确定其配置对命令行有效。
 
 > **必须要看的注意事项三**：请`不要`单独使用常见的关键字作为项目名（如 class, native, new, package 等等）。请`不要`使用与核心模块同名的项目名（如 react, react-native 等）。请`不要`在目录、文件名中使用中文、空格等特殊符号。
 
