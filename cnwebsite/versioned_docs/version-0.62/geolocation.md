@@ -6,6 +6,8 @@ original_id: geolocation
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.21%), [morelearn1990](https://github.com/search?q=morelearn1990%40gmail.com+in%3Aemail&type=Users)(1.79%)
 
+> **Deprecated.** Use [@react-native-community/geolocation](https://github.com/react-native-community/react-native-geolocation) instead.
+
 地理定位（Geolocation）API 遵循[web 标准](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation)。
 
 正因为如此，此 API 和在浏览器上使用方法一致，都是直接访问全局的`navigator.geolocation`对象，并不需要额外`import`，
@@ -22,24 +24,13 @@ On Android, this uses the [android.location API](https://developer.android.com/r
 
 ### Configuration and Permissions
 
-<div class="banner-crna-ejected">
-  <h3>Projects with Native Code Only</h3>
-  <p>
-    This section only applies to projects made with <code>react-native init</code>
-    or to those made with Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
-  </p>
-</div>
-
 #### iOS
 
 你需要在 Info.plist 中增加`NSLocationWhenInUseUsageDescription`字段来启用定位功能。如果你是用`react-native init`命令来创建项目，则定位会被默认启用。
 
 In order to enable geolocation in the background, you need to include the 'NSLocationAlwaysUsageDescription' key in Info.plist and add location as a background mode in the 'Capabilities' tab in Xcode.
 
-如果你是使用 CocoaPods 来引入 React Native，那么请确保你在使用本 API 前引入了`RCTGeolocation`模块。 sub-podspec.
+如果你是使用 CocoaPods 来引入 React Native，那么请确保你在使用本 API 前引入了`RCTGeolocation`模块。
 
 #### Android
 
