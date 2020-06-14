@@ -40,7 +40,7 @@ In order to enable geolocation in the background, you need to include the 'NSLoc
 
 如果 Android 设备 API 版本>=18（即 Android 4.3 及以上），则位置信息还会包含额外的布尔值`mocked`，表示此位置信息可能由某服务模拟得出。
 
-如果 Android 设备 API 版本>=18（即 Android 6.0 及以上），则需要额外的步骤来检查权限，即使用[`PermissionsAndroid API`](permissionsandroid.md)来检查 ACCESS_FINE_LOCATION 权限。 不这么做的话可能导致应用崩溃闪退。
+如果 Android 设备 API 版本>=23（即 Android 6.0 及以上），则需要额外的步骤来检查权限，即使用[`PermissionsAndroid API`](permissionsandroid.md)来检查 ACCESS_FINE_LOCATION 权限。 不这么做的话可能导致应用崩溃闪退。
 
 ### 查看方法
 
