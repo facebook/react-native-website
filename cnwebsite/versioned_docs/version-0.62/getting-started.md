@@ -141,7 +141,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ### Node, Watchman
 
-我们推荐使用[Homebrew](http://brew.sh/)来安装 Node 和 Watchman。在命令行中执行下列命令安装：
+我们推荐使用[Homebrew](http://brew.sh/)来安装 Node 和 Watchman。在命令行中执行下列命令安装（如安装较慢可以尝试阿里云的镜像源 https://developer.aliyun.com/mirror/homebrew）：
 
 ```
 brew install node
