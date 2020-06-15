@@ -91,7 +91,7 @@ More complex, multi-select example demonstrating `` usage for perf optimization 
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 ```SnackPlayer name=flatlist-selectable
-import React from 'react';
+import React, { useState } from 'react';
 import {
   SafeAreaView,
   TouchableOpacity,
@@ -116,47 +116,42 @@ const DATA = [
   },
 ];
 
-const Item = ({ id, title, selected, onSelect }) => {
-  return (
-    <TouchableOpacity
-      onPress={() => onSelect(id)}
+const App = () => {
+  const [selected, setSelected] = useState({ id: null });
+
+  const onSelect = (item) => {
+    setSelected(item);
+  }
+
+  const renderItemSelect = (item) => {
+    return item.id === selected.id ? (
+       <TouchableOpacity
+      onPress={() => onSelect(item)}
       style={[
         styles.item,
-        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
+        { backgroundColor: '#6e3b6e' },
       ]}
     >
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>{item.title}</Text>
     </TouchableOpacity>
-  );
-}
-
-const App = () => {
-  const [selected, setSelected] = React.useState(new Map());
-
-  const onSelect = React.useCallback(
-    id => {
-      const newSelected = new Map(selected);
-      newSelected.set(id, !selected.get(id));
-
-      setSelected(newSelected);
-    },
-    [selected],
-  );
-
-  const renderItem = ({ item }) => (
-    <Item
-      id={item.id}
-      title={item.title}
-      selected={!!selected.get(item.id)}
-      onSelect={onSelect}
-    />
-  );
+    ) : (
+        <TouchableOpacity
+      onPress={() => onSelect(item)}
+      style={[
+        styles.item,
+        { backgroundColor: '#f9c2ff' },
+      ]}
+    >
+      <Text style={styles.title}>{item.title}</Text>
+    </TouchableOpacity>
+    )
+  }
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={renderItem}
+        renderItem={({ item }) => renderItemSelect(item)}
         keyExtractor={item => item.id}
         extraData={selected}
       />
@@ -170,7 +165,6 @@ const styles = StyleSheet.create({
     marginTop: Constants.statusBarHeight,
   },
   item: {
-    backgroundColor: '#f9c2ff',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
