@@ -123,35 +123,34 @@ const App = () => {
     setSelected(item);
   }
 
-  const renderItemSelect = (item) => {
-    return item.id === selected.id ? (
-       <TouchableOpacity
-      onPress={() => onSelect(item)}
-      style={[
-        styles.item,
-        { backgroundColor: '#6e3b6e' },
-      ]}
-    >
-      <Text style={styles.title}>{item.title}</Text>
-    </TouchableOpacity>
-    ) : (
-        <TouchableOpacity
-      onPress={() => onSelect(item)}
-      style={[
-        styles.item,
-        { backgroundColor: '#f9c2ff' },
-      ]}
-    >
-      <Text style={styles.title}>{item.title}</Text>
-    </TouchableOpacity>
-    )
+  const Item = (item) => {
+    return (
+      <TouchableOpacity
+        onPress={() => onSelect(item)}
+        style={[
+          styles.item,
+          { backgroundColor: item.id === selected.id ? '#6e3b6e' : '#f9c2ff' }
+        ]}
+      >
+        <Text style={styles.title}>{item.title}</Text>
+      </TouchableOpacity>
+    );
+  }
+
+  const renderItemSelect = ({ item }) => {
+    return (
+      <Item
+        id={item.id}
+        title={item.title}
+       />
+    );
   }
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => renderItemSelect(item)}
+        renderItem={renderItemSelect}
         keyExtractor={item => item.id}
         extraData={selected}
       />
