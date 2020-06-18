@@ -294,7 +294,7 @@ The React Native tools require some environment variables to be set up in order 
 
 <block class="native mac linux android" />
 
-Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` config file:
+Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you are using `zsh` then `~/.zprofile` or `~/.zshrc`) config file:
 
 <block class="native mac android" />
 

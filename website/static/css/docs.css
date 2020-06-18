@@ -291,6 +291,11 @@ figcaption {
 
 /* Label inside other tags */
 
+h2 .label {
+  top: -6px;
+  margin-left: 12px;
+}
+
 h3 .label {
   top: -2px;
   margin-left: 22px;
@@ -330,6 +335,7 @@ td .label.required {
   overflow: hidden;
   color: transparent;
   float: initial;
+  top: -1px;
 }
 
 .onPageNav .label.required {

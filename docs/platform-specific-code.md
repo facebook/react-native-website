@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-This will result in a container having `flex: 1` on both platforms, a red background color on iOS, a green background color on Android, and a blue background on other platforms.
+This will result in a container having `flex: 1` on all platforms, a red background color on iOS, a green background color on Android, and a blue background color on other platforms.
 
 Since it accepts `any` value, you can also use it to return platform specific component, like below:
 
@@ -118,7 +118,7 @@ React Native will automatically pick up the right file based on the running plat
 
 ## Native-specific extensions (i.e. sharing code with NodeJS and Web)
 
-You can also use the `.native.js` extension when a module needs to be shared between NodeJS/Web and React Native but it has no Android/iOS differences. This is specially useful for projects that has common code shared among React Native and ReactJS.
+You can also use the `.native.js` extension when a module needs to be shared between NodeJS/Web and React Native but it has no Android/iOS differences. This is especially useful for projects that have common code shared among React Native and ReactJS.
 
 For example, say you have the following files in your project:
 
