@@ -3,9 +3,9 @@ id: settings
 title: Settings
 ---
 
-`Settings` serves as a wrapper for [`NSUserDefaults`](https://developer.apple.com/documentation/foundation/nsuserdefaults), a persistent key-value store available only on iOS.
+`Settings`是对[`NSUserDefaults`](https://developer.apple.com/documentation/foundation/nsuserdefaults)的封装。它是iOS平台上的一种持久的键值对存储。
 
-## Example
+## 示例
 
 ```SnackPlayer name=Settings%20Example&supportedPlatforms=ios
 import React, { useState } from "react";

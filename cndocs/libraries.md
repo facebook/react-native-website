@@ -6,9 +6,9 @@ authorURL: https://twitter.com/notbrent
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 
-React Native provides a set of built-in [Core Components and APIs](./components-and-apis) ready to use in your app. You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If the Core Components and APIs don't have what you are looking for, you may be able to find and install a library from the community to add the functionality to your app.
+React Native 提供了一系列内置的[核心组件和API](components-and-apis)， You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If the Core Components and APIs don't have what you are looking for, you may be able to find and install a library from the community to add the functionality to your app.
 
-## Selecting a Package Manager
+## 选择一个包管理器
 
 React Native libraries are typically installed from the [npm registry](https://www.npmjs.com/) using a Node.js package manager such as [npm CLI](https://docs.npmjs.com/cli/npm) or [Yarn Classic](https://classic.yarnpkg.com/en/).
 

@@ -3,19 +3,19 @@ id: optimizing-flatlist-configuration
 title: 列表配置优化
 ---
 
-## Terms
+## 术语定义
 
 - **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the [`Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List) concept.)
 
-- **Memory consumption:** How much information about your list is being stored in memory, which could lead to an app crash.
+- **内存开销 Memory consumption:** How much information about your list is being stored in memory, which could lead to an app crash.
 
-- **Responsiveness:** Application ability to respond to interactions. Low responsiveness, for instance, is when you touch on a component and it waits a bit to respond, instead of responding immediately as expected.
+- **响应度 Responsiveness:** Application ability to respond to interactions. Low responsiveness, for instance, is when you touch on a component and it waits a bit to respond, instead of responding immediately as expected.
 
-- **Blank areas:** When `VirtualizedList` can't render your items fast enough, you may enter a part of your list with non-rendered components that appear as blank white space.
+- **空白区 Blank areas:** When `VirtualizedList` can't render your items fast enough, you may enter a part of your list with non-rendered components that appear as blank white space.
 
-- **Viewport:** The visible area of content that is rendered to pixels.
+- **视口 Viewport:** The visible area of content that is rendered to pixels.
 
-- **Window:** The area in which items should be mounted, which is generally much larger than the viewport.
+- **滑动窗口 Window:** The area in which items should be mounted, which is generally much larger than the viewport.
 
 ## Props
 
