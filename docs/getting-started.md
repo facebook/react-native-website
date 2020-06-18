@@ -64,7 +64,7 @@ If you have a problem with Expo, before creating a new issue, please see if ther
 - in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
 - in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
 
 <h3>Running your app on a simulator or virtual device</h3>
 
@@ -617,7 +617,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
 
 <block class="native windows linux mac android" />
 
@@ -625,4 +625,4 @@ If you're curious to learn more about React Native, check out the [Introduction 
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
