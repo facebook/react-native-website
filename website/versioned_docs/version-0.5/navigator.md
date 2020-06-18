@@ -4,7 +4,7 @@ title: Navigator
 original_id: navigator
 ---
 
-`Navigator` handles the transition between different scenes in your app. It is implemented in JavaScript and is available on both Android and iOS. If you are targeting iOS only, you may also want to consider using `NavigatorIOS` as it leverages native UIKit navigation.
+`Navigator` handles the transition between different scenes in your app. It is implemented in JavaScript and is available on both Android and iOS. If you are targeting iOS only, you may also want to consider using [`NavigatorIOS`](/docs/0.5/navigatorios) as it leverages native UIKit navigation.
 
 To set up the `Navigator` you provide one or more objects called routes, to identify each scene. You also provide a `renderScene` function that renders the scene for each route object.
 
@@ -128,37 +128,7 @@ To change the animation or gesture properties of the scene, provide a `configure
 />
 ```
 
-In the above example, the newly pushed scene will float up from the bottom. See `Navigator.SceneConfigs` for default animations and more info on available [scene config options](navigator.md#configurescene).
-
-### Props
-
-- [`configureScene`](navigator.md#configurescene)
-- [`initialRoute`](navigator.md#initialroute)
-- [`initialRouteStack`](navigator.md#initialroutestack)
-- [`navigationBar`](navigator.md#navigationbar)
-- [`navigator`](navigator.md#navigator)
-- [`onDidFocus`](navigator.md#ondidfocus)
-- [`onWillFocus`](navigator.md#onwillfocus)
-- [`renderScene`](navigator.md#renderscene)
-- [`sceneStyle`](navigator.md#scenestyle)
-
-### Methods
-
-- [`immediatelyResetRouteStack`](navigator.md#immediatelyresetroutestack)
-- [`jumpTo`](navigator.md#jumpto)
-- [`jumpForward`](navigator.md#jumpforward)
-- [`jumpBack`](navigator.md#jumpback)
-- [`push`](navigator.md#push)
-- [`popN`](navigator.md#popn)
-- [`pop`](navigator.md#pop)
-- [`replaceAtIndex`](navigator.md#replaceatindex)
-- [`replace`](navigator.md#replace)
-- [`replacePrevious`](navigator.md#replaceprevious)
-- [`popToTop`](navigator.md#poptotop)
-- [`popToRoute`](navigator.md#poptoroute)
-- [`replacePreviousAndPop`](navigator.md#replacepreviousandpop)
-- [`resetTo`](navigator.md#resetto)
-- [`getCurrentRoutes`](navigator.md#getcurrentroutes)
+In the above example, the newly pushed scene will float up from the bottom. See `Navigator.SceneConfigs` for default animations and more info on available [scene config options](navigator#configurescene).
 
 ---
 
