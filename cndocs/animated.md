@@ -10,10 +10,10 @@ title: Animated
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Using with Function Components
+      在示例中使用函数组件
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Using with Class Components
+      在示例中使用Class组件
     </li>
   </ul>
 </div>
@@ -28,7 +28,7 @@ title: Animated
 
 <block class="endBlock syntax" />
 
-## Example
+## 示例
 
 The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
 

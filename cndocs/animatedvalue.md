@@ -19,13 +19,13 @@ title: Animated.Value
 setValue(value);
 ```
 
-直接赋值。 This will stop any animations running on the value and update all the bound properties.
+直接赋值。注意这会导致正在运行的动画中断而直接更新到新值。
 
 **参数：**
 
 | 名称  | 类型   | 必填 | 说明  |
 | ----- | ------ | ---- | ----- |
-| value | number | 是   | Value |
+| value | number | 是   | 新的动画值 |
 
 ---
 

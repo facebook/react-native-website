@@ -7,47 +7,50 @@
       "tutorial",
       "props",
       "state",
-      "style",
-      "height-and-width",
-      "flexbox",
       "handling-text-input",
-      "handling-touches",
       "using-a-scrollview",
       "using-a-listview",
       "network",
       "sample-application-movies",
+      "platform-specific-code",
       "more-resources"
     ],
+    "开发流程": [
+      "running-on-device",
+      "fast-refresh",
+      "debugging",
+      "testing-overview",
+      "libraries",
+      "typescript",
+      "upgrading"
+    ],
     "设计": ["style", "height-and-width", "flexbox", "images", "colors"],
+    "交互": [
+      "handling-touches",
+      "navigation",
+      "animations",
+      "gesture-responder-system"
+    ],
+    "性能调优": [
+      "performance",
+      "optimizing-flatlist-configuration",
+      "ram-bundles-inline-requires",
+      "profiling"
+    ],
+    "JavaScript 运行环境": ["javascript-environment", "timers", "hermes"],
+    "网络连接": ["network", "security"],
     "进阶指南": [
       "components-and-apis",
-      "fast-refresh",
-      "platform-specific-code",
-      "navigation",
-      "images",
-      "animations",
       "accessibility",
-      "improvingux",
-      "optimizing-flatlist-configuration",
-      "timers",
-      "debugging",
-      "performance",
-      "gesture-responder-system",
-      "javascript-environment",
-      "typescript",
       "direct-manipulation",
-      "colors",
       "integration-with-existing-apps",
       "building-for-tv",
-      "running-on-device",
-      "upgrading",
       "native-modules-setup",
       "out-of-tree-platforms",
       "building-from-source",
-      "publishing-forks",
-      "testing"
+      "publishing-forks"
     ],
-    "使用指南(iOS)": [
+    "iOS 指南": [
       "native-modules-ios",
       "native-components-ios",
       "linking-libraries-ios",
@@ -55,89 +58,98 @@
       "communication-ios",
       "app-extensions"
     ],
-    "使用指南(Android)": [
+    "Android 指南": [
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
-      "removing-default-permissions",
-      "hermes"
+      "removing-default-permissions"
     ]
   },
   "api": {
-    "组件": [
+    "APIs": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "interactionmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platformcolor",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
+      }
+    ]
+  },
+  "组件": {
+    "核心组件": [
+      "components-and-apis",
       "activityindicator",
       "button",
-      "datepickerios",
-      "drawerlayoutandroid",
       "flatlist",
       "image",
       "imagebackground",
       "keyboardavoidingview",
-      "maskedviewios",
       "modal",
-      "picker",
-      "pickerios",
-      "progressbarandroid",
-      "progressviewios",
+      "pressable",
       "refreshcontrol",
       "safeareaview",
       "scrollview",
       "sectionlist",
-      "segmentedcontrolios",
-      "slider",
       "statusbar",
-      "stylesheet",
       "switch",
       "text",
       "textinput",
       "touchablehighlight",
-      "touchablenativefeedback",
       "touchableopacity",
       "touchablewithoutfeedback",
       "view",
-      "viewpagerandroid",
       "virtualizedlist",
-      "webview"
+      {
+        "type": "subcategory",
+        "label": "Android 组件",
+        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS 组件",
+        "ids": ["inputaccessoryview", "maskedviewios"]
+      }
     ],
-    "APIs": [
-      "accessibilityinfo",
-      "actionsheetios",
-      "alert",
-      "alertios",
-      "animated",
-      "appregistry",
-      "appstate",
-      "asyncstorage",
-      "backhandler",
-      "cameraroll",
-      "clipboard",
-      "datepickerandroid",
-      "dimensions",
-      "easing",
-      "geolocation",
-      "imageeditor",
-      "imagepickerios",
+    "属性": [
       "image-style-props",
-      "interactionmanager",
-      "keyboard",
       "layout-props",
-      "layoutanimation",
-      "linking",
-      "panresponder",
-      "permissionsandroid",
-      "pixelratio",
-      "pushnotificationios",
-      "settings",
       "shadow-props",
-      "share",
-      "systrace",
       "text-style-props",
-      "timepickerandroid",
-      "toastandroid",
-      "transforms",
-      "vibration",
       "view-style-props"
-    ]
+    ],
+    "Object Types": ["pressevent", "react-node", "rect"]
   }
 }

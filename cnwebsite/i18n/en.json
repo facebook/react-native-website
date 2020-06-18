@@ -125,9 +125,6 @@
       "flexbox": {
         "title": "使用Flexbox布局"
       },
-      "geolocation": {
-        "title": "Geolocation"
-      },
       "gesture-responder-system": {
         "title": "手势响应系统"
       },
@@ -186,7 +183,7 @@
         "title": "React基础"
       },
       "introduction": {
-        "title": "Introduction"
+        "title": "介绍"
       },
       "javascript-environment": {
         "title": "JavaScript环境"
@@ -243,7 +240,7 @@
         "title": "NetInfo"
       },
       "network": {
-        "title": "网络"
+        "title": "访问网络"
       },
       "optimizing-flatlist-configuration": {
         "title": "列表配置优化"
@@ -255,7 +252,7 @@
         "title": "PanResponder"
       },
       "performance": {
-        "title": "性能"
+        "title": "性能综述"
       },
       "permissionsandroid": {
         "title": "PermissionsAndroid"
@@ -333,7 +330,7 @@
         "title": "SectionList"
       },
       "security": {
-        "title": "Security"
+        "title": "网络安全策略"
       },
       "segmentedcontrolios": {
         "title": "🚧 SegmentedControlIOS"
@@ -373,9 +370,6 @@
       },
       "testing-overview": {
         "title": "Testing"
-      },
-      "testing": {
-        "title": "Testing your Changes"
       },
       "text-style-props": {
         "title": "Text样式属性"
@@ -6087,16 +6081,19 @@
         "title": "Animated"
       },
       "version-0.62/version-0.62-animatedvalue": {
-        "title": "AnimatedValue"
+        "title": "Animated.Value"
       },
       "version-0.62/version-0.62-animatedvaluexy": {
-        "title": "AnimatedValueXY"
+        "title": "Animated.ValueXY"
       },
       "version-0.62/version-0.62-animations": {
         "title": "动画"
       },
       "version-0.62/version-0.62-app-extensions": {
         "title": "iOS应用扩展"
+      },
+      "version-0.62/version-0.62-appearance": {
+        "title": "Appearance"
       },
       "version-0.62/version-0.62-appregistry": {
         "title": "AppRegistry"
@@ -6110,7 +6107,7 @@
       "version-0.62/version-0.62-backhandler": {
         "title": "BackHandler"
       },
-      "version-0.62/version-0.62-building-for-apple-tv": {
+      "version-0.62/version-0.62-building-for-tv": {
         "title": "为电视和机顶盒制作应用"
       },
       "version-0.62/version-0.62-building-from-source": {
@@ -6123,10 +6120,10 @@
         "title": "CameraRoll"
       },
       "version-0.62/version-0.62-checkbox": {
-        "title": "CheckBox"
+        "title": "🚧 CheckBox"
       },
       "version-0.62/version-0.62-clipboard": {
-        "title": "Clipboard"
+        "title": "🚧 Clipboard"
       },
       "version-0.62/version-0.62-colors": {
         "title": "颜色"
@@ -6138,7 +6135,7 @@
         "title": "和原生端通信"
       },
       "version-0.62/version-0.62-components-and-apis": {
-        "title": "组件和API"
+        "title": "核心组件和API"
       },
       "version-0.62/version-0.62-custom-webview-android": {
         "title": "Custom WebView"
@@ -6166,6 +6163,9 @@
       },
       "version-0.62/version-0.62-drawerlayoutandroid": {
         "title": "DrawerLayoutAndroid"
+      },
+      "version-0.62/version-0.62-dynamiccolorios": {
+        "title": "DynamicColorIOS"
       },
       "version-0.62/version-0.62-easing": {
         "title": "Easing"
@@ -6240,7 +6240,7 @@
         "title": "React基础"
       },
       "version-0.62/version-0.62-introduction": {
-        "title": "Introduction"
+        "title": "介绍"
       },
       "version-0.62/version-0.62-javascript-environment": {
         "title": "JavaScript环境"
@@ -6256,6 +6256,9 @@
       },
       "version-0.62/version-0.62-layoutanimation": {
         "title": "LayoutAnimation"
+      },
+      "version-0.62/version-0.62-libraries": {
+        "title": "使用第三方库"
       },
       "version-0.62/version-0.62-linking-libraries-ios": {
         "title": "链接原生库"
@@ -6318,7 +6321,7 @@
         "title": "Picker Style Props"
       },
       "version-0.62/version-0.62-picker": {
-        "title": "Picker"
+        "title": "🚧 Picker"
       },
       "version-0.62/version-0.62-pickerios": {
         "title": "🚧 PickerIOS"
@@ -6328,6 +6331,15 @@
       },
       "version-0.62/version-0.62-platform-specific-code": {
         "title": "特定平台代码"
+      },
+      "version-0.62/version-0.62-platformcolor": {
+        "title": "PlatformColor"
+      },
+      "version-0.62/version-0.62-pressable": {
+        "title": "Pressable"
+      },
+      "version-0.62/version-0.62-profiling": {
+        "title": "Profiling"
       },
       "version-0.62/version-0.62-progressbarandroid": {
         "title": "🚧 ProgressBarAndroid"
@@ -6343,6 +6355,12 @@
       },
       "version-0.62/version-0.62-pushnotificationios": {
         "title": "🚧 PushNotificationIOS"
+      },
+      "version-0.62/version-0.62-ram-bundles-inline-requires": {
+        "title": "RAM Bundles 和内联引用优化"
+      },
+      "version-0.62/version-0.62-rectorsize": {
+        "title": "RectOrSize Object Type"
       },
       "version-0.62/version-0.62-refreshcontrol": {
         "title": "RefreshControl"
@@ -6367,6 +6385,9 @@
       },
       "version-0.62/version-0.62-sectionlist": {
         "title": "SectionList"
+      },
+      "version-0.62/version-0.62-security": {
+        "title": "Security"
       },
       "version-0.62/version-0.62-segmentedcontrolios": {
         "title": "🚧 SegmentedControlIOS"
@@ -6403,6 +6424,9 @@
       },
       "version-0.62/version-0.62-systrace": {
         "title": "Systrace"
+      },
+      "version-0.62/version-0.62-testing-overview": {
+        "title": "Testing"
       },
       "version-0.62/version-0.62-testing": {
         "title": "Testing your Changes"
@@ -6452,6 +6476,12 @@
       "version-0.62/version-0.62-upgrading": {
         "title": "更新"
       },
+      "version-0.62/version-0.62-usecolorscheme": {
+        "title": "useColorScheme"
+      },
+      "version-0.62/version-0.62-usewindowdimensions": {
+        "title": "useWindowDimensions"
+      },
       "version-0.62/version-0.62-using-a-listview": {
         "title": "使用长列表"
       },
@@ -6488,12 +6518,22 @@
     },
     "categories": {
       "入门基础": "入门基础",
+      "开发流程": "开发流程",
       "设计": "设计",
+      "交互": "交互",
+      "性能调优": "性能调优",
+      "JavaScript 运行环境": "JavaScript 运行环境",
+      "网络连接": "网络连接",
       "进阶指南": "进阶指南",
+      "iOS 指南": "iOS 指南",
+      "Android 指南": "Android 指南",
+      "APIs": "APIs",
+      "核心组件": "核心组件",
+      "属性": "属性",
+      "Object Types": "Object Types",
       "使用指南(iOS)": "使用指南(iOS)",
       "使用指南(Android)": "使用指南(Android)",
       "组件": "组件",
-      "APIs": "APIs",
       "API": "API"
     }
   },

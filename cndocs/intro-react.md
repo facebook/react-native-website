@@ -340,7 +340,7 @@ function Cat(props) {
 }
 ```
 
-> You can use `useState` to track any kind of data: strings, numbers, Booleans, arrays, objects. For example, you can track the number of times a cat has been petted with `const [timesPetted, setTimesPetted] = useState(0)`! Calling `useState` does two things:
+> 你可以使用`useState`来记录各种类型的数据： strings, numbers, Booleans, arrays, objects. For example, you can track the number of times a cat has been petted with `const [timesPetted, setTimesPetted] = useState(0)`! Calling `useState` does two things:
 
 - it creates a “state variable” with an initial value—in this case the state variable is `isHungry` and its initial value is `true`
 - it creates a function to set that state variable’s value—`setIsHungry`
@@ -368,7 +368,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 />
 ```
 
-> You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again—and this time, `useState` will give us the next value of `isHungry`. Finally, put your cats inside a `Cafe` component:
+> 你可能注意到虽然`isHungry`使用了常量关键字[const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const)，但它看起来还是可以修改！ What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again—and this time, `useState` will give us the next value of `isHungry`. Finally, put your cats inside a `Cafe` component:
 
 ```jsx
 export default function Cafe() {
@@ -383,7 +383,7 @@ export default function Cafe() {
 
 <block class="classical syntax" />
 
-The older class components approach is a little different when it comes to state.
+老式的class组件在使用state的写法上有所不同：
 
 ```SnackPlayer name=State%20and%20Class%20Components
 import React, { Component } from "react";
@@ -422,7 +422,7 @@ export default class Cafe extends Component {
 }
 ```
 
-As always with class components, you must import the `Component` class from React:
+再次强调，对于class组件始终要记得从React中引入`Component`：
 
 ```jsx
 import React, { Component } from 'react';
