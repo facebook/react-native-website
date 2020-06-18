@@ -263,6 +263,11 @@ figcaption {
   border-right-color: #6170af;
 }
 
+h2 .label {
+  top: -6px;
+  margin-left: 12px;
+}
+
 h3 .label {
   top: -2px;
   margin-left: 22px;
@@ -301,6 +306,7 @@ td .label.required {
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
+  top: -1px;
 }
 
 /* Custom */
