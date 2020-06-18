@@ -51,7 +51,7 @@ const getMoviesFromApi = () => {
     .catch((error) => {
       console.error(error);
     });
-}
+};
 ```
 
 You can also use the `async` / `await` syntax in a React Native app:
@@ -67,7 +67,7 @@ const getMoviesFromApiAsync = async () => {
   } catch (error) {
     console.error(error);
   }
-}
+};
 ```
 
 Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
