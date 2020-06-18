@@ -22,8 +22,7 @@ If you need section support, use [`<SectionList>`](sectionlist.md).
 
 ```SnackPlayer name=flatlist-simple
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
-import Constants from 'expo-constants';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
 const DATA = [
   {
@@ -40,13 +39,11 @@ const DATA = [
   },
 ];
 
-const Item = ({ title }) => {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-}
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
 const App = () => {
   const renderItem = ({ item }) => (
@@ -67,7 +64,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
     backgroundColor: '#f9c2ff',
@@ -91,77 +88,61 @@ More complex, multi-select example demonstrating `` usage for perf optimization 
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 ```SnackPlayer name=flatlist-selectable
-import React, { useState } from 'react';
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  FlatList,
-  StyleSheet,
-  Text,
-} from 'react-native';
-import Constants from 'expo-constants';
+import React, { useState } from "react";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
   },
 ];
 
+const Item = ({ item, onPress, style }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+    <Text style={styles.title}>{item.title}</Text>
+  </TouchableOpacity>
+);
+
 const App = () => {
-  const [selected, setSelected] = useState({ id: null });
+  const [selectedId, setSelectedId] = useState(null);
 
-  const onSelect = (item) => {
-    setSelected(item);
-  }
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
 
-  const Item = (item) => {
-    return (
-      <TouchableOpacity
-        onPress={() => onSelect(item)}
-        style={[
-          styles.item,
-          { backgroundColor: item.id === selected.id ? '#6e3b6e' : '#f9c2ff' }
-        ]}
-      >
-        <Text style={styles.title}>{item.title}</Text>
-      </TouchableOpacity>
-    );
-  }
-
-  const renderItemSelect = ({ item }) => {
     return (
       <Item
-        id={item.id}
-        title={item.title}
-       />
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        style={{ backgroundColor }}
+      />
     );
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={renderItemSelect}
-        keyExtractor={item => item.id}
-        extraData={selected}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
     padding: 20,
