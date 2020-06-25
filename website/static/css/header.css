@@ -264,6 +264,7 @@ input#search_input_react:focus {
   }
   .onPageNav {
     top: 172px;
+    max-height: calc(100vh - 172px);
   }
 }
 
