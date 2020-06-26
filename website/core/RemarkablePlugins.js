@@ -56,10 +56,7 @@ function htmlForCodeBlock(code) {
  * ```
  */
 function SnackPlayer(md) {
-  md.renderer.rules.fence_custom.SnackPlayer = function(
-    tokens,
-    idx,
-  ) {
+  md.renderer.rules.fence_custom.SnackPlayer = function(tokens, idx) {
     let params = parseParams(cleanParams(tokens[idx].params));
 
     const name = params.name ? decodeURIComponent(params.name) : 'Example';
@@ -120,10 +117,7 @@ function SnackPlayer(md) {
  * ```
  */
 function ReactNativeWebPlayer(md) {
-  md.renderer.rules.fence_custom.ReactNativeWebPlayer = function(
-    tokens,
-    idx,
-  ) {
+  md.renderer.rules.fence_custom.ReactNativeWebPlayer = function(tokens, idx) {
     const WEB_PLAYER_VERSION = '2.0.0-alpha.8';
 
     let sampleCode = tokens[idx].content;
