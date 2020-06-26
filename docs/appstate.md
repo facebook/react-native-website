@@ -48,7 +48,7 @@ const AppStateExample = () => {
     return () => {
       AppState.removeEventListener("change", _handleAppStateChange);
     };
-  }, []);
+  }, [_handleAppStateChange]);
 
   const _handleAppStateChange = (nextAppState) => {
     if (appState.current.match(/inactive|background/) && nextAppState === "active") {
