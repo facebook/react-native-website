@@ -1,8 +1,6 @@
 'use strict';
 
 const hljs = require('highlight.js');
-const {utils} = require('remarkable');
-const {escapeHtml} = utils;
 
 // Remove leading "SnackPlayer", "ReactNativeWebPlayer"
 function cleanParams(params) {
@@ -61,9 +59,6 @@ function SnackPlayer(md) {
   md.renderer.rules.fence_custom.SnackPlayer = function(
     tokens,
     idx,
-    options,
-    env,
-    self
   ) {
     let params = parseParams(cleanParams(tokens[idx].params));
 
@@ -77,7 +72,6 @@ function SnackPlayer(md) {
     const supportedPlatforms = params.supportedPlatforms
       ? params.supportedPlatforms
       : 'ios,android,web';
-    const rnVersion = params.version ? params.version : 'next';
 
     return (
       '<div class="snack-player">' +
@@ -129,9 +123,6 @@ function ReactNativeWebPlayer(md) {
   md.renderer.rules.fence_custom.ReactNativeWebPlayer = function(
     tokens,
     idx,
-    options,
-    env,
-    self
   ) {
     const WEB_PLAYER_VERSION = '2.0.0-alpha.8';
 
@@ -142,7 +133,6 @@ function ReactNativeWebPlayer(md) {
     if (paramsString) {
       hash += `&${paramsString}`;
     }
-    let params = parseParams(paramsString);
 
     return (
       '<div class="web-player">' +
