@@ -81,18 +81,6 @@ The number passed here is a measurement unit where 1 is equivalent to your viewp
 
 **Cons:** For a bigger `windowSize`, you will have more memory consumption. For a lower `windowSize`, you will have a bigger chance of seeing blank areas.
 
-### legacyImplementation
-
-| Type    | Default |
-| ------- | ------- |
-| Boolean | False   |
-
-Make `FlatList` rely on the older and deprecated `ListView` instead of `VirtualizedList`.
-
-**Pros:** No risk of seeing blank areas while scrolling. May avoid bugs in `VirtualizedList`.
-
-**Cons:** Extra memory consumption and more app crash risk in large lists (100+) with complex items. It also warns that the above tweaks will not work because now it is using `ListView`. Many other features are not supported. There may be other bugs since `ListView` is deprecated.
-
 ## List items
 
 Below are some tips about list item components. They are the core of your list, so they need to be fast.
