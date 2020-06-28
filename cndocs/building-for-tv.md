@@ -18,7 +18,7 @@ title: 为电视和机顶盒制作应用
 
 <block class="ios" />
 
-> **Deprecated.** Use [react-native-tvos](https://github.com/react-native-community/react-native-tvos) instead. For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
+> **已过时。** Use [react-native-tvos](https://github.com/react-native-community/react-native-tvos) instead. For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
 
 源代码仓库里的[RNTester 演示应用](https://github.com/facebook/react-native/tree/master/RNTester)支持在 Apple TV 上运行，使用`RNTester-tvOS`编译目标来在 tvOS 上编译运行。
 
@@ -31,7 +31,7 @@ title: 为电视和机顶盒制作应用
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```jsx
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 const running_on_tv = Platform.isTV;
 
 // 如果你想更精确地针对tvOS设备（即排除Android设备），
@@ -64,7 +64,7 @@ const running_on_apple_tv = Platform.isTVOS;
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```js
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 const running_on_tv = Platform.isTV;
 ```
 

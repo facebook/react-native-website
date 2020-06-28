@@ -3,7 +3,7 @@ id: imagepickerios
 title: 🚧 ImagePickerIOS
 ---
 
-**Deprecated.** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
+**已过时。** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
 
 # 文档
 

@@ -3,7 +3,7 @@ id: checkbox
 title: 🚧 CheckBox
 ---
 
-> **Deprecated.** Use [@react-native-community/checkbox](https://github.com/react-native-community/react-native-checkbox) instead.
+> **已过时。** Use [@react-native-community/checkbox](https://github.com/react-native-community/react-native-checkbox) instead.
 
 渲染一个单选框（目前仅 Android 可用）。
 
@@ -56,7 +56,7 @@ export default App;
 
 ## Props
 
-继承所有[View的Props](view#props).
+继承所有[View 的 Props](view#props).
 
 ### `disabled`
 

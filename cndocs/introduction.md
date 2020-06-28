@@ -13,7 +13,7 @@ description: This helpful guide lays out the prerequisites for learning React Na
 
 Many different kinds of people use React Native: from advanced iOS developers to React beginners, to people getting started programming for the first time in their career. These docs were written for all learners, no matter their experience level or background.
 
-## How to use these docs
+## 如何阅读文档
 
 You can start here and read through these docs linearly like a book; or you can read the specific sections you need. Already familiar with React? You can skip [that section](intro-react)—or read it for a light refresher.
 

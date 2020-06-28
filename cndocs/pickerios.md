@@ -3,7 +3,7 @@ id: pickerios
 title: 🚧 PickerIOS
 ---
 
-> **Deprecated.** Use [Picker](picker.md) instead.
+> **已过时。** Use [Picker](picker.md) instead.
 
 # 文档
 

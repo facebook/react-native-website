@@ -55,7 +55,7 @@ import { Text } from 'react-native';
 function Cat() {}
 ```
 
-这个函数的`返回值`就会被渲染为一个React元素。这里`Cat`会渲染一个`<Text>`元素：
+这个函数的`返回值`就会被渲染为一个 React 元素。这里`Cat`会渲染一个`<Text>`元素：
 
 ```jsx
 function Cat() {
@@ -99,7 +99,7 @@ import React, { Component } from 'react';
 class Cat extends Component {}
 ```
 
-Class组件必须有一个`render()`函数，它的返回值会被渲染为一个React元素：
+Class 组件必须有一个`render()`函数，它的返回值会被渲染为一个 React 元素：
 
 ```jsx
 class Cat extends Component {
@@ -109,7 +109,7 @@ class Cat extends Component {
 }
 ```
 
-和函数组件一样，我们也可以导出class组件：
+和函数组件一样，我们也可以导出 class 组件：
 
 ```jsx
 export default class Cat extends Component {
@@ -121,11 +121,11 @@ export default class Cat extends Component {
 
 <block class="endBlock syntax" />
 
-> 上面只是导出组件的写法之一。你还可以看看这篇博客整理[handy cheatsheet on JavaScript imports and exports](https://www.samanthaming.com/tidbits/79-module-cheatsheet/)整理的各种不同的写法。下面我们来看看这个`return` 语句。`<Text>Hello, I am your cat!</Text>`是一种简化React元素的写法，这种语法名字叫做JSX。
+> 上面只是导出组件的写法之一。你还可以看看这篇博客整理[handy cheatsheet on JavaScript imports and exports](https://www.samanthaming.com/tidbits/79-module-cheatsheet/)整理的各种不同的写法。下面我们来看看这个`return` 语句。`<Text>Hello, I am your cat!</Text>`是一种简化 React 元素的写法，这种语法名字叫做 JSX。
 
 ## JSX
 
-React 和 React Native 都使用**JSX 语法**，这种语法使得你可以在JavaScript中直接输出元素：`<Text>Hello, I am your cat!</Text>`。React的文档有一份完整的[JSX指南](https://zh-hans.reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper)可供你参考。因为JSX本质上也就是JavaScript，所以你可以在其中直接使用变量。这里我们为猫猫的名字声明了一个变量`name`，并且用括号把它放在了`<Text>`之中。
+React 和 React Native 都使用**JSX 语法**，这种语法使得你可以在 JavaScript 中直接输出元素：`<Text>Hello, I am your cat!</Text>`。React 的文档有一份完整的[JSX 指南](https://zh-hans.reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper)可供你参考。因为 JSX 本质上也就是 JavaScript，所以你可以在其中直接使用变量。这里我们为猫猫的名字声明了一个变量`name`，并且用括号把它放在了`<Text>`之中。
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
@@ -155,15 +155,15 @@ export default function Cat() {
 }
 ```
 
-你可以把括号`{}`想象成在JSX中打开了一个可以调用JS功能的传送门！
+你可以把括号`{}`想象成在 JSX 中打开了一个可以调用 JS 功能的传送门！
 
 > 因为 JSX 语法糖的实质是调用`React.createElement`方法，所以你必须在文件头部引用`import React from 'react'`。
 
 ## 自定义组件
 
-You’ve already met [React Native’s Core Components](intro-react-native-components). React lets you nest these components inside each other to create new components. These nestable, reusable components are at the heart of the React paradigm.
+你应该已经了解[React Native 的核心组件](intro-react-native-components)了。 React 使得你可以通过嵌套这些组件来创造新组件。这些可嵌套可复用的组件正是 React 理念的精髓。
 
-For example, you can nest [`Text`](text) and [`TextInput`](textinput) inside a [`View`](view) below, and React Native will render them together:
+例如你可以把[`Text`](text)和[`TextInput`](textinput)嵌入到[`View`](view) 中，React Native 会把它们一起渲染出来：
 
 ```SnackPlayer name=Custom%20Components
 import React from 'react';
@@ -186,7 +186,7 @@ export default function Cat() {
 ```
 
 <div class="toggler">
-  <span>Developer Notes</span>
+  <span>对开发者的提示：</span>
   <span role="tablist" class="toggle-devNotes">
     <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
     <button role="tab" class="button-androidNote" onclick="displayTabs('devNotes', 'androidNote')">Android</button>
@@ -195,9 +195,13 @@ export default function Cat() {
 
 <block class="webNote devNotes" />
 
-> If you’re familiar with web development, `<View>` and `<Text>` might remind you of HTML! You can think of them as the `<div>` and `<p>` tags of application development. <block class="androidNote devNotes" />
+> 如果你熟悉 web 开发，`<View>`和`<Text>`应该能让你想起 HTML。你可以把它们看作是应用开发中的`<div>`和`<p>`标签。
 
-> On Android, you usually put your views inside `LinearLayout`, `FrameLayout`, `RelativeLayout`, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox). <block class="endBlock devNotes" />
+<block class="androidNote devNotes" />
+
+> On Android, you usually put your views inside `LinearLayout`, `FrameLayout`, `RelativeLayout`, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
+
+<block class="endBlock devNotes" />
 
 这样你就可以在别处通过`<Cat>`来任意引用这个组件了：
 
@@ -229,7 +233,7 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 
 ## Props 属性
 
-**Props** 是“properties”（属性）的简写。Props使得我们可以定制组件。.For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
+**Props** 是“properties”（属性）的简写。Props 使得我们可以定制组件。.For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
@@ -270,7 +274,7 @@ export default function CatApp() {
 }
 ```
 
-`Image` 有[很多不同的props](image#props)， including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
+`Image` 有[很多不同的 props](image#props)， including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
 
 > Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
@@ -383,7 +387,7 @@ export default function Cafe() {
 
 <block class="classical syntax" />
 
-老式的class组件在使用state的写法上有所不同：
+老式的 class 组件在使用 state 的写法上有所不同：
 
 ```SnackPlayer name=State%20and%20Class%20Components
 import React, { Component } from "react";
@@ -422,7 +426,7 @@ export default class Cafe extends Component {
 }
 ```
 
-再次强调，对于class组件始终要记得从React中引入`Component`：
+再次强调，对于 class 组件始终要记得从 React 中引入`Component`：
 
 ```jsx
 import React, { Component } from 'react';

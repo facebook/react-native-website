@@ -3,7 +3,7 @@ id: clipboard
 title: 🚧 Clipboard
 ---
 
-> **Deprecated.** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
+> **已过时。** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
 
 `Clipboard`组件可以在 iOS 和 Android 的剪贴板中读写内容。
 
@@ -87,9 +87,9 @@ _setContent() {
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                |
-| ------    | ------   | -------- | -------------------------------------------|
-| content   | string   | Yes      | The content to be stored in the clipboard  | 
+| Name    | Type   | Required | Description                               |
+| ------- | ------ | -------- | ----------------------------------------- |
+| content | string | Yes      | The content to be stored in the clipboard |
 
 _Notice_
 

@@ -3,7 +3,7 @@ id: picker
 title: 🚧 Picker
 ---
 
-> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
+> **已过时。** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
 
 本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。
 

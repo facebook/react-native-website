@@ -5,13 +5,13 @@ title: 列表配置优化
 
 ## 术语定义
 
-- **VirtualizedList:** The component behind `FlatList` (React Native's implementation of the [`Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List) concept.)
+- **VirtualizedList:** `FlatList`背后的基础支撑组件（是 React Native 对[`虚拟列表 Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List)概念的实现）。
 
-- **内存开销 Memory consumption:** How much information about your list is being stored in memory, which could lead to an app crash.
+- **内存开销 Memory consumption:** 列表在内存中存放多少数据。开销过大可能导致应用崩溃。
 
-- **响应度 Responsiveness:** Application ability to respond to interactions. Low responsiveness, for instance, is when you touch on a component and it waits a bit to respond, instead of responding immediately as expected.
+- **响应度 Responsiveness:** 应用对于用户操作的响应速度。比如低响应度就是你在操作时，应用要卡一会儿才响应。
 
-- **空白区 Blank areas:** When `VirtualizedList` can't render your items fast enough, you may enter a part of your list with non-rendered components that appear as blank white space.
+- **空白区 Blank areas:** 当`VirtualizedList`渲染的速度跟不上你滑动的速度时，你可能会在列表中看到一些尚未完成渲染的空白占位元素。
 
 - **视口 Viewport:** The visible area of content that is rendered to pixels.
 
@@ -29,9 +29,9 @@ Here are a list of props that can help to improve `FlatList` performance:
 
 If `true`, views that are outside of the viewport are detached from the native view hierarchy.
 
-**Pros:** This reduces time spent on the main thread, and thus reduces the risk of dropped frames, by excluding views outside of the viewport from the native rendering and drawing traversals.
+**好处：** This reduces time spent on the main thread, and thus reduces the risk of dropped frames, by excluding views outside of the viewport from the native rendering and drawing traversals.
 
-**Cons:** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS), especially if you are doing complex things with transforms and/or absolute positioning. Also note this does not save significant memory because the views are not deallocated, just detached.
+**坏处：** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS), especially if you are doing complex things with transforms and/or absolute positioning. Also note this does not save significant memory because the views are not deallocated, just detached.
 
 ### maxToRenderPerBatch
 
@@ -41,9 +41,9 @@ If `true`, views that are outside of the viewport are detached from the native v
 
 It is a `VirtualizedList` prop that can be passed through `FlatList`. This controls the amount of items rendered per batch, which is the next chunk of items rendered on every scroll.
 
-**Pros:** Setting a bigger number means less visual blank areas when scrolling (increases the fill rate).
+**好处：** Setting a bigger number means less visual blank areas when scrolling (increases the fill rate).
 
-**Cons:** More items per batch means longer periods of JavaScript execution potentially blocking other event processing, like presses, hurting responsiveness.
+**坏处：** More items per batch means longer periods of JavaScript execution potentially blocking other event processing, like presses, hurting responsiveness.
 
 ### updateCellsBatchingPeriod
 
@@ -53,9 +53,9 @@ It is a `VirtualizedList` prop that can be passed through `FlatList`. This contr
 
 While `maxToRenderPerBatch` tells the amount of items rendered per batch, setting `updateCellsBatchingPeriod` tells your `VirtualizedList` the delay in milliseconds between batch renders (how frequently your component will be rendering the windowed items).
 
-**Pros:** Combining this prop with `maxToRenderPerBatch` gives you the power to, for example, render more items in a less frequent batch, or less items in a more frequent batch.
+**好处：** Combining this prop with `maxToRenderPerBatch` gives you the power to, for example, render more items in a less frequent batch, or less items in a more frequent batch.
 
-**Cons:** Less frequent batches may cause blank areas, More frequent batches may cause responsiveness issues.
+**坏处：** Less frequent batches may cause blank areas, More frequent batches may cause responsiveness issues.
 
 ### initialNumToRender
 
@@ -65,9 +65,9 @@ While `maxToRenderPerBatch` tells the amount of items rendered per batch, settin
 
 The initial amount of items to render.
 
-**Pros:** Define precise number of items that would cover the screen for every device. This can be a big performance boost for the initial render.
+**好处：** Define precise number of items that would cover the screen for every device. This can be a big performance boost for the initial render.
 
-**Cons:** Setting a low `initialNumToRender` may cause blank areas, especially if it's too small to cover the viewport on initial render.
+**坏处：** Setting a low `initialNumToRender` may cause blank areas, especially if it's too small to cover the viewport on initial render.
 
 ### windowSize
 
@@ -77,21 +77,9 @@ The initial amount of items to render.
 
 The number passed here is a measurement unit where 1 is equivalent to your viewport height. The default value is 21 (10 viewports above, 10 below, and one in between).
 
-**Pros:** Bigger `windowSize` will result in less chance of seeing blank space while scrolling. On the other hand, smaller `windowSize` will result in fewer items mounted simultaneously, saving memory.
+**好处：** Bigger `windowSize` will result in less chance of seeing blank space while scrolling. On the other hand, smaller `windowSize` will result in fewer items mounted simultaneously, saving memory.
 
-**Cons:** For a bigger `windowSize`, you will have more memory consumption. For a lower `windowSize`, you will have a bigger chance of seeing blank areas.
-
-### legacyImplementation
-
-| Type    | Default |
-| ------- | ------- |
-| Boolean | False   |
-
-Make `FlatList` rely on the older and deprecated `ListView` instead of `VirtualizedList`.
-
-**Pros:** No risk of seeing blank areas while scrolling. May avoid bugs in `VirtualizedList`.
-
-**Cons:** Extra memory consumption and more app crash risk in large lists (100+) with complex items. It also warns that the above tweaks will not work because now it is using `ListView`. Many other features are not supported. There may be other bugs since `ListView` is deprecated.
+**坏处：** For a bigger `windowSize`, you will have more memory consumption. For a lower `windowSize`, you will have a bigger chance of seeing blank areas.
 
 ## List items
 
@@ -131,7 +119,7 @@ You can set the [`keyExtractor`](flatlist#keyextractor) to your `FlatList` compo
 
 You can also use a `key` prop in you item component.
 
-### Avoid anonymous function on renderItem
+### 避免在 renderItem 中使用匿名函数
 
 Move out the `renderItem` function to the outside of render function, so it won't recreate itself each time render function called.
 

@@ -290,12 +290,12 @@ The skew transformations require a string so that the transform may be expressed
 transform([{ skewX: '45deg' }]);
 ```
 
-| Type | Required |
-| --- | --- |
-| array of objects: {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} | No |
+| Type                                                                                                                                                                                                                                                  | Required |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} | No       |
 
 ---
 
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-> **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+> **已过时。** Use the [`transform`](transforms#transform) prop instead.
