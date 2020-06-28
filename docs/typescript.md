@@ -14,6 +14,10 @@ npx react-native init MyApp --template react-native-template-typescript
 ```
 
 > **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
+```
+npm uninstall -g react-native-cli 
+yarn global add @react-native-community/cli 
+```
 
 You can use [Expo][expo] which has two TypeScript templates:
 
