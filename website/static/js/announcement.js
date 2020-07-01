@@ -46,7 +46,7 @@ window.onscroll = () => {
 window.onresize = () => {
   // Fix desktop resizing
   if (document.querySelector('.navBreadcrumb').offsetParent) {
-    document.querySelector('.docsNavContainer').style.top = undefined;
-    document.querySelector('.docsContainer').style.paddingTop = undefined;
+    document.querySelector('.docsNavContainer').style.top = 'initial';
+    document.querySelector('.docsContainer').style.paddingTop = 'auto';
   }
 };
