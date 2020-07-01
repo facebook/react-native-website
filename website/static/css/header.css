@@ -237,6 +237,25 @@ input#search_input_react:focus {
   color: #fff;
 }
 
+.fixedHeaderContainer,
+.onPageNav,
+.docsNavContainer {
+  transition: top 0.35s;
+}
+
+.navPusher {
+  transition: top 0.35s, margin 0.35s;
+}
+
+/*
+Fix small mobile device overflow with sliding up banner
+(code is present on desktop and for larger devices)
+ */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 @media only screen and (max-width: 700px) {
   ul.nav-site.nav-site-internal {
     margin-top: 160px;
