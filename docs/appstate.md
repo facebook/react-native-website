@@ -36,30 +36,38 @@ To see the current state, you can check `AppState.currentState`, which will be k
 <block class="functional syntax" />
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { AppState, StyleSheet, Text, View } from "react-native";
 
 const AppStateExample = () => {
   const appState = useRef(AppState.currentState);
+  /*  
+      You can remove line 7 & 24 if you don't want to see the AppState update from active to inactive (iOS)
+      You then must alter line 30 to something like appState.current 
+  */
+  const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
-  useEffect(() => {
-    AppState.addEventListener("change", _handleAppStateChange);
+    useEffect(() => {
+        AppState.addEventListener('change', _handleAppStateChange);
 
-    return () => {
-      AppState.removeEventListener("change", _handleAppStateChange);
+        return () => {
+            AppState.removeEventListener('change', _handleAppStateChange);
+        };
+    }, []);
+
+    const _handleAppStateChange = (nextAppState) => {
+        if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
+            console.log("App has come to the foreground!");
+        } 
+
+        appState.current = nextAppState;
+        console.log("AppState", appState.current);
+        setAppStateVisible(appState.current);
     };
-  }, [_handleAppStateChange]);
-
-  const _handleAppStateChange = (nextAppState) => {
-    if (appState.current.match(/inactive|background/) && nextAppState === "active") {
-      console.log("App has come to the foreground!");
-    }
-    appState.current = nextAppState;
-  };
 
   return (
     <View style={styles.container}>
-      <Text>Current state is: {appState.current}</Text>
+      <Text>Current state is: {appStateVisible}</Text>
     </View>
   );
 };
