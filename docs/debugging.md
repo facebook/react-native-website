@@ -27,7 +27,7 @@ Errors and warnings are displayed in LogBox inside your app in development build
 
 ### Console Errors and Warnings
 
-Console errors and warnings are displayed as a notification on screen with with a red or yellow badge, and the number of errors or warning in the console respectively. To view a console error or warning, tap the notification to view the full screen information about he log and to paginiate through all of the logs in the console.
+Console errors and warnings are displayed as a notification on screen with with a red or yellow badge, and the number of errors or warning in the console respectively. To view a console error or warning, tap the notification to view the full screen information about the log and to paginiate through all of the logs in the console.
 
 These notifications can be hidden using `LogBox.ignoreAllLogs()`. This is useful when giving product demos, for example. Additionally, notifications can be hidden on a per-log basis via `LogBox.ignoreLogs()`. This is useful when there's a noisey warning that cannot be fixed (e.g. exists in a third-pary dependency).
 
@@ -45,11 +45,11 @@ LogBox.ignoreAllLogs();
 
 ### Unhandled Errors
 
-Unhanded JavaScript errors such as `undefined is not a function` will automatically pop a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
+Unhanded JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
 
 ### Syntax Erorrs
 
-Syntax errors will automatically pop a full screen LogBox error with the source of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or cmr+r to reload (with Fast Refresh disabled).
+Syntax errors will automatically open a full screen LogBox error with the source of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or cmr+r to reload (with Fast Refresh disabled).
 
 ## Chrome Developer Tools
 
