@@ -36,11 +36,12 @@ To see the current state, you can check `AppState.currentState`, which will be k
 <block class="functional syntax" />
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { AppState, StyleSheet, Text, View } from "react-native";
 
 const AppStateExample = () => {
   const appState = useRef(AppState.currentState);
+  const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   useEffect(() => {
     AppState.addEventListener("change", _handleAppStateChange);
@@ -48,18 +49,24 @@ const AppStateExample = () => {
     return () => {
       AppState.removeEventListener("change", _handleAppStateChange);
     };
-  }, [_handleAppStateChange]);
+  }, []);
 
   const _handleAppStateChange = (nextAppState) => {
-    if (appState.current.match(/inactive|background/) && nextAppState === "active") {
+    if (
+      appState.current.match(/inactive|background/) &&
+      nextAppState === "active"
+    ) {
       console.log("App has come to the foreground!");
     }
+
     appState.current = nextAppState;
+    setAppStateVisible(appState.current);
+    console.log("AppState", appState.current);
   };
 
   return (
     <View style={styles.container}>
-      <Text>Current state is: {appState.current}</Text>
+      <Text>Current state is: {appStateVisible}</Text>
     </View>
   );
 };
@@ -68,12 +75,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 });
 
 export default AppStateExample;
 ```
+
+If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use the `appState.current` value.
 
 <block class="classical syntax" />
 
@@ -126,7 +135,7 @@ export default AppStateExample;
 
 <block class="endBlock syntax" />
 
-This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily.
+This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily. If you want to experiment with the code we recommend to use your own device instead of embedded preview.
 
 ---
 
