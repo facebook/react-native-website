@@ -127,12 +127,13 @@ function ReactNativeWebPlayer(md) {
     if (paramsString) {
       hash += `&${paramsString}`;
     }
+    let params = parseParams(paramsString);
 
     return (
       '<div class="web-player">' +
       htmlForCodeBlock(sampleCode) +
       `<iframe style="margin-top: 4" width="100%" height="${
-        parseParams(paramsString).platform === 'android' ? '425' : '420'
+        params.platform === 'android' ? '425' : '420'
       }" data-src="//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html${hash}" frame-border="0"></iframe>` +
       `</div>` +
       '\n\n'
