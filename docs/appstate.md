@@ -22,9 +22,6 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
-You can remove line 7 & 24 in the functional component example if you don't want to see the AppState update from active to inactive (iOS).
-After that you must alter line 30 to something like `appState.current`.
-
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
@@ -47,21 +44,24 @@ const AppStateExample = () => {
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   useEffect(() => {
-      AppState.addEventListener('change', _handleAppStateChange);
+    AppState.addEventListener("change", _handleAppStateChange);
 
-      return () => {
-          AppState.removeEventListener('change', _handleAppStateChange);
-      };
+    return () => {
+      AppState.removeEventListener("change", _handleAppStateChange);
+    };
   }, []);
 
   const _handleAppStateChange = (nextAppState) => {
-      if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-          console.log("App has come to the foreground!");
-      } 
+    if (
+      appState.current.match(/inactive|background/) &&
+      nextAppState === "active"
+    ) {
+      console.log("App has come to the foreground!");
+    }
 
-      appState.current = nextAppState;
-      console.log("AppState", appState.current);
-      setAppStateVisible(appState.current);
+    appState.current = nextAppState;
+    setAppStateVisible(appState.current);
+    console.log("AppState", appState.current);
   };
 
   return (
@@ -75,12 +75,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 });
 
 export default AppStateExample;
 ```
+
+If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use just the `appState.current` value.
 
 <block class="classical syntax" />
 
@@ -133,7 +135,7 @@ export default AppStateExample;
 
 <block class="endBlock syntax" />
 
-This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily.
+This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily. If you want to experiment with the code we recommend to use your own device instead of embedded preview.
 
 ---
 
