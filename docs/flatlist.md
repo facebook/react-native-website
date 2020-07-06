@@ -199,9 +199,9 @@ Example usage:
 
 ```jsx
 <FlatList
-  ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
+  ItemSeparatorComponent={Platform.OS !== 'android' && (({highlighted}) => (
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
-  )}
+  ))}
   data={[{title: 'Title Text', key: 'item1'}]}
   renderItem={({item, index, separators}) => (
     <TouchableHighlight
