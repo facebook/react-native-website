@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 export default AppStateExample;
 ```
 
-If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use just the `appState.current` value.
+If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use the `appState.current` value.
 
 <block class="classical syntax" />
 
