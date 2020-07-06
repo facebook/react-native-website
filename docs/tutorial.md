@@ -116,6 +116,7 @@ In a React component, the props are the variables that we pass from a parent com
 import React, { useState } from 'react';
 
 
+
 const App = () => {
   const [count, setCount] = useState(0);
 

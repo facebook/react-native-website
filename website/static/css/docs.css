@@ -378,7 +378,11 @@ td .label.required {
   grid-template-areas: ". .";
 }
 
-@media only screen and (max-width: 960px) {
+.two-columns pre code {
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 1023px) {
   .two-columns {
     gap: 0;
     grid-template-columns: 1fr;
