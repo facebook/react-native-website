@@ -22,6 +22,9 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
+You can remove line 7 & 24 in the functional component example if you don't want to see the AppState update from active to inactive (iOS).
+After that you must alter line 30 to something like `appState.current`.
+
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
@@ -41,29 +44,25 @@ import { AppState, StyleSheet, Text, View } from "react-native";
 
 const AppStateExample = () => {
   const appState = useRef(AppState.currentState);
-  /*  
-      You can remove line 7 & 24 if you don't want to see the AppState update from active to inactive (iOS)
-      You then must alter line 30 to something like appState.current 
-  */
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
-    useEffect(() => {
-        AppState.addEventListener('change', _handleAppStateChange);
+  useEffect(() => {
+      AppState.addEventListener('change', _handleAppStateChange);
 
-        return () => {
-            AppState.removeEventListener('change', _handleAppStateChange);
-        };
-    }, []);
+      return () => {
+          AppState.removeEventListener('change', _handleAppStateChange);
+      };
+  }, []);
 
-    const _handleAppStateChange = (nextAppState) => {
-        if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-            console.log("App has come to the foreground!");
-        } 
+  const _handleAppStateChange = (nextAppState) => {
+      if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
+          console.log("App has come to the foreground!");
+      } 
 
-        appState.current = nextAppState;
-        console.log("AppState", appState.current);
-        setAppStateVisible(appState.current);
-    };
+      appState.current = nextAppState;
+      console.log("AppState", appState.current);
+      setAppStateVisible(appState.current);
+  };
 
   return (
     <View style={styles.container}>
