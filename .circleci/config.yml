@@ -78,6 +78,7 @@ jobs:
       - restore_cache_checkout
       - run_yarn
       - run: yarn lint
+      - run: yarn prettier:diff-ci
 
   # --------------------------------------------------
   # JOB: deploy_website
