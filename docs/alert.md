@@ -178,6 +178,7 @@ Alert.alert('Alert Title', 'My Alert Msg', [
   },
   { text: 'OK', onPress: () => console.log('OK Pressed') },
   {
+    // cancelable and onDismiss only work on Android.
     cancelable: true,
     onDismiss: () =>
       console.log(
