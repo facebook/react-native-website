@@ -166,7 +166,6 @@ The cancel event can be handled by providing an `onDismiss` callback property `{
 Example usage:
 
 ```jsx
-// Works only on Android
 Alert.alert('Alert Title', 'My Alert Msg', [
   {
     text: 'Ask me later',
