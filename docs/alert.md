@@ -161,7 +161,7 @@ On Android at most three buttons can be specified. Android has a concept of a ne
 
 Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional `options` parameter with the cancelable property set to true i.e. `{ cancelable: true }`.
 
-The dismissed event can be handled by providing an `onDismiss` callback property `{ onDismiss: () => {} }` inside the `options` parameter.
+The cancel event can be handled by providing an `onDismiss` callback property `{ onDismiss: () => {} }` inside the `options` parameter.
 
 Example usage:
 
