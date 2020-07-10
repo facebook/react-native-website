@@ -333,9 +333,7 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 
 ![ANDROID_HOME Environment Variable](/docs/assets/GettingStartedAndroidEnvironmentVariableANDROID_HOME.png)
 
-Newer versions 
-
-In older versions, the SDK is installed, by default, at the following location (replace [username] by your username):
+The SDK is installed, by default, at the following location:
 
 ```powershell
 %LOCALAPPDATA%\Android\Sdk
@@ -361,7 +359,7 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 The default location for this folder is:
 
 ```powershell
-C:\Users\[your username]\AppData\Local\Android\Sdk\platform-tools
+%LOCALAPPDATA%\Android\Sdk\platform-tools
 ```
 
 <block class="native linux android" />
