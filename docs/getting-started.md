@@ -338,7 +338,7 @@ Newer versions
 In older versions, the SDK is installed, by default, at the following location (replace [username] by your username):
 
 ```powershell
-C:\Users\[username]\AppData\Local\Android\Sdk
+%LOCALAPPDATA%\Android\Sdk
 ```
 
 You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
