@@ -1,0 +1,178 @@
+{
+  "version-0.63-docs": {
+    "入门基础": [
+      "version-0.63-getting-started",
+      "version-0.63-intro-react-native-components",
+      "version-0.63-intro-react",
+      "version-0.63-handling-text-input",
+      "version-0.63-using-a-scrollview",
+      "version-0.63-using-a-listview",
+      "version-0.63-sample-application-movies",
+      "version-0.63-platform-specific-code",
+      "version-0.63-more-resources"
+    ],
+    "开发流程": [
+      "version-0.63-running-on-device",
+      "version-0.63-fast-refresh",
+      "version-0.63-debugging",
+      "version-0.63-testing-overview",
+      "version-0.63-libraries",
+      "version-0.63-typescript",
+      "version-0.63-upgrading"
+    ],
+    "设计": [
+      "version-0.63-style",
+      "version-0.63-height-and-width",
+      "version-0.63-flexbox",
+      "version-0.63-images",
+      "version-0.63-colors"
+    ],
+    "交互": [
+      "version-0.63-handling-touches",
+      "version-0.63-navigation",
+      "version-0.63-animations",
+      "version-0.63-gesture-responder-system"
+    ],
+    "性能调优": [
+      "version-0.63-performance",
+      "version-0.63-optimizing-flatlist-configuration",
+      "version-0.63-ram-bundles-inline-requires",
+      "version-0.63-profiling"
+    ],
+    "JavaScript 运行环境": [
+      "version-0.63-javascript-environment",
+      "version-0.63-timers",
+      "version-0.63-hermes"
+    ],
+    "网络连接": ["version-0.63-network", "version-0.63-security"],
+    "进阶指南": [
+      "version-0.63-accessibility",
+      "version-0.63-direct-manipulation",
+      "version-0.63-integration-with-existing-apps",
+      "version-0.63-building-for-tv",
+      "version-0.63-native-modules-setup",
+      "version-0.63-out-of-tree-platforms",
+      "version-0.63-building-from-source",
+      "version-0.63-publishing-forks"
+    ],
+    "iOS 指南": [
+      "version-0.63-native-modules-ios",
+      "version-0.63-native-components-ios",
+      "version-0.63-linking-libraries-ios",
+      "version-0.63-running-on-simulator-ios",
+      "version-0.63-communication-ios",
+      "version-0.63-app-extensions"
+    ],
+    "Android 指南": [
+      "version-0.63-native-modules-android",
+      "version-0.63-native-components-android",
+      "version-0.63-headless-js-android",
+      "version-0.63-signed-apk-android",
+      "version-0.63-removing-default-permissions"
+    ]
+  },
+  "version-0.63-api": {
+    "APIs": [
+      "version-0.63-accessibilityinfo",
+      "version-0.63-alert",
+      "version-0.63-animated",
+      "version-0.63-animatedvalue",
+      "version-0.63-animatedvaluexy",
+      "version-0.63-appearance",
+      "version-0.63-appregistry",
+      "version-0.63-appstate",
+      "version-0.63-devsettings",
+      "version-0.63-dimensions",
+      "version-0.63-easing",
+      "version-0.63-interactionmanager",
+      "version-0.63-keyboard",
+      "version-0.63-layoutanimation",
+      "version-0.63-linking",
+      "version-0.63-panresponder",
+      "version-0.63-pixelratio",
+      "version-0.63-platformcolor",
+      "version-0.63-share",
+      "version-0.63-stylesheet",
+      "version-0.63-systrace",
+      "version-0.63-transforms",
+      "version-0.63-vibration",
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": [
+          "version-0.63-usecolorscheme",
+          "version-0.63-usewindowdimensions"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": [
+          "version-0.63-backhandler",
+          "version-0.63-permissionsandroid",
+          "version-0.63-toastandroid"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": [
+          "version-0.63-actionsheetios",
+          "version-0.63-dynamiccolorios",
+          "version-0.63-settings"
+        ]
+      }
+    ]
+  },
+  "version-0.63-组件": {
+    "核心组件": [
+      "version-0.63-components-and-apis",
+      "version-0.63-activityindicator",
+      "version-0.63-button",
+      "version-0.63-flatlist",
+      "version-0.63-image",
+      "version-0.63-imagebackground",
+      "version-0.63-keyboardavoidingview",
+      "version-0.63-modal",
+      "version-0.63-pressable",
+      "version-0.63-refreshcontrol",
+      "version-0.63-safeareaview",
+      "version-0.63-scrollview",
+      "version-0.63-sectionlist",
+      "version-0.63-statusbar",
+      "version-0.63-switch",
+      "version-0.63-text",
+      "version-0.63-textinput",
+      "version-0.63-touchablehighlight",
+      "version-0.63-touchableopacity",
+      "version-0.63-touchablewithoutfeedback",
+      "version-0.63-view",
+      "version-0.63-virtualizedlist",
+      {
+        "type": "subcategory",
+        "label": "Android 组件",
+        "ids": [
+          "version-0.63-drawerlayoutandroid",
+          "version-0.63-touchablenativefeedback"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS 组件",
+        "ids": ["version-0.63-inputaccessoryview", "version-0.63-maskedviewios"]
+      }
+    ],
+    "属性": [
+      "version-0.63-image-style-props",
+      "version-0.63-layout-props",
+      "version-0.63-shadow-props",
+      "version-0.63-text-style-props",
+      "version-0.63-view-style-props"
+    ],
+    "内部对象类型": [
+      "version-0.63-pressevent",
+      "version-0.63-react-node",
+      "version-0.63-rect"
+    ]
+  }
+}
