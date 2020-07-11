@@ -64,7 +64,7 @@ const App = () => {
       {/* Rest of your app code */}
     </NavigationContainer>
   );
-}
+};
 
 export default App;
 ```
@@ -95,7 +95,7 @@ const MyStack = () => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
 ```
 
 In this example, there are 2 screens (`Home` and `Profile`) defined using the `Stack.Screen` component. Similarly, you can define as many screens as you like.
@@ -114,10 +114,10 @@ const HomeScreen = ({ navigation }) => {
       }
     />
   );
-}
+};
 const ProfileScreen = () => {
   return <Text>This is Jane's profile</Text>;
-}
+};
 ```
 
 The views in the stack navigator use native components and the [`Animated`](animated.md) library to deliver 60fps animations that are run on the native thread. Plus, the animations and gestures can be customized.

@@ -102,6 +102,8 @@ const styles = StyleSheet.create({
 export default TextInANest;
 ```
 
+<block class="endBlock syntax" />
+
 ## Nested text
 
 Both Android and iOS allow you to display formatted text by annotating ranges of a string with specific formatting like bold or colored text (`NSAttributedString` on iOS, `SpannableString` on Android). In practice, this is very tedious. For React Native, we decided to use web paradigm for this where you can nest text to achieve the same effect.
@@ -130,8 +132,6 @@ const styles = StyleSheet.create({
 
 export default BoldAndBeautiful;
 ```
-
-<block class="endBlock syntax" />
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
@@ -694,6 +694,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | Type                                      | Required | Platform |
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
+
+---
+
+### `android_hyphenationFrequency`
+
+Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+, possible values are `none`, `full`, `balanced`, `high`, `normal`. The default value is `none`.
+
+| Type                                     | Required | Platform |
+| ---------------------------------------- | -------- | -------- |
+| enum('none', 'full', 'balanced', 'high') | No       | Android  |
 
 # Known issues
 

@@ -64,7 +64,7 @@ If you have a problem with Expo, before creating a new issue, please see if ther
 - in the [Expo CLI issues](https://github.com/expo/expo-cli/issues) (for issues related to Expo CLI), or
 - in the [Expo issues](https://github.com/expo/expo/issues) (for issues about the Expo client or SDK).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
 
 <h3>Running your app on a simulator or virtual device</h3>
 
@@ -294,7 +294,7 @@ The React Native tools require some environment variables to be set up in order 
 
 <block class="native mac linux android" />
 
-Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` config file:
+Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you are using `zsh` then `~/.zprofile` or `~/.zshrc`) config file:
 
 <block class="native mac android" />
 
@@ -336,7 +336,7 @@ Type `source $HOME/.bash_profile` to load the config into your current shell. Ve
 The SDK is installed, by default, at the following location:
 
 ```powershell
-c:\Android\tools\bin
+%LOCALAPPDATA%\Android\Sdk
 ```
 
 You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
@@ -359,7 +359,7 @@ Open a new Command Prompt window to ensure the new environment variable is loade
 The default location for this folder is:
 
 ```powershell
-C:\Android\tools\bin\platform-tools
+%LOCALAPPDATA%\Android\Sdk\platform-tools
 ```
 
 <block class="native linux android" />
@@ -617,7 +617,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
 
 <block class="native windows linux mac android" />
 
@@ -625,4 +625,4 @@ If you're curious to learn more about React Native, check out the [Introduction 
 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
-If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started.md).
+If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).

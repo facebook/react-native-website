@@ -258,16 +258,6 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
-### `statusBarTranslucent`
-
-The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
 ### `onDismiss`
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
@@ -330,9 +320,9 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 

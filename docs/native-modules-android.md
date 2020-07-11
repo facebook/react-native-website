@@ -293,7 +293,7 @@ const measureLayout = async () => {
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 measureLayout();
 ```

@@ -96,7 +96,7 @@ The final Java step is to register the ViewManager to the application, this happ
   public List<ViewManager> createViewManagers(
                             ReactApplicationContext reactContext) {
     return Arrays.<ViewManager>asList(
-      new ReactImageManager()
+      new ReactImageManager(reactContext)
     );
   }
 ```
