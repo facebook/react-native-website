@@ -695,6 +695,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
 
+---
+
+### `android_hyphenationFrequency`
+
+Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+, possible values are `none`, `full`, `balanced`, `high`, `normal`. The default value is `none`.
+
+| Type                                     | Required | Platform |
+| ---------------------------------------- | -------- | -------- |
+| enum('none', 'full', 'balanced', 'high') | No       | Android  |
+
 # Known issues
 
 - [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute
