@@ -4,13 +4,9 @@
       "getting-started",
       "intro-react-native-components",
       "intro-react",
-      "tutorial",
-      "props",
-      "state",
       "handling-text-input",
       "using-a-scrollview",
       "using-a-listview",
-      "network",
       "sample-application-movies",
       "platform-specific-code",
       "more-resources"
@@ -40,7 +36,6 @@
     "JavaScript 运行环境": ["javascript-environment", "timers", "hermes"],
     "网络连接": ["network", "security"],
     "进阶指南": [
-      "components-and-apis",
       "accessibility",
       "direct-manipulation",
       "integration-with-existing-apps",
@@ -150,6 +145,6 @@
       "text-style-props",
       "view-style-props"
     ],
-    "Object Types": ["pressevent", "react-node", "rect"]
+    "内部对象类型": ["pressevent", "react-node", "rect"]
   }
 }

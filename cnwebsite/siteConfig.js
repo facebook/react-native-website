@@ -14,7 +14,8 @@ const packageJson = require('./package.json');
 
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
-const cdnUrl = 'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
+const cdnUrl =
+  'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
 let communityRepos = [];
 try {
   communityRepos = require('./community-repos.json');
@@ -22,7 +23,7 @@ try {
   // We don't care if there are no repos synced locally
   // We only care if we are on the CI server and about to deploy
 }
-const defaultVersionShown = '0.62';
+const defaultVersionShown = '0.63';
 const siteConfig = {
   organizationName: 'reactnativecn',
   cname: 'www.react-native.cn',
@@ -46,7 +47,11 @@ const siteConfig = {
     //   external: true,
     //   label: '博客',
     // },
-    {href: '//github.com/reactnativecn/react-native-website/issues', external: true, label: '讨论'},
+    {
+      href: '//github.com/reactnativecn/react-native-website/issues',
+      external: true,
+      label: '讨论',
+    },
     {href: '//pushy.reactnative.cn', label: '热更新', external: true},
     {page: 'about', label: '关于'},
     {search: true},
@@ -87,7 +92,7 @@ const siteConfig = {
   ],
   highlight: {
     theme: 'solarized-dark',
-    version: packageJson.dependencies['highlight.js'].replace('^', '')
+    version: packageJson.dependencies['highlight.js'].replace('^', ''),
   },
   usePrism: [
     'javascript',
@@ -106,8 +111,8 @@ const siteConfig = {
     // 'https://buttons.github.io/buttons.js',
     cdnUrl + 'js/codeblocks.js',
     cdnUrl + 'js/tabs.js',
-    cdnUrl + 'js/doccode0325.js', 
-    cdnUrl + 'js/snack.js', 
+    cdnUrl + 'js/doccode0325.js',
+    cdnUrl + 'js/snack.js',
   ],
   cleanUrl: true,
   customDocsPath: 'cndocs',

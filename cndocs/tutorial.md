@@ -37,7 +37,7 @@ export default HelloWorldApp;
 1. First of all, we need to import `React` to be able to use `JSX`, which will then be transformed to the native components of each platform.
 2. On line 2, we import the `Text` and `View` components from `react-native`
 
-Then we find the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
+Then we find the `HelloWorldApp` function, which is a [functional component](https://zh-hans.reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
 
 The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
 

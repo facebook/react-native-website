@@ -47,7 +47,7 @@ export default BlinkApp;
 
 每次调用`setState`时，BlinkApp 都会重新执行 render 方法重新渲染。这里我们使用定时器来不停调用`setState`，于是组件就会随着时间变化不停地重新渲染。
 
-State 的工作原理和 React.js 完全一致，所以对于处理 state 的一些更深入的细节，你可以参阅[React.Component API](https://reactjs.org/docs/react-component.html#setstate)。
+State 的工作原理和 React.js 完全一致，所以对于处理 state 的一些更深入的细节，你可以参阅[React.Component API](https://zh-hans.reactjs.org/docs/react-component.html#setstate)。
 
 译注：提示一些初学者应该牢记的要点：
 

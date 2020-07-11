@@ -96,7 +96,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
   public List<ViewManager> createViewManagers(
                             ReactApplicationContext reactContext) {
     return Arrays.<ViewManager>asList(
-      new ReactImageManager()
+      new ReactImageManager(reactContext)
     );
   }
 ```
@@ -110,7 +110,7 @@ public class ReactImageManager extends SimpleViewManager<ReactImageView> {
 ```jsx
 // ImageView.js
 
-import { requireNativeComponent } from "react-native";
+import { requireNativeComponent } from 'react-native';
 
 /**
  * Composes `View`.
@@ -119,7 +119,7 @@ import { requireNativeComponent } from "react-native";
  * - borderRadius: number
  * - resizeMode: 'cover' | 'contain' | 'stretch'
  */
-module.exports = requireNativeComponent("RCTImageView");
+module.exports = requireNativeComponent('RCTImageView');
 ```
 
 `requireNativeComponent`目前只接受一个参数，即原生视图的名字。如果你还需要做一些复杂的逻辑譬如事件处理，那么可以把原生组件用一个普通 React 组件封装。后文的`MyCustomView`例子里演示了这种用法。
@@ -177,7 +177,12 @@ class MyCustomView extends React.Component {
     this.props.onChangeMessage(event.nativeEvent.message);
   }
   render() {
-    return <RCTMyCustomView {...this.props} onChange={this._onChange} />;
+    return (
+      <RCTMyCustomView
+        {...this.props}
+        onChange={this._onChange}
+      />
+    );
   }
 }
 

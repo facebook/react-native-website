@@ -223,6 +223,11 @@ figcaption {
   background: #222;
 }
 
+h2 .label {
+  top: -6px;
+  margin-left: 12px;
+}
+
 h3 .label {
   top: -1px;
   margin-left: 12px;
@@ -240,6 +245,7 @@ h3 .label {
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
+  top: -1px;
 }
 
 /* Custom */

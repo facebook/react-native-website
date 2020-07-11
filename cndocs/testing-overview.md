@@ -127,7 +127,7 @@ For example, if you have a button that has an `onPress` listener, you want to te
 
 There are several libraries that can help you testing these:
 
-- React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
+- React’s [Test Renderer](https://zh-hans.reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
 - [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
 - [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
 
@@ -262,7 +262,7 @@ We hope you enjoyed reading and learned something from this guide. There are man
 
 ### Links
 
-- [React testing overview](https://reactjs.org/docs/testing.html)
+- [React testing overview](https://zh-hans.reactjs.org/docs/testing.html)
 - [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library)
 - [`@testing-library/react-native`](https://www.native-testing-library.com/)
 - [Jest docs](https://jestjs.io/docs/en/tutorial-react-native)

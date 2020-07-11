@@ -4,7 +4,7 @@ title: React基础
 description: To understand React Native fully, you need a solid foundation in React. This short introduction to React can help you get started or get refreshed.
 ---
 
-React Native 的基础是[React](https://reactjs.org/)， 是在 web 端非常流行的开源 UI 框架。要想掌握 React Native，先了解 React 框架本身是非常有帮助的。本文旨在为初学者介绍一些 react 的入门知识。
+React Native 的基础是[React](https://zh-hans.reactjs.org/)， 是在 web 端非常流行的开源 UI 框架。要想掌握 React Native，先了解 React 框架本身是非常有帮助的。本文旨在为初学者介绍一些 react 的入门知识。
 
 本文主要会探讨以下几个 React 的核心概念：
 
@@ -199,7 +199,7 @@ export default function Cat() {
 
 <block class="androidNote devNotes" />
 
-> On Android, you usually put your views inside `LinearLayout`, `FrameLayout`, `RelativeLayout`, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
+> 在 Android 上，常见的做法是把视图放入`LinearLayout`, `FrameLayout`或是`RelativeLayout`等布局容器中来定义子元素如何排列。 In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
 
 <block class="endBlock devNotes" />
 
@@ -227,7 +227,7 @@ export default function Cafe() {
 }
 ```
 
-Any component that renders other components is a **parent component.** Here, `Cafe` is the parent component and each `Cat` is a **child component.**
+我们把包含着其他组件的组件称为**父组件或父容器**。这里`Cafe`是一个父组件，而每个`Cat`则是**子组件**。
 
 You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique element—which you can customize with props.
 
@@ -274,7 +274,7 @@ export default function CatApp() {
 }
 ```
 
-`Image` 有[很多不同的 props](image#props)， including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
+`Image` 有[很多不同的 props](image#props)，[`style`](image#style)也是其中之一，它接受对象形式的样式和布局键值对。
 
 > Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
@@ -287,17 +287,17 @@ While you can think of props as arguments you use to configure how components re
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
     <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      State with Function Components
+      函数组件的状态 State
     </li>
     <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      State with Class Components
+      Class 组件的状态 State
     </li>
   </ul>
 </div>
 
 <block class="functional syntax" />
 
-You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html). A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
+You can add state to a component by calling [React’s `useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html). A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://zh-hans.reactjs.org/docs/hooks-intro.html)
 
 ```SnackPlayer name=State
 import React, { useState } from "react";
@@ -335,7 +335,7 @@ export default function Cafe() {
 import React, { useState } from 'react';
 ```
 
-Then you declare the component’s state by calling `useState` inside its function. In this example, `useState` creates an `isHungry` state variable:
+然后可以通过在函数内调用`useState`来为组件声明状态。In this example, `useState` creates an `isHungry` state variable:
 
 ```jsx
 function Cat(props) {
@@ -362,7 +362,7 @@ Next you add the [`Button`](button) Core Component and give it an `onPress` prop
 />
 ```
 
-Now, when someone presses the button, `onPress` will fire, calling the `setIsHungry(false)`. This sets the state variable `isHungry` to `false`. When `isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
+现在当用户点击按钮时，`onPress`函数会被触发，从而调用`setIsHungry(false)`。This sets the state variable `isHungry` to `false`. When `isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
 
 ```jsx
 <Button
@@ -492,7 +492,7 @@ export default class Cafe extends Component {
 
 <block class="endBlock syntax" />
 
-> See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
+> See the `<>` and `</>` above? These bits of JSX are [fragments](https://zh-hans.reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
 
 ---
 

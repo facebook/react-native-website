@@ -20,7 +20,7 @@ title: Animated
 
 <block class="functional syntax" />
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+> Don't modify the animated value directly. You can use the [`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
 <block class="classical syntax" />
 
@@ -544,9 +544,9 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| callback | ?(result?: {finished: boolean}) | No | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+| Name     | Type                            | Required | Description                                                                                                                                                     |
+| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
 

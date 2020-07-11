@@ -410,9 +410,9 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必填 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -570,11 +570,19 @@ Possible values for `dataDetectorType` are:
 - `'none'`
 - `'all'`
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No | Android |
+| Type                                                | Required | Platform |
+| --------------------------------------------------- | -------- | -------- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
 
 ---
+
+### `android_hyphenationFrequency`
+
+Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+, possible values are `none`, `full`, `balanced`, `high`, `normal`. The default value is `none`.
+
+| Type                                     | Required | Platform |
+| ---------------------------------------- | -------- | -------- |
+| enum('none', 'full', 'balanced', 'high') | No       | Android  |
 
 # Known issues
 

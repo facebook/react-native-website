@@ -20,8 +20,7 @@ title: JavaScript环境
 
 React Native 内置了[Babel 转换器](https://babeljs.io)。你可以查看[Babel 的文档](https://babeljs.io/docs/plugins/#transform-plugins)来了解有关它可以转换的语法的详情。
 
-在[metro-react-native-babel-preset](https://github.com/facebook/metro/tree/master/packages/metro-react-native-babel-preset)中可以看到目前 React Native 默认开启的语法转换特性。
-注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6 入门》](http://es6.ruanyifeng.com/)。
+在[metro-react-native-babel-preset](https://github.com/facebook/metro/tree/master/packages/metro-react-native-babel-preset)中可以看到目前 React Native 默认开启的语法转换特性。注：若想学习相关语法，译者推荐阮一峰老师的[《ECMAScript 6 入门》](http://es6.ruanyifeng.com/)。
 
 ES5
 
@@ -55,7 +54,7 @@ Stage 3
 
 其他特性
 
-- [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
+- [JSX](https://zh-hans.reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
 - [Flow](http://flowtype.org/): `function foo(x: ?number): string {}`
 - [TypeScript](https://www.typescriptlang.org/): `function foo(x: number | undefined): string {};`
 - [Babel Template](https://babeljs.io/docs/en/babel-template): allows AST templating

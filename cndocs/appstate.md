@@ -36,11 +36,12 @@ AppState 通常在处理推送通知的时候用来决定内容和对应的行�
 <block class="functional syntax" />
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { AppState, StyleSheet, Text, View } from "react-native";
 
 const AppStateExample = () => {
   const appState = useRef(AppState.currentState);
+  const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   useEffect(() => {
     AppState.addEventListener("change", _handleAppStateChange);
@@ -51,15 +52,21 @@ const AppStateExample = () => {
   }, []);
 
   const _handleAppStateChange = (nextAppState) => {
-    if (appState.current.match(/inactive|background/) && nextAppState === "active") {
+    if (
+      appState.current.match(/inactive|background/) &&
+      nextAppState === "active"
+    ) {
       console.log("App has come to the foreground!");
     }
+
     appState.current = nextAppState;
+    setAppStateVisible(appState.current);
+    console.log("AppState", appState.current);
   };
 
   return (
     <View style={styles.container}>
-      <Text>Current state is: {appState.current}</Text>
+      <Text>Current state is: {appStateVisible}</Text>
     </View>
   );
 };
@@ -68,12 +75,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 });
 
 export default AppStateExample;
 ```
+
+If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use the `appState.current` value.
 
 <block class="classical syntax" />
 
@@ -126,7 +135,7 @@ export default AppStateExample;
 
 <block class="endBlock syntax" />
 
-上面的这个例子只会显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且 null 状态只会在一开始的一瞬间出现。
+上面的这个例子只会显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且 null 状态只会在一开始的一瞬间出现。If you want to experiment with the code we recommend to use your own device instead of embedded preview.
 
 ---
 

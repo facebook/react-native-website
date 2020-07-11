@@ -15,7 +15,6 @@ npx react-native init MyApp --template react-native-template-typescript
 
 > **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
 
-
 You can use [Expo][expo] which has two TypeScript templates:
 
 ```sh
@@ -70,7 +69,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 ```js
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 };
 ```
 
@@ -219,7 +218,7 @@ npm install --save-dev babel-plugin-module-resolver
 }
 ```
 
-[react-ts]: https://reactjs.org/docs/static-type-checking.html#typescript
+[react-ts]: https://zh-hans.reactjs.org/docs/static-type-checking.html#typescript
 [ts]: https://www.typescriptlang.org/
 [flow]: https://flow.org
 [ts-template]: https://github.com/react-native-community/react-native-template-typescript

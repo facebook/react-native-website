@@ -39,8 +39,7 @@ const App = () => {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
   const createThreeButtonAlert = () =>
     Alert.alert(
@@ -57,8 +56,7 @@ const App = () => {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
   return (
     <View style={styles.container}>
@@ -94,8 +92,7 @@ class App extends Component {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
   createThreeButtonAlert = () =>
     Alert.alert(
@@ -112,8 +109,7 @@ class App extends Component {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
   render() {
     return (
@@ -149,24 +145,33 @@ export default App;
 
 如果你只指定一个按钮，则它具有“积极态”的属性（比如“确定”）；两个按钮，则分别是“消极态”和“积极态”（比如“取消”和“确定”）；三个按钮则意味着“中间态”、“消极态”和“积极态”（比如“稍候再说”，“取消”，“确定”）。
 
-在 Android 上默认情况下点击提示框的外面会自动取消提示框。你可以在`options`中提供一个额外参数来处理这一事件：`{ onDismiss: () => {} }`。
+在 Android 上可以通过点击提示框的外面来取消提示框，但这一行为默认没有启用。你可以在`options`中提供一个额外参数来启用这一行为：`{ cancelable: true }`。
 
-还有另外一个参数也可以用来阻止提示框被自动取消，即`{ cancelable: false }`。
+The cancel event can be handled by providing an `onDismiss` callback property `{ onDismiss: () => {} }` inside the `options` parameter.
 
 一个简单的例子：
 
-```
-// iOS和Android上都可用
-Alert.alert(
-  'Alert Title',
-  'My Alert Msg',
-  [
-    {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-    {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
-  ],
-  { cancelable: false }
-)
+```jsx
+Alert.alert('Alert Title', 'My Alert Msg', [
+  {
+    text: 'Ask me later',
+    onPress: () => console.log('Ask me later pressed')
+  },
+  {
+    text: 'Cancel',
+    onPress: () => console.log('Cancel Pressed'),
+    style: 'cancel'
+  },
+  { text: 'OK', onPress: () => console.log('OK Pressed') },
+  {
+    // cancelable and onDismiss only work on Android.
+    cancelable: true,
+    onDismiss: () =>
+      console.log(
+        'This alert was dismissed by tapping outside of the alert dialog.'
+      )
+  }
+]);
 ```
 
 # 文档

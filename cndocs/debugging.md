@@ -21,38 +21,42 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 > 某些情况下自动刷新并不能顺利实施。如果碰到任何界面刷新上的问题，请尝试手动完全刷新。具体的操作就是在开发菜单中点击"Reload"选项。也可以在 iOS 模拟器中按下**`Command`**`⌘` + **`R`** ，Android 模拟器上对应的则是按两下**`R`** 。
 
-但有些时候你必须要重新编译应用（run-ios或是run-android）才能使修改生效：
+但有些时候你必须要重新编译应用（run-ios 或是 run-android）才能使修改生效：
 
 - 增加了新的资源(比如给 iOS 的`Images.xcassets`或是 Andorid 的`res/drawable`文件夹添加了图片)
 - 更改了任何的原生代码（objective-c/swift/java）
 
-## 应用内的错误与警告提示（红屏和黄屏）
+## LogBox
 
-红屏或黄屏提示都只会在开发版本中显示，正式的离线包中是不会显示的。
+Errors and warnings in development builds are displayed in LogBox inside your app.
 
-### 红屏错误
+> LogBox 在发布版本（release/production）中是自动禁用的。
 
-应用内的报错会以全屏红色显示在应用中（调试模式下），我们称为红屏（red box）报错。你可以使用`console.error()`来手动触发红屏错误。
+## 控制台的错误与警告提示
 
-### 黄屏警告
+Console errors and warnings are displayed as on-screen notifications with a red or yellow badge, and the number of errors or warning in the console respectively. To view a console error or warnings, tap the notification to view the full screen information about the log and to paginiate through all of the logs in the console.
 
-应用内的警告会以全屏黄色显示在应用中（调试模式下），我们称为黄屏（yellow box）报错。点击警告可以查看详情或是忽略掉。和红屏报警类似，你可以使用`console.warn()`来手动触发黄屏警告。在默认情况下，开发模式中启用了黄屏警告。可以通过以下代码关闭：
+These notifications can be hidden using `LogBox.ignoreAllLogs()`. This is useful when giving product demos, for example. Additionally, notifications can be hidden on a per-log basis via `LogBox.ignoreLogs()`. This is useful when there's a noisy warning that cannot be fixed, like those in a third-party dependency.
 
-```jsx
-console.disableYellowBox = true;
-console.warn('YellowBox is disabled.');
-```
-
-你也可以通过代码屏蔽指定的警告，像下面这样调用 ignoreWarnings 方法，参数为一个数组：
+> Ignore logs as a last resort and create a task to fix any logs that are ignored.
 
 ```jsx
-import {YellowBox} from 'react-native';
-YellowBox.ignoreWarnings(['Warning: ...']);
+import { LogBox } from 'react-native';
+
+// Ignore log notification by message:
+LogBox.ignoreLogs(['Warning: ...']);
+
+// Ignore all log notifications:
+LogBox.ignoreAllLogs();
 ```
 
-在 CI/Xcode 中，黄屏警告还可以通过设置`IS_TESTING`环境变量来控制启用与否。
+### Unhandled Errors
 
-> 红屏错误和黄屏警告在发布版（release/production）中都是自动禁用的。
+Unhanded JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
+
+### Syntax Erorrs
+
+Syntax errors will automatically open a full screen LogBox error with the source of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or cmd+r to reload (with Fast Refresh disabled).
 
 ## Chrome 开发者工具
 

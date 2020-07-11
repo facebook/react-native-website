@@ -1,8 +1,6 @@
 'use strict';
 
 const hljs = require('highlight.js');
-const {utils} = require('remarkable');
-const {escapeHtml} = utils;
 
 // Remove leading "SnackPlayer", "ReactNativeWebPlayer"
 function cleanParams(params) {
@@ -58,13 +56,7 @@ function htmlForCodeBlock(code) {
  * ```
  */
 function SnackPlayer(md) {
-  md.renderer.rules.fence_custom.SnackPlayer = function(
-    tokens,
-    idx,
-    options,
-    env,
-    self
-  ) {
+  md.renderer.rules.fence_custom.SnackPlayer = function(tokens, idx) {
     let params = parseParams(cleanParams(tokens[idx].params));
 
     const name = params.name ? decodeURIComponent(params.name) : 'Example';
@@ -74,7 +66,6 @@ function SnackPlayer(md) {
     const sampleCode = tokens[idx].content;
     const encodedSampleCode = encodeURIComponent(sampleCode);
     const platform = params.platform ? params.platform : 'ios';
-    const rnVersion = params.version ? params.version : 'next';
 
     return (
       '<div class="snack-player">' +
@@ -122,14 +113,7 @@ function SnackPlayer(md) {
  * ```
  */
 function ReactNativeWebPlayer(md) {
-  md.renderer.rules.fence_custom.ReactNativeWebPlayer = function(
-    tokens,
-    idx,
-    options,
-    env,
-    self
-  ) {
-
+  md.renderer.rules.fence_custom.ReactNativeWebPlayer = function(tokens, idx) {
     let sampleCode = tokens[idx].content;
     let hash = `#code=${encodeURIComponent(sampleCode)}`;
 
@@ -143,7 +127,7 @@ function ReactNativeWebPlayer(md) {
       '<div class="web-player">' +
       htmlForCodeBlock(sampleCode) +
       `<iframe style="margin-top: 4" width="100%" height="${
-        parseParams(paramsString).platform === 'android' ? '425' : '420'
+        params.platform === 'android' ? '425' : '420'
       }" data-src="//dabbott.github.io/react-native-web-player/${hash}" frame-border="0"></iframe>` +
       `</div>` +
       '\n\n'
