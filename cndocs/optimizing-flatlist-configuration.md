@@ -29,9 +29,9 @@ Here are a list of props that can help to improve `FlatList` performance:
 
 If `true`, views that are outside of the viewport are detached from the native view hierarchy.
 
-**好处：** This reduces time spent on the main thread, and thus reduces the risk of dropped frames, by excluding views outside of the viewport from the native rendering and drawing traversals.
+**好处：** 启用此选项可减少花在主线程上的时间，从而降低丢帧的风险。原理是对视口之外的视图不进行本地渲染和绘图遍历。
 
-**坏处：** Be aware that this implementation can have bugs, such as missing content (mainly observed on iOS), especially if you are doing complex things with transforms and/or absolute positioning. Also note this does not save significant memory because the views are not deallocated, just detached.
+**坏处：** 请注意，这种实现可能会有 bug，比如丢失内容（主要是在 iOS 上观察到的），特别是当你使用变换和/或绝对定位做复杂的事情时。另外，请注意这并不会节省大量的内存，因为视图并没有被销毁，只是被分离了。
 
 ### maxToRenderPerBatch
 
@@ -65,7 +65,7 @@ While `maxToRenderPerBatch` tells the amount of items rendered per batch, settin
 
 The initial amount of items to render.
 
-**好处：** Define precise number of items that would cover the screen for every device. This can be a big performance boost for the initial render.
+**好处：** 为每个设备定义精确的（刚好可以）覆盖屏幕的项目数量。这可以大大提升初始渲染的性能。
 
 **坏处：** Setting a low `initialNumToRender` may cause blank areas, especially if it's too small to cover the viewport on initial render.
 
