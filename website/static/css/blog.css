@@ -11,6 +11,11 @@
   transition: none;
 }
 
+.blogContainer .snippet-caption {
+  text-align: center;
+  font-size: 12px;
+}
+
 /* Put the image on the left of the block */
 .blogContainer .postHeader .authorBlock {
   flex-direction: row-reverse;
