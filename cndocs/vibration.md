@@ -223,13 +223,13 @@ The `vibrate()` method can take a `pattern` argument with an array of numbers th
 
 **On Android,** the odd indices of the `pattern` array represent the vibration duration, while the even ones represent the separation time. **On iOS,** the numbers in the `pattern` array represent the separation time, as the vibration duration is fixed.
 
-**Parameters:**
+**参数：**
 
-| Name | Type | Required | Description | Platform |
-| --- | --- | --- | --- | --- |
-| pattern | number | No | Vibration duration in milliseconds. Defaults to 400 ms. | Android |
-| pattern | Array of numbers | No | Vibration pattern as an array of numbers in milliseconds. | Android, iOS |
-| repeat | boolean | No | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
+| Name    | Type             | Required | Description                                                | Platform     |
+| ------- | ---------------- | -------- | ---------------------------------------------------------- | ------------ |
+| pattern | number           | No       | Vibration duration in milliseconds. Defaults to 400 ms.    | Android      |
+| pattern | Array of numbers | No       | Vibration pattern as an array of numbers in milliseconds.  | Android, iOS |
+| repeat  | boolean          | No       | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
 
 ---
 

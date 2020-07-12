@@ -31,7 +31,7 @@ static canUseCamera(callback)
 static openCameraDialog(config, successCallback, cancelCallback)
 ```
 
-**Parameters:**
+**参数：**
 
 | Name            | Type     | Required | Description |
 | --------------- | -------- | -------- | ----------- |
@@ -57,7 +57,7 @@ static openCameraDialog(config, successCallback, cancelCallback)
 static openSelectDialog(config, successCallback, cancelCallback)
 ```
 
-**Parameters:**
+**参数：**
 
 | Name            | Type     | Required | Description |
 | --------------- | -------- | -------- | ----------- |

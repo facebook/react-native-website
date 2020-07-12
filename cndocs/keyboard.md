@@ -131,12 +131,12 @@ static addListener(eventName, callback)
 
 此方法会返回监听函数的引用。
 
-**Parameters:**
+**参数：**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| eventName | string | Yes | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
-| callback | function | Yes | 事件触发时调用的 js 函数 |
+| Name      | Type     | Required | Description                                            |
+| --------- | -------- | -------- | ------------------------------------------------------ |
+| eventName | string   | Yes      | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
+| callback  | function | Yes      | 事件触发时调用的 js 函数                               |
 
 **nativeEvent**
 
@@ -161,12 +161,12 @@ static removeListener(eventName, callback)
 
 移除某个类型事件的监听函数。
 
-**Parameters:**
+**参数：**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| eventName | string | Yes | 要移除监听函数的原生事件类型名称 |
-| callback | function | Yes | 要移除的监听函数 |
+| Name      | Type     | Required | Description                      |
+| --------- | -------- | -------- | -------------------------------- |
+| eventName | string   | Yes      | 要移除监听函数的原生事件类型名称 |
+| callback  | function | Yes      | 要移除的监听函数                 |
 
 ---
 

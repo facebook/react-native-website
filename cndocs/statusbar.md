@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-### 静态API
+### 静态 API
 
-有些场景并不适合使用组件，因此`StatusBar`也暴露了一个静态API。然而不推荐大家同时通过静态API和组件来定义相同的属性，因为静态API定义的属性值在后续的渲染中会被组件中定义的值所覆盖。
+有些场景并不适合使用组件，因此`StatusBar`也暴露了一个静态 API。然而不推荐大家同时通过静态 API 和组件来定义相同的属性，因为静态 API 定义的属性值在后续的渲染中会被组件中定义的值所覆盖。
 
 ---
 
@@ -82,13 +82,13 @@ export default App;
 
 ## 常量
 
-`currentHeight` (仅限Android)状态栏的当前高度。
+`currentHeight` (仅限 Android)状态栏的当前高度。
 
 ## Props
 
 ### `animated`
 
-指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden。
+指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle 和 hidden。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -150,7 +150,7 @@ On Android, this will only have an impact on API versions 23 and above.
 
 ### `translucent`
 
-指定状态栏是否透明。设置为true时，应用会延伸到状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
+指定状态栏是否透明。设置为 true 时，应用会延伸到状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
 
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
@@ -168,7 +168,7 @@ static popStackEntry(entry: any)
 
 Get and remove the last StatusBar entry from the stack.
 
-**Parameters:**
+**参数：**
 
 | Name  | Type | Required | Description                           |
 | ----- | ---- | -------- | ------------------------------------- |
@@ -184,7 +184,7 @@ static pushStackEntry(props: any)
 
 Push a StatusBar entry onto the stack. The return value should be passed to `popStackEntry` when complete.
 
-**Parameters:**
+**参数：**
 
 | Name  | Type | Required | Description                                                      |
 | ----- | ---- | -------- | ---------------------------------------------------------------- |
@@ -200,7 +200,7 @@ static replaceStackEntry(entry: any, props: any)
 
 Replace an existing StatusBar stack entry with new props.
 
-**Parameters:**
+**参数：**
 
 | Name  | Type | Required | Description                                                                  |
 | ----- | ---- | -------- | ---------------------------------------------------------------------------- |
@@ -215,7 +215,7 @@ Replace an existing StatusBar stack entry with new props.
 static setBackgroundColor(color: string, [animated]: boolean)
 ```
 
-设置状态栏的背景色。仅限Android。
+设置状态栏的背景色。仅限 Android。
 
 **参数：**
 
@@ -266,7 +266,7 @@ static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 static setNetworkActivityIndicatorVisible(visible: boolean)
 ```
 
-显示／隐藏网络活动指示器。仅限iOS。
+显示／隐藏网络活动指示器。仅限 iOS。
 
 **参数：**
 
@@ -282,7 +282,7 @@ static setNetworkActivityIndicatorVisible(visible: boolean)
 static setTranslucent(translucent: boolean)
 ```
 
-指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。仅限Android。
+指定状态栏是否透明。设置为 true 时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。仅限 Android。
 
 **参数：**
 
@@ -292,14 +292,13 @@ static setTranslucent(translucent: boolean)
 
 ## 类型定义
 
-
 ### StatusBarAnimation
 
 状态栏动画过渡效果
 
-| 类型  |
-| ----- |
-| $Enum |
+| 类型   |
+| ------ |
+| \$Enum |
 
 **常量：**
 
@@ -315,16 +314,16 @@ static setTranslucent(translucent: boolean)
 
 状态栏样式
 
-| 类型  |
-| ----- |
-| $Enum |
+| 类型   |
+| ------ |
+| \$Enum |
 
 **常量：**
 
-| Value         | 说明                                           |
-| ------------- | ---------------------------------------------- |
-| default       | 默认的样式（IOS为白底黑字、Android为黑底白字） |
-| light-content | 黑底白字                                       |
-| dark-content  | 白底黑字（需要Android API>=23）                |
+| Value         | 说明                                             |
+| ------------- | ------------------------------------------------ |
+| default       | 默认的样式（IOS 为白底黑字、Android 为黑底白字） |
+| light-content | 黑底白字                                         |
+| dark-content  | 白底黑字（需要 Android API>=23）                 |
 
 ---

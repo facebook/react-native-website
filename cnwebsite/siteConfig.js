@@ -41,8 +41,9 @@ const siteConfig = {
   headerLinks: [
     {doc: 'getting-started', label: '文档'},
     // { blog: true, label: "博客" },
-    {doc: 'components-and-apis', label: 'Components'},
+    {doc: 'components-and-apis', label: '组件'},
     {doc: 'accessibilityinfo', label: 'API'},
+
     {
       href: '//github.com/reactnativecn/react-native-website/issues',
       external: true,

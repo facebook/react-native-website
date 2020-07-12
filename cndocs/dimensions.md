@@ -147,11 +147,11 @@ static get(dim)
 
 示例： `const {height, width} = Dimensions.get('window');`
 
-**Parameters:**
+**参数：**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| dim | string | Yes | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
+| Name | Type   | Required | Description                                                        |
+| ---- | ------ | -------- | ------------------------------------------------------------------ |
+| dim  | string | Yes      | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -189,8 +189,8 @@ static set(dims)
 
 这个函数只应该被原生代码调用。 by sending the didUpdateDimensions event.
 
-**Parameters:**
+**参数：**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| dims | object | Yes | string-keyed object of dimensions to set |
+| Name | Type   | Required | Description                              |
+| ---- | ------ | -------- | ---------------------------------------- |
+| dims | object | Yes      | string-keyed object of dimensions to set |

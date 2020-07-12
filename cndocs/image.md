@@ -439,9 +439,9 @@ Similarly to `source`, this property represents the resource used to render the 
 
 当图片被缩放的时候，capInsets 指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9 图。了解更多信息，可以参见[苹果官方文档](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets)。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 | iOS |
+| 类型                                                               | 必填 | 平台 |
+| ------------------------------------------------------------------ | ---- | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
 ---
 
@@ -538,14 +538,14 @@ Retrieve the width and height (in pixels) of an image prior to displaying it wit
 
 In order to retrieve the image dimensions, the image may first need to be loaded or downloaded, after which it will be cached. This means that in principle you could use this method to preload images, however it is not optimized for that purpose, and may in future be implemented in a way that does not fully load/download the image data. A proper, supported way to preload images will be provided as a separate API.
 
-**Parameters:**
+**参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| uri | string | 是 | 图片地址 |
-| headers | object | 是 | 请求的 headers |
-| success | function | 是 | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | 否 | The function that will be called if there was an error, such as failing toto retrieve the image. |
+| 名称    | 类型     | 必填 | 说明                                                                                                 |
+| ------- | -------- | ---- | ---------------------------------------------------------------------------------------------------- |
+| uri     | string   | 是   | 图片地址                                                                                             |
+| headers | object   | 是   | 请求的 headers                                                                                       |
+| success | function | 是   | The function that will be called if the image was successfully found and width and height retrieved. |
+| failure | function | 否   | The function that will be called if there was an error, such as failing toto retrieve the image.     |
 
 ---
 
@@ -607,8 +607,8 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **参数：**
 
-| 名称 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| source | number, object | 是 | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
+| 名称   | 类型           | 必填 | 说明                                                                           |
+| ------ | -------------- | ---- | ------------------------------------------------------------------------------ |
+| source | number, object | 是   | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
 
 > `ImageSource`是一个对象，其结构为`{ uri: '<http location || file path>' }`
