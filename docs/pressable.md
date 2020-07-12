@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-Pressable is a Core Component wrapper that can detect various stages of press interactions on any of it's defined children.
+Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -21,7 +21,7 @@ On an element wrapped by `Pressable`:
 After pressing [`onPressIn`](#onpressin), one of two things will happen:
 
 1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
-2. If the person leaves their finger longer than 370 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
+2. If the person had left their finger longer than 370 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
 
 <img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
 
