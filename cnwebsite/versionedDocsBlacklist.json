@@ -44,10 +44,5 @@
   "headless-js-android",
   "signed-apk-android",
   "removing-default-permissions",
-  "optimizing-flatlist-configuration",
-  "contributing",
-  "maintainers",
-  "building-from-source",
-  "testing",
-  "understanding-cli"
+  "optimizing-flatlist-configuration"
 ]

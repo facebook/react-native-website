@@ -43,11 +43,6 @@ const siteConfig = {
     // { blog: true, label: "博客" },
     {doc: 'components-and-apis', label: 'Components'},
     {doc: 'accessibilityinfo', label: 'API'},
-    // {
-    //   href: '//bbs.reactnative.cn/category/3/blogs',
-    //   external: true,
-    //   label: '博客',
-    // },
     {
       href: '//github.com/reactnativecn/react-native-website/issues',
       external: true,
