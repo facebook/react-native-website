@@ -4,7 +4,7 @@ title: Accessibility
 description: Create mobile apps accessible to assistive technology with React Native's suite of APIs designed to work with Android and iOS.
 ---
 
-Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complementary APIs that let your app accommodate all users.
+Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and TalkBack (Android). React Native has complementary APIs that let your app accommodate all users.
 
 > Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
@@ -64,7 +64,7 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
 
 iOS In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
 
-Android In the above example, Talkback will read the hint after the label. At this time, hints cannot be turned off on Android.
+Android In the above example, TalkBack will read the hint after the label. At this time, hints cannot be turned off on Android.
 
 ### `accessibilityIgnoresInvertColors` <div class="label ios">iOS</div>
 
