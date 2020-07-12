@@ -142,7 +142,7 @@ const AlignItemsBasics = () => {
     );
 };
 
-export default AlignitemsBasics;
+export default AlignItemsBasics;
 ```
 
 ![Align Items](https://cdn-images-1.medium.com/max/800/1*evkM7zfxt-9p-HJ1M0Bh2g.png)
