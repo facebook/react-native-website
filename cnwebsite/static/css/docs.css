@@ -291,7 +291,8 @@ h3 .label {
 */
 
 .navItem[href*="dynamiccolorios"]:after,
-.navItem[href*="platformcolor"]:after {
+.navItem[href*="platformcolor"]:after,
+.navItem[href*="pressable"]:after {
   content: "new";
   display: inline-block;
   position: relative;

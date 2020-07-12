@@ -81,21 +81,21 @@ Syntax errors will automatically open a full screen LogBox error with the source
 
 ## Safari Developer Tools
 
-You can use Safari to debug the iOS version of your app without having to enable "Debug JS Remotely".
+你可以使用 Safari 来调试你的 iOS 版本的应用，而不必启用"Debug JS Remotely".
 
 - Enable Develop menu in Safari: `Preferences → Advanced → Select "Show Develop menu in menu bar"`
 - Select your app's JSContext: `Develop → Simulator → JSContext`
 - Safari's Web Inspector should open which has a Console and a Debugger
 
-While sourcemaps may not be enabled by default, you can follow [this guide](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html) or [video](https://www.youtube.com/watch?v=GrGqIIz51k4) to enable them and set break points at the right places in the source code.
+虽然默认情况下可能没有启用 source map，但您可以按照[本指南](http://blog.nparashuram.com/2019/10/debugging-react-native-ios-apps-with.html)或[Youtube 视频](https://www.youtube.com/watch?v=GrGqIIz51k4)来启用 source map，并在源代码的正确位置设置断点。
 
-However, every time the app is reloaded (using live reload, or by manually reloading), a new JSContext is created. Choosing "Automatically Show Web Inspectors for JSContexts" saves you from having to select the latest JSContext manually.
+然而，每次重新加载应用程序（使用实时重新加载，或通过手动重新加载）时，都会创建一个新的 JSContext。选择 "自动显示 JSContextts 的 Web 检查器(Automatically Show Web Inspectors for JSContexts)"可以帮你自动选择最新的 JSContext。
 
 ## React Developer Tools
 
-You can use [the standalone version of React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to debug the React component hierarchy. To use it, install the `react-devtools` package globally:
+你可以使用[独立版 React 开发者工具(不是 chrome 的插件)](https://github.com/facebook/react/tree/master/packages/react-devtools)来调试 React 组件层次结构。要使用它，请全局安装`react-devtools`包:
 
-> Note: Version 4 of `react-devtools` requires `react-native` version 0.62 or higher to work properly.
+> 注意：react-devtools v4 需要 react-native 0.62 或更高版本才能正常工作。
 
 ```
 npm install -g react-devtools

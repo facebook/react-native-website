@@ -41,7 +41,8 @@ const siteConfig = {
   headerLinks: [
     {doc: 'getting-started', label: '文档'},
     // { blog: true, label: "博客" },
-    {doc: 'activityindicator', label: 'API'},
+    {doc: 'components-and-apis', label: 'Components'},
+    {doc: 'accessibilityinfo', label: 'API'},
     // {
     //   href: '//bbs.reactnative.cn/category/3/blogs',
     //   external: true,
