@@ -4,13 +4,13 @@ title: Linking
 original_id: linking
 ---
 
-`Linking`提供了一个通用的接口来与传入和传出的App链接进行交互。
+`Linking`提供了一个通用的接口来与传入和传出的 App 链接进行交互。
 
 ### 基本用法
 
 #### 处理链接
 
-如果你的应用被其注册过的外部url调起，则可以在任何组件内这样获取和处理它：
+如果你的应用被其注册过的外部 url 调起，则可以在任何组件内这样获取和处理它：
 
 ```jsx
 componentDidMount() {
@@ -21,9 +21,10 @@ componentDidMount() {
   }).catch(err => console.error('An error occurred', err));
 }
 ```
-注：要了解更多如何在Android上支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters)。  
 
-如果要在现有的MainActivity中监听传入的intent，那么需要在`AndroidManifest.xml`中将MainActivity的`launchMode`设置为`singleTask`。相关解释可参考[`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html)文档。
+注：要了解更多如何在 Android 上支持深度链接的说明，请参阅[Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters)。
+
+如果要在现有的 MainActivity 中监听传入的 intent，那么需要在`AndroidManifest.xml`中将 MainActivity 的`launchMode`设置为`singleTask`。相关解释可参考[`<activity>`](http://developer.android.com/guide/topics/manifest/activity-element.html)文档。
 
 ```xml
 <activity
@@ -31,9 +32,9 @@ componentDidMount() {
  android:launchMode="singleTask">
 ```
 
-对于iOS来说，如果要在App启动后也监听传入的App链接，那么首先需要在项目中链接`RCTLinking`，具体步骤请参考[使用链接库](linking-libraries-ios.html)这篇文档，然后需要在`AppDelegate.m`中增加以下代码：
+对于 iOS 来说，如果要在 App 启动后也监听传入的 App 链接，那么首先需要在项目中链接`RCTLinking`，具体步骤请参考[使用链接库](linking-libraries-ios.html)这篇文档，然后需要在`AppDelegate.m`中增加以下代码：
 
-```objective-c
+```objectivec
 #import <React/RCTLinkingManager.h>
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
@@ -53,7 +54,7 @@ componentDidMount() {
  }
 ```
 
-然后你的React组件就可以监听`Linking`的相关事件：
+然后你的 React 组件就可以监听`Linking`的相关事件：
 
 ```jsx
 componentDidMount() {
@@ -67,24 +68,28 @@ _handleOpenURL(event) {
 }
 ```
 
-
 #### 打开外部链接
 
 要启动一个链接相对应的应用（打开浏览器、邮箱或者其它的应用），只需调用：
 
 ```jsx
-Linking.openURL(url).catch(err => console.error('An error occurred', err));
+Linking.openURL(url).catch((err) =>
+  console.error('An error occurred', err)
+);
 ```
+
 如果想在打开链接前先检查是否安装了对应的应用，则调用以下方法：
 
 ```jsx
-Linking.canOpenURL(url).then(supported => {
-  if (!supported) {
-    console.log('Can\'t handle url: ' + url);
-  } else {
-    return Linking.openURL(url);
-  }
-}).catch(err => console.error('An error occurred', err));
+Linking.canOpenURL(url)
+  .then((supported) => {
+    if (!supported) {
+      console.log("Can't handle url: " + url);
+    } else {
+      return Linking.openURL(url);
+    }
+  })
+  .catch((err) => console.error('An error occurred', err));
 ```
 
 ### 方法

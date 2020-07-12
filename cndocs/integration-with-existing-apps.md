@@ -7,7 +7,7 @@ title: 集成到现有原生应用
 
 具体的步骤根据你所开发的目标平台不同而不同。
 
-> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`react-native init NewProject`创建一个最新版本的纯RN项目，去参考其Podfile或是gradle等的配置，以它们为准。
+> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`react-native init NewProject`创建一个最新版本的纯 RN 项目，去参考其 Podfile 或是 gradle 等的配置，以它们为准。
 
 <div class="toggler">
   <ul role="tablist" id="toggle-language">
@@ -160,7 +160,7 @@ React Native 框架整体是作为 node 模块安装到项目中的。下一步�
 $ pod init
 ```
 
-`Podfile`会创建在执行命令的目录中。你需要调整其内容以满足你的集成需求。调整后的`Podfile`的内容看起来类似下面这样（也可以用`react-native init 项目名`命令创建一个纯RN项目，然后去参考其ios目录中的Podfile文件）：
+`Podfile`会创建在执行命令的目录中。你需要调整其内容以满足你的集成需求。调整后的`Podfile`的内容看起来类似下面这样（也可以用`react-native init 项目名`命令创建一个纯 RN 项目，然后去参考其 ios 目录中的 Podfile 文件）：
 
 <block class="objc" />
 
@@ -287,7 +287,12 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
@@ -299,7 +304,9 @@ class RNHighScores extends React.Component {
     ));
     return (
       <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>2048 High Scores!</Text>
+        <Text style={styles.highScoresTitle}>
+          2048 High Scores!
+        </Text>
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );
@@ -311,18 +318,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 // 整体js模块的名称
@@ -345,11 +352,11 @@ You can add a new link on the main game menu to go to the "High Score" React Nat
 
 ##### 2. 事件处理
 
-We will now add an event handler from the menu link. A method will be added to the main `ViewController` of your application. This is where `RCTRootView` comes into play.
+现在我们将从菜单链接中添加一个事件处理程序。一个方法将被添加到你的应用程序的主`ViewController`中。这就是`RCTRootView`发挥作用的地方。
 
-When you build a React Native application, you use the React Native packager to create an `index.bundle` that will be served by the React Native server. Inside `index.bundle` will be our `RNHighScore` module. So, we need to point our `RCTRootView` to the location of the `index.bundle` resource (via `NSURL`) and tie it to the module.
+当你构建一个 React Native 应用时，需要使用 Metro（以前叫做 react packager）来创建一个`index.bundle`。`index.bundle`里面包含了我们的`RNHighScore`模块。因此，我们需要将`RCTRootView`指向`index.bundle`资源的位置（通过`NSURL`），并将其与模块绑定。
 
-We will, for debugging purposes, log that the event handler was invoked. Then, we will create a string with the location of our React Native code that exists inside the `index.bundle`. Finally, we will create the main `RCTRootView`. Notice how we provide `RNHighScores` as the `moduleName` that we created [above](#the-react-native-component) when writing the code for our React Native component.
+为了便于调试，我们将在事件处理程序被调用时输出日志。然后创建一个 URL 字符串，指向`index.bundle`的位置。最后，我们将创建主`RCTRootView`。请注意我们需要把[上面](#the-react-native-component)创建的`moduleName`填进去，也就是`RNHighScores`。
 
 <block class="objc" />
 
@@ -621,7 +628,12 @@ Now we will actually modify the native Android application to integrate React Na
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class HelloWorld extends React.Component {
   render() {
@@ -635,16 +647,19 @@ class HelloWorld extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
+    margin: 10
+  }
 });
 
-AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
+AppRegistry.registerComponent(
+  'MyReactNativeApp',
+  () => HelloWorld
+);
 ```
 
 ##### 3. 配置权限以便开发中的红屏错误能正确显示

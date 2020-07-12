@@ -34,7 +34,7 @@ Add the PushNotificationIOS library to your Podfile: ./ios/Podfile
 
 在`AppDelegate.m`开头：
 
-```objective-c
+```objectivec
 #import <React/RCTPushNotificationManager.h>
 ```
 
