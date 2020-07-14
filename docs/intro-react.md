@@ -229,7 +229,7 @@ export default Cat;
 
 <block class="endBlock devNotes" />
 
-You can render this component multiple times and multiple places without repeating your code by using `<Cat>`:
+You can render this component multiple times and in multiple places without repeating your code by using `<Cat>`:
 
 ```SnackPlayer name=Multiple%20Components
 import React from 'react';
