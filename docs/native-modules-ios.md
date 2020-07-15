@@ -232,7 +232,7 @@ const updateEvents = async () => {
   } catch (e) {
     console.error(e);
   }
-}
+};
 
 updateEvents();
 ```

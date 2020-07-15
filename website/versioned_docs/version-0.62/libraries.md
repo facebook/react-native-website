@@ -71,7 +71,7 @@ Usually libraries built _specifically for other platforms_ will not work with Re
 
 ### Does it work for the platforms that my app supports?
 
-[React Native Directory](https://reactnative.directory/) allows you to filter by platform compatibility, such as iOS, Android, Web, and Windows. If the library you would like to use is not currently listed there, refer to the README for the library to learn more.
+[React Native Directory](https://reactnative.directory) allows you to filter by platform compatibility, such as iOS, Android, Web, and Windows. If the library you would like to use is not currently listed there, refer to the README for the library to learn more.
 
 ### Does it work with my app version of React Native?
 

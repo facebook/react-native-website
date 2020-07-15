@@ -109,9 +109,9 @@ export default App;
 
 If true, doesn't play Android system sound on press.
 
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
 ### `android_ripple` <div class="label android">Android</div>
 
@@ -125,73 +125,73 @@ Enables the Android ripple effect and configures its properties.
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| Type                     |
-| ------------------------ |
-| [React Node](react-node) |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [React Node](react-node) | No       |
 
 ### `delayLongPress`
 
 Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
-| Type   | Default |
-| ------ | ------- |
-| number | `370`   |
+| Type   | Required | Default |
+| ------ | -------- | ------- |
+| number | No       | 370     |
 
 ### `disabled`
 
 Whether the press behavior is disabled.
 
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
 ### `hitSlop`
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type                   |
-| ---------------------- |
-| [Rect](rect) or number |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ### `onLongPress`
 
 Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type                               |
-| ---------------------------------- |
-| function([PressEvent](pressevent)) |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPress`
 
 Called after `onPressOut`.
 
-| Type                               |
-| ---------------------------------- |
-| function([PressEvent](pressevent)) |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressIn`
 
 Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| Type                               |
-| ---------------------------------- |
-| function([PressEvent](pressevent)) |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| Type                               |
-| ---------------------------------- |
-| function([PressEvent](pressevent)) |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `pressRetentionOffset`
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type                   | Default                                        |
-| ---------------------- | ---------------------------------------------- |
-| [Rect](rect) or number | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
+| Type                   | Required | Default                                        |
+| ---------------------- | -------- | ---------------------------------------------- |
+| [Rect](rect) or number | No       | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
 
 ### `style`
 

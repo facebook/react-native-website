@@ -54,7 +54,7 @@ const WelcomeScreen = () =>
    \`\`\`
   `,
   forEveryone: `
-React Native lets you create truly native apps and doesn't compromise on your users' experience.
+React Native lets you create truly native apps and doesn't compromise your users' experiences.
 It provides a core set of platform agnostic native components like \`View\`, \`Text\`, and \`Image\`
 that map directly to the platform’s native UI building blocks.
   `,
