@@ -221,6 +221,8 @@ figcaption {
   border-radius: 0 2px 2px 0;
 }
 
+/* Label sharp end */
+
 .label:before {
   content: "";
   position: absolute;
@@ -230,6 +232,8 @@ figcaption {
   border-style: solid;
   border-width: 12px 12px 12px 0;
 }
+
+/* Label skeuomorphic hole */
 
 .label:after {
   content: "";
@@ -241,6 +245,21 @@ figcaption {
   border-radius: 2px;
   background: #fff;
 }
+
+/* Label withouth sharp end */
+
+.label.basic {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.label.basic:before,
+.label.basic:after {
+  display: none;
+}
+
+/* Label variants */
 
 .label.android {
   background: #a4c936;
@@ -256,12 +275,21 @@ figcaption {
   border-right-color: #222;
 }
 
+.label.required {
+  margin-left: 0;
+  margin-right: 16px;
+  color: #fa5035;
+  border-color: #fa5035;
+}
+
 .label.tv {
   background: #6170af;
 }
 .label.tv:before {
   border-right-color: #6170af;
 }
+
+/* Label inside other tags */
 
 h2 .label {
   top: -6px;
@@ -306,7 +334,14 @@ td .label.required {
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
+  float: initial;
   top: -1px;
+}
+
+.onPageNav .label.required {
+  margin-left: 0;
+  margin-right: 6px;
+  border-width: 3px;
 }
 
 /* Custom */

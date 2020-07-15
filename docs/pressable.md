@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
+Pressable is a Core Component wrapper that can detect various stages of press interactions on any of it's defined children.
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -21,11 +21,11 @@ On an element wrapped by `Pressable`:
 After pressing [`onPressIn`](#onpressin), one of two things will happen:
 
 1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
-2. If the person had left their finger longer than 370 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
+2. If the person leaves their finger longer than 370 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
 
 <img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
 
-Fingers are not the most precise instruments, and it is common for users to accidentally activate the wrong element or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the wrapped element. Presses can start anywhere within a `HitRect`.
+Fingers are not the most precise instruments, and it is common for users to accidentally activate the wrong element or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
 
 `PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
 
