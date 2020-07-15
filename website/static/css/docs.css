@@ -403,3 +403,25 @@ td .label.required {
   line-height: 10px;
   font-weight: 600;
 }
+
+/* Two columns */
+.two-columns {
+  display: grid;
+  gap: 0 2%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+}
+
+.two-columns pre code {
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 1023px) {
+  .two-columns {
+    gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "." ".";
+  }
+}
