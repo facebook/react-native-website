@@ -10,7 +10,7 @@ original_id: integration-with-existing-apps
 
 具体的步骤根据你所开发的目标平台不同而不同。
 
-> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`react-native init NewProject`创建一个最新版本的纯 RN 项目，去参考其 Podfile 或是 gradle 等的配置，以它们为准。
+> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`npx react-native init NewProject`创建一个最新版本的纯 RN 项目，去参考其 Podfile 或是 gradle 等的配置，以它们为准。
 
 <div class="toggler">
   <ul role="tablist" id="toggle-language">
