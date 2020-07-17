@@ -8,11 +8,11 @@ authorTwitter: Eli_White
 category: announcements
 ---
 
-Our team at Facebook has principles that guide how we prioritize our work on React Native. These principles specifically represent our team and not necessarily every stakeholder in the React Native community. We are sharing these principles to be more transparent about what drives us, how we make decisions, and how we focus our efforts.
+The React Native team at Facebook is guided by principles that help determine how we prioritize our work on React Native. These principles represent our team specifically and do not necessarily represent every stakeholder in the React Native community. We are sharing these principles here to be more transparent about what drives us, how we make decisions, and how we focus our efforts.
 
 ## **Native Experience**
 
-Our top priority for React Native is to **match people’s expectations on each platform**. This is why React Native renders to platform primitives. We value native look-and-feel over cross-platform consistency.
+Our top priority for React Native is to **match the expectations people have for each platform**. This is why React Native renders to platform primitives. We value native look-and-feel over cross-platform consistency.
 
 For example, the TextInput in React Native renders to a UITextField on iOS. This ensures that integration with password managers and keyboard controls work out of the box. By using platform primitives, React Native apps are also able to stay up-to-date with design and behavior changes from new releases of Android and iOS.
 
@@ -20,7 +20,7 @@ In order to match the look-and-feel of native apps, we must also match their per
 
 ## Massive Scale
 
-Hundreds of screens in the Facebook app are implemented with React Native. The Facebook app is used by billions of people on a huge range of devices. **This is why** **we invest our efforts into the most challenging problems at scale.**
+Hundreds of screens in the Facebook app are implemented with React Native. The Facebook app is used by billions of people on a huge range of devices. **This is why** **we invest in the most challenging problems at scale.**
 
 Deploying React Native in our apps lets us identify problems that we wouldn’t see at a smaller scale. For example, Facebook focuses on improving performance across a broad spectrum of devices from the newest iPhone to many older generations of Android devices. This focus informs our architecture projects such as Hermes, Fabric, and TurboModules.
 
@@ -30,7 +30,7 @@ A focus on massive scale means there are many things our team isn’t currently 
 
 ## Developer Velocity
 
-Great user experiences are born out of iteration. **It shouldn’t take more than a few seconds from editing code to seeing the result** in a running app. React Native's architecture enables it to provide near-instant feedback during development.
+Great user experiences are created iteratively. **It should only take a few seconds to seeing the result of code changes** in a running app. React Native's architecture enables it to provide near-instant feedback during development.
 
 We often hear from teams that adopting React Native significantly improved their development velocity. These teams find that the instant feedback during development makes it much easier to try different ideas and add extra polish when they don’t have to interrupt their coding session for every little change. When we make changes to React Native, we make sure to preserve this quality of the developer experience.
 
@@ -38,7 +38,7 @@ Instant feedback is not the only way that React Native improves developer veloci
 
 ## Every Platform
 
-When we introduced React Native to the world in 2014, we presented a slide with our motto. The slide read, “Learn once, write anywhere” — and we mean _anywhere_. **Developers should be able to reach as many people as possible without being limited by device model or operating system.**
+When we introduced React Native in 2014, we presented it with our motto “Learn once, write anywhere” — and we mean _anywhere_. **Developers should be able to reach as many people as possible without being limited by device model or operating system.**
 
 React Native targets very different platforms including mobile, desktop, web, TV, VR, game consoles, and more. We want to enable rich experiences on each platform instead of requiring developers to build for the lowest common denominator. To accomplish this, we focus on supporting the unique features of each platform. This ranges from varying input mechanisms (e.g. touch, pen, mouse) to fundamentally different consumption experiences like 3D environments in VR.
 
