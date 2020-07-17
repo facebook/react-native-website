@@ -11,7 +11,7 @@ It is possible to have multiple `StatusBar` components mounted at the same time.
 
 ```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios
 import React, { useState } from 'react';
-import { Button, Platform, StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Button, Platform, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 const STYLES = ['default', 'dark-content', 'light-content'];
 const TRANSITIONS = ['fade', 'slide', 'none'];
@@ -42,7 +42,7 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar
         animated={true}
         backgroundColor="#61dafb"
@@ -76,7 +76,7 @@ const App = () => {
             onPress={changeStatusBarTransition} />
         ) : null}
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -84,9 +84,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#ECF0F1',
-    padding: 8,
-    paddingTop: StatusBar.currentHeight + 8
+    backgroundColor: '#ECF0F1'
   },
   buttonsContainer: {
     padding: 10
