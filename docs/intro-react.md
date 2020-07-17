@@ -119,6 +119,8 @@ class Cat extends Component {
 }
 ```
 
+> React components must have one root JSX element or it will return an error. You can satisfy this rule by creating a root JSX element or by using Fragments, you can read more about this further in this document or in the [React Fragments documentation](https://reactjs.org/docs/fragments.html).
+
 And as with function components, you can export your class component:
 
 ```jsx
