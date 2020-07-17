@@ -9,7 +9,7 @@ This is a controlled component that requires an `onValueChange` callback that up
 
 ## Example
 
-```SnackPlayer name=Switch
+```SnackPlayer name=Switch&supportedPlatforms=android,ios
 import React, { useState } from "react";
 import { View, Switch, StyleSheet } from "react-native";
 
