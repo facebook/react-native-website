@@ -8,7 +8,7 @@ authorTwitter: Eli_White
 category: announcements
 ---
 
-Our team at Facebook has principles that guide how we prioritize our work on React Native. These principles specifically represent our team and not necessarily every stakeholder in the React Native community. We are sharing these principles to be more transparent with what drives us, how we make decisions, and how we focus our efforts.
+Our team at Facebook has principles that guide how we prioritize our work on React Native. These principles specifically represent our team and not necessarily every stakeholder in the React Native community. We are sharing these principles to be more transparent about what drives us, how we make decisions, and how we focus our efforts.
 
 ## **Native Experience**
 
