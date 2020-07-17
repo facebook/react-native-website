@@ -176,6 +176,9 @@ figcaption {
 }
 
 /* Right side navigation */
+.onPageNav {
+  overflow: visible;
+}
 
 .onPageNav a,
 .onPageNav a:hover {
@@ -314,7 +317,7 @@ td .label:before {
 }
 
 td .label:after {
-  top: 7.5px;
+  top: 7px;
 }
 
 td .label.required {
@@ -330,12 +333,12 @@ td .label.required {
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  margin-left: 4px;
+  margin-left: 2px;
+  margin-right: -12px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
   float: initial;
-  top: -1px;
 }
 
 .onPageNav .label.required {
