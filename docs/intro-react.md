@@ -118,6 +118,7 @@ class Cat extends Component {
   }
 }
 ```
+Note: React components can only return one root JSX element.
 
 And as with function components, you can export your class component:
 
@@ -179,6 +180,25 @@ export default Cat;
 You can think of curly braces as creating a portal into JS functionality in your JSX!
 
 > Because JSX is included in the React library, it won’t work if you don’t have `import React from 'react'` at the top of your file!
+
+Since React Components can only return one root JSX element, you can use the React Fragment using the syntax `<React.Fragment></React.Fragment>` or it's shorthand `<></>` as the root element to satisfy this rule without creating a new element.
+
+<block class="functional syntax with fragment" />
+
+```SnackPlayer name=Your%20Hungry%20Cat
+import React from 'react';
+import { Text } from 'react-native';
+
+const HungryCat = () => {
+  return (<React.Fragment>
+      <Text>Hello, I am your cat!</Text>
+      <Text>Meow! Give me food!</Text>
+    </React.Fragment>
+  );
+}
+
+export default HungryCat;
+```
 
 ## Custom Components
 
