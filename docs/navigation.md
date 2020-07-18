@@ -42,6 +42,11 @@ Next, install the required peer dependencies. You need to run different commands
   pod install
   cd ..
   ```
+  
+  Link the `react-native-gesture-handler` library to the native application:
+  ```sh
+  react-native link react-native-gesture-handler
+  ```
 
 > Note: You might get warnings related to peer dependencies after installation. They are usually caused by incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
 
@@ -50,6 +55,7 @@ To finalize installation of `react-native-gesture-handler`, add the following at
 ```js
 import 'react-native-gesture-handler';
 ```
+
 
 Now, you need to wrap the whole app in `NavigationContainer`. Usually you'd do this in your entry file, such as `index.js` or `App.js`:
 
