@@ -56,7 +56,6 @@ To finalize installation of `react-native-gesture-handler`, add the following at
 import 'react-native-gesture-handler';
 ```
 
-
 Now, you need to wrap the whole app in `NavigationContainer`. Usually you'd do this in your entry file, such as `index.js` or `App.js`:
 
 ```jsx
