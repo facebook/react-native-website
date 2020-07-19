@@ -163,7 +163,7 @@ If you have already installed Node on your system, make sure it is Node 8.3 or n
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```sh
-brew cask install adoptopenjdk/openjdk/adoptopenjdk14
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 ```
 
 If you have already installed JDK on your system, make sure it is JDK 8 or newer.
@@ -176,26 +176,26 @@ Follow the [installation instructions for your Linux distribution](https://nodej
 
 <block class='native windows android' />
 
-<h3>Node, Python, JDK</h3>
+<h3>Node, Python2, JDK</h3>
 
-We recommend installing Node and Python via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
+We recommend installing Node and Python2 via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
 
-React Native also requires a recent version of the [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk/14/), as well as Python. Both can be installed using Chocolatey.
+React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk8/), as well as Python2. Both can be installed using Chocolatey.
+
+> Some build tools have compability with some Python3 versions.
 
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs.install python openjdk 
+choco install -y nodejs.install python2 openjdk8 
 ```
 
 If you have already installed Node on your system, make sure it is Node 8.3 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
-### Important:
 
-If you're using the latest version of JDK, you'll need to change the Gradle version of your project so it can recognize the JDK.
-You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and change the `distributionUrl` value to upgrade the Gradle version. You can check out [here the lastest releases of Gradle](https://gradle.org/releases/).
+> If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the lastest releases of Gradle](https://gradle.org/releases/).
 
 
 
@@ -245,7 +245,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <h4>1. Install Android Studio</h4>
 
-[Download and install Android Studio](https://developer.android.com/studio/index.html). Through the Android Studio Installation Wizard, make sure to check these itens to be installed:
+[Download and install Android Studio](https://developer.android.com/studio/index.html). While on Android Studio intallation wizard, make sure the boxes next to all of the following items are checked:
 
 <block class="native mac windows android" />
 
