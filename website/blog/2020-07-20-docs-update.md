@@ -7,7 +7,7 @@ authorImageURL: https://avatars0.githubusercontent.com/u/236306?s=460&v=4
 authorTwitter: rachelnabors
 ---
 
-Last year we conducted user interviews and sent out [a survey](https://www.surveymonkey.co.uk/r/DDZWQDJ) to learn more about how and when people use these React Native docs. With the data and guidance gleaned from 24 interviews and over 3000 survey responses, we've been able to work to improve React Native's documentation, and we're excited to share that progress today:
+Last year we conducted user interviews and sent out [a survey](https://www.surveymonkey.co.uk/r/DDZWQDJ) to learn more about how and when people use the React Native docs. With the data and guidance gleaned from 24 interviews and over 3000 survey responses, we've been able to work to improve React Native's documentation, and we're excited to share that progress today:
 
 - **[New Getting Started guides](https://fb.workplace.com/groups/529650227572836/permalink/656344974903360/)** We launched new Getting Started with React Native docs to [explain what Native Components](https://reactnative.dev/docs/intro-react-native-components) are to people with no mobile development background. We also included a [refresher/introduction to React](https://reactnative.dev/docs/intro-react) to help folks getting started with React for the first time!
 - **[New Testing guide](https://reactnative.dev/docs/testing-overview)** We worked with Vojtech Novak to create a new illustrated testing guide that introduces app developers to different kinds of testing strategies and how they work in a React Native workflow.
