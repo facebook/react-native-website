@@ -62,6 +62,7 @@ The [Android Keystore](https://developer.android.com/training/articles/keystore)
 In order to use iOS Keychain services or Android Secure Shared Preferences, you can either write a bridge yourself or use a library which wraps them for you and provides a unified API at your own risk. Some libraries to consider:
 
 - [react-native-keychain](https://github.com/oblador/react-native-keychain)
+- [expo-secure-store](https://docs.expo.io/versions/latest/sdk/securestore/)
 - [react-native-sensitive-info](https://github.com/mCodex/react-native-sensitive-info) - secure for iOS, but uses Android Shared Preferences for Android (which is not secure by default). There is however a [fork](https://github.com/mCodex/react-native-sensitive-info/tree/keystore)) that uses Android Keystore
 - [redux-persist-sensitive-storage](https://github.com/CodingZeal/redux-persist-sensitive-storage) - wraps react-native-sensitive-info
 
