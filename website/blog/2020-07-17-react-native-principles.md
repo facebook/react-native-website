@@ -50,4 +50,4 @@ We don’t believe in deploying the exact same user interface on every platform,
 
 In our experience, the unidirectional data flow popularized by React makes applications easier to understand. We prefer to express a screen as a composition of declarative components rather than imperatively managed views. React’s success on the web and the direction of the new native Android and iOS frameworks show that the industry has also embraced declarative UI.
 
-React popularized declarative user interfaces with innovations like Hooks, Suspense, and Concurrent Mode. However, there remain many unsolved problems that React is unique positioned to solve. React Native will continue to build on top of the innovations of React and remain at the forefront of the declarative user interface movement.
+React popularized declarative user interfaces. However, there remain many unsolved problems that React is unique positioned to solve. React Native will continue to build on top of the innovations of React and remain at the forefront of the declarative user interface movement.
