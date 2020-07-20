@@ -22,7 +22,9 @@ Thank you so much to everyone who participated in the interviews, the survey, an
 
 ## What’s next?
 
-The global COVID-19 pandemic has impacted many community members’ jobs. We are responding with additional content including:
+The global COVID-19 pandemic has impacted many community members’ jobs.
+
+We are responding with additional content including:
 
 - New and improved Native Modules guides
 - Introductory content for people coming in to React Native for the first time
