@@ -610,61 +610,9 @@ The highlight color of the text.
 
 ### `style`
 
-| Type  | Required |
-| ----- | -------- |
-| style | No       |
-
-- [View Style Props...](view-style-props.md#style)
-
-- **`textShadowOffset`**: object: {width: number,height: number}
-
-- **`color`**: [color](colors.md)
-
-- **`fontSize`**: number
-
-- **`fontStyle`**: enum('normal', 'italic')
-
-- **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
-
-  Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
-
-- **`lineHeight`**: number
-
-- **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
-
-  Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
-
-- **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
-
-- **`textShadowColor`**: [color](colors.md)
-
-- **`fontFamily`**: string
-
-- **`textShadowRadius`**: number
-
-- **`includeFontPadding`**: bool (_Android_)
-
-  Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`. Default is true.
-
-* **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
-
-* **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
-
-* **`letterSpacing`**: number
-
-  Increase or decrease the spacing between characters. The default is 0, for no extra letter spacing.
-
-  iOS: The additional space will be rendered after each glyph.
-
-  Android: Only supported since Android 5.0 - older versions will ignore this attribute. Please note that additional space will be added _around_ the glyphs (half on each side), which differs from the iOS rendering. It is possible to emulate the iOS rendering by using layout attributes, e.g. negative margins, as appropriate for your situation.
-
-* **`textDecorationColor`**: [color](colors.md) (_iOS_)
-
-* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
-
-* **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize')
-
-* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
+| Type                                                                             | Required |
+| -------------------------------------------------------------------------------- | -------- |
+| [Text Style Props](text-style-props.md), [View Style Props](view-style-props.md) | No       |
 
 ---
 
