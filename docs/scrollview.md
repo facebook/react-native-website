@@ -336,9 +336,9 @@ Caveat 1: Reordering elements in the scrollview with this enabled will probably 
 
 Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
 
-| Type                                                                     | Required | Platform |
-| ------------------------------------------------------------------------ | -------- | -------- |
-| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No       | iOS      |
+| Type                                                                     | Required |
+| ------------------------------------------------------------------------ | -------- |
+| object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No       |
 
 ---
 
