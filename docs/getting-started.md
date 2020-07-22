@@ -182,8 +182,6 @@ We recommend installing Node and Python2 via [Chocolatey](https://chocolatey.org
 
 React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk8/), as well as Python2. Both can be installed using Chocolatey.
 
-> Some build tools have compability with some Python3 versions.
-
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
