@@ -38,7 +38,7 @@
       }
     }
 
-    window.ExpoSnack && window.ExpoSnack.initialize();
+    window.ExpoSnack?.initialize();
 
     var snackPlayerList = document.querySelectorAll('.snack-player');
 
