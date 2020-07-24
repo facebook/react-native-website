@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-Pressable is a Core Component wrapper that can detect various stages of press interactions on any of it's defined children.
+Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
 
 ```jsx
 <Pressable onPress={onPressFunction}>
