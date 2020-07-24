@@ -25,7 +25,7 @@ original_id: improvingux
 
 ## 放大可触控区域
 
-在手机上精准的点击一个按钮是很困难的一件事。 确保所有交互式元素大于等于 44x44。 常见的撑大尺寸的做法有：使用 `padding`, `minWidth` 和 `minHeight` 样式。 或者， 可以使用 [`hitSlop` 属性](touchablewithoutfeedback.md#hitslop) 无需影响布局来增加可交互区域。 这是一个演示： <video src="/react-native/img/hitslop.mp4" muted autoplay loop width="320" height="120"></video>
+在手机上精准的点击一个按钮是很困难的一件事。 确保所有交互式元素大于等于 44x44。 常见的撑大尺寸的做法有：使用 `padding`, `minWidth` 和 `minHeight` 样式。或者， 可以使用 [`hitSlop` 属性](touchablewithoutfeedback.md#hitslop) 无需影响布局来增加可交互区域。 这是一个演示： <video src="/react-native/img/hitslop.mp4" muted autoplay loop width="320" height="120"></video>
 
 [Try it on your phone](https://snack.expo.io/rJPwCt4HZ)
 

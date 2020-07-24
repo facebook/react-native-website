@@ -545,7 +545,7 @@ static start([callback]: ?(result?: {finished: boolean}) => void)
 
 Animations are started by calling start() on your animation. start() takes a completion callback that will be called when the animation is done or when the animation is done because stop() was called on it before it could finish.
 
-**Parameters:**
+**参数：**
 
 | Name     | Type                            | Required | Description                                                                                                                                                     |
 | -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -567,7 +567,7 @@ Animated.timing({}).start(({ finished }) => {
 static stop()
 ```
 
-Stops any running animation.
+停止所有正在运行的动画。
 
 ---
 
@@ -577,7 +577,7 @@ Stops any running animation.
 static reset()
 ```
 
-Stops any running animation and resets the value to its original.
+停止所有正在运行的动画并将其值重置为初始值。
 
 ## 属性
 

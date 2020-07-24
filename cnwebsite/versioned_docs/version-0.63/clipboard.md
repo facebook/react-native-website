@@ -88,7 +88,7 @@ _setContent() {
 }
 ```
 
-**Parameters:**
+**参数：**
 
 | Name    | Type   | Required | Description                               |
 | ------- | ------ | -------- | ----------------------------------------- |

@@ -226,7 +226,7 @@ The `vibrate()` method can take a `pattern` argument with an array of numbers th
 
 **On Android,** the odd indices of the `pattern` array represent the vibration duration, while the even ones represent the separation time. **On iOS,** the numbers in the `pattern` array represent the separation time, as the vibration duration is fixed.
 
-**Parameters:**
+**参数：**
 
 | Name    | Type             | Required | Description                                                | Platform     |
 | ------- | ---------------- | -------- | ---------------------------------------------------------- | ------------ |

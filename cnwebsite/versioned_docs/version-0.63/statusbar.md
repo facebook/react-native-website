@@ -171,7 +171,7 @@ static popStackEntry(entry: any)
 
 Get and remove the last StatusBar entry from the stack.
 
-**Parameters:**
+**参数：**
 
 | Name  | Type | Required | Description                           |
 | ----- | ---- | -------- | ------------------------------------- |
@@ -187,7 +187,7 @@ static pushStackEntry(props: any)
 
 Push a StatusBar entry onto the stack. The return value should be passed to `popStackEntry` when complete.
 
-**Parameters:**
+**参数：**
 
 | Name  | Type | Required | Description                                                      |
 | ----- | ---- | -------- | ---------------------------------------------------------------- |
@@ -203,7 +203,7 @@ static replaceStackEntry(entry: any, props: any)
 
 Replace an existing StatusBar stack entry with new props.
 
-**Parameters:**
+**参数：**
 
 | Name  | Type | Required | Description                                                                  |
 | ----- | ---- | -------- | ---------------------------------------------------------------------------- |

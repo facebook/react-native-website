@@ -55,8 +55,11 @@ files.forEach(file => {
   const metaEndFlagString = '\n---\n';
   fs.writeFileSync(
     targetFile,
-    // prettier.format(mdData.replace(metaEndFlagString, metaEndFlagString + authorList), { parser: 'markdown' })
-    mdData.replace(metaEndFlagString, metaEndFlagString + authorList)
+    prettier.format(
+      mdData.replace(metaEndFlagString, metaEndFlagString + authorList),
+      {parser: 'markdown'}
+    )
+    // mdData.replace(metaEndFlagString, metaEndFlagString + authorList)
   );
 });
 

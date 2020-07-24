@@ -150,7 +150,7 @@ static get(dim)
 
 示例： `const {height, width} = Dimensions.get('window');`
 
-**Parameters:**
+**参数：**
 
 | Name | Type   | Required | Description                                                        |
 | ---- | ------ | -------- | ------------------------------------------------------------------ |
@@ -192,7 +192,7 @@ static set(dims)
 
 这个函数只应该被原生代码调用。 by sending the didUpdateDimensions event.
 
-**Parameters:**
+**参数：**
 
 | Name | Type   | Required | Description                              |
 | ---- | ------ | -------- | ---------------------------------------- |

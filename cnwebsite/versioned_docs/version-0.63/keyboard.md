@@ -134,7 +134,7 @@ static addListener(eventName, callback)
 
 此方法会返回监听函数的引用。
 
-**Parameters:**
+**参数：**
 
 | Name      | Type     | Required | Description                                            |
 | --------- | -------- | -------- | ------------------------------------------------------ |
@@ -164,7 +164,7 @@ static removeListener(eventName, callback)
 
 移除某个类型事件的监听函数。
 
-**Parameters:**
+**参数：**
 
 | Name      | Type     | Required | Description                      |
 | --------- | -------- | -------- | -------------------------------- |
