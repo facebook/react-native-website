@@ -8,25 +8,24 @@ React Native 是一个使用[React](https://zh-hans.reactjs.org/)和应用平台
 
 ## 视图（Views）与移动开发
 
-在 Android 和 iOS 开发中， 一个**视图** is the basic building block of UI: a small rectangular element on the screen which can be used to display text, images, or respond to user input. Even the smallest visual elements of an app, like a line of text or a button, are kinds of views. Some kinds of views can contain other views. It’s views all the way down!
-在 Android 和 iOS 开发中，一个**视图**是UI的基本组成部分：屏幕上的一个小矩形元素，可用于显示文本、图像或响应用户输入。甚至应用程序最小的视觉元素（例如一行文本或一个按钮）也都是各种视图。某些类型的视图可以包含其他视图。请接着往下看！
+在 Android 和 iOS 开发中，一个**视图**是UI的基本组成部分：屏幕上的一个小矩形元素、可用于显示文本、图像或响应用户输入。甚至应用程序最小的视觉元素（例如一行文本或一个按钮）也都是各种视图。某些类型的视图可以包含其他视图。全部都是视图。
 
 <figure>
   <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_ios-android-views.svg" width="1000" alt="Diagram of Android and iOS app showing them both built on top of atomic elements called views.">
-  <figcaption>这只是Android和iOS应用中使用的多种视图的示例。</figcaption>
+  <figcaption>Android和iOS应用中多种视图的一些示例。</figcaption>
 </figure>
 
 ## 原生组件
 
-在Android开发中，您可以使用Kotlin或Java编写视图；在iOS开发中，您使用Swift或Objective-C。而在React Native中，您可以使用React组件通过JavaScript调用这些视图。在运行时，React Native为这些组件创建相应的Android和iOS视图。由于React Native组件具有与Android和iOS几近无区别于原生的视图支持，因此使用React Native编写的应用外观、感觉和性能与其他任何原生应用一样。我们将这些平台支持的组件称为**原生组件**。
+在Android开发中是使用Kotlin或Java来编写视图；在iOS开发中是使用Swift或Objective-C来编写视图。在React Native中，则使用React组件通过JavaScript来调用这些视图。在运行时，React Native为这些组件创建相应的Android和iOS视图。由于React Native组件就是对原生视图的封装，因此使用React Native编写的应用外观、感觉和性能与其他任何原生应用一样。我们将这些平台支持的组件称为**原生组件**。
 
-React Native允许您为Android和iOS构建自己的Native Components（原生组件），以满足您应用程序的独特需求。我们还有一个由社区贡献的繁荣生态系统。检查本机目录以查找社区已创建的内容。
+React Native允许您为Android和iOS构建自己的Native Components（原生组件），以满足您开发应用程序的独特需求。我们还有一个由社区贡献的繁荣生态系统，您可以到[Native Directory](https://www.native.directory/)来查找社区已创建的内容。
 
-React Native还包括一组基本的，随时可用的原生组件，您可以使用它们立即开始构建您的应用程序。这些是React Native的**核心组件**。
+React Native还包括一组基本的，随时可用的原生组件，您可以使用它们来构建您的应用程序。这些是React Native的**核心组件**。
 
 ## 核心组件
 
-React Native具有许多核心组件，从表单控件到活动指示器，应有尽有。你可以在[API章节](components-and-apis)找到所有记录的文档。您将主要使用以下核心组件：
+React Native具有许多核心组件，从表单控件到活动指示器，应有尽有。你可以在[API章节](components-and-apis)找到它们。您将主要使用以下核心组件：
 
 | React Native UI Component | Android View   | iOS View         | Web Analog               | Description                                                                                           |
 | ------------------------- | -------------- | ---------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
