@@ -178,6 +178,7 @@ figcaption {
 /* Right side navigation */
 .onPageNav {
   overflow: visible;
+  overflow-y: auto;
 }
 
 .onPageNav a,
