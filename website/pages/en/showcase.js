@@ -139,7 +139,7 @@ class Showcase extends React.Component {
                 open source React Native apps
               </a>{' '}
               is also being kept by{' '}
-              <a href="https://infinite.red/react-native">Infinite Red</a>.
+              <a href="https://infinite.red/">Infinite Red</a>.
             </p>
           </div>
         </Container>
