@@ -82,7 +82,9 @@ For cases where using a component is not ideal, there is also an imperative API 
 
 ## Constants
 
-`currentHeight` (Android only) The height of the status bar.
+#### `currentHeight` (Android only) 
+
+The height of the status bar, which includes the notch height, if present.
 
 ## Props
 
