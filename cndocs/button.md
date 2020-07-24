@@ -115,23 +115,23 @@ export default App;
 
 ## Props
 
-### `onPress`
+### <div class="label required basic">Required</div>**`onPress`**
 
 用户点击此按钮时所调用的处理函数
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 是   |
+| 类型 |
+| ---- |
+| 函数 |
 
 ---
 
-### `title`
+### <div class="label required basic">Required</div>**`title`**
 
 按钮内显示的文本
 
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 是   |
+| 类型   |
+| ------ |
+| string |
 
 ---
 
@@ -139,9 +139,9 @@ export default App;
 
 用于给残障人士显示的文本（比如读屏应用可能会读取这一内容）
 
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 否   |
+| 类型   |
+| ------ |
+| string |
 
 ---
 
@@ -149,9 +149,9 @@ export default App;
 
 文本的颜色(iOS)，或是按钮的背景色(Android)
 
-| 类型               | 必填 |
-| ------------------ | ---- |
-| [color](colors) | 否   |
+| 类型            |
+| --------------- |
+| [color](colors) |
 
 ---
 
