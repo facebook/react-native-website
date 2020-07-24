@@ -231,7 +231,7 @@ For more information, please visit [CocoaPods Getting Started guide](https://gui
 
 <h3>Java Development Kit</h3>
 
-React Native requires at least the version 8 of the Java SE Development Kit (JDK). You may download and install [OpenJDK](http://openjdk.java.net) from [AdoptOpenJDK](https://adoptopenjdk.net/) or your system packager. You may also [Download and install Oracle JDK 14](https://openjdk.java.net/projects/jdk/14/) if desired.
+React Native requires at least the version 8 of the Java SE Development Kit (JDK). You may download and install [OpenJDK](http://openjdk.java.net) from [AdoptOpenJDK](https://adoptopenjdk.net/) or your system packager. You may also [Download and install Oracle JDK 14](https://www.oracle.com/java/technologies/javase-jdk14-downloads.html) if desired.
 
 <block class="native mac linux windows android" />
 
