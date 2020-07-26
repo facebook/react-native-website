@@ -3,7 +3,9 @@ id: image-style-props
 title: Image Style Props
 ---
 
-### Examples
+## Examples
+
+### Image Resize Mode
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -18,7 +20,7 @@ title: Image Style Props
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Image%20Style%20Props%20Function%20Component%20Example
+```SnackPlayer name=Image%20Resize%20Modes%20Function%20Component%20Example
 import React from "react";
 import { View, Image, Text, StyleSheet } from "react-native";
 
@@ -100,7 +102,7 @@ export default DisplayAnImageWithStyle;
 
 <block class="classical syntax" />
 
-```SnackPlayer name=Image%20Style%20Props%20Class%20Component%20Example
+```SnackPlayer name=Image%20Resize%20Modes%20Class%20Component%20Example
 import React, { Component } from "react";
 import { View, Image, StyleSheet, Text } from "react-native";
 
@@ -183,6 +185,99 @@ export default DisplayAnImageWithStyle;
 ```
 
 <block class="endBlock syntax" />
+
+### Image Border
+
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      Function Component Example
+    </li>
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      Class Component Example
+    </li>
+  </ul>
+</div>
+
+<block class="functional syntax" />
+
+```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Function%20Component%20Example
+import React from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+const DisplayAnImageWithStyle = () => {
+  return (
+    <View style={styles.container}>
+      <Image
+        style={{
+          borderColor: "red",
+          borderWidth: 5,
+          height: 100,
+          width: 200
+        }}
+        source={require("@expo/snack-static/react-native-logo.png")}
+      />
+      <Text>borderColor & borderWidth</Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+
+export default DisplayAnImageWithStyle;
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Class%20Component%20Example
+import React, { Component } from "react";
+import { View, Image, StyleSheet, Text } from "react-native";
+
+class DisplayAnImageWithStyle extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Image
+          style={{
+            borderColor: "red",
+            borderWidth: 5,
+            height: 100,
+            width: 200
+          }}
+          source={require("@expo/snack-static/react-native-logo.png")}
+        />
+        <Text>borderColor & borderWidth</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "vertical",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%",
+    textAlign: "center"
+  }
+});
+
+export default DisplayAnImageWithStyle;
+```
+
+<block class="endBlock syntax" />
+
+### Image Border Radius
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -341,96 +436,7 @@ export default DisplayAnImageWithStyle;
 
 <block class="endBlock syntax" />
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
-
-```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Function%20Component%20Example
-import React from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
-
-const DisplayAnImageWithStyle = () => {
-  return (
-    <View style={styles.container}>
-      <Image
-        style={{
-          borderColor: "red",
-          borderWidth: 5,
-          height: 100,
-          width: 200
-        }}
-        source={require("@expo/snack-static/react-native-logo.png")}
-      />
-      <Text>
-        <Text>borderColor & borderWidth</Text>
-      </Text>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "vertical",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-    textAlign: "center"
-  }
-});
-
-export default DisplayAnImageWithStyle;
-```
-
-<block class="classical syntax" />
-
-```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Class%20Component%20Example
-import React, { Component } from "react";
-import { View, Image, StyleSheet, Text } from "react-native";
-
-class DisplayAnImageWithStyle extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Image
-          style={{
-            borderColor: "red",
-            borderWidth: 5,
-            height: 100,
-            width: 200
-          }}
-          source={require("@expo/snack-static/react-native-logo.png")}
-        />
-        <Text>borderColor & borderWidth</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    display: "flex",
-    flexDirection: "vertical",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100%",
-    textAlign: "center"
-  }
-});
-
-export default DisplayAnImageWithStyle;
-```
-
-<block class="endBlock syntax" />
+### Image Tint
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -470,7 +476,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "vertical",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "center",
     height: "100%",
     textAlign: "center"
@@ -509,7 +515,7 @@ const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "vertical",
-    justifyContent: "space-around",
+    justifyContent: "center",
     alignItems: "center",
     height: "100%",
     textAlign: "center"
@@ -525,99 +531,120 @@ export default DisplayAnImageWithStyle;
 
 ## Props
 
-### `borderTopRightRadius`
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
 ### `backfaceVisibility`
 
-| Type                      | Required |
-| ------------------------- | -------- |
-| enum('visible', 'hidden') | No       |
+The property defines whether or not the back face of a rotated image should be visible.
 
----
-
-### `borderBottomLeftRadius`
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
-### `borderBottomRightRadius`
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
-### `borderColor`
-
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
-
----
-
-### `borderRadius`
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
-### `borderTopLeftRadius`
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type                          | Default     |
+| ----------------------------- | ----------- |
+| enum(`'visible'`, `'hidden'`) | `'visible'` |
 
 ---
 
 ### `backgroundColor`
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderBottomLeftRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderBottomRightRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderColor`
+
+| Type               |
+| ------------------ |
+| [color](colors.md) |
+
+---
+
+### `borderRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderTopLeftRadius`
+
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `borderTopRightRadius`
+
+| Type   |
+| ------ |
+| number |
 
 ---
 
 ### `borderWidth`
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
 ### `opacity`
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+Set an opacity value for the image. The number should be in the range from `0.0` to `1.0`.
+
+| Type   | Default |
+| ------ | ------- |
+| number | `1.0`   |
 
 ---
 
 ### `overflow`
 
-| Type                      | Required |
-| ------------------------- | -------- |
-| enum('visible', 'hidden') | No       |
+| Type                          | Default     |
+| ----------------------------- | ----------- |
+| enum(`'visible'`, `'hidden'`) | `'visible'` |
+
+---
+
+### `overlayColor` <div class="label android">Android</div>
+
+When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
+
+- Certain resize modes, such as `'contain'`
+- Animated GIFs
+
+A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
+
+For details of how this works under the hood, see [Fresco documentation](https://frescolib.org/docs/rounded-corners-and-circles.html).
+
+| Type   |
+| ------ |
+| string |
 
 ---
 
 ### `resizeMode`
 
-| Type                                                    | Required |
-| ------------------------------------------------------- | -------- |
-| enum('cover', 'contain', 'stretch', 'repeat', 'center') | No       |
+| Type                                                              | Default   |
+| ----------------------------------------------------------------- | --------- |
+| enum(`'cover'`, `'contain'`, `'stretch'`, `'repeat'`, `'center'`) | `'cover'` |
 
 ---
 
@@ -625,23 +652,6 @@ export default DisplayAnImageWithStyle;
 
 Changes the color of all the non-transparent pixels to the tintColor.
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
-
----
-
-### `overlayColor`
-
-When the image has rounded corners, specifying an overlayColor will cause the remaining space in the corners to be filled with a solid color. This is useful in cases which are not supported by the Android implementation of rounded corners:
-
-- Certain resize modes, such as 'contain'
-- Animated GIFs
-
-A typical way to use this prop is with images displayed on a solid background and setting the `overlayColor` to the same color as the background.
-
-For details of how this works under the hood, see https://frescolib.org/docs/rounded-corners-and-circles.html
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | Android  |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
