@@ -4,7 +4,7 @@ title: Pressable
 original_id: pressable
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 Pressable is a Core Component wrapper that can detect various stages of press interactions on any of it's defined children.
 

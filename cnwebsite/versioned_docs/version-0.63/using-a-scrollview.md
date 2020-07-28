@@ -4,7 +4,7 @@ title: 使用滚动视图
 original_id: using-a-scrollview
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.36%), [wxf24132006](https://github.com/search?q=wxf24132006%40163.com+in%3Aemail&type=Users)(1.64%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.36%), [wxf24132006](https://github.com/search?q=wxf24132006%40163.com&type=Users)(1.64%)
 
 [`ScrollView`](scrollview.md)是一个通用的可滚动的容器，你可以在其中放入多个组件和视图，而且这些组件并不需要是同类型的。ScrollView 不仅可以垂直滚动，还能水平滚动（通过`horizontal`属性来设置）。
 

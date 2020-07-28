@@ -4,7 +4,7 @@ title: 在设备上运行
 original_id: running-on-device
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(88.29%), [3430453046](https://github.com/search?q=3430453046%40qq.com+in%3Aemail&type=Users)(11.71%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(88.29%), [3430453046](https://github.com/search?q=3430453046%40qq.com&type=Users)(11.71%)
 
 在真机上测试 app 后再将其发布给用户总是好的。本文档将指导你通过必须的步骤在设备上运行 React Native app，为生产做准备。
 

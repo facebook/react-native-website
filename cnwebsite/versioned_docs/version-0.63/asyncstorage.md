@@ -4,7 +4,7 @@ title: 🚧 AsyncStorage
 original_id: asyncstorage
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.72%), [95537559](https://github.com/search?q=95537559%40qq.com+in%3Aemail&type=Users)(0.28%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.72%), [95537559](https://github.com/search?q=95537559%40qq.com&type=Users)(0.28%)
 
 **已过时。** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
 

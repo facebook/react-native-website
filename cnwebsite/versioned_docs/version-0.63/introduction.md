@@ -5,7 +5,7 @@ description: This helpful guide lays out the prerequisites for learning React Na
 original_id: introduction
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 <div class="content-banner">
   <p>

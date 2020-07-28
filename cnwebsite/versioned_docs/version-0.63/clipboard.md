@@ -4,7 +4,7 @@ title: 🚧 Clipboard
 original_id: clipboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.96%), [774866545](https://github.com/search?q=774866545%40qq.com+in%3Aemail&type=Users)(1.04%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.96%), [774866545](https://github.com/search?q=774866545%40qq.com&type=Users)(1.04%)
 
 > **已过时。** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
 

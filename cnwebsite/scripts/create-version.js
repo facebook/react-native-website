@@ -43,8 +43,8 @@ files.forEach(file => {
       // TODO
       // TODO https://developer.github.com/v3/repos/commits/#get-a-single-commit
       link: `https://github.com/search?q=${encodeURIComponent(
-        mail
-      )}+in%3Aemail&type=Users`,
+        name
+      )}&type=Users`,
     });
     authors.totalLineCount += lineCount;
   }

@@ -4,7 +4,7 @@ title: 处理触摸事件
 original_id: handling-touches
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.43%), [xgqfrms](https://github.com/search?q=xgqfrms%40outlook.com+in%3Aemail&type=Users)(0.57%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.43%), [xgqfrms](https://github.com/search?q=xgqfrms%40outlook.com&type=Users)(0.57%)
 
 移动应用上的用户交互基本靠“摸”。当然，“摸”也是有各种姿势的：在一个按钮上点击，在一个列表上滑动，或是在一个地图上缩放。React Native 提供了可以处理常见触摸手势（例如点击或滑动）的组件， 以及可用于识别更复杂的手势的完整的[手势响应系统](gesture-responder-system.md)。
 

@@ -4,7 +4,7 @@ title: PixelRatio
 original_id: pixelratio
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `PixelRatio` 可以获取到设备的像素密度和字体缩放比。
 

@@ -4,7 +4,7 @@ title: Linking
 original_id: linking
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.51%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(0.49%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.51%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com&type=Users)(0.49%)
 
 <div class="banner-crna-ejected">
   <h3>仅适用于原生代码项目</h3>

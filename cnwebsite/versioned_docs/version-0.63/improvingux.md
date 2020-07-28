@@ -4,7 +4,7 @@ title: 改进用户体验
 original_id: improvingux
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(54.39%), [qingtian88](https://github.com/search?q=qingtian88%40live.com+in%3Aemail&type=Users)(45.61%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(54.39%), [qingtian88](https://github.com/search?q=qingtian88%40live.com&type=Users)(45.61%)
 
 ## 配置文本输入
 
