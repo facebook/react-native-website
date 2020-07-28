@@ -20,11 +20,11 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
 
 <block class="linux windows mac ios" />
 
-## Running your app on iOS devices
+<h2>Running your app on iOS devices</h2>
 
 <block class="linux windows mac android" />
 
-## Running your app on Android devices
+<h2>Running your app on Android devices</h2>
 
 <block class="linux windows mac ios android" />
 
@@ -157,7 +157,7 @@ $ npx react-native run-android
 
 <block class="mac ios" />
 
-## Connecting to the development server
+<h2>Connecting to the development server</h2>
 
 You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Developer menu](debugging.md#accessing-the-in-app-developer-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
 
@@ -204,7 +204,7 @@ To still use xip.io behind your router:
 
 <block class="mac windows linux android" />
 
-## Connecting to the development server
+<h2>Connecting to the development server</h2>
 
 You can also iterate quickly on a device by connecting to the development server running on your development machine. There are several ways of accomplishing this, depending on whether you have access to a USB cable or a Wi-Fi network.
 
@@ -262,7 +262,7 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 <block class="mac ios" />
 
-## Building your app for production
+<h2>Building your app for production</h2>
 
 You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account.
 
@@ -311,6 +311,6 @@ You can now build your app for release by tapping `⌘B` or selecting **Product*
 
 <block class="mac windows linux android" />
 
-## Building your app for production
+<h2>Building your app for production</h2>
 
 You have built a great app using React Native, and you are now itching to release it in the Play Store. The process is the same as any other native Android app, with some additional considerations to take into account. Follow the guide for [generating a signed APK](signed-apk-android.md) to learn more.

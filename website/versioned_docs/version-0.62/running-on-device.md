@@ -21,11 +21,11 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
 
 <block class="linux windows mac ios" />
 
-## Running your app on iOS devices
+<h2>Running your app on iOS devices</h2>
 
 <block class="linux windows mac android" />
 
-## Running your app on Android devices
+<h2>Running your app on Android devices</h2>
 
 <block class="linux windows mac ios android" />
 
@@ -74,7 +74,7 @@ If everything is set up correctly, your device will be listed as the build targe
 
 Most Android devices can only install and run apps downloaded from Google Play, by default. You will need to enable USB Debugging on your device in order to install your app during development.
 
-To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to **Settings** → **About phone** and then tapping the `Build number` row at the bottom seven times. You can then go back to **Settings** → **System** → **Developer options** to enable "USB debugging".
+To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to **Settings** → **About phone** → **Software information** and then tapping the `Build number` row at the bottom seven times. You can then go back to **Settings** → **Developer options** to enable "USB debugging".
 
 ### 2. Plug in your device via USB
 
@@ -158,7 +158,7 @@ $ npx react-native run-android
 
 <block class="mac ios" />
 
-## Connecting to the development server
+<h2>Connecting to the development server</h2>
 
 You can also iterate quickly on a device using the development server. You only have to be on the same Wi-Fi network as your computer. Shake your device to open the [Developer menu](debugging.md#accessing-the-in-app-developer-menu), then enable Live Reload. Your app will reload whenever your JavaScript code has changed.
 
@@ -205,7 +205,7 @@ To still use xip.io behind your router:
 
 <block class="mac windows linux android" />
 
-## Connecting to the development server
+<h2>Connecting to the development server</h2>
 
 You can also iterate quickly on a device by connecting to the development server running on your development machine. There are several ways of accomplishing this, depending on whether you have access to a USB cable or a Wi-Fi network.
 
@@ -263,7 +263,7 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 <block class="mac ios" />
 
-## Building your app for production
+<h2>Building your app for production</h2>
 
 You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account.
 
@@ -291,9 +291,9 @@ As your App Bundle grows in size, you may start to see a blank screen flash betw
 
 ```objectivec
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
-  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
-  launchScreenView.frame = self.window.bounds;
-  rootView.loadingView = launchScreenView;
+  UIStoryboard *sb = [UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil];
+  UIViewController *vc = [sb instantiateInitialViewController];
+  rootView.loadingView = vc.view;
 ```
 
 The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
@@ -312,6 +312,6 @@ You can now build your app for release by tapping `⌘B` or selecting **Product*
 
 <block class="mac windows linux android" />
 
-## Building your app for production
+<h2>Building your app for production</h2>
 
 You have built a great app using React Native, and you are now itching to release it in the Play Store. The process is the same as any other native Android app, with some additional considerations to take into account. Follow the guide for [generating a signed APK](signed-apk-android.md) to learn more.
