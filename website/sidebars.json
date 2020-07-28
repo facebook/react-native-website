@@ -40,7 +40,12 @@
       "ram-bundles-inline-requires",
       "profiling"
     ],
-    "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
+    "JavaScript Runtime": [
+      "javascript-environment",
+      "timers",
+      "hermes",
+      "symbolication"
+    ],
     "Connectivity": ["network", "security"],
     "Native Components and Modules": [
       "native-modules-setup",
