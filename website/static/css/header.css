@@ -211,6 +211,16 @@ input#search_input_react:focus {
   height: 60px;
 }
 
+.anchor {
+  top: -160px;
+}
+
+@media only screen and (min-width: 735px) {
+  .anchor {
+    top: -180px;
+  }
+}
+
 .announcement {
   color: #fff;
   font-weight: bold;
