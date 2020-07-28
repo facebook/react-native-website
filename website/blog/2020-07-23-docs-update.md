@@ -33,6 +33,6 @@ We are responding with additional content including:
 
 There are many ways you can help us write even better docs!
 
-1. If you see a typo, run into an issue with a guide, or something otherwise isn’t quiet right, click that “Edit” button and submit a PR.
+1. If you see a typo, run into an issue with a guide, or something otherwise isn’t quite right, click that “Edit” button and submit a PR.
 2. [Participate in our survey](https://www.surveymonkey.co.uk/r/DDZWQDJ)—this helps us understand how you use React Native and its documentation
 3. Write for us! We’re working on a tutorial section as well as guides for topics like offline apps, navigation, accessibility, debugging, animations, internationalization, and performance. If you or someone you admire or know is a perfect fit for any of these, please [reach out to me](https://twitter.com/rachelnabors)!
