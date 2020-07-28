@@ -4,7 +4,7 @@ title: 调试
 original_id: debugging
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.92%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com+in%3Aemail&type=Users)(1.08%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.92%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com&type=Users)(1.08%)
 
 ## 开启调试的快捷键
 
@@ -24,7 +24,7 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 > 某些情况下自动刷新并不能顺利实施。如果碰到任何界面刷新上的问题，请尝试手动完全刷新。具体的操作就是在开发菜单中点击"Reload"选项。也可以在 iOS 模拟器中按下**`Command`**`⌘` + **`R`** ，Android 模拟器上对应的则是按两下**`R`** 。
 
-但有些时候你必须要重新编译应用（run-ios或是run-android）才能使修改生效：
+但有些时候你必须要重新编译应用（run-ios 或是 run-android）才能使修改生效：
 
 - 增加了新的资源(比如给 iOS 的`Images.xcassets`或是 Andorid 的`res/drawable`文件夹添加了图片)
 - 更改了任何的原生代码（objective-c/swift/java）
@@ -49,7 +49,7 @@ console.warn('YellowBox is disabled.');
 你也可以通过代码屏蔽指定的警告，像下面这样调用 ignoreWarnings 方法，参数为一个数组：
 
 ```jsx
-import {YellowBox} from 'react-native';
+import { YellowBox } from 'react-native';
 YellowBox.ignoreWarnings(['Warning: ...']);
 ```
 

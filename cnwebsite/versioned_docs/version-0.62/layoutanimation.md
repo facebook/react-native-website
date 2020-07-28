@@ -4,7 +4,7 @@ title: LayoutAnimation
 original_id: layoutanimation
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 当布局变化时，自动将视图运动到它们新的位置上。
 
@@ -93,10 +93,10 @@ static configureNext(config, onAnimationDidEnd?)
 
 #### 参数：
 
-| 名称 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| config | object | 是 | 看下面的说明。 |
-| onAnimationDidEnd | function | 否 | 动画结束后的回调。目前仅 iOS 可用。 |
+| 名称              | 类型     | 必填 | 说明                                |
+| ----------------- | -------- | ---- | ----------------------------------- |
+| config            | object   | 是   | 看下面的说明。                      |
+| onAnimationDidEnd | function | 否   | 动画结束后的回调。目前仅 iOS 可用。 |
 
 ##### config
 
@@ -316,11 +316,11 @@ An enumeration of layout properties to be animated to be used in the [`create`](
 
 A set of predefined animation config.
 
-| Presets | Value |
-| --- | --- |
-| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')` |
-| linear | `create(500, 'linear', 'opacity')` |
-| spring | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
+| Presets       | Value                                                                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
+| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
+| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
 
 ---
 

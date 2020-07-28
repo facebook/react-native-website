@@ -4,7 +4,7 @@ title: 多平台支持
 original_id: out-of-tree-platforms
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 React Native is not just for Android and iOS - there are community-supported projects that bring it to other platforms, such as:
 

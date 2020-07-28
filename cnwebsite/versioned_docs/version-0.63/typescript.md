@@ -4,7 +4,7 @@ title: 使用TypeScript
 original_id: typescript
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 

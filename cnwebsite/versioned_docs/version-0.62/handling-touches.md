@@ -4,10 +4,9 @@ title: 处理触摸事件
 original_id: handling-touches
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.43%), [xgqfrms](https://github.com/search?q=xgqfrms%40outlook.com+in%3Aemail&type=Users)(0.57%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.43%), [xgqfrms](https://github.com/search?q=xgqfrms%40outlook.com&type=Users)(0.57%)
 
 移动应用上的用户交互基本靠“摸”。当然，“摸”也是有各种姿势的：在一个按钮上点击，在一个列表上滑动，或是在一个地图上缩放。React Native 提供了可以处理常见触摸手势（例如点击或滑动）的组件， 以及可用于识别更复杂的手势的完整的[手势响应系统](gesture-responder-system.md)。
-
 
 ## 显示一个简单的按钮
 
@@ -16,7 +15,7 @@ original_id: handling-touches
 ```jsx
 <Button
   onPress={() => {
-    Alert.alert("你点击了按钮！");
+    Alert.alert('你点击了按钮！');
   }}
   title="点我！"
 />
@@ -92,13 +91,13 @@ const styles = StyleSheet.create({
 
 具体使用哪种组件，取决于你希望给用户什么样的视觉反馈：
 
-* 一般来说，你可以使用[**TouchableHighlight**](touchablehighlight.md)来制作按钮或者链接。注意此组件的背景会在用户手指按下时变暗。
+- 一般来说，你可以使用[**TouchableHighlight**](touchablehighlight.md)来制作按钮或者链接。注意此组件的背景会在用户手指按下时变暗。
 
-* 在 Android 上还可以使用[**TouchableNativeFeedback**](touchablenativefeedback.md)，它会在用户手指按下时形成类似墨水涟漪的视觉效果。
+- 在 Android 上还可以使用[**TouchableNativeFeedback**](touchablenativefeedback.md)，它会在用户手指按下时形成类似墨水涟漪的视觉效果。
 
-* [**TouchableOpacity**](touchableopacity.md)会在用户手指按下时降低按钮的透明度，而不会改变背景的颜色。
+- [**TouchableOpacity**](touchableopacity.md)会在用户手指按下时降低按钮的透明度，而不会改变背景的颜色。
 
-* 如果你想在处理点击事件的同时不显示任何视觉反馈，则需要使用[**TouchableWithoutFeedback**](touchablewithoutfeedback.md)。
+- 如果你想在处理点击事件的同时不显示任何视觉反馈，则需要使用[**TouchableWithoutFeedback**](touchablewithoutfeedback.md)。
 
 某些场景中你可能需要检测用户是否进行了长按操作。可以在上面列出的任意组件中使用`onLongPress`属性来实现。
 

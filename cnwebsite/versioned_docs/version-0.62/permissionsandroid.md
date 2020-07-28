@@ -4,7 +4,7 @@ title: PermissionsAndroid
 original_id: permissionsandroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 <div class="banner-crna-ejected">
   <h3>Project with Native Code Required</h3>

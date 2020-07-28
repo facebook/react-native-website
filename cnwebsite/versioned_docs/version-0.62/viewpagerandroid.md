@@ -4,7 +4,7 @@ title: 🚧 ViewPagerAndroid
 original_id: viewpagerandroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(90.61%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(9.39%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.61%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(9.39%)
 
 > **Deprecated.** Use [@react-native-community/viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
 
@@ -64,8 +64,8 @@ const styles = {
 
 决定在滑动的时候是否要让软键盘消失。
 
-* none （默认值），拖拽不会让键盘消失。
-* on-drag， 当拖拽开始的时候会让键盘消失。
+- none （默认值），拖拽不会让键盘消失。
+- on-drag， 当拖拽开始的时候会让键盘消失。
 
 | 类型                    | 必填 |
 | ----------------------- | ---- |
@@ -79,8 +79,8 @@ const styles = {
 
 回调参数中的 event.nativeEvent 对象会包含如下数据：
 
-* position 从左数起第一个当前可见的页面的下标。
-* offset 一个在[0,1]之内的范围(可以等于0或1)，代表当前页面切换的状态。值 x 表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有 x 的部分可见。
+- position 从左数起第一个当前可见的页面的下标。
+- offset 一个在[0,1]之内的范围(可以等于 0 或 1)，代表当前页面切换的状态。值 x 表示现在"position"所表示的页有(1 - x)的部分可见，而下一页有 x 的部分可见。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -92,9 +92,9 @@ const styles = {
 
 页面滑动状态变化时调用此回调函数。页面滑动状态可能为以下三种之一：
 
-* idle 空闲，意味着当前没有交互。
-* dragging 拖动中，意味着当前页面正在被拖动。
-* settling 处理中，意味着当前页面发生过交互，且正在结束开头或收尾的动画。
+- idle 空闲，意味着当前没有交互。
+- dragging 拖动中，意味着当前页面正在被拖动。
+- settling 处理中，意味着当前页面发生过交互，且正在结束开头或收尾的动画。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -108,7 +108,7 @@ const styles = {
 
 回调参数中的 event.nativeEvent 对象会包含如下的字段：
 
-* position 当前被选中的页面下标
+- position 当前被选中的页面下标
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -144,12 +144,11 @@ const styles = {
 | ---- | ---- |
 | bool | 否   |
 
-
 ### `setPage`
 
 A helper function to scroll to a specific page in the ViewPager. The transition between pages will be animated.
 
-* position - index of page that will be selected
+- position - index of page that will be selected
 
 | Type   | Required |
 | ------ | -------- |
@@ -161,7 +160,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 A helper function to scroll to a specific page in the ViewPager. The transition between pages will _not_ be animated.
 
-* position - index of page that will be selected
+- position - index of page that will be selected
 
 | Type   | Required |
 | ------ | -------- |
@@ -171,9 +170,9 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 ### ViewPagerScrollState
 
-| 类型  |
-| ----- |
-| $Enum |
+| 类型   |
+| ------ |
+| \$Enum |
 
 **常量:**
 

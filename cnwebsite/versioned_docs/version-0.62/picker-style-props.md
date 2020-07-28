@@ -4,14 +4,14 @@ title: Picker Style Props
 original_id: picker-style-props
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 [Picker](picker.md) style props.
 
 ### Props
 
-* [View Style Props...](view-style-props.md)
-* [`color`](picker-style-props.md#color)
+- [View Style Props...](view-style-props.md)
+- [`color`](picker-style-props.md#color)
 
 ---
 
@@ -22,5 +22,5 @@ original_id: picker-style-props
 ### `color`
 
 | 类型              | 必填 |
-| ----------------- | -------- |
-| [color](color.md) | 否       |
+| ----------------- | ---- |
+| [color](color.md) | 否   |

@@ -4,16 +4,16 @@ title: Picker.Item
 original_id: picker-item
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 Individual selectable item in a [Picker](picker.md).
 
 ### 查看 Props
 
-* [`label`](picker-item.md#label)
-* [`color`](picker-item.md#color)
-* [`testID`](picker-item.md#testid)
-* [`value`](picker-item.md#value)
+- [`label`](picker-item.md#label)
+- [`color`](picker-item.md#color)
+- [`testID`](picker-item.md#testid)
+- [`value`](picker-item.md#value)
 
 ---
 

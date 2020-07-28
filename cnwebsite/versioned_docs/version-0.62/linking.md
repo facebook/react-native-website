@@ -4,7 +4,7 @@ title: Linking
 original_id: linking
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.51%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com+in%3Aemail&type=Users)(0.49%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.51%), [kt.tian](https://github.com/search?q=kt.tian%40gmail.com&type=Users)(0.49%)
 
 <div class="banner-crna-ejected">
   <h3>仅适用于原生代码项目</h3>
@@ -78,7 +78,6 @@ If you want to enable deep links in your app, please the below guide:
   return [RCTLinkingManager application:application openURL:url options:options];
 }
 ```
-
 
 ```objectivec
 // iOS 8.x 或更低版本
@@ -379,7 +378,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 ### `openSettings()`
 
- ```jsx
+```jsx
 openSettings();
 ```
 
@@ -405,5 +404,4 @@ getInitialURL();
 sendIntent(action: string, extras?: Array<{key: string, value: string | number | boolean}>)
 ```
 
-> @platform android
-**Android-Only.** Launch an Android intent with extras (optional)
+> @platform android **Android-Only.** Launch an Android intent with extras (optional)

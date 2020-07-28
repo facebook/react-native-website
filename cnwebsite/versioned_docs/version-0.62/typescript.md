@@ -4,7 +4,7 @@ title: 使用TypeScript
 original_id: typescript
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 
@@ -17,7 +17,6 @@ npx react-native init MyApp --template react-native-template-typescript
 ```
 
 > **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
-
 
 You can use [Expo][expo] which has two TypeScript templates:
 
@@ -73,7 +72,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 ```js
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 };
 ```
 

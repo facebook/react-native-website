@@ -4,7 +4,7 @@ title: Keyboard
 original_id: keyboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `Keyboard`模块用来控制键盘相关的事件。
 

@@ -7,7 +7,7 @@ description: This guide introduces React Native developers to finding, installin
 original_id: libraries
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 React Native 提供了一系列内置的[核心组件和 API](components-and-apis)，但并不局限于此。React Native 有一个庞大的社区，如果核心组件和 API 不能满足你的需求，你完全可以去社区的广阔天地中寻求合适的第三方库。
 

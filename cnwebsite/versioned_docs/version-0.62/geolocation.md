@@ -4,7 +4,7 @@ title: Geolocation
 original_id: geolocation
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.21%), [morelearn1990](https://github.com/search?q=morelearn1990%40gmail.com+in%3Aemail&type=Users)(1.79%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.21%), [morelearn1990](https://github.com/search?q=morelearn1990%40gmail.com&type=Users)(1.79%)
 
 > **Deprecated.** Use [@react-native-community/geolocation](https://github.com/react-native-community/react-native-geolocation) instead.
 
@@ -12,7 +12,7 @@ original_id: geolocation
 
 正因为如此，此 API 和在浏览器上使用方法一致，都是直接访问全局的`navigator.geolocation`对象，并不需要额外`import`，
 
-React-Native 0.60版本以上该模块已经迁移至 `@react-native-community/geolocation` 需要 `yarn add @react-native-community/geolocation` 并手动引入使用。
+React-Native 0.60 版本以上该模块已经迁移至 `@react-native-community/geolocation` 需要 `yarn add @react-native-community/geolocation` 并手动引入使用。
 
 On Android, this uses the [android.location API](https://developer.android.com/reference/android/location/package-summary). This API is not recommended by Google because it is less accurate and slower than the recommended [Google Location Services API](https://developer.android.com/training/location/). In order to use it with React Native, use the [react-native-geolocation-service](https://github.com/Agontuk/react-native-geolocation-service) module.
 
@@ -44,12 +44,12 @@ In order to enable geolocation in the background, you need to include the 'NSLoc
 
 ### 查看方法
 
-* [`setRNConfiguration`](geolocation.md#setrnconfiguration)
-* [`requestAuthorization`](geolocation.md#requestauthorization)
-* [`getCurrentPosition`](geolocation.md#getcurrentposition)
-* [`watchPosition`](geolocation.md#watchposition)
-* [`clearWatch`](geolocation.md#clearwatch)
-* [`stopObserving`](geolocation.md#stopobserving)
+- [`setRNConfiguration`](geolocation.md#setrnconfiguration)
+- [`requestAuthorization`](geolocation.md#requestauthorization)
+- [`getCurrentPosition`](geolocation.md#getcurrentposition)
+- [`watchPosition`](geolocation.md#watchposition)
+- [`clearWatch`](geolocation.md#clearwatch)
+- [`stopObserving`](geolocation.md#stopobserving)
 
 ---
 
@@ -73,7 +73,7 @@ Sets configuration options that will be used in all location requests.
 
 Supported options:
 
-* `skipPermissionRequests` (boolean, iOS-only) - Defaults to `false`. If `true`, you must request permissions before using Geolocation APIs.
+- `skipPermissionRequests` (boolean, iOS-only) - Defaults to `false`. If `true`, you must request permissions before using Geolocation APIs.
 
 ---
 
@@ -90,7 +90,11 @@ Request suitable Location permission based on the key configured on pList. If NS
 ### `getCurrentPosition()`
 
 ```jsx
-geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
+geolocation.getCurrentPosition(
+  geo_success,
+  [geo_error],
+  [geo_options]
+);
 ```
 
 成功时会调用 geo_success 回调，参数中包含最新的位置信息。
@@ -105,9 +109,9 @@ geolocation.getCurrentPosition(geo_success, [geo_error], [geo_options]);
 
 支持的选项：
 
-* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
-* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. 默认为无限大。
-* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
+- `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+- `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. 默认为无限大。
+- `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
 
 ---
 
@@ -129,11 +133,11 @@ geolocation.watchPosition(success, [error], [options]);
 
 Supported options:
 
-* `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
-* `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. 默认为无限大。
-* `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
-* `distanceFilter` (m) - The minimum distance from the previous location to exceed before returning a new location. Set to 0 to not filter locations. Defaults to 100m.
-* `useSignificantChanges` (bool) - Uses the battery-efficient native significant changes APIs to return locations. Locations will only be returned when the device detects a significant distance has been breached. Defaults to FALSE.
+- `timeout` (ms) - Is a positive value representing the maximum length of time (in milliseconds) the device is allowed to take in order to return a position. Defaults to INFINITY.
+- `maximumAge` (ms) - Is a positive value indicating the maximum age in milliseconds of a possible cached position that is acceptable to return. If set to 0, it means that the device cannot use a cached position and must attempt to retrieve the real current position. If set to Infinity the device will always return a cached position regardless of its age. 默认为无限大。
+- `enableHighAccuracy` (bool) - Is a boolean representing if to use GPS or not. If set to true, a GPS position will be requested. If set to false, a WIFI location will be requested.
+- `distanceFilter` (m) - The minimum distance from the previous location to exceed before returning a new location. Set to 0 to not filter locations. Defaults to 100m.
+- `useSignificantChanges` (bool) - Uses the battery-efficient native significant changes APIs to return locations. Locations will only be returned when the device detects a significant distance has been breached. Defaults to FALSE.
 
 ---
 

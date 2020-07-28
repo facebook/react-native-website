@@ -4,7 +4,7 @@ title: WebView
 original_id: webview
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(97.47%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(2.53%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.47%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(2.53%)
 
 > **Warning** Please use the [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) fork of this component instead. To reduce the surface area of React Native, `<WebView/>` is going to be removed from the React Native core. For more information, please read [The Slimmening proposal](https://github.com/react-native-community/discussions-and-proposals/issues/6).
 
@@ -443,9 +443,9 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left: 0, bottom: 0, right: 0}`。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 | iOS |
+| 类型                                                               | 必填 | 平台 |
+| ------------------------------------------------------------------ | ---- | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
 ---
 

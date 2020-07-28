@@ -5,7 +5,7 @@ description: React Native lets you compose app interfaces using Native Component
 original_id: intro-react-native-components
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 React Native is an open source framework for building Android and iOS applications using [React](https://reactjs.org/) and the app platform’s native capabilities. With React Native, you use JavaScript to access your platform’s APIs as well as to describe the appearance and behavior of your UI using React components: bundles of reusable, nestable code. You can learn more about React in the next section. But first, let’s cover how components work in React Native.
 
@@ -30,13 +30,13 @@ React Native also includes a set of essential, ready-to-use Native Components yo
 
 React Native has many Core Components for everything from form controls to activity indicators. You can find them all [documented in the API section](components-and-apis). You will mostly work with the following Core Components:
 
-| React Native UI Component | Android View | iOS View | Web Analog | Description |
-| --- | --- | --- | --- | --- |
-| `<View>` | `<ViewGroup>` | `<UIView>` | A non-scrollling `<div>` | A container that supports layout with flexbox, style, some touch handling, and accessibility controls |
-| `<Text>` | `<TextView>` | `<UITextView>` | `<p>` | Displays, styles, and nests strings of text and even handles touch events |
-| `<Image>` | `<ImageView>` | `<UIImageView>` | `<img>` | Displays different types of images |
-| `<ScrollView>` | `<ScrollView>` | `<UIScrollView>` | `<div>` | A generic scrolling container that can contain multiple components and views |
-| `<TextInput>` | `<EditText>` | `<UITextField>` | `<input type="text">` | Allows the user to enter text |
+| React Native UI Component | Android View   | iOS View         | Web Analog               | Description                                                                                           |
+| ------------------------- | -------------- | ---------------- | ------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `<View>`                  | `<ViewGroup>`  | `<UIView>`       | A non-scrollling `<div>` | A container that supports layout with flexbox, style, some touch handling, and accessibility controls |
+| `<Text>`                  | `<TextView>`   | `<UITextView>`   | `<p>`                    | Displays, styles, and nests strings of text and even handles touch events                             |
+| `<Image>`                 | `<ImageView>`  | `<UIImageView>`  | `<img>`                  | Displays different types of images                                                                    |
+| `<ScrollView>`            | `<ScrollView>` | `<UIScrollView>` | `<div>`                  | A generic scrolling container that can contain multiple components and views                          |
+| `<TextInput>`             | `<EditText>`   | `<UITextField>`  | `<input type="text">`    | Allows the user to enter text                                                                         |
 
 In the next section, you will start combining these Core Components to learn about how React works. Have a play with them here now!
 

@@ -4,7 +4,7 @@ title: StyleSheet
 original_id: stylesheet
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 StyleSheet 提供了一种类似 CSS 样式表的抽象。
 

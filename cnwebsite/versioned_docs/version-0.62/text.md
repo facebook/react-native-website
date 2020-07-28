@@ -4,7 +4,7 @@ title: Text
 original_id: text
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.66%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(0.34%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.66%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com&type=Users)(0.34%)
 
 一个用于显示文本的 React 组件，并且它也支持嵌套、样式，以及触摸处理。
 
@@ -413,9 +413,9 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必填 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -573,9 +573,9 @@ Possible values for `dataDetectorType` are:
 - `'none'`
 - `'all'`
 
-| Type | Required | Platform |
-| --- | --- | --- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No | Android |
+| Type                                                | Required | Platform |
+| --------------------------------------------------- | -------- | -------- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
 
 ---
 

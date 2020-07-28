@@ -4,7 +4,7 @@ title: Modal
 original_id: modal
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.71%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(0.29%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.71%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com&type=Users)(0.29%)
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
@@ -243,9 +243,9 @@ export default App;
 
 `supportedOrientations`用于指定在设备切换横竖屏方向时，modal 会在哪些屏幕朝向下跟随旋转。在 iOS 上，除了本属性外，还会受到应用的 Info.plist 文件中`UISupportedInterfaceOrientations`的限制。如果还设置了`presentationStyle`属性为`pageSheet`或`formSheet`，则在 iOS 上本属性将被忽略。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否 | iOS |
+| 类型                                                                                                | 必填 | 平台 |
+| --------------------------------------------------------------------------------------------------- | ---- | ---- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否   | iOS  |
 
 ---
 
@@ -347,6 +347,6 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 默认会根据`transparent`属性而设置为`overFullScreen`或是`fullScreen`。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否 | iOS |
+| 类型                                                           | 必填 | 平台 |
+| -------------------------------------------------------------- | ---- | ---- |
+| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否   | iOS  |

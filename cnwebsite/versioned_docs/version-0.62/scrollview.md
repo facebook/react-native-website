@@ -4,7 +4,7 @@ title: ScrollView
 original_id: scrollview
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 一个封装了平台的 ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
 
@@ -436,9 +436,9 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 内容范围相对滚动视图边缘的坐标。默认为`{top: 0, left: 0, bottom: 0, right: 0}`。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 | iOS |
+| 类型                                                               | 必填 | 平台 |
+| ------------------------------------------------------------------ | ---- | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
 ---
 
@@ -446,9 +446,9 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 This property specifies how the safe area insets are used to modify the content area of the scroll view. The default value of this property is "never". Available on iOS 11 and later.
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| enum('automatic', 'scrollableAxes', 'never', 'always') | 否 | iOS |
+| 类型                                                   | 必填 | 平台 |
+| ------------------------------------------------------ | ---- | ---- |
+| enum('automatic', 'scrollableAxes', 'never', 'always') | 否   | iOS  |
 
 ---
 
@@ -543,9 +543,9 @@ This property specifies how the safe area insets are used to modify the content 
 
 决定滚动条距离视图边缘的坐标。这个值应该和`contentInset`一样。默认值为`{0, 0, 0, 0}`。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 | iOS |
+| 类型                                                               | 必填 | 平台 |
+| ------------------------------------------------------------------ | ---- | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
 ---
 

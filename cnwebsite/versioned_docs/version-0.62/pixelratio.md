@@ -4,7 +4,7 @@ title: PixelRatio
 original_id: pixelratio
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `PixelRatio` 可以获取到设备的像素密度和字体缩放比。
 
@@ -136,8 +136,8 @@ static getFontScale(): number
 
 返回字体大小缩放比例。这个比例可以用于计算绝对的字体大小，所以很多深度依赖字体大小的组件需要用此函数的结果进行计算。
 
-- Android上对应的是用户选项里的“设置 > 显示 > 字体大小”。
-- iOS上对应的是用户选项里的**Settings > Display & Brightness > Text Size**, value can also be updated in **Settings > Accessibilty > Display & Test Size > Larger Text**
+- Android 上对应的是用户选项里的“设置 > 显示 > 字体大小”。
+- iOS 上对应的是用户选项里的**Settings > Display & Brightness > Text Size**, value can also be updated in **Settings > Accessibilty > Display & Test Size > Larger Text**
 
 如果没有设置字体缩放大小，它会直接返回设备的像素密度。
 

@@ -4,7 +4,7 @@ title: 布局属性
 original_id: layout-props
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 > More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
 
@@ -203,11 +203,11 @@ export default App;
 
 Aspect ratio control the size of the undefined dimension of a node. Aspect ratio is a non-standard property only available in react native and not CSS.
 
-* On a node with a set width/height aspect ratio control the size of the unset dimension
-* On a node with a set flex basis aspect ratio controls the size of the node in the cross axis if unset
-* On a node with a measure function aspect ratio works as though the measure function measures the flex basis
-* On a node with flex grow/shrink aspect ratio controls the size of the node in the cross axis if unset
-* Aspect ratio takes min/max dimensions into account
+- On a node with a set width/height aspect ratio control the size of the unset dimension
+- On a node with a set flex basis aspect ratio controls the size of the node in the cross axis if unset
+- On a node with a measure function aspect ratio works as though the measure function measures the flex basis
+- On a node with flex grow/shrink aspect ratio controls the size of the node in the cross axis if unset
+- Aspect ratio takes min/max dimensions into account
 
 | 类型   | 必填 |
 | ------ | ---- |
@@ -399,8 +399,8 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap>来进一步了解。Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
 
-| 类型                   | 必填 |
-| ---------------------- | ---- |
+| 类型                                   | 必填 |
+| -------------------------------------- | ---- |
 | enum('wrap', 'nowrap', 'wrap-reverse') | 否   |
 
 ---

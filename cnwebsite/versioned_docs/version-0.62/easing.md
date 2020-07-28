@@ -4,7 +4,7 @@ title: Easing
 original_id: easing
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `Easing`模块实现了常见的动画缓动函数。 This module is used by [Animated.timing()](animated.md#timing) to convey physically believable motion in animations.
 
@@ -14,18 +14,18 @@ You can find a visualization of some common easing functions at http://easings.n
 
 `Easing`模块通过以下几个方法提供了几种预置的动画：
 
-* [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
-* [`bounce`](easing.md#bounce) provides a bouncing animation
-* [`ease`](easing.md#ease) provides a simple inertial animation
-* [`elastic`](easing.md#elastic) provides a simple spring interaction
+- [`back`](easing.md#back) provides a simple animation where the object goes slightly back before moving forward
+- [`bounce`](easing.md#bounce) provides a bouncing animation
+- [`ease`](easing.md#ease) provides a simple inertial animation
+- [`elastic`](easing.md#elastic) provides a simple spring interaction
 
 ### 查看标准函数
 
 目前提供了三种标准缓动函数：
 
-* [`linear`](easing.md#linear)
-* [`quad`](easing.md#quad)
-* [`cubic`](easing.md#cubic)
+- [`linear`](easing.md#linear)
+- [`quad`](easing.md#quad)
+- [`cubic`](easing.md#cubic)
 
 The [`poly`](easing.md#poly) function can be used to implement quartic, quintic, and other higher power functions.
 
@@ -33,16 +33,16 @@ The [`poly`](easing.md#poly) function can be used to implement quartic, quintic,
 
 此外还通过以下几个方法提供了几种数学函数：
 
-* [`bezier`](easing.md#bezier) provides a cubic bezier curve
-* [`circle`](easing.md#circle) provides a circular function
-* [`sin`](easing.md#sin) provides a sinusoidal function
-* [`exp`](easing.md#exp) provides an exponential function
+- [`bezier`](easing.md#bezier) provides a cubic bezier curve
+- [`circle`](easing.md#circle) provides a circular function
+- [`sin`](easing.md#sin) provides a sinusoidal function
+- [`exp`](easing.md#exp) provides an exponential function
 
 The following helpers are used to modify other easing functions.
 
-* [`in`](easing.md#in) runs an easing function forwards
-* [`inOut`](easing.md#inout) makes any easing function symmetrical
-* [`out`](easing.md#out) runs an easing function backwards
+- [`in`](easing.md#in) runs an easing function forwards
+- [`inOut`](easing.md#inout) makes any easing function symmetrical
+- [`out`](easing.md#out) runs an easing function backwards
 
 ## 示例
 
@@ -356,7 +356,7 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 ### `in()`
 
 ```jsx
-static in(easing);
+static in easing;
 ```
 
 Runs an easing function forwards.

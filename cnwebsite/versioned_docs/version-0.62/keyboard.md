@@ -4,7 +4,7 @@ title: Keyboard
 original_id: keyboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `Keyboard`模块用来控制键盘相关的事件。
 
@@ -136,10 +136,10 @@ static addListener(eventName, callback)
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| eventName | string | Yes | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
-| callback | function | Yes | 事件触发时调用的 js 函数 |
+| Name      | Type     | Required | Description                                            |
+| --------- | -------- | -------- | ------------------------------------------------------ |
+| eventName | string   | Yes      | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
+| callback  | function | Yes      | 事件触发时调用的 js 函数                               |
 
 **nativeEvent**
 
@@ -166,10 +166,10 @@ static removeListener(eventName, callback)
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| eventName | string | Yes | 要移除监听函数的原生事件类型名称 |
-| callback | function | Yes | 要移除的监听函数 |
+| Name      | Type     | Required | Description                      |
+| --------- | -------- | -------- | -------------------------------- |
+| eventName | string   | Yes      | 要移除监听函数的原生事件类型名称 |
+| callback  | function | Yes      | 要移除的监听函数                 |
 
 ---
 

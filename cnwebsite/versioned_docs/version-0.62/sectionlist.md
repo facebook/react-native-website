@@ -4,7 +4,7 @@ title: SectionList
 original_id: sectionlist
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 高性能的分组(section)列表组件，支持下面这些常用的功能：
 
@@ -488,10 +488,10 @@ An object that identifies the data to be rendered for a given section.
 
 **属性：**
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| data | array | The data for rendering items in this section. Array of objects, much like [`FlatList`的 data 属性](flatlist.md#data). |
-| [key] | string | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default. |
-| [renderItem] | function | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list. |
+| 名称                     | 类型                         | 说明                                                                                                                                                                   |
+| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`的 data 属性](flatlist.md#data).                                                  |
+| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
+| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
 | [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor] | function | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor). |
+| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |

@@ -4,7 +4,7 @@ title: 列表配置优化
 original_id: optimizing-flatlist-configuration
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 ## Terms
 

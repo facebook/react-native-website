@@ -4,11 +4,11 @@ title: 在设备上运行
 original_id: running-on-device
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(88.29%), [3430453046](https://github.com/search?q=3430453046%40qq.com+in%3Aemail&type=Users)(11.71%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(88.29%), [3430453046](https://github.com/search?q=3430453046%40qq.com&type=Users)(11.71%)
 
-在真机上测试app后再将其发布给用户总是好的。本文档将指导你通过必须的步骤在设备上运行React Native app，为生产做准备。
+在真机上测试 app 后再将其发布给用户总是好的。本文档将指导你通过必须的步骤在设备上运行 React Native app，为生产做准备。
 
-如果使用Create React Native App来建立工程，可以通过Expo App扫描QR代码在设备上预览app。为了在设备上编译和运行app，需要逐出并从[搭建开发环境](getting-started.md)安装原生代码依赖。
+如果使用 Create React Native App 来建立工程，可以通过 Expo App 扫描 QR 代码在设备上预览 app。为了在设备上编译和运行 app，需要逐出并从[搭建开发环境](getting-started.md)安装原生代码依赖。
 
 <div class="toggler">
    <ul role="tablist" id="toggle-platform">
@@ -48,24 +48,21 @@ A Mac is required in order to build your app for iOS devices. Alternatively, you
 
 ### 1. 通过 USB 数据线连接设备
 
-使用USB闪电数据线连接iOS设备到Mac。导航到工程的`ios`文件夹，然后用Xcode打开`.xcodeproj`文件，如果使用CocoaPods打开`.xcworkspace`。
+使用 USB 闪电数据线连接 iOS 设备到 Mac。导航到工程的`ios`文件夹，然后用 Xcode 打开`.xcodeproj`文件，如果使用 CocoaPods 打开`.xcworkspace`。
 
-
-如果这是第一次在iOS设备上运行app，需要注册开发设备。从Xcode菜单栏打开**Product**菜单，然后前往**Destination**。从列表中查找并选择设备。Xcode 将注册为开发设备。
-
-
+如果这是第一次在 iOS 设备上运行 app，需要注册开发设备。从 Xcode 菜单栏打开**Product**菜单，然后前往**Destination**。从列表中查找并选择设备。Xcode 将注册为开发设备。
 
 ### 2. 配置代码签名
 
 如果没有[Apple developer account](https://developer.apple.com/)，先注册。
 
-在Xcode Project导航中选择project，然后选择main target（它应该和project共享同样的名字）。查找"General"标签。前往"Signing"并确保在"Team"下拉下选择了开发者账号或团队。tests target（以Tests结尾，在main target下面）也需要重复同样的操作。
+在 Xcode Project 导航中选择 project，然后选择 main target（它应该和 project 共享同样的名字）。查找"General"标签。前往"Signing"并确保在"Team"下拉下选择了开发者账号或团队。tests target（以 Tests 结尾，在 main target 下面）也需要重复同样的操作。
 
 ![](assets/RunningOnDeviceCodeSigning.png)
 
 ### 3. 编译并运行应用
 
-如果一切设置正确，设备会在Xcode toolbar 中被列为build target，也会出现在设备面板里(`⇧⌘2`)。现在可以按下 **Build and run** 按钮(`⌘R`)或从**Product**菜单中选择**Run**。app会立刻启动在设备上。
+如果一切设置正确，设备会在 Xcode toolbar 中被列为 build target，也会出现在设备面板里(`⇧⌘2`)。现在可以按下 **Build and run** 按钮(`⌘R`)或从**Product**菜单中选择**Run**。app 会立刻启动在设备上。
 
 ![](assets/RunningOnDeviceReady.png)
 
@@ -163,7 +160,7 @@ emulator-5554 offline   # Google emulator
 
 ## 从设备上访问开发服务器
 
-在启用开发服务器的情况下，你可以快速的迭代修改应用，然后在设备上立即查看结果。只需要在和电脑同样的Wi-Fi网络。摇晃设备打开[Developer menu](debugging.md#accessing-the-in-app-developer-menu)，然后enable Live Reload。当JavaScript代码改变时app会重载。
+在启用开发服务器的情况下，你可以快速的迭代修改应用，然后在设备上立即查看结果。只需要在和电脑同样的 Wi-Fi 网络。摇晃设备打开[Developer menu](debugging.md#accessing-the-in-app-developer-menu)，然后 enable Live Reload。当 JavaScript 代码改变时 app 会重载。
 
 ![](assets/DeveloperMenu.png)
 
@@ -173,45 +170,39 @@ emulator-5554 offline   # Google emulator
 
 当尝试连接到开发服务器时，可能得到一个[红屏报错](debugging.md#in-app-errors-and-warnings)说：
 
-
 > Connection to [http://localhost:8081/debugger-proxy?role=client]() timed out. Are you running node proxy? If you are running on the device, check if you have the right IP address in `RCTWebSocketExecutor.m`.
 
 解决这个问题检查以下几点。
 
 #### 1. Wi-Fi 网络
 
-确保笔记本电脑和电话在**同一个**Wi-Fi网络。
+确保笔记本电脑和电话在**同一个**Wi-Fi 网络。
 
 #### 2. IP 地址
 
-确保编译脚本正确检测到机器的IP地址(e.g. 10.0.1.123)。
+确保编译脚本正确检测到机器的 IP 地址(e.g. 10.0.1.123)。
 
 ![](assets/XcodeBuildIP.png)
 
-打开**Report navigator**标签，选择最近的**Build**然后搜索`xip.io`。这个内嵌到app的IP地址应该匹配机器IP地址加上域名 `.xip.io`（例如10.0.1.123.xip.io）
-
+打开**Report navigator**标签，选择最近的**Build**然后搜索`xip.io`。这个内嵌到 app 的 IP 地址应该匹配机器 IP 地址加上域名 `.xip.io`（例如 10.0.1.123.xip.io）
 
 #### 3. 网络/路由配置
 
-React Native 使用通配符DNS服务 **xip.io** 处理设备，用IP地址代替域名作为Apple ATS 禁止URLs，开发者的网络通常不是建立来解析本地主机名的。一些有安全特性的路由器阻止DNS服务器在本地IP范围内解析任何东西。
+React Native 使用通配符 DNS 服务 **xip.io** 处理设备，用 IP 地址代替域名作为 Apple ATS 禁止 URLs，开发者的网络通常不是建立来解析本地主机名的。一些有安全特性的路由器阻止 DNS 服务器在本地 IP 范围内解析任何东西。
 
-通过运行`nsloop`检查能否解析xip.io地址。
-
+通过运行`nsloop`检查能否解析 xip.io 地址。
 
 ```bash
 $ nslookup 10.0.1.123.xip.io
 ```
 
-If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it.
-如果不能解析本地IP地址，则**xip.io**服务器下了或可能是路由器阻止了它。
-
+If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it. 如果不能解析本地 IP 地址，则**xip.io**服务器下了或可能是路由器阻止了它。
 
 To still use xip.io behind your router:
 
-- 用Google DNS (8.8.8.8) 配置电话
+- 用 Google DNS (8.8.8.8) 配置电话
 
 - 禁用路由器中适当的安全特性
-
 
 <block class="mac windows linux android" />
 
@@ -264,32 +255,30 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 <block class="mac ios" />
 
-## 为生产编译app
+## 为生产编译 app
 
-已经用React Native编译了一个伟大的app，现在渴望在App Store发布。其过程和任何其它原生iOS app一样，有一些额外的注意事项要考虑。
+已经用 React Native 编译了一个伟大的 app，现在渴望在 App Store 发布。其过程和任何其它原生 iOS app 一样，有一些额外的注意事项要考虑。
 
 ### 1. Enable App Transport Security
 
-App Transport Security 是iOS 9引入的一项安全特性，拒绝不通过HTTPS发送的所有HTTP请求。这会导致HTTP传输阻塞，包括开发者React Native服务器。为了使开发容易，在React Native projects里ATS默认为`localhost`禁用。
+App Transport Security 是 iOS 9 引入的一项安全特性，拒绝不通过 HTTPS 发送的所有 HTTP 请求。这会导致 HTTP 传输阻塞，包括开发者 React Native 服务器。为了使开发容易，在 React Native projects 里 ATS 默认为`localhost`禁用。
 
 You should re-enable ATS prior to building your app for production by removing the `localhost` entry from the `NSExceptionDomains` dictionary in your `Info.plist` file in the `ios/` folder. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
 
 > If your application needs to access HTTP resources on production, see [this post](http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/) to learn how to configure ATS on your project.
 
-### 2. 配置release scheme
+### 2. 配置 release scheme
 
-需要在Xcode使用`Release` scheme编译在App Store发布的app。`Release`版本的应用会自动禁用开发者菜单，同时也会将js文件和静态图片打包压缩后内置到包中，这样应用可以在本地读取而无需访问开发服务器（同时这样一来你也无法再调试，需要调试请将Buiid Configuration再改为debug）。  
-由于发布版本已经内置了js文件，因而也无法再通过开发服务器来实时更新。面向用户的热更新，请使用专门的[热更新服务](https://pushy.reactnative.cn)。  
+需要在 Xcode 使用`Release` scheme 编译在 App Store 发布的 app。`Release`版本的应用会自动禁用开发者菜单，同时也会将 js 文件和静态图片打包压缩后内置到包中，这样应用可以在本地读取而无需访问开发服务器（同时这样一来你也无法再调试，需要调试请将 Buiid Configuration 再改为 debug）。  
+由于发布版本已经内置了 js 文件，因而也无法再通过开发服务器来实时更新。面向用户的热更新，请使用专门的[热更新服务](https://pushy.reactnative.cn)。
 
-要配置app为使用`Release` scheme编译，请前往**Product** → **Scheme** → **Edit Scheme**。选择侧边栏的**Run**标签，然后设置下拉的Build Configuration为`Release`。
-
+要配置 app 为使用`Release` scheme 编译，请前往**Product** → **Scheme** → **Edit Scheme**。选择侧边栏的**Run**标签，然后设置下拉的 Build Configuration 为`Release`。
 
 ![](assets/ConfigureReleaseScheme.png)
 
 #### 关于启动屏的优化技巧
 
-随着App包大小的增长，可能开始在启动屏(splash)和根应用视图显示之间看到白屏闪现。如果是这样，为了在转换期间保持启动屏显示，可以添加下列代码到`AppDelegate.m`。
-
+随着 App 包大小的增长，可能开始在启动屏(splash)和根应用视图显示之间看到白屏闪现。如果是这样，为了在转换期间保持启动屏显示，可以添加下列代码到`AppDelegate.m`。
 
 ```objc
   // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
@@ -306,9 +295,9 @@ The static bundle is built every time you target a physical device, even in Debu
  fi
 ```
 
-### 3. 编译发布app 
+### 3. 编译发布 app
 
-现在可以通过点击`⌘B`或从菜单栏选择 **Product** → **Build** 编译发布app。一旦编译发布，就能够向beta测试者发布app，提交app到App Store。
+现在可以通过点击`⌘B`或从菜单栏选择 **Product** → **Build** 编译发布 app。一旦编译发布，就能够向 beta 测试者发布 app，提交 app 到 App Store。
 
 > You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
 

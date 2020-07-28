@@ -4,7 +4,7 @@ title: Button
 original_id: button
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 一个简单的跨平台的按钮组件。可以进行一些简单的定制。
 
@@ -152,8 +152,8 @@ export default App;
 
 文本的颜色(iOS)，或是按钮的背景色(Android)
 
-| 类型               | 必填 |
-| ------------------ | ---- |
+| 类型            | 必填 |
+| --------------- | ---- |
 | [color](colors) | 否   |
 
 ---

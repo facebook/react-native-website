@@ -4,7 +4,7 @@ title: 性能综述
 original_id: performance
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.98%), [280215110](https://github.com/search?q=280215110%40qq.com+in%3Aemail&type=Users)(1.02%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.98%), [280215110](https://github.com/search?q=280215110%40qq.com&type=Users)(1.02%)
 
 使用 React Native 替代基于 WebView 的框架来开发 App 的一个强有力的理由，就是为了使 App 可以达到每秒 60 帧（足够流畅），并且能有类似原生 App 的外观和手感。因此我们也尽可能地优化 React Native 去实现这一目标，使开发者能集中精力处理 App 的业务逻辑，而不用费心考虑性能。但是，总还是有一些地方有所欠缺，以及在某些场合 React Native 还不能够替你决定如何进行优化（用原生代码写也无法避免），因此人工的干预依然是必要的。
 

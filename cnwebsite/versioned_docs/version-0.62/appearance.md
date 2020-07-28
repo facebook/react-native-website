@@ -4,7 +4,7 @@ title: Appearance
 original_id: appearance
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 ```jsx
 import { Appearance } from 'react-native';
@@ -23,14 +23,11 @@ The `Appearance` module exposes information about the user's appearance preferen
 
 <block class="webNote devNotes" />
 
-> The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
-<block class="androidNote devNotes" />
+> The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme). <block class="androidNote devNotes" />
 
-> The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher.
-<block class="iosNote devNotes" />
+> The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher. <block class="iosNote devNotes" />
 
-> The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
-<block class="endBlock devNotes" />
+> The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher. <block class="endBlock devNotes" />
 
 ## Example
 
@@ -66,6 +63,7 @@ Supported color schemes:
 See also: `useColorScheme` hook.
 
 > Note: `getColorScheme()` will always return `light` when debugging with Chrome.
+
 ### `addChangeListener()`
 
 ```jsx

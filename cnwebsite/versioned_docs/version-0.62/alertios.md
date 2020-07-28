@@ -4,7 +4,7 @@ title: AlertIOS
 original_id: alertios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `AlertIOS`用于弹出一个 iOS 提示对话框，可以通知用户一些信息或是提示用户输入一些文字。
 
@@ -56,17 +56,17 @@ Example with custom buttons:
 
 ```jsx
 AlertIOS.alert(
-  "Update available",
-  "Keep your app up to date to enjoy the latest features",
+  'Update available',
+  'Keep your app up to date to enjoy the latest features',
   [
     {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
-      style: "cancel"
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel'
     },
     {
-      text: "Install",
-      onPress: () => console.log("Install Pressed")
+      text: 'Install',
+      onPress: () => console.log('Install Pressed')
     }
   ]
 );
@@ -97,20 +97,21 @@ Example with custom buttons:
 
 ```jsx
 AlertIOS.prompt(
-  "Enter password",
-  "Enter your password to claim your $1.5B in lottery winnings",
+  'Enter password',
+  'Enter your password to claim your $1.5B in lottery winnings',
   [
     {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
-      style: "cancel"
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel'
     },
     {
-      text: "OK",
-      onPress: password => console.log("OK Pressed, password: " + password)
+      text: 'OK',
+      onPress: (password) =>
+        console.log('OK Pressed, password: ' + password)
     }
   ],
-  "secure-text"
+  'secure-text'
 );
 ```
 
@@ -120,11 +121,11 @@ Example with the default button and a custom callback:
 
 ```jsx
 AlertIOS.prompt(
-  "Update username",
+  'Update username',
   null,
-  text => console.log("Your username is " + text),
+  (text) => console.log('Your username is ' + text),
   null,
-  "default"
+  'default'
 );
 ```
 
@@ -134,9 +135,9 @@ AlertIOS.prompt(
 
 An Alert button type
 
-| 类型  |
-| ----- |
-| $Enum |
+| 类型   |
+| ------ |
+| \$Enum |
 
 **常量：**
 
@@ -153,9 +154,9 @@ An Alert button type
 
 An Alert button style
 
-| 类型  |
-| ----- |
-| $Enum |
+| 类型   |
+| ------ |
+| \$Enum |
 
 **常量：**
 

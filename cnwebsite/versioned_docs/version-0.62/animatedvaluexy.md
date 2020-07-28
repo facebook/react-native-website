@@ -4,7 +4,7 @@ title: Animated.ValueXY
 original_id: animatedvaluexy
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 2D Value for driving 2D animations, such as pan gestures. Almost identical API to normal [`Animated.Value`](animatedvalue.md), but multiplexed. Contains two regular `Animated.Value`s under the hood.
 

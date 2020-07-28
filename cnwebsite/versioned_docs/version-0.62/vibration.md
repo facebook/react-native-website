@@ -4,7 +4,7 @@ title: Vibration
 original_id: vibration
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 Vibrates the device.
 
@@ -228,11 +228,11 @@ The `vibrate()` method can take a `pattern` argument with an array of numbers th
 
 **Parameters:**
 
-| Name | Type | Required | Description | Platform |
-| --- | --- | --- | --- | --- |
-| pattern | number | No | Vibration duration in milliseconds. Defaults to 400 ms. | Android |
-| pattern | Array of numbers | No | Vibration pattern as an array of numbers in milliseconds. | Android, iOS |
-| repeat | boolean | No | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
+| Name    | Type             | Required | Description                                                | Platform     |
+| ------- | ---------------- | -------- | ---------------------------------------------------------- | ------------ |
+| pattern | number           | No       | Vibration duration in milliseconds. Defaults to 400 ms.    | Android      |
+| pattern | Array of numbers | No       | Vibration pattern as an array of numbers in milliseconds.  | Android, iOS |
+| repeat  | boolean          | No       | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
 
 ---
 

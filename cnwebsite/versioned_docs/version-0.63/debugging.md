@@ -4,7 +4,7 @@ title: 调试
 original_id: debugging
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(98.94%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com+in%3Aemail&type=Users)(1.06%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.94%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com&type=Users)(1.06%)
 
 ## 开启调试的快捷键
 

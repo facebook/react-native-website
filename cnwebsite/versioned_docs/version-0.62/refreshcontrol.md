@@ -4,9 +4,9 @@ title: RefreshControl
 original_id: refreshcontrol
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
-这一组件可以用在ScrollView或FlatList内部，为其添加下拉刷新的功能。当ScrollView处于竖直方向的起点位置（scrollY: 0），此时下拉会触发一个`onRefresh`事件。
+这一组件可以用在 ScrollView 或 FlatList 内部，为其添加下拉刷新的功能。当 ScrollView 处于竖直方向的起点位置（scrollY: 0），此时下拉会触发一个`onRefresh`事件。
 
 ## 示例
 
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-**注意：** `refreshing`是一个受控属性， 所以必须在`onRefresh`函数中设置为true，否则loading指示器会立即停止。 
+**注意：** `refreshing`是一个受控属性， 所以必须在`onRefresh`函数中设置为 true，否则 loading 指示器会立即停止。
 
 ---
 
@@ -136,7 +136,7 @@ export default App;
 
 ### `size`
 
-指定刷新指示器的大小，具体数值可参阅RefreshControl.SIZE.
+指定刷新指示器的大小，具体数值可参阅 RefreshControl.SIZE.
 
 | 类型                                                                   | 必填 | 平台    |
 | ---------------------------------------------------------------------- | ---- | ------- |

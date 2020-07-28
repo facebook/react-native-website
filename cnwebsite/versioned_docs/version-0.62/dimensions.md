@@ -4,7 +4,7 @@ title: Dimensions
 original_id: dimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 本模块用于获取设备屏幕的宽高。
 
@@ -152,9 +152,9 @@ static get(dim)
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| dim | string | Yes | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
+| Name | Type   | Required | Description                                                        |
+| ---- | ------ | -------- | ------------------------------------------------------------------ |
+| dim  | string | Yes      | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -194,6 +194,6 @@ static set(dims)
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| dims | object | Yes | string-keyed object of dimensions to set |
+| Name | Type   | Required | Description                              |
+| ---- | ------ | -------- | ---------------------------------------- |
+| dims | object | Yes      | string-keyed object of dimensions to set |

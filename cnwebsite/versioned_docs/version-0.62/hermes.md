@@ -4,7 +4,7 @@ title: Using Hermes
 original_id: hermes
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 <a href="https://hermesengine.dev">
   <img width="300" height="300" style="float: right; margin: -30px 4px 0;" src="https://hermesengine.dev/img/logo.svg"/>

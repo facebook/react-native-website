@@ -4,13 +4,13 @@ title: 集成到现有原生应用
 original_id: integration-with-existing-apps
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 如果你正准备从头开始制作一个新的应用，那么 React Native 会是个非常好的选择。但如果你只想给现有的原生应用中添加一两个视图或是业务流程，React Native 也同样不在话下。只需简单几步，你就可以给原有应用加上新的基于 React Native 的特性、画面和视图等。
 
 具体的步骤根据你所开发的目标平台不同而不同。
 
-> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`react-native init NewProject`创建一个最新版本的纯RN项目，去参考其Podfile或是gradle等的配置，以它们为准。
+> 译注：本文档可能更新不够及时，不能保证适用于最新版本，欢迎了解的朋友使用右上方的链接帮忙改进此文档。一个实用的建议是可以使用`react-native init NewProject`创建一个最新版本的纯 RN 项目，去参考其 Podfile 或是 gradle 等的配置，以它们为准。
 
 <div class="toggler">
   <ul role="tablist" id="toggle-language">
@@ -163,7 +163,7 @@ React Native 框架整体是作为 node 模块安装到项目中的。下一步�
 $ pod init
 ```
 
-`Podfile`会创建在执行命令的目录中。你需要调整其内容以满足你的集成需求。调整后的`Podfile`的内容看起来类似下面这样（也可以用`react-native init 项目名`命令创建一个纯RN项目，然后去参考其ios目录中的Podfile文件）：
+`Podfile`会创建在执行命令的目录中。你需要调整其内容以满足你的集成需求。调整后的`Podfile`的内容看起来类似下面这样（也可以用`react-native init 项目名`命令创建一个纯 RN 项目，然后去参考其 ios 目录中的 Podfile 文件）：
 
 <block class="objc" />
 
@@ -290,7 +290,12 @@ Pod installation complete! There are 3 dependencies from the Podfile and 1 total
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class RNHighScores extends React.Component {
   render() {
@@ -302,7 +307,9 @@ class RNHighScores extends React.Component {
     ));
     return (
       <View style={styles.container}>
-        <Text style={styles.highScoresTitle}>2048 High Scores!</Text>
+        <Text style={styles.highScoresTitle}>
+          2048 High Scores!
+        </Text>
         <Text style={styles.scores}>{contents}</Text>
       </View>
     );
@@ -314,18 +321,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#FFFFFF'
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
+    margin: 10
   },
   scores: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
-  },
+    marginBottom: 5
+  }
 });
 
 // 整体js模块的名称
@@ -624,7 +631,12 @@ Now we will actually modify the native Android application to integrate React Na
 
 ```jsx
 import React from 'react';
-import {AppRegistry, StyleSheet, Text, View} from 'react-native';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from 'react-native';
 
 class HelloWorld extends React.Component {
   render() {
@@ -638,16 +650,19 @@ class HelloWorld extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   hello: {
     fontSize: 20,
     textAlign: 'center',
-    margin: 10,
-  },
+    margin: 10
+  }
 });
 
-AppRegistry.registerComponent('MyReactNativeApp', () => HelloWorld);
+AppRegistry.registerComponent(
+  'MyReactNativeApp',
+  () => HelloWorld
+);
 ```
 
 ##### 3. 配置权限以便开发中的红屏错误能正确显示

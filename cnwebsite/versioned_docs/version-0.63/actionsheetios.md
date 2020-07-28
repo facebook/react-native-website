@@ -4,7 +4,7 @@ title: ActionSheetIOS
 original_id: actionsheetios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 显示一个 iOS 原生的[Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/)组件。
 

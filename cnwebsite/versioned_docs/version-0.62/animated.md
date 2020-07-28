@@ -4,7 +4,7 @@ title: Animated
 original_id: animated
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 `Animated`库旨在使动画变得流畅，强大并易于构建和维护。`Animated`侧重于输入和输出之间的声明性关系，以及两者之间的可配置变换，此外还提供了简单的 `start/stop`方法来控制基于时间的动画执行。
 
@@ -547,9 +547,9 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| callback | ?(result?: {finished: boolean}) | No | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+| Name     | Type                            | Required | Description                                                                                                                                                     |
+| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
 

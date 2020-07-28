@@ -4,7 +4,7 @@ title: 手势响应系统
 original_id: gesture-responder-system
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 移动设备上的手势识别要比在 web 上复杂得多。用户的一次触摸操作的真实意图是什么，App 要经过好几个阶段才能判断。比如 App 需要判断用户的触摸到底是在滚动页面，还是滑动一个 widget，或者只是一个单纯的点击。甚至随着持续时间的不同，这些操作还会转化。此外，还有多点同时触控的情况。
 
@@ -24,33 +24,33 @@ original_id: gesture-responder-system
 
 一个 View 只要实现了正确的协商方法，就可以成为触摸事件的响应者。我们通过两个方法去“询问”一个 View 是否愿意成为响应者：
 
-* `View.props.onStartShouldSetResponder: (evt) => true,` - 在用户开始触摸的时候（手指刚刚接触屏幕的瞬间），是否愿意成为响应者？
-* `View.props.onMoveShouldSetResponder: (evt) => true,` - 如果 View 不是响应者，那么在每一个触摸点开始移动（没有停下也没有离开屏幕）时再询问一次：是否愿意响应触摸交互呢？
+- `View.props.onStartShouldSetResponder: (evt) => true,` - 在用户开始触摸的时候（手指刚刚接触屏幕的瞬间），是否愿意成为响应者？
+- `View.props.onMoveShouldSetResponder: (evt) => true,` - 如果 View 不是响应者，那么在每一个触摸点开始移动（没有停下也没有离开屏幕）时再询问一次：是否愿意响应触摸交互呢？
 
 如果 View 返回 true，并开始尝试成为响应者，那么会触发下列事件之一:
 
-* `View.props.onResponderGrant: (evt) => {}` - View 现在要开始响应触摸事件了。这也是需要做高亮的时候，使用户知道他到底点到了哪里。
-* `View.props.onResponderReject: (evt) => {}` - 响应者现在“另有其人”而且暂时不会“放权”，请另作安排。
+- `View.props.onResponderGrant: (evt) => {}` - View 现在要开始响应触摸事件了。这也是需要做高亮的时候，使用户知道他到底点到了哪里。
+- `View.props.onResponderReject: (evt) => {}` - 响应者现在“另有其人”而且暂时不会“放权”，请另作安排。
 
 如果 View 已经开始响应触摸事件了，那么下列这些处理函数会被一一调用：
 
-* `View.props.onResponderMove: (evt) => {}` - 用户正在屏幕上移动手指时（没有停下也没有离开屏幕）。
-* `View.props.onResponderRelease: (evt) => {}` - 触摸操作结束时触发，比如"touchUp"（手指抬起离开屏幕）。
-* `View.props.onResponderTerminationRequest: (evt) => true` - 有其他组件请求接替响应者，当前的 View 是否“放权”？返回 true 的话则释放响应者权力。
-* `View.props.onResponderTerminate: (evt) => {}` - 响应者权力已经交出。这可能是由于其他 View 通过`onResponderTerminationRequest`请求的，也可能是由操作系统强制夺权（比如 iOS 上的控制中心或是通知中心）。
+- `View.props.onResponderMove: (evt) => {}` - 用户正在屏幕上移动手指时（没有停下也没有离开屏幕）。
+- `View.props.onResponderRelease: (evt) => {}` - 触摸操作结束时触发，比如"touchUp"（手指抬起离开屏幕）。
+- `View.props.onResponderTerminationRequest: (evt) => true` - 有其他组件请求接替响应者，当前的 View 是否“放权”？返回 true 的话则释放响应者权力。
+- `View.props.onResponderTerminate: (evt) => {}` - 响应者权力已经交出。这可能是由于其他 View 通过`onResponderTerminationRequest`请求的，也可能是由操作系统强制夺权（比如 iOS 上的控制中心或是通知中心）。
 
 `evt`是一个合成事件，它包含以下结构：
 
-* `nativeEvent`
-  * `changedTouches` - 在上一次事件之后，所有发生变化的触摸事件的数组集合（即上一次事件后，所有移动过的触摸点）
-  * `identifier` - 触摸点的 ID
-  * `locationX` - 触摸点相对于当前元素的横坐标
-  * `locationY` - 触摸点相对于当前元素的纵坐标
-  * `pageX` - 触摸点相对于根元素的横坐标
-  * `pageY` - 触摸点相对于根元素的纵坐标
-  * `target` - 触摸点所在的元素 ID
-  * `timestamp` - 触摸事件的时间戳，可用于移动速度的计算
-  * `touches` - 当前屏幕上的所有触摸点的集合
+- `nativeEvent`
+  - `changedTouches` - 在上一次事件之后，所有发生变化的触摸事件的数组集合（即上一次事件后，所有移动过的触摸点）
+  - `identifier` - 触摸点的 ID
+  - `locationX` - 触摸点相对于当前元素的横坐标
+  - `locationY` - 触摸点相对于当前元素的纵坐标
+  - `pageX` - 触摸点相对于根元素的横坐标
+  - `pageY` - 触摸点相对于根元素的纵坐标
+  - `target` - 触摸点所在的元素 ID
+  - `timestamp` - 触摸事件的时间戳，可用于移动速度的计算
+  - `touches` - 当前屏幕上的所有触摸点的集合
 
 ### 捕获 ShouldSet 事件处理
 
@@ -58,8 +58,8 @@ original_id: gesture-responder-system
 
 但是有些时候，某个父 View 会希望能先成为响应者。我们可以利用“捕获期”来解决这一需求。响应系统在从最底层的组件开始冒泡之前，会首先执行一个“捕获期”，在此期间会触发`on*ShouldSetResponderCapture`系列事件。因此，如果某个父 View 想要在触摸操作开始时阻止子组件成为响应者，那就应该处理`onStartShouldSetResponderCapture`事件并返回 true 值。
 
-* `View.props.onStartShouldSetResponderCapture: (evt) => true,`
-* `View.props.onMoveShouldSetResponderCapture: (evt) => true,`
+- `View.props.onStartShouldSetResponderCapture: (evt) => true,`
+- `View.props.onMoveShouldSetResponderCapture: (evt) => true,`
 
 ### PanResponder
 

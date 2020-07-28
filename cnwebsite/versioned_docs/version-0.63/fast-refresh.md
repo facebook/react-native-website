@@ -4,7 +4,7 @@ title: 快速刷新
 original_id: fast-refresh
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(76.60%), [itellboy](https://github.com/search?q=itellboy%40foxmail.com+in%3Aemail&type=Users)(23.40%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.60%), [itellboy](https://github.com/search?q=itellboy%40foxmail.com&type=Users)(23.40%)
 
 快速刷新是 React Native 一个特性，在修改组件的时候快速刷新会给你一个即时的反馈。快速刷新默认是开启的，可以通过调整 React Native 开发者菜单里面的 "Enable Fast Refresh" 来开启或关闭。在快速刷新开启的时候，大多数的修改能在一到两秒之内呈现。
 

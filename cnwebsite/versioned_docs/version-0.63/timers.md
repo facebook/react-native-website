@@ -4,7 +4,7 @@ title: 定时器
 original_id: timers
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 定时器是一个应用中非常重要的部分。React Native 实现了和浏览器一致的[定时器 Timer](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers)。
 

@@ -4,7 +4,7 @@ title: 🚧 ImageEditor
 original_id: imageeditor
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 > **Deprecated.** Use [@react-native-community/image-editor](https://github.com/react-native-community/react-native-image-editor) instead.
 
@@ -24,16 +24,16 @@ static cropImage(uri, cropData, success, failure)
 
 ### cropData
 
-* `offset` - The top-left corner of the cropped image, specified in the original image's coordinate space
-* `size` - Size (dimensions) of the cropped image
-* `displaySize (optional)` - Size to which you want to scale the cropped image
-* `resizeMode (optional)` - Resizing mode to use when scaling the image
+- `offset` - The top-left corner of the cropped image, specified in the original image's coordinate space
+- `size` - Size (dimensions) of the cropped image
+- `displaySize (optional)` - Size to which you want to scale the cropped image
+- `resizeMode (optional)` - Resizing mode to use when scaling the image
 
 ```jsx
 cropData = {
-  offset: {x: number, y: number},
-  size: {width: number, height: number},
-  displaySize: {width: number, height: number},
-  resizeMode: 'contain/cover/stretch',
+  offset: { x: number, y: number },
+  size: { width: number, height: number },
+  displaySize: { width: number, height: number },
+  resizeMode: 'contain/cover/stretch'
 };
 ```

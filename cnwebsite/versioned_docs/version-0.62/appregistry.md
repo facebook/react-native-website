@@ -4,7 +4,7 @@ title: AppRegistry
 original_id: appregistry
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 <div class="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
@@ -218,7 +218,7 @@ The `hook` function returns a React Component
 static runApplication(appKey, appParameters)
 ```
 
-加载JavaScript bundle并运行应用。
+加载 JavaScript bundle 并运行应用。
 
 **参数：**
 

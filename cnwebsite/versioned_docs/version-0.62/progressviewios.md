@@ -4,11 +4,11 @@ title: 🚧 ProgressViewIOS
 original_id: progressviewios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 > **Deprecated.** Use [@react-native-community/progress-view](https://github.com/react-native-community/progress-view) instead.
 
-使用`ProgressViewIOS`来在iOS上渲染一个UIProgressView。
+使用`ProgressViewIOS`来在 iOS 上渲染一个 UIProgressView。
 
 ### 示例
 
@@ -68,11 +68,11 @@ export default App;
 
 ### `progress`
 
-当前的进度值（0到1之间）。
+当前的进度值（0 到 1 之间）。
 
 | 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -81,8 +81,8 @@ export default App;
 一个可以拉伸的图片，用于显示进度条。
 
 | 类型                   | 必填 |
-| ---------------------- | -------- |
-| Image.propTypes.source | 否       |
+| ---------------------- | ---- |
+| Image.propTypes.source | 否   |
 
 ---
 
@@ -91,8 +91,8 @@ export default App;
 进度条本身染上的颜色。
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
@@ -101,8 +101,8 @@ export default App;
 进度条的样式。
 
 | 类型                   | 必填 |
-| ---------------------- | -------- |
-| enum('default', 'bar') | 否       |
+| ---------------------- | ---- |
+| enum('default', 'bar') | 否   |
 
 ---
 
@@ -111,8 +111,8 @@ export default App;
 一个可拉伸的图片，用于显示进度条后面的轨道。
 
 | 类型                   | 必填 |
-| ---------------------- | -------- |
-| Image.propTypes.source | 否       |
+| ---------------------- | ---- |
+| Image.propTypes.source | 否   |
 
 ---
 
@@ -121,5 +121,5 @@ export default App;
 进度条轨道染上的颜色。
 
 | 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| ------ | ---- |
+| string | 否   |

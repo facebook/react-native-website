@@ -4,9 +4,9 @@ title: 🚧 AsyncStorage
 original_id: asyncstorage
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.72%), [95537559](https://github.com/search?q=95537559%40qq.com+in%3Aemail&type=Users)(0.28%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.72%), [95537559](https://github.com/search?q=95537559%40qq.com&type=Users)(0.28%)
 
- **Deprecated.** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
+**Deprecated.** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
 
 `AsyncStorage`是一个简单的、异步的、持久化的 Key-Value 存储系统，它对于 App 来说是全局性的。可用来代替 LocalStorage。
 
@@ -21,7 +21,6 @@ original_id: asyncstorage
 ```
 import { AsyncStorage } from "react-native"
 ```
-
 
 保存数据：
 
@@ -131,23 +130,31 @@ static mergeItem(key: string, value: string, [callback]: ?(error: ?Error) => voi
 
 ```jsx
 let UID123_object = {
-  name: "Chris",
+  name: 'Chris',
   age: 30,
-  traits: { hair: "brown", eyes: "brown" }
+  traits: { hair: 'brown', eyes: 'brown' }
 };
 // 只需定义新增或是修改的数据
 let UID123_delta = {
   age: 31,
-  traits: { eyes: "blue", shoe_size: 10 }
+  traits: { eyes: 'blue', shoe_size: 10 }
 };
 
-AsyncStorage.setItem("UID123", JSON.stringify(UID123_object), () => {
-  AsyncStorage.mergeItem("UID123", JSON.stringify(UID123_delta), () => {
-    AsyncStorage.getItem("UID123", (err, result) => {
-      console.log(result);
-    });
-  });
-});
+AsyncStorage.setItem(
+  'UID123',
+  JSON.stringify(UID123_object),
+  () => {
+    AsyncStorage.mergeItem(
+      'UID123',
+      JSON.stringify(UID123_delta),
+      () => {
+        AsyncStorage.getItem('UID123', (err, result) => {
+          console.log(result);
+        });
+      }
+    );
+  }
+);
 
 // Console log result:
 // => {'name':'Chris','age':31,'traits':
@@ -276,8 +283,8 @@ static multiRemove(keys: Array<string>, [callback]: ?(errors: ?Array<Error>) => 
 示例：
 
 ```jsx
-let keys = ["k1", "k2"];
-AsyncStorage.multiRemove(keys, err => {
+let keys = ['k1', 'k2'];
+AsyncStorage.multiRemove(keys, (err) => {
   // 如果k1,k2字段值存在的话就会被删除
 });
 ```
@@ -306,42 +313,42 @@ static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Ar
 ```jsx
 // 第一个用户的初始数据
 let UID234_object = {
-  name: "Chris",
+  name: 'Chris',
   age: 30,
-  traits: { hair: "brown", eyes: "brown" }
+  traits: { hair: 'brown', eyes: 'brown' }
 };
 
 // 第一个用户的增量数据
 let UID234_delta = {
   age: 31,
-  traits: { eyes: "blue", shoe_size: 10 }
+  traits: { eyes: 'blue', shoe_size: 10 }
 };
 
 // 第二个用户的初始数据
 let UID345_object = {
-  name: "Marge",
+  name: 'Marge',
   age: 25,
-  traits: { hair: "blonde", eyes: "blue" }
+  traits: { hair: 'blonde', eyes: 'blue' }
 };
 
 // 第二个用户的增量数据
 let UID345_delta = {
   age: 26,
-  traits: { eyes: "green", shoe_size: 6 }
+  traits: { eyes: 'green', shoe_size: 6 }
 };
 
 let multi_set_pairs = [
-  ["UID234", JSON.stringify(UID234_object)],
-  ["UID345", JSON.stringify(UID345_object)]
+  ['UID234', JSON.stringify(UID234_object)],
+  ['UID345', JSON.stringify(UID345_object)]
 ];
 let multi_merge_pairs = [
-  ["UID234", JSON.stringify(UID234_delta)],
-  ["UID345", JSON.stringify(UID345_delta)]
+  ['UID234', JSON.stringify(UID234_delta)],
+  ['UID345', JSON.stringify(UID345_delta)]
 ];
 
-AsyncStorage.multiSet(multi_set_pairs, err => {
-  AsyncStorage.multiMerge(multi_merge_pairs, err => {
-    AsyncStorage.multiGet(["UID234", "UID345"], (err, stores) => {
+AsyncStorage.multiSet(multi_set_pairs, (err) => {
+  AsyncStorage.multiMerge(multi_merge_pairs, (err) => {
+    AsyncStorage.multiGet(['UID234', 'UID345'], (err, stores) => {
       stores.map((result, i, store) => {
         let key = store[i][0];
         let val = store[i][1];

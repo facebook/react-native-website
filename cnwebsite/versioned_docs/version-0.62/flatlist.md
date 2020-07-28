@@ -4,20 +4,20 @@ title: FlatList
 original_id: flatlist
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 高性能的简单列表组件，支持下面这些常用的功能：
 
-* 完全跨平台。
-* 支持水平布局模式。
-* 行组件显示或隐藏时可配置回调事件。
-* 支持单独的头部组件。
-* 支持单独的尾部组件。
-* 支持自定义行间分隔线。
-* 支持下拉刷新。
-* 支持上拉加载。
-* 支持跳转到指定行（ScrollToIndex）。
-* 支持多列布局。
+- 完全跨平台。
+- 支持水平布局模式。
+- 行组件显示或隐藏时可配置回调事件。
+- 支持单独的头部组件。
+- 支持单独的尾部组件。
+- 支持自定义行间分隔线。
+- 支持下拉刷新。
+- 支持上拉加载。
+- 支持跳转到指定行（ScrollToIndex）。
+- 支持多列布局。
 
 如果需要分组/类/区（section），请使用[`<SectionList>`](sectionlist.md).
 
@@ -90,9 +90,9 @@ To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop.
 
 下面是一个较复杂的例子，其中演示了如何利用`PureComponent`来进一步优化性能和减少 bug 产生的可能（以下这段文字需要你深刻理解 shouldComponentUpdate 的机制，以及 Component 和 PureComponent 的不同，所以如果不了解就先跳过吧）。
 
-* 对于`MyListItem`组件来说，其`onPressItem`属性使用箭头函数而非 bind 的方式进行绑定，使其不会在每次列表重新 render 时生成一个新的函数，从而保证了 props 的不变性（当然前提是 `id`、`selected`和`title`也没变），不会触发自身无谓的重新 render。换句话说，如果你是用 bind 来绑定`onPressItem`，每次都会生成一个新的函数，导致 props 在`===`比较时返回 false，从而触发自身的一次不必要的重新 render。
-* 给`FlatList`指定`extraData={this.state}`属性，是为了保证`state.selected`变化时，能够正确触发`FlatList`的更新。如果不指定此属性，则`FlatList`不会触发更新，因为它是一个`PureComponent`，其 props 在`===`比较中没有变化则不会触发更新。
-* `keyExtractor`属性指定使用 id 作为列表每一项的 key。
+- 对于`MyListItem`组件来说，其`onPressItem`属性使用箭头函数而非 bind 的方式进行绑定，使其不会在每次列表重新 render 时生成一个新的函数，从而保证了 props 的不变性（当然前提是 `id`、`selected`和`title`也没变），不会触发自身无谓的重新 render。换句话说，如果你是用 bind 来绑定`onPressItem`，每次都会生成一个新的函数，导致 props 在`===`比较时返回 false，从而触发自身的一次不必要的重新 render。
+- 给`FlatList`指定`extraData={this.state}`属性，是为了保证`state.selected`变化时，能够正确触发`FlatList`的更新。如果不指定此属性，则`FlatList`不会触发更新，因为它是一个`PureComponent`，其 props 在`===`比较中没有变化则不会触发更新。
+- `keyExtractor`属性指定使用 id 作为列表每一项的 key。
 
 ```SnackPlayer name=flatlist-selectable
 import React from 'react';
@@ -189,10 +189,10 @@ export default App;
 
 本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md))的 props），但在本文档中没有列出。此外还有下面这些需要注意的事项：
 
-* 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
-* 本组件继承自`PureComponent`而非通常的`Component`，这意味着如果其`props`在`浅比较`中是相等的，则不会重新渲染。所以请先检查你的`renderItem`函数所依赖的`props`数据（包括`data`属性以及可能用到的父组件的 state），如果是一个引用类型（Object 或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下[js 中的基本类型和引用类型](https://segmentfault.com/a/1190000002789651)。）
-* 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，你可以根据自己的需求调整相应的参数，而我们也在设法持续改进。
-* 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个`keyExtractor`函数来生成 key。
+- 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
+- 本组件继承自`PureComponent`而非通常的`Component`，这意味着如果其`props`在`浅比较`中是相等的，则不会重新渲染。所以请先检查你的`renderItem`函数所依赖的`props`数据（包括`data`属性以及可能用到的父组件的 state），如果是一个引用类型（Object 或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下[js 中的基本类型和引用类型](https://segmentfault.com/a/1190000002789651)。）
+- 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，你可以根据自己的需求调整相应的参数，而我们也在设法持续改进。
+- 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个`keyExtractor`函数来生成 key。
 
 ---
 
@@ -205,7 +205,7 @@ export default App;
 ### `renderItem`
 
 ```jsx
-renderItem({item, index, separators});
+renderItem({ item, index, separators });
 ```
 
 从`data`中挨个取出数据并渲染到列表中。
@@ -491,7 +491,7 @@ May not have full feature parity and is meant for debugging and performance comp
 
 ### `removeClippedSubviews`
 
-对于大列表启用本属性可能可以提高性能。在android上此项默认启用。
+对于大列表启用本属性可能可以提高性能。在 android 上此项默认启用。
 
 > 注意：有些情况下会有 bug（比如内容无法显示）。请谨慎使用。
 
@@ -585,7 +585,7 @@ scrollToEnd([params]);
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 
@@ -607,10 +607,10 @@ scrollToIndex(params);
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'index' (number) - The index to scroll to. Required.
-* 'viewOffset' (number) - A fixed number of pixels to offset the final target position. 
-* 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'index' (number) - The index to scroll to. Required.
+- 'viewOffset' (number) - A fixed number of pixels to offset the final target position.
+- 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ---
 
@@ -632,9 +632,9 @@ scrollToItem(params);
 
 Valid `params` keys are:
 
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-* 'item' (object) - The item to scroll to. Required.
-* 'viewPosition' (number)
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'item' (object) - The item to scroll to. Required.
+- 'viewPosition' (number)
 
 ---
 
@@ -654,8 +654,8 @@ scrollToOffset(params);
 
 Valid `params` keys are:
 
-* 'offset' (number) - The offset to scroll to. In case of `horizontal` being true, the offset is the x-value, in any other case the offset is the y-value. Required.
-* 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'offset' (number) - The offset to scroll to. In case of `horizontal` being true, the offset is the x-value, in any other case the offset is the y-value. Required.
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
 
 ---
 

@@ -5,7 +5,7 @@ description: To understand React Native fully, you need a solid foundation in Re
 original_id: intro-react
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 React Native 的基础是[React](https://reactjs.org/)， 是在 web 端非常流行的开源 UI 框架。要想掌握 React Native，先了解 React 框架本身是非常有帮助的。本文旨在为初学者介绍一些 react 的入门知识。
 
@@ -58,7 +58,7 @@ import { Text } from 'react-native';
 function Cat() {}
 ```
 
-这个函数的`返回值`就会被渲染为一个React元素。这里`Cat`会渲染一个`<Text>`元素：
+这个函数的`返回值`就会被渲染为一个 React 元素。这里`Cat`会渲染一个`<Text>`元素：
 
 ```jsx
 function Cat() {
@@ -102,7 +102,7 @@ import React, { Component } from 'react';
 class Cat extends Component {}
 ```
 
-Class组件必须有一个`render()`函数，它的返回值会被渲染为一个React元素：
+Class 组件必须有一个`render()`函数，它的返回值会被渲染为一个 React 元素：
 
 ```jsx
 class Cat extends Component {
@@ -112,7 +112,7 @@ class Cat extends Component {
 }
 ```
 
-和函数组件一样，我们也可以导出class组件：
+和函数组件一样，我们也可以导出 class 组件：
 
 ```jsx
 export default class Cat extends Component {
@@ -124,11 +124,11 @@ export default class Cat extends Component {
 
 <block class="endBlock syntax" />
 
-> 上面只是导出组件的写法之一。你还可以看看这篇博客整理[handy cheatsheet on JavaScript imports and exports](https://www.samanthaming.com/tidbits/79-module-cheatsheet/)整理的各种不同的写法。下面我们来看看这个`return` 语句。`<Text>Hello, I am your cat!</Text>`是一种简化React元素的写法，这种语法名字叫做JSX。
+> 上面只是导出组件的写法之一。你还可以看看这篇博客整理[handy cheatsheet on JavaScript imports and exports](https://www.samanthaming.com/tidbits/79-module-cheatsheet/)整理的各种不同的写法。下面我们来看看这个`return` 语句。`<Text>Hello, I am your cat!</Text>`是一种简化 React 元素的写法，这种语法名字叫做 JSX。
 
 ## JSX
 
-React 和 React Native 都使用**JSX 语法**，这种语法使得你可以在JavaScript中直接输出元素：`<Text>Hello, I am your cat!</Text>`。React的文档有一份完整的[JSX指南](https://zh-hans.reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper)可供你参考。因为JSX本质上也就是JavaScript，所以你可以在其中直接使用变量。这里我们为猫猫的名字声明了一个变量`name`，并且用括号把它放在了`<Text>`之中。
+React 和 React Native 都使用**JSX 语法**，这种语法使得你可以在 JavaScript 中直接输出元素：`<Text>Hello, I am your cat!</Text>`。React 的文档有一份完整的[JSX 指南](https://zh-hans.reactjs.org/docs/jsx-in-depth.html#gatsby-focus-wrapper)可供你参考。因为 JSX 本质上也就是 JavaScript，所以你可以在其中直接使用变量。这里我们为猫猫的名字声明了一个变量`name`，并且用括号把它放在了`<Text>`之中。
 
 ```SnackPlayer name=Curly%20Braces
 import React from 'react';
@@ -158,7 +158,7 @@ export default function Cat() {
 }
 ```
 
-你可以把括号`{}`想象成在JSX中打开了一个可以调用JS功能的传送门！
+你可以把括号`{}`想象成在 JSX 中打开了一个可以调用 JS 功能的传送门！
 
 > 因为 JSX 语法糖的实质是调用`React.createElement`方法，所以你必须在文件头部引用`import React from 'react'`。
 
@@ -232,7 +232,7 @@ You can put as many cats in your cafe as you like. Each `<Cat>` renders a unique
 
 ## Props 属性
 
-**Props** 是“properties”（属性）的简写。Props使得我们可以定制组件。.For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
+**Props** 是“properties”（属性）的简写。Props 使得我们可以定制组件。.For example, here you pass each `<Cat>` a different `name` for `Cat` to render:
 
 ```SnackPlayer name=Multiple%20Props
 import React from 'react';
@@ -273,7 +273,7 @@ export default function CatApp() {
 }
 ```
 
-`Image` 有[很多不同的props](image#props)， including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
+`Image` 有[很多不同的 props](image#props)， including [`style`](image#style), which accepts a JS object of design and layout related property-value pairs.
 
 > Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 

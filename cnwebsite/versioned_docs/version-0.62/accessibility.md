@@ -4,7 +4,7 @@ title: 无障碍功能
 original_id: accessibility
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 **译注**：accessibility 一词常见多种译法：可访问性、无障碍性、辅助功能等等，其中文意思都不太能准确表达其功能的本质——即为残障人士提供便利。本文主要采用“无障碍功能”和“辅助技术/服务”的说法。如果你或你的公司暂时没有资源和精力去服务这些用户，那么你可以跳过本文。但是，`译者个人希望借本文档，呼吁有能力有资源的商业公司/组织/个人，重视残障人士使用智能手机的权利`。
 
@@ -78,7 +78,7 @@ Inverting screen colors is an Accessibility feature that makes the iPhone and iP
 
 `accessibilityRole` communicates the purpose of a component to the user of an assistive technology.
 
- `accessibilityRole` can be one of the following:
+`accessibilityRole` can be one of the following:
 
 - **none** 无特性元素。
 - **button** 具有按钮特性。
@@ -117,9 +117,9 @@ Describes the current state of a component to the user of an assistive technolog
 | 名称     | 描述                                                                                                                                  | 类型               | 必需 |
 | -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ---- |
 | disabled | Indicates whether the element is disabled or not.                                                                                     | boolean            | 否   |
-| selected | Indicates whether a selectable element is currently selected or 否t.                                                                  | boolean            | 否   |
+| selected | Indicates whether a selectable element is currently selected or 否 t.                                                                 | boolean            | 否   |
 | checked  | Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes. | boolean or 'mixed' | 否   |
-| busy     | Indicates whether an element is currently busy or 否t.                                                                                | boolean            | 否   |
+| busy     | Indicates whether an element is currently busy or 否 t.                                                                               | boolean            | 否   |
 | expanded | Indicates whether an expandable element is currently expanded or collapsed.                                                           | boolean            | 否   |
 
 To use, set the `accessibilityState` to an object with a specific definition.
@@ -188,12 +188,28 @@ Assign this property to a custom function which will be called when someone perf
 
 ```jsx
 <View style={styles.container}>
-  <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'green'}} importantForAccessibility='yes'>
+  <View
+    style={{
+      position: 'absolute',
+      left: 10,
+      top: 10,
+      right: 10,
+      height: 100,
+      backgroundColor: 'green'
+    }}
+    importantForAccessibility="yes">
     <Text> First layout </Text>
   </View>
-  <View style={{position: 'absolute', left: 10, top: 10, right: 10, height: 100,
-    backgroundColor: 'yellow'}} importantForAccessibility='no-hide-descendant'>
+  <View
+    style={{
+      position: 'absolute',
+      left: 10,
+      top: 10,
+      right: 10,
+      height: 100,
+      backgroundColor: 'yellow'
+    }}
+    importantForAccessibility="no-hide-descendant">
     <Text> Second layout </Text>
   </View>
 </View>
@@ -234,9 +250,9 @@ To handle action requests, a component must implement an `onAccessibilityAction`
 <View
   accessible={true}
   accessibilityActions={[
-    {name: 'cut', label: 'cut'},
-    {name: 'copy', label: 'copy'},
-    {name: 'paste', label: 'paste'},
+    { name: 'cut', label: 'cut' },
+    { name: 'copy', label: 'copy' },
+    { name: 'paste', label: 'paste' }
   ]}
   onAccessibilityAction={(event) => {
     switch (event.nativeEvent.actionName) {

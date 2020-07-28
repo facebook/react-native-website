@@ -4,7 +4,7 @@ title: 为电视和机顶盒制作应用
 original_id: building-for-tv
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 目前的 React Native 应用只需在 JavaScript 端简单修改甚至无需修改，在电视和机顶盒设备上就基本可用了。
 
@@ -34,7 +34,7 @@ original_id: building-for-tv
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```jsx
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 const running_on_tv = Platform.isTV;
 
 // 如果你想更精确地针对tvOS设备（即排除Android设备），
@@ -67,7 +67,7 @@ const running_on_apple_tv = Platform.isTVOS;
 - _JavaScript 端_: 对于电视设备的检测代码已经加入到了`Platform`模块中。你可以使用下面的代码来检测当前运行设备是否是电视设备：
 
 ```js
-import {Platform} from 'react-native';
+import { Platform } from 'react-native';
 const running_on_tv = Platform.isTV;
 ```
 

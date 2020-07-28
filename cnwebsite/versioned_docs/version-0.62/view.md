@@ -4,7 +4,7 @@ title: View
 original_id: view
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(94.76%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(5.24%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.76%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(5.24%)
 
 作为创建 UI 时最基础的组件，View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，View 都会直接对应一个平台的原生视图，无论它是 UIView、div 还是 android.view.View。下面的例子创建了一个 View，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
 
@@ -136,9 +136,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 > 触摸范围不会扩展到父视图之外，另外如果触摸到两个重叠的视图，Z-index 高的元素会优先。
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必填 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -413,9 +413,9 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 了解更多信息，可以阅读 [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility)。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否 | Android |
+| 类型                                             | 必填 | 平台    |
+| ------------------------------------------------ | ---- | ------- |
+| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否   | Android |
 
 ---
 

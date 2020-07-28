@@ -4,7 +4,7 @@ title: ImageBackground
 original_id: imagebackground
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
@@ -57,19 +57,19 @@ export default App;
 ### `style`
 
 | 类型                               | 必填 |
-| ---------------------------------- | -------- |
-| [view styles](view-style-props.md) | 否       |
+| ---------------------------------- | ---- |
+| [view styles](view-style-props.md) | 否   |
 
 ### `imageStyle`
 
 | 类型                                 | 必填 |
-| ------------------------------------ | -------- |
-| [image styles](image-style-props.md) | 否       |
+| ------------------------------------ | ---- |
+| [image styles](image-style-props.md) | 否   |
 
 ### `imageRef`
 
 Allows to set a reference to the inner `Image` component
 
 | 类型                                                  | 必填 |
-| ----------------------------------------------------- | -------- |
-| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) | 否       |
+| ----------------------------------------------------- | ---- |
+| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) | 否   |

@@ -4,7 +4,7 @@ title: Headless JS（后台任务）
 original_id: headless-js-android
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来在后台同步数据、处理推送通知或是播放音乐等等。
 
@@ -22,7 +22,7 @@ AppRegistry.registerHeadlessTask('SomeTaskName', () =>
 然后创建 require 中引用的`SomeTaskName.js`文件:
 
 ```jsx
-module.exports = async taskData => {
+module.exports = async (taskData) => {
   // 要做的任务
 };
 ```
@@ -117,6 +117,7 @@ If you wish all errors to cause a retry attempt, you will need to catch them and
 ## 注意事项
 
 - The function passed to `setTimeout` does not always behave as expected. Instead the function is called only when the application is launched again. If you just need to wait, use the retry functionality.
+
 * 默认情况下，如果应用正在前台运行时尝试执行任务，那么应用会崩溃。这是为了防止开发者在任务中处理太多逻辑而拖慢用户界面。如果你必须要这么做，那么可以设置第四个参数为`false`来更改这一限制。
 * 如果你是通过`BroadcastReceiver`来启动的服务，那么谨记在从`onReceive()`返回之前要调用`HeadlessJsTaskService.acquireWakeLockNow()`。
 

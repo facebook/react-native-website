@@ -4,7 +4,7 @@ title: useWindowDimensions
 original_id: usewindowdimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 ```jsx
 import { useWindowDimensions } from 'react-native';

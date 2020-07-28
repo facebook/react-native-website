@@ -4,7 +4,7 @@ title: Text
 original_id: text
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(99.66%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com+in%3Aemail&type=Users)(0.34%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.66%), [hqwlkj](https://github.com/search?q=hqwlkj%40outlook.com&type=Users)(0.34%)
 
 一个用于显示文本的 React 组件，并且它也支持嵌套、样式，以及触摸处理。
 

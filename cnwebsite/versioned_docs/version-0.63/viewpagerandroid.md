@@ -4,7 +4,7 @@ title: 🚧 ViewPagerAndroid
 original_id: viewpagerandroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(94.44%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com+in%3Aemail&type=Users)(5.56%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.44%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(5.56%)
 
 > **已过时。** Use [@react-native-community/viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
 

@@ -4,7 +4,7 @@ title: 🚧 CheckBox
 original_id: checkbox
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
 
 > **Deprecated.** Use [@react-native-community/checkbox](https://github.com/react-native-community/react-native-checkbox) instead.
 
@@ -59,7 +59,7 @@ export default App;
 
 ## Props
 
-继承所有[View的Props](view#props).
+继承所有[View 的 Props](view#props).
 
 ### `disabled`
 
