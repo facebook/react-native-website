@@ -177,8 +177,7 @@ figcaption {
 
 /* Right side navigation */
 .onPageNav {
-  overflow: visible;
-  overflow-y: auto;
+  flex: 0 0 246px;
 }
 
 .onPageNav a,
@@ -197,7 +196,7 @@ figcaption {
 }
 
 .onPageNav ul ul {
-  padding: 8px 0 0 16px;
+  padding: 8px 0 0 14px;
 }
 
 .onPageNav ul ul li {
@@ -335,7 +334,6 @@ td .label.required {
   height: 6px;
   border-radius: 100%;
   margin-left: 2px;
-  margin-right: -12px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
