@@ -4,7 +4,7 @@ title: Accessibility
 original_id: accessibility
 ---
 
-Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and Talkback (Android). React Native has complimentary APIs that let your app accommodate all users.
+Both Android and iOS provide APIs for integrating apps with assistive technologies like the bundled screen readers VoiceOver (iOS) and TalkBack (Android). React Native has complimentary APIs that let your app accommodate all users.
 
 > Android and iOS differ slightly in their approaches, and thus the React Native implementations may vary by platform.
 
@@ -64,7 +64,7 @@ To use, set the `accessibilityHint` property to a custom string on your View, Te
 
 iOS In the above example, VoiceOver will read the hint after the label, if the user has hints enabled in the device's VoiceOver settings. Read more about guidelines for accessibilityHint in the [iOS Developer Docs](https://developer.apple.com/documentation/objectivec/nsobject/1615093-accessibilityhint)
 
-Android In the above example, Talkback will read the hint after the label. At this time, hints cannot be turned off on Android.
+Android In the above example, TalkBack will read the hint after the label. At this time, hints cannot be turned off on Android.
 
 ### `accessibilityIgnoresInvertColors` (iOS)
 
@@ -172,12 +172,12 @@ In the case of two overlapping UI components with the same parent, default acces
 ```jsx
 <View style={styles.container}>
   <View
-    style={[styles.layout, {backgroundColor: 'green'}]}
+    style={[styles.layout, { backgroundColor: 'green' }]}
     importantForAccessibility="yes">
     <Text>First layout</Text>
   </View>
   <View
-    style={[styles.layout, {backgroundColor: 'yellow'}]}
+    style={[styles.layout, { backgroundColor: 'yellow' }]}
     importantForAccessibility="no-hide-descendants">
     <Text>Second layout</Text>
   </View>
@@ -248,12 +248,16 @@ The `AccessibilityInfo` API allows you to determine whether or not a screen read
 Sometimes it is useful to trigger an accessibility event on a UI component (i.e. when a custom view appears on a screen or set accessibility focus to a view). Native UIManager module exposes a method ‘sendAccessibilityEvent’ for this purpose. It takes two arguments: view tag and a type of an event. The supported event types are `typeWindowStateChanged`, `typeViewFocused` and `typeViewClicked`.
 
 ```jsx
-import {Platform, UIManager, findNodeHandle} from 'react-native';
+import {
+  Platform,
+  UIManager,
+  findNodeHandle
+} from 'react-native';
 
 if (Platform.OS === 'android') {
   UIManager.sendAccessibilityEvent(
     findNodeHandle(this),
-    UIManager.AccessibilityEventTypes.typeViewFocused,
+    UIManager.AccessibilityEventTypes.typeViewFocused
   );
 }
 ```

@@ -20,8 +20,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 
 <block class="functional syntax" />
 
-```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example
-
+```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example&supportedPlatforms=android,ios
 import React, { useState, useEffect } from "react";
 import { AccessibilityInfo, View, Text, StyleSheet } from "react-native";
 
@@ -39,18 +38,22 @@ const App = () => {
       handleScreenReaderToggled
     );
 
-    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
-      setReduceMotionEnabled(reduceMotionEnabled);
-    });
-    AccessibilityInfo.fetch().then(screenReaderEnabled => {
-      setScreenReaderEnabled(screenReaderEnabled);
-    });
+    AccessibilityInfo.isReduceMotionEnabled().then(
+      reduceMotionEnabled => {
+        setReduceMotionEnabled(reduceMotionEnabled);
+      }
+    );
+    AccessibilityInfo.isScreenReaderEnabled().then(
+      screenReaderEnabled => {
+        setScreenReaderEnabled(screenReaderEnabled);
+      }
+    );
+
     return () => {
       AccessibilityInfo.removeEventListener(
         "reduceMotionChanged",
         handleReduceMotionToggled
       );
-
       AccessibilityInfo.removeEventListener(
         "screenReaderChanged",
         handleScreenReaderToggled
@@ -94,8 +97,7 @@ export default App;
 
 <block class="classical syntax" />
 
-```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example
-
+```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios
 import React, { Component } from 'react';
 import { AccessibilityInfo, View, Text, StyleSheet } from 'react-native';
 
@@ -115,10 +117,10 @@ class AccessibilityStatusExample extends Component {
       this._handleScreenReaderToggled
     );
 
-    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
       this.setState({ reduceMotionEnabled });
     });
-    AccessibilityInfo.fetch().then(screenReaderEnabled => {
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
       this.setState({ screenReaderEnabled });
     });
   }

@@ -66,8 +66,6 @@ Here the `Cat` component will render a `<Text>` element:
 const Cat = () => {
   return <Text>Hello, I am your cat!</Text>;
 };
-
-export default Cat;
 ```
 
 You can export your function component with JavaScript’s [`export default`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export) for use throughout your app like so:
@@ -229,7 +227,7 @@ export default Cat;
 
 <block class="endBlock devNotes" />
 
-You can render this component multiple times and multiple places without repeating your code by using `<Cat>`:
+You can render this component multiple times and in multiple places without repeating your code by using `<Cat>`:
 
 ```SnackPlayer name=Multiple%20Components
 import React from 'react';

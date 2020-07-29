@@ -15,7 +15,7 @@ try {
   // We don't care if there are no repos synced locally
   // We only care if we are on the CI server and about to deploy
 }
-const defaultVersionShown = '0.62';
+const defaultVersionShown = '0.63';
 const baseUrl = '/';
 const repoUrl = 'https://github.com/facebook/react-native';
 const siteConfig = {
@@ -95,6 +95,8 @@ const siteConfig = {
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
     baseUrl + 'js/docs-rating.js',
+    baseUrl + 'js/announcement.js',
+    baseUrl + 'js/survey-banner.js',
   ],
   cleanUrl: true,
   scrollToTop: true,

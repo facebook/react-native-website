@@ -28,7 +28,7 @@ import {Text, View} from 'react-native';
 import {Header} from './Header';
 import {heading} from './Typography';
 
-const WelcomeScreen = () => 
+const WelcomeScreen = () =>
   <View>
     <Header title="Welcome to React Native"/>
     <Text style={heading}>Step One</Text>
@@ -54,7 +54,7 @@ const WelcomeScreen = () =>
    \`\`\`
   `,
   forEveryone: `
-React Native lets you create truly native apps and doesn't compromise on your users' experience.
+React Native lets you create truly native apps and doesn't compromise your users' experiences.
 It provides a core set of platform agnostic native components like \`View\`, \`Text\`, and \`Image\`
 that map directly to the platform’s native UI building blocks.
   `,
@@ -77,7 +77,7 @@ Twitter
   `,
   community: `
 In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
-Today, React Native is supported by contributions from individuals and companies around the world 
+Today, React Native is supported by contributions from individuals and companies around the world
 including [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software Mansion].
 
 Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS

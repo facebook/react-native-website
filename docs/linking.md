@@ -33,7 +33,7 @@ As mentioned in the introduction, there are some URL schemes for core functional
 
 ### Enabling Deep Links
 
-If you want to enable deep links in your app, please the below guide:
+If you want to enable deep links in your app, please read the below guide:
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">

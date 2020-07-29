@@ -40,8 +40,7 @@ const App = () => {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
 
   const createThreeButtonAlert = () =>
@@ -59,8 +58,7 @@ const App = () => {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
 
   return (
@@ -101,8 +99,7 @@ class App extends Component {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
 
   createThreeButtonAlert = () =>
@@ -120,8 +117,7 @@ class App extends Component {
           style: "cancel"
         },
         { text: "OK", onPress: () => console.log("OK Pressed") }
-      ],
-      { cancelable: false }
+      ]
     );
 
   render() {
@@ -163,31 +159,33 @@ On Android at most three buttons can be specified. Android has a concept of a ne
 - Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
 - Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
 
-By default alerts on Android can be dismissed by tapping outside of the alert box. This event can be handled by providing an optional `options` parameter, with an `onDismiss` callback property `{ onDismiss: () => {} }`.
+Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional `options` parameter with the cancelable property set to true i.e. `{ cancelable: true }`.
 
-Alternatively, the dismissing behavior can be disabled altogether by providing an optional options parameter with the cancelable property set to false i.e. `{ cancelable: false }`.
+The cancel event can be handled by providing an `onDismiss` callback property `{ onDismiss: () => {} }` inside the `options` parameter.
 
 Example usage:
 
 ```jsx
-// Works on both Android and iOS
-Alert.alert(
-  'Alert Title',
-  'My Alert Msg',
-  [
-    {
-      text: 'Ask me later',
-      onPress: () => console.log('Ask me later pressed')
-    },
-    {
-      text: 'Cancel',
-      onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel'
-    },
-    { text: 'OK', onPress: () => console.log('OK Pressed') }
-  ],
-  { cancelable: false }
-);
+Alert.alert('Alert Title', 'My Alert Msg', [
+  {
+    text: 'Ask me later',
+    onPress: () => console.log('Ask me later pressed')
+  },
+  {
+    text: 'Cancel',
+    onPress: () => console.log('Cancel Pressed'),
+    style: 'cancel'
+  },
+  { text: 'OK', onPress: () => console.log('OK Pressed') },
+  {
+    // cancelable and onDismiss only work on Android.
+    cancelable: true,
+    onDismiss: () =>
+      console.log(
+        'This alert was dismissed by tapping outside of the alert dialog.'
+      )
+  }
+]);
 ```
 
 ---
