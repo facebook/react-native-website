@@ -185,17 +185,14 @@ React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs.install python2 openjdk8 
+choco install -y nodejs.install python2 openjdk8
 ```
 
 If you have already installed Node on your system, make sure it is Node 10 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
-
 > If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the lastest releases of Gradle](https://gradle.org/releases/).
-
-
 
 <block class="native mac ios" />
 
@@ -344,7 +341,7 @@ The SDK is installed, by default, at the following location:
 %LOCALAPPDATA%\Android\Sdk
 ```
 
-You can find the actual location of the SDK in the Android Studio "Preferences" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
+You can find the actual location of the SDK in the Android Studio "Settings" dialog, under **Appearance & Behavior** → **System Settings** → **Android SDK**.
 
 Open a new Command Prompt window to ensure the new environment variable is loaded before proceeding to the next step.
 
@@ -493,15 +490,7 @@ npx react-native start
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-<block class="webNote devNotes" />
-
-> Metro is a lot like webpack—for React Native apps.
-
-<block class="androidNote devNotes" />
-
-> Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
-
-<block class="endBlock devNotes" />
+> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
 
 <h3>Step 2: Start your application</h3>
 
@@ -541,15 +530,7 @@ npx react-native start
 
 > If you use the Yarn package manager, you can use `yarn` instead of `npx` when running React Native commands inside an existing project.
 
-<block class="webNote devNotes" />
-
-> Metro is a lot like webpack—for React Native apps.
-
-<block class="androidNote devNotes" />
-
-> Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
-
-<block class="endBlock devNotes" />
+> If you're familiar with web development, Metro is a lot like webpack—for React Native apps. Unlike Kotlin or Java, JavaScript isn't compiled—and neither is React Native. Bundling isn't the same as compiling, but it can help improve startup performance and translate some platform-specific JavaScript into more JavaScript.
 
 <h3>Step 2: Start your application</h3>
 
