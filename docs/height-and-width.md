@@ -64,7 +64,7 @@ After you can control a component's size, the next step is to [learn how to lay 
 
 ## Percentage Dimensions
 
-If you want to fill the certain portion of the screen but you don't want to use the `flex` layout you can use the percentage values in the component's style. Similar to flex dimensions, percentage dimensions requires parent with a defined size.
+If you want to fill a certain portion of the screen, but you _don't_ want to use the `flex` layout, you _can_ use **percentage values** in the component's style. Similar to flex dimensions, percentage dimensions require parent with a defined size.
 
 ```SnackPlayer name=Percentage%20Dimensions
 import React from 'react';
