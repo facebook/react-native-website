@@ -356,6 +356,9 @@
       "switch": {
         "title": "Switch"
       },
+      "symbolication": {
+        "title": "Symbolicating a stack trace"
+      },
       "systrace": {
         "title": "Systrace"
       },

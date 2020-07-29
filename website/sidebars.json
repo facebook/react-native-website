@@ -21,6 +21,7 @@
       "running-on-device",
       "fast-refresh",
       "debugging",
+      "symbolication",
       "testing-overview",
       "libraries",
       "typescript",
