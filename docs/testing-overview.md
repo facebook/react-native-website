@@ -128,8 +128,7 @@ For example, if you have a button that has an `onPress` listener, you want to te
 There are several libraries that can help you testing these:
 
 - React’s [Test Renderer](https://reactjs.org/docs/test-renderer.html), developed alongside its core, provides a React renderer that can be used to render React components to pure JavaScript objects, without depending on the DOM or a native mobile environment.
-- [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
-- [`@testing-library/react-native`](https://www.native-testing-library.com/) is another alternative that also builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) builds on top of React’s test renderer and adds `fireEvent` and `query` APIs described in the next paragraph.
 
 > Component tests are only JavaScript tests running in Node.js environment. They do _not_ take into account any iOS, Android, or other platform code which is backing the React Native components. It follows that they cannot give you a 100% confidence that everything works for the user. If there is a bug in the iOS or Android code, they will not find it.
 
@@ -183,7 +182,7 @@ Avoid testing implementation details like props or state—while such tests work
 
 > React class components are especially prone to testing their implementation details such as internal state, props or event handlers. To avoid testing implementation details, prefer using function components with Hooks, which make relying on component internals _harder_.
 
-Component testing libraries such as [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
+Component testing libraries such as [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) facilitate writing user-centric tests by careful choice of provided APIs. The following example uses `fireEvent` methods `changeText` and `press` that simulate a user interacting with the component and a query function `getAllByText` that finds matching `Text` nodes in the rendered output.
 
 ```jsx
 test('given empty GroceryShoppingList, user can add an item to it', () => {
@@ -263,8 +262,7 @@ We hope you enjoyed reading and learned something from this guide. There are man
 ### Links
 
 - [React testing overview](https://reactjs.org/docs/testing.html)
-- [`react-native-testing-library`](https://github.com/callstack/react-native-testing-library)
-- [`@testing-library/react-native`](https://www.native-testing-library.com/)
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/)
 - [Jest docs](https://jestjs.io/docs/en/tutorial-react-native)
 - [Detox](https://github.com/wix/detox/)
 - [Appium](http://appium.io/)
