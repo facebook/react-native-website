@@ -105,6 +105,8 @@ const siteConfig = {
   },
   docsSideNavCollapsible: true,
   onPageNav: 'separate',
+  slugPreprocessor: baseSlug =>
+    baseSlug.replace(/<([^>]+?)([^>]*?)>(.*?)<\/\1>/gi, ''),
 };
 
 module.exports = siteConfig;
