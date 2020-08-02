@@ -157,7 +157,7 @@ The methods described here are available on most of the default components provi
 
 ### measure(callback)
 
-Determines the location on screen, width, and height of the given view and returns the values via an async callback. If successful, the callback will be called with the following arguments:
+Determines the location on screen, width, and height in the viewport of the given view and returns the values via an async callback. If successful, the callback will be called with the following arguments:
 
 - x
 - y
@@ -166,7 +166,7 @@ Determines the location on screen, width, and height of the given view and retur
 - pageX
 - pageY
 
-Note that these measurements are not available until after the rendering has been completed in native. If you need the measurements as soon as possible and you don't need `pageX` and `pageY`, consider using the [`onLayout` prop](view.md#onlayout) instead.
+Note that these measurements are not available until after the rendering has been completed in native.  Also, both [`onLayout` prop](view.md#onlayout) and [`measure(callback)` prop](direct-manipulation#measureinwindowcallback) works differently. The width and height returned by [`onLayout` prop](view.md#onlayout) are the actual width and height of the view. The width and height returned by [`measure(callback)` prop](direct-manipulation#measureinwindowcallback) are the width and height in the viewport, not the actual element width and height.
 
 ### measureInWindow(callback)
 
