@@ -19,7 +19,7 @@ original_id: javascript-environment
 
 ## JavaScript 语法转换器
 
-语法转换器可以使编写代码的过程更加享受，因为开发者可以借助转换器直接使用新的 JavaScirpt 语法标准，而无需等待 JS 解释器的支持。
+语法转换器可以使编写代码的过程更加享受，因为开发者可以借助转换器直接使用新的 JavaScript 语法标准，而无需等待 JS 解释器的支持。
 
 React Native 内置了[Babel 转换器](https://babeljs.io)。你可以查看[Babel 的文档](https://babeljs.io/docs/plugins/#transform-plugins)来了解有关它可以转换的语法的详情。
 
