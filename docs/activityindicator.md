@@ -5,7 +5,7 @@ title: ActivityIndicator
 
 Displays a circular loading indicator.
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -24,16 +24,14 @@ Displays a circular loading indicator.
 import React from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-export default function App() {
-  return (
-    <View style={[styles.container, styles.horizontal]}>
-      <ActivityIndicator size="large" color="#0000ff" />
-      <ActivityIndicator size="small" color="#00ff00" />
-      <ActivityIndicator size="large" color="#0000ff" />
-      <ActivityIndicator size="small" color="#00ff00" />
-    </View>
-  );
-}
+const App = () => (
+  <View style={[styles.container, styles.horizontal]}>
+    <ActivityIndicator />
+    <ActivityIndicator size="large" />
+    <ActivityIndicator size="small" color="#0000ff" />
+    <ActivityIndicator size="large" color="#00ff00" />
+  </View>
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -46,6 +44,8 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -54,14 +54,14 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <View style={[styles.container, styles.horizontal]}>
-        <ActivityIndicator size="large" color="#0000ff" />
-        <ActivityIndicator size="small" color="#00ff00" />
-        <ActivityIndicator size="large" color="#0000ff" />
-        <ActivityIndicator size="small" color="#00ff00" />
+      <ActivityIndicator />
+      <ActivityIndicator size="large" />
+      <ActivityIndicator size="small" color="#0000ff" />
+      <ActivityIndicator size="large" color="#00ff00" />
       </View>
     );
   }
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
   }
 });
 
+export default App;
 ```
 
 <block class="endBlock syntax" />
@@ -89,40 +90,42 @@ const styles = StyleSheet.create({
 
 Inherits [View Props](view#props).
 
+---
+
 ### `animating`
 
-Whether to show the indicator (true, the default) or hide it (false).
+Whether to show the indicator (`true`) or hide it (`false`).
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
 
 ---
 
 ### `color`
 
-The foreground color of the spinner (default is gray on iOS and dark cyan on Android).
+The foreground color of the spinner.
 
-| Type            | Required |
-| --------------- | -------- |
-| [color](colors) | No       |
+| Type            | Default                                                                                                                                                                             |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [color](colors) | `null` (system accent default color)<div class="label android">Android</div><hr/><ins style="background: #999" class="color-box"></ins>`'#999999'` <div class="label ios">iOS</div> |
 
 ---
 
-### `hidesWhenStopped`
+### `hidesWhenStopped` <div class="label ios">iOS</div>
 
-Whether the indicator should hide when not animating (true by default).
+Whether the indicator should hide when not animating.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |
 
 ---
 
 ### `size`
 
-Size of the indicator (default is 'small'). Passing a number to the size prop is only supported on Android.
+Size of the indicator.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| enum('small', 'large'), number | No       |
+| Type                                                                           | Default   |
+| ------------------------------------------------------------------------------ | --------- |
+| enum(`'small'`, `'large'`)<hr/>number <div class="label android">Android</div> | `'small'` |

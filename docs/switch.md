@@ -7,11 +7,13 @@ Renders a boolean input.
 
 This is a controlled component that requires an `onValueChange` callback that updates the `value` prop in order for the component to reflect user actions. If the `value` prop is not updated, the component will continue to render the supplied `value` prop instead of the expected result of any user actions.
 
-```SnackPlayer name=Switch
+## Example
+
+```SnackPlayer name=Switch&supportedPlatforms=android,ios
 import React, { useState } from "react";
 import { View, Switch, StyleSheet } from "react-native";
 
-export default function App() {
+const App = () => {
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
@@ -35,6 +37,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+
+export default App;
 ```
 
 ---

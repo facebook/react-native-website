@@ -41,13 +41,13 @@ The following helpers are used to modify other easing functions.
 - [`inOut`](easing.md#inout) makes any easing function symmetrical
 - [`out`](easing.md#out) runs an easing function backwards
 
-### Example
+## Example
 
 ```SnackPlayer name=Easing%20Demo
 import React from "react";
 import { Animated, Easing, SectionList, StatusBar, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   let opacity = new Animated.Value(0);
 
   const animate = easing => {
@@ -87,8 +87,8 @@ export default App = () => {
         sections={SECTIONS}
         keyExtractor={(item) => item.title}
         renderItem={({ item }) => (
-          <TouchableOpacity 
-            onPress={() => animate(item.easing)} 
+          <TouchableOpacity
+            onPress={() => animate(item.easing)}
             style={styles.listRow}
           >
             <Text>{item.title}</Text>
@@ -184,6 +184,8 @@ const styles = StyleSheet.create({
     padding: 8
   }
 });
+
+export default App;
 ```
 
 ---
@@ -358,9 +360,11 @@ A useful tool to visualize cubic bezier curves can be found at http://cubic-bezi
 
 ### `in()`
 
+<!-- prettier-ignore-start -->
 ```jsx
 static in(easing);
 ```
+<!-- prettier-ignore-end -->
 
 Runs an easing function forwards.
 

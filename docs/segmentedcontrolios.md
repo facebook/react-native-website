@@ -13,17 +13,39 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 ## Example
 
-```jsx
-<SegmentedControlIOS
-  values={['One', 'Two']}
-  selectedIndex={this.state.selectedIndex}
-  onChange={(event) => {
-    this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
-  }}
-/>
-```
+```SnackPlayer name=SegmentedControlIOS%20Example&supportedPlatforms=ios
+import React, { useState } from "react";
+import { SegmentedControlIOS, StyleSheet, Text, View } from "react-native";
 
-<center><img src="/docs/assets/SegmentedControlIOS/example.gif" width="360"></img></center>
+export default App = () => {
+  const [index, setIndex] = useState(0);
+  return (
+    <View style={styles.container}>
+      <SegmentedControlIOS
+        values={['One', 'Two']}
+        selectedIndex={index}
+        onChange={(event) => {
+          setIndex(event.nativeEvent.selectedSegmentIndex);
+        }}
+      />
+      <Text style={styles.text}>
+        Selected index: {index}
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    justifyContent: "center"
+  },
+  text: {
+    marginTop: 24
+  }
+});
+```
 
 ---
 
@@ -41,8 +63,6 @@ If false the user won't be able to interact with the control. Default value is t
 | ---- | -------- |
 | bool | No       |
 
-<center><img src="/docs/assets/SegmentedControlIOS/enabled.png" width="360"></img></center>
-
 ---
 
 ### `momentary`
@@ -52,8 +72,6 @@ If true, then selecting a segment won't persist visually. The `onValueChange` ca
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
-
-<center><img src="/docs/assets/SegmentedControlIOS/momentary.gif" width="360"></img></center>
 
 ---
 
@@ -89,13 +107,13 @@ The index in `props.values` of the segment to be (pre)selected.
 
 ### `tintColor`
 
+> **Note:** `tintColor` is not supported on the iOS 13+.
+
 Accent color of the control.
 
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
-
-<center><img src="/docs/assets/SegmentedControlIOS/tintColor.png" width="360"></img></center>
 
 ---
 

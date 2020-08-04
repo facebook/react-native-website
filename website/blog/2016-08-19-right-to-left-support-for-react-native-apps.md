@@ -181,12 +181,12 @@ Even after the initial RTL-compatible app release, you will likely need to itera
 
 _onDirectionChange = () => {
   I18nManager.forceRTL(!this.state.isRTL);
-  this.setState({isRTL: !this.state.isRTL});
+  this.setState({ isRTL: !this.state.isRTL });
   Alert.alert(
     'Reload this page',
     'Please reload this page to change the UI direction! ' +
       'All examples in this app will be affected. ' +
-      'Check them out to see what they look like in RTL layout.',
+      'Check them out to see what they look like in RTL layout.'
   );
 };
 ```
@@ -211,6 +211,6 @@ The RTL support should cover most of the UX in your app; however, there are some
 
 ## Try it Out!
 
-Check out the [`RTLExample`](https://github.com/facebook/react-native/blob/master/RNTester/js/RTLExample.js) in the `RNTester` to understand more about RTL support, and let us know how it works for you!
+Check out the [`RTLExample`](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/RTL/RTLExample.js) in the `RNTester` to understand more about RTL support, and let us know how it works for you!
 
 Finally, thank you for reading! We hope that the RTL support for React Native helps you grow your apps for international audience!

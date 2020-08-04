@@ -106,7 +106,7 @@ The very final step is to create the JavaScript module that defines the interfac
 ```jsx
 // ImageView.js
 
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 /**
  * Composes `View`.

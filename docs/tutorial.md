@@ -15,10 +15,10 @@ In accordance with the ancient traditions of our people, we must first build an 
 import React from 'react';
 import { Text, View } from 'react-native';
 
-function HelloWorldApp() {
+const HelloWorldApp = () => {
   return (
     <View
-      style={{  }}
+      style={{
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   }
 })
 
-function Greeting(props) {
+const Greeting = (props) => {
   return (
     <View style={styles.center}>
       <Text>Hello {props.name}!</Text>
@@ -79,7 +79,7 @@ function Greeting(props) {
   );
 }
 
-function LotsOfGreetings() {
+const LotsOfGreetings = () => {
   return (
     <View style={[styles.center, {top: 50}]}>
       <Greeting name='Rexxar' />
@@ -108,9 +108,72 @@ In a React component, the props are the variables that we pass from a parent com
 
 #### There are differences between React and React Native to handle the state?
 
-![image](https://user-images.githubusercontent.com/20761166/61405629-48270680-a8a8-11e9-906e-aa80d51e51e3.png)
+<div class="two-columns">
 
-As shown in the image, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
+```jsx
+// ReactJS Counter Example using Hooks!
+
+import React, { useState } from 'react';
+
+
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div className="container">
+      <p>You clicked {count} times</p>
+      <button
+        onClick={() => setCount(count + 1)}>
+        Click me!
+      </button>
+    </div>
+  );
+};
+
+
+// CSS
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+```
+
+```jsx
+// React Native Counter Example using Hooks!
+
+import React, { useState } from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <View style={styles.container}>
+      <Text>You clicked {count} times</Text>
+      <Button
+        onPress={() => setCount(count + 1)}
+        titles="Click me!"
+      />
+    </View>
+  );
+};
+
+// React Native Styles
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
+```
+
+</div>
+
+As shown above, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
 
 In the following example we will show the same above counter example using classes.
 
@@ -143,7 +206,7 @@ class App extends Component {
         >
          <Text>Click me</Text>
         </TouchableOpacity>
-        <View style={styles.countContainer}>
+        <View>
           <Text>
             You clicked { this.state.count } times
           </Text>
@@ -163,7 +226,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10,
-    marginBottom: '10'
+    marginBottom: 10
   }
 })
 

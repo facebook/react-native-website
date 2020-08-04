@@ -1,6 +1,6 @@
 ---
 id: typescript
-title: Using TypeScript with React Native
+title: Using TypeScript
 ---
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
@@ -12,6 +12,8 @@ If you're starting a new project, there are a few different ways to get started.
 ```sh
 npx react-native init MyApp --template react-native-template-typescript
 ```
+
+> **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
 
 You can use [Expo][expo] which has two TypeScript templates:
 
@@ -67,7 +69,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 ```js
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node']
 };
 ```
 
@@ -88,7 +90,7 @@ You can provide an interface for a React Component's [Props][props] and [State][
 ```tsx
 // components/Hello.tsx
 import React from 'react';
-import {Button, StyleSheet, Text, View} from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export interface Props {
   name: string;
@@ -97,18 +99,21 @@ export interface Props {
 
 const Hello: React.FC<Props> = (props) => {
   const [enthusiasmLevel, setEnthusiasmLevel] = React.useState(
-    props.enthusiasmLevel,
+    props.enthusiasmLevel
   );
 
-  const onIncrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
-  const onDecrement = () => setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
+  const onIncrement = () =>
+    setEnthusiasmLevel((enthusiasmLevel || 0) + 1);
+  const onDecrement = () =>
+    setEnthusiasmLevel((enthusiasmLevel || 0) - 1);
 
   const getExclamationMarks = (numChars: number) =>
     Array(numChars + 1).join('!');
   return (
     <View style={styles.root}>
       <Text style={styles.greeting}>
-        Hello {props.name + getExclamationMarks(enthusiasmLevel || 0)}
+        Hello{' '}
+        {props.name + getExclamationMarks(enthusiasmLevel || 0)}
       </Text>
 
       <View style={styles.buttons}>
@@ -138,23 +143,23 @@ const Hello: React.FC<Props> = (props) => {
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
-    alignSelf: 'center',
+    alignSelf: 'center'
   },
   buttons: {
     flexDirection: 'row',
     minHeight: 70,
     alignItems: 'stretch',
     alignSelf: 'center',
-    borderWidth: 5,
+    borderWidth: 5
   },
   button: {
     flex: 1,
-    paddingVertical: 0,
+    paddingVertical: 0
   },
   greeting: {
     color: '#999',
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 
 export default Hello;
@@ -172,7 +177,7 @@ You can explore the syntax more in the [TypeScript playground][tsplay].
 
 To use custom path aliases with TypeScript, you need to set the path aliases to work from both Babel and TypeScript. Here's how:
 
-1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `test/File.tsx`:
+1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `tests/File.tsx`:
 
 ```diff
     "target": "esnext",
@@ -221,10 +226,10 @@ npm install --save-dev babel-plugin-module-resolver
 [babel-7-caveats]: https://babeljs.io/docs/en/next/babel-plugin-transform-typescript
 [cheat]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
-[props]: /docs/props.html
-[state]: /docs/state.html
+[props]: /docs/props
+[state]: /docs/state
 [path-map]: https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
 [bpmr]: https://github.com/tleunen/babel-plugin-module-resolver
 [expo]: https://expo.io
-[ignite]: https://infinite.red/ignite
+[ignite]: https://github.com/infinitered/ignite
 [tsplay]: https://www.typescriptlang.org/play/?strictNullChecks=false&esModuleInterop=true&jsx=3#code/JYWwDg9gTgLgBAJQKYEMDG8BmUIjgcilQ3wG4BYAKFEljgG8AhAVxhggDsAaOAZRgCeAGyS8AFkiQweAFSQAPaXABqwJAHcAvnGy4CRdDAC0HFDGAA3JGSpUFteMA4wkUTOiRwACjjABnBio4YLhTECQALjg-GCgnAHMKShC4JGcxZj9gFD8QABkkKyEAfiiOZhAAI1ckzVtKNE4YuAAJJCEhCCjkQwA6ADEAYQAeHwh-AD44AF44AAowXz8AShmp+iCQxo5mgG00mAysnPzC9p4-KQBRdMzs3IKigF0ZxGIYXszRGDMkBaXegcjvdTkVlklNsFts1OABJDhoIjhZyvOaraZTS4wG6HO4nR7tOZzIF4h5nIRwAA+lLgAAZVgBqOAARnBkLg0PgnAAIkhEUhkfBZmi1tFrrdjmSikSSZLQe0qTT6XAjCy2ZR2Zy4PFrvI0EIUCAzMBOABZFBQADWAWF5RAgzEFr8ZQq1Sg6KmAEEoFAUAI5naHU64EzWb0AFYQJxzfAAQnw6pSRBgzCgHHm7JSw1UGmighE03oMWESD8vRwEBgmgmmZCwzkijzJcLxZEZfiRCkCWrtZSwTaHQg9HwBDqyT7E-oi3GZbCniZOuxeoNRvMZot1uJEpBBIp1LpyzHE+CwwA9A2YDWNeOJ9m1OomwWi-nS71Kqx2Dsezfjyecw-WyQFsXzLd82E4b9fyzFhwI4XsoPMGACwAIiMZD4N-TgfFLPxCx5PkkQOI8oIndA0Bw4BKmAIRgEEPIUGqIRpmQgATAiBQOdCfxIqEIE6KBmKIFiuJ4uBTyvUSz3-K8MLrf9HyA58S1Aj8IIknjhhgz9ZInRCUIZETRJCLCiD8XD6DhBFCOcYijLgMiKKomi6IY9pmKcflBUMuzGn45jKiEZgkG8qDxJ0uApPvdTb1PaT4MijRorgRMQjHMcqFPU8FL8KgtUAm0+BfcRJA+flfjmDYfwrGAokq38UBo+IOFhFwQGdAhyOcVx8C4eCGuAJreHaTAonwTqXCgHr2U0XqfzAz92rqidMBEeRuWAIgMBNDhRpwdQpu4kIQCcNoBrEGq4AAdlpWb6sa5rWva-AYmTNAxAOu6Bo4IahBGjqDm627j0qaA2KgAB1YAWMOKIAFYgeCGb2XmzhavglaFCiZkEb7MAUBYliEmUVxzDQBqohu6acY7EqEjRw7eP40aAGIAE52Y+49ME4GBwaQM6LvwEGhBYznEdmzRwSAA

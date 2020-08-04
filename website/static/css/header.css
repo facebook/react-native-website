@@ -112,12 +112,14 @@ li.navSearchWrapper {
 @media only screen and (max-width: 1024px) {
   .reactNavSearchWrapper input#search_input_react {
     border-radius: 0.25rem;
-    background-color: $dark;
+    background-color: $tintColor;
+    color: $deepdark;
     height: 30px;
   }
 
   .reactNavSearchWrapper input#search_input_react:focus {
-    background-color: $light;
+    background-color: $tintColor;
+    color: $deepdark;
   }
 }
 
@@ -171,14 +173,178 @@ li.navSearchWrapper {
   box-sizing: initial;
 }
 
+.navSearchWrapper:before {
+  border: 3px solid #717171;
+}
+.navSearchWrapper::after {
+  background: #717171;
+}
+
 input#search_input_react {
   /* Make as wide as the expanded state in the docusaurus default */
   width: 220px;
-  background-color: $dark;
+  background-color: $tintColor;
+  color: $deepdark;
   border-radius: 0.25rem;
   transition: background-color 150ms ease-in-out;
 }
 
+input#search_input_react::placeholder {
+  color: #717171;
+}
+
 input#search_input_react:focus {
-  background-color: $light;
+  background-color: $tintColor;
+  color: $deepdark;
+}
+
+/* Overrides for the announcement banner */
+.fixedHeaderContainer {
+  height: auto;
+}
+
+.headerWrapper.wrapper {
+  padding-top: 100px;
+}
+
+.navigationSlider .slidingNav {
+  height: 60px;
+}
+
+.anchor {
+  top: -160px;
+}
+
+@media only screen and (min-width: 735px) {
+  .anchor {
+    top: -180px;
+  }
+}
+
+.announcement {
+  color: #fff;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 30px;
+  text-align: center;
+  height: 100px;
+  position: absolute;
+  width: 100%;
+}
+
+.announcement-inner {
+  margin: 0 auto;
+  max-width: 768px;
+}
+
+.announcement-inner a {
+  text-decoration: underline;
+  display: inline-block;
+  color: $brand;
+}
+
+.announcement-inner a:hover {
+  color: #fff;
+}
+
+.fixedHeaderContainer,
+.onPageNav,
+.docsNavContainer {
+  transition: top 0.35s;
+}
+
+.navPusher {
+  transition: top 0.35s, margin 0.35s;
+}
+
+/*
+Fix small mobile device overflow with sliding up banner
+(code is present on desktop and for larger devices)
+ */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 700px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 160px;
+  }
+  .navPusher {
+    padding-top: 210px;
+  }
+  .announcement {
+    padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .announcement {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .navPusher {
+    padding-top: 160px;
+  }
+  .docsNavContainer {
+    top: 136px;
+  }
+  .onPageNav {
+    top: 172px;
+    max-height: calc(100vh - 172px);
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  ul.nav-site.nav-site-internal {
+    margin-top: 160px;
+  }
+  .navPusher {
+    padding-top: 210px;
+  }
+  .navSearchWrapper {
+    top: 114px;
+  }
+}
+/* End announcement banner override */
+
+/* 2020 Docs survey banner */
+
+.callout_docs-survey-2020-2 {
+  background-color: rgba(5, 165, 209, 0.25);
+  border-radius: 0.15em;
+  color: #001217;
+  display: block;
+  margin: 1em 0;
+  position: relative;
+  padding: 1em 2em 1em 3.5em;
+  transition: transform 300ms ease-out;
+  z-index: 1;
+}
+
+.callout_docs-survey-2020-2 svg {
+  fill: rgba(5, 165, 209, 1);
+  height: 2em;
+  width: 2em;
+  position: absolute;
+  top: 0.75em;
+  left: 1em;
+}
+
+.callout_docs-survey-2020-2:link,
+.callout_docs-survey-2020-2:visited {
+  color: #001217;
+}
+
+.callout_docs-survey-2020-2:hover,
+.callout_docs-survey-2020-2:active,
+.callout_docs-survey-2020-2:focus {
+  color: #001217;
+  transform: translate(0.1em, 0.1em);
+}
+
+.callout_docs-survey-2020-2 span {
+  text-decoration: underline;
 }

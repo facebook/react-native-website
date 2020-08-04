@@ -3,10 +3,10 @@ id: dimensions
 title: Dimensions
 ---
 
-> [`useWindowDimensions`](usewindowdimensions) is the preffered API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
+> [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
 
 ```jsx
-import {Dimensions} from 'react-native';
+import { Dimensions } from 'react-native';
 ```
 
 You can get the application window's width and height using the following code:
@@ -20,7 +20,7 @@ const windowHeight = Dimensions.get('window').height;
 
 If you are targeting foldable devices or devices which can change the screen size or app window size, you can use the event listener available in the Dimensions module as shown in the below example.
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -42,7 +42,7 @@ import { View, StyleSheet, Text, Dimensions } from "react-native";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-export default function App() {
+const App = () => {
   const [dimensions, setDimensions] = useState({ window, screen });
 
   const onChange = ({ window, screen }) => {
@@ -71,6 +71,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -82,7 +84,7 @@ import { View, StyleSheet, Text, Dimensions } from "react-native";
 const window = Dimensions.get("window");
 const screen = Dimensions.get("screen");
 
-export default class App extends Component {
+class App extends Component {
   state = {
     dimensions: {
       window,
@@ -121,6 +123,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

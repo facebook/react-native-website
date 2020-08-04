@@ -84,10 +84,13 @@ The input accessory view successfully avoids the home pill, but now content behi
 Here's an example which builds a keyboard toolbar button to reset `<TextInput>` state.
 
 ```jsx
-class TextInputAccessoryViewExample extends React.Component<{}, *> {
+class TextInputAccessoryViewExample extends React.Component<
+  {},
+  *
+> {
   constructor(props) {
     super(props);
-    this.state = {text: 'Placeholder Text'};
+    this.state = { text: 'Placeholder Text' };
   }
 
   render() {
@@ -97,13 +100,15 @@ class TextInputAccessoryViewExample extends React.Component<{}, *> {
         <TextInput
           style={styles.default}
           inputAccessoryViewID={inputAccessoryViewID}
-          onChangeText={(text) => this.setState({text})}
+          onChangeText={(text) => this.setState({ text })}
           value={this.state.text}
         />
         <InputAccessoryView nativeID={inputAccessoryViewID}>
-          <View style={{backgroundColor: 'white'}}>
+          <View style={{ backgroundColor: 'white' }}>
             <Button
-              onPress={() => this.setState({text: 'Placeholder Text'})}
+              onPress={() =>
+                this.setState({ text: 'Placeholder Text' })
+              }
               title="Reset Text"
             />
           </View>

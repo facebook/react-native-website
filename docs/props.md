@@ -8,10 +8,10 @@ Most components can be customized when they are created, with different paramete
 For example, one basic React Native component is the `Image`. When you create an image, you can use a prop named `source` to control what image it shows.
 
 ```SnackPlayer name=Props
-import React, { Component } from 'react';
+import React from 'react';
 import { Image } from 'react-native';
 
-export default function Bananas() {
+const Bananas = () => {
     let pic = {
       uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
     };
@@ -19,6 +19,8 @@ export default function Bananas() {
       <Image source={pic} style={{width: 193, height: 110, marginTop:50}}/>
     );
 }
+
+export default Bananas;
 ```
 
 Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX. You can put any JavaScript expression inside braces in JSX.
@@ -26,7 +28,7 @@ Notice the braces surrounding `{pic}` - these embed the variable `pic` into JSX.
 Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place by referring to `props` in your `render` function. Here's an example:
 
 ```SnackPlayer name=Props
-import React, { Component } from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 
 const Greeting = (props) => {
@@ -37,7 +39,7 @@ const Greeting = (props) => {
     );
 }
 
-export default function LotsOfGreetings() {
+export default LotsOfGreetings = () => {
     return (
       <View style={{alignItems: 'center', top: 50}}>
         <Greeting name='Rexxar' />

@@ -15,9 +15,9 @@ Note that you must specify some width and height style attributes.
 import React from "react";
 import { ImageBackground, StyleSheet, Text, View } from "react-native";
 
-const image = { uri: "https://facebook.github.io/react/logo-og.png" };
+const image = { uri: "https://reactjs.org/logo-og.png" };
 
-export default App = () => (
+const App = () => (
   <View style={styles.container}>
     <ImageBackground source={image} style={styles.image}>
       <Text style={styles.text}>Inside</Text>
@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+export default App;
 ```
 
 ---

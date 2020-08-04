@@ -10,8 +10,6 @@ const React = require('react');
 const CompLibrary = require('../../core/CompLibrary.js');
 const Container = CompLibrary.Container;
 
-const siteConfig = require(process.cwd() + '/siteConfig.js');
-
 class Help extends React.Component {
   render() {
     return (
@@ -112,21 +110,6 @@ class Help extends React.Component {
             conferences{' '}
             <a href="http://www.awesome-react-native.com/#conferences">here</a>
             {'.'}
-          </p>
-          <h3>React Native Show</h3>
-          <p>
-            The React Native Show is a video series from the React Native team
-            covering updates to React Native:
-          </p>
-          <p>
-            <iframe
-              width="560"
-              height="315"
-              frameBorder="0"
-              allowFullScreen
-              src="https://www.youtube-nocookie.com/embed/bjwwIqaKSo4"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            />
           </p>
           <h2>Communities</h2>
           <h3>Reactiflux Chat</h3>

@@ -3,6 +3,8 @@ id: touchableopacity
 title: TouchableOpacity
 ---
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
 
 Opacity is controlled by wrapping the children in an `Animated.View`, which is added to the view hierarchy. Be aware that this can affect layout.
@@ -26,7 +28,7 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 import React, { useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   const [count, setCount] = useState(0);
   const onPress = () => setCount(prevCount => prevCount + 1);
 
@@ -61,6 +63,8 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
@@ -69,7 +73,7 @@ const styles = StyleSheet.create({
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = { count: 0 };
@@ -115,6 +119,8 @@ const styles = StyleSheet.create({
     padding: 10
   }
 });
+
+export default App;
 ```
 
 <block class="endBlock syntax" />

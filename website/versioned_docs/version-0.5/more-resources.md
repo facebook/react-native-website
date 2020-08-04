@@ -8,7 +8,7 @@ If you only read through this website, you should be able to build a pretty cool
 
 ## Popular Libraries
 
-If you're using React Native, you probably already know about [React](https://facebook.github.io/react/). So I feel a bit silly mentioning this. But if you haven't, check out React - it's the best way to build a modern website.
+If you're using React Native, you probably already know about [React](https://reactjs.org/). So I feel a bit silly mentioning this. But if you haven't, check out React - it's the best way to build a modern website.
 
 One common question is how to handle the "state" of your React Native application. The most popular library for this is [Redux](http://redux.js.org/). Don't be afraid of how often Redux uses the word "reducer" - it's a pretty basic library, and there's also a nice [series of videos](https://egghead.io/courses/getting-started-with-redux) explaining it.
 
@@ -16,7 +16,7 @@ If you're looking for a library that does a specific thing, check out [Awesome R
 
 ## Examples
 
-Try out apps from the [Showcase](showcase/) to see what React Native is capable of! There are also some [example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can run the apps on a simulator or device, and you can see the source code for these apps, which is neat.
+Try out apps from the [Showcase](/showcase/) to see what React Native is capable of! There are also some [example apps on GitHub](https://github.com/ReactNativeNews/React-Native-Apps). You can run the apps on a simulator or device, and you can see the source code for these apps, which is neat.
 
 The folks who built the app for Facebook's F8 conference also [open-sourced the code](https://github.com/fbsamples/f8app) and wrote up a [detailed series of tutorials](http://makeitopen.com/). This is useful if you want a more in-depth example that's more realistic than most sample apps out there.
 

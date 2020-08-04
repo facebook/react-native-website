@@ -5,7 +5,7 @@ title: AccessibilityInfo
 
 Sometimes it's useful to know whether or not the device has a screen reader that is currently active. The `AccessibilityInfo` API is designed for this purpose. You can use it to query the current state of the screen reader as well as to register to be notified when the state of the screen reader changes.
 
-Here's a small example illustrating how to use `AccessibilityInfo`:
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -20,12 +20,11 @@ Here's a small example illustrating how to use `AccessibilityInfo`:
 
 <block class="functional syntax" />
 
-```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example
-
+```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example&supportedPlatforms=android,ios
 import React, { useState, useEffect } from "react";
 import { AccessibilityInfo, View, Text, StyleSheet } from "react-native";
 
-export default function App() {
+const App = () => {
   const [reduceMotionEnabled, setReduceMotionEnabled] = useState(false);
   const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
 
@@ -39,18 +38,22 @@ export default function App() {
       handleScreenReaderToggled
     );
 
-    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
-      setReduceMotionEnabled(reduceMotionEnabled);
-    });
-    AccessibilityInfo.fetch().then(screenReaderEnabled => {
-      setScreenReaderEnabled(screenReaderEnabled);
-    });
+    AccessibilityInfo.isReduceMotionEnabled().then(
+      reduceMotionEnabled => {
+        setReduceMotionEnabled(reduceMotionEnabled);
+      }
+    );
+    AccessibilityInfo.isScreenReaderEnabled().then(
+      screenReaderEnabled => {
+        setScreenReaderEnabled(screenReaderEnabled);
+      }
+    );
+
     return () => {
       AccessibilityInfo.removeEventListener(
         "reduceMotionChanged",
         handleReduceMotionToggled
       );
-
       AccessibilityInfo.removeEventListener(
         "screenReaderChanged",
         handleScreenReaderToggled
@@ -88,16 +91,17 @@ const styles = StyleSheet.create({
     margin: 30
   }
 });
+
+export default App;
 ```
 
 <block class="classical syntax" />
 
-```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example
-
-import React from 'react';
+```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios
+import React, { Component } from 'react';
 import { AccessibilityInfo, View, Text, StyleSheet } from 'react-native';
 
-export default class AccessibilityStatusExample extends React.Component {
+class AccessibilityStatusExample extends Component {
   state = {
     reduceMotionEnabled: false,
     screenReaderEnabled: false,
@@ -113,10 +117,10 @@ export default class AccessibilityStatusExample extends React.Component {
       this._handleScreenReaderToggled
     );
 
-    AccessibilityInfo.fetch().then(reduceMotionEnabled => {
+    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
       this.setState({ reduceMotionEnabled });
     });
-    AccessibilityInfo.fetch().then(screenReaderEnabled => {
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
       this.setState({ screenReaderEnabled });
     });
   }
@@ -167,6 +171,8 @@ export default class AccessibilityStatusExample extends React.Component {
     },
   });
 }
+
+export default AccessibilityStatusExample;
 ```
 
 <block class="endBlock syntax" />

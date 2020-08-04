@@ -12,6 +12,7 @@ React Native is not only for Android and iOS - there are community-supported pro
 - [React Native macOS](https://github.com/ptmt/react-native-macos) - An experimental React Native fork targeting macOS and Cocoa
 - [React Native tvOS](https://github.com/react-native-community/react-native-tvos) - adaptation of React Native for Apple tvOS
 - [alita](https://github.com/areslabs/alita) - An experimental, comprehensive port of React Native to mini-program(微信小程序).
+- [Proton Native](https://github.com/kusti8/proton-native) - A wrapper for React Native, using Qt to target Linux, MacOS, and Windows.
 
 ## Creating your own React Native platform
 

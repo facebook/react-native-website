@@ -22,7 +22,7 @@ title: Share
 import React from 'react';
 import { Share, View, Button } from 'react-native';
 
-export default ShareExample = () => {
+const ShareExample = () => {
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -48,6 +48,8 @@ export default ShareExample = () => {
     </View>
   );
 };
+
+export default ShareExample;
 ```
 
 <block class="classical syntax" />
@@ -114,7 +116,7 @@ In Android, returns a Promise which will always be resolved with action being `S
 
 #### iOS
 
-- `url` - an URL to share
+- `url` - a URL to share
 
 At least one of URL and message is required.
 
@@ -136,21 +138,20 @@ At least one of URL and message is required.
 
 ---
 
-### `sharedAction()`
+### `sharedAction`
 
 ```jsx
-static sharedAction()
+static sharedAction
 ```
 
 The content was successfully shared.
 
 ---
 
-### `dismissedAction()`
+### `dismissedAction`
 
 ```jsx
-static dismissedAction()
+static dismissedAction
 ```
 
 _iOS Only_. The dialog has been dismissed.
-

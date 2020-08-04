@@ -66,7 +66,7 @@ export default TextInANest;
 import React, { Component } from "react";
 import { Text, StyleSheet } from "react-native";
 
-export default class TextInANest extends Component {
+class TextInANest extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,7 +98,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold"
   }
 });
+
+export default TextInANest;
 ```
+
+<block class="endBlock syntax" />
 
 ## Nested text
 
@@ -128,8 +132,6 @@ const styles = StyleSheet.create({
 
 export default BoldAndBeautiful;
 ```
-
-<block class="endBlock syntax" />
 
 Behind the scenes, React Native converts this to a flat `NSAttributedString` or `SpannableString` that contains the following information:
 
@@ -218,7 +220,9 @@ class MyAppHeaderText extends Component {
   render() {
     return (
       <MyAppText>
-        <Text style={{fontSize: 20}}>{this.props.children}</Text>
+        <Text style={{ fontSize: 20 }}>
+          {this.props.children}
+        </Text>
       </MyAppText>
     );
   }
@@ -230,9 +234,9 @@ Composing `MyAppText` in this way ensures that we get the styles from a top-leve
 React Native still has the concept of style inheritance, but limited to text subtrees. In this case, the second part will be both bold and red.
 
 ```jsx
-<Text style={{fontWeight: 'bold'}}>
+<Text style={{ fontWeight: 'bold' }}>
   I am bold
-  <Text style={{color: 'red'}}>and red</Text>
+  <Text style={{ color: 'red' }}>and red</Text>
 </Text>
 ```
 
@@ -468,7 +472,7 @@ e.g., `onLongPress={this.increaseSize}>`
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
+`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -478,7 +482,7 @@ Does this view want to "claim" touch responsiveness? This is called for every to
 
 ### `onPress`
 
-This function is called on press.
+This function is called on press. The first function argument is an event in form of [PressEvent](pressevent).
 
 e.g., `onPress={() => console.log('1st')}`
 
@@ -492,7 +496,7 @@ e.g., `onPress={() => console.log('1st')}`
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
-`View.props.onResponderGrant: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderGrant: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -504,7 +508,7 @@ The View is now responding for touch events. This is the time to highlight and s
 
 The user is moving their finger.
 
-`View.props.onResponderMove: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderMove: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -516,7 +520,7 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-`View.props.onResponderRelease: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderRelease: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -528,7 +532,7 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-`View.props.onResponderTerminate: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderTerminate: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -540,7 +544,7 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-`View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a synthetic touch event as described above.
+`View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -552,7 +556,7 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
 
-`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a synthetic touch event as described above.
+`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
 
 | Type     | Required |
 | -------- | -------- |
@@ -562,15 +566,24 @@ If a parent `View` wants to prevent a child `View` from becoming responder on a 
 
 ### `onTextLayout`
 
-TODO.
+Invoked on Text layout
+
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| function: (event: TextLayoutEvent) => mixed | No       |
+
+- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
+  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
+
+---
 
 ### `pressRetentionOffset`
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type                                                               | Required |
-| ------------------------------------------------------------------ | -------- |
-| object: {top: number, left: number, bottom: number, right: number} | No       |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ---
 
@@ -596,61 +609,9 @@ The highlight color of the text.
 
 ### `style`
 
-| Type  | Required |
-| ----- | -------- |
-| style | No       |
-
-- [View Style Props...](view-style-props.md#style)
-
-- **`textShadowOffset`**: object: {width: number,height: number}
-
-- **`color`**: [color](colors.md)
-
-- **`fontSize`**: number
-
-- **`fontStyle`**: enum('normal', 'italic')
-
-- **`fontWeight`**: enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900')
-
-  Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
-
-- **`lineHeight`**: number
-
-- **`textAlign`**: enum('auto', 'left', 'right', 'center', 'justify')
-
-  Specifies text alignment. On Android, the value 'justify' is only supported on Oreo (8.0) or above (API level >= 26). The value will fallback to `left` on lower Android versions.
-
-- **`textDecorationLine`**: enum('none', 'underline', 'line-through', 'underline line-through')
-
-- **`textShadowColor`**: [color](colors.md)
-
-- **`fontFamily`**: string
-
-- **`textShadowRadius`**: number
-
-- **`includeFontPadding`**: bool (_Android_)
-
-  Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`. Default is true.
-
-* **`textAlignVertical`**: enum('auto', 'top', 'bottom', 'center') (_Android_)
-
-* **`fontVariant`**: array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') (_iOS_)
-
-* **`letterSpacing`**: number
-
-  Increase or decrease the spacing between characters. The default is 0, for no extra letter spacing.
-
-  iOS: The additional space will be rendered after each glyph.
-
-  Android: Only supported since Android 5.0 - older versions will ignore this attribute. Please note that additional space will be added _around_ the glyphs (half on each side), which differs from the iOS rendering. It is possible to emulate the iOS rendering by using layout attributes, e.g. negative margins, as appropriate for your situation.
-
-* **`textDecorationColor`**: [color](colors.md) (_iOS_)
-
-* **`textDecorationStyle`**: enum('solid', 'double', 'dotted', 'dashed') (_iOS_)
-
-* **`textTransform`**: enum('none', 'uppercase', 'lowercase', 'capitalize')
-
-* **`writingDirection`**: enum('auto', 'ltr', 'rtl') (_iOS_)
+| Type                                                                             | Required |
+| -------------------------------------------------------------------------------- | -------- |
+| [Text Style Props](text-style-props.md), [View Style Props](view-style-props.md) | No       |
 
 ---
 
@@ -681,6 +642,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | Type                                      | Required | Platform |
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
+
+---
+
+### `android_hyphenationFrequency`
+
+Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+, possible values are `none`, `full`, `balanced`, `high`, `normal`. The default value is `none`.
+
+| Type                                     | Required | Platform |
+| ---------------------------------------- | -------- | -------- |
+| enum('none', 'full', 'balanced', 'high') | No       | Android  |
 
 # Known issues
 

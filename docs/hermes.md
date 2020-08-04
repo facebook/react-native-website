@@ -27,27 +27,28 @@ Edit your `android/app/build.gradle` file and make the change illustrated below:
   ]
 ```
 
-Also, if you're using ProGuard, you will need to add this rule in `proguard-rules.pro` :
+Also, if you're using ProGuard, you will need to add these rules in `proguard-rules.pro` :
 
 ```
 -keep class com.facebook.hermes.unicode.** { *; }
+-keep class com.facebook.jni.** { *; }
 ```
 
 Next, if you've already built your app at least once, clean the build:
 
-```shell
+```sh
 $ cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as normal:
 
-```shell
+```sh
 $ npx react-native run-android
 ```
 
 > ## Note about Android App Bundles
 >
-> Android app bundles are not yet supported with hermes.
+> Android app bundles are supported from react-native 0.62.0 and up.
 
 ## Confirming Hermes is in use
 
@@ -58,12 +59,12 @@ If you've recently created a new app from scratch, you should see if Hermes is e
 A `HermesInternal` global variable will be available in JavaScript that can be used to verify that Hermes is in use:
 
 ```jsx
-const isHermes = () => global.HermesInternal !== null;
+const isHermes = () => !!global.HermesInternal;
 ```
 
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
-```shell
+```sh
 $ npx react-native run-android --variant release
 ```
 
@@ -73,7 +74,7 @@ This will compile JavaScript to bytecode during build time which will improve yo
 
 Hermes supports the Chrome debugger by implementing the Chrome inspector protocol. This means Chrome's tools can be used to directly debug JavaScript running on Hermes, on an emulator or device.
 
-Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/en/configuration). When running `yarn start` the address is written to stdout on startup.
+Chrome connects to Hermes running on device via Metro, so you'll need to know where Metro is listening. Typically this will be on `localhost:8081`, but this is [configurable](https://facebook.github.io/metro/docs/configuration). When running `yarn start` the address is written to stdout on startup.
 
 Once you know where the Metro server is listening, you can connect with Chrome using the following steps:
 

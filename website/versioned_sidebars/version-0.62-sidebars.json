@@ -1,0 +1,166 @@
+{
+  "version-0.62-docs": {
+    "The Basics": [
+      "version-0.62-getting-started",
+      "version-0.62-intro-react-native-components",
+      "version-0.62-intro-react",
+      "version-0.62-handling-text-input",
+      "version-0.62-using-a-scrollview",
+      "version-0.62-using-a-listview",
+      "version-0.62-troubleshooting",
+      "version-0.62-platform-specific-code",
+      "version-0.62-more-resources"
+    ],
+    "Environment setup": [
+      "version-0.62-environment-setup",
+      "version-0.62-integration-with-existing-apps",
+      "version-0.62-building-for-tv",
+      "version-0.62-out-of-tree-platforms"
+    ],
+    "Workflow": [
+      "version-0.62-running-on-device",
+      "version-0.62-fast-refresh",
+      "version-0.62-debugging",
+      "version-0.62-testing-overview",
+      "version-0.62-libraries",
+      "version-0.62-typescript",
+      "version-0.62-upgrading"
+    ],
+    "Design": [
+      "version-0.62-style",
+      "version-0.62-height-and-width",
+      "version-0.62-flexbox",
+      "version-0.62-images",
+      "version-0.62-colors"
+    ],
+    "Interaction": [
+      "version-0.62-handling-touches",
+      "version-0.62-navigation",
+      "version-0.62-animations",
+      "version-0.62-gesture-responder-system"
+    ],
+    "Inclusion": ["version-0.62-accessibility"],
+    "Performance": [
+      "version-0.62-performance",
+      "version-0.62-optimizing-flatlist-configuration",
+      "version-0.62-ram-bundles-inline-requires",
+      "version-0.62-profiling"
+    ],
+    "JavaScript Runtime": [
+      "version-0.62-javascript-environment",
+      "version-0.62-timers",
+      "version-0.62-hermes"
+    ],
+    "Connectivity": ["version-0.62-network", "version-0.62-security"],
+    "Native Components and Modules": [
+      "version-0.62-native-modules-setup",
+      "version-0.62-direct-manipulation"
+    ],
+    "Guides (Android)": [
+      "version-0.62-native-modules-android",
+      "version-0.62-native-components-android",
+      "version-0.62-headless-js-android",
+      "version-0.62-signed-apk-android",
+      "version-0.62-removing-default-permissions"
+    ],
+    "Guides (iOS)": [
+      "version-0.62-native-modules-ios",
+      "version-0.62-native-components-ios",
+      "version-0.62-linking-libraries-ios",
+      "version-0.62-running-on-simulator-ios",
+      "version-0.62-communication-ios",
+      "version-0.62-app-extensions"
+    ]
+  },
+  "version-0.62-components": {
+    "Core Components": [
+      "version-0.62-components-and-apis",
+      "version-0.62-activityindicator",
+      "version-0.62-button",
+      "version-0.62-flatlist",
+      "version-0.62-image",
+      "version-0.62-imagebackground",
+      "version-0.62-keyboardavoidingview",
+      "version-0.62-modal",
+      "version-0.62-refreshcontrol",
+      "version-0.62-safeareaview",
+      "version-0.62-scrollview",
+      "version-0.62-sectionlist",
+      "version-0.62-statusbar",
+      "version-0.62-switch",
+      "version-0.62-text",
+      "version-0.62-textinput",
+      "version-0.62-touchablehighlight",
+      "version-0.62-touchableopacity",
+      "version-0.62-touchablewithoutfeedback",
+      "version-0.62-view",
+      "version-0.62-virtualizedlist",
+      {
+        "type": "subcategory",
+        "label": "Android Components",
+        "ids": [
+          "version-0.62-drawerlayoutandroid",
+          "version-0.62-touchablenativefeedback"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS Components",
+        "ids": ["version-0.62-inputaccessoryview"]
+      }
+    ],
+    "Props": [
+      "version-0.62-image-style-props",
+      "version-0.62-layout-props",
+      "version-0.62-shadow-props",
+      "version-0.62-text-style-props",
+      "version-0.62-view-style-props"
+    ]
+  },
+  "version-0.62-api": {
+    "APIs": [
+      "version-0.62-accessibilityinfo",
+      "version-0.62-alert",
+      "version-0.62-animated",
+      "version-0.62-appearance",
+      "version-0.62-appregistry",
+      "version-0.62-appstate",
+      "version-0.62-devsettings",
+      "version-0.62-dimensions",
+      "version-0.62-easing",
+      "version-0.62-interactionmanager",
+      "version-0.62-keyboard",
+      "version-0.62-layoutanimation",
+      "version-0.62-linking",
+      "version-0.62-panresponder",
+      "version-0.62-pixelratio",
+      "version-0.62-share",
+      "version-0.62-stylesheet",
+      "version-0.62-systrace",
+      "version-0.62-transforms",
+      "version-0.62-vibration",
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": [
+          "version-0.62-usecolorscheme",
+          "version-0.62-usewindowdimensions"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": [
+          "version-0.62-backhandler",
+          "version-0.62-permissionsandroid",
+          "version-0.62-toastandroid"
+        ]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": ["version-0.62-actionsheetios", "version-0.62-settings"]
+      }
+    ]
+  }
+}

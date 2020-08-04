@@ -4,7 +4,7 @@ title: useWindowDimensions
 ---
 
 ```jsx
-import {useWindowDimensions} from 'react-native';
+import { useWindowDimensions } from 'react-native';
 ```
 
 `useWindowDimensions` automatically updates `width` and `height` values when screen size changes. You can get your application window's width and height like so:
@@ -13,13 +13,14 @@ import {useWindowDimensions} from 'react-native';
 const windowWidth = useWindowDimensions().width;
 const windowHeight = useWindowDimensions().height;
 ```
+
 ## Example
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from "react";
 import { View, StyleSheet, Text, useWindowDimensions } from "react-native";
 
-export default function App() {
+const App = () => {
   const window = useWindowDimensions();
   return (
     <View style={styles.container}>
@@ -34,6 +35,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   }
 });
+
+export default App;
 ```
 
 - The [useDimensions](https://github.com/react-native-community/react-native-hooks#usedimensions) hook from the community [React native hooks](https://github.com/react-native-community/react-native-hooks) library aims to make handling screen/window size changes easier to work with.
@@ -59,7 +62,7 @@ useWindowDimensions().height;
 
 ### `scale`
 
-The ]pixel ratio of the device your app is running on. 
+The pixel ratio of the device your app is running on.
 
 ```jsx
 useWindowDimensions().scale;

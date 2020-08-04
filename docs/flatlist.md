@@ -18,12 +18,11 @@ A performant interface for rendering basic, flat lists, supporting the most hand
 
 If you need section support, use [`<SectionList>`](sectionlist.md).
 
-### Basic Example:
+## Example
 
 ```SnackPlayer name=flatlist-simple
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
-import Constants from 'expo-constants';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
 const DATA = [
   {
@@ -40,20 +39,22 @@ const DATA = [
   },
 ];
 
-function Item({ title }) {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-}
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
-export default function App() {
+const App = () => {
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => <Item title={item.title} />}
+        renderItem={renderItem}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
@@ -63,7 +64,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
     backgroundColor: '#f9c2ff',
@@ -75,6 +76,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+export default App;
 ```
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
@@ -85,84 +88,63 @@ More complex, multi-select example demonstrating `` usage for perf optimization 
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 ```SnackPlayer name=flatlist-selectable
-import React from 'react';
-import {
-  SafeAreaView,
-  TouchableOpacity,
-  FlatList,
-  StyleSheet,
-  Text,
-} from 'react-native';
-import Constants from 'expo-constants';
+import React, { useState } from "react";
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const DATA = [
   {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+    title: "First Item",
   },
   {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    title: "Second Item",
   },
   {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    id: "58694a0f-3da1-471f-bd96-145571e29d72",
+    title: "Third Item",
   },
 ];
 
-function Item({ id, title, selected, onSelect }) {
-  return (
-    <TouchableOpacity
-      onPress={() => onSelect(id)}
-      style={[
-        styles.item,
-        { backgroundColor: selected ? '#6e3b6e' : '#f9c2ff' },
-      ]}
-    >
-      <Text style={styles.title}>{title}</Text>
-    </TouchableOpacity>
-  );
-}
+const Item = ({ item, onPress, style }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+    <Text style={styles.title}>{item.title}</Text>
+  </TouchableOpacity>
+);
 
-export default function App() {
-  const [selected, setSelected] = React.useState(new Map());
+const App = () => {
+  const [selectedId, setSelectedId] = useState(null);
 
-  const onSelect = React.useCallback(
-    id => {
-      const newSelected = new Map(selected);
-      newSelected.set(id, !selected.get(id));
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
 
-      setSelected(newSelected);
-    },
-    [selected],
-  );
+    return (
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        style={{ backgroundColor }}
+      />
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
         data={DATA}
-        renderItem={({ item }) => (
-          <Item
-            id={item.id}
-            title={item.title}
-            selected={!!selected.get(item.id)}
-            onSelect={onSelect}
-          />
-        )}
-        keyExtractor={item => item.id}
-        extraData={selected}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: StatusBar.currentHeight || 0,
   },
   item: {
-    backgroundColor: '#f9c2ff',
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
@@ -171,6 +153,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
   },
 });
+
+export default App;
 ```
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
@@ -191,7 +175,7 @@ Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another
 ### `renderItem`
 
 ```jsx
-renderItem({item, index, separators});
+renderItem({ item, index, separators });
 ```
 
 Takes an item from `data` and renders it into the list.
@@ -215,9 +199,9 @@ Example usage:
 
 ```jsx
 <FlatList
-  ItemSeparatorComponent={Platform.OS !== 'android' && ({highlighted}) => (
+  ItemSeparatorComponent={Platform.OS !== 'android' && (({highlighted}) => (
     <View style={[style.separator, highlighted && {marginLeft: 0}]} />
-  )}
+  ))}
   data={[{title: 'Title Text', key: 'item1'}]}
   renderItem={({item, index, separators}) => (
     <TouchableHighlight
@@ -498,7 +482,7 @@ Set this true while waiting for new data from a refresh.
 
 ### `removeClippedSubviews`
 
-This may improve scroll performance for large lists.
+This may improve scroll performance for large lists. On Android the default value is true
 
 > Note: May have bugs (missing content) in some circumstances - use at your own risk.
 
@@ -683,6 +667,16 @@ flashScrollIndicators();
 ```
 
 Displays the scroll indicators momentarily.
+
+---
+
+### `getNativeScrollRef()`
+
+```jsx
+getNativeScrollRef();
+```
+
+Provides a reference to the underlying scroll component
 
 ---
 

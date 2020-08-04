@@ -5,7 +5,7 @@ title: Modal
 
 The Modal component is a basic way to present content above an enclosing view.
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -20,8 +20,8 @@ The Modal component is a basic way to present content above an enclosing view.
 
 <block class="functional syntax" />
 
-```SnackPlayer name=Modal
-import React, { Component, useState } from "react";
+```SnackPlayer name=Modal&supportedPlatforms=android,ios
+import React, { useState } from "react";
 import {
   Alert,
   Modal,
@@ -258,16 +258,6 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
-### `statusBarTranslucent`
-
-The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
-
----
-
 ### `onDismiss`
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
@@ -330,9 +320,9 @@ Default is set to `overFullScreen` or `fullScreen` depending on `transparent` pr
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | Android  |
 
 ---
 

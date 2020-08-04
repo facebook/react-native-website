@@ -14,14 +14,16 @@
     "Environment setup": [
       "environment-setup",
       "integration-with-existing-apps",
-      "building-for-apple-tv",
+      "building-for-tv",
       "out-of-tree-platforms"
     ],
     "Workflow": [
       "running-on-device",
       "fast-refresh",
       "debugging",
-      "testing",
+      "symbolication",
+      "testing-overview",
+      "libraries",
       "typescript",
       "upgrading"
     ],
@@ -40,10 +42,17 @@
       "profiling"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Connectivity": ["network"],
+    "Connectivity": ["network", "security"],
     "Native Components and Modules": [
       "native-modules-setup",
       "direct-manipulation"
+    ],
+    "Guides (Android)": [
+      "native-modules-android",
+      "native-components-android",
+      "headless-js-android",
+      "signed-apk-android",
+      "removing-default-permissions"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
@@ -52,53 +61,84 @@
       "running-on-simulator-ios",
       "communication-ios",
       "app-extensions"
-    ],
-    "Guides (Android)": [
-      "native-modules-android",
-      "native-components-android",
-      "headless-js-android",
-      "signed-apk-android",
-      "removing-default-permissions"
     ]
   },
   "api": {
+    "APIs": [
+      "accessibilityinfo",
+      "alert",
+      "animated",
+      "animatedvalue",
+      "animatedvaluexy",
+      "appearance",
+      "appregistry",
+      "appstate",
+      "devsettings",
+      "dimensions",
+      "easing",
+      "interactionmanager",
+      "keyboard",
+      "layoutanimation",
+      "linking",
+      "panresponder",
+      "pixelratio",
+      "platformcolor",
+      "share",
+      "stylesheet",
+      "systrace",
+      "transforms",
+      "vibration",
+      {
+        "type": "subcategory",
+        "label": "Hooks",
+        "ids": ["usecolorscheme", "usewindowdimensions"]
+      },
+      {
+        "type": "subcategory",
+        "label": "Android APIs",
+        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS APIs",
+        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
+      }
+    ]
+  },
+  "components": {
     "Core Components": [
       "components-and-apis",
       "activityindicator",
       "button",
-      "datepickerios",
-      "drawerlayoutandroid",
       "flatlist",
       "image",
       "imagebackground",
-      "inputaccessoryview",
       "keyboardavoidingview",
-      "maskedviewios",
       "modal",
-      "picker",
-      "pickerios",
-      "progressbarandroid",
-      "progressviewios",
+      "pressable",
       "refreshcontrol",
       "safeareaview",
       "scrollview",
       "sectionlist",
-      "segmentedcontrolios",
-      "slider",
       "statusbar",
-      "stylesheet",
       "switch",
-      "tabbarios",
-      "tabbarios-item",
       "text",
       "textinput",
       "touchablehighlight",
-      "touchablenativefeedback",
       "touchableopacity",
       "touchablewithoutfeedback",
       "view",
-      "viewpagerandroid",
-      "virtualizedlist"
+      "virtualizedlist",
+      {
+        "type": "subcategory",
+        "label": "Android Components",
+        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+      },
+      {
+        "type": "subcategory",
+        "label": "iOS Components",
+        "ids": ["inputaccessoryview", "maskedviewios"]
+      }
     ],
     "Props": [
       "image-style-props",
@@ -107,41 +147,6 @@
       "text-style-props",
       "view-style-props"
     ],
-    "APIs": [
-      "accessibilityinfo",
-      "actionsheetios",
-      "alert",
-      "alertios",
-      "animated",
-      "appearance",
-      "appregistry",
-      "appstate",
-      "asyncstorage",
-      "backhandler",
-      "clipboard",
-      "datepickerandroid",
-      "devsettings",
-      "dimensions",
-      "easing",
-      "imageeditor",
-      "imagepickerios",
-      "interactionmanager",
-      "keyboard",
-      "layoutanimation",
-      "linking",
-      "panresponder",
-      "permissionsandroid",
-      "pixelratio",
-      "pushnotificationios",
-      "settings",
-      "share",
-      "statusbarios",
-      "systrace",
-      "timepickerandroid",
-      "toastandroid",
-      "transforms",
-      "usewindowdimensions",
-      "vibration"
-    ]
+    "Object Types": ["pressevent", "react-node", "rect"]
   }
 }

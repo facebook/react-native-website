@@ -39,7 +39,7 @@ Hot reloading is available as of 0.22, you can enable it:
 
 Now that we've seen why we want it and how to use it, the fun part begins: how it actually works.
 
-Hot Reloading is built on top of a feature [Hot Module Replacement](https://webpack.github.io/hot-module-replacement-with-webpack.md), or HMR. It was first introduced by Webpack and we implemented it inside of React Native Packager. HMR makes the Packager watch for file changes and send HMR updates to a thin HMR runtime included on the app.
+Hot Reloading is built on top of a feature [Hot Module Replacement](https://webpack.js.org/guides/hot-module-replacement/), or HMR. It was first introduced by Webpack and we implemented it inside of React Native Packager. HMR makes the Packager watch for file changes and send HMR updates to a thin HMR runtime included on the app.
 
 In a nutshell, the HMR update contains the new code of the JS modules that changed. When the runtime receives them, it replaces the old modules' code with the new one:
 

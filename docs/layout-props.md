@@ -3,6 +3,172 @@ id: layout-props
 title: Layout Props
 ---
 
+> More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
+
+### Example
+
+The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`.
+
+```SnackPlayer name=LayoutProps%20Example
+import React, { useState } from 'react';
+import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+import Constants from 'expo-constants';
+
+const App = () => {
+  const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
+  const justifyContents = [
+    'flex-start',
+    'flex-end',
+    'center',
+    'space-between',
+    'space-around',
+    'space-evenly',
+  ];
+  const alignItemsArr = [
+    'flex-start',
+    'flex-end',
+    'center',
+    'stretch',
+    'baseline',
+  ];
+  const wraps = ['nowrap', 'wrap', 'wrap-reverse'];
+  const directions = ['inherit', 'ltr', 'rtl'];
+  const [flexDirection, setFlexDirection] = useState(0);
+  const [justifyContent, setJustifyContent] = useState(0);
+  const [alignItems, setAlignItems] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [wrap, setWrap] = useState(0);
+
+  const hookedStyles = {
+    flexDirection: flexDirections[flexDirection],
+    justifyContent: justifyContents[justifyContent],
+    alignItems: alignItemsArr[alignItems],
+    direction: directions[direction],
+    flexWrap: wraps[wrap],
+  };
+
+  const changeSetting = (value, options, setterFunction) => {
+    if (value == options.length - 1) {
+      setterFunction(0);
+      return;
+    }
+    setterFunction(value + 1);
+  };
+
+  const Square = () => {
+    const sqStyle = {
+      width: 50,
+      height: 50,
+      backgroundColor: randomHexColor(),
+    };
+    return <View style={sqStyle} />;
+  };
+  const [squares, setSquares] = useState([Square(), Square(), Square()]);
+  return (
+    <>
+      <View style={{ paddingTop: Constants.statusBarHeight }} />
+      <View style={[styles.container, styles.playingSpace, hookedStyles]}>
+        {squares.map(elem => elem)}
+      </View>
+      <ScrollView style={[styles.container]}>
+        <View style={[styles.controlSpace]}>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Flex Direction"
+              onPress={() =>
+                changeSetting(flexDirection, flexDirections, setFlexDirection)
+              }
+            />
+            <Text style={styles.text}>{flexDirections[flexDirection]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Justify Content"
+              onPress={() =>
+                changeSetting(
+                  justifyContent,
+                  justifyContents,
+                  setJustifyContent
+                )
+              }
+            />
+            <Text style={styles.text}>{justifyContents[justifyContent]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Align Items"
+              onPress={() =>
+                changeSetting(alignItems, alignItemsArr, setAlignItems)
+              }
+            />
+            <Text style={styles.text}>{alignItemsArr[alignItems]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Direction"
+              onPress={() => changeSetting(direction, directions, setDirection)}
+            />
+            <Text style={styles.text}>{directions[direction]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Change Flex Wrap"
+              onPress={() => changeSetting(wrap, wraps, setWrap)}
+            />
+            <Text style={styles.text}>{wraps[wrap]}</Text>
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Add Square"
+              onPress={() => setSquares([...squares, Square()])}
+            />
+          </View>
+          <View style={styles.buttonView}>
+            <Button
+              title="Delete Square"
+              onPress={() =>
+                setSquares(squares.filter((v, i) => i != squares.length - 1))
+              }
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    height: '50%',
+  },
+  playingSpace: {
+    backgroundColor: 'white',
+    borderColor: 'blue',
+    borderWidth: 3,
+  },
+  controlSpace: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    backgroundColor: '#F5F5F5',
+  },
+  buttonView: {
+    width: '50%',
+    padding: 10,
+  },
+  text: { textAlign: 'center' },
+});
+
+const randomHexColor = () => {
+  return '#000000'.replace(/0/g, () => {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+};
+
+export default App;
+```
+
+---
+
 # Reference
 
 ## Props
@@ -191,6 +357,8 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 ### `flexBasis`
 
+`flexBasis` is an axis-independent way of providing the default size of an item along the main axis. Setting the `flexBasis` of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The `flexBasis` of an item is the default size of that item, the size of the item before any `flexGrow` and `flexShrink` calculations are performed.
+
 | Type           | Required |
 | -------------- | -------- |
 | number, string | No       |
@@ -209,6 +377,10 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 ### `flexGrow`
 
+`flexGrow` describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.
+
+`flexGrow` accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the children’s `flexGrow` values.
+
 | Type   | Required |
 | ------ | -------- |
 | number | No       |
@@ -216,6 +388,10 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 ---
 
 ### `flexShrink`
+
+[`flexShrink`](layout-props#flexshrink) describes how to shrink children along the main axis in the case in which the total size of the children overflows the size of the container on the main axis. `flexShrink` is very similar to `flexGrow` and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.
+
+`flexShrink` accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the children’s `flexShrink` values.
 
 | Type   | Required |
 | ------ | -------- |
@@ -227,9 +403,9 @@ When `flex` is -1, the component is normally sized according to `width` and `hei
 
 `flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). See https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap for more details. Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
 
-| Type                   | Required |
-| ---------------------- | -------- |
-| enum('wrap', 'nowrap') | No       |
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| enum('wrap', 'nowrap', 'wrap-reverse') | No       |
 
 ---
 

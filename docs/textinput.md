@@ -11,7 +11,7 @@ The most basic use case is to plop down a `TextInput` and subscribe to the `onCh
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
-export default function UselessTextInput() {
+const UselessTextInput = () => {
   const [value, onChangeText] = React.useState('Useless Placeholder');
 
   return (
@@ -22,6 +22,8 @@ export default function UselessTextInput() {
     />
   );
 }
+
+export default UselessTextInput;
 ```
 
 Two methods exposed via the native element are .focus() and .blur() that will focus or blur the TextInput programmatically.
@@ -32,7 +34,7 @@ Note that some props are only available with `multiline={true/false}`. Additiona
 import React, { Component } from 'react';
 import { View, TextInput } from 'react-native';
 
-function UselessTextInput(props) {
+const UselessTextInput = (props) => {
   return (
     <TextInput
       {...props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
@@ -42,7 +44,7 @@ function UselessTextInput(props) {
   );
 }
 
-export default function UselessTextInputMultiline() {
+const UselessTextInputMultiline = () => {
   const [value, onChangeText] = React.useState('Useless Multiline Placeholder');
 
   // If you type something in the text box that is a color, the background will change to that
@@ -63,6 +65,8 @@ export default function UselessTextInputMultiline() {
     </View>
   );
 }
+
+export default UselessTextInputMultiline;
 ```
 
 `TextInput` has by default a border at the bottom of its view. This border has its padding set by the background image provided by the system, and it cannot be changed. Solutions to avoid this is to either not set height explicitly, case in which the system will take care of displaying the border in the correct position, or to not display the border by setting `underlineColorAndroid` to transparent.
@@ -89,7 +93,7 @@ Specifies whether fonts should scale to respect Text Size accessibility settings
 
 ### `autoCapitalize`
 
-Can tell `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
+Tells `TextInput` to automatically capitalize certain characters. This property is not supported by some keyboard types such as `name-phone-pad`.
 
 - `characters`: all characters.
 - `words`: first letter of each word.
@@ -261,7 +265,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `importantForAutofill`
 
-Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+Tells the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
 
 - `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
 - `no`: This view isn't important for autofill.
@@ -740,8 +744,7 @@ Possible values for `textContentType` are:
 
 ### `passwordRules`
 
-When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them.
-In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
+When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
@@ -782,7 +785,9 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------- | -------- | -------- |
 | enum('simple', 'highQuality', 'balanced') | No       | Android  |
 
-## <!-- alex enable simple -->
+<!-- alex enable simple -->
+
+---
 
 ### `underlineColorAndroid`
 

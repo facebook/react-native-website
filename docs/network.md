@@ -24,12 +24,12 @@ fetch('https://mywebsite.com/endpoint/', {
   method: 'POST',
   headers: {
     Accept: 'application/json',
-    'Content-Type': 'application/json',
+    'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     firstParam: 'yourValue',
-    secondParam: 'yourOtherValue',
-  }),
+    secondParam: 'yourOtherValue'
+  })
 });
 ```
 
@@ -42,7 +42,7 @@ The above examples show how you can make a request. In many cases, you will want
 Networking is an inherently asynchronous operation. Fetch methods will return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) that makes it straightforward to write code that works in an asynchronous manner:
 
 ```jsx
-function getMoviesFromApi() {
+const getMoviesFromApi = () => {
   return fetch('https://reactnative.dev/movies.json')
     .then((response) => response.json())
     .then((json) => {
@@ -51,21 +51,23 @@ function getMoviesFromApi() {
     .catch((error) => {
       console.error(error);
     });
-}
+};
 ```
 
 You can also use the `async` / `await` syntax in a React Native app:
 
 ```jsx
-async function getMoviesFromApiAsync() {
+const getMoviesFromApiAsync = async () => {
   try {
-    let response = await fetch('https://reactnative.dev/movies.json');
+    let response = await fetch(
+      'https://reactnative.dev/movies.json'
+    );
     let json = await response.json();
     return json.movies;
   } catch (error) {
     console.error(error);
   }
-}
+};
 ```
 
 Don't forget to catch any errors that may be thrown by `fetch`, otherwise they will be dropped silently.
@@ -97,7 +99,7 @@ export default App = () => {
       .then((json) => setData(json.movies))
       .catch((error) => console.error(error))
       .finally(() => setLoading(false));
-  });
+  }, []);
 
   return (
     <View style={{ flex: 1, padding: 24 }}>

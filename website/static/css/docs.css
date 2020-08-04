@@ -108,14 +108,14 @@ hr {
 }
 
 table {
-  border: 1px solid #b0b0b0;
+  border: 1px solid #dfe2e5;
   border-collapse: collapse;
   display: table;
   margin: 20px 0;
 }
 table thead tr {
   /* display: table-header-group; */
-  background: #dddddd;
+  background: #ececec;
 }
 
 table tbody {
@@ -138,6 +138,7 @@ table tr td {
   line-height: 1.3em;
   padding: 10px;
   text-align: left;
+  vertical-align: middle;
 }
 table tr th:last-of-type,
 table tr td:last-of-type {
@@ -147,12 +148,22 @@ table tr th code,
 table tr td code {
   display: inline-block;
   font-size: 12px;
+  padding: 3.4px 6px 2px;
 }
 table tr th {
-  color: #000000;
+  color: #6e6d6d;
   font-weight: bold;
   font-family: "Helvetica Neue", Arial, sans-serif;
   text-transform: uppercase;
+  padding: 6px 10px;
+  font-size: 12px;
+  vertical-align: middle;
+}
+table tr td hr {
+  margin: 10px 0;
+}
+table tr td hr {
+  margin: 10px 0;
 }
 
 figure {
@@ -161,10 +172,13 @@ figure {
 }
 
 figcaption {
-  margin: 1em 0 0 0;
+  margin: 1em 0;
 }
 
 /* Right side navigation */
+.onPageNav {
+  flex: 0 0 246px;
+}
 
 .onPageNav a,
 .onPageNav a:hover {
@@ -182,11 +196,234 @@ figcaption {
 }
 
 .onPageNav ul ul {
-  padding: 8px 0 0 16px;
+  padding: 8px 0 0 14px;
+}
+
+.onPageNav ul ul li {
+  padding-bottom: 4px;
 }
 
 .onPageNav .toc-headings > li > a.active {
   border-left: 4px solid #61dafb;
   margin-left: -15px;
   padding-left: 11px;
+}
+
+/* Labels */
+
+.label {
+  display: inline-block;
+  position: relative;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 2px 12px;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Label sharp end */
+
+.label:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -12px;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 12px 12px 12px 0;
+}
+
+/* Label skeuomorphic hole */
+
+.label:after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 2px;
+  background: #fff;
+}
+
+/* Label withouth sharp end */
+
+.label.basic {
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+.label.basic:before,
+.label.basic:after {
+  display: none;
+}
+
+/* Label variants */
+
+.label.android {
+  background: #a4c936;
+}
+.label.android:before {
+  border-right-color: #a4c936;
+}
+
+.label.ios {
+  background: #222;
+}
+.label.ios:before {
+  border-right-color: #222;
+}
+
+.label.required {
+  margin-left: 0;
+  margin-right: 16px;
+  color: #fa5035;
+  border-color: #fa5035;
+}
+
+.label.tv {
+  background: #6170af;
+}
+.label.tv:before {
+  border-right-color: #6170af;
+}
+
+/* Label inside other tags */
+
+h2 .label {
+  top: -6px;
+  margin-left: 12px;
+}
+
+h3 .label {
+  top: -2px;
+  margin-left: 22px;
+  line-height: 20px;
+}
+
+td .label {
+  padding: 0 8px 0 10px;
+  font-size: 0.7rem;
+  margin-left: 14px;
+}
+
+td .label:before {
+  left: -8px;
+  border-width: 9px 8px 9px 0;
+}
+
+td .label:after {
+  top: 7px;
+}
+
+td .label.required {
+  margin-left: 8px;
+  letter-spacing: 0.03rem;
+}
+
+/* Label as dot in the right sidebar */
+
+.onPageNav .label {
+  display: inline-block;
+  padding: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  margin-left: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  color: transparent;
+  float: initial;
+}
+
+.onPageNav .label.required {
+  margin-left: 0;
+  margin-right: 6px;
+  border-width: 3px;
+}
+
+/* Custom */
+
+.content-banner {
+  background: #99d5e7;
+  padding: 1em;
+  margin-bottom: 2em;
+  position: relative;
+  overflow: hidden;
+  width: calc(100% + 2em);
+  left: -1em;
+}
+
+.content-banner p {
+  width: calc(75% - 2em);
+  margin: 0;
+}
+
+.content-banner-img {
+  width: 25%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.content-banner a:link,
+.content-banner a:visited,
+.content-banner a:hover,
+.content-banner a:active,
+.content-banner a:focus {
+  border-bottom-width: 2px;
+  background: none;
+  color: #134484;
+  border-bottom-color: #134484;
+}
+
+/*
+  Mark pages as "new" using href attribute:
+  - to show badge in all versions use "PAGEID"
+  - to restrict badge only to the current/default version use "docs/PAGEID"
+  - to restrict badge only to the next version use "next/PAGEID"
+*/
+
+.navItem[href*="dynamiccolorios"]:after,
+.navItem[href*="platformcolor"]:after,
+.navItem[href*="pressable"]:after {
+  content: "new";
+  display: inline-block;
+  position: relative;
+  top: -1px;
+  margin: -1px 0 -1px 10px;
+  padding: 3px 6px;
+  border: 1px solid #86b300;
+  border-radius: 3px;
+  color: #86b300;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 600;
+}
+
+/* Two columns */
+.two-columns {
+  display: grid;
+  gap: 0 2%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+}
+
+.two-columns pre code {
+  white-space: pre-wrap;
+}
+
+@media only screen and (max-width: 1023px) {
+  .two-columns {
+    gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "." ".";
+  }
 }

@@ -19,30 +19,37 @@ Fast Refresh is a React Native feature that allows you to get near-instant feedb
 
 React Native supports a few keyboard shortcuts in the iOS Simulator. They are described below. To enable them, open the Hardware menu, select Keyboard, and make sure that "Connect Hardware Keyboard" is checked.
 
-## In-app Errors and Warnings
+## LogBox
 
-Errors and warnings are displayed inside your app in development builds.
+Errors and warnings in development builds are displayed in LogBox inside your app.
 
-### Errors
+> LogBox is automatically disabled in release (production) builds.
 
-In-app errors are displayed in a full screen alert with a red background inside your app. This screen is known as a RedBox. You can use `console.error()` to manually trigger one.
+### Console Errors and Warnings
 
-### Warnings
+Console errors and warnings are displayed as on-screen notifications with a red or yellow badge, and the number of errors or warning in the console respectively. To view a console error or warnings, tap the notification to view the full screen information about the log and to paginiate through all of the logs in the console.
 
-Warnings will be displayed on screen with a yellow background. These alerts are known as YellowBoxes. Click on the alerts to show more information or to dismiss them.
+These notifications can be hidden using `LogBox.ignoreAllLogs()`. This is useful when giving product demos, for example. Additionally, notifications can be hidden on a per-log basis via `LogBox.ignoreLogs()`. This is useful when there's a noisy warning that cannot be fixed, like those in a third-party dependency.
 
-As with a RedBox, you can use `console.warn()` to trigger a YellowBox.
-
-YellowBoxes can be disabled during development by using `console.disableYellowBox = true;`. Specific warnings can be ignored programmatically by setting an array of prefixes that should be ignored:
+> Ignore logs as a last resort and create a task to fix any logs that are ignored.
 
 ```jsx
-import {YellowBox} from 'react-native';
-YellowBox.ignoreWarnings(['Warning: ...']);
+import { LogBox } from 'react-native';
+
+// Ignore log notification by message:
+LogBox.ignoreLogs(['Warning: ...']);
+
+// Ignore all log notifications:
+LogBox.ignoreAllLogs();
 ```
 
-In CI/Xcode, YellowBoxes can also be disabled by setting the `IS_TESTING` environment variable.
+### Unhandled Errors
 
-> RedBoxes and YellowBoxes are automatically disabled in release (production) builds.
+Unhanded JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
+
+### Syntax Errors
+
+When syntax error occurs the full screen LogBox error will automatically open with the stack trace and location of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or cmd+r to reload (with Fast Refresh disabled).
 
 ## Chrome Developer Tools
 
@@ -132,10 +139,10 @@ You can view installation instructions [in the README](https://github.com/infini
 
 # Native Debugging
 
-<div class="banner-native-code-required" style="margin-top:25px">
+<div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
-    The following section only applies to projects with native code exposed. If you are using the managed `expo-cli` workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
+    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
   </p>
 </div>
 
@@ -143,14 +150,14 @@ You can view installation instructions [in the README](https://github.com/infini
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```
+```sh
 $ npx react-native log-ios
 $ npx react-native log-android
 ```
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
 
-> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the packager.
+> If you're using Create React Native App or Expo CLI, console logs already appear in the same terminal output as the bundler.
 
 ## Debugging on a device with Chrome Developer Tools
 

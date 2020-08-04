@@ -24,7 +24,7 @@ export default class DisplayAnImage extends Component {
         />
         <Image
           style={{width: 50, height: 50}}
-          source={{uri: 'https://facebook.github.io/react/assets/logo_og.png'}}
+          source={{uri: 'https://reactjs.org/logo-og.png'}}
         />
         <Image
           style={{width: 66, height: 58}}

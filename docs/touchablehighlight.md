@@ -3,6 +3,8 @@ id: touchablehighlight
 title: TouchableHighlight
 ---
 
+> If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
+
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view.
 
 The underlay comes from wrapping the child in a new View, which can affect layout, and sometimes cause unwanted visual artifacts if not used correctly, for example if the backgroundColor of the wrapped view isn't explicitly set to an opaque color.
@@ -12,7 +14,7 @@ TouchableHighlight must have one child (not zero or more than one). If you wish 
 ```jsx
 function MyComponent(props) {
   return (
-    <View {...props} style={{flex: 1, backgroundColor: '#fff'}}>
+    <View {...props} style={{ flex: 1, backgroundColor: '#fff' }}>
       <Text>My Component</Text>
     </View>
   );
@@ -23,10 +25,10 @@ function MyComponent(props) {
   underlayColor="#DDDDDD"
   onPress={() => alert('Pressed!')}>
   <MyComponent />
-</TouchableHighlight>
+</TouchableHighlight>;
 ```
 
-### Example
+## Example
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -43,23 +45,23 @@ function MyComponent(props) {
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
 import React, { useState } from "react";
-import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
-export default function TouchableHighlightExample() {
+const TouchableHighlightExample = () => {
   const [count, setCount] = useState(0);
-
-  const onPress = () => {
-    setCount(count + 1);
-  };
+  const onPress = () => setCount(count + 1);
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight style={styles.button} onPress={onPress}>
-        <Text> Touch Here </Text>
+      <TouchableHighlight onPress={onPress}>
+        <View style={styles.button}>
+          <Text>Touch Here</Text>
+        </View>
       </TouchableHighlight>
-
       <View style={styles.countContainer}>
-        <Text style={styles.countText}>{count !== 0 ? count : null}</Text>
+        <Text style={styles.countText}>
+          {count ? count : null}
+        </Text>
       </View>
     </View>
   );
@@ -84,15 +86,17 @@ const styles = StyleSheet.create({
     color: "#FF00FF"
   }
 });
+
+export default TouchableHighlightExample;
 ```
 
 <block class="classical syntax" />
 
 ```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
 import React, { Component } from "react";
-import { StyleSheet, TouchableHighlight, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = { count: 0 };
@@ -107,12 +111,14 @@ export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableHighlight style={styles.button} onPress={this.onPress}>
-          <Text> Touch Here </Text>
+        <TouchableHighlight onPress={this.onPress}>
+          <View style={styles.button}>
+            <Text>Touch Here</Text>
+          </View>
         </TouchableHighlight>
         <View style={[styles.countContainer]}>
           <Text style={[styles.countText]}>
-            {this.state.count !== 0 ? this.state.count : null}
+            {this.state.count ? this.state.count : null}
           </Text>
         </View>
       </View>
@@ -139,25 +145,11 @@ const styles = StyleSheet.create({
     color: "#FF00FF"
   }
 });
+
+export default App;
 ```
+
 <block class="endBlock syntax" />
-
-### Props
-
-- [TouchableWithoutFeedback props...](touchablewithoutfeedback.md#props)
-
-* [`activeOpacity`](touchablehighlight.md#activeopacity)
-* [`onHideUnderlay`](touchablehighlight.md#onhideunderlay)
-* [`onShowUnderlay`](touchablehighlight.md#onshowunderlay)
-* [`style`](touchablehighlight.md#style)
-* [`underlayColor`](touchablehighlight.md#underlaycolor)
-* [`hasTVPreferredFocus`](touchablehighlight.md#hastvpreferredfocus)
-* [`nextFocusDown`](touchablehighlight.md#nextFocusDown)
-* [`nextFocusForward`](touchablehighlight.md#nextFocusForward)
-* [`nextFocusLeft`](touchablehighlight.md#nextFocusLeft)
-* [`nextFocusRight`](touchablehighlight.md#nextFocusRight)
-* [`nextFocusUp`](touchablehighlight.md#nextFocusUp)
-* [`testOnly_pressed`](touchablehighlight.md#testOnly_pressed)
 
 ---
 

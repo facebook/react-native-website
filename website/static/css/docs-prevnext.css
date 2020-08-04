@@ -59,18 +59,22 @@
   text-align: right;
 }
 
+.docs-prev::before,
+.docs-next::after {
+  font-size: 42px;
+  margin-top: -7px;
+  margin-bottom: 4px;
+  color: #61dafb;
+}
+
 .docs-prev::before {
   content: "‹";
-  font-size: 150%;
-  margin-right: 8px;
-  margin-bottom: 4px;
+  margin-right: 14px;
 }
 
 .docs-next::after {
   content: "›";
-  font-size: 150%;
-  margin-left: 8px;
-  margin-bottom: 4px;
+  margin-left: 14px;
 }
 
 .button:hover {

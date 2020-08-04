@@ -74,7 +74,7 @@ If everything is set up correctly, your device will be listed as the build targe
 
 Most Android devices can only install and run apps downloaded from Google Play, by default. You will need to enable USB Debugging on your device in order to install your app during development.
 
-To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to **Settings** → **About phone** and then tapping the `Build number` row at the bottom seven times. You can then go back to **Settings** → **Developer options** to enable "USB debugging".
+To enable USB debugging on your device, you will first need to enable the "Developer options" menu by going to **Settings** → **About phone** → **Software information** and then tapping the `Build number` row at the bottom seven times. You can then go back to **Settings** → **Developer options** to enable "USB debugging".
 
 ### 2. Plug in your device via USB
 
@@ -249,11 +249,12 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 
 <block class="mac windows linux android" />
 
+<!-- alex ignore host -->
+
 1. Make sure your laptop and your phone are on the **same** Wi-Fi network.
 2. Open your React Native app on your device.
 3. You'll see a [red screen with an error](debugging.md#in-app-errors-and-warnings). This is OK. The following steps will fix that.
 4. Open the in-app [Developer menu](debugging.md#accessing-the-in-app-developer-menu).
-   <!-- alex ignore host -->
 5. Go to **Dev Settings** → **Debug server host & port for device**.
 6. Type in your machine's IP address and the port of the local dev server (e.g. 10.0.1.1:8081).
 7. Go back to the **Developer menu** and select **Reload JS**.

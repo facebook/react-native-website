@@ -1,6 +1,6 @@
 ---
 id: upgrading
-title: Upgrading to new React Native versions
+title: Upgrading to new versions
 ---
 
 Upgrading to new versions of React Native will give you access to more APIs, views, developer tools and other goodies. Upgrading requires a small amount of effort, but we try to make it straightforward for you.
@@ -13,7 +13,7 @@ See the [Upgrading Expo SDK Walkthrough](https://docs.expo.io/versions/latest/wo
 
 ## React Native projects
 
-Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently two ways for upgrading your React Native project: by using [React Native CLI](https://github.com/react-native-community/cli) or manually with [Upgrade Helper](https://github.com/react-native-community/upgrade-helper).
+Because typical React Native projects are essentially made up of an Android project, an iOS project, and a JavaScript project, upgrading can be rather tricky. There's currently two ways for upgrading your React Native project: by using [React Native CLI](https://github.com/react-native-community/cli) or manually with [Upgrade Helper](https://react-native-community.github.io/upgrade-helper/).
 
 ### React Native CLI
 

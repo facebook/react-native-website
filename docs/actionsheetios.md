@@ -5,13 +5,13 @@ title: ActionSheetIOS
 
 Displays native to iOS [Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/) component.
 
-### Example
+## Example
 
 ```SnackPlayer name=ActionSheetIOS&supportedPlatforms=ios
 import React, { useState } from "react";
 import { ActionSheetIOS, Button, StyleSheet, Text, View } from "react-native";
 
-export default App = () => {
+const App = () => {
   const [result, setResult] = useState("🔮");
 
   const onPress = () =>
@@ -50,6 +50,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   }
 });
+
+export default App;
 ```
 
 # Reference
@@ -81,13 +83,13 @@ ActionSheetIOS.showActionSheetWithOptions(
   {
     options: ['Cancel', 'Remove'],
     destructiveButtonIndex: 1,
-    cancelButtonIndex: 0,
+    cancelButtonIndex: 0
   },
   (buttonIndex) => {
     if (buttonIndex === 1) {
       /* destructive action */
     }
-  },
+  }
 );
 ```
 
