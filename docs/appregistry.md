@@ -71,27 +71,7 @@ static enableArchitectureIndicator(enabled)
 static getAppKeys()
 ```
 
----
-
 Returns an array of strings.
-
-### `getSectionKeys()`
-
-```jsx
-static getSectionKeys()
-```
-
-Returns an array of strings.
-
----
-
-### `getSections()`
-
-```jsx
-static getSections()
-```
-
-Returns a [Runnables](appregistry#runnables) object.
 
 ---
 
@@ -121,17 +101,41 @@ Returns a [Runnable](appregistry#runnable) object.
 
 ---
 
-### `registerConfig()`
+### `getSectionKeys()`
 
 ```jsx
-static registerConfig(config)
+static getSectionKeys()
 ```
+
+Returns an array of strings.
+
+---
+
+### `getSections()`
+
+```jsx
+static getSections()
+```
+
+Returns a [Runnables](appregistry#runnables) object.
+
+---
+
+### `registerCancellableHeadlessTask()`
+
+```jsx
+static registerCancellableHeadlessTask(taskKey, taskProvider, taskCancelProvider)
+```
+
+Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI.
 
 **Parameters:**
 
-| Name                                                    | Type                               |
-| ------------------------------------------------------- | ---------------------------------- |
-| config <div class="label basic required">Required</div> | [AppConfig](appregistry#appconfig) |
+| Name                                                                              | Type                                                 | Description                                                                                                                                                                                                                         |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskKey<br/><div class="label basic required two-lines">Required</div>            | string                                               | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
+| taskProvider<br/><div class="label basic required two-lines">Required</div>       | [TaskProvider](appregistry#taskprovider)             | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
+| taskCancelProvider<br/><div class="label basic required two-lines">Required</div> | [TaskCancelProvider](appregistry#taskcancelprovider) | a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.                                                                    |
 
 ---
 
@@ -148,6 +152,39 @@ static registerComponent(appKey, componentProvider, section?)
 | appKey <div class="label basic required">Required</div>            | string            |
 | componentProvider <div class="label basic required">Required</div> | ComponentProvider |
 | section                                                            | boolean           |
+
+---
+
+### `registerConfig()`
+
+```jsx
+static registerConfig(config)
+```
+
+**Parameters:**
+
+| Name                                                    | Type                               |
+| ------------------------------------------------------- | ---------------------------------- |
+| config <div class="label basic required">Required</div> | [AppConfig](appregistry#appconfig) |
+
+---
+
+### `registerHeadlessTask()`
+
+```jsx
+static registerHeadlessTask(taskKey, taskProvider)
+```
+
+Register a headless task. A headless task is a bit of code that runs without a UI.
+
+This is a way to run tasks in JavaScript while your app is in the background. It can be used, for example, to sync fresh data, handle push notifications, or play music.
+
+**Parameters:**
+
+| Name                                                                        | Type                                     | Description                                                                                                                                                                                                                         |
+| --------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskKey<br/><div class="label basic required two-lines">Required</div>      | string                                   | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
+| taskProvider<br/><div class="label basic required two-lines">Required</div> | [TaskProvider](appregistry#taskprovider) | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
 
 ---
 
@@ -178,43 +215,6 @@ static registerSection(appKey, component)
 | ---------------------------------------------------------- | ----------------- |
 | appKey <div class="label basic required">Required</div>    | string            |
 | component <div class="label basic required">Required</div> | ComponentProvider |
-
----
-
-### `registerHeadlessTask()`
-
-```jsx
-static registerHeadlessTask(taskKey, taskProvider)
-```
-
-Register a headless task. A headless task is a bit of code that runs without a UI.
-
-This is a way to run tasks in JavaScript while your app is in the background. It can be used, for example, to sync fresh data, handle push notifications, or play music.
-
-**Parameters:**
-
-| Name                                                                        | Type                                     | Description                                                                                                                                                                                                                         |
-| --------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| taskKey<br/><div class="label basic required two-lines">Required</div>      | string                                   | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
-| taskProvider<br/><div class="label basic required two-lines">Required</div> | [TaskProvider](appregistry#taskprovider) | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
-
----
-
-### `registerCancellableHeadlessTask()`
-
-```jsx
-static registerCancellableHeadlessTask(taskKey, taskProvider, taskCancelProvider)
-```
-
-Register a headless task which can be cancelled. A headless task is a bit of code that runs without a UI. @param taskKey the key associated with this task @param taskProvider a promise returning function that takes some data passed from the native side as the only argument; when the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. @param taskCancelProvider a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.
-
-**Parameters:**
-
-| Name                                                                | Type                                                 |
-| ------------------------------------------------------------------- | ---------------------------------------------------- |
-| taskKey <div class="label basic required">Required</div>            | string                                               |
-| taskProvider <div class="label basic required">Required</div>       | [TaskProvider](appregistry#taskprovider)             |
-| taskCancelProvider <div class="label basic required">Required</div> | [TaskCancelProvider](appregistry#taskcancelprovider) |
 
 ---
 
@@ -279,8 +279,6 @@ static startHeadlessTask(taskId, taskKey, data)
 ```
 
 Only called from native code. Starts a headless task.
-
-@param taskId the native id for this task instance to keep track of its execution @param taskKey the key for the task to start @param data the data to pass to the task
 
 **Parameters:**
 
