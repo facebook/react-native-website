@@ -110,7 +110,7 @@ Display the iOS share sheet. The `options` object should contain one or both of 
 
 NOTE: if `url` points to a local file, or is a base64-encoded uri, the file it points to will be loaded and shared directly. In this way, you can share images, videos, PDF files, etc. 
 
-In order to be shared `url` string must conform to URL format as described in RFC 2396. For example, a web `url` without a proper scheme (HTTP/HTTPS) will not be shared.
+`url` string must conform to URL format as described in RFC 2396. For example, a web `url` without a proper scheme (HTTP/HTTPS) will not be shared.
 
 The 'failureCallback' function takes one parameter, an error object. The only property defined on this object is an optional `stack` property of type `string`.
 
