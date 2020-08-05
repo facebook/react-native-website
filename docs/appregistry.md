@@ -81,7 +81,7 @@ Returns an array of strings.
 static getRegistry()
 ```
 
-Returns a [Registry`(appregistry#registry) object.
+Returns a [Registry](appregistry#registry) object.
 
 ---
 
