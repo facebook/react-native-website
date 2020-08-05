@@ -13,13 +13,21 @@
 
 module.exports = {
   linkableTypeAliases: {
-    ColorValue: {
+    NativeColorValue: {
       text: 'color',
       url: 'colors.md',
     },
     ViewProps: {
       text: 'View Props',
       url: 'view.md#props',
+    },
+    PressEvent: {
+      text: 'PressEvent',
+      url: 'pressevent.md',
+    },
+    'RefreshLayoutConsts.SIZE.DEFAULT': {
+      text: 'RefreshControl.SIZE',
+      url: 'refreshcontrol.md#refreshlayoutconstssize',
     },
   },
 };

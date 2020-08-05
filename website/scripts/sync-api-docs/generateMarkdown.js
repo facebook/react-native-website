@@ -4,10 +4,14 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-
-const he = require('he');
-const magic = require('./magic');
-const {formatPlatformName} = require('./platforms');
+const tokenizeComment = require('tokenize-comment');
+const {
+  formatMultiplePlatform,
+  maybeLinkifyType,
+  maybeLinkifyTypeName,
+  formatTypeColumn,
+  formatDefaultColumn,
+} = require('./propFormatter');
 
 // Formats an array of rows as a Markdown table
 function generateTable(rows) {
@@ -41,33 +45,24 @@ function generateTable(rows) {
   return result;
 }
 
-// Wraps a string in an inline code block in a way that is safe to include in a
-// table cell, by wrapping it as HTML <code> if necessary.
-function stringToInlineCodeForTable(str) {
-  let useHtml = /[`|]/.test(str);
-  str = str.replace(/\n/g, ' ');
-  if (useHtml) {
-    return '<code>' + he.encode(str).replace(/\|/g, '&#124;') + '</code>';
-  }
-  return '`' + str + '`';
-}
-
 // Formats information about a prop
 function generateProp(propName, prop) {
   const infoTable = generateTable([
     {
-      Type: prop.flowType ? maybeLinkifyType(prop.flowType) : '',
-      Required: prop.required ? 'Yes' : 'No',
-      ...(prop.rnTags && prop.rnTags.platform
-        ? {Platform: formatPlatformName(prop.rnTags.platform)}
-        : {}),
+      Type: formatTypeColumn(prop),
+      ...formatDefaultColumn(prop),
     },
   ]);
 
   return (
-    '### `' +
+    '### ' +
+    (prop.required ? '<div class="label required basic">Required</div>' : '') +
+    '`' +
     propName +
     '`' +
+    (prop.rnTags && prop.rnTags.platform
+      ? formatMultiplePlatform(prop.rnTags.platform)
+      : '') +
     '\n' +
     '\n' +
     (prop.description ? prop.description + '\n\n' : '') +
@@ -136,34 +131,6 @@ function generateMethodSignatureTable(method, component) {
   );
 }
 
-function maybeLinkifyType(flowType) {
-  let url, text;
-  if (Object.hasOwnProperty.call(magic.linkableTypeAliases, flowType.name)) {
-    ({url, text} = magic.linkableTypeAliases[flowType.name]);
-  }
-  if (!text) {
-    text = stringToInlineCodeForTable(flowType.raw || flowType.name);
-  }
-  if (url) {
-    return `[${text}](${url})`;
-  }
-  return text;
-}
-
-function maybeLinkifyTypeName(name) {
-  let url, text;
-  if (Object.hasOwnProperty.call(magic.linkableTypeAliases, name)) {
-    ({url, text} = magic.linkableTypeAliases[name]);
-  }
-  if (!text) {
-    text = stringToInlineCodeForTable(name);
-  }
-  if (url) {
-    return `[${text}](${url})`;
-  }
-  return text;
-}
-
 // Formats information about props
 function generateProps({props, composes}) {
   if (!props || !Object.keys(props).length) {
@@ -180,7 +147,8 @@ function generateProps({props, composes}) {
           .join('\n\n') + '\n\n'
       : '') +
     Object.keys(props)
-      .sort()
+      .sort((a, b) => a.localeCompare(b))
+      .sort((a, b) => props[b].required - props[a].required)
       .map(function(propName) {
         return generateProp(propName, props[propName]);
       })
@@ -218,11 +186,77 @@ function generateHeader({id, title}) {
   );
 }
 
+// Function to process example contained description
+function preprocessDescription(desc) {
+  // Playground tabs for the class and functional components
+  const playgroundTab = `<div class="toggler">
+    <ul role="tablist" class="toggle-syntax">
+      <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+        Function Component Example
+      </li>
+      <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+        Class Component Example
+      </li>
+    </ul>
+  </div>`;
+
+  //Blocks for different syntax sections
+  const functionalBlock = `<block class='functional syntax' />`;
+  const classBlock = `<block class='classical syntax' />`;
+  const endBlock = `<block class='endBlock syntax' />`;
+
+  desc = desc
+    .split('\n')
+    .map(line => {
+      return line.replace(/  /, '');
+    })
+    .join('\n');
+
+  const descriptionTokenized = tokenizeComment(desc);
+  // Tabs counter for examples
+  let tabs = 0;
+  descriptionTokenized.examples.map(item => {
+    const matchSnackPlayer = item.language.match(/(SnackPlayer name=).*/g);
+    if (matchSnackPlayer) {
+      const matchClassComp = matchSnackPlayer[0].match(
+        /Class%20Component%20Example/
+      );
+      const matchFuncComp = matchSnackPlayer[0].match(
+        /Function%20Component%20Example/
+      );
+      if (matchClassComp || matchFuncComp) tabs++;
+    }
+  });
+
+  if (tabs === 2) {
+    const wrapper = `${playgroundTab}\n\n${functionalBlock}\n\n${
+      descriptionTokenized.examples[0].raw
+    }\n\n${classBlock}\n\n${
+      descriptionTokenized.examples[1].raw
+    }\n\n${endBlock}`;
+    return (
+      descriptionTokenized.description +
+      `\n## Example\n` +
+      wrapper +
+      '\n' +
+      descriptionTokenized?.footer
+    );
+  } else {
+    return (
+      desc.substr(0, desc.search('```SnackPlayer')) +
+      '\n' +
+      '\n## Example\n' +
+      '\n' +
+      desc.substr(desc.search('```SnackPlayer'))
+    );
+  }
+}
+
 function generateMarkdown({id, title}, component) {
   const markdownString =
     generateHeader({id, title}) +
     '\n' +
-    component.description +
+    preprocessDescription(component.description) +
     '\n\n' +
     '---\n\n' +
     '# Reference\n\n' +

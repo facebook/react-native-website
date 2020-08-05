@@ -12,6 +12,7 @@
 // `generate-api-docs` script.
 
 const tokenizeComment = require('tokenize-comment');
+const {typeOf} = require('tokenize-comment/lib/utils');
 
 function joinDescriptionAndExamples(tokenized) {
   let sections = [];
@@ -29,14 +30,40 @@ function joinDescriptionAndExamples(tokenized) {
 
 function preprocessTagsInDescription(obj) {
   if (obj && obj.description) {
+    obj.description = obj.description
+      .split('\n')
+      .map(line => {
+        return line.replace(/    /, '');
+      })
+      .join('\n');
     const descriptionTokenized = tokenizeComment(obj.description);
-    obj.description = joinDescriptionAndExamples(descriptionTokenized);
+    obj.description = obj.description.replace(
+      /@platform .*|@default .*|@type .*/g,
+      ''
+    );
     obj.rnTags = {};
     const platformTag = descriptionTokenized.tags.find(
       ({key}) => key === 'platform'
     );
+    const defaultTag = descriptionTokenized.tags.filter(
+      tag => tag.key === 'default'
+    );
+    const typeTag = descriptionTokenized.tags.filter(tag => tag.key === 'type');
+
     if (platformTag) {
-      obj.rnTags.platform = platformTag.value;
+      obj.rnTags.platform = platformTag.value.split(',');
+    }
+    if (defaultTag.length) {
+      obj.rnTags.default = [];
+      defaultTag.forEach(tag => {
+        obj.rnTags.default.push(tag.value);
+      });
+    }
+    if (typeTag.length) {
+      obj.rnTags.type = [];
+      typeTag.forEach(tag => {
+        obj.rnTags.type.push(tag.value);
+      });
     }
   }
 }
@@ -44,7 +71,7 @@ function preprocessTagsInDescription(obj) {
 // NOTE: This function mutates `docs`.
 function preprocessGeneratedApiDocs(docs) {
   for (const {component} of docs) {
-    if (component.props) {
+    if (component.props && component.description) {
       for (const prop of Object.values(component.props)) {
         preprocessTagsInDescription(prop);
       }

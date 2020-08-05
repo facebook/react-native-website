@@ -30,7 +30,8 @@
     "sync-guides": "node sync-guides.js",
     "test": "yarn build",
     "lint": "cd ../ && alex .",
-    "lintv": "cd ../ && alex"
+    "lintv": "cd ../ && alex",
+    "sync:docs": "node scripts/sync-api-docs/sync-api-docs ../../react-native"
   },
   "husky": {
     "hooks": {
@@ -45,7 +46,7 @@
     "tokenize-comment": "^3.0.1"
   },
   "devDependencies": {
-    "@motiz88/react-native-docgen": "0.0.2",
+    "@motiz88/react-native-docgen": "0.0.3",
     "front-matter": "^2.3.0",
     "fs-extra": "^5.0.0",
     "glob": "^7.1.2",
