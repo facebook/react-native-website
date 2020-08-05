@@ -21,7 +21,7 @@ original_id: building-for-tv
 
 <block class="ios" />
 
-> **已过时。** Use [react-native-tvos](https://github.com/react-native-community/react-native-tvos) instead. For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
+> **已过时。** 请使用[react-native-tvos](https://github.com/react-native-community/react-native-tvos)代替。 For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
 
 源代码仓库里的[RNTester 演示应用](https://github.com/facebook/react-native/tree/master/RNTester)支持在 Apple TV 上运行，使用`RNTester-tvOS`编译目标来在 tvOS 上编译运行。
 
@@ -152,20 +152,10 @@ class Game2048 extends React.Component {
 
 - _Back navigation with the TV remote menu button_: The `BackHandler` component, originally written to support the Android back button, now also supports back navigation on the Apple TV using the menu button on the TV remote.
 
-- _TabBarIOS behavior_: The `TabBarIOS` component wraps the native `UITabBar` API, which works differently on Apple TV. To avoid jittery rerendering of the tab bar in tvOS (see [this issue](https://github.com/facebook/react-native/issues/15081)), the selected tab bar item can only be set from Javascript on initial render, and is controlled after that by the user through native code.
-
 <block class="android" />
 
 - _Dev Menu support_: On the simulator, cmd-M will bring up the developer menu, just like on Android. To bring it up on a real Android TV device, make a long press on the play/pause button on the remote. (Please do not shake the Android TV device, that will not work :) )
 
-<block class="ios" />
-
 - _已知问题_:
 
-  - [ListView scrolling](https://github.com/facebook/react-native/issues/12793). The issue can be easily worked around by setting `removeClippedSubviews` to false in ListView and similar components. For more discussion of this issue, see [this PR](https://github.com/facebook/react-native/pull/12944).
-
-<block class="android" />
-
-- _已知问题_:
-
-  - `TextInput` components do not work for now (i.e. they cannot receive focus).
+  - `TextInput`组件不能获得焦点，请参考这里讨论的[临时解决方案](https://github.com/facebook/react-native/pull/16500#issuecomment-629285638)。
