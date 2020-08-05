@@ -746,11 +746,9 @@ Possible values for `textContentType` are:
 
 When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
-
-If iOS doesn't show a dialog of passwords generation please sure:  
-
-1) That Autofill enabled: `Settings` => `Passwords & Accounts` => toggle on the `AutoFill Passwords`
-2) And iCloud Keychain is used: `Settings` => `Apple ID` => `iCloud` => toggle on the `Keychain`
+> If passwords generation dialog doesn't appear please make sure that:
+> - AutoFill is enabled: **Settings** → **Passwords & Accounts** → toggle "On" the **AutoFill Passwords**,
+> - iCloud Keychain is used: **Settings** → **Apple ID** → **iCloud** → **Keychain** → toggle "On" the **iCloud Keychain**.
 
 | Type   | Required | Platform |
 | ------ | -------- | -------- |
