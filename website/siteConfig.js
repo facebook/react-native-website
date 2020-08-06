@@ -96,7 +96,6 @@ const siteConfig = {
     baseUrl + 'js/tabs.js',
     baseUrl + 'js/docs-rating.js',
     baseUrl + 'js/announcement.js',
-    baseUrl + 'js/survey-banner.js',
   ],
   cleanUrl: true,
   scrollToTop: true,
