@@ -42,8 +42,7 @@ glob('../docs/**/*.md')
         .then(() => {
           return fs.stat(imagePath);
         })
-        .then(stats => {})
-        .catch(e => {
+        .catch(() => {
           console.error(
             'Could not find ' +
               imagePath +
