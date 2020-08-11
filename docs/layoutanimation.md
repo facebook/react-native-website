@@ -90,6 +90,7 @@ Schedules an animation to happen on the next layout.
 | ----------------- | -------- | -------- | ---------------------------------------------------------- |
 | config            | object   | Yes      | See config description below.                              |
 | onAnimationDidEnd | function | No       | Called when the animation finished. Only supported on iOS. |
+| onAnimationDidFail| function | No       | Called when the animation failed.                          |
 
 The `config` parameter is an object with the keys below. [`create`](layoutanimation.md#create) returns a valid object for `config`, and the [`Presets`](layoutanimation.md#presets) objects can also all be passed as the `config`.
 
