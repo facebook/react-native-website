@@ -79,7 +79,7 @@ export default App;
 ### `configureNext()`
 
 ```jsx
-static configureNext(config, onAnimationDidEnd?)
+static configureNext(config, onAnimationDidEnd?, onAnimationDidFail?)
 ```
 
 Schedules an animation to happen on the next layout.
