@@ -204,7 +204,7 @@ input#search_input_react:focus {
 }
 
 .headerWrapper.wrapper {
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 .navigationSlider .slidingNav {
@@ -225,9 +225,9 @@ input#search_input_react:focus {
   color: #fff;
   font-weight: bold;
   font-size: 24px;
-  padding: 30px;
+  padding: 8px 30px;
   text-align: center;
-  height: 100px;
+  height: 60px;
   position: absolute;
   width: 100%;
 }
@@ -235,6 +235,7 @@ input#search_input_react:focus {
 .announcement-inner {
   margin: 0 auto;
   max-width: 768px;
+  line-height: 44px;
 }
 
 .announcement-inner a {
@@ -275,37 +276,41 @@ body {
   }
   .announcement {
     padding: 10px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .announcement {
     font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .navPusher {
-    padding-top: 160px;
+    padding-top: 120px;
   }
   .docsNavContainer {
-    top: 136px;
+    top: 96px;
   }
   .onPageNav {
-    top: 172px;
-    max-height: calc(100vh - 172px);
+    top: 136px;
+    max-height: calc(100vh - 136px);
   }
 }
 
 @media only screen and (max-width: 1023px) {
   ul.nav-site.nav-site-internal {
-    margin-top: 160px;
+    margin-top: 120px;
   }
   .navPusher {
-    padding-top: 210px;
+    padding-top: 170px;
   }
   .navSearchWrapper {
-    top: 114px;
+    top: 74px;
+  }
+}
+
+@media (max-width: 500px) {
+  .announcement {
+    font-size: 15px;
+  }
+  .announcement-inner {
+    line-height: 22px;
   }
 }
 /* End announcement banner override */
