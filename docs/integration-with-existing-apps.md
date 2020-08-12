@@ -437,7 +437,7 @@ import React
 
 <block class="swift" />
 
-> When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `let mainBundle = NSBundle(URLForResource: "main" withExtension:"jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
+> When moving your app to production, the `URL` can point to a pre-bundled file on disk via something like `Bundle.main.url(forResource: "main", withExtension: "jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
 
 <block class="objc swift" />
 
