@@ -325,6 +325,11 @@ td .label.required {
   letter-spacing: 0.03rem;
 }
 
+td .label.two-lines {
+  margin-left: 0;
+  margin-top: 4px;
+}
+
 /* Label as dot in the right sidebar */
 
 .onPageNav .label {

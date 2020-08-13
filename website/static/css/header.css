@@ -204,7 +204,7 @@ input#search_input_react:focus {
 }
 
 .headerWrapper.wrapper {
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 .navigationSlider .slidingNav {
@@ -225,9 +225,9 @@ input#search_input_react:focus {
   color: #fff;
   font-weight: bold;
   font-size: 24px;
-  padding: 30px;
+  padding: 8px 30px;
   text-align: center;
-  height: 100px;
+  height: 60px;
   position: absolute;
   width: 100%;
 }
@@ -235,6 +235,7 @@ input#search_input_react:focus {
 .announcement-inner {
   margin: 0 auto;
   max-width: 768px;
+  line-height: 44px;
 }
 
 .announcement-inner a {
@@ -275,76 +276,41 @@ body {
   }
   .announcement {
     padding: 10px;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .announcement {
     font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .navPusher {
-    padding-top: 160px;
+    padding-top: 120px;
   }
   .docsNavContainer {
-    top: 136px;
+    top: 96px;
   }
   .onPageNav {
-    top: 172px;
-    max-height: calc(100vh - 172px);
+    top: 136px;
+    max-height: calc(100vh - 136px);
   }
 }
 
 @media only screen and (max-width: 1023px) {
   ul.nav-site.nav-site-internal {
-    margin-top: 160px;
+    margin-top: 120px;
   }
   .navPusher {
-    padding-top: 210px;
+    padding-top: 170px;
   }
   .navSearchWrapper {
-    top: 114px;
+    top: 74px;
+  }
+}
+
+@media (max-width: 500px) {
+  .announcement {
+    font-size: 15px;
+  }
+  .announcement-inner {
+    line-height: 22px;
   }
 }
 /* End announcement banner override */
-
-/* 2020 Docs survey banner */
-
-.callout_docs-survey-2020-2 {
-  background-color: rgba(5, 165, 209, 0.25);
-  border-radius: 0.15em;
-  color: #001217;
-  display: block;
-  margin: 1em 0;
-  position: relative;
-  padding: 1em 2em 1em 3.5em;
-  transition: transform 300ms ease-out;
-  z-index: 1;
-}
-
-.callout_docs-survey-2020-2 svg {
-  fill: rgba(5, 165, 209, 1);
-  height: 2em;
-  width: 2em;
-  position: absolute;
-  top: 0.75em;
-  left: 1em;
-}
-
-.callout_docs-survey-2020-2:link,
-.callout_docs-survey-2020-2:visited {
-  color: #001217;
-}
-
-.callout_docs-survey-2020-2:hover,
-.callout_docs-survey-2020-2:active,
-.callout_docs-survey-2020-2:focus {
-  color: #001217;
-  transform: translate(0.1em, 0.1em);
-}
-
-.callout_docs-survey-2020-2 span {
-  text-decoration: underline;
-}
