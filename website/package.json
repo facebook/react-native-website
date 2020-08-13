@@ -36,12 +36,12 @@
     }
   },
   "dependencies": {
-    "alex": "^8.2.0",
     "docusaurus": "1.14.6",
     "highlight.js": "^10.1.2",
     "remarkable": "^2.0.1"
   },
   "devDependencies": {
+    "alex": "^8.2.0",
     "front-matter": "^4.0.2",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
