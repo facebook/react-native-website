@@ -5,13 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 const tokenizeComment = require('tokenize-comment');
+const {formatTypeColumn, formatDefaultColumn} = require('./propFormatter');
+const {
+  formatMethodType,
+  formatMethodName,
+  formatMethodDescription,
+} = require('./methodFormatter');
+
 const {
   formatMultiplePlatform,
+  stringToInlineCodeForTable,
   maybeLinkifyType,
   maybeLinkifyTypeName,
-  formatTypeColumn,
-  formatDefaultColumn,
-} = require('./propFormatter');
+  formatType,
+} = require('./utils');
 
 // Formats an array of rows as a Markdown table
 function generateTable(rows) {
@@ -72,24 +79,66 @@ function generateProp(propName, prop) {
 
 // Formats information about a prop
 function generateMethod(method, component) {
-  const infoTable = generateTable([
-    {
-      ...(method.rnTags && method.rnTags.platform
-        ? {Platform: formatPlatformName(method.rnTags.platform)}
-        : {}),
-    },
-  ]);
+  let descriptionTokenized = '';
+  let header = 'Valid `params` keys are:';
+  let mdPoints = '';
+  if (method?.params[0]?.type?.raw) {
+    let desc = method?.params[0]?.type?.raw;
+    let len = method?.params[0]?.type?.signature?.properties?.length;
+    descriptionTokenized = tokenizeComment(desc);
+
+    if (
+      descriptionTokenized?.examples &&
+      descriptionTokenized?.examples.length === len
+    ) {
+      let obj = [];
+      for (let i = 0; i < len; i++) {
+        let newObj = method?.params[0]?.type?.signature?.properties[i];
+        newObj['description'] = descriptionTokenized?.examples[i]?.value;
+        obj.push(newObj);
+      }
+
+      obj.map(item => {
+        if (item.description.trim() !== 'missing')
+          mdPoints += `- '${item.key}' (${item.value.name}) - ${
+            item.description
+          }`;
+        else mdPoints += `- '${item.key}' (${item.value.name})`;
+      });
+    }
+  }
+
+  if (method?.docblock) {
+    let dblock = method.docblock
+      .split('\n')
+      .map(line => {
+        return line.replace(/  /, '');
+      })
+      .join('\n');
+    const docblockTokenized = tokenizeComment(dblock);
+    dblock = dblock.replace(/@platform .*/g, '');
+    method.rnTags = {};
+    const platformTag = docblockTokenized.tags.find(
+      ({key}) => key === 'platform'
+    );
+
+    if (platformTag) {
+      method.rnTags.platform = platformTag.value.split(',');
+    }
+  }
 
   return (
     '### `' +
     method.name +
     '()`' +
+    (method.rnTags && method.rnTags.platform
+      ? formatMultiplePlatform(method.rnTags.platform)
+      : '') +
     '\n' +
     '\n' +
-    generateMethodSignatureBlock(method, component) +
     (method.description ? method.description + '\n\n' : '') +
     generateMethodSignatureTable(method, component) +
-    infoTable
+    (mdPoints && header + '\n' + mdPoints)
   ).trim();
 }
 
@@ -118,15 +167,20 @@ function generateMethodSignatureTable(method, component) {
   if (!method.params.length) {
     return '';
   }
+
   return (
     '**Parameters:**\n\n' +
     generateTable(
-      method.params.map(param => ({
-        Name: param.name,
-        Type: param.type ? maybeLinkifyType(param.type) : '',
-        Required: param.optional ? 'No' : 'Yes',
-        Description: param.description,
-      }))
+      method.params.map(param => {
+        return {
+          Name: formatMethodName(param),
+          Type: formatMethodType(param),
+          Required: param.optional ? 'No' : 'Yes',
+          ...(param.description && {
+            Description: formatMethodDescription(param),
+          }),
+        };
+      })
     )
   );
 }
@@ -229,26 +283,35 @@ function preprocessDescription(desc) {
   });
 
   if (tabs === 2) {
-    const wrapper = `${playgroundTab}\n\n${functionalBlock}\n\n${
-      descriptionTokenized.examples[0].raw
-    }\n\n${classBlock}\n\n${
-      descriptionTokenized.examples[1].raw
-    }\n\n${endBlock}`;
-    return (
-      descriptionTokenized.description +
-      `\n## Example\n` +
-      wrapper +
-      '\n' +
-      descriptionTokenized?.footer
+    const firstExample = desc.substr(desc.search('```SnackPlayer') + 1);
+    const secondExample = firstExample.substr(
+      firstExample.search('```SnackPlayer') + 1
     );
-  } else {
+
     return (
       desc.substr(0, desc.search('```SnackPlayer')) +
-      '\n' +
-      '\n## Example\n' +
-      '\n' +
-      desc.substr(desc.search('```SnackPlayer'))
+      `\n## Example\n` +
+      `${playgroundTab}\n\n${functionalBlock}\n\n${'`' +
+        firstExample.substr(
+          0,
+          firstExample.search('```') + 3
+        )}\n\n${classBlock}\n\n${'`' +
+        secondExample.substr(
+          0,
+          secondExample.search('```') + 3
+        )}\n\n${endBlock}` +
+      secondExample.substr(secondExample.search('```') + 3)
     );
+  } else {
+    if (desc.search('```SnackPlayer') !== -1) {
+      return (
+        desc.substr(0, desc.search('```SnackPlayer')) +
+        '\n' +
+        '\n## Example\n' +
+        '\n' +
+        desc.substr(desc.search('```SnackPlayer'))
+      );
+    } else return desc;
   }
 }
 
