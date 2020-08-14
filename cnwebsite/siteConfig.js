@@ -108,7 +108,7 @@ const siteConfig = {
     // 'https://buttons.github.io/buttons.js',
     cdnUrl + 'js/codeblocks.js',
     cdnUrl + 'js/tabs.js',
-    cdnUrl + 'js/doccode0325.js',
+    cdnUrl + 'js/doccode0814.js',
     cdnUrl + 'js/snack.js',
   ],
   cleanUrl: true,
