@@ -5,7 +5,7 @@ title: Timers
 
 Timers are an important part of an application and React Native implements the [browser timers](https://developer.mozilla.org/en-US/Add-ons/Code_snippets/Timers).
 
-> Note: when debugging on Android, if the times between the debugger and device have drifted by more than 60s things might not work or results may not be accurate. Please correct this by running `` adb shell "date `date +%m%d%H%M%Y.%S`" `` on your debugger machine.
+> Note: when debugging on Android, if the times between the debugger and device have drifted; things such as animation, event behavior, etc., might not work properly or the results may not be accurate. Please correct this by running `` adb shell "date `date +%m%d%H%M%Y.%S`" `` on your debugger machine. Root access is required for the use in real device.
 
 ## Timers
 
