@@ -519,19 +519,20 @@ You can examine the code that added the React Native screen to our sample app on
 
 ### Configuring maven
 
-Add the React Native dependency to your app's `build.gradle` file:
+Add the React Native and JSC dependency to your app's `build.gradle` file:
 
 ```gradle
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:27.1.1"
     ...
     implementation "com.facebook.react:react-native:+" // From node_modules
+    implementation "org.webkit:android-jsc:+"
 }
 ```
 
 > If you want to ensure that you are always using a specific React Native version in your native build, replace `+` with an actual React Native version you've downloaded from `npm`.
 
-Add an entry for the local React Native maven directory to `build.gradle`. Be sure to add it to the "allprojects" block, above other maven repositories:
+Add an entry for the local React Native and JSC maven directory to `build.gradle`. Be sure to add it to the "allprojects" block, above other maven repositories:
 
 ```gradle
 allprojects {
@@ -540,6 +541,10 @@ allprojects {
             // All of React Native (JS, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
         ...
     }
     ...
@@ -547,6 +552,20 @@ allprojects {
 ```
 
 > Make sure that the path is correct! You shouldn’t run into any “Failed to resolve: com.facebook.react:react-native:0.x.x" errors after running Gradle sync in Android Studio.
+
+### Enable native modules autolinking
+
+To use the power of [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), we have to apply it a few places. First add the following entry to `settings.gradle`:
+
+```gradle
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+```
+
+Open `app/build.gradle` and add the following entry at the very bottom:
+
+```gradle
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+```
 
 ### Configuring permissions
 
@@ -681,14 +700,19 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SoLoader.init(this, /* native exopackage */ false);
 
         mReactRootView = new ReactRootView(this);
+        List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
+        // Packages that cannot be autolinked yet can be added manually here, for example:
+        // packages.add(new MyReactNativePackage());
+
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
-                .addPackage(new MainReactPackage())
+                .addPackage(packages)
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
