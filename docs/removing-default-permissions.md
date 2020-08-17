@@ -7,4 +7,4 @@ By default, `INTERNET` permission is added to your Android app as pretty much al
 
 ## Notes
 
-1. You don't need `WRITE_EXTERNAL_STORAGE` and `READ_EXTERNAL_STORAGE` permissions to use `AsyncStorage`.
+* You don't need `WRITE_EXTERNAL_STORAGE` and `READ_EXTERNAL_STORAGE` permissions to use `AsyncStorage`.
