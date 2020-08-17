@@ -391,6 +391,8 @@ If the app launch was triggered by an app link, it will give the link url, other
 
 > To support deep linking on Android, refer http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents
 
+> getInitialURL may return `null` while debugging is enabled. Disable the debugger to ensure it gets passed.
+
 ---
 
 ### `sendIntent()`
