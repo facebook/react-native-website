@@ -39,7 +39,8 @@
       "performance",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
-      "profiling"
+      "profiling",
+      "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Connectivity": ["network", "security"],

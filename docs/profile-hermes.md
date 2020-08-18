@@ -1,0 +1,91 @@
+---
+id: profile-hermes
+title: Profiling with Hermes
+---
+
+Visualize JavaScript's performance in a React Native app using Hermes. [Hermes](https://github.com/facebook/hermes) is a small and lightweight JavaScript engine optimized for running React Native on Android. Using Hermes in a React Native app improves the performance of the app. The Hermes engine also exposes ways to understand the performance of JavaScript code that it runs.
+
+This section contains directions on how to profile your React Native app running on Hermes. You will be able to visualize the profile using [Performance analysis on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
+
+**An overview of the process**:
+
+- Create a new React Native app
+- [Record a Hermes sampling profile](profile-hermes.md#recording-a-hermes-sampling-profile)
+- [Execute command from CLI](profile-hermes.md#command-to-download-the-sampling-profiler)
+- Open the downloaded profile on Chrome DevTools
+
+[comment]: <Include the instruction to load profile in DevTools and paste the hyperlink above>
+
+## Recording a Hermes sampling profile
+
+First, you need to enable Hermes to run. Instruction on how to enable Hermes is here: [Using Hermes](https://reactnative.dev/docs/hermes)
+
+Record a sampling profiler from the Developer Menu:
+
+- Open Developer Menu with `Cmd+M` or Shake the device. Select `Enable Sampling Profiler`
+- Execute JavaScript by using the app (pressing buttons, etc.)
+- Open Developer Menu again, select `Disable Sampling Profiler`. A toast shows the location where the sampling profiler is saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
+
+  <img src="/docs/assets/HermesProfileSaved.png" height=465 width=250>
+
+## Command to download the sampling profiler
+
+You can use React Native's built-in command line interface to convert the Hermes tracing profile to Chrome tracing profile, then pull it to your local machine:
+
+```sh
+react-native profile-hermes [destinationDir]
+```
+
+### [Optional] Downloading the original Hermes sampling profile
+
+If you want to pull the original Hermes tracing profile without any transformation, you can use the `--raw` argument:
+
+```sh
+react-native profile-hermes [destinationDir] --raw
+```
+
+### Notes on source map
+
+- Source map is used to enhance the profile and associate trace events with the application code
+- This step is recommended in order for the source map to be generated automatically for the use of the above command:
+
+#### Enable `bundleInDebug: true` if the app is running in development mode:
+
+This allows React Native to build the bundle during its running process
+
+- In the `android/app/build.gradle` file of the React Native app that you use to test, add
+
+```sh
+project.ext.react = [
+    bundleInDebug: true,
+]
+```
+
+- Clean the build by running this command
+
+```sh
+cd android && ./gradlew clean
+```
+
+- Run your app as usual
+
+```sh
+npx react-native run-android
+```
+
+## Common errors encountered during the process
+
+- #### adb: no devices/emulators found
+- #### adb: device offline
+
+  - Cause: The CLI cannot access the device or emulator (through adb) you are using to run the app
+  - Solution: make sure your Android device/ emulator is connected and running. The command only works when it can access adb
+
+- #### There is no file in the cache/ directory
+
+  - Cause: cannot find any **.cpuprofile** file in your app's **cache/** directory. You might have forgotten to record a profile from the device
+  - Solution: instruction on how to enable/ disable profiler from device is [above](profile-hermes.md#recording-a-hermes-sampling-profile)
+
+- #### Error: your_profile_name.cpuprofile is an empty file
+  - Cause: the profile is empty, it might be because Hermes is not running correctly or crashes
+  - Solution: make sure your app is running with Hermes and update Hermes to the latest version
