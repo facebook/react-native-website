@@ -532,7 +532,7 @@ dependencies {
 
 > If you want to ensure that you are always using a specific React Native version in your native build, replace `+` with an actual React Native version you've downloaded from `npm`.
 
-Add an entry for the local React Native and JSC maven directory to `build.gradle`. Be sure to add it to the "allprojects" block, above other maven repositories:
+Add an entry for the local React Native and JSC maven directories to the top-level `build.gradle`. Be sure to add it to the “allprojects” block, above other maven repositories:
 
 ```gradle
 allprojects {
@@ -561,7 +561,7 @@ To use the power of [autolinking](https://github.com/react-native-community/cli/
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 ```
 
-Open `app/build.gradle` and add the following entry at the very bottom:
+Next add the following entry at the very bottom of the `app/build.gradle`:
 
 ```gradle
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
@@ -700,19 +700,20 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SoLoader.init(this, /* native exopackage */ false);
+        SoLoader.init(this, false);
 
         mReactRootView = new ReactRootView(this);
         List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
         // Packages that cannot be autolinked yet can be added manually here, for example:
         // packages.add(new MyReactNativePackage());
+        // Remember to include them in `settings.gradle` too.
 
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
-                .addPackage(packages)
+                .addPackages(packages)
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -733,6 +734,8 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
 > If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your index.js file (it’s the first argument to the `AppRegistry.registerComponent()` method).
 
 If you are using Android Studio, use `Alt + Enter` to add all missing imports in your MyReactActivity class. Be careful to use your package’s `BuildConfig` and not the one from the `facebook` package.
+
+Perform a “Sync Project files with Gradle” operation.
 
 We need set the theme of `MyReactActivity` to `Theme.AppCompat.Light.NoActionBar` because some React Native UI components rely on this theme.
 
