@@ -24,7 +24,7 @@ The specific steps are different depending on what platform you're targeting.
 
 <block class="objc swift android" />
 
-## Key Concepts test
+## Key Concepts
 
 <block class="objc swift" />
 
