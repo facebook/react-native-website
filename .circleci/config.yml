@@ -64,7 +64,7 @@ jobs:
       - run:
           name: Check for missing index.html (build errors)
           command: |
-            if [ ! -f build/react-native/index.html ]; then
+            if [ ! -f build/index.html ]; then
               exit 1;
             fi
   # --------------------------------------------------
