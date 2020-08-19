@@ -129,7 +129,7 @@ Then select a React component in React DevTools. There is a search box at the to
 
 You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
 
-<hr style="margin-top:25px; margin-bottom:25px;"/>
+<hr style={{marginTop: 25, marginBottom: 25}} />
 
 ## Debugging Application State
 

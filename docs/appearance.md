@@ -59,17 +59,13 @@ Indicates the current user preferred color scheme. The value may be updated late
 
 Supported color schemes:
 
-| Value     | Description                                         |
-| --------- | --------------------------------------------------- |
-| `"light"` | The user prefers a light color theme.               |
-| `"dark"`  | The user prefers a dark color theme.                |
-| `null`    | The user has not indicated a preferred color theme. |
+- `light`: The user prefers a light color theme.
+- `dark`: The user prefers a dark color theme.
+- null: The user has not indicated a preferred color theme.
 
-> **Note:** `getColorScheme()` will always return `"light"` when debugging with browser.
+See also: `useColorScheme` hook.
 
-See also: [`useColorScheme`](usecolorscheme) hook.
-
----
+> Note: `getColorScheme()` will always return `light` when debugging with Chrome.
 
 ### `addChangeListener()`
 
@@ -78,8 +74,6 @@ static addChangeListener(listener)
 ```
 
 Add an event handler that is fired when appearance preferences change.
-
----
 
 ### `removeChangeListener()`
 
