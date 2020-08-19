@@ -1,7 +1,6 @@
 ---
-id: version-0.60-clipboard
+id: clipboard
 title: Clipboard
-original_id: clipboard
 ---
 
 `Clipboard` gives you an interface for setting and getting content from Clipboard on both Android and iOS
