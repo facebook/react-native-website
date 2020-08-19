@@ -1,7 +1,6 @@
 ---
-id: version-0.60-getting-started
+id: getting-started
 title: Getting Started
-original_id: getting-started
 ---
 
 This page will help you install and build your first React Native app. If you already have React Native installed, you can skip ahead to the [Tutorial](tutorial.md).
@@ -54,7 +53,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
-<h2>Now what?</h3>
+<h2>Now what?</h2>
 
 Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
 

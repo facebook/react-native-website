@@ -1,7 +1,6 @@
 ---
-id: version-0.60-asyncstorage
+id: asyncstorage
 title: AsyncStorage
-original_id: asyncstorage
 ---
 
 > **Deprecated.** Use [react-native-community/react-native-async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
@@ -84,11 +83,11 @@ Sets the value for a `key` and invokes a callback upon completion. Returns a `Pr
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| key      | string                   | Yes      | Key of the item to set.                      |
-| value    | string                   | Yes      | Value to set for the `key`.                  |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| key      | string                     | Yes      | Key of the item to set.                      |
+| value    | string                     | Yes      | Value to set for the `key`.                  |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 ---
 
@@ -102,10 +101,10 @@ Removes an item for a `key` and invokes a callback upon completion. Returns a `P
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| key      | string                   | Yes      | Key of the item to remove.                   |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| key      | string                     | Yes      | Key of the item to remove.                   |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 ---
 
@@ -121,11 +120,11 @@ Merges an existing `key` value with an input value, assuming both values are str
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| key      | string                   | Yes      | Key of the item to modify.                   |
-| value    | string                   | Yes      | New value to merge for the `key`.            |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| key      | string                     | Yes      | Key of the item to modify.                   |
+| value    | string                     | Yes      | New value to merge for the `key`.            |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 Example:
 
@@ -174,9 +173,9 @@ Erases _all_ `AsyncStorage` for all clients, libraries, etc. You probably don't 
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 ---
 
@@ -190,9 +189,9 @@ Gets _all_ keys known to your app; for all callers, libraries, etc. Returns a `P
 
 **Parameters:**
 
-| Name     | Type                                           | Required | Description                                                     |
-| -------- | ---------------------------------------------- | -------- | --------------------------------------------------------------- |
-| callback | ?(error: ?Error, keys: ?Array<string>) => void | No       | Function that will be called with all keys found and any error. |
+| Name     | Type                                             | Required | Description                                                     |
+| -------- | ------------------------------------------------ | -------- | --------------------------------------------------------------- |
+| callback | `?(error: ?Error, keys: ?Array<string>) => void` | No       | Function that will be called with all keys found and any error. |
 
 ---
 
@@ -209,7 +208,7 @@ Flushes any pending requests using a single batch call to get the data.
 ### `multiGet()`
 
 ```jsx
-static multiGet(keys: Array<string>, [callback]: ?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void)
+static multiGet(keys: Array<string>, [callback]: ?(errors: ?Array<Error>, result: ?Array<Array <string>>) => void)
 ```
 
 This allows you to batch the fetching of items given an array of `key` inputs. Your callback will be invoked with an array of corresponding key-value pairs found:
@@ -222,10 +221,10 @@ The method returns a `Promise` object.
 
 **Parameters:**
 
-| Name     | Type                                                            | Required | Description                                                                                                         |
-| -------- | --------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| keys     | Array<string>                                                   | Yes      | Array of key for the items to get.                                                                                  |
-| callback | ?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void | No       | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. |
+| Name     | Type                                                               | Required | Description                                                                                                         |
+| -------- | ------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| keys     | `Array<string>`                                                    | Yes      | Array of key for the items to get.                                                                                  |
+| callback | `?(errors: ?Array<Error>, result: ?Array<Array <string>>) => void` | No       | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. |
 
 Example:
 
@@ -246,7 +245,7 @@ AsyncStorage.getAllKeys((err, keys) => {
 ### `multiSet()`
 
 ```jsx
-static multiSet(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Array<Error>) => void)
+static multiSet(keyValuePairs: Array<Array <string>>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
 Use this as a batch operation for storing multiple key-value pairs. When the operation completes you'll get a single callback with any errors:
@@ -259,10 +258,10 @@ The method returns a `Promise` object.
 
 **Parameters:**
 
-| Name          | Type                             | Required | Description                                                                  |
-| ------------- | -------------------------------- | -------- | ---------------------------------------------------------------------------- |
-| keyValuePairs | Array<Array<string>>             | Yes      | Array of key-value array for the items to set.                               |
-| callback      | ?(errors: ?Array<Error>) => void | No       | Function that will be called with an array of any key-specific errors found. |
+| Name          | Type                               | Required | Description                                                                  |
+| ------------- | ---------------------------------- | -------- | ---------------------------------------------------------------------------- |
+| keyValuePairs | `Array<Array <string>>`            | Yes      | Array of key-value array for the items to set.                               |
+| callback      | `?(errors: ?Array<Error>) => void` | No       | Function that will be called with an array of any key-specific errors found. |
 
 ---
 
@@ -276,10 +275,10 @@ Call this to batch the deletion of all keys in the `keys` array. Returns a `Prom
 
 **Parameters:**
 
-| Name     | Type                             | Required | Description                                                             |
-| -------- | -------------------------------- | -------- | ----------------------------------------------------------------------- |
-| keys     | Array<string>                    | Yes      | Array of key for the items to delete.                                   |
-| callback | ?(errors: ?Array<Error>) => void | No       | Function that will be called an array of any key-specific errors found. |
+| Name     | Type                               | Required | Description                                                             |
+| -------- | ---------------------------------- | -------- | ----------------------------------------------------------------------- |
+| keys     | `Array<string>`                    | Yes      | Array of key for the items to delete.                                   |
+| callback | `?(errors: ?Array<Error>) => void` | No       | Function that will be called an array of any key-specific errors found. |
 
 Example:
 
@@ -296,7 +295,7 @@ AsyncStorage.multiRemove(keys, (err) => {
 ### `multiMerge()`
 
 ```jsx
-static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Array<Error>) => void)
+static multiMerge(keyValuePairs: Array<Array <string>>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
 Batch operation to merge in existing and new values for a given set of keys. This assumes that the values are stringified JSON. Returns a `Promise` object.
@@ -305,10 +304,10 @@ Batch operation to merge in existing and new values for a given set of keys. Thi
 
 **Parameters:**
 
-| Name          | Type                             | Required | Description                                                                  |
-| ------------- | -------------------------------- | -------- | ---------------------------------------------------------------------------- |
-| keyValuePairs | Array<Array<string>>             | Yes      | Array of key-value array for the items to merge.                             |
-| callback      | ?(errors: ?Array<Error>) => void | No       | Function that will be called with an array of any key-specific errors found. |
+| Name          | Type                               | Required | Description                                                                  |
+| ------------- | ---------------------------------- | -------- | ---------------------------------------------------------------------------- |
+| keyValuePairs | `Array<Array <string>>`            | Yes      | Array of key-value array for the items to merge.                             |
+| callback      | `?(errors: ?Array<Error>) => void` | No       | Function that will be called with an array of any key-specific errors found. |
 
 Example:
 
