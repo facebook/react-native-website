@@ -1,7 +1,6 @@
 ---
-id: version-0.62-touchablewithoutfeedback
+id: touchablewithoutfeedback
 title: TouchableWithoutFeedback
-original_id: touchablewithoutfeedback
 ---
 
 Do not use unless you have a very good reason. All elements that respond to press should have a visual feedback when touched.

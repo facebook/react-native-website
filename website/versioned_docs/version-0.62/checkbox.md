@@ -1,7 +1,6 @@
 ---
-id: version-0.62-checkbox
-title: 🚧 CheckBox
-original_id: checkbox
+id: checkbox
+title: '🚧 CheckBox'
 ---
 
 > **Deprecated.** Use [@react-native-community/checkbox](https://github.com/react-native-community/react-native-checkbox) instead.

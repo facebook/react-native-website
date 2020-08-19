@@ -1,7 +1,6 @@
 ---
-id: version-0.62-keyboard
+id: keyboard
 title: Keyboard
-original_id: keyboard
 ---
 
 `Keyboard` module to control keyboard events.

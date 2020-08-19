@@ -1,7 +1,6 @@
 ---
-id: version-0.62-touchablehighlight
+id: touchablehighlight
 title: TouchableHighlight
-original_id: touchablehighlight
 ---
 
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view.
