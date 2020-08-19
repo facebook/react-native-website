@@ -18,6 +18,8 @@ Timers are an important part of an application and React Native implements the [
 
 The `Promise` implementation uses `setImmediate` as its asynchronicity implementation.
 
+> Note: when debugging on Android, if the times between the debugger and device have drifted; things such as animation, event behavior, etc., might not work properly or the results may not be accurate. Please correct this by running `` adb shell "date `date +%m%d%H%M%Y.%S%3N`" `` on your debugger machine. Root access is required for the use in real device.
+
 ## InteractionManager
 
 One reason why well-built native apps feel so smooth is by avoiding expensive operations during interactions and animations. In React Native, we currently have a limitation that there is only a single JS execution thread, but you can use `InteractionManager` to make sure long-running work is scheduled to start after any interactions/animations have completed.
