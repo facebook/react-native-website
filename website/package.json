@@ -5,21 +5,26 @@
   "private": true,
   "license": "CC-BY-4.0",
   "homepage": "https://reactnative.dev/",
-  "repository": "github:facebook/react-native-website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/facebook/react-native-website.git"
+  },
+
   "bugs": {
     "url": "https://github.com/facebook/react-native-website"
   },
+  "main": "n/a",
   "scripts": {
-    "start": "docusaurus-start",
-    "build": "docusaurus-build",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
     "prepublish-gh-pages": "yarn sync-community-repos",
     "publish-gh-pages": "docusaurus-publish",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
-    "format:source": "prettier --write \"{core/**/*.js,scripts/**/*.js,static/js/**/*.js}\"",
+    "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:markdown": "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
-    "nit:source": "prettier --list-different \"{core/**/*.js,scripts/**/*.js,static/js/**/*.js}\"",
+    "nit:source": "prettier --list-different \"{core/**/*.js,static/js/**/*.js}\"",
     "nit:markdown": "prettier --list-different \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
     "prettier": "yarn format:source && yarn format:markdown",
     "prettier:diff": "yarn nit:source",
@@ -29,7 +34,10 @@
     "lint": "cd ../ && alex .",
     "lintv": "cd ../ && alex",
     "sync:docs": "node scripts/sync-api-docs/sync-api-docs ../../react-native",
-    "update-lock": "npx yarn-deduplicate && npx optimize-yarn-lock"
+    "update-lock": "npx yarn-deduplicate && npx optimize-yarn-lock",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "docusaurus": "docusaurus"
   },
   "husky": {
     "hooks": {
@@ -37,9 +45,13 @@
     }
   },
   "dependencies": {
-    "docusaurus": "1.14.6",
-    "highlight.js": "^10.1.2",
-    "remarkable": "^2.0.1"
+    "highlight.js": "^9.15.10",
+    "remarkable": "^2.0.0",
+    "@docusaurus/core": "2.0.0-alpha.61",
+    "@docusaurus/preset-classic": "2.0.0-alpha.61",
+    "clsx": "^1.1.1",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",
