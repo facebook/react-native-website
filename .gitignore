@@ -13,5 +13,6 @@ website/i18n/*
 !website/i18n/en.json
 
 .nvmrc
+.docusaurus
 website/scripts/sync-api-docs/generatedComponentApiDocs.js
 website/scripts/sync-api-docs/extracted.json
