@@ -1,7 +1,6 @@
 ---
-id: version-0.63-handling-text-input
+id: handling-text-input
 title: Handling Text Input
-original_id: handling-text-input
 ---
 
 [`TextInput`](textinput#content) is a [Core Component](intro-react-native-components) that allows the user to enter text. It has an `onChangeText` prop that takes a function to be called every time the text changed, and an `onSubmitEditing` prop that takes a function to be called when the text is submitted.

@@ -1,7 +1,6 @@
 ---
-id: version-0.63-image
+id: image
 title: Image
-original_id: image
 ---
 
 A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.

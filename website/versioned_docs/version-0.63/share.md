@@ -1,7 +1,6 @@
 ---
-id: version-0.63-share
+id: share
 title: Share
-original_id: share
 ---
 
 ## Example

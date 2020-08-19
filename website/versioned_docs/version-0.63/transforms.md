@@ -1,7 +1,6 @@
 ---
-id: version-0.63-transforms
+id: transforms
 title: Transforms
-original_id: transforms
 ---
 
 Transforms are style properties that will help you modify the appearance and position of your components using 2D or 3D transformations. However, once you apply transforms, the layouts remain the same around the transformed component hence it might overlap with the nearby components. You can apply margin to the transformed component, the nearby components or padding to the container to prevent such overlaps.

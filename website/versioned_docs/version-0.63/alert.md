@@ -1,7 +1,6 @@
 ---
-id: version-0.63-alert
+id: alert
 title: Alert
-original_id: alert
 ---
 
 Launches an alert dialog with the specified title and message.

@@ -1,7 +1,6 @@
 ---
-id: version-0.63-environment-setup
+id: environment-setup
 title: Setting up the development environment
-original_id: environment-setup
 ---
 
 This page will help you install and build your first React Native app.
