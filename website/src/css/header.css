@@ -1,6 +1,8 @@
+@import "./variables.css";
+
 .fixedHeaderContainer {
   padding: 0;
-  background-color: $deepdark;
+  background-color: --deepdark;
   height: 60px;
 }
 
@@ -25,7 +27,7 @@
 }
 
 .fixedHeaderContainer header h3:hover {
-  color: $brand;
+  color: --brand;
   transition: none;
 }
 
@@ -36,7 +38,7 @@ li.navSearchWrapper {
 .fixedHeaderContainer header .headerTitleWithLogo {
   font-weight: 500;
   font-size: 1.25rem;
-  color: $brand;
+  color: --brand;
 }
 
 @media only screen and (max-width: 480px) {
@@ -63,7 +65,7 @@ li.navSearchWrapper {
   }
 
   .navigationSlider .slidingNav ul {
-    background-color: $light;
+    background-color: --light;
   }
 
   .navigationSlider .slidingNav ul li a {
@@ -73,7 +75,7 @@ li.navSearchWrapper {
 
   .navigationSlider .slidingNav ul li > a:hover {
     background-color: transparent;
-    color: $brand;
+    color: --brand;
   }
 
   .navigationSlider .slidingNav ul li > a:focus {
@@ -86,7 +88,7 @@ li.navSearchWrapper {
 
   .navigationSlider .slidingNav ul li.siteNavItemActive a,
   .navigationSlider .slidingNav ul li.siteNavGroupActive a {
-    color: $brand;
+    color: --brand;
     background-color: transparent;
   }
 
@@ -98,11 +100,11 @@ li.navSearchWrapper {
     left: 0;
     width: 100%;
     height: 0.25rem;
-    background-color: $brand;
+    background-color: --brand;
   }
 
   .navigationSlider .slidingNav ul li:not(.reactNavSearchWrapper):focus-within {
-    background-color: $light;
+    background-color: --light;
   }
 }
 
@@ -112,14 +114,14 @@ li.navSearchWrapper {
 @media only screen and (max-width: 1024px) {
   .reactNavSearchWrapper input#search_input_react {
     border-radius: 0.25rem;
-    background-color: $tintColor;
-    color: $deepdark;
+    background-color: --tintColor;
+    color: --deepdark;
     height: 30px;
   }
 
   .reactNavSearchWrapper input#search_input_react:focus {
-    background-color: $tintColor;
-    color: $deepdark;
+    background-color: --tintColor;
+    color: --deepdark;
   }
 }
 
@@ -135,7 +137,7 @@ li.navSearchWrapper {
   }
 
   .navigationSlider .slidingNav ul li:not(.reactNavSearchWrapper):focus-within {
-    background-color: $light;
+    background-color: --light;
   }
 
   .navigationSlider .slidingNav ul li.siteNavItemActive::after,
@@ -146,7 +148,7 @@ li.navSearchWrapper {
     left: 0;
     width: 100%;
     height: 0.25rem;
-    background-color: $brand;
+    background-color: --brand;
   }
 
   .navigationSlider .slidingNav ul li a {
@@ -158,13 +160,13 @@ li.navSearchWrapper {
   }
 
   .navigationSlider .slidingNav ul li a:hover {
-    color: $brand;
+    color: --brand;
     transition: none;
   }
 
   .navigationSlider .slidingNav ul li.siteNavItemActive a,
   .navigationSlider .slidingNav ul li.siteNavGroupActive a {
-    color: $brand;
+    color: --brand;
   }
 }
 
@@ -183,8 +185,8 @@ li.navSearchWrapper {
 input#search_input_react {
   /* Make as wide as the expanded state in the docusaurus default */
   width: 220px;
-  background-color: $tintColor;
-  color: $deepdark;
+  background-color: --tintColor;
+  color: --deepdark;
   border-radius: 0.25rem;
   transition: background-color 150ms ease-in-out;
 }
@@ -194,8 +196,8 @@ input#search_input_react::placeholder {
 }
 
 input#search_input_react:focus {
-  background-color: $tintColor;
-  color: $deepdark;
+  background-color: --tintColor;
+  color: --deepdark;
 }
 
 /* Overrides for the announcement banner */
@@ -204,7 +206,7 @@ input#search_input_react:focus {
 }
 
 .headerWrapper.wrapper {
-  padding-top: 60px;
+  padding-top: 100px;
 }
 
 .navigationSlider .slidingNav {
@@ -225,9 +227,9 @@ input#search_input_react:focus {
   color: #fff;
   font-weight: bold;
   font-size: 24px;
-  padding: 8px 30px;
+  padding: 30px;
   text-align: center;
-  height: 60px;
+  height: 100px;
   position: absolute;
   width: 100%;
 }
@@ -235,13 +237,12 @@ input#search_input_react:focus {
 .announcement-inner {
   margin: 0 auto;
   max-width: 768px;
-  line-height: 44px;
 }
 
 .announcement-inner a {
   text-decoration: underline;
   display: inline-block;
-  color: $brand;
+  color: --brand;
 }
 
 .announcement-inner a:hover {
@@ -276,41 +277,37 @@ body {
   }
   .announcement {
     padding: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .announcement {
     font-size: 18px;
   }
 }
 
 @media only screen and (min-width: 1024px) {
   .navPusher {
-    padding-top: 120px;
+    padding-top: 160px;
   }
   .docsNavContainer {
-    top: 96px;
+    top: 136px;
   }
   .onPageNav {
-    top: 136px;
-    max-height: calc(100vh - 136px);
+    top: 172px;
+    max-height: calc(100vh - 172px);
   }
 }
 
 @media only screen and (max-width: 1023px) {
   ul.nav-site.nav-site-internal {
-    margin-top: 120px;
+    margin-top: 160px;
   }
   .navPusher {
-    padding-top: 170px;
+    padding-top: 210px;
   }
   .navSearchWrapper {
-    top: 74px;
-  }
-}
-
-@media (max-width: 500px) {
-  .announcement {
-    font-size: 15px;
-  }
-  .announcement-inner {
-    line-height: 22px;
+    top: 114px;
   }
 }
 /* End announcement banner override */

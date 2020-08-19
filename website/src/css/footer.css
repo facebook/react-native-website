@@ -1,5 +1,7 @@
+@import "./variables.css";
+
 footer.nav-footer {
-  background-color: $darker;
+  background-color: --darker;
 }
 
 @media only screen and (min-width: 741px) {
@@ -25,7 +27,7 @@ footer.nav-footer {
 }
 
 .nav-footer .sitemap a:hover {
-  color: $brand;
+  color: --brand;
 }
 
 footer.nav-footer .nav-home img {

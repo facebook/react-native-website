@@ -1,0 +1,31 @@
+/* This file contains global CSS */
+
+/* @import "./blog.css";
+@import "./codeblocks.css";
+@import "./docs-prevnext.css";
+@import "./footer.css";
+@import "./header.css";
+@import "./HelpPage.css";
+@import "./react-native.css";
+@import "./reset.css";
+@import "./showcase.css";
+@import "./syntax.css";
+@import "./tabs.css";
+@import "./toc.css";
+@import "./variables.css";
+@import "./versions.css"; */
+
+@import "./docs.css";
+@import "./react-native.css";
+
+:root {
+  --ifm-color-primary: #06bcee;
+  --brand: #61dafb;
+  --dark: #282c34;
+  --deepdark: #20232a;
+  --light: #373940;
+  --text: #1a1a1a;
+  --subtle: #6d6d6d;
+  --divider: #ececec;
+  --tintColor: #f7f7f7;
+}

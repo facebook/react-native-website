@@ -1,8 +1,10 @@
+@import "./variables.css";
+
 .docsNavContainer .toc .navBreadcrumb {
   /* Prevent overlap when scrolling up */
   z-index: 9999;
-  background-color: $tintColor;
-  border-bottom: 2px solid $divider;
+  background-color: --tintColor;
+  border-bottom: 2px solid --divider;
 }
 
 .toc .toggleNav .navBreadcrumb h2 {
@@ -18,7 +20,7 @@
 
 .navBreadcrumb a,
 .navBreadcrumb span {
-  color: $subtle;
+  color: --subtle;
 }
 
 .collapsible .arrow {
@@ -43,21 +45,21 @@
 
 .toc {
   height: 100%;
-  border-right: 1px solid $divider;
+  border-right: 1px solid --divider;
   margin-left: -9999px;
   padding-left: 9999px;
   overflow-y: auto;
-  background-color: $tintColor;
+  background-color: --tintColor;
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle {
-  color: $subtle;
+  color: --subtle;
   font-size: 16px;
   font-weight: 700;
 }
 
 .toc .toggleNav .navGroup .navGroupCategoryTitle.collapsible:hover {
-  color: $text;
+  color: --text;
 }
 
 .toc .toggleNav .navGroup .navGroupSubcategoryTitle {
@@ -72,13 +74,13 @@
 }
 
 .toc .toggleNav ul li a {
-  color: $text;
+  color: --text;
   background-color: transparent;
   font-size: 13px;
 }
 
 .toc .toggleNav ul li a:hover {
-  color: $subtle;
+  color: --subtle;
   transition: none;
 }
 
@@ -92,7 +94,7 @@
 
 .toc .toggleNav ul li.navListItemActive::before {
   content: "";
-  background-color: $brand;
+  background-color: --brand;
   position: absolute;
   width: 5px;
   top: 2px;

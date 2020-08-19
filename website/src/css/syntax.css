@@ -5,9 +5,11 @@
  * https://github.com/reactjs/reactjs.org/blob/master/src/prism-styles.js
  */
 
+@import "./variables.css";
+
 .hljs {
   line-height: 20px;
-  background-color: $dark;
+  background-color: --dark;
   color: white;
 }
 

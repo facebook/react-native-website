@@ -1,5 +1,5 @@
 .docs-prevnext {
-  background-color: $dark;
+  background-color: --dark;
   display: flex;
   align-items: center;
 }
@@ -43,7 +43,7 @@
 
 .button.docs-prev:hover,
 .button.docs-next:hover {
-  color: $brand;
+  color: --brand;
 }
 
 .button.docs-prev {

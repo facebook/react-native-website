@@ -1,3 +1,5 @@
+@import "./variables.css";
+
 .props {
   background-color: #ebf9ff;
 }
@@ -103,7 +105,7 @@
 hr {
   height: 1px;
   border: none;
-  border-bottom: 1px solid $divider;
+  border-bottom: 1px solid --divider;
   margin: 2em 0;
 }
 
@@ -125,10 +127,10 @@ table tr {
   display: table-row;
 }
 table tbody tr:nth-of-type(odd) {
-  background: $backgroundColor;
+  background: --backgroundColor;
 }
 table tbody tr:nth-of-type(even) {
-  background: $tintColor;
+  background: --tintColor;
 }
 table tr th,
 table tr td {
@@ -323,11 +325,6 @@ td .label:after {
 td .label.required {
   margin-left: 8px;
   letter-spacing: 0.03rem;
-}
-
-td .label.two-lines {
-  margin-left: 0;
-  margin-top: 4px;
 }
 
 /* Label as dot in the right sidebar */
