@@ -16,7 +16,7 @@
  * sure we are not tracking separate versions of a unversioned doc.
  *
  * We achieve this by ensuring any changes made to these files in `docs/` are
- * then persisted to the `versioned_docs/version-0.5` folder, as Version 0.5
+ * then persisted to the `versioned_docs/version-0.60` folder, as Version 0.60
  * is the oldest document version. This makes it so that the same text is
  * displayed to the reader, regardless of what version they are looking at.
  */
@@ -24,7 +24,7 @@ const glob = require('glob');
 const fm = require('front-matter');
 const fs = require('fs-extra');
 
-const pathToDocs = '../docs';
+const pathToDocs = './docs';
 const pathToVersionedDocs = './versioned_docs';
 const blacklist = require('./versionedDocsBlacklist.json');
 const versions = require('./versions.json');
@@ -48,7 +48,7 @@ const updateVersionWithAsset = opts => {
   const newData = `---
 id: ${idForDocVersion}
 title: ${title}
-original_id: ${id}
+
 ---
 ${body}`;
 
