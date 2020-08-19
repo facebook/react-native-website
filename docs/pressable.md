@@ -32,7 +32,11 @@ Fingers are not the most precise instruments, and it is common for users to acci
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
 <figure>
+<<<<<<< HEAD
   <img src="/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
+=======
+  <img src="/docs/assets/d_pressable_anatomy.svg" width={1000} alt="Diagram of HitRect and PressRect and how they work." />
+>>>>>>> 6d1057f0... Fix errors in docs
   <figcaption>
     You can set <code>HitRect</code> with <code>hitSlop</code> and set <code>PressRect</code> with <code>pressRetentionOffset</code>.
   </figcaption>
@@ -105,7 +109,7 @@ export default App;
 
 ## Props
 
-### `android_disableSound` <div class="label android">Android</div>
+### `android_disableSound` <div className="label android">Android</div>
 
 If true, doesn't play Android system sound on press.
 
@@ -113,7 +117,7 @@ If true, doesn't play Android system sound on press.
 | ------- | -------- | ------- |
 | boolean | No       | `false` |
 
-### `android_ripple` <div class="label android">Android</div>
+### `android_ripple` <div className="label android">Android</div>
 
 Enables the Android ripple effect and configures its properties.
 
