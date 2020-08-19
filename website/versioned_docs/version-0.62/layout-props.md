@@ -1,7 +1,6 @@
 ---
-id: version-0.62-layout-props
+id: layout-props
 title: Layout Props
-original_id: layout-props
 ---
 
 ## Example

@@ -1,7 +1,6 @@
 ---
-id: version-0.63-platformcolor
+id: platformcolor
 title: PlatformColor
-original_id: platformcolor
 ---
 
 ```js

@@ -1,7 +1,6 @@
 ---
-id: version-0.62-layoutanimation
+id: layoutanimation
 title: LayoutAnimation
-original_id: layoutanimation
 ---
 
 Automatically animates views to their new positions when the next layout happens.

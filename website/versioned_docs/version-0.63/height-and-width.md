@@ -1,7 +1,6 @@
 ---
-id: version-0.63-height-and-width
+id: height-and-width
 title: Height and Width
-original_id: height-and-width
 ---
 
 A component's height and width determine its size on the screen.

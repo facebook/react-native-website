@@ -1,7 +1,6 @@
 ---
-id: version-0.62-typescript
+id: typescript
 title: Using TypeScript with React Native
-original_id: typescript
 ---
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.

@@ -1,7 +1,6 @@
 ---
-id: version-0.62-toastandroid
+id: toastandroid
 title: ToastAndroid
-original_id: toastandroid
 ---
 
 React Native's ToastAndroid API exposes the Android platform's ToastAndroid module as a JS module. It provides the method `show(message, duration)` which takes the following parameters:

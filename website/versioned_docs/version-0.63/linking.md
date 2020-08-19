@@ -1,7 +1,6 @@
 ---
-id: version-0.63-linking
+id: linking
 title: Linking
-original_id: linking
 ---
 
 <div class="banner-native-code-required">

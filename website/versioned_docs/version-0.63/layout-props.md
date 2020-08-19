@@ -1,7 +1,6 @@
 ---
-id: version-0.63-layout-props
+id: layout-props
 title: Layout Props
-original_id: layout-props
 ---
 
 > More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
