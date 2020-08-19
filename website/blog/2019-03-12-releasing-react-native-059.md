@@ -2,8 +2,8 @@
 title: Releasing React Native 0.59
 author: Ryan Turner
 authorTitle: Core Maintainer & React Native Developer
-authorURL: https://twitter.com/turnrye
-authorImageURL: https://avatars0.githubusercontent.com/u/701035?s=460&v=4
+authorURL: 'https://twitter.com/turnrye'
+authorImageURL: 'https://avatars0.githubusercontent.com/u/701035?s=460&v=4'
 authorTwitter: turnrye
 category: announcements
 ---

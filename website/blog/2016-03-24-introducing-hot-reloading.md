@@ -2,8 +2,8 @@
 title: Introducing Hot Reloading
 author: Martín Bigio
 authorTitle: Software Engineer at Instagram
-authorURL: https://twitter.com/martinbigio
-authorImageURL: https://avatars3.githubusercontent.com/u/535661?v=3&s=128
+authorURL: 'https://twitter.com/martinbigio'
+authorImageURL: 'https://avatars3.githubusercontent.com/u/535661?v=3&s=128'
 authorTwitter: martinbigio
 category: engineering
 ---
@@ -24,7 +24,12 @@ The idea behind hot reloading is to keep the app running and to inject new versi
 
 A video is worth a thousand words. Check out the difference between Live Reload (current) and Hot Reload (new).
 
-<iframe width="100%" height="315" src="https://www.youtube.com/embed/2uQzVi-KFuc" frameborder="0" allowfullscreen></iframe>
+<iframe
+  width="100%"
+  height="315"
+  src="https://www.youtube.com/embed/2uQzVi-KFuc"
+  frameborder="0"
+  allowfullscreen></iframe>
 
 If you look closely, you can notice that it is possible to recover from a red box and you can also start importing modules that were not previously there without having to do a full reload.
 

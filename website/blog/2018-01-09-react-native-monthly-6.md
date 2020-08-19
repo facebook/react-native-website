@@ -2,8 +2,8 @@
 title: React Native Monthly #6
 author: Tomislav Tenodi
 authorTitle: Founder at Speck
-authorURL: https://twitter.com/TomislavTenodi
-authorImageURL: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
+authorURL: 'https://twitter.com/TomislavTenodi'
+authorImageURL: 'https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg'
 authorTwitter: TomislavTenodi
 category: engineering
 ---
