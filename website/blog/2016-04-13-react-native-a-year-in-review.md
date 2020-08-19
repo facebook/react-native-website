@@ -1,11 +1,11 @@
 ---
-title: React Native: A year in review
+title: 'React Native: A year in review'
 author: Martin Konicek
 authorTitle: Software Engineer at Facebook
-authorURL: https://github.com/mkonicek
-authorImageURL: https://avatars1.githubusercontent.com/u/346214?v=3&s=460
+authorURL: 'https://github.com/mkonicek'
+authorImageURL: 'https://avatars1.githubusercontent.com/u/346214?v=3&s=460'
 authorTwitter: martinkonicek
-hero: /blog/assets/big-hero.png
+hero: '/blog/assets/big-hero.png'
 category: announcements
 ---
 
@@ -14,7 +14,11 @@ It's been one year since we open-sourced React Native. What started as an idea w
 It's been an epic ride — but we are only getting started. Here is a look back at how React Native has grown and evolved since we open-sourced it a year ago, some challenges we faced along the way, and what we expect as we look ahead to the future.
 
 <footer>
-  <a href="https://code.facebook.com/posts/597378980427792/react-native-a-year-in-review/" class="btn">Read more</a>
+  <a
+    href="https://code.facebook.com/posts/597378980427792/react-native-a-year-in-review/"
+    class="btn">
+    Read more
+  </a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/597378980427792/react-native-a-year-in-review/).

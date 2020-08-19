@@ -2,8 +2,8 @@
 title: Open Source Roadmap
 author: Héctor Ramos
 authorTitle: Engineer at Facebook
-authorURL: https://hectorramos.com/about
-authorImageURL: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
+authorURL: 'https://hectorramos.com/about'
+authorImageURL: 'https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128'
 authorTwitter: hectorramos
 category: announcements
 ---

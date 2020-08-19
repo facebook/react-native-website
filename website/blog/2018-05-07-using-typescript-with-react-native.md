@@ -2,8 +2,8 @@
 title: Using TypeScript with React Native
 author: Ash Furrow
 authorTitle: Software Engineer at Artsy
-authorURL: https://github.com/ashfurrow
-authorImageURL: https://avatars2.githubusercontent.com/u/498212?s=460&v=4
+authorURL: 'https://github.com/ashfurrow'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/498212?s=460&v=4'
 authorTwitter: ashfurrow
 category: engineering
 ---

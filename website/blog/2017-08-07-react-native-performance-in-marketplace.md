@@ -2,7 +2,7 @@
 title: React Native Performance in Marketplace
 author: Aaron Chiu
 authorTitle: Software Engineer at Facebook
-authorURL: https://www.facebook.com/aaronechiu
+authorURL: 'https://www.facebook.com/aaronechiu'
 authorFBID: 1057500063
 authorTwitter: AaaChiuuu
 category: engineering

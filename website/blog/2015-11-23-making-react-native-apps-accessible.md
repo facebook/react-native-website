@@ -2,9 +2,9 @@
 title: Making React Native apps accessible
 author: Georgiy Kassabli
 authorTitle: Software Engineer at Facebook
-authorURL: https://www.facebook.com/georgiy.kassabli
-authorImageURL: https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/1978838_795592927136196_1205041943_n.jpg?_nc_log=1&oh=d7a500fdece1250955a4d27b0a80fee2&oe=59E8165A
-hero: /blog/assets/blue-hero.png
+authorURL: 'https://www.facebook.com/georgiy.kassabli'
+authorImageURL: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/1978838_795592927136196_1205041943_n.jpg?_nc_log=1&oh=d7a500fdece1250955a4d27b0a80fee2&oe=59E8165A'
+hero: '/blog/assets/blue-hero.png'
 category: engineering
 ---
 
@@ -19,7 +19,11 @@ For this post, we're going to focus on React Native apps. We've designed the Rea
 Let's walk through a slightly more involved application of the React AX API by looking at one of Facebook's own React-powered products: the **Ads Manager app**.
 
 <footer>
-  <a href="https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/" class="btn">Read more</a>
+  <a
+    href="https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/"
+    class="btn">
+    Read more
+  </a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/).

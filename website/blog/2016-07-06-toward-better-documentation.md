@@ -2,8 +2,8 @@
 title: Toward Better Documentation
 author: Kevin Lacker
 authorTitle: Engineering Manager at Facebook
-authorURL: https://twitter.com/lacker
-authorImageURL: http://www.gravatar.com/avatar/9b790592be15d4f55a5ed7abb5103304?s=128
+authorURL: 'https://twitter.com/lacker'
+authorImageURL: 'http://www.gravatar.com/avatar/9b790592be15d4f55a5ed7abb5103304?s=128'
 authorTwitter: lacker
 category: announcements
 ---
