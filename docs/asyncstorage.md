@@ -1,6 +1,6 @@
 ---
 id: asyncstorage
-title: 🚧 AsyncStorage
+title: '🚧 AsyncStorage'
 ---
 
 > **Deprecated.** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
@@ -221,10 +221,13 @@ The method returns a `Promise` object.
 
 **Parameters:**
 
-| Name     | Type                                                              | Required | Description                                                                                                         |
-| -------- | ----------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
-| keys     | `Array<string>`                                                   | Yes      | Array of key for the items to get.                                                                                  |
-| callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void` | No       | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. |
+| Name | Type            | Required | Description                        |
+| ---- | --------------- | -------- | ---------------------------------- |
+| keys | `Array<string>` | Yes      | Array of key for the items to get. |
+
+<<<<<<< HEAD | callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void` | No | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. | ======= | callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>`) => void | No | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. |
+
+> > > > > > > 6d1057f0... Fix errors in docs
 
 Example:
 
