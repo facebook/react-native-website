@@ -1,7 +1,6 @@
 ---
-id: version-0.60-vibration
+id: vibration
 title: Vibration
-original_id: vibration
 ---
 
 The Vibration API is exposed at `Vibration.vibrate()`. The vibration is synchronous so this method will return immediately.
@@ -55,10 +54,10 @@ Trigger a vibration with specified `pattern`.
 
 **Parameters:**
 
-| Name    | Type                    | Required | Description                                                                  |
-| ------- | ----------------------- | -------- | ---------------------------------------------------------------------------- |
-| pattern | number or Array<number> | Yes      | Vibration pattern, accept a number or an array of numbers. Default to 400ms. |
-| repeat  | boolean                 | No       | Repeat vibration pattern until cancel(), default to false.                   |
+| Name    | Type                      | Required | Description                                                                  |
+| ------- | ------------------------- | -------- | ---------------------------------------------------------------------------- |
+| pattern | `number or Array<number>` | Yes      | Vibration pattern, accept a number or an array of numbers. Default to 400ms. |
+| repeat  | boolean                   | No       | Repeat vibration pattern until cancel(), default to false.                   |
 
 ---
 
