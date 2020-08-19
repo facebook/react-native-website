@@ -2,8 +2,8 @@
 title: The State of the React Native Community in 2018
 author: Lorenzo Sciandra
 authorTitle: Core Maintainer & React Native Developer
-authorURL: https://github.com/kelset
-authorImageURL: https://avatars2.githubusercontent.com/u/16104054?s=460&v=4
+authorURL: 'https://github.com/kelset'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/16104054?s=460&v=4'
 authorTwitter: kelset
 category: announcements
 ---

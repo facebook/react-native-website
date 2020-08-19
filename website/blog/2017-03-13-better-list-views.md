@@ -2,8 +2,8 @@
 title: Better List Views in React Native
 author: Spencer Ahrens
 authorTitle: Software Engineer at Facebook
-authorURL: https://github.com/sahrens
-authorImageURL: https://avatars1.githubusercontent.com/u/1509831
+authorURL: 'https://github.com/sahrens'
+authorImageURL: 'https://avatars1.githubusercontent.com/u/1509831'
 authorTwitter: sahrens2012
 category: engineering
 ---
