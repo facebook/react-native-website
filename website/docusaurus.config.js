@@ -340,7 +340,7 @@ module.exports = {
           showLastUpdateTime: true,
           editUrl:
             'https://github.com/facebook/react-native-website/blob/master/docs/',
-          path: 'docs',
+          path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
         },
         blog: {
