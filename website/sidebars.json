@@ -60,7 +60,8 @@
       "linking-libraries-ios",
       "running-on-simulator-ios",
       "communication-ios",
-      "app-extensions"
+      "app-extensions",
+      "publishing-to-app-store"
     ]
   },
   "api": {
