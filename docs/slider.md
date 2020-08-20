@@ -1,6 +1,6 @@
 ---
 id: slider
-title: 🚧 Slider
+title: '🚧 Slider'
 ---
 
 > **Deprecated.** Use [@react-native-community/slider](https://github.com/react-native-community/react-native-slider) instead.

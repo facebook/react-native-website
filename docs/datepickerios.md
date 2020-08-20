@@ -1,6 +1,6 @@
 ---
 id: datepickerios
-title: 🚧 DatePickerIOS
+title: '🚧 DatePickerIOS'
 ---
 
 > **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
