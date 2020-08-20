@@ -1,0 +1,12 @@
+@media only screen and (max-width: 960px) {
+  .CrossPlatform .TwoColumns {
+    grid-gap: 2rem;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 960px) {
+  .CrossPlatform .column.last {
+    width: 75%;
+    margin: 0 auto;
+  }
+}
