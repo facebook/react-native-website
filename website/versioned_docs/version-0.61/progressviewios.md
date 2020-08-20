@@ -1,6 +1,6 @@
 ---
 id: version-0.61-progressviewios
-title: 🚧 ProgressViewIOS
+title: '🚧 ProgressViewIOS'
 original_id: progressviewios
 ---
 

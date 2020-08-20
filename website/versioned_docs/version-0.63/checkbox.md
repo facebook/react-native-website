@@ -1,6 +1,6 @@
 ---
 id: version-0.63-checkbox
-title: 🚧 CheckBox
+title: '🚧 CheckBox'
 original_id: checkbox
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: version-0.63-segmentedcontrolios
-title: 🚧 SegmentedControlIOS
+title: '🚧 SegmentedControlIOS'
 original_id: segmentedcontrolios
 ---
 

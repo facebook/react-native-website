@@ -1,6 +1,6 @@
 ---
 id: version-0.61-slider
-title: 🚧 Slider
+title: '🚧 Slider'
 original_id: slider
 ---
 

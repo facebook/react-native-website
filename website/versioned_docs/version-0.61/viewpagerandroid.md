@@ -1,6 +1,6 @@
 ---
 id: version-0.61-viewpagerandroid
-title: 🚧 ViewPagerAndroid
+title: '🚧 ViewPagerAndroid'
 original_id: viewpagerandroid
 ---
 
