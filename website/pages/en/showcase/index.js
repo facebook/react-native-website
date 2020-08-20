@@ -6,13 +6,12 @@
  */
 
 const React = require('react');
+import Layout from '@theme/Layout';
+import styles from './styles.module.css';
 
-const CompLibrary = require('../../core/CompLibrary.js');
-const Container = CompLibrary.Container;
+const docusaurusConfig = require('../../../docusaurus.config.js');
 
-const siteConfig = require(process.cwd() + '/siteConfig.js');
-
-const showcaseApps = siteConfig.users;
+const showcaseApps = docusaurusConfig.customFields.users;
 const pinnedApps = showcaseApps.filter(app => {
   return app.pinned;
 });
@@ -42,7 +41,7 @@ class AppList extends React.Component {
 
   _renderApp(app, i) {
     return (
-      <div className="showcase" key={i}>
+      <div className={styles.showcase} key={i}>
         <div>
           <a href={app.infoLink}>{this._renderAppIcon(app)}</a>
           {this._renderAppName(app.name)}
@@ -56,7 +55,7 @@ class AppList extends React.Component {
   _renderAppIcon(app) {
     let imgSource = app.icon;
     if (!app.icon.startsWith('http')) {
-      imgSource = siteConfig.baseUrl + 'img/showcase/' + app.icon;
+      imgSource = docusaurusConfig.baseUrl + 'img/showcase/' + app.icon;
     }
     return <img src={imgSource} alt={app.name} />;
   }
@@ -113,37 +112,39 @@ class AppList extends React.Component {
 class Showcase extends React.Component {
   render() {
     return (
-      <div className="pageContainer">
-        <Container padding={['bottom']}>
-          <div className="showcaseSection">
-            <div className="prose">
-              <h1>Who's using React Native?</h1>
+      <Layout>
+        <div className="pageContainer">
+          <div className="container margin-vert--lg">
+            <div className={styles.showcaseSection}>
+              <div className={styles.showcaseHeader}>
+                <h1>Who's using React Native?</h1>
+                <p>
+                  Thousands of apps are using React Native, from established
+                  Fortune 500 companies to hot new startups. If you're curious
+                  to see what can be accomplished with React Native, check out
+                  these apps!
+                </p>
+              </div>
+              <div className={styles.logos}>
+                <AppList apps={apps} />
+              </div>
               <p>
-                Thousands of apps are using React Native, from established
-                Fortune 500 companies to hot new startups. If you're curious to
-                see what can be accomplished with React Native, check out these
-                apps!
+                <a href="https://forms.gle/BdNf3v5hemV9D5c86">
+                  Fill out this form to apply to the customer spotlight.
+                </a>
+              </p>
+              <p>
+                A curated list of{' '}
+                <a href="https://github.com/ReactNativeNews/React-Native-Apps">
+                  open source React Native apps
+                </a>{' '}
+                is also being kept by{' '}
+                <a href="https://infinite.red/">Infinite Red</a>.
               </p>
             </div>
-            <div className="logos">
-              <AppList apps={apps} />
-            </div>
-            <p>
-              <a href="https://forms.gle/BdNf3v5hemV9D5c86">
-                Fill out this form to apply to the customer spotlight.
-              </a>
-            </p>
-            <p>
-              A curated list of{' '}
-              <a href="https://github.com/ReactNativeNews/React-Native-Apps">
-                open source React Native apps
-              </a>{' '}
-              is also being kept by{' '}
-              <a href="https://infinite.red/">Infinite Red</a>.
-            </p>
           </div>
-        </Container>
-      </div>
+        </div>
+      </Layout>
     );
   }
 }
@@ -152,4 +153,4 @@ Showcase.defaultProps = {
   language: 'en',
 };
 
-module.exports = Showcase;
+export default Showcase;

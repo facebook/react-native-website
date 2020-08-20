@@ -5,14 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-const React = require('react');
-
-const CompLibrary = require('../../core/CompLibrary.js');
-const Container = CompLibrary.Container;
-
-const CWD = process.cwd();
-const siteConfig = require(CWD + '/siteConfig.js');
-const versions = require(CWD + '/versions.json');
+import React from 'react';
+import Layout from '@theme/Layout';
+const docusaurusConfig = require('../../../docusaurus.config.js');
+const versions = require('../../../versions.json');
+import styles from './styles.module.css';
 
 class VersionItem extends React.Component {
   render() {
@@ -67,83 +64,85 @@ class Versions extends React.Component {
     );
 
     return (
-      <div className="pageContainer versionsPage">
-        <Container className="mainContainer documentContainer postContainer">
-          <h1>React Native versions</h1>
-          <p>
-            Open source React Native releases follow a monthly release train
-            that is coordinated on GitHub through the
-            <a
-              href={
-                'https://github.com/react-native-community/react-native-releases'
-              }>
-              <code>react-native-releases</code>
-            </a>{' '}
-            repository. At the beginning of each month, a new release candidate
-            is created off the master branch of{' '}
-            <a href={'https://github.com/facebook/react-native'}>
-              <code>facebook/react-native</code>
-            </a>
-            . The release candidate will soak for a month to allow contributors
-            like yourself to{' '}
-            <a href={siteConfig.baseUrl + 'docs/upgrading'}>
-              verify the changes
-            </a>{' '}
-            and to identify any issues by{' '}
-            <a href="https://github.com/facebook/react-native/issues">
-              writing clear, actionable bug reports
-            </a>
-            . Eventually, the release candidate will be promoted to stable.
-          </p>
-          <h2>Latest versions</h2>
-          <p>
-            To see what changes are coming and provide better feedback to React
-            Native contributors, use the latest release candidate when possible.
-            Changes introduced in a release candidate will have been shipped to
-            production Facebook apps for over two weeks by the time the release
-            candidate is cut.
-          </p>
-          <table className="versions">
-            <tbody>
-              {latestVersions.map(function(version) {
-                return (
-                  <VersionItem
-                    key={'version_' + version}
-                    version={version}
-                    baseUrl={siteConfig.baseUrl}
-                    currentVersion={currentVersion}
-                  />
-                );
-              })}
-            </tbody>
-          </table>
-          <h2>Stable versions</h2>
-          <p>
-            The most recent stable version will be used automatically whenever a
-            new project is created using the <code>react-native init</code>{' '}
-            command.
-          </p>
-          <table className="versions">
-            <tbody>
-              {stableVersions.map(function(version) {
-                return (
-                  <VersionItem
-                    key={'version_' + version}
-                    version={version}
-                    baseUrl={siteConfig.baseUrl}
-                    currentVersion={currentVersion}
-                  />
-                );
-              })}
-            </tbody>
-          </table>
-          <p>
-            You can come back to this page and switch the version of the docs
-            you're reading at any time by clicking on the version number at the
-            top of the page.
-          </p>
-        </Container>
-      </div>
+      <Layout>
+        <div className="pageContainer versionsPage">
+          <div className="container margin-vert--lg">
+            <h1>React Native versions</h1>
+            <p>
+              Open source React Native releases follow a monthly release train
+              that is coordinated on GitHub through the
+              <a
+                href={
+                  'https://github.com/react-native-community/react-native-releases'
+                }>
+                <code>react-native-releases</code>
+              </a>{' '}
+              repository. At the beginning of each month, a new release
+              candidate is created off the master branch of{' '}
+              <a href={'https://github.com/facebook/react-native'}>
+                <code>facebook/react-native</code>
+              </a>
+              . The release candidate will soak for a month to allow
+              contributors like yourself to{' '}
+              <a href={docusaurusConfig.baseUrl + 'docs/upgrading'}>
+                verify the changes
+              </a>{' '}
+              and to identify any issues by{' '}
+              <a href="https://github.com/facebook/react-native/issues">
+                writing clear, actionable bug reports
+              </a>
+              . Eventually, the release candidate will be promoted to stable.
+            </p>
+            <h2>Latest versions</h2>
+            <p>
+              To see what changes are coming and provide better feedback to
+              React Native contributors, use the latest release candidate when
+              possible. Changes introduced in a release candidate will have been
+              shipped to production Facebook apps for over two weeks by the time
+              the release candidate is cut.
+            </p>
+            <table className="versions">
+              <tbody>
+                {latestVersions.map(function(version) {
+                  return (
+                    <VersionItem
+                      key={'version_' + version}
+                      version={version}
+                      baseUrl={docusaurusConfig.baseUrl}
+                      currentVersion={currentVersion}
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
+            <h2>Stable versions</h2>
+            <p>
+              The most recent stable version will be used automatically whenever
+              a new project is created using the <code>react-native init</code>{' '}
+              command.
+            </p>
+            <table className="versions">
+              <tbody>
+                {stableVersions.map(function(version) {
+                  return (
+                    <VersionItem
+                      key={'version_' + version}
+                      version={version}
+                      baseUrl={docusaurusConfig.baseUrl}
+                      currentVersion={currentVersion}
+                    />
+                  );
+                })}
+              </tbody>
+            </table>
+            <p>
+              You can come back to this page and switch the version of the docs
+              you're reading at any time by clicking on the version number at
+              the top of the page.
+            </p>
+          </div>
+        </div>
+      </Layout>
     );
   }
 }
@@ -152,4 +151,4 @@ Versions.defaultProps = {
   language: 'en',
 };
 
-module.exports = Versions;
+export default Versions;
