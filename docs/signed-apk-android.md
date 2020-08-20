@@ -74,7 +74,7 @@ android {
 ...
 ```
 
-### Generating the release APK
+### Generating the release AAB
 
 Run the following in a terminal:
 
