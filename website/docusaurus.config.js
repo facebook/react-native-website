@@ -346,6 +346,9 @@ module.exports = {
         blog: {
           path: 'blog',
         },
+        pages: {
+          path: 'pages/en',
+        },
         theme: {
           customCss: require.resolve('./src/css/customTheme.css'),
         },
