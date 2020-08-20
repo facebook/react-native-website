@@ -66,10 +66,10 @@ Fetches an item for a `key` and invokes a callback upon completion. Returns a `P
 
 **Parameters:**
 
-| Name     | Type                                      | Required | Description                                                       |
-| -------- | ----------------------------------------- | -------- | ----------------------------------------------------------------- |
-| key      | string                                    | Yes      | Key of the item to fetch.                                         |
-| callback | ?(error: ?Error, result: ?string) => void | No       | Function that will be called with a result if found or any error. |
+| Name     | Type                                        | Required | Description                                                       |
+| -------- | ------------------------------------------- | -------- | ----------------------------------------------------------------- |
+| key      | string                                      | Yes      | Key of the item to fetch.                                         |
+| callback | `?(error: ?Error, result: ?string) => void` | No       | Function that will be called with a result if found or any error. |
 
 ---
 
@@ -83,11 +83,11 @@ Sets the value for a `key` and invokes a callback upon completion. Returns a `Pr
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| key      | string                   | Yes      | Key of the item to set.                      |
-| value    | string                   | Yes      | Value to set for the `key`.                  |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| key      | string                     | Yes      | Key of the item to set.                      |
+| value    | string                     | Yes      | Value to set for the `key`.                  |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 ---
 
@@ -101,10 +101,10 @@ Removes an item for a `key` and invokes a callback upon completion. Returns a `P
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| key      | string                   | Yes      | Key of the item to remove.                   |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| key      | string                     | Yes      | Key of the item to remove.                   |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 ---
 
@@ -120,11 +120,11 @@ Merges an existing `key` value with an input value, assuming both values are str
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| key      | string                   | Yes      | Key of the item to modify.                   |
-| value    | string                   | Yes      | New value to merge for the `key`.            |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| key      | string                     | Yes      | Key of the item to modify.                   |
+| value    | string                     | Yes      | New value to merge for the `key`.            |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 Example:
 
@@ -173,9 +173,9 @@ Erases _all_ `AsyncStorage` for all clients, libraries, etc. You probably don't 
 
 **Parameters:**
 
-| Name     | Type                     | Required | Description                                  |
-| -------- | ------------------------ | -------- | -------------------------------------------- |
-| callback | ?(error: ?Error) => void | No       | Function that will be called with any error. |
+| Name     | Type                       | Required | Description                                  |
+| -------- | -------------------------- | -------- | -------------------------------------------- |
+| callback | `?(error: ?Error) => void` | No       | Function that will be called with any error. |
 
 ---
 
@@ -191,7 +191,7 @@ Gets _all_ keys known to your app; for all callers, libraries, etc. Returns a `P
 
 | Name     | Type                                             | Required | Description                                                     |
 | -------- | ------------------------------------------------ | -------- | --------------------------------------------------------------- |
-| callback | `?(error: ?Error, keys: ?Array<string>`) => void | No       | Function that will be called with all keys found and any error. |
+| callback | `?(error: ?Error, keys: ?Array<string>) => void` | No       | Function that will be called with all keys found and any error. |
 
 ---
 
@@ -224,7 +224,7 @@ The method returns a `Promise` object.
 | Name     | Type                                                              | Required | Description                                                                                                         |
 | -------- | ----------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
 | keys     | `Array<string>`                                                   | Yes      | Array of key for the items to get.                                                                                  |
-| callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>`) => void | No       | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. |
+| callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void` | No       | Function that will be called with a key-value array of the results, plus an array of any key-specific errors found. |
 
 Example:
 
