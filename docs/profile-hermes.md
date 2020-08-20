@@ -45,21 +45,19 @@ This allows React Native to build the bundle during its running process
 
 - In the `android/app/build.gradle` file of the React Native app that you use to test, add
 
-```sh
-project.ext.react = [
-  bundleInDebug: true,
-]
+```jsx
+project.ext.react = [(bundleInDebug: true)];
 ```
 
 - Clean the build by running this command
 
-```sh
+```jsx
 cd android && ./gradlew clean
 ```
 
 - Run your app as usual
 
-```jsx
+```sh
 npx react-native run-android
 ```
 
