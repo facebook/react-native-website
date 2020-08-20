@@ -3,26 +3,25 @@ id: profile-hermes
 title: Profiling with Hermes
 ---
 
-Visualize JavaScript's performance in a React Native app using Hermes. [Hermes](https://github.com/facebook/hermes) is a small and lightweight JavaScript engine optimized for running React Native on Android. Using Hermes in a React Native app improves the performance of the app. The Hermes engine also exposes ways to understand the performance of JavaScript code that it runs.
+You can visualize JavaScript's performance in a React Native app using [Hermes](https://github.com/facebook/hermes). Hermes is a small and lightweight JavaScript engine optimized for running React Native on Android (you can [read more about using it with React Native here](hermes). Hermes helps improve app performance and also exposes ways to analyze the performance of the JavaScript that it runs.
 
 This section contains directions on how to profile your React Native app running on Hermes. You will be able to visualize the profile using [the Performance tab on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
 
-**An overview of the process**:
+> Be sure to [enable hermes in your app](hermes) before you get started!
 
-- Create a new React Native app
-- [Record a Hermes sampling profile](profile-hermes.md#recording-a-hermes-sampling-profile)
-- [Execute command from CLI](profile-hermes.md#execute-command-from-cli)
-- [Open the downloaded profile on Chrome DevTools](profile-hermes.md#open-the-downloaded-profile-on-chrome-devtools)
+Follow the instructions below to get started profiling:
+
+1 [Record a Hermes sampling profile](profile-hermes.md#record-a-hermes-sampling-profile)
+2 [Execute command from CLI](profile-hermes.md#execute-command-from-cli)
+3 [Open the downloaded profile on Chrome DevTools](profile-hermes.md#open-the-downloaded-profile-on-chrome-devtools)
 
 ## Record a Hermes sampling profile
 
-First, you need to enable Hermes to run. Instructions on how to do so are provided [here](https://reactnative.dev/docs/hermes)
-
 Record a sampling profiler from the Developer Menu:
 
-- Open Developer Menu with `Cmd+M` or Shake the device. Select `Enable Sampling Profiler`
-- Execute JavaScript by using the app (pressing buttons, etc.)
-- Open Developer Menu again, select `Disable Sampling Profiler`. A toast shows the location where the sampling profiler is saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
+1 Open Developer Menu with `Cmd+M` or Shake the device. Select `Enable Sampling Profiler`
+2 Execute JavaScript by using the app (pressing buttons, etc.)
+3 Open Developer Menu again, select `Disable Sampling Profiler`. A toast shows the location where the sampling profiler is saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
 
 <img src="/docs/assets/HermesProfileSaved.png" height=465 width=250 alt="Toast Notification of Profile saving">
 
