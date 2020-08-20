@@ -1,6 +1,6 @@
 ---
 id: version-0.61-clipboard
-title: '🚧 Clipboard'
+title: 🚧 Clipboard
 original_id: clipboard
 ---
 

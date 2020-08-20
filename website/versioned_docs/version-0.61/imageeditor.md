@@ -1,6 +1,6 @@
 ---
 id: version-0.61-imageeditor
-title: '🚧 ImageEditor'
+title: 🚧 ImageEditor
 original_id: imageeditor
 ---
 

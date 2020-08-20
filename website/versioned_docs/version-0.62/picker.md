@@ -1,6 +1,6 @@
 ---
 id: version-0.62-picker
-title: '🚧 Picker'
+title: 🚧 Picker
 original_id: picker
 ---
 

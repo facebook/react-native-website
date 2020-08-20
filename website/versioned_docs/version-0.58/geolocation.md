@@ -1,6 +1,6 @@
 ---
 id: version-0.58-geolocation
-title: '🚧 Geolocation'
+title: 🚧 Geolocation
 original_id: geolocation
 ---
 

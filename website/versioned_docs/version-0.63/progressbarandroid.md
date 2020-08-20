@@ -1,6 +1,6 @@
 ---
 id: version-0.63-progressbarandroid
-title: '🚧 ProgressBarAndroid'
+title: 🚧 ProgressBarAndroid
 original_id: progressbarandroid
 ---
 

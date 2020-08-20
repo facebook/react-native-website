@@ -1,6 +1,6 @@
 ---
 id: version-0.62-alertios
-title: '🚧 AlertIOS'
+title: 🚧 AlertIOS
 original_id: alertios
 ---
 

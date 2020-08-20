@@ -1,6 +1,6 @@
 ---
 id: version-0.61-statusbarios
-title: '🚧 StatusBarIOS'
+title: 🚧 StatusBarIOS
 original_id: statusbarios
 ---
 

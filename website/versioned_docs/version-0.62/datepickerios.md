@@ -1,6 +1,6 @@
 ---
 id: version-0.62-datepickerios
-title: '🚧 DatePickerIOS'
+title: 🚧 DatePickerIOS
 original_id: datepickerios
 ---
 

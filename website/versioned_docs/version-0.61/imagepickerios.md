@@ -1,6 +1,6 @@
 ---
 id: version-0.61-imagepickerios
-title: '🚧 ImagePickerIOS'
+title: 🚧 ImagePickerIOS
 original_id: imagepickerios
 ---
 

@@ -1,6 +1,6 @@
 ---
 id: version-0.61-timepickerandroid
-title: '🚧 TimePickerAndroid'
+title: 🚧 TimePickerAndroid
 original_id: timepickerandroid
 ---
 
