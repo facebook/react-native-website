@@ -305,7 +305,10 @@ Batch operation to merge in existing and new values for a given set of keys. Thi
 
 **Parameters:**
 
-| Name | Type | Required | Description | | ------------- | ---------------------------------- | -------- | ---------------------------------------------------------------------------- || keyValuePairs | `Array<Array<string>>` | Yes | Array of key-value array for the items to merge. | | callback | `?(errors: ?Array<Error>) => void` | No | Function that will be called with an array of any key-specific errors found. |
+| Name          | Type                               | Required | Description                                                                  |
+| ------------- | ---------------------------------- | -------- | ---------------------------------------------------------------------------- |
+| keyValuePairs | `Array<Array<string>>`             | Yes      | Array of key-value array for the items to merge.                             |
+| callback      | `?(errors: ?Array<Error>) => void` | No       | Function that will be called with an array of any key-specific errors found. |
 
 Example:
 
