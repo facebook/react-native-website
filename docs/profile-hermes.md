@@ -14,8 +14,6 @@ This section contains directions on how to profile your React Native app running
 - [Execute command from CLI](profile-hermes.md#execute-command-from-cli)
 - [Open the downloaded profile on Chrome DevTools](profile-hermes.md#open-the-downloaded-profile-on-chrome-devtools)
 
-[comment]: <Include the instruction to load profile in DevTools and paste the hyperlink above>
-
 ## Record a Hermes sampling profile
 
 First, you need to enable Hermes to run. Instructions on how to do so are provided [here](https://reactnative.dev/docs/hermes)
@@ -49,7 +47,7 @@ This allows React Native to build the bundle during its running process
 
 ```sh
 project.ext.react = [
-    bundleInDebug: true,
+  bundleInDebug: true,
 ]
 ```
 
@@ -61,7 +59,7 @@ cd android && ./gradlew clean
 
 - Run your app as usual
 
-```sh
+```jsx
 npx react-native run-android
 ```
 
