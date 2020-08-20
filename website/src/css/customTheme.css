@@ -16,6 +16,22 @@
 @import "./versions.css"; */
 
 @import "./docs.css";
+@import "./homepage/ActionButton.css";
+@import "./homepage/AppList.css";
+@import "./homepage/Community.css";
+@import "./homepage/CrossPlatform.css";
+@import "./homepage/FastRefresh.css";
+@import "./homepage/GetStarted.css";
+@import "./homepage/HeaderHero.css";
+@import "./homepage/Heading.css";
+@import "./homepage/HomePage.css";
+@import "./homepage/LogoAnimation.css";
+@import "./homepage/NativeApps.css";
+@import "./homepage/NativeCode.css";
+@import "./homepage/NativeDevelopment.css";
+@import "./homepage/Section.css";
+@import "./homepage/Talks.css";
+@import "./homepage/TwoColumns.css";
 
 :root {
   --ifm-color-primary: #06bcee;

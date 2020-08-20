@@ -1,5 +1,0 @@
-/* Prevent overflowing elements from causing a scroll on safari */
-.HomePage {
-  width: 100%;
-  overflow-x: hidden;
-}
