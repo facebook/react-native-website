@@ -46,7 +46,9 @@ This allows React Native to build the bundle during its running process
 - In the `android/app/build.gradle` file of the React Native app that you use to test, add
 
 ```java
-project.ext.react = [(bundleInDebug: true)];
+project.ext.react = [
+  bundleInDebug: true,
+]
 ```
 
 - Clean the build by running this command
@@ -63,19 +65,20 @@ npx react-native run-android
 
 ### Common errors encountered during the process
 
-- #### `adb: no devices/emulators found` or `adb: device offline`
+#### `adb: no devices/emulators found` or `adb: device offline`
 
-  - Cause: The CLI cannot access the device or emulator (through adb) you are using to run the app
-  - Solution: make sure your Android device/ emulator is connected and running. The command only works when it can access adb
+- Cause: The CLI cannot access the device or emulator (through adb) you are using to run the app
+- Solution: make sure your Android device/ emulator is connected and running. The command only works when it can access adb
 
-- #### `There is no file in the cache/ directory`
+#### `There is no file in the cache/ directory`
 
-  - Cause: cannot find any **.cpuprofile** file in your app's **cache/** directory. You might have forgotten to record a profile from the device
-  - Solution: instruction on how to enable/ disable profiler from device is [above](profile-hermes.md#recording-a-hermes-sampling-profile)
+- Cause: cannot find any **.cpuprofile** file in your app's **cache/** directory. You might have forgotten to record a profile from the device
+- Solution: instruction on how to enable/ disable profiler from device is [above](profile-hermes.md#recording-a-hermes-sampling-profile)
 
-- #### `Error: your_profile_name.cpuprofile is an empty file`
-  - Cause: the profile is empty, it might be because Hermes is not running correctly or crashes
-  - Solution: make sure your app is running with Hermes and update Hermes to the latest version
+#### `Error: your_profile_name.cpuprofile is an empty file`
+
+- Cause: the profile is empty, it might be because Hermes is not running correctly or crashes
+- Solution: make sure your app is running with Hermes and update Hermes to the latest version
 
 ## Open the downloaded profile on Chrome DevTools
 
