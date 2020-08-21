@@ -198,7 +198,11 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 Inherits [ScrollView Props](scrollview.md#props).
+
+---
 
 ### `renderItem`
 

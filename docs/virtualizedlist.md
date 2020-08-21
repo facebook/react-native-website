@@ -86,7 +86,11 @@ Some caveats:
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 Inherits [ScrollView Props](scrollview.md#props).
+
+---
 
 ### `renderItem`
 
