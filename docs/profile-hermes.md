@@ -11,17 +11,20 @@ This section contains directions on how to profile your React Native app running
 
 Follow the instructions below to get started profiling:
 
-1 [Record a Hermes sampling profile](profile-hermes.md#record-a-hermes-sampling-profile)
-2 [Execute command from CLI](profile-hermes.md#execute-command-from-cli)
-3 [Open the downloaded profile on Chrome DevTools](profile-hermes.md#open-the-downloaded-profile-on-chrome-devtools)
+1. [Record a Hermes sampling profile](profile-hermes.md#record-a-hermes-sampling-profile)
+2. [Execute command from CLI](profile-hermes.md#execute-command-from-cli)
+3. [Open the downloaded profile on Chrome DevTools](profile-hermes.md#open-the-downloaded-profile-on-chrome-devtools)
 
 ## Record a Hermes sampling profile
 
 Record a sampling profiler from the Developer Menu:
 
-1 Open Developer Menu with `Cmd+M` or Shake the device. Select `Enable Sampling Profiler`
-2 Execute JavaScript by using the app (pressing buttons, etc.)
-3 Open Developer Menu again, select `Disable Sampling Profiler`. A toast shows the location where the sampling profiler is saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
+1. Open the Developer Menu by pressing `d` in the running Metro server terminal. Select `Enable Sampling Profiler`
+
+<img src="/docs/assets/openDeveloperMenu.png" height=500 width=500 alt="Open Developer Menu">
+
+2. Execute JavaScript by using the app (pressing buttons, etc.)
+3. Open the Developer Menu again, select `Disable Sampling Profiler`. A toast shows the location where the sampling profiler is saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
 
 <img src="/docs/assets/HermesProfileSaved.png" height=465 width=250 alt="Toast Notification of Profile saving">
 
@@ -30,19 +33,18 @@ Record a sampling profiler from the Developer Menu:
 You can use the [React Native CLI](https://github.com/react-native-community/cli) to convert the Hermes tracing profile to Chrome tracing profile, and then pull it to your local machine using:
 
 ```sh
-react-native profile-hermes [destinationDir]
+npx react-native profile-hermes [destinationDir]
 ```
 
 ### Notes on source map
 
-- Source map is used to enhance the profile and associate trace events with the application code
-- This step is recommended in order for the source map to be generated automatically for the use of the above command:
+Source map is used to enhance the profile and associate trace events with the application code. This step is recommended in order for the source map to be generated automatically for the use of the above command.
 
 #### Enable `bundleInDebug: true` if the app is running in development mode:
 
 This allows React Native to build the bundle during its running process
 
-- In the `android/app/build.gradle` file of the React Native app that you use to test, add
+- In `android/app/build.gradle` file of the React Native app, add
 
 ```java
 project.ext.react = [
@@ -50,7 +52,9 @@ project.ext.react = [
 ]
 ```
 
-- Clean the build by running this command
+> Be sure to clean the build whenever you make any changes to `build.gradle`
+
+- Clean the build
 
 ```sh
 cd android && ./gradlew clean
@@ -66,32 +70,28 @@ npx react-native run-android
 
 #### `adb: no devices/emulators found` or `adb: device offline`
 
-- Cause: The CLI cannot access the device or emulator (through adb) you are using to run the app
-- Solution: make sure your Android device/ emulator is connected and running. The command only works when it can access adb
+- Why this happens: The CLI cannot access the device or emulator (through adb) you are using to run the app.
+- How to solve it: Make sure your Android device/ emulator is connected and running. The command only works when it can access adb.
 
 #### `There is no file in the cache/ directory`
 
-- Cause: cannot find any **.cpuprofile** file in your app's **cache/** directory. You might have forgotten to record a profile from the device
-- Solution: instruction on how to enable/ disable profiler from device is [above](profile-hermes.md#recording-a-hermes-sampling-profile)
+- Why this happens: The CLI cannot find any **.cpuprofile** file in your app's **cache/** directory. You might have forgotten to record a profile from the device.
+- How to solve it: Follow the [instructions](profile-hermes.md#record-a-hermes-sampling-profile) to enable/ disable profiler from device.
 
 #### `Error: your_profile_name.cpuprofile is an empty file`
 
-- Cause: the profile is empty, it might be because Hermes is not running correctly or crashes
-- Solution: make sure your app is running with Hermes and update Hermes to the latest version
+- Why this happens: The profile is empty, it might be because Hermes is not running correctly.
+- How to solve it: Make sure your app is running on the latest version of Hermes.
 
 ## Open the downloaded profile on Chrome DevTools
 
-You can load the downloaded profile in the Chrome DevTools by doing the following:
-
-1.  Open Developer Tools in Chrome
-2.  Navigate to the `Performance` tab
-3.  Use `Load profile...` button
+Open **Chrome > View > Developer > Developer Tools...** and select the **Performance** tab. Right click and choose `Load profile...`
 
  <img src="/docs/assets/openChromeProfile.png" alt="Loading a performance profile on Chrome DevTools">
 
 ## How does the Hermes Profile Transformer work?
 
-The Hermes Sample Profile generated by following the steps listed above is of the `JSON object format`, while the format that Google's DevTools supports is predominantly `JSON Array Format`. (More information about the formats can be found on the [Trace Event Format Document](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview))
+The Hermes Sample Profile is of the `JSON object format`, while the format that Google's DevTools supports is `JSON Array Format`. (More information about the formats can be found on the [Trace Event Format Document](https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview))
 
 ```ts
 export interface HermesCPUProfile {
@@ -101,7 +101,7 @@ export interface HermesCPUProfile {
 }
 ```
 
-The Hermes Profile generated has most of its information encoded into the `samples` and `stackFrames` properties. Each sample is a snapshot of the function call stack at that particular timestamp as each sample has a `sf` property which corresponds to a function call.
+The Hermes profile has most of its information encoded into the `samples` and `stackFrames` properties. Each sample is a snapshot of the function call stack at that particular timestamp as each sample has a `sf` property which corresponds to a function call.
 
 ```ts
 export interface HermesSample {
@@ -119,7 +119,7 @@ export interface HermesSample {
 }
 ```
 
-The information about a function call can be found in `stackFrames` which contains key-object pairs, where the key is the `sf` number and the object corresponding to the key gives us all the relevant information about the function including the `sf` number of its parent function. This parent-child relationship can be traced upwards to find the information about all the functions running at a particular instant.
+The information about a function call can be found in `stackFrames` which contains key-object pairs, where the key is the `sf` number and the corresponding object gives us all the relevant information about the function including the `sf` number of its parent function. This parent-child relationship can be traced upwards to find the information of all the functions running at a particular timestamp.
 
 ```ts
 export interface HermesStackFrame {
@@ -138,16 +138,16 @@ export interface HermesStackFrame {
 
 At this point in time, we should also define a few more terms, namely:
 
-1. Nodes: The objects corresponding to `sf` numbers in `stackFrames` are called nodes
-2. Active Nodes: The nodes which are currently running at a particular point of time. We can classify a node as running if its `sf` number is in the function call stack, which can be obtained from the `sf` number of the sample and tracing upwards till parent `sf`s are available
+1. Nodes: The objects corresponding to `sf` numbers in `stackFrames`
+2. Active Nodes: The nodes which are currently running at a particular timestamp. We can classify a node as running if its `sf` number is in the function call stack. This call stack can be obtained from the `sf` number of the sample and tracing upwards till parent `sf`s are available
 
-The `samples` and the `stackFrames` in tandem can hence be used to generate all the start and end events at the corresponding sampling timestamps, wherein -
+The `samples` and the `stackFrames` in tandem can hence be used to generate all the start and end events at the corresponding timestamps, wherein:
 
-1. Start Nodes/Events - Nodes absent in the previous sample's function call stack but present in the current sample's function call stack.
-2. End Nodes/Events - Nodes present in the previous sample's function call stack but absent in the current sample's function call stack.
+1. Start Nodes/Events: Nodes absent in the previous sample's function call stack but present in the current sample's.
+2. End Nodes/Events: Nodes present in the previous sample's function call stack but absent in the current sample's.
 
-<img src="/docs/assets/CallStackDemo.jpg" height=400 width=300 alt="CallStack Terms Explained">
+<img src="/docs/assets/CallStackDemo.jpg" height=800 width=600 alt="CallStack Terms Explained">
 
-Using this information, we can construct a `flamechart` of function calls as we essentially have all the function information including its start and end timestamps.
+We can now construct a `flamechart` of function calls as we essentially have all the function information including its start and end timestamps.
 
-The `hermes-profile-transformer` can convert any profile generated using Hermes into a format that can be directly displayed in DevTools. More information about this can be found on [ `@react-native-community/hermes-profile-transformer` ](https://github.com/react-native-community/hermes-profile-transformer)
+The `hermes-profile-transformer` can convert any profile generated using Hermes into a format that can be directly displayed in Chrome DevTools. More information about this can be found on [ `@react-native-community/hermes-profile-transformer` ](https://github.com/react-native-community/hermes-profile-transformer)
