@@ -48,7 +48,7 @@ glob('../docs/**/*.md')
               imagePath +
               ' which has at least one reference in ' +
               markdownPath +
-              ". Did you forget to add the asset to '/docs/assets'?"
+              ". Did you forget to add the asset to '/static/docs/assets'?"
           );
         });
     });
