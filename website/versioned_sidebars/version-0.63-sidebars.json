@@ -137,7 +137,6 @@
       "version-0.63-modal",
       "version-0.63-pressable",
       "version-0.63-refreshcontrol",
-      "version-0.63-safeareaview",
       "version-0.63-scrollview",
       "version-0.63-sectionlist",
       "version-0.63-statusbar",
@@ -160,7 +159,11 @@
       {
         "type": "subcategory",
         "label": "iOS Components",
-        "ids": ["version-0.63-inputaccessoryview", "version-0.63-maskedviewios"]
+        "ids": [
+          "version-0.63-inputaccessoryview",
+          "version-0.63-maskedviewios",
+          "version-0.63-safeareaview"
+        ]
       }
     ],
     "Props": [
