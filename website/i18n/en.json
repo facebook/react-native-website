@@ -284,6 +284,9 @@
       "props": {
         "title": "Props"
       },
+      "publishing-to-app-store": {
+        "title": "Publishing to Apple App Store"
+      },
       "pushnotificationios": {
         "title": "🚧 PushNotificationIOS"
       },
