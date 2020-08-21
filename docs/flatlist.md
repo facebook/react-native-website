@@ -82,9 +82,9 @@ export default App;
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
-More complex, multi-select example demonstrating `` usage for perf optimization and avoiding bugs.
+More complex, selectable example below.
 
-- By passing `extraData={selected}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
+- By passing `extraData={selectedId}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 ```SnackPlayer name=flatlist-selectable
