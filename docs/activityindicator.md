@@ -88,6 +88,8 @@ export default App;
 
 ## Props
 
+### [View Props](view#props)
+
 Inherits [View Props](view#props).
 
 ---

@@ -79,7 +79,11 @@ Note that on Android performing text selection in input can change app's activit
 
 ## Props
 
+### [View Props](view.md#props)
+
 Inherits [View Props](view.md#props).
+
+---
 
 ### `allowFontScaling`
 

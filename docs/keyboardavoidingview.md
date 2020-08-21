@@ -64,7 +64,11 @@ export default KeyboardAvoidingComponent;
 
 ## Props
 
+### [View Props](view.md#props)
+
 Inherits [View Props](view.md#props).
+
+---
 
 ### `behavior`
 

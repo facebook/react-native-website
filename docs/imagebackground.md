@@ -51,7 +51,11 @@ export default App;
 
 ## Props
 
+### [Image Props](image.md#props)
+
 Inherits [Image Props](image.md#props).
+
+---
 
 ### `style`
 

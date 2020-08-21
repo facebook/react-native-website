@@ -47,7 +47,11 @@ export default App;
 
 ## Props
 
+### [View Props](view.md#props)
+
 Inherits [View Props](view.md#props).
+
+---
 
 ### `disabled`
 

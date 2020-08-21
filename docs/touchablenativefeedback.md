@@ -64,7 +64,11 @@ export default App;
 
 ## Props
 
+### [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props)
+
 Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
+---
 
 ### `background`
 
