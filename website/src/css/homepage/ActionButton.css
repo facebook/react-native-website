@@ -11,7 +11,7 @@
 
 .ActionButton.primary {
   color: var(--dark);
-  background-color: $brand;
+  background-color: var(--brand);
 }
 
 .ActionButton.primary:hover {
@@ -21,7 +21,7 @@
 
 .ActionButton.secondary {
   background: none;
-  color: $brand;
+  color: var(--brand);
 }
 
 .ActionButton.secondary::after {
