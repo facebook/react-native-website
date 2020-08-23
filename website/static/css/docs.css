@@ -322,7 +322,10 @@ td .label:after {
 
 td .label.required {
   margin-left: 8px;
-  letter-spacing: 0.03rem;
+  letter-spacing: 0.02rem;
+  padding: 0 6px;
+  border-width: 1px;
+  margin-right: 0;
 }
 
 td .label.two-lines {

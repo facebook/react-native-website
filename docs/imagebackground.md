@@ -36,9 +36,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   text: {
-    color: "grey",
-    fontSize: 30,
-    fontWeight: "bold"
+    color: "white",
+    fontSize: 42,
+    fontWeight: "bold",
+    textAlign: "center",
+    background: "#000000a0"
   }
 });
 
@@ -57,22 +59,22 @@ Inherits [Image Props](image.md#props).
 
 ---
 
-### `style`
-
-| Type                               | Required |
-| ---------------------------------- | -------- |
-| [view styles](view-style-props.md) | No       |
-
 ### `imageStyle`
 
-| Type                                 | Required |
-| ------------------------------------ | -------- |
-| [image styles](image-style-props.md) | No       |
+| Type                                |
+| ----------------------------------- |
+| [Image Style](image-style-props.md) |
 
 ### `imageRef`
 
 Allows to set a reference to the inner `Image` component
 
-| Type                                                  | Required |
-| ----------------------------------------------------- | -------- |
-| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) | No       |
+| Type                                                  |
+| ----------------------------------------------------- |
+| [Ref](https://reactjs.org/docs/refs-and-the-dom.html) |
+
+### `style`
+
+| Type                              |
+| --------------------------------- |
+| [View Style](view-style-props.md) |

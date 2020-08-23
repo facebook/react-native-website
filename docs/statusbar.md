@@ -162,9 +162,9 @@ If the status bar is hidden.
 
 If the network activity indicator should be visible.
 
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
@@ -172,9 +172,9 @@ If the network activity indicator should be visible.
 
 The transition effect when showing and hiding the status bar using the `hidden` prop.
 
-| Type                                               | Required | Default  |
-| -------------------------------------------------- | -------- | -------- |
-| [StatusBarAnimation](statusbar#statusbaranimation) | No       | `'fade'` |
+| Type                                               | Default  |
+| -------------------------------------------------- | -------- |
+| [StatusBarAnimation](statusbar#statusbaranimation) | `'fade'` |
 
 ---
 
@@ -182,9 +182,9 @@ The transition effect when showing and hiding the status bar using the `hidden` 
 
 If the status bar is translucent. When translucent is set to `true`, the app will draw under the status bar. This is useful when using a semi transparent status bar color.
 
-| Type    | Required | Default |
-| ------- | -------- | ------- |
-| boolean | No       | `false` |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ## Methods
 
@@ -198,9 +198,9 @@ Get and remove the last StatusBar entry from the stack.
 
 **Parameters:**
 
-| Name  | Type | Required | Description                           |
-| ----- | ---- | -------- | ------------------------------------- |
-| entry | any  | Yes      | Entry returned from `pushStackEntry`. |
+| Name                                                   | Type | Description                           |
+| ------------------------------------------------------ | ---- | ------------------------------------- |
+| entry <div class="label basic required">Required</div> | any  | Entry returned from `pushStackEntry`. |
 
 ---
 
@@ -214,9 +214,9 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 **Parameters:**
 
-| Name  | Type | Required | Description                                                      |
-| ----- | ---- | -------- | ---------------------------------------------------------------- |
-| props | any  | Yes      | Object containing the StatusBar props to use in the stack entry. |
+| Name                                                   | Type | Description                                                      |
+| ------------------------------------------------------ | ---- | ---------------------------------------------------------------- |
+| props <div class="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the stack entry. |
 
 ---
 
@@ -230,10 +230,10 @@ Replace an existing StatusBar stack entry with new props.
 
 **Parameters:**
 
-| Name  | Type | Required | Description                                                                  |
-| ----- | ---- | -------- | ---------------------------------------------------------------------------- |
-| entry | any  | Yes      | Entry returned from `pushStackEntry` to replace.                             |
-| props | any  | Yes      | Object containing the StatusBar props to use in the replacement stack entry. |
+| Name                                                   | Type | Description                                                                  |
+| ------------------------------------------------------ | ---- | ---------------------------------------------------------------------------- |
+| entry <div class="label basic required">Required</div> | any  | Entry returned from `pushStackEntry` to replace.                             |
+| props <div class="label basic required">Required</div> | any  | Object containing the StatusBar props to use in the replacement stack entry. |
 
 ---
 
@@ -247,10 +247,10 @@ Set the background color for the status bar.
 
 **Parameters:**
 
-| Name     | Type    | Required | Description               |
-| -------- | ------- | -------- | ------------------------- |
-| color    | string  | Yes      | Background color.         |
-| animated | boolean | No       | Animate the style change. |
+| Name                                                   | Type    | Description               |
+| ------------------------------------------------------ | ------- | ------------------------- |
+| color <div class="label basic required">Required</div> | string  | Background color.         |
+| animated                                               | boolean | Animate the style change. |
 
 ---
 
@@ -264,10 +264,10 @@ Set the status bar style.
 
 **Parameters:**
 
-| Name     | Type                                       | Required | Description               |
-| -------- | ------------------------------------------ | -------- | ------------------------- |
-| style    | [StatusBarStyle](statusbar#statusbarstyle) | Yes      | Status bar style to set.  |
-| animated | boolean                                    | No       | Animate the style change. |
+| Name                                                   | Type                                       | Description               |
+| ------------------------------------------------------ | ------------------------------------------ | ------------------------- |
+| style <div class="label basic required">Required</div> | [StatusBarStyle](statusbar#statusbarstyle) | Status bar style to set.  |
+| animated                                               | boolean                                    | Animate the style change. |
 
 ---
 
@@ -281,10 +281,10 @@ Show or hide the status bar.
 
 **Parameters:**
 
-| Name                                       | Type                                               | Required | Description                                             |
-| ------------------------------------------ | -------------------------------------------------- | -------- | ------------------------------------------------------- |
-| hidden                                     | boolean                                            | Yes      | Hide the status bar.                                    |
-| animation <div class="label ios">iOS</div> | [StatusBarAnimation](statusbar#statusbaranimation) | No       | Animation when changing the status bar hidden property. |
+| Name                                                    | Type                                               | Description                                             |
+| ------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| hidden <div class="label basic required">Required</div> | boolean                                            | Hide the status bar.                                    |
+| animation <div class="label ios">iOS</div>              | [StatusBarAnimation](statusbar#statusbaranimation) | Animation when changing the status bar hidden property. |
 
 ---
 
@@ -298,9 +298,9 @@ Control the visibility of the network activity indicator.
 
 **Parameters:**
 
-| Name    | Type    | Required | Description         |
-| ------- | ------- | -------- | ------------------- |
-| visible | boolean | Yes      | Show the indicator. |
+| Name                                                     | Type    | Description         |
+| -------------------------------------------------------- | ------- | ------------------- |
+| visible <div class="label basic required">Required</div> | boolean | Show the indicator. |
 
 ---
 
@@ -314,9 +314,9 @@ Control the translucency of the status bar.
 
 **Parameters:**
 
-| Name        | Type    | Required | Description         |
-| ----------- | ------- | -------- | ------------------- |
-| translucent | boolean | Yes      | Set as translucent. |
+| Name                                                         | Type    | Description         |
+| ------------------------------------------------------------ | ------- | ------------------- |
+| translucent <div class="label basic required">Required</div> | boolean | Set as translucent. |
 
 ## Type Definitions
 

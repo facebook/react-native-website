@@ -50,9 +50,9 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 ### `backgroundColor`
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
@@ -60,17 +60,17 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 An ID which is used to associate this `InputAccessoryView` to specified TextInput(s).
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
 ### `style`
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| [style](view-style-props.md) | No       |
+| Type                              |
+| --------------------------------- |
+| [View Style](view-style-props.md) |
 
 # Known issues
 
