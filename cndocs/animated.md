@@ -20,7 +20,7 @@ title: Animated
 
 <block class="functional syntax" />
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+>  请不要直接修改动画值！你可以用[`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)来返回一个可修改的ref引用。ref对象的`current`属性在初始化时被赋予给定的动画值，且在组件的生命周期内保存不被销毁。
 
 <block class="classical syntax" />
 
