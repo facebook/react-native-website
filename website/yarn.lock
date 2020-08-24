@@ -2175,7 +2175,7 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
-argparse@^1.0.10, argparse@^1.0.7:
+argparse@^1.0.7:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/argparse/-/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
   integrity sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg==
@@ -2293,13 +2293,6 @@ atob@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
-
-autolinker@^3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/autolinker/-/autolinker-3.11.0.tgz#209c4632550eed32285058eaac51f1382dae023a"
-  integrity sha512-VMTEjE3jeBK5MinTZiuVE07O4wMVmXhpzmc5sCc8cap6exsVzjmQJgtH8NqHsFru58ujUieBA9Dmwiz+E5KWEA==
-  dependencies:
-    tslib "^1.9.3"
 
 autoprefixer@^9.6.1:
   version "9.8.6"
@@ -9441,14 +9434,6 @@ remark-squeeze-paragraphs@4.0.0:
   dependencies:
     mdast-squeeze-paragraphs "^4.0.0"
 
-remarkable@^2.0.0:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/remarkable/-/remarkable-2.0.1.tgz#280ae6627384dfb13d98ee3995627ca550a12f31"
-  integrity sha512-YJyMcOH5lrR+kZdmB0aJJ4+93bEojRZ1HGDn9Eagu6ibg7aVZhc3OWbbShRid+Q5eAfsEqWxpe+g5W5nYNfNiA==
-  dependencies:
-    argparse "^1.0.10"
-    autolinker "^3.11.0"
-
 remove-trailing-separator@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/remove-trailing-separator/-/remove-trailing-separator-1.1.0.tgz#c24bce2a283adad5bc3f58e0d48249b92379d8ef"
@@ -10758,7 +10743,7 @@ tslib@^1.10.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
-tslib@^1.9.0, tslib@^1.9.3:
+tslib@^1.9.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
   integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
@@ -10968,7 +10953,7 @@ unique-string@^2.0.0:
   dependencies:
     crypto-random-string "^2.0.0"
 
-unist-builder@2.0.3, unist-builder@^2.0.0:
+unist-builder@2.0.3, unist-builder@^2.0.0, unist-builder@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/unist-builder/-/unist-builder-2.0.3.tgz#77648711b5d86af0942f334397a33c5e91516436"
   integrity sha512-f98yt5pnlMWlzP539tPc4grGMsFaQQlP/vM396b00jngsiINumNmsY8rkXjfoi1c6QaM8nQ3vaGDuoKWbe/1Uw==
@@ -11053,6 +11038,14 @@ unist-util-visit-parents@^3.0.0:
   integrity sha512-H3K8d81S4V3XVXVwLvrLGk+R5VILryfUotD06/R/rLsTsPLGjkn6gIP8qEEVITcuIySNYj0ocJLsePjm9F/Vcg==
   dependencies:
     "@types/unist" "^2.0.3"
+    unist-util-is "^4.0.0"
+
+unist-util-visit-parents@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/unist-util-visit-parents/-/unist-util-visit-parents-3.1.0.tgz#4dd262fb9dcfe44f297d53e882fc6ff3421173d5"
+  integrity sha512-0g4wbluTF93npyPrp/ymd3tCDTMnP0yo2akFD2FIBAYXq/Sga3lwaU1D8OYKbtpioaI6CkDcQ6fsMnmtzt7htw==
+  dependencies:
+    "@types/unist" "^2.0.0"
     unist-util-is "^4.0.0"
 
 unist-util-visit@2.0.3, unist-util-visit@^2.0.1, unist-util-visit@^2.0.2:

@@ -1,3 +1,5 @@
+const RemarkPlugins = require('./core/RemarkPlugins');
+
 module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
@@ -335,6 +337,10 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          remarkPlugins: [
+            RemarkPlugins.SnackPlayer,
+            RemarkPlugins.ReactNativeWebPlayer,
+          ],
           homePageId: 'getting-started',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,

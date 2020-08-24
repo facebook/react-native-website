@@ -9,7 +9,6 @@
     "type": "git",
     "url": "git+https://github.com/facebook/react-native-website.git"
   },
-
   "bugs": {
     "url": "https://github.com/facebook/react-native-website"
   },
@@ -46,12 +45,13 @@
   },
   "dependencies": {
     "highlight.js": "^9.15.10",
-    "remarkable": "^2.0.0",
     "@docusaurus/core": "2.0.0-alpha.61",
     "@docusaurus/preset-classic": "2.0.0-alpha.61",
     "clsx": "^1.1.1",
     "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "react-dom": "^16.10.2",
+    "unist-builder": "^2.0.3",
+    "unist-util-visit-parents": "^3.1.0"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",
