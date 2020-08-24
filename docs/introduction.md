@@ -114,28 +114,27 @@ You can find more examples of class components in [previous versions of this doc
 
 People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specific to one platform or another like so:
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
-    <button role="tab" class="button-androidNote" onclick="displayTabs('devNotes', 'androidNote')">Android</button>
-    <button role="tab" class="button-iosNote" onclick="displayTabs('devNotes', 'iosNote')">iOS</button>
-  </span>
-</div>
+<Tabs defaultValue="web" values={[ {label: 'Web', value: 'web'}, {label: 'Android', value: 'android'}, {label: 'IOS', value: 'ios'}, ]}>
 
-<block class="webNote devNotes" />
+  <TabItem value="web">
 
 > Web developers may be familiar with this concept.
 
-<block class="androidNote devNotes" />
+  </TabItem>
+
+  <TabItem value="android">
 
 > Android developers may be familiar with this concept.
 
-<block class="iosNote devNotes" />
+  </TabItem>
+
+  <TabItem value="ios">
 
 > iOS developers may be familiar with this concept.
 
-<block class="endBlock devNotes" />
+  </TabItem>
+
+</Tabs>
 
 ## Formatting
 
