@@ -3,24 +3,19 @@ id: environment-setup
 title: Setting up the development environment
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
+
 This page will help you install and build your first React Native app.
 
 <strong>If you are new to mobile development</strong>, the easiest way to get started is with Expo CLI. Expo is a set of tools built around React Native and, while it has many [features](https://expo.io/features), the most relevant feature for us right now is that it can get you writing a React Native app within minutes. You will only need a recent version of Node.js and a phone or emulator. If you'd like to try out React Native directly in your web browser before installing any tools, you can try out [Snack](https://snack.expo.io/).
 
 <strong>If you are already familiar with mobile development</strong>, you may want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
-<div className="toggler">
-  <ul role="tablist" id="toggle-guide">
-    <li id="quickstart" className="button-quickstart" aria-selected="false" role="tab" tabIndex={0} aria-controls="quickstarttab" onClick="displayTab('guide', 'quickstart')">
-      Expo CLI Quickstart
-    </li>
-    <li id="native" className="button-native" aria-selected="false" role="tab" tabIndex={0} aria-controls="nativetab" onClick="displayTab('guide', 'native')">
-      React Native CLI Quickstart
-    </li>
-  </ul>
-</div>
+<Tabs defaultValue="expo" values={[ {label: 'Expo CLI Quickstart', value: 'expo'}, {label: 'React Native CLI Quickstart', value: 'rn'}]}>
 
-<block className="quickstart mac windows linux ios android" />
+  <TabItem value="expo">
+
+<!-- expo CLI -->
 
 Assuming that you have [Node 12 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
@@ -82,28 +77,101 @@ Expo CLI configures your project to use the most recent React Native version tha
 
 If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
 
-<block className="native mac windows linux ios android" />
+  </TabItem>
+
+  <TabItem value="rn">
+
+<!-- react native CLI -->
 
 <p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
 
-<div className="toggler">
-  <span>Development OS:</span>
-  <span role="tablist" id="toggle-os">
-    <button role="tab" className="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
-    <button role="tab" className="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
-    <button role="tab" className="button-linux" onclick="displayTab('os', 'linux')">Linux</button>
-  </span>
-</div>
+<!-- doubly nested tabs -->
 
-<div className="toggler">
-  <span>Target OS:</span>
-  <span role="tablist" id="toggle-platform">
-    <button role="tab" className="button-ios" onclick="displayTab('platform', 'ios')">iOS</button>
-    <button role="tab" className="button-android" onclick="displayTab('platform', 'android')">Android</button>
-  </span>
-</div>
+<Tabs defaultValue="macos" values={[ {label: 'macOS', value: 'macos'}, {label: 'Windows', value: 'windows'}, {label: 'Linux', value: 'linux'}, ]}>
+
+  <TabItem value="macos">
+
+<Tabs defaultValue="ios" values={[ {label: 'IOS', value: 'ios'}, {label: 'Android', value: 'android'}]}>
+
+  <TabItem value="ios">
+
+<!-- macos and ios -->
+
+<h2>Installing dependencies</h2>
+
+You will need Node, Watchman, the React Native command line interface, and Xcode.
+
+While you can use any editor of your choice to develop your app, you will need to install Xcode in order to set up the necessary tooling to build your React Native app for iOS.
+
+  </TabItem>
+
+  <TabItem value="android">
+
+<!-- macos and android -->
+
+> Android developers may be familiar with this concept.
+
+  </TabItem>
+</Tabs>
+
+  </TabItem>
+
+  <TabItem value="windows">
+
+<Tabs defaultValue="ios" values={[ {label: 'IOS', value: 'ios'}, {label: 'Android', value: 'android'}]}>
+
+  <TabItem value="ios">
+
+<!-- windows and ios -->
+
+<h2>Unsupported</h2>
+
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
+
+  </TabItem>
+
+  <TabItem value="android">
+
+<!-- windows and android -->
+
+> Android developers may be familiar with this concept.
+
+  </TabItem>
+</Tabs>
+
+  </TabItem>
+
+  <TabItem value="linux">
+
+<Tabs defaultValue="ios" values={[ {label: 'IOS', value: 'ios'}, {label: 'Android', value: 'android'}]}>
+
+  <TabItem value="ios">
+
+<!-- linux and ios -->
+
+<h2>Unsupported</h2>
+
+<blockquote><p>A Mac is required to build projects with native code for iOS. You can follow the <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Quick Start</a> to learn how to build your app using Expo instead.</p></blockquote>
+
+  </TabItem>
+
+  <TabItem value="android">
+
+<!-- linux and android -->
+
+> Android developers may be familiar with this concept.
+
+  </TabItem>
+</Tabs>
+
+  </TabItem>
+
+</Tabs>
+
+  </TabItem>
+</Tabs>
 
 <block className="native linux windows ios" />
 
