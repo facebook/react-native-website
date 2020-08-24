@@ -65,11 +65,11 @@ export default App;
 
 ### `alwaysBounceHorizontal`
 
-When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself. The default value is true when `horizontal={true}` and false otherwise.
+当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -340,16 +340,6 @@ Tag used to log scroll performance on this scroll view. Will force momentum even
 ### `DEPRECATED_sendUpdatedChildFrames`
 
 When true, ScrollView will emit updateChildFrames data in scroll events, otherwise will not compute or emit child frame data. This only exists to support legacy issues, `onLayout` should be used instead to retrieve frame data. The default value is false.
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
-
----
-
-### `alwaysBounceHorizontal`
-
-当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。
 
 | 类型 | 必填 | 平台 |
 | ---- | ---- | ---- |
