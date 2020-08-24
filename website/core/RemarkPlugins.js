@@ -48,7 +48,7 @@ function htmlForCodeBlock(code) {
  * }
  * ```
  */
-export function SnackPlayer() {
+function SnackPlayer() {
   return tree =>
     new Promise(async (resolve, reject) => {
       const nodesToChange = [];
@@ -119,6 +119,8 @@ export function SnackPlayer() {
     });
 }
 
-export function ReactNativeWebPlayer() {
+function ReactNativeWebPlayer() {
   return function transformer(tree, file) {};
 }
+
+module.exports = {ReactNativeWebPlayer, SnackPlayer};
