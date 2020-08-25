@@ -1,6 +1,6 @@
 import Layout from '@theme/Layout';
 import React from 'react';
-const docusaurusConfig = require('../../docusaurus.config.js');
+import docusaurusConfig from '@generated/docusaurus.config';
 const baseUrl = docusaurusConfig.baseUrl;
 import styles from './styles.module.css';
 
