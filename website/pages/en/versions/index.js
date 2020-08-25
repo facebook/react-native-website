@@ -8,7 +8,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import docusaurusConfig from '@generated/docusaurus.config';
-const versions = require('../../../versions.json');
+import versions from '@site/versions.json';
 import styles from './styles.module.css';
 
 class VersionItem extends React.Component {
