@@ -15,7 +15,7 @@
   "main": "n/a",
   "scripts": {
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "node --max_old_space_size=32000 node_modules/@docusaurus/core/bin/docusaurus build",
     "prepublish-gh-pages": "yarn sync-community-repos",
     "publish-gh-pages": "docusaurus-publish",
     "version": "docusaurus-version",
