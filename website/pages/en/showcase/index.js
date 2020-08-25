@@ -8,8 +8,7 @@
 const React = require('react');
 import Layout from '@theme/Layout';
 import styles from './styles.module.css';
-
-const docusaurusConfig = require('../../../docusaurus.config.js');
+import docusaurusConfig from '@generated/docusaurus.config.js';
 
 const showcaseApps = docusaurusConfig.customFields.users;
 const pinnedApps = showcaseApps.filter(app => {
