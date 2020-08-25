@@ -7,7 +7,7 @@
 
 import React from 'react';
 import Layout from '@theme/Layout';
-const docusaurusConfig = require('../../../docusaurus.config.js');
+import docusaurusConfig from '@generated/docusaurus.config';
 const versions = require('../../../versions.json');
 import styles from './styles.module.css';
 
