@@ -1,6 +1,6 @@
 ---
 id: datepickerios
-title: '🚧 DatePickerIOS'
+title: 🚧 DatePickerIOS
 ---
 
 > **Deprecated.** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
@@ -9,12 +9,12 @@ Use `DatePickerIOS` to render a date/time picker (selector) on iOS. This is a co
 
 ### Example
 
-<div className="toggler">
-  <ul role="tablist" className="toggle-syntax">
-    <li id="functional" className="button-functional" aria-selected="false" role="tab" tabIndex="0" aria-controls="functionaltab" onClick="displayTabs('syntax', 'functional')">
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
       Function Component Example
     </li>
-    <li id="classical" className="button-classical" aria-selected="false" role="tab" tabIndex="0" aria-controls="classicaltab" onClick="displayTabs('syntax', 'classical')">
+    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
       Class Component Example
     </li>
   </ul>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block className="classical syntax" />
+<block class="classical syntax" />
 
 ```SnackPlayer name=DatePickerIOS&supportedPlatforms=ios
 import React, {Component} from 'react';
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block className="endBlock syntax" />
+<block class="endBlock syntax" />
 
 ---
 
@@ -158,7 +158,7 @@ Restricts the range of possible date/time values.
 | ---- | -------- |
 | Date | No       |
 
-See [`maximumDate`](#maximumdate) for an example image.
+See [`maximumDate`](datepickerios.md#maximumdate) for an example image.
 
 ---
 
