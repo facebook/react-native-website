@@ -7,41 +7,41 @@ It's always a good idea to test your app on an actual device before releasing it
 
 If you used Expo CLI or Create React Native App to set up your project, you can preview your app on a device by scanning the QR code with the Expo app—but in order to build and run your app on a device, you will need to eject and install the native code dependencies from the [environment setup guide](environment-setup).
 
-<div className="toggler">
+<div class="toggler">
   <ul role="tablist" id="toggle-platform">
-    <li id="ios" className="button-ios" aria-selected="false" role="tab" tabIndex={0} aria-controls="iostab" onClick="displayTab('platform', 'ios')">
+    <li id="ios" class="button-ios" aria-selected="false" role="tab" tabindex="0" aria-controls="iostab" onclick="displayTab('platform', 'ios')">
       iOS
     </li>
-    <li id="android" className="button-android" aria-selected="false" role="tab" tabIndex={0} aria-controls="androidtab" onClick="displayTab('platform', 'android')">
+    <li id="android" class="button-android" aria-selected="false" role="tab" tabindex="0" aria-controls="androidtab" onclick="displayTab('platform', 'android')">
       Android
     </li>
   </ul>
 </div>
 
-<block className="linux windows mac ios" />
+<block class="linux windows mac ios" />
 
 <h2>Running your app on iOS devices</h2>
 
-<block className="linux windows mac android" />
+<block class="linux windows mac android" />
 
 <h2>Running your app on Android devices</h2>
 
-<block className="linux windows mac ios android" />
+<block class="linux windows mac ios android" />
 
-<div className="toggler">
+<div class="toggler">
   <span>Development OS:</span>
   <span role="tablist" id="toggle-os">
-    <button role="tab" className="button-mac" onclick="displayTab('os', 'mac')" >macOS</button>
-    <button role="tab" className="button-linux" onclick="displayTab('os', 'linux')" >Linux</button>
-    <button role="tab" className="button-windows" onclick="displayTab('os', 'windows')" >Windows</button>
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</button>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
   </span>
 </div>
 
-<block className="linux windows ios" />
+<block class="linux windows ios" />
 
 A Mac is required in order to build your app for iOS devices. Alternatively, you can refer to our [environment setup guide](environment-setup) to learn how to build your app using Expo CLI, which will allow you to run your app using the Expo client app.
 
-<block className="mac ios" />
+<block class="mac ios" />
 
 ### 1. Plug in your device via USB
 
@@ -67,7 +67,7 @@ If everything is set up correctly, your device will be listed as the build targe
 
 > If you run into any issues, please take a look at Apple's [Launching Your App on a Device](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/LaunchingYourApponDevices/LaunchingYourApponDevices.html#//apple_ref/doc/uid/TP40012582-CH27-SW4) docs.
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 ### 1. Enable Debugging over USB
 
@@ -79,7 +79,7 @@ To enable USB debugging on your device, you will first need to enable the "Devel
 
 Let's now set up an Android device to run our React Native projects. Go ahead and plug in your device via USB to your development machine.
 
-<block className="linux android" />
+<block class="linux android" />
 
 Next, check the manufacturer code by using `lsusb` (on mac, you must first [install lsusb](https://github.com/jlhonora/lsusb)). `lsusb` should output something like this:
 
@@ -126,7 +126,7 @@ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev"' | 
 
 Make sure that you replace `22b8` with the identifier you get in the above command.
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 Now check that your device is properly connecting to ADB, the Android Debug Bridge, by running `adb devices`.
 
@@ -153,9 +153,9 @@ $ npx react-native run-android
 >
 > You can also use the `React Native CLI` to generate and run a `Release` build (e.g. `npx react-native run-android --variant=release`).
 
-<block className="mac windows linux android ios" />
+<block class="mac windows linux android ios" />
 
-<block className="mac ios" />
+<block class="mac ios" />
 
 <h2>Connecting to the development server</h2>
 
@@ -202,7 +202,7 @@ To still use xip.io behind your router:
 - configure your phone to use Google DNS (8.8.8.8)
 - disable the appropriate security feature in your router
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 <h2>Connecting to the development server</h2>
 
@@ -210,11 +210,11 @@ You can also iterate quickly on a device by connecting to the development server
 
 ### Method 1: Using adb reverse (recommended)
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 You can use this method if your device is running Android 5.0 (Lollipop) or newer, it has USB debugging enabled, and it is connected via USB to your development machine.
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 Run the following in a command prompt:
 
@@ -234,19 +234,19 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 You can also connect to the development server over Wi-Fi. You'll first need to install the app on your device using a USB cable, but once that has been done you can debug wirelessly by following these instructions. You'll need your development machine's current IP address before proceeding.
 
-<block className="mac android" />
+<block class="mac android" />
 
 You can find the IP address in **System Preferences** → **Network**.
 
-<block className="windows android" />
+<block class="windows android" />
 
 Open the command prompt and type `ipconfig` to find your machine's IP address ([more info](http://windows.microsoft.com/en-us/windows/using-command-line-tools-networking-information)).
 
-<block className="linux android" />
+<block class="linux android" />
 
 Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 <!-- alex ignore host -->
 
@@ -260,13 +260,13 @@ Open a terminal and type `/sbin/ifconfig` to find your machine's IP address.
 
 You can now enable Live reloading from the [Developer menu](debugging.md#accessing-the-in-app-developer-menu). Your app will reload whenever your JavaScript code has changed.
 
-<block className="mac ios" />
+<block class="mac ios" />
 
 <h2>Building your app for production</h2>
 
 You have built a great app using React Native, and you are now itching to release it in the App Store. The process is the same as any other native iOS app, with some additional considerations to take into account. Follow the guide for [publishing to the Apple App Store](publishing-to-app-store.md) to learn more.
 
-<block className="mac windows linux android" />
+<block class="mac windows linux android" />
 
 <h2>Building your app for production</h2>
 
