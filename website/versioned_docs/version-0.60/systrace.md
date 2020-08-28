@@ -1,6 +1,7 @@
 ---
-id: systrace
+id: version-0.60-systrace
 title: Systrace
+original_id: systrace
 ---
 
 # Reference

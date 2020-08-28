@@ -1,6 +1,7 @@
 ---
-id: permissionsandroid
+id: version-0.60-permissionsandroid
 title: PermissionsAndroid
+original_id: permissionsandroid
 ---
 
 <div class="banner-native-code-required">

@@ -1,6 +1,7 @@
 ---
-id: text-style-props
+id: version-0.60-text-style-props
 title: Text Style Props
+original_id: text-style-props
 ---
 
 # Reference

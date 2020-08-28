@@ -1,6 +1,7 @@
 ---
-id: alertios
-title: '🚧 AlertIOS'
+id: version-0.61-alertios
+title: 🚧 AlertIOS
+original_id: alertios
 ---
 
 > **Deprecated.** Use [`Alert`](alert) instead.

@@ -1,6 +1,7 @@
 ---
-id: progressviewios
-title: '🚧 ProgressViewIOS'
+id: version-0.61-progressviewios
+title: 🚧 ProgressViewIOS
+original_id: progressviewios
 ---
 
 > **Deprecated.** Use [@react-native-community/progress-view](https://github.com/react-native-community/progress-view) instead.

@@ -1,6 +1,7 @@
 ---
-id: asyncstorage
+id: version-0.60-asyncstorage
 title: AsyncStorage
+original_id: asyncstorage
 ---
 
 > **Deprecated.** Use [react-native-community/react-native-async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
@@ -208,7 +209,7 @@ Flushes any pending requests using a single batch call to get the data.
 ### `multiGet()`
 
 ```jsx
-static multiGet(keys: Array<string>, [callback]: ?(errors: ?Array<Error>, result: ?Array<Array <string>>) => void)
+static multiGet(keys: Array<string>, [callback]: ?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void)
 ```
 
 This allows you to batch the fetching of items given an array of `key` inputs. Your callback will be invoked with an array of corresponding key-value pairs found:
@@ -245,7 +246,7 @@ AsyncStorage.getAllKeys((err, keys) => {
 ### `multiSet()`
 
 ```jsx
-static multiSet(keyValuePairs: Array<Array <string>>, [callback]: ?(errors: ?Array<Error>) => void)
+static multiSet(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
 Use this as a batch operation for storing multiple key-value pairs. When the operation completes you'll get a single callback with any errors:
@@ -258,13 +259,10 @@ The method returns a `Promise` object.
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-
-
-<<<<<<< HEAD | keyValuePairs | `Array<Array<string>>` | Yes | Array of key-value array for the items to set. | ======= | keyValuePairs | `Array<Array <string>>` | Yes | Array of key-value array for the items to set. |
-
-> > > > > > > 0fd4f083... Rename and fix errors in 0.60 and 0.61 docs | callback | `?(errors: ?Array<Error>) => void` | No | Function that will be called with an array of any key-specific errors found. |
+| Name          | Type                               | Required | Description                                                                  |
+| ------------- | ---------------------------------- | -------- | ---------------------------------------------------------------------------- |
+| keyValuePairs | `Array<Array<string>>`             | Yes      | Array of key-value array for the items to set.                               |
+| callback      | `?(errors: ?Array<Error>) => void` | No       | Function that will be called with an array of any key-specific errors found. |
 
 ---
 
@@ -298,7 +296,7 @@ AsyncStorage.multiRemove(keys, (err) => {
 ### `multiMerge()`
 
 ```jsx
-static multiMerge(keyValuePairs: Array<Array <string>>, [callback]: ?(errors: ?Array<Error>) => void)
+static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Array<Error>) => void)
 ```
 
 Batch operation to merge in existing and new values for a given set of keys. This assumes that the values are stringified JSON. Returns a `Promise` object.
@@ -307,13 +305,10 @@ Batch operation to merge in existing and new values for a given set of keys. Thi
 
 **Parameters:**
 
-| Name | Type | Required | Description |
-| ---- | ---- | -------- | ----------- |
-
-
-<<<<<<< HEAD | keyValuePairs | `Array<Array<string>>` | Yes | Array of key-value array for the items to merge. | ======= | keyValuePairs | `Array<Array <string>>` | Yes | Array of key-value array for the items to merge. |
-
-> > > > > > > 0fd4f083... Rename and fix errors in 0.60 and 0.61 docs | callback | `?(errors: ?Array<Error>) => void` | No | Function that will be called with an array of any key-specific errors found. |
+| Name          | Type                               | Required | Description                                                                  |
+| ------------- | ---------------------------------- | -------- | ---------------------------------------------------------------------------- |
+| keyValuePairs | `Array<Array<string>>`             | Yes      | Array of key-value array for the items to merge.                             |
+| callback      | `?(errors: ?Array<Error>) => void` | No       | Function that will be called with an array of any key-specific errors found. |
 
 Example:
 

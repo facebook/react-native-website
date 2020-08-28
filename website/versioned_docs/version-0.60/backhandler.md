@@ -1,6 +1,7 @@
 ---
-id: backhandler
+id: version-0.60-backhandler
 title: BackHandler
+original_id: backhandler
 ---
 
 Detect hardware button presses for back navigation.

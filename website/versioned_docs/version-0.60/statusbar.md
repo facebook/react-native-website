@@ -1,6 +1,7 @@
 ---
-id: statusbar
+id: version-0.60-statusbar
 title: StatusBar
+original_id: statusbar
 ---
 
 Component to control the app status bar.

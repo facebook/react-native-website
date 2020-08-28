@@ -1,6 +1,7 @@
 ---
-id: segmentedcontrolios
-title: '🚧 SegmentedControlIOS'
+id: version-0.61-segmentedcontrolios
+title: 🚧 SegmentedControlIOS
+original_id: segmentedcontrolios
 ---
 
 > **Deprecated.** Use [@react-native-community/segmented-control](https://github.com/react-native-community/segmented-control) instead.
