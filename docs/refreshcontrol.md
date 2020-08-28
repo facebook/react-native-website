@@ -17,11 +17,10 @@ const wait = (timeout) => {
 
 const App = () => {
   const [refreshing, setRefreshing] = React.useState(false);
-
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
-    wait(2000).then(() => setRefreshing(false));
-  }, []);
+    wait(2000).then(() => setRefreshing(refreshing));
+  }, [refreshing]);
 
   return (
     <SafeAreaView style={styles.container}>
