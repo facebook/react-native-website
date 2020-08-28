@@ -1,6 +1,7 @@
 ---
-id: sectionlist
+id: version-0.60-sectionlist
 title: SectionList
+original_id: sectionlist
 ---
 
 A performant interface for rendering sectioned lists, supporting the most handy features:
@@ -273,9 +274,9 @@ Rendered at the very beginning of the list. Can be a React Component Class, a re
 
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
 
-| Type                                          | Required |
-| --------------------------------------------- | -------- |
-| `[(info: {distanceFromEnd: number}) => void]` | No       |
+| Type                                        | Required |
+| ------------------------------------------- | -------- |
+| [(info: {distanceFromEnd: number}) => void] | No       |
 
 ---
 
@@ -350,9 +351,9 @@ This may improve scroll performance for large lists.
 
 Rendered at the bottom of each section.
 
-| Type                                                   | Required |
-| ------------------------------------------------------ | -------- |
-| `[(info: {section: SectionT}) => ?React.Element<any>]` | No       |
+| Type                                                 | Required |
+| ---------------------------------------------------- | -------- |
+| [(info: {section: SectionT}) => ?React.Element<any>] | No       |
 
 ---
 
@@ -360,9 +361,9 @@ Rendered at the bottom of each section.
 
 Rendered at the top of each section. These stick to the top of the `ScrollView` by default on iOS. See `stickySectionHeadersEnabled`.
 
-| Type                                                   | Required |
-| ------------------------------------------------------ | -------- |
-| `[(info: {section: SectionT}) => ?React.Element<any>]` | No       |
+| Type                                                 | Required |
+| ---------------------------------------------------- | -------- |
+| [(info: {section: SectionT}) => ?React.Element<any>] | No       |
 
 ---
 
@@ -370,9 +371,9 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 
 Rendered at the top and bottom of each section (note this is different from `ItemSeparatorComponent` which is only rendered between items). These are intended to separate sections from the headers above and below and typically have the same highlight response as `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Section]`, and any custom props from `separators.updateProps`.
 
-| Type                | Required |
-| ------------------- | -------- |
-| `[ReactClass<any>]` | No       |
+| Type              | Required |
+| ----------------- | -------- |
+| [ReactClass<any>] | No       |
 
 ---
 

@@ -1,6 +1,7 @@
 ---
-id: drawerlayoutandroid
+id: version-0.60-drawerlayoutandroid
 title: DrawerLayoutAndroid
+original_id: drawerlayoutandroid
 ---
 
 React component that wraps the platform `DrawerLayout` (Android only). The Drawer (typically used for navigation) is rendered with `renderNavigationView` and direct children are the main view (where your content goes). The navigation view is initially not visible on the screen, but can be pulled in from the side of the window specified by the `drawerPosition` prop and its width can be set by the `drawerWidth` prop.

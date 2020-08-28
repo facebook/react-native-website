@@ -1,6 +1,7 @@
 ---
-id: pickerios
+id: version-0.60-pickerios
 title: PickerIOS
+original_id: pickerios
 ---
 
 > **Deprecated.** Use [Picker](picker.md) instead.

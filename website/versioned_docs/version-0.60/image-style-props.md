@@ -1,6 +1,7 @@
 ---
-id: image-style-props
+id: version-0.60-image-style-props
 title: Image Style Props
+original_id: image-style-props
 ---
 
 # Reference

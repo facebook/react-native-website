@@ -1,6 +1,7 @@
 ---
-id: debugging
+id: version-0.61-debugging
 title: Debugging
+original_id: debugging
 ---
 
 ## Accessing the In-App Developer Menu
@@ -121,11 +122,11 @@ Then select a React component in React DevTools. There is a search box at the to
 
 You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
 
-<hr style={{marginTop: 25, marginBottom: 25}} />
+<hr style="margin-top:25px; margin-bottom:25px;"/>
 
 # Debugging in Ejected Apps
 
-<div className="banner-crna-ejected" style={{marginTop: 25}}>
+<div class="banner-crna-ejected" style="margin-top:25px">
   <h3>Projects with Native Code Only</h3>
   <p>
     The remainder of this guide only applies to projects made with <code>react-native init</code>

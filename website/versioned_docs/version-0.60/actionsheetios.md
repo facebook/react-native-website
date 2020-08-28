@@ -1,6 +1,7 @@
 ---
-id: actionsheetios
+id: version-0.60-actionsheetios
 title: ActionSheetIOS
+original_id: actionsheetios
 ---
 
 # Reference

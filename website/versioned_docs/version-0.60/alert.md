@@ -1,6 +1,7 @@
 ---
-id: alert
+id: version-0.60-alert
 title: Alert
+original_id: alert
 ---
 
 Launches an alert dialog with the specified title and message.
@@ -13,14 +14,14 @@ This is an API that works both on Android and iOS and can show static alerts. To
 
 <table>
   <tr>
-    <th style={{width: "50%"}}>iOS</th>
-    <th style={{width: "50%"}}>Android</th>
+    <th style="width: 50%;">iOS</th>
+    <th style="width: 50%;">Android</th>
   </tr>
   <tr>
-    <td style={{width: "50%"}}>
+    <td style="width: 50%;">
       <center><img src="/docs/assets/Alert/exampleios.gif"></img></center>
     </td>
-    <td style={{width: "50%"}}>
+    <td style="width: 50%;">
       <center><img src="/docs/assets/Alert/exampleandroid.gif"></img></center>
     </td>
   </tr>

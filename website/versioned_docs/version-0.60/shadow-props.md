@@ -1,6 +1,7 @@
 ---
-id: shadow-props
+id: version-0.60-shadow-props
 title: Shadow Props
+original_id: shadow-props
 ---
 
 # Reference
