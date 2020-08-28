@@ -1,4 +1,4 @@
 [build]
   base    = "website"
-  publish = "website/build"
+  publish = "build"
   command = "sed -i -e \"s|const baseUrl .*|const baseUrl = '/'|g\" docusaurus.config.js && yarn install && yarn build"
