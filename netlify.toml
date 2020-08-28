@@ -1,4 +1,4 @@
 [build]
   base    = "website"
-  publish = "website/build/react-native"
+  publish = "build/react-native"
   command = "sed -i -e \"s|const baseUrl .*|const baseUrl = '/';|g\" siteConfig.js && yarn install && node netlify-reduce-versions && yarn sync-community-repos && yarn build"
