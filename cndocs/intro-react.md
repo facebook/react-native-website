@@ -229,7 +229,7 @@ export default function Cafe() {
 
 我们把包含着其他组件的组件称为**父组件或父容器**。这里`Cafe`是一个父组件，而每个`Cat`则是**子组件**。
 
-你的咖啡店里，想养多少只猫都行！注意每只`<Cat>`渲染的都是不同的元素——你可以使用不同的props属性来定制它们。
+你的咖啡店里，想养多少只猫都行！注意每只`<Cat>`渲染的都是不同的元素——你可以使用不同的 props 属性来定制它们。
 
 ## Props 属性
 
@@ -276,11 +276,11 @@ export default function CatApp() {
 
 `Image` 有[很多不同的 props](image#props)，[`style`](image#style)也是其中之一，它接受对象形式的样式和布局键值对。
 
-> Notice the double curly braces `{{ }}` surrounding `style`‘s width and height. In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
+> 请留意在`style`的宽高数值外有两层括号`{{ }}`。In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
 
 ## State 状态
 
-While you can think of props as arguments you use to configure how components render, **state** is like a component’s personal data storage. Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+While you can think of props as arguments you use to configure how components render, **state**就像是组件的私人数据记录。 Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
 
 > As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
@@ -344,7 +344,7 @@ function Cat(props) {
 }
 ```
 
-> 你可以使用`useState`来记录各种类型的数据： strings, numbers, Booleans, arrays, objects. For example, you can track the number of times a cat has been petted with `const [timesPetted, setTimesPetted] = useState(0)`! Calling `useState` does two things:
+> 你可以使用`useState`来记录各种类型的数据： strings, numbers, Booleans, arrays, objects。例如你可以这样来记录猫咪被爱抚的次数：`const [timesPetted, setTimesPetted] = useState(0)`。`useState`实质上做了两件事情：
 
 - it creates a “state variable” with an initial value—in this case the state variable is `isHungry` and its initial value is `true`
 - it creates a function to set that state variable’s value—`setIsHungry`

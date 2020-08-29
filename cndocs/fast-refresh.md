@@ -38,7 +38,7 @@ If you have [error boundaries](https://zh-hans.reactjs.org/docs/error-boundaries
 
 ## Fast Refresh and Hooks
 
-When possible, Fast Refresh attempts to preserve the state of your component between edits. In particular, `useState` and `useRef` preserve their previous values as long as you don't change their arguments or the order of the Hook calls.
+Fast Refresh 会尽可能的在编辑刷新时保留组件的状态。In particular, `useState` and `useRef` preserve their previous values as long as you don't change their arguments or the order of the Hook calls.
 
 Hooks with dependencies—such as `useEffect`, `useMemo`, and `useCallback`—will _always_ update during Fast Refresh. Their list of dependencies will be ignored while Fast Refresh is happening.
 
