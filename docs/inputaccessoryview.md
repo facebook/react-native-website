@@ -22,20 +22,18 @@ export default App = () => {
         <TextInput
           style={{
             padding: 16,
-            margin: 20,
-            borderWidth: 1
+            marginTop: 50,
           }}
           inputAccessoryViewID={inputAccessoryViewID}
-          onChangeText={text => setText(text)}
+          onChangeText={setText}
           value={text}
-          placeholder={'Please Type here'}
-          multiline    
+          placeholder={'Please type here…'}
         />
       </ScrollView>
       <InputAccessoryView nativeID={inputAccessoryViewID}>
         <Button
           onPress={() => setText(initialText)}
-          title="Reset Text"
+          title="Clear text"
         />
       </InputAccessoryView>
     </>
