@@ -8,3 +8,8 @@
 .AppList .item {
   list-style: none;
 }
+
+.AppList .item a {
+  background-color: transparent;
+  border-bottom: 0;
+}
