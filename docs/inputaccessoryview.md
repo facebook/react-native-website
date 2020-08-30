@@ -13,7 +13,7 @@ import { Button, InputAccessoryView, ScrollView, TextInput } from 'react-native'
 
 export default App = () => {
   const inputAccessoryViewID = 'uniqueID';
-  const initialText = 'Placeholder Text';
+  const initialText = '';
   const [text, setText] = useState(initialText);
 
   return (
@@ -22,17 +22,18 @@ export default App = () => {
         <TextInput
           style={{
             padding: 16,
-            marginTop: 50
+            marginTop: 50,
           }}
           inputAccessoryViewID={inputAccessoryViewID}
-          onChangeText={text => setText(text)}
+          onChangeText={setText}
           value={text}
+          placeholder={'Please type here…'}
         />
       </ScrollView>
       <InputAccessoryView nativeID={inputAccessoryViewID}>
         <Button
           onPress={() => setText(initialText)}
-          title="Reset Text"
+          title="Clear text"
         />
       </InputAccessoryView>
     </>
