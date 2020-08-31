@@ -9,17 +9,25 @@ The most basic use case is to plop down a `TextInput` and subscribe to the `onCh
 
 ```SnackPlayer name=TextInput
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import { TextInput , SafeAreaView} from 'react-native';
 
 const UselessTextInput = () => {
   const [value, onChangeText] = React.useState('Useless Placeholder');
-
+  const [number, onChangeNumber] = React.useState('Phone number');
   return (
-    <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      onChangeText={text => onChangeText(text)}
-      value={value}
-    />
+    <SafeAreaView>
+      <TextInput
+        style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
+        onChangeText={onChangeText}
+        value={value}
+      />
+      <TextInput
+        style={{ height: 40, marginTop: 20, borderWidth: 1 }}
+        onChangeText={onChangeNumber}
+        placeholder={number}
+        keyboardType={'numeric'}
+      />
+    </SafeAreaView>
   );
 }
 
