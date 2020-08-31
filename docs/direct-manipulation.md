@@ -14,19 +14,20 @@ It is sometimes necessary to make changes directly to a component without using 
 [TouchableOpacity](https://github.com/facebook/react-native/blob/master/Libraries/Components/Touchable/TouchableOpacity.js) uses `setNativeProps` internally to update the opacity of its child component:
 
 ```jsx
-setOpacityTo(value) {
+const viewRef = useRef();
+const setOpacityTo = useCallback((value) => {
   // Redacted: animation related code
-  this.refs[CHILD_REF].setNativeProps({
+  viewRef.current.setNativeProps({
     opacity: value
   });
-},
+}, []);
 ```
 
 This allows us to write the following code and know that the child will have its opacity updated in response to taps, without the child having any knowledge of that fact or requiring any changes to its implementation:
 
 ```jsx
-<TouchableOpacity onPress={this._handlePress}>
-  <View style={styles.button}>
+<TouchableOpacity onPress={handlePress}>
+  <View>
     <Text>Press me!</Text>
   </View>
 </TouchableOpacity>
@@ -35,21 +36,20 @@ This allows us to write the following code and know that the child will have its
 Let's imagine that `setNativeProps` was not available. One way that we might implement it with that constraint is to store the opacity value in the state, then update that value whenever `onPress` is fired:
 
 ```jsx
-constructor(props) {
-  super(props);
-  this.state = { myButtonOpacity: 1, };
-}
-
-render() {
-  return (
-    <TouchableOpacity onPress={() => this.setState({myButtonOpacity: 0.5})}
-                      onPressOut={() => this.setState({myButtonOpacity: 1})}>
-      <View style={[styles.button, {opacity: this.state.myButtonOpacity}]}>
-        <Text>Press me!</Text>
-      </View>
-    </TouchableOpacity>
-  )
-}
+const [buttonOpacity, setButtonOpacity] = useState(1);
+return (
+  <TouchableOpacity
+    onPressIn={() => {
+      setButtonOpacity(0.5);
+    }}
+    onPressOut={() => {
+      setButtonOpacity(1);
+    }}>
+    <View style={{ opacity: buttonOpacity }}>
+      <Text>Press me!</Text>
+    </View>
+  </TouchableOpacity>
+);
 ```
 
 This is computationally intensive compared to the original example - React needs to re-render the component hierarchy each time the opacity changes, even though other properties of the view and its children haven't changed. Usually this overhead isn't a concern but when performing continuous animations and responding to gestures, judiciously optimizing your components can improve your animations' fidelity.
@@ -65,56 +65,55 @@ import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 const MyButton = (props) => {
-    return (
-      <View style={{marginTop: 50}}>
-        <Text>{props.label}</Text>
-      </View>
-    )
-}
+  return (
+    <View style={{marginTop: 50}}>
+      <Text>{props.label}</Text>
+    </View>
+  )
+};
 
 export default App = () => {
-    return (
-      <TouchableOpacity>
-        <MyButton label="Press me!" />
-      </TouchableOpacity>
-    )
-}
+  return (
+    <TouchableOpacity>
+      <MyButton label="Press me!" />
+    </TouchableOpacity>
+  )
+};
 ```
 
 If you run this you will immediately see this error: `Touchable child must either be native or forward setNativeProps to a native component`. This occurs because `MyButton` isn't directly backed by a native view whose opacity should be set. You can think about it like this: if you define a component with `createReactClass` you would not expect to be able to set a style prop on it and have that work - you would need to pass the style prop down to a child, unless you are wrapping a native component. Similarly, we are going to forward `setNativeProps` to a native-backed child component.
 
 #### Forward setNativeProps to a child
 
-All we need to do is provide a `setNativeProps` method on our component that calls `setNativeProps` on the appropriate child with the given arguments.
+Since the `setNativeProps` method exists on any ref to a `View` component, it is enough to forward a ref on your custom component to one of the `<View />` components that it renders. This means that a call to `setNativeProps` on the custom component will have the same effect as if you called `setNativeProps` on the wrapped `View` component itself.
 
 ```SnackPlayer name=Forwarding%20setNativeProps
 import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
-const MyButton = (props) => {
-  setNativeProps = (nativeProps) => {
-    _root.setNativeProps(nativeProps);
-  }
-
-    return (
-      <View style={{marginTop: 50}} ref={component => _root = component} {...props}>
-        <Text>{props.label}</Text>
-      </View>
-    )
-}
+const MyButton = React.forwardRef((props, ref) => {
+  return (
+    <View
+      {...props}
+      ref={ref}
+      style={{marginTop: 50}}>
+      <Text>{props.label}</Text>
+    </View>
+  );
+});
 
 export default App = () => {
-    return (
-      <TouchableOpacity>
-        <MyButton label="Press me!" />
-      </TouchableOpacity>
-    )
+  return (
+    <TouchableOpacity>
+      <MyButton label="Press me!" />
+    </TouchableOpacity>
+  )
 }
 ```
 
-You can now use `MyButton` inside of `TouchableOpacity`! A sidenote for clarity: we used the [ref callback](https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element) syntax here, rather than the traditional string-based ref.
+You can now use `MyButton` inside of `TouchableOpacity`!
 
-You may have noticed that we passed all of the props down to the child view using `{...this.props}`. The reason for this is that `TouchableOpacity` is actually a composite component, and so in addition to depending on `setNativeProps` on its child, it also requires that the child perform touch handling. To do this, it passes on [various props](view.md#onmoveshouldsetresponder) that call back to the `TouchableOpacity` component. `TouchableHighlight`, in contrast, is backed by a native view and only requires that we implement `setNativeProps`.
+You may have noticed that we passed all of the props down to the child view using `{...props}`. The reason for this is that `TouchableOpacity` is actually a composite component, and so in addition to depending on `setNativeProps` on its child, it also requires that the child perform touch handling. To do this, it passes on [various props](view.md#onmoveshouldsetresponder) that call back to the `TouchableOpacity` component. `TouchableHighlight`, in contrast, is backed by a native view and only requires that we implement `setNativeProps`.
 
 ## setNativeProps to clear TextInput value
 
@@ -122,25 +121,27 @@ Another very common use case of `setNativeProps` is to clear the value of a Text
 
 ```SnackPlayer name=Clear%20text
 import React from 'react';
+import { useCallback } from 'react';
 import { TextInput, Text, TouchableOpacity, View } from 'react-native';
 
 export default App = () => {
-  clearText = () => {
-     _textInput.setNativeProps({text: ''});
-  }
+  const inputRef = useRef();
+  const clearText = useCallback(() => {
+    inputRef.current.setNativeProps({text: ''});
+  }, []);
 
-    return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <TextInput
-          ref={component => _textInput = component}
-          style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
-        />
-        <TouchableOpacity onPress={clearText}>
-          <Text>Clear text</Text>
-        </TouchableOpacity>
-      </View>
-    );
-}
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <TextInput
+        ref={inputRef}
+        style={{height: 50, width: 200, marginHorizontal: 20, borderWidth: 1, borderColor: '#ccc'}}
+      />
+      <TouchableOpacity onPress={clearText}>
+        <Text>Clear text</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 ```
 
 ## Avoiding conflicts with the render function
