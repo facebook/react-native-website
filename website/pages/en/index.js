@@ -8,18 +8,18 @@ const {baseUrl} = siteConfig;
 const textContent = {
   intro: `
 React Native combines the best parts of native development with React,
-a best-in-class JavaScript library for building user interfaces.
+a best–in–class JavaScript library for building user interfaces.
 
-**Use a little—or a lot**. You can use React Native today in your existing
+**Use a little–or a lot**. You can use React Native today in your existing
 Android and iOS projects or you can create a whole new app from scratch.
   `,
   nativeCode: `
 React primitives render to native platform UI, meaning your app uses the
 same native platform APIs other apps do.
 
-**Many platforms**, one React. Create platform-specific versions of components
+**Many platforms**, one React. Create platform–specific versions of components
 so a single codebase can share code across platforms. With React Native,
-one team can maintain two platforms and share a common technology—React.
+one team can maintain two platforms and share a common technology – React.
   `,
   codeExample: `
 \`\`\`jsx
@@ -72,8 +72,10 @@ Save, see, repeat.
 Members of the React Native team frequently speak at various
 conferences.
 
-You can follow the latest news from the React Native team on
-Twitter
+You can follow the latest news from the [React Native team] on
+Twitter.
+
+[React Native team]: https://twitter.com/reactnative
   `,
   community: `
 In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
@@ -81,7 +83,7 @@ Today, React Native is supported by contributions from individuals and companies
 including [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software Mansion].
 
 Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
-with repos like React Native Windows and React Native Web.
+with repos like [React Native Windows], [React Native macOS] and [React Native Web].
 
 [2nd highest]: https://octoverse.github.com/2018/projects.html#repositories
 [Callstack]: https://callstack.com/
@@ -89,6 +91,9 @@ with repos like React Native Windows and React Native Web.
 [Infinite Red]: https://infinite.red/
 [Microsoft]: https://www.microsoft.com/en-gb/
 [Software Mansion]: https://swmansion.com/
+[React Native Windows]: https://github.com/microsoft/react-native-windows#readme
+[React Native macOS]: https://github.com/microsoft/react-native-macos#readme
+[React Native Web]: https://github.com/necolas/react-native-web#readme
   `,
 };
 
@@ -299,7 +304,7 @@ function NativeCode() {
       <TwoColumns
         columnOne={
           <TextColumn
-            title="Written in JavaScript—rendered with native code"
+            title="Written in JavaScript–rendered with native code"
             text={textContent.nativeCode}
           />
         }
@@ -342,7 +347,7 @@ function CrossPlatform() {
       <TwoColumns
         columnOne={
           <TextColumn
-            title="Seamless Cross-Platform"
+            title="Seamless Cross–Platform"
             text={textContent.crossPlatform}
           />
         }
@@ -437,10 +442,8 @@ function Community() {
             <React.Fragment>
               <p className="firstP">
                 <img src={`${baseUrl}img/homepage/fb-logo.svg`} alt="" />
-                <span>
-                  Facebook released React Native in 2015 and has been
-                  maintaining it ever since.
-                </span>
+                Facebook released React Native in 2015 and has been maintaining
+                it ever since.
               </p>
               <MarkdownBlock>{textContent.community}</MarkdownBlock>
             </React.Fragment>
