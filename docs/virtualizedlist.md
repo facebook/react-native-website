@@ -14,12 +14,10 @@ import React from 'react';
 import { SafeAreaView, View, VirtualizedList, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';
 
-const DATA = [];
-
 const getItem = (data, index) => {
   return {
     id: Math.random().toString(12).substring(0),
-    title: `Item ${index+1}`
+    title:  index + 1
   }
 }
 
@@ -30,7 +28,7 @@ const getItemCount = (data) => {
 const Item = ({ title })=> {
   return (
     <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
+      <Text style={styles.title}>Item {title}</Text>
     </View>
   );
 }
@@ -39,7 +37,7 @@ const VirtualizedListExample = () => {
   return (
     <SafeAreaView style={styles.container}>
       <VirtualizedList
-        data={DATA}
+        data={[]}
         initialNumToRender={4}
         renderItem={({ item }) => <Item title={item.title} />}
         keyExtractor={item => item.key}
