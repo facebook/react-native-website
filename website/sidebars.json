@@ -147,6 +147,6 @@
       "text-style-props",
       "view-style-props"
     ],
-    "Object Types": ["pressevent", "react-node", "rect"]
+    "Object Types": ["pressevent", "react-node", "rect", "viewtoken"]
   }
 }

@@ -437,6 +437,9 @@
       "viewpagerandroid": {
         "title": "🚧 ViewPagerAndroid"
       },
+      "viewtoken": {
+        "title": "ViewToken Object Type"
+      },
       "virtualizedlist": {
         "title": "VirtualizedList"
       },

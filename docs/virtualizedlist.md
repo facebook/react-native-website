@@ -323,18 +323,11 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 ### `onViewableItemsChanged`
 
-```jsx
-(info: {
-    viewableItems: array,
-    changed: array,
-  }) => void
-```
-
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------ |
+| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
 
 ---
 
