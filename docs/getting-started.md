@@ -135,7 +135,7 @@ You will need Node, the React Native command line interface, a JDK, and Android 
 
 <h2>Installing dependencies</h2>
 
-You will need Node, the React Native command line interface, Python2, a JDK, and Android Studio.
+You will need Node, the React Native command line interface, latest version of Python, a JDK, and Android Studio.
 
 <block class="native mac windows linux android" />
 
