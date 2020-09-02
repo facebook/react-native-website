@@ -10,7 +10,7 @@ title: Using TypeScript
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
 ```sh
-npx react-native init MyApp --template react-native-template-typescript
+npx react-native init MyApp --template typescript
 ```
 
 > **Note:** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
