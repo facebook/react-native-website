@@ -17,18 +17,18 @@ PlatformColor('bogusName', 'linkColor');
 
 Since native colors can be sensitive to themes and/or high contrast, this platform specific logic also translates inside your components.
 
-<div class="toggler">
+<div className="toggler">
   <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
+  <span role="tablist" className="toggle-devNotes">
+    <button role="tab" className="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
   </span>
 </div>
 
-<block class="webNote devNotes" />
+<block className="webNote devNotes" />
 
 > If you’re familiar with design systems, another way of thinking about this is that `PlatformColor` lets you tap into the local design system's color tokens so your app can blend right in!
 
-<block class="endBlock devNotes" />
+<block className="endBlock devNotes" />
 
 For a full list of the types of system colors supported, see:
 

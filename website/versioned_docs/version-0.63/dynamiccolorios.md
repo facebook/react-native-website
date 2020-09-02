@@ -1,7 +1,6 @@
 ---
-id: version-0.63-dynamiccolorios
+id: dynamiccolorios
 title: DynamicColorIOS
-original_id: dynamiccolorios
 ---
 
 The `DynamicColorIOS` function is a platform color type specific to iOS.

@@ -2,8 +2,8 @@
 title: State of React Native 2018
 author: Sophie Alpert
 authorTitle: Engineering Manager on React at Facebook
-authorURL: https://github.com/sophiebits
-authorImageURL: https://avatars2.githubusercontent.com/u/6820?s=460&v=4
+authorURL: 'https://github.com/sophiebits'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/6820?s=460&v=4'
 authorTwitter: sophiebits
 category: engineering
 ---

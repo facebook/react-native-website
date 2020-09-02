@@ -1,7 +1,6 @@
 ---
-id: version-0.63-button
+id: button
 title: Button
-original_id: button
 ---
 
 A basic button component that should render nicely on any platform. Supports a minimal level of customization.
@@ -143,9 +142,9 @@ Text to display for blindness accessibility features.
 
 Color of the text (iOS), or background color of the button (Android).
 
-| Type            | Required | Default                                                                                                                                                                                                                 |
-| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [color](colors) | No       | <ins style="background: #2196F3" class="color-box"></ins>`'#2196F3'` <div class="label android">Android</div><hr/><ins style="background: #007AFF" class="color-box"></ins>`'#007AFF'` <div class="label ios">iOS</div> |
+| Type            | Required | Default                                                                                                                                                                                                                                         |
+| --------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [color](colors) | No       | <ins style={{background: "#2196F3"}} className="color-box"></ins>`'#2196F3'` <div className="label android">Android</div><hr/><ins style={{background: "#007AFF"}} className="color-box"></ins>`'#007AFF'` <div className="label ios">iOS</div> |
 
 ---
 

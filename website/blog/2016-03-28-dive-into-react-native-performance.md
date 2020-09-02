@@ -2,8 +2,8 @@
 title: Dive into React Native Performance
 author: Pieter De Baets
 authorTitle: Software Engineer at Facebook
-authorURL: https://github.com/javache
-authorImageURL: https://avatars1.githubusercontent.com/u/5676?v=3&s=460
+authorURL: 'https://github.com/javache'
+authorImageURL: 'https://avatars1.githubusercontent.com/u/5676?v=3&s=460'
 authorTwitter: javache
 category: engineering
 ---
@@ -17,7 +17,11 @@ With an app that runs faster, content loads quickly, which means people get more
 Since releasing React Native on [iOS](https://reactjs.org/blog/2015/03/26/introducing-react-native.html) and on [Android](https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/), we have been improving list view scrolling performance, memory efficiency, UI responsiveness, and app startup time. Startup sets the first impression of an app and stresses all parts of the framework, so it is the most rewarding and challenging problem to tackle.
 
 <footer>
-  <a href="https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/" class="btn">Read more</a>
+  <a
+    href="https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/"
+    class="btn">
+    Read more
+  </a>
 </footer>
 
 > This is an excerpt. Read the rest of the post on [Facebook Code](https://code.facebook.com/posts/895897210527114/dive-into-react-native-performance/).

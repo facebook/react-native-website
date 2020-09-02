@@ -1,7 +1,6 @@
 ---
-id: version-0.63-safeareaview
+id: safeareaview
 title: SafeAreaView
-original_id: safeareaview
 ---
 
 The purpose of `SafeAreaView` is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
