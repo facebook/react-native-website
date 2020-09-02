@@ -12,7 +12,7 @@
 .AppList .item a {
   background-color: transparent;
   border-bottom: 0;
-  transition: opacity 0.33s;
+  transition: opacity 250ms ease-out;
 }
 
 .AppList .item a:hover {
