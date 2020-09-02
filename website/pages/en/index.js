@@ -8,18 +8,18 @@ const {baseUrl} = siteConfig;
 const textContent = {
   intro: `
 React Native combines the best parts of native development with React,
-a best–in–class JavaScript library for building user interfaces.
+a best-in-class JavaScript library for building user interfaces.
 
-**Use a little–or a lot**. You can use React Native today in your existing
+**Use a little—or a lot**. You can use React Native today in your existing
 Android and iOS projects or you can create a whole new app from scratch.
   `,
   nativeCode: `
 React primitives render to native platform UI, meaning your app uses the
 same native platform APIs other apps do.
 
-**Many platforms**, one React. Create platform–specific versions of components
+**Many platforms**, one React. Create platform-specific versions of components
 so a single codebase can share code across platforms. With React Native,
-one team can maintain two platforms and share a common technology – React.
+one team can maintain two platforms and share a common technology—React.
   `,
   codeExample: `
 \`\`\`jsx
@@ -304,7 +304,7 @@ function NativeCode() {
       <TwoColumns
         columnOne={
           <TextColumn
-            title="Written in JavaScript–rendered with native code"
+            title="Written in JavaScript—rendered with native code"
             text={textContent.nativeCode}
           />
         }
@@ -347,7 +347,7 @@ function CrossPlatform() {
       <TwoColumns
         columnOne={
           <TextColumn
-            title="Seamless Cross–Platform"
+            title="Seamless Cross-Platform"
             text={textContent.crossPlatform}
           />
         }
