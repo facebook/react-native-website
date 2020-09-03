@@ -179,14 +179,55 @@ Determines the location of the given view in the window and returns the values v
 - width
 - height
 
-### measureLayout(relativeToNativeNode, onSuccess, onFail)
+### measureLayout(relativeToNativeComponentRef, onSuccess, onFail)
 
-Like `measure()`, but measures the view relative to an ancestor, specified as `relativeToNativeNode`. This means that the returned x, y are relative to the origin x, y of the ancestor view.
+Like `measure()`, but measures the view relative to an ancestor, specified as `relativeToNativeComponentRef`. This means that the returned x, y are relative to the origin x, y of the ancestor view. _Can also be called with a relativeNativeNodeHandle but is deprecated._
 
-As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
+```SnackPlayer name=measureLayout%20example
+import React, { useRef, useEffect } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 
-```jsx
-import { findNodeHandle } from 'react-native';
+export default function App() {
+  const textContainerRef = useRef(null);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    if (textRef.current && textContainerRef.current) {
+      textRef.current.measureLayout(
+        textContainerRef.current,
+        (left, top, width, height) => {
+          console.log('measureLayout', { left, top, width, height });
+        }
+      );
+    }
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <View ref={textContainerRef} style={styles.textContainer}>
+        <Text ref={textRef} style={styles.paragraph}>
+          Where am I?
+        </Text>
+      </View>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  textContainer: {
+    backgroundColor: 'green',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 8,
+  },
+  paragraph: {
+    backgroundColor: 'white',
+  },
+});
 ```
 
 ### focus()
