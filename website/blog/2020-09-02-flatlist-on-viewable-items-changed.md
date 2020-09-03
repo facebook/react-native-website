@@ -317,7 +317,7 @@ In `computeViewableItems` in the `ViewabilityHelper` class, it iterates items fr
 
 From the code, we can see the `top` and `bottom` value is related to the screen coordinate. I drew a graph to show the relationship between `metrics.offset`, `scrollOffset`, `metrics.length` , `top` and `bottom`, to help you better understand the above code.
 
-<img src="/blog/assets/fvc-item-layout.png" width="375"/>
+<center><img src="/blog/assets/fvc-item-layout.png" width="400"/></center>
 
 ### What kind of item is viewable
 
