@@ -4,21 +4,6 @@ title: TabBarIOS.Item
 original_id: tabbarios-item
 ---
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`badge`](tabbarios-item.md#badge)
-* [`icon`](tabbarios-item.md#icon)
-* [`onPress`](tabbarios-item.md#onpress)
-* [`selected`](tabbarios-item.md#selected)
-* [`selectedIcon`](tabbarios-item.md#selectedicon)
-* [`style`](tabbarios-item.md#style)
-* [`systemIcon`](tabbarios-item.md#systemicon)
-* [`title`](tabbarios-item.md#title)
-
----
-
 # Reference
 
 ## Props
@@ -27,9 +12,9 @@ original_id: tabbarios-item
 
 Little red bubble that sits at the top right of the icon.
 
-| Type            | Required |
-| --------------- | -------- |
-| string, ,number | No       |
+| Type           | Required |
+| -------------- | -------- |
+| string, number | No       |
 
 ---
 

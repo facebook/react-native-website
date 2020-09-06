@@ -1,12 +1,30 @@
 ---
-id: version-0.28-tabbarios
-title: TabBarIOS
+id: version-0.59-tabbarios
+title: 🚧 TabBarIOS
 original_id: tabbarios
 ---
+
+> **Removed.** Use [@react-navigation/bottom-tabs](https://github.com/react-navigation/react-navigation/tree/main/packages/bottom-tabs) instead.
 
 # Reference
 
 ## Props
+
+### [View Props](view#props)
+
+Inherits [View Props](view#props).
+
+---
+
+### `barStyle`
+
+The style of the tab bar. Supported values are 'default', 'black'. Use 'black' instead of setting `barTintColor` to `black`. This produces a tab bar with the native iOS style with higher translucency.
+
+| Type                     | Required |
+| ------------------------ | -------- |
+| enum('default', 'black') | No       |
+
+---
 
 ### `barTintColor`
 
@@ -34,9 +52,9 @@ Specifies tab bar item positioning. Available values are:
 
 ### `style`
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type       | Required |
+| ---------- | -------- |
+| View.style | No       |
 
 ---
 
@@ -57,6 +75,16 @@ A Boolean value that indicates whether the tab bar is translucent
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `unselectedItemTintColor`
+
+Color of unselected tab icons. Available since iOS 10.
+
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 

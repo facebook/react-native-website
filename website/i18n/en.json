@@ -3179,6 +3179,12 @@
       "version-0.59/version-0.59-stylesheet": {
         "title": "StyleSheet"
       },
+      "version-0.59/version-0.59-tabbarios-item": {
+        "title": "🚧 TabBarIOS.Item"
+      },
+      "version-0.59/version-0.59-tabbarios": {
+        "title": "🚧 TabBarIOS"
+      },
       "version-0.59/version-0.59-text": {
         "title": "Text"
       },

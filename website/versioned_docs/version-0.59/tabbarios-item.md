@@ -1,20 +1,38 @@
 ---
-id: version-0.5-tabbarios-item
-title: TabBarIOS.Item
+id: version-0.59-tabbarios-item
+title: 🚧 TabBarIOS.Item
 original_id: tabbarios-item
 ---
+
+> **Removed.** Use [@react-navigation/bottom-tabs](https://github.com/react-navigation/react-navigation/tree/main/packages/bottom-tabs) instead.
 
 # Reference
 
 ## Props
 
+### [View Props](view#props)
+
+Inherits [View Props](view#props).
+
+---
+
+### `selected`
+
+It specifies whether the children are visible or not. If you see a blank content, you probably forgot to add a selected one.
+
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
+
+---
+
 ### `badge`
 
 Little red bubble that sits at the top right of the icon.
 
-| Type           | Required |
-| -------------- | -------- |
-| string, number | No       |
+| Type            | Required |
+| --------------- | -------- |
+| string, ,number | No       |
 
 ---
 
@@ -38,13 +56,23 @@ Callback when this tab is being selected, you should change the state of your co
 
 ---
 
-### `selected`
+### `renderAsOriginal`
 
-It specifies whether the children are visible or not. If you see a blank content, you probably forgot to add a selected one.
+If set to true it renders the image as original, it defaults to being displayed as a template
 
 | Type | Required |
 | ---- | -------- |
 | bool | No       |
+
+---
+
+### `badgeColor`
+
+Background color for the badge. Available since iOS 10.
+
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
@@ -62,15 +90,15 @@ A custom icon when the tab is selected. It is ignored when a system icon is defi
 
 React style object.
 
-| Type                  | Required |
-| --------------------- | -------- |
-| [View](view.md#style) | No       |
+| Type       | Required |
+| ---------- | -------- |
+| View.style | No       |
 
 ---
 
 ### `systemIcon`
 
-Items comes with a few predefined system icons. Note that if you are using them, the title and selectedIcon will be overriden with the system ones.
+Items comes with a few predefined system icons. Note that if you are using them, the title and selectedIcon will be overridden with the system ones.
 
 | Type                                                                                                                                                   | Required |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
@@ -85,3 +113,13 @@ Text that appears under the icon. It is ignored when a system icon is defined.
 | Type   | Required |
 | ------ | -------- |
 | string | No       |
+
+---
+
+### `isTVSelectable`
+
+(Apple TV only)\* When set to true, this view will be focusable and navigable using the Apple TV remote.
+
+| Type | Required | Platform |
+| ---- | -------- | -------- |
+| bool | No       | iOS      |
