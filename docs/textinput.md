@@ -481,6 +481,26 @@ Callback that is called when text input ends.
 
 ---
 
+### `onPressIn`
+
+Callback that is called when a touch is engaged.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onPressOut`
+
+Callback that is called when a touch is released.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `onFocus`
 
 Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
