@@ -256,7 +256,7 @@ export default function Cafe() {
 }
 ```
 
-React Native 的绝大多数核心组件都提供了可定制的 props。For example, when using [`Image`](image), you pass it a prop named [`source`](image#source) to define what image it shows:
+React Native 的绝大多数核心组件都提供了可定制的 props。例如，在使用[`Image`](image)组件时，你可以给它传递一个[`source`](image#source)属性，用来指定它显示的内容：
 
 ```SnackPlayer name=Props
 import React from 'react';
@@ -276,7 +276,9 @@ export default function CatApp() {
 
 `Image` 有[很多不同的 props](image#props)，[`style`](image#style)也是其中之一，它接受对象形式的样式和布局键值对。
 
-> 请留意在`style`的宽高数值外有两层括号`{{ }}`。In JSX, JavaScript values are referenced with `{}`. This is handy if you are passing something other than a string as props, like an array or number: `<Cat food={["fish", "kibble"]} /> age={2}`. However, JS objects are **_also_** denoted with curly braces: `{width: 200, height: 200}`. Therefore, to pass a JS object in JSX, you must wrap the object in **another pair** of curly braces: `{{width: 200, height: 200}}` You can build many things with props and the Core Components [`Text`](text), [`Image`](image), and [`View`](view)! But to build something interactive, you’ll need state.
+> 请留意我们在指定`style`属性的宽高时所用到的双层括号`{{ }}`。在JSX中，引用JS值时需要使用`{}`括起来。在你需要传递非字符串值（比如数组或者数字）的时候会经常用到这种写法：`<Cat food={["fish", "kibble"]} /> age={2}`。然而我们在JS中定义一个对象时，本来**_也_**需要用括号括起来：`{width: 200, height: 200}`。因此要在JSX中传递一个JS对象值的时候，就必须用到两层括号：`{{width: 200, height: 200}}`。
+
+使用核心组件[`Text`](text), [`Image`](image)以及[`View`](view)搭配props已经可以做不少东西了！但是如果想要做一些用户交互，那我们还需要用到状态（state）。
 
 ## State 状态
 
@@ -351,7 +353,7 @@ function Cat(props) {
 
 It doesn’t matter what names you use. But it can be handy to think of the pattern as `[<getter>, <setter>] = useState(<initialValue>)`.
 
-Next you add the [`Button`](button) Core Component and give it an `onPress` prop:
+下面我们添加一个按钮[`Button`](button)组件，并给它一个`onPress`的prop：
 
 ```jsx
 <Button
@@ -441,7 +443,7 @@ export class Cat extends Component {
 }
 ```
 
-As with accessing props with `this.props`, you access this object inside your component with `this.state`:
+和使用`this.props`获取props一样，在组件中获取状态也是通过`this.state`：
 
 ```jsx
 <Text>
@@ -475,7 +477,7 @@ And you set individual values inside the state object by passing an object with 
 />
 ```
 
-Finally, put your cats inside a `Cafe` component:
+最后，把你的猫放到一个咖啡店`Cafe`组件中：
 
 ```jsx
 export default class Cafe extends Component {
@@ -492,8 +494,8 @@ export default class Cafe extends Component {
 
 <block class="endBlock syntax" />
 
-> See the `<>` and `</>` above? These bits of JSX are [fragments](https://zh-hans.reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
+> 注意到上面的`<>`和`</>`了吗？ 这一对JSX标签称为[Fragments（片段）](https://zh-hans.reactjs.org/docs/fragments.html)。由于JSX的语法要求根元素必须为单个元素，如果我们需要在根节点处并列多个元素，在这之前就不得不额外套一个没有实际用处的`View`。但有了Fragment后就不需要引入额外的容器视图了。
 
 ---
 
-Now that you’ve covered both React and React Native’s Core Components, let’s dive deeper on some of these core components by looking at [handling `<TextInput>`](handling-text-input).
+现在你应该已经差不多了解React和React Native的核心组件与思想了。下面可以试着深入学习一些核心组件的用法，比如如何[处理文本输入`<TextInput>`](handling-text-input)。
