@@ -447,18 +447,11 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 ### `onViewableItemsChanged`
 
-```jsx
-(info: {
-    viewableItems: array,
-    changed: array,
-  }) => void
-```
-
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------ |
+| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
 
 ---
 
