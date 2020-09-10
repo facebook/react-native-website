@@ -72,8 +72,10 @@ Save, see, repeat.
 Members of the React Native team frequently speak at various
 conferences.
 
-You can follow the latest news from the React Native team on
-Twitter
+You can follow the latest news from the [React Native team] on
+Twitter.
+
+[React Native team]: https://twitter.com/reactnative
   `,
   community: `
 In 2018, React Native had the [2nd highest] number of contributors for any repository in GitHub.
@@ -81,7 +83,7 @@ Today, React Native is supported by contributions from individuals and companies
 including [Callstack], [Expo], [Infinite Red], [Microsoft], and [Software Mansion].
 
 Our community is always shipping exciting new projects and exploring platforms beyond Android and iOS
-with repos like React Native Windows and React Native Web.
+with repos like [React Native Windows], [React Native macOS] and [React Native Web].
 
 [2nd highest]: https://octoverse.github.com/2018/projects.html#repositories
 [Callstack]: https://callstack.com/
@@ -89,6 +91,9 @@ with repos like React Native Windows and React Native Web.
 [Infinite Red]: https://infinite.red/
 [Microsoft]: https://www.microsoft.com/en-gb/
 [Software Mansion]: https://swmansion.com/
+[React Native Windows]: https://github.com/microsoft/react-native-windows#readme
+[React Native macOS]: https://github.com/microsoft/react-native-macos#readme
+[React Native Web]: https://github.com/necolas/react-native-web#readme
   `,
 };
 
@@ -437,10 +442,8 @@ function Community() {
             <React.Fragment>
               <p className="firstP">
                 <img src={`${baseUrl}img/homepage/fb-logo.svg`} alt="" />
-                <span>
-                  Facebook released React Native in 2015 and has been
-                  maintaining it ever since.
-                </span>
+                Facebook released React Native in 2015 and has been maintaining
+                it ever since.
               </p>
               <MarkdownBlock>{textContent.community}</MarkdownBlock>
             </React.Fragment>
