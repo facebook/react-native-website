@@ -341,11 +341,11 @@ Invoked on load error with `{nativeEvent: {error}}`.
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{nativeEvent: {layout: {x, y, width, height}}}`.
+Invoked on mount and on layout changes.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 

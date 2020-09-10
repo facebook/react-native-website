@@ -345,15 +345,13 @@ Used to locate this view from native classes.
 
 ### `onLayout`
 
-Invoked on mount and layout changes with:
-
-`{nativeEvent: { layout: {x, y, width, height}}}`
+Invoked on mount and on layout changes.
 
 This event is fired immediately once the layout has been calculated, but the new layout may not yet be reflected on the screen at the time the event is received, especially if a layout animation is in progress.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 
