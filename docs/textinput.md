@@ -485,9 +485,9 @@ Callback that is called when text input ends.
 
 Callback that is called when a touch is engaged.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ---
 
@@ -495,9 +495,9 @@ Callback that is called when a touch is engaged.
 
 Callback that is called when a touch is released.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ---
 
