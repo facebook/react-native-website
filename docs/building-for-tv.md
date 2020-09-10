@@ -155,4 +155,8 @@ class Game2048 extends React.Component {
 
 - _Known issues_:
 
-  - `TextInput` components do not work for now (i.e. they cannot receive focus, see [this comment](https://github.com/facebook/react-native/pull/16500#issuecomment-629285638)).
+  - `TextInput` components do not work for now (i.e. they cannot receive focus automatically, see [this comment](https://github.com/facebook/react-native/pull/16500#issuecomment-629285638)). 
+    - It is however possible to use a ref to manually trigger `inputRef.current.focus()`. 
+    - You can wrap your input inside a `TouchableWithoutFeedback` component and trigger focus in the `onFocus` event of that touchable. This enables opening the keyboard via the arrow keys.
+    - The keyboard might reset its state after each keypress (this might only happen inside the Android TV emulator).
+  - The content of `Modal` components cannot receive focus, see [this issue](https://github.com/facebook/react-native/issues/24448) for details.
