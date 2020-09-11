@@ -505,9 +505,9 @@ Callback that is called when a touch is released.
 
 Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 
@@ -523,7 +523,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{ nativeEvent: {layout: {x, y, width, height}, target } }`.
+Invoked on mount and on layout changes.
 
 | Type     | Required |
 | -------- | -------- |

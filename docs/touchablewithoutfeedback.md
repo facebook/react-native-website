@@ -279,13 +279,11 @@ Invoked when the item receives focus.
 
 ### `onLayout`
 
-Invoked on mount and layout changes with
+Invoked on mount and on layout changes.
 
-`{nativeEvent: {layout: {x, y, width, height}}}`
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 

@@ -194,6 +194,9 @@
       "layoutanimation": {
         "title": "LayoutAnimation"
       },
+      "layoutevent": {
+        "title": "LayoutEvent Object Type"
+      },
       "libraries": {
         "title": "Using Libraries"
       },
