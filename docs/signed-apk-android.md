@@ -96,10 +96,10 @@ In order for Google Play to accept AAB format the App Signing by Google Play nee
 Before uploading the release build to the Play Store, make sure you test it thoroughly. First uninstall any previous version of the app you already have installed. Install it on the device using the following command in the project root:
 
 ```sh
-npx react-native run-android --variant=release
+npx react-native run-android --variant release
 ```
 
-Note that `--variant=release` is only available if you've set up signing as described above.
+Note that `--variant release` is only available if you've set up signing as described above.
 
 You can terminate any running bundler instances, since all your framework and JavaScript code is bundled in the APK's assets.
 
