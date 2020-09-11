@@ -9,7 +9,8 @@
       "using-a-listview",
       "troubleshooting",
       "platform-specific-code",
-      "more-resources"
+      "more-resources",
+      "flatlist-on-viewable-item-changed"
     ],
     "Environment setup": [
       "environment-setup",

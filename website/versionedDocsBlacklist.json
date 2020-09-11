@@ -44,5 +44,6 @@
   "headless-js-android",
   "signed-apk-android",
   "removing-default-permissions",
-  "optimizing-flatlist-configuration"
+  "optimizing-flatlist-configuration",
+  "onviewableitemschanged-in-flatlist"
 ]

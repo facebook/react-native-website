@@ -113,6 +113,9 @@
       "fast-refresh": {
         "title": "Fast Refresh"
       },
+      "flatlist-on-viewable-item-changed": {
+        "title": "Dive into onViewableItemsChanged in FlatList"
+      },
       "flatlist": {
         "title": "FlatList"
       },

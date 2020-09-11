@@ -1,11 +1,8 @@
 ---
+id: flatlist-on-viewable-item-changed
 title: Dive into onViewableItemsChanged in FlatList
-author: RY Zheng
-authorTitle: Mobile Developer
-authorURL: https://github.com/sueLan
-authorImageURL: https://avatars2.githubusercontent.com/u/7471672?s=460&v=4
-authorTwitter: RY92547150
 ---
+
 If you want to get viewable items in the [FlatList], you had better take a look at the `onViewableItemsChanged` prop. For example, suppose you have a video list, and you want automatically play the video when the video is appearing on the screen for a few seconds. In iOS, there is [visibleCells](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView` to achieve this. In React Native, I am glad to tell you that `FlatList` has a more powerful property, `onViewableItemsChanged`. `This article would help you better understand how to use the `onViewableItemsChanged` prop in the [FlatList], and how it works under the hood.
 
 ## What is `onViewableItemsChanged`
@@ -158,13 +155,13 @@ this._scrollMetrics = {
 };
 ```
 
-<img src="/blog/assets/fvc-layout.png" width="640"/>
+<img src="/docs/assets/fvc-layout.png" width="640"/>
 
 If it is a vertical VirtualizedList, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`; which is the height of viewable region here. Also, in a vertical VirtualizedList, the `layout.layoutMeasurement.height` is equal to `viewportHeight`.
 
 ### Overview
 
-<img src="/blog/assets/fvc-overview.png"  witdh="640"/>
+<img src="/docs/assets/fvc-overview.png"  witdh="640"/>
 
 #### Different `viewabilityConfig` in one `VirtualizedList`
 
@@ -318,15 +315,15 @@ In `computeViewableItems` in the `ViewabilityHelper` class, it iterates items fr
 
 From the code, you can see the `top` and `bottom` value is related to the screen coordinate. I drew a graph to show the relationship between `metrics.offset`, `scrollOffset`, `metrics.length` , `top` and `bottom`. This graph will help you better understand the above code.
 
-<center><img src="/blog/assets/fvc-item-layout.png" width="400"/></center>
+<center><img src="/docs/assets/fvc-item-layout.png" width="400"/></center>
 
 ### What kind of item is viewable
 
 An item is said to be viewable when it meets the following conditions for longer than `${minimumViewTime}` milliseconds (after an interaction if `waitForInteraction` is true):
 
-1. the fraction of the item visible in the view area >= `itemVisiblePercentThreshold`. When it comes to the fraction of the item visible in the view area, you need to take care about cases shown in the following graph. RN use `Math.min(bottom, viewportHeight) - Math.max(top, 0)` to calculate the viewable length. <img src="/blog/assets/fvc-viewable-partial-1.png"/> <img src="/blog/assets/fvc-viewable-partial-2.png"/>
+1. the fraction of the item visible in the view area >= `itemVisiblePercentThreshold`. When it comes to the fraction of the item visible in the view area, you need to take care about cases shown in the following graph. RN use `Math.min(bottom, viewportHeight) - Math.max(top, 0)` to calculate the viewable length. <img src="/docs/assets/fvc-viewable-partial-1.png"/> <img src="/docs/assets/fvc-viewable-partial-2.png"/>
 
-1) Entirely visible on screen when the height of a item is bigger than the `viewportHeight`. <img src="/blog/assets/fvc-entire-viewable.png" width="240"/>
+1) Entirely visible on screen when the height of a item is bigger than the `viewportHeight`. <img src="/docs/assets/fvc-entire-viewable.png" width="240"/>
 
 ```js
 function _isViewable(
@@ -410,7 +407,7 @@ viewableIndicesToCheck = viewableIndicesToCheck.filter((ii) =>
 );
 ```
 
-<img src="/blog/assets/fvc-indices.png"/>
+<img src="/docs/assets/fvc-indices.png"/>
 
 In the above graph, at first, the `_viewableIndices` is from 1 to 9. Then the user scrolls the `VirtualizedList` and the `_onUpdateSync` is triggered after `minimumViewTime`. At this moment, the current `_viewableIndices` is from 2 to 10. So the item indexed 1 is filtered out.
 
