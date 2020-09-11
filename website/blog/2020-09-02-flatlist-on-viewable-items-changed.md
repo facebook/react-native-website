@@ -6,10 +6,11 @@ authorURL: https://github.com/sueLan
 authorImageURL: https://avatars2.githubusercontent.com/u/7471672?s=460&v=4
 authorTwitter: RY92547150
 ---
+If you want to get viewable items in the [FlatList], you had better take a look at the `onViewableItemsChanged` prop. For example, suppose you have a video list, and you want automatically play the video when the video is appearing on the screen for a few seconds. In iOS, there is [visibleCells](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView` to achieve this. In React Native, I am glad to tell you that `FlatList` has a more powerful property, `onViewableItemsChanged`. `This article would help you better understand how to use the `onViewableItemsChanged` prop in the [FlatList], and how it works under the hood.
 
 ## What is `onViewableItemsChanged`
 
-`onViewableItemsChanged` is a prop in [VirtualizedList](https://facebook.github.io/react-native/docs/virtualizedlist#onviewableitemschanged) and [FlatList](https://facebook.github.io/react-native/docs/flatlist#onviewableitemschanged). When we scroll a FlatList, the items showing on the FlatList change. Then, this function is called, telling you what current `viewableItems` are and what `changed` items are. This function should be used together with [viewabilityConfig](https://facebook.github.io/react-native/docs/virtualizedlist#viewabilityconfig). A specific `onViewableItemsChanged` will be called when its corresponding `ViewabilityConfig`'s conditions are met.
+`onViewableItemsChanged` is a prop in [VirtualizedList](https://facebook.github.io/react-native/docs/virtualizedlist#onviewableitemschanged) and [FlatList](https://facebook.github.io/react-native/docs/flatlist#onviewableitemschanged). When you scroll a FlatList, items showing on the screen change. Then, this function is called, telling you what current `viewableItems` are and what `changed` items are. This function should be used together with [viewabilityConfig](https://facebook.github.io/react-native/docs/virtualizedlist#viewabilityconfig). A specific `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
 
 Here is the [ViewabilityConfig](https://facebook.github.io/react-native/docs/flatlist#viewabilityconfig)
 
@@ -71,7 +72,7 @@ export type ViewToken = {
 
 ## How to use it
 
-Let's take a look at two simple example.
+Here are two examples.
 
 ```javascript
   viewabilityConfig = {
@@ -159,7 +160,7 @@ this._scrollMetrics = {
 
 <img src="/blog/assets/fvc-layout.png" width="640"/>
 
-If it is a vertical VirtualizedList, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`; which is the height of viewable region here. Also, in a vertical VirtualizedList, the `layout.layoutMeasurement.height` is equal to viewportHeight.
+If it is a vertical VirtualizedList, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`; which is the height of viewable region here. Also, in a vertical VirtualizedList, the `layout.layoutMeasurement.height` is equal to `viewportHeight`.
 
 ### Overview
 
@@ -207,7 +208,7 @@ if (this.props.viewabilityConfigCallbackPairs) {
 
 [`ViewabilityHelper`](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L64) is `a utility class for calculating viewable items based on the viewabilityConfig and metrics, like the scroll position and layout.`
 
-As I mentioned before, in a `VirtualizedList` could has several `ViewabilityHelper` objects in `_viewabilityTuples`, containing different `viewabilityConfig` to handle different viewability conditions. Let's take a look at some important props in `ViewabilityHelper`.
+As I mentioned before, in a `VirtualizedList` could has several `ViewabilityHelper` objects in `_viewabilityTuples`, containing different `viewabilityConfig` to handle different viewability conditions. Here are some important props in `ViewabilityHelper`.
 
 ```js
 class ViewabilityHelper {
@@ -263,7 +264,7 @@ _updateViewableItems(data: any) {
 }
 ```
 
-- By `this.state`, we know the range of the rendered items by `first` and `last` value. `VirtualizedList` updates these two values when the rendered items are changed.
+- By `this.state`, you know the range of the rendered items by `first` and `last` value. `VirtualizedList` updates these two values when the rendered items are changed.
 
 ```js
 type State = {
@@ -315,7 +316,7 @@ In `computeViewableItems` in the `ViewabilityHelper` class, it iterates items fr
   }
 ```
 
-From the code, we can see the `top` and `bottom` value is related to the screen coordinate. I drew a graph to show the relationship between `metrics.offset`, `scrollOffset`, `metrics.length` , `top` and `bottom`, to help you better understand the above code.
+From the code, you can see the `top` and `bottom` value is related to the screen coordinate. I drew a graph to show the relationship between `metrics.offset`, `scrollOffset`, `metrics.length` , `top` and `bottom`. This graph will help you better understand the above code.
 
 <center><img src="/blog/assets/fvc-item-layout.png" width="400"/></center>
 
@@ -323,7 +324,7 @@ From the code, we can see the `top` and `bottom` value is related to the screen 
 
 An item is said to be viewable when it meets the following conditions for longer than `${minimumViewTime}` milliseconds (after an interaction if `waitForInteraction` is true):
 
-1. the fraction of the item visible in the view area >= `itemVisiblePercentThreshold`. When it comes to the fraction of the item visible in the view area, we need to care about cases shown in the following graph. RN use `Math.min(bottom, viewportHeight) - Math.max(top, 0)` to calculate the viewable length. <img src="/blog/assets/fvc-viewable-partial-1.png"/> <img src="/blog/assets/fvc-viewable-partial-2.png"/>
+1. the fraction of the item visible in the view area >= `itemVisiblePercentThreshold`. When it comes to the fraction of the item visible in the view area, you need to take care about cases shown in the following graph. RN use `Math.min(bottom, viewportHeight) - Math.max(top, 0)` to calculate the viewable length. <img src="/blog/assets/fvc-viewable-partial-1.png"/> <img src="/blog/assets/fvc-viewable-partial-2.png"/>
 
 1) Entirely visible on screen when the height of a item is bigger than the `viewportHeight`. <img src="/blog/assets/fvc-entire-viewable.png" width="240"/>
 
@@ -375,7 +376,7 @@ function _isEntirelyVisible(
 
 ### Timer and Schedule
 
-In [`onUpdate` func in ViewabilityHelper](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L228), if we define `minimumViewTime` value, the `_onUpdateSync` is scheduled to be called. It is the handler of the `timeout`.
+In [`onUpdate` func in ViewabilityHelper](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L228), if you define `minimumViewTime` value, the `_onUpdateSync` is scheduled to be called. It is the handler of the `timeout`.
 
 ```js
 this._viewableIndices = viewableIndices;
@@ -400,7 +401,7 @@ if (this._config.minimumViewTime) {
 }
 ```
 
-And, If after a few seconds, \${minimumViewTime}, if some items aren't longer viewable, the [\_onUpdateSync](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L267) func, filter out these indices that have gone out of viewport.
+If some items aren't longer viewable after a few seconds, ${minimumViewTime}, the [\_onUpdateSync](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L267) func filters out these indices that have gone out of viewport.
 
 ```js
 // Filter out indices that have gone out of view after `minimumViewTime`
