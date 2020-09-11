@@ -45,5 +45,5 @@
   "signed-apk-android",
   "removing-default-permissions",
   "optimizing-flatlist-configuration",
-  "onviewableitemschanged-in-flatlist"
+  "flatlist-on-viewable-item-changed"
 ]
