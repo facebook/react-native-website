@@ -221,7 +221,7 @@ When true, the ScrollView will try to lock to only vertical or horizontal scroll
 
 ### `disableIntervalMomentum`
 
-When true, the scroll view stops on the next index (in relation to scroll position at release) regardless of how fast the gesture is. This can be used for horizontal pagination when the page is less than the width of the ScrollView. The default value is false.
+When true, the scroll view stops on the next index (in relation to scroll position at release) regardless of how fast the gesture is. This can be used for pagination when the page is less than the width of the horizontal ScrollView or the height of the vertical ScrollView. The default value is false.
 
 | Type | Required |
 | ---- | -------- |
