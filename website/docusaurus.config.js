@@ -355,76 +355,52 @@ module.exports = {
   plugins: [],
   themeConfig: {
     announcementBar: {
-      id: 'blm_banner', // Any value that will identify this message.
+      id: 'blm',
+      backgroundColor: '#242526',
+      textColor: '#fff',
       content:
-        'Black Lives Matter. <a href="https://support.eji.org/give/153413/#!/donation/checkout">Support the Equal Justice Initiative.</a>',
-      backgroundColor: '#fafbfc', // Defaults to `#fff`.
+        '<div class="announcement">Black Lives Matter. <a target="_blank" rel="noopener noreferrer" href="https://support.eji.org/give/153413/#!/donation/checkout">Support the Equal Justice Initiative</a>.</div>',
+      isCloseable: false,
+    },
+    prism: {
+      defaultLanguage: 'jsx',
     },
     navbar: {
       title: 'React Native',
       logo: {
         src: 'img/header_logo.svg',
       },
+      style: 'dark',
       items: [
-        {
-          type: 'docsVersion',
-          position: 'left',
-          to: '/versions',
-        },
         {
           to: 'docs/',
           label: 'Docs',
-          position: 'left',
+          position: 'right',
         },
         {
           to: 'docs/components-and-apis',
           label: 'Components',
-          position: 'left',
+          position: 'right',
         },
         {
           to: 'docs/accessibilityinfo',
           label: 'API',
-          position: 'left',
+          position: 'right',
         },
         {
           to: '/help',
           label: 'Community',
-          position: 'left',
+          position: 'right',
         },
         {
           to: '/blog',
           label: 'Blog',
-          position: 'left',
-        },
-
-        {
-          label: 'Version',
-          to: 'docs',
           position: 'right',
-          items: [
-            {
-              label: '0.63',
-              to: 'docs/',
-              activeBaseRegex: 'docs/(?!0.60|0.61|0.62|0.63|next)',
-            },
-            {
-              label: '0.62',
-              to: 'docs/0.62/',
-            },
-            {
-              label: '0.61',
-              to: 'docs/0.61/',
-            },
-            {
-              label: '0.60',
-              to: 'docs/0.60/',
-            },
-            {
-              label: 'Master/Unreleased',
-              to: 'docs/next/',
-              activeBaseRegex: 'docs/next/(?!support|team|resources)',
-            },
-          ],
+        },
+        {
+          type: 'docsVersionDropdown',
+          // TODO: to: '/versions',
+          position: 'left',
         },
         {
           href: 'https://github.com/facebook/react-native',
@@ -438,7 +414,7 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'DOCS',
+          title: 'Docs',
           items: [
             {
               label: 'Getting Started',
@@ -459,7 +435,7 @@ module.exports = {
           ],
         },
         {
-          title: 'COMMUNITY',
+          title: 'Community',
           items: [
             {
               label: 'The React Native Community',
@@ -485,7 +461,7 @@ module.exports = {
           ],
         },
         {
-          title: 'MORE RESOURCES',
+          title: 'More Resources',
           items: [
             {
               label: 'Blog',

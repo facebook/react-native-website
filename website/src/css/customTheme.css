@@ -5,7 +5,424 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #6d6d6d;
+  --subtle: #7a7a7a;
   --divider: #ececec;
   --tintColor: #f7f7f7;
+  --ifm-font-size-base: 17px;
+  --ifm-spacing-horizontal: 16px;
+  --ifm-navbar-item-padding-horizontal: 20px;
+  --ifm-menu-link-padding-horizontal: 0;
+  --ifm-toc-padding-vertical: 6px;
+  --ifm-code-font-size: 85%;
+  --ifm-blockquote-color: var(--ifm-font-color-base);
+  --ifm-link-hover-decoration: none;
+  --ifm-navbar-background-color: var(--deepdark);
+}
+
+html[data-theme="light"] {
+  --ifm-code-background: rgba(0, 0, 0, 0.06);
+}
+
+html[data-theme="dark"] {
+  --ifm-code-background: rgba(255, 255, 255, 0.06);
+  --ifm-toc-border-color: var(--dark);
+  --ifm-color-emphasis-300: var(--dark);
+  --ifm-hr-border-color: var(--dark);
+}
+
+/* Pages content overrides */
+
+.main-wrapper {
+  max-width: 1400px;
+  width: 1400px;
+  align-self: center;
+}
+
+@media (max-width: 1416px) {
+  .main-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 100% !important;
+  }
+}
+
+.main-wrapper main {
+  padding-left: 16px;
+}
+
+.markdown blockquote {
+  background-color: rgba(255, 229, 100, 0.3);
+  border-left: 8px solid #ffe564;
+  padding: 15px 30px 15px 15px;
+}
+
+.markdown blockquote code {
+  background-color: rgba(255, 255, 255, 0.09);
+}
+
+.markdown a code,
+.markdown blockquote a code {
+  background-color: transparent;
+}
+
+.markdown hr {
+  border: 0;
+  height: 0.01rem;
+  background-color: var(--ifm-hr-border-color);
+}
+
+.markdown a {
+  display: initial;
+  color: var(--ifm-font-color-base);
+  background-color: rgba(187, 239, 253, 0.3);
+  line-height: calc(var(--ifm-font-size-base) + 4px);
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+}
+
+.markdown a:hover {
+  background-color: rgba(187, 239, 253, 0.6);
+}
+
+.markdown strong {
+  font-weight: 600;
+}
+
+html[data-theme="dark"] .markdown a {
+  background-color: rgb(97, 218, 251, 0.12);
+  border-bottom-color: rgb(97, 218, 251, 0.3);
+}
+
+html[data-theme="dark"] .markdown a:hover {
+  background-color: rgb(97, 218, 251, 0.4);
+  border-bottom-color: var(--brand);
+}
+
+.markdown .hash-link,
+html[data-theme="dark"] .markdown .hash-link {
+  background-color: transparent;
+  border-bottom: 0;
+  color: var(--subtle);
+}
+
+.markdown .hash-link:hover,
+html[data-theme="dark"] .markdown .hash-link:hover {
+  background-color: transparent;
+  color: var(--brand);
+}
+
+article .badge {
+  font-weight: 500;
+}
+
+html[data-theme="dark"] article .badge {
+  background: var(--deepdark);
+  border-color: var(--deepdark);
+  color: var(--ifm-font-color-base);
+}
+
+/* Navbar overrides */
+
+.navbar--dark {
+  background-color: var(--deepdark);
+}
+
+.navbar__inner {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.navbar__title {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.navbar__brand:hover {
+  color: var(--brand);
+}
+
+.navbar__item.navbar__link {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.navbar__item.dropdown a {
+  font-size: 14px;
+}
+
+.navbar .react-toggle {
+  margin: 0 8px;
+}
+
+.navbar .react-toggle-track {
+  background: #3d3f47;
+  font-size: 15px;
+}
+
+.navbar .DocSearch-Button {
+  border-radius: 8px;
+  padding: 0 6px 0 10px;
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+  width: 16px;
+  margin-top: -1px;
+}
+
+.DocSearch-Button-Placeholder,
+.DocSearch-Button-Key {
+  font-size: 14px !important;
+}
+
+.DocSearch-Button-Key {
+  padding-bottom: 0 !important;
+}
+
+.DocSearch-Button-Key svg {
+  margin-bottom: 1px !important;
+}
+
+.navbar .navbar__toggle {
+  color: #fff;
+}
+
+/* Sidebar overrides */
+
+div[class^="docSidebarContainer"] {
+  width: 284px;
+  min-width: 284px;
+}
+
+.menu__list {
+  margin-bottom: 10px;
+}
+
+.menu__list-item--collapsed .menu__list {
+  margin-bottom: 0;
+}
+
+.menu__list .menu__list-item {
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+.menu__list .menu__list .menu__link {
+  font-size: 13px;
+  padding: 3px 12px;
+  font-weight: normal;
+  color: var(--ifm-font-color-base);
+}
+
+.menu__list .menu__link--sublist {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  padding: 5px 12px !important;
+  color: var(--subtle) !important;
+}
+
+.menu__list .menu__list .menu__link--sublist {
+  font-weight: 600 !important;
+  margin-top: 4px;
+}
+
+.menu__list .menu__link--active.active {
+  border-left: 4px solid var(--ifm-menu-color-active) !important;
+  font-weight: 700 !important;
+  padding-left: 8px;
+}
+
+.menu__link--sublist:after {
+  background-size: 1.66rem 1.66rem;
+}
+
+/* TOC overrrides */
+
+div[class^="tableOfContents"] {
+  min-width: 245px;
+  width: 245px;
+}
+
+.table-of-contents li {
+  margin: 7px var(--ifm-toc-padding-vertical);
+}
+
+.table-of-contents ul li {
+  margin: 4px var(--ifm-toc-padding-vertical);
+}
+
+.table-of-contents .table-of-contents__link {
+  font-size: 13px;
+  display: block;
+}
+
+.table-of-contents .table-of-contents__link code {
+  background: none;
+  padding: 0;
+}
+
+.table-of-contents .table-of-contents__link--active {
+  font-weight: 500;
+  margin-left: -16px;
+  padding-left: 12px;
+  color: var(--ifm-font-color-base);
+  border-left: 4px solid var(--brand);
+}
+
+.table-of-contents .table-of-contents__link--active code {
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+}
+
+/* Footer overrides */
+
+.footer--dark {
+  --ifm-footer-background-color: #20232a;
+}
+
+.footer .container {
+  max-width: 900px;
+}
+
+.footer__item {
+  font-size: 15px;
+}
+
+.footer__title {
+  color: #6a6f7c;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+.footer .text--center {
+  color: #6a6f7c;
+  font-size: 13px;
+}
+
+.footer__col {
+  margin: 0 20px;
+}
+
+/* Blog overrides */
+
+article header h2 a {
+  color: var(--ifm-font-color-base);
+}
+
+article header h2 a:hover {
+  color: var(--light);
+}
+
+.avatar__subtitle {
+  font-weight: 600;
+  color: var(--subtle);
+}
+
+/* Announcement banner overrides */
+
+:root {
+  --docusaurus-announcement-bar-height: auto !important;
+}
+
+.announcement {
+  color: #fff;
+  line-height: 40px;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 8px 30px;
+  text-align: center;
+  height: 60px;
+  width: 100%;
+  background-color: var(--deepdark);
+}
+
+div[class^="announcementBarContent"] {
+  background-color: var(--deepdark);
+}
+
+.announcement a {
+  text-decoration: underline;
+  display: inline-block;
+  color: var(--brand) !important;
+}
+
+.announcement a:hover {
+  color: #fff !important;
+}
+
+@media only screen and (max-width: 768px) {
+  .announcement {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 500px) {
+  .announcement {
+    font-size: 15px;
+    line-height: 22px;
+    padding: 6px 30px;
+  }
+}
+
+/* "Native Code Required" banner */
+
+.banner-native-code-required {
+  position: relative;
+  overflow: hidden;
+  background: #eeebfe;
+  padding: 24px 48px 24px 24px;
+  margin-bottom: 24px;
+  border-left: 8px solid #6170af;
+}
+
+.banner-native-code-required h2,
+.banner-native-code-required h3 {
+  color: #6170af;
+  margin-top: 0;
+}
+
+.banner-native-code-required h2:before,
+.banner-native-code-required h3:before {
+  content: " ";
+  float: left;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background-color: #6170af;
+  /*background-image: url(../img/expo-logo.svg);*/
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px;
+  margin-right: 12px;
+  margin-top: -2px;
+}
+
+.banner-native-code-required p {
+  margin-bottom: 0;
+}
+
+.banner-native-code-required code {
+  background-color: rgba(89, 91, 145, 0.2);
+}
+
+html[data-theme="dark"] .banner-native-code-required {
+  background: #8491cbb5;
+  border-left-color: #34316c;
+}
+
+html[data-theme="dark"] .banner-native-code-required h2:before,
+html[data-theme="dark"] .banner-native-code-required h3:before {
+  background-color: #34316c;
+}
+
+html[data-theme="dark"] .banner-native-code-required h2,
+html[data-theme="dark"] .banner-native-code-required h3 {
+  color: #34316c;
+}
+
+html[data-theme="dark"] .banner-native-code-required code {
+  background-color: rgba(50, 44, 131, 0.33);
 }
