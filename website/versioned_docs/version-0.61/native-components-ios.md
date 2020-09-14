@@ -274,7 +274,7 @@ Until now we've only returned a `MKMapView` instance from our manager's `-(UIVie
 
 Note that all `RCTBubblingEventBlock` must be prefixed with `on`. Next, declare an event handler property on `RNTMapManager`, make it a delegate for all the views it exposes, and forward events to JS by calling the event handler block from the native view.
 
-```objectivec
+```objectivec {9,17,31-48}
 // RNTMapManager.m
 
 #import <MapKit/MapKit.h>

@@ -123,6 +123,10 @@ html[data-theme="dark"] article .badge {
   color: var(--ifm-font-color-base);
 }
 
+.docusaurus-highlight-code-line {
+  background-color: var(--light);
+}
+
 /* Navbar overrides */
 
 .navbar--dark {
