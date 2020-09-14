@@ -94,16 +94,19 @@
       {
         "type": "category",
         "label": "Hooks",
+        "collapsed": false,
         "items": ["usecolorscheme", "usewindowdimensions"]
       },
       {
         "type": "category",
         "label": "Android APIs",
+        "collapsed": false,
         "items": ["backhandler", "permissionsandroid", "toastandroid"]
       },
       {
         "type": "category",
         "label": "iOS APIs",
+        "collapsed": false,
         "items": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
@@ -134,11 +137,13 @@
       {
         "type": "category",
         "label": "Android Components",
+        "collapsed": false,
         "items": ["drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
         "type": "category",
         "label": "iOS Components",
+        "collapsed": false,
         "items": ["inputaccessoryview"]
       }
     ],
