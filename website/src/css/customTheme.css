@@ -195,8 +195,8 @@ html[data-theme="dark"] article .badge {
 /* Sidebar overrides */
 
 div[class^="docSidebarContainer"] {
-  width: 284px;
-  min-width: 284px;
+  width: 266px;
+  min-width: 266px;
 }
 
 .menu__list {
@@ -208,8 +208,8 @@ div[class^="docSidebarContainer"] {
 }
 
 .menu__list .menu__list-item {
-  margin-bottom: 3px;
-  margin-top: 3px;
+  margin-bottom: 2px;
+  margin-top: 2px;
 }
 
 .menu__list .menu__list .menu__link {
