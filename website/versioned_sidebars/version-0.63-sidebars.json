@@ -381,6 +381,7 @@
         {
           "type": "category",
           "label": "Hooks",
+          "collapsed": false,
           "items": [
             {
               "type": "doc",
@@ -395,6 +396,7 @@
         {
           "type": "category",
           "label": "Android APIs",
+          "collapsed": false,
           "items": [
             {
               "type": "doc",
@@ -413,6 +415,7 @@
         {
           "type": "category",
           "label": "iOS APIs",
+          "collapsed": false,
           "items": [
             {
               "type": "doc",
@@ -527,6 +530,7 @@
         {
           "type": "category",
           "label": "Android Components",
+          "collapsed": false,
           "items": [
             {
               "type": "doc",
@@ -541,6 +545,7 @@
         {
           "type": "category",
           "label": "iOS Components",
+          "collapsed": false,
           "items": [
             {
               "type": "doc",
