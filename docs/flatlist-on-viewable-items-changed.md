@@ -1,75 +1,19 @@
 ---
 id: flatlist-on-viewable-item-changed
-title: Dive into onViewableItemsChanged in FlatList
+title: What's in view with FlatList using `onViewableItemsChanged`
 ---
 
-If you want to get viewable items in the [FlatList], you had better take a look at the `onViewableItemsChanged` prop. For example, suppose you have a video list, and you want automatically play the video when the video is appearing on the screen for a few seconds. In iOS, there is [visibleCells](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView` to achieve this. In React Native, I am glad to tell you that `FlatList` has a more powerful property, `onViewableItemsChanged`. `This article would help you better understand how to use the `onViewableItemsChanged` prop in the [FlatList], and how it works under the hood.
+You might want to access just the items in a `[FlatList](flatlist)` that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds. 
+
+In iOS, you could use `[visibleCells](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells)` in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
 
 ## What is `onViewableItemsChanged`
 
-`onViewableItemsChanged` is a prop in [VirtualizedList](https://facebook.github.io/react-native/docs/virtualizedlist#onviewableitemschanged) and [FlatList](https://facebook.github.io/react-native/docs/flatlist#onviewableitemschanged). When you scroll a FlatList, items showing on the screen change. Then, this function is called, telling you what current `viewableItems` are and what `changed` items are. This function should be used together with [viewabilityConfig](https://facebook.github.io/react-native/docs/virtualizedlist#viewabilityconfig). A specific `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
+`onViewableItemsChanged` is a prop accessible to both [VirtualizedList](virtualizedlist#onviewableitemschanged) and [FlatList](flatlist#onviewableitemschanged) components. When you scroll one of these lists, only a few list items can be seen on screen at any time. These visible items are the `viewableItems`. When the `onViewableItemsChanged` function is called, it returns with an array of the currently visible items, `viewableItems`, and an array of the items that are no longer visible, `changed` items. 
 
-Here is the [ViewabilityConfig](https://facebook.github.io/react-native/docs/flatlist#viewabilityconfig)
+This function should be used together with `[ViewabilityConfig](flatlist#viewabilityconfig)`. A specific `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
 
-```js
-export type ViewabilityConfig = {
-  /**
-   * Minimum amount of time (in milliseconds) that an item must be physically viewable before the
-   * viewability callback will be fired. A high number means that scrolling through content without
-   * stopping will not mark the content as viewable.
-   */
-  minimumViewTime?: number,
-
-  /**
-   * Percent of viewport that must be covered for a partially occluded item to count as
-   * "viewable", 0-100. Fully visible items are always considered viewable. A value of 0 means
-   * that a single pixel in the viewport makes the item viewable, and a value of 100 means that
-   * an item must be either entirely visible or cover the entire viewport to count as viewable.
-   */
-  viewAreaCoveragePercentThreshold?: number,
-
-  /**
-   * Similar to `viewAreaPercentThreshold`, but considers the percent of the item that is visible,
-   * rather than the fraction of the viewable area it covers.
-   */
-  itemVisiblePercentThreshold?: number,
-
-  /**
-   * Nothing is considered viewable until the user scrolls or `recordInteraction` is called after
-   * render.
-   */
-  waitForInteraction?: boolean,
-|};
-```
-
-Here is the type of `onViewableItemsChanged` function:
-
-```js
- /**
-   * Called when the viewability of rows changes, as defined by the
-   * `viewabilityConfig` prop.
-   */
-  onViewableItemsChanged?: ?(info: {
-    viewableItems: Array<ViewToken>,
-    changed: Array<ViewToken>,
-    ...
-  }) => void,
-
-export type ViewToken = {
-  item: any,
-  // The key of this item
-  key: string,
-  index: ?number,
-  // indicated whether this item is viewable or not
-  isViewable: boolean,
-  section?: any,
-  ...
-};
-```
-
-## How to use it
-
-Here are two examples.
+## Examples
 
 ```javascript
   viewabilityConfig = {
@@ -131,7 +75,7 @@ this._viewabilityConfigCallbackPairs = [
 
 ### Viewable Region
 
-The layout and viewable region information for VirtualizedList is stored in `_scrollMetrics` object. Through the `nativeEvent` in `onScroll` callback, VirtualizedList gets these layout information.
+The layout and viewable region information for `VirtualizedList` is stored in a `_scrollMetrics` object. Through the `nativeEvent` in `onScroll` callback, `VirtualizedList` can access this layout information.
 
 ```js
 const timestamp = e.timeStamp;
@@ -157,7 +101,9 @@ this._scrollMetrics = {
 
 <img src="/docs/assets/fvc-layout.png" width="640"/>
 
-If it is a vertical VirtualizedList, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`; which is the height of viewable region here. Also, in a vertical VirtualizedList, the `layout.layoutMeasurement.height` is equal to `viewportHeight`.
+If it is a vertical `VirtualizedList`, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`, the height of viewable region. 
+
+> In a vertical `VirtualizedList`, the `layout.layoutMeasurement.height` is equal to `viewportHeight`.
 
 ### Overview
 
