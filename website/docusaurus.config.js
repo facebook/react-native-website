@@ -12,7 +12,6 @@ module.exports = {
     '/js/codeblocks.js',
     '/js/tabs.js',
     '/js/docs-rating.js',
-    '/js/announcement.js',
   ],
   favicon: 'img/favicon.ico',
   customFields: {
