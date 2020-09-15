@@ -9,21 +9,21 @@ title: Using TypeScript with React Native
 
 If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
 
-```sh
+```shell
 # Template version is specifically for React Native 0.61
 npx react-native init MyTSProject --template react-native-template-typescript@6.3.16
 ```
 
 You can use [Expo][expo] which has two TypeScript templates:
 
-```sh
+```shell
 npm install -g expo-cli
 expo init MyTSProject
 ```
 
 Or you could use [Ignite][ignite], which also has a TypeScript template:
 
-```sh
+```shell
 npm install -g ignite-cli
 ignite new MyTSProject
 ```
@@ -32,7 +32,7 @@ ignite new MyTSProject
 
 1. Add TypeScript and the types for React Native and Jest to your project.
 
-```sh
+```shell
 yarn add typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 # or for npm
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
@@ -182,7 +182,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 2. Configure the Babel side done by adding a new dependency, [`babel-plugin-module-resolver`][bpmr]:
 
-```sh
+```shell
 yarn add --dev babel-plugin-module-resolver
 # or
 npm install --save-dev babel-plugin-module-resolver

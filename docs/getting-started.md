@@ -24,13 +24,13 @@ This page will help you install and build your first React Native app.
 
 Assuming that you have [Node 12 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
-```sh
+```shell
 npm install -g expo-cli
 ```
 
 Then run the following commands to create a new React Native project called "AwesomeProject":
 
-```sh
+```shell
 expo init AwesomeProject
 
 cd AwesomeProject
@@ -147,7 +147,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 We recommend installing Node and Watchman using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
-```sh
+```shell
 brew install node
 brew install watchman
 ```
@@ -162,7 +162,7 @@ If you have already installed Node on your system, make sure it is Node 10 or ne
 
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
-```sh
+```shell
 brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 ```
 
@@ -218,7 +218,7 @@ To install a simulator, open <strong>Xcode > Preferences...</strong> and select 
 
 Using the default Ruby install will require you to use `sudo` when installing gems. (This is only an issue for the duration of the gem installation, though.)
 
-```sh
+```shell
 sudo gem install cocoapods
 ```
 
@@ -300,7 +300,7 @@ Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you
 
 <block className="native mac android" />
 
-```sh
+```shell
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -310,7 +310,7 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 <block className="native linux android" />
 
-```sh
+```shell
 export ANDROID_HOME=$HOME/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -386,7 +386,7 @@ React Native has a built-in command line interface. Rather than install and mana
 
 You can use React Native's built-in command line interface to generate a new project. Let's create a new React Native project called "AwesomeProject":
 
-```sh
+```shell
 npx react-native init AwesomeProject
 ```
 
@@ -396,13 +396,13 @@ This is not necessary if you are integrating React Native into an existing appli
 
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
-```sh
+```shell
 npx react-native init AwesomeProject --version X.XX.X
 ```
 
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
-```sh
+```shell
 npx react-native init AwesomeTSProject --template react-native-template-typescript
 ```
 
@@ -416,7 +416,7 @@ npx react-native init AwesomeTSProject --template react-native-template-typescri
 
 React Native has a built-in command line interface, which you can use to generate a new project. You can access it without installing anything globally using `npx`, which ships with Node.js. Let's create a new React Native project called "AwesomeProject":
 
-```sh
+```shell
 npx react-native init AwesomeProject
 ```
 
@@ -426,13 +426,13 @@ This is not necessary if you are integrating React Native into an existing appli
 
 If you want to start a new project with a specific React Native version, you can use the `--version` argument:
 
-```sh
+```shell
 npx react-native init AwesomeProject --version X.XX.X
 ```
 
 You can also start a project with a custom React Native template, like TypeScript, with `--template` argument:
 
-```sh
+```shell
 npx react-native init AwesomeTSProject --template react-native-template-typescript
 ```
 
@@ -482,7 +482,7 @@ First, you will need to start Metro, the JavaScript bundler that ships with Reac
 
 To start Metro, run `npx react-native start` inside your React Native project folder:
 
-```sh
+```shell
 npx react-native start
 ```
 
@@ -496,7 +496,7 @@ npx react-native start
 
 Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
-```sh
+```shell
 npx react-native run-ios
 ```
 
@@ -522,7 +522,7 @@ First, you will need to start Metro, the JavaScript bundler that ships with Reac
 
 To start Metro, run `npx react-native start` inside your React Native project folder:
 
-```sh
+```shell
 npx react-native start
 ```
 
@@ -536,7 +536,7 @@ npx react-native start
 
 Let Metro Bundler run in its own terminal. Open a new terminal inside your React Native project folder. Run the following:
 
-```sh
+```shell
 npx react-native run-android
 ```
 

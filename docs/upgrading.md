@@ -25,13 +25,13 @@ The [React Native CLI](https://github.com/react-native-community/cli) comes with
 
 Run the following command to start the process of upgrading to the latest version:
 
-```sh
+```shell
 npx react-native upgrade
 ```
 
 You may specify a React Native version by passing an argument, e.g. to upgrade to `0.61.0-rc.0` run:
 
-```sh
+```shell
 npx react-native upgrade 0.61.0-rc.0
 ```
 
@@ -80,7 +80,7 @@ You first need to select from and to which version you wish to upgrade, by defau
 
 The first file that is shown is the `package.json`, it's good to update the dependencies that are showing in there. For example, if `react-native` and `react` appears as changes then you can install it in your project by running `yarn add`:
 
-```sh
+```shell
 # {{VERSION}} and {{REACT_VERSION}} are the release versions showing in the diff
 yarn add react-native@{{VERSION}}
 yarn add react@{{REACT_VERSION}}
@@ -92,7 +92,7 @@ The new release may contain updates to other files that are generated when you r
 
 In case there are changes then you can either update them manually by copying and pasting from the changes in the page or you can do it with the React Native CLI upgrade command by running:
 
-```sh
+```shell
 npx react-native upgrade
 ```
 
@@ -110,7 +110,7 @@ This will check your files against the latest template and perform the following
 
 While your project does not have to be handled by the Git versioning system -- you can use Mercurial, SVN, or nothing -- you will still need to [install Git](https://git-scm.com/downloads) on your system in order to use `npx react-native upgrade`. Git will also need to be available in the `PATH`. If your project doesn't use Git, initialize it and commit:
 
-```sh
+```shell
 git init # Initialize a Git repository
 git add . # Stage all the current files
 git commit -m "Upgrade react-native" # Save the current files in a commit

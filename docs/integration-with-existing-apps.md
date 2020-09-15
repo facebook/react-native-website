@@ -88,7 +88,7 @@ Next, make sure you have [installed the yarn package manager](https://yarnpkg.co
 
 Install the `react` and `react-native` packages. Open a terminal or command prompt, then navigate to the directory with your `package.json` file and run:
 
-```sh
+```shell
 $ yarn add react-native
 ```
 
@@ -98,7 +98,7 @@ This will print a message similar to the following (scroll up in the yarn output
 
 This is OK, it means we also need to install React:
 
-```sh
+```shell
 $ yarn add react@version_printed_above
 ```
 
@@ -114,7 +114,7 @@ Add `node_modules/` to your `.gitignore` file.
 
 We recommend installing CocoaPods using [Homebrew](http://brew.sh/).
 
-```sh
+```shell
 $ brew install cocoapods
 ```
 
@@ -150,7 +150,7 @@ The list of supported `subspec`s is available in [`/node_modules/react-native/Re
 
 You can specify which `subspec`s your app will depend on in a `Podfile` file. The easiest way to create a `Podfile` is by running the CocoaPods `init` command in the `/ios` subfolder of your project:
 
-```sh
+```shell
 $ pod init
 ```
 
@@ -240,7 +240,7 @@ end
 
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
-```sh
+```shell
 $ pod install
 ```
 
@@ -477,7 +477,7 @@ Apple has blocked implicit cleartext HTTP resource loading. So we need to add th
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
-```sh
+```shell
 $ npm start
 ```
 
@@ -820,7 +820,7 @@ You have now done all the basic steps to integrate React Native with your curren
 
 To run your app, you need to first start the development server. To do this, run the following command in the root directory of your React Native project:
 
-```sh
+```shell
 $ yarn start
 ```
 
@@ -836,7 +836,7 @@ Once you reach your React-powered activity inside the app, it should load the Ja
 
 You can use Android Studio to create your release builds too! It’s as quick as creating release builds of your previously-existing native Android app. There’s one additional step, which you’ll have to do before every release build. You need to execute the following to create a React Native bundle, which will be included with your native Android app:
 
-```sh
+```shell
 $ npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/com/your-company-name/app-package-name/src/main/assets/index.android.bundle --assets-dest android/com/your-company-name/app-package-name/src/main/res/
 ```
 
