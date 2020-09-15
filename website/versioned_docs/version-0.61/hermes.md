@@ -35,13 +35,13 @@ Also, if you're using ProGuard, you will need to add this rule in `proguard-rule
 
 Next, if you've already built your app at least once, clean the build:
 
-```shell
+```shellell
 $ cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as normal:
 
-```shell
+```shellell
 $ react-native run-android
 ```
 
@@ -59,7 +59,7 @@ const isHermes = () => global.HermesInternal != null;
 
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
-```shell
+```shellell
 $ react-native run-android --variant release
 ```
 

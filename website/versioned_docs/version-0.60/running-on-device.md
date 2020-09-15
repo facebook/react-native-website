@@ -120,7 +120,7 @@ In this case, it's `22b8`. That's the identifier for Motorola.
 
 You'll need to input this into your udev rules in order to get up and running:
 
-```sh
+```shell
 echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
 ```
 
@@ -297,7 +297,7 @@ As your App Bundle grows in size, you may start to see a blank screen flash betw
 
 The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
 
-```shell
+```shellell
  if [ "${CONFIGURATION}" == "Debug" ]; then
   export SKIP_BUNDLING=true
  fi
