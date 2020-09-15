@@ -49,10 +49,6 @@ html[data-theme="dark"] {
   }
 }
 
-.main-wrapper main {
-  padding-left: 16px;
-}
-
 .markdown blockquote {
   background-color: rgba(255, 229, 100, 0.3);
   border-left: 8px solid #ffe564;
@@ -127,6 +123,37 @@ html[data-theme="dark"] article .badge {
   background-color: var(--light);
 }
 
+.markdown table {
+  border: 1px solid #dfe2e5;
+  border-collapse: collapse;
+  display: table;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.markdown table thead tr {
+  background-color: var(--divider);
+}
+
+html[data-theme="dark"] .markdown table thead tr {
+  background-color: var(--deepdark);
+}
+
+.markdown table tr th {
+  color: var(--subtle);
+  text-transform: uppercase;
+  padding: 6px 10px;
+  font-size: 12px;
+  text-align: left;
+}
+
+.markdown table tr td {
+  font-size: 14px;
+  line-height: 1.3em;
+  padding: 10px;
+  text-align: left;
+}
+
 /* Navbar overrides */
 
 .navbar--dark {
@@ -197,6 +224,7 @@ html[data-theme="dark"] article .badge {
 div[class^="docSidebarContainer"] {
   width: 266px;
   min-width: 266px;
+  margin-right: 16px;
 }
 
 .menu__list {
@@ -282,7 +310,7 @@ div[class^="tableOfContents"] {
 /* Footer overrides */
 
 .footer--dark {
-  --ifm-footer-background-color: #20232a;
+  --ifm-footer-background-color: var(--deepdark);
 }
 
 .footer .container {
