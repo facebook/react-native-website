@@ -169,7 +169,7 @@ const config = {
       });
       return {
         preloadedModules: moduleMap,
-        transform: { inlineRequires: { blacklist: moduleMap } }
+        transform: { inlineRequires: { blockList: moduleMap } }
       };
     }
   },
@@ -179,7 +179,7 @@ const config = {
 module.exports = config;
 ```
 
-The `preloadedModules` entry in the config indicates which modules should be marked as preloaded when building a RAM bundle. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The `blacklist` entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the javascript spends extra time resolving the inline require every time the imports are referenced.
+The `preloadedModules` entry in the config indicates which modules should be marked as preloaded when building a RAM bundle. When the bundle is loaded, those modules are immediately loaded, before any requires have even executed. The `blockList` entry indicates that those modules should not be required inline. Because they are preloaded, there is no performance benefit from using an inline require. In fact the generated JavaScript spends extra time resolving the inline require every time the imports are referenced.
 
 ## Test and Measure Improvements
 
