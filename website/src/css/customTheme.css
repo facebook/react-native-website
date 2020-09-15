@@ -17,6 +17,8 @@
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
+  --ifm-transition-fast: 0;
+  --ifm-transition-slow: 0;
 }
 
 html[data-theme="light"] {
@@ -30,7 +32,7 @@ html[data-theme="dark"] {
   --ifm-hr-border-color: var(--dark);
 }
 
-/* Pages content overrides */
+/* Content */
 
 .main-wrapper {
   max-width: 1400px;
@@ -154,7 +156,7 @@ html[data-theme="dark"] .markdown table thead tr {
   text-align: left;
 }
 
-/* Navbar overrides */
+/* Navbar */
 
 .navbar--dark {
   background-color: var(--deepdark);
@@ -219,7 +221,7 @@ html[data-theme="dark"] .markdown table thead tr {
   color: #fff;
 }
 
-/* Sidebar overrides */
+/* Sidebar */
 
 div[class^="docSidebarContainer"] {
   width: 266px;
@@ -269,7 +271,7 @@ div[class^="docSidebarContainer"] {
   background-size: 1.66rem 1.66rem;
 }
 
-/* TOC overrrides */
+/* TOC */
 
 div[class^="tableOfContents"] {
   min-width: 245px;
@@ -307,7 +309,20 @@ div[class^="tableOfContents"] {
   color: var(--ifm-font-color-base);
 }
 
-/* Footer overrides */
+/* Metadata */
+
+article + .margin-vert--xl {
+  margin-top: 40px !important;
+  margin-bottom: 16px !important;
+}
+
+/* Pagination */
+
+.pagination-nav__label {
+  font-weight: 500;
+}
+
+/* Footer */
 
 .footer--dark {
   --ifm-footer-background-color: var(--deepdark);
