@@ -473,7 +473,7 @@ div[class^="announcementBarContent"] {
 }
 
 html[data-theme="dark"] .banner-native-code-required {
-  background: #8491cbb5;
+  background: #a5afdb8f;
   border-left-color: #34316c;
 
   h2,
@@ -489,4 +489,21 @@ html[data-theme="dark"] .banner-native-code-required {
   code {
     background-color: rgba(50, 44, 131, 0.33);
   }
+}
+
+/* Color preview box */
+
+.color-box {
+  float: left;
+  width: 24px;
+  height: 24px;
+  margin: 2px 8px 0 0;
+  border: 0.05rem solid var(--deepdark);
+  border-radius: 3px;
+}
+
+td .color-box {
+  border-color: var(--divider);
+  width: 20px;
+  height: 20px;
 }
