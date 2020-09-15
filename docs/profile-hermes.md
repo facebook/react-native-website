@@ -20,14 +20,11 @@ Follow the instructions below to get started profiling:
 To record a sampling profiler from the Developer Menu:
 
 1. Navigate to your running Metro server terminal.
-2. Press `d` to open the **Developer Menu.** 
+2. Press `d` to open the **Developer Menu.**
 3. Select **Enable Sampling Profiler.**
-
-<img src="/docs/assets/openDeveloperMenu.png" height=500 width=500 alt="Open Developer Menu">
-
 4. Execute your JavaScript by in your app (press buttons, etc.)
 5. Open the **Developer Menu** by pressing `d` again.
-6. Select **Disable Sampling Profiler** to stop recording and save the sampling profiler. 
+6. Select **Disable Sampling Profiler** to stop recording and save the sampling profiler.
 
 A toast will show the location where the sampling profiler has been saved, usually in `/data/user/0/com.appName/cache/*.cpuprofile`
 
@@ -88,8 +85,8 @@ npx react-native run-android
 
 To open the profile in Chrome DevTools:
 
-1. Open Chrome DevTools. 
-2. Select the **Performance** tab. 
+1. Open Chrome DevTools.
+2. Select the **Performance** tab.
 3. Right click and choose **Load profile...**
 
  <img src="/docs/assets/openChromeProfile.png" alt="Loading a performance profile on Chrome DevTools">
