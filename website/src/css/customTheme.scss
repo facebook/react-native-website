@@ -8,19 +8,26 @@
   --subtle: #7a7a7a;
   --divider: #ececec;
   --tintColor: #f7f7f7;
+  --rn-note-background: rgba(255, 229, 100, 0.3);
+  --ifm-container-width: auto;
   --ifm-font-size-base: 17px;
   --ifm-spacing-horizontal: 16px;
   --ifm-navbar-item-padding-horizontal: 20px;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
-  --ifm-code-font-size: 85%;
+  --ifm-code-font-size: 80%;
   --ifm-blockquote-color: var(--ifm-font-color-base);
+  --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
   --ifm-navbar-background-color: var(--deepdark);
   --ifm-transition-fast: 0;
   --ifm-transition-slow: 0;
   --ifm-pre-line-height: 1.5;
   --ifm-tabs-padding-vertical: 6px;
+  --ifm-color-warning: #ffe564;
+  --ifm-alert-border-width: 0;
+  --ifm-alert-border-radius: 0;
+  --ifm-alert-color: var(--ifm-font-color-base);
 }
 
 html[data-theme="light"] {
@@ -63,8 +70,8 @@ html[data-theme="dark"] {
 
 .markdown {
   blockquote {
-    background-color: rgba(255, 229, 100, 0.3);
-    border-left: 8px solid #ffe564;
+    background-color: var(--rn-note-background);
+    border-left: 8px solid var(--ifm-color-warning);
     padding: 15px 30px 15px 15px;
 
     code {
@@ -113,7 +120,6 @@ html[data-theme="dark"] {
     }
 
     tr th {
-      color: var(--subtle);
       text-transform: uppercase;
       padding: 6px 10px;
       font-size: 12px;
@@ -134,10 +140,6 @@ html[data-theme="dark"] {
 
   .docusaurus-highlight-code-line {
     background-color: var(--light);
-  }
-
-  div[class^="codeBlockLines"] {
-    font-size: 94%;
   }
 
   div[class^="codeBlockTitle"] {
@@ -185,7 +187,7 @@ html[data-theme="dark"] {
     }
 
     table thead tr {
-      background-color: var(--deepdark);
+      background-color: var(--ifm-menu-color-background-active);
     }
 
     div[class^="codeBlockTitle"] {
@@ -214,6 +216,16 @@ html[data-theme="dark"] article .badge {
   background: var(--deepdark);
   border-color: var(--deepdark);
   color: var(--ifm-font-color-base);
+}
+
+.alert--warning {
+  background-color: var(--rn-note-background);
+  font-size: 14px;
+  text-align: center;
+
+  .margin-top--md {
+    margin-top: 0.5rem !important;
+  }
 }
 
 /* Navbar */
