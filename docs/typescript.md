@@ -3,11 +3,15 @@ id: typescript
 title: Using TypeScript
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import { packageManagers } from '../website/core/TabsConstants';
+
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 
 ## Getting Started with TypeScript
 
-If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
+If you're starting a new project, there are a few different ways to get started.
+
+You can use the [TypeScript template][ts-template]:
 
 ```shell
 npx react-native init MyApp --template react-native-template-typescript
@@ -21,27 +25,66 @@ npx react-native init MyApp --template react-native-template-typescript
 
 You can use [Expo][expo] which has two TypeScript templates:
 
+<Tabs groupId="package-manager" defaultValue="npm" values={packageManagers}>
+<TabItem value="npm">
+
 ```shell
 npm install -g expo-cli
 expo init MyTSProject
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn global add expo-cli
+expo init MyTSProject
+```
+
+</TabItem>
+</Tabs>
+
 Or you could use [Ignite][ignite], which also has a TypeScript template:
+
+<Tabs groupId="package-manager" defaultValue="npm" values={packageManagers}>
+<TabItem value="npm">
 
 ```shell
 npm install -g ignite-cli
 ignite new MyTSProject
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn global add ignite-cli
+ignite new MyTSProject
+```
+
+</TabItem>
+</Tabs>
+
 ## Adding TypeScript to an Existing Project
 
 1. Add TypeScript and the types for React Native and Jest to your project.
 
+<Tabs groupId="package-manager" defaultValue="npm" values={packageManagers}>
+<TabItem value="npm">
+
 ```shell
-yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
-# or for npm
-npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+npm install -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add -d typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+```
+
+</TabItem>
+</Tabs>
 
 2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
 
@@ -91,8 +134,7 @@ Out of the box, transforming your files to JavaScript works via the same [Babel 
 
 You can provide an interface for a React Component's [Props][props] and [State][state] via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
 
-```tsx
-// components/Hello.tsx
+```tsx title="components/Hello.tsx"
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 
@@ -119,7 +161,6 @@ const Hello: React.FC<Props> = (props) => {
         Hello{' '}
         {props.name + getExclamationMarks(enthusiasmLevel || 0)}
       </Text>
-
       <View style={styles.buttons}>
         <View style={styles.button}>
           <Button
@@ -129,7 +170,6 @@ const Hello: React.FC<Props> = (props) => {
             color="red"
           />
         </View>
-
         <View style={styles.button}>
           <Button
             title="+"
@@ -143,7 +183,6 @@ const Hello: React.FC<Props> = (props) => {
   );
 };
 
-// styles
 const styles = StyleSheet.create({
   root: {
     alignItems: 'center',
@@ -183,7 +222,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 1. Edit your `tsconfig.json` to have your [custom path mappings][path-map]. Set anything in the root of `src` to be available with no preceding path reference, and allow any test file to be accessed by using `tests/File.tsx`:
 
-```diff
+```diff {2-7}
     "target": "esnext",
 +     "baseUrl": ".",
 +     "paths": {
@@ -196,15 +235,26 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
 
 2. Configure the Babel side done by adding a new dependency, [`babel-plugin-module-resolver`][bpmr]:
 
+<Tabs groupId="package-manager" defaultValue="npm" values={packageManagers}>
+<TabItem value="npm">
+
 ```shell
-yarn add --dev babel-plugin-module-resolver
-# or
 npm install --save-dev babel-plugin-module-resolver
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add --dev babel-plugin-module-resolver
+```
+
+</TabItem>
+</Tabs>
+
 3. Finally, configure your `babel.config.js` (note that the syntax for your `babel.config.js` is different from your `tsconfig.json`):
 
-```diff
+```diff {3-13}
 {
   plugins: [
 +    [
