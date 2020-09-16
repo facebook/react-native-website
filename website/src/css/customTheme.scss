@@ -145,6 +145,7 @@ html[data-theme="dark"] {
       font-weight: normal;
       font-size: 15px;
       color: var(--ifm-font-color-base);
+      user-select: none;
 
       &:hover {
         border-radius: var(--ifm-global-radius) var(--ifm-global-radius) 0 0;
@@ -371,7 +372,7 @@ div[class^="tableOfContents"] {
 /* Metadata */
 
 article + .margin-vert--xl {
-  margin-top: 40px !important;
+  margin-top: 56px !important;
   margin-bottom: 16px !important;
 }
 
