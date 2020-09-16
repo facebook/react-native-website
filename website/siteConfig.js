@@ -95,7 +95,6 @@ const siteConfig = {
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
     baseUrl + 'js/docs-rating.js',
-    baseUrl + 'js/announcement.js',
   ],
   cleanUrl: true,
   scrollToTop: true,
