@@ -1,5 +1,11 @@
-const isMacOS = navigator.platform.startsWith('Mac');
-const isWindows = navigator.platform.startsWith('Win');
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
+
+const isMacOS = ExecutionEnvironment.canUseDOM
+  ? navigator.platform.startsWith('Mac')
+  : false;
+const isWindows = ExecutionEnvironment.canUseDOM
+  ? navigator.platform.startsWith('Win')
+  : false;
 
 const syntax = [
   {label: 'Function Component', value: 'functional'},
