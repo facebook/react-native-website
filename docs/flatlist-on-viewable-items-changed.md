@@ -3,7 +3,7 @@ id: flatlist-on-viewable-item-changed
 title: What's in view with FlatList using `onViewableItemsChanged`
 ---
 
-You might want to access just the items in a [`FlatList`](flatlist) that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds.
+You might want to access the items in a [`FlatList`](flatlist) that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds.
 
 In iOS, you could use [`visibleCells`](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
 
@@ -252,7 +252,7 @@ export default App;
 
 ```
 
-Supposed you have to do different things for items with 60% viewable region and those with 75% viewable region. You can use [`viewabilityConfigCallbackPairs`](flatlist#viewabilityconfigcallbackpairs), which is a list of `ViewabilityConfig`/`onViewableItemsChanged` pairs. Just as the following code, `on60ViewableItemsChanged` will be called when some items are at least 60% viewable for more than 600 milliseconds. In the meanwhile, `on75ViewableItemsChanged` will be called when some items are at least 75% viewable for more than 700 milliseconds.
+Supposed you have to do different things for items with 60% viewable region and those with 75% viewable region. You can use [`viewabilityConfigCallbackPairs`](flatlist#viewabilityconfigcallbackpairs), which is a list of `ViewabilityConfig`/`onViewableItemsChanged` pairs. In the following code, `on60ViewableItemsChanged` will be called when some items are at least 60% viewable for more than 600 milliseconds. In the meanwhile, `on75ViewableItemsChanged` will be called when some items are at least 75% viewable for more than 700 milliseconds.
 
 ```js
 viewabilityConfigCallbackPairs = [
