@@ -3,73 +3,277 @@ id: flatlist-on-viewable-item-changed
 title: What's in view with FlatList using `onViewableItemsChanged`
 ---
 
-You might want to access just the items in a `[FlatList](flatlist)` that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds. 
+You might want to access just the items in a [`FlatList`](flatlist) that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds.
 
-In iOS, you could use `[visibleCells](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells)` in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
+In iOS, you could use [`visibleCells`](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
 
 ## What is `onViewableItemsChanged`
 
-`onViewableItemsChanged` is a prop accessible to both [VirtualizedList](virtualizedlist#onviewableitemschanged) and [FlatList](flatlist#onviewableitemschanged) components. When you scroll one of these lists, only a few list items can be seen on screen at any time. These visible items are the `viewableItems`. When the `onViewableItemsChanged` function is called, it returns with an array of the currently visible items, `viewableItems`, and an array of the items that are no longer visible, `changed` items. 
+`onViewableItemsChanged` is a prop accessible to both [VirtualizedList](virtualizedlist#onviewableitemschanged) and [FlatList](flatlist#onviewableitemschanged) components. When you scroll one of these lists, only a few list items can be seen on screen at any time. These visible items are the `viewableItems`. When the `onViewableItemsChanged` function is called, it returns with an array of the currently visible items, `viewableItems`, and an array of the items that are no longer visible, `changed` items.
 
-This function should be used together with `[ViewabilityConfig](flatlist#viewabilityconfig)`. A specific `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
+## How to use it
 
-## Examples
+<div class="toggler">
+  <ul role="tablist" class="toggle-syntax">
+    <li id="single" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
+      onViewableItemsChanged Example
+    </li>
+    <li id="pair" class="button-classical" aria-selected="false" role="tab" tabindex="1" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
+      viewabilityConfigCallbackPairs Example    </li>
+  </ul>
+</div>
 
-```javascript
+<block class="functional syntax" />
+
+```SnackPlayer name=onViewableItemsChanged
+import React from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const App = () => {
   viewabilityConfig = {
     waitForInteraction: true,
-    // At least one of the viewAreaCoveragePercentThreshold or itemVisiblePercentThreshold is required.
-    viewAreaCoveragePercentThreshold: 95,
-    itemVisiblePercentThreshold: 75
-  }
+    itemVisiblePercentThreshold: 75,
+    minimumViewTime: 800,
+  };
 
   onViewableItemsChanged = ({viewableItems, changed}) => {
     console.log("Visible items are", viewableItems);
     console.log("Changed in this iteration", changed);
   };
 
-  render() {
-    return (
-      <FlatList
-        viewabilityConfig={this.viewabilityConfig}
-        onViewableItemsChanged={this.onViewableItemsChanged}
-        data={this._items}
-        renderItem={this._renderItem}
-        keyExtractor={item => item.id}
-      />
-    )
-  }
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+    <FlatList
+      viewabilityConfig={viewabilityConfig}
+      onViewableItemsChanged={onViewableItemsChanged}
+      data={DATA}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+    />
+    </SafeAreaView>
+  );
+};
+
+const DATA = [
+  {
+    id: 'bd7acbea',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f',
+    title: 'Third Item',
+  },
+   {
+    id: 'c60548d3',
+    title: 'Forth Item',
+  },
+  {
+    id: '3ad53abb',
+    title: 'Fifth Item',
+  },
+  {
+    id: '145571e2',
+    title: 'Sixth Item',
+  },
+  {
+    id: '565571e2',
+    title: 'Seventh Item',
+  },
+];
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 25,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default App;
 ```
 
-Besides, supposed you have to implement different logic for items with 60% viewable region and those with 75% viewable region. You can use `viewabilityConfigCallbackPairs`, which contains an list of key/value objects, which define different `viewability` configurations and `onViewableItemsChanged` callbacks.
+`onViewableItemsChanged` should be used together with [`ViewabilityConfig`](flatlist#viewabilityconfig). `ViewabilityConfig` is the configuration for you to custom when the `onViewableItemsChanged` is called. A `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
 
-```javascript
-<FlatList
-  data={this._items}
-  renderItem={this._renderItem}
-  keyExtractor={(item) => item.id}
-  viewabilityConfigCallbackPairs={
-    this._viewabilityConfigCallbackPairs
-  }
-/>;
+```jsx
+ <FlatList
+      viewabilityConfig={viewabilityConfig}
+      onViewableItemsChanged={onViewableItemsChanged}
+      {...}
+  />
+```
 
-this._viewabilityConfigCallbackPairs = [
+```js
+viewabilityConfig = {
+  waitForInteraction: true,
+  itemVisiblePercentThreshold: 75,
+  minimumViewTime: 800
+};
+```
+
+Here [waitForInteractions](flatlist#waitforinteraction) is true, if the user hasn't scrolled or recordInteraction hasn't called, the viewable items aren't be calculated.
+
+```
+  waitForInteraction: true,
+```
+
+Here, [`minimumViewTime`](flatlist#minimumviewtime) is 800, and [`itemVisiblePercentThreshold`](flatlist#itemvisiblepercentthreshold) is 75. This config means the item is marked as visible only if at least 75% of it is physically viewable for more than 800 milliseconds.
+
+```
+  itemVisiblePercentThreshold: 75,
+  minimumViewTime: 800,
+```
+
+<block class="classical syntax" />
+
+```SnackPlayer name=viewabilityConfigCallbackPairs
+import React from 'react';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
+
+const App = () => {
+  on60ViewableItemsChanged = ({viewableItems, changed}) => {
+    console.log("60% partially Visible items are", viewableItems);
+    console.log("Changed in this iteration", changed);
+  };
+
+  on75ViewableItemsChanged = ({viewableItems, changed}) => {
+    console.log("75% partially Visible items are", viewableItems);
+    console.log("Changed in this iteration", changed);
+  };
+
+  viewabilityConfigCallbackPairs = [
   {
     viewabilityConfig: {
       minimumViewTime: 600,
       itemVisiblePercentThreshold: 60
     },
-    onViewableItemsChanged: this.handleItemsPartiallyVisible60
+    onViewableItemsChanged: on60ViewableItemsChanged
   },
   {
     viewabilityConfig: {
       minimumViewTime: 700,
       itemVisiblePercentThreshold: 75
     },
-    onViewableItemsChanged: this.handleItemsPartiallyVisible75
+    onViewableItemsChanged: on75ViewableItemsChanged
+  }
+  ];
+
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
+  return (
+    <SafeAreaView style={styles.container}>
+    <FlatList
+      viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs}
+      data={DATA}
+      renderItem={renderItem}
+      keyExtractor={item => item.id}
+    />
+    </SafeAreaView>
+  );
+};
+
+const DATA = [
+  {
+    id: 'bd7acbea',
+    title: 'First Item',
+  },
+  {
+    id: '3ac68afc',
+    title: 'Second Item',
+  },
+  {
+    id: '58694a0f',
+    title: 'Third Item',
+  },
+   {
+    id: 'c60548d3',
+    title: 'Forth Item',
+  },
+  {
+    id: '3ad53abb',
+    title: 'Fifth Item',
+  },
+  {
+    id: '145571e2',
+    title: 'Sixth Item',
+  },
+  {
+    id: '565571e2',
+    title: 'Seventh Item',
+  },
+];
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    backgroundColor: '#f9c2ff',
+    padding: 25,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
+
+export default App;
+
+```
+
+Supposed you have to do different things for items with 60% viewable region and those with 75% viewable region. You can use [`viewabilityConfigCallbackPairs`](flatlist#viewabilityconfigcallbackpairs), which is a list of `ViewabilityConfig`/`onViewableItemsChanged` pairs. Just as the following code, `on60ViewableItemsChanged` will be called when some items are at least 60% viewable for more than 600 milliseconds. In the meanwhile, `on75ViewableItemsChanged` will be called when some items are at least 75% viewable for more than 700 milliseconds.
+
+```js
+viewabilityConfigCallbackPairs = [
+  {
+    viewabilityConfig: {
+      minimumViewTime: 600,
+      itemVisiblePercentThreshold: 60
+    },
+    onViewableItemsChanged: on60ViewableItemsChanged
+  },
+  {
+    viewabilityConfig: {
+      minimumViewTime: 700,
+      itemVisiblePercentThreshold: 75
+    },
+    onViewableItemsChanged: on75ViewableItemsChanged
   }
 ];
 ```
+
+<block class="endBlock syntax" />
 
 ## How does `onViewableItemsChanged` works
 
@@ -101,9 +305,7 @@ this._scrollMetrics = {
 
 <img src="/docs/assets/fvc-layout.png" width="640"/>
 
-If it is a vertical `VirtualizedList`, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`, the height of viewable region. 
-
-> In a vertical `VirtualizedList`, the `layout.layoutMeasurement.height` is equal to `viewportHeight`.
+If it is a vertical `VirtualizedList`, the `layout.layoutMeasurement.height` in the `nativeEvent` is assigned to `visibleLength`, the height of viewable region.
 
 ### Overview
 
@@ -344,7 +546,7 @@ if (this._config.minimumViewTime) {
 }
 ```
 
-If some items aren't longer viewable after a few seconds, ${minimumViewTime}, the [\_onUpdateSync](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L267) func filters out these indices that have gone out of viewport.
+If some items aren't longer viewable after a few seconds, \${minimumViewTime}, the [\_onUpdateSync](https://github.com/facebook/react-native/blob/84adc85523770ebfee749a020920e0b216cf69f8/Libraries/Lists/ViewabilityHelper.js#L267) func filters out these indices that have gone out of viewport.
 
 ```js
 // Filter out indices that have gone out of view after `minimumViewTime`

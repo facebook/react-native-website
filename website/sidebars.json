@@ -7,10 +7,10 @@
       "handling-text-input",
       "using-a-scrollview",
       "using-a-listview",
+      "flatlist-on-viewable-item-changed",
       "troubleshooting",
       "platform-specific-code",
-      "more-resources",
-      "flatlist-on-viewable-item-changed"
+      "more-resources"
     ],
     "Environment setup": [
       "environment-setup",
