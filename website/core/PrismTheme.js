@@ -38,7 +38,7 @@ var theme = {
       },
     },
     {
-      types: ['selector', 'char', 'builtin', 'url', 'inserted'],
+      types: ['selector', 'char', 'builtin', 'url'],
       style: {
         color: '#2aa198' /* cyan */,
       },
@@ -50,7 +50,7 @@ var theme = {
       },
     },
     {
-      types: ['atrule'],
+      types: ['atrule', 'inserted'],
       style: {
         color: '#859900' /* yellow */,
       },
