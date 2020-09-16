@@ -3,24 +3,16 @@ id: environment-setup
 title: Setting up the development environment
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 This page will help you install and build your first React Native app.
 
-<strong>If you are new to mobile development</strong>, the easiest way to get started is with Expo CLI. Expo is a set of tools built around React Native and, while it has many [features](https://expo.io/features), the most relevant feature for us right now is that it can get you writing a React Native app within minutes. You will only need a recent version of Node.js and a phone or emulator. If you'd like to try out React Native directly in your web browser before installing any tools, you can try out [Snack](https://snack.expo.io/).
+**If you are new to mobile development**, the easiest way to get started is with Expo CLI. Expo is a set of tools built around React Native and, while it has many [features](https://expo.io/features), the most relevant feature for us right now is that it can get you writing a React Native app within minutes. You will only need a recent version of Node.js and a phone or emulator. If you'd like to try out React Native directly in your web browser before installing any tools, you can try out [Snack](https://snack.expo.io/).
 
-<strong>If you are already familiar with mobile development</strong>, you may want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
+**If you are already familiar with mobile development**, you may want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
-<div className="toggler">
-  <ul role="tablist" id="toggle-guide">
-    <li id="quickstart" className="button-quickstart" aria-selected="false" role="tab" tabIndex={0} aria-controls="quickstarttab" onClick="displayTab('guide', 'quickstart')">
-      Expo CLI Quickstart
-    </li>
-    <li id="native" className="button-native" aria-selected="false" role="tab" tabIndex={0} aria-controls="nativetab" onClick="displayTab('guide', 'native')">
-      React Native CLI Quickstart
-    </li>
-  </ul>
-</div>
-
-<block className="quickstart mac windows linux ios android" />
+<Tabs groupId="guide" defaultValue={constants.defaultGuide} values={constants.guides}>
+<TabItem value="quickstart">
 
 Assuming that you have [Node 12 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
@@ -82,28 +74,71 @@ Expo CLI configures your project to use the most recent React Native version tha
 
 If you're integrating React Native into an existing project, you'll want to skip Expo CLI and go directly to setting up the native build environment. Select "React Native CLI Quickstart" above for instructions on configuring a native build environment for React Native.
 
-<block className="native mac windows linux ios android" />
+</TabItem>
+<TabItem value="native">
 
 <p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
 
-<div className="toggler">
-  <span>Development OS:</span>
-  <span role="tablist" id="toggle-os">
-    <button role="tab" className="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
-    <button role="tab" className="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
-    <button role="tab" className="button-linux" onclick="displayTab('os', 'linux')">Linux</button>
-  </span>
-</div>
+<h4>Development OS</h4>
 
-<div className="toggler">
-  <span>Target OS:</span>
-  <span role="tablist" id="toggle-platform">
-    <button role="tab" className="button-ios" onclick="displayTab('platform', 'ios')">iOS</button>
-    <button role="tab" className="button-android" onclick="displayTab('platform', 'android')">Android</button>
-  </span>
-</div>
+<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses}>
+<TabItem value="macos">
+
+<h4>Target OS</h4>
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<TabItem value="android">
+
+> macOS, Android
+
+</TabItem>
+<TabItem value="ios">
+
+> macOS, iOS
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="windows">
+
+<h4>Target OS</h4>
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<TabItem value="android">
+
+> Windows, Android
+
+</TabItem>
+<TabItem value="ios">
+
+> Windows, iOS
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="linux">
+
+<h4>Target OS</h4>
+
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<TabItem value="android">
+
+> Linux, Android
+
+</TabItem>
+<TabItem value="ios">
+
+> Linux, iOS
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
 
 <block className="native linux windows ios" />
 
@@ -612,3 +647,6 @@ If you're curious to learn more about React Native, check out the [Introduction 
 - If you want to add this new React Native code to an existing application, check out the [Integration guide](integration-with-existing-apps.md).
 
 If you're curious to learn more about React Native, check out the [Introduction to React Native](getting-started).
+
+</TabItem>
+</Tabs>
