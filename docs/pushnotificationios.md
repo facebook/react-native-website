@@ -69,11 +69,6 @@ And then in your AppDelegate implementation add the following:
  {
   [RCTPushNotificationManager didFailToRegisterForRemoteNotificationsWithError:error];
  }
- // Required for the localNotification event.
- - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
- {
-  [RCTPushNotificationManager didReceiveLocalNotification:notification];
- }
 ```
 
 To show notifications while being in the foreground (available starting from iOS 10) add the following lines:
