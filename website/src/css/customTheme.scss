@@ -55,6 +55,7 @@ html[data-theme="dark"] {
   max-width: 1400px;
   width: 1400px;
   align-self: center;
+  overflow-x: hidden;
 }
 
 @media (max-width: 1416px) {
@@ -419,6 +420,7 @@ article + .margin-vert--xl {
 }
 
 /* Pagination */
+
 .pagination-nav {
   .pagination-nav__label {
     font-weight: 500;
