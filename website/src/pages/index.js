@@ -9,14 +9,14 @@ const textContent = {
   intro: `
 React Native combines the best parts of native development with React,
 a best-in-class JavaScript library for building user interfaces.
-
+<br/><br/>
 <strong>Use a little—or a lot</strong>. You can use React Native today in your existing
 Android and iOS projects or you can create a whole new app from scratch.
   `,
   nativeCode: `
 React primitives render to native platform UI, meaning your app uses the
 same native platform APIs other apps do.
-
+<br/><br/>
 <strong>Many platforms</strong>, one React. Create platform-specific versions of components
 so a single codebase can share code across platforms. With React Native,
 one team can maintain two platforms and share a common technology—React.
@@ -68,7 +68,7 @@ Save, see, repeat.
   `,
   talks: `
 Members of the React Native team frequently speak at various conferences.
-
+<br/><br/>
 You can follow the latest news from the React Native team on Twitter
   `,
 };
@@ -488,7 +488,7 @@ function GetStarted() {
 }
 
 const Index = () => (
-  <Layout permalink={'/'}>
+  <Layout>
     {/*<script src={useBaseUrl('js/dissectionAnimation.js')} />*/}
     {/*<script src={useBaseUrl('js/headerAnimation.js')} />*/}
     <HeaderHero />
