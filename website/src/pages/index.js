@@ -1,6 +1,8 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
+import Head from '@docusaurus/Head';
+import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -489,8 +491,12 @@ function GetStarted() {
 
 const Index = () => (
   <Layout>
-    {/*<script src={useBaseUrl('js/dissectionAnimation.js')} />*/}
-    {/*<script src={useBaseUrl('js/headerAnimation.js')} />*/}
+    {ExecutionEnvironment.canUseDOM ? (
+      <Head>
+        <script src={useBaseUrl('js/dissectionAnimation.js')} />
+        <script src={useBaseUrl('js/headerAnimation.js')} />
+      </Head>
+    ) : null}
     <HeaderHero />
     <NativeApps />
     <NativeCode />
