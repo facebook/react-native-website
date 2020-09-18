@@ -334,7 +334,6 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          homePageId: 'getting-started',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           editUrl:
@@ -346,7 +345,10 @@ module.exports = {
           path: 'blog',
         },
         theme: {
-          customCss: require.resolve('./src/css/customTheme.scss'),
+          customCss: [
+            require.resolve('./src/css/customTheme.scss'),
+            require.resolve('./src/css/index.scss'),
+          ],
         },
       },
     ],
