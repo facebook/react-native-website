@@ -118,7 +118,7 @@ $ npx react-native run-android --variant=release
 + universalApk true  // 额外生成一个适用不同CPU架构的通用APK
 ```
 
-### Enabling Proguard to reduce the size of the APK (optional)
+### 启用Proguard来减少apk的大小（可选）
 
 Proguard 是一个 Java 字节码混淆压缩工具，它可以移除掉 React Native Java（和它的依赖库中）中没有被使用到的部分，最终有效的减少 APK 的大小。
 
