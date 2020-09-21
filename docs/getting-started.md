@@ -133,6 +133,14 @@ You will need Node, the React Native command line interface, a JDK, and Android 
 
 <block class="native windows android" />
 
+<h2> Intalling React Native Cli</h2>
+
+We recommend intalling Ract Native Cli
+
+```sh
+sudo npm install -g react-native-cli
+```
+
 <h2>Installing dependencies</h2>
 
 You will need Node, the React Native command line interface, latest version of Python, a JDK, and Android Studio.
@@ -478,7 +486,7 @@ Click "Next" then "Finish" to create your AVD. At this point you should be able 
 
 <h3>Step 1: Start Metro</h3>
 
-First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its dependencies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
+First, you will need to start Metro, the JavaScript bundler that ships with React Native. Metro "takes in an entry file and various options, and returns a single JavaScript file that includes all your code and its ncies."—[Metro Docs](https://facebook.github.io/metro/docs/concepts)
 
 To start Metro, run `npx react-native start` inside your React Native project folder:
 
