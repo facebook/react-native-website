@@ -206,6 +206,9 @@
       "linking": {
         "title": "Linking"
       },
+      "accessibility-guide": {
+        "title": "Making Accessible React Native Components"
+      },
       "modal": {
         "title": "Modal"
       },
@@ -4024,6 +4027,9 @@
       },
       "version-0.63/version-0.63-linking": {
         "title": "Linking"
+      },
+      "version-0.63/version-0.63-accessibility-guide": {
+        "title": "Making Accessible React Native Components"
       },
       "version-0.63/version-0.63-modal": {
         "title": "Modal"
