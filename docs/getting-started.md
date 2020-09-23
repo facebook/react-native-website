@@ -174,6 +174,8 @@ If you have already installed JDK on your system, make sure it is JDK 8 or newer
 
 Follow the [installation instructions for your Linux distribution](https://nodejs.org/en/download/package-manager/) to install Node 10 or newer.
 
+The node binary may not be executed if it does NOT exist in /usr/bin. (for example, if installed on specified by PATH, such as nvm)
+
 <block class='native windows android' />
 
 <h3>Node, Python2, JDK</h3>
