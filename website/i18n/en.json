@@ -275,6 +275,9 @@
       "pressevent": {
         "title": "PressEvent Object Type"
       },
+      "profile-hermes": {
+        "title": "Profiling with Hermes"
+      },
       "profiling": {
         "title": "Profiling"
       },
