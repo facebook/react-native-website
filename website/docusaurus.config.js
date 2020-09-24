@@ -349,6 +349,7 @@ module.exports = {
           customCss: [
             require.resolve('./src/css/customTheme.scss'),
             require.resolve('./src/css/index.scss'),
+            require.resolve('./src/css/showcase.scss'),
           ],
         },
       },

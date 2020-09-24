@@ -32,12 +32,6 @@ var theme = {
       },
     },
     {
-      types: ['deleted'],
-      style: {
-        color: '#d33682' /* magenta */,
-      },
-    },
-    {
       types: ['selector', 'char', 'builtin', 'url'],
       style: {
         color: '#2aa198' /* cyan */,
@@ -56,7 +50,7 @@ var theme = {
       },
     },
     {
-      types: ['important', 'variable'],
+      types: ['important', 'variable', 'deleted'],
       style: {
         color: '#cb4b16' /* orange */,
       },
