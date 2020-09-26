@@ -14,6 +14,7 @@
   --ifm-navbar-item-padding-horizontal: 20px;
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
+  --ifm-toc-link-color: var(--ifm-color-emphasis-700);
   --ifm-code-font-size: 80%;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-table-head-color: var(--subtle);
@@ -55,7 +56,6 @@ html[data-theme="dark"] {
   max-width: 1400px;
   width: 1400px;
   align-self: center;
-  overflow-x: hidden;
 }
 
 @media (max-width: 1416px) {
@@ -229,6 +229,12 @@ html[data-theme="dark"] article .badge {
   }
 }
 
+div[class*="docItemCol"] {
+  > .alert--warning {
+    background-color: rgba(100, 215, 255, 0.3);
+  }
+}
+
 /* Navbar */
 
 .navbar--dark {
@@ -367,7 +373,7 @@ div[class^="tableOfContents"] {
   }
 
   .table-of-contents__link {
-    font-size: 13px;
+    font-size: 12px;
     display: block;
 
     code {
@@ -524,6 +530,42 @@ div[class^="announcementBarContent"] {
     line-height: 22px;
     padding: 6px 30px;
   }
+}
+
+/* Content banner */
+
+.content-banner {
+  background: #99d5e7;
+  padding: 1em 1.2em;
+  margin-bottom: 2em;
+  position: relative;
+  overflow: hidden;
+  width: calc(100% + 2em);
+  left: -1em;
+  color: var(--dark);
+}
+
+.content-banner p {
+  width: calc(75% - 2em);
+  margin: 0;
+}
+
+.content-banner-img {
+  width: 25%;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+.content-banner a:link,
+.content-banner a:visited,
+.content-banner a:hover,
+.content-banner a:active,
+.content-banner a:focus {
+  border-bottom-width: 2px;
+  background: none !important;
+  color: #134484 !important;
+  border-bottom-color: #134484 !important;
 }
 
 /* "Native Code Required" banner */
@@ -688,11 +730,10 @@ html[data-theme="dark"] .label {
   }
 
   &.ios {
-    background: #000;
-    color: var(--ifm-font-color-base);
+    background: #fff;
 
     &:before {
-      border-right-color: #000;
+      border-right-color: #fff;
     }
   }
 
@@ -762,4 +803,29 @@ div[class^="tableOfContents"] .label {
     border-width: 3px;
     background: #fa5035;
   }
+}
+
+/*
+  Mark pages as "new" using href attribute:
+  - to show badge in all versions use "PAGEID"
+  - to restrict badge only to the current/default version use "docs/PAGEID"
+  - to restrict badge only to the next version use "next/PAGEID"
+*/
+
+.menu__link[href*="dynamiccolorios"]:after,
+.menu__link[href*="platformcolor"]:after,
+.menu__link[href*="pressable"]:after {
+  content: "new";
+  display: inline-block;
+  position: relative;
+  top: 1px;
+  padding: 3px 6px;
+  border: 1px solid #86b300;
+  border-radius: 3px;
+  color: #86b300;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 10px;
+  height: 10px;
+  font-weight: 600;
 }

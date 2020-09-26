@@ -38,12 +38,21 @@ const oses = [
 ];
 const defaultOs = isMacOS ? 'macos' : isWindows ? 'windows' : 'linux';
 
+const getDevNotesTabs = (tabs = ['android', 'ios', 'web', 'windows']) =>
+  [
+    tabs.includes('android') ? {label: 'Android', value: 'android'} : undefined,
+    tabs.includes('ios') ? {label: 'iOS', value: 'ios'} : undefined,
+    tabs.includes('web') ? {label: 'Web', value: 'web'} : undefined,
+    tabs.includes('windows') ? {label: 'Windows', value: 'windows'} : undefined,
+  ].filter(Boolean);
+
 export default {
   defaultGuide,
   defaultOs,
   defaultPackageManager,
   defaultPlatform,
   defaultSyntax,
+  getDevNotesTabs,
   guides,
   oses,
   packageManagers,
