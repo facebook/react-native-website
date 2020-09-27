@@ -288,7 +288,7 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 
 Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `29.0.2` is selected.
 
-Next, to install the Android NDK expand the "NDK (Side by side)" entry, then make sure that `20.1.5948944` is selected.
+After that, to install the Android NDK expand the "NDK (Side by side)" entry, then make sure that `20.1.5948944` is selected.
 
 Finally, click "Apply" to download and install the Android SDK and NDK related build tools.
 
