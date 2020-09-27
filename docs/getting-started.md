@@ -265,7 +265,7 @@ Once setup has finalized and you're presented with the Welcome screen, proceed t
 
 <h4>2. Install the Android SDK and NDK</h4>
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 10 (Q)` SDK and `20.1.5948944`NDK in particular. Additional Android SDKs and NDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 10 (Q)` SDK and `20.1.5948944` NDK in particular. Additional Android SDKs and NDKs can be installed through the SDK Manager in Android Studio.
 
 To do that, open Android Studio, click on "Configure" button and select "SDK Manager".
 
