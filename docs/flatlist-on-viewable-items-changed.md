@@ -5,13 +5,15 @@ title: What's in view with FlatList using `onViewableItemsChanged`
 
 You might want to access the items in a [`FlatList`](flatlist) that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds.
 
-In iOS, you could use [`visibleCells`](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
+In Android, you can use [findFirstVisibleItemPosition](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager#findFirstVisibleItemPosition()) and [findLastVisibleItemPosition](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager#findLastVisibleItemPosition()) if your [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.LayoutManager) is using [LinearLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager) or [GridLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager). Besides, it provides [isViewPartiallyVisible](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager#isviewpartiallyvisible) to claim if a child view is partially or fully visible. In iOS, you could use [`visibleCells`](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
 
 ## What is `onViewableItemsChanged`
 
 `onViewableItemsChanged` is a prop accessible to both [VirtualizedList](virtualizedlist#onviewableitemschanged) and [FlatList](flatlist#onviewableitemschanged) components. When you scroll one of these lists, only a few list items can be seen on screen at any time. These visible items are the `viewableItems`. When the `onViewableItemsChanged` function is called, it returns with an array of the currently visible items, `viewableItems`, and an array of the items that are no longer visible, `changed` items.
 
 ## How to use it
+
+In this example, you will learn how to use `[onViewableItemsChanged](virtualizedlist#onviewableitemschanged)` and `[ViewabilityConfig](virtualizedlist#viewabilityconfig)` in FlatList.
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-`onViewableItemsChanged` should be used together with [`ViewabilityConfig`](flatlist#viewabilityconfig). `ViewabilityConfig` is the configuration for you to custom when the `onViewableItemsChanged` is called. A `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
+`onViewableItemsChanged` should be used together with [`ViewabilityConfig`](flatlist#viewabilityconfig). `ViewabilityConfig` is the configuration you customize when the `onViewableItemsChanged` is called. `onViewableItemsChanged` is called when its corresponding `ViewabilityConfig`'s conditions are met.
 
 ```jsx
  <FlatList
@@ -132,13 +134,13 @@ viewabilityConfig = {
 };
 ```
 
-Here [waitForInteractions](flatlist#waitforinteraction) is true, if the user hasn't scrolled or recordInteraction hasn't called, the viewable items aren't be calculated.
+In this snippet, [waitForInteractions](flatlist#waitforinteraction) is true. If `waitForInteractions` is set to true, only when the user scrolls or `recordInteraction` is called, `FlatList` will calculate the viewable items.
 
 ```
   waitForInteraction: true,
 ```
 
-Here, [`minimumViewTime`](flatlist#minimumviewtime) is 800, and [`itemVisiblePercentThreshold`](flatlist#itemvisiblepercentthreshold) is 75. This config means the item is marked as visible only if at least 75% of it is physically viewable for more than 800 milliseconds.
+Additionally, [`minimumViewTime`](flatlist#minimumviewtime) is set to 800, and [`itemVisiblePercentThreshold`](flatlist#itemvisiblepercentthreshold) is set to 75. This config means the item is marked as visible only if 75% or more of it is physically viewable for more than 800 milliseconds.
 
 ```
   itemVisiblePercentThreshold: 75,
@@ -275,7 +277,7 @@ viewabilityConfigCallbackPairs = [
 
 <block class="endBlock syntax" />
 
-## How does `onViewableItemsChanged` works
+## How `onViewableItemsChanged` works
 
 ### Viewable Region
 
