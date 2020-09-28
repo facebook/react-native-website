@@ -7,13 +7,13 @@ The guide for [Integration with Existing Apps](https://reactnative.dev/docs/inte
 
 ### 1. Add React Native to your app
 
-Follow the guide for [Integration with Existing Apps](https://reactnative.dev/docs/integration-with-existing-apps) until the Code integration section. Continue to follow Step 1. Create an index.android.js file and Step 2. Add your React Native code from this section.
+Follow the guide for [Integration with Existing Apps](https://reactnative.dev/docs/integration-with-existing-apps) until the Code integration section. Continue to follow Step 1. Create an `index.android.js` file and Step 2. Add your React Native code from this section.
 
 ### 2. Integrating your App with a React Native Fragment
 
-We now need to render our React Native component into a Fragment instead of a full screen React Native Activity. The component may be termed a "screen" or "fragment" and it will function in the same manner as an Android fragment, likely containing child components. These components can be placed in a `/fragments` folder and the child components used to compose the fragment can be placed in a `/components` folder.
+You can render your React Native component into a Fragment instead of a full screen React Native Activity. The component may be termed a "screen" or "fragment" and it will function in the same manner as an Android fragment, likely containing child components. These components can be placed in a `/fragments` folder and the child components used to compose the fragment can be placed in a `/components` folder.
 
-We need to implement ReactApplication in our main Application Java class. If you have created a new project from Android Studio with a default activity, you will need to create a new class e.g. MyReactApplication.java. If it is an existing class you can find this main class in your `AndroidManifest.xml` file. Under the `<application />` tag you should see a property `android:name=".MyReactApplication"`. The value provided is the class you want to add this implementation to and provide the required methods.
+You will need to implement the ReactApplication interface in your main Application Java class. If you have created a new project from Android Studio with a default activity, you will need to create a new class e.g. `MyReactApplication.java`. If it is an existing class you can find this main class in your `AndroidManifest.xml` file. Under the `<application />` tag you should see a property `android:name` e.g. `android:name=".MyReactApplication"`. This value is the class you want to implement and provide the required methods to.
 
 Ensure your main Application Java class implements ReactApplication:
 
@@ -69,11 +69,11 @@ Perform a "Sync Project files with Gradle" operation.
 
 ### Step 3. Add a FrameLayout for the React Native Fragment
 
-We will now add the React Native Fragment to an Activity. For a new project this will be MainActivity but it can be added to any Activity and more fragments can be added to additional Activities as you integrate more React Native components into your app.
+You will now add your React Native Fragment to an Activity. For a new project this Activity will be `MainActivity` but it could be any Activity and more fragments can be added to additional Activities as you integrate more React Native components into your app.
 
-First add the React Native Fragment to our Activity's layout. For example main_activity.xml in the `res/layouts` folder.
+First add the React Native Fragment to your Activity's layout. For example `main_activity.xml` in the `res/layouts` folder.
 
-Add a `<FrameLayout>` with an id, width and height. This is the layout we will find by id and render our React Native Fragment into.
+Add a `<FrameLayout>` with an id, width and height. This is the layout you will find and render your React Native Fragment into.
 
 ```xml
 <FrameLayout
@@ -84,9 +84,9 @@ Add a `<FrameLayout>` with an id, width and height. This is the layout we will f
 
 ### Step 4. Add a React Native Fragment to the FrameLayout
 
-To add your React Native Fragment to your layout we need to have an Activity. As mentioned in a new project this will be MainActivity. In this Activity we will add a button and an event listener, on button click we will render out React Native Fragment.
+To add your React Native Fragment to your layout you need to have an Activity. As mentioned in a new project this will be `MainActivity`. In this Activity add a button and an event listener. On button click you will render your React Native Fragment.
 
-First modify your Activity layout to add the button:
+Modify your Activity layout to add the button:
 
 ```xml
 <Button
@@ -97,15 +97,15 @@ First modify your Activity layout to add the button:
     android:text="Show react fragment" />
 ```
 
-Now back in our Activity class e.g. MainActivity.java we need to add an OnClickListener for the button, instantiate our ReactFragment and add the fragment to the frame layout.
+Now in your Activity class e.g. `MainActivity.java` you need to add an OnClickListener for the button, instantiate your ReactFragment and add it to the frame layout.
 
-Add to the top of our Activity the button field:
+Add the button field to the top of your Activity:
 
 ```java
 private Button mButton;
 ```
 
-Now update your Activity's onCreate method as follows:
+Update your Activity's onCreate method as follows:
 
 ```java
 @Override
@@ -131,11 +131,11 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-In the code above `Fragment reactNativeFragment = new ReactFragment.Builder()` creates our ReactFragment. and `getSupportFragmentManager().beginTransaction().add()` will add the Fragment to our Frame Layout
+In the code above `Fragment reactNativeFragment = new ReactFragment.Builder()` creates the ReactFragment and `getSupportFragmentManager().beginTransaction().add()` adds the Fragment to the Frame Layout.
 
-If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your index.js or index.android.js file (it’s the first argument to the AppRegistry.registerComponent() method).
+If you are using a starter kit for React Native, replace the "HelloWorld" string with the one in your `index.js` or `index.android.js` file (it’s the first argument to the AppRegistry.registerComponent() method).
 
-Add the `getLaunchOptions` method which will allow you to pass props through to your component. This is optional and your can remove `setLaunchOptions` if you don't need to pass any props.
+Add the `getLaunchOptions` method which will allow you to pass props through to your component. This is optional and you can remove `setLaunchOptions` if you don't need to pass any props.
 
 ```java
 private Bundle getLaunchOptions(String message) {
@@ -165,4 +165,4 @@ Make sure you run `yarn` to install your react-native dependencies and run `yarn
 
 ### Step 6. Additional setup - Native modules
 
-We may need to call out to existing Java code from our react component being used in the Fragment. Native modules will allow you to call to native code, allowing you to run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android.html#content)
+You may need to call out to existing Java code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android.html#content)
