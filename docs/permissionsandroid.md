@@ -159,6 +159,7 @@ Available as constants under `PermissionsAndroid.PERMISSIONS`:
 - `READ_CONTACTS`: 'android.permission.READ_CONTACTS'
 - `WRITE_CONTACTS`: 'android.permission.WRITE_CONTACTS'
 - `GET_ACCOUNTS`: 'android.permission.GET_ACCOUNTS'
+- `ACCESS_BACKGROUND_LOCATION`: 'android.permission.ACCESS_BACKGROUND_LOCATION`
 - `ACCESS_FINE_LOCATION`: 'android.permission.ACCESS_FINE_LOCATION'
 - `ACCESS_COARSE_LOCATION`: 'android.permission.ACCESS_COARSE_LOCATION'
 - `RECORD_AUDIO`: 'android.permission.RECORD_AUDIO'

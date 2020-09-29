@@ -32,9 +32,9 @@ If you used Expo CLI or Create React Native App to set up your project, you can 
 <div class="toggler">
   <span>Development OS:</span>
   <span role="tablist" id="toggle-os">
-    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</a>
-    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</a>
-    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</a>
+    <button role="tab" class="button-mac" onclick="displayTab('os', 'mac')">macOS</button>
+    <button role="tab" class="button-linux" onclick="displayTab('os', 'linux')">Linux</button>
+    <button role="tab" class="button-windows" onclick="displayTab('os', 'windows')">Windows</button>
   </span>
 </div>
 

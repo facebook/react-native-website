@@ -13,7 +13,11 @@ If you're starting a new project, there are a few different ways to get started.
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
-> **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
+> **Note:** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
+>
+> - `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
+>
+> and then run the `npx` command again.
 
 You can use [Expo][expo] which has two TypeScript templates:
 

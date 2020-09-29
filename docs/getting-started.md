@@ -53,7 +53,7 @@ Congratulations! You've successfully run and modified your first React Native ap
 
 <center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
-<h2>Now what?</h3>
+<h2>Now what?</h2>
 
 Expo also has [docs](https://docs.expo.io) you can reference if you have questions specific to the tool. You can also ask for help at [Expo forums](https://forums.expo.io).
 
@@ -135,7 +135,7 @@ You will need Node, the React Native command line interface, a JDK, and Android 
 
 <h2>Installing dependencies</h2>
 
-You will need Node, the React Native command line interface, Python2, a JDK, and Android Studio.
+You will need Node, the React Native command line interface, latest version of Python, a JDK, and Android Studio.
 
 <block class="native mac windows linux android" />
 
@@ -192,7 +192,7 @@ If you have already installed Node on your system, make sure it is Node 10 or ne
 
 > You can find additional installation options on [Node's Downloads page](https://nodejs.org/en/download/).
 
-> If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the lastest releases of Gradle](https://gradle.org/releases/).
+> If you're using the latest version of Java Development Kit, you'll need to change the Gradle version of your project so it can recognize the JDK. You can do that by going to `{project root folder}\android\gradle\wrapper\gradle-wrapper.properties` and changing the `distributionUrl` value to upgrade the Gradle version. You can check out [here the latest releases of Gradle](https://gradle.org/releases/).
 
 <block class="native mac ios" />
 
@@ -240,7 +240,7 @@ Setting up your development environment can be somewhat tedious if you're new to
 
 <h4>1. Install Android Studio</h4>
 
-[Download and install Android Studio](https://developer.android.com/studio/index.html). While on Android Studio intallation wizard, make sure the boxes next to all of the following items are checked:
+[Download and install Android Studio](https://developer.android.com/studio/index.html). While on Android Studio installation wizard, make sure the boxes next to all of the following items are checked:
 
 <block class="native mac windows android" />
 
@@ -263,9 +263,9 @@ Then, click "Next" to install all of these components.
 
 Once setup has finalized and you're presented with the Welcome screen, proceed to the next step.
 
-<h4>2. Install the Android SDK</h4>
+<h4>2. Install the Android SDK and NDK</h4>
 
-Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 10 (Q)` SDK in particular. Additional Android SDKs can be installed through the SDK Manager in Android Studio.
+Android Studio installs the latest Android SDK by default. Building a React Native app with native code, however, requires the `Android 10 (Q)` SDK and `20.1.5948944` NDK in particular. Additional Android SDKs and NDKs can be installed through the SDK Manager in Android Studio.
 
 To do that, open Android Studio, click on "Configure" button and select "SDK Manager".
 
@@ -288,7 +288,9 @@ Select the "SDK Platforms" tab from within the SDK Manager, then check the box n
 
 Next, select the "SDK Tools" tab and check the box next to "Show Package Details" here as well. Look for and expand the "Android SDK Build-Tools" entry, then make sure that `29.0.2` is selected.
 
-Finally, click "Apply" to download and install the Android SDK and related build tools.
+After that, to install the Android NDK expand the "NDK (Side by side)" entry, then make sure that `20.1.5948944` is selected.
+
+Finally, click "Apply" to download and install the Android SDK and NDK related build tools.
 
 <h4>3. Configure the ANDROID_HOME environment variable</h4>
 

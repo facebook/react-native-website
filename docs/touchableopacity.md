@@ -131,7 +131,11 @@ export default App;
 
 ## Props
 
+### [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props)
+
 Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
+---
 
 ### `style`
 
@@ -184,9 +188,9 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 TV next focus down (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -194,9 +198,9 @@ TV next focus down (see documentation for the View component).
 
 TV next focus forward (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -204,9 +208,9 @@ TV next focus forward (see documentation for the View component).
 
 TV next focus left (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -214,9 +218,9 @@ TV next focus left (see documentation for the View component).
 
 TV next focus right (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -224,9 +228,9 @@ TV next focus right (see documentation for the View component).
 
 TV next focus up (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ## Methods
 

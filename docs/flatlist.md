@@ -82,9 +82,9 @@ export default App;
 
 To render multiple columns, use the [`numColumns`](flatlist.md#numcolumns) prop. Using this approach instead of a `flexWrap` layout can prevent conflicts with the item height logic.
 
-More complex, multi-select example demonstrating `` usage for perf optimization and avoiding bugs.
+More complex, selectable example below.
 
-- By passing `extraData={selected}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
+- By passing `extraData={selectedId}` to `FlatList` we make sure `FlatList` itself will re-render when the state changes. Without setting this prop, `FlatList` would not know it needs to re-render any items because it is a `PureComponent` and the prop comparison will not show any changes.
 - `keyExtractor` tells the list to use the `id`s for the react keys instead of the default `key` property.
 
 ```SnackPlayer name=flatlist-selectable
@@ -170,7 +170,11 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 Inherits [ScrollView Props](scrollview.md#props), unless it is nested in another FlatList of same orientation.
+
+---
 
 ### `renderItem`
 
@@ -199,17 +203,25 @@ Example usage:
 
 ```jsx
 <FlatList
-  ItemSeparatorComponent={Platform.OS !== 'android' && (({highlighted}) => (
-    <View style={[style.separator, highlighted && {marginLeft: 0}]} />
-  ))}
-  data={[{title: 'Title Text', key: 'item1'}]}
-  renderItem={({item, index, separators}) => (
+  ItemSeparatorComponent={
+    Platform.OS !== 'android' &&
+    (({ highlighted }) => (
+      <View
+        style={[
+          style.separator,
+          highlighted && { marginLeft: 0 }
+        ]}
+      />
+    ))
+  }
+  data={[{ title: 'Title Text', key: 'item1' }]}
+  renderItem={({ item, index, separators }) => (
     <TouchableHighlight
       key={item.key}
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
       onHideUnderlay={separators.unhighlight}>
-      <View style={{backgroundColor: 'white'}}>
+      <View style={{ backgroundColor: 'white' }}>
         <Text>{item.title}</Text>
       </View>
     </TouchableHighlight>
@@ -435,18 +447,11 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 ### `onViewableItemsChanged`
 
-```jsx
-(info: {
-    viewableItems: array,
-    changed: array,
-  }) => void
-```
-
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------ |
+| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
 
 ---
 
@@ -494,7 +499,7 @@ This may improve scroll performance for large lists. On Android the default valu
 
 ### `viewabilityConfig`
 
-See `ViewabilityHelper.js` for flow type and further documentation.
+See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js) for flow type and further documentation.
 
 | Type              | Required |
 | ----------------- | -------- |

@@ -86,7 +86,11 @@ Some caveats:
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 Inherits [ScrollView Props](scrollview.md#props).
+
+---
 
 ### `renderItem`
 
@@ -319,18 +323,11 @@ Used to handle failures when scrolling to an index that has not been measured ye
 
 ### `onViewableItemsChanged`
 
-```jsx
-(info: {
-    viewableItems: array,
-    changed: array,
-  }) => void
-```
-
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------ |
+| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
 
 ---
 
@@ -346,7 +343,7 @@ Set this true while waiting for new data from a refresh.
 
 ### `refreshControl`
 
-A custom refresh control element. When set, it overrides the default <RefreshControl> component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
+A custom refresh control element. When set, it overrides the default `<RefreshControl>` component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
 
 | Type    | Required |
 | ------- | -------- |

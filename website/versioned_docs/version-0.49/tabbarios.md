@@ -4,24 +4,15 @@ title: TabBarIOS
 original_id: tabbarios
 ---
 
-### Props
-
-- [View props...](view.md#props)
-
-* [`barStyle`](tabbarios.md#barstyle)
-* [`barTintColor`](tabbarios.md#bartintcolor)
-* [`itemPositioning`](tabbarios.md#itempositioning)
-* [`style`](tabbarios.md#style)
-* [`tintColor`](tabbarios.md#tintcolor)
-* [`translucent`](tabbarios.md#translucent)
-* [`unselectedItemTintColor`](tabbarios.md#unselecteditemtintcolor)
-* [`unselectedTintColor`](tabbarios.md#unselectedtintcolor)
-
----
-
 # Reference
 
 ## Props
+
+### [View Props](view#props)
+
+Inherits [View Props](view#props).
+
+---
 
 ### `barStyle`
 

@@ -26,13 +26,13 @@ In the following example, the nested title and body text will inherit the `fontF
 import React, { useState } from "react";
 import { Text, StyleSheet } from "react-native";
 
-const onPressTitle = () => {
-  console.log("title pressed");
-};
-
 const TextInANest = () => {
-  const titleText = useState("Bird's Nest");
+  const [titleText, setTitleText] = useState("Bird's Nest");
   const bodyText = useState("This is not really a bird nest.");
+
+  const onPressTitle = () => {
+    setTitleText("Bird's Nest [pressed]");
+  };
 
   return (
     <Text style={styles.baseText}>
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
 });
 
 export default TextInANest;
-
 ```
 
 <block class="classical syntax" />
@@ -75,10 +74,17 @@ class TextInANest extends Component {
     };
   }
 
+  onPressTitle = () => {
+    this.setState({ titleText: "Bird's Nest [pressed]" });
+  };
+
   render() {
     return (
       <Text style={styles.baseText}>
-        <Text style={styles.titleText} onPress={this.onPressTitle}>
+        <Text
+          style={styles.titleText}
+          onPress={this.onPressTitle}
+        >
           {this.state.titleText}
           {"\n"}
           {"\n"}
@@ -256,9 +262,9 @@ We believe that this more constrained way to style text will yield better apps:
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -266,9 +272,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -276,27 +282,13 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 Tells the screen reader to treat the currently focused on element as having a specific role.
 
-Possible values for `AccessibilityRole` is one of:
-
-- `'none'` - The element has no role.
-- `'button'` - The element should be treated as a button.
-- `'link'` - The element should be treated as a link.
-- `'header'` - The element is a header that divides content into sections.
-- `'search'` - The element should be treated as a search field.
-- `'image'` - The element should be treated as an image.
-- `'key'` - The element should be treated like a keyboard key.
-- `'text'` - The element should be treated as text.
-- `'summary'` - The element provides app summary information.
-- `'imagebutton'` - The element has the role of both an image and also a button.
-- `'adjustable'` - The element allows adjustment over a range of values.
-
 On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
-| Type              | Required |
-| ----------------- | -------- |
-| AccessibilityRole | No       |
+| Type                                                 |
+| ---------------------------------------------------- |
+| [AccessibilityRole](accessibility#accessibilityrole) |
 
 ---
 
@@ -306,76 +298,73 @@ Tells the screen reader to treat the currently focused on element as being in a 
 
 You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: `{selected: true, disabled: true}`.
 
-Possible values for `AccessibilityState` are:
-
-- `'selected'` - The element is in a selected state.
-- `'disabled'` - The element is in a disabled state.
-
-| Type   | Required |
-| ------ | -------- |
-| object | No       |
+| Type                                                   |
+| ------------------------------------------------------ |
+| [AccessibilityState](accessibility#accessibilitystate) |
 
 ---
 
 ### `accessible`
 
-When set to `true`, indicates that the view is an accessibility element. The default value for a `Text` element is `true`.
+When set to `true`, indicates that the view is an accessibility element.
 
-See the [Accessibility guide](accessibility.md#accessible-ios-android) for more information.
+See the [Accessibility guide](accessibility#accessible-ios-android) for more information.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `true`  |
 
 ---
 
-### `adjustsFontSizeToFit`
+### `adjustsFontSizeToFit` <div class="label ios">iOS</div>
 
 Specifies whether fonts should be scaled down automatically to fit given style constraints.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
 ### `allowFontScaling`
 
-Specifies whether fonts should scale to respect Text Size accessibility settings. The default is `true`.
+Specifies whether fonts should scale to respect Text Size accessibility settings.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `true`  |
 
 ---
 
-### `dataDetectorType`
+### `android_hyphenationFrequency` <div class="label android">Android</div>
+
+Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+.
+
+| Type                                             | Default  |
+| ------------------------------------------------ | -------- |
+| enum(`'none'`, `'full'`, `'balanced'`, `'high'`) | `'none'` |
+
+---
+
+### `dataDetectorType` <div class="label android">Android</div>
 
 Determines the types of data converted to clickable URLs in the text element. By default no data types are detected.
 
 You can provide only one type.
 
-Possible values for `dataDetectorType` are:
-
-- `'phoneNumber'`
-- `'link'`
-- `'email'`
-- `'none'`
-- `'all'`
-
-| Type                                                | Required | Platform |
-| --------------------------------------------------- | -------- | -------- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android  |
+| Type                                                          | Default  |
+| ------------------------------------------------------------- | -------- |
+| enum(`'phoneNumber'`, `'link'`, `'email'`, `'none'`, `'all'`) | `'none'` |
 
 ---
 
-### `disabled`
+### `disabled` <div class="label android">Android</div>
 
-Specifies the disabled state of the text view for testing purposes
+Specifies the disabled state of the text view for testing purposes.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
@@ -390,11 +379,9 @@ This can be one of the following values:
 - `tail` - The line is displayed so that the beginning fits in the container and the missing text at the end of the line is indicated by an ellipsis glyph. e.g., "abcd..."
 - `clip` - Lines are not drawn past the edge of the text container.
 
-The default is `tail`.
-
-| Type                                   | Required |
-| -------------------------------------- | -------- |
-| enum('head', 'middle', 'tail', 'clip') | No       |
+| Type                                           | Default |
+| ---------------------------------------------- | ------- |
+| enum(`'head'`, `'middle'`, `'tail'`, `'clip'`) | `tail`  |
 
 ---
 
@@ -402,23 +389,23 @@ The default is `tail`.
 
 Specifies largest possible scale a font can reach when `allowFontScaling` is enabled. Possible values:
 
-- `null/undefined` (default): inherit from the parent node or the global default (0)
+- `null/undefined`: inherit from the parent node or the global default (0)
 - `0`: no max, ignore parent/global default
 - `>= 1`: sets the `maxFontSizeMultiplier` of this node to this value
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   | Default     |
+| ------ | ----------- |
+| number | `undefined` |
 
 ---
 
-### `minimumFontScale`
+### `minimumFontScale` <div class="label ios">iOS</div>
 
-Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is enabled. (values 0.01-1.0).
+Specifies smallest possible scale a font can reach when `adjustsFontSizeToFit` is enabled. (values 0.01-1.0).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -426,33 +413,31 @@ Specifies smallest possible scale a font can reach when adjustsFontSizeToFit is 
 
 Used to locate this view from native code.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
 ### `numberOfLines`
 
-Used to truncate the text with an ellipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number.
+Used to truncate the text with an ellipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number. Setting this property to `0` will result in unsetiing this value, which means that no lines restriction will be applied.
 
 This prop is commonly used with `ellipsizeMode`.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   | Default |
+| ------ | ------- |
+| number | `0`     |
 
 ---
 
 ### `onLayout`
 
-Invoked on mount and layout changes with
+Invoked on mount and on layout changes.
 
-`{nativeEvent: {layout: {x, y, width, height}}}`
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 |
+| ------------------------------------ |
+| ([LayoutEvent](layoutevent)) => void |
 
 ---
 
@@ -460,11 +445,9 @@ Invoked on mount and layout changes with
 
 This function is called on long press.
 
-e.g., `onLongPress={this.increaseSize}>`
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                               |
+| ---------------------------------- |
+| ([PressEvent](pressevent)) => void |
 
 ---
 
@@ -472,23 +455,19 @@ e.g., `onLongPress={this.increaseSize}>`
 
 Does this view want to "claim" touch responsiveness? This is called for every touch move on the `View` when it is not the responder.
 
-`View.props.onMoveShouldSetResponder: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                  |
+| ------------------------------------- |
+| ([PressEvent](pressevent)) => boolean |
 
 ---
 
 ### `onPress`
 
-This function is called on press. The first function argument is an event in form of [PressEvent](pressevent).
+This function is called on press.
 
-e.g., `onPress={() => console.log('1st')}`
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                               |
+| ---------------------------------- |
+| ([PressEvent](pressevent)) => void |
 
 ---
 
@@ -496,11 +475,9 @@ e.g., `onPress={() => console.log('1st')}`
 
 The View is now responding for touch events. This is the time to highlight and show the user what is happening.
 
-`View.props.onResponderGrant: (event) => {}`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                               |
+| ---------------------------------- |
+| ([PressEvent](pressevent)) => void |
 
 ---
 
@@ -508,11 +485,9 @@ The View is now responding for touch events. This is the time to highlight and s
 
 The user is moving their finger.
 
-`View.props.onResponderMove: (event) => {}`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                               |
+| ---------------------------------- |
+| ([PressEvent](pressevent)) => void |
 
 ---
 
@@ -520,11 +495,9 @@ The user is moving their finger.
 
 Fired at the end of the touch.
 
-`View.props.onResponderRelease: (event) => {}`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                               |
+| ---------------------------------- |
+| ([PressEvent](pressevent)) => void |
 
 ---
 
@@ -532,11 +505,9 @@ Fired at the end of the touch.
 
 The responder has been taken from the `View`. Might be taken by other views after a call to `onResponderTerminationRequest`, or might be taken by the OS without asking (e.g., happens with control center/ notification center on iOS)
 
-`View.props.onResponderTerminate: (event) => {}`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                               |
+| ---------------------------------- |
+| ([PressEvent](pressevent)) => void |
 
 ---
 
@@ -544,11 +515,9 @@ The responder has been taken from the `View`. Might be taken by other views afte
 
 Some other `View` wants to become responder and is asking this `View` to release its responder. Returning `true` allows its release.
 
-`View.props.onResponderTerminationRequest: (event) => {}`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                  |
+| ------------------------------------- |
+| ([PressEvent](pressevent)) => boolean |
 
 ---
 
@@ -556,24 +525,19 @@ Some other `View` wants to become responder and is asking this `View` to release
 
 If a parent `View` wants to prevent a child `View` from becoming responder on a touch start, it should have this handler which returns `true`.
 
-`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, where `event` is a [PressEvent](pressevent).
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                  |
+| ------------------------------------- |
+| ([PressEvent](pressevent)) => boolean |
 
 ---
 
 ### `onTextLayout`
 
-Invoked on Text layout
+Invoked on Text layout change.
 
-| Type                                        | Required |
-| ------------------------------------------- | -------- |
-| function: (event: TextLayoutEvent) => mixed | No       |
-
-- TextLayoutEvent - SyntheticEvent object that contains a key called `lines` with a value which is an array containing objects with the following properties
-  - { x: number, y: number, width: number, height: number, ascender: number, capHeight: number, descender: number, text: string, xHeight: number,}
+| Type                                                 |
+| ---------------------------------------------------- |
+| ([`TextLayoutEvent`](text#textlayoutevent)) => mixed |
 
 ---
 
@@ -581,9 +545,9 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| Type                   | Required |
-| ---------------------- | -------- |
-| [Rect](rect) or number | No       |
+| Type                 |
+| -------------------- |
+| [Rect](rect), number |
 
 ---
 
@@ -591,37 +555,37 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 Lets the user select text, to use the native copy and paste functionality.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
-### `selectionColor`
+### `selectionColor` <div class="label android">Android</div>
 
 The highlight color of the text.
 
-| Type               | Required | Platform |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | No       | Android  |
+| Type            |
+| --------------- |
+| [color](colors) |
 
 ---
 
 ### `style`
 
-| Type                                                                             | Required |
-| -------------------------------------------------------------------------------- | -------- |
-| [Text Style Props](text-style-props.md), [View Style Props](view-style-props.md) | No       |
+| Type                                                                       |
+| -------------------------------------------------------------------------- |
+| [Text Style Props](text-style-props), [View Style Props](view-style-props) |
 
 ---
 
-### `suppressHighlighting`
+### `suppressHighlighting` <div class="label ios">iOS</div>
 
 When `true`, no visual change is made when text is pressed down. By default, a gray oval highlights the text on press down.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
@@ -629,29 +593,77 @@ When `true`, no visual change is made when text is pressed down. By default, a g
 
 Used to locate this view in end-to-end tests.
 
-| Type   | Required |
-| ------ | -------- |
-| string | No       |
+| Type   |
+| ------ |
+| string |
 
 ---
 
-### `textBreakStrategy`
+### `textBreakStrategy` <div class="label android">Android</div>
 
-Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
+Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced`.
 
-| Type                                      | Required | Platform |
-| ----------------------------------------- | -------- | -------- |
-| enum('simple', 'highQuality', 'balanced') | No       | Android  |
+| Type                                            | Default       |
+| ----------------------------------------------- | ------------- |
+| enum(`'simple'`, `'highQuality'`, `'balanced'`) | `highQuality` |
 
----
+## Type Definitions
 
-### `android_hyphenationFrequency`
+### TextLayout
 
-Sets the frequency of automatic hyphenation to use when determining word breaks on Android API Level 23+, possible values are `none`, `full`, `balanced`, `high`, `normal`. The default value is `none`.
+`TextLayout` object is a part of [`TextLayoutEvent`](text#textlayoutevent) callback and contains the measurement data for `Text` line.
 
-| Type                                     | Required | Platform |
-| ---------------------------------------- | -------- | -------- |
-| enum('none', 'full', 'balanced', 'high') | No       | Android  |
+#### Example
+
+```js
+{
+    capHeight: 10.496,
+    ascender: 14.624,
+    descender: 4,
+    width: 28.224,
+    height: 18.624,
+    xHeight: 6.048,
+    x: 0,
+    y: 0
+}
+```
+
+#### Properties
+
+| Name      | Type   | Optional | Description                                                         |
+| --------- | ------ | -------- | ------------------------------------------------------------------- |
+| ascender  | number | No       | The line ascender height after the text layout changes.             |
+| capHeight | number | No       | Height of capital letter above the baseline.                        |
+| descender | number | No       | The line descender height after the text layout changes.            |
+| height    | number | No       | Height of the line after the text layout changes.                   |
+| width     | number | No       | Width of the line after the text layout changes.                    |
+| x         | number | No       | Line X coordinate inside the Text component.                        |
+| xHeight   | number | No       | Distance between the baseline and median of the line (corpus size). |
+| y         | number | No       | Line Y coordinate inside the Text component.                        |
+
+### TextLayoutEvent
+
+`TextLayoutEvent` object is returned in the callback as a result of component layout change. It contains a key called `lines` with a value which is an array containing [`TextLayout`](text#textlayout) object corresponeded to every rendered text line.
+
+#### Example
+
+```js
+{
+  lines: [
+    TextLayout,
+    TextLayout
+    // ...
+  ];
+  target: 1127;
+}
+```
+
+#### Properties
+
+| Name   | Type                                    | Optional | Description                                           |
+| ------ | --------------------------------------- | -------- | ----------------------------------------------------- |
+| lines  | array of [TextLayout](text#textlayout)s | No       | Provides the TextLayout data for every rendered line. |
+| target | number                                  | No       | The node id of the element.                           |
 
 # Known issues
 

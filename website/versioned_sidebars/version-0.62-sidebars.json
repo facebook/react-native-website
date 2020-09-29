@@ -83,7 +83,6 @@
       "version-0.62-keyboardavoidingview",
       "version-0.62-modal",
       "version-0.62-refreshcontrol",
-      "version-0.62-safeareaview",
       "version-0.62-scrollview",
       "version-0.62-sectionlist",
       "version-0.62-statusbar",
@@ -106,7 +105,7 @@
       {
         "type": "subcategory",
         "label": "iOS Components",
-        "ids": ["version-0.62-inputaccessoryview"]
+        "ids": ["version-0.62-inputaccessoryview", "version-0.62-safeareaview"]
       }
     ],
     "Props": [
