@@ -7,7 +7,7 @@ This repo contains the website configuration and documentation powering the [Rea
 - [Getting started](#%EF%B8%8F-getting-started)
 - [Overview](#-overview)
 - [Website configuration](#-website-configuration)
-- [Contributing](#-contributing)
+- [Contribution](#-contributing)
 - [License](#-license)
 
 ## ✈️ Getting started
@@ -102,7 +102,7 @@ The `pages` subdirectory contains the React components that make up the non-docu
 
 The `showcase.json` file contains the list of users that are highlighted in the React Native showcase.
 
-## 👏 Contributing
+## 👏 Contribution
 
 ### Create a branch
 
