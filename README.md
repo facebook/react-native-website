@@ -20,7 +20,7 @@ This repo contains the website configuration and documentation powering the [Rea
 1.  A fork of the repo _(for any contributions)_.
 1.  A clone of the `react-native-website` repo.
 
-### Installation
+### Installation Process
 
 1.  `cd react-native-website` to go into the project root.
 1.  `cd website` to go into the website portion of the project.
