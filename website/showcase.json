@@ -54,6 +54,15 @@
     "pinned": true
   },
   {
+    "name": "Tableau",
+    "icon": "shopify.png",
+    "linkAppStore": "https://apps.apple.com/us/app/tableau-mobile/id434633927",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.Tableau.TableauApp&hl=en_US",
+    "infoLink": "https://engineering.tableau.com/react-native-at-tableau-3-years-in-89d43c38354c",
+    "infoTitle": "React Native at Tableau 3 Years in",
+    "pinned": true
+  },
+  {
     "name": "Oculus",
     "icon": "oculus.png",
     "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
