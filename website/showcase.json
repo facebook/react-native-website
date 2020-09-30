@@ -45,6 +45,15 @@
     "pinned": true
   },
   {
+    "name": "Shopify",
+    "icon": "shopify.png",
+    "linkAppStore": "https://apps.apple.com/us/app/shopify-ecommerce-business/id371294472",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US",
+    "infoLink": "https://engineering.shopify.com/blogs/engineering/react-native-future-mobile-shopify",
+    "infoTitle": "React Native is the Future of Mobile at Shopify",
+    "pinned": true
+  },
+  {
     "name": "Oculus",
     "icon": "oculus.png",
     "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
