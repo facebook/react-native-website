@@ -271,11 +271,12 @@ html[data-theme="dark"] {
 
 .navbar__item {
   &.navbar__link {
-    font-weight: 400;
+    font-weight: 300;
     font-size: 18px;
   }
 
   &.dropdown a {
+    font-weight: 400;
     font-size: 14px;
   }
 }
@@ -295,7 +296,7 @@ html[data-theme="dark"] {
   }
 
   .DocSearch-Button {
-    border-radius: 8px;
+    border-radius: var(--ifm-global-radius);
     padding: 0 6px 0 10px;
 
     .DocSearch-Search-Icon {
@@ -315,6 +316,12 @@ html[data-theme="dark"] {
 
   .DocSearch-Button-Key svg {
     margin-bottom: 1px !important;
+  }
+}
+
+@media (max-width: 750px) {
+  .navbar .DocSearch-Button {
+    padding: 0 12px;
   }
 }
 
@@ -865,4 +872,92 @@ div[class^="tableOfContents"] .label {
   line-height: 10px;
   height: 10px;
   font-weight: 600;
+}
+
+/* Components grid */
+
+article .component-grid {
+  max-width: 800px;
+  margin-bottom: 22px;
+
+  .component {
+    border: 1px solid var(--ifm-color-emphasis-500);
+    border-radius: var(--ifm-global-radius);
+    margin: 0 auto 24px;
+    width: 100%;
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+    overflow: hidden;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+      padding: 0 10px;
+      background-color: var(--ifm-color-primary);
+      color: white;
+      line-height: 36px;
+
+      a {
+        color: white;
+      }
+    }
+
+    p {
+      padding: 10px;
+      font-size: 15px;
+      margin: 2px;
+
+      code {
+        font-size: 15px;
+        padding: 0 1px;
+      }
+    }
+  }
+}
+
+html[data-theme="dark"] .component {
+  border: 1px solid var(--ifm-color-emphasis-200);
+}
+
+@supports (display: grid) {
+  article .component-grid {
+    display: grid;
+    grid-column-gap: 22px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  article .component-grid.component-grid-border {
+    border-bottom: 1px solid var(--ifm-table-border-color);
+  }
+
+  article .component {
+    width: 30%;
+    height: 150px;
+    margin: 0 22px 22px auto;
+    vertical-align: top;
+  }
+
+  @supports (display: grid) {
+    article .component-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media only screen and (min-width: 1440px) {
+      article .component-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    article .component {
+      width: auto;
+      height: auto;
+      margin: 0;
+    }
+  }
 }
