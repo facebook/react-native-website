@@ -1,5 +1,3 @@
-const snackPlayer = require('remark-snackplayer');
-
 module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
@@ -340,7 +338,7 @@ module.exports = {
             'https://github.com/facebook/react-native-website/blob/master/docs/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
-          remarkPlugins: [snackPlayer],
+          remarkPlugins: [],
         },
         blog: {
           path: 'blog',
