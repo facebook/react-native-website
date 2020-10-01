@@ -251,37 +251,42 @@ html[data-theme="dark"] {
 
 /* Navbar */
 
-.navbar--dark {
-  background-color: var(--deepdark);
-}
+.navbar {
+  &.navbar--dark {
+    background-color: var(--deepdark);
+  }
 
-.navbar__inner {
-  max-width: 1360px;
-  margin: 0 auto;
-}
+  .navbar__inner {
+    max-width: 1360px;
+    margin: 0 auto;
+  }
 
-.navbar__title {
-  font-weight: 600;
-  font-size: 18px;
-}
-
-.navbar__brand:hover {
-  color: var(--brand);
-}
-
-.navbar__item {
-  &.navbar__link {
-    font-weight: 300;
+  .navbar__title {
+    font-weight: 600;
     font-size: 18px;
   }
 
-  &.dropdown a {
-    font-weight: 400;
-    font-size: 14px;
+  .navbar__brand:hover {
+    color: var(--brand);
   }
-}
 
-.navbar {
+  .navbar__item {
+    &.navbar__link {
+      font-weight: 300;
+      font-size: 18px;
+    }
+
+    &.dropdown a {
+      font-weight: 400;
+      font-size: 14px;
+    }
+  }
+
+  .navbar__logo {
+    width: 38px;
+    height: 34px;
+  }
+
   .react-toggle {
     margin: 0 8px;
   }
