@@ -9,3 +9,26 @@
     background-color: rgba(187, 239, 253, 0.6);
   }
 }
+
+%link-style-dark {
+  background-color: rgba(97, 218, 251, 0.12);
+  border-bottom-color: rgba(97, 218, 251, 0.3);
+
+  &:hover {
+    background-color: rgba(97, 218, 251, 0.4);
+    border-bottom-color: var(--brand);
+  }
+}
+
+%button-link-style {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-color-content-secondary);
+
+  &:hover {
+    background: var(--ifm-menu-color-background-hover);
+    color: var(--ifm-color-primary);
+  }
+}

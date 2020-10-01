@@ -34,7 +34,7 @@ const renderAppIcon = app => {
 
 const renderInfo = (title, uri) => {
   return uri ? (
-    <p>
+    <p className="info">
       <a href={uri} target="_blank">
         {title}
       </a>
@@ -61,7 +61,7 @@ const renderLinks = app => {
   return (
     <p>
       {linkPlayStore}
-      {linkPlayStore && linkAppStore ? ' · ' : ''}
+      {linkPlayStore && linkAppStore ? ' • ' : ''}
       {linkAppStore}
     </p>
   );
@@ -89,11 +89,12 @@ const Showcase = () => {
           </p>
         </div>
         <div className="logos">{apps.map(renderApp)}</div>
-        <p>
-          <a href="https://forms.gle/BdNf3v5hemV9D5c86">
-            Fill out this form to apply to the customer spotlight.
-          </a>
-        </p>
+        <a
+          class="form-button"
+          href="https://forms.gle/BdNf3v5hemV9D5c86"
+          target="_blank">
+          Fill out this form to apply to the customer spotlight.
+        </a>
         <p>
           A curated list of{' '}
           <a href="https://github.com/ReactNativeNews/React-Native-Apps">
