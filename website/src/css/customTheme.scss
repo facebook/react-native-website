@@ -422,10 +422,10 @@ div[class^="tableOfContents"] {
   }
 }
 
-/* Metadata */
+/* Docs Metadata */
 
-article + .margin-vert--xl {
-  margin-top: 56px !important;
+.docMetadata {
+  margin-top: 40px !important;
   margin-bottom: 16px !important;
   font-size: 15px;
   color: var(--subtle);
@@ -964,5 +964,54 @@ html[data-theme="dark"] .component {
       height: auto;
       margin: 0;
     }
+  }
+}
+
+/* Docs Rating Box */
+
+.docsRating {
+  display: inline-block;
+  padding: 16px 30px 16px 40px;
+  min-height: 66px;
+  margin-top: 42px;
+  margin-left: -40px;
+  background-color: #cee9f3;
+  text-align: center;
+  color: #0780ab;
+  line-height: 32px;
+  font-weight: 500;
+  border-left: 1px solid #bee0ed;
+  border-radius: 0 6px 6px 0;
+
+  svg {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0 0 0 6px;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      fill: #001217;
+    }
+  }
+
+  .i_thumbsup {
+    fill: green;
+    transform: translateY(0.25em);
+    margin-left: 12px;
+  }
+
+  .i_thumbsdown {
+    fill: red;
+    transform: scale(-1, -1) translateY(-0.25em);
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .docsRating {
+    width: calc(100% + 40px);
+    margin: 16px -20px -16px !important;
+    border-radius: 0;
+    border: 0;
   }
 }

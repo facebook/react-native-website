@@ -1,3 +1,5 @@
+const snackPlayer = require('remark-snackplayer');
+
 module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
@@ -9,9 +11,6 @@ module.exports = {
     'https://snack.expo.io/embed.js',
     'https://platform.twitter.com/widgets.js',
     'https://buttons.github.io/buttons.js',
-    '/js/codeblocks.js',
-    '/js/tabs.js',
-    '/js/docs-rating.js',
   ],
   favicon: 'img/favicon.ico',
   customFields: {
@@ -341,6 +340,7 @@ module.exports = {
             'https://github.com/facebook/react-native-website/blob/master/docs/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
+          remarkPlugins: [snackPlayer],
         },
         blog: {
           path: 'blog',
@@ -355,7 +355,7 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: ['docusaurus-plugin-sass', '@docusaurus/plugin-google-analytics'],
   themeConfig: {
     announcementBar: {
       id: 'blm',
@@ -504,6 +504,9 @@ module.exports = {
         facetFilters: ['tags:VERSION'],
         hitsPerPage: 5,
       },
+    },
+    googleAnalytics: {
+      trackingID: 'UA-41298772-2',
     },
     gtag: {
       trackingID: 'UA-41298772-2',
