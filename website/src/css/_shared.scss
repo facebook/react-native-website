@@ -1,0 +1,11 @@
+%link-style {
+  display: initial;
+  color: var(--ifm-font-color-base);
+  background-color: rgba(187, 239, 253, 0.3);
+  line-height: calc(var(--ifm-font-size-base) + 4px);
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+
+  &:hover {
+    background-color: rgba(187, 239, 253, 0.6);
+  }
+}

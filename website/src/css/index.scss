@@ -1,3 +1,5 @@
+@import "shared";
+
 /* ActionButton */
 
 .ActionButton {
@@ -596,15 +598,16 @@
   border-top: 1px solid var(--ifm-table-border-color);
 }
 
-.Section.light {
-}
-
 .Section.tint {
   background-color: var(--ifm-menu-color-background-active);
 }
 
 .Section.dark {
   background-color: var(--dark);
+}
+
+.Section p a {
+  @extend %link-style;
 }
 
 /* Talks */

@@ -1,3 +1,5 @@
+@import "shared";
+
 :root {
   --ifm-color-primary: #06bcee;
   --brand: #61dafb;
@@ -95,15 +97,7 @@ html[data-theme="dark"] {
   }
 
   a {
-    display: initial;
-    color: var(--ifm-font-color-base);
-    background-color: rgba(187, 239, 253, 0.3);
-    line-height: calc(var(--ifm-font-size-base) + 4px);
-    border-bottom: 1px solid var(--ifm-hr-border-color);
-
-    &:hover {
-      background-color: rgba(187, 239, 253, 0.6);
-    }
+    @extend %link-style;
 
     code {
       background-color: transparent;
@@ -233,11 +227,15 @@ html[data-theme="dark"] article .badge {
   }
 }
 
+/* Version warning */
+
 div[class*="docItemCol"] {
   > .alert--warning {
     background-color: rgba(100, 215, 255, 0.3);
   }
 }
+
+/* Sidebars */
 
 html[data-theme="dark"] {
   ::-webkit-scrollbar-track {
@@ -247,6 +245,20 @@ html[data-theme="dark"] {
   ::-webkit-scrollbar-thumb {
     background: var(--ifm-menu-color-background-hover);
   }
+}
+
+/* Blog */
+
+.avatar__name {
+  line-height: 24px;
+
+  a {
+    @extend %link-style;
+  }
+}
+
+.avatar__subtitle {
+  margin-top: 0;
 }
 
 /* Navbar */
@@ -435,9 +447,15 @@ div[class^="tableOfContents"] {
     padding: 8px 16px;
     border: 1px solid var(--ifm-color-emphasis-300);
     border-radius: var(--ifm-global-radius);
+    color: var(--ifm-color-content-secondary);
 
     &:hover {
       background: var(--ifm-menu-color-background-hover);
+      color: var(--ifm-color-primary);
+    }
+
+    svg {
+      color: var(--ifm-color-primary);
     }
   }
 
@@ -448,6 +466,10 @@ div[class^="tableOfContents"] {
   time,
   strong {
     font-weight: 600;
+  }
+
+  .docMetadata-updated {
+    line-height: 18px;
   }
 }
 
@@ -975,12 +997,11 @@ html[data-theme="dark"] .component {
   min-height: 66px;
   margin-top: 42px;
   margin-left: -40px;
-  background-color: #cee9f3;
+  background-color: rgba(100, 215, 255, 0.3);
   text-align: center;
   color: #0780ab;
   line-height: 32px;
   font-weight: 500;
-  border-left: 1px solid #bee0ed;
   border-radius: 0 6px 6px 0;
 
   svg {
@@ -991,20 +1012,24 @@ html[data-theme="dark"] .component {
     &:hover,
     &:focus {
       cursor: pointer;
-      fill: #001217;
+      fill: var(--ifm-color-primary);
     }
   }
 
   .i_thumbsup {
-    fill: green;
+    fill: #56a211;
     transform: translateY(0.25em);
     margin-left: 12px;
   }
 
   .i_thumbsdown {
-    fill: red;
+    fill: #e9430f;
     transform: scale(-1, -1) translateY(-0.25em);
   }
+}
+
+html[data-theme="dark"] .docsRating {
+  color: #cee9f3;
 }
 
 @media only screen and (max-width: 1023px) {

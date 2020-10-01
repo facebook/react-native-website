@@ -128,7 +128,7 @@ function DocItem(props) {
                   {(lastUpdatedAt || lastUpdatedBy) && (
                     <div className="col text--right">
                       <em>
-                        <small>
+                        <small className="docMetadata-updated">
                           Last updated{' '}
                           {lastUpdatedAt && (
                             <>
@@ -153,7 +153,6 @@ function DocItem(props) {
                           {process.env.NODE_ENV === 'development' && (
                             <div>
                               <small>
-                                {' '}
                                 (Simulated during dev for better perf)
                               </small>
                             </div>
