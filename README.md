@@ -39,7 +39,7 @@ If you would like to **_contribute an edit or addition to the docs,_** read thro
 
 ### Directory Structure
 
-The following is a high-level overview of relevant files and folders.
+The following is a high-level overview of relevant files and folders of project.
 
 ```
 react-native-website/
