@@ -4,6 +4,8 @@ title: React Fundamentals
 description: To understand React Native fully, you need a solid foundation in React. This short introduction to React can help you get started or get refreshed.
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 React Native runs on [React](https://reactjs.org/), a popular open source library for building user interfaces with JavaScript. To make the most of React Native, it helps to understand React itself. This section can get you started or can serve as a refresher course.
 
 We’re going to cover the core concepts behind React:
@@ -19,18 +21,8 @@ If you want to dig deeper, we encourage you to check out [React’s official doc
 
 The rest of this introduction to React uses cats in its examples: friendly, approachable creatures that need names and a cafe to work in. Here is your very first Cat component:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Your%20Cat
 import React from 'react';
@@ -74,7 +66,8 @@ export default function Cat() {
 }
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 Class components tend to be a bit more verbose than function components.
 
@@ -123,7 +116,8 @@ export default class Cat extends Component {
 }
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 > This is one of many ways to export your component. This kind of export works well with the Snack Player. However, depending on your app’s file structure, you might need to use a different convention. This [handy cheatsheet on JavaScript imports and exports](https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829) can help.
 
@@ -303,18 +297,8 @@ While you can think of props as arguments you use to configure how components re
 
 The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      State with Function Components
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      State with Class Components
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 You can add state to a component by calling [React’s `useState` Hook](https://reactjs.org/docs/hooks-state.html). A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://reactjs.org/docs/hooks-intro.html)
 
@@ -411,7 +395,8 @@ export default function Cafe() {
 }
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 The older class components approach is a little different when it comes to state.
 
@@ -521,7 +506,8 @@ export default class Cafe extends Component {
 }
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 > See the `<>` and `</>` above? These bits of JSX are [fragments](https://reactjs.org/docs/fragments.html). Adjacent JSX elements must be wrapped in an enclosing tag. Fragments let you do that without nesting an extra, unnecessary wrapping element like `View`.
 

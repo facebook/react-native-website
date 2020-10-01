@@ -3,24 +3,16 @@ id: view
 title: View
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 The most fundamental component for building a UI, `View` is a container that supports layout with [flexbox](flexbox.md), [style](style.md), [some touch handling](handling-touches.md), and [accessibility](accessibility.md) controls. `View` maps directly to the native view equivalent on whatever platform React Native is running on, whether that is a `UIView`, `<div>`, `android.view`, etc.
 
 `View` is designed to be nested inside other views and can have 0 to many children of any type.
 
 This example creates a `View` that wraps two boxes with color and a text component in a row with padding.
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=View%20Function%20Component%20Example
 import React from "react";
@@ -45,7 +37,8 @@ const ViewBoxesWithColorAndText = () => {
 export default ViewBoxesWithColorAndText;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=View%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -72,7 +65,8 @@ class App extends Component {
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 > `View`s are designed to be used with [`StyleSheet`](style.md) for clarity and performance, although inline styles are also supported.
 

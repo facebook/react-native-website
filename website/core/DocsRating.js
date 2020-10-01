@@ -7,7 +7,6 @@ const DocsRating = ({label}) => {
   }
 
   const [haveVoted, setHaveVoted] = useState(false);
-  console.warn(window.ga);
   const giveFeedback = value => {
     // TODO: @docusaurus/plugin-google-analytics
     if (window.ga) {
