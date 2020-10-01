@@ -194,7 +194,7 @@ To use custom path aliases with TypeScript, you need to set the path aliases to 
     }
 ```
 
-2. Configure the Babel side done by adding a new dependency, [`babel-plugin-module-resolver`][bpmr]:
+2. Add [`babel-plugin-module-resolver`][bpmr] as a development package to your project:
 
 ```sh
 yarn add --dev babel-plugin-module-resolver
