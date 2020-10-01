@@ -80,7 +80,7 @@ As mentioned above, the `docs` folder contains the source files for all of the d
 
 ### Versioned docs
 
-The React Native website is versioned as to allow users to go back and see the API reference docs for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.json` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
+The React Native website is versioned to allow users to go back and see the API reference docs for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.json` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
 
 > **_Note:_** Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the docs.
 
@@ -116,7 +116,7 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 1.  Follow the "[Running locally](#running-locally)" instructions.
 1.  Save the files and check in the browser.
 1.  Some changes may require a server restart to generate new files. (Pages in `docs` always do!)
-1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under `docs/next` path.
+1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under the `docs/next` path.
 
 Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
@@ -126,7 +126,7 @@ Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
 If possible, test any visual changes in all latest versions of the following browsers:
 
-- Chrome and Firefox on desktop.
+- Chrome and Firefox on the desktop.
 - Chrome and Safari on mobile.
 
 ### Push it
