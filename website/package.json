@@ -33,7 +33,7 @@
     "lint": "cd ../ && alex .",
     "lintv": "cd ../ && alex",
     "sync:docs": "node scripts/sync-api-docs/sync-api-docs ../../react-native",
-    "update-lock": "npx yarn-deduplicate && npx optimize-yarn-lock",
+    "update-lock": "npx yarn-deduplicate",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "docusaurus": "docusaurus"

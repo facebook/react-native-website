@@ -3,6 +3,8 @@ id: appstate
 title: AppState
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 `AppState` can tell you if the app is in the foreground or background, and notify you when the state changes.
 
 AppState is frequently used to determine the intent and proper behavior when handling push notifications.
@@ -22,18 +24,8 @@ For more information, see [Apple's documentation](https://developer.apple.com/do
 
 To see the current state, you can check `AppState.currentState`, which will be kept up-to-date. However, `currentState` will be null at launch while `AppState` retrieves it over the bridge.
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
 import React, { useRef, useState, useEffect } from "react";
@@ -84,7 +76,8 @@ export default AppStateExample;
 
 If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use the `appState.current` value.
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=AppState%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -133,7 +126,8 @@ const styles = StyleSheet.create({
 export default AppStateExample;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 This example will only ever appear to say "Current state is: active" because the app is only visible to the user when in the `active` state, and the null state will happen only momentarily. If you want to experiment with the code we recommend to use your own device instead of embedded preview.
 

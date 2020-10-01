@@ -3,22 +3,14 @@ id: image-style-props
 title: Image Style Props
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Examples
 
 ### Image Resize Mode
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Image%20Resize%20Modes%20Function%20Component%20Example
 import React from "react";
@@ -100,7 +92,8 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Image%20Resize%20Modes%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -184,22 +177,13 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Image Border
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Function%20Component%20Example
 import React from "react";
@@ -236,7 +220,8 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Style%20BorderWidth%20and%20BorderColor%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -275,22 +260,13 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Image Border Radius
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Style%20Border%20Radius%20Function%20Component%20Example
 import React from "react";
@@ -361,7 +337,8 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Style%20Border%20Radius%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -434,22 +411,13 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Image Tint
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Style%20tintColor%20Function%20Component
 import React from "react";
@@ -486,7 +454,8 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Style%20tintColor%20Class%20Component
 import React, { Component } from "react";
@@ -525,7 +494,8 @@ const styles = StyleSheet.create({
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 # Reference
 
