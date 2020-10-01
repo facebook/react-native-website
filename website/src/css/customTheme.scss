@@ -170,13 +170,7 @@ html[data-theme="dark"] {
 html[data-theme="dark"] {
   .markdown {
     a {
-      background-color: rgba(97, 218, 251, 0.12);
-      border-bottom-color: rgba(97, 218, 251, 0.3);
-
-      &:hover {
-        background-color: rgba(97, 218, 251, 0.4);
-        border-bottom-color: var(--brand);
-      }
+      @extend %link-style-dark;
     }
 
     blockquote {
@@ -255,6 +249,10 @@ html[data-theme="dark"] {
   a {
     @extend %link-style;
   }
+}
+
+html[data-theme="dark"] .avatar__name a {
+  @extend %link-style-dark;
 }
 
 .avatar__subtitle {
@@ -443,16 +441,7 @@ div[class^="tableOfContents"] {
   color: var(--subtle);
 
   a {
-    display: inline-block;
-    padding: 8px 16px;
-    border: 1px solid var(--ifm-color-emphasis-300);
-    border-radius: var(--ifm-global-radius);
-    color: var(--ifm-color-content-secondary);
-
-    &:hover {
-      background: var(--ifm-menu-color-background-hover);
-      color: var(--ifm-color-primary);
-    }
+    @extend %button-link-style;
 
     svg {
       color: var(--ifm-color-primary);

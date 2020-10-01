@@ -610,6 +610,10 @@
   @extend %link-style;
 }
 
+html[data-theme="dark"] .Section p a {
+  @extend %link-style-dark;
+}
+
 /* Talks */
 
 @media only screen and (max-width: 960px) {
