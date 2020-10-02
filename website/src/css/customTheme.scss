@@ -367,6 +367,27 @@ html[data-theme="dark"] .avatar__name a {
   }
 }
 
+.navbar-sidebar {
+  background: var(--divider);
+
+  .navbar-sidebar__brand {
+    background-color: var(--deepdark);
+  }
+
+  .navbar-sidebar__items {
+    padding: 12px;
+
+    .menu__list-item a {
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
+}
+
+html[data-theme="dark"] .navbar-sidebar {
+  background: var(--ifm-background-color);
+}
+
 @media (max-width: 750px) {
   .navbar .DocSearch-Button {
     padding: 0 12px;
@@ -495,6 +516,23 @@ div[class^="tableOfContents"] {
   }
 }
 
+@media only screen and (min-width: 540px) and (max-width: 1023px) {
+  .docMetadata .col {
+    flex-basis: 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media only screen and (max-width: 539px) {
+  .docMetadata .col {
+    text-align: center;
+
+    &:first-child {
+      margin-bottom: 16px;
+    }
+  }
+}
+
 /* Pagination */
 
 .pagination-nav {
@@ -557,10 +595,16 @@ div[class^="tableOfContents"] {
 }
 
 @media (max-width: 500px) {
-  .footer .footer__col {
-    flex-basis: 99% !important;
-    max-width: 99% !important;
-    margin-bottom: 24px;
+  .footer {
+    .footer__col {
+      flex-basis: 99% !important;
+      max-width: 99% !important;
+      margin-bottom: 24px;
+    }
+
+    .footer__links {
+      text-align: center;
+    }
   }
 }
 
@@ -1057,7 +1101,7 @@ html[data-theme="dark"] .docsRating {
 @media only screen and (max-width: 1023px) {
   .docsRating {
     width: calc(100% + 40px);
-    margin: 16px -20px -16px !important;
+    margin: 32px -20px -8px !important;
     border-radius: 0;
     border: 0;
   }
