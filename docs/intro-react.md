@@ -203,23 +203,21 @@ const Cat = () => {
 export default Cat;
 ```
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
-    <button role="tab" class="button-androidNote" onclick="displayTabs('devNotes', 'androidNote')">Android</button>
-  </span>
-</div>
+#### Developer notes
 
-<block class="webNote devNotes" />
+<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["android", "web"])}>
+
+<TabItem value="web">
 
 > If you’re familiar with web development, `<View>` and `<Text>` might remind you of HTML! You can think of them as the `<div>` and `<p>` tags of application development.
 
-<block class="androidNote devNotes" />
+</TabItem>
+<TabItem value="android">
 
 > On Android, you usually put your views inside `LinearLayout`, `FrameLayout`, `RelativeLayout`, etc. to define how the view’s children will be arranged on the screen. In React Native, `View` uses Flexbox for its children’s layout. You can learn more in [our guide to layout with Flexbox](flexbox).
 
-<block class="endBlock devNotes" />
+</TabItem>
+</Tabs>
 
 You can render this component multiple times and in multiple places without repeating your code by using `<Cat>`:
 

@@ -11,6 +11,8 @@ This page will help you install and build your first React Native app.
 
 **If you are already familiar with mobile development**, you may want to use React Native CLI. It requires Xcode or Android Studio to get started. If you already have one of these tools installed, you should be able to get up and running within a few minutes. If they are not installed, you should expect to spend about an hour installing and configuring them.
 
+#### Developer notes
+
 <Tabs groupId="guide" defaultValue={constants.defaultGuide} values={constants.guides}>
 <TabItem value="quickstart">
 
