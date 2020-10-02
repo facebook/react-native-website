@@ -190,7 +190,9 @@ html[data-theme="dark"] {
 }
 
 .markdown .hash-link,
-html[data-theme="dark"] .markdown .hash-link {
+.community-page .hash-link,
+html[data-theme="dark"] .markdown .hash-link,
+html[data-theme="dark"] .community-page .hash-link {
   background-color: transparent;
   border-bottom: 0;
   color: var(--subtle);
@@ -224,10 +226,21 @@ html[data-theme="dark"] article .badge {
 /* Community page */
 
 .community-page {
-  max-width: 900px;
+  max-width: 840px;
 
   h1 {
     font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-top: 36px;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    margin-top: 16px;
+    display: inline-block;
   }
 
   a {

@@ -416,7 +416,7 @@ module.exports = {
           items: [
             {
               label: 'Getting Started',
-              to: 'docs/getting-started',
+              to: 'docs/',
             },
             {
               label: 'Tutorial',
@@ -437,15 +437,15 @@ module.exports = {
           items: [
             {
               label: 'The React Native Community',
-              href: 'https://reactnative.dev/help',
+              to: 'help',
             },
             {
               label: "Who's using React Native?",
-              to: 'https://reactnative.dev/showcase',
+              to: 'showcase',
             },
             {
               label: 'Ask Questions on Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/react-native',
+              to: 'https://stackoverflow.com/questions/tagged/react-native',
             },
             {
               label: 'Contributor Guide',
@@ -501,5 +501,26 @@ module.exports = {
     gtag: {
       trackingID: 'UA-41298772-2',
     },
+    metadatas: [
+      {
+        name: 'description',
+        content: 'A framework for building native apps using React',
+      },
+      {property: 'og:title', content: 'React Native'},
+      {
+        property: 'og:description',
+        content: 'A framework for building native apps using React',
+      },
+      {property: 'og:url', content: 'https://reactnative.dev/'},
+      {
+        property: 'og:image',
+        content: 'https://reactnative.dev/img/logo-og.png',
+      },
+      {name: 'twitter:card', content: 'summary'},
+      {
+        name: 'twitter:image',
+        content: 'https://reactnative.dev/img/logo-og.png',
+      },
+    ],
   },
 };

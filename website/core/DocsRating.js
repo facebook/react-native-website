@@ -8,7 +8,6 @@ const DocsRating = ({label}) => {
 
   const [haveVoted, setHaveVoted] = useState(false);
   const giveFeedback = value => {
-    // TODO: @docusaurus/plugin-google-analytics
     if (window.ga) {
       window.ga('send', {
         hitType: 'event',

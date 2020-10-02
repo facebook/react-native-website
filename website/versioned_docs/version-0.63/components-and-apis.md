@@ -205,4 +205,3 @@ These components may be useful for certain applications. For an exhaustive list 
     </a>
   </div>
 </div>
-<br/>
