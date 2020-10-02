@@ -5,6 +5,8 @@ title: Introduction
 description: This helpful guide lays out the prerequisites for learning React Native, using these docs, and setting up your environment.
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 <div class="content-banner">
   <p>
     Welcome to the very start of your React Native journey! If you're looking for environment setup instructions, they've moved to <a href="environment-setup">their own section</a>. Continue reading for an introduction to the documentation, Native Components, React, and more!
