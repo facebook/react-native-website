@@ -490,7 +490,7 @@ function GetStarted() {
 }
 
 const Index = () => (
-  <Layout>
+  <Layout wrapperClassName="homepage">
     {ExecutionEnvironment.canUseDOM ? (
       <Head>
         <script src={useBaseUrl('js/dissectionAnimation.js')} />
