@@ -17,6 +17,8 @@ DynamicColorIOS({ light: color, dark: color });
 
 At runtime, the system will choose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
 
+#### Developer notes
+
 <Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["ios", "web"])}>
 
 <TabItem value="web">

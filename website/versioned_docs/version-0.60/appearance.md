@@ -11,6 +11,8 @@ import { Appearance } from 'react-native';
 
 The `Appearance` module exposes information about the user's appearance preferences, such as their preferred color scheme (light or dark).
 
+#### Developer notes
+
 <Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["android", "ios", "web"])}>
 
 <TabItem value="web">
