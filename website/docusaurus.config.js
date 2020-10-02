@@ -11,6 +11,7 @@ module.exports = {
     'https://buttons.github.io/buttons.js',
   ],
   favicon: 'img/favicon.ico',
+  titleDelimiter: '·',
   customFields: {
     repoUrl: 'https://github.com/facebook/react-native',
     defaultVersionShown: '0.63',

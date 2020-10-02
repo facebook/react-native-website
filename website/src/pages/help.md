@@ -1,6 +1,7 @@
 ---
 title: Community
 description: The React Native Community
+wrapperClassName: 'community-page'
 ---
 
 # The React Native Community

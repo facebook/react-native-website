@@ -44,14 +44,14 @@
     }
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.64",
-    "@docusaurus/preset-classic": "2.0.0-alpha.64",
+    "@docusaurus/core": "2.0.0-alpha.65",
+    "@docusaurus/preset-classic": "2.0.0-alpha.65",
     "clsx": "^1.1.1",
-    "docusaurus-plugin-sass": "^0.1.10",
-    "highlight.js": "^9.15.10",
+    "docusaurus-plugin-sass": "^0.1.11",
+    "highlight.js": "^9.18.3",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "remarkable": "^2.0.0"
+    "remarkable": "^2.0.1"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",

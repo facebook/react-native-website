@@ -22,7 +22,12 @@ import DocsRating from '../../../core/DocsRating';
 
 function DocItem(props) {
   const {siteConfig = {}} = useDocusaurusContext();
-  const {url: siteUrl, title: siteTitle, customFields} = siteConfig;
+  const {
+    url: siteUrl,
+    title: siteTitle,
+    titleDelimiter,
+    customFields,
+  } = siteConfig;
   const {content: DocContent} = props;
   const {metadata} = DocContent;
   const {
@@ -49,7 +54,9 @@ function DocItem(props) {
   const version = useActiveVersion(pluginId);
   const showVersionBadge =
     versions.length > 1 && version.name !== customFields.defaultVersionShown;
-  const metaTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+  const metaTitle = title
+    ? `${title} ${titleDelimiter} ${siteTitle}`
+    : siteTitle;
   const metaImageUrl = useBaseUrl(metaImage, {
     absolute: true,
   });

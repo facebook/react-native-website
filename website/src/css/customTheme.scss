@@ -221,6 +221,26 @@ html[data-theme="dark"] article .badge {
   }
 }
 
+/* Community page */
+
+.community-page {
+  max-width: 900px;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  a {
+    @extend %link-style;
+  }
+}
+
+html[data-theme="dark"] .community-page {
+  a {
+    @extend %link-style-dark;
+  }
+}
+
 /* Version warning */
 
 div[class*="docItemCol"] {
