@@ -355,14 +355,6 @@ module.exports = {
   ],
   plugins: ['docusaurus-plugin-sass'],
   themeConfig: {
-    announcementBar: {
-      id: 'blm',
-      backgroundColor: '#242526',
-      textColor: '#fff',
-      content:
-        '<div class="announcement">Black Lives Matter. <a target="_blank" rel="noopener noreferrer" href="https://support.eji.org/give/153413/#!/donation/checkout">Support the Equal Justice Initiative</a>.</div>',
-      isCloseable: false,
-    },
     prism: {
       defaultLanguage: 'jsx',
     },
