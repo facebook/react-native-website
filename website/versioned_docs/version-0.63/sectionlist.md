@@ -3,6 +3,8 @@ id: sectionlist
 title: SectionList
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 A performant interface for rendering sectioned lists, supporting the most handy features:
 
 - Fully cross-platform.
@@ -20,18 +22,8 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 ## Example
 
-<div className="toggler">
-  <ul role="tablist" className="toggle-syntax">
-    <li id="functional" className="button-functional" aria-selected="false" role="tab" tabIndex={0} aria-controls="functionaltab" onClick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" className="button-classical" aria-selected="false" role="tab" tabIndex={0} aria-controls="classicaltab" onClick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block className="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=SectionList%20Example
 import React from "react";
@@ -105,7 +97,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block className="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=SectionList%20Example
 import React, { Component } from "react";
@@ -183,7 +176,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block className="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
 
