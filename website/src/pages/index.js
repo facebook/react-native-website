@@ -497,6 +497,11 @@ const Index = () => (
         <script src={useBaseUrl('js/headerAnimation.js')} />
       </Head>
     ) : null}
+    <Head>
+      <title>
+        React Native · A framework for building native apps using React
+      </title>
+    </Head>
     <HeaderHero />
     <NativeApps />
     <NativeCode />
