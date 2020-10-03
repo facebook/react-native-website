@@ -90,6 +90,8 @@ export default App;
 
 ## Props
 
+### [View Props](view.md#props)
+
 继承了所有[View Props](view.md#props).
 
 ### `animating`
