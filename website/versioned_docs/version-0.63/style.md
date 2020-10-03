@@ -46,4 +46,4 @@ One common pattern is to make your component accept a `style` prop which in turn
 
 There are a lot more ways to customize text style. Check out the [Text component reference](text.md) for a complete list.
 
-Now you can make your text beautiful. The next step in becoming a style master is to [learn how to control component size](height-and-width.md).
+Now you can make your text beautiful. The next step in becoming a style expert is to [learn how to control component size](height-and-width.md).

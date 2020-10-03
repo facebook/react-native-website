@@ -176,6 +176,9 @@ figcaption {
 }
 
 /* Right side navigation */
+.onPageNav {
+  flex: 0 0 246px;
+}
 
 .onPageNav a,
 .onPageNav a:hover {
@@ -193,7 +196,7 @@ figcaption {
 }
 
 .onPageNav ul ul {
-  padding: 8px 0 0 16px;
+  padding: 8px 0 0 14px;
 }
 
 .onPageNav ul ul li {
@@ -314,12 +317,20 @@ td .label:before {
 }
 
 td .label:after {
-  top: 7.5px;
+  top: 7px;
 }
 
 td .label.required {
   margin-left: 8px;
-  letter-spacing: 0.03rem;
+  letter-spacing: 0.02rem;
+  padding: 0 6px;
+  border-width: 1px;
+  margin-right: 0;
+}
+
+td .label.two-lines {
+  margin-left: 0;
+  margin-top: 4px;
 }
 
 /* Label as dot in the right sidebar */
@@ -330,12 +341,11 @@ td .label.required {
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  margin-left: 4px;
+  margin-left: 2px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
   float: initial;
-  top: -1px;
 }
 
 .onPageNav .label.required {

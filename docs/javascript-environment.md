@@ -60,7 +60,7 @@ Specific
 
 ## Polyfills
 
-Many standards functions are also available on all the supported JavaScript runtimes.
+Many standard functions are also available on all the supported JavaScript runtimes.
 
 Browser
 

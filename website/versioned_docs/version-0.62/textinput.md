@@ -518,16 +518,6 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ---
 
-### `onTextInput`
-
-Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
 ### `placeholder`
 
 The string that will be rendered before text input has been entered.

@@ -95,8 +95,6 @@ const siteConfig = {
     baseUrl + 'js/codeblocks.js',
     baseUrl + 'js/tabs.js',
     baseUrl + 'js/docs-rating.js',
-    baseUrl + 'js/announcement.js',
-    baseUrl + 'js/survey-banner.js',
   ],
   cleanUrl: true,
   scrollToTop: true,
@@ -105,6 +103,8 @@ const siteConfig = {
   },
   docsSideNavCollapsible: true,
   onPageNav: 'separate',
+  slugPreprocessor: baseSlug =>
+    baseSlug.replace(/<([^>]+?)([^>]*?)>(.*?)<\/\1>/gi, ''),
 };
 
 module.exports = siteConfig;

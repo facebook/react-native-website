@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-Pressable is a Core Component wrapper that can detect various stages of press interactions on any of it's defined children.
+Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -21,18 +21,18 @@ On an element wrapped by `Pressable`:
 After pressing [`onPressIn`](#onpressin), one of two things will happen:
 
 1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
-2. If the person leaves their finger longer than 370 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
+2. If the person leaves their finger longer than 500 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
 
-<img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
+<img src="/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence." />
 
-Fingers are not the most precise instruments, and it is common for users to accidentally activate the wrong element or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
+Fingers are not the most precise instruments, and it is common for users to accidentally activate the wrong element or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the wrapped element. Presses can start anywhere within a `HitRect`.
 
 `PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
 <figure>
-  <img src="/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work.">
+  <img src="/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
   <figcaption>
     You can set <code>HitRect</code> with <code>hitSlop</code> and set <code>PressRect</code> with <code>pressRetentionOffset</code>.
   </figcaption>
@@ -135,7 +135,7 @@ Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
 | Type   | Required | Default |
 | ------ | -------- | ------- |
-| number | No       | 370     |
+| number | No       | `500`   |
 
 ### `disabled`
 
@@ -155,7 +155,7 @@ Sets additional distance outside of element in which a press can be detected.
 
 ### `onLongPress`
 
-Called if the time after `onPressIn` lasts longer than 370 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
+Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
 | Type                     | Required |
 | ------------------------ | -------- |

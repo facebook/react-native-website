@@ -42,14 +42,13 @@ glob('../docs/**/*.md')
         .then(() => {
           return fs.stat(imagePath);
         })
-        .then(stats => {})
-        .catch(e => {
+        .catch(() => {
           console.error(
             'Could not find ' +
               imagePath +
               ' which has at least one reference in ' +
               markdownPath +
-              ". Did you forget to add the asset to '/docs/assets'?"
+              ". Did you forget to add the asset to '/static/docs/assets'?"
           );
         });
     });

@@ -4,12 +4,6 @@ title: TabBarIOS
 original_id: tabbarios
 ---
 
-### Props
-
-- [`style`](tabbarios.md#style)
-
----
-
 # Reference
 
 ## Props

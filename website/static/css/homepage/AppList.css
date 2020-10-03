@@ -8,3 +8,17 @@
 .AppList .item {
   list-style: none;
 }
+
+.AppList .item a {
+  background-color: transparent;
+  border-bottom: 0;
+  transition: opacity 250ms ease-out;
+}
+
+.AppList .item a:hover {
+  opacity: 0.66;
+}
+
+.AppList .item img {
+  border-radius: 12px;
+}

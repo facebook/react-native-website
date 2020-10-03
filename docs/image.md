@@ -341,11 +341,11 @@ Invoked on load error with `{nativeEvent: {error}}`.
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{nativeEvent: {layout: {x, y, width, height}}}`.
+Invoked on mount and on layout changes.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 
@@ -512,7 +512,7 @@ Does not work for static image resources.
 | uri     | string   | Yes      | The location of the image.                                                                           |
 | headers | object   | Yes      | The headers for the request.                                                                         |
 | success | function | Yes      | The function that will be called if the image was successfully found and width and height retrieved. |
-| failure | function | No       | The function that will be called if there was an error, such as failing toto retrieve the image.     |
+| failure | function | No       | The function that will be called if there was an error, such as failing to retrieve the image.     |
 
 ---
 

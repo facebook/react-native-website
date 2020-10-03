@@ -14,6 +14,7 @@
     "Environment setup": [
       "environment-setup",
       "integration-with-existing-apps",
+      "integration-with-android-fragment",
       "building-for-tv",
       "out-of-tree-platforms"
     ],
@@ -21,6 +22,7 @@
       "running-on-device",
       "fast-refresh",
       "debugging",
+      "symbolication",
       "testing-overview",
       "libraries",
       "typescript",
@@ -38,7 +40,8 @@
       "performance",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
-      "profiling"
+      "profiling",
+      "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Connectivity": ["network", "security"],
@@ -59,7 +62,8 @@
       "linking-libraries-ios",
       "running-on-simulator-ios",
       "communication-ios",
-      "app-extensions"
+      "app-extensions",
+      "publishing-to-app-store"
     ]
   },
   "api": {
@@ -116,7 +120,6 @@
       "modal",
       "pressable",
       "refreshcontrol",
-      "safeareaview",
       "scrollview",
       "sectionlist",
       "statusbar",
@@ -136,7 +139,7 @@
       {
         "type": "subcategory",
         "label": "iOS Components",
-        "ids": ["inputaccessoryview", "maskedviewios"]
+        "ids": ["inputaccessoryview", "maskedviewios", "safeareaview"]
       }
     ],
     "Props": [
@@ -146,6 +149,12 @@
       "text-style-props",
       "view-style-props"
     ],
-    "Object Types": ["pressevent", "react-node", "rect"]
+    "Object Types": [
+      "layoutevent",
+      "pressevent",
+      "react-node",
+      "rect",
+      "viewtoken"
+    ]
   }
 }

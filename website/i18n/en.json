@@ -194,6 +194,9 @@
       "layoutanimation": {
         "title": "LayoutAnimation"
       },
+      "layoutevent": {
+        "title": "LayoutEvent Object Type"
+      },
       "libraries": {
         "title": "Using Libraries"
       },
@@ -272,6 +275,9 @@
       "pressevent": {
         "title": "PressEvent Object Type"
       },
+      "profile-hermes": {
+        "title": "Profiling with Hermes"
+      },
       "profiling": {
         "title": "Profiling"
       },
@@ -283,6 +289,9 @@
       },
       "props": {
         "title": "Props"
+      },
+      "publishing-to-app-store": {
+        "title": "Publishing to Apple App Store"
       },
       "pushnotificationios": {
         "title": "🚧 PushNotificationIOS"
@@ -355,6 +364,9 @@
       },
       "switch": {
         "title": "Switch"
+      },
+      "symbolication": {
+        "title": "Symbolicating a stack trace"
       },
       "systrace": {
         "title": "Systrace"
@@ -430,6 +442,9 @@
       },
       "viewpagerandroid": {
         "title": "🚧 ViewPagerAndroid"
+      },
+      "viewtoken": {
+        "title": "ViewToken Object Type"
       },
       "virtualizedlist": {
         "title": "VirtualizedList"
@@ -3172,6 +3187,12 @@
       },
       "version-0.59/version-0.59-stylesheet": {
         "title": "StyleSheet"
+      },
+      "version-0.59/version-0.59-tabbarios-item": {
+        "title": "🚧 TabBarIOS.Item"
+      },
+      "version-0.59/version-0.59-tabbarios": {
+        "title": "🚧 TabBarIOS"
       },
       "version-0.59/version-0.59-text": {
         "title": "Text"
