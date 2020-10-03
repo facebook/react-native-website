@@ -396,7 +396,7 @@ import React, { Component } from "react";
 import { Button, Text, View } from "react-native";
 export class Cat extends Component {
   state = { isHungry: true };
-  render(props) {
+  render() {
     return (
       <View>
         <Text>
