@@ -45,7 +45,7 @@ LogBox.ignoreAllLogs();
 
 ### Unhandled Errors
 
-Unhanded JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
+Unhandled JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
 
 ### Syntax Errors
 
