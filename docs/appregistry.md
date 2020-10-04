@@ -44,7 +44,7 @@ Only called from native code. Cancels a headless task.
 
 **Parameters:**
 
-| Name                                                     | Type   | Required                                                                                |
+| Name                                                     | Type   | Description                                                                                |
 | -------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------- |
 | taskId <div class="label basic required">Required</div>  | number | The native id for this task instance that was used when `startHeadlessTask` was called. |
 | taskKey <div class="label basic required">Required</div> | string | The key for the task that was used when `startHeadlessTask` was called.                 |
