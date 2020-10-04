@@ -54,4 +54,31 @@ const FlexDimensionsBasics = () => {
 export default FlexDimensionsBasics;
 ```
 
+## 百分比宽高
+
+If you want to fill a certain portion of the screen, but you _don't_ want to use the `flex` layout, you _can_ use **percentage values** in the component's style. Similar to flex dimensions, percentage dimensions require parent with a defined size.
+
+```SnackPlayer name=Percentage%20Dimensions
+import React from 'react';
+import { View } from 'react-native';
+const PercentageDimensionsBasics = () => {
+  // Try removing the `height: '100%'` on the parent View.
+  // The parent will not have dimensions, so the children can't expand.
+  return (
+    <View style={{ height: '100%' }}>
+      <View style={{
+        height: '15%', backgroundColor: 'powderblue'
+      }} />
+      <View style={{
+        width: '66%', height: '35%', backgroundColor: 'skyblue'
+      }} />
+      <View style={{
+        width: '33%', height: '50%', backgroundColor: 'steelblue'
+      }} />
+    </View>
+  );
+};
+export default PercentageDimensionsBasics;
+```
+
 当你熟练掌握了如何控制组件的尺寸后，下一步可以[学习如何在屏幕上排列组件了](flexbox.md)。

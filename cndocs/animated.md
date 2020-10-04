@@ -20,11 +20,11 @@ title: Animated
 
 <block class="functional syntax" />
 
-> 请不要直接修改动画值！你可以用[`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)来返回一个可修改的ref引用。ref对象的`current`属性在初始化时被赋予给定的动画值，且在组件的生命周期内保存不被销毁。
+> 请不要直接修改动画值！你可以用[`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)来返回一个可修改的 ref 引用。ref 对象的`current`属性在初始化时被赋予给定的动画值，且在组件的生命周期内保存不被销毁。
 
 <block class="classical syntax" />
 
-> 请不要直接修改动画值！我们一般在class组件中使用一个[状态变量](intro-react#state)或是成员变量来存放它。
+> 请不要直接修改动画值！我们一般在 class 组件中使用一个[状态变量](intro-react#state)或是成员变量来存放它。
 
 <block class="endBlock syntax" />
 
@@ -544,9 +544,9 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **参数：**
 
-| Name     | Type                            | Required | Description                                                                                                                                                     |
-| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+| 名称 | 类型 | Required | 说明 |
+| --- | --- | --- | --- |
+| callback | ?(result?: {finished: boolean}) | No | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
 

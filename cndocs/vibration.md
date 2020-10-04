@@ -225,11 +225,11 @@ The `vibrate()` method can take a `pattern` argument with an array of numbers th
 
 **参数：**
 
-| Name    | Type             | Required | Description                                                | Platform     |
-| ------- | ---------------- | -------- | ---------------------------------------------------------- | ------------ |
-| pattern | number           | No       | Vibration duration in milliseconds. Defaults to 400 ms.    | Android      |
-| pattern | Array of numbers | No       | Vibration pattern as an array of numbers in milliseconds.  | Android, iOS |
-| repeat  | boolean          | No       | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
+| 名称 | 类型 | Required | 说明 | 平台 |
+| --- | --- | --- | --- | --- |
+| pattern | number | No | Vibration duration in milliseconds. Defaults to 400 ms. | Android |
+| pattern | Array of numbers | No | Vibration pattern as an array of numbers in milliseconds. | Android, iOS |
+| repeat | boolean | No | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
 
 ---
 

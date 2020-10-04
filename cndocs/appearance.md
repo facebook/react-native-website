@@ -20,14 +20,11 @@ The `Appearance` module exposes information about the user's appearance preferen
 
 <block class="webNote devNotes" />
 
-> The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme).
-<block class="androidNote devNotes" />
+> The `Appearance` API is inspired by the [Media Queries draft](https://drafts.csswg.org/mediaqueries-5/) from the W3C. The color scheme preference is modeled after the [`prefers-color-scheme` CSS media feature](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme). <block class="androidNote devNotes" />
 
-> The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher.
-<block class="iosNote devNotes" />
+> The color scheme preference will map to the user's Light or [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme) preference on Android 10 (API level 29) devices and higher. <block class="iosNote devNotes" />
 
-> The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher.
-<block class="endBlock devNotes" />
+> The color scheme preference will map to the user's Light or [Dark Mode](https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/dark-mode/) preference on iOS 13 devices and higher. <block class="endBlock devNotes" />
 
 ## Example
 
@@ -56,13 +53,18 @@ Indicates the current user preferred color scheme. The value may be updated late
 
 Supported color schemes:
 
-- `light`: The user prefers a light color theme.
-- `dark`: The user prefers a dark color theme.
-- null: The user has not indicated a preferred color theme.
+| Value | 说明 |
+| --- | --- |
+| `"light"` | The user prefers a light color theme. |
+| `"dark"` | The user prefers a dark color theme. |
+| `null` | The user has not indicated a preferred color theme. |
 
-See also: `useColorScheme` hook.
+> **注意：** 在使用 chrome 调试时，`getColorScheme()`将始终返回`light`。
 
-> Note: `getColorScheme()` will always return `light` when debugging with Chrome.
+更多说明请参考[`useColorScheme`](usecolorscheme)。
+
+---
+
 ### `addChangeListener()`
 
 ```jsx
@@ -70,6 +72,8 @@ static addChangeListener(listener)
 ```
 
 Add an event handler that is fired when appearance preferences change.
+
+---
 
 ### `removeChangeListener()`
 

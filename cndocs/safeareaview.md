@@ -44,6 +44,6 @@ As padding is used to implement the behavior of the component, padding rules in 
 
 ### `emulateUnlessSupported`
 
-| Type | Required | Default |
+| 类型 | Required | Default |
 | ---- | -------- | ------- |
 | bool | No       | true    |

@@ -173,7 +173,11 @@ export default App;
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 继承所有[ScrollView 的 Props](scrollview.md#props)。但如果嵌套在其他同滚动方向的 FlatList 中则无效。
+
+---
 
 ### `renderItem`
 
@@ -492,7 +496,7 @@ May not have full feature parity and is meant for debugging and performance comp
 
 `viewabilityConfig` takes a type `ViewabilityConfig` an object with following properties
 
-| Property                         | Required | Type    |
+| Property                         | Required | 类型    |
 | -------------------------------- | -------- | ------- |
 | minimumViewTime                  | No       | number  |
 | viewAreaCoveragePercentThreshold | No       | number  |

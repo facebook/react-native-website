@@ -115,9 +115,9 @@ Boolean that sets whether JavaScript running in the context of a file scheme URL
 
 Boolean that sets whether the `WebView` has access to the file system. The default value is `false`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| 类型 | Required | 平台    |
+| ---- | -------- | ------- |
+| bool | No       | Android |
 
 ---
 
@@ -317,7 +317,7 @@ On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
 
 ### `originWhitelist`
 
-List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://*" and "https://*".
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://_" and "https://_".
 
 | 类型             | 必填 |
 | ---------------- | ---- |

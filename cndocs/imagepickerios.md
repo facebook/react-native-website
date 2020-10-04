@@ -33,11 +33,11 @@ static openCameraDialog(config, successCallback, cancelCallback)
 
 **参数：**
 
-| Name            | Type     | Required | Description |
-| --------------- | -------- | -------- | ----------- |
-| config          | object   | No       | See below.  |
-| successCallback | function | No       | See below.  |
-| cancelCallback  | function | No       | See below.  |
+| 名称            | 类型     | Required | 说明       |
+| --------------- | -------- | -------- | ---------- |
+| config          | object   | No       | See below. |
+| successCallback | function | No       | See below. |
+| cancelCallback  | function | No       | See below. |
 
 `config` is an object containing:
 
@@ -59,11 +59,11 @@ static openSelectDialog(config, successCallback, cancelCallback)
 
 **参数：**
 
-| Name            | Type     | Required | Description |
-| --------------- | -------- | -------- | ----------- |
-| config          | object   | No       | See below.  |
-| successCallback | function | No       | See below.  |
-| cancelCallback  | function | No       | See below.  |
+| 名称            | 类型     | Required | 说明       |
+| --------------- | -------- | -------- | ---------- |
+| config          | object   | No       | See below. |
+| successCallback | function | No       | See below. |
+| cancelCallback  | function | No       | See below. |
 
 `config` is an object containing:
 

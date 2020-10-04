@@ -68,10 +68,10 @@ export default VirtualizedListExample;
 
 注意事项：
 
-* 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
-* 本组件继承自 PureComponent 而非通常的 Component，这意味着如果其 props 在浅比较中是相等的，则不会重新渲染。所以请先检查你的 renderItem 函数所依赖的 props 数据（包括 data 属性以及可能用到的父组件的 state），如果是一个引用类型（Object 或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下 js 中的基本类型和引用类型。）
-* 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，而我们也在设法持续改进。
-* 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个 keyExtractor 函数来生成 key。
+- 当某行滑出渲染区域之外后，其内部状态将不会保留。请确保你在行组件以外的地方保留了数据。
+- 本组件继承自 PureComponent 而非通常的 Component，这意味着如果其 props 在浅比较中是相等的，则不会重新渲染。所以请先检查你的 renderItem 函数所依赖的 props 数据（包括 data 属性以及可能用到的父组件的 state），如果是一个引用类型（Object 或者数组都是引用类型），则需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。（译注：这一段不了解的朋友建议先学习下 js 中的基本类型和引用类型。）
+- 为了优化内存占用同时保持滑动的流畅，列表内容会在屏幕外异步绘制。这意味着如果用户滑动的速度超过渲染的速度，则会先看到空白的内容。这是为了优化不得不作出的妥协，而我们也在设法持续改进。
+- 默认情况下每行都需要提供一个不重复的 key 属性。你也可以提供一个 keyExtractor 函数来生成 key。
 
 ---
 
@@ -202,7 +202,7 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| Type                | Required |
+| 类型                | Required |
 | ------------------- | -------- |
 | component, function | No       |
 
@@ -212,7 +212,7 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 
 A unique identifier for this list. If there are multiple VirtualizedLists at the same level of nesting within another VirtualizedList, this key is necessary for virtualization to work properly.
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | string | True     |
 
@@ -232,7 +232,7 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 Each data item is rendered using this element. Can be a React Component Class, or a render function
 
-| Type                | Required |
+| 类型                | Required |
 | ------------------- | -------- |
 | component, function | No       |
 
@@ -252,7 +252,7 @@ Each data item is rendered using this element. Can be a React Component Class, o
 
 Styling for internal View for ListFooterComponent
 
-| Type          | Required |
+| 类型          | Required |
 | ------------- | -------- |
 | ViewStyleProp | No       |
 
@@ -272,7 +272,7 @@ Styling for internal View for ListFooterComponent
 
 Styling for internal View for ListHeaderComponent
 
-| Type          | Required |
+| 类型          | Required |
 | ------------- | -------- |
 | ViewStyleProp | No       |
 
@@ -341,7 +341,7 @@ Styling for internal View for ListHeaderComponent
 
 A custom refresh control element. When set, it overrides the default <RefreshControl> component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
 
-| Type    | Required |
+| 类型    | Required |
 | ------- | -------- |
 | element | No       |
 
@@ -493,7 +493,7 @@ A custom refresh control element. When set, it overrides the default <RefreshCon
 
 ### `persistentScrollbar`
 
-| Type | Required |
+| 类型 | Required |
 | ---- | -------- |
 | bool | No       |
 
@@ -518,7 +518,6 @@ scrollToEnd(([params]: object));
 Valid `params` consist of:
 
 - 'animated' (boolean). Optional default is true.
-
 
 ---
 

@@ -132,13 +132,13 @@ Describes the current state of a component to the user of an assistive technolog
 
 `accessibilityState` is an object. It contains the following fields:
 
-| 名称     | 描述                                                                                                                                  | 类型               | 必需 |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ---- |
-| disabled | Indicates whether the element is disabled or not.                                                                                     | boolean            | 否   |
-| selected | Indicates whether a selectable element is currently selected or 否 t.                                                                 | boolean            | 否   |
-| checked  | Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes. | boolean or 'mixed' | 否   |
-| busy     | Indicates whether an element is currently busy or 否 t.                                                                               | boolean            | 否   |
-| expanded | Indicates whether an expandable element is currently expanded or collapsed.                                                           | boolean            | 否   |
+| 名称 | 描述 | 类型 | 必需 |
+| --- | --- | --- | --- |
+| disabled | Indicates whether the element is disabled or not. | boolean | 否 |
+| selected | Indicates whether a selectable element is currently selected or 否 t. | boolean | 否 |
+| checked | Indicates the state of a checkable element. This field can either take a boolean or the "mixed" string to represent mixed checkboxes. | boolean or 'mixed' | 否 |
+| busy | Indicates whether an element is currently busy or 否 t. | boolean | 否 |
+| expanded | Indicates whether an expandable element is currently expanded or collapsed. | boolean | 否 |
 
 To use, set the `accessibilityState` to an object with a specific definition.
 
@@ -148,12 +148,12 @@ Represents the current value of a component. It can be a textual description of 
 
 `accessibilityValue` is an object. It contains the following fields:
 
-| 名称 | 描述                                                                                           | 类型    | 必需                      |
-| ---- | ---------------------------------------------------------------------------------------------- | ------- | ------------------------- |
-| min  | The minimum value of this component's range.                                                   | integer | Required if `now` is set. |
-| max  | The maximum value of this component's range.                                                   | integer | Required if `now` is set. |
-| now  | The current value of this component's range.                                                   | integer | 否                        |
-| text | A textual description of this component's value. Will override `min`, `now`, and `max` if set. | string  | 否                        |
+| 名称 | 描述 | 类型 | 必需 |
+| --- | --- | --- | --- |
+| min | The minimum value of this component's range. | integer | Required if `now` is set. |
+| max | The maximum value of this component's range. | integer | Required if `now` is set. |
+| now | The current value of this component's range. | integer | 否 |
+| text | A textual description of this component's value. Will override `min`, `now`, and `max` if set. | string | 否 |
 
 ### `accessibilityViewIsModal` <div class="label ios">iOS</div>
 
@@ -223,9 +223,9 @@ Accessibility actions allow an assistive technology to programmatically invoke t
 
 The `accessibilityActions` property should contain a list of action objects. Each action object should contain the following fields:
 
-| Name  | Type   | Required |
+| 名称  | 类型   | Required |
 | ----- | ------ | -------- |
-| name  | string | Yes      |
+| 名称  | string | Yes      |
 | label | string | No       |
 
 Actions either represent standard actions, such as clicking a button or adjusting a slider, or custom actions specific to a given component such as deleting an email message. The `name` field is required for both standard and custom actions, but `label` is optional for standard actions.

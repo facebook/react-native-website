@@ -147,7 +147,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 - position - index of page that will be selected
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | Number | Yes      |
 
@@ -159,7 +159,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 - position - index of page that will be selected
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | Number | Yes      |
 

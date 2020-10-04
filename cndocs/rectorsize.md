@@ -20,24 +20,24 @@ title: RectOrSize Object Type
 
 ### `bottom`
 
-| Type                        | Required |
+| 类型                        | Required |
 | --------------------------- | -------- |
 | number, `null`, `undefined` | No       |
 
 ### `left`
 
-| Type                        | Required |
+| 类型                        | Required |
 | --------------------------- | -------- |
 | number, `null`, `undefined` | No       |
 
 ### `right`
 
-| Type                        | Required |
+| 类型                        | Required |
 | --------------------------- | -------- |
 | number, `null`, `undefined` | No       |
 
 ### `top`
 
-| Type                        | Required |
+| 类型                        | Required |
 | --------------------------- | -------- |
 | number, `null`, `undefined` | No       |

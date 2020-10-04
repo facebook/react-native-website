@@ -15,8 +15,8 @@ title: CameraRoll
 
 ### 查看方法
 
-* [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
-* [`getPhotos`](cameraroll.md#getphotos)
+- [`saveToCameraRoll`](cameraroll.md#savetocameraroll)
+- [`getPhotos`](cameraroll.md#getphotos)
 
 ---
 
@@ -42,10 +42,10 @@ If the tag has a file extension of .mov or .mp4, it will be inferred as a video.
 
 **参数：**
 
-| 名称 | 类型                   | 必填 | 说明                                                       |
-| ---- | ---------------------- | ---- | ---------------------------------------------------------- |
-| tag  | string                 | 是   | 看上面的说明                                               |
-| type | enum('photo', 'video') | 否   | Overrides automatic detection based on the file extension. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| tag | string | 是 | 看上面的说明 |
+| 类型 | enum('photo', 'video') | 否 | Overrides automatic detection based on the file extension. |
 
 ---
 
@@ -59,50 +59,50 @@ Returns a Promise with photo identifier objects from the local camera roll of th
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明                                             |
-| ------ | ------ | ---- | ------------------------------------------------ |
-| params | object | 是   | Expects a params with the shape described below. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| params | object | 是 | Expects a params with the shape described below. |
 
-* `first` : {number} : The number of photos wanted in reverse order of the photo application (i.e. most recent first for SavedPhotos).
-* `after` : {string} : A cursor that matches `page_info { end_cursor }` returned from a previous call to `getPhotos`.
-* `groupTypes` : {string} : Specifies which group types to filter the results to. Valid values are:
-  * `Album`
-  * `All`
-  * `Event`
-  * `Faces`
-  * `Library`
-  * `PhotoStream`
-  * `SavedPhotos` // default
-* `groupName` : {string} : Specifies filter on group names, like 'Recent Photos' or custom album titles.
-* `assetType` : {string} : Specifies filter on asset type. Valid values are:
-  * `All`
-  * `Videos`
-  * `Photos` // default
-* `mimeTypes` : {Array} : Filter by mimetype (e.g. image/jpeg).
+- `first` : {number} : The number of photos wanted in reverse order of the photo application (i.e. most recent first for SavedPhotos).
+- `after` : {string} : A cursor that matches `page_info { end_cursor }` returned from a previous call to `getPhotos`.
+- `groupTypes` : {string} : Specifies which group types to filter the results to. Valid values are:
+  - `Album`
+  - `All`
+  - `Event`
+  - `Faces`
+  - `Library`
+  - `PhotoStream`
+  - `SavedPhotos` // default
+- `groupName` : {string} : Specifies filter on group names, like 'Recent Photos' or custom album titles.
+- `assetType` : {string} : Specifies filter on asset type. Valid values are:
+  - `All`
+  - `Videos`
+  - `Photos` // default
+- `mimeTypes` : {Array} : Filter by mimetype (e.g. image/jpeg).
 
 Returns a Promise which when resolved will be of the following shape:
 
-* `edges` : {Array<node>} An array of node objects
-  * `node`: {object} An object with the following shape:
-    * `type`: {string}
-    * `group_name`: {string}
-    * `image`: {object} : An object with the following shape:
-      * `uri`: {string}
-      * `height`: {number}
-      * `width`: {number}
-      * `isStored`: {boolean}
-      * `playableDuration`: {number}
-    * `timestamp`: {number}
-    * `location`: {object} : An object with the following shape:
-      * `latitude`: {number}
-      * `longitude`: {number}
-      * `altitude`: {number}
-      * `heading`: {number}
-      * `speed`: {number}
-* `page_info` : {object} : An object with the following shape:
-  * `has_next_page`: {boolean}
-  * `start_cursor`: {string}
-  * `end_cursor`: {string}
+- `edges` : {Array<node>} An array of node objects
+  - `node`: {object} An object with the following shape:
+    - `type`: {string}
+    - `group_name`: {string}
+    - `image`: {object} : An object with the following shape:
+      - `uri`: {string}
+      - `height`: {number}
+      - `width`: {number}
+      - `isStored`: {boolean}
+      - `playableDuration`: {number}
+    - `timestamp`: {number}
+    - `location`: {object} : An object with the following shape:
+      - `latitude`: {number}
+      - `longitude`: {number}
+      - `altitude`: {number}
+      - `heading`: {number}
+      - `speed`: {number}
+- `page_info` : {object} : An object with the following shape:
+  - `has_next_page`: {boolean}
+  - `start_cursor`: {string}
+  - `end_cursor`: {string}
 
 #### 示例
 

@@ -20,7 +20,7 @@ title: 为电视和机顶盒制作应用
 
 > **已过时。** 请使用[react-native-tvos](https://github.com/react-native-community/react-native-tvos)代替。 For the details please check the [0.62 release blog post](https://reactnative.dev/blog/#moving-apple-tv-to-react-native-tvos).
 
-源代码仓库里的[RNTester 演示应用](https://github.com/facebook/react-native/tree/master/RNTester)支持在 Apple TV 上运行，使用`RNTester-tvOS`编译目标来在 tvOS 上编译运行。
+源代码仓库里的[RNTester 演示应用](https://github.com/facebook/react-native/tree/master/packages/rn-tester)支持在 Apple TV 上运行，使用`RNTester-tvOS`编译目标来在 tvOS 上编译运行。
 
 ## 编译变更
 

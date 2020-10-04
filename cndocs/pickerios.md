@@ -29,7 +29,7 @@ Inherits [View Props](view.md#props).
 
 ### `onChange`
 
-| Type     | Required |
+| 类型     | Required |
 | -------- | -------- |
 | function | No       |
 

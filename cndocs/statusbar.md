@@ -170,9 +170,9 @@ Get and remove the last StatusBar entry from the stack.
 
 **参数：**
 
-| Name  | Type | Required | Description                           |
-| ----- | ---- | -------- | ------------------------------------- |
-| entry | any  | Yes      | Entry returned from `pushStackEntry`. |
+| 名称 | 类型 | Required | 说明 |
+| --- | --- | --- | --- |
+| entry | any | Yes | Entry returned from `pushStackEntry`. |
 
 ---
 
@@ -186,9 +186,9 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 **参数：**
 
-| Name  | Type | Required | Description                                                      |
-| ----- | ---- | -------- | ---------------------------------------------------------------- |
-| props | any  | Yes      | Object containing the StatusBar props to use in the stack entry. |
+| 名称 | 类型 | Required | 说明 |
+| --- | --- | --- | --- |
+| props | any | Yes | Object containing the StatusBar props to use in the stack entry. |
 
 ---
 
@@ -202,10 +202,10 @@ Replace an existing StatusBar stack entry with new props.
 
 **参数：**
 
-| Name  | Type | Required | Description                                                                  |
-| ----- | ---- | -------- | ---------------------------------------------------------------------------- |
-| entry | any  | Yes      | Entry returned from `pushStackEntry` to replace.                             |
-| props | any  | Yes      | Object containing the StatusBar props to use in the replacement stack entry. |
+| 名称 | 类型 | Required | 说明 |
+| --- | --- | --- | --- |
+| entry | any | Yes | Entry returned from `pushStackEntry` to replace. |
+| props | any | Yes | Object containing the StatusBar props to use in the replacement stack entry. |
 
 ---
 
@@ -236,10 +236,10 @@ static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 
 **参数：**
 
-| 名称     | 类型                                          | 必填 | 说明               |
-| -------- | --------------------------------------------- | ---- | ------------------ |
-| style    | [StatusBarStyle](statusbar.md#statusbarstyle) | 是   | 要设置的状态栏样式 |
-| animated | boolean                                       | 否   | 是否启用过渡动画   |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| style | [StatusBarStyle](statusbar.md#statusbarstyle) | 是 | 要设置的状态栏样式 |
+| animated | boolean | 否 | 是否启用过渡动画 |
 
 ---
 
@@ -253,10 +253,10 @@ static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 
 **参数：**
 
-| 名称      | 类型                                                  | 必填 | 说明                             |
-| --------- | ----------------------------------------------------- | ---- | -------------------------------- |
-| hidden    | boolean                                               | 是   | 是否隐藏状态栏                   |
-| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否   | 改变状态栏显示状态的动画过渡效果 |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| hidden | boolean | 是 | 是否隐藏状态栏 |
+| animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否 | 改变状态栏显示状态的动画过渡效果 |
 
 ---
 
@@ -320,10 +320,10 @@ static setTranslucent(translucent: boolean)
 
 **常量：**
 
-| Value         | 说明                                             |
-| ------------- | ------------------------------------------------ |
-| default       | 默认的样式（IOS 为白底黑字、Android 为黑底白字） |
-| light-content | 黑底白字                                         |
-| dark-content  | 白底黑字（需要 Android API>=23）                 |
+| Value | 说明 |
+| --- | --- |
+| default | 默认的样式（IOS 为白底黑字、Android 为黑底白字） |
+| light-content | 黑底白字 |
+| dark-content | 白底黑字（需要 Android API>=23） |
 
 ---

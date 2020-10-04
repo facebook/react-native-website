@@ -87,9 +87,9 @@ _setContent() {
 
 **参数：**
 
-| Name    | Type   | Required | Description                               |
-| ------- | ------ | -------- | ----------------------------------------- |
-| content | string | Yes      | The content to be stored in the clipboard |
+| 名称 | 类型 | Required | 说明 |
+| --- | --- | --- | --- |
+| content | string | Yes | The content to be stored in the clipboard |
 
 _Notice_
 

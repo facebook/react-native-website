@@ -128,7 +128,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Python2、JDK 和 Android Studio。
+必须安装的依赖有：Node、JDK 和 Android Studio。
 
 <block class="native mac windows linux android" />
 
@@ -167,11 +167,11 @@ npx nrm use npm
 
 <block class='native windows android' />
 
-### Node, Python2, JDK
+### Node, JDK
 
-我们建议直接使用搜索引擎搜索下载 Node 、Python2 和[Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+我们建议直接使用搜索引擎搜索下载 Node 和[Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-注意 Node 的版本应大于等于 12，Python 的版本必须为 2.x（不支持 3.x），而 JDK 的版本必须是 1.8（目前不支持 1.9 及更高版本，注意 1.8 版本官方也直接称 8 版本）。安装完 Node 后建议设置 npm 镜像（淘宝源）以加速后面的过程（或使用科学上网工具）。
+注意 Node 的版本应大于等于 12，而 JDK 的版本必须是 1.8（目前不支持 1.9 及更高版本，注意 1.8 版本官方也直接称 8 版本）。安装完 Node 后建议设置 npm 镜像（淘宝源）以加速后面的过程（或使用科学上网工具）。
 
 > 注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
 
@@ -223,7 +223,7 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 1
 
 [CocoaPods](https://cocoapods.org/)是用 Ruby 编写的包管理器。从 0.60 版本开始 react native 的 iOS 版本需要使用 CocoaPods 来管理依赖。你可以使用下面的命令来安装 cocoapods。
 
-> 当然安装可能也不顺利，请尝试翻墙或寻找一些国内可用的镜像源。
+> 当然安装可能也不顺利，请尝试使用代理软件或寻找一些国内可用的镜像源。
 
 ```sh
 sudo gem install cocoapods
@@ -253,7 +253,7 @@ React Native 需要 Java Development Kit [JDK] 1.8（暂不支持 1.9 及更高�
 
 如果你之前没有接触过 Android 的开发环境，那么请做好心理准备，这一过程相当繁琐。请`万分仔细`地阅读下面的说明，严格对照文档进行配置操作。
 
-> 译注：请注意！！！国内用户`必须必须必须`有稳定的翻墙工具，否则在下载、安装、配置过程中会不断遭遇链接超时或断开，无法进行开发工作。某些翻墙工具可能只提供浏览器的代理功能，或只针对特定网站代理等等，请自行研究配置或更换其他软件。总之如果报错中出现有网址，那么 99% 就是无法正常翻墙。
+> 译注：请注意！！！国内用户`必须必须必须`有稳定的代理软件，否则在下载、安装、配置过程中会不断遭遇链接超时或断开，无法进行开发工作。某些代理软件可能只提供浏览器的代理功能，或只针对特定网站代理等等，请自行研究配置或更换其他软件。总之如果报错中出现有网址，那么 99% 就是无法正常连接网络。
 
 <block class="native mac windows linux android" />
 
@@ -300,12 +300,14 @@ Android Studio 默认会安装最新版本的 Android SDK。目前编译 React N
 
 > SDK Manager 还可以在 Android Studio 的"Preferences"菜单中找到。具体路径是**Appearance & Behavior** → **System Settings** → **Android SDK**。
 
-在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 10 (Q)`选项，确保勾选了下面这些组件（重申你必须使用稳定的翻墙工具，否则可能都看不到这个界面）：
+在 SDK Manager 中选择"SDK Platforms"选项卡，然后在右下角勾选"Show Package Details"。展开`Android 10 (Q)`选项，确保勾选了下面这些组件（重申你必须使用稳定的代理软件，否则可能都看不到这个界面）：
 
 - `Android SDK Platform 29`
 - `Intel x86 Atom_64 System Image`（官方模拟器镜像文件，使用非官方模拟器不需要安装此组件）
 
 然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`29.0.2`版本。你可以同时安装多个其他版本。
+
+然后还是在"SDK Tools"选项卡，点击"NDK (Side by side)"，同样勾中右下角的"Show Package Details"，选择`20.1.5948944`版本进行安装。
 
 最后点击"Apply"来下载和安装这些组件。
 
@@ -475,13 +477,17 @@ yarn ios
 yarn react-native run-ios
 ```
 
+此命令会对项目的原生部分进行编译，同时在另外一个命令行中启动`Metro`服务（也叫Packager）对js代码进行实时打包处理（类似webpack）。`Metro`服务也可以使用`yarn start`命令单独启动。
+
 > 提示：如果此命令无法正常运行，请使用 Xcode 运行来查看具体错误（run-ios 的报错没有任何具体信息）。注意 0.60 版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`！
 
 很快就应该能看到 iOS 模拟器自动启动并运行你的项目。
 
+在正常编译完成后，开发期间请保持`Metro`命令行窗口运行而不要关闭。以后需要再次运行项目时，如果没有修改过ios目录中的任何文件，则只需单独启动`yarn start`命令。如果对ios目录中任何文件有修改，则需要再次运行`yarn ios`命令完成原生部分的编译。
+
 ![AwesomeProject on iOS](assets/GettingStartediOSSuccess.png)
 
-`yarn react-native run-ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意 0.60 版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
+`yarn ios`只是运行应用的方式之一。你也可以在 Xcode 中直接运行应用。注意 0.60 版本之后的主项目文件是`.xcworkspace`，不是`.xcodeproj`。
 
 > 如果你无法正常运行，先回头`仔细对照文档检查`，然后可以看看[讨论区](https://github.com/reactnativecn/react-native-website/issues)。
 
@@ -502,11 +508,15 @@ yarn android
 yarn react-native run-android
 ```
 
-如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。注意第一次运行时需要下载大量编译依赖，耗时可能数十分钟。此过程`严重依赖稳定的翻墙工具`，否则将频繁遭遇链接超时和断开，导致无法运行。
+此命令会对项目的原生部分进行编译，同时在另外一个命令行中启动`Metro`服务（也叫Packager）对js代码进行实时打包处理（类似webpack）。`Metro`服务也可以使用`yarn start`命令单独启动。
+
+如果配置没有问题，你应该可以看到应用自动安装到设备上并开始运行。注意第一次运行时需要下载大量编译依赖，耗时可能数十分钟。此过程`严重依赖稳定的代理软件`，否则将频繁遭遇链接超时和断开，导致无法运行。
 
 也可以尝试阿里云提供的[maven 镜像](https://help.aliyun.com/document_detail/102512.html?spm=a2c40.aliyun_maven_repo.0.0.361865e90r2x4b)，将`android/build.gradle`中的`jcenter()`和`google()`分别替换为`maven { url 'https://maven.aliyun.com/repository/jcenter' }`和`maven { url 'https://maven.aliyun.com/repository/google' }`（注意有多处需要替换）。
 
 如果你的设备的 Android 版本低于 5.0，则可能在运行时看到红屏，请阅读[在设备上运行](running-on-device.md)这篇文档来按照步骤解决。
+
+在正常编译完成后，开发期间请保持`Metro`命令行窗口运行而不要关闭。以后需要再次运行项目时，如果没有修改过android目录中的任何文件，则只需单独启动`yarn start`命令。如果对android目录中任何文件有修改，则需要再次运行`yarn android`命令完成原生部分的编译。
 
 <block class="native mac android" />
 

@@ -24,12 +24,12 @@ Custom URL scheme isn't the only way to open your application on mobile. You don
 
 As mentioned in the introduction, there are some URL schemes for core functionality that exist on every platform. The following is a non-exhaustive list, but covers the most commonly used schemes.
 
-| Scheme           | Description                                | iOS | Android |
-| ---------------- | ------------------------------------------ | --- | ------- |
-| `mailto`         | Open mail app, eg: mailto: support@expo.io | ✅  | ✅      |
-| `tel`            | Open phone app, eg: tel:+123456789         | ✅  | ✅      |
-| `sms`            | Open SMS app, eg: sms:+123456789           | ✅  | ✅      |
-| `https` / `http` | Open web browser app, eg: https://expo.io  | ✅  | ✅      |
+| Scheme | 说明 | iOS | Android |
+| --- | --- | --- | --- |
+| `mailto` | Open mail app, eg: mailto: support@expo.io | ✅ | ✅ |
+| `tel` | Open phone app, eg: tel:+123456789 | ✅ | ✅ |
+| `sms` | Open SMS app, eg: sms:+123456789 | ✅ | ✅ |
+| `https` / `http` | Open web browser app, eg: https://expo.io | ✅ | ✅ |
 
 ### 基本用法
 
@@ -75,7 +75,6 @@ If you want to enable deep links in your app, please the below guide:
   return [RCTLinkingManager application:application openURL:url options:options];
 }
 ```
-
 
 ```objectivec
 // iOS 8.x 或更低版本
@@ -376,7 +375,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 ### `openSettings()`
 
- ```jsx
+```jsx
 openSettings();
 ```
 
@@ -402,5 +401,4 @@ getInitialURL();
 sendIntent(action: string, extras?: Array<{key: string, value: string | number | boolean}>)
 ```
 
-> @platform android
-**Android-Only.** Launch an Android intent with extras (optional)
+> @platform android **Android-Only.** Launch an Android intent with extras (optional)

@@ -151,13 +151,13 @@ export default App = () => {
 
 通过[巧妙运用`shouldComponentUpdate`方法](https://facebook.github.io/react/docs/advanced-performance.html#avoiding-reconciling-the-dom)，可以避免重新渲染那些实际没有变化的子组件所带来的额外开销，此时使用`setState`的性能已经可以与`setNativeProps`相媲美了。
 
-## Other native methods
+## 其他原生方法
 
 The methods described here are available on most of the default components provided by React Native. Note, however, that they are _not_ available on composite components that aren't directly backed by a native view. This will generally include most components that you define in your own app.
 
 ### measure(callback)
 
-Determines the location on screen, width, and height of the given view and returns the values via an async callback. If successful, the callback will be called with the following arguments:
+Determines the location on screen, width, and height in the viewport of the given view and returns the values via an async callback. If successful, the callback will be called with the following arguments:
 
 - x
 - y
@@ -166,7 +166,9 @@ Determines the location on screen, width, and height of the given view and retur
 - pageX
 - pageY
 
-Note that these measurements are not available until after the rendering has been completed in native. If you need the measurements as soon as possible, consider using the [`onLayout` prop](view.md#onlayout) instead.
+Note that these measurements are not available until after the rendering has been completed in native. If you need the measurements as soon as possible and you don't need `pageX` and `pageY`, consider using the [`onLayout`](view.md#onlayout) property instead.
+
+Also the width and height returned by `measure()` are the width and height of the component in the viewport. If you need the actual size of the component, consider using the [`onLayout`](view.md#onlayout) property instead.
 
 ### measureInWindow(callback)
 
@@ -177,14 +179,67 @@ Determines the location of the given view in the window and returns the values v
 - width
 - height
 
-### measureLayout(relativeToNativeNode, onSuccess, onFail)
+### measureLayout(relativeToNativeComponentRef, onSuccess, onFail)
 
-Like `measure()`, but measures the view relative an ancestor, specified as `relativeToNativeNode`. This means that the returned x, y are relative to the origin x, y of the ancestor view.
+Like `measure()`, but measures the view relative to an ancestor, specified with `relativeToNativeComponentRef` reference. This means that the returned coordinates are relative to the origin `x`, `y` of the ancestor view.
 
-As always, to obtain a native node handle for a component, you can use `findNodeHandle(component)`.
+> Note: This method can also be called with a `relativeToNativeNode` handler (instead of reference), but this variant is deprecated.
 
-```jsx
-import {findNodeHandle} from 'react-native';
+```SnackPlayer name=measureLayout%20example&supportedPlatforms=android,ios
+import React, { useEffect, useRef, useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
+
+const App = () => {
+  const textContainerRef = useRef(null);
+  const textRef = useRef(null);
+  const [measure, setMeasure] = useState(null);
+
+  useEffect(() => {
+    if (textRef.current && textContainerRef.current) {
+      textRef.current.measureLayout(
+        textContainerRef.current,
+        (left, top, width, height) => {
+          setMeasure({ left, top, width, height });
+        }
+      );
+    }
+  }, [measure]);
+
+  return (
+    <View style={styles.container}>
+      <View
+        ref={textContainerRef}
+        style={styles.textContainer}
+      >
+        <Text ref={textRef}>
+          Where am I? (relative to the text container)
+        </Text>
+      </View>
+      <Text style={styles.measure}>
+        {JSON.stringify(measure)}
+      </Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  textContainer: {
+    backgroundColor: "#61dafb",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 12,
+  },
+  measure: {
+    textAlign: "center",
+    padding: 12,
+  },
+});
+
+export default App;
 ```
 
 ### focus()

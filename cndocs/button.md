@@ -187,9 +187,9 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -197,9 +197,9 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -207,9 +207,9 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -217,9 +217,9 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -227,9 +227,9 @@ Designates the next view to receive focus when the user navigates right. See the
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -237,6 +237,6 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 If true, doesn't play system sound on touch.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| boolean | No       | Android  |
+| 类型    | Required | 平台    |
+| ------- | -------- | ------- |
+| boolean | No       | Android |

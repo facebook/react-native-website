@@ -195,7 +195,7 @@ typedef NS_ENUM(NSInteger, RCTRootViewSizeFlexibility) {
 
 在例子中我们使用一个`FlexibleSizeExampleView`视图来包含根视图。我们创建了根视图，初始化并且设置了代理。代理将会处理尺寸更新。然后，我们设置根视图的弹性尺寸为`RCTRootViewSizeFlexibilityHeight`，意味着`rootViewDidChangeIntrinsicSize:`方法将会在每次 React Native 内容高度变化时进行调用。最后，我们设置根视图的宽度和位置。注意我们也设置了高度，但是并没有效果，因为我们已经将高度设置为根据 RN 内容进行弹性变化了。
 
-你可以在这里查看完整的例子[源代码](https://github.com/facebook/react-native/blob/master/RNTester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m)。
+你可以在这里查看完整的例子[源代码](https://github.com/facebook/react-native/blob/master/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m)。
 
 动态改变根视图的弹性模式是可行的。改变根视图的弹性模式将会导致布局的重新计算，并且在重新量出内容尺寸时会调用`rootViewDidChangeIntrinsicSize`方法。
 

@@ -104,15 +104,15 @@ const styles = StyleSheet.create({
 
 If true, doesn't play Android system sound on press.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| boolean | No       | Android  |
+| 类型    | Required | 平台    |
+| ------- | -------- | ------- |
+| boolean | No       | Android |
 
 ### `android_rippleColor`
 
 Enables the Android ripple effect and configures its color.
 
-| Type | Required | Platform |
+| 类型 | Required | 平台 |
 | --- | --- | --- |
 | [color](https://reactnative.dev/docs/colors) | No | Android |
 
@@ -120,7 +120,7 @@ Enables the Android ripple effect and configures its color.
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| Type       | Required |
+| 类型       | Required |
 | ---------- | -------- |
 | React.Node | No       |
 
@@ -128,7 +128,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 Duration (in milliseconds) from `onPress` before `onLongPress` is called.
 
-| Type   | Required | Default |
+| 类型   | Required | Default |
 | ------ | -------- | ------- |
 | number | No       | 500     |
 
@@ -136,7 +136,7 @@ Duration (in milliseconds) from `onPress` before `onLongPress` is called.
 
 Whether the press behavior is disabled.
 
-| Type    | Required |
+| 类型    | Required |
 | ------- | -------- |
 | boolean | No       |
 
@@ -144,7 +144,7 @@ Whether the press behavior is disabled.
 
 Sets additional distance outside of element in which a press can be detected.
 
-| Type       | Required |
+| 类型       | Required |
 | ---------- | -------- |
 | RectOrSize | No       |
 
@@ -152,7 +152,7 @@ Sets additional distance outside of element in which a press can be detected.
 
 Called when a press event lasts longer than 500 milliseconds. Delay can be customized with [`delayLongPress`](#delaylongpress).
 
-| Type       | Required |
+| 类型       | Required |
 | ---------- | -------- |
 | PressEvent | No       |
 
@@ -160,7 +160,7 @@ Called when a press event lasts longer than 500 milliseconds. Delay can be custo
 
 Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`.
 
-| Type       | Required |
+| 类型       | Required |
 | ---------- | -------- |
 | PressEvent | No       |
 
@@ -168,7 +168,7 @@ Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`
 
 Called immediately when a touch is engaged, before `onPress`.
 
-| Type       | Required |
+| 类型       | Required |
 | ---------- | -------- |
 | PressEvent | No       |
 
@@ -176,7 +176,7 @@ Called immediately when a touch is engaged, before `onPress`.
 
 Called when a touch is released.
 
-| Type       | Required |
+| 类型       | Required |
 | ---------- | -------- |
 | PressEvent | No       |
 
@@ -184,7 +184,7 @@ Called when a touch is released.
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| Type         | Required |
+| 类型         | Required |
 | ------------ | -------- |
 | Rect or Size | No       |
 
@@ -192,7 +192,7 @@ Additional distance outside of this view in which a touch is considered a press 
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type | Required |
+| 类型 | Required |
 | --- | --- |
 | [ViewStyleProp](https://reactnative.dev/docs/view-style-props) | No |
 
@@ -200,6 +200,6 @@ Either view styles or a function that receives a boolean reflecting whether the 
 
 Used only for documentation or testing (e.g. snapshot testing).
 
-| Type    | Required |
+| 类型    | Required |
 | ------- | -------- |
 | boolean | No       |

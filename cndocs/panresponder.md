@@ -231,7 +231,7 @@ export default App;
 
 <block class="endBlock syntax" />
 
-还可以看看[官方示例 RNTester 中的 PanResponder](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PanResponder/PanResponderExample.js).
+还可以看看[官方示例 RNTester 中的 PanResponder](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/PanResponder/PanResponderExample.js).
 
 ---
 

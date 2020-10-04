@@ -185,9 +185,9 @@ Provides you with a list of the app’s notifications that are still displayed i
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                        |
-| -------- | -------- | ---- | ----------------------------------------------------------- |
-| callback | function | 是   | Function which receive an array of delivered notifications. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | function | 是 | Function which receive an array of delivered notifications. |
 
 A delivered notification is an object containing:
 
@@ -210,9 +210,9 @@ Removes the specified notifications from Notification Center
 
 **参数：**
 
-| 名称        | 类型  | 必填 | 说明                               |
-| ----------- | ----- | ---- | ---------------------------------- |
-| identifiers | array | 是   | Array of notification identifiers. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| identifiers | array | 是 | Array of notification identifiers. |
 
 ---
 
@@ -242,9 +242,9 @@ Gets the current badge number for the app icon on the home screen
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                     |
-| -------- | -------- | ---- | -------------------------------------------------------- |
-| callback | function | 是   | A function that will be passed the current badge number. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | function | 是 | A function that will be passed the current badge number. |
 
 ---
 
@@ -276,9 +276,9 @@ Gets the local notifications that are currently scheduled.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                                               |
-| -------- | -------- | ---- | ---------------------------------------------------------------------------------- |
-| callback | function | 是   | A function that will be passed an array of objects describing local notifications. |
+| 名称 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | function | 是 | A function that will be passed an array of objects describing local notifications. |
 
 ---
 
@@ -294,7 +294,7 @@ Attaches a listener to remote or local notification events while the app is runn
 
 | 名称    | 类型     | 必填 | 说明        |
 | ------- | -------- | ---- | ----------- |
-| type    | string   | 是   | Event type. |
+| 类型    | string   | 是   | Event type. |
 | handler | function | 是   | Listener.   |
 
 Valid events are:
@@ -318,7 +318,7 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 | 名称    | 类型     | 必填 | 说明        |
 | ------- | -------- | ---- | ----------- |
-| type    | string   | 是   | Event type. |
+| 类型    | string   | 是   | Event type. |
 | handler | function | 是   | Listener.   |
 
 ---

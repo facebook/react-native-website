@@ -41,13 +41,13 @@ import {
   View
 } from 'react-native';
 
-export default (App = () => (
+export default App = () => (
   <View>
     <Text style={styles.labelCell}>
       I am a special label color!
     </Text>
   </View>
-));
+);
 
 const styles = StyleSheet.create({
   labelCell: {
@@ -66,4 +66,4 @@ const styles = StyleSheet.create({
 
 The string value provided to the `PlatformColor` function must match and agree with the same string as it exists on the native platform the app is being run on. This means to avoid runtime errors the function should be wrapped in a platform check, either through a `Platform.OS === 'platform'` or a `Platform.Select()`.
 
-> **Note:** You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/facebook/react-native/blob/master/RNTester/js/examples/PlatformColor/PlatformColorExample.js).
+> **Note:** You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/PlatformColor/PlatformColorExample.js).

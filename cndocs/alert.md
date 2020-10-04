@@ -7,7 +7,7 @@ title: Alert
 
 你还可以指定一系列的按钮，点击对应的按钮会调用对应的 onPress 回调并且关闭提示框。默认情况下，对话框会仅有一个'确定'按钮。
 
-本接口可以在 iOS 和 Android 上显示一个静态的提示框。如果要在显示提示框的同时接受用户输入一些信息，那你可能需要[`AlertIOS`](alertios.md)。
+本接口可以在 iOS 和 Android 上显示一个静态的提示框。只有 iOS 系统支持在提示框中加入文本框。
 
 ### 示例
 
@@ -137,7 +137,7 @@ export default App;
 
 ## iOS
 
-在 iOS 上你可以指定任意数量的按钮。每个按钮还都可以指定自己的样式，此外还可以指定提示的类别。参阅[AlertIOS](alertios.md)来了解更多细节。
+在 iOS 上你可以指定任意数量的按钮。每个按钮还都可以指定自己的样式，此外还可以指定提示的类别。参阅[AlertButtonStyle](#alertbuttonstyle.md)来了解更多细节。
 
 ## Android
 
@@ -145,34 +145,44 @@ export default App;
 
 如果你只指定一个按钮，则它具有“积极态”的属性（比如“确定”）；两个按钮，则分别是“消极态”和“积极态”（比如“取消”和“确定”）；三个按钮则意味着“中间态”、“消极态”和“积极态”（比如“稍候再说”，“取消”，“确定”）。
 
-在 Android 上可以通过点击提示框的外面来取消提示框，但这一行为默认没有启用。你可以在`options`中提供一个额外参数来启用这一行为：`{ cancelable: true }`。
+在 Android 上可以通过点击提示框的外面来取消提示框，但这一行为默认没有启用。你可以在[`Options`](#options)中提供一个额外参数来启用这一行为：`{ cancelable: true }`。
 
-The cancel event can be handled by providing an `onDismiss` callback property `{ onDismiss: () => {} }` inside the `options` parameter.
+还可以通过在`options`中添加`onDismiss`回调函数来捕获用户的取消操作：`{ onDismiss: () => {} }`。
 
-一个简单的例子：
+### 示例 <div class="label android">Android</div>
 
-```jsx
-Alert.alert('Alert Title', 'My Alert Msg', [
-  {
-    text: 'Ask me later',
-    onPress: () => console.log('Ask me later pressed')
-  },
-  {
-    text: 'Cancel',
-    onPress: () => console.log('Cancel Pressed'),
-    style: 'cancel'
-  },
-  { text: 'OK', onPress: () => console.log('OK Pressed') },
-  {
-    // cancelable and onDismiss only work on Android.
-    cancelable: true,
-    onDismiss: () =>
-      console.log(
-        'This alert was dismissed by tapping outside of the alert dialog.'
-      )
-  }
-]);
+```SnackPlayer name=Alert%20Android%20Dissmissable%20Example&supportedPlatforms=android
+import React from "react";
+import { View, StyleSheet, Button, Alert } from "react-native";
+
+const showAlert = () =>
+  Alert.alert(
+    "Alert Title",
+    "My Alert Msg",
+    [
+      {
+        text: "Cancel",
+        onPress: () => Alert.alert("Cancel Pressed"),
+        style: "cancel",
+      },
+    ],
+    {
+      cancelable: true,
+      onDismiss: () =>
+        Alert.alert(
+          "This alert was dismissed by tapping outside of the alert dialog."
+        ),
+    }
+  );
+
+const App = () => (
+  <Button title="Show alert" onPress={showAlert} />
+);
+
+export default App;
 ```
+
+---
 
 # 文档
 
@@ -183,3 +193,105 @@ Alert.alert('Alert Title', 'My Alert Msg', [
 ```jsx
 static alert(title, message?, buttons?, options?)
 ```
+
+**参数：**
+
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| title | string <div class="label basic required">Required</div> | The dialog's title. Passing `null` or empty string will hide the title. |
+| message | string | An optional message that appears below the dialog's title. |
+| buttons | [Buttons](alert#buttons) | An optional array containg buttons configuration. |
+| options | [Options](alert#options) <div class="label android">Android</div> | An optional Alert configuration for the Android. |
+
+---
+
+### `prompt()` <div class="label ios">iOS</div>
+
+```jsx
+static prompt(title, message?, callbackOrButtons?, type?, defaultValue?, keyboardType?)
+```
+
+Create and display a prompt to enter some text in form of Alert.
+
+**参数：**
+
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| title | string <div class="label basic required">Required</div> | The dialog's title. |
+| message | string | An optional message that appears above the text input. |
+| callbackOrButtons | function<hr/>[Buttons](alert#buttons) | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
+| 类型 | [AlertType](alert#alerttype) | This configures the text input. |
+| defaultValue | string | The default text in text input. |
+| keyboardType | string | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype). |
+
+---
+
+## Type Definitions
+
+### AlertButtonStyle <div class="label ios">iOS</div>
+
+An iOS Alert button style.
+
+| 类型 |
+| ---- |
+| enum |
+
+**Constants:**
+
+| Value           | 说明                      |
+| --------------- | ------------------------- |
+| `'default'`     | Default button style.     |
+| `'cancel'`      | Cancel button style.      |
+| `'destructive'` | Destructive button style. |
+
+---
+
+### AlertType <div class="label ios">iOS</div>
+
+An iOS Alert type.
+
+| 类型 |
+| ---- |
+| enum |
+
+**Constants:**
+
+| Value              | 说明                         |
+| ------------------ | ---------------------------- |
+| `'default'`        | Default alert with no inputs |
+| `'plain-text'`     | Plain text input alert       |
+| `'secure-text'`    | Secure text input alert      |
+| `'login-password'` | Login and password alert     |
+
+---
+
+### Buttons
+
+Array of objects containg Alert buttons configuration.
+
+| 类型             |
+| ---------------- |
+| array of objects |
+
+**Objects properties:**
+
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| text | string | Button label. |
+| onPress | function | Callback function when button is pressed. |
+| style <div class="label ios">iOS</div> | [AlertButtonStyle](alert#alertbuttonstyle) | Button style, on Android this property will be ignored. |
+
+---
+
+### Options <div class="label android">Android</div>
+
+| 类型   |
+| ------ |
+| object |
+
+**Properties:**
+
+| 名称 | 类型 | 说明 |
+| --- | --- | --- |
+| cancelable | boolean | Defines if alert can be dismissed by tapping outside of the alert box. |
+| onDismiss | function | Callback function fired when alert has been dismissed. |

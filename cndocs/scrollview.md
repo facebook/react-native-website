@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
 
 When true, the default JS pan responder on the ScrollView is disabled, and full control over touches inside the ScrollView is left to its child components. This is particularly useful if `snapToInterval` is enabled, since it does not follow typical touch patterns. Do not use this on regular ScrollView use cases without `snapToInterval` as it may cause unexpected touches to occur while scrolling. The default value is false.
 
-| Type | Required |
+| 类型 | Required |
 | ---- | -------- |
 | bool | No       |
 
@@ -353,9 +353,9 @@ Fades out the edges of the the scroll content.
 
 If the value is greater than 0, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
 
-| Type   | Required | Default | Platform |
-| ------ | -------- | ------- | -------- |
-| number | No       | 0       | Android  |
+| 类型   | Required | Default | 平台    |
+| ------ | -------- | ------- | ------- |
+| number | No       | 0       | Android |
 
 ---
 
