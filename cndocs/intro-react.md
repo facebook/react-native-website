@@ -351,7 +351,7 @@ function Cat(props) {
 - it creates a “state variable” with an initial value—in this case the state variable is `isHungry` and its initial value is `true`
 - it creates a function to set that state variable’s value—`setIsHungry`
 
-It doesn’t matter what names you use. But it can be handy to think of the pattern as `[<getter>, <setter>] = useState(<initialValue>)`.
+取什么名字并不重要。但脑海中应该形成这样一种模式：`[<取值>, <设值>] = useState(<initialValue>)`.
 
 下面我们添加一个按钮[`Button`](button)组件，并给它一个`onPress`的prop：
 
@@ -364,7 +364,7 @@ It doesn’t matter what names you use. But it can be handy to think of the patt
 />
 ```
 
-现在当用户点击按钮时，`onPress`函数会被触发，从而调用`setIsHungry(false)`。此时状态变量`isHungry`就被设为了`false`。When `isHungry` is false, the `Button`’s `disabled` prop is set to `true` and its `title` also changes:
+现在当用户点击按钮时，`onPress`函数会被触发，从而调用`setIsHungry(false)`。此时状态变量`isHungry`就被设为了`false`。当`isHungry`为false的时候，`Button`的`disabled`属性就变成了`true` ，其`title`也相应变化：
 
 ```jsx
 <Button
