@@ -131,7 +131,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Python2、JDK 和 Android Studio。
+必须安装的依赖有：Node、JDK 和 Android Studio。
 
 <block class="native mac windows linux android" />
 
@@ -170,11 +170,11 @@ npx nrm use npm
 
 <block class='native windows android' />
 
-### Node, Python2, JDK
+### Node, JDK
 
-我们建议直接使用搜索引擎搜索下载 Node 、Python2 和[Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+我们建议直接使用搜索引擎搜索下载 Node 和[Java SE Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
-注意 Node 的版本应大于等于 12，Python 的版本必须为 2.x（不支持 3.x），而 JDK 的版本必须是 1.8（目前不支持 1.9 及更高版本，注意 1.8 版本官方也直接称 8 版本）。安装完 Node 后建议设置 npm 镜像（淘宝源）以加速后面的过程（或使用科学上网工具）。
+注意 Node 的版本应大于等于 12，而 JDK 的版本必须是 1.8（目前不支持 1.9 及更高版本，注意 1.8 版本官方也直接称 8 版本）。安装完 Node 后建议设置 npm 镜像（淘宝源）以加速后面的过程（或使用科学上网工具）。
 
 > 注意：不要使用 cnpm！cnpm 安装的模块路径比较奇怪，packager 不能正常识别！
 
