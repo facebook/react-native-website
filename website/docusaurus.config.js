@@ -357,9 +357,6 @@ module.exports = {
   themeConfig: {
     prism: {
       defaultLanguage: 'jsx',
-    },
-    prism: {
-      defaultLanguage: 'jsx',
       theme: require('./core/PrismTheme'),
       additionalLanguages: ['java', 'kotlin', 'objectivec', 'swift'],
     },
@@ -367,6 +364,7 @@ module.exports = {
       title: 'React Native',
       logo: {
         src: 'img/header_logo.svg',
+        alt: 'React Native',
       },
       style: 'dark',
       items: [

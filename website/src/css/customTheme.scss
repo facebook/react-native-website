@@ -177,6 +177,10 @@ html[data-theme="dark"] {
       code {
         background-color: rgba(255, 255, 255, 0.09);
       }
+
+      a code {
+        background-color: transparent;
+      }
     }
 
     table thead tr {
@@ -364,6 +368,14 @@ html[data-theme="dark"] .avatar__name a {
 
   .DocSearch-Button-Key svg {
     margin-bottom: 1px !important;
+  }
+
+  .dropdown__menu {
+    min-width: 120px;
+
+    a.dropdown__link--active {
+      font-weight: 600;
+    }
   }
 }
 
