@@ -135,7 +135,7 @@ You will need Node, the React Native command line interface, a JDK, and Android 
 
 <h2>Installing dependencies</h2>
 
-You will need Node, the React Native command line interface, latest version of Python, a JDK, and Android Studio.
+You will need Node, the React Native command line interface, a JDK, and Android Studio.
 
 <block class="native mac windows linux android" />
 
@@ -176,16 +176,16 @@ Follow the [installation instructions for your Linux distribution](https://nodej
 
 <block class='native windows android' />
 
-<h3>Node, Python2, JDK</h3>
+<h3>Node, JDK</h3>
 
-We recommend installing Node and Python2 via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
+We recommend installing Node via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
 
-React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk8/), as well as Python2. Both can be installed using Chocolatey.
+React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk8/), which can be installed using Chocolatey as well.
 
 Open an Administrator Command Prompt (right click Command Prompt and select "Run as Administrator"), then run the following command:
 
 ```powershell
-choco install -y nodejs.install python2 openjdk8
+choco install -y nodejs.install openjdk8
 ```
 
 If you have already installed Node on your system, make sure it is Node 10 or newer. If you already have a JDK on your system, make sure it is version 8 or newer.
