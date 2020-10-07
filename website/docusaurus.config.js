@@ -338,7 +338,7 @@ module.exports = {
             'https://github.com/facebook/react-native-website/blob/master/docs/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
-          remarkPlugins: [],
+          remarkPlugins: [require('./plugins/remark-snackplayer')],
         },
         blog: {
           path: 'blog',
@@ -353,7 +353,7 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-sass'],
+  plugins: ['docusaurus-plugin-sass', './sitePlugin'],
   themeConfig: {
     prism: {
       defaultLanguage: 'jsx',
