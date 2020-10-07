@@ -51,7 +51,7 @@
     "highlight.js": "^9.18.3",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "remarkable": "^2.0.1"
+    "remark-snackplayer": "./plugins/remark-snackplayer"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",
