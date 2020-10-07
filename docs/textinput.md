@@ -432,7 +432,8 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 ### `onBlur`
 
 Callback that is called when the text input is blurred.
-Note: If you are attempting to access the value `text` from `nativeEvent` keep in mind the resulting value you get is undefined which can cause unintended errors. If you are trying to find the last value of `text` from the `nativeEvent` upon completion of editing use `onEndEditing` instead.
+
+> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onEndEditing) event, which is fired upon completion of editing.
 
 | Type     | Required |
 | -------- | -------- |
