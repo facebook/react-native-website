@@ -521,4 +521,4 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 ### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/master/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/master/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L756) when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/master/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method can be invoked when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.
