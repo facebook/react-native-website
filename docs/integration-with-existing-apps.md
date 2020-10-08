@@ -1,6 +1,7 @@
 ---
 id: integration-with-existing-apps
 title: Integration with Existing Apps
+hide_table_of_contents: true
 ---
 
 React Native is great when you are starting a new mobile app from scratch. However, it also works well for adding a single view or user flow to existing native applications. With a few steps, you can add new React Native based features, screens, views, etc.
