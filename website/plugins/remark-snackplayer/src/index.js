@@ -59,8 +59,6 @@ function SnackPlayer() {
                 const supportedPlatforms = params.supportedPlatforms
                   ? params.supportedPlatforms
                   : 'ios,android,web';
-                const currentTheme =
-                  document.documentElement.dataset.theme || 'light';
 
                 // Generate Node for SnackPlayer
                 const snackPlayerDiv = u('html', {
@@ -76,7 +74,6 @@ function SnackPlayer() {
                       data-snack-code="${encodedSampleCode}"
                       data-snack-platform="${platform}"
                       data-snack-supported-platforms="${supportedPlatforms}"
-                      data-snack-theme="${currentTheme}"
                       data-snack-preview="true"
                       style="overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"
                       >
@@ -103,7 +100,6 @@ function SnackPlayer() {
         // To embed.js script
         const snackPlayerEmbed = u('html', {
           value: dedent`
-          <script async src="https://snack.expo.io/embed.js"></script>
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-solarized-dark@1.0.1/prism-solarizeddark.css">         
           <script type="text/javascript">
           // From: 
