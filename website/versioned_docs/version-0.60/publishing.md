@@ -36,7 +36,7 @@ With this goal of a shortlived fork of React Native in mind, you can publish you
 
 This binary needs to become available in your project's `node_modules/react-native/android` folder or directly in your gradle dependency of your Android app. You can achieve this in one of two ways: Git dependency branch, Android binary dependency through Maven.
 
-To build the .aar React Native library, you can follow the steps to [build from source](building-from-source.md) first to install all required tooling. Then to build the actual library, you can run the following in the root of your react-native checkout:
+To build the .aar React Native library, you can follow the steps to [build from source](https://github.com/facebook/react-native/wiki/Building-from-source#android) first to install all required tooling. Then to build the actual library, you can run the following in the root of your react-native checkout:
 
 ```$bash
 ./gradlew :ReactAndroid:installArchives --no-daemon
