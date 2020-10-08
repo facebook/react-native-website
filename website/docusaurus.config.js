@@ -400,8 +400,9 @@ module.exports = {
         },
         {
           href: 'https://github.com/facebook/react-native',
-          label: 'GitHub',
+          'aria-label': 'GitHub repository',
           position: 'right',
+          className: 'navbar-github-link',
         },
       ],
     },
