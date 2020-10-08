@@ -18,6 +18,6 @@ title: Picker Style Props
 
 ### `color`
 
-| Type              | Required |
-| ----------------- | -------- |
-| [color](color.md) | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
