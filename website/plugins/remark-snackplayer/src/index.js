@@ -59,6 +59,8 @@ function SnackPlayer() {
                 const supportedPlatforms = params.supportedPlatforms
                   ? params.supportedPlatforms
                   : 'ios,android,web';
+                const currentTheme =
+                  document.documentElement.dataset.theme || 'light';
 
                 // Generate Node for SnackPlayer
                 const snackPlayerDiv = u('html', {
@@ -74,8 +76,9 @@ function SnackPlayer() {
                       data-snack-code="${encodedSampleCode}"
                       data-snack-platform="${platform}"
                       data-snack-supported-platforms="${supportedPlatforms}"
+                      data-snack-theme="${currentTheme}"
                       data-snack-preview="true"
-                      style="overflow:hidden;background:#fafafa;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"
+                      style="overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"
                       >
                     </div>
                   </div>
