@@ -47,5 +47,4 @@ Parameters:
 ## To Do
 
 - Support Passing Configuration Parameters
-- Fix and Document Mobile Fallback
 - Write Comprehensive tests
