@@ -1,6 +1,7 @@
 ---
 id: building-for-tv
 title: Building For TV Devices
+hide_table_of_contents: true
 ---
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';

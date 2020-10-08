@@ -260,7 +260,7 @@ html[data-theme="dark"] .community-page {
 
 /* Version warning */
 
-div[class*="docItemCol"] {
+div[class*="docItemWrapper"] .row .col {
   > .alert--warning {
     background-color: rgba(100, 215, 255, 0.3);
   }
