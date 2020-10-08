@@ -2,8 +2,6 @@
 const visit = require('unist-util-visit-parents');
 const u = require('unist-builder');
 const dedent = require('dedent');
-const Prism = require('prismjs');
-require('prismjs/components/prism-jsx');
 
 function parseParams(paramString) {
   var params = {};
@@ -21,16 +19,6 @@ function parseParams(paramString) {
   }
 
   return params;
-}
-
-function htmlForCodeBlock(code) {
-  return `
-    <pre class="language-jsx">
-      <code class="language-jsx">
-    ${Prism.highlight(code, Prism.languages.jsx, 'jsx')}
-      </code>
-    </pre>
-    `;
 }
 
 function SnackPlayer() {
@@ -64,20 +52,15 @@ function SnackPlayer() {
                 const snackPlayerDiv = u('html', {
                   value: dedent`
                 <div class="snack-player">
-                  <div class="mobile-friendly-snack" style="display: none">
-                    ${htmlForCodeBlock(dedent(sampleCode))}
-                  </div>
-                  <div class="desktop-friendly-snack">
-                    <div
-                      data-snack-name="${name}"
-                      data-snack-description="${description}"
-                      data-snack-code="${encodedSampleCode}"
-                      data-snack-platform="${platform}"
-                      data-snack-supported-platforms="${supportedPlatforms}"
-                      data-snack-preview="true"
-                      style="overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"
-                      >
-                    </div>
+                  <div
+                    data-snack-name="${name}"
+                    data-snack-description="${description}"
+                    data-snack-code="${encodedSampleCode}"
+                    data-snack-platform="${platform}"
+                    data-snack-supported-platforms="${supportedPlatforms}"
+                    data-snack-preview="true"
+                    style="overflow:hidden;background:#fafafa;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"
+                    >
                   </div>
                 </div>
                 `,
@@ -100,52 +83,7 @@ function SnackPlayer() {
         // To embed.js script
         const snackPlayerEmbed = u('html', {
           value: dedent`
-          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prism-solarized-dark@1.0.1/prism-solarizeddark.css">         
-          <script type="text/javascript">
-          // From: 
-          (function() {
-            'use strict';
-            if (typeof document === 'undefined') {
-              // Not on browser
-              return;
-            }
-            document.addEventListener('DOMContentLoaded', init);
-
-            function init() {
-              var mobile = isMobile();
-
-              window.ExpoSnack && window.ExpoSnack.initialize();
-
-              var snackPlayerList = document.querySelectorAll('.snack-player');
-
-              // Either show interactive or static code block, depending on desktop or mobile
-              for (var i = 0; i < snackPlayerList.length; ++i) {
-                var snackPlayer = snackPlayerList[i];
-                var snackDesktopPlayer = snackPlayer.querySelectorAll(
-                  '.desktop-friendly-snack'
-                )[0];
-                var plainCodeExample = snackPlayer.querySelectorAll(
-                  '.mobile-friendly-snack'
-                )[0];
-
-                if (mobile) {
-                  snackDesktopPlayer.remove();
-                  plainCodeExample.style.display = 'block';
-                } else {
-                  plainCodeExample.remove();
-                }
-              }
-            }
-            
-              // Primitive mobile detection
-              function isMobile() {
-                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-                  navigator.userAgent
-                );
-              }
-              
-          })();
-        </script>
+          <script async src="https://snack.expo.io/embed.js"></script>
           `,
         });
 
