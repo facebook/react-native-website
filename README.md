@@ -31,6 +31,14 @@ This repo contains the website configuration and documentation powering the [Rea
 1.  `yarn start` or `npm start` to start the development server _(powered by [Docusaurus](https://docusaurus.io))_.
 1.  `open http://localhost:3000/` to open the site in your favorite browser.
 
+### Running with docker
+
+```
+cd react-native-website/
+docker build -t rn-website .
+docker container run --name react-native-website --publish 80:3000 --detach rn-website
+```
+
 ## 📖 Overview
 
 If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything. All our content is generated from markdown files you can find in the `docs` directory.
