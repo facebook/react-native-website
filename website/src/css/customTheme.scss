@@ -1151,3 +1151,14 @@ html[data-theme="dark"] .docsRating {
     border: 0;
   }
 }
+
+/* Snack Player */
+
+.snack-player {
+  height: 505px;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 24px;
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: var(--ifm-global-radius);
+}
