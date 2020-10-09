@@ -187,7 +187,8 @@ html[data-theme="dark"] {
       background-color: var(--ifm-menu-color-background-active);
     }
 
-    div[class^="codeBlockTitle"] {
+    div[class^="codeBlockTitle"],
+    div[class^="codeBlockLines"] {
       background-color: var(--deepdark) !important;
     }
   }
@@ -427,6 +428,17 @@ html[data-theme="dark"] .avatar__name a {
       padding-right: 12px;
     }
   }
+
+  .navbar-github-link {
+    &:after {
+      content: "GitHub";
+      background-image: none;
+    }
+
+    &:hover:after {
+      opacity: 1;
+    }
+  }
 }
 
 html[data-theme="dark"] .navbar-sidebar {
@@ -620,7 +632,7 @@ div[class^="tableOfContents"] {
   }
 
   .footer__col {
-    margin: 0 1%;
+    margin: 4px 2% 12px;
   }
 }
 
@@ -967,7 +979,7 @@ td .label {
 
 /* Label as dot in the right sidebar */
 
-div[class^="tableOfContents"] .label {
+.table-of-contents .label {
   display: inline-block;
   padding: 0;
   width: 6px;
@@ -1113,7 +1125,7 @@ html[data-theme="dark"] .component {
   color: #0780ab;
   line-height: 32px;
   font-weight: 500;
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
 
   svg {
     height: 1.5em;
@@ -1145,10 +1157,9 @@ html[data-theme="dark"] .docsRating {
 
 @media only screen and (max-width: 1023px) {
   .docsRating {
-    width: calc(100% + 40px);
-    margin: 32px -20px -8px !important;
-    border-radius: 0;
-    border: 0;
+    width: 100%;
+    margin: 36px 0 0 !important;
+    border-radius: var(--ifm-global-radius);
   }
 }
 
