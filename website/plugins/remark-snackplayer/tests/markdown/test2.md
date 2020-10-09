@@ -15,7 +15,7 @@ const YourApp = () => {
 export default YourApp;
 ```
 
-```SnackPlayer name=SecondPlayer
+```SnackPlayer name=SecondPlayer&theme=dark&preview=false&supportedPlatforms=ios
 import React from 'react';
 import { Text, View } from 'react-native';
 
