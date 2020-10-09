@@ -35,7 +35,7 @@
       "animations",
       "gesture-responder-system"
     ],
-    "Inclusion": ["accessibility"],
+    "Inclusion": ["accessibility", "accessibility-guide"],
     "Performance": [
       "performance",
       "optimizing-flatlist-configuration",

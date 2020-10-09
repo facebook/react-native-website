@@ -39,7 +39,10 @@
       "version-0.63-animations",
       "version-0.63-gesture-responder-system"
     ],
-    "Inclusion": ["version-0.63-accessibility"],
+    "Inclusion": [
+      "version-0.63-accessibility",
+      "version-0.63-accessibility-guide"
+    ],
     "Performance": [
       "version-0.63-performance",
       "version-0.63-optimizing-flatlist-configuration",
