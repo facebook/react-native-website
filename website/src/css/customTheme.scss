@@ -1173,3 +1173,26 @@ html[data-theme="dark"] .docsRating {
   border: 1px solid var(--ifm-table-border-color);
   border-radius: var(--ifm-global-radius);
 }
+
+/* Two columns code block */
+
+.two-columns {
+  display: grid;
+  gap: 0 2%;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: ". .";
+
+  div[class^="codeBlockLines"] {
+    white-space: pre-wrap;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .two-columns {
+    gap: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "." ".";
+  }
+}
