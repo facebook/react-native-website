@@ -33,7 +33,8 @@
       "handling-touches",
       "navigation",
       "animations",
-      "gesture-responder-system"
+      "gesture-responder-system",
+      "flatlist-on-viewable-item-changed"
     ],
     "Inclusion": ["accessibility"],
     "Performance": [
