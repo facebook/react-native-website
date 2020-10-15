@@ -1,9 +1,9 @@
 ---
 id: flatlist-on-viewable-item-changed
-title: What's in view with FlatList using `onViewableItemsChanged`
+title: Using `onViewableItemsChanged`
 ---
 
-You might want to access the items in a [`FlatList`](flatlist) that are visible in the viewport. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds.
+You might want to know viewable items in a [`FlatList`](flatlist) and are notified when viewable items are changed. For example: in list of videos, you want to automatically play a video when the video when it appears on the screen for a few seconds.
 
 In Android, you can use [findFirstVisibleItemPosition](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager#findFirstVisibleItemPosition()) and [findLastVisibleItemPosition](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager#findLastVisibleItemPosition()) if your [RecyclerView](https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView.LayoutManager) is using [LinearLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/LinearLayoutManager) or [GridLayoutManager](https://developer.android.com/reference/androidx/recyclerview/widget/GridLayoutManager). Besides, it provides [isViewPartiallyVisible](https://developer.android.com/reference/android/support/v7/widget/RecyclerView.LayoutManager#isviewpartiallyvisible) to claim if a child view is partially or fully visible. In iOS, you could use [`visibleCells`](https://developer.apple.com/documentation/uikit/uicollectionview/1618056-visiblecells) in `UITableView`. React Native's `FlatList` component has its own powerful property: `onViewableItemsChanged`. This guide will show you how to use the `onViewableItemsChanged` and how it works under the hood.
 
