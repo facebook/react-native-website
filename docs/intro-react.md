@@ -536,10 +536,10 @@ Finally, put your cats inside a `Cafe` component:
 class Cafe extends Component {
   render() {
     return (
-      <>
+      <View>
         <Cat name="Munkustrap" />
         <Cat name="Spot" />
-      </>
+      <View/>
     );
   }
 }
