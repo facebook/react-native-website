@@ -238,6 +238,48 @@ end
 
 <block class="objc swift" />
 
+If your iOS project uses different build configuration names than the default ones (Debug and Release), you have to provide additional mapping for build configurations:
+
+<block class="objc" />
+
+```
+# The target name is most likely the name of your project.
+target 'NumberTileGame' do
+  # Use the project name which is most likely name of the target.
+  project 'NumberTileGame',
+    'YourCustomDebugBuildConfigurationName' => :debug,
+    'YourCustomReleaseBuildConfigurationName' => :release
+
+  # Your pods goes here
+  ...
+
+end
+```
+
+<block class="swift" />
+
+```
+source 'https://github.com/CocoaPods/Specs.git'
+
+# Required for Swift apps
+platform :ios, '8.0'
+use_frameworks!
+
+# The target name is most likely the name of your project.
+target 'swift-2048' do
+  # Use the project name which is most likely name of the target.
+  project 'swift-2048',
+    'YourCustomDebugBuildConfigurationName' => :debug,
+    'YourCustomReleaseBuildConfigurationName' => :release
+
+  # Your pods goes here
+  ...
+
+end
+```
+
+<block class="objc swift" />
+
 After you have created your `Podfile`, you are ready to install the React Native pod.
 
 ```sh
