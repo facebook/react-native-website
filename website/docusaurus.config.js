@@ -488,11 +488,8 @@ module.exports = {
     },
     algolia: {
       apiKey: '2c98749b4a1e588efec53b2acec13025',
-      indexName: 'react-native-versions',
-      algoliaOptions: {
-        facetFilters: ['tags:VERSION'],
-        hitsPerPage: 5,
-      },
+      indexName: 'react-native-v2',
+      contextualSearch: true,
     },
     googleAnalytics: {
       trackingID: 'UA-41298772-2',
