@@ -61,6 +61,12 @@ export default App;
 
 # Reference
 
+## Supported Platforms
+
+| Platform     	| Android 	| IOS 	| Web 	|
+|--------------	|---------	|-----	|-----	|
+| Availability 	| Yes     	| Yes 	| No  	|
+
 ## Props
 
 ### [View Props](view.md#props)
