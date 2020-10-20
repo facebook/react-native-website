@@ -368,24 +368,21 @@ module.exports = {
       style: 'dark',
       items: [
         {
-          to: 'docs/',
           label: 'Docs',
-          // type: 'doc',
-          // docId: 'docs',
+          type: 'doc',
+          docId: 'getting-started',
           position: 'right',
         },
         {
-          to: 'docs/components-and-apis',
           label: 'Components',
-          // type: 'doc',
-          // docId: 'components',
+          type: 'doc',
+          docId: 'components-and-apis',
           position: 'right',
         },
         {
-          to: 'docs/accessibilityinfo',
           label: 'API',
-          // type: 'doc',
-          // docId: 'api',
+          type: 'doc',
+          docId: 'accessibilityinfo',
           position: 'right',
         },
         {
