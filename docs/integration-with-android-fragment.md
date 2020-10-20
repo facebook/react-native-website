@@ -1,5 +1,5 @@
 ---
-id: integration-with-existing-apps
+id: integration-with-android-fragment
 title: Integration with an Android Fragment
 ---
 
