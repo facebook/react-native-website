@@ -1269,12 +1269,12 @@ div[class^="sidebar"] {
 
 html[data-theme="dark"] {
   div[class^="sidebar"] {
-    ::-webkit-scrollbar-track {
+    &::-webkit-scrollbar-track {
       background: #141414;
     }
 
-    ::-webkit-scrollbar-thumb {
-      background: var(--ifm-menu-color-background-hover);
+    &::-webkit-scrollbar-thumb {
+      background: var(--ifm-color-emphasis-200);
     }
   }
 }
