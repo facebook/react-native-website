@@ -308,7 +308,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
 
 ```
 
-You can then invoke the callback in your native function, providing whatever result you want to pass to Javascript in an array. Note that `RCTResponseSenderBlock` accepts only one argument - an array of parameters to pass to the JavaScript callback. Below you will pass back the ID of an event just created.
+You can then invoke the callback in your native function, providing whatever result you want to pass to Javascript in an array. Note that `RCTResponseSenderBlock` accepts only one argument - an array of parameters to pass to the JavaScript callback. Below you will pass back the ID of an event created in an earlier call.
 
 > It is important to highlight that the callback is not invoked immediately after the native function completes—remember the communication is asynchronous.
 

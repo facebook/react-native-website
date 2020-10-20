@@ -52,7 +52,7 @@ public class CalendarModule extends ReactContextBaseJavaModule {
 
 As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule`. For Android, most native modules consist of a class that extends `ReactContextBaseJavaModule` and implements the functionality required by Javascript.
 
-> Note: It is worth noting that technically Java classes can extend the `BaseJavaModule` class or simply implement the `NativeModule` interface to be considered a Native Module by React Native.
+> Note: It is worth noting that technically Java classes can extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
 
 > However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your native module type-safe in the future. For native module type-safety, which is coming in future releases, React Native looks at each native module's Javascript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
 
@@ -150,7 +150,7 @@ public class MyAppPackage implements ReactPackage {
 }
 ```
 
-This file imports the native module we just created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
+This file imports the native module we created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
 
 > Note: It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://git.io/JfuT0). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is a bit more difficult to write and maintain. So proceed with caution if you choose to use TurboReactPackages.
 
@@ -357,7 +357,7 @@ public void createCalendarEvent(String name, String location, Callback callBack)
 }
 ```
 
-You can invoke the callback in your Java method, providing whatever data you want to pass to Javascript. Please note that you can only pass serializable data from native code to Javascript. If you need to pass back a native object you can use `WriteableMaps`, if you need to use a collection use `WritableArrays`. It is also important to highlight that the callback is not invoked immediately after the native function completes. Below we will pass back the ID of an event just created.
+You can invoke the callback in your Java method, providing whatever data you want to pass to Javascript. Please note that you can only pass serializable data from native code to Javascript. If you need to pass back a native object you can use `WriteableMaps`, if you need to use a collection use `WritableArrays`. It is also important to highlight that the callback is not invoked immediately after the native function completes. Below we will pass back the ID of an event created in an earlier call.
 
 ```java
   @ReactMethod
