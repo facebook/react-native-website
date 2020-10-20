@@ -43,6 +43,7 @@ module.exports = {
             require.resolve('./src/css/customTheme.scss'),
             require.resolve('./src/css/index.scss'),
             require.resolve('./src/css/showcase.scss'),
+            require.resolve('./src/css/versions.scss'),
           ],
         },
       },
@@ -93,9 +94,14 @@ module.exports = {
         },
         {
           type: 'docsVersionDropdown',
-          // TODO: to: '/versions',
           position: 'left',
           dropdownActiveClassDisabled: true,
+          dropdownItemsAfter: [
+            {
+              to: '/versions',
+              label: 'All versions',
+            },
+          ],
         },
         {
           href: 'https://github.com/facebook/react-native',
