@@ -1,4 +1,4 @@
-import users from './users';
+const users = require('./showcase.json');
 
 module.exports = {
   title: 'React Native',
