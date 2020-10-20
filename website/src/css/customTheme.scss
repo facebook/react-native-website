@@ -231,7 +231,7 @@ html[data-theme="dark"] article .badge {
 /* Community page */
 
 .community-page {
-  max-width: 840px;
+  max-width: 1280px;
 
   h1 {
     font-size: 3rem;
@@ -248,13 +248,17 @@ html[data-theme="dark"] article .badge {
     display: inline-block;
   }
 
-  a {
+  .container--fluid > div {
+    padding-top: 0 !important;
+  }
+
+  .row .col:first-child a {
     @extend %link-style;
   }
 }
 
 html[data-theme="dark"] .community-page {
-  a {
+  .row .col:first-child a {
     @extend %link-style-dark;
   }
 }
@@ -411,6 +415,19 @@ html[data-theme="dark"] .avatar__name a {
       opacity: 0.5;
     }
   }
+
+  .navbar__link--active:after {
+    content: "";
+    display: flex;
+    width: calc(100% + 40px);
+    height: 4px;
+    margin-top: -4px;
+    margin-left: -20px;
+    margin-right: -20px;
+    position: relative;
+    top: 17px;
+    background: var(--brand);
+  }
 }
 
 .navbar-sidebar {
@@ -426,6 +443,8 @@ html[data-theme="dark"] .avatar__name a {
     .menu__list-item a {
       padding-left: 12px;
       padding-right: 12px;
+      padding-top: 6px;
+      padding-bottom: 8px;
     }
   }
 
@@ -433,6 +452,7 @@ html[data-theme="dark"] .avatar__name a {
     &:after {
       content: "GitHub";
       background-image: none;
+      height: 20px;
     }
 
     &:hover:after {
@@ -1199,20 +1219,29 @@ html[data-theme="dark"] .docsRating {
 
 /* Blog sidebar */
 
-.container .row .col.col--2 {
-  --ifm-col-width: calc(5 / 24 * 100%);
+.main-wrapper:not(.community-page) {
+  .container .row .col.col--2 {
+    --ifm-col-width: calc(5 / 24 * 100%);
 
-  &:last-child {
-    --ifm-col-width: calc(4 / 24 * 100%);
-    padding-right: 0;
+    &:last-child {
+      --ifm-col-width: calc(4 / 24 * 100%);
+      padding-right: 0;
+    }
+  }
+
+  .container .row .col.col--8 {
+    --ifm-col-width: calc(15 / 24 * 100%);
+
+    &:last-child {
+      --ifm-col-width: calc(18 / 24 * 100%);
+    }
   }
 }
 
-.container .row .col.col--8 {
-  --ifm-col-width: calc(15 / 24 * 100%);
-}
-
 div[class^="sidebar"] {
+  padding-right: 10px;
+  margin-left: -16px;
+
   li[class^="sidebarItem"] {
     margin-top: 0;
     margin-bottom: 10px;
@@ -1222,14 +1251,40 @@ div[class^="sidebar"] {
   a[class^="sidebarItemLink"] {
     font-size: 13px;
   }
+
+  &::-webkit-scrollbar {
+    width: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+}
+
+html[data-theme="dark"] {
+  div[class^="sidebar"] {
+    ::-webkit-scrollbar-track {
+      background: #141414;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--ifm-menu-color-background-hover);
+    }
+  }
 }
 
 @media only screen and (max-width: 1023px) {
-  .container .row .col.col--2 {
+  .container.margin-vert--lg .row .col.col--2 {
     display: none;
   }
 
-  .container .row .col.col--8 {
+  .container.margin-vert--lg .row .col.col--8 {
     --ifm-col-width: 100%;
   }
 }
