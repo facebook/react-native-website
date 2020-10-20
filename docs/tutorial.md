@@ -108,7 +108,7 @@ In a React component, the props are the variables that we pass from a parent com
 
 #### Are there differences between React and React Native to handle the state?
 
-<div class="two-columns">
+<div className="two-columns">
 
 ```jsx
 // ReactJS Counter Example using Hooks!
