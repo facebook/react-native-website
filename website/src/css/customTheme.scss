@@ -1196,3 +1196,60 @@ html[data-theme="dark"] .docsRating {
     grid-template-areas: "." ".";
   }
 }
+
+/* Blog sidebar */
+
+.container .row .col.col--2 {
+  --ifm-col-width: calc(5 / 24 * 100%);
+
+  &:last-child {
+    --ifm-col-width: calc(4 / 24 * 100%);
+    padding-right: 0;
+  }
+}
+
+.container .row .col.col--8 {
+  --ifm-col-width: calc(15 / 24 * 100%);
+}
+
+div[class^="sidebar"] {
+  li[class^="sidebarItem"] {
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 18px;
+  }
+
+  a[class^="sidebarItemLink"] {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .container .row .col.col--2 {
+    display: none;
+  }
+
+  .container .row .col.col--8 {
+    --ifm-col-width: 100%;
+  }
+}
+
+/* Pill tabs */
+
+.markdown .tabs.pill-tabs {
+  border-bottom: 0;
+
+  .tabs__item {
+    margin-right: 10px;
+    border-radius: var(--ifm-global-radius);
+    border: 2px solid var(--ifm-table-border-color);
+
+    &:hover {
+      border-radius: var(--ifm-global-radius);
+    }
+
+    &.tabs__item--active {
+      border-color: var(--ifm-tabs-color-active);
+    }
+  }
+}

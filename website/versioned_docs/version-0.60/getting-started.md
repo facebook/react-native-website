@@ -115,12 +115,12 @@ The instructions are a bit different depending on your development operating sys
 
 #### Development OS
 
-<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses}>
+<Tabs groupId="os" defaultValue={constants.defaultOs} values={constants.oses} className="pill-tabs">
 <TabItem value="macos">
 
 #### Target OS
 
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
 [//]: # 'macOS, Android'
@@ -142,7 +142,7 @@ The instructions are a bit different depending on your development operating sys
 
 #### Target OS
 
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
 [//]: # 'Windows, Android'
@@ -166,7 +166,7 @@ The instructions are a bit different depending on your development operating sys
 
 #### Target OS
 
-<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
 [//]: # 'Linux, Android'
