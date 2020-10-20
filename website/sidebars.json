@@ -46,18 +46,19 @@
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
     "Connectivity": ["network", "security"],
     "Native Components and Modules": [
+      "native-modules-intro",
+      "native-modules-android",
+      "native-modules-ios",
       "native-modules-setup",
       "direct-manipulation"
     ],
     "Guides (Android)": [
-      "native-modules-android",
       "native-components-android",
       "headless-js-android",
       "signed-apk-android",
       "removing-default-permissions"
     ],
     "Guides (iOS)": [
-      "native-modules-ios",
       "native-components-ios",
       "linking-libraries-ios",
       "running-on-simulator-ios",

@@ -53,18 +53,19 @@
     ],
     "Connectivity": ["version-0.63-network", "version-0.63-security"],
     "Native Components and Modules": [
+      "version-0.63-native-modules-intro",
+      "version-0.63-native-modules-android",
+      "version-0.63-native-modules-ios",
       "version-0.63-native-modules-setup",
       "version-0.63-direct-manipulation"
     ],
     "Guides (Android)": [
-      "version-0.63-native-modules-android",
       "version-0.63-native-components-android",
       "version-0.63-headless-js-android",
       "version-0.63-signed-apk-android",
       "version-0.63-removing-default-permissions"
     ],
     "Guides (iOS)": [
-      "version-0.63-native-modules-ios",
       "version-0.63-native-components-ios",
       "version-0.63-linking-libraries-ios",
       "version-0.63-running-on-simulator-ios",

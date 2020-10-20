@@ -1,6 +1,6 @@
 ---
 id: version-0.63-native-modules-setup
-title: Native Modules Setup
+title: Native Modules NPM Package Setup
 original_id: native-modules-setup
 ---
 
