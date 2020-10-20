@@ -16,7 +16,6 @@ module.exports = {
   titleDelimiter: '·',
   customFields: {
     repoUrl: 'https://github.com/facebook/react-native',
-    defaultVersionShown: '0.63',
     users,
     communityRepos: [],
     facebookAppId: '1677033832619985',
