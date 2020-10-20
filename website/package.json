@@ -44,8 +44,8 @@
     }
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.65",
-    "@docusaurus/preset-classic": "2.0.0-alpha.65",
+    "@docusaurus/core": "2.0.0-alpha.66",
+    "@docusaurus/preset-classic": "2.0.0-alpha.66",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.1.11",
     "highlight.js": "^9.18.3",

@@ -322,9 +322,7 @@ module.exports = {
       },
     ],
     communityRepos: [],
-    blogSidebarCount: 'ALL',
     facebookAppId: '1677033832619985',
-    markdownPlugins: [null, null],
   },
   onBrokenLinks: 'log',
   presets: [
@@ -342,6 +340,7 @@ module.exports = {
         },
         blog: {
           path: 'blog',
+          blogSidebarCount: 'ALL',
         },
         theme: {
           customCss: [
@@ -371,16 +370,22 @@ module.exports = {
         {
           to: 'docs/',
           label: 'Docs',
+          // type: 'doc',
+          // docId: 'docs',
           position: 'right',
         },
         {
           to: 'docs/components-and-apis',
           label: 'Components',
+          // type: 'doc',
+          // docId: 'components',
           position: 'right',
         },
         {
           to: 'docs/accessibilityinfo',
           label: 'API',
+          // type: 'doc',
+          // docId: 'api',
           position: 'right',
         },
         {
@@ -397,6 +402,7 @@ module.exports = {
           type: 'docsVersionDropdown',
           // TODO: to: '/versions',
           position: 'left',
+          dropdownActiveClassDisabled: true,
         },
         {
           href: 'https://github.com/facebook/react-native',
