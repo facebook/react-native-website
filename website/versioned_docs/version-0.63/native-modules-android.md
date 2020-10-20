@@ -55,11 +55,11 @@ As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaMod
 
 > Note: It is worth noting that technically Java classes can extend the `BaseJavaModule` class or simply implement the `NativeModule` interface to be considered a Native Module by React Native.
 
-> However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your NativeModule type-safe in the future. For NativeModule type-safety, which is coming in future releases, React Native looks at each NativeModule's Javascript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
+> However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your native module type-safe in the future. For native module type-safety, which is coming in future releases, React Native looks at each native module's Javascript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
 
 ### Module Name
 
-All native modules in Android need to implement the `getName()` method. This method returns the string name of the NativeModule which represents the class in JavaScript. The native module can then be accessed in JS via its name. For example, in the below code snippet, `getName` returns `"CalendarModule"`.
+All native modules in Android need to implement the `getName()` method. This method returns the string name of the native module which represents the class in JavaScript. The native module can then be accessed in JS via its name. For example, in the below code snippet, `getName` returns `"CalendarModule"`.
 
 ```java
 @Override
@@ -112,9 +112,9 @@ At the moment, we do not recommend this, since calling methods synchronously can
 
 ### Register the Module (Android Specific)
 
-Once a NativeModule is written, it needs to be registered with React Native. In order to do so, you need to add your NativeModule to a `ReactPackage` and register the `ReactPackage` with React Native. During initialization, React Native will loop over all packages, and for each `ReactPackage`, register each NativeModule within.
+Once a native module is written, it needs to be registered with React Native. In order to do so, you need to add your native module to a `ReactPackage` and register the `ReactPackage` with React Native. During initialization, React Native will loop over all packages, and for each `ReactPackage`, register each native module within.
 
-React Native invokes the method `createNativeModules` on a `ReactPackage` in order to get the list of NativeModules to register. For Android, if a module is not instantiated and returned in createNativeModules it will not be available from Javascript.
+React Native invokes the method `createNativeModules` on a `ReactPackage` in order to get the list of native modules to register. For Android, if a module is not instantiated and returned in createNativeModules it will not be available from Javascript.
 
 To add your Native Module to `ReactPackage`, first create a new Java Class named `MyAppPackage.java` that implements `ReactPackage` inside the `android/app/src/main/java/com/your-app-name/` folder:
 
@@ -153,7 +153,7 @@ public class MyAppPackage implements ReactPackage {
 
 This file imports the native module we just created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
 
-> Note: It is worth noting that this way of registering NativeModules eagerly initializes all NativeModules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated NativeModule objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the NativeModule object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the NativeModules the package can instantiate along with a function that instantiates them, example [here](https://git.io/JfuT0). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is a bit more difficult to write and maintain. So proceed with caution if you choose to use TurboReactPackages.
+> Note: It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://git.io/JfuT0). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is a bit more difficult to write and maintain. So proceed with caution if you choose to use TurboReactPackages.
 
 To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages` method. Open up your `MainApplication.java` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/MainApplication.java`
 
@@ -170,13 +170,13 @@ Locate ReactNativeHost’s `getPackages` method and add your package to the pack
   }
 ```
 
-You have now successfully registered your NativeModule for Android!
+You have now successfully registered your native module for Android!
 
 ### Test What You Have Built
 
 At this point, you have set up the basic scaffolding for your native module in Android. Test that out by accessing the native module and invoking it’s exported method in JavaScript.
 
-Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. In the following example we created a component, `NewModuleButton`, and will invoke the native module inside the `onPress` function.
+Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. In the following example we created a component, NewModuleButton, and will invoke the native module inside the onPress function.
 
 ```jsx
 import React from 'react';
@@ -205,7 +205,7 @@ In order to access your native module from Javascript you need to first import `
 import { NativeModules } from 'react-native';
 ```
 
-You can then access the CalendarModule native module off of NativeModules.
+You can then access the `CalendarModule` native module off of `NativeModules`.
 
 ```jsx
 const { CalendarModule } = NativeModules;
@@ -261,7 +261,7 @@ const { CalendarModule } = NativeModules;
 export default CalendarModule;
 ```
 
-This Javascript file also becomes a good location for you to add any Javascript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe NativeModules down the line. Below is an example of adding type safety to the CalendarModule:
+This Javascript file also becomes a good location for you to add any Javascript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the CalendarModule:
 
 ```jsx
 /**
@@ -340,15 +340,15 @@ const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
-Technically it is possible to access constants exported in `getConstants` directly off the NativeModule object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
+Technically it is possible to access constants exported in `getConstants` directly off the native module object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> Note that currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants()` will become a regular NativeModule method, and each invocation will hit the native side.
+> Note that currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants()` will become a regular native module method, and each invocation will hit the native side.
 
 ### Callbacks
 
 Native modules also support a unique kind of argument: a callback. Callbacks are used to pass data from Java to Javascript for asynchronous methods. They can also be used to asynchronously execute JS from the native side.
 
-In order to create a NativeModule method with a callback, first import the `Callback` interface, and then add a new parameter to your native module method of type `Callback`. There are a couple of nuances with callback arguments that will soon be lifted with TurboModules. First off, you can only have two callbacks in your function arguments- a sucessCallback and a failureCallback. In addition, the last argument to a NativeModule method call, if it's a function, is treated as the successCallback, and the second to last argument to a NativeModule method call, if it's a function, is treated as the failure callback.
+In order to create a native module method with a callback, first import the `Callback` interface, and then add a new parameter to your native module method of type `Callback`. There are a couple of nuances with callback arguments that will soon be lifted with TurboModules. First off, you can only have two callbacks in your function arguments- a sucessCallback and a failureCallback. In addition, the last argument to a native module method call, if it's a function, is treated as the successCallback, and the second to last argument to a native module method call, if it's a function, is treated as the failure callback.
 
 ```java
 import com.facebook.react.bridge.Callback;
@@ -667,6 +667,6 @@ public void onHostDestroy() {
 
 ### Threading
 
-To date, on Android, all NativeModule async methods execute on one thread. On iOS, each NativeModule can provide its method queue, or have React Native generate a method queue for it. On iOS, NativeModules also have an API to get a hold of the method queue on which their async methods are executed.
+To date, on Android, all native module async methods execute on one thread. On iOS, each native module can provide its method queue, or have React Native generate a method queue for it. On iOS, native modules also have an API to get a hold of the method queue on which their async methods are executed.
 
 Native modules should not have any assumptions about what thread they are being called on, as the current assignment is subject to change in the future. If a blocking call is required, the heavy work should be dispatched to an internally managed worker thread, and any callbacks distributed from there.

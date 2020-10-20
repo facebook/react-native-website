@@ -44,7 +44,7 @@ You can use any name that fits the native module you are building. Name the inte
 
 As you can see below, the CalendarModule interface implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
-Next up, let’s start implementing the NativeModule. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same location and include the following content:
+Next up, let’s start implementing the native module. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same location and include the following content:
 
 ```objectivec
 // RCTCalendarModule.m
@@ -61,7 +61,7 @@ RCT_EXPORT_MODULE();
 
 ### Module Name
 
-For now, all your `CalenderModule.m` native module class does is include a `RCT_EXPORT_MODULE()` macro which exports and registers the native module class with React Native. It also specifies the name of the NativeModule. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
+For now, all your `CalenderModule.m` native module class does is include a `RCT_EXPORT_MODULE()` macro which exports and registers the native module class with React Native. It also specifies the name of the native module. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
 
 > Note that this argument is not a string literal. In the example below we pass `RCT_EXPORT_MODULE(CalendarModuleFoo)`, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
 
@@ -95,7 +95,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 
 ### Export a Native Method to Javascript
 
-React Native will not expose any methods in a NativeModule to JavaScript unless explicitly told to. This can be done using the `RCT_EXPORT_METHOD()` macro. Methods written in the `RCT_EXPORT_METHOD` macro are asynchronous and the return type is therefore always void. In order to pass a result from a `RCT_EXPORT_METHOD` method to JavaScript you can use callbacks or emit events (covered below). Let’s go ahead and set up a native method for our `CalendarModule` native module using the `RCT_EXPORT_METHOD` macro. We will call it `createCalendarEvent` and have it take in name and location arguments as strings for now. We will cover argument type options shortly.
+React Native will not expose any methods in a native module to JavaScript unless explicitly told to. This can be done using the `RCT_EXPORT_METHOD()` macro. Methods written in the `RCT_EXPORT_METHOD` macro are asynchronous and the return type is therefore always void. In order to pass a result from a `RCT_EXPORT_METHOD` method to JavaScript you can use callbacks or emit events (covered below). Let’s go ahead and set up a native method for our `CalendarModule` native module using the `RCT_EXPORT_METHOD` macro. We will call it `createCalendarEvent` and have it take in name and location arguments as strings for now. We will cover argument type options shortly.
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)location)
@@ -163,7 +163,7 @@ In order to access your native module from Javascript you need to first import `
 import { NativeModules } from 'react-native';
 ```
 
-You can then access the CalendarModule native module off of NativeModules.
+You can then access the `CalendarModule` native module off of `NativeModules`.
 
 ```jsx
 const { CalendarModule } = NativeModules;
@@ -202,7 +202,7 @@ At this point you have created an iOS native module and invoked a method on it f
 
 ### Better Native Module Export
 
-Importing your native module by pulling it off of NativeModules like above is a bit clunky.
+Importing your native module by pulling it off of `NativeModules` like above is a bit clunky.
 
 To save consumers of your native module from needing to do that each time they want to access your native module, you can create a Javascript wrapper for the module. Create a new Javascript file named CalendarModule.js with the following content:
 
@@ -219,7 +219,7 @@ const { CalendarModule } = NativeModules;
 export default CalendarModule;
 ```
 
-This Javascript file also becomes a good location for you to add any Javascript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe NativeModules down the line. Below is an example of adding type safety to the Calendar Module:
+This Javascript file also becomes a good location for you to add any Javascript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the Calendar Module:
 
 ```jsx
 /**
@@ -270,7 +270,7 @@ When a native module method is invoked in Javascript, React Native converts the 
   > - Number -> CGFloat
   > - Number -> float
 
-In iOS, there is more extensive support for JS to Native type conversion than in Android. You can write NativeModule methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
+In iOS, there is more extensive support for JS to Native type conversion than in Android. You can write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
 ### Exporting Constants
 
@@ -290,7 +290,7 @@ const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
-Technically, it is possible to access constants exported in `constantsToExport` directly off the NativeModule object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
+Technically, it is possible to access constants exported in `constantsToExport` directly off the `NativeModule` object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
 > Note that the constants are exported only at initialization time, so if you change `constantsToExport` values at runtime it won't affect the JavaScript environment.
 
@@ -494,7 +494,7 @@ You will receive a warning if you expend resources unnecessarily by emitting an 
 
 ### Threading
 
-Unless the NativeModule provides its own method queue, it shouldn't make any assumptions about what thread it's being called on. Currently, if a NativeModule doesn't provide a method queue, React Native will create a separate GCD queue for it and invoke its methods there. Please note that this is an implementation detail and might change. If you want to explicitly provide a method queue for a native module, override the `(dispatch_queue_t) methodQueue` method in the native module. For example, if it needs to use a main-thread-only iOS API, it should specify this via:
+Unless the native module provides its own method queue, it shouldn't make any assumptions about what thread it's being called on. Currently, if a native module doesn't provide a method queue, React Native will create a separate GCD queue for it and invoke its methods there. Please note that this is an implementation detail and might change. If you want to explicitly provide a method queue for a native module, override the `(dispatch_queue_t) methodQueue` method in the native module. For example, if it needs to use a main-thread-only iOS API, it should specify this via:
 
 ```objectivec
 - (dispatch_queue_t)methodQueue
