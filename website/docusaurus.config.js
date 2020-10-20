@@ -37,6 +37,7 @@ module.exports = {
         blog: {
           path: 'blog',
           blogSidebarCount: 'ALL',
+          blogSidebarTitle: 'All Blog Posts',
         },
         theme: {
           customCss: [
