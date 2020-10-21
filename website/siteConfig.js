@@ -15,27 +15,27 @@ try {
   // We don't care if there are no repos synced locally
   // We only care if we are on the CI server and about to deploy
 }
-const defaultVersionShown = '0.63';
+const defaultVersionShown = '0.59';
 const baseUrl = '/';
-const repoUrl = 'https://github.com/facebook/react-native';
+const repoUrl = 'https://github.com/facebook/react-native/tree/archive';
 const siteConfig = {
-  title: 'React Native',
+  title: 'React Native Archive',
   tagline: 'A framework for building native apps using React',
-  url: 'https://reactnative.dev',
+  url: 'https://archive.reactnative.dev',
   baseUrl,
   projectName: 'react-native',
-  cname: 'reactnative.dev',
+  cname: 'archive.reactnative.dev',
   repoUrl,
   defaultVersionShown,
   users,
   communityRepos,
-  editUrl: 'https://github.com/facebook/react-native-website/blob/master/docs/',
+  editUrl:
+    'https://github.com/facebook/react-native-website/blob/archive/docs/',
   headerLinks: [
     {doc: 'getting-started', label: 'Docs'},
     {doc: 'components-and-apis', label: 'Components'},
     {doc: 'accessibilityinfo', label: 'API'},
     {page: 'help', label: 'Community'},
-    {blog: true, label: 'Blog'},
     {search: true},
     {href: repoUrl, label: 'GitHub'},
   ],

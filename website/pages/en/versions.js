@@ -95,28 +95,6 @@ class Versions extends React.Component {
             </a>
             . Eventually, the release candidate will be promoted to stable.
           </p>
-          <h2>Latest versions</h2>
-          <p>
-            To see what changes are coming and provide better feedback to React
-            Native contributors, use the latest release candidate when possible.
-            Changes introduced in a release candidate will have been shipped to
-            production Facebook apps for over two weeks by the time the release
-            candidate is cut.
-          </p>
-          <table className="versions">
-            <tbody>
-              {latestVersions.map(function(version) {
-                return (
-                  <VersionItem
-                    key={'version_' + version}
-                    version={version}
-                    baseUrl={siteConfig.baseUrl}
-                    currentVersion={currentVersion}
-                  />
-                );
-              })}
-            </tbody>
-          </table>
           <h2>Stable versions</h2>
           <p>
             The most recent stable version will be used automatically whenever a

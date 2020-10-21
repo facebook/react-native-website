@@ -9,11 +9,7 @@
 }
 
 .fixedHeaderContainer header a {
-  margin: 13px 0;
-}
-
-.fixedHeaderContainer header > a:first-child {
-  width: 160px;
+  margin: 12px 12px 12px 0;
 }
 
 .fixedHeaderContainer header h3 {
@@ -35,7 +31,7 @@ li.navSearchWrapper {
 
 .fixedHeaderContainer header .headerTitleWithLogo {
   font-weight: 500;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: $brand;
 }
 
