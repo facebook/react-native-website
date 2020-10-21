@@ -24,7 +24,13 @@
 
   .form-button {
     @extend %button-link-style;
+
     margin-bottom: 28px;
+    border-width: 2px;
+
+    &:hover {
+      border-color: var(--ifm-color-primary);
+    }
   }
 }
 

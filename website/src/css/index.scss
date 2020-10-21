@@ -16,31 +16,31 @@
   border-bottom: none;
   transition: all 0.2s ease-out;
   max-width: 50%;
-}
 
-.ActionButton.primary {
-  color: var(--dark);
-  background-color: var(--brand);
-}
+  &.primary {
+    color: var(--dark);
+    background-color: var(--brand);
 
-.ActionButton.primary:hover {
-  color: black;
-  background-color: white;
-}
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+  }
 
-.ActionButton.secondary {
-  background: none;
-  color: var(--brand);
-}
+  &.secondary {
+    background: none;
+    color: var(--brand);
 
-.ActionButton.secondary::after {
-  content: "›";
-  font-size: 24px;
-  margin-left: 5px;
-}
+    &::after {
+      content: "›";
+      font-size: 24px;
+      margin-left: 5px;
+    }
 
-.ActionButton.secondary:hover {
-  color: white;
+    &:hover {
+      color: white;
+    }
+  }
 }
 
 /* AppList */
@@ -50,10 +50,16 @@
   padding: 0;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 15px;
-}
 
-.AppList .item {
-  list-style: none;
+  .item {
+    list-style: none;
+
+    a {
+      display: flex;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+  }
 }
 
 /* Community */
