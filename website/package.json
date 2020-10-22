@@ -5,21 +5,17 @@
   "private": true,
   "license": "CC-BY-4.0",
   "homepage": "https://reactnative.dev/",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/facebook/react-native-website.git"
-  },
+  "repository": "github:facebook/react-native-website",
   "bugs": {
-    "url": "https://github.com/facebook/react-native-website"
+    "url": "https://github.com/facebook/react-native-website/issues"
   },
-  "main": "n/a",
   "scripts": {
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
     "prepublish-gh-pages": "yarn sync-community-repos",
     "publish-gh-pages": "docusaurus-publish",
-    "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version",
     "ci-check": "yarn prettier:diff && node image-check.js",
     "format:source": "prettier --write \"{core/**/*.js,static/js/**/*.js}\"",
     "format:markdown": "prettier --write \"{../docs/*.md,versioned_docs/**/*.md,blog/**/*.md}\"",
@@ -33,10 +29,7 @@
     "lint": "cd ../ && alex .",
     "lintv": "cd ../ && alex",
     "sync:docs": "node scripts/sync-api-docs/sync-api-docs ../../react-native",
-    "update-lock": "npx yarn-deduplicate",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "docusaurus": "docusaurus"
+    "update-lock": "npx yarn-deduplicate"
   },
   "husky": {
     "hooks": {

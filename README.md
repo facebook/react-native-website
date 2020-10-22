@@ -74,7 +74,7 @@ react-native-website/
     ├── versioned_sidebars/
     │   ├── version-0.60-sidebars.json
     │   └── ...
-    ├── dddocusaurus.config.js
+    ├── docusaurus.config.js
     ├── package.json
     ├── showcase.json
     ├── sidebars.json
