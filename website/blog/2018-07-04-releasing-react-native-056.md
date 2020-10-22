@@ -54,7 +54,7 @@ We have upgraded to [Flow 0.75](https://github.com/facebook/react-native/commit/
 
 For instance, YellowBox was [replaced](https://github.com/facebook/react-native/commit/d0219a0301e59e8b0ef75dbd786318d4b4619f4c) with a new implementation that makes debugging a lot better.
 
-For the complete release notes, please reference the full [changelog here](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). And remember to keep an eye on the [upgrading guide](/docs/upgrading.html) to avoid issues moving to this new version.
+For the complete release notes, please reference the full [changelog here](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md). And remember to keep an eye on the [upgrading guide](/docs/upgrading) to avoid issues moving to this new version.
 
 ---
 

@@ -83,7 +83,7 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
 
 Alrighty. Now that we know what we are building and how the animation works, we can get down to the code — the reason you are really here.
 
-The main piece of this puzzle is [MaskedViewIOS](/docs/maskedviewios.html), a core React Native component.
+The main piece of this puzzle is [MaskedViewIOS](/docs/maskedviewios), a core React Native component.
 
 ```jsx
 import { MaskedViewIOS } from 'react-native';
@@ -121,13 +121,13 @@ This will give us the layers we see below.
 
 ## Now for the Animated part
 
-We have all the pieces we need to make this work, the next step is animating them. To make this animation feel good, we will be utilizing React Native’s [Animated](/docs/animated.html) API.
+We have all the pieces we need to make this work, the next step is animating them. To make this animation feel good, we will be utilizing React Native’s [Animated](/docs/animated) API.
 
 Animated lets us define our animations declaratively in JavaScript. By default, these animations run in JavaScript and tell the native layer what changes to make on every frame. Even though JavaScript will try to update the animation every frame, it will likely not be able to do that fast enough and will cause dropped frames (jank) to occur. Not what we want!
 
 Animated has special behavior to allow you to get animations without this jank. Animated has a flag called `useNativeDriver` which sends your animation definition from JavaScript to native at the beginning of your animation, allowing the native side to process the updates to your animation without having to go back and forth to JavaScript every frame. The downside of `useNativeDriver` is you can only update a specific set of properties, mostly `transform` and `opacity`. You can’t animate things like background color with `useNativeDriver`, at least not yet — we will add more over time, and of course you can always submit a PR for properties you need for your project, benefitting the whole community 😀.
 
-Since we want this animation to be smooth, we will work within these constraints. For a more in depth look at how `useNativeDriver` works under the hood, check out our [blog post announcing it](/blog/2017/02/14/using-native-driver-for-animated.html).
+Since we want this animation to be smooth, we will work within these constraints. For a more in depth look at how `useNativeDriver` works under the hood, check out our [blog post announcing it](/blog/2017/02/14/using-native-driver-for-animated).
 
 ## Breaking down our animation
 

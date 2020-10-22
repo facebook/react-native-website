@@ -124,4 +124,4 @@ The views in the stack navigator use native components and the [`Animated`](anim
 
 React Navigation also has packages for different kind of navigators such as tabs and drawer. You can use them to implement various patterns in your app.
 
-For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/getting-started.html).
+For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/getting-started).

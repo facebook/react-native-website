@@ -121,6 +121,6 @@ Another example for [Sticky Text Inputs can be found in the repository](https://
 
 ## When will I be able to use this?
 
-The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](http://reactnative.dev/docs/next/inputaccessoryview.html) will be available in the upcoming v0.55.0 release.
+The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](/docs/next/inputaccessoryview) will be available in the upcoming v0.55.0 release.
 
 Happy keyboarding :)
