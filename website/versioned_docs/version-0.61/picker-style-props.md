@@ -5,16 +5,11 @@ title: Picker Style Props
 
 [Picker](picker.md) style props.
 
-### Props
-
-- [View Style Props...](view-style-props.md)
-- [`color`](picker-style-props.md#color)
-
----
-
 # Reference
 
 ## Props
+
+Inherits [View Props](view.md#props).
 
 ### `color`
 

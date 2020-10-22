@@ -1,5 +1,5 @@
 ---
-id: getting-started
+id: enviroment-setup
 title: Getting Started
 hide_table_of_contents: true
 ---
