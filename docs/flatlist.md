@@ -445,6 +445,26 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 ---
 
+### `onScrollBeginDrag`
+
+Called when the user begins to drag the scroll view.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
+### `onScrollEndDrag`
+
+Called when the user stops dragging the scroll view and it either stops or begins to glide.
+
+| Type     | Required |
+| -------- | -------- |
+| function | No       |
+
+---
+
 ### `onViewableItemsChanged`
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
