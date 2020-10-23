@@ -20,7 +20,7 @@ module.exports = {
     communityRepos: [],
     facebookAppId: '1677033832619985',
   },
-  onBrokenLinks: 'log',
+  onBrokenLinks: 'throw',
   presets: [
     [
       '@docusaurus/preset-classic',

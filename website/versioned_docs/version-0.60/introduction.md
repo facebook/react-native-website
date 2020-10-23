@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 <div class="content-banner">
   <p>
-    Welcome to the very start of your React Native journey! If you're looking for environment setup instructions, they've moved to <a href="environment-setup">their own section</a>. Continue reading for an introduction to the documentation, Native Components, React, and more!
+    Welcome to the very start of your React Native journey! If you're looking for environment setup instructions, they've moved to [their own section](/docs/environment-setup). Continue reading for an introduction to the documentation, Native Components, React, and more!
   </p>
   <img class="content-banner-img" src="/docs/assets/p_android-ios-devices.svg" alt=" " />
 </div>
@@ -48,7 +48,7 @@ export default YourApp;
 
 The above is a Snack Player. It’s a handy tool created by Expo to embed and run React Native projects and share how they render in platforms like Android and iOS. The code is live and editable, so you can play directly with it in your browser. Go ahead and try changing the "Try editing me!" text above to "Hello, world!"
 
-> Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](environment-setup) and paste the code examples into your `App.js` file there. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
+> Optionally, if you want to setup a local development environment, [you can follow our guide to setting up your environment on your local machine](/docs/environment-setup) and paste the code examples into your `App.js` file there. (If you are a web developer, you may already have a local environment set up for mobile browser testing!)
 
 ## Function Components and Class Components
 

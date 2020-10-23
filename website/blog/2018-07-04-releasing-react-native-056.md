@@ -12,7 +12,7 @@ The long-awaited 0.56 version of React Native is now available 🎉. This blog p
 
 ### The breaking changes dilemma, or, "when to release?"
 
-The [Contributor's Guide](/docs/contributing#our-development-process) explains the integration process that all changes to React Native go through. The project has is composed by [many different tools](https://github.com/facebook/react-native-website/issues/370), requiring coordination and constant support to keep everything working properly. Add to this the vibrant open source community that contributes back to the project, and you will get a sense of the mind-bending scale of it all.
+The [Contributor's Guide](https://github.com/facebook/react-native/blob/master/CONTRIBUTING.md) explains the integration process that all changes to React Native go through. The project has is composed by [many different tools](https://github.com/facebook/react-native-website/issues/370), requiring coordination and constant support to keep everything working properly. Add to this the vibrant open source community that contributes back to the project, and you will get a sense of the mind-bending scale of it all.
 
 With React Native's impressive adoption, breaking changes must be made with great care, and the process is not as smooth as we'd like. A decision was made to skip the April and May releases to allow the core team to integrate and test a new set of breaking changes. [Dedicated community communication](https://github.com/react-native-community/react-native-releases/issues/14) channels were used along the way to ensure that the June 2018 (`0.56.0`) release is as hassle-free as possible to adopt by those who patiently waited for the stable release.
 
