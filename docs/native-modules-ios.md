@@ -39,7 +39,7 @@ and add the following to it:
 
 ```
 
-You can use any name that fits the native module you are building. Name the interface `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have namespaces like Java or C++, convention is to prepend the interface name with a substring like RCT (an abbreviation or React).
+You can use any name that fits the native module you are building. Name the interface `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have language-level support for namespaces like Java or C++, convention is to prepend the interface name with a substring. This could be an abbreviation of your application name or your infra name. RCT, in this example, refers to React. 
 
 As you can see below, the CalendarModule interface implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
