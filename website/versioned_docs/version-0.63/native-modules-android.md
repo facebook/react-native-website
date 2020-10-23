@@ -8,7 +8,7 @@ If you haven’t already, please start by reading the [Native Modules Intro](nat
 
 ## Create a Calendar Native Module
 
-In the following guide you will create a native module, `CalendarModule`, that will allow you to access Android’s calendar APIs from Javascript. By the end we will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a native method that creates a calendar event.
+In the following guide you will create a native module, `CalendarModule`, that will allow you to access Android’s calendar APIs from JavaScript. By the end, we will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a Java method that creates a calendar event.
 
 ### Setup
 
