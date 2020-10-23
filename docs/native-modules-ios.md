@@ -68,7 +68,7 @@ Below `CalendarModuleFoo` is passed in, so that the module can be accessed throu
 
 ```objectivec
 // To export a module named CalendarModuleFoo
-RCT_EXPORT_MODULE();
+RCT_EXPORT_MODULE(CalendarModuleFoo);
 ```
 
 The native module can then be accessed in JS like this:
