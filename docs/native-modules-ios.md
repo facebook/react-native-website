@@ -43,7 +43,7 @@ You can use any name that fits the native module you are building. Name the inte
 
 As you can see below, the CalendarModule interface implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
-Next up, let’s start implementing the native module. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same location and include the following content:
+Next up, let’s start implementing the native module. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same folder and include the following content:
 
 ```objectivec
 // RCTCalendarModule.m
