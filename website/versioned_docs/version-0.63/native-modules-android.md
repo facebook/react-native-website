@@ -19,13 +19,13 @@ To get started, open up the Android project within your React Native application
   <figcaption>Image of where you can find your Android project</figcaption>
 </figure>
 
-We recommend using Android Studio to write your native code. Android studio is built for Android development and using it will help you resolve minor errors like code syntax quickly.
+We recommend using Android Studio to write your native code. Android studio is an IDE built for Android development and using it will help you resolve minor issues like code syntax errors quickly.
 
 We also recommend enabling [Gradle Daemon](https://docs.gradle.org/2.9/userguide/gradle_daemon.html) to speed up builds as you iterate on Java code.
 
 ### Create A Custom Native Module File
 
-The first step is to create a main custom native module file. Create a new Java class named CalendarModule.java inside `android/app/src/main/java/com/your-app-name/ folder`.
+The first step is to create the CalendarModule.java Java file inside `android/app/src/main/java/com/your-app-name/ folder`. This Java file will contain your native module Java class.
 
 <figure>
   <img src="/docs/assets/native-modules-android-add-class.png" width="700" alt="Image of adding a class called CalendarModule.java within the Android Studio." />
@@ -51,7 +51,7 @@ public class CalendarModule extends ReactContextBaseJavaModule {
 }
 ```
 
-As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule`. For Android, most native modules consist of a class that extends `ReactContextBaseJavaModule` and implements the functionality required by Javascript.
+As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule` class. For Android, Java native modules are written as classes that extend `ReactContextBaseJavaModule` and implement the functionality required by Javascript.
 
 > Note: It is worth noting that technically Java classes can extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
 
@@ -59,7 +59,7 @@ As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaMod
 
 ### Module Name
 
-All native modules in Android need to implement the `getName()` method. This method returns the string name of the native module which represents the class in JavaScript. The native module can then be accessed in JS via its name. For example, in the below code snippet, `getName` returns `"CalendarModule"`.
+All Java native modules in Android need to implement the `getName()` method. This method returns a string, which represents the name of the native module. The native module can then be accessed in JavaScript using its name. For example, in the below code snippet, `getName()` returns `"CalendarModule"`.
 
 ```java
 @Override
@@ -98,7 +98,7 @@ public void createCalendarEvent(String name, String location) {
 }
 ```
 
-Once we finish implementing the native module and hook it up in JS, you can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view the logs from your app.
+Once we finish implementing the native module and hook it up in JavaScript, you can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view the logs from your app.
 
 ### Synchronous Methods
 
@@ -153,7 +153,7 @@ public class MyAppPackage implements ReactPackage {
 
 This file imports the native module we created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
 
-> Note: It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://git.io/JfuT0). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is a bit more difficult to write and maintain. So proceed with caution if you choose to use TurboReactPackages.
+> Note: It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
 
 To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages` method. Open up your `MainApplication.java` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/MainApplication.java`
 
@@ -174,7 +174,7 @@ You have now successfully registered your native module for Android!
 
 ### Test What You Have Built
 
-At this point, you have set up the basic scaffolding for your native module in Android. Test that out by accessing the native module and invoking it’s exported method in JavaScript.
+At this point, you have set up the basic scaffolding for your native module in Android. Test that out by accessing the native module and invoking its exported method in JavaScript.
 
 Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. In the following example we created a component, NewModuleButton, and will invoke the native module inside the onPress function.
 
@@ -199,7 +199,7 @@ const NewModuleButton = () => {
 export default NewModuleButton;
 ```
 
-In order to access your native module from Javascript you need to first import `NativeNodules` from React Native:
+In order to access your native module from Javascript you need to first import `NativeModules` from React Native:
 
 ```jsx
 import { NativeModules } from 'react-native';
@@ -346,7 +346,7 @@ Technically it is possible to access constants exported in `getConstants` direct
 
 ### Callbacks
 
-Native modules also support a unique kind of argument: a callback. Callbacks are used to pass data from Java to Javascript for asynchronous methods. They can also be used to asynchronously execute JS from the native side.
+Native modules also support a unique kind of argument: a callback. Callbacks are used to pass data from Java to JavaScript for asynchronous methods. They can also be used to asynchronously execute JavaScript from the native side.
 
 In order to create a native module method with a callback, first import the `Callback` interface, and then add a new parameter to your native module method of type `Callback`. There are a couple of nuances with callback arguments that will soon be lifted with TurboModules. First off, you can only have two callbacks in your function arguments- a sucessCallback and a failureCallback. In addition, the last argument to a native module method call, if it's a function, is treated as the successCallback, and the second to last argument to a native module method call, if it's a function, is treated as the failure callback.
 
