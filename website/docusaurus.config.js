@@ -24,7 +24,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          showLastUpdateAuthor: true,
+          showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editUrl:
             'https://github.com/facebook/react-native-website/blob/master/docs/',
