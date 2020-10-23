@@ -60,7 +60,7 @@ RCT_EXPORT_MODULE();
 
 ### Module Name
 
-For now, all your `CalenderModule.m` native module class does is include a `RCT_EXPORT_MODULE()` macro which exports and registers the native module class with React Native. It also specifies the name of the native module. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
+For now, your `CalenderModule.m` native module only includes a `RCT_EXPORT_MODULE()` macro, which exports and registers the native module class with React Native. It also specifies the name of the native module. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
 
 > Note that this argument is not a string literal. In the example below we pass `RCT_EXPORT_MODULE(CalendarModuleFoo)`, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
 
