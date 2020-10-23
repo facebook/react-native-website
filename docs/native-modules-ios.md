@@ -3,7 +3,7 @@ id: native-modules-ios
 title: Native Modules
 ---
 
-If you haven’t already, please start by reading the [Native Modules Intro](native-modules-intro).
+Welcome to Native Modules for iOS. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.
 
 ## Create a Calendar Native Module
 
@@ -39,7 +39,7 @@ and add the following to it:
 
 ```
 
-You can use any name that fits the native module you are building. Name the interface `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have language-level support for namespaces like Java or C++, convention is to prepend the interface name with a substring. This could be an abbreviation of your application name or your infra name. RCT, in this example, refers to React. 
+You can use any name that fits the native module you are building. Name the interface `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have language-level support for namespaces like Java or C++, convention is to prepend the interface name with a substring. This could be an abbreviation of your application name or your infra name. RCT, in this example, refers to React.
 
 As you can see below, the CalendarModule interface implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
@@ -502,7 +502,7 @@ Unless the native module provides its own method queue, it shouldn't make any as
 }
 ```
 
-Similarly, if an operation may take a long time to complete, the native module can specify its own queue to run operations on. Again, currently React Native will provide a separate method queue for your native module, but this is an implementation detail you should not rely on. If you don't provide your own method queue, in the future, you native module's long running operations may end up blocking async calls being executed on other unrelated native modules.  The `RCTAsyncLocalStorage` module here, for example, creates its own queue so the React queue isn't blocked waiting on potentially slow disk access.
+Similarly, if an operation may take a long time to complete, the native module can specify its own queue to run operations on. Again, currently React Native will provide a separate method queue for your native module, but this is an implementation detail you should not rely on. If you don't provide your own method queue, in the future, you native module's long running operations may end up blocking async calls being executed on other unrelated native modules. The `RCTAsyncLocalStorage` module here, for example, creates its own queue so the React queue isn't blocked waiting on potentially slow disk access.
 
 ```objectivec
 - (dispatch_queue_t)methodQueue
@@ -600,4 +600,4 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 #### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module. 
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module.

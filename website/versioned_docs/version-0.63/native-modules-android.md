@@ -4,7 +4,7 @@ title: Android Native Modules
 original_id: native-modules-android
 ---
 
-If you haven’t already, please start by reading the [Native Modules Intro](native-modules-intro).
+Welcome to Native Modules for Android. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.
 
 ## Create a Calendar Native Module
 
