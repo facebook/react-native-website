@@ -79,7 +79,7 @@ const { CalendarModuleFoo } = ReactNative.NativeModules;
 
 If you do not specify a name, the JavaScript module name will match the Objective-C class name. Please note, if the Objective-C class name begins with RCT, the JavaScript module name will exclude the RCT prefix.
 
-Let's follow the example below and not pass a name argument to `RCT_EXPORT_MODULE`. As a result, the module can be accessed as `CalendarModule`, since that is the Objective-C class name, with RCT removed.
+Let's follow the example below and call `RCT_EXPORT_MODULE` without any arguments. As a result, the module will be exposed to React Native using the name `CalendarModule`, since that is the Objective-C class name, with RCT removed.
 
 ```objectivec
 // Without passing in a name this will export the native module name as the Objective-C class name with “RCT” removed
