@@ -549,7 +549,7 @@ RCTRootView *rootView = [[RCTRootView alloc]
 
 ### Exporting Swift
 
-Swift doesn't have support for macros so exposing it to React Native requires a bit more setup but works relatively the same. Let's say we have the same `CalendarModule` but as a Swift class:
+Swift doesn't have support for macros, so exposing native modules and their methods to JavaScript inside React Native requires a bit more setup. However, it works relatively the same. Let's say we have the same `CalendarModule` but as a Swift class:
 
 ```swift
 // CalendarManager.swift
