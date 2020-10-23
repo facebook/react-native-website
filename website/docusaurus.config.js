@@ -8,7 +8,7 @@ module.exports = {
   projectName: 'react-native',
   scripts: [
     'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
-    'https://snack.expo.io/embed.js',
+    {src: 'https://snack.expo.io/embed.js', defer: true},
   ],
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
