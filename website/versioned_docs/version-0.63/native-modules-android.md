@@ -53,7 +53,7 @@ public class CalendarModule extends ReactContextBaseJavaModule {
 
 As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule`. For Android, most native modules consist of a class that extends `ReactContextBaseJavaModule` and implements the functionality required by Javascript.
 
-> Note: It is worth noting that technically Java classes can extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
+> Note: It is worth noting that technically Java classes only need to extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
 
 > However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your native module type-safe in the future. For native module type-safety, which is coming in future releases, React Native looks at each native module's Javascript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
 

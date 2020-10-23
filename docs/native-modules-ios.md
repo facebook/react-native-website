@@ -133,7 +133,7 @@ At the moment, we do not recommend using synchronous methods, since calling meth
 
 At this point you have set up the basic scaffolding for your native module in iOS. Test that out by accessing the native module and invoking it’s exported method in JavaScript.
 
-Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. In the following example we created a component, NewModuleButton, and will invoke the native module inside the onPress function.
+Find a place in your application where you would like to call into `CalendarModule.createCalendarEvent`. In the following example we created a component, NewModuleButton. We will invoke the native module method inside its onPress event callback.
 
 ```jsx
 import React from 'react';
