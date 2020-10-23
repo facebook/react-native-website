@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
+import GitHubButton from 'react-github-btn';
 import Head from '@docusaurus/Head';
 import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
@@ -116,28 +117,27 @@ function HomeCallToAction() {
   );
 }
 
-function TwitterButton({showCount = false}) {
+function TwitterButton() {
   return (
     <a
-      href="https://twitter.com/reactnative?ref_src=twsrc%5Etfw"
-      className="twitter-follow-button"
-      data-size="large"
-      data-show-count={`${showCount}`}>
+      href="https://twitter.com/intent/follow?screen_name=reactnative&region=follow_link"
+      className="twitter-follow-button">
+      <div className="icon" />
       Follow @reactnative
     </a>
   );
 }
 
-function GitHubButton() {
+function GitHubStarButton() {
   return (
-    <a
+    <GitHubButton
       className="github-button"
       href="https://github.com/facebook/react-native"
       data-icon="octicon-star"
       data-size="large"
       aria-label="Star facebook/react-native on GitHub">
       Star
-    </a>
+    </GitHubButton>
   );
 }
 
@@ -240,7 +240,7 @@ function HeaderHero() {
     <Section background="dark" className="HeaderHero">
       <div className="socialLinks">
         <TwitterButton />
-        <GitHubButton />
+        <GitHubStarButton />
       </div>
       <TwoColumns
         reverse

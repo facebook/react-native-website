@@ -44,6 +44,7 @@
     "highlight.js": "^9.18.3",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-github-btn": "^1.2.0",
     "remark-snackplayer": "./plugins/remark-snackplayer"
   },
   "devDependencies": {
