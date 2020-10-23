@@ -184,7 +184,7 @@ react-native run-ios
 
 ### Building as You Iterate
 
-As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from Javascript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in Javascript and rebuild on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `react-native run-ios` command.
+As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from Javascript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in Javascript and rebuild JS bundle on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `react-native run-ios` command.
 
 ### Recap✨
 
@@ -203,7 +203,7 @@ At this point you have created an iOS native module and invoked a method on it f
 
 Importing your native module by pulling it off of `NativeModules` like above is a bit clunky.
 
-To save consumers of your native module from needing to do that each time they want to access your native module, you can create a Javascript wrapper for the module. Create a new Javascript file named CalendarModule.js with the following content:
+To save consumers of your native module from needing to do that each time they want to access your native module, you can create a Javascript wrapper for the module. Create a new Javascript file named NativeCalendarModule.js with the following content:
 
 ```jsx
 /**
@@ -218,7 +218,7 @@ const { CalendarModule } = NativeModules;
 export default CalendarModule;
 ```
 
-This Javascript file also becomes a good location for you to add any Javascript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the Calendar Module:
+This Javascript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like TypeScript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, with these type annotations, all your JS code will be type safe. These annotations will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the Calendar Module:
 
 ```jsx
 /**
@@ -239,15 +239,15 @@ export default CalendarModule as CalendarInterface;
 In your other Javascript files you can access the native module and invoke its method like this:
 
 ```jsx
-import CalendarModule from './CalendarModule';
-CalendarModule.createCalendarEvent(‘foo’, ‘bar’);
+import NativeCalendarModule from './NativeCalendarModule';
+NativeCalendarModule.createCalendarEvent(‘foo’, ‘bar’);
 ```
 
 > Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
 
 ### Argument Types
 
-When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Objective-C/Swift object analogues. So for example, if your Objective-C Native Module method accepts a NSNumber, in JS we need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the Javascript equivalents they map to.
+When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Objective-C/Swift object analogues. So for example, if your Objective-C Native Module method accepts a NSNumber, in JS we need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
 
 - string -> NSString \*
 - ?string -> NSString \*
@@ -337,7 +337,7 @@ const onSubmit = () => {
 };
 ```
 
-A native module is supposed to invoke its callback only once. It can, however, store the callback and invoke it later. It's okay to store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates— see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/3a11f0536ea65b87dc0f006665f16a87cfa14b5e/React/CoreModules/RCTAlertManager.mm) for an example. If the callback is never invoked, some memory is leaked.
+A native module is supposed to invoke its callback only once. It can, however, store the callback and invoke it later. This pattern is often used to wrap iOS APIs that require delegates— see [`RCTAlertManager`](https://github.com/facebook/react-native/blob/3a11f0536ea65b87dc0f006665f16a87cfa14b5e/React/CoreModules/RCTAlertManager.mm) for an example. If the callback is never invoked, some memory is leaked.
 
 There are two approaches to error handling with callbacks. The first is to follow Node’s convention and treat the first argument passed to the callback array as an error object.
 
@@ -502,7 +502,7 @@ Unless the native module provides its own method queue, it shouldn't make any as
 }
 ```
 
-Similarly, if an operation may take a long time to complete, the native module can specify it's own queue to run operations on. Again, currently React Native will provide a separate method queue for your native module, but this is an implementation detail you should not rely on. For example, the `RCTAsyncLocalStorage` module creates its own queue so the React queue isn't blocked waiting on potentially slow disk access.
+Similarly, if an operation may take a long time to complete, the native module can specify its own queue to run operations on. Again, currently React Native will provide a separate method queue for your native module, but this is an implementation detail you should not rely on. If you don't provide your own method queue, in the future, you native module's long running operations may end up blocking async calls being executed on other unrelated native modules.  The `RCTAsyncLocalStorage` module here, for example, creates its own queue so the React queue isn't blocked waiting on potentially slow disk access.
 
 ```objectivec
 - (dispatch_queue_t)methodQueue
@@ -528,11 +528,11 @@ RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSe
 
 > NOTE: Sharing dispatch queues between modules
 >
-> The `methodQueue` method will be called once when the module is initialized, and then retained by the bridge, so there is no need to keep a reference to the queue yourself, unless you wish to make use of it within your module. However, if you wish to share the same queue between multiple modules then you will need to ensure that you retain and return the same queue instance for each of them; merely returning a queue of the same name for each won't work.
+> The `methodQueue` method will be called once when the module is initialized, and then retained by React Native, so there is no need to keep a reference to the queue yourself, unless you wish to make use of it within your module. However, if you wish to share the same queue between multiple modules then you will need to ensure that you retain and return the same queue instance for each of them.
 
 ### Dependency Injection
 
-React Native will initialize any registered `RCTBridgeModules` automatically, however you may wish to instantiate your own module instances (so you may inject dependencies, for example).
+React Native will create and initialize any registered native modules automatically. However, you may wish to create and initialize your own module instances to, for example, inject dependencies.
 
 You can do this by creating a class that implements the `RCTBridgeDelegate` Protocol, initializing an `RCTBridge` with the delegate as an argument and initialising a `RCTRootView` with the initialized bridge.
 
@@ -600,4 +600,4 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 #### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/0.62-stable/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/0.62-stable/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L456) when the native bridge is invalidated (ie: on devmode reload). Please use this mechanism as necessary to do the required cleanup for your native module. 
