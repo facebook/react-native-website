@@ -1,5 +1,5 @@
 ---
-title: React Native Monthly #2
+title: 'React Native Monthly #2'
 author: Tomislav Tenodi
 authorTitle: Product Manager at Shoutem
 authorURL: 'https://github.com/tenodi'

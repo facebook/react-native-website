@@ -82,7 +82,7 @@ Out of the box, transforming your files to JavaScript works via the same [Babel 
 
 ## What does React Native + TypeScript look like
 
-You can provide an interface for a React Component's [Props](/docs/props) and [State](/docs/state) via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
+You can provide an interface for a React Component's [Props]](props) and [State]](state) via `React.Component<Props, State>` which will provide type-checking and editor auto-completing when working with that component in JSX.
 
 ```tsx
 // components/Hello.tsx
@@ -215,8 +215,6 @@ npm install --save-dev babel-plugin-module-resolver
 [babel-7-caveats]: https://babeljs.io/docs/en/next/babel-plugin-transform-typescript
 [cheats]: https://github.com/typescript-cheatsheets/react-typescript-cheatsheet#reacttypescript-cheatsheets
 [ts-handbook]: http://www.typescriptlang.org/docs/home.html
-[props]: /docs/props.html
-[state]: /docs/state.html
 [path-map]: https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
 [bpmr]: https://github.com/tleunen/babel-plugin-module-resolver
 [expo]: https://expo.io

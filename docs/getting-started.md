@@ -109,7 +109,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 </TabItem>
 <TabItem value="native">
 
-<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from <a href="environment-setup" onclick="displayTab('guide', 'quickstart')">Expo</a>, you'll need this section.</p>
+<p>Follow these instructions if you need to build native code in your project. For example, if you are integrating React Native into an existing application, or if you "ejected" from Expo, you'll need this section.</p>
 
 The instructions are a bit different depending on your development operating system, and whether you want to start developing for iOS or Android. If you want to develop for both Android and iOS, that's fine - you can pick one to start with, since the setup is a bit different.
 

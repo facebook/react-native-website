@@ -1,5 +1,5 @@
 ---
-title: React Native Monthly #3
+title: 'React Native Monthly #3'
 author: Mike Grabowski
 authorTitle: CTO at Callstack
 authorURL: 'https://github.com/grabbou'

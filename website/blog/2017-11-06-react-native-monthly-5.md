@@ -1,5 +1,5 @@
 ---
-title: React Native Monthly #5
+title: 'React Native Monthly #5'
 author: Tomislav Tenodi
 authorTitle: Founder at Speck
 authorURL: 'https://github.com/tenodi'

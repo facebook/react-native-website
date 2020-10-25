@@ -7,7 +7,11 @@ module.exports = {
   baseUrl: '/',
   projectName: 'react-native',
   scripts: [
-    'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
+    {
+      src:
+        'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
+      defer: true,
+    },
     {src: 'https://snack.expo.io/embed.js', defer: true},
   ],
   favicon: 'img/favicon.ico',

@@ -1,9 +1,10 @@
 @import "shared";
 
 .showcaseSection {
-  width: 800px;
+  max-width: 800px;
   margin: 64px auto;
   text-align: center;
+  padding: 0 20px;
 
   .showcase img {
     height: 100px;
@@ -24,18 +25,25 @@
 
   .form-button {
     @extend %button-link-style;
-
-    margin-bottom: 28px;
+    margin-bottom: 36px;
     border-width: 2px;
+    font-weight: 500;
 
     &:hover {
       border-color: var(--ifm-color-primary);
+      color: var(--ifm-font-color-base) !important;
     }
   }
 }
 
-html[data-theme="dark"] .showcaseSection p a {
-  @extend %link-style-dark;
+html[data-theme="dark"] .showcaseSection {
+  p a {
+    @extend %link-style-dark;
+  }
+
+  .form-button {
+    color: var(--ifm-color-secondary-dark);
+  }
 }
 
 .home-showcase-section {
