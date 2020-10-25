@@ -39,9 +39,9 @@ and add the following to it:
 
 ```
 
-You can use any name that fits the native module you are building. Name the interface `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have language-level support for namespaces like Java or C++, convention is to prepend the interface name with a substring. This could be an abbreviation of your application name or your infra name. RCT, in this example, refers to React.
+You can use any name that fits the native module you are building. Name the class `RCTCalendarModule` since you are creating a calendar native module. Since ObjC does not have language-level support for namespaces like Java or C++, convention is to prepend the class name with a substring. This could be an abbreviation of your application name or your infra name. RCT, in this example, refers to React.
 
-As you can see below, the CalendarModule interface implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
+As you can see below, the CalendarModule class implements the `RCTBridgeModule` protocol. A native module is an Objective-C class that implements the `RCTBridgeModule` protocol.
 
 Next up, let’s start implementing the native module. Create the corresponding implementation file, `RCTCalendarModule.m`, in the same folder and include the following content:
 
@@ -60,11 +60,9 @@ RCT_EXPORT_MODULE();
 
 ### Module Name
 
-For now, your `CalenderModule.m` native module only includes a `RCT_EXPORT_MODULE` macro, which exports and registers the native module class with React Native. It also specifies the name of the native module. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
+For now, your `CalenderModule.m` native module only includes a `RCT_EXPORT_MODULE` macro, which exports and registers the native module class with React Native. The `RCT_EXPORT_MODULE` macro also takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
 
-> Note that this argument is not a string literal. In the example below we pass `RCT_EXPORT_MODULE(CalendarModuleFoo)`, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
-
-Below `CalendarModuleFoo` is passed in, so that the module can be accessed through `ReactNative.NativeModules.CalendarModuleFoo` in JavaScript:
+This argument is not a string literal. In the example below we pass `RCT_EXPORT_MODULE(CalendarModuleFoo)`, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
 
 ```objectivec
 // To export a module named CalendarModuleFoo
@@ -77,7 +75,7 @@ The native module can then be accessed in JS like this:
 const { CalendarModuleFoo } = ReactNative.NativeModules;
 ```
 
-If you do not specify a name, the JavaScript module name will match the Objective-C class name. Please note, if the Objective-C class name begins with RCT, the JavaScript module name will exclude the RCT prefix.
+If you do not specify a name, the JavaScript module name will match the Objective-C class name, with any "RCT" or "RK" prefixes removed.
 
 Let's follow the example below and call `RCT_EXPORT_MODULE` without any arguments. As a result, the module will be exposed to React Native using the name `CalendarModule`, since that is the Objective-C class name, with RCT removed.
 
