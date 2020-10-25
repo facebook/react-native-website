@@ -12,6 +12,10 @@
     font-size: 2rem;
   }
 
+  code {
+    white-space: pre;
+  }
+
   p a,
   td a {
     @extend %link-style;

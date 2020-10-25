@@ -203,14 +203,7 @@ html[data-theme="dark"] {
 .community-page .hash-link,
 html[data-theme="dark"] .markdown .hash-link,
 html[data-theme="dark"] .community-page .hash-link {
-  background-color: transparent;
-  border-bottom: 0;
-  color: var(--subtle);
-
-  &:hover {
-    background-color: transparent;
-    color: var(--brand);
-  }
+  @extend %hash-link-style;
 }
 
 article .badge {
@@ -257,13 +250,13 @@ html[data-theme="dark"] article .badge {
     padding-top: 0 !important;
   }
 
-  .row .col:first-child a {
+  .row .col p a {
     @extend %link-style;
   }
 }
 
 html[data-theme="dark"] .community-page {
-  .row .col:first-child a {
+  .row .col p a {
     @extend %link-style-dark;
   }
 }
@@ -284,7 +277,7 @@ html[data-theme="dark"] {
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--ifm-menu-color-background-hover);
+    background: var(--ifm-color-emphasis-200);
   }
 }
 
@@ -1256,6 +1249,8 @@ html[data-theme="dark"] .docsRating {
       margin-left: -32px;
       top: var(--ifm-navbar-height);
       max-height: calc(100vh - var(--ifm-navbar-height));
+      min-height: calc(100vh - var(--ifm-navbar-height));
+      border-right: 1px solid var(--ifm-toc-border-color);
 
       li[class^="sidebarItem"] {
         margin-top: 0;

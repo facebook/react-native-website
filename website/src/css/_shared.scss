@@ -20,6 +20,17 @@
   }
 }
 
+%hash-link-style {
+  background-color: transparent;
+  border-bottom: 0;
+  color: var(--subtle);
+
+  &:hover {
+    background-color: transparent;
+    color: var(--brand);
+  }
+}
+
 %button-link-style {
   display: inline-block;
   padding: 8px 16px;
