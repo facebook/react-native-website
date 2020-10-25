@@ -61,7 +61,7 @@ RCT_EXPORT_MODULE();
 
 ### Module Name
 
-For now, your `CalenderModule.m` native module only includes a `RCT_EXPORT_MODULE()` macro, which exports and registers the native module class with React Native. It also specifies the name of the native module. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
+For now, your `CalenderModule.m` native module only includes a `RCT_EXPORT_MODULE` macro, which exports and registers the native module class with React Native. It also specifies the name of the native module. Similar to Android’s `getName` method, the`RCT_EXPORT_MODULE` macro takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
 
 > Note that this argument is not a string literal. In the example below we pass `RCT_EXPORT_MODULE(CalendarModuleFoo)`, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
 
@@ -95,7 +95,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 
 ### Export a Native Method to Javascript
 
-React Native will not expose any methods in a native module to JavaScript unless explicitly told to. This can be done using the `RCT_EXPORT_METHOD()` macro. Methods written in the `RCT_EXPORT_METHOD` macro are asynchronous and the return type is therefore always void. In order to pass a result from a `RCT_EXPORT_METHOD` method to JavaScript you can use callbacks or emit events (covered below). Let’s go ahead and set up a native method for our `CalendarModule` native module using the `RCT_EXPORT_METHOD` macro. We will call it `createCalendarEvent` and have it take in name and location arguments as strings for now. We will cover argument type options shortly.
+React Native will not expose any methods in a native module to JavaScript unless explicitly told to. This can be done using the `RCT_EXPORT_METHOD` macro. Methods written in the `RCT_EXPORT_METHOD` macro are asynchronous and the return type is therefore always void. In order to pass a result from a `RCT_EXPORT_METHOD` method to JavaScript you can use callbacks or emit events (covered below). Let’s go ahead and set up a native method for our `CalendarModule` native module using the `RCT_EXPORT_METHOD` macro. We will call it `createCalendarEvent` and have it take in name and location arguments as strings for now. We will cover argument type options shortly.
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)location)
