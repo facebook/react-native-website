@@ -5,10 +5,12 @@ authorTitle: React Native Community
 authorURL: 'https://twitter.com/lbentosilva'
 authorImageURL: 'https://avatars3.githubusercontent.com/u/6207220?s=460&v=4'
 authorTwitter: lbentosilva
-category: announcements
+tags: [announcement]
 ---
 
 After over 20 pull requests from 6 contributors in the React Native Community, we're excited to launch `react-native doctor`, a new command to help you out with getting started, troubleshooting and automatically fixing errors with your development environment. The `doctor` command is heavily inspired by [Expo](https://expo.io/) and [Homebrew](https://brew.sh/)'s own doctor command with a pinch of UI inspired by [Jest](https://jestjs.io/).
+
+<!--truncate-->
 
 Here it is in action:
 

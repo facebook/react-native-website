@@ -5,7 +5,7 @@ authorTitle: Software Engineer at Facebook
 authorURL: 'https://www.facebook.com/drwitte'
 authorFBID: 210064
 hero: '/blog/assets/blue-hero.png'
-category: announcements
+tags: [announcement]
 ---
 
 Earlier this year, we introduced [React Native for iOS](https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/). React Native brings what developers are used to from React on the web — declarative self-contained UI components and fast development cycles — to the mobile platform, while retaining the speed, fidelity, and feel of native applications. Today, we're happy to release React Native for Android.
@@ -15,7 +15,7 @@ At Facebook we've been using React Native in production for over a year now. Alm
 <footer>
   <a
     href="https://code.facebook.com/posts/1189117404435352/react-native-for-android-how-we-built-the-first-cross-platform-react-native-app/"
-    class="btn">
+    className="btn">
     Read more
   </a>
 </footer>

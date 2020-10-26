@@ -5,7 +5,7 @@ authorTitle: Engineer at Facebook
 authorURL: 'https://twitter.com/cpojer'
 authorImageURL: 'https://avatars2.githubusercontent.com/u/13352?s=460&v=4'
 authorTwitter: cpojer
-category: announcements
+tags: [announcement]
 ---
 
 This week, [Eli White](https://twitter.com/Eli_White) gave a talk at [F8 2019](https://developers.facebook.com/videos/2019/mobile-innovation-with-react-native-componentkit-and-litho/) about React Native in Facebook's Android and iOS applications. We are excited to share what we've been up to for the past two years and what we're doing next.

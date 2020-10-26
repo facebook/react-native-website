@@ -5,7 +5,7 @@ authorTitle: Software Engineer at Facebook
 authorURL: 'https://github.com/TheSavior'
 authorImageURL: 'https://avatars2.githubusercontent.com/u/249164?s=460&v=4'
 authorTwitter: eli_white
-category: engineering
+tags: [engineering]
 ---
 
 Twitter’s iOS app has a loading animation I quite enjoy.
@@ -67,9 +67,9 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
   title="Loading Screen Animation Steps"
   src="//codepen.io/TheSavior/embed/NXNoJM/?height=265&theme-id=0&default-tab=result&embed-version=2"
   frameborder="no"
-  allowtransparency="true"
-  allowfullscreen="true"
-  class="codepen">
+  allowTransparency="true"
+  allowFullScreen="true"
+  className="codepen">
   See the Pen{' '}
   <a href="https://codepen.io/TheSavior/pen/NXNoJM/">
     Loading Screen Animation Steps

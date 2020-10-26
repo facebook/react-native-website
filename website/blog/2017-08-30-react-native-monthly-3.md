@@ -5,7 +5,7 @@ authorTitle: CTO at Callstack
 authorURL: 'https://github.com/grabbou'
 authorImageURL: 'https://pbs.twimg.com/profile_images/988860423897313281/L9ErG_lr_400x400.jpg'
 authorTwitter: grabbou
-category: engineering
+tags: [engineering]
 ---
 
 The React Native monthly meeting continues! This month's meeting was a bit shorter as most of our teams were busy shipping. Next month, we are at [React Native EU](https://react-native.eu/) conference in Wroclaw, Poland. Make sure to grab a ticket and see you there in person! Meanwhile, let's see what our teams are up to.

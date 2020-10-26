@@ -5,7 +5,7 @@ authorTitle: Software Engineer at Facebook
 authorURL: 'https://www.facebook.com/georgiy.kassabli'
 authorImageURL: 'https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/1978838_795592927136196_1205041943_n.jpg?_nc_log=1&oh=d7a500fdece1250955a4d27b0a80fee2&oe=59E8165A'
 hero: '/blog/assets/blue-hero.png'
-category: engineering
+tags: [engineering]
 ---
 
 With the recent launch of React on web and React Native on mobile, we've provided a new front-end framework for developers to build products. One key aspect of building a robust product is ensuring that anyone can use it, including people who have vision loss or other disabilities. The Accessibility API for React and React Native enables you to make any React-powered experience usable by someone who may use assistive technology, like a screen reader for the blind and visually impaired.
@@ -21,7 +21,7 @@ Let's walk through a slightly more involved application of the React AX API by l
 <footer>
   <a
     href="https://code.facebook.com/posts/435862739941212/making-react-native-apps-accessible/"
-    class="btn">
+    className="btn">
     Read more
   </a>
 </footer>

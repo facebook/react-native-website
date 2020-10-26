@@ -5,7 +5,7 @@ authorTitle: Founder at Speck
 authorURL: 'https://twitter.com/TomislavTenodi'
 authorImageURL: 'https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg'
 authorTwitter: TomislavTenodi
-category: engineering
+tags: [engineering]
 ---
 
 The React Native monthly meeting is still going strong! Make sure to check a note on the bottom of this post for the next sessions.

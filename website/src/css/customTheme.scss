@@ -75,6 +75,12 @@ html[data-theme="dark"] {
   }
 }
 
+hr {
+  border: 0;
+  height: 0.01rem;
+  background-color: var(--ifm-table-border-color);
+}
+
 .markdown {
   blockquote {
     background-color: var(--rn-note-background);
@@ -89,12 +95,6 @@ html[data-theme="dark"] {
       background-color: transparent;
       white-space: pre;
     }
-  }
-
-  hr {
-    border: 0;
-    height: 0.01rem;
-    background-color: var(--ifm-table-border-color);
   }
 
   a {
@@ -1242,6 +1242,24 @@ html[data-theme="dark"] .docsRating {
     max-width: calc(100% - (var(--ifm-spacing-horizontal)) * 4);
     margin-top: 0 !important;
     margin-bottom: 0 !important;
+
+    .col.text--right a {
+      @extend %button-link-style;
+      padding: 8px 32px;
+    }
+
+    a.margin-horiz--sm,
+    a.padding-right--md {
+      @extend %link-style;
+      padding-right: 0 !important;
+      margin-right: 16px;
+    }
+
+    footer {
+      strong {
+        font-weight: 500;
+      }
+    }
   }
 
   .container .row .col.col--2 {
@@ -1330,6 +1348,15 @@ html[data-theme="dark"] {
 
     &::-webkit-scrollbar-thumb {
       background: var(--ifm-color-emphasis-200);
+    }
+  }
+
+  .main-wrapper:not(.community-page) {
+    .container.margin-vert--lg {
+      a.margin-horiz--sm,
+      a.padding-right--md {
+        @extend %link-style-dark;
+      }
     }
   }
 }

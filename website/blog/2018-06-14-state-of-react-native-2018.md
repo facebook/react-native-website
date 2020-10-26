@@ -5,7 +5,7 @@ authorTitle: Engineering Manager on React at Facebook
 authorURL: 'https://github.com/sophiebits'
 authorImageURL: 'https://avatars2.githubusercontent.com/u/6820?s=460&v=4'
 authorTwitter: sophiebits
-category: engineering
+tags: [engineering]
 ---
 
 It's been a while since we last published a status update about React Native.

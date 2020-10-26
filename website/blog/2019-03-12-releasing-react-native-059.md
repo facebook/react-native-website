@@ -5,7 +5,7 @@ authorTitle: Core Maintainer & React Native Developer
 authorURL: 'https://twitter.com/turnrye'
 authorImageURL: 'https://avatars0.githubusercontent.com/u/701035?s=460&v=4'
 authorTwitter: turnrye
-category: announcements
+tags: [announcement, release]
 ---
 
 Welcome to the 0.59 release of React Native! This is another big release with 644 commits by 88 contributors. Contributions also come in other forms, so _thank you_ for maintaining issues, fostering communities, and teaching people about React Native. This month brings a number of highly anticipated changes, and we hope you enjoy them.

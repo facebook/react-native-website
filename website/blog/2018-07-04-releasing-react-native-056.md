@@ -5,7 +5,7 @@ authorTitle: Core Maintainer & React Native Developer at Drivetribe
 authorURL: 'https://github.com/kelset'
 authorImageURL: 'https://avatars2.githubusercontent.com/u/16104054?s=460&v=4'
 authorTwitter: kelset
-category: announcements
+tags: [announcement, release]
 ---
 
 The long-awaited 0.56 version of React Native is now available 🎉. This blog post highlights some of the [changes](https://github.com/react-native-community/react-native-releases/blob/master/CHANGELOG.md#highlights) introduced in this new release. We also want to take the opportunity to explain what has kept us busy since March.

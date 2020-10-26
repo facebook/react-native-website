@@ -5,7 +5,7 @@ authorTitle: Product Manager at Shoutem
 authorURL: 'https://github.com/tenodi'
 authorImageURL: 'https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg'
 authorTwitter: TomislavTenodi
-category: engineering
+tags: [engineering]
 ---
 
 The React Native monthly meeting continues! On this session, we were joined by [Infinite Red](https://infinite.red/), great minds behind [Chain React, the React Native Conference](https://infinite.red/ChainReactConf). As most of the people here were presenting talks at Chain React, we pushed the meeting to a week later. Talks from the conference have been [posted online](https://www.youtube.com/playlist?list=PLFHvL21g9bk3RxJ1Ut5nR_uTZFVOxu522) and I encourage you to check them out. So, let's see what our teams are up to.

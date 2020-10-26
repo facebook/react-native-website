@@ -5,7 +5,7 @@ authorTitle: Engineer at Facebook
 authorURL: 'https://twitter.com/cpojer'
 authorImageURL: 'https://avatars2.githubusercontent.com/u/13352?s=460&v=4'
 authorTwitter: cpojer
-category: announcements
+tags: [announcement]
 ---
 
 We announced our [React Native Open Source roadmap](/blog/2018/11/01/oss-roadmap) in Q4 2018 after deciding to invest more in the React Native open source community.

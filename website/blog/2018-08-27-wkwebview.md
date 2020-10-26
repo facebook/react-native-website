@@ -3,7 +3,7 @@ title: Introducing new iOS WebViews
 author: Ramanpreet Nara
 authorTitle: Software Engineer at Facebook
 authorURL: 'https://github.com/rsnara'
-category: engineering
+tags: [engineering]
 ---
 
 For a long time now, Apple has discouraged using UIWebViews in favor of WKWebView. In iOS 12, which will be released in the upcoming months, [UIWebViews will be formally deprecated](https://developer.apple.com/videos/play/wwdc2018/234/?time=104). React Native's iOS WebView implementation relies heavily on the UIWebView class. Therefore, in light of these developments, we've built a new native iOS backend to the WebView React Native component that uses WKWebView.

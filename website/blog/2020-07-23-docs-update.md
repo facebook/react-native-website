@@ -5,6 +5,7 @@ authorTitle: Documentation Engineer at Facebook
 authorURL: 'https://twitter.com/rachelnabors'
 authorImageURL: 'https://avatars0.githubusercontent.com/u/236306?s=460&v=4'
 authorTwitter: rachelnabors
+tags: [announcement]
 ---
 
 Last year we conducted user interviews and sent out [a survey](https://www.surveymonkey.co.uk/r/DDZWQDJ) to learn more about how and when people use the React Native docs. With the data and guidance gleaned from 24 interviews and over 3000 survey responses, we've been able to work to improve React Native's documentation, and we're excited to share that progress today:
@@ -19,6 +20,8 @@ Last year we conducted user interviews and sent out [a survey](https://www.surve
 - **Keep those PRs coming!** We are able to consistently keep our open PRs under 10 per week! Thank you for sending them!
 
 Thank you so much to everyone who participated in the interviews, the survey, and our documentation efforts! Your collaboration makes this possible.
+
+<!--truncate-->
 
 ## What’s next?
 

@@ -5,7 +5,7 @@ authorTitle: Software Engineer at Artsy
 authorURL: 'https://github.com/ashfurrow'
 authorImageURL: 'https://avatars2.githubusercontent.com/u/498212?s=460&v=4'
 authorTwitter: ashfurrow
-category: engineering
+tags: [engineering]
 ---
 
 JavaScript! We all love it. But some of us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org), but React Native supports [Flow](https://flow.org) out of the box. Which you prefer is a matter of preference, they each have their own approach on how to add the magic of types to JavaScript. Today, we're going to look at how to use TypeScript in React Native apps.

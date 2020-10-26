@@ -5,7 +5,7 @@ authorTitle: Engineer at Facebook
 authorURL: 'https://twitter.com/EricVicenti'
 authorImageURL: 'https://secure.gravatar.com/avatar/077ad5372b65567fe952a99f3b627048?s=128'
 authorTwitter: EricVicenti
-category: announcements
+tags: [announcement]
 ---
 
 Shortly after React Native was introduced, we started releasing every two weeks to help the community adopt new features, while keeping versions stable for production use. At Facebook we had to stabilize the codebase every two weeks for the release of our production iOS apps, so we decided to release the open source versions at the same pace. Now, many of the Facebook apps ship once per week, especially on Android. Because we ship from master weekly, we need to keep it quite stable. So the bi-weekly release cadence doesn't even benefit internal contributors anymore.

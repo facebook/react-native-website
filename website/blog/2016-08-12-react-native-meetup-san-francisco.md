@@ -6,7 +6,7 @@ authorURL: 'https://twitter.com/hectorramos'
 authorImageURL: 'https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128'
 authorTwitter: hectorramos
 hero: '/blog/img/rnmsf-august-2016-hero.jpg'
-category: events
+tags: [events]
 ---
 
 Last week I had the opportunity to attend the [React Native Meetup](http://www.meetup.com/React-Native-San-Francisco/photos/27168649/#452793854) at Zynga’s San Francisco office. With around 200 people in attendance, it served as a great place to meet other developers near me that are also interested in React Native.

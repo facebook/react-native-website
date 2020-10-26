@@ -6,7 +6,7 @@ authorURL: 'https://github.com/tomocchino'
 authorImageURL: 'https://avatars0.githubusercontent.com/u/13947?v=3&s=460'
 authorTwitter: tomocchino
 hero: '/blog/assets/dark-hero.png'
-category: announcements
+tags: [announcement]
 ---
 
 We introduced [React](https://code.facebook.com/projects/176988925806765/react/) to the world two years ago, and since then it's seen impressive growth, both inside and outside of Facebook. Today, even though no one is forced to use it, new web projects at Facebook are commonly built using React in one form or another, and it's being broadly adopted across the industry. Engineers are choosing to use React every day because it enables them to spend more time focusing on their products and less time fighting with their framework. It wasn't until we'd been building with React for a while, though, that we started to understand what makes it so powerful.
@@ -18,7 +18,7 @@ Together with the rapid iteration cycle of the web, we've been able to build som
 <footer>
   <a
     href="https://code.facebook.com/posts/1014532261909640/react-native-bringing-modern-web-techniques-to-mobile/"
-    class="btn">
+    className="btn">
     Read more
   </a>
 </footer>

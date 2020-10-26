@@ -5,7 +5,7 @@ authorTitle: Senior Technical Product Manager at AWS Mobile
 authorURL: 'https://twitter.com/undef_obj'
 authorImageURL: 'https://pbs.twimg.com/profile_images/811239086581227520/APX1eZwF_400x400.jpg'
 authorTwitter: undef_obj
-category: engineering
+tags: [engineering]
 ---
 
 AWS is well known in the technology industry as a provider of cloud services. These include compute, storage, and database technologies, as well as fully managed serverless offerings. The AWS Mobile team has been working closely with customers and members of the JavaScript ecosystem to make cloud-connected mobile and web applications more secure, scalable, and easier to develop and deploy. We began with a [complete starter kit](https://github.com/awslabs/aws-mobile-react-native-starter), but have a few more recent developments.
