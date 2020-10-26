@@ -660,22 +660,27 @@ div[class^="tableOfContents"] {
   }
 
   .footer__col {
-    margin: 4px 2% 12px;
+    margin: 4px 0 12px 4%;
   }
 }
 
 @media (max-width: 996px) {
-  .footer .footer__col {
-    flex-basis: 32% !important;
-    max-width: 32% !important;
+  .footer {
+    .footer__col {
+      flex-basis: 32% !important;
+      max-width: 32% !important;
+    }
+
+    .footer__links {
+      padding: 0 20px;
+    }
   }
 }
 
 @media (max-width: 768px) {
   .footer .footer__col {
-    flex-basis: 49% !important;
-    max-width: 49% !important;
-    margin-bottom: 24px;
+    flex-basis: 48% !important;
+    max-width: 48% !important;
   }
 }
 

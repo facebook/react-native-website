@@ -8,6 +8,8 @@ import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
+import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
+
 const textContent = {
   intro: `
 React Native combines the best parts of native development with React,
@@ -331,9 +333,7 @@ function CrossPlatform() {
             text={textContent.crossPlatform}
           />
         }
-        columnTwo={
-          <img alt="" src={useBaseUrl(`img/homepage/cross-platform.svg`)} />
-        }
+        columnTwo={<CrossPlatformSVG />}
       />
     </Section>
   );
@@ -439,13 +439,24 @@ function Community() {
                 <a href="https://callstack.com/">Callstack</a>,{' '}
                 <a href="https://expo.io/">Expo</a>,{' '}
                 <a href="https://infinite.red/">Infinite Red</a>,{' '}
-                <a href="https://www.microsoft.com/en-gb/">Microsoft</a>, and{' '}
+                <a href="https://www.microsoft.com/en-gb/">Microsoft</a> and{' '}
                 <a href="https://swmansion.com/">Software Mansion</a>.
               </p>
               <p>
                 Our community is always shipping exciting new projects and
-                exploring platforms beyond Android and iOS with repos like React
-                Native Windows and React Native Web.
+                exploring platforms beyond Android and iOS with repos like
+                <a href="https://github.com/microsoft/react-native-windows#readme">
+                  React Native Windows
+                </a>
+                ,{' '}
+                <a href="https://github.com/microsoft/react-native-macos#readme">
+                  React Native macOS
+                </a>{' '}
+                and{' '}
+                <a href="https://github.com/necolas/react-native-web#readme">
+                  React Native Web
+                </a>
+                .
               </p>
             </>
           }
