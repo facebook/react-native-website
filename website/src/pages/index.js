@@ -397,10 +397,9 @@ function AppList() {
   return (
     <ul className="AppList">
       {apps.map((app, i) => {
-        let imgSource = app.icon;
-        if (!app.icon.startsWith('http')) {
-          imgSource = useBaseUrl('img/showcase/' + app.icon);
-        }
+        const imgSource = !app.icon.startsWith('http')
+          ? useBaseUrl('img/showcase/' + app.icon)
+          : app.icon;
         return (
           <li key={i} className="item">
             <a href={app.infoLink}>
@@ -444,7 +443,7 @@ function Community() {
               </p>
               <p>
                 Our community is always shipping exciting new projects and
-                exploring platforms beyond Android and iOS with repos like
+                exploring platforms beyond Android and iOS with repos like{' '}
                 <a href="https://github.com/microsoft/react-native-windows#readme">
                   React Native Windows
                 </a>

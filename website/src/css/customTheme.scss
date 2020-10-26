@@ -543,8 +543,12 @@ div[class^="tableOfContents"] {
     margin: 7px var(--ifm-toc-padding-vertical);
   }
 
-  ul li {
-    margin: 4px var(--ifm-toc-padding-vertical);
+  ul {
+    padding-left: 0.35rem;
+
+    li {
+      margin: 4px var(--ifm-toc-padding-vertical);
+    }
   }
 
   .table-of-contents__link {
