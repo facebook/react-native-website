@@ -15,3 +15,15 @@ website/i18n/*
 .nvmrc
 website/scripts/sync-api-docs/generatedComponentApiDocs.js
 website/scripts/sync-api-docs/extracted.json
+
+cnwebsite/translated_docs
+cnwebsite/build/
+cnwebsite/community-repos.json
+cnwebsite/yarn.lock
+cnwebsite/node_modules
+
+cnwebsite/i18n/*
+!cnwebsite/i18n/en.json
+
+cnwebsite/scripts/sync-api-docs/generatedComponentApiDocs.js
+cnwebsite/scripts/sync-api-docs/extracted.json
