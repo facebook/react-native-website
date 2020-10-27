@@ -17,7 +17,8 @@
   --ifm-menu-link-padding-horizontal: 0;
   --ifm-toc-padding-vertical: 6px;
   --ifm-toc-link-color: var(--ifm-color-emphasis-700);
-  --ifm-code-font-size: 80%;
+  --ifm-code-font-size: 85%;
+  --ifm-code-border-radius: 3px;
   --ifm-blockquote-color: var(--ifm-font-color-base);
   --ifm-table-head-color: var(--subtle);
   --ifm-link-hover-decoration: none;
@@ -102,6 +103,7 @@ hr {
 
     code {
       background-color: transparent;
+      font-size: 90%;
     }
   }
 
@@ -140,6 +142,10 @@ hr {
 
   .docusaurus-highlight-code-line {
     background-color: var(--light);
+  }
+
+  div[class^="mdxCodeBlock"] {
+    font-size: 80%;
   }
 
   div[class^="codeBlockTitle"] {
@@ -527,6 +533,10 @@ div[class^="docSidebarContainer"] {
   }
 }
 
+html[data-theme="dark"] .menu {
+  @extend %scrollbar-style-dark;
+}
+
 @media (min-width: 997px) {
   div[class^="docSidebarContainer"] .menu {
     padding: 16px 12px;
@@ -837,26 +847,26 @@ div[class^="announcementBarContent"] {
   }
 
   code {
-    background-color: rgba(89, 91, 145, 0.2);
+    background-color: rgba(89, 91, 145, 0.12);
   }
 }
 
 html[data-theme="dark"] .banner-native-code-required {
-  background: #a5afdb8f;
-  border-left-color: #34316c;
+  background: rgba(165, 175, 219, 0.35);
+  border-left-color: #363c70;
 
   h2,
   h3 {
-    color: #34316c;
+    color: var(--ifm-font-color-base);
   }
 
   h2:before,
   h3:before {
-    background-color: #34316c;
+    background-color: #363c70;
   }
 
   code {
-    background-color: rgba(50, 44, 131, 0.33);
+    background: rgba(165, 175, 219, 0.15);
   }
 }
 
