@@ -2,6 +2,8 @@
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 
+If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/facebook/react-native-website/tree/archive) branch.
+
 ## Contents
 
 - [Getting started](#%EF%B8%8F-getting-started)

@@ -151,6 +151,10 @@ hr {
     font-size: 13px;
   }
 
+  .prism-code {
+    @extend %scrollbar-style;
+  }
+
   .tabs {
     border-bottom: 1px solid var(--ifm-table-border-color);
     color: var(--ifm-font-color-base);
@@ -195,6 +199,10 @@ html[data-theme="dark"] {
     div[class^="codeBlockTitle"],
     div[class^="codeBlockLines"] {
       background-color: var(--deepdark) !important;
+    }
+
+    .prism-code {
+      @extend %scrollbar-style-dark;
     }
   }
 }
@@ -272,13 +280,7 @@ div[class*="docItemWrapper"] .row .col {
 /* Sidebars */
 
 html[data-theme="dark"] {
-  ::-webkit-scrollbar-track {
-    background: #141414;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background: var(--ifm-color-emphasis-200);
-  }
+  @extend %scrollbar-style-dark;
 }
 
 /* Blog */
@@ -1314,19 +1316,7 @@ html[data-theme="dark"] .docsRating {
         padding-left: 12px;
       }
 
-      &::-webkit-scrollbar {
-        width: 7px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 10px;
-      }
-
-      &::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 10px;
-      }
+      @extend %scrollbar-style;
     }
   }
 
@@ -1341,17 +1331,11 @@ html[data-theme="dark"] .docsRating {
 }
 
 html[data-theme="dark"] {
-  .main-wrapper:not(.community-page) .row .col.col--2 div[class^="sidebar"] {
-    &::-webkit-scrollbar-track {
-      background: #141414;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background: var(--ifm-color-emphasis-200);
-    }
-  }
-
   .main-wrapper:not(.community-page) {
+    .row .col.col--2 div[class^="sidebar"] {
+      @extend %scrollbar-style-dark;
+    }
+
     .container.margin-vert--lg {
       a.margin-horiz--sm,
       a.padding-right--md {

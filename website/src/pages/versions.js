@@ -121,10 +121,14 @@ const Versions = () => {
           })}
         </tbody>
       </table>
+      <h2>Archived versions</h2>
       <p>
-        You can come back to this page and switch the version of the docs you're
-        reading at any time by clicking on the version number at the top of the
-        page.
+        The documentation for versions below <code>0.60</code> can be found on
+        the separate website called{' '}
+        <a href="https://archive.reactnative.dev/versions">
+          React Native Archive
+        </a>
+        .
       </p>
     </Layout>
   );
