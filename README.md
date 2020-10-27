@@ -1,6 +1,6 @@
-# [reactnative.dev](https://reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs) [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md) <a href="https://twitter.com/intent/follow?screen_name=reactnative"><img src="https://img.shields.io/twitter/follow/reactnative.svg?label=Follow%20@reactnative" alt="Follow @reactnative" /></a>
+# [archive.reactnative.dev](https://archive.reactnative.dev/) &middot; [![CC BY 4.0 license](https://img.shields.io/badge/license-CC%20BY%204.0-blue.svg)](LICENSE-docs) [![Circle CI Status](https://circleci.com/gh/facebook/react-native-website.svg?style=shield)](https://circleci.com/gh/facebook/react-native-website) <a href="https://twitter.com/intent/follow?screen_name=reactnative"><img src="https://img.shields.io/twitter/follow/reactnative.svg?label=Follow%20@reactnative" alt="Follow @reactnative" /></a>
 
-This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
+This repo contains the website configuration and documentation powering the [React Native Archive website](https://archive.reactnative.dev/).
 
 ## Contents
 
