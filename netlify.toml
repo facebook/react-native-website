@@ -5,4 +5,4 @@
 
 # reduce number of versions for faster deploy previews
 [context.deploy-preview]
-  command = "sed -i -e \"s|const baseUrl .*|const baseUrl = '/';|g\" siteConfig.js && yarn install && node netlify-reduce-versions && yarn sync-community-repos && yarn build"
+  command = "sed -i -e \"s|const baseUrl .*|const baseUrl = '/';|g\" siteConfig.js && yarn install && yarn sync-community-repos && yarn build"
