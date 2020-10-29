@@ -32,6 +32,7 @@
   --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
+  --ifm-navbar-sidebar-width: 50%;
 }
 
 html[data-theme="light"] {
@@ -532,6 +533,11 @@ div[class^="docSidebarContainer"] {
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
   }
+}
+
+.menu--responsive .menu__button {
+  right: 1.3rem;
+  bottom: 1.3rem;
 }
 
 html[data-theme="dark"] .menu {
