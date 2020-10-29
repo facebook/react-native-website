@@ -3,9 +3,10 @@ const users = require('./showcase.json');
 module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
+  organizationName: 'facebook',
+  projectName: 'react-native',
   url: 'https://reactnative.dev',
   baseUrl: '/',
-  projectName: 'react-native',
   scripts: [
     {
       src:
