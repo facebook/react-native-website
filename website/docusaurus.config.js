@@ -6,6 +6,7 @@ module.exports = {
   url: 'https://reactnative.dev',
   baseUrl: '/',
   projectName: 'react-native',
+  clientModules: [require.resolve('./snackPlayerInitializer.js')],
   scripts: [
     {
       src:
@@ -52,7 +53,7 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-sass', './sitePlugin'],
+  plugins: ['docusaurus-plugin-sass'],
   themeConfig: {
     prism: {
       defaultLanguage: 'jsx',
