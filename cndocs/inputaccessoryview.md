@@ -10,9 +10,10 @@ To use this component wrap your custom toolbar with the InputAccessoryView compo
 ```SnackPlayer name=InputAccessoryView&supportedPlatforms=ios
 import React, { useState } from 'react';
 import { Button, InputAccessoryView, ScrollView, TextInput } from 'react-native';
+
 export default App = () => {
   const inputAccessoryViewID = 'uniqueID';
-  const initialText = 'Placeholder Text';
+  const initialText = '';
   const [text, setText] = useState(initialText);
 
   return (
@@ -21,17 +22,18 @@ export default App = () => {
         <TextInput
           style={{
             padding: 16,
-            marginTop: 50
+            marginTop: 50,
           }}
           inputAccessoryViewID={inputAccessoryViewID}
-          onChangeText={text => setText(text)}
+          onChangeText={setText}
           value={text}
+          placeholder={'Please type here…'}
         />
       </ScrollView>
       <InputAccessoryView nativeID={inputAccessoryViewID}>
         <Button
           onPress={() => setText(initialText)}
-          title="Reset Text"
+          title="Clear text"
         />
       </InputAccessoryView>
     </>
@@ -49,9 +51,9 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 ### `backgroundColor`
 
-| 类型               | 必填 |
-| ------------------ | ---- |
-| [color](colors.md) | 否   |
+| 类型               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
@@ -59,17 +61,17 @@ This component can also be used to create sticky text inputs (text inputs which 
 
 An ID which is used to associate this `InputAccessoryView` to specified TextInput(s).
 
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 否   |
+| 类型   |
+| ------ |
+| string |
 
 ---
 
 ### `style`
 
-| 类型                         | 必填 |
-| ---------------------------- | ---- |
-| [style](view-style-props.md) | 否   |
+| 类型                         |
+| ---------------------------- |
+| [style](view-style-props.md) |
 
 # 已知问题
 

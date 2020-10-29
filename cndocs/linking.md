@@ -106,13 +106,13 @@ If you want to enable deep links in your app, please the below guide:
 
 There are two ways to handle URLs that open your app.
 
-#### 1. If the app is already open, the app is foregrounded and a Linking event is fired
+#### 1. If the app is already open, the app is foregrounded and a Linking 'url' event is fired
 
-You can handle these events with `Linking.addEventListener(url, callback)`.
+You can handle these events with `Linking.addEventListener('url', callback)` -- it calls `callback({ url })` with the linked URL
 
 #### 2. If the app is not already open, it is opened and the url is passed in as the initialURL
 
-You can handle these events with `Linking.getInitialURL(url)` -- it returns a Promise that resolves to the url, if there is one.
+You can handle these events with `Linking.getInitialURL()` -- it returns a Promise that resolves to the URL, if there is one.
 
 ---
 
@@ -392,6 +392,8 @@ getInitialURL();
 如果应用是被一个链接调起的，则会返回相应的链接地址。否则它会返回`null`。
 
 > 如果要在 Android 上支持深度链接，请参阅<http://developer.android.com/training/app-indexing/deep-linking.html#handling-intents>
+
+> getInitialURL may return `null` while debugging is enabled. Disable the debugger to ensure it gets passed.
 
 ---
 

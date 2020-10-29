@@ -64,13 +64,9 @@ export default KeyboardAvoidingComponent;
 
 ## Props
 
-### `keyboardVerticalOffset`
+### [View Props](view.md#props)
 
-有时候应用离屏幕顶部还有一些距离（比如状态栏等等），利用此属性来补偿修正这段距离。
-
-| 类型   | 必填 |
-| ------ | ---- |
-| number | 否   |
+Inherits [View Props](view.md#props).
 
 ---
 
@@ -80,9 +76,9 @@ Specify how to react to the presence of the keyboard.
 
 > Android 和 iOS 在此属性上表现并不一致。但我们建议在两个平台上都明确设置此属性。
 
-| 类型                                  | 必填 |
-| ------------------------------------- | ---- |
-| enum('height', 'position', 'padding') | 否   |
+| 类型                                        |
+| ------------------------------------------- |
+| enum(`'height'`, `'position'`, `'padding'`) |
 
 ---
 
@@ -90,14 +86,26 @@ Specify how to react to the presence of the keyboard.
 
 如果设定 behavior 值为'position'，则会生成一个 View 作为内容容器。此属性用于指定此内容容器的样式。
 
-| 类型       | 必填 |
-| ---------- | ---- |
-| View.style | 否   |
+| 类型                              |
+| --------------------------------- |
+| [View Style](view-style-props.md) |
+
+---
 
 ### `enabled`
 
-是否启用KeyboardAvoidingView。默认为true。
+是否启用 KeyboardAvoidingView。
 
-| 类型    | 必填 |
-| ------- | ---- |
-| boolean | 否   |
+| 类型    | 默认值 |
+| ------- | ------ |
+| boolean | `true` |
+
+---
+
+### `keyboardVerticalOffset`
+
+有时候应用离屏幕顶部还有一些距离（比如状态栏等等），利用此属性来补偿修正这段距离。
+
+| 类型   | 默认值 |
+| ------ | ------ |
+| number | `0`    |

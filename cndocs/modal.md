@@ -41,6 +41,7 @@ const App = () => {
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
         }}
       >
         <View style={styles.centeredView}>
@@ -145,6 +146,7 @@ class App extends Component {
           visible={modalVisible}
           onRequestClose={() => {
             Alert.alert("Modal has been closed.");
+            this.setModalVisible(!modalVisible);
           }}
         >
           <View style={styles.centeredView}>

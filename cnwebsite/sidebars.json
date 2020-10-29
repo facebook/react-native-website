@@ -15,6 +15,7 @@
       "running-on-device",
       "fast-refresh",
       "debugging",
+      "symbolication",
       "testing-overview",
       "libraries",
       "typescript",
@@ -31,7 +32,8 @@
       "performance",
       "optimizing-flatlist-configuration",
       "ram-bundles-inline-requires",
-      "profiling"
+      "profiling",
+      "profile-hermes"
     ],
     "JavaScript 运行环境": ["javascript-environment", "timers", "hermes"],
     "网络连接": ["network", "security"],
@@ -39,6 +41,7 @@
       "accessibility",
       "direct-manipulation",
       "integration-with-existing-apps",
+      "integration-with-android-fragment",
       "building-for-tv",
       "native-modules-setup",
       "out-of-tree-platforms",
@@ -51,7 +54,8 @@
       "linking-libraries-ios",
       "running-on-simulator-ios",
       "communication-ios",
-      "app-extensions"
+      "app-extensions",
+      "publishing-to-app-store"
     ],
     "Android 指南": [
       "native-modules-android",
@@ -115,7 +119,6 @@
       "modal",
       "pressable",
       "refreshcontrol",
-      "safeareaview",
       "scrollview",
       "sectionlist",
       "statusbar",
@@ -135,7 +138,7 @@
       {
         "type": "subcategory",
         "label": "iOS 组件",
-        "ids": ["inputaccessoryview", "maskedviewios"]
+        "ids": ["inputaccessoryview", "maskedviewios", "safeareaview"]
       }
     ],
     "属性": [
@@ -145,6 +148,12 @@
       "text-style-props",
       "view-style-props"
     ],
-    "内部对象类型": ["pressevent", "react-node", "rect"]
+    "内部对象类型": [
+      "layoutevent",
+      "pressevent",
+      "react-node",
+      "rect",
+      "viewtoken"
+    ]
   }
 }

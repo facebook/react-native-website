@@ -261,56 +261,12 @@ You can now enable Live reloading from the [Developer menu](debugging.md#accessi
 
 <block class="mac ios" />
 
-## 为生产编译app
+<h2>为生产编译app</h2>
 
-已经用React Native编译了一个伟大的app，现在渴望在App Store发布。其过程和任何其它原生iOS app一样，有一些额外的注意事项要考虑。
-
-### 1. Enable App Transport Security
-
-App Transport Security 是iOS 9引入的一项安全特性，拒绝不通过HTTPS发送的所有HTTP请求。这会导致HTTP传输阻塞，包括开发者React Native服务器。为了使开发容易，在React Native projects里ATS默认为`localhost`禁用。
-
-You should re-enable ATS prior to building your app for production by removing the `localhost` entry from the `NSExceptionDomains` dictionary in your `Info.plist` file in the `ios/` folder. You can also re-enable ATS from within Xcode by opening your target properties under the Info pane and editing the App Transport Security Settings entry.
-
-> If your application needs to access HTTP resources on production, see [this post](http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/) to learn how to configure ATS on your project.
-
-### 2. 配置release scheme
-
-需要在Xcode使用`Release` scheme编译在App Store发布的app。`Release`版本的应用会自动禁用开发者菜单，同时也会将js文件和静态图片打包压缩后内置到包中，这样应用可以在本地读取而无需访问开发服务器（同时这样一来你也无法再调试，需要调试请将Buiid Configuration再改为debug）。  
-由于发布版本已经内置了js文件，因而也无法再通过开发服务器来实时更新。面向用户的热更新，请使用专门的[热更新服务](https://pushy.reactnative.cn)。  
-
-要配置app为使用`Release` scheme编译，请前往**Product** → **Scheme** → **Edit Scheme**。选择侧边栏的**Run**标签，然后设置下拉的Build Configuration为`Release`。
-
-
-![](assets/ConfigureReleaseScheme.png)
-
-#### 关于启动屏的优化技巧
-
-随着App包大小的增长，可能开始在启动屏(splash)和根应用视图显示之间看到白屏闪现。如果是这样，为了在转换期间保持启动屏显示，可以添加下列代码到`AppDelegate.m`。
-
-
-```objc
-  // Place this code after "[self.window makeKeyAndVisible]" and before "return YES;"
-  UIView* launchScreenView = [[[NSBundle mainBundle] loadNibNamed:@"LaunchScreen" owner:self options:nil] objectAtIndex:0];
-  launchScreenView.frame = self.window.bounds;
-  rootView.loadingView = launchScreenView;
-```
-
-The static bundle is built every time you target a physical device, even in Debug. If you want to save time, turn off bundle generation in Debug by adding the following to your shell script in the Xcode Build Phase `Bundle React Native code and images`:
-
-```shell
- if [ "${CONFIGURATION}" == "Debug" ]; then
-  export SKIP_BUNDLING=true
- fi
-```
-
-### 3. 编译发布app 
-
-现在可以通过点击`⌘B`或从菜单栏选择 **Product** → **Build** 编译发布app。一旦编译发布，就能够向beta测试者发布app，提交app到App Store。
-
-> You can also use the `React Native CLI` to perform this operation using the option `--configuration` with the value `Release` (e.g. `npx react-native run-ios --configuration Release`).
+已经用React Native编译了一个伟大的app，现在渴望在App Store发布。Follow the guide for [publishing to the Apple App Store](publishing-to-app-store.md) to learn more.
 
 <block class="mac windows linux android" />
 
-## Building your app for production
+<h2>为生产编译app</h2>
 
 You have built a great app using React Native, and you are now itching to release it in the Play Store. The process is the same as any other native Android app, with some additional considerations to take into account. Follow the guide for [generating a signed APK](signed-apk-android.md) to learn more.

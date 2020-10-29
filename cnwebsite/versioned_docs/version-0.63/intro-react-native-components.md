@@ -14,7 +14,7 @@ React Native 是一个使用[React](https://zh-hans.reactjs.org/)和应用平台
 在 Android 和 iOS 开发中，一个**视图**是 UI 的基本组成部分：屏幕上的一个小矩形元素、可用于显示文本、图像或响应用户输入。甚至应用程序最小的视觉元素（例如一行文本或一个按钮）也都是各种视图。某些类型的视图可以包含其他视图。全部都是视图。
 
 <figure>
-  <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_ios-android-views.svg" width="1000" alt="Diagram of Android and iOS app showing them both built on top of atomic elements called views.">
+  <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_ios-android-views.svg" width="1000" alt="Diagram of Android and iOS app showing them both built on top of atomic elements called views." />
   <figcaption>Android和iOS应用中多种视图的一些示例。</figcaption>
 </figure>
 
@@ -76,4 +76,4 @@ export default App;
 
 由于 React Native 使用与 React 组件相同的 API 结构，因此您需要了解 React 组件 API 才能上手。您可以在[下一章节学习](intro-react)到关于此的简单介绍或复习相关内容。如果您已经熟悉 React，请您[随时跳过](handling-text-input)。
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_react-native-components.svg" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native.">
+<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_react-native-components.svg" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native." />

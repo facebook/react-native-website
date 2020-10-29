@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-Pressable is a Core Component wrapper that can detect various stages of press interactions on any of it's defined children.
+Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -15,21 +15,24 @@ Pressable is a Core Component wrapper that can detect various stages of press in
 
 On an element wrapped by `Pressable`:
 
-1. [`onPressIn`](#onpressin) is called when a press is activated—before `onPress` is called.
-2. [`onPress`](#onpress) is called when a single press gesture is triggered, 130 milliseconds from `onPressIn`.
-3. [`onLongPress`](#onlongpress) is called only if the press gesture is activated beyond 500ms from `onPressIn` or the time set with [`delayLongPress`](#delaylongpress).
-4. [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
+- [`onPressIn`](#onpressin) is called when a press is activated.
+- [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
 
-  <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence.">
+After pressing [`onPressIn`](#onpressin), one of two things will happen:
 
-Fingers are not the most precise instruments, and it's not uncommon for users to "fat finger" an interface—to activate the wrong thing or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the the wrapped element. Presses can start anywhere within a `HitRect`.
+1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
+2. If the person leaves their finger longer than 500 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
+
+<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence." />
+
+Fingers are not the most precise instruments, and it is common for users to accidentally activate the wrong element or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the wrapped element. Presses can start anywhere within a `HitRect`.
 
 `PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
 
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
 <figure>
-  <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work.">
+  <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
   <figcaption>
     You can set <code>HitRect</code> with <code>hitSlop</code> and set <code>PressRect</code> with <code>pressRetentionOffset</code>.
   </figcaption>
@@ -43,7 +46,7 @@ Fingers are not the most precise instruments, and it's not uncommon for users to
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-export default App = () => {
+const App = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   let textLog = '';
@@ -96,110 +99,130 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9f9f9'
   }
 });
+
+export default App;
 ```
 
 ## Props
 
-### `android_disableSound`
+### `android_disableSound` <div class="label android">Android</div>
 
 If true, doesn't play Android system sound on press.
 
-| 类型    | Required | 平台    |
+| Type    | Required | Default |
 | ------- | -------- | ------- |
-| boolean | No       | Android |
+| boolean | No       | `false` |
 
-### `android_rippleColor`
+### `android_ripple` <div class="label android">Android</div>
 
-Enables the Android ripple effect and configures its color.
+Enables the Android ripple effect and configures its properties.
 
-| 类型 | Required | 平台 |
-| --- | --- | --- |
-| [color](https://reactnative.dev/docs/colors) | No | Android |
+| Type                                   | Required |
+| -------------------------------------- | -------- |
+| [RippleConfig](pressable#rippleconfig) | No       |
 
 ### `children`
 
 Either children or a function that receives a boolean reflecting whether the component is currently pressed.
 
-| 类型       | Required |
-| ---------- | -------- |
-| React.Node | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [React Node](react-node) | No       |
 
 ### `delayLongPress`
 
-Duration (in milliseconds) from `onPress` before `onLongPress` is called.
+Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
-| 类型   | Required | Default |
+| Type   | Required | Default |
 | ------ | -------- | ------- |
-| number | No       | 500     |
+| number | No       | `500`   |
 
 ### `disabled`
 
 Whether the press behavior is disabled.
 
-| 类型    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
 
 ### `hitSlop`
 
 Sets additional distance outside of element in which a press can be detected.
 
-| 类型       | Required |
-| ---------- | -------- |
-| RectOrSize | No       |
+| Type                   | Required |
+| ---------------------- | -------- |
+| [Rect](rect) or number | No       |
 
 ### `onLongPress`
 
-Called when a press event lasts longer than 500 milliseconds. Delay can be customized with [`delayLongPress`](#delaylongpress).
+Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
 
-| 类型       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPress`
 
-Called when a single tap gesture is detected, 130 milliseconds after `onPressIn`.
+Called after `onPressOut`.
 
-| 类型       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressIn`
 
-Called immediately when a touch is engaged, before `onPress`.
+Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
-| 类型       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `onPressOut`
 
 Called when a touch is released.
 
-| 类型       | Required |
-| ---------- | -------- |
-| PressEvent | No       |
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
 
 ### `pressRetentionOffset`
 
 Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
 
-| 类型         | Required |
-| ------------ | -------- |
-| Rect or Size | No       |
+| Type                   | Required | Default                                        |
+| ---------------------- | -------- | ---------------------------------------------- |
+| [Rect](rect) or number | No       | `{ bottom: 30, left: 20, right: 20, top: 20 }` |
 
 ### `style`
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| 类型 | Required |
-| --- | --- |
-| [ViewStyleProp](https://reactnative.dev/docs/view-style-props) | No |
+| Type                              | Required |
+| --------------------------------- | -------- |
+| [ViewStyleProp](view-style-props) | No       |
 
 ### `testOnly_pressed`
 
 Used only for documentation or testing (e.g. snapshot testing).
 
-| 类型    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Required | Default |
+| ------- | -------- | ------- |
+| boolean | No       | `false` |
+
+## Type Definitions
+
+### RippleConfig
+
+Ripple effect configuration for the `android_ripple` property.
+
+| Type   |
+| ------ |
+| object |
+
+**Properties:**
+
+| Name       | Type            | Required | Description                                         |
+| ---------- | --------------- | -------- | --------------------------------------------------- |
+| color      | [color](colors) | No       | Defines the color of the ripple effect.             |
+| borderless | boolean         | No       | Defines if ripple effect should not include border. |
+| radius     | number          | No       | Defines the radius of the ripple effect.            |

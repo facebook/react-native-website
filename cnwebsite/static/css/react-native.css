@@ -44,7 +44,7 @@ body,
     max-width: 900px;
   }
   .docMainWrapper > *:last-child {
-    margin-right: 20px;
+    margin-right: 14px;
   }
 }
 

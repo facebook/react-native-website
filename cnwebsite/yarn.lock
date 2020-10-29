@@ -3328,7 +3328,12 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.npm.taobao.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
-highlight.js@^9.16.2, highlight.js@^9.18.1:
+highlight.js@^10.1.2:
+  version "10.3.1"
+  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-10.3.1.tgz#3ca6bf007377faae347e8135ff25900aac734b9a"
+  integrity sha1-PKa/AHN3+q40foE1/yWQCqxzS5o=
+
+highlight.js@^9.16.2:
   version "9.18.1"
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.18.1.tgz?cache=0&sync_timestamp=1580579170526&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fhighlight.js%2Fdownload%2Fhighlight.js-9.18.1.tgz#ed21aa001fe6252bb10a3d76d47573c6539fe13c"
   integrity sha1-7SGqAB/mJSuxCj121HVzxlOf4Tw=
@@ -5798,6 +5803,14 @@ remarkable@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/remarkable/download/remarkable-2.0.0.tgz#795f965bede8300362ce51a716edc322d9e7a4ca"
   integrity sha1-eV+WW+3oMANizlGnFu3DItnnpMo=
+  dependencies:
+    argparse "^1.0.10"
+    autolinker "^3.11.0"
+
+remarkable@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/remarkable/download/remarkable-2.0.1.tgz#280ae6627384dfb13d98ee3995627ca550a12f31"
+  integrity sha1-KArmYnOE37E9mO45lWJ8pVChLzE=
   dependencies:
     argparse "^1.0.10"
     autolinker "^3.11.0"

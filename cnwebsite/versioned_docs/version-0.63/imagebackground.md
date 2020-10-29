@@ -39,9 +39,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   text: {
-    color: "grey",
-    fontSize: 30,
-    fontWeight: "bold"
+    color: "white",
+    fontSize: 42,
+    fontWeight: "bold",
+    textAlign: "center",
+    background: "#000000a0"
   }
 });
 
@@ -54,11 +56,7 @@ export default App;
 
 ## Props
 
-### `style`
-
-| 类型                               | 必填 |
-| ---------------------------------- | ---- |
-| [view styles](view-style-props.md) | 否   |
+### [Image Props](image.md#props)
 
 ### `imageStyle`
 
@@ -73,3 +71,9 @@ Allows to set a reference to the inner `Image` component
 | 类型                                                          | 必填 |
 | ------------------------------------------------------------- | ---- |
 | [Ref](https://zh-hans.reactjs.org/docs/refs-and-the-dom.html) | 否   |
+
+### `style`
+
+| Type                              |
+| --------------------------------- |
+| [View Style](view-style-props.md) |

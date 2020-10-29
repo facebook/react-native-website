@@ -230,13 +230,13 @@ Inherits [ScrollView Props](scrollview.md#props).
 
 ---
 
-### `renderItem`
+### <div class="label required basic">Required</div>**`renderItem`**
 
 用来渲染每一个 section 中的每一个列表项的默认渲染器。可以在 section 级别上进行覆盖重写。必须返回一个 react 组件。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 是   |
+| 类型     |
+| -------- |
+| function |
 
 The render function will be passed an object with the following keys:
 

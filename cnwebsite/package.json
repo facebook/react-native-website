@@ -30,8 +30,8 @@
   },
   "dependencies": {
     "docusaurus": "1.14.4",
-    "highlight.js": "^9.18.1",
-    "remarkable": "^2.0.0"
+    "highlight.js": "^10.1.2",
+    "remarkable": "^2.0.1"
   },
   "devDependencies": {
     "front-matter": "^2.3.0",

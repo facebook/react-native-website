@@ -63,6 +63,12 @@ export default App;
 
 ## Props
 
+### [View Props](view.md#props)
+
+Inherits [View Props](view.md#props).
+
+---
+
 ### `alwaysBounceHorizontal`
 
 当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。

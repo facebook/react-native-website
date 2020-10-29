@@ -147,7 +147,7 @@
         "title": "Using Hermes"
       },
       "image-style-props": {
-        "title": "Image样式属性"
+        "title": "image-style-props"
       },
       "image": {
         "title": "Image"
@@ -199,6 +199,9 @@
       },
       "layoutanimation": {
         "title": "LayoutAnimation"
+      },
+      "layoutevent": {
+        "title": "布局事件对象"
       },
       "libraries": {
         "title": "使用第三方库"
@@ -281,6 +284,9 @@
       "pressable": {
         "title": "Pressable"
       },
+      "profile-hermes": {
+        "title": "Profiling with Hermes"
+      },
       "profiling": {
         "title": "Profiling"
       },
@@ -290,8 +296,8 @@
       "progressviewios": {
         "title": "🚧 ProgressViewIOS"
       },
-      "props": {
-        "title": "Props（属性）"
+      "publishing-to-app-store": {
+        "title": "上架 App Store"
       },
       "publishing-forks": {
         "title": "发布自己定制的ReactNative包"
@@ -350,9 +356,6 @@
       "slider": {
         "title": "🚧 Slider"
       },
-      "state": {
-        "title": "State（状态）"
-      },
       "statusbar": {
         "title": "StatusBar"
       },
@@ -364,6 +367,9 @@
       },
       "switch": {
         "title": "Switch"
+      },
+      "symbolication": {
+        "title": "Symbolicating a stack trace"
       },
       "systrace": {
         "title": "Systrace"
@@ -440,6 +446,9 @@
       "viewpagerandroid": {
         "title": "🚧 ViewPagerAndroid"
       },
+      "viewtoken": {
+        "title": "ViewToken Object Type"
+      },
       "virtualizedlist": {
         "title": "VirtualizedList"
       },
@@ -448,6 +457,9 @@
       },
       "version-0.44/version-0.44-accessibility": {
         "title": "无障碍功能"
+      },
+      "version-0.44/version-0.44-accessibilityinfo": {
+        "title": "AccessibilityInfo"
       },
       "version-0.44/version-0.44-actionsheetios": {
         "title": "ActionSheetIOS"
@@ -505,6 +517,9 @@
       },
       "version-0.44/version-0.44-communication-ios": {
         "title": "在原生和React Native间通信"
+      },
+      "version-0.44/version-0.44-components-and-apis": {
+        "title": "核心组件和API"
       },
       "version-0.44/version-0.44-datepickerandroid": {
         "title": "DatePickerAndroid"
@@ -788,6 +803,9 @@
       "version-0.45/version-0.45-accessibility": {
         "title": "无障碍功能"
       },
+      "version-0.45/version-0.45-accessibilityinfo": {
+        "title": "AccessibilityInfo"
+      },
       "version-0.45/version-0.45-actionsheetios": {
         "title": "ActionSheetIOS"
       },
@@ -844,6 +862,9 @@
       },
       "version-0.45/version-0.45-communication-ios": {
         "title": "在原生和React Native间通信"
+      },
+      "version-0.45/version-0.45-components-and-apis": {
+        "title": "核心组件和API"
       },
       "version-0.45/version-0.45-datepickerandroid": {
         "title": "DatePickerAndroid"
@@ -1127,6 +1148,9 @@
       "version-0.46/version-0.46-accessibility": {
         "title": "无障碍功能"
       },
+      "version-0.46/version-0.46-accessibilityinfo": {
+        "title": "AccessibilityInfo"
+      },
       "version-0.46/version-0.46-actionsheetios": {
         "title": "ActionSheetIOS"
       },
@@ -1183,6 +1207,9 @@
       },
       "version-0.46/version-0.46-communication-ios": {
         "title": "在原生和React Native间通信"
+      },
+      "version-0.46/version-0.46-components-and-apis": {
+        "title": "核心组件和API"
       },
       "version-0.46/version-0.46-datepickerandroid": {
         "title": "DatePickerAndroid"
@@ -1525,6 +1552,9 @@
       },
       "version-0.47/version-0.47-communication-ios": {
         "title": "在原生和React Native间通信"
+      },
+      "version-0.47/version-0.47-components-and-apis": {
+        "title": "核心组件和API"
       },
       "version-0.47/version-0.47-datepickerandroid": {
         "title": "DatePickerAndroid"
@@ -1870,6 +1900,9 @@
       },
       "version-0.48/version-0.48-communication-ios": {
         "title": "和原生端通信"
+      },
+      "version-0.48/version-0.48-components-and-apis": {
+        "title": "核心组件和API"
       },
       "version-0.48/version-0.48-datepickerandroid": {
         "title": "DatePickerAndroid"
@@ -2222,6 +2255,9 @@
       "version-0.49/version-0.49-communication-ios": {
         "title": "和原生端通信"
       },
+      "version-0.49/version-0.49-components-and-apis": {
+        "title": "核心组件和API"
+      },
       "version-0.49/version-0.49-datepickerandroid": {
         "title": "DatePickerAndroid"
       },
@@ -2573,6 +2609,9 @@
       "version-0.50/version-0.50-communication-ios": {
         "title": "和原生端通信"
       },
+      "version-0.50/version-0.50-components-and-apis": {
+        "title": "核心组件和API"
+      },
       "version-0.50/version-0.50-datepickerandroid": {
         "title": "DatePickerAndroid"
       },
@@ -2920,6 +2959,9 @@
       },
       "version-0.51/version-0.51-communication-ios": {
         "title": "和原生端通信"
+      },
+      "version-0.51/version-0.51-components-and-apis": {
+        "title": "核心组件和API"
       },
       "version-0.51/version-0.51-datepickerandroid": {
         "title": "DatePickerAndroid"
@@ -6950,7 +6992,7 @@
     },
     "links": {
       "文档": "文档",
-      "Components": "Components",
+      "组件": "组件",
       "API": "API",
       "讨论": "讨论",
       "热更新": "热更新",

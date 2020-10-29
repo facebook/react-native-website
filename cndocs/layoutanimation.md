@@ -83,17 +83,18 @@ export default App;
 ### `configureNext()`
 
 ```jsx
-static configureNext(config, onAnimationDidEnd?)
+static configureNext(config, onAnimationDidEnd?, onAnimationDidFail?)
 ```
 
 计划下一次布局要发生的动画。
 
 #### 参数：
 
-| 名称 | 类型 | 必填 | 说明 |
-| --- | --- | --- | --- |
-| config | object | 是 | 看下面的说明。 |
-| onAnimationDidEnd | function | 否 | 动画结束后的回调。目前仅 iOS 可用。 |
+| 名称               | 类型     | 必填 | 说明             |
+| ------------------ | -------- | ---- | ---------------- |
+| config             | object   | 是   | 看下面的说明     |
+| onAnimationDidEnd  | function | 否   | 动画结束后的回调 |
+| onAnimationDidFail | function | 否   | 动画失败后的回调 |
 
 ##### config
 

@@ -439,7 +439,7 @@ import React
 
 <block class="swift" />
 
-> When moving your app to production, the `NSURL` can point to a pre-bundled file on disk via something like `let mainBundle = NSBundle(URLForResource: "main" withExtension:"jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
+> When moving your app to production, the `URL` can point to a pre-bundled file on disk via something like `Bundle.main.url(forResource: "main", withExtension: "jsbundle")`. You can use the `react-native-xcode.sh` script in `node_modules/react-native/scripts/` to generate that pre-bundled file.
 
 <block class="objc swift" />
 
@@ -520,19 +520,20 @@ Here is the _React Native_ high score screen:
 
 ### 配置 maven
 
-在你的 app 中 `build.gradle` 文件中添加 React Native 依赖:
+在你的 app 中 `build.gradle` 文件中添加 React Native 和 JSC 引擎依赖:
 
 ```
 dependencies {
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:27.1.1"
     ...
     implementation "com.facebook.react:react-native:+" // From node_modules
+    implementation "org.webkit:android-jsc:+"
 }
 ```
 
 > 如果想要指定特定的 React Native 版本，可以用具体的版本号替换 `+`，当然前提是你从 npm 里下载的是这个版本。
 
-在项目的 `build.gradle` 文件中为 React Native 添加一个 maven 依赖的入口，必须写在 "allprojects" 代码块中:
+在项目的 `build.gradle` 文件中为 React Native 和 JSC 引擎添加 maven 源的路径，必须写在 "allprojects" 代码块中:
 
 ```
 allprojects {
@@ -541,6 +542,10 @@ allprojects {
             // All of React Native (JS, Android binaries) is installed from npm
             url "$rootDir/../node_modules/react-native/android"
         }
+        maven {
+            // Android JSC is installed from npm
+            url("$rootDir/../node_modules/jsc-android/dist")
+        }
         ...
     }
     ...
@@ -548,6 +553,20 @@ allprojects {
 ```
 
 > 确保依赖路径的正确！以免在 Android Studio 运行 Gradle 同步构建时抛出 “Failed to resolve: com.facebook.react:react-native:0.x.x" 异常。
+
+### 启用原生模块的自动链接
+
+To use the power of [autolinking](https://github.com/react-native-community/cli/blob/master/docs/autolinking.md), we have to apply it a few places. First add the following entry to `settings.gradle`:
+
+```gradle
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+```
+
+Next add the following entry at the very bottom of the `app/build.gradle`:
+
+```gradle
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
+```
 
 ### 配置权限
 
@@ -710,14 +729,20 @@ public class MyReactActivity extends Activity implements DefaultHardwareBackBtnH
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        SoLoader.init(this, false);
 
         mReactRootView = new ReactRootView(this);
+        List<ReactPackage> packages = new PackageList(getApplication()).getPackages();
+        // Packages that cannot be autolinked yet can be added manually here, for example:
+        // packages.add(new MyReactNativePackage());
+        // Remember to include them in `settings.gradle` and `app/build.gradle` too.
+
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setCurrentActivity(this)
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModulePath("index")
-                .addPackage(new MainReactPackage())
+                .addPackages(packages)
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();

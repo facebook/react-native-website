@@ -2,7 +2,7 @@
 id: libraries
 title: 使用第三方库
 author: Brent Vatne
-authorURL: https://twitter.com/notbrent
+authorURL: 'https://twitter.com/notbrent'
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 
