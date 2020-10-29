@@ -59,7 +59,7 @@ const siteConfig = {
   blogSidebarCount: 'ALL',
   algolia: {
     apiKey: '2c98749b4a1e588efec53b2acec13025',
-    indexName: 'react-native-versions',
+    indexName: 'react-native-archive',
     algoliaOptions: {
       facetFilters: ['tags:VERSION'],
       hitsPerPage: 5,
