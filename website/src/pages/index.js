@@ -132,14 +132,15 @@ function TwitterButton() {
 
 function GitHubStarButton() {
   return (
-    <GitHubButton
-      className="github-button"
-      href="https://github.com/facebook/react-native"
-      data-icon="octicon-star"
-      data-size="large"
-      aria-label="Star facebook/react-native on GitHub">
-      Star
-    </GitHubButton>
+    <div className="github-button">
+      <GitHubButton
+        href="https://github.com/facebook/react-native"
+        data-icon="octicon-star"
+        data-size="large"
+        aria-label="Star facebook/react-native on GitHub">
+        Star
+      </GitHubButton>
+    </div>
   );
 }
 
