@@ -43,7 +43,7 @@ Fingers are not the most precise instruments, and it is common for users to acci
 
 ## Example
 
-```js
+```SnackPlayer name=Pressable
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -58,7 +58,7 @@ const App = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Pressable
         onPress={() => {
           setTimesPressed((current) => current + 1);
@@ -85,6 +85,10 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
   text: {
     fontSize: 16
   },
