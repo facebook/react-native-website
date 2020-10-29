@@ -43,6 +43,15 @@
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .ActionButton {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+  }
+}
+
 /* AppList */
 
 .AppList {
@@ -56,7 +65,7 @@
 
     a {
       display: flex;
-      border-radius: 18px;
+      border-radius: 20%;
       overflow: hidden;
     }
   }
@@ -261,7 +270,7 @@
   }
 
   .GetStarted .steps li {
-    margin-left: -2rem;
+    margin-left: -1rem;
   }
 
   .GetStarted .terminal {
