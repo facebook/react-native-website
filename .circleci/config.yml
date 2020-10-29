@@ -64,7 +64,7 @@ jobs:
       - run:
           name: Check for missing index.html (build errors)
           command: |
-            if [ ! -f build/react-native/index.html ]; then
+            if [ ! -f build/index.html ]; then
               exit 1;
             fi
   # --------------------------------------------------
@@ -98,6 +98,7 @@ jobs:
               git config --global user.name "Website Deployment Script"
               echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
               echo "Deploying website..."
+              export NODE_OPTIONS=--max_old_space_size=4096
               GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
             else
               echo "Skipping deploy."

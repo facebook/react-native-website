@@ -1,8 +1,9 @@
 ---
-id: version-0.63-image
+id: image
 title: Image
-original_id: image
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
 
@@ -12,18 +13,8 @@ This example shows fetching and displaying an image from local storage as well a
 
 ## Examples
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
 
@@ -71,7 +62,8 @@ const DisplayAnImage = () => {
 export default DisplayAnImage;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example
 
@@ -116,22 +108,13 @@ class DisplayAnImage extends Component {
 export default DisplayAnImage;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 You can also add `style` to an image:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
 
@@ -163,7 +146,8 @@ const DisplayAnImageWithStyle = () => {
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example
 
@@ -194,7 +178,8 @@ class DisplayAnImageWithStyle extends Component {
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## GIF and WebP support on Android
 

@@ -1,7 +1,6 @@
 ---
-id: version-0.62-easing
+id: easing
 title: Easing
-original_id: easing
 ---
 
 The `Easing` module implements common easing functions. This module is used by [Animated.timing()](animated.md#timing) to convey physically believable motion in animations.

@@ -2,10 +2,10 @@
 title: Introducing Button, Faster Installs with Yarn, and a Public Roadmap
 author: Héctor Ramos
 authorTitle: Developer Advocate at Facebook
-authorURL: https://twitter.com/hectorramos
-authorImageURL: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
+authorURL: 'https://twitter.com/hectorramos'
+authorImageURL: 'https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128'
 authorTwitter: hectorramos
-category: announcements
+tags: [announcement]
 ---
 
 We have heard from many people that there is so much work happening with React Native, it can be tough to keep track of what's going on. To help communicate what work is in progress, we are now publishing a [roadmap for React Native](https://github.com/facebook/react-native/wiki/Roadmap). At a high level, this work can be broken down into three priorities:

@@ -1,9 +1,10 @@
 ---
-id: version-0.63-getting-started
+id: getting-started
 title: Introduction
 description: This helpful guide lays out the prerequisites for learning React Native, using these docs, and setting up your environment.
-original_id: getting-started
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div class="content-banner">
   <p>
@@ -55,18 +56,8 @@ With React, you can make components using either classes or functions. Originall
 
 [Hooks were introduced in React Native 0.58.](/blog/2019/03/12/releasing-react-native-059), and because Hooks are the future-facing way to write your React components, we wrote this introduction using function component examples. Where useful, we also cover class components under a toggle like so:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Hello%20World%20Function%20Component
 import React from 'react';
@@ -87,7 +78,8 @@ const HelloWorldApp = () => {
 export default HelloWorldApp;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Hello%20World%20Class%20Component
 import React, { Component } from 'react';
@@ -110,7 +102,8 @@ class HelloWorldApp extends Component {
 export default HelloWorldApp;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 You can find more examples of class components in [previous versions of this documentation](/versions).
 
@@ -118,28 +111,24 @@ You can find more examples of class components in [previous versions of this doc
 
 People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specific to one platform or another like so:
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
-    <button role="tab" class="button-androidNote" onclick="displayTabs('devNotes', 'androidNote')">Android</button>
-    <button role="tab" class="button-iosNote" onclick="displayTabs('devNotes', 'iosNote')">iOS</button>
-  </span>
-</div>
+<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["android", "ios", "web"])}>
 
-<block class="webNote devNotes" />
+<TabItem value="web">
 
 > Web developers may be familiar with this concept.
 
-<block class="androidNote devNotes" />
+</TabItem>
+<TabItem value="android">
 
 > Android developers may be familiar with this concept.
 
-<block class="iosNote devNotes" />
+</TabItem>
+<TabItem value="ios">
 
 > iOS developers may be familiar with this concept.
 
-<block class="endBlock devNotes" />
+</TabItem>
+</Tabs>
 
 ## Formatting
 

@@ -1,11 +1,11 @@
 ---
-title: A Monthly Release Cadence: Releasing December and January RC
+title: 'A Monthly Release Cadence: Releasing December and January RC'
 author: Eric Vicenti
 authorTitle: Engineer at Facebook
-authorURL: https://twitter.com/EricVicenti
-authorImageURL: https://secure.gravatar.com/avatar/077ad5372b65567fe952a99f3b627048?s=128
+authorURL: 'https://twitter.com/EricVicenti'
+authorImageURL: 'https://secure.gravatar.com/avatar/077ad5372b65567fe952a99f3b627048?s=128'
 authorTwitter: EricVicenti
-category: announcements
+tags: [announcement]
 ---
 
 Shortly after React Native was introduced, we started releasing every two weeks to help the community adopt new features, while keeping versions stable for production use. At Facebook we had to stabilize the codebase every two weeks for the release of our production iOS apps, so we decided to release the open source versions at the same pace. Now, many of the Facebook apps ship once per week, especially on Android. Because we ship from master weekly, we need to keep it quite stable. So the bi-weekly release cadence doesn't even benefit internal contributors anymore.
@@ -24,7 +24,7 @@ The January release candidate is ready to try, and you can [see what's new here]
 
 To see what changes are coming and provide better feedback to React Native contributors, always use the current month's release candidate when possible. By the time each version is released at the end of the month, the changes it contains will have been shipped in production Facebook apps for over two weeks.
 
-You can easily upgrade your app with the new [react-native-git-upgrade](/blog/2016/12/05/easier-upgrades.html) command:
+You can easily upgrade your app with the new [react-native-git-upgrade](/blog/2016/12/05/easier-upgrades) command:
 
 ```
 npm install -g react-native-git-upgrade

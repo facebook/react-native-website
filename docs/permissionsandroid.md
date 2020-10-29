@@ -3,7 +3,9 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-<div class="banner-native-code-required">
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
+<div className="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
     The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/permissions/">Permissions</a> in the Expo documentation for the appropriate alternative.
@@ -18,18 +20,8 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 
 ### Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React from "react";
@@ -86,7 +78,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React, { Component } from "react";
@@ -147,7 +140,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Permissions that require prompting the user
 
@@ -159,7 +153,6 @@ Available as constants under `PermissionsAndroid.PERMISSIONS`:
 - `READ_CONTACTS`: 'android.permission.READ_CONTACTS'
 - `WRITE_CONTACTS`: 'android.permission.WRITE_CONTACTS'
 - `GET_ACCOUNTS`: 'android.permission.GET_ACCOUNTS'
-- `ACCESS_BACKGROUND_LOCATION`: 'android.permission.ACCESS_BACKGROUND_LOCATION`
 - `ACCESS_FINE_LOCATION`: 'android.permission.ACCESS_FINE_LOCATION'
 - `ACCESS_COARSE_LOCATION`: 'android.permission.ACCESS_COARSE_LOCATION'
 - `RECORD_AUDIO`: 'android.permission.RECORD_AUDIO'

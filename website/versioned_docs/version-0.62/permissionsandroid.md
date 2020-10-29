@@ -1,8 +1,9 @@
 ---
-id: version-0.62-permissionsandroid
+id: permissionsandroid
 title: PermissionsAndroid
-original_id: permissionsandroid
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div class="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
@@ -19,18 +20,8 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 
 ### Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React from "react";
@@ -87,7 +78,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React, { Component } from "react";
@@ -146,7 +138,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Permissions that require prompting the user
 

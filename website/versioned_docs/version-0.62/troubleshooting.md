@@ -1,7 +1,6 @@
 ---
-id: version-0.62-troubleshooting
+id: troubleshooting
 title: Troubleshooting
-original_id: troubleshooting
 ---
 
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
@@ -14,13 +13,13 @@ The [Metro bundler][metro] runs on port 8081. If another process is already usin
 
 Run the following command to find the id for the process that is listening on port 8081:
 
-```sh
+```shell
 $ sudo lsof -i :8081
 ```
 
 Then run the following to terminate the process:
 
-```sh
+```shell
 $ kill -9 <PID>
 ```
 
@@ -30,7 +29,7 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 
 You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
-```sh
+```shell
 $ npx react-native start --port=8088
 ```
 

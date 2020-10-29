@@ -3,7 +3,7 @@ id: appregistry
 title: AppRegistry
 ---
 
-<div class="banner-native-code-required">
+<div className="banner-native-code-required">
   <h3>Project with Native Code Required</h3>
   <p>
     If you are using the managed <code>expo-cli</code> workflow there is only ever one entry component registered with <code>AppRegistry</code> and it is handled automatically, you do not need to use this API.
@@ -44,10 +44,10 @@ Only called from native code. Cancels a headless task.
 
 **Parameters:**
 
-| Name                                                     | Type   | Description                                                                                |
-| -------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------- |
-| taskId <div class="label basic required">Required</div>  | number | The native id for this task instance that was used when `startHeadlessTask` was called. |
-| taskKey <div class="label basic required">Required</div> | string | The key for the task that was used when `startHeadlessTask` was called.                 |
+| Name                                                         | Type   | Description                                                                             |
+| ------------------------------------------------------------ | ------ | --------------------------------------------------------------------------------------- |
+| taskId <div className="label basic required">Required</div>  | number | The native id for this task instance that was used when `startHeadlessTask` was called. |
+| taskKey <div className="label basic required">Required</div> | string | The key for the task that was used when `startHeadlessTask` was called.                 |
 
 ---
 
@@ -59,9 +59,9 @@ static enableArchitectureIndicator(enabled)
 
 **Parameters:**
 
-| Name                                                     | Type    |
-| -------------------------------------------------------- | ------- |
-| enabled <div class="label basic required">Required</div> | boolean |
+| Name                                                         | Type    |
+| ------------------------------------------------------------ | ------- |
+| enabled <div className="label basic required">Required</div> | boolean |
 
 ---
 
@@ -95,9 +95,9 @@ Returns a [Runnable](appregistry#runnable) object.
 
 **Parameters:**
 
-| Name                                                    | Type   |
-| ------------------------------------------------------- | ------ |
-| appKey <div class="label basic required">Required</div> | string |
+| Name                                                        | Type   |
+| ----------------------------------------------------------- | ------ |
+| appKey <div className="label basic required">Required</div> | string |
 
 ---
 
@@ -131,11 +131,11 @@ Register a headless task which can be cancelled. A headless task is a bit of cod
 
 **Parameters:**
 
-| Name                                                                              | Type                                                 | Description                                                                                                                                                                                                                         |
-| --------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| taskKey<br/><div class="label basic required two-lines">Required</div>            | string                                               | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
-| taskProvider<br/><div class="label basic required two-lines">Required</div>       | [TaskProvider](appregistry#taskprovider)             | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
-| taskCancelProvider<br/><div class="label basic required two-lines">Required</div> | [TaskCancelProvider](appregistry#taskcancelprovider) | a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.                                                                    |
+| Name                                                                                  | Type                                                 | Description                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskKey<br/><div className="label basic required two-lines">Required</div>            | string                                               | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
+| taskProvider<br/><div className="label basic required two-lines">Required</div>       | [TaskProvider](appregistry#taskprovider)             | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
+| taskCancelProvider<br/><div className="label basic required two-lines">Required</div> | [TaskCancelProvider](appregistry#taskcancelprovider) | a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.                                                                    |
 
 ---
 
@@ -147,11 +147,11 @@ static registerComponent(appKey, componentProvider, section?)
 
 **Parameters:**
 
-| Name                                                               | Type              |
-| ------------------------------------------------------------------ | ----------------- |
-| appKey <div class="label basic required">Required</div>            | string            |
-| componentProvider <div class="label basic required">Required</div> | ComponentProvider |
-| section                                                            | boolean           |
+| Name                                                                   | Type              |
+| ---------------------------------------------------------------------- | ----------------- |
+| appKey <div className="label basic required">Required</div>            | string            |
+| componentProvider <div className="label basic required">Required</div> | ComponentProvider |
+| section                                                                | boolean           |
 
 ---
 
@@ -163,9 +163,9 @@ static registerConfig(config)
 
 **Parameters:**
 
-| Name                                                    | Type                               |
-| ------------------------------------------------------- | ---------------------------------- |
-| config <div class="label basic required">Required</div> | [AppConfig](appregistry#appconfig) |
+| Name                                                        | Type                               |
+| ----------------------------------------------------------- | ---------------------------------- |
+| config <div className="label basic required">Required</div> | [AppConfig](appregistry#appconfig) |
 
 ---
 
@@ -181,10 +181,10 @@ This is a way to run tasks in JavaScript while your app is in the background. It
 
 **Parameters:**
 
-| Name                                                                        | Type                                     | Description                                                                                                                                                                                                                         |
-| --------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| taskKey<br/><div class="label basic required two-lines">Required</div>      | string                                   | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
-| taskProvider<br/><div class="label basic required two-lines">Required</div> | [TaskProvider](appregistry#taskprovider) | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
+| Name                                                                            | Type                                     | Description                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskKey<br/><div className="label basic required two-lines">Required</div>      | string                                   | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
+| taskProvider<br/><div className="label basic required two-lines">Required</div> | [TaskProvider](appregistry#taskprovider) | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
 
 ---
 
@@ -196,10 +196,10 @@ static registerRunnable(appKey, run)
 
 **Parameters:**
 
-| Name                                                    | Type     |
-| ------------------------------------------------------- | -------- |
-| appKey <div class="label basic required">Required</div> | string   |
-| run <div class="label basic required">Required</div>    | function |
+| Name                                                        | Type     |
+| ----------------------------------------------------------- | -------- |
+| appKey <div className="label basic required">Required</div> | string   |
+| run <div className="label basic required">Required</div>    | function |
 
 ---
 
@@ -211,10 +211,10 @@ static registerSection(appKey, component)
 
 **Parameters:**
 
-| Name                                                       | Type              |
-| ---------------------------------------------------------- | ----------------- |
-| appKey <div class="label basic required">Required</div>    | string            |
-| component <div class="label basic required">Required</div> | ComponentProvider |
+| Name                                                           | Type              |
+| -------------------------------------------------------------- | ----------------- |
+| appKey <div className="label basic required">Required</div>    | string            |
+| component <div className="label basic required">Required</div> | ComponentProvider |
 
 ---
 
@@ -228,10 +228,10 @@ Loads the JavaScript bundle and runs the app.
 
 **Parameters:**
 
-| Name                                                           | Type   |
-| -------------------------------------------------------------- | ------ |
-| appKey <div class="label basic required">Required</div>        | string |
-| appParameters <div class="label basic required">Required</div> | any    |
+| Name                                                               | Type   |
+| ------------------------------------------------------------------ | ------ |
+| appKey <div className="label basic required">Required</div>        | string |
+| appParameters <div className="label basic required">Required</div> | any    |
 
 ---
 
@@ -243,16 +243,16 @@ static setComponentProviderInstrumentationHook(hook)
 
 **Parameters:**
 
-| Name                                                  | Type     |
-| ----------------------------------------------------- | -------- |
-| hook <div class="label basic required">Required</div> | function |
+| Name                                                      | Type     |
+| --------------------------------------------------------- | -------- |
+| hook <div className="label basic required">Required</div> | function |
 
 A valid `hook` function accepts the following as arguments:
 
-| Name                                                                     | Type               |
-| ------------------------------------------------------------------------ | ------------------ |
-| component <div class="label basic required">Required</div>               | ComponentProvider  |
-| scopedPerformanceLogger <div class="label basic required">Required</div> | IPerformanceLogger |
+| Name                                                                         | Type               |
+| ---------------------------------------------------------------------------- | ------------------ |
+| component <div className="label basic required">Required</div>               | ComponentProvider  |
+| scopedPerformanceLogger <div className="label basic required">Required</div> | IPerformanceLogger |
 
 The function must also return a React Component.
 
@@ -266,9 +266,9 @@ static setWrapperComponentProvider(provider)
 
 **Parameters:**
 
-| Name                                                      | Type              |
-| --------------------------------------------------------- | ----------------- |
-| provider <div class="label basic required">Required</div> | ComponentProvider |
+| Name                                                          | Type              |
+| ------------------------------------------------------------- | ----------------- |
+| provider <div className="label basic required">Required</div> | ComponentProvider |
 
 ---
 
@@ -282,11 +282,11 @@ Only called from native code. Starts a headless task.
 
 **Parameters:**
 
-| Name                                                     | Type   | Description                                                          |
-| -------------------------------------------------------- | ------ | -------------------------------------------------------------------- |
-| taskId <div class="label basic required">Required</div>  | number | The native id for this task instance to keep track of its execution. |
-| taskKey <div class="label basic required">Required</div> | string | The key for the task to start.                                       |
-| data <div class="label basic required">Required</div>    | any    | The data to pass to the task.                                        |
+| Name                                                         | Type   | Description                                                          |
+| ------------------------------------------------------------ | ------ | -------------------------------------------------------------------- |
+| taskId <div className="label basic required">Required</div>  | number | The native id for this task instance to keep track of its execution. |
+| taskKey <div className="label basic required">Required</div> | string | The key for the task to start.                                       |
+| data <div className="label basic required">Required</div>    | any    | The data to pass to the task.                                        |
 
 ---
 
@@ -300,9 +300,9 @@ Stops an application when a view should be destroyed.
 
 **Parameters:**
 
-| Name                                                     | Type   |
-| -------------------------------------------------------- | ------ |
-| rootTag <div class="label basic required">Required</div> | number |
+| Name                                                         | Type   |
+| ------------------------------------------------------------ | ------ |
+| rootTag <div className="label basic required">Required</div> | number |
 
 ## Type Definitions
 
@@ -316,12 +316,12 @@ Application configuration for the `registerConfig` method.
 
 **Properties:**
 
-| Name                                                    | Type              |
-| ------------------------------------------------------- | ----------------- |
-| appKey <div class="label basic required">Required</div> | string            |
-| component                                               | ComponentProvider |
-| run                                                     | function          |
-| section                                                 | boolean           |
+| Name                                                        | Type              |
+| ----------------------------------------------------------- | ----------------- |
+| appKey <div className="label basic required">Required</div> | string            |
+| component                                                   | ComponentProvider |
+| run                                                         | function          |
+| section                                                     | boolean           |
 
 > **Note:** Every config is expected to set either `component` or `run` function.
 
