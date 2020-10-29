@@ -6,7 +6,7 @@ module.exports = {
   organizationName: 'facebook',
   projectName: 'react-native',
   url: 'https://reactnative.dev',
-  baseUrl: '/',
+  baseUrl: '/react-native/',
   scripts: [
     {
       src:
