@@ -60,6 +60,7 @@ jobs:
       - restore_cache_checkout
       - run_yarn
       - run: yarn ci-check
+      - run: export NODE_OPTIONS=--max_old_space_size=4096
       - run: yarn test
       - run:
           name: Check for missing index.html (build errors)
