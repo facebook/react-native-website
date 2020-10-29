@@ -2,10 +2,10 @@
 title: Easier Upgrades Thanks to Git
 author: Nicolas Cuillery
 authorTitle: JavaScript consultant and trainer at Zenika
-authorURL: https://twitter.com/ncuillery
-authorImageURL: https://fr.gravatar.com/userimage/78328995/184460def705a160fd8edadc04f60eaf.jpg?size=128
+authorURL: 'https://twitter.com/ncuillery'
+authorImageURL: 'https://fr.gravatar.com/userimage/78328995/184460def705a160fd8edadc04f60eaf.jpg?size=128'
 authorTwitter: ncuillery
-category: announcements
+tags: [announcement]
 ---
 
 Upgrading to new versions of React Native has been difficult. You might have seen something like this before:

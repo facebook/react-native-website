@@ -1,7 +1,6 @@
 ---
-id: version-0.61-imagepickerios
-title: 🚧 ImagePickerIOS
-original_id: imagepickerios
+id: imagepickerios
+title: '🚧 ImagePickerIOS'
 ---
 
 > **Deprecated.** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.

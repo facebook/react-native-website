@@ -1,27 +1,34 @@
 ---
-id: version-0.63-platformcolor
+id: platformcolor
 title: PlatformColor
-original_id: platformcolor
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ```js
 PlatformColor(color1, [color2, ...colorN]);
 ```
 
-You can use the `PlatformColor` function to access native colors on the target platform by supplying the native color’s corresponding string value. You pass a string to the `PlatformColor` function, and provided it exists on that platform, that native color will be applied to the control or Javascript component specified in your style. All native color logic also translates if applicable, meaning if the native color specified is themes and/or high contrast sensitive, that logic will also transfer to the JavaScript component being colored.
+You can use the `PlatformColor` function to access native colors on the target platform by supplying the native color’s corresponding string value. You pass a string to the `PlatformColor` function and, provided it exists on that platform, it will return the corresponding native color, which you can apply in any part of your application.
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
-  </span>
-</div>
+If you pass more than one string value to the `PlatformColor` function, it will treat the first value as the default and the rest as fallback.
 
-<block class="webNote devNotes" />
+```js
+PlatformColor('bogusName', 'linkColor');
+```
+
+Since native colors can be sensitive to themes and/or high contrast, this platform specific logic also translates inside your components.
+
+#### Developer notes
+
+<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
+
+<TabItem value="web">
 
 > If you’re familiar with design systems, another way of thinking about this is that `PlatformColor` lets you tap into the local design system's color tokens so your app can blend right in!
 
-<block class="endBlock devNotes" />
+</TabItem>
+</Tabs>
 
 For a full list of the types of system colors supported, see:
 

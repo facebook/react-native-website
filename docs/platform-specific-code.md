@@ -103,7 +103,7 @@ When your platform-specific code is more complex, you should consider splitting 
 
 For example, say you have the following files in your project:
 
-```sh
+```shell
 BigButton.ios.js
 BigButton.android.js
 ```
@@ -122,7 +122,7 @@ You can also use the `.native.js` extension when a module needs to be shared bet
 
 For example, say you have the following files in your project:
 
-```sh
+```shell
 Container.js # picked up by Webpack, Rollup or any other Web bundler
 Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
 ```

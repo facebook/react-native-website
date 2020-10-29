@@ -3,6 +3,8 @@ id: alert
 title: Alert
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Launches an alert dialog with the specified title and message.
 
 Optionally provide a list of buttons. Tapping any button will fire the respective onPress callback and dismiss the alert. By default, the only button will be an 'OK' button.
@@ -11,18 +13,8 @@ This is an API that works both on Android and iOS and can show static alerts. Al
 
 ## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Alert%20Function%20Component%20Example&supportedPlatforms=ios,android
 import React, { useState } from "react";
@@ -64,7 +56,6 @@ const App = () => {
   return (
     <View style={styles.container}>
       <Button title={"2-Button Alert"} onPress={createTwoButtonAlert} />
-
       <Button title={"3-Button Alert"} onPress={createThreeButtonAlert} />
     </View>
   );
@@ -81,7 +72,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Alert%20Class%20Component%20Example&supportedPlatforms=ios,android
 import React, { Component } from "react";
@@ -145,7 +137,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## iOS
 

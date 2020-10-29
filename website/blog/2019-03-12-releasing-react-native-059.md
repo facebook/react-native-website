@@ -2,10 +2,10 @@
 title: Releasing React Native 0.59
 author: Ryan Turner
 authorTitle: Core Maintainer & React Native Developer
-authorURL: https://twitter.com/turnrye
-authorImageURL: https://avatars0.githubusercontent.com/u/701035?s=460&v=4
+authorURL: 'https://twitter.com/turnrye'
+authorImageURL: 'https://avatars0.githubusercontent.com/u/701035?s=460&v=4'
 authorTwitter: turnrye
-category: announcements
+tags: [announcement, release]
 ---
 
 Welcome to the 0.59 release of React Native! This is another big release with 644 commits by 88 contributors. Contributions also come in other forms, so _thank you_ for maintaining issues, fostering communities, and teaching people about React Native. This month brings a number of highly anticipated changes, and we hope you enjoy them.
@@ -34,7 +34,7 @@ We want to help people have performant React Native apps by default and are work
 
 ![source of the `metro.config.js` file in the 0.59 template, demonstrating where to enable `inlineRequires`](/blog/assets/inline-requires.png)
 
-We need the community to let us know how it works before we turn it on by default. When you upgrade to 0.59, there will be a new `metro.config.js` file; flip the options to true and give us [your feedback](https://twitter.com/hashtag/inline-requires)! Read more about inline requires [in the performance docs](/docs/0.56/performance#inline-requires) to benchmark your app.
+We need the community to let us know how it works before we turn it on by default. When you upgrade to 0.59, there will be a new `metro.config.js` file; flip the options to true and give us [your feedback](https://twitter.com/hashtag/inline-requires)! Read more about inline requires [in the performance docs](/docs/performance#inline-requires) to benchmark your app.
 
 ## 🚅 Lean core is underway
 

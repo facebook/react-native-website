@@ -131,7 +131,7 @@ Then select a React component in React DevTools. There is a search box at the to
 
 You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
 
-<hr style="margin-top:25px; margin-bottom:25px;"/>
+<hr style={{marginTop: 25, marginBottom: 25}} />
 
 ## Debugging Application State
 
@@ -141,7 +141,7 @@ You can view installation instructions [in the README](https://github.com/infini
 
 # Native Debugging
 
-<div class="banner-native-code-required">
+<div className="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
     The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
@@ -152,7 +152,7 @@ You can view installation instructions [in the README](https://github.com/infini
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```sh
+```shell
 $ npx react-native log-ios
 $ npx react-native log-android
 ```

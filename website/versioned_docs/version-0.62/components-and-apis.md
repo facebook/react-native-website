@@ -1,7 +1,6 @@
 ---
-id: version-0.62-components-and-apis
+id: components-and-apis
 title: Core Components and APIs
-original_id: components-and-apis
 ---
 
 React Native provides a number of built-in [Core Components](intro-react-native-components) ready for you to use in your app. You can find them all in the left sidebar (or menu above, if you are on a narrow screen). If you're not sure where to get started, take a look at the following categories:
@@ -212,4 +211,3 @@ These components may be useful for certain applications. For an exhaustive list 
     </a>
   </div>
 </div>
-<br/>

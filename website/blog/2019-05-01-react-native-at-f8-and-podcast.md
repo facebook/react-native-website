@@ -2,10 +2,10 @@
 title: React Native at F8 and Open Source Podcast
 author: Christoph Nakazawa
 authorTitle: Engineer at Facebook
-authorURL: https://twitter.com/cpojer
-authorImageURL: https://avatars2.githubusercontent.com/u/13352?s=460&v=4
+authorURL: 'https://twitter.com/cpojer'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/13352?s=460&v=4'
 authorTwitter: cpojer
-category: announcements
+tags: [announcement]
 ---
 
 This week, [Eli White](https://twitter.com/Eli_White) gave a talk at [F8 2019](https://developers.facebook.com/videos/2019/mobile-innovation-with-react-native-componentkit-and-litho/) about React Native in Facebook's Android and iOS applications. We are excited to share what we've been up to for the past two years and what we're doing next.
@@ -13,7 +13,10 @@ This week, [Eli White](https://twitter.com/Eli_White) gave a talk at [F8 2019](h
 Check out the video on [Facebook's developer website](https://developers.facebook.com/videos/2019/mobile-innovation-with-react-native-componentkit-and-litho/):
 
 <a href="https://developers.facebook.com/videos/2019/mobile-innovation-with-react-native-componentkit-and-litho/">
-  <img src="/blog/assets/eli-at-f8.png" alt="F8 Talk about React Native" />
+  <img
+    src="/blog/assets/eli-at-f8.png"
+    alt="F8 Talk about React Native"
+  />
 </a>
 
 #### Highlights from the talk:
@@ -35,7 +38,4 @@ Eli's talk concludes by talking about our recent open source work. We gave [an u
 
 You'll find the episode in your favorite podcasting app soon or you can listen to the recording right here:
 
-<audio
-  controls
-  style="display: block; margin: 0 auto;"
-  src="https://media.devchat.tv/reactnativeradio/React_Native_Radio_Episode_121.mp3"> Audio is unsupported in this browser. </audio>
+<audio controls style={{display: 'block', margin: '0 auto'}} src="https://media.devchat.tv/reactnativeradio/React_Native_Radio_Episode_121.mp3"> {' '} Audio is unsupported in this browser.{' '} </audio>

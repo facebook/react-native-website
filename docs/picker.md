@@ -1,6 +1,6 @@
 ---
 id: picker
-title: 🚧 Picker
+title: '🚧 Picker'
 ---
 
 > **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.

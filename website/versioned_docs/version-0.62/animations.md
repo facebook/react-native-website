@@ -1,8 +1,9 @@
 ---
-id: version-0.62-animations
+id: animations
 title: Animations
-original_id: animations
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Animations are very important to create a great user experience. Stationary objects must overcome inertia as they start moving. Objects in motion have momentum and rarely come to a stop immediately. Animations allow you to convey physically believable motion in your interface.
 
@@ -231,18 +232,8 @@ The following example implements a horizontal scrolling carousel where the scrol
 
 #### ScrollView with Animated Event Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
 import React, { useRef } from "react";
@@ -377,7 +368,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Animated&supportedPlatforms=ios,android
 import React, { Component } from "react";
@@ -537,7 +529,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 When using `PanResponder`, you could use the following code to extract the x and y positions from `gestureState.dx` and `gestureState.dy`. We use a `null` in the first position of the array, as we are only interested in the second argument passed to the `PanResponder` handler, which is the `gestureState`.
 
@@ -552,18 +545,8 @@ onPanResponderMove={Animated.event(
 
 #### PanResponder with Animated Event Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Animated
 import React, { useRef } from "react";
@@ -619,7 +602,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Animated
 import React, { Component } from "react";
@@ -675,7 +659,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Responding to the current animation value
 

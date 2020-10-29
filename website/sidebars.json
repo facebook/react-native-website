@@ -92,19 +92,22 @@
       "transforms",
       "vibration",
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Hooks",
-        "ids": ["usecolorscheme", "usewindowdimensions"]
+        "collapsed": false,
+        "items": ["usecolorscheme", "usewindowdimensions"]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Android APIs",
-        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+        "collapsed": false,
+        "items": ["backhandler", "permissionsandroid", "toastandroid"]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "iOS APIs",
-        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
+        "collapsed": false,
+        "items": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
   },
@@ -132,14 +135,16 @@
       "view",
       "virtualizedlist",
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Android Components",
-        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+        "collapsed": false,
+        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "iOS Components",
-        "ids": ["inputaccessoryview", "maskedviewios", "safeareaview"]
+        "collapsed": false,
+        "items": ["inputaccessoryview"]
       }
     ],
     "Props": [

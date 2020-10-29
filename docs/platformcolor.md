@@ -3,6 +3,8 @@ id: platformcolor
 title: PlatformColor
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ```js
 PlatformColor(color1, [color2, ...colorN]);
 ```
@@ -17,18 +19,16 @@ PlatformColor('bogusName', 'linkColor');
 
 Since native colors can be sensitive to themes and/or high contrast, this platform specific logic also translates inside your components.
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
-  </span>
-</div>
+#### Developer notes
 
-<block class="webNote devNotes" />
+<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
+
+<TabItem value="web">
 
 > If you’re familiar with design systems, another way of thinking about this is that `PlatformColor` lets you tap into the local design system's color tokens so your app can blend right in!
 
-<block class="endBlock devNotes" />
+</TabItem>
+</Tabs>
 
 For a full list of the types of system colors supported, see:
 
