@@ -4,7 +4,7 @@ module.exports = {
   title: 'React Native',
   tagline: 'A framework for building native apps using React',
   url: 'https://reactnative.dev',
-  baseUrl: '/',
+  baseUrl: '/react-native/',
   projectName: 'react-native',
   scripts: [
     {
