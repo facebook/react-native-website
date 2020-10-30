@@ -19,9 +19,7 @@ module.exports = {
   favicon: 'img/favicon.ico',
   titleDelimiter: '·',
   customFields: {
-    repoUrl: 'https://github.com/facebook/react-native',
     users,
-    communityRepos: [],
     facebookAppId: '1677033832619985',
   },
   onBrokenLinks: 'throw',

@@ -102,7 +102,7 @@ function TextColumn({title, text, moreContent}) {
 
 function HomeCallToAction() {
   return (
-    <div>
+    <>
       <ActionButton
         type="primary"
         href={useBaseUrl('docs/getting-started')}
@@ -115,7 +115,7 @@ function HomeCallToAction() {
         target="_self">
         Learn basics
       </ActionButton>
-    </div>
+    </>
   );
 }
 

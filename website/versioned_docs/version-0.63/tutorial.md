@@ -155,7 +155,7 @@ const App = () => {
       <Text>You clicked {count} times</Text>
       <Button
         onPress={() => setCount(count + 1)}
-        titles="Click me!"
+        title="Click me!"
       />
     </View>
   );
