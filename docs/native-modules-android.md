@@ -1,6 +1,6 @@
 ---
 id: native-modules-android
-title: Native Modules
+title: Android Native Modules
 ---
 
 Welcome to Native Modules for Android. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.
