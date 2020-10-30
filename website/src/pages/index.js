@@ -439,10 +439,23 @@ function Community() {
                 <span>
                   <a href="https://callstack.com/">Callstack</a>
                 </span>
-                , <a href="https://expo.io/">Expo</a>,{' '}
-                <a href="https://infinite.red/">Infinite Red</a>,{' '}
-                <a href="https://www.microsoft.com/">Microsoft</a> and{' '}
-                <a href="https://swmansion.com/">Software Mansion</a>.
+                ,{' '}
+                <span>
+                  <a href="https://expo.io/">Expo</a>
+                </span>
+                ,{' '}
+                <span>
+                  <a href="https://infinite.red/">Infinite Red</a>
+                </span>
+                ,{' '}
+                <span>
+                  <a href="https://www.microsoft.com/">Microsoft</a>
+                </span>{' '}
+                and{' '}
+                <span>
+                  <a href="https://swmansion.com/">Software Mansion</a>
+                </span>
+                .
               </p>
               <p>
                 Our community is always shipping exciting new projects and
@@ -453,13 +466,17 @@ function Community() {
                   </a>
                 </span>
                 ,{' '}
-                <a href="https://github.com/microsoft/react-native-macos#readme">
-                  React Native macOS
-                </a>{' '}
+                <span>
+                  <a href="https://github.com/microsoft/react-native-macos#readme">
+                    React Native macOS
+                  </a>
+                </span>{' '}
                 and{' '}
-                <a href="https://github.com/necolas/react-native-web#readme">
-                  React Native Web
-                </a>
+                <span>
+                  <a href="https://github.com/necolas/react-native-web#readme">
+                    React Native Web
+                  </a>
+                </span>
                 .
               </p>
             </>
