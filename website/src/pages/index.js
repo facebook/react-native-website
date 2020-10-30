@@ -8,8 +8,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
-import {setupDissectionAnimation} from './_animations/dissectionAnimation';
-import {setupHeaderAnimations} from './_animations/headerAnimation';
+import {setupDissectionAnimation} from './animations/_dissectionAnimation';
+import {setupHeaderAnimations} from './animations/_headerAnimation';
 
 const textContent = {
   intro: `
