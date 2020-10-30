@@ -14,6 +14,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
     "prepublish-gh-pages": "yarn sync-community-repos",
     "publish-gh-pages": "docusaurus deploy",
     "ci-check": "yarn prettier:diff && node image-check.js",
