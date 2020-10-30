@@ -439,7 +439,7 @@ function Community() {
                 <span>
                   <a href="https://callstack.com/">Callstack</a>
                 </span>
-                ,
+                ,{' '}
                 <span>
                   <a href="https://expo.io/">Expo</a>
                 </span>
