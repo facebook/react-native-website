@@ -1,7 +1,4 @@
-if (
-  document.readyState === 'interactive' ||
-  document.readyState === 'complete'
-) {
+export function setupDissectionAnimation() {
   const section = document.querySelector('.NativeDevelopment');
   const dissection = document.querySelector('.NativeDevelopment .dissection');
   const images = dissection.children;
@@ -28,7 +25,7 @@ if (
     return clamp((scrollPercent - start) * numImages, 0, 1);
   }
 
-  window.addEventListener('scroll', () => {
+  function onScroll() {
     const elPos = section.getBoundingClientRect().top - navbarHeight;
     const height = window.innerHeight;
     const screenPercent = 1 - clamp(elPos / height, 0, 1);
@@ -40,5 +37,9 @@ if (
       const translation = fadeDistance * (1 - imgPercent);
       images[i].style.left = `${translation}px`;
     }
-  });
+  }
+
+  window.addEventListener('scroll', onScroll);
+
+  return () => window.removeEventListener('scroll', onScroll);
 }

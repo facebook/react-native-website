@@ -1,7 +1,4 @@
-if (
-  document.readyState === 'interactive' ||
-  document.readyState === 'complete'
-) {
+export function setupHeaderAnimations() {
   const steps = ['full', 'mobile', 'desktop', 'laptop', 'mobile2', 'full2'];
   const intervals = [1250, 1500, 1500, 1500, 1500, 1250];
 
@@ -31,21 +28,22 @@ if (
     );
   }
 
+  function onVisibilityChange() {
+    if (document.hidden) {
+      timeouts.forEach(timeout => {
+        clearTimeout(timeout);
+      });
+      // clear the timeouts array
+      timeouts.length = 0;
+    } else {
+      // restart the animation when visible
+      animateStep();
+    }
+  }
+
   // https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
-  document.addEventListener(
-    'visibilitychange',
-    () => {
-      if (document.hidden) {
-        timeouts.forEach(timeout => {
-          clearTimeout(timeout);
-        });
-        // clear the timeouts array
-        timeouts.length = 0;
-      } else {
-        // restart the animation when visible
-        animateStep();
-      }
-    },
-    false
-  );
+  document.addEventListener('visibilitychange', onVisibilityChange, false);
+
+  return () =>
+    document.removeEventListener('visibilitychange', onVisibilityChange);
 }

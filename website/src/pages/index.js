@@ -1,14 +1,15 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
 import GitHubButton from 'react-github-btn';
 import Head from '@docusaurus/Head';
-import ExecutionEnvironment from '@docusaurus/ExecutionEnvironment';
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
+import {setupDissectionAnimation} from './animations/_dissectionAnimation';
+import {setupHeaderAnimations} from './animations/_headerAnimation';
 
 const textContent = {
   intro: `
@@ -500,29 +501,31 @@ function GetStarted() {
   );
 }
 
-const Index = () => (
-  <Layout wrapperClassName="homepage">
-    {ExecutionEnvironment.canUseDOM ? (
+const useHomePageAnimations = () => {
+  useEffect(() => setupHeaderAnimations(), []);
+  useEffect(() => setupDissectionAnimation(), []);
+};
+
+const Index = () => {
+  useHomePageAnimations();
+  return (
+    <Layout wrapperClassName="homepage">
       <Head>
-        <script src={useBaseUrl('js/dissectionAnimation.js')} />
-        <script src={useBaseUrl('js/headerAnimation.js')} />
+        <title>
+          React Native · A framework for building native apps using React
+        </title>
       </Head>
-    ) : null}
-    <Head>
-      <title>
-        React Native · A framework for building native apps using React
-      </title>
-    </Head>
-    <HeaderHero />
-    <NativeApps />
-    <NativeCode />
-    <NativeDevelopment />
-    <CrossPlatform />
-    <FastRefresh />
-    <Talks />
-    <Community />
-    <GetStarted />
-  </Layout>
-);
+      <HeaderHero />
+      <NativeApps />
+      <NativeCode />
+      <NativeDevelopment />
+      <CrossPlatform />
+      <FastRefresh />
+      <Talks />
+      <Community />
+      <GetStarted />
+    </Layout>
+  );
+};
 
 export default Index;
