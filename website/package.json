@@ -14,6 +14,7 @@
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
+    "serve": "docusaurus serve",
     "publish-gh-pages": "yarn deploy",
     "ci-check": "yarn prettier:diff && node image-check.js",
     "format:source": "prettier --write \"{core/**/*.js,src/**/*.js,static/js/**/*.js}\"",
