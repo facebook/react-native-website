@@ -431,24 +431,31 @@ function Community() {
               </p>
               <p>
                 In 2018, React Native had the{' '}
-                <a href="https://octoverse.github.com/2018/projects.html#repositories">
+                <a href="https://octoverse.github.com/2018/projects#repositories">
                   2nd highest
                 </a>{' '}
                 number of contributors for any repository in GitHub. Today,
                 React Native is supported by contributions from individuals and
                 companies around the world including{' '}
-                <a href="https://callstack.com/">Callstack</a>,{' '}
-                <a href="https://expo.io/">Expo</a>,{' '}
-                <a href="https://infinite.red/">Infinite Red</a>,{' '}
-                <a href="https://www.microsoft.com/en-gb/">Microsoft</a> and{' '}
+                <span>
+                  <a href="https://callstack.com/">Callstack</a>
+                </span>
+                ,{' '}
+                <span>
+                  <a href="https://expo.io/">Expo</a>
+                </span>
+                , <a href="https://infinite.red/">Infinite Red</a>,{' '}
+                <a href="https://www.microsoft.com/">Microsoft</a> and{' '}
                 <a href="https://swmansion.com/">Software Mansion</a>.
               </p>
               <p>
                 Our community is always shipping exciting new projects and
                 exploring platforms beyond Android and iOS with repos like{' '}
-                <a href="https://github.com/microsoft/react-native-windows#readme">
-                  React Native Windows
-                </a>
+                <span>
+                  <a href="https://github.com/microsoft/react-native-windows#readme">
+                    React Native Windows
+                  </a>
+                </span>
                 ,{' '}
                 <a href="https://github.com/microsoft/react-native-macos#readme">
                   React Native macOS
