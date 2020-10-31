@@ -22,7 +22,7 @@ export default (() => {
   const initSnackPlayers = () => {
     console.log('initSnackPlayers');
     updateSnacksTheme();
-    window.ExpoSnack.initialize();
+    window.ExpoSnack && window.ExpoSnack.initialize();
   };
 
   const setupTabPanelsMutationObservers = () => {
@@ -56,8 +56,8 @@ export default (() => {
       if ('ExpoSnack' in window) {
         document.querySelectorAll('.snack-player').forEach(container => {
           updateSnacksTheme();
-          window.ExpoSnack.remove(container);
-          window.ExpoSnack.append(container);
+          window.ExpoSnack && window.ExpoSnack.remove(container);
+          window.ExpoSnack && window.ExpoSnack.append(container);
         });
       }
     }).observe(document.getElementsByTagName('html')[0], {
