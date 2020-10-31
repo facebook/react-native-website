@@ -40,6 +40,10 @@ module.exports = {
           path: 'blog',
           blogSidebarCount: 'ALL',
           blogSidebarTitle: 'All Blog Posts',
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Facebook, Inc.`,
+          },
         },
         theme: {
           customCss: [
