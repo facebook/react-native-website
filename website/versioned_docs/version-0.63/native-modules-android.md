@@ -53,7 +53,7 @@ public class CalendarModule extends ReactContextBaseJavaModule {
 
 As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule` class. For Android, Java native modules are written as classes that extend `ReactContextBaseJavaModule` and implement the functionality required by Javascript.
 
-> Note: It is worth noting that technically Java classes only need to extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
+> It is worth noting that technically Java classes only need to extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
 
 > However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your native module type-safe in the future. For native module type-safety, which is coming in future releases, React Native looks at each native module's Javascript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
 
@@ -153,7 +153,7 @@ public class MyAppPackage implements ReactPackage {
 
 This file imports the native module we created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
 
-> Note: It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
+> It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
 
 To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages` method. Open up your `MainApplication.java` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/MainApplication.java`
 
@@ -286,7 +286,7 @@ import CalendarModule from './CalendarModule';
 CalendarModule.createCalendarEvent(‘foo’, ‘bar’);
 ```
 
-> Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
+> This assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
 
 ### Argument Types
 
@@ -301,14 +301,14 @@ When a native module method is invoked in Javascript, React Native converts the 
 - ReadableMap -> Object
 - ReadableArray -> Array
 
-> Note: The following types are currently supported but will not be supported in TurboModules Please avoid using them:
+> The following types are currently supported but will not be supported in TurboModules Please avoid using them:
 >
 > - Integer -> ?number
 > - int -> number
 > - Float -> ?number
 > - float -> number
 
-It is worth noting that, for Android, React Native has less support for argument types than it does for iOS. For example, in iOS, your native method can include argument types of `NSDate` and React Native will handle converting Javascript date strings and numbers into the native NSDate argument type. In Android, `Date` conversion is not supported out of the box. App developers on iOS can also extend the type conversions supported by React Native by extending the `RCTConvert` class, which is not supported for Android. However, if you need an argument type not included in the supported list above you can always handle the conversion within the native method yourself like so:
+For argument types not listed above, you will need to handle the conversion yourself. For example, in Android, `Date` conversion is not supported out of the box. You can handle the conversion to the `Date` type within the native method yourself like so:
 
 ```java
     String dateFormat = "yyyy-MM-dd";
@@ -342,7 +342,7 @@ console.log(DEFAULT_EVENT_NAME);
 
 Technically it is possible to access constants exported in `getConstants` directly off the native module object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> Note that currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants` will become a regular native module method, and each invocation will hit the native side.
+> That currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants` will become a regular native module method, and each invocation will hit the native side.
 
 ### Callbacks
 
@@ -456,7 +456,7 @@ public void createCalendarEvent(String name, String location, Promise promise) {
 }
 ```
 
-> Note: Similar to callbacks, a native module method can either reject or resolve a promise (but not both) and can do so at most once. This means that you can either call a success callback or a failure callback, but not both, and each callback can only be invoked at most one time. A native module can, however, store the callback and invoke it later.
+> Similar to callbacks, a native module method can either reject or resolve a promise (but not both) and can do so at mosxt once. This means that you can either call a success callback or a failure callback, but not both, and each callback can only be invoked at most one time. A native module can, however, store the callback and invoke it later.
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
@@ -491,7 +491,7 @@ promise.reject("Create Event error", "Error parsing date", e);
 Error message in React Native App when promise is rejected:
 
 <figure>
-  <img src="/docs/assets/native-modules-android-errorscreen.png" width="200" alt="Image of opening up an iOS project within a React Native app inside of xCode." />
+  <img src="/docs/assets/native-modules-android-errorscreen.png" width="200" alt="Image of error message in React Native app." />
   <figcaption>Image of error message</figcaption>
 </figure>
 
@@ -667,6 +667,4 @@ public void onHostDestroy() {
 
 ### Threading
 
-To date, on Android, all native module async methods execute on one thread. On iOS, each native module can provide its method queue, or have React Native generate a method queue for it. On iOS, native modules also have an API to get a hold of the method queue on which their async methods are executed.
-
-Native modules should not have any assumptions about what thread they are being called on, as the current assignment is subject to change in the future. If a blocking call is required, the heavy work should be dispatched to an internally managed worker thread, and any callbacks distributed from there.
+To date, on Android, all native module async methods execute on one thread.

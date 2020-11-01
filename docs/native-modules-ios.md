@@ -260,14 +260,14 @@ When a native module method is invoked in Javascript, React Native converts the 
 - Function (success) -> RCTResponseSenderBlock
 - Function (failure) -> RCTResponseSenderBlock, RCTResponseErrorBlock
 - Promise -> RCTPromiseResolveBlock, RCTPromiseRejectBlock
-  > Note: The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
+  > The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
   >
   > - Function (failure) -> RCTResponseErrorBlock
   > - Number -> NSInteger
   > - Number -> CGFloat
   > - Number -> float
 
-In iOS, there is more extensive support for JS to Native type conversion than in Android. You can write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
+For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
 ### Exporting Constants
 
@@ -524,7 +524,7 @@ RCT_EXPORT_METHOD(doSomethingExpensive:(NSString *)param callback:(RCTResponseSe
 
 ```
 
-> NOTE: Sharing dispatch queues between modules
+> Sharing dispatch queues between modules
 >
 > The `methodQueue` method will be called once when the module is initialized, and then retained by React Native, so there is no need to keep a reference to the queue yourself, unless you wish to make use of it within your module. However, if you wish to share the same queue between multiple modules then you will need to ensure that you retain and return the same queue instance for each of them.
 
@@ -568,7 +568,7 @@ class CalendarManager: NSObject {
 }
 ```
 
-> NOTE: It is important to use the `@objc` modifiers to ensure the class and functions are exported properly to the Objective-C runtime.
+> It is important to use the `@objc` modifiers to ensure the class and functions are exported properly to the Objective-C runtime.
 
 Then create a private implementation file that will register the required information with React Native:
 
