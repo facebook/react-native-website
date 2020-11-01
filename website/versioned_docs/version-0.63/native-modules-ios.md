@@ -8,7 +8,7 @@ Welcome to Native Modules for iOS. Please start by reading the [Native Modules I
 
 ## Create a Calendar Native Module
 
-In the following guide you will create a native module, `CalendarModule`, that will allow you to access Apple's calendar APIs from Javascript. By the end we will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a native method that creates a calendar event.
+In the following guide you will create a native module, `CalendarModule`, that will allow you to access Apple's calendar APIs from Javascript. By the end you will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a native method that creates a calendar event.
 
 ### Setup
 
@@ -63,7 +63,7 @@ RCT_EXPORT_MODULE();
 
 For now, your `CalenderModule.m` native module only includes a `RCT_EXPORT_MODULE` macro, which exports and registers the native module class with React Native. The `RCT_EXPORT_MODULE` macro also takes an optional argument that specifies the name that the module will be accessible as in your JavaScript code.
 
-This argument is not a string literal. In the example below we pass `RCT_EXPORT_MODULE(CalendarModuleFoo)`, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
+This argument is not a string literal. In the example below `RCT_EXPORT_MODULE(CalendarModuleFoo)` is passed, not `RCT_EXPORT_MODULE("CalendarModuleFoo")`.
 
 ```objectivec
 // To export a module named CalendarModuleFoo
@@ -93,7 +93,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 
 ### Export a Native Method to Javascript
 
-React Native will not expose any methods in a native module to JavaScript unless explicitly told to. This can be done using the `RCT_EXPORT_METHOD` macro. Methods written in the `RCT_EXPORT_METHOD` macro are asynchronous and the return type is therefore always void. In order to pass a result from a `RCT_EXPORT_METHOD` method to JavaScript you can use callbacks or emit events (covered below). Let’s go ahead and set up a native method for our `CalendarModule` native module using the `RCT_EXPORT_METHOD` macro. We will call it `createCalendarEvent` and have it take in name and location arguments as strings for now. We will cover argument type options shortly.
+React Native will not expose any methods in a native module to JavaScript unless explicitly told to. This can be done using the `RCT_EXPORT_METHOD` macro. Methods written in the `RCT_EXPORT_METHOD` macro are asynchronous and the return type is therefore always void. In order to pass a result from a `RCT_EXPORT_METHOD` method to JavaScript you can use callbacks or emit events (covered below). Let’s go ahead and set up a native method for our `CalendarModule` native module using the `RCT_EXPORT_METHOD` macro. Call it `createCalendarEvent` and for now have it take in name and location arguments as strings. Argument type options will be covered shortly.
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)location)
@@ -132,7 +132,7 @@ At the moment, we do not recommend using synchronous methods, since calling meth
 
 At this point you have set up the basic scaffolding for your native module in iOS. Test that out by accessing the native module and invoking it’s exported method in JavaScript.
 
-Find a place in your application where you would like to call into `CalendarModule.createCalendarEvent`. In the following example we created a component, NewModuleButton. We will invoke the native module method inside its onPress event callback.
+Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress` function.
 
 ```jsx
 import React from 'react';
@@ -167,7 +167,7 @@ You can then access the `CalendarModule` native module off of `NativeModules`.
 const { CalendarModule } = NativeModules;
 ```
 
-Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent`. Below we add it to the `pressEvent` function in `NewModuleButton`:
+Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent`. Below it is added to the `onPress` method in `NewModuleButton`:
 
 ```jsx
 const onPress = () => {
@@ -246,7 +246,7 @@ NativeCalendarModule.createCalendarEvent(‘foo’, ‘bar’);
 
 ### Argument Types
 
-When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Objective-C/Swift object analogues. So for example, if your Objective-C Native Module method accepts a NSNumber, in JS we need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
+When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Objective-C/Swift object analogues. So for example, if your Objective-C Native Module method accepts a NSNumber, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
 
 - string -> NSString \*
 - ?string -> NSString \*
@@ -272,7 +272,7 @@ For iOS, you can also write native module methods with any argument type that is
 
 ### Exporting Constants
 
-A native module can export constants by overriding the native method `constantsToExport`. Below we override `constantsToExport` and return a Dictionary that contains a default event name property you can access in Javascript like so:
+A native module can export constants by overriding the native method `constantsToExport`. Below `constantsToExport` is overriden, and returns a Dictionary that contains a default event name property you can access in Javascript like so:
 
 ```objectivec
 - (NSDictionary *)constantsToExport
@@ -298,7 +298,7 @@ For iOS, if you override `constantsToExport` then you should also implement `+ r
 
 Native modules also support a unique kind of argument - a callback. Callbacks are used to pass data from Objective-C to Javascript for asynchronous methods. They can also be used to asynchronously execute JS from the native side.
 
-For iOS, callbacks are implemented using the type `RCTResponseSenderBlock`. Below we add the callback parameter myCallBack to the createCalendarEventMethod:
+For iOS, callbacks are implemented using the type `RCTResponseSenderBlock`. Below the callback parameter `myCallBack` is added to the `createCalendarEventMethod`:
 
 ```objectivec
 RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
@@ -548,7 +548,7 @@ RCTRootView *rootView = [[RCTRootView alloc]
 
 ### Exporting Swift
 
-Swift doesn't have support for macros, so exposing native modules and their methods to JavaScript inside React Native requires a bit more setup. However, it works relatively the same. Let's say we have the same `CalendarModule` but as a Swift class:
+Swift doesn't have support for macros, so exposing native modules and their methods to JavaScript inside React Native requires a bit more setup. However, it works relatively the same. Let's say you have the same `CalendarModule` but as a Swift class:
 
 ```swift
 // CalendarManager.swift

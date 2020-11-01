@@ -7,7 +7,7 @@ Welcome to Native Modules for Android. Please start by reading the [Native Modul
 
 ## Create a Calendar Native Module
 
-In the following guide you will create a native module, `CalendarModule`, that will allow you to access Android’s calendar APIs from JavaScript. By the end, we will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a Java method that creates a calendar event.
+In the following guide you will create a native module, `CalendarModule`, that will allow you to access Android’s calendar APIs from JavaScript. By the end, you will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a Java method that creates a calendar event.
 
 ### Setup
 
@@ -77,7 +77,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 
 Next you will need to add a method to your native module that will create calendar events and can be invoked in Javascript. All native module methods meant to be invoked from JavaScript must be annotated with `@ReactMethod`.
 
-Set up a method `createCalendarEvent` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent`. For now, the method will take in a name and location as strings. We will cover parameters options shortly.
+Set up a method `createCalendarEvent` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent`. For now, the method will take in a name and location as strings. Argument type options will be covered shortly.
 
 ```java
 @ReactMethod
@@ -85,7 +85,7 @@ public void createCalendarEvent(String name, String location) {
 }
 ```
 
-Add a debug log in the method to confirm it has been invoked when you call it from your application. Below we import and use the [Log](https://developer.android.com/reference/android/util/Log) class from the Android util package like so:
+Add a debug log in the method to confirm it has been invoked when you call it from your application. Below is an example of how you can import and use the [Log](https://developer.android.com/reference/android/util/Log) class from the Android util package:
 
 ```java
 import android.util.Log;
@@ -97,7 +97,7 @@ public void createCalendarEvent(String name, String location) {
 }
 ```
 
-Once we finish implementing the native module and hook it up in JavaScript, you can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view the logs from your app.
+Once you finish implementing the native module and hook it up in JavaScript, you can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view the logs from your app.
 
 ### Synchronous Methods
 
@@ -150,7 +150,7 @@ public class MyAppPackage implements ReactPackage {
 }
 ```
 
-This file imports the native module we created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
+This file imports the native module you created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
 
 > It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
 
@@ -163,7 +163,7 @@ Locate ReactNativeHost’s `getPackages` method and add your package to the pack
   protected List<ReactPackage> getPackages() {
     @SuppressWarnings("UnnecessaryLocalVariable")
     List<ReactPackage> packages = new PackageList(this).getPackages();
-    // below we add MyAppPackage to the list of packages returned
+    // below MyAppPackage is added to the list of packages returned
     packages.add(new MyAppPackage());
     return packages;
   }
@@ -175,7 +175,7 @@ You have now successfully registered your native module for Android!
 
 At this point, you have set up the basic scaffolding for your native module in Android. Test that out by accessing the native module and invoking its exported method in JavaScript.
 
-Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. In the following example we created a component, NewModuleButton, and will invoke the native module inside the onPress function.
+Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress` function.
 
 ```jsx
 import React from 'react';
@@ -210,7 +210,7 @@ You can then access the `CalendarModule` native module off of `NativeModules`.
 const { CalendarModule } = NativeModules;
 ```
 
-Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent`. Below we add it to the `onPress` method in `NewModuleButton`:
+Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent`. Below it is added to the `onPress` method in `NewModuleButton`:
 
 ```jsx
 const onPress = () => {
@@ -289,7 +289,7 @@ CalendarModule.createCalendarEvent(‘foo’, ‘bar’);
 
 ### Argument Types
 
-When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Java object analogues. So for example, if your Java Native Module method accepts a double, in JS we need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the Javascript equivalents they map to.
+When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Java object analogues. So for example, if your Java Native Module method accepts a double, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the Javascript equivalents they map to.
 
 - Boolean -> ?boolean
 - boolean -> boolean
@@ -357,7 +357,7 @@ public void createCalendarEvent(String name, String location, Callback callBack)
 }
 ```
 
-You can invoke the callback in your Java method, providing whatever data you want to pass to Javascript. Please note that you can only pass serializable data from native code to Javascript. If you need to pass back a native object you can use `WriteableMaps`, if you need to use a collection use `WritableArrays`. It is also important to highlight that the callback is not invoked immediately after the native function completes. Below we will pass back the ID of an event created in an earlier call.
+You can invoke the callback in your Java method, providing whatever data you want to pass to Javascript. Please note that you can only pass serializable data from native code to Javascript. If you need to pass back a native object you can use `WriteableMaps`, if you need to use a collection use `WritableArrays`. It is also important to highlight that the callback is not invoked immediately after the native function completes. Below the ID of an event created in an earlier call is passed to the callback.
 
 ```java
   @ReactMethod
@@ -562,7 +562,7 @@ public void onActivityResult(
 }
 ```
 
-We will implement a basic image picker to demonstrate this. The image picker will expose the method `pickImage` to JavaScript, which will return the path of the image when called.
+Let's implement a basic image picker to demonstrate this. The image picker will expose the method `pickImage` to JavaScript, which will return the path of the image when called.
 
 ```jsx
 public class ImagePickerModule extends ReactContextBaseJavaModule {
@@ -641,7 +641,7 @@ public class ImagePickerModule extends ReactContextBaseJavaModule {
 
 ### Listening to Lifecycle Events
 
-Listening to the activity's LifeCycle events such as `onResume`, `onPause` etc. is very similar to how we implemented `ActivityEventListener`. The module must implement `LifecycleEventListener`. Then, you need to register a listener in the module's constructor like so:
+Listening to the activity's LifeCycle events such as `onResume`, `onPause` etc. is very similar to how `ActivityEventListener` was implemented. The module must implement `LifecycleEventListener`. Then, you need to register a listener in the module's constructor like so:
 
 ```jsx
 reactContext.addLifecycleEventListener(this);
