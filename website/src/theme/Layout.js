@@ -6,18 +6,21 @@ import {Redirect, useLocation} from '@docusaurus/router';
 // See https://github.com/facebook/react-native-website/issues/2291
 // Inspired by https://jasonwatmore.com/post/2020/03/23/react-router-remove-trailing-slash-from-urls
 const RemoveTrailingSlashRedirect = () => {
-  const location = useLocation();
-  if (location.pathname.endsWith('/')) {
-    return <Redirect to={location.pathname.slice(0, -1)} />;
+  const {pathname} = useLocation();
+  if (pathname.endsWith('/')) {
+    return <Redirect to={pathname.slice(0, -1)} />;
+  }
+  if (pathname.endsWith('.html')) {
+    return <Redirect to={pathname.slice(0, -5)} />;
   }
   return null;
 };
 
-export default function Layout(props) {
-  return (
-    <>
-      <RemoveTrailingSlashRedirect />
-      <OriginalLayout {...props} />
-    </>
-  );
-}
+const Layout = props => (
+  <>
+    <RemoveTrailingSlashRedirect />
+    <OriginalLayout {...props} />
+  </>
+);
+
+export default Layout;
