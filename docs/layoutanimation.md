@@ -55,7 +55,7 @@ const App = () => {
 
 const style = StyleSheet.create({
   tile: {
-    background: "lightGrey",
+    backgroundColor: "lightgrey",
     borderWidth: 0.5,
     borderColor: "#d6d7da"
   },
