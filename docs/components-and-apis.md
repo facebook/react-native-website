@@ -102,8 +102,9 @@ Many of the following components provide wrappers for commonly used Android clas
 <div className="component-grid component-grid-border">
   <div className="component">
     <a href="./backhandler">
-      </a><h3><a href="./backhandler">BackHandler</a></h3>
+      <h3>BackHandler</h3>
       <p>Detect hardware button presses for back navigation.</p>
+    </a>
   </div>
   <div className="component">
     <a href="./drawerlayoutandroid">
@@ -113,8 +114,9 @@ Many of the following components provide wrappers for commonly used Android clas
   </div>
   <div className="component">
     <a href="./permissionsandroid">
-      </a><h3><a href="./permissionsandroid">PermissionsAndroid</a></h3>
+      <h3>PermissionsAndroid</h3>
       <p>Provides access to the permissions model introduced in Android M.</p>
+    </a>
   </div>
   <div className="component">
     <a href="./toastandroid">
