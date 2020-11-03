@@ -481,10 +481,6 @@
         },
         {
           "type": "doc",
-          "id": "version-0.63/safeareaview"
-        },
-        {
-          "type": "doc",
           "id": "version-0.63/scrollview"
         },
         {
@@ -554,6 +550,10 @@
             {
               "type": "doc",
               "id": "version-0.63/maskedviewios"
+            },
+            {
+              "type": "doc",
+              "id": "version-0.63/safeareaview"
             }
           ]
         }

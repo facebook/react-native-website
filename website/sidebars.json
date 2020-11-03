@@ -144,7 +144,7 @@
         "type": "category",
         "label": "iOS Components",
         "collapsed": false,
-        "items": ["inputaccessoryview"]
+        "items": ["inputaccessoryview", "safeareaview"]
       }
     ],
     "Props": [
