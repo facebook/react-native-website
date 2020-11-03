@@ -36,9 +36,11 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   text: {
-    color: "grey",
-    fontSize: 30,
-    fontWeight: "bold"
+    color: "white",
+    fontSize: 42,
+    fontWeight: "bold",
+    textAlign: "center",
+    backgroundColor: "#000000a0"
   }
 });
 
