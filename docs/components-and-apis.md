@@ -8,8 +8,8 @@ React Native provides a number of built-in [Core Components](intro-react-native-
 - [Basic Components](components-and-apis#basic-components)
 - [User Interface](components-and-apis#user-interface)
 - [List Views](components-and-apis#list-views)
-- [iOS-specific](components-and-apis#ios-components-and-apis)
 - [Android-specific](components-and-apis#android-components-and-apis)
+- [iOS-specific](components-and-apis#ios-components-and-apis)
 - [Others](components-and-apis#others)
 
 You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If you're looking for a library that does something specific, please refer to [this guide about finding libraries](libraries#finding-libraries).
@@ -95,18 +95,6 @@ Unlike the more generic [`ScrollView`](./scrollview), the following list view co
   </div>
 </div>
 
-## iOS Components and APIs
-
-Many of the following components provide wrappers for commonly used UIKit classes.
-
-<div className="component-grid component-grid-border">
-  <div className="component">
-    <a href="./actionsheetios">
-      <h3>ActionSheetIOS</h3>
-      <p>API to display an iOS action sheet or share sheet.</p>
-    </a>
-  </div>
-</div>
 ## Android Components and APIs
 
 Many of the following components provide wrappers for commonly used Android classes.
@@ -116,7 +104,6 @@ Many of the following components provide wrappers for commonly used Android clas
     <a href="./backhandler">
       </a><h3><a href="./backhandler">BackHandler</a></h3>
       <p>Detect hardware button presses for back navigation.</p>
-    
   </div>
   <div className="component">
     <a href="./drawerlayoutandroid">
@@ -128,12 +115,24 @@ Many of the following components provide wrappers for commonly used Android clas
     <a href="./permissionsandroid">
       </a><h3><a href="./permissionsandroid">PermissionsAndroid</a></h3>
       <p>Provides access to the permissions model introduced in Android M.</p>
-    
   </div>
   <div className="component">
     <a href="./toastandroid">
       <h3>ToastAndroid</h3>
       <p>Create an Android Toast alert.</p>
+    </a>
+  </div>
+</div>
+
+## iOS Components and APIs
+
+Many of the following components provide wrappers for commonly used UIKit classes.
+
+<div className="component-grid component-grid-border">
+  <div className="component">
+    <a href="./actionsheetios">
+      <h3>ActionSheetIOS</h3>
+      <p>API to display an iOS action sheet or share sheet.</p>
     </a>
   </div>
 </div>
