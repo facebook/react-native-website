@@ -15,7 +15,7 @@ React Native is not only for Android and iOS - there are community-supported pro
 
 Other major forks:
 
-- [React Native tvOS](https://github.com/react-native-community/react-native-tvos) - adaptation of React Native for Apple tvOS
+- [React Native tvOS](https://github.com/react-native-tvos/react-native-tvos) - adaptation of React Native for Apple tvOS
 - [ReNative](https://github.com/pavjacko/renative) - a fork that supports more platforms out of the box
 
 ## Creating your own React Native platform
