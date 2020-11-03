@@ -541,7 +541,7 @@ Abort prefetch request. Android-only.
 await Image.queryCache(urls);
 ```
 
-Perform cache interrogation. Returns a promise which resolves to a mapping from URL to cache status, such as "disk" or "memory". If a requested URL is not in the mapping, it means it's not in the cache.
+Perform cache interrogation. Returns a promise which resolves to a mapping from URL to cache status, such as "disk", "memory" or "disk/memory". If a requested URL is not in the mapping, it means it's not in the cache.
 
 **Parameters:**
 
