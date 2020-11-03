@@ -19,6 +19,17 @@ PlatformColor('bogusName', 'linkColor');
 
 Since native colors can be sensitive to themes and/or high contrast, this platform specific logic also translates inside your components.
 
+### Supported colors
+
+For a full list of the types of system colors supported, see:
+
+- Android:
+  - [R.attr](https://developer.android.com/reference/android/R.attr) - `?attr` prefix
+  - [R.color](https://developer.android.com/reference/android/R.color) - `@android:color` prefix
+- iOS (Objective-C and Swift notations):
+  - [UIColor Standard Colors](https://developer.apple.com/documentation/uikit/uicolor/standard_colors)
+  - [UIColor UI Element Colors](https://developer.apple.com/documentation/uikit/uicolor/ui_element_colors)
+
 #### Developer notes
 
 <Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["web"])}>
@@ -30,16 +41,9 @@ Since native colors can be sensitive to themes and/or high contrast, this platfo
 </TabItem>
 </Tabs>
 
-For a full list of the types of system colors supported, see:
-
-- Android:
-  - [R.attr](https://developer.android.com/reference/android/R.attr) - `?attr` prefix
-  - [R.color](https://developer.android.com/reference/android/R.color) - `@android:color` prefix
-- [iOS UIColor](https://developer.apple.com/documentation/uikit/uicolor/ui_element_colors)
-
 ## Example
 
-```jsx
+```SnackPlayer name=PlatformColor%20Example&supportedPlatforms=android,ios
 import React from 'react';
 import {
   Platform,
@@ -49,27 +53,39 @@ import {
   View
 } from 'react-native';
 
-export default (App = () => (
-  <View>
-    <Text style={styles.labelCell}>
+const App = () => (
+  <View style={styles.container}>
+    <Text style={styles.label}>
       I am a special label color!
     </Text>
   </View>
-));
+);
 
 const styles = StyleSheet.create({
-  labelCell: {
-    flex: 1,
-    alignItems: 'stretch',
+  label: {
+    padding: 16,
     ...Platform.select({
-      ios: { color: PlatformColor('label') },
+      ios: {
+        color: PlatformColor('label'),
+        backgroundColor:
+          PlatformColor('systemTealColor'),
+      },
       android: {
-        color: PlatformColor('?attr/colorControlNormal')
+        color: PlatformColor('?attr/textColor'),
+        backgroundColor:
+          PlatformColor('@android:color/holo_blue_bright'),
       },
       default: { color: 'black' }
     })
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
+
+export default App;
 ```
 
 The string value provided to the `PlatformColor` function must match the string as it exists on the native platform where the app is running. In order to avoid runtime errors, the function should be wrapped in a platform check, either through a `Platform.OS === 'platform'` or a `Platform.Select()`, as shown on the example above.
