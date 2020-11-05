@@ -282,9 +282,9 @@ export default function CatApp() {
 
 ## State 状态
 
-While you can think of props as arguments you use to configure how components render, **state**就像是组件的私人数据记录。 Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+While you can think of props as arguments you use to configure how components render, **state**就像是组件的私人数据记录。状态用于记录那些随时间或者用户交互而变化的数据。Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
 
-> As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
+> 按惯例来说，props用来配置组件的第一次渲染（初始状态）。Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -463,7 +463,7 @@ And you set individual values inside the state object by passing an object with 
 </Button>
 ```
 
-> Do not change your component's state directly by assigning it a new value with `this.state.hunger = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity! When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `false` and its `title` also changes:
+> 不要直接给组件state赋值（比如`this.state.hunger = false`）来修改状态。Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity! When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `false` and its `title` also changes:
 
 ```jsx
 <Button
