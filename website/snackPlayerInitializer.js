@@ -20,7 +20,7 @@ export default (() => {
   };
 
   const initSnackPlayers = () => {
-    console.log('initSnackPlayers');
+    // console.log('initSnackPlayers');
     updateSnacksTheme();
     window.ExpoSnack && window.ExpoSnack.initialize();
   };
@@ -51,7 +51,7 @@ export default (() => {
   // Reset snack iframes on theme changes to sync theme
   // Hacky, but no better solution for now
   // see https://github.com/expo/snack-web/blob/master/src/client/components/EmbedCode.tsx#L60
-  function setupThemeSynchronization() {
+  const setupThemeSynchronization = () => {
     new MutationObserver((mutations, observer) => {
       if ('ExpoSnack' in window) {
         document.querySelectorAll('.snack-player').forEach(container => {
@@ -66,7 +66,7 @@ export default (() => {
       childList: false,
       subtree: false,
     });
-  }
+  };
 
   // Need to set the theme before the snack script (deferred) initialize
   updateSnacksTheme();
@@ -74,7 +74,7 @@ export default (() => {
 
   return {
     onRouteUpdate({location}) {
-      console.log('onRouteUpdate', {location});
+      // console.log('onRouteUpdate', {location});
 
       // TODO temporary, because onRouteUpdate fires before the new route renders...
       // see https://github.com/facebook/docusaurus/issues/3399#issuecomment-704401189

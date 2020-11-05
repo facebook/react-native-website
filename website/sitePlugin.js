@@ -15,20 +15,15 @@ async function generateSimpleHtmlFiles(outDir) {
   console.log('generateSimpleHtmlFiles', outDir);
 
   const pattern = path.join(outDir, '/**/index.html');
-  // console.log('pattern', pattern);
-
   const filePaths = (await glob(pattern)).filter(filePath => {
     return filePath !== path.join(outDir, '/index.html');
   });
-
-  // console.log('filePaths', filePaths);
 
   await Promise.all(
     filePaths.map(async filePath => {
       if ((await fs.stat(filePath)).isDirectory()) {
         return;
       }
-      // console.log(file);
       const filePathCopy = `${path.dirname(filePath)}.html`;
       if (await fs.pathExists(filePathCopy)) {
         // console.log(`Skipping ${filePathCopy}`);
@@ -40,8 +35,7 @@ async function generateSimpleHtmlFiles(outDir) {
   );
 }
 
-module.exports = function() {
-  console.log('site plugin');
+module.exports = () => {
   return {
     plugin: 'site-plugin',
     async postBuild(props) {
