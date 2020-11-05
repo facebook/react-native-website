@@ -505,16 +505,17 @@ Does not work for static image resources.
 ### `prefetch()`
 
 ```jsx
-Image.prefetch(url);
+await Image.prefetch(url);
 ```
 
-Prefetches a remote image for later use by downloading it to the disk cache
+Prefetches a remote image for later use by downloading it to the disk cache. Returns a promise which resolves to a boolean.
 
 **Parameters:**
 
-| Name | Type   | Required | Description                       |
-| ---- | ------ | -------- | --------------------------------- |
-| url  | string | Yes      | The remote location of the image. |
+| Name       | Type                                 | Required | Description                                                         |
+| ---------- | ------------------------------------ | -------- | ------------------------------------------------------------------- |
+| url        | string                               | Yes      | The remote location of the image.                                   |
+| callback   | function <div class="label android">Android</div> | No       | The function that will be called with the requestId.                |
 
 ---
 
@@ -537,10 +538,10 @@ Abort prefetch request. Android-only.
 ### `queryCache()`
 
 ```jsx
-Image.queryCache(urls);
+await Image.queryCache(urls);
 ```
 
-Perform cache interrogation. Returns a mapping from URL to cache status, such as "disk" or "memory". If a requested URL is not in the mapping, it means it's not in the cache.
+Perform cache interrogation. Returns a promise which resolves to a mapping from URL to cache status, such as "disk", "memory" or "disk/memory". If a requested URL is not in the mapping, it means it's not in the cache.
 
 **Parameters:**
 
