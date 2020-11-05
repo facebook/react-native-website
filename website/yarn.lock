@@ -9770,7 +9770,7 @@ remark-retext@^4.0.0:
     mdast-util-to-nlcst "^4.0.0"
 
 remark-snackplayer@./plugins/remark-snackplayer:
-  version "0.0.4"
+  version "0.0.5"
   dependencies:
     dedent "^0.7.0"
     unist-builder "^2.0.3"
