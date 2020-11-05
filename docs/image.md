@@ -512,10 +512,10 @@ Prefetches a remote image for later use by downloading it to the disk cache. Ret
 
 **Parameters:**
 
-| Name       | Type     | Required | Description                                                         |
-| ---------- | -------- | -------- | ------------------------------------------------------------------- |
-| url        | string   | Yes      | The remote location of the image.                                   |
-| callback   | function | No       | [Android only] The function that will be called with the requestId. |
+| Name       | Type                                 | Required | Description                                                         |
+| ---------- | ------------------------------------ | -------- | ------------------------------------------------------------------- |
+| url        | string                               | Yes      | The remote location of the image.                                   |
+| callback   | function <div class="label android"> | No       | The function that will be called with the requestId.                |
 
 ---
 
