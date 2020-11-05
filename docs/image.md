@@ -515,7 +515,7 @@ Prefetches a remote image for later use by downloading it to the disk cache. Ret
 | Name       | Type                                 | Required | Description                                                         |
 | ---------- | ------------------------------------ | -------- | ------------------------------------------------------------------- |
 | url        | string                               | Yes      | The remote location of the image.                                   |
-| callback   | function <div class="label android"> | No       | The function that will be called with the requestId.                |
+| callback   | function <div class="label android">Android</div> | No       | The function that will be called with the requestId.                |
 
 ---
 
