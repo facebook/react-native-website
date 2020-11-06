@@ -219,13 +219,13 @@
         "title": "Native UI Components"
       },
       "native-modules-android": {
-        "title": "Native Modules"
+        "title": "Android Native Modules"
       },
       "native-modules-intro": {
         "title": "Native Modules Intro"
       },
       "native-modules-ios": {
-        "title": "Native Modules"
+        "title": "iOS Native Modules"
       },
       "native-modules-setup": {
         "title": "Native Modules Setup"
