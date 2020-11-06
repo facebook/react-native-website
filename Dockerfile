@@ -1,5 +1,3 @@
-# SWAMI KARUPPASWAMI THUNNAI
-
 FROM node
 
 COPY . /rn_website
