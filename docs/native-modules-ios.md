@@ -100,7 +100,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)loca
 }
 ```
 
-> Please note that the `RCT_EXPORT_METHOD` macro will not be necessary with TurboModules unless your method relies on RCT argument conversion (see argument types below). Ultimately we would like to get rid of the `RCT_EXPORT_MACRO` and therefore discourage people from using `RCTConvert`. Instead, you can do the argument conversion within the method body.
+> Please note that the `RCT_EXPORT_METHOD` macro will not be necessary with TurboModules unless your method relies on RCT argument conversion (see argument types below). Ultimately, React Native will remove `RCT_EXPORT_MACRO,` so we discourage people from using `RCTConvert`. Instead, you can do the argument conversion within the method body.
 
 Before you build out the `createCalendarEvent` method’s functionality, add a console log in the method so you can confirm it has been invoked from Javascript in your React Native application. Use the `RCTLog` APIs from React. Let’s import that header at the top of your file and then add the log call.
 
@@ -400,7 +400,7 @@ const onPress = () => {
 };
 ```
 
-If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h.`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h) Right now this only passes an Error-shaped dictionary to JavaScript, but we would like to automatically generate real JavaScript Error objects in the future. You can also provide a `RCTResponseErrorBlock` argument, which is used for error callbacks and accepts an `NSError \* object`. Please note that this argument type will not be supported with TurboModules.
+If you want to pass error-like objects to JavaScript, use `RCTMakeError` from [`RCTUtils.h.`](https://github.com/facebook/react-native/blob/master/React/Base/RCTUtils.h) Right now this only passes an Error-shaped dictionary to JavaScript, but React Native aims to automatically generate real JavaScript Error objects in the future. You can also provide a `RCTResponseErrorBlock` argument, which is used for error callbacks and accepts an `NSError \* object`. Please note that this argument type will not be supported with TurboModules.
 
 ### Promises
 
