@@ -6,7 +6,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <h3>Node, JDK</h3>
 
-We recommend installing Node via [nvm-windows](https://github.com/coreybutler/nvm-windows), a Node version manager for Windows. This will make it easy to switch between different Node versions as your various projects require.
+We recommend installing Node via [nvm-windows](https://github.com/coreybutler/nvm-windows), a Node version manager for Windows. This will make it easier to switch between different Node versions as your various projects require.
 
 React Native also requires [Java SE Development Kit (JDK)](https://openjdk.java.net/projects/jdk8/), which can be installed using [Chocolatey](https://chocolatey.org/), a popular package manager for Windows.
 
