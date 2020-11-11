@@ -75,7 +75,7 @@ Now that you have successfully run the app, let's modify it. Open `App.js` in yo
 
 Congratulations! You've successfully run and modified your first React Native app.
 
-<center><img src="/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
+<center><img src="https://reactnative.dev/docs/assets/GettingStartedCongratulations.png" width="150"></img></center>
 
 <h2>Now what?</h2>
 
