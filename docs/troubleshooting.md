@@ -14,13 +14,13 @@ The [Metro bundler][metro] runs on port 8081. If another process is already usin
 Run the following command to find the id for the process that is listening on port 8081:
 
 ```shell
-$ sudo lsof -i :8081
+sudo lsof -i :8081
 ```
 
 Then run the following to terminate the process:
 
 ```shell
-$ kill -9 <PID>
+kill -9 <PID>
 ```
 
 On Windows you can find the process using port 8081 using [Resource Monitor](https://stackoverflow.com/questions/48198/how-can-you-find-out-which-process-is-listening-on-a-port-on-windows) and stop it using Task Manager.
@@ -30,7 +30,7 @@ On Windows you can find the process using port 8081 using [Resource Monitor](htt
 You can configure the bundler to use a port other than 8081 by using the `port` parameter:
 
 ```shell
-$ npx react-native start --port=8088
+npx react-native start --port=8088
 ```
 
 You will also need to update your applications to load the JavaScript bundle from the new port. If running on device from Xcode, you can do this by updating occurrences of `8081` to your chosen port in the `node_modules/react-native/React/React.xcodeproj/project.pbxproj` file.
@@ -39,7 +39,7 @@ You will also need to update your applications to load the JavaScript bundle fro
 
 If you encounter an error such as `npm WARN locking Error: EACCES` while using the React Native CLI, try running the following:
 
-```
+```shell
 sudo chown -R $USER ~/.npm
 sudo chown -R $USER /usr/local/lib/node_modules
 ```
@@ -95,7 +95,7 @@ Try [downgrading your Gradle version to 1.2.3](https://github.com/facebook/react
 
 If you run into issues where running `npx react-native init` hangs in your system, try running it again in verbose mode and referring to [#2797](https://github.com/facebook/react-native/issues/2797) for common causes:
 
-```
+```shell
 npx react-native init --verbose
 ```
 
@@ -105,7 +105,7 @@ npx react-native init --verbose
 
 Issue caused by the number of directories [inotify](https://github.com/guard/listen/wiki/Increasing-the-amount-of-inotify-watchers) (used by watchman on Linux) can monitor. To solve it, run this command in your terminal window
 
-```
+```shell
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
