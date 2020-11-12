@@ -666,4 +666,4 @@ public void onHostDestroy() {
 
 ### Threading
 
-To date, on Android, all native module async methods execute on one thread.
+To date, on Android, all native module async methods execute on one thread. Native modules should not have any assumptions about what thread they are being called on, as the current assignment is subject to change in the future. If a blocking call is required, the heavy work should be dispatched to an internally managed worker thread, and any callbacks distributed from there.

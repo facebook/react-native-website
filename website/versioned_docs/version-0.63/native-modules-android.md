@@ -77,7 +77,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 ### Export a Native Method to JavaScript
 
 Next you will need to add a method to your native module that will create calendar events and can be invoked in Javascript. All native module methods meant to be invoked from JavaScript must be annotated with `@ReactMethod`.
- 
+
 Set up a method `createCalendarEvent` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent`. For now, the method will take in a name and location as strings. Argument type options will be covered shortly.
 
 ```java
@@ -667,4 +667,4 @@ public void onHostDestroy() {
 
 ### Threading
 
-To date, on Android, all native module async methods execute on one thread.
+To date, on Android, all native module async methods execute on one thread. Native modules should not have any assumptions about what thread they are being called on, as the current assignment is subject to change in the future. If a blocking call is required, the heavy work should be dispatched to an internally managed worker thread, and any callbacks distributed from there.
