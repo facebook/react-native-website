@@ -51,15 +51,17 @@
       "native-modules-ios",
       "native-modules-setup"
     ],
-    "Native Components": ["direct-manipulation"],
-    "Guides (Android)": [
+    "Native Components": [
       "native-components-android",
+      "native-components-ios",
+      "direct-manipulation"
+    ],
+    "Guides (Android)": [
       "headless-js-android",
       "signed-apk-android",
       "removing-default-permissions"
     ],
     "Guides (iOS)": [
-      "native-components-ios",
       "linking-libraries-ios",
       "running-on-simulator-ios",
       "communication-ios",
