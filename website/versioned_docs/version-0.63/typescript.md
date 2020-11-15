@@ -31,11 +31,13 @@ ignite new MyTSProject
 
 ## Adding TypeScript to an Existing Project
 
-1. Add TypeScript and the types for React Native and Jest to your project.
+1. Add TypeScript and the types for React Native and Jest to your project via `yarn` or `npm`.
 
 ```shell
 yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
-# or for npm
+```
+
+```shell
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
