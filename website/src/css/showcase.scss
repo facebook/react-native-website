@@ -1,0 +1,139 @@
+@import "shared";
+
+.showcaseSection {
+  max-width: 800px;
+  margin: 64px auto;
+  text-align: center;
+  padding: 0 20px;
+
+  .showcase img {
+    height: 100px;
+    border-radius: 20px;
+  }
+
+  .logos img {
+    padding: 0;
+  }
+
+  .info {
+    font-size: 15px;
+  }
+
+  p a {
+    @extend %link-style;
+  }
+
+  .form-button {
+    @extend %button-link-style;
+    margin-bottom: 36px;
+    border-width: 2px;
+    font-weight: 500;
+
+    &:hover {
+      border-color: var(--ifm-color-primary);
+      color: var(--ifm-font-color-base) !important;
+    }
+  }
+}
+
+html[data-theme="dark"] .showcaseSection {
+  p a {
+    @extend %link-style-dark;
+  }
+
+  .form-button {
+    color: var(--ifm-color-secondary-dark);
+  }
+}
+
+.home-showcase-section {
+  max-width: 800px;
+  margin: 20px auto 20px auto;
+  text-align: center;
+  padding-bottom: 40px;
+
+  p {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+.pinned img {
+  width: 150px;
+  border-radius: 20px;
+}
+
+.footnote {
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.home-showcase-section {
+  h2 {
+    font-size: 31px;
+    line-height: 40px;
+    margin: 10px 0;
+  }
+
+  .showcase img {
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+  }
+}
+
+.showcaseHeader {
+  padding-bottom: 15px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.showcase {
+  margin: 30px auto 30px auto;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+
+  h3 {
+    margin-bottom: 0;
+    line-height: 21px;
+    padding: 5px 5px 2px;
+    font-size: 21px;
+  }
+
+  p {
+    margin-top: 5px;
+    padding-top: 0 !important;
+  }
+
+  h3,
+  p {
+    color: var(--ifm-color-emphasis-800);
+  }
+}
+
+@media only screen and (max-device-width: 840px) {
+  .showcaseSection {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .showcase {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .showcase {
+    width: 25%;
+  }
+}
+
+@media only screen and (min-device-width: 736px) {
+  .showcaseSection .showcase img {
+    width: 100px;
+    max-height: 100px;
+  }
+}

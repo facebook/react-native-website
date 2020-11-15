@@ -1,11 +1,11 @@
 ---
 id: pushnotificationios
-title: 🚧 PushNotificationIOS
+title: '🚧 PushNotificationIOS'
 ---
 
 > **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
 
-<div class="banner-native-code-required">
+<div className="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
     The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/notifications/">Notifications</a> in the Expo documentation for the appropriate alternative.

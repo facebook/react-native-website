@@ -1,7 +1,6 @@
 ---
-id: version-0.63-native-modules-ios
+id: native-modules-ios
 title: iOS Native Modules
-original_id: native-modules-ios
 ---
 
 Welcome to Native Modules for iOS. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.

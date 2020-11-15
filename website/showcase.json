@@ -136,8 +136,8 @@
     "icon": "wix.png",
     "linkAppStore": "https://itunes.apple.com/us/app/wix-com/id1099748482?mt=8",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.wix.android",
-    "infoLink": "https://www.wix.com/wix-lp/wix-app",
-    "infoTitle": "Get the New Wix App!",
+    "infoLink": "https://medium.com/wix-engineering/react-native-at-wix-the-architecture-db6361764da6",
+    "infoTitle": "React Native at Wix — The Architecture",
     "pinned": true
   },
   {

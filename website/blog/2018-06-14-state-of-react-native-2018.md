@@ -2,10 +2,10 @@
 title: State of React Native 2018
 author: Sophie Alpert
 authorTitle: Engineering Manager on React at Facebook
-authorURL: https://github.com/sophiebits
-authorImageURL: https://avatars2.githubusercontent.com/u/6820?s=460&v=4
+authorURL: 'https://github.com/sophiebits'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/6820?s=460&v=4'
 authorTwitter: sophiebits
-category: engineering
+tags: [engineering]
 ---
 
 It's been a while since we last published a status update about React Native.
@@ -18,7 +18,7 @@ Naturally, we also use many other technologies to build our apps. [Litho](https:
 
 ## Architecture
 
-When we started the React Native project in 2013, we designed it to have a single “bridge” between JavaScript and native that is asynchronous, serializable, and batched. Just as React DOM turns React state updates into imperative, mutative calls to DOM APIs like `document.createElement(attrs)` and `.appendChild()`, React Native was designed to return a single JSON message that lists mutations to perform, like `[["createView", attrs], ["manageChildren", ...]]`. We designed the entire system to never rely on getting a synchronous response back and to ensure everything in that list could be fully serialized to JSON and back. We did this for the flexibility it gave us: on top of this architecture, we were able to build tools like [Chrome debugging](/docs/debugging.html#chrome-developer-tools), which runs all the JavaScript code asynchronously over a WebSocket connection.
+When we started the React Native project in 2013, we designed it to have a single “bridge” between JavaScript and native that is asynchronous, serializable, and batched. Just as React DOM turns React state updates into imperative, mutative calls to DOM APIs like `document.createElement(attrs)` and `.appendChild()`, React Native was designed to return a single JSON message that lists mutations to perform, like `[["createView", attrs], ["manageChildren", ...]]`. We designed the entire system to never rely on getting a synchronous response back and to ensure everything in that list could be fully serialized to JSON and back. We did this for the flexibility it gave us: on top of this architecture, we were able to build tools like [Chrome debugging](/docs/debugging#chrome-developer-tools), which runs all the JavaScript code asynchronously over a WebSocket connection.
 
 Over the last 5 years, we found that these initial principles have made building some features harder. An asynchronous bridge means you can't integrate JavaScript logic directly with many native APIs expecting synchronous answers. A batched bridge that queues native calls means it's harder to have React Native apps call into functions that are implemented natively. And a serializable bridge means unnecessary copying instead of directly sharing memory between the two worlds. For apps that are entirely built in React Native, these restrictions are usually bearable. But for apps with complex integration between React Native and existing app code, they are frustrating.
 

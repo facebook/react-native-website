@@ -1,7 +1,6 @@
 ---
-id: version-0.63-native-modules-android
+id: native-modules-android
 title: Android Native Modules
-original_id: native-modules-android
 ---
 
 Welcome to Native Modules for Android. Please start by reading the [Native Modules Intro](native-modules-intro) for an intro to what native modules are.

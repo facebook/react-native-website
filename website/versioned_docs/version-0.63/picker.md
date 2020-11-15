@@ -1,10 +1,9 @@
 ---
-id: version-0.63-picker
-title: 🚧 Picker
-original_id: picker
+id: picker
+title: '🚧 Picker'
 ---
 
-> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
+> **Deprecated.** Use [@react-native-community/picker](https://github.com/react-native-picker/react-native-picker) instead.
 
 Renders the native picker component on Android and iOS.
 

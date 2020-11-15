@@ -1,7 +1,6 @@
 ---
-id: version-0.63-pressable
+id: pressable
 title: Pressable
-original_id: pressable
 ---
 
 Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
@@ -33,7 +32,7 @@ Fingers are not the most precise instruments, and it is common for users to acci
 > The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
 
 <figure>
-  <img src="/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
+  <img src="/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work."/>
   <figcaption>
     You can set <code>HitRect</code> with <code>hitSlop</code> and set <code>PressRect</code> with <code>pressRetentionOffset</code>.
   </figcaption>
@@ -43,7 +42,7 @@ Fingers are not the most precise instruments, and it is common for users to acci
 
 ## Example
 
-```js
+```SnackPlayer name=Pressable
 import React, { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 
@@ -58,7 +57,7 @@ const App = () => {
   }
 
   return (
-    <View>
+    <View style={styles.container}>
       <Pressable
         onPress={() => {
           setTimesPressed((current) => current + 1);
@@ -85,6 +84,10 @@ const App = () => {
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+  },
   text: {
     fontSize: 16
   },

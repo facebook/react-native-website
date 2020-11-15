@@ -1,5 +1,5 @@
 ---
-id: version-0.63-native-modules-intro
+id: native-modules-intro
 title: Native Modules Intro
 original_id: native-modules-intro
 ---

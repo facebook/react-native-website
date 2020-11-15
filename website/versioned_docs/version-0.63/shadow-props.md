@@ -1,7 +1,6 @@
 ---
-id: version-0.63-shadow-props
+id: shadow-props
 title: Shadow Props
-original_id: shadow-props
 ---
 
 ```SnackPlayer name=Shadow%20Props&supportedPlatforms=ios

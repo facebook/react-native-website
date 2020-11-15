@@ -1,7 +1,6 @@
 ---
-id: version-0.63-settings
+id: settings
 title: Settings
-original_id: settings
 ---
 
 `Settings` serves as a wrapper for [`NSUserDefaults`](https://developer.apple.com/documentation/foundation/nsuserdefaults), a persistent key-value store available only on iOS.

@@ -1,7 +1,6 @@
 ---
-id: version-0.62-stylesheet
+id: stylesheet
 title: StyleSheet
-original_id: stylesheet
 ---
 
 A StyleSheet is an abstraction similar to CSS StyleSheets

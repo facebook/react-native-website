@@ -2,15 +2,15 @@
 title: Introducing new iOS WebViews
 author: Ramanpreet Nara
 authorTitle: Software Engineer at Facebook
-authorURL: https://github.com/rsnara
-category: engineering
+authorURL: 'https://github.com/rsnara'
+tags: [engineering]
 ---
 
 For a long time now, Apple has discouraged using UIWebViews in favor of WKWebView. In iOS 12, which will be released in the upcoming months, [UIWebViews will be formally deprecated](https://developer.apple.com/videos/play/wwdc2018/234/?time=104). React Native's iOS WebView implementation relies heavily on the UIWebView class. Therefore, in light of these developments, we've built a new native iOS backend to the WebView React Native component that uses WKWebView.
 
 The tail end of these changes were landed in [this commit](https://github.com/facebook/react-native/commit/33b353c97c31190439a22febbd3d2a9ead49d3c9), and will become available in the 0.57 release.
 
-To opt into this new implementation, please use the [`useWebKit`](/docs/next/webview#usewebkit) prop:
+To opt into this new implementation, please use the [`useWebKit`](/docs/webview#usewebkit) prop:
 
 ```js
 <WebView

@@ -17,7 +17,7 @@ The community solution to navigation is a standalone library that allows develop
 
 First, you need to install them in your project:
 
-```sh
+```shell
 npm install @react-navigation/native @react-navigation/stack
 ```
 
@@ -25,19 +25,19 @@ Next, install the required peer dependencies. You need to run different commands
 
 - If you have an Expo managed project, install the dependencies with `expo`:
 
-  ```sh
+  ```shell
   expo install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
   ```
 
 - If you have a bare React Native project, install the dependencies with `npm`:
 
-  ```sh
+  ```shell
   npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
   ```
 
   For iOS with bare React Native project, make sure you have [Cocoapods](https://cocoapods.org/) installed. Then install the pods to complete the installation:
 
-  ```sh
+  ```shell
   cd ios
   pod install
   cd ..
@@ -124,4 +124,4 @@ The views in the stack navigator use native components and the [`Animated`](anim
 
 React Navigation also has packages for different kind of navigators such as tabs and drawer. You can use them to implement various patterns in your app.
 
-For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/getting-started.html).
+For a complete intro to React Navigation, follow the [React Navigation Getting Started Guide](https://reactnavigation.org/docs/getting-started).
