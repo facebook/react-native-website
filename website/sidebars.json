@@ -53,8 +53,7 @@
       "native-modules-android",
       "native-components-android",
       "headless-js-android",
-      "signed-apk-android",
-      "removing-default-permissions"
+      "signed-apk-android"
     ],
     "Guides (iOS)": [
       "native-modules-ios",
