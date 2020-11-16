@@ -142,7 +142,7 @@ export default App;
 
 ## iOS
 
-On iOS you can specify any number of buttons. Each button can optionally specify a style, avaiable options are represented by the [AlertButtonStyle](#alertbuttonstyle) enum.
+On iOS you can specify any number of buttons. Each button can optionally specify a style, avaiable options are represented by the [AlertButtonStyle](#alertbuttonstyle-ios) enum.
 
 ## Android
 
@@ -152,7 +152,7 @@ On Android at most three buttons can be specified. Android has a concept of a ne
 - Two buttons mean 'negative', 'positive' (such as 'Cancel', 'OK')
 - Three buttons mean 'neutral', 'negative', 'positive' (such as 'Later', 'Cancel', 'OK')
 
-Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional [Options](alert#options) parameter with the cancelable property set to `true` i.e.<br/>`{ cancelable: true }`.
+Alerts on Android can be dismissed by tapping outside of the alert box. It is disabled by default and can be enabled by providing an optional [Options](alert#options-android) parameter with the cancelable property set to `true` i.e.<br/>`{ cancelable: true }`.
 
 The cancel event can be handled by providing an `onDismiss` callback property inside the `options` parameter.
 
@@ -203,12 +203,12 @@ static alert(title, message?, buttons?, options?)
 
 **Parameters:**
 
-| Name    | Type                                                              | Description                                                             |
-| ------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| title   | string <div class="label basic required">Required</div>           | The dialog's title. Passing `null` or empty string will hide the title. |
-| message | string                                                            | An optional message that appears below the dialog's title.              |
-| buttons | [Buttons](alert#buttons)                                          | An optional array containg buttons configuration.                       |
-| options | [Options](alert#options) <div class="label android">Android</div> | An optional Alert configuration for the Android.                        |
+| Name                                                   | Type                             | Description                                                             |
+| ------------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------------- |
+| title <div class="label basic required">Required</div> | string                           | The dialog's title. Passing `null` or empty string will hide the title. |
+| message                                                | string                           | An optional message that appears below the dialog's title.              |
+| buttons                                                | [Buttons](alert#buttons)         | An optional array containg buttons configuration.                       |
+| options <div class="label android">Android</div>       | [Options](alert#options-android) | An optional Alert configuration for the Android.                        |
 
 ---
 
@@ -222,14 +222,14 @@ Create and display a prompt to enter some text in form of Alert.
 
 **Parameters:**
 
-| Name              | Type                                                    | Description                                                                                                                                                                                           |
-| ----------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| title             | string <div class="label basic required">Required</div> | The dialog's title.                                                                                                                                                                                   |
-| message           | string                                                  | An optional message that appears above the text input.                                                                                                                                                |
-| callbackOrButtons | function<hr/>[Buttons](alert#buttons)                   | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
-| type              | [AlertType](alert#alerttype)                            | This configures the text input.                                                                                                                                                                       |
-| defaultValue      | string                                                  | The default text in text input.                                                                                                                                                                       |
-| keyboardType      | string                                                  | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
+| Name                                                   | Type                                  | Description                                                                                                                                                                                           |
+| ------------------------------------------------------ | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| title <div class="label basic required">Required</div> | string                                | The dialog's title.                                                                                                                                                                                   |
+| message                                                | string                                | An optional message that appears above the text input.                                                                                                                                                |
+| callbackOrButtons                                      | function<hr/>[Buttons](alert#buttons) | If passed a function, it will be called with the prompt's value<br/>`(text: string) => void`, when the user taps 'OK'.<hr/>If passed an array, buttons will be configured based on the array content. |
+| type                                                   | [AlertType](alert#alerttype-ios)      | This configures the text input.                                                                                                                                                                       |
+| defaultValue                                           | string                                | The default text in text input.                                                                                                                                                                       |
+| keyboardType                                           | string                                | The keyboard type of first text field (if exists). One of TextInput [keyboardTypes](textinput#keyboardtype).                                                                                          |
 
 ---
 
@@ -282,11 +282,11 @@ Array of objects containg Alert buttons configuration.
 
 **Objects properties:**
 
-| Name                                   | Type                                       | Description                                             |
-| -------------------------------------- | ------------------------------------------ | ------------------------------------------------------- |
-| text                                   | string                                     | Button label.                                           |
-| onPress                                | function                                   | Callback function when button is pressed.               |
-| style <div class="label ios">iOS</div> | [AlertButtonStyle](alert#alertbuttonstyle) | Button style, on Android this property will be ignored. |
+| Name                                   | Type                                           | Description                                             |
+| -------------------------------------- | ---------------------------------------------- | ------------------------------------------------------- |
+| text                                   | string                                         | Button label.                                           |
+| onPress                                | function                                       | Callback function when button is pressed.               |
+| style <div class="label ios">iOS</div> | [AlertButtonStyle](alert#alertbuttonstyle-ios) | Button style, on Android this property will be ignored. |
 
 ---
 
