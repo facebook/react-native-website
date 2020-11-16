@@ -170,7 +170,7 @@ module.exports = {
           ],
         },
         {
-          title: 'More Resources',
+          title: 'Find us',
           items: [
             {
               label: 'Blog',
@@ -184,9 +184,22 @@ module.exports = {
               label: 'GitHub',
               href: 'https://github.com/facebook/react-native',
             },
+          ],
+        },
+        {
+          title: 'More',
+          items: [
             {
               label: 'React',
               href: 'https://reactjs.org/',
+            },
+            {
+              label: 'Privacy Policy',
+              to: 'https://opensource.facebook.com/legal/privacy',
+            },
+            {
+              label: 'Terms of Service',
+              href: 'https://opensource.facebook.com/legal/terms',
             },
           ],
         },
