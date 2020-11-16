@@ -1,9 +1,9 @@
 {
-  "name": "remark-snackplayer",
+  "name": "@react-native-website/remark-snackplayer",
   "version": "0.0.5",
+  "private": true,
   "description": "Remark SnackPlayer Plugin",
   "main": "src/index.js",
-  "author": "Darsh <darshkpatel@gmail.com>",
   "keywords": [
     "remark",
     "react-native",
@@ -15,7 +15,8 @@
     "src"
   ],
   "scripts": {
-    "test": "node_modules/.bin/tape tests/index.js"
+    "prettier": "prettier --write \"{src/**/*.js,tests/**/*.js}\"",
+    "test": "yarn tape tests/index.js"
   },
   "dependencies": {
     "dedent": "^0.7.0",

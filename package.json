@@ -1,7 +1,22 @@
 {
   "private": true,
+  "workspaces": [
+    "website",
+    "plugins/*",
+    "sync-api-docs"
+  ],
   "scripts": {
+    "postinstall": "yarn update-lock",
     "update-lock": "npx yarn-deduplicate"
   },
-  "workspaces": ["website", "plugins/*", "sync-api-docs"]
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "prettier": "1.16.4",
+    "pretty-quick": "^1.11.1"
+  }
 }

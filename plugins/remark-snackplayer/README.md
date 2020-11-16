@@ -1,20 +1,6 @@
-<h1 align="center"> Remark SnackPlayer </h1>
+<h1 align="center">Remark SnackPlayer</h1>
 
-<p align="center"> 
-Remark plugin to embed <a href="https://snack.expo.io/">Expo Snack's</a> using Code Blocks 
-</p>
-
-## Installation
-
-```shell
-yarn add remark-snackplayer
-```
-
-Add Snack Player embedded script to your website:
-
-```html
-<script async src="https://snack.expo.io/embed.js"></script>
-```
+<p align="center">Remark plugin to embed <a href="https://snack.expo.io/">Expo Snack's</a> using Code Blocks</p>
 
 ## Usage
 
@@ -28,20 +14,18 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 const YourApp = () => {
-    return (
+  return (
     <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-        <Text>
-        Try editing me! 🎉
-        </Text>
+      <Text>Try editing me! 🎉</Text>
     </View>
-    );
+  );
 }
 
 export default YourApp;
 ```
 ````
 
-The above code snippet would look like this on your page
+The above code snippet would look like this:
 
 <img width="783" alt="Screenshot 2020-10-03 at 1 11 19 AM" src="https://user-images.githubusercontent.com/11258286/94963203-67de3500-0515-11eb-974a-a2289c0bfdc8.png">
 
@@ -59,8 +43,3 @@ The above code snippet would look like this on your page
 ## Styling
 
 To style the Snack Player wrapper you can use `.snack-player` class.
-
-## To Do
-
-- Support Passing Configuration Parameters
-- Write Comprehensive tests

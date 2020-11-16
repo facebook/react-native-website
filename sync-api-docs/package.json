@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prettier": "prettier --write \"**/*.js\"",
     "sync": "node sync-api-docs ../../react-native"
   },
   "devDependencies": {
