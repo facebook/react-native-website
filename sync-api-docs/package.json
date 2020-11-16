@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "sync": "node sync-api-docs ../react-native"
+    "sync": "node sync-api-docs ../../react-native"
   },
   "devDependencies": {
     "@motiz88/react-native-docgen": "0.0.3",
