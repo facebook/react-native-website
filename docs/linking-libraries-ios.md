@@ -19,8 +19,8 @@ _All the libraries we ship with React Native live on the `Libraries` folder in t
 
 Install a library with native dependencies:
 
-```bash
-$ npm install <library-with-native-dependencies> --save
+```shell
+npm install <library-with-native-dependencies> --save
 ```
 
 > **_Note:_** `--save` or `--save-dev` flag is very important for this step. React Native will link your libs based on `dependencies` and `devDependencies` in your `package.json` file.
@@ -29,8 +29,8 @@ $ npm install <library-with-native-dependencies> --save
 
 Link your native dependencies:
 
-```bash
-$ npx react-native link
+```shell
+npx react-native link
 ```
 
 Done! All libraries with native dependencies should be successfully linked to your iOS/Android project.

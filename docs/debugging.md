@@ -3,6 +3,8 @@ id: debugging
 title: Debugging
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Accessing the In-App Developer Menu
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
@@ -87,13 +89,26 @@ You can use [the standalone version of React Developer Tools](https://github.com
 
 > Note: Version 4 of `react-devtools` requires `react-native` version 0.62 or higher to work properly.
 
-```
+<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
 npm install -g react-devtools
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn global add react-devtools
+```
+
+</TabItem>
+</Tabs>
+
 Now run `react-devtools` from the terminal to launch the standalone DevTools app:
 
-```
+```shell
 react-devtools
 ```
 
@@ -153,8 +168,8 @@ You can view installation instructions [in the README](https://github.com/infini
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
 ```shell
-$ npx react-native log-ios
-$ npx react-native log-android
+npx react-native log-ios
+npx react-native log-android
 ```
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.
