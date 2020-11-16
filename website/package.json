@@ -25,7 +25,7 @@
     "prettier:diff": "yarn nit:source",
     "test": "yarn build",
     "lint": "cd ../ && alex .",
-    "lintv": "cd ../ && alex",
+    "lintv": "cd ../ && alex"
   },
   "husky": {
     "hooks": {
