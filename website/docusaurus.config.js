@@ -34,7 +34,7 @@ module.exports = {
             'https://github.com/facebook/react-native-website/blob/master/website/',
           path: '../docs',
           sidebarPath: require.resolve('./sidebars.json'),
-          remarkPlugins: [require('./plugins/remark-snackplayer')],
+          remarkPlugins: [require('../plugins/remark-snackplayer')],
         },
         blog: {
           path: 'blog',

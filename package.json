@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "scripts": {
+    "update-lock": "npx yarn-deduplicate"
+  },
+  "workspaces": ["website", "plugins/*", "sync-api-docs"]
+}

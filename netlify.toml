@@ -1,4 +1,4 @@
 [build]
-  base    = "website"
+  base    = ""
   publish = "website/build"
-  command = "export NODE_OPTIONS=--max_old_space_size=4096 && sed -i -e \"s|const baseUrl .*|const baseUrl = '/'|g\" docusaurus.config.js && yarn install && yarn build"
+  command = "export NODE_OPTIONS=--max_old_space_size=4096 && yarn && cd website && sed -i -e \"s|const baseUrl .*|const baseUrl = '/'|g\" docusaurus.config.js && yarn build"
