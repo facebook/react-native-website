@@ -139,6 +139,10 @@ hr {
     hr {
       margin: 12px 0;
     }
+
+    .wideColumn {
+      width: 128px;
+    }
   }
 
   .docusaurus-highlight-code-line {
@@ -590,6 +594,7 @@ div[class^="tableOfContents"] {
     code {
       font-weight: 600;
       color: var(--ifm-font-color-base);
+      white-space: nowrap;
     }
   }
 }
@@ -1037,22 +1042,29 @@ td .label {
 /* Label as dot in the right sidebar */
 
 .table-of-contents .label {
-  display: inline-block;
+  position: absolute;
   padding: 0;
   width: 6px;
   height: 6px;
   border-radius: 100%;
-  margin-left: 3px;
+  margin-left: 4px;
+  margin-top: 8px;
   white-space: nowrap;
   overflow: hidden;
   color: transparent;
   float: initial;
 
   &.required {
+    position: initial;
     margin-left: 0;
     margin-right: 6px;
     border-width: 3px;
     background: #fa5035;
+  }
+
+  /* Second dot shift */
+  &:nth-child(3) {
+    margin-left: 13px;
   }
 }
 

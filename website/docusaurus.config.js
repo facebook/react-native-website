@@ -61,7 +61,7 @@ module.exports = {
     prism: {
       defaultLanguage: 'jsx',
       theme: require('./core/PrismTheme'),
-      additionalLanguages: ['java', 'kotlin', 'objectivec', 'swift'],
+      additionalLanguages: ['java', 'kotlin', 'objectivec', 'swift', 'groovy'],
     },
     navbar: {
       title: 'React Native',
