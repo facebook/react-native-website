@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "dedent": "^0.7.0",
+    "object.fromentries": "^2.0.2",
     "unist-builder": "^2.0.3",
     "unist-util-visit-parents": "^3.1.0"
   },

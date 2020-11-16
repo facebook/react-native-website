@@ -2,9 +2,10 @@
 const visit = require('unist-util-visit-parents');
 const u = require('unist-builder');
 const dedent = require('dedent');
+const fromEntries = require('object.fromentries');
 
 const parseParams = (paramString = '') => {
-  const params = Object.fromEntries(new URLSearchParams(paramString));
+  const params = fromEntries(new URLSearchParams(paramString));
 
   if (!params.platform) {
     params.platform = 'web';
