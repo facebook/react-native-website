@@ -1061,6 +1061,11 @@ td .label {
     border-width: 3px;
     background: #fa5035;
   }
+
+  /* Second dot shift */
+  &:nth-child(3) {
+    margin-left: 13px;
+  }
 }
 
 /*
