@@ -61,6 +61,7 @@ jobs:
       - run_yarn
       - run: yarn ci-check
       - run: export NODE_OPTIONS=--max_old_space_size=4096
+      - run: export TERSER_PARALLEL=false
       - run: yarn test
       - run:
           name: Check for missing index.html (build errors)
@@ -100,6 +101,7 @@ jobs:
               echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
               echo "Deploying website..."
               export NODE_OPTIONS=--max_old_space_size=4096
+              export TERSER_PARALLEL=false
               GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
             else
               echo "Skipping deploy."
