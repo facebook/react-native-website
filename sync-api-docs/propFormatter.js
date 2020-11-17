@@ -213,8 +213,10 @@ function formatDefaultColumn(prop) {
         let colorBlock = '';
         prop?.flowType?.elements.some(elem => {
           if (elem.name === 'NativeColorValue' && !tag.includes('null')) {
-            colorBlock =
-              `<ins style={{background: '${tag.replace(/'/g, '')}'}} className="color-box" />`;
+            colorBlock = `<ins style={{background: '${tag.replace(
+              /'/g,
+              ''
+            )}'}} className="color-box" />`;
             return true;
           }
         });
