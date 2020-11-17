@@ -17,9 +17,9 @@ const path = require('path');
 const extractDocsFromRN = require('./extractDocsFromRN');
 const preprocessGeneratedApiDocs = require('./preprocessGeneratedApiDocs');
 const generateMarkdown = require('./generateMarkdown');
-const titleToId = require('./titleToId');
+const {titleToId} = require('./utils');
 
-const DOCS_ROOT_DIR = path.resolve(__dirname, '..', '..', '..', 'docs');
+const DOCS_ROOT_DIR = path.resolve(__dirname, '..', 'docs');
 
 async function generateApiDocs(rnPath) {
   const apiDocs = await extractDocsFromRN(rnPath);

@@ -8,78 +8,15 @@
 'use strict';
 
 const {typeOf} = require('tokenize-comment/lib/utils');
-const he = require('he');
 const magic = require('./magic');
+const {
+  formatMultiplePlatform,
+  stringToInlineCodeForTable,
+  maybeLinkifyType,
+  maybeLinkifyTypeName,
+  formatType,
+} = require('./utils');
 
-// Adds multiple platform tags for prop name
-function formatMultiplePlatform(platforms) {
-  let platformString = '';
-  platforms.forEach(platform => {
-    switch (platform.trim()) {
-      case 'ios':
-        platformString += '<div class="label ios">' + 'iOS' + '</div> ';
-        break;
-      case 'android':
-        platformString += '<div class="label android">' + 'Android' + '</div>';
-        break;
-      case 'tv':
-        platformString += '<div class="label tv">' + 'TV' + '</div>';
-    }
-  });
-  return platformString;
-}
-
-// Wraps a string in an inline code block in a way that is safe to include in a
-// table cell, by wrapping it as HTML <code> if necessary.
-function stringToInlineCodeForTable(str) {
-  let useHtml = /[`|]/.test(str);
-  str = str.replace(/\n/g, ' ');
-  if (useHtml) {
-    return '<code>' + he.encode(str).replace(/\|/g, '&#124;') + '</code>';
-  }
-  return '`' + str + '`';
-}
-
-function maybeLinkifyType(flowType) {
-  let url, text;
-  flowType.elements?.forEach(elem => {
-    if (Object.hasOwnProperty.call(magic.linkableTypeAliases, elem.name)) {
-      ({url, text} = magic.linkableTypeAliases[elem.name]);
-    }
-  });
-  if (!text) {
-    text = stringToInlineCodeForTable(
-      flowType.raw || formatType(flowType.name)
-    );
-  }
-  if (url) {
-    return `[${text}](${url})`;
-  }
-  return text;
-}
-
-function formatType(name) {
-  if (name.toLowerCase() === 'boolean') return 'bool';
-  if (name.toLowerCase() === 'stringish') return 'string';
-  if (name === '$ReadOnlyArray') return 'array';
-  return name;
-}
-
-function maybeLinkifyTypeName(name) {
-  let url, text;
-  if (Object.hasOwnProperty.call(magic.linkableTypeAliases, name)) {
-    ({url, text} = magic.linkableTypeAliases[name]);
-  }
-  if (!text) {
-    text = stringToInlineCodeForTable(name);
-  }
-  if (url) {
-    return `[${text}](${url})`;
-  }
-  return text;
-}
-
-// Adds proper markdown formatting to component's prop type.
 function formatTypeColumn(prop) {
   // Checks for @type pragma comment
   if (prop.rnTags && prop.rnTags.type) {
@@ -87,6 +24,7 @@ function formatTypeColumn(prop) {
     const typeTags = prop.rnTags.type;
 
     typeTags.forEach(tag => {
+      let url, text;
       // Checks for @platform pragma in @type string
       const isMatch = tag.match(/{@platform [a-z ,]*}/);
       if (isMatch) {
@@ -96,7 +34,30 @@ function formatTypeColumn(prop) {
         // Replaces @platform strings with empty string
         // and appends type with formatted platform
         tag = tag.replace(/{@platform [a-z ,]*}/g, '');
+        if (Object.hasOwnProperty.call(magic.linkableTypeAliases, tag)) {
+          ({url, text} = magic.linkableTypeAliases[tag]);
+          if (url) tag = `[${text}](${url})`;
+        }
         tag = tag + formatMultiplePlatform(platform[0].split(','));
+      } else {
+        // Check if there are multiple comma separated types in a single line
+        if (tag.match(/, /)) {
+          let newTag = '';
+          const tags = tag.split(', ');
+          tags.forEach(item => {
+            if (Object.hasOwnProperty.call(magic.linkableTypeAliases, item)) {
+              ({url, text} = magic.linkableTypeAliases[item]);
+              if (url) newTag += ', ' + `[${text}](${url})`;
+            } else newTag += ', ' + item;
+          });
+          //Trim comma from beginning
+          tag = newTag.replace(/^, /, '');
+        }
+        // If there is no comma separated types in rnTags
+        else if (Object.hasOwnProperty.call(magic.linkableTypeAliases, tag)) {
+          ({url, text} = magic.linkableTypeAliases[tag]);
+          if (url) tag = `[${text}](${url})`;
+        }
       }
       tableRows = tableRows + tag + '<hr/>';
     });
@@ -122,13 +83,17 @@ function formatTypeColumn(prop) {
             Object.hasOwnProperty.call(magic.linkableTypeAliases, eventType)
           ) {
             ({url, text} = magic.linkableTypeAliases[eventType]);
-            return `${prop.flowType.type}([${text}](${url}))`;
+            if (url) {
+              return `${prop.flowType.type}([${text}](${url}))`;
+            }
           }
           // TODO: Handling unknown function params
           return `${prop.flowType.type}`;
         } else {
           return prop.flowType.type;
         }
+      } else if (prop.flowType.type === 'object') {
+        return prop.flowType.type;
       }
     } else if (prop.flowType.name.includes('$ReadOnlyArray')) {
       prop?.flowType?.elements[0]?.elements &&
@@ -140,6 +105,28 @@ function formatTypeColumn(prop) {
           }
         });
       if (url) return `array of [${text}](${url})`;
+      else if (prop?.flowType?.elements[0].name === 'union') {
+        const unionTypes = prop?.flowType?.elements[0]?.elements.reduce(
+          (acc, curr) => {
+            acc.push(curr.value);
+            return acc;
+          },
+          []
+        );
+        return `array of enum(${unionTypes.join(', ')})`;
+      } else if (prop?.flowType?.elements[0]?.name) {
+        const typeName = prop.flowType.elements[0].name;
+        //array of number
+        if (typeName === 'number') return `array of ${typeName}`;
+        else if (
+          Object.hasOwnProperty.call(magic.linkableTypeAliases, typeName)
+        ) {
+          ({url, text} = magic.linkableTypeAliases[typeName]);
+          if (url) return `array of [${text}](${url})`;
+        }
+        //default array for all other types
+        else return 'array';
+      }
     } else if (prop.flowType.name === '$ReadOnly') {
       // Special Case: switch#trackcolor
       let markdown = '';
@@ -154,11 +141,36 @@ function formatTypeColumn(prop) {
                 markdown += `${key}: [${text}](${url})` + ', ';
               }
             });
+            if (!url) markdown += `${key}: ${value.name}` + ', ';
           }
         );
         if (markdown.match(/, $/)) markdown = markdown.replace(/, $/, '');
         return `${prop.flowType.elements[0]?.type}: {${markdown}}`;
       }
+    } else if (prop.flowType.name === 'union') {
+      let unionTypes = prop.flowType.raw.split('|');
+
+      // Trim whitespaces and remove any leftover `|` (to avoid table split)
+      unionTypes = unionTypes
+        .map(elem => {
+          return elem.trim().replace(/|/g, '');
+        })
+        .filter(item => {
+          if (item) return item;
+        });
+
+      // Get text and url from magic aliases
+      prop?.flowType?.elements?.forEach(elem => {
+        if (Object.hasOwnProperty.call(magic.linkableTypeAliases, elem.name)) {
+          ({url, text} = magic.linkableTypeAliases[elem.name]);
+        }
+      });
+
+      if (url) return `[${text}](${url})`;
+
+      return `enum(${unionTypes.join(', ')})`;
+    } else if (prop.flowType.name === 'ReactElement') {
+      return 'element';
     } else {
       // Get text and url from magic aliases
       prop?.flowType?.elements?.forEach(elem => {
@@ -202,18 +214,16 @@ function formatDefaultColumn(prop) {
         prop?.flowType?.elements.some(elem => {
           if (elem.name === 'NativeColorValue' && !tag.includes('null')) {
             colorBlock =
-              '<ins style="background:' +
-              tag.replace(/'/g, '') +
-              '" class="color-box"></ins>';
+              `<ins style={{background: '${tag.replace(/'/g, '')}'}} className="color-box" />`;
             return true;
           }
         });
 
         tag =
-          (!tag.includes('null') ? '`' + tag + '`' : tag) +
           colorBlock +
+          (!tag.includes('null') ? '`' + tag + '`' : tag) +
           formatMultiplePlatform(platform[0].split(','));
-      } else {
+      } else if (!tag.includes('`')) {
         tag = '`' + tag + '`';
       }
       tableRows = tableRows + tag + '<hr/>';
@@ -229,9 +239,6 @@ function formatDefaultColumn(prop) {
 }
 
 module.exports = {
-  formatMultiplePlatform,
-  maybeLinkifyType,
-  maybeLinkifyTypeName,
   formatTypeColumn,
   formatDefaultColumn,
 };

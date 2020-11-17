@@ -29,5 +29,33 @@ module.exports = {
       text: 'RefreshControl.SIZE',
       url: 'refreshcontrol.md#refreshlayoutconstssize',
     },
+    StatusBarAnimation: {
+      text: 'StatusBarAnimation',
+      url: 'statusbar#statusbaranimation',
+    },
+    StatusBarStyle: {
+      text: 'StatusBarStyle',
+      url: 'statusbar#statusbarstyle',
+    },
+    ReactNode: {
+      text: 'React.Node',
+      url: 'react-node.md',
+    },
+    TextStyleProps: {
+      text: 'Text Style Props',
+      url: 'text-style-props',
+    },
+    SectionT: {
+      text: 'Section',
+      url: 'sectionlist#section',
+    },
+    ViewStyleProps: {
+      text: 'View Style Props',
+      url: 'view-style-props',
+    },
+    Text: {
+      text: 'Text',
+      url: 'text#style',
+    },
   },
 };
