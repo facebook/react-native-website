@@ -36,6 +36,15 @@
     "pinned": true
   },
   {
+    "name": "Oculus",
+    "icon": "oculus.png",
+    "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
+    "infoLink": "",
+    "infoTitle": "",
+    "pinned": true
+  },  
+  {
     "name": "Coinbase",
     "icon": "coinbase.png",
     "linkAppStore": "https://apps.apple.com/us/app/coinbase-buy-sell-bitcoin/id886427730",
@@ -63,12 +72,12 @@
     "pinned": true
   },
   {
-    "name": "Oculus",
-    "icon": "oculus.png",
-    "linkAppStore": "https://apps.apple.com/us/app/oculus/id1366478176",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.oculus.twilight&hl=en_US",
-    "infoLink": "",
-    "infoTitle": "",
+    "name": "Words with Friends",
+    "icon": "words2.png",
+    "linkAppStore": "https://apps.apple.com/app/words-with-friends-2-word-game/id1196764367",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
+    "infoLink": "https://medium.com/zynga-engineering/why-how-words-with-friends-is-adopting-react-native-b24a405f421c",
+    "infoTitle": "Why & How Words With Friends Is Adopting React Native",
     "pinned": true
   },
   {
