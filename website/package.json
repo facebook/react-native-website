@@ -15,6 +15,7 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
+    "clean": "docusaurus clean",
     "publish-gh-pages": "yarn deploy",
     "ci-check": "yarn prettier:diff && node image-check.js",
     "format:source": "prettier --write \"{core/**/*.js,src/**/*.js,static/js/**/*.js}\"",
@@ -27,28 +28,19 @@
     "lint": "cd ../ && alex .",
     "lintv": "cd ../ && alex"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.66",
     "@docusaurus/preset-classic": "2.0.0-alpha.66",
     "docusaurus-plugin-sass": "^0.1.11",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-github-btn": "^1.2.0",
-    "remark-snackplayer": "./plugins/remark-snackplayer"
+    "react-github-btn": "^1.2.0"
   },
   "devDependencies": {
     "alex": "^9.0.1",
     "fs-extra": "^9.0.1",
     "glob": "^7.1.6",
     "glob-promise": "^3.4.0",
-    "husky": "^4.2.5",
-    "path": "^0.12.7",
-    "prettier": "1.16.4",
-    "pretty-quick": "^1.11.1"
+    "path": "^0.12.7"
   }
 }
