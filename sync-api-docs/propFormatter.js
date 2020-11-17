@@ -214,16 +214,14 @@ function formatDefaultColumn(prop) {
         prop?.flowType?.elements.some(elem => {
           if (elem.name === 'NativeColorValue' && !tag.includes('null')) {
             colorBlock =
-              '<ins style="background:' +
-              tag.replace(/'/g, '') +
-              '" class="color-box"></ins>';
+              `<ins style={{background: '${tag.replace(/'/g, '')}'}} className="color-box" />`;
             return true;
           }
         });
 
         tag =
-          (!tag.includes('null') ? '`' + tag + '`' : tag) +
           colorBlock +
+          (!tag.includes('null') ? '`' + tag + '`' : tag) +
           formatMultiplePlatform(platform[0].split(','));
       } else if (!tag.includes('`')) {
         tag = '`' + tag + '`';
