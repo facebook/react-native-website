@@ -677,6 +677,8 @@ div[class^="tableOfContents"] {
 
   .footer__item {
     font-size: 15px;
+    padding: 8px 0 0;
+    min-height: 30px;
   }
 
   .footer__title {
@@ -688,7 +690,13 @@ div[class^="tableOfContents"] {
   }
 
   .footer__col {
-    margin: 4px 0 12px 4%;
+    margin: 4px 0 12px 2%;
+    padding-left: 0 !important;
+  }
+
+  .footer__link-item {
+    line-height: 1.44;
+    display: inline-block;
   }
 }
 
