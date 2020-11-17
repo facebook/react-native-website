@@ -3,6 +3,8 @@ id: sectionlist
 title: SectionList
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 A performant interface for rendering sectioned lists, supporting the most handy features:
 
 - Fully cross-platform.
@@ -20,18 +22,8 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 ## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=SectionList%20Example
 import React from "react";
@@ -105,7 +97,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=SectionList%20Example
 import React, { Component } from "react";
@@ -183,7 +176,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
 
@@ -198,15 +192,19 @@ This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), 
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 Inherits [ScrollView Props](scrollview.md#props).
 
-### `renderItem`
+---
+
+### <div class="label required basic">Required</div>**`renderItem`**
 
 Default renderer for every item in every section. Can be over-ridden on a per-section basis. Should return a React element.
 
-| Type     | Required |
-| -------- | -------- |
-| function | Yes      |
+| Type     |
+| -------- |
+| function |
 
 The render function will be passed an object with the following keys:
 
@@ -222,13 +220,13 @@ The render function will be passed an object with the following keys:
 
 ---
 
-### `sections`
+### <div class="label required basic">Required</div>**`sections`**
 
 The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
 
-| Type                                        | Required |
-| ------------------------------------------- | -------- |
-| array of [Section](sectionlist.md#section)s | Yes      |
+| Type                                        |
+| ------------------------------------------- |
+| array of [Section](sectionlist.md#section)s |
 
 ---
 
@@ -236,9 +234,9 @@ The actual data to render, akin to the `data` prop in [`FlatList`](flatlist.md).
 
 A marker property for telling the list to re-render (since it implements `PureComponent`). If any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the `data` prop, stick it here and treat it immutably.
 
-| Type | Required |
-| ---- | -------- |
-| any  | No       |
+| Type |
+| ---- |
+| any  |
 
 ---
 
@@ -246,9 +244,9 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   | Default |
+| ------ | ------- |
+| number | `10`    |
 
 ---
 
@@ -256,9 +254,9 @@ How many items to render in the initial batch. This should be enough to fill the
 
 Reverses the direction of scroll. Uses scale transforms of -1.
 
-| Type      | Required |
-| --------- | -------- |
-| [boolean] | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
@@ -266,9 +264,9 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Section]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, function, element] | No       |
+| Type                         |
+| ---------------------------- |
+| component, element, function |
 
 ---
 
@@ -276,9 +274,9 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 
 Used to extract a unique key for a given item at the specified index. Key is used for caching and as the React key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does. Note that this sets keys for each item, but each overall section still needs its own key.
 
-| Type                                  | Required |
-| ------------------------------------- | -------- |
-| (item: Item, index: number) => string | Yes      |
+| Type                                    |
+| --------------------------------------- |
+| (item: object, index: number) => string |
 
 ---
 
@@ -286,9 +284,9 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, function, element] | No       |
+| Type                         |
+| ---------------------------- |
+| component, element, function |
 
 ---
 
@@ -296,9 +294,9 @@ Rendered when the list is empty. Can be a React Component Class, a render functi
 
 Rendered at the very end of the list. Can be a React Component Class, a render function, or a rendered element.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, function, element] | No       |
+| Type                         |
+| ---------------------------- |
+| component, element, function |
 
 ---
 
@@ -306,9 +304,9 @@ Rendered at the very end of the list. Can be a React Component Class, a render f
 
 Rendered at the very beginning of the list. Can be a React Component Class, a render function, or a rendered element.
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
+| Type                         |
+| ---------------------------- |
+| component, element, function |
 
 ---
 
@@ -316,9 +314,9 @@ Rendered at the very beginning of the list. Can be a React Component Class, a re
 
 Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
 
-| Type                                        | Required |
-| ------------------------------------------- | -------- |
-| [(info: {distanceFromEnd: number}) => void] | No       |
+| Type                                        |
+| ------------------------------------------- |
+| (info: { distanceFromEnd: number }) => void |
 
 ---
 
@@ -326,9 +324,9 @@ Called once when the scroll position gets within `onEndReachedThreshold` of the 
 
 How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
 
-| Type     | Required |
-| -------- | -------- |
-| [number] | No       |
+| Type   | Default |
+| ------ | ------- |
+| number | `2`     |
 
 ---
 
@@ -336,9 +334,9 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly. To offset the RefreshControl from the top (e.g. by 100 pts), use `progressViewOffset={100}`.
 
-| Type         | Required |
-| ------------ | -------- |
-| [() => void] | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -346,24 +344,9 @@ If provided, a standard RefreshControl will be added for "Pull to Refresh" funct
 
 Called when the viewability of rows changes, as defined by the `viewabilityConfig` prop.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
-The function will be passed an object with the following keys:
-
-- 'viewableItems' (array of `ViewToken`s)
-- 'changed' (array of `ViewToken`s)
-
-The `ViewToken` type is exported by `ViewabilityHelper.js`:
-
-| Name       | Type    | Required |
-| ---------- | ------- | -------- |
-| item       | any     | Yes      |
-| key        | string  | Yes      |
-| index      | number  | No       |
-| isViewable | boolean | Yes      |
-| section    | any     | No       |
+| Type                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------ |
+| (callback: { changed: array of [ViewToken](viewtoken)s, viewableItems: array of [ViewToken](viewtoken)s }) => void |
 
 ---
 
@@ -371,21 +354,21 @@ The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
 Set this true while waiting for new data from a refresh.
 
-| Type      | Required |
-| --------- | -------- |
-| [boolean] | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
 ### `removeClippedSubviews`
 
-Note: may have bugs (missing content) in some circumstances - use at your own risk.
+> Note: may have bugs (missing content) in some circumstances - use at your own risk.
 
 This may improve scroll performance for large lists.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
@@ -393,9 +376,9 @@ This may improve scroll performance for large lists.
 
 Rendered at the bottom of each section.
 
-| Type                                                 | Required |
-| ---------------------------------------------------- | -------- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | No       |
+| Type                                                                   |
+| ---------------------------------------------------------------------- |
+| (info: { section: [Section](sectionlist#section) }) => element, `null` |
 
 ---
 
@@ -403,9 +386,9 @@ Rendered at the bottom of each section.
 
 Rendered at the top of each section. These stick to the top of the `ScrollView` by default on iOS. See `stickySectionHeadersEnabled`.
 
-| Type                                                 | Required |
-| ---------------------------------------------------- | -------- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | No       |
+| Type                                                                   |
+| ---------------------------------------------------------------------- |
+| (info: { section: [Section](sectionlist#section) }) => element, `null` |
 
 ---
 
@@ -413,9 +396,9 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 
 Rendered at the top and bottom of each section (note this is different from `ItemSeparatorComponent` which is only rendered between items). These are intended to separate sections from the headers above and below and typically have the same highlight response as `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Section]`, and any custom props from `separators.updateProps`.
 
-| Type              | Required |
-| ----------------- | -------- |
-| [ReactClass<any>] | No       |
+| Type                         |
+| ---------------------------- |
+| component, element, function |
 
 ---
 
@@ -423,35 +406,19 @@ Rendered at the top and bottom of each section (note this is different from `Ite
 
 Makes section headers stick to the top of the screen until the next one pushes it off. Only enabled by default on iOS because that is the platform standard there.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ## Methods
 
-### `scrollToLocation()`
+### `flashScrollIndicators()` <div class="label ios">iOS</div>
 
 ```jsx
-scrollToLocation(params);
+flashScrollIndicators();
 ```
 
-Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the section) positioned in the viewable area such that `viewPosition` 0 places it at the top (and may be covered by a sticky header), 1 at the bottom, and 0.5 centered in the middle.
-
-> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` or `onScrollToIndexFailed` prop.
-
-**Parameters:**
-
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| params | object | Yes      | See below.  |
-
-Valid `params` keys are:
-
-- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
-- 'itemIndex' (number) - Index within section for the item to scroll to. Required.
-- 'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
-- 'viewOffset' (number) - A fixed number of pixels to offset the final target position, e.g. to compensate for sticky headers.
-- 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
+Displays the scroll indicators momentarily.
 
 ---
 
@@ -465,17 +432,29 @@ Tells the list an interaction has occurred, which should trigger viewability cal
 
 ---
 
-### `flashScrollIndicators()`
+### `scrollToLocation()`
 
 ```jsx
-flashScrollIndicators();
+scrollToLocation(params);
 ```
 
-Displays the scroll indicators momentarily.
+Scrolls to the item at the specified `sectionIndex` and `itemIndex` (within the section) positioned in the viewable area such that `viewPosition` 0 places it at the top (and may be covered by a sticky header), 1 at the bottom, and 0.5 centered in the middle.
 
-| Platform |
-| -------- |
-| iOS      |
+> Note: Cannot scroll to locations outside the render window without specifying the `getItemLayout` or `onScrollToIndexFailed` prop.
+
+**Parameters:**
+
+| Name                                                    | Type   |
+| ------------------------------------------------------- | ------ |
+| params <div class="label basic required">Required</div> | object |
+
+Valid `params` keys are:
+
+- 'animated' (boolean) - Whether the list should do an animation while scrolling. Defaults to `true`.
+- 'itemIndex' (number) - Index within section for the item to scroll to. Required.
+- 'sectionIndex' (number) - Index for section that contains the item to scroll to. Required.
+- 'viewOffset' (number) - A fixed number of pixels to offset the final target position, e.g. to compensate for sticky headers.
+- 'viewPosition' (number) - A value of `0` places the item specified by index at the top, `1` at the bottom, and `0.5` centered in the middle.
 
 ## Type Definitions
 
@@ -489,10 +468,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| Name                     | Type                         | Description                                                                                                                                                            |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
-| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
-| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
-| [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+| Name                                                  | Type                         | Description                                                                                                                                                         |
+| ----------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data <div class="label basic required">Required</div> | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist#data).                                                  |
+| key                                                   | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                              |
+| renderItem                                            | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#renderitem) for the list.                          |
+| ItemSeparatorComponent                                | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist#itemseparatorcomponent) for the list. |
+| keyExtractor                                          | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist#keyextractor).                                   |

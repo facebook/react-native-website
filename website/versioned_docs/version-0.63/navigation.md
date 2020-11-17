@@ -1,7 +1,6 @@
 ---
-id: version-0.63-navigation
+id: navigation
 title: Navigating Between Screens
-original_id: navigation
 ---
 
 Mobile apps are rarely made up of a single screen. Managing the presentation of, and transition between, multiple screens is typically handled by what is known as a navigator.
@@ -18,7 +17,7 @@ The community solution to navigation is a standalone library that allows develop
 
 First, you need to install them in your project:
 
-```sh
+```shell
 npm install @react-navigation/native @react-navigation/stack
 ```
 
@@ -26,19 +25,19 @@ Next, install the required peer dependencies. You need to run different commands
 
 - If you have an Expo managed project, install the dependencies with `expo`:
 
-  ```sh
+  ```shell
   expo install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
   ```
 
 - If you have a bare React Native project, install the dependencies with `npm`:
 
-  ```sh
+  ```shell
   npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community/masked-view
   ```
 
   For iOS with bare React Native project, make sure you have [Cocoapods](https://cocoapods.org/) installed. Then install the pods to complete the installation:
 
-  ```sh
+  ```shell
   cd ios
   pod install
   cd ..

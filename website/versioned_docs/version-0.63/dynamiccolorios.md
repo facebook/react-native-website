@@ -1,8 +1,9 @@
 ---
-id: version-0.63-dynamiccolorios
+id: dynamiccolorios
 title: DynamicColorIOS
-original_id: dynamiccolorios
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 The `DynamicColorIOS` function is a platform color type specific to iOS.
 
@@ -16,23 +17,21 @@ DynamicColorIOS({ light: color, dark: color });
 
 At runtime, the system will choose which of the two colors to display depending on the current system appearance settings. Dynamic colors are useful for branding colors or other app specific colors that still respond automatically to system setting changes.
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote" onclick="displayTabs('devNotes', 'webNote')">Web</button>
-    <button role="tab" class="button-iosNote" onclick="displayTabs('devNotes', 'iosNote')">iOS</button>
-  </span>
-</div>
+#### Developer notes
 
-<block class="webNote devNotes" />
+<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["ios", "web"])}>
+
+<TabItem value="web">
 
 > If you’re familiar with `@media (prefers-color-scheme: dark)` in CSS, this is similar! Only instead of defining all the colors in a media query, you define which color to use under what circumstances right there where you're using it. Neat!
 
-<block class="iosNote devNotes" />
+</TabItem>
+<TabItem value="ios">
 
 > The `DynamicColorIOS` function is similar to the iOS native methods [`UIColor colorWithDynamicProvider:`](https://developer.apple.com/documentation/uikit/uicolor/3238040-colorwithdynamicprovider)
 
-<block class="endBlock devNotes" />
+</TabItem>
+</Tabs>
 
 ## Example
 

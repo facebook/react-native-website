@@ -8,20 +8,38 @@ A foundational component for inputting text into the app via a keyboard. Props p
 The most basic use case is to plop down a `TextInput` and subscribe to the `onChangeText` events to read the user input. There are also other events, such as `onSubmitEditing` and `onFocus` that can be subscribed to. A minimal example:
 
 ```SnackPlayer name=TextInput
-import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import React from "react";
+import { SafeAreaView, StyleSheet, TextInput } from "react-native";
 
 const UselessTextInput = () => {
-  const [value, onChangeText] = React.useState('Useless Placeholder');
+  const [text, onChangeText] = React.useState("Useless Text");
+  const [number, onChangeNumber] = React.useState(null);
 
   return (
-    <TextInput
-      style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-      onChangeText={text => onChangeText(text)}
-      value={value}
-    />
+    <SafeAreaView>
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeText}
+        value={text}
+      />
+      <TextInput
+        style={styles.input}
+        onChangeText={onChangeNumber}
+        value={number}
+        placeholder="useless placeholder"
+        keyboardType="numeric"
+      />
+    </SafeAreaView>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+  },
+});
 
 export default UselessTextInput;
 ```
@@ -79,7 +97,11 @@ Note that on Android performing text selection in input can change app's activit
 
 ## Props
 
+### [View Props](view.md#props)
+
 Inherits [View Props](view.md#props).
+
+---
 
 ### `allowFontScaling`
 
@@ -265,7 +287,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `importantForAutofill`
 
-Tells the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
 - `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
 - `no`: This view isn't important for autofill.
@@ -411,6 +433,8 @@ Sets the number of lines for a `TextInput`. Use it with multiline set to `true` 
 
 Callback that is called when the text input is blurred.
 
+> Note: If you are attempting to access the `text` value from `nativeEvent` keep in mind that the resulting value you get can be `undefined` which can cause unintended errors. If you are trying to find the last value of TextInput, you can use the [`onEndEditing`](textinput#onEndEditing) event, which is fired upon completion of editing.
+
 | Type     | Required |
 | -------- | -------- |
 | function | No       |
@@ -459,13 +483,33 @@ Callback that is called when text input ends.
 
 ---
 
+### `onPressIn`
+
+Callback that is called when a touch is engaged.
+
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
+
+---
+
+### `onPressOut`
+
+Callback that is called when a touch is released.
+
+| Type                     | Required |
+| ------------------------ | -------- |
+| [PressEvent](pressevent) | No       |
+
+---
+
 ### `onFocus`
 
 Callback that is called when the text input is focused. This is called with `{ nativeEvent: { target } }`.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type                                 | Required |
+| ------------------------------------ | -------- |
+| ([LayoutEvent](layoutevent)) => void | No       |
 
 ---
 
@@ -481,7 +525,7 @@ Callback that is called when a key is pressed. This will be called with `{ nativ
 
 ### `onLayout`
 
-Invoked on mount and layout changes with `{ nativeEvent: {layout: {x, y, width, height}, target } }`.
+Invoked on mount and on layout changes.
 
 | Type     | Required |
 | -------- | -------- |
@@ -518,16 +562,6 @@ Callback that is called when the text input's submit button is pressed with the 
 | function | No       |
 
 Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
-
----
-
-### `onTextInput`
-
-Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
 
 ---
 

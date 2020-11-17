@@ -1,8 +1,9 @@
 ---
-id: version-0.63-linking
+id: linking
 title: Linking
-original_id: linking
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
@@ -36,18 +37,8 @@ As mentioned in the introduction, there are some URL schemes for core functional
 
 If you want to enable deep links in your app, please read the below guide:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Android
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      iOS
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultPlatform} values={constants.platforms}>
+<TabItem value="android">
 
 > For instructions on how to add support for deep linking on Android, refer to [Enabling Deep Links for App Content - Add Intent Filters for Your Deep Links](http://developer.android.com/training/app-indexing/deep-linking.html#adding-filters).
 
@@ -59,7 +50,8 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
   android:launchMode="singleTask">
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="ios">
 
 > **NOTE:** On iOS, you'll need to link `RCTLinking` to your project by following the steps described [here](linking-libraries-ios.md#manual-linking). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
 
@@ -101,7 +93,8 @@ If your app is using [Universal Links](https://developer.apple.com/library/prere
 }
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### Handling Deep Links
 

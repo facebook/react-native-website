@@ -2,10 +2,10 @@
 title: Introducing Create React Native App
 author: Adam Perry
 authorTitle: Software Engineer at Expo
-authorURL: https://github.com/dikaiosune
-authorImageURL: https://avatars2.githubusercontent.com/u/6812281
+authorURL: 'https://github.com/dikaiosune'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/6812281'
 authorTwitter: dika10sune
-category: engineering
+tags: [engineering]
 youtubeVideoId: 9baaVjGdBqs
 ---
 

@@ -2,11 +2,11 @@
 title: San Francisco Meetup Recap
 author: Héctor Ramos
 authorTitle: Developer Advocate at Facebook
-authorURL: https://twitter.com/hectorramos
-authorImageURL: https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128
+authorURL: 'https://twitter.com/hectorramos'
+authorImageURL: 'https://s.gravatar.com/avatar/f2223874e66e884c99087e452501f2da?s=128'
 authorTwitter: hectorramos
-hero: /blog/img/rnmsf-august-2016-hero.jpg
-category: events
+hero: '/blog/img/rnmsf-august-2016-hero.jpg'
+tags: [events]
 ---
 
 Last week I had the opportunity to attend the [React Native Meetup](http://www.meetup.com/React-Native-San-Francisco/photos/27168649/#452793854) at Zynga’s San Francisco office. With around 200 people in attendance, it served as a great place to meet other developers near me that are also interested in React Native.
@@ -104,7 +104,7 @@ Leland's talk was also followed by a Q&A session. Overall, Airbnb is satisfied w
 The event ended with some additional React Native news:
 
 - Deco announced their [React Native Showcase](https://www.decosoftware.com/showcase), and invited everyone to add their app to the list.
-- The recent [documentation overhaul](/blog/2016/07/06/toward-better-documentation.html) got a shoutout!
+- The recent [documentation overhaul](/blog/2016/07/06/toward-better-documentation) got a shoutout!
 - Devin Abbott, one of the creators of Deco IDE, will be teaching an introductory [React Native course](https://www.decosoftware.com/course).
 
 ![](/blog/assets/rnmsf-august-2016-docs.jpg)

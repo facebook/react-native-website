@@ -1,7 +1,6 @@
 ---
-id: version-0.62-textinput
+id: textinput
 title: TextInput
-original_id: textinput
 ---
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
@@ -515,16 +514,6 @@ Callback that is called when the text input's submit button is pressed with the 
 | function | No       |
 
 Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
-
----
-
-### `onTextInput`
-
-Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
 
 ---
 

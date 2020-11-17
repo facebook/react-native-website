@@ -1,7 +1,6 @@
 ---
-id: version-0.63-native-modules-ios
+id: native-modules-ios
 title: Native Modules
-original_id: native-modules-ios
 ---
 
 Sometimes an app needs to access a platform API and React Native doesn't have a corresponding module yet. Maybe you want to reuse some existing Objective-C, Swift or C++ code without having to reimplement it in JavaScript, or write some high performance, multi-threaded code such as for image processing, a database, or any number of advanced extensions.
@@ -522,4 +521,4 @@ You can also use `RCT_EXTERN_REMAP_MODULE` and `_RCT_EXTERN_REMAP_METHOD` to alt
 
 ### invalidate()
 
-Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/master/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method [can be invoked](https://github.com/facebook/react-native/blob/master/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm#L756) when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.
+Native modules can conform to the [RCTInvalidating](https://github.com/facebook/react-native/blob/master/React/Base/RCTInvalidating.h) protocol on iOS by implementing the `invalidate` method. This method can be invoked when the native bridge is invalidated (ie: on devmode reload). You should avoid implementing this method in general, as this mechanism exists for backwards compatibility and may be removed in the future.

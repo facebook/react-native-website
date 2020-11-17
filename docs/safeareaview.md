@@ -11,7 +11,7 @@ The purpose of `SafeAreaView` is to render content within the safe area boundari
 
 To use, wrap your top level view with a `SafeAreaView` with a `flex: 1` style applied to it. You may also want to use a background color that matches your application's design.
 
-```SnackPlayer name=SafeAreaView
+```SnackPlayer name=SafeAreaView&supportedPlatforms=ios
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 
@@ -38,9 +38,13 @@ export default App;
 
 ## Props
 
+### [View Props](view.md#props)
+
 Inherits [View Props](view.md#props).
 
-As padding is used to implement the behavior of the component, padding rules in styles applied to a `SafeAreaView` will be ignored and can cause different results depending on the platform. See [#22211](https://github.com/facebook/react-native/issues/22211) for details.
+> As padding is used to implement the behavior of the component, padding rules in styles applied to a `SafeAreaView` will be ignored and can cause different results depending on the platform. See [#22211](https://github.com/facebook/react-native/issues/22211) for details.
+
+---
 
 ### `emulateUnlessSupported`
 

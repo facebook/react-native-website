@@ -73,6 +73,7 @@ Display an iOS action sheet. The `options` object must contain one or more of:
 - `message` (string) - a message to show below the title
 - `anchor` (number) - the node to which the action sheet should be anchored (used for iPad)
 - `tintColor` (string) - the [color](colors) used for non-destructive button titles
+- `disabledButtonIndices` (array of numbers) - a list of button indices which should be disabled
 
 The 'callback' function takes one parameter, the zero-based index of the selected item.
 

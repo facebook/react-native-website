@@ -3,6 +3,8 @@ id: debugging
 title: Debugging
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## Accessing the In-App Developer Menu
 
 You can access the developer menu by shaking your device or by selecting "Shake Gesture" inside the Hardware menu in the iOS Simulator. You can also use the `⌘D` keyboard shortcut when your app is running in the iOS Simulator, or `⌘M` when running in an Android emulator on Mac OS and `Ctrl+M` on Windows and Linux. Alternatively for Android, you can run the command `adb shell input keyevent 82` to open the dev menu (82 being the Menu key code).
@@ -45,7 +47,7 @@ LogBox.ignoreAllLogs();
 
 ### Unhandled Errors
 
-Unhanded JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
+Unhandled JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
 
 ### Syntax Errors
 
@@ -56,6 +58,8 @@ When syntax error occurs the full screen LogBox error will automatically open wi
 To debug the JavaScript code in Chrome, select "Debug JS Remotely" from the Developer Menu. This will open a new tab at [http://localhost:8081/debugger-ui](http://localhost:8081/debugger-ui).
 
 Select `Tools → Developer Tools` from the Chrome Menu to open the [Developer Tools](https://developer.chrome.com/devtools). You may also access the DevTools using keyboard shortcuts (`⌘⌥I` on macOS, `Ctrl` `Shift` `I` on Windows). You may also want to enable [Pause On Caught Exceptions](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511) for a better debugging experience.
+
+> Note: on Android, if the times between the debugger and device have drifted; things such as animation, event behavior, etc., might not work properly or the results may not be accurate. Please correct this by running `` adb shell "date `date +%m%d%H%M%Y.%S%3N`" `` on your debugger machine. Root access is required for the use in real device.
 
 > Note: the React Developer Tools Chrome extension does not work with React Native, but you can use its standalone version instead. Read [this section](debugging.md#react-developer-tools) to learn how.
 
@@ -85,13 +89,26 @@ You can use [the standalone version of React Developer Tools](https://github.com
 
 > Note: Version 4 of `react-devtools` requires `react-native` version 0.62 or higher to work properly.
 
-```
+<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
 npm install -g react-devtools
 ```
 
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn global add react-devtools
+```
+
+</TabItem>
+</Tabs>
+
 Now run `react-devtools` from the terminal to launch the standalone DevTools app:
 
-```
+```shell
 react-devtools
 ```
 
@@ -129,7 +146,7 @@ Then select a React component in React DevTools. There is a search box at the to
 
 You can enable a performance overlay to help you debug performance problems by selecting "Perf Monitor" in the Developer Menu.
 
-<hr style="margin-top:25px; margin-bottom:25px;"/>
+<hr style={{marginTop: 25, marginBottom: 25}} />
 
 ## Debugging Application State
 
@@ -139,7 +156,7 @@ You can view installation instructions [in the README](https://github.com/infini
 
 # Native Debugging
 
-<div class="banner-native-code-required">
+<div className="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>
   <p>
     The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/workflow/customizing/" target="_blank">ejecting</a> to use this API.
@@ -150,9 +167,9 @@ You can view installation instructions [in the README](https://github.com/infini
 
 You can display the console logs for an iOS or Android app by using the following commands in a terminal while the app is running:
 
-```sh
-$ npx react-native log-ios
-$ npx react-native log-android
+```shell
+npx react-native log-ios
+npx react-native log-android
 ```
 
 You may also access these through `Debug → Open System Log...` in the iOS Simulator or by running `adb logcat *:S ReactNative:V ReactNativeJS:V` in a terminal while an Android app is running on a device or emulator.

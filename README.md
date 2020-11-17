@@ -2,6 +2,8 @@
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
 
+If you are looking for the source code of the [React Native Archive website](https://archive.reactnative.dev/) select the [`archive`](https://github.com/facebook/react-native-website/tree/archive) branch.
+
 ## Contents
 
 - [Getting started](#%EF%B8%8F-getting-started)
@@ -23,19 +25,19 @@ This repo contains the website configuration and documentation powering the [Rea
 ### Installation
 
 1.  `cd react-native-website` to go into the project root.
+1.  `yarn` to install the website's workspace dependencies.
 1.  `cd website` to go into the website portion of the project.
-1.  `yarn` or `npm install` to install the website's npm dependencies.
 
 ### Running locally
 
-1.  `yarn start` or `npm start` to start the development server _(powered by [Docusaurus](https://docusaurus.io))_.
+1.  `yarn start` to start the development server _(powered by [Docusaurus](https://v2.docusaurus.io))_.
 1.  `open http://localhost:3000/` to open the site in your favorite browser.
 
 ## 📖 Overview
 
 If you would like to **_contribute an edit or addition to the docs,_** read through our [style guide](STYLEGUIDE.md) before you write anything. All our content is generated from markdown files you can find in the `docs` directory.
 
-**_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://docusaurus.io). The website configuration can be found in the `website` directory. Visit the Docusaurus website to learn more about all the available configuration options.
+**_To edit the internals of how the site is built,_** you may want to get familiarized with how the site is built. The React Native website is a static site generated using [Docusaurus](https://v2.docusaurus.io). The website configuration can be found in the `website` directory. Visit the Docusaurus website to learn more about all the available configuration options.
 
 ### Directory Structure
 
@@ -44,33 +46,40 @@ The following is a high-level overview of relevant files and folders.
 ```
 react-native-website/
 ├── docs/
-│   ├── assets/
 │   ├── accessibility.md
 │   └── ...
 └── website/
     ├── blog/
-    │   ├── assets/
     │   ├── 2015-03-26-react-native-bringing-modern-web-techniques-to-mobile.md
     │   └── ...
     ├── core/
     ├── pages/
     │   └── en/
-    │       ├── index.js
-    │       └── ...
-    ├── static/
+    ├── src/
     │   ├── css/
+    │   │   ├── customTheme.scss
+    │   │   └── ...
+    │   ├── pages/
+    │   │   ├── index.js
+    │   │   └── ...
+    │   └── theme/
+    ├── static/
+    │   ├── blog/
+    │   │   └── assets/
+    │   ├── docs/
+    │   │   └── assets/
     │   ├── img/
     │   └── js/
     ├── versioned_docs/
-    │   ├── version-0.5/
+    │   ├── version-0.60/
     │   └── ...
     ├── versioned_sidebars/
-    │   ├── version-0.5-sidebars.json
+    │   ├── version-0.60-sidebars.json
     │   └── ...
+    ├── docusaurus.config.js
     ├── package.json
     ├── showcase.json
     ├── sidebars.json
-    ├── siteConfig.js
     └── versions.json
 ```
 
@@ -80,7 +89,7 @@ As mentioned above, the `docs` folder contains the source files for all of the d
 
 ### Versioned docs
 
-The React Native website is versioned as to allow users to go back and see the API reference docs for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.json` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
+The React Native website is versioned to allow users to go back and see the API reference docs for any given release. A new version of the website is generally generated whenever there is a new React Native release. When this happens, any changes made to the `docs` and `website/sidebars.json` files will be copied over to the corresponding location within `website/versioned_docs` and `website/versioned_sidebars`.
 
 > **_Note:_** Do not edit the auto-generated files within `versioned_docs` or `versioned_sidebars` unless you are sure it is necessary. Edits made to older versions will not be propagated to newer versions of the docs.
 
@@ -90,15 +99,17 @@ Docusaurus keeps track of the list of versions for the site in the `website/vers
 
 1.  `cd react-native-website` to go into the project root.
 1.  `cd website` to go into the website portion of the project.
-1.  Run `yarn run version <newVersion>` or `npm run version <newVersion>` where `<newVersion>` is the new version being released.
+1.  Run `yarn run version <newVersion>` where `<newVersion>` is the new version being released.
 
 ## 🔧 Website configuration
 
-The main config file for the website can be found at `website/siteConfig.js`. This file tells [Docusaurus how to build the website](http://docusaurus.io/docs/en/site-config.html). Edits to this file are rarely necessary.
+The main config file for the website can be found at `website/docusaurus.config.js`. This file tells [Docusaurus how to build the website](https://v2.docusaurus.io/docs/configuration). Edits to this file are rarely necessary.
 
-The `core` subdirectory contains JavaScript and React components that are the core part of the website, such as the SnackPlayer.
+The `core` subdirectory contains JavaScript and React components that are the core part of the website.
 
-The `pages` subdirectory contains the React components that make up the non-documentation pages of the site, such as the homepage.
+The `src/pages` subdirectory contains the React components that make up the non-documentation pages of the site, such as the homepage.
+
+The `src/theme` subdirectory contains the swizzled React components from the Docusuaurus theme.
 
 The `showcase.json` file contains the list of users that are highlighted in the React Native showcase.
 
@@ -116,7 +127,7 @@ The `showcase.json` file contains the list of users that are highlighted in the 
 1.  Follow the "[Running locally](#running-locally)" instructions.
 1.  Save the files and check in the browser.
 1.  Some changes may require a server restart to generate new files. (Pages in `docs` always do!)
-1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under `docs/next` path.
+1.  Edits to pages in `docs` will only be visible in the latest version of the documentation, called "Next", located under the `docs/next` path.
 
 Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
@@ -126,12 +137,12 @@ Visit **http://localhost:3000/docs/next/YOUR-DOCS-PAGE** to see your work.
 
 If possible, test any visual changes in all latest versions of the following browsers:
 
-- Chrome and Firefox on desktop.
+- Chrome and Firefox on the desktop.
 - Chrome and Safari on mobile.
 
 ### Push it
 
-1.  Run `yarn prettier` or `npm run prettier` to ensure your changes are consistent with other files in the repo.
+1.  Run `yarn prettier` to ensure your changes are consistent with other files in the repo.
 1.  `git add -A && git commit -m "My message"` to stage and commit your changes.
     > replace `My message` with a commit message, such as `Fixed header logo on Android`
 1.  `git push my-fork-name the-name-of-my-branch`

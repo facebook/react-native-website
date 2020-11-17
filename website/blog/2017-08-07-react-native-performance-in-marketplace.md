@@ -2,10 +2,10 @@
 title: React Native Performance in Marketplace
 author: Aaron Chiu
 authorTitle: Software Engineer at Facebook
-authorURL: https://www.facebook.com/aaronechiu
+authorURL: 'https://www.facebook.com/aaronechiu'
 authorFBID: 1057500063
 authorTwitter: AaaChiuuu
-category: engineering
+tags: [engineering]
 ---
 
 React Native is used in multiple places across multiple apps in the Facebook family including a top level tab in the main Facebook apps. Our focus for this post is a highly visible product, [Marketplace](https://newsroom.fb.com/news/2016/10/introducing-marketplace-buy-and-sell-with-your-local-community/). It is available in a dozen or so countries and enables users to discover products and services provided by other users.

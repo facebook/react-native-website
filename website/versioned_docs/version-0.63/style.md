@@ -1,7 +1,6 @@
 ---
-id: version-0.63-style
+id: style
 title: Style
-original_id: style
 ---
 
 With React Native, you style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) usually match how CSS works on the web, except names are written using camel casing, e.g. `backgroundColor` rather than `background-color`.
@@ -46,4 +45,4 @@ One common pattern is to make your component accept a `style` prop which in turn
 
 There are a lot more ways to customize text style. Check out the [Text component reference](text.md) for a complete list.
 
-Now you can make your text beautiful. The next step in becoming a style master is to [learn how to control component size](height-and-width.md).
+Now you can make your text beautiful. The next step in becoming a style expert is to [learn how to control component size](height-and-width.md).

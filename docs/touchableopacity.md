@@ -3,6 +3,8 @@ id: touchableopacity
 title: TouchableOpacity
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
 
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, dimming it.
@@ -11,18 +13,8 @@ Opacity is controlled by wrapping the children in an `Animated.View`, which is a
 
 ## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=TouchableOpacity%20Function%20Component%20Example
 import React, { useState } from "react";
@@ -67,7 +59,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=TouchableOpacity%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -123,7 +116,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -131,7 +125,11 @@ export default App;
 
 ## Props
 
+### [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props)
+
 Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
+
+---
 
 ### `style`
 
@@ -184,9 +182,9 @@ _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
 TV next focus down (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -194,9 +192,9 @@ TV next focus down (see documentation for the View component).
 
 TV next focus forward (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -204,9 +202,9 @@ TV next focus forward (see documentation for the View component).
 
 TV next focus left (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -214,9 +212,9 @@ TV next focus left (see documentation for the View component).
 
 TV next focus right (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ---
 
@@ -224,9 +222,9 @@ TV next focus right (see documentation for the View component).
 
 TV next focus up (see documentation for the View component).
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type   | Required | Platform |
+| ------ | -------- | -------- |
+| number | No       | Android  |
 
 ## Methods
 

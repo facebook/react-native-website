@@ -1,7 +1,6 @@
 ---
-id: version-0.63-textinput
+id: textinput
 title: TextInput
-original_id: textinput
 ---
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.
@@ -266,7 +265,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `importantForAutofill`
 
-Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
 - `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
 - `no`: This view isn't important for autofill.
@@ -519,16 +518,6 @@ Callback that is called when the text input's submit button is pressed with the 
 | function | No       |
 
 Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
-
----
-
-### `onTextInput`
-
-Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
 
 ---
 

@@ -1,7 +1,6 @@
 ---
-id: version-0.63-rect
+id: rect
 title: Rect Object Type
-original_id: rect
 ---
 
 `Rect` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.

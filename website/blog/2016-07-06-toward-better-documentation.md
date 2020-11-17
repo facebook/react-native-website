@@ -2,10 +2,10 @@
 title: Toward Better Documentation
 author: Kevin Lacker
 authorTitle: Engineering Manager at Facebook
-authorURL: https://twitter.com/lacker
-authorImageURL: http://www.gravatar.com/avatar/9b790592be15d4f55a5ed7abb5103304?s=128
+authorURL: 'https://twitter.com/lacker'
+authorImageURL: 'https://www.gravatar.com/avatar/9b790592be15d4f55a5ed7abb5103304?s=128'
 authorTwitter: lacker
-category: announcements
+tags: [announcement]
 ---
 
 Part of having a great developer experience is having great documentation. A lot goes into creating good docs - the ideal documentation is concise, helpful, accurate, complete, and delightful. Recently we've been working hard to make the docs better based on your feedback, and we wanted to share some of the improvements we've made.
@@ -44,7 +44,7 @@ The core simulation engine is provided by [Nicolas Gallagher](https://twitter.co
 
 In some parts of React Native, there are multiple ways to do things, and we've heard feedback that we could provide better guidance.
 
-We have a new [guide to Navigation](/docs/navigator-comparison) that compares the different approaches and advises on what you should use - `Navigator`, `NavigatorIOS`, `NavigationExperimental`. In the medium term, we're working towards improving and consolidating those interfaces. In the short term, we hope that a better guide will make your life easier.
+We have a new [guide to Navigation](/docs/navigation) that compares the different approaches and advises on what you should use - `Navigator`, `NavigatorIOS`, `NavigationExperimental`. In the medium term, we're working towards improving and consolidating those interfaces. In the short term, we hope that a better guide will make your life easier.
 
 We also have a new [guide to handling touches](/docs/handling-touches) that explains some of the basics of making button-like interfaces, and a brief summary of the different ways to handle touch events.
 
@@ -54,7 +54,7 @@ Another area we worked on is Flexbox. This includes tutorials on how to [handle 
 
 When you start getting a React Native development environment set up on your machine, you do have to do a bunch of installing and configuring things. It's hard to make installation a really fun and exciting experience, but we can at least make it as quick and painless as possible.
 
-We built a [new Getting Started workflow](/docs/releases/next/getting-started) that lets you select your development operating system and your mobile operating system up front, to provide one concise place with all the setup instructions. We also went through the installation process to make sure everything worked and to make sure that every decision point had a clear recommendation. After testing it out on our innocent coworkers, we're pretty sure this is an improvement.
+We built a [new Getting Started workflow](/docs/next/getting-started) that lets you select your development operating system and your mobile operating system up front, to provide one concise place with all the setup instructions. We also went through the installation process to make sure everything worked and to make sure that every decision point had a clear recommendation. After testing it out on our innocent coworkers, we're pretty sure this is an improvement.
 
 We also worked on the [guide to integrating React Native into an existing app](/docs/integration-with-existing-apps). Many of the largest apps that use React Native, like the Facebook app itself, actually build part of the app in React Native, and part of it using regular development tools. We hope this guide makes it easier for more people to build apps this way.
 

@@ -2,10 +2,10 @@
 title: Using TypeScript with React Native
 author: Ash Furrow
 authorTitle: Software Engineer at Artsy
-authorURL: https://github.com/ashfurrow
-authorImageURL: https://avatars2.githubusercontent.com/u/498212?s=460&v=4
+authorURL: 'https://github.com/ashfurrow'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/498212?s=460&v=4'
 authorTwitter: ashfurrow
-category: engineering
+tags: [engineering]
 ---
 
 JavaScript! We all love it. But some of us also love [types](https://en.wikipedia.org/wiki/Data_type). Luckily, options exist to add stronger types to JavaScript. My favourite is [TypeScript](https://www.typescriptlang.org), but React Native supports [Flow](https://flow.org) out of the box. Which you prefer is a matter of preference, they each have their own approach on how to add the magic of types to JavaScript. Today, we're going to look at how to use TypeScript in React Native apps.
@@ -24,7 +24,7 @@ In any case, have fun! The original blog post continues below.
 
 ## Prerequisites
 
-Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](/docs/getting-started.html). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
+Because you might be developing on one of several different platforms, targeting several different types of devices, basic setup can be involved. You should first ensure that you can run a plain React Native app without TypeScript. Follow [the instructions on the React Native website to get started](/docs/getting-started). When you've managed to deploy to a device or emulator, you'll be ready to start a TypeScript React Native app.
 
 You will also need [Node.js](https://nodejs.org/en/), [npm](https://www.npmjs.com), and [Yarn](https://yarnpkg.com/lang/en).
 
