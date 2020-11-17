@@ -265,7 +265,7 @@ If `true`, the keyboard disables the return key when there is no text and automa
 
 ### `importantForAutofill`
 
-Say the system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+, possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, `yesExcludeDescendants`. The default value is `auto`.
+Tells the operating system whether the individual fields in your app should be included in a view structure for autofill purposes on Android API Level 26+. Possible values are `auto`, `no`, `noExcludeDescendants`, `yes`, and `yesExcludeDescendants`. The default value is `auto`.
 
 - `auto`: Let the Android System use its heuristics to determine if the view is important for autofill.
 - `no`: This view isn't important for autofill.
