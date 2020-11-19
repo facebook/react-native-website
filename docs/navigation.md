@@ -115,8 +115,8 @@ const HomeScreen = ({ navigation }) => {
     />
   );
 };
-const ProfileScreen = () => {
-  return <Text>This is Jane's profile</Text>;
+const ProfileScreen = ({ navigation, route }) => {
+  return <Text>This is { route.params.name }'s profile</Text>;
 };
 ```
 
