@@ -207,7 +207,14 @@ Make the drawer take the entire screen and draw the background of the status bar
 ### `closeDrawer()`
 
 ```jsx
-closeDrawer();
+const ref = React.createRef();
+const closeTheDrawer = () => {
+  ref.closeDrawer();
+};
+
+return (
+  <DrawerLayoutAndroid ref={ref} />
+);
 ```
 
 Closes the drawer.
@@ -217,7 +224,14 @@ Closes the drawer.
 ### `openDrawer()`
 
 ```jsx
-openDrawer();
+const ref = React.createRef();
+const openTheDrawer = () => {
+  ref.openDrawer();
+};
+
+return (
+  <DrawerLayoutAndroid ref={ref} />
+);
 ```
 
 Opens the drawer.
