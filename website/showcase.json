@@ -43,7 +43,7 @@
     "infoLink": "",
     "infoTitle": "",
     "pinned": true
-  },  
+  },
   {
     "name": "Coinbase",
     "icon": "coinbase.png",
@@ -78,6 +78,24 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
     "infoLink": "https://medium.com/zynga-engineering/why-how-words-with-friends-is-adopting-react-native-b24a405f421c",
     "infoTitle": "Why & How Words With Friends Is Adopting React Native",
+    "pinned": true
+  },
+  {
+    "name": "NerdWallet",
+    "icon": "nerdwallet.png",
+    "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mobilecreditcards&hl=en_US",
+    "infoLink": "https://www.nerdwallet.com/",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Call of Duty Companion App",
+    "icon": "callofduty_companion.png",
+    "linkAppStore": "https://apps.apple.com/us/app/call-of-duty-companion-app/id1405837628?ls=1",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.activision.callofduty.companion",
+    "infoLink": "https://www.callofduty.com/app",
+    "infoTitle": "",
     "pinned": true
   },
   {
