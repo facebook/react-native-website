@@ -53,7 +53,7 @@ const Versions = () => {
     versions.filter(version => version.indexOf('-RC') !== -1)
   );
   const stableVersions = versions.filter(
-    version => version.indexOf('-RC') === -1
+    version => version.indexOf('-RC') === -1 && version !== currentVersion
   );
 
   return (
@@ -82,7 +82,7 @@ const Versions = () => {
         </a>
         . Eventually, the release candidate will be promoted to stable.
       </p>
-      <h2>Latest versions</h2>
+      <h2>Next version (Unreleased)</h2>
       <p>
         To see what changes are coming and provide better feedback to React
         Native contributors, use the latest release candidate when possible.
@@ -92,33 +92,39 @@ const Versions = () => {
       </p>
       <table className="versions">
         <tbody>
-          {latestVersions.map(function(version) {
-            return (
-              <VersionItem
-                key={'version_' + version}
-                version={version}
-                currentVersion={currentVersion}
-              />
-            );
-          })}
+          {latestVersions.map(version => (
+            <VersionItem
+              key={'version_' + version}
+              version={version}
+              currentVersion={currentVersion}
+            />
+          ))}
         </tbody>
       </table>
-      <h2>Stable versions</h2>
+      <h2>Latest version</h2>
       <p>
         The most recent stable version will be used automatically whenever a new
-        project is created using the <code>react-native init</code> command.
+        project is created using the <code>npx react-native init</code> command.
       </p>
       <table className="versions">
         <tbody>
-          {stableVersions.map(function(version) {
-            return (
-              <VersionItem
-                key={'version_' + version}
-                version={version}
-                currentVersion={currentVersion}
-              />
-            );
-          })}
+          <VersionItem
+            key={'version_' + currentVersion}
+            version={currentVersion}
+            currentVersion={currentVersion}
+          />
+        </tbody>
+      </table>
+      <h2>Previous versions</h2>
+      <table className="versions">
+        <tbody>
+          {stableVersions.map(version => (
+            <VersionItem
+              key={'version_' + version}
+              version={version}
+              currentVersion={currentVersion}
+            />
+          ))}
         </tbody>
       </table>
       <h2>Archived versions</h2>
