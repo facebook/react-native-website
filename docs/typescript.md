@@ -80,7 +80,7 @@ npm install -D typescript @types/jest @types/react @types/react-native @types/re
 <TabItem value="yarn">
 
 ```shell
-yarn add -d typescript @types/jest @types/react @types/react-native @types/react-test-renderer
+yarn add -D typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
 </TabItem>
