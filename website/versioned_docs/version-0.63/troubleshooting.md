@@ -109,4 +109,11 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
+### Case 2: Error "could not initialize class org.codehaus.groovy.runtime.invokerhelper react native"
+The problem may arise when you run an android application on Andrid device from macOS
+
+```shell
+export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home"
+```
+
 [metro]: https://facebook.github.io/metro/
