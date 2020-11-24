@@ -102,11 +102,11 @@ There are two ways to handle URLs that open your app.
 
 #### 1. If the app is already open, the app is foregrounded and a Linking event is fired
 
-You can handle these events with `Linking.addEventListener(url, callback)`.
+You can handle these events with `Linking.addEventListener('url', callback)`.
 
 #### 2. If the app is not already open, it is opened and the url is passed in as the initialURL
 
-You can handle these events with `Linking.getInitialURL(url)` -- it returns a Promise that resolves to the url, if there is one.
+You can handle these events with `Linking.getInitialURL()` -- it returns a Promise that resolves to the url, if there is one.
 
 ---
 
