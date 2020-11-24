@@ -105,6 +105,7 @@ hr {
     code {
       background-color: transparent;
       font-size: 90%;
+      padding: 0 6px;
     }
   }
 
@@ -125,7 +126,7 @@ hr {
     tr th {
       text-transform: uppercase;
       padding: 6px 10px;
-      font-size: 12px;
+      font-size: 0.7rem;
       text-align: left;
     }
 
@@ -142,6 +143,21 @@ hr {
 
     .wideColumn {
       width: 128px;
+    }
+  }
+
+  figure {
+    text-align: center;
+    padding: 8px;
+
+    figcaption {
+      padding: 8px;
+      font-size: 0.9rem;
+      color: var(--subtle);
+
+      code {
+        color: var(--subtle);
+      }
     }
   }
 
