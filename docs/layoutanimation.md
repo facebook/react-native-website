@@ -3,6 +3,8 @@ id: layoutanimation
 title: LayoutAnimation
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Automatically animates views to their new positions when the next layout happens.
 
 A common way to use this API is to call it before updating the state hook in functional components and calling `setState` in class components.
@@ -53,7 +55,7 @@ const App = () => {
 
 const style = StyleSheet.create({
   tile: {
-    background: "lightGrey",
+    backgroundColor: "lightgrey",
     borderWidth: 0.5,
     borderColor: "#d6d7da"
   },
@@ -67,8 +69,6 @@ const style = StyleSheet.create({
 
 export default App;
 ```
-
-<block class="endBlock syntax" />
 
 ---
 
@@ -86,11 +86,11 @@ Schedules an animation to happen on the next layout.
 
 #### Parameters:
 
-| Name              | Type     | Required | Description                         |
-| ----------------- | -------- | -------- | ----------------------------------- |
-| config            | object   | Yes      | See config description below.       |
-| onAnimationDidEnd | function | No       | Called when the animation finished. |
-| onAnimationDidFail| function | No       | Called when the animation failed.   |
+| Name               | Type     | Required | Description                         |
+| ------------------ | -------- | -------- | ----------------------------------- |
+| config             | object   | Yes      | See config description below.       |
+| onAnimationDidEnd  | function | No       | Called when the animation finished. |
+| onAnimationDidFail | function | No       | Called when the animation failed.   |
 
 The `config` parameter is an object with the keys below. [`create`](layoutanimation.md#create) returns a valid object for `config`, and the [`Presets`](layoutanimation.md#presets) objects can also all be passed as the `config`.
 
@@ -120,18 +120,8 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 
 Example usage:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { useState } from "react";
@@ -203,7 +193,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -284,7 +275,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## Properties
 
@@ -346,18 +338,8 @@ Calls `configureNext()` with `Presets.spring`.
 
 Example usage:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { useState } from "react";
@@ -454,7 +436,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -564,4 +547,5 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>

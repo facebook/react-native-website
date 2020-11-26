@@ -1,7 +1,6 @@
 ---
-id: version-0.62-running-on-simulator-ios
+id: running-on-simulator-ios
 title: Running On Simulator
-original_id: running-on-simulator-ios
 ---
 
 ## Starting the simulator

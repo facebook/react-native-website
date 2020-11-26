@@ -3,22 +3,14 @@ id: activityindicator
 title: ActivityIndicator
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Displays a circular loading indicator.
 
 ## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=ActivityIndicator%20Function%20Component%20Example
 import React from "react";
@@ -48,7 +40,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=ActivityIndicator%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -82,7 +75,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 # Reference
 
@@ -108,9 +102,9 @@ Whether to show the indicator (`true`) or hide it (`false`).
 
 The foreground color of the spinner.
 
-| Type            | Default                                                                                                                                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [color](colors) | `null` (system accent default color)<div class="label android">Android</div><hr/><ins style="background: #999" class="color-box"></ins>`'#999999'` <div class="label ios">iOS</div> |
+| Type            | Default                                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [color](colors) | `null` (system accent default color)<div class="label android">Android</div><hr/><ins style={{background: '#999'}} className="color-box" />`'#999999'` <div className="label ios">iOS</div> |
 
 ---
 

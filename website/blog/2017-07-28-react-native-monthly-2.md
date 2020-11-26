@@ -1,11 +1,11 @@
 ---
-title: React Native Monthly #2
+title: 'React Native Monthly #2'
 author: Tomislav Tenodi
 authorTitle: Product Manager at Shoutem
-authorURL: https://github.com/tenodi
-authorImageURL: https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg
+authorURL: 'https://github.com/tenodi'
+authorImageURL: 'https://pbs.twimg.com/profile_images/877237660225609729/bKFDwfAq.jpg'
 authorTwitter: TomislavTenodi
-category: engineering
+tags: [engineering]
 ---
 
 The React Native monthly meeting continues! On this session, we were joined by [Infinite Red](https://infinite.red/), great minds behind [Chain React, the React Native Conference](https://infinite.red/ChainReactConf). As most of the people here were presenting talks at Chain React, we pushed the meeting to a week later. Talks from the conference have been [posted online](https://www.youtube.com/playlist?list=PLFHvL21g9bk3RxJ1Ut5nR_uTZFVOxu522) and I encourage you to check them out. So, let's see what our teams are up to.
@@ -59,7 +59,7 @@ Here are the notes from each team:
 - Facebook is internally exploring being able to embed native [ComponentKit](http://componentkit.org/) and [Litho](https://fblitho.com/) components inside of React Native.
 - Contributions to React Native are very welcome! If you are wondering how you can contribute, the ["How to Contribute" guide](https://github.com/facebook/react-native-website/blob/master/CONTRIBUTING.md) describes our development process and lays out the steps to send your first pull request. There are other ways to contribute that do not require writing code, such as by triaging issues or updating the docs.
   - At the time of writing, React Native has **635** [open issues](https://github.com/facebook/react-native/issues) and **249** [open pull requests](https://github.com/facebook/react-native/pulls). This is overwhelming for our maintainers, and when things get fixed internally, it is difficult to ensure the relevant tasks are updated.
-  - We are unsure what the best approach is to handle this while keeping the community satisfied. Some (but not all!) options include closing stale issues, giving significantly more people permissions to manage issues, and automatically closing issues that do not follow the issue template. We wrote a ["What to Expect from Maintainers"](/docs/maintainers.html) guide to set expectations and avoid surprises. If you have ideas on how we can make this experience better for maintainers as well as ensuring people opening issues and pull requests feel heard and valued, please let us know!
+  - We are unsure what the best approach is to handle this while keeping the community satisfied. Some (but not all!) options include closing stale issues, giving significantly more people permissions to manage issues, and automatically closing issues that do not follow the issue template. We wrote a "What to Expect from Maintainers" guide to set expectations and avoid surprises. If you have ideas on how we can make this experience better for maintainers as well as ensuring people opening issues and pull requests feel heard and valued, please let us know!
 
 ### GeekyAnts
 

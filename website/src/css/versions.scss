@@ -1,0 +1,46 @@
+@import "shared";
+
+.versions-page {
+  max-width: 960px;
+  padding: 28px;
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  code {
+    white-space: pre;
+  }
+
+  p a,
+  td a {
+    @extend %link-style;
+
+    code {
+      background: none;
+      white-space: nowrap;
+    }
+  }
+
+  table th,
+  table td {
+    min-width: 100px;
+    font-size: 15px;
+    padding: 8px 20px;
+  }
+
+  .versions {
+    margin-bottom: 32px;
+  }
+}
+
+html[data-theme="dark"] .versions-page {
+  p a,
+  td a {
+    @extend %link-style-dark;
+  }
+}

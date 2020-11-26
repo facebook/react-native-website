@@ -1,8 +1,9 @@
 ---
-id: version-0.62-touchablehighlight
+id: touchablehighlight
 title: TouchableHighlight
-original_id: touchablehighlight
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 A wrapper for making views respond properly to touches. On press down, the opacity of the wrapped view is decreased, which allows the underlay color to show through, darkening or tinting the view.
 
@@ -29,18 +30,8 @@ function MyComponent(props) {
 
 ## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
 import React, { useState } from "react";
@@ -87,7 +78,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -142,7 +134,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 

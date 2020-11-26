@@ -1,16 +1,10 @@
 node_modules
 .DS_Store
 .idea
-lib/core/metadata.js
-lib/core/MetadataBlog.js
-website/translated_docs
-website/build/
-website/community-repos.json
-website/yarn.lock
-website/node_modules
+.nvmrc
+.docusaurus
 
-website/i18n/*
-!website/i18n/en.json
+website/build/
 
 .nvmrc
 website/scripts/sync-api-docs/generatedComponentApiDocs.js
@@ -27,3 +21,5 @@ cnwebsite/i18n/*
 
 cnwebsite/scripts/sync-api-docs/generatedComponentApiDocs.js
 cnwebsite/scripts/sync-api-docs/extracted.json
+sync-api-docs/generatedComponentApiDocs.js
+sync-api-docs/extracted.json

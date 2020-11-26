@@ -1,7 +1,6 @@
 ---
-id: version-0.63-animatedvaluexy
+id: animatedvaluexy
 title: Animated.ValueXY
-original_id: animatedvaluexy
 ---
 
 2D Value for driving 2D animations, such as pan gestures. Almost identical API to normal [`Animated.Value`](animatedvalue), but multiplexed. Contains two regular `Animated.Value`s under the hood.

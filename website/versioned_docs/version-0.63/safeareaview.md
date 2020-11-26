@@ -1,7 +1,6 @@
 ---
-id: version-0.63-safeareaview
+id: safeareaview
 title: SafeAreaView
-original_id: safeareaview
 ---
 
 The purpose of `SafeAreaView` is to render content within the safe area boundaries of a device. It is currently only applicable to iOS devices with iOS version 11 or later.
@@ -12,7 +11,7 @@ The purpose of `SafeAreaView` is to render content within the safe area boundari
 
 To use, wrap your top level view with a `SafeAreaView` with a `flex: 1` style applied to it. You may also want to use a background color that matches your application's design.
 
-```SnackPlayer name=SafeAreaView
+```SnackPlayer name=SafeAreaView&supportedPlatforms=ios
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 

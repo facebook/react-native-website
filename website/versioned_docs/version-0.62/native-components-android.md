@@ -1,7 +1,6 @@
 ---
-id: version-0.62-native-components-android
+id: native-components-android
 title: Native UI Components
-original_id: native-components-android
 ---
 
 There are tons of native UI widgets out there ready to be used in the latest apps - some of them are part of the platform, others are available as third-party libraries, and still more might be in use in your very own portfolio. React Native has several of the most critical platform components already wrapped, like `ScrollView` and `TextInput`, but not all of them, and certainly not ones you might have written yourself for a previous app. Fortunately, we can wrap up these existing components for seamless integration with your React Native application.

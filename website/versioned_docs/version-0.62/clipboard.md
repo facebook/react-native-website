@@ -1,10 +1,9 @@
 ---
-id: version-0.62-clipboard
-title: 🚧 Clipboard
-original_id: clipboard
+id: clipboard
+title: '🚧 Clipboard'
 ---
 
-> **Deprecated.** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
+> **Deprecated.** Use [@react-native-community/clipboard](https://github.com/react-native-clipboard/clipboard) instead.
 
 `Clipboard` gives you an interface for setting and getting content from Clipboard on both Android and iOS
 

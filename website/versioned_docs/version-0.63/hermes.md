@@ -1,11 +1,10 @@
 ---
-id: version-0.63-hermes
+id: hermes
 title: Using Hermes
-original_id: hermes
 ---
 
 <a href="https://hermesengine.dev">
-  <img width="300" height="300" style="float: right; margin: -30px 4px 0;" src="/docs/assets/HermesLogo.svg"/>
+  <img width="300" height="300" style={{float: "right", margin: "-30px 4px 0"}} src="/docs/assets/HermesLogo.svg"/>
 </a>
 
 [Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for running React Native apps on Android. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
@@ -37,13 +36,13 @@ Also, if you're using ProGuard, you will need to add these rules in `proguard-ru
 
 Next, if you've already built your app at least once, clean the build:
 
-```sh
+```shell
 $ cd android && ./gradlew clean
 ```
 
 That's it! You should now be able to develop and deploy your app as normal:
 
-```sh
+```shell
 $ npx react-native run-android
 ```
 
@@ -65,7 +64,7 @@ const isHermes = () => !!global.HermesInternal;
 
 To see the benefits of Hermes, try making a release build/deployment of your app to compare. For example:
 
-```sh
+```shell
 $ npx react-native run-android --variant release
 ```
 

@@ -1,0 +1,72 @@
+%link-style {
+  display: initial;
+  color: var(--ifm-font-color-base);
+  background-color: rgba(187, 239, 253, 0.3);
+  line-height: calc(var(--ifm-font-size-base) + 4px);
+  border-bottom: 1px solid var(--ifm-hr-border-color);
+
+  &:hover {
+    background-color: rgba(187, 239, 253, 0.6);
+  }
+}
+
+%link-style-dark {
+  background-color: rgba(97, 218, 251, 0.12);
+  border-bottom-color: rgba(97, 218, 251, 0.3);
+
+  &:hover {
+    background-color: rgba(97, 218, 251, 0.4);
+    border-bottom-color: var(--brand);
+  }
+}
+
+%hash-link-style {
+  background-color: transparent;
+  border-bottom: 0;
+  color: var(--subtle);
+
+  &:hover {
+    background-color: transparent;
+    color: var(--brand);
+  }
+}
+
+%button-link-style {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: var(--ifm-global-radius);
+  color: var(--ifm-color-content-secondary);
+
+  &:hover {
+    background: var(--ifm-menu-color-background-hover);
+    color: var(--ifm-color-primary);
+  }
+}
+
+%scrollbar-style {
+  &::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+}
+
+%scrollbar-style-dark {
+  &::-webkit-scrollbar-track {
+    background: #141414;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--ifm-color-emphasis-200);
+  }
+}

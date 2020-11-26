@@ -1,10 +1,9 @@
 ---
-id: version-0.62-progressbarandroid
-title: 🚧 ProgressBarAndroid
-original_id: progressbarandroid
+id: progressbarandroid
+title: '🚧 ProgressBarAndroid'
 ---
 
-> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/progress-bar-android) instead.
+> **Deprecated.** Use [@react-native-community/progress-bar-android](https://github.com/react-native-progress-view/progress-bar-android) instead.
 
 Android-only React component used to indicate that the app is loading or there is some activity in the app.
 

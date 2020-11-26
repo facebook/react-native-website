@@ -1,7 +1,6 @@
 ---
-id: version-0.62-headless-js-android
+id: headless-js-android
 title: Headless JS
-original_id: headless-js-android
 ---
 
 Headless JS is a way to run tasks in JavaScript while your app is in the background. It can be used, for example, to sync fresh data, handle push notifications, or play music.

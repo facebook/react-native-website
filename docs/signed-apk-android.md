@@ -78,7 +78,7 @@ android {
 
 Run the following in a terminal:
 
-```sh
+```shell
 cd android
 ./gradlew bundleRelease
 ```
@@ -95,8 +95,8 @@ In order for Google Play to accept AAB format the App Signing by Google Play nee
 
 Before uploading the release build to the Play Store, make sure you test it thoroughly. First uninstall any previous version of the app you already have installed. Install it on the device using the following command in the project root:
 
-```sh
-npx react-native run-android --variant release
+```shell
+npx react-native run-android --variant=release
 ```
 
 Note that `--variant release` is only available if you've set up signing as described above.
@@ -142,3 +142,7 @@ def enableProguardInReleaseBuilds = true
 ## Migrating old Android React Native apps to use App Signing by Google Play
 
 If you are migrating from previous version of React Native chances are your app does not use App Signing by Google Play feature. We recommend you enable that in order to take advantage from things like automatic app splitting. In order to migrate from the old way of signing you need to start by [generating new upload key](#generating-an-upload-key) and then replacing release signing config in `android/app/build.gradle` to use the upload key instead of the release one (see section about [adding signing config to gradle](#adding-signing-config-to-your-app-s-gradle-config)). Once that's done you should follow the [instructions from Google Play Help website](https://support.google.com/googleplay/android-developer/answer/7384423) in order to send your original release key to Google Play.
+
+## Default Permissions
+
+By default, `INTERNET` permission is added to your Android app as pretty much all apps use it. `SYSTEM_ALERT_WINDOW` permission is added to your Android APK in debug mode but it will be removed in production.

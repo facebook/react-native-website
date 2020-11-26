@@ -1,7 +1,6 @@
 ---
-id: version-0.62-state
+id: state
 title: State
-original_id: state
 ---
 
 There are two types of data that control a component: `props` and `state`. `props` are set by the parent and they are fixed throughout the lifetime of a component. For data that is going to change, we have to use `state`.
