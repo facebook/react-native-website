@@ -2,10 +2,10 @@
 title: Better List Views in React Native
 author: Spencer Ahrens
 authorTitle: Software Engineer at Facebook
-authorURL: https://github.com/sahrens
-authorImageURL: https://avatars1.githubusercontent.com/u/1509831
+authorURL: 'https://github.com/sahrens'
+authorImageURL: 'https://avatars1.githubusercontent.com/u/1509831'
 authorTwitter: sahrens2012
-category: engineering
+tags: [engineering]
 ---
 
 Many of you have started playing with some of our new List components already after our [teaser announcement in the community group](https://www.facebook.com/groups/react.native.community/permalink/921378591331053), but we are officially announcing them today! No more `ListView`s or `DataSource`s, stale rows, ignored bugs, or excessive memory consumption - with the latest React Native March 2017 release candidate (`0.43-rc.1`) you can pick from the new suite of components what best fits your use-case, with great perf and feature sets out of the box:

@@ -2,10 +2,10 @@
 title: React Native Team Principles
 author: Eli White
 authorTitle: Engineering Manager on React Native
-authorURL: https://twitter.com/Eli_White
-authorImageURL: https://avatars2.githubusercontent.com/u/249164?s=460&v=4
+authorURL: 'https://twitter.com/Eli_White'
+authorImageURL: 'https://avatars2.githubusercontent.com/u/249164?s=460&v=4'
 authorTwitter: Eli_White
-category: announcements
+tags: [announcement]
 ---
 
 The React Native team at Facebook is guided by principles that help determine how we prioritize our work on React Native. These principles represent our team specifically and do not necessarily represent every stakeholder in the React Native community. We are sharing these principles here to be more transparent about what drives us, how we make decisions, and how we focus our efforts.

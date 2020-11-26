@@ -1,7 +1,6 @@
 ---
-id: version-0.62-interactionmanager
+id: interactionmanager
 title: InteractionManager
-original_id: interactionmanager
 ---
 
 InteractionManager allows long-running work to be scheduled after any interactions/animations have completed. In particular, this allows JavaScript animations to run smoothly.

@@ -6,6 +6,8 @@ authorURL: 'https://twitter.com/notbrent'
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 React Native provides a set of built-in [Core Components and APIs](./components-and-apis) ready to use in your app. You're not limited to the components and APIs bundled with React Native. React Native has a community of thousands of developers. If the Core Components and APIs don't have what you are looking for, you may be able to find and install a library from the community to add the functionality to your app.
 
 ## Selecting a Package Manager
@@ -18,11 +20,24 @@ If you have Node.js installed on your computer then you already have the npm CLI
 
 ## Installing a Library
 
-To install a library in your project, navigate to your project directory in your terminal and run `npm install <name-of-the-library>`. Let's try this with `react-native-webview`:
+To install a library in your project, navigate to your project directory in your terminal and run the installation command. Let's try this with `react-native-webview`:
 
-```bash
+<Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
+<TabItem value="npm">
+
+```shell
 npm install react-native-webview
 ```
+
+</TabItem>
+<TabItem value="yarn">
+
+```shell
+yarn add react-native-webview
+```
+
+</TabItem>
+</Tabs>
 
 The library that we installed includes native code, and we need to link to our app before we use it.
 

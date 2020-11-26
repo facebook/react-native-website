@@ -1,18 +1,18 @@
 ---
-title: Building <InputAccessoryView> For React Native
+title: 'Building <InputAccessoryView> For React Native'
 author: Peter Argany
 authorTitle: Software Engineer at Facebook
-authorURL: https://github.com/PeteTheHeat
-authorImageURL: https://avatars3.githubusercontent.com/u/6011080?s=400&u=028e28081107d0ab16a5cb22baca43c080f5fa50&v=4
+authorURL: 'https://github.com/PeteTheHeat'
+authorImageURL: 'https://avatars3.githubusercontent.com/u/6011080?s=400&u=028e28081107d0ab16a5cb22baca43c080f5fa50&v=4'
 authorTwitter: peterargany
-category: engineering
+tags: [engineering]
 ---
 
 ## Motivation
 
 Three years ago, a GitHub issue was opened to support input accessory view from React Native.
 
-<img src="/blog/assets/input-accessory-1.png"/>
+<img src="/blog/assets/input-accessory-1.png" />
 
 In the ensuing years, there have been countless '+1s', various workarounds, and zero concrete changes to RN on this issue - until today. Starting with iOS, [we're exposing an API](/docs/inputaccessoryview) for accessing the native input accessory view and we are excited to share how we built it.
 
@@ -22,21 +22,21 @@ What exactly is an input accessory view? Reading [Apple's developer documentatio
 
 There are two common use cases for anchoring a view to the top of the keyboard. The first is creating a keyboard toolbar, like the Facebook composer background picker.
 
-<img src="/blog/assets/input-accessory-2.gif" style="float:left; padding-right: 70px; padding-top: 20px"/>
+<img src="/blog/assets/input-accessory-2.gif" style={{float: 'left', paddingRight: 70, paddingTop: 20}} />
 
 In this scenario, the keyboard is focused on a text input field, and the input accessory view is used to provide additional keyboard functionality. This functionality is contextual to the type of input field. In a mapping application it could be address suggestions, or in a text editor, it could be rich text formatting tools.
 
-<hr style="clear: both; margin-bottom: 20px"/>
+<hr style={{clear: 'both', marginBottom: 20}} />
 
 The Objective-C UIResponder who owns the `<InputAccessoryView>` in this scenario should be clear. The `<TextInput>` has become first responder, and under the hood this becomes an instance of `UITextView` or `UITextField`.
 
 The second common scenario is sticky text inputs:
 
-<img src="/blog/assets/input-accessory-3.gif" style="float:left; padding-right: 70px; padding-top: 20px"/>
+<img src="/blog/assets/input-accessory-3.gif" style={{float: 'left', paddingRight: 70, paddingTop: 20}} />
 
 Here, the text input is actually part of the input accessory view itself. This is commonly used in messaging applications, where a message can be composed while scrolling through a thread of previous messages.
 
-<hr style="clear: both; margin-bottom: 20px"/>
+<hr style={{clear: 'both', marginBottom: 20}} />
 
 Who owns the `<InputAccessoryView>` in this example? Can it be the `UITextView` or `UITextField` again? The text input is _inside_ the input accessory view, this sounds like a circular dependency. Solving this issue alone is [another blog post](http://derpturkey.com/uitextfield-docked-like-ios-messenger/) in itself. Spoilers: the owner is a generic `UIView` subclass who we manually tell to [becomeFirstResponder](https://developer.apple.com/documentation/uikit/uiresponder/1621113-becomefirstresponder?language=objc).
 
@@ -65,19 +65,17 @@ Of course not everything was smooth sailing while building this API. Here are a 
 
 An initial idea for building this API involved listening to `NSNotificationCenter` for UIKeyboardWill(Show/Hide/ChangeFrame) events. This pattern is used in some open-sourced libraries, and internally in some parts of the Facebook app. Unfortunately, `UIKeyboardDidChangeFrame` events were not being called in time to update the `<InputAccessoryView>` frame on swipes. Also, changes in keyboard height are not captured by these events. This creates a class of bugs that manifest like this:
 
-<img src="/blog/assets/input-accessory-4.gif" style="float:left; padding-right: 70px; padding-top: 20px"/>
+<img src="/blog/assets/input-accessory-4.gif" style={{float: 'left', paddingRight: 70, paddingTop: 20}} />
 
 On iPhone X, text and emoji keyboard are different heights. Most applications using keyboard events to manipulate text input frames had to fix the above bug. Our solution was to commit to using the `.inputAccessoryView` property, which meant that the responder infrastructure handles frame updates like this.
 
-<hr style="clear: both; margin-bottom: 20px"/>
+<hr style={{clear: 'both', marginBottom: 20}} />
 
-Another tricky bug we encountered was avoiding the home pill on iPhone X. You may be thinking, “Apple developed [safeAreaLayoutGuide](https://developer.apple.com/documentation/uikit/uiview/2891102-safearealayoutguide?language=objc) for this very reason, this is trivial!”. We were just as naive. The first issue is that the native `<InputAccessoryView>` implementation has no window to anchor to until the moment it is about to appear. That's alright, we can override `-(BOOL)becomeFirstResponder` and enforce layout constraints there. Adhering to these constraints bumps the accessory view up, but another bug arises:
-
-<img src="/blog/assets/input-accessory-5.gif" style="float:left; padding-right: 70px; padding-top: 20px"/>
+Another tricky bug we encountered was avoiding the home pill on iPhone X. You may be thinking, “Apple developed [safeAreaLayoutGuide](https://developer.apple.com/documentation/uikit/uiview/2891102-safearealayoutguide?language=objc) for this very reason, this is trivial!”. We were just as naive. The first issue is that the native `<InputAccessoryView>` implementation has no window to anchor to until the moment it is about to appear. That's alright, we can override `-(BOOL)becomeFirstResponder` and enforce layout constraints there. Adhering to these constraints bumps the accessory view up, but another bug arises: <img src="/blog/assets/input-accessory-5.gif" style={{float: 'left', paddingRight: 70, paddingTop: 20}} />
 
 The input accessory view successfully avoids the home pill, but now content behind the unsafe area is visible. The solution lies in this [radar](http://www.openradar.me/34411433). I wrapped the native `<InputAccessoryView>` hierarchy in a container which doesn't conform to the `safeAreaLayoutGuide` constraints. The native container covers the content in the unsafe area, while the `<InputAccessoryView>` stays within the safe area boundaries.
 
-<hr style="clear: both; margin-bottom: 20px"/>
+<hr style={{clear: 'both', marginBottom: 20}} />
 
 ## Example Usage
 
@@ -123,6 +121,6 @@ Another example for [Sticky Text Inputs can be found in the repository](https://
 
 ## When will I be able to use this?
 
-The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](http://reactnative.dev/docs/next/inputaccessoryview.html) will be available in the upcoming v0.55.0 release.
+The full commit for this feature implementation is [here](https://github.com/facebook/react-native/commit/38197c8230657d567170cdaf8ff4bbb4aee732b8). [`<InputAccessoryView>`](/docs/next/inputaccessoryview) will be available in the upcoming v0.55.0 release.
 
 Happy keyboarding :)

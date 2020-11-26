@@ -2,10 +2,10 @@
 title: Built with React Native - The Build.com app
 author: Garrett McCullough
 authorTitle: Senior Mobile Engineer
-authorURL: https://twitter.com/gwmccull
-authorImageURL: https://pbs.twimg.com/profile_images/955503100785172486/UrMKkQXc_400x400.jpg
+authorURL: 'https://twitter.com/gwmccull'
+authorImageURL: 'https://pbs.twimg.com/profile_images/955503100785172486/UrMKkQXc_400x400.jpg'
 authorTwitter: gwmccull
-category: built-with-reactnative
+tags: [showcase]
 ---
 
 [Build.com](https://www.build.com/), headquartered in Chico, California, is one of the largest online retailers for home improvement items. The team has had a strong web-centric business for 18 years and began thinking about a mobile App in 2015. Building unique Android and iOS apps wasn’t practical due to our small team and limited native experience. Instead, we decided to take a risk on the very new React Native framework. Our initial commit was on August 12, 2015 using React Native v0.8.0! We were live in both App Stores on October 15, 2016. Over the last two years, we’ve continued to upgrade and expand the app. We are currently on React Native version 0.53.0.

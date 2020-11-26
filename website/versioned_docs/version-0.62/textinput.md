@@ -1,7 +1,6 @@
 ---
-id: version-0.62-textinput
+id: textinput
 title: TextInput
-original_id: textinput
 ---
 
 A foundational component for inputting text into the app via a keyboard. Props provide configurability for several features, such as auto-correction, auto-capitalization, placeholder text, and different keyboard types, such as a numeric keypad.

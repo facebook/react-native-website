@@ -1,8 +1,9 @@
 ---
-id: version-0.62-layoutanimation
+id: layoutanimation
 title: LayoutAnimation
-original_id: layoutanimation
 ---
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Automatically animates views to their new positions when the next layout happens.
 
@@ -70,8 +71,6 @@ export default App;
 
 ```
 
-<block class="endBlock syntax" />
-
 ---
 
 # Reference
@@ -121,18 +120,8 @@ Helper that creates an object (with `create`, `update`, and `delete` fields) to 
 
 Example usage:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component, useState } from "react";
@@ -202,7 +191,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -281,7 +271,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## Properties
 
@@ -343,18 +334,8 @@ Calls `configureNext()` with `Presets.spring`.
 
 Example usage:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      Function Component Example
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class Component Example
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { useState } from "react";
@@ -449,7 +430,8 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -557,4 +539,5 @@ const styles = StyleSheet.create({
 });
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>

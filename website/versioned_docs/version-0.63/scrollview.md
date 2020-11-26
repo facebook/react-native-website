@@ -1,7 +1,6 @@
 ---
-id: version-0.63-scrollview
+id: scrollview
 title: ScrollView
-original_id: scrollview
 ---
 
 Component that wraps platform ScrollView while providing integration with touch locking "responder" system.
@@ -688,7 +687,7 @@ Use in conjunction with `snapToOffsets`. By default, the beginning of the list c
 
 ### `stickyHeaderIndices`
 
-An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. This property is not supported in conjunction with `horizontal={true}`.
+An array of child indices determining which children get docked to the top of the screen when scrolling. For example, passing `stickyHeaderIndices={[0]}` will cause the first child to be fixed to the top of the scroll view. You can also use like [x,y,z] to make multiple items sticky when they are at the top. This property is not supported in conjunction with `horizontal={true}`.
 
 | Type            | Required |
 | --------------- | -------- |

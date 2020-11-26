@@ -8,13 +8,13 @@
 const glob = require('glob-promise');
 const fs = require('fs-extra');
 const path = require('path');
-const siteConfig = require('./siteConfig');
+const siteConfig = require('./docusaurus.config.js');
 
 const imageReferenceRegExp = new RegExp(/!\[.*?\]\((.*)\)/g);
 
 let missingAssets = [];
 let queue = Promise.resolve();
-glob('../docs/**/*.md')
+glob('./docs/**/*.md')
   .then(files => {
     files.forEach(file => {
       queue = queue
@@ -25,7 +25,7 @@ glob('../docs/**/*.md')
           let matches;
           while ((matches = imageReferenceRegExp.exec(contents))) {
             const pathToFile = path.join(
-              '..',
+              './',
               matches[1].replace(siteConfig.baseUrl, '')
             );
             missingAssets.push({imagePath: pathToFile, markdownPath: file});
@@ -40,11 +40,13 @@ glob('../docs/**/*.md')
       const {imagePath, markdownPath} = missingAsset;
       queue = queue
         .then(() => {
-          return fs.stat(imagePath);
+          return fs.stat('./static/' + imagePath);
         })
-        .catch(() => {
+        .then(stats => {})
+        .catch(e => {
           console.error(
             'Could not find ' +
+              'static/' +
               imagePath +
               ' which has at least one reference in ' +
               markdownPath +

@@ -1,7 +1,6 @@
 ---
-id: version-0.62-imagebackground
+id: imagebackground
 title: ImageBackground
-original_id: imagebackground
 ---
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.

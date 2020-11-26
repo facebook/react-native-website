@@ -1,7 +1,6 @@
 ---
-id: version-0.62-flexbox
+id: flexbox
 title: Layout with Flexbox
-original_id: flexbox
 ---
 
 A component can specify the layout of its children using the Flexbox algorithm. Flexbox is designed to provide a consistent layout on different screen sizes.

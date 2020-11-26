@@ -1,7 +1,6 @@
 ---
-id: version-0.62-removing-default-permissions
+id: removing-default-permissions
 title: Removing Default Permissions
-original_id: removing-default-permissions
 ---
 
 By default, some permissions are added to your Android APK.
