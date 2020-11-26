@@ -60,7 +60,7 @@ As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaMod
 
 ### Module Name
 
-All Java native modules in Android need to implement the `getName` method. This method returns a string, which represents the name of the native module. The native module can then be accessed in JavaScript using its name. For example, in the below code snippet, `getName` returns `"CalendarModule"`.
+All Java native modules in Android need to implement the `getName()` method. This method returns a string, which represents the name of the native module. The native module can then be accessed in JavaScript using its name. For example, in the below code snippet, `getName()` returns `"CalendarModule"`.
 
 ```java
 @Override
@@ -79,7 +79,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 
 Next you will need to add a method to your native module that will create calendar events and can be invoked in Javascript. All native module methods meant to be invoked from JavaScript must be annotated with `@ReactMethod`.
 
-Set up a method `createCalendarEvent` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent`. For now, the method will take in a name and location as strings. Argument type options will be covered shortly.
+Set up a method `createCalendarEvent()` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent()`. For now, the method will take in a name and location as strings. Argument type options will be covered shortly.
 
 ```java
 @ReactMethod
@@ -115,7 +115,7 @@ At the moment, we do not recommend this, since calling methods synchronously can
 
 Once a native module is written, it needs to be registered with React Native. In order to do so, you need to add your native module to a `ReactPackage` and register the `ReactPackage` with React Native. During initialization, React Native will loop over all packages, and for each `ReactPackage`, register each native module within.
 
-React Native invokes the method `createNativeModules` on a `ReactPackage` in order to get the list of native modules to register. For Android, if a module is not instantiated and returned in createNativeModules it will not be available from Javascript.
+React Native invokes the method `createNativeModules()` on a `ReactPackage` in order to get the list of native modules to register. For Android, if a module is not instantiated and returned in createNativeModules it will not be available from Javascript.
 
 To add your Native Module to `ReactPackage`, first create a new Java Class named `MyAppPackage.java` that implements `ReactPackage` inside the `android/app/src/main/java/com/your-app-name/` folder:
 
@@ -152,13 +152,13 @@ public class MyAppPackage implements ReactPackage {
 }
 ```
 
-This file imports the native module you created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
+This file imports the native module you created, `CalendarModule`. It then instantiates `CalendarModule` within the `createNativeModules()` function and returns it as a list of `NativeModules` to register. If you add more native modules down the line, you can also instantiate them and add them to the list returned here.
 
-> It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule` method, you have to implement a `getReactModuleInfoProvider` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
+> It is worth noting that this way of registering native modules eagerly initializes all native modules when the application starts, which adds to the startup time of an application. You can use [TurboReactPackage](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/TurboReactPackage.java) as an alternative. Instead of `createNativeModules`, which return a list of instantiated native module objects, TurboReactPackage implements a `getModule(String name, ReactApplicationContext rac)` method that creates the native module object, when required. TurboReactPackage is a bit more complicated to implement at the moment. In addition to implementing a `getModule()` method, you have to implement a `getReactModuleInfoProvider()` method, which returns a list of all the native modules the package can instantiate along with a function that instantiates them, example [here](https://github.com/facebook/react-native/blob/8ac467c51b94c82d81930b4802b2978c85539925/ReactAndroid/src/main/java/com/facebook/react/CoreModulesPackage.java#L86-L165). Again, using TurboReactPackage will allow your application to have a faster startup time, but it is currently a bit cumbersome to write. So proceed with caution if you choose to use TurboReactPackages.
 
-To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages` method. Open up your `MainApplication.java` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/MainApplication.java`
+To register the `CalendarModule` package, you must add `MyAppPackage` to the list of packages returned in ReactNativeHost's `getPackages()` method. Open up your `MainApplication.java` file, which can be found in the following path: `android/app/src/main/java/com/your-app-name/MainApplication.java`
 
-Locate ReactNativeHost’s `getPackages` method and add your package to the packages list `getPackages` returns:
+Locate ReactNativeHost’s `getPackages()` method and add your package to the packages list `getPackages()` returns:
 
 ```java
 @Override
@@ -177,7 +177,7 @@ You have now successfully registered your native module for Android!
 
 At this point, you have set up the basic scaffolding for your native module in Android. Test that out by accessing the native module and invoking its exported method in JavaScript.
 
-Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress` function.
+Find a place in your application where you would like to add a call to the native module’s `createCalendarEvent()` method. Below is an example of a component, `NewModuleButton` you can add in your app. You can invoke the native module inside `NewModuleButton`'s `onPress()` function.
 
 ```jsx
 import React from 'react';
@@ -212,7 +212,7 @@ You can then access the `CalendarModule` native module off of `NativeModules`.
 const { CalendarModule } = NativeModules;
 ```
 
-Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent`. Below it is added to the `onPress` method in `NewModuleButton`:
+Now that you have the CalendarModule native module available, you can invoke your native method `createCalendarEvent()`. Below it is added to the `onPress()` method in `NewModuleButton`:
 
 ```jsx
 const onPress = () => {
@@ -232,7 +232,7 @@ As you work through these guides and iterate on your native module, you will nee
 
 ### Recap✨
 
-You should now be able to invoke your `createCalendarEvent` method on your native module in the app. In our example this occurs by pressing the `NewModuleButton`. You can confirm this by viewing the log you set up in your `createCalendarEvent` method. You can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view ADB logs in your app. You should then be able to search for your `Log.d` message (in our example “Create event called with name: testName and location: testLocation”) and see your message logged each time you invoke your native module method.
+You should now be able to invoke your `createCalendarEvent()` method on your native module in the app. In our example this occurs by pressing the `NewModuleButton`. You can confirm this by viewing the log you set up in your `createCalendarEvent()` method. You can follow [these steps](https://developer.android.com/studio/debug/am-logcat.html) to view ADB logs in your app. You should then be able to search for your `Log.d` message (in our example “Create event called with name: testName and location: testLocation”) and see your message logged each time you invoke your native module method.
 
 <figure>
   <img src="/docs/assets/native-modules-android-logs.png" width="1000" alt="Image of logs." />
@@ -323,7 +323,7 @@ For argument types not listed above, you will need to handle the conversion your
 
 ### Exporting Constants
 
-A native module can export constants by implementing the native method `getConstants`, which is available in JS. Below you will implement `getConstants` and return a Map that contains a `DEFAULT_EVENT_NAME` constant you can access in Javascript:
+A native module can export constants by implementing the native method `getConstants()`, which is available in JS. Below you will implement `getConstants()` and return a Map that contains a `DEFAULT_EVENT_NAME` constant you can access in Javascript:
 
 ```java
 @Override
@@ -341,9 +341,9 @@ const { DEFAULT_EVENT_NAME } = CalendarModule.getConstants();
 console.log(DEFAULT_EVENT_NAME);
 ```
 
-Technically it is possible to access constants exported in `getConstants` directly off the native module object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
+Technically it is possible to access constants exported in `getConstants()` directly off the native module object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> That currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants` will become a regular native module method, and each invocation will hit the native side.
+> That currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants()` will become a regular native module method), and each invocation will hit the native side.
 
 ### Callbacks
 
