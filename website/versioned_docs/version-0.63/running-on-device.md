@@ -373,24 +373,7 @@ Make sure that the build script detected the IP address of your machine correctl
 
 ![](/docs/assets/XcodeBuildIP.png)
 
-Open the **Report navigator** tab, select the last **Build** and search for `xip.io`. The IP address which gets embedded in the app should match your machines IP address plus the domain `.xip.io` (e.g. 10.0.1.123.xip.io)
-
-#### 3. Network/router configuration
-
-React Native uses the wildcard DNS service **xip.io** to address your device, as Apple ATS prohibits URLs with IP addresses instead of domain names, and developers' networks are often not set up to resolve local hostnames. Some routers have security features to prevent DNS Servers from resolving to anything in the local IP range.
-
-Now check if you are able to resolve the xip.io address, by running `nslookup`.
-
-```bash
-$ nslookup 10.0.1.123.xip.io
-```
-
-If it doesn't resolve your local IP address either the **xip.io** service is down or more likely your router prevents it.
-
-To still use xip.io behind your router:
-
-- configure your phone to use Google DNS (8.8.8.8)
-- disable the appropriate security feature in your router
+Open the **Report navigator** tab, select the last **Build** and search for `IP=` followed by an IP address. The IP address which gets embedded in the app should match your machines IP address.
 
 ## Building your app for production
 
