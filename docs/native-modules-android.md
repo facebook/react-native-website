@@ -222,7 +222,7 @@ const onPress = () => {
 
 The final step is to rebuild the React Native app so that you can have the latest native code (with your new native module!) available. In your command line, where the react native application is located, run the following:
 
-```jsx
+```shell
 npx react-native run-android
 ```
 
@@ -501,7 +501,6 @@ Error message in React Native App when promise is rejected:
 Native modules can signal events to JavaScript without being invoked directly. For example, you might want to signal to Javascript a reminder that a calendar event from the native Android calendar app will occur soon. The easiest way to do this is to use the `RCTDeviceEventEmitter` which can be obtained from the `ReactContext` as in the code snippet below.
 
 ```java
-
 ...
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.bridge.WritableMap;
@@ -519,7 +518,6 @@ WritableMap params = Arguments.createMap();
 params.putString("eventProperty", "someValue");
 ...
 sendEvent(reactContext, "EventReminder", params);x`
-
 ```
 
 JavaScript modules can then register to receive events by `addListener` on the [NativeEventEmitter](https://github.com/facebook/react-native/blob/master/Libraries/EventEmitter/NativeEventEmitter.js) class.
@@ -540,7 +538,6 @@ import { NativeEventEmitter, NativeModules } from 'react-native';
  componentWillUnmount() {
    this.eventListener.remove(); //Removes the listener
  }
-
 ```
 
 ### Getting Activity Result from startActivityForResult
