@@ -1,7 +1,6 @@
 ---
 id: native-modules-intro
 title: Native Modules Intro
-original_id: native-modules-intro
 ---
 
 Sometimes a React Native app needs to access a native platform API that is not available by default in Javascript, for example the native APIs to access Apple or Android pay. Maybe you want to reuse some existing Objective-C, Swift, Java or C++ libraries without having to reimplement it in JavaScript, or write some high performance, multi-threaded code for things like image processing.
