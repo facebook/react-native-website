@@ -293,16 +293,18 @@ CalendarModule.createCalendarEvent('foo', 'bar');
 
 When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Java object analogues. So for example, if your Java Native Module method accepts a double, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the Javascript equivalents they map to.
 
-- Boolean -> ?boolean
-- boolean -> boolean
-- Double -> ?number
-- double -> number
-- String -> string
-- Callback -> Function
-- ReadableMap -> Object
-- ReadableArray -> Array
+| Java          | Javascript |
+| ------------- | ---------- |
+| Boolean       | ?boolean   |
+| boolean       | boolean    |
+| Double        | ?number    |
+| double        | number     |
+| String        | string     |
+| Callback      | Function   |
+| ReadableMap   | Object     |
+| ReadableArray | Array      |
 
-> The following types are currently supported but will not be supported in TurboModules Please avoid using them:
+> The following types are currently supported but will not be supported in TurboModules. Please avoid using them:
 >
 > - Integer -> ?number
 > - int -> number

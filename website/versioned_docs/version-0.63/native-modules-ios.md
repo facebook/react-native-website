@@ -249,25 +249,28 @@ NativeCalendarModule.createCalendarEvent('foo', 'bar');
 
 When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Objective-C/Swift object analogues. So for example, if your Objective-C Native Module method accepts a NSNumber, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
 
-- string -> NSString \*
-- ?string -> NSString \*
-- boolean -> BOOL
-- ?boolean -> NSNumber \*
-- number -> double
-- ?number -> NSNumber \*
-- Array -> NSArray \*
-- ?Array -> NSArray \*
-- Object -> NSDictionary \*
-- ?Object -> NSDictionary \*
-- Function (success) -> RCTResponseSenderBlock
-- Function (failure) -> RCTResponseSenderBlock, RCTResponseErrorBlock
-- Promise -> RCTPromiseResolveBlock, RCTPromiseRejectBlock
-  > The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
-  >
-  > - Function (failure) -> RCTResponseErrorBlock
-  > - Number -> NSInteger
-  > - Number -> CGFloat
-  > - Number -> float
+| Objective-C                                   | Javascript         |
+| --------------------------------------------- | ------------------ |
+| NSString                                      | string             |
+| NSString                                      | ?string            |
+| BOOL                                          | boolean            |
+| NSNumber                                      | ?boolean           |
+| double                                        | number             |
+| NSNumber                                      | ?number            |
+| NSArray                                       | Array              |
+| NSArray                                       | ?Array             |
+| NSDictionary                                  | Object             |
+| NSDictionary                                  | ?Object            |
+| RCTResponseSenderBlock                        | Function (success) |
+| RCTResponseSenderBlock, RCTResponseErrorBlock | Function (failure) |
+| RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise            |
+
+> The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
+>
+> - Function (failure) -> RCTResponseErrorBlock
+> - Number -> NSInteger
+> - Number -> CGFloat
+> - Number -> float
 
 For iOS, you can also write native module methods with any argument type that is supported by the `RCTConvert` class (see [RCTConvert](https://github.com/facebook/react-native/blob/master/React/Base/RCTConvert.h) for details about what is supported). The RCTConvert helper functions all accept a JSON value as input and map it to a native Objective-C type or class.
 
