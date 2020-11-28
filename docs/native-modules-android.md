@@ -7,7 +7,7 @@ Welcome to Native Modules for Android. Please start by reading the [Native Modul
 
 ## Create a Calendar Native Module
 
-In the following guide you will create a native module, `CalendarModule`, that will allow you to access Android’s calendar APIs from JavaScript. By the end, you will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a Java method that creates a calendar event.
+In the following guide you will create a native module, `CalendarModule`, that will allow you to access Android’s calendar APIs from JavaScript. By the end, you will be able to call `CalendarModule.createCalendarEvent('Dinner Party', 'My House');` from JavaScript, invoking a Java method that creates a calendar event.
 
 > The React Native team is currently working on a re-architecture of the Native Module system. This new system is called TurboModules, and it will help facilitate more efficient type-safe communication between JavaScript and native, without relying on the React Native bridge. It will also enable new extensions that weren't possible with the legacy Native Module system. You can read more about it here. Throughout these docs we have added notes around parts of Native Modules that will change in the TurboModules release and how you can best prepare for a smooth upgrade to TurboModules.
 
@@ -284,7 +284,7 @@ In your other Javascript files you can access the native module and invoke its m
 
 ```jsx
 import CalendarModule from './CalendarModule';
-CalendarModule.createCalendarEvent(‘foo’, ‘bar’);
+CalendarModule.createCalendarEvent('foo', 'bar');
 ```
 
 > This assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
@@ -377,7 +377,7 @@ const onPress = () => {
     'Party',
     'My House',
     (eventId) => {
-      console.log(`Created a new event with id ${eventId}`);
+      console.log('Created a new event with id ${eventId}');
     }
   );
 };

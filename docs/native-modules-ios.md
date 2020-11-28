@@ -7,7 +7,7 @@ Welcome to Native Modules for iOS. Please start by reading the [Native Modules I
 
 ## Create a Calendar Native Module
 
-In the following guide you will create a native module, `CalendarModule`, that will allow you to access Apple's calendar APIs from Javascript. By the end you will be able to call `CalendarModule.createCalendarEvent(‘Dinner Party’, ‘My House’);` from JavaScript, invoking a native method that creates a calendar event.
+In the following guide you will create a native module, `CalendarModule`, that will allow you to access Apple's calendar APIs from Javascript. By the end you will be able to call `CalendarModule.createCalendarEvent('Dinner Party', 'My House');` from JavaScript, invoking a native method that creates a calendar event.
 
 > The React Native team is currently working on a re-architecture of the Native Module system. This new system is called TurboModules, and it will help facilitate more efficient type-safe communication between JavaScript and native, without relying on the React Native bridge. It will also enable new extensions that weren't possible with the legacy Native Module system. You can read more about it here. Throughout these docs we have added notes around parts of Native Modules that will change in the TurboModules release and how you can best prepare for a smooth upgrade to TurboModules.
 
@@ -240,7 +240,7 @@ In your other Javascript files you can access the native module and invoke its m
 
 ```jsx
 import NativeCalendarModule from './NativeCalendarModule';
-NativeCalendarModule.createCalendarEvent(‘foo’, ‘bar’);
+NativeCalendarModule.createCalendarEvent('foo', 'bar');
 ```
 
 > Note this assumes that the place you are importing `CalendarModule` is in the same hierarchy as `CalendarModule.js`. Please update the relative import as necessary.
