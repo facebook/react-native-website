@@ -82,6 +82,7 @@ Next you will need to add a method to your native module that will create calend
 Set up a method `createCalendarEvent()` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent()`. For now, the method will take in a name and location as strings. Argument type options will be covered shortly.
 
 ```java
+// add to CalendarModule.java
 @ReactMethod
 public void createCalendarEvent(String name, String location) {
 }

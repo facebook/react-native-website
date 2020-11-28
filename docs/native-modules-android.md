@@ -63,6 +63,7 @@ As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaMod
 All Java native modules in Android need to implement the `getName()` method. This method returns a string, which represents the name of the native module. The native module can then be accessed in JavaScript using its name. For example, in the below code snippet, `getName()` returns `"CalendarModule"`.
 
 ```java
+// add to CalendarModule.java
 @Override
 public String getName() {
    return "CalendarModule";
