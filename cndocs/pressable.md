@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-触摸控制是一个核心组件包装器，能够检测定义的任意子组件的不同阶段的按压交互情况。
+按压控制是一个核心组件包装器，能够检测定义的任意子组件的不同阶段的按压交互情况。
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -25,11 +25,11 @@ title: Pressable
 
 <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence." />
 
-手指的精准度终究不是很精确，人们经常会不小心按错了或者错过了触发区域。为了帮助解决这个问题， `Pressable` 提供了一个可选项 `HitRect` ，可以用来定义相对于包裹元素的有效触发距离。在 `HitRect` 内的任何地方都可以触发触摸动作。
+手指的精准度终究不是很精确，人们经常会不小心按错了或者错过了触发区域。为了帮助解决这个问题， `Pressable` 提供了一个可选项 `HitRect` ，可以用来定义相对于包裹元素的有效触发距离。在 `HitRect` 内的任何地方都可以触发按压动作。
 
 `PressRect` 在保持激活状态的同时，允许用户按压时在元素及设定的范围内滑动，使触控更加优雅。试想一下滑动着缓慢离开按下的按钮。
 
-> 触控区域不会超出绑定的父级view，在触摸点击到两层重叠view时，Z轴的sibling  view总是具有最高优先权。
+> 触控区域不会超出绑定的父级view，在按压点击到两层重叠view时，Z轴的sibling  view总是具有最高优先权。
 
 <figure>
   <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
@@ -139,7 +139,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `disabled`
 
-是否禁用触摸行为。
+是否禁用按压行为。
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
@@ -147,7 +147,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `hitSlop`
 
-设置元素能够检测到触摸动作的额外距离。
+设置元素能够检测到按压动作的额外距离。
 
 | Type                   | Required |
 | ---------------------- | -------- |
