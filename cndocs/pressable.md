@@ -27,9 +27,9 @@ title: Pressable
 
 手指的精准度终究不是很精确，人们经常会不小心按错了或者错过了触发区域。为了帮助解决这个问题， `Pressable` 提供了一个可选项 `HitRect` ，可以用来定义相对于包裹元素的有效触发距离。在 `HitRect` 内的任何地方都可以触发按压动作。
 
-`PressRect` 在保持激活状态的同时，允许用户按压时在元素及设定的范围内滑动，使触控更加优雅。试想一下滑动着缓慢离开按下的按钮。
+`PressRect` 在保持激活状态的同时，允许用户按压时在元素及设定的范围内滑动，使触控更加优雅。试想一下缓慢地滑动着离开按下的按钮。
 
-> 触控区域不会超出绑定的父级view，在按压点击到两层重叠view时，Z轴的sibling  view总是具有最高优先权。
+> 触控区域不会超出绑定的父级view，在按压点击到两层重叠view时，Z-index的sibling  view总是具有最高优先权。
 
 <figure>
   <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
@@ -155,7 +155,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `onLongPress`
 
- 在`onPressIn` 持续超过500毫秒后调用。此持续时间可以通过 [`delayLongPress `](#delaylongpress)自定义。
+ 在 `onPressIn` 持续超过500毫秒后调用。此持续时间可以通过 [`delayLongPress `](#delaylongpress) 自定义。
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -163,7 +163,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `onPress`
 
-`onPressOut`之后调用。
+`onPressOut` 之后调用。
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -171,7 +171,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `onPressIn`
 
-在 `onPressOut` 和 `onPress`之前， 按压后立即调用。
+在 `onPressOut` 和 `onPress` 之前， 按压后立即调用。
 
 | Type                     | Required |
 | ------------------------ | -------- |
