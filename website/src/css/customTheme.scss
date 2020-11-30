@@ -496,9 +496,17 @@ html[data-theme="dark"] .navbar-sidebar {
   background: var(--ifm-background-color);
 }
 
-@media (max-width: 750px) {
-  .navbar .DocSearch-Button {
-    padding: 0 12px;
+@media (max-width: 1080px) {
+  .navbar {
+    .DocSearch-Button {
+      padding: 0 12px;
+    }
+
+    .DocSearch-Button-Key,
+    .DocSearch-Button-KeySeparator,
+    .DocSearch-Button-Placeholder {
+      display: none;
+    }
   }
 }
 
