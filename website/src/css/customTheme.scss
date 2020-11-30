@@ -497,14 +497,16 @@ html[data-theme="dark"] .navbar-sidebar {
 }
 
 @media (max-width: 1080px) {
-  .navbar .DocSearch-Button {
-    padding: 0 12px;
-  }
+  .navbar {
+    .DocSearch-Button {
+      padding: 0 12px;
+    }
 
-  .DocSearch-Button-Key,
-  .DocSearch-Button-KeySeparator,
-  .DocSearch-Button-Placeholder {
-    display: none;
+    .DocSearch-Button-Key,
+    .DocSearch-Button-KeySeparator,
+    .DocSearch-Button-Placeholder {
+      display: none;
+    }
   }
 }
 
