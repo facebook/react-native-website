@@ -516,6 +516,10 @@ div[class^="docSidebarContainer"] {
   width: 266px;
   min-width: 266px;
   margin-right: 16px;
+
+  .menu {
+    padding: 12px;
+  }
 }
 
 .menu__list {
@@ -572,9 +576,10 @@ html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
 }
 
-@media (min-width: 997px) {
-  div[class^="docSidebarContainer"] .menu {
-    padding: 16px 12px;
+@media (max-width: 1080px) {
+  div[class^="docSidebarContainer"] {
+    width: 236px;
+    min-width: 236px;
   }
 }
 
