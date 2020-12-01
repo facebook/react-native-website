@@ -43,7 +43,7 @@
     "infoLink": "",
     "infoTitle": "",
     "pinned": true
-  },  
+  },
   {
     "name": "Coinbase",
     "icon": "coinbase.png",
@@ -72,20 +72,20 @@
     "pinned": true
   },
   {
-    "name": "Words with Friends",
-    "icon": "words2.png",
-    "linkAppStore": "https://apps.apple.com/app/words-with-friends-2-word-game/id1196764367",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
-    "infoLink": "https://medium.com/zynga-engineering/why-how-words-with-friends-is-adopting-react-native-b24a405f421c",
-    "infoTitle": "Why & How Words With Friends Is Adopting React Native",
+    "name": "FlipKart",
+    "icon": "flipkart.png",
+    "linkAppStore": "https://apps.apple.com/in/app/flipkart-online-shopping-app/id742044692",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.flipkart.android&hl=en_US&gl=US",
+    "infoLink": "https://tech.flipkart.com/the-journey-of-react-native-flipkart-47dcd0c3d1c6",
+    "infoTitle": "The Journey of React Native @ FlipKart",
     "pinned": true
   },
   {
-    "name": "Skype",
-    "icon": "skype.png",
-    "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
-    "infoLink": "https://dev.skype.com/react",
+    "name": "NerdWallet",
+    "icon": "nerdwallet.png",
+    "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mobilecreditcards&hl=en_US",
+    "infoLink": "https://www.nerdwallet.com/",
     "infoTitle": "",
     "pinned": true
   },
@@ -95,6 +95,15 @@
     "linkAppStore": "https://itunes.apple.com/us/app/discord-chat-for-gamers/id985746746?mt=8",
     "infoLink": "https://blog.discord.com/how-discord-achieves-native-ios-performance-with-react-native-390c84dcd502",
     "infoTitle": "How Discord achieves native iOS performance with React Native",
+    "pinned": true
+  },
+  {
+    "name": "Skype",
+    "icon": "skype.png",
+    "linkAppStore": "https://itunes.apple.com/us/app/skype-for-iphone/id304878510?mt=8",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.skype.raider",
+    "infoLink": "https://dev.skype.com/react",
+    "infoTitle": "",
     "pinned": true
   },
   {
@@ -156,6 +165,42 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.salesforce.chatter",
     "infoLink": "https://www.salesforce.com/products/einstein/einstein-voice/",
     "infoTitle": "Einstein Voice Assistant: Voice Activated AI",
+    "pinned": true
+  },
+  {
+    "name": "Words with Friends",
+    "icon": "words2.png",
+    "linkAppStore": "https://apps.apple.com/app/words-with-friends-2-word-game/id1196764367",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.zynga.words3&hl=en_US&gl=US",
+    "infoLink": "https://medium.com/zynga-engineering/why-how-words-with-friends-is-adopting-react-native-b24a405f421c",
+    "infoTitle": "Why & How Words With Friends Is Adopting React Native",
+    "pinned": true
+  },
+  {
+    "name": "Call of Duty Companion App",
+    "icon": "callofduty_companion.png",
+    "linkAppStore": "https://apps.apple.com/us/app/call-of-duty-companion-app/id1405837628?ls=1",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.activision.callofduty.companion",
+    "infoLink": "https://www.callofduty.com/app",
+    "infoTitle": "",
+    "pinned": true
+  },
+  {
+    "name": "Foreca",
+    "icon": "foreca.png",
+    "linkAppStore": "https://apps.apple.com/app/foreca-weather/id525994479",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.foreca.android.weather",
+    "infoLink": "https://corporate.foreca.com/en/news/how-to-make-a-global-weather-app-serving-both-ios-and-android-users",
+    "infoTitle": "How to make a global weather app serving both iOS and Android users",
+    "pinned": true
+  },
+  {
+    "name": "LendMN",
+    "icon": "lendmn.png",
+    "linkAppStore": "https://apps.apple.com/mn/app/lendmn/id1167495761?ls=1",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.lendmn.lendmn",
+    "infoLink": "https://medium.com/@and.global/providing-financial-access-to-the-underbanked-through-react-native-a8473691d06",
+    "infoTitle": "Providing financial access to the underbanked through React Native",
     "pinned": true
   },
   {
