@@ -279,15 +279,15 @@ export default function CatApp() {
 
 `Image` 有[很多不同的 props](image#props)，[`style`](image#style)也是其中之一，它接受对象形式的样式和布局键值对。
 
-> 请留意我们在指定`style`属性的宽高时所用到的双层括号`{{ }}`。在JSX中，引用JS值时需要使用`{}`括起来。在你需要传递非字符串值（比如数组或者数字）的时候会经常用到这种写法：`<Cat food={["fish", "kibble"]} /> age={2}`。然而我们在JS中定义一个对象时，本来**_也_**需要用括号括起来：`{width: 200, height: 200}`。因此要在JSX中传递一个JS对象值的时候，就必须用到两层括号：`{{width: 200, height: 200}}`。
+> 请留意我们在指定`style`属性的宽高时所用到的双层括号`{{ }}`。在 JSX 中，引用 JS 值时需要使用`{}`括起来。在你需要传递非字符串值（比如数组或者数字）的时候会经常用到这种写法：`<Cat food={["fish", "kibble"]} /> age={2}`。然而我们在 JS 中定义一个对象时，本来**_也_**需要用括号括起来：`{width: 200, height: 200}`。因此要在 JSX 中传递一个 JS 对象值的时候，就必须用到两层括号：`{{width: 200, height: 200}}`。
 
-使用核心组件[`Text`](text), [`Image`](image)以及[`View`](view)搭配props已经可以做不少东西了！但是如果想要做一些用户交互，那我们还需要用到状态（state）。
+使用核心组件[`Text`](text), [`Image`](image)以及[`View`](view)搭配 props 已经可以做不少东西了！但是如果想要做一些用户交互，那我们还需要用到状态（state）。
 
 ## State 状态
 
-While you can think of props as arguments you use to configure how components render, **state**就像是组件的私人数据记录。 Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+如果把 props 理解为定制组件渲染的参数， 那么**state**就像是组件的私人数据记录。状态用于记录那些随时间或者用户交互而变化的数据。状态使组件拥有了记忆！
 
-> As a general rule, use props to configure a component when it renders. Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
+> 按惯例来说，props用来配置组件的第一次渲染（初始状态）。Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
 <div class="toggler">
   <ul role="tablist" class="toggle-syntax">
@@ -356,7 +356,7 @@ function Cat(props) {
 
 取什么名字并不重要。但脑海中应该形成这样一种模式：`[<取值>, <设值>] = useState(<initialValue>)`.
 
-下面我们添加一个按钮[`Button`](button)组件，并给它一个`onPress`的prop：
+下面我们添加一个按钮[`Button`](button)组件，并给它一个`onPress`的 prop：
 
 ```jsx
 <Button
@@ -367,7 +367,7 @@ function Cat(props) {
 />
 ```
 
-现在当用户点击按钮时，`onPress`函数会被触发，从而调用`setIsHungry(false)`。此时状态变量`isHungry`就被设为了`false`。当`isHungry`为false的时候，`Button`的`disabled`属性就变成了`true` ，其`title`也相应变化：
+现在当用户点击按钮时，`onPress`函数会被触发，从而调用`setIsHungry(false)`。此时状态变量`isHungry`就被设为了`false`。当`isHungry`为 false 的时候，`Button`的`disabled`属性就变成了`true` ，其`title`也相应变化：
 
 ```jsx
 <Button
@@ -446,7 +446,7 @@ export class Cat extends Component {
 }
 ```
 
-和使用`this.props`获取props一样，在组件中获取状态也是通过`this.state`：
+和使用`this.props`获取 props 一样，在组件中获取状态也是通过`this.state`：
 
 ```jsx
 <Text>
@@ -497,8 +497,8 @@ export default class Cafe extends Component {
 
 <block class="endBlock syntax" />
 
-> 注意到上面的`<>`和`</>`了吗？ 这一对JSX标签称为[Fragments（片段）](https://zh-hans.reactjs.org/docs/fragments.html)。由于JSX的语法要求根元素必须为单个元素，如果我们需要在根节点处并列多个元素，在这之前就不得不额外套一个没有实际用处的`View`。但有了Fragment后就不需要引入额外的容器视图了。
+> 注意到上面的`<>`和`</>`了吗？ 这一对 JSX 标签称为[Fragments（片段）](https://zh-hans.reactjs.org/docs/fragments.html)。由于 JSX 的语法要求根元素必须为单个元素，如果我们需要在根节点处并列多个元素，在这之前就不得不额外套一个没有实际用处的`View`。但有了 Fragment 后就不需要引入额外的容器视图了。
 
 ---
 
-现在你应该已经差不多了解React和React Native的核心组件与思想了。下面可以试着深入学习一些核心组件的用法，比如如何[处理文本输入`<TextInput>`](handling-text-input)。
+现在你应该已经差不多了解 React 和 React Native 的核心组件与思想了。下面可以试着深入学习一些核心组件的用法，比如如何[处理文本输入`<TextInput>`](handling-text-input)。

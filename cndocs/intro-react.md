@@ -282,7 +282,7 @@ export default function CatApp() {
 
 ## State 状态
 
-While you can think of props as arguments you use to configure how components render, **state**就像是组件的私人数据记录。状态用于记录那些随时间或者用户交互而变化的数据。Sate is useful for handling data that changes over time or that comes from user interaction. State gives your components memory!
+如果把props理解为定制组件渲染的参数， 那么**state**就像是组件的私人数据记录。状态用于记录那些随时间或者用户交互而变化的数据。状态使组件拥有了记忆！
 
 > 按惯例来说，props用来配置组件的第一次渲染（初始状态）。Use state to keep track of any component data that you expect to change over time. The following example takes place in a cat cafe where two hungry cats are waiting to be fed. Their hunger, which we expect to change over time (unlike their names), is stored as state. To feed the cats, press their buttons—which will update their state.
 
