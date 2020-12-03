@@ -212,11 +212,37 @@
     },
     {
       "type": "category",
-      "label": "Native Components and Modules",
+      "label": "Native Modules",
       "items": [
         {
           "type": "doc",
+          "id": "version-0.63/native-modules-intro"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.63/native-modules-android"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.63/native-modules-ios"
+        },
+        {
+          "type": "doc",
           "id": "version-0.63/native-modules-setup"
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Native Components",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-0.63/native-components-android"
+        },
+        {
+          "type": "doc",
+          "id": "version-0.63/native-components-ios"
         },
         {
           "type": "doc",
@@ -228,14 +254,6 @@
       "type": "category",
       "label": "Guides (Android)",
       "items": [
-        {
-          "type": "doc",
-          "id": "version-0.63/native-modules-android"
-        },
-        {
-          "type": "doc",
-          "id": "version-0.63/native-components-android"
-        },
         {
           "type": "doc",
           "id": "version-0.63/headless-js-android"
@@ -254,14 +272,6 @@
       "type": "category",
       "label": "Guides (iOS)",
       "items": [
-        {
-          "type": "doc",
-          "id": "version-0.63/native-modules-ios"
-        },
-        {
-          "type": "doc",
-          "id": "version-0.63/native-components-ios"
-        },
         {
           "type": "doc",
           "id": "version-0.63/linking-libraries-ios"
