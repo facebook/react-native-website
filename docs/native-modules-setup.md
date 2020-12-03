@@ -3,7 +3,7 @@ id: native-modules-setup
 title: Native Modules NPM Package Setup
 ---
 
-Native modules are usually distributed as npm packages, except that on top of the usual Javascript they will include some native code per platform. To understand more about npm packages you may find [this guide](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) useful.
+Native modules are usually distributed as npm packages, except that on top of the usual JavaScript they will include some native code per platform. To understand more about npm packages you may find [this guide](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) useful.
 
 To get set up with the basic project structure for a native module we will use the community tool called [Bob](https://github.com/react-native-community/bob). You can go ahead further and dive deep into how that library works, but for our needs we will only execute the basic `create` script:
 

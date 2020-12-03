@@ -65,7 +65,7 @@ render() {
 }
 ```
 
-Make sure to use `RNTMap` here. We want to require the manager here, which will expose the view of our manager for use in Javascript.
+Make sure to use `RNTMap` here. We want to require the manager here, which will expose the view of our manager for use in JavaScript.
 
 **Note:** When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
 

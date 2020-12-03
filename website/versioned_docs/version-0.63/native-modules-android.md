@@ -52,11 +52,11 @@ public class CalendarModule extends ReactContextBaseJavaModule {
 }
 ```
 
-As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule` class. For Android, Java native modules are written as classes that extend `ReactContextBaseJavaModule` and implement the functionality required by Javascript.
+As you can see, your `CalendarModule` class extends the `ReactContextBaseJavaModule` class. For Android, Java native modules are written as classes that extend `ReactContextBaseJavaModule` and implement the functionality required by JavaScript.
 
 > It is worth noting that technically Java classes only need to extend the `BaseJavaModule` class or implement the `NativeModule` interface to be considered a Native Module by React Native.
 
-> However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your native module type-safe in the future. For native module type-safety, which is coming in future releases, React Native looks at each native module's Javascript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
+> However we recommend that you use `ReactContextBaseJavaModule`, as shown above. `ReactContextBaseJavaModule` gives access to the `ReactApplicationContext` (RAC), which is useful for Native Modules that need to hook into activity lifecycle methods. Using `ReactContextBaseJavaModule` will also make it easier to make your native module type-safe in the future. For native module type-safety, which is coming in future releases, React Native looks at each native module's JavaScript spec and generates an abstract base class that extends `ReactContextBaseJavaModule`.
 
 ### Module Name
 
@@ -77,7 +77,7 @@ const { CalendarModule } = ReactNative.NativeModules;
 
 ### Export a Native Method to JavaScript
 
-Next you will need to add a method to your native module that will create calendar events and can be invoked in Javascript. All native module methods meant to be invoked from JavaScript must be annotated with `@ReactMethod`.
+Next you will need to add a method to your native module that will create calendar events and can be invoked in JavaScript. All native module methods meant to be invoked from JavaScript must be annotated with `@ReactMethod`.
 
 Set up a method `createCalendarEvent()` for `CalendarModule` that can be invoked in JS through `CalendarModule.createCalendarEvent()`. For now, the method will take in a name and location as strings. Argument type options will be covered shortly.
 
@@ -116,7 +116,7 @@ At the moment, we do not recommend this, since calling methods synchronously can
 
 Once a native module is written, it needs to be registered with React Native. In order to do so, you need to add your native module to a `ReactPackage` and register the `ReactPackage` with React Native. During initialization, React Native will loop over all packages, and for each `ReactPackage`, register each native module within.
 
-React Native invokes the method `createNativeModules()` on a `ReactPackage` in order to get the list of native modules to register. For Android, if a module is not instantiated and returned in createNativeModules it will not be available from Javascript.
+React Native invokes the method `createNativeModules()` on a `ReactPackage` in order to get the list of native modules to register. For Android, if a module is not instantiated and returned in createNativeModules it will not be available from JavaScript.
 
 To add your Native Module to `ReactPackage`, first create a new Java Class named `MyAppPackage.java` that implements `ReactPackage` inside the `android/app/src/main/java/com/your-app-name/` folder:
 
@@ -201,7 +201,7 @@ const NewModuleButton = () => {
 export default NewModuleButton;
 ```
 
-In order to access your native module from Javascript you need to first import `NativeModules` from React Native:
+In order to access your native module from JavaScript you need to first import `NativeModules` from React Native:
 
 ```jsx
 import { NativeModules } from 'react-native';
@@ -229,7 +229,7 @@ npx react-native run-android
 
 ### Building as You Iterate
 
-As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from Javascript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in Javascript and rebuild on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `npx react-native run-android` command.
+As you work through these guides and iterate on your native module, you will need to do a native rebuild of your application to access your most recent changes from JavaScript. This is because the code that you are writing sits within the native part of your application. While React Native’s metro bundler can watch for changes in JavaScript and rebuild on the fly for you, it will not do so for native code. So if you want to test your latest native changes you need to rebuild by using the `npx react-native run-android` command.
 
 ### Recap✨
 
@@ -240,7 +240,7 @@ You should now be able to invoke your `createCalendarEvent()` method on your nat
   <figcaption>Image of ADB logs in Android Studio</figcaption>
 </figure>
 
-At this point you have created an Android native module and invoked it’s native method from Javascript in your React Native application. You can read on to learn more about things like argument types available to a native module method and how to setup callbacks and promises.
+At this point you have created an Android native module and invoked it’s native method from JavaScript in your React Native application. You can read on to learn more about things like argument types available to a native module method and how to setup callbacks and promises.
 
 ## Beyond a Calendar Native Module
 
@@ -248,7 +248,7 @@ At this point you have created an Android native module and invoked it’s nativ
 
 Importing your native module by pulling it off of `NativeModules` like above is a bit clunky.
 
-To save consumers of your native module from needing to do that each time they want to access your native module, you can create a Javascript wrapper for the module. Create a new Javascript file named `CalendarModule.js` with the following content:
+To save consumers of your native module from needing to do that each time they want to access your native module, you can create a JavaScript wrapper for the module. Create a new JavaScript file named `CalendarModule.js` with the following content:
 
 ```jsx
 /**
@@ -263,7 +263,7 @@ const { CalendarModule } = NativeModules;
 export default CalendarModule;
 ```
 
-This Javascript file also becomes a good location for you to add any Javascript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the CalendarModule:
+This JavaScript file also becomes a good location for you to add any JavaScript side functionality. For example, if you use a type system like Typescript you can add type annotations for your native module here. While React Native does not yet support Native to JS type safety, all your JS code will be type safe. Doing so will also make it easier for you to switch to type-safe native modules down the line. Below is an example of adding type safety to the CalendarModule:
 
 ```jsx
 /**
@@ -281,7 +281,7 @@ interface CalendarInterface {
 export default CalendarModule as CalendarInterface;
 ```
 
-In your other Javascript files you can access the native module and invoke its method like this:
+In your other JavaScript files you can access the native module and invoke its method like this:
 
 ```jsx
 import CalendarModule from './CalendarModule';
@@ -292,9 +292,9 @@ CalendarModule.createCalendarEvent('foo', 'bar');
 
 ### Argument Types
 
-When a native module method is invoked in Javascript, React Native converts the arguments from JS objects to their Java object analogues. So for example, if your Java Native Module method accepts a double, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the Javascript equivalents they map to.
+When a native module method is invoked in JavaScript, React Native converts the arguments from JS objects to their Java object analogues. So for example, if your Java Native Module method accepts a double, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
 
-| Java          | Javascript |
+| Java          | JavaScript |
 | ------------- | ---------- |
 | Boolean       | ?boolean   |
 | boolean       | boolean    |
@@ -326,7 +326,7 @@ For argument types not listed above, you will need to handle the conversion your
 
 ### Exporting Constants
 
-A native module can export constants by implementing the native method `getConstants()`, which is available in JS. Below you will implement `getConstants()` and return a Map that contains a `DEFAULT_EVENT_NAME` constant you can access in Javascript:
+A native module can export constants by implementing the native method `getConstants()`, which is available in JS. Below you will implement `getConstants()` and return a Map that contains a `DEFAULT_EVENT_NAME` constant you can access in JavaScript:
 
 ```java
 @Override
@@ -362,7 +362,7 @@ public void createCalendarEvent(String name, String location, Callback callBack)
 }
 ```
 
-You can invoke the callback in your Java method, providing whatever data you want to pass to Javascript. Please note that you can only pass serializable data from native code to Javascript. If you need to pass back a native object you can use `WriteableMaps`, if you need to use a collection use `WritableArrays`. It is also important to highlight that the callback is not invoked immediately after the native function completes. Below the ID of an event created in an earlier call is passed to the callback.
+You can invoke the callback in your Java method, providing whatever data you want to pass to JavaScript. Please note that you can only pass serializable data from native code to JavaScript. If you need to pass back a native object you can use `WriteableMaps`, if you need to use a collection use `WritableArrays`. It is also important to highlight that the callback is not invoked immediately after the native function completes. Below the ID of an event created in an earlier call is passed to the callback.
 
 ```java
   @ReactMethod
@@ -372,7 +372,7 @@ You can invoke the callback in your Java method, providing whatever data you wan
    }
 ```
 
-This method could then be accessed in Javascript using:
+This method could then be accessed in JavaScript using:
 
 ```jsx
 const onPress = () => {
@@ -398,7 +398,7 @@ public void createCalendarEvent(String name, String location, Callback myFailure
 }
 ```
 
-In Javascript, you can then check the first argument to see if an error was passed through:
+In JavaScript, you can then check the first argument to see if an error was passed through:
 
 ```jsx
 const onPress = () => {
@@ -423,7 +423,7 @@ public void createCalendarEvent(String name, String location, Callback myFailure
 }
 ```
 
-Then in Javascript you can add a seperate callback for error and success responses:
+Then in JavaScript you can add a seperate callback for error and success responses:
 
 ```jsx
 const onPress = () => {
@@ -484,7 +484,7 @@ The reject method takes different combinations of the following arguments:
 String code, String message, WritableMap userInfo, Throwable throwable
 ```
 
-For more detail, you can find the `Promise.java` interface [here](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/bridge/Promise.java#L1). If `userInfo` is not provided, ReactNative will set it to null. For the rest of the parameters React Native will use a default value. The `message` argument provides the error `message` shown at the top of an error call stack. Below is an example of the error message shown in Javascript from the following reject call in Java.
+For more detail, you can find the `Promise.java` interface [here](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/bridge/Promise.java#L1). If `userInfo` is not provided, ReactNative will set it to null. For the rest of the parameters React Native will use a default value. The `message` argument provides the error `message` shown at the top of an error call stack. Below is an example of the error message shown in JavaScript from the following reject call in Java.
 
 Java reject call:
 
@@ -499,9 +499,9 @@ Error message in React Native App when promise is rejected:
   <figcaption>Image of error message</figcaption>
 </figure>
 
-### Sending Events to Javascript
+### Sending Events to JavaScript
 
-Native modules can signal events to JavaScript without being invoked directly. For example, you might want to signal to Javascript a reminder that a calendar event from the native Android calendar app will occur soon. The easiest way to do this is to use the `RCTDeviceEventEmitter` which can be obtained from the `ReactContext` as in the code snippet below.
+Native modules can signal events to JavaScript without being invoked directly. For example, you might want to signal to JavaScript a reminder that a calendar event from the native Android calendar app will occur soon. The easiest way to do this is to use the `RCTDeviceEventEmitter` which can be obtained from the `ReactContext` as in the code snippet below.
 
 ```java
 ...
