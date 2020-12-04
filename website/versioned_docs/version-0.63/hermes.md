@@ -13,6 +13,10 @@ First, ensure you're using at least version 0.60.4 of React Native.
 
 If you have an existing app based on an earlier version of React Native, you will have to upgrade it first. See [Upgrading to new React Native Versions](/docs/upgrading) for how to do this. Make especially sure that all changes to `android/app/build.gradle` have been applied, as detailed by the [React Native upgrade helper](https://react-native-community.github.io/upgrade-helper/?from=0.59.0). After upgrading the app, make sure everything works before trying to switch to Hermes.
 
+> ## Note for RN compatibility.
+>
+> Each Hermes release is aimed at a specific RN version. The rule of thumb is to always follow [Hermes releases](https://github.com/facebook/hermes/releases) strictly. Version mismatch can result in instant crash of your apps in the worst case scenario.
+
 > ## Note for Windows users.
 >
 > Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
