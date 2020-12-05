@@ -133,6 +133,14 @@ Either children or a function that receives a boolean reflecting whether the com
 | ------------------------ | -------- |
 | [React Node](react-node) | No       |
 
+### `unstable_pressDelay`
+
+Duration (in milliseconds) to wait after press down before calling `onPressIn`.
+
+| Type   | Required |
+| ------ | -------- |
+| number | No       |
+
 ### `delayLongPress`
 
 Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
