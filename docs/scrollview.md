@@ -186,13 +186,13 @@ This property specifies how the safe area insets are used to modify the content 
 
 ---
 
-### `contentOffset`
+### `contentOffset` <div class="label android">Android</div><div class="label ios">iOS</div>
 
 Used to manually set the starting scroll offset. The default value is `{x: 0, y: 0}`.
 
-| Type          | Required | Platform |
-| ------------- | -------- | -------- |
-| PointPropType | No       | iOS      |
+| Type          | Required |
+| ------------- | -------- |
+| PointPropType | No       |
 
 ---
 
