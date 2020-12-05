@@ -345,7 +345,7 @@ Invoked when a partial load of the image is complete. The definition of what con
 
 ---
 
-### `onProgress` <div class="label ios">iOS</div>
+### `onProgress` <div class="label android">Android</div><div class="label ios">iOS</div>
 
 Invoked on download progress.
 
