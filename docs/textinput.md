@@ -693,7 +693,7 @@ If `true`, all text will automatically be selected on focus.
 
 ---
 
-### `showSoftInputOnFocus` <div class="label android">Android</div><div class="label ios">iOS</div>
+### `showSoftInputOnFocus`
 
 When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
 
