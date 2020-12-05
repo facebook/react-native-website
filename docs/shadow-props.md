@@ -107,9 +107,11 @@ These properties are iOS only - for similar functionality on Android, use the [`
 
 Sets the drop shadow color
 
-| Type               | Required | Platform |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | No       | iOS      |
+> This will not work on Android (API < 28)
+
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
