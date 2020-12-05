@@ -605,16 +605,6 @@ When true, the scroll view scrolls to top when the status bar is tapped. The def
 
 ---
 
-### `DEPRECATED_sendUpdatedChildFrames`
-
-When true, ScrollView will emit updateChildFrames data in scroll events, otherwise will not compute or emit child frame data. This only exists to support legacy issues, `onLayout` should be used instead to retrieve frame data. The default value is false.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
 ### `showsHorizontalScrollIndicator`
 
 When true, shows a horizontal scroll indicator. The default value is true.
