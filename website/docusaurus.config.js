@@ -11,7 +11,7 @@ module.exports = {
   scripts: [
     {
       src:
-        'https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.min.js',
+        'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
       defer: true,
     },
     {src: 'https://snack.expo.io/embed.js', defer: true},

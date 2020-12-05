@@ -17,7 +17,7 @@ const parseParams = (paramString = '') => {
 const processNode = (node, parent) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let params = parseParams(node.meta);
+      const params = parseParams(node.meta);
 
       // Gather necessary Params
       const name = params.name ? decodeURIComponent(params.name) : 'Example';
@@ -26,12 +26,11 @@ const processNode = (node, parent) => {
         : 'Example usage';
       const sampleCode = node.value;
       const encodedSampleCode = encodeURIComponent(sampleCode);
-      const platform = params.platform ? params.platform : 'web';
-      const supportedPlatforms = params.supportedPlatforms
-        ? params.supportedPlatforms
-        : 'ios,android,web';
-      const theme = params.theme ? params.theme : 'light';
-      const preview = params.preview ? params.preview : 'true';
+      const platform = params.platform || 'web';
+      const supportedPlatforms = params.supportedPlatforms || 'ios,android,web';
+      const theme = params.theme || 'light';
+      const preview = params.preview || 'true';
+      const loading = params.loading || 'lazy';
 
       // Generate Node for SnackPlayer
       const snackPlayerDiv = u('html', {
@@ -45,6 +44,7 @@ const processNode = (node, parent) => {
             data-snack-supported-platforms="${supportedPlatforms}"
             data-snack-theme="${theme}"
             data-snack-preview="${preview}"
+            data-snack-loading="${loading}"
           ></div>
           `,
       });
