@@ -103,13 +103,13 @@ These properties are iOS only - for similar functionality on Android, use the [`
 
 ## Props
 
-### `shadowColor`
+### `shadowColor` <div class="label android">Android >= 28</div><div class="label ios">iOS</div>
 
 Sets the drop shadow color
 
-| Type               | Required | Platform |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | No       | iOS      |
+| Type               | Required |
+| ------------------ | -------- |
+| [color](colors.md) | No       |
 
 ---
 
