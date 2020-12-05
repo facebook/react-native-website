@@ -8,10 +8,11 @@ React component that wraps the platform `DrawerLayout` (Android only). The Drawe
 ## Example
 
 ```SnackPlayer name=DrawerLayoutAndroid%20Component%20Example&supportedPlatforms=android
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Button, DrawerLayoutAndroid, Text, StyleSheet, View } from "react-native";
 
 const App = () => {
+  const drawer = useRef(null);
   const [drawerPosition, setDrawerPosition] = useState("left");
   const changeDrawerPosition = () => {
     if (drawerPosition === "left") {
@@ -21,29 +22,38 @@ const App = () => {
     }
   };
 
-  const navigationView = (
-    <View style={styles.navigationContainer}>
-      <Text style={{ margin: 10, fontSize: 15 }}>I'm in the Drawer!</Text>
+  const navigationView = () => (
+    <View style={[styles.container, styles.navigationContainer]}>
+      <Text style={styles.paragraph}>I'm in the Drawer!</Text>
+      <Button
+        title="Close drawer"
+        onPress={() => drawer.current.closeDrawer()}
+      />
     </View>
   );
 
   return (
     <DrawerLayoutAndroid
+      ref={drawer}
       drawerWidth={300}
       drawerPosition={drawerPosition}
-      renderNavigationView={() => navigationView}
+      renderNavigationView={navigationView}
     >
       <View style={styles.container}>
-        <Text style={{ margin: 10, fontSize: 15 }}>
-          DrawerLayoutAndroid example
+        <Text style={styles.paragraph}>
+          Drawer on the {drawerPosition}!
         </Text>
         <Button
           title="Change Drawer Position"
           onPress={() => changeDrawerPosition()}
         />
-        <Text style={{ margin: 10, fontSize: 15 }}>
-          Drawer on the {drawerPosition}! Swipe from the side to see!
+        <Text style={styles.paragraph}>
+          Swipe from the side or press button below to see it!
         </Text>
+        <Button
+          title="Open drawer"
+          onPress={() => drawer.current.openDrawer()}
+        />
       </View>
     </DrawerLayoutAndroid>
   );
@@ -54,15 +64,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 50,
-    backgroundColor: "#ecf0f1",
-    padding: 8
+    padding: 16
   },
   navigationContainer: {
-    flex: 1,
-    paddingTop: 50,
-    backgroundColor: "#fff",
-    padding: 8
+    backgroundColor: "#ecf0f1"
+  },
+  paragraph: {
+    padding: 16,
+    fontSize: 15,
+    textAlign: "center"
   }
 });
 
