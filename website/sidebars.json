@@ -26,16 +26,38 @@
       "testing-overview",
       "libraries",
       "typescript",
-      "upgrading"
+      "upgrading",
+      {
+        "type": "category",
+        "label": "Connectivity",
+        "collapsed": false,
+        "items": ["network", "security"]
+      }
     ],
-    "Design": ["style", "height-and-width", "flexbox", "images", "colors"],
-    "Interaction": [
-      "handling-touches",
-      "navigation",
-      "animations",
-      "gesture-responder-system"
+    "Design": [
+      "style",
+      "height-and-width",
+      "flexbox",
+      "images",
+      "colors",
+      {
+        "type": "category",
+        "label": "Interaction",
+        "collapsed": false,
+        "items": [
+          "handling-touches",
+          "navigation",
+          "animations",
+          "gesture-responder-system"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Inclusion",
+        "collapsed": false,
+        "items": ["accessibility"]
+      }
     ],
-    "Inclusion": ["accessibility"],
     "Performance": [
       "performance",
       "optimizing-flatlist-configuration",
@@ -44,28 +66,48 @@
       "profile-hermes"
     ],
     "JavaScript Runtime": ["javascript-environment", "timers", "hermes"],
-    "Connectivity": ["network", "security"],
-    "Native Modules": [
-      "native-modules-intro",
-      "native-modules-android",
-      "native-modules-ios",
-      "native-modules-setup"
+    "Native Code": [
+      {
+        "type": "category",
+        "label": "Native Modules",
+        "collapsed": false,
+        "items": [
+          "native-modules-intro",
+          "native-modules-android",
+          "native-modules-ios",
+          "native-modules-setup"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "Native Components",
+        "collapsed": false,
+        "items": [
+          "native-components-android",
+          "native-components-ios",
+          "direct-manipulation"
+        ]
+      }
     ],
-    "Native Components": [
-      "native-components-android",
-      "native-components-ios",
-      "direct-manipulation"
-    ],
-    "Guides (Android)": [
-      "headless-js-android",
-      "signed-apk-android"
-    ],
-    "Guides (iOS)": [
-      "linking-libraries-ios",
-      "running-on-simulator-ios",
-      "communication-ios",
-      "app-extensions",
-      "publishing-to-app-store"
+    "Guides": [
+      {
+        "type": "category",
+        "label": "Android",
+        "collapsed": false,
+        "items": ["headless-js-android", "signed-apk-android"]
+      },
+      {
+        "type": "category",
+        "label": "iOS",
+        "collapsed": false,
+        "items": [
+          "linking-libraries-ios",
+          "running-on-simulator-ios",
+          "communication-ios",
+          "app-extensions",
+          "publishing-to-app-store"
+        ]
+      }
     ]
   },
   "api": {

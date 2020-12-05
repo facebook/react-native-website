@@ -7,7 +7,7 @@
   --deepdark: #20232a;
   --light: #373940;
   --text: #1a1a1a;
-  --subtle: #7a7a7a;
+  --subtle: #7e7e7e;
   --divider: #ececec;
   --tintColor: #f7f7f7;
   --rn-note-background: rgba(255, 229, 100, 0.3);
@@ -525,6 +525,10 @@ div[class^="docSidebarContainer"] {
 
   .menu {
     padding: 12px;
+
+    > .menu__list > .menu__list-item {
+      margin-bottom: 4px;
+    }
   }
 }
 
@@ -536,25 +540,11 @@ div[class^="docSidebarContainer"] {
     margin-top: 2px;
   }
 
-  .menu__list {
-    .menu__link {
-      font-size: 13px;
-      padding: 3px 12px;
-      font-weight: normal;
-      color: var(--ifm-font-color-base);
-    }
-
-    .menu__link--sublist {
-      font-weight: 600 !important;
-      margin-top: 4px;
-    }
-  }
-
   .menu__link--sublist {
-    font-size: 15px !important;
-    font-weight: 700 !important;
+    font-size: 15px;
+    font-weight: 600;
     padding: 5px 12px !important;
-    color: var(--subtle) !important;
+    color: var(--light);
 
     &:after {
       background-size: 1.66rem 1.66rem;
@@ -562,10 +552,31 @@ div[class^="docSidebarContainer"] {
     }
   }
 
+  .menu__list {
+    .menu__link {
+      font-size: 13px;
+      padding: 3px 12px 3px 16px;
+      font-weight: normal;
+      color: var(--ifm-font-color-base);
+    }
+
+    .menu__link--sublist {
+      color: var(--ifm-color-emphasis-700);
+      font-weight: 600;
+      font-size: 14px;
+      margin-top: 4px;
+
+      &:after {
+        background-size: 22px;
+        opacity: 0.75;
+      }
+    }
+  }
+
   .menu__link--active.active {
     border-left: 4px solid var(--ifm-menu-color-active) !important;
-    font-weight: 700 !important;
-    padding-left: 8px;
+    font-weight: 600 !important;
+    padding-left: 12px;
   }
 
   .menu__list-item--collapsed .menu__list {
@@ -580,6 +591,14 @@ div[class^="docSidebarContainer"] {
 
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
+
+  .menu__list > .menu__list-item > .menu__link--sublist {
+    color: var(--ifm-color-emphasis-400);
+  }
+
+  .menu__list .menu__list .menu__link--sublist {
+    color: var(--subtle);
+  }
 }
 
 @media (max-width: 1120px) {
