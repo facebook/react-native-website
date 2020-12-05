@@ -99,46 +99,44 @@ export default App;
 
 # Reference
 
-These properties are iOS only - for similar functionality on Android, use the [`elevation` property](view-style-props#elevation).
-
 ## Props
 
 ### `shadowColor`
 
-Sets the drop shadow color
+Sets the drop shadow color.
 
-> This will not work on Android (API < 28)
+This property will only work on Android API 28 and above. For similar functionality on lower Android APIs, use the [`elevation` property](view-style-props#elevation).
 
-| Type               | Required |
-| ------------------ | -------- |
-| [color](colors.md) | No       |
-
----
-
-### `shadowOffset`
-
-Sets the drop shadow offset
-
-| Type                                   | Required | Platform |
-| -------------------------------------- | -------- | -------- |
-| object: {width: number,height: number} | No       | iOS      |
+| Type               |
+| ------------------ |
+| [color](colors.md) |
 
 ---
 
-### `shadowOpacity`
+### `shadowOffset` <div class="label ios">iOS</div>
 
-Sets the drop shadow opacity (multiplied by the color's alpha component)
+Sets the drop shadow offset.
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type                                   |
+| -------------------------------------- |
+| object: {width: number,height: number} |
 
 ---
 
-### `shadowRadius`
+### `shadowOpacity` <div class="label ios">iOS</div>
 
-Sets the drop shadow blur radius
+Sets the drop shadow opacity (multiplied by the color's alpha component).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | iOS      |
+| Type   |
+| ------ |
+| number |
+
+---
+
+### `shadowRadius` <div class="label ios">iOS</div>
+
+Sets the drop shadow blur radius.
+
+| Type   |
+| ------ |
+| number |

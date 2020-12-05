@@ -136,6 +136,12 @@ hr {
       line-height: 1.3em;
       padding: 10px;
       text-align: left;
+
+      code {
+        display: inline-block;
+        line-height: 1.15em;
+        vertical-align: middle;
+      }
     }
 
     hr {
