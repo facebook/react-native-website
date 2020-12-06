@@ -8,7 +8,8 @@
         "jsxBracketSameLine": true,
         "printWidth": 80,
         "singleQuote": true,
-        "trailingComma": "es5"
+        "trailingComma": "es5",
+        "endOfLine": "auto"
       }
     },
     {
@@ -18,9 +19,17 @@
         "bracketSpacing": true,
         "jsxBracketSameLine": true,
         "printWidth": 66,
-        "proseWrap": "never",
+        "proseWrap": "preserve",
         "singleQuote": true,
-        "trailingComma": "none"
+        "trailingComma": "none",
+        "endOfLine": "auto"
+      }
+    },
+    {
+      "files": ["*.scss", "*.css"],
+      "options": {
+        "printWidth": 80,
+        "endOfLine": "auto"
       }
     }
   ]

@@ -57,7 +57,7 @@ class Game2048 extends React.Component {
 
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
+    this._tvEventHandler.enable(this, function (cmp, evt) {
       if (evt && evt.eventType === 'right') {
         cmp.setState({ board: cmp.state.board.move(2) });
       } else if (evt && evt.eventType === 'up') {
@@ -143,7 +143,7 @@ class Game2048 extends React.Component {
 
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
+    this._tvEventHandler.enable(this, function (cmp, evt) {
       if (evt && evt.eventType === 'right') {
         cmp.setState({ board: cmp.state.board.move(2) });
       } else if (evt && evt.eventType === 'up') {

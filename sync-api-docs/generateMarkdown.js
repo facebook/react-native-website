@@ -100,9 +100,7 @@ function generateMethod(method, component) {
 
       obj.map(item => {
         if (item.description.trim() !== 'missing')
-          mdPoints += `- '${item.key}' (${item.value.name}) - ${
-            item.description
-          }`;
+          mdPoints += `- '${item.key}' (${item.value.name}) - ${item.description}`;
         else mdPoints += `- '${item.key}' (${item.value.name})`;
       });
     }
@@ -203,7 +201,7 @@ function generateProps({props, composes}) {
     Object.keys(props)
       .sort((a, b) => a.localeCompare(b))
       .sort((a, b) => props[b].required - props[a].required)
-      .map(function(propName) {
+      .map(function (propName) {
         return generateProp(propName, props[propName]);
       })
       .join('\n\n---\n\n')
@@ -226,7 +224,7 @@ function generateMethods(component) {
           b.name /* TODO @nocommit what's a neutral locale */
         )
       )
-      .map(function(method) {
+      .map(function (method) {
         return generateMethod(method, component);
       })
       .join('\n\n---\n\n')
@@ -291,15 +289,11 @@ function preprocessDescription(desc) {
     return (
       desc.substr(0, desc.search('```SnackPlayer')) +
       `\n## Example\n` +
-      `${playgroundTab}\n\n${functionalBlock}\n\n${'`' +
-        firstExample.substr(
-          0,
-          firstExample.search('```') + 3
-        )}\n\n${classBlock}\n\n${'`' +
-        secondExample.substr(
-          0,
-          secondExample.search('```') + 3
-        )}\n\n${endBlock}` +
+      `${playgroundTab}\n\n${functionalBlock}\n\n${
+        '`' + firstExample.substr(0, firstExample.search('```') + 3)
+      }\n\n${classBlock}\n\n${
+        '`' + secondExample.substr(0, secondExample.search('```') + 3)
+      }\n\n${endBlock}` +
       secondExample.substr(secondExample.search('```') + 3)
     );
   } else {
