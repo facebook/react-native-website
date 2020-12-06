@@ -21,7 +21,7 @@
     "format:source": "prettier --write \"{core/**/*.js,src/**/*.js,*.js}\"",
     "format:markdown": "prettier --write \"../docs/*.md\" && prettier --write \"{versioned_docs/**/*.md,blog/**/*.md,src/pages/*.md}\"",
     "format:style": "prettier --write \"{src/css/*.scss,src/theme/**/*.css}\"",
-    "nit:source": "prettier --list-different \"{core/**/*.js,src/**/*.js,./*.js}}\"",
+    "nit:source": "prettier --list-different \"{core/**/*.js,src/**/*.js,*.js}}\"",
     "nit:markdown": "prettier --list-different \"../docs/*.md\" && prettier --list-different \"{versioned_docs/**/*.md,blog/**/*.md,src/pages/*.md}\"",
     "nit:style": "&& prettier --write \"{src/css/*.scss,src/theme/**/*.css}\"",
     "prettier": "yarn format:source && yarn format:markdown && yarn format:style",
