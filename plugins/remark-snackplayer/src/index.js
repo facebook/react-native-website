@@ -72,9 +72,7 @@ const SnackPlayer = () => {
       });
 
       // Wait for all promises to be resolved
-      Promise.all(nodesToProcess)
-        .then(resolve())
-        .catch(reject());
+      Promise.all(nodesToProcess).then(resolve()).catch(reject());
     });
 };
 
