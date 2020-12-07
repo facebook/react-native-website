@@ -29,7 +29,7 @@ title: Pressable
 
 `PressRect` 在保持激活状态的同时，允许用户按压时在元素及设定的范围内滑动，使触控更加优雅。试想一下缓慢地滑动着离开按下的按钮。
 
-> 触控区域不会超出绑定的父级view，在按压到重叠的兄弟视图时，z-index更高的那个视图会更优先
+> 触控区域不会超出绑定的父级view，在按压到重叠的兄弟视图时，z-index更高的那个视图会更优先。
 
 <figure>
   <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
@@ -123,7 +123,7 @@ export default App;
 
 ### `children`
 
-Either children or a function that receives a boolean reflecting whether the component is currently pressed.
+是由children还是函数来接收按压状态布尔值。 
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -195,7 +195,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `style`
 
-Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
+是由视图样式或者函数来接收组件按压状态布尔值，同时返回视图样式。
 
 | Type                              | Required |
 | --------------------------------- | -------- |
