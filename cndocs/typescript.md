@@ -7,22 +7,22 @@ title: 使用TypeScript
 
 ## Getting Started with TypeScript
 
-If you're starting a new project, there are a few different ways to get started. You can use the [TypeScript template][ts-template]:
+如果您要开始一个新项目，则有几种不同的上手方法。 您可以使用[TypeScript模板][ts-template]:
 
 ```sh
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
-> **Note** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your pc. Try uninstalling the cli and run the cli using `npx`.
+> **Note** 如果以上命令失败，则可能是您的PC上全局安装了旧版本的`react-native`或`react-native-cli`。 尝试卸载cli并使用`npx`运行cli.
 
-You can use [Expo][expo] which has two TypeScript templates:
+您可以使用具有两个TypeScript模板的[Expo][expo]:
 
 ```sh
 npm install -g expo-cli
 expo init MyTSProject
 ```
 
-Or you could use [Ignite][ignite], which also has a TypeScript template:
+或者，您可以使用[Ignite][ignite]，它也具有TypeScript模板:
 
 ```sh
 npm install -g ignite-cli
@@ -31,7 +31,7 @@ ignite new MyTSProject
 
 ## Adding TypeScript to an Existing Project
 
-1. Add TypeScript and the types for React Native and Jest to your project.
+1. 将 TypeScript 以及 React Native 和 Jest 的依赖添加到您的项目中。
 
 ```sh
 yarn add --dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
@@ -39,7 +39,7 @@ yarn add --dev typescript @types/jest @types/react @types/react-native @types/re
 npm install --save-dev typescript @types/jest @types/react @types/react-native @types/react-test-renderer
 ```
 
-2. Add a TypeScript config file. Create a `tsconfig.json` in the root of your project:
+添加一个 TypeScript 配置文件。 在项目的根目录中创建一个`tsconfig.json`：
 
 ```json
 {
@@ -64,7 +64,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 }
 ```
 
-3. Create a `jest.config.js` file to configure Jest to use TypeScript
+3. 创建一个`jest.config.js`文件来配置Jest以使用 TypeScript:
 
 ```js
 module.exports = {
@@ -73,9 +73,9 @@ module.exports = {
 };
 ```
 
-4. Rename a JavaScript file to be `*.tsx`
+4. 将JavaScript文件重命名为`* .tsx`:
 
-> You should leave the `./index.js` entrypoint file as it is otherwise you may run into an issue when it comes to bundling a production build.
+> 请保留`./index.js`入口文件，否则将在打包生产版本时遇到问题。
 
 5. Run `yarn tsc` to type-check your new TypeScript files.
 
