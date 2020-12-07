@@ -106,7 +106,7 @@ Unlike props [that are read-only](https://reactjs.org/docs/components-and-props.
 
 In a React component, the props are the variables that we pass from a parent component to a child component. Similarly, the state are also variables, with the difference that they are not passed as parameters, but rather that the component initializes and manages them internally.
 
-#### There are differences between React and React Native to handle the state?
+#### Are there differences between React and React Native to handle the state?
 
 ![image](https://user-images.githubusercontent.com/20761166/61405629-48270680-a8a8-11e9-906e-aa80d51e51e3.png)
 

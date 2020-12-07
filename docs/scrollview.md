@@ -190,9 +190,9 @@ This property specifies how the safe area insets are used to modify the content 
 
 Used to manually set the starting scroll offset. The default value is `{x: 0, y: 0}`.
 
-| Type          | Required | Platform |
-| ------------- | -------- | -------- |
-| PointPropType | No       | iOS      |
+| Type          | Required |
+| ------------- | -------- |
+| PointPropType | No       |
 
 ---
 
@@ -598,16 +598,6 @@ When true, the scroll view can be programmatically scrolled beyond its content s
 ### `scrollsToTop`
 
 When true, the scroll view scrolls to top when the status bar is tapped. The default value is true.
-
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
-
----
-
-### `DEPRECATED_sendUpdatedChildFrames`
-
-When true, ScrollView will emit updateChildFrames data in scroll events, otherwise will not compute or emit child frame data. This only exists to support legacy issues, `onLayout` should be used instead to retrieve frame data. The default value is false.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

@@ -1,6 +1,6 @@
 ---
 id: native-components-ios
-title: Native UI Components
+title: iOS Native UI Components
 ---
 
 There are tons of native UI widgets out there ready to be used in the latest apps - some of them are part of the platform, others are available as third-party libraries, and still more might be in use in your very own portfolio. React Native has several of the most critical platform components already wrapped, like `ScrollView` and `TextInput`, but not all of them, and certainly not ones you might have written yourself for a previous app. Fortunately, we can wrap up these existing components for seamless integration with your React Native application.
@@ -65,7 +65,7 @@ render() {
 }
 ```
 
-Make sure to use `RNTMap` here. We want to require the manager here, which will expose the view of our manager for use in Javascript.
+Make sure to use `RNTMap` here. We want to require the manager here, which will expose the view of our manager for use in JavaScript.
 
 **Note:** When rendering, don't forget to stretch the view, otherwise you'll be staring at a blank screen.
 
