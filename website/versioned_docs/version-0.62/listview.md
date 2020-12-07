@@ -268,7 +268,7 @@ Exports some data, e.g. for perf investigations or analytics.
 ### `scrollTo()`
 
 ```jsx
-scrollTo(...args: Array)
+scrollTo((...args: Array));
 ```
 
 Scrolls to a given x, y offset, either immediately or with a smooth animation.

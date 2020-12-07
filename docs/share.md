@@ -104,33 +104,16 @@ In iOS, returns a Promise which will be invoked with an object containing `actio
 
 In Android, returns a Promise which will always be resolved with action being `Share.sharedAction`.
 
-### Content
+**Properties:**
 
-- `message` - a message to share
-
-#### iOS
-
-- `url` - a URL to share
-
-At least one of URL and message is required.
-
-#### Android
-
-- `title` - title of the message
-
-### Options
-
-#### iOS
-
-- `subject` - a subject to share via email
-- `excludedActivityTypes`
-- `tintColor`
-
-#### Android
-
-- `dialogTitle`
+| Name                                                         | Type   | Description                                                                                                                                                                                                                                        |
+| ------------------------------------------------------------ | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| content <div className="label basic required">Required</div> | object | `message` - a message to share<br/>`url` - a URL to share <div class="label ios">iOS</div><br/>`title` - title of the message <div class="label android">Android</div><hr/>At least one of `url` and `message` is required.                        |
+| options                                                      | object | `dialogTitle` <div class="label android">Android</div><br/>`excludedActivityTypes` <div class="label ios">iOS</div><br/>`subject` - a subject to share via email <div class="label ios">iOS</div><br/>`tintColor` <div class="label ios">iOS</div> |
 
 ---
+
+## Properties
 
 ### `sharedAction`
 
@@ -142,10 +125,10 @@ The content was successfully shared.
 
 ---
 
-### `dismissedAction`
+### `dismissedAction` <div class="label ios">iOS</div>
 
 ```jsx
 static dismissedAction
 ```
 
-_iOS Only_. The dialog has been dismissed.
+The dialog has been dismissed.

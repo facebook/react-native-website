@@ -697,9 +697,9 @@ If `true`, all text will automatically be selected on focus.
 
 When `false`, it will prevent the soft keyboard from showing when the field is focused. The default value is `true`.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 

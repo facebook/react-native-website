@@ -404,9 +404,13 @@ function AppList() {
           : app.icon;
         return (
           <li key={i} className="item">
-            <a href={app.infoLink}>
+            {app.infoLink ? (
+              <a href={app.infoLink}>
+                <img src={imgSource} alt={app.name} />
+              </a>
+            ) : (
               <img src={imgSource} alt={app.name} />
-            </a>
+            )}
           </li>
         );
       })}

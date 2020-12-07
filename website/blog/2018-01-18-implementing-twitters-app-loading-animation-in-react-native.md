@@ -67,8 +67,7 @@ They say a picture is worth 1,000 words. How many words is an interactive visual
   title="Loading Screen Animation Steps"
   src="//codepen.io/TheSavior/embed/NXNoJM/?height=265&theme-id=0&default-tab=result&embed-version=2"
   frameborder="no"
-  allowTransparency="true"
-  allowFullScreen="true"
+  allowFullScreen={true}
   className="codepen">
   See the Pen{' '}
   <a href="https://codepen.io/TheSavior/pen/NXNoJM/">

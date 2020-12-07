@@ -1,8 +1,8 @@
 {
   "name": "@react-native-website/remark-snackplayer",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
-  "description": "Remark SnackPlayer Plugin",
+  "description": "Remark Expo Snack Plugin",
   "main": "src/index.js",
   "keywords": [
     "remark",
@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "dedent": "^0.7.0",
-    "object.fromentries": "^2.0.2",
+    "object.fromentries": "^2.0.3",
     "unist-builder": "^2.0.3",
-    "unist-util-visit-parents": "^3.1.0"
+    "unist-util-visit-parents": "^3.1.1"
   },
   "devDependencies": {
     "remark": "^12.0.1",
