@@ -127,14 +127,14 @@ This function then returns the reference to the listener.
 
 **Parameters:**
 
-| Name      | Type     | Required | Description                                                                               |
-| --------- | -------- | -------- | ----------------------------------------------------------------------------------------- |
-| eventName | string   | Yes      | The `nativeEvent` is the string that identifies the event you're listening for. See below |
-| callback  | function | Yes      | The function to be called when the event fires                                            |
+| Name                                                                     | Type     | Description                                                                    |
+| ------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------ |
+| eventName <div className="label basic two-lines required">Required</div> | string   | The string that identifies the event you're listening for. See the list below. |
+| callback <div className="label basic two-lines required">Required</div>  | function | The function to be called when the event fires                                 |
 
-**nativeEvent**
+**`eventName`**
 
-This can be any of the following
+This can be any of the following:
 
 - `keyboardWillShow`
 - `keyboardDidShow`
@@ -143,7 +143,7 @@ This can be any of the following
 - `keyboardWillChangeFrame`
 - `keyboardDidChangeFrame`
 
-Note that if you set `android:windowSoftInputMode` to `adjustResize` or `adjustPan`, only `keyboardDidShow` and `keyboardDidHide` events will be available on Android. If you set `android:windowSoftInputMode` to `adjustNothing`, no events will be available on Android. `keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
+> Note that if you set `android:windowSoftInputMode` to `adjustResize` or `adjustPan`, only `keyboardDidShow` and `keyboardDidHide` events will be available on Android. If you set `android:windowSoftInputMode` to `adjustNothing`, no events will be available on Android. `keyboardWillShow` as well as `keyboardWillHide` are generally not available on Android since there is no native corresponding event.
 
 ---
 

@@ -14,16 +14,27 @@ The `DevSettings` module exposes methods for customizing settings for developers
 ### `addMenuItem()`
 
 ```jsx
-static addMenuItem(title: string, handler: function)
+static addMenuItem(title, handler)
 ```
 
-Add a custom menu item to the developer menu:
+Add a custom menu item to the developer menu.
+
+**Parameters:**
+
+| Name                                                           | Type     |
+| -------------------------------------------------------------- | -------- |
+| title <div className="label basic required">Required</div>     | string   |
+| component <div className="label basic required">Required</div> | function |
+
+**Example:**
 
 ```jsx
 DevSettings.addMenuItem('Show Secret Dev Screen', () => {
   Alert.alert('Showing secret dev screen!');
 });
 ```
+
+---
 
 ### `reload()`
 

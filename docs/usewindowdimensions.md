@@ -46,34 +46,40 @@ export default App;
 
 ### `fontScale`
 
-The scale of the font currently used. Some operating systems allow users to scale their font sizes larger or smaller for reading comfort. This property will let you know what is in effect.
-
 ```jsx
 useWindowDimensions().fontScale;
 ```
 
-### `height`
+The scale of the font currently used. Some operating systems allow users to scale their font sizes larger or smaller for reading comfort. This property will let you know what is in effect.
 
-The height in pixels of the window or screen your app occupies.
+---
+
+### `height`
 
 ```jsx
 useWindowDimensions().height;
 ```
 
-### `scale`
+The height in pixels of the window or screen your app occupies.
 
-The pixel ratio of the device your app is running on.
+---
+
+### `scale`
 
 ```jsx
 useWindowDimensions().scale;
 ```
 
+The pixel ratio of the device your app is running on.
+
 > A value of `1` indicates PPI/DPI of 96 (76 on some platforms). `2` indicates a Retina or high DPI display.
 
-### `width`
+---
 
-The width in pixels of the window or screen your app occupies.
+### `width`
 
 ```jsx
 useWindowDimensions().width;
 ```
+
+The width in pixels of the window or screen your app occupies.
