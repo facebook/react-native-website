@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-Pressable is a Core Component wrapper that can detect various stages of press interactions on any of its defined children.
+`Pressable` 是一个核心组件的封装，它可以检测到任意子组件的不同阶段的按压交互情况。
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -11,36 +11,36 @@ Pressable is a Core Component wrapper that can detect various stages of press in
 </Pressable>
 ```
 
-## How it works
+## 原理
 
-On an element wrapped by `Pressable`:
+在被 `Pressable` 包装的元素上：
 
-- [`onPressIn`](#onpressin) is called when a press is activated.
-- [`onPressOut`](#onpressout) is called when the press gesture is deactivated.
+- [`onPressIn`](#onpressin) 在按压时被调用。
+- [`onPressOut`](#onpressout) 在按压动作结束后被调用。
 
-After pressing [`onPressIn`](#onpressin), one of two things will happen:
+在按下 [`onPressIn`](#onpressin) 后，将会出现如下两种情况的一种：
 
-1. The person will remove their finger, triggering [`onPressOut`](#onpressout) followed by [`onPress`](#onpress).
-2. If the person leaves their finger longer than 500 milliseconds before removing it, [`onLongPress`](#onlongpress) is triggered. ([`onPressOut`](#onpressout) will still fire when they remove their finger.)
+1. 用户移开手指，紧随 [`onPress`](#onpress) 之后触发 [`onPressOut`](#onpressout) 事件。
+2. 按压持续500毫秒以上，触发[`onLongPress`](#onlongpress) 事件。([`onPressOut`](#onpressout) 在移开手后依旧会触发。)
 
 <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_pressing.svg" width="1000" alt="Diagram of the onPress events in sequence." />
 
-Fingers are not the most precise instruments, and it is common for users to accidentally activate the wrong element or miss the activation area. To help, `Pressable` has an optional `HitRect` you can use to define how far a touch can register away from the wrapped element. Presses can start anywhere within a `HitRect`.
+手指的精准度终究不是很精确，人们经常会不小心按错了或者错过了触发区域。为了帮助解决这个问题， `Pressable` 提供了一个可选项 `HitRect` ，可以用来定义相对于包裹元素的有效触发距离。在 `HitRect` 内的任何地方都可以触发按压动作。
 
-`PressRect` allows presses to move beyond the element and its `HitRect` while maintaining activation and being eligible for a "press"—think of sliding your finger slowly away from a button you're pressing down on.
+`PressRect` 在保持激活状态的同时，允许用户按压时在元素及设定的范围内滑动，使触控更加优雅。试想一下缓慢地滑动着离开按下的按钮。
 
-> The touch area never extends past the parent view bounds and the Z-index of sibling views always takes precedence if a touch hits two overlapping views.
+> 触控区域不会超出绑定的父级view，在按压到重叠的兄弟视图时，z-index更高的那个视图会更优先
 
 <figure>
   <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
   <figcaption>
-    You can set <code>HitRect</code> with <code>hitSlop</code> and set <code>PressRect</code> with <code>pressRetentionOffset</code>.
+    用 <code>hitSlop</code> 设置 <code>HitRect</code>； 用 <code>pressRetentionOffset</code> 设置 <code>PressRect</code>； 
   </figcaption>
 </figure>
 
-> `Pressable` uses React Native's `Pressability` API. For more information around the state machine flow of Pressability and how it works, check out the implementation for [Pressability](https://github.com/facebook/react-native/blob/16ea9ba8133a5340ed6751ec7d49bf03a0d4c5ea/Libraries/Pressability/Pressability.js#L347).
+> `Pressable` 使用了React Native的 `Pressability` API。查看[Pressability](https://github.com/facebook/react-native/blob/16ea9ba8133a5340ed6751ec7d49bf03a0d4c5ea/Libraries/Pressability/Pressability.js#L347)示例，获取更多关于Pressability的状态机流程和原理。
 
-## Example
+## 示例
 
 ```js
 import React, { useState } from 'react';
@@ -107,7 +107,7 @@ export default App;
 
 ### `android_disableSound` <div class="label android">Android</div>
 
-If true, doesn't play Android system sound on press.
+为true时，按下不会播放Android系统声音。
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
@@ -115,7 +115,7 @@ If true, doesn't play Android system sound on press.
 
 ### `android_ripple` <div class="label android">Android</div>
 
-Enables the Android ripple effect and configures its properties.
+使用并配置Android波纹效果。
 
 | Type                                   | Required |
 | -------------------------------------- | -------- |
@@ -131,7 +131,7 @@ Either children or a function that receives a boolean reflecting whether the com
 
 ### `delayLongPress`
 
-Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
+从 `onPressIn` 触发到 `onLongPress` 被调用的时间间隔（毫秒）。
 
 | Type   | Required | Default |
 | ------ | -------- | ------- |
@@ -139,7 +139,7 @@ Duration (in milliseconds) from `onPressIn` before `onLongPress` is called.
 
 ### `disabled`
 
-Whether the press behavior is disabled.
+是否禁用按压行为。
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
@@ -147,7 +147,7 @@ Whether the press behavior is disabled.
 
 ### `hitSlop`
 
-Sets additional distance outside of element in which a press can be detected.
+设置元素能够检测到按压动作的额外距离。
 
 | Type                   | Required |
 | ---------------------- | -------- |
@@ -155,7 +155,7 @@ Sets additional distance outside of element in which a press can be detected.
 
 ### `onLongPress`
 
-Called if the time after `onPressIn` lasts longer than 500 milliseconds. This time period can be customized with [`delayLongPress`](#delaylongpress).
+ 在 `onPressIn` 持续超过500毫秒后调用。此持续时间可以通过 [`delayLongPress `](#delaylongpress) 自定义。
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -163,7 +163,7 @@ Called if the time after `onPressIn` lasts longer than 500 milliseconds. This ti
 
 ### `onPress`
 
-Called after `onPressOut`.
+`onPressOut` 之后调用。
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -171,7 +171,7 @@ Called after `onPressOut`.
 
 ### `onPressIn`
 
-Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
+在 `onPressOut` 和 `onPress` 之前， 按压后立即调用。
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -179,7 +179,7 @@ Called immediately when a touch is engaged, before `onPressOut` and `onPress`.
 
 ### `onPressOut`
 
-Called when a touch is released.
+松开手后调用。
 
 | Type                     | Required |
 | ------------------------ | -------- |
@@ -187,7 +187,7 @@ Called when a touch is released.
 
 ### `pressRetentionOffset`
 
-Additional distance outside of this view in which a touch is considered a press before `onPressOut` is triggered.
+在 `onPressOut` 被触发前，view额外的有效触控距离。
 
 | Type                   | Required | Default                                        |
 | ---------------------- | -------- | ---------------------------------------------- |
@@ -203,7 +203,7 @@ Either view styles or a function that receives a boolean reflecting whether the 
 
 ### `testOnly_pressed`
 
-Used only for documentation or testing (e.g. snapshot testing).
+仅用于指导文档或测试 (比如快照测试）。
 
 | Type    | Required | Default |
 | ------- | -------- | ------- |
@@ -213,7 +213,7 @@ Used only for documentation or testing (e.g. snapshot testing).
 
 ### RippleConfig
 
-Ripple effect configuration for the `android_ripple` property.
+`android_ripple` 属性的波纹效果配置。
 
 | Type   |
 | ------ |
@@ -221,8 +221,8 @@ Ripple effect configuration for the `android_ripple` property.
 
 **Properties:**
 
-| Name       | Type            | Required | Description                                         |
-| ---------- | --------------- | -------- | --------------------------------------------------- |
-| color      | [color](colors) | No       | Defines the color of the ripple effect.             |
-| borderless | boolean         | No       | Defines if ripple effect should not include border. |
-| radius     | number          | No       | Defines the radius of the ripple effect.            |
+| Name       | Type            | Required | Description                |
+| ---------- | --------------- | -------- | -------------------------- |
+| color      | [color](colors) | No       | 定义波纹的颜色。           |
+| borderless | boolean         | No       | 定义波纹效果是否包含边框。 |
+| radius     | number          | No       | 定义波纹的半径。           |
