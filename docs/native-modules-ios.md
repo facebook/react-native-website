@@ -251,16 +251,13 @@ When a native module method is invoked in JavaScript, React Native converts the 
 
 | Objective-C                                   | JavaScript         |
 | --------------------------------------------- | ------------------ |
-| NSString                                      | string             |
-| NSString                                      | ?string            |
+| NSString                                      | string, ?string    |
 | BOOL                                          | boolean            |
 | NSNumber                                      | ?boolean           |
 | double                                        | number             |
 | NSNumber                                      | ?number            |
-| NSArray                                       | Array              |
-| NSArray                                       | ?Array             |
-| NSDictionary                                  | Object             |
-| NSDictionary                                  | ?Object            |
+| NSArray                                       | Array, ?Array      |
+| NSDictionary                                  | Object, ?Object    |
 | RCTResponseSenderBlock                        | Function (success) |
 | RCTResponseSenderBlock, RCTResponseErrorBlock | Function (failure) |
 | RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise            |
