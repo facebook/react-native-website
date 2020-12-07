@@ -118,7 +118,7 @@ static create(duration, type, creationProp)
 
 Helper that creates an object (with `create`, `update`, and `delete` fields) to pass into [`configureNext`](layoutanimation.md#configurenext). The `type` parameter is an [animation type](layoutanimation.md#types), and the `creationProp` parameter is a [layout property](layoutanimation.md#properties).
 
-Example usage:
+**Example:**
 
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
@@ -336,7 +336,7 @@ Calls `configureNext()` with `Presets.linear`.
 
 Calls `configureNext()` with `Presets.spring`.
 
-Example usage:
+**Example:**
 
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
