@@ -3,7 +3,7 @@ id: pressable
 title: Pressable
 ---
 
-按压控制是一个核心组件包装器，能够检测定义的任意子组件的不同阶段的按压交互情况。
+`Pressable` 是一个核心组件的封装，它可以检测到任意子组件的不同阶段的按压交互情况。
 
 ```jsx
 <Pressable onPress={onPressFunction}>
@@ -29,7 +29,7 @@ title: Pressable
 
 `PressRect` 在保持激活状态的同时，允许用户按压时在元素及设定的范围内滑动，使触控更加优雅。试想一下缓慢地滑动着离开按下的按钮。
 
-> 触控区域不会超出绑定的父级view，在按压点击到两层重叠view时，Z-index的sibling  view总是具有最高优先权。
+> 触控区域不会超出绑定的父级view，在按压到重叠的兄弟视图时，z-index更高的那个视图会更优先
 
 <figure>
   <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_pressable_anatomy.svg" width="1000" alt="Diagram of HitRect and PressRect and how they work." />
@@ -38,7 +38,7 @@ title: Pressable
   </figcaption>
 </figure>
 
-> `Pressable` 使用了React Native的 `Pressability` API。查看[Pressability](https://github.com/facebook/react-native/blob/16ea9ba8133a5340ed6751ec7d49bf03a0d4c5ea/Libraries/Pressability/Pressability.js#L347)示例，获取更多关于Pressability的state machine flow和原理。
+> `Pressable` 使用了React Native的 `Pressability` API。查看[Pressability](https://github.com/facebook/react-native/blob/16ea9ba8133a5340ed6751ec7d49bf03a0d4c5ea/Libraries/Pressability/Pressability.js#L347)示例，获取更多关于Pressability的状态机流程和原理。
 
 ## 示例
 
