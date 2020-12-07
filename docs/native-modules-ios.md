@@ -249,18 +249,18 @@ NativeCalendarModule.createCalendarEvent('foo', 'bar');
 
 When a native module method is invoked in JavaScript, React Native converts the arguments from JS objects to their Objective-C/Swift object analogues. So for example, if your Objective-C Native Module method accepts a NSNumber, in JS you need to call the method with a number. React Native will handle the conversion for you. Below is a list of the argument types supported for native module methods and the JavaScript equivalents they map to.
 
-| Objective-C | JavaScript |
-| --- | --- |
-| NSString | string, ?string |
-| BOOL | boolean |
-| NSNumber | ?boolean |
-| double | number |
-| NSNumber | ?number |
-| NSArray | Array, ?Array |
-| NSDictionary | Object, ?Object |
-| RCTResponseSenderBlock | Function (success) |
+| Objective-C                                   | JavaScript         |
+| --------------------------------------------- | ------------------ |
+| NSString                                      | string, ?string    |
+| BOOL                                          | boolean            |
+| NSNumber                                      | ?boolean           |
+| double                                        | number             |
+| NSNumber                                      | ?number            |
+| NSArray                                       | Array, ?Array      |
+| NSDictionary                                  | Object, ?Object    |
+| RCTResponseSenderBlock                        | Function (success) |
 | RCTResponseSenderBlock, RCTResponseErrorBlock | Function (failure) |
-| RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise |
+| RCTPromiseResolveBlock, RCTPromiseRejectBlock | Promise            |
 
 > The following types are currently supported but will not be supported in TurboModules. Please avoid using them.
 >
