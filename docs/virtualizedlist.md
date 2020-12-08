@@ -92,31 +92,17 @@ Inherits [ScrollView Props](scrollview.md#props).
 
 ---
 
-### `renderItem`
-
-```jsx
-(info: any) => ?React.Element<any>
-```
-
-Takes an item from `data` and renders it into the list
-
-| Type     | Required |
-| -------- | -------- |
-| function | Yes      |
-
----
-
-### `data`
+### <div class="label required basic">Required</div> **`data`**
 
 The default accessor functions assume this is an array of objects with shape `{key: string}` but you can override `getItem`, `getItemCount`, and `keyExtractor` to handle any type of index-based data.
 
-| Type | Required |
-| ---- | -------- |
-| any  | Yes      |
+| Type |
+| ---- |
+| any  |
 
 ---
 
-### `getItem`
+### <div class="label required basic">Required</div> **`getItem`**
 
 ```jsx
 (data: any, index: number) => object;
@@ -124,13 +110,13 @@ The default accessor functions assume this is an array of objects with shape `{k
 
 A generic accessor for extracting an item from any sort of data blob.
 
-| Type     | Required |
-| -------- | -------- |
-| function | Yes      |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `getItemCount`
+### <div class="label required basic">Required</div> **`getItemCount`**
 
 ```jsx
 (data: any) => number;
@@ -138,9 +124,103 @@ A generic accessor for extracting an item from any sort of data blob.
 
 Determines how many items are in the data blob.
 
-| Type     | Required |
-| -------- | -------- |
-| function | Yes      |
+| Type     |
+| -------- |
+| function |
+
+---
+
+### <div class="label required basic">Required</div> **`renderItem`**
+
+```jsx
+(info: any) => ?React.Element<any>
+```
+
+Takes an item from `data` and renders it into the list
+
+| Type     |
+| -------- |
+| function |
+
+---
+
+### `CellRendererComponent`
+
+Each cell is rendered using this element. Can be a React Component Class,or a render function. Defaults to using [`View`](view.md).
+
+| Type                |
+| ------------------- |
+| component, function |
+
+---
+
+### `ItemSeparatorComponent`
+
+Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
+
+| Type                |
+| ------------------- |
+| component, function |
+
+---
+
+### `ListEmptyComponent`
+
+Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+
+| Type                         |
+| ---------------------------- |
+| component, function, element |
+
+---
+
+### `ListItemComponent`
+
+Each data item is rendered using this element. Can be a React Component Class, or a render function.
+
+| Type                |
+| ------------------- |
+| component, function |
+
+---
+
+### `ListFooterComponent`
+
+Rendered at the bottom of all the items. Can be a React Component Class, a render function, or a rendered element.
+
+| Type                         |
+| ---------------------------- |
+| component, function, element |
+
+---
+
+### `ListFooterComponentStyle`
+
+Styling for internal View for `ListFooterComponent`.
+
+| Type          | Required |
+| ------------- | -------- |
+| ViewStyleProp | No       |
+
+---
+
+### `ListHeaderComponent`
+
+Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
+
+| Type                         |
+| ---------------------------- |
+| component, function, element |
+
+---
+
+### `ListHeaderComponentStyle`
+
+Styling for internal View for `ListHeaderComponent`.
+
+| Type                                 |
+| ------------------------------------ |
+| [View Style Props](view-style-props) |
 
 ---
 
@@ -148,9 +228,19 @@ Determines how many items are in the data blob.
 
 `debug` will turn on extra logging and visual overlays to aid with debugging both usage and implementation, but with a significant perf hit.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    |
+| ------- |
+| boolean |
+
+---
+
+### `disableVirtualization`
+
+> **Deprecated.** Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
+
+| Type    |
+| ------- |
+| boolean |
 
 ---
 
@@ -158,9 +248,9 @@ Determines how many items are in the data blob.
 
 A marker property for telling the list to re-render (since it implements `PureComponent`). If any of your `renderItem`, Header, Footer, etc. functions depend on anything outside of the `data` prop, stick it here and treat it immutably.
 
-| Type | Required |
-| ---- | -------- |
-| any  | No       |
+| Type |
+| ---- |
+| any  |
 
 ---
 
@@ -173,9 +263,29 @@ A marker property for telling the list to re-render (since it implements `PureCo
   ) => {length: number, offset: number, index: number}
 ```
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
+
+---
+
+### `horizontal`
+
+If `true`, renders items next to each other horizontally instead of stacked vertically.
+
+| Type    |
+| ------- |
+| boolean |
+
+---
+
+### `initialNumToRender`
+
+How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
+
+| Type   | Default |
+| ------ | ------- |
+| number | `10`    |
 
 ---
 
@@ -183,39 +293,19 @@ A marker property for telling the list to re-render (since it implements `PureCo
 
 Instead of starting at the top with the first item, start at `initialScrollIndex`. This disables the "scroll to top" optimization that keeps the first `initialNumToRender` items always rendered and immediately renders the items starting at this initial index. Requires `getItemLayout` to be implemented.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
 ### `inverted`
 
-Reverses the direction of scroll. Uses scale transforms of -1.
+Reverses the direction of scroll. Uses scale transforms of `-1`.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
-
----
-
-### `CellRendererComponent`
-
-Each cell is rendered using this element. Can be a React Component Class,or a render function. Defaults to using [`View`](view.md).
-
-| Type                | Required |
-| ------------------- | -------- |
-| component, function | No       |
-
----
-
-### `ItemSeparatorComponent`
-
-Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
-
-| Type                | Required |
-| ------------------- | -------- |
-| component, function | No       |
+| Type    |
+| ------- |
+| boolean |
 
 ---
 
@@ -229,63 +319,51 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 ---
 
-### `ListEmptyComponent`
+### `keyExtractor`
 
-Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+```jsx
+(item: object, index: number) => string;
+```
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does.
 
----
-
-### `ListItemComponent`
-
-Each data item is rendered using this element. Can be a React Component Class, or a render function
-
-| Type                | Required |
-| ------------------- | -------- |
-| component, function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `ListFooterComponent`
+### `maxToRenderPerBatch`
 
-Rendered at the bottom of all the items. Can be a React Component Class, a render function, or a rendered element.
+The maximum number of items to render in each incremental render batch. The more rendered at once, the better the fill rate, but responsiveness may suffer because rendering content may interfere with responding to button taps or other interactions.
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
-
----
-
-### `ListFooterComponentStyle`
-
-Styling for internal View for ListFooterComponent
-
-| Type          | Required |
-| ------------- | -------- |
-| ViewStyleProp | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
-### `ListHeaderComponent`
+### `onEndReached`
 
-Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
+```jsx
+(info: {distanceFromEnd: number}) => void
+```
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
+Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
+
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `ListHeaderComponentStyle`
+### `onEndReachedThreshold`
 
-Styling for internal View for ListHeaderComponent
+How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
 
-| Type          | Required |
-| ------------- | -------- |
-| ViewStyleProp | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -297,9 +375,9 @@ Styling for internal View for ListHeaderComponent
 
 If provided, a standard `RefreshControl` will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -315,9 +393,9 @@ If provided, a standard `RefreshControl` will be added for "Pull to Refresh" fun
 
 Used to handle failures when scrolling to an index that has not been measured yet. Recommended action is to either compute your own offset and `scrollTo` it, or scroll as far as possible and then try again after more items have been rendered.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -331,13 +409,21 @@ Called when the viewability of rows changes, as defined by the `viewabilityConfi
 
 ---
 
-### `refreshing`
+### `persistentScrollbar`
 
-Set this true while waiting for new data from a refresh.
+| Type |
+| ---- |
+| bool |
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+---
+
+### `progressViewOffset` <div class="label android">Android</div>
+
+Set this when offset is needed for the loading indicator to show correctly.
+
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -345,9 +431,19 @@ Set this true while waiting for new data from a refresh.
 
 A custom refresh control element. When set, it overrides the default `<RefreshControl>` component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
 
-| Type    | Required |
-| ------- | -------- |
-| element | No       |
+| Type    |
+| ------- |
+| element |
+
+---
+
+### `refreshing`
+
+Set this true while waiting for new data from a refresh.
+
+| Type    |
+| ------- |
+| boolean |
 
 ---
 
@@ -357,9 +453,9 @@ This may improve scroll performance for large lists.
 
 > Note: May have bugs (missing content) in some circumstances - use at your own risk.
 
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
+| Type    |
+| ------- |
+| boolean |
 
 ---
 
@@ -371,9 +467,9 @@ This may improve scroll performance for large lists.
 
 Render a custom scroll component, e.g. with a differently styled `RefreshControl`.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -381,9 +477,9 @@ Render a custom scroll component, e.g. with a differently styled `RefreshControl
 
 See `ViewabilityHelper.js` for flow type and further documentation.
 
-| Type              | Required |
-| ----------------- | -------- |
-| ViewabilityConfig | No       |
+| Type              |
+| ----------------- |
+| ViewabilityConfig |
 
 ---
 
@@ -391,75 +487,9 @@ See `ViewabilityHelper.js` for flow type and further documentation.
 
 List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewableItemsChanged` will be called when its corresponding `ViewabilityConfig`'s conditions are met. See `ViewabilityHelper.js` for flow type and further documentation.
 
-| Type                                   | Required |
-| -------------------------------------- | -------- |
-| array of ViewabilityConfigCallbackPair | No       |
-
----
-
-### `horizontal`
-
-| Type    | Required |
-| ------- | -------- |
-| boolean | No       |
-
----
-
-### `initialNumToRender`
-
-How many items to render in the initial batch. This should be enough to fill the screen but not much more. Note these items will never be unmounted as part of the windowed rendering in order to improve perceived performance of scroll-to-top actions.
-
-| Type   | Required |
-| ------ | -------- |
-| number | Yes      |
-
----
-
-### `keyExtractor`
-
-```jsx
-(item: object, index: number) => string;
-```
-
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
-### `maxToRenderPerBatch`
-
-The maximum number of items to render in each incremental render batch. The more rendered at once, the better the fill rate, but responsiveness may suffer because rendering content may interfere with responding to button taps or other interactions.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
-### `onEndReached`
-
-```jsx
-(info: {distanceFromEnd: number}) => void
-```
-
-Called once when the scroll position gets within `onEndReachedThreshold` of the rendered content.
-
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
-
----
-
-### `onEndReachedThreshold`
-
-How far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the `onEndReached` callback. Thus a value of 0.5 will trigger `onEndReached` when the end of the content is within half the visible length of the list.
-
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type                                   |
+| -------------------------------------- |
+| array of ViewabilityConfigCallbackPair |
 
 ---
 
@@ -467,9 +497,9 @@ How far from the end (in units of visible length of the list) the bottom edge of
 
 Amount of time between low-pri item render batches, e.g. for rendering items quite a ways off screen. Similar fill rate/responsiveness tradeoff as `maxToRenderPerBatch`.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
+| Type   |
+| ------ |
+| number |
 
 ---
 
@@ -477,39 +507,73 @@ Amount of time between low-pri item render batches, e.g. for rendering items qui
 
 Determines the maximum number of items rendered outside of the visible area, in units of visible lengths. So if your list fills the screen, then `windowSize={21}` (the default) will render the visible screen area plus up to 10 screens above and 10 below the viewport. Reducing this number will reduce memory consumption and may improve performance, but will increase the chance that fast scrolling may reveal momentary blank areas of unrendered content.
 
-| Type   | Required |
-| ------ | -------- |
-| number | No       |
-
----
-
-### `disableVirtualization`
-
-> **Deprecated.** Virtualization provides significant performance and memory optimizations, but fully unmounts react instances that are outside of the render window. You should only need to disable this for debugging purposes.
-
-| Type | Required |
-| ---- | -------- |
-|      | No       |
-
----
-
-### `persistentScrollbar`
-
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
-
----
-
-### `progressViewOffset`
-
-Set this when offset is needed for the loading indicator to show correctly.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| Type   |
+| ------ |
+| number |
 
 ## Methods
+
+### `flashScrollIndicators()`
+
+```jsx
+flashScrollIndicators();
+```
+
+---
+
+### `getChildContext()`
+
+```jsx
+getChildContext () => Object;
+```
+
+The `Object` returned consist of:
+
+- 'virtualizedList' (Object). This object consist of the following
+  - getScrollMetrics' (Function). Returns an object with following properties: `{ contentLength: number, dOffset: number, dt: number, offset: number, timestamp: number, velocity: number, visibleLength: number }`.
+  - 'horizontal' (boolean) - Optional.
+  - 'getOutermostParentListRef' (Function).
+  - 'getNestedChildState' (Function) - Returns ChildListState .
+  - 'registerAsNestedChild' (Function). This accept an object with following properties `{ cellKey: string, key: string, ref: VirtualizedList, parentDebugInfo: ListDebugInfo }`. It returns a ChildListState
+  - 'unregisterAsNestedChild' (Function). This takes an object with following properties, `{ key: string, state: ChildListState }`
+  - 'debugInfo' (ListDebugInfo).
+
+---
+
+### `getScrollableNode()`
+
+```jsx
+getScrollableNode () => ?number;
+```
+
+---
+
+### `getScrollRef()`
+
+```jsx
+getScrollRef () => | ?React.ElementRef<typeof ScrollView>
+    | ?React.ElementRef<typeof View>;
+```
+
+---
+
+### `getScrollResponder()`
+
+```jsx
+getScrollResponder () => ?ScrollResponderType;
+```
+
+Provides a handle to the underlying scroll responder. Note that `this._scrollRef` might not be a `ScrollView`, so we need to check that it responds to `getScrollResponder` before calling it.
+
+---
+
+### `hasMore()`
+
+```jsx
+hasMore () => boolean;
+```
+
+---
 
 ### `scrollToEnd()`
 
@@ -519,7 +583,6 @@ scrollToEnd((params: object));
 Valid `params` consist of:
 
 - 'animated' (boolean). Optional default is true.
-
 ```
 
 ---
@@ -575,70 +638,8 @@ recordInteraction();
 
 ---
 
-### `flashScrollIndicators()`
-
-```jsx
-flashScrollIndicators();
-```
-
----
-
-### `getScrollResponder()`
-
-```jsx
-getScrollResponder () => ?ScrollResponderType;
-```
-
-Provides a handle to the underlying scroll responder. Note that `this._scrollRef` might not be a `ScrollView`, so we need to check that it responds to `getScrollResponder` before calling it.
-
----
-
-### `getScrollableNode()`
-
-```jsx
-getScrollableNode () => ?number;
-```
-
----
-
-### `getScrollRef()`
-
-```jsx
-getScrollRef () => | ?React.ElementRef<typeof ScrollView>
-    | ?React.ElementRef<typeof View>;
-```
-
----
-
 ### `setNativeProps()`
 
 ```jsx
 setNativeProps((props: Object));
-```
-
----
-
-### `getChildContext()`
-
-```jsx
-getChildContext () => Object;
-```
-
-The `Object` returned consist of:
-
-- 'virtualizedList' (Object). This object consist of the following
-  - getScrollMetrics' (Function). Returns an object with following properties: `{ contentLength: number, dOffset: number, dt: number, offset: number, timestamp: number, velocity: number, visibleLength: number }`.
-  - 'horizontal' (boolean) - Optional.
-  - 'getOutermostParentListRef' (Function).
-  - 'getNestedChildState' (Function) - Returns ChildListState .
-  - 'registerAsNestedChild' (Function). This accept an object with following properties `{ cellKey: string, key: string, ref: VirtualizedList, parentDebugInfo: ListDebugInfo }`. It returns a ChildListState
-  - 'unregisterAsNestedChild' (Function). This takes an object with following properties, `{ key: string, state: ChildListState }`
-  - 'debugInfo' (ListDebugInfo).
-
----
-
-### `hasMore()`
-
-```jsx
-hasMore () => boolean;
 ```
