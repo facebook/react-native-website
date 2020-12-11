@@ -460,7 +460,7 @@ public void createCalendarEvent(String name, String location, Promise promise) {
 }
 ```
 
-> Similar to callbacks, a native module method can either reject or resolve a promise (but not both) and can do so at mosxt once. This means that you can either call a success callback or a failure callback, but not both, and each callback can only be invoked at most one time. A native module can, however, store the callback and invoke it later.
+> Similar to callbacks, a native module method can either reject or resolve a promise (but not both) and can do so at most once. This means that you can either call a success callback or a failure callback, but not both, and each callback can only be invoked at most one time. A native module can, however, store the callback and invoke it later.
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
