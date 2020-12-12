@@ -146,6 +146,11 @@ hr {
         line-height: 1.1em;
         vertical-align: top;
       }
+
+      ul {
+        margin: 8px 0 0 0;
+        padding: 4px 0 4px 20px;
+      }
     }
 
     hr {
@@ -1092,7 +1097,13 @@ td .label {
 
   &.two-lines {
     margin-left: 0;
-    margin-top: 4px;
+    margin-top: 5px;
+
+    &.ios,
+    &.android,
+    &.tv {
+      margin-left: 8px;
+    }
   }
 }
 

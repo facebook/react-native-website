@@ -42,7 +42,9 @@ DevSettings.addMenuItem('Show Secret Dev Screen', () => {
 static reload()
 ```
 
-Reload the application. Can be invoked directly or on user interaction:
+Reload the application. Can be invoked directly or on user interaction.
+
+**Example:**
 
 ```jsx
 <Button title="Reload" onPress={() => DevSettings.reload()} />

@@ -177,56 +177,6 @@ export default AccessibilityStatusExample;
 
 ## Methods
 
-### `isBoldTextEnabled()`
-
-```jsx
-static isBoldTextEnabled()
-```
-
-**iOS-Only.** Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
-
-### `isGrayscaleEnabled()`
-
-```jsx
-static isGrayscaleEnabled()
-```
-
-**iOS-Only.** Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
-
-### `isInvertColorsEnabled()`
-
-```jsx
-static isInvertColorsEnabled()
-```
-
-**iOS-Only.** Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
-
-### `isReduceMotionEnabled()`
-
-```jsx
-static isReduceMotionEnabled()
-```
-
-Query whether reduce motion is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when reduce motion is enabled and `false` otherwise.
-
-### `isReduceTransparencyEnabled()`
-
-```jsx
-static isReduceTransparencyEnabled()
-```
-
-**iOS-Only.** Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
-
-### `isScreenReaderEnabled()`
-
-```jsx
-static isScreenReaderEnabled()
-```
-
-Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
-
----
-
 ### `addEventListener()`
 
 ```jsx
@@ -235,27 +185,15 @@ static addEventListener(eventName, handler)
 
 Add an event handler. Supported events:
 
-- `boldTextChanged`: iOS-only event. Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.
-- `grayscaleChanged`: iOS-only event. Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.
-- `invertColorsChanged`: iOS-only event. Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.
-- `reduceMotionChanged`: Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.
-- `screenReaderChanged`: Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.
-- `reduceTransparencyChanged`: iOS-only event. Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.
-- `announcementFinished`: iOS-only event. Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:
-  - `announcement`: The string announced by the screen reader.
-  - `success`: A boolean indicating whether the announcement was successfully made.
-
----
-
-### `setAccessibilityFocus()`
-
-```jsx
-static setAccessibilityFocus(reactTag)
-```
-
-Set accessibility focus to a React component. On Android, this calls `UIManager.sendAccessibilityEvent(reactTag, UIManager.AccessibilityEventTypes.typeViewFocused);`.
-
-> **Note**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.
+| Event name                                                                 | Description                                                                                                                                                                                                                                                                                              |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `announcementFinished`<br/><div class="label two-lines ios">iOS</div>      | Fires when the screen reader has finished making an announcement. The argument to the event handler is a dictionary with these keys:<ul><li>`announcement`: The string announced by the screen reader.</li><li>`success`: A boolean indicating whether the announcement was successfully made.</li></ul> |
+| `boldTextChanged`<br/><div class="label two-lines ios">iOS</div>           | Fires when the state of the bold text toggle changes. The argument to the event handler is a boolean. The boolean is `true` when bold text is enabled and `false` otherwise.                                                                                                                             |
+| `grayscaleChanged`<br/><div class="label two-lines ios">iOS</div>          | Fires when the state of the gray scale toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a gray scale is enabled and `false` otherwise.                                                                                                                         |
+| `invertColorsChanged`<br/><div class="label two-lines ios">iOS</div>       | Fires when the state of the invert colors toggle changes. The argument to the event handler is a boolean. The boolean is `true` when invert colors is enabled and `false` otherwise.                                                                                                                     |
+| `reduceMotionChanged`                                                      | Fires when the state of the reduce motion toggle changes. The argument to the event handler is a boolean. The boolean is `true` when a reduce motion is enabled (or when "Transition Animation Scale" in "Developer options" is "Animation off") and `false` otherwise.                                  |
+| `reduceTransparencyChanged`<br/><div class="label two-lines ios">iOS</div> | Fires when the state of the reduce transparency toggle changes. The argument to the event handler is a boolean. The boolean is `true` when reduce transparency is enabled and `false` otherwise.                                                                                                         |
+| `screenReaderChanged`                                                      | Fires when the state of the screen reader changes. The argument to the event handler is a boolean. The boolean is `true` when a screen reader is enabled and `false` otherwise.                                                                                                                          |
 
 ---
 
@@ -269,6 +207,66 @@ Post a string to be announced by the screen reader.
 
 ---
 
+### `isBoldTextEnabled()` <div class="label ios">iOS</div>
+
+```jsx
+static isBoldTextEnabled()
+```
+
+Query whether a bold text is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when bold text is enabled and `false` otherwise.
+
+---
+
+### `isGrayscaleEnabled()` <div class="label ios">iOS</div>
+
+```jsx
+static isGrayscaleEnabled()
+```
+
+Query whether grayscale is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when grayscale is enabled and `false` otherwise.
+
+---
+
+### `isInvertColorsEnabled()` <div class="label ios">iOS</div>
+
+```jsx
+static isInvertColorsEnabled()
+```
+
+Query whether invert colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when invert colors is enabled and `false` otherwise.
+
+---
+
+### `isReduceMotionEnabled()`
+
+```jsx
+static isReduceMotionEnabled()
+```
+
+Query whether reduce motion is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when reduce motion is enabled and `false` otherwise.
+
+---
+
+### `isReduceTransparencyEnabled()` <div class="label ios">iOS</div>
+
+```jsx
+static isReduceTransparencyEnabled()
+```
+
+Query whether reduce transparency is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a reduce transparency is enabled and `false` otherwise.
+
+---
+
+### `isScreenReaderEnabled()`
+
+```jsx
+static isScreenReaderEnabled()
+```
+
+Query whether a screen reader is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when a screen reader is enabled and `false` otherwise.
+
+---
+
 ### `removeEventListener()`
 
 ```jsx
@@ -276,3 +274,17 @@ static removeEventListener(eventName, handler)
 ```
 
 Remove an event handler.
+
+---
+
+### `setAccessibilityFocus()`
+
+```jsx
+static setAccessibilityFocus(reactTag)
+```
+
+Set accessibility focus to a React component.
+
+On Android, this calls `UIManager.sendAccessibilityEvent` method with passed `reactTag` and `UIManager.AccessibilityEventTypes.typeViewFocused` arguments.
+
+> **Note**: Make sure that any `View` you want to receive the accessibility focus has `accessible={true}`.

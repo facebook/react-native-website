@@ -320,19 +320,19 @@ A set of predefined animation configs to pass into [`configureNext`](layoutanima
 
 ---
 
-### `easeInEaseOut()`
+### `easeInEaseOut`
 
 Calls `configureNext()` with `Presets.easeInEaseOut`.
 
 ---
 
-### `linear()`
+### `linear`
 
 Calls `configureNext()` with `Presets.linear`.
 
 ---
 
-### `spring()`
+### `spring`
 
 Calls `configureNext()` with `Presets.spring`.
 

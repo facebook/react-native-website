@@ -45,6 +45,8 @@ if (colorScheme === 'dark') {
 
 Although the color scheme is available immediately, this may change (e.g. scheduled color scheme change at sunrise or sunset). Any rendering logic or styles that depend on the user preferred color scheme should try to call this function on every render, rather than caching the value. For example, you may use the [`useColorScheme`](usecolorscheme) React hook as it provides and subscribes to color scheme updates, or you may use inline styles rather than setting a value in a `StyleSheet`.
 
+---
+
 # Reference
 
 ## Methods
@@ -67,6 +69,8 @@ See also: `useColorScheme` hook.
 
 > Note: `getColorScheme()` will always return `light` when debugging with Chrome.
 
+---
+
 ### `addChangeListener()`
 
 ```jsx
@@ -74,6 +78,8 @@ static addChangeListener(listener)
 ```
 
 Add an event handler that is fired when appearance preferences change.
+
+---
 
 ### `removeChangeListener()`
 
