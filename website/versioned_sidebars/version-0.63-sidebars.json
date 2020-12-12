@@ -366,6 +366,10 @@
         },
         {
           "type": "doc",
+          "id": "version-0.63/platform"
+        },
+        {
+          "type": "doc",
           "id": "version-0.63/platformcolor"
         },
         {

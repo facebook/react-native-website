@@ -56,10 +56,7 @@
       "native-components-ios",
       "direct-manipulation"
     ],
-    "Guides (Android)": [
-      "headless-js-android",
-      "signed-apk-android"
-    ],
+    "Guides (Android)": ["headless-js-android", "signed-apk-android"],
     "Guides (iOS)": [
       "linking-libraries-ios",
       "running-on-simulator-ios",
@@ -87,6 +84,7 @@
       "linking",
       "panresponder",
       "pixelratio",
+      "platform",
       "platformcolor",
       "share",
       "stylesheet",
