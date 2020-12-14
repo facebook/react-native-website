@@ -45,6 +45,12 @@ Next, install the required peer dependencies. You need to run different commands
 
 > Note: You might get warnings related to peer dependencies after installation. They are usually caused by incorrect version ranges specified in some packages. You can safely ignore most warnings as long as your app builds.
 
+- Link the native dependencies:
+
+  ```shell
+  npx react-native link
+  ```
+
 To finalize installation of `react-native-gesture-handler`, add the following at the **top** (make sure it's at the top and there's nothing else before it) of your entry file, such as `index.js` or `App.js`:
 
 ```js
