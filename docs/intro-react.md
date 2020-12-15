@@ -459,7 +459,7 @@ class Cafe extends Component {
   }
 }
 
-export default  Cafe;
+export default Cafe;
 ```
 
 As always with class components, you must import the `Component` class from React:
@@ -494,7 +494,7 @@ And you set individual values inside the state object by passing an object with 
     this.setState({ isHungry: false });
   }}
   // ..
-</Button>
+/>
 ```
 
 > Do not change your component's state directly by assigning it a new value with `this.state.hunger = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
