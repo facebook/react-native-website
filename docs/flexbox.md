@@ -44,7 +44,7 @@ export default Flex;
 
 ## Flex Direction
 
-[`flexDirection`](layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
+[`flexDirection`](layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the main axis. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
 
 - `column` (**default value**) Align children from top to bottom. If wrapping is enabled, then the next line will start to the right of the first item on the top of the container.
 
@@ -700,9 +700,9 @@ export default AlignSelfLayout;
 
 - `center` Align wrapped lines in the center of the container's cross axis.
 
-- `space-between` Evenly space wrapped lines across the container's main axis, distributing the remaining space between the lines.
+- `space-between` Evenly space wrapped lines across the container's cross axis, distributing the remaining space between the lines.
 
-- `space-around` Evenly space wrapped lines across the container's main axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
+- `space-around` Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
 
 You can learn more [here](https://yogalayout.com/docs/align-content).
 
