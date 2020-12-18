@@ -22,7 +22,7 @@ This will render a blue label on iOS, and a blue rounded rectangle with light te
 
 ![](/docs/assets/Button.png)
 
-Go ahead and play around with the `Button` component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right, then click on "Tap to Play" to preview the app.
+Go ahead and play around with the `Button` component using the example below. You can select which platform your app is previewed in by clicking on the toggle in the bottom right and then clicking on "Tap to Play" to preview the app.
 
 ```SnackPlayer name=Button%20Basics
 import React, { Component } from 'react';
