@@ -56,8 +56,8 @@
   {
     "name": "Shopify",
     "icon": "shopify.png",
-    "linkAppStore": "https://apps.apple.com/us/app/shopify-ecommerce-business/id371294472",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US",
+    "linkAppStore": "https://apps.apple.com/ca/app/shop-package-order-tracker/id1223471316",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.arrive&hl=en_US&gl=US",
     "infoLink": "https://engineering.shopify.com/blogs/engineering/react-native-future-mobile-shopify",
     "infoTitle": "React Native is the Future of Mobile at Shopify",
     "pinned": true
