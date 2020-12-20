@@ -423,7 +423,7 @@ public void createCalendarEvent(String name, String location, Callback myFailure
 }
 ```
 
-Then in JavaScript you can add a seperate callback for error and success responses:
+Then in JavaScript you can add a separate callback for error and success responses:
 
 ```jsx
 const onPress = () => {
