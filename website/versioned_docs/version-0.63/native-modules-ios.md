@@ -385,7 +385,7 @@ RCT_EXPORT_METHOD(createCalendarEventCallback:(NSString *)title
 }
 ```
 
-Then in JavaScript you can add a seperate callback for error and success responses:
+Then in JavaScript you can add a separate callback for error and success responses:
 
 ```jsx
 const onPress = () => {
