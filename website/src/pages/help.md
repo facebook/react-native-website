@@ -46,7 +46,7 @@ If you want to create less temporary conversations, check out the [React Native 
 
 ### Company-based Communities
 
-Some companies actively involved in the React Native have also their own communication channels focused towards the projects they maintain, like [Callstack.io's Discord server](https://discordapp.com/invite/zwR2Cdh), [Invertase.io's Discord server (e.g. React Native Firebase)](https://discord.gg/C9aK28N), [Infinite Red's Slack Group](https://infiniteredcommunity.herokuapp.com/) and [The Expo Slack Group](https://slack.expo.io/).
+Some companies actively involved in the React Native have also their own communication channels focused towards the projects they maintain, like [Callstack.io's Discord server](https://discordapp.com/invite/zwR2Cdh), [Invertase.io's Discord server (e.g. React Native Firebase)](https://discord.gg/C9aK28N), [Infinite Red's Slack Group](http://community.infinite.red/) and [The Expo Slack Group](https://slack.expo.io/).
 
 ### Content sharing
 
