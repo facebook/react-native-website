@@ -24,7 +24,7 @@ module.exports = {
   //   users,
   //   facebookAppId: '1677033832619985',
   // },
-  // onBrokenLinks: 'warn',
+  onBrokenLinks: 'warn',
   presets: [
     [
       '@docusaurus/preset-classic',
