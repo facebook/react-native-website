@@ -12,8 +12,6 @@ The core workflow for creating an animation is to create an `Animated.Value`, ho
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-<block class="functional syntax" />
-
 > Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
 </TabItem>
