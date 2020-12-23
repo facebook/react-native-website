@@ -294,7 +294,7 @@ Array of objects containg Alert buttons configuration.
 | ------ |
 | object |
 
-**Properties:**
+**属性：**
 
 | 名称       | 类型     | 说明                                                                   |
 | ---------- | -------- | ---------------------------------------------------------------------- |
