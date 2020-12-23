@@ -113,7 +113,7 @@ function HomeCallToAction() {
       </ActionButton>
       <ActionButton
         type="secondary"
-        href={useBaseUrl('docs/tutorial')}
+        href={useBaseUrl('docs/intro-react-native-components')}
         target="_self">
         Learn basics
       </ActionButton>
