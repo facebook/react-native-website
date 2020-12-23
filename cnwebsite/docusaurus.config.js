@@ -9,6 +9,7 @@ module.exports = {
   projectName: 'react-native',
   url: 'https://reactnative.cn',
   baseUrl: '/',
+  ssrTemplate: require('./ssr.html.template'),
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
   scripts: [
     {
