@@ -23,3 +23,25 @@ index 3c62adc..172bea4 100644
              .then(() => {
              resolve();
              preFetched[url] = true;
+diff --git a/node_modules/@docusaurus/core/lib/webpack/base.js b/node_modules/@docusaurus/core/lib/webpack/base.js
+index 567ed59..7a35670 100644
+--- a/node_modules/@docusaurus/core/lib/webpack/base.js
++++ b/node_modules/@docusaurus/core/lib/webpack/base.js
+@@ -42,6 +42,8 @@ function getDocusaurusAliases() {
+     return aliases;
+ }
+ exports.getDocusaurusAliases = getDocusaurusAliases;
++const cdnUrl =
++  '//cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
+ function createBaseConfig(props, isServer, minify = true) {
+     const { outDir, siteDir, baseUrl, generatedFilesDir, routesPaths } = props;
+     const totalPages = routesPaths.length;
+@@ -58,7 +60,7 @@ function createBaseConfig(props, isServer, minify = true) {
+             path: outDir,
+             filename: isProd ? '[name].[contenthash:8].js' : '[name].js',
+             chunkFilename: isProd ? '[name].[contenthash:8].js' : '[name].js',
+-            publicPath: baseUrl,
++            publicPath: isProd ? cdnUrl : baseUrl,
+         },
+         // Don't throw warning when asset created is over 250kb
+         performance: {
