@@ -31,7 +31,7 @@ npm install -g ignite-cli
 ignite new MyTSProject
 ```
 
-## Adding TypeScript to an Existing Project
+## 在已有的项目中添加 TypeScript
 
 1. 将 TypeScript 以及 React Native 和 Jest 的依赖添加到您的项目中。
 
