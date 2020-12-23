@@ -9,7 +9,7 @@ index 3c62adc..172bea4 100644
 +
 +
 +const cdnUrl = process.env.NODE_ENV === 'development' ? 
-+    '' : '//cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
++    '' : '//cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages';
 +
  function support(feature) {
      if (typeof document === 'undefined') {
@@ -23,3 +23,16 @@ index 3c62adc..172bea4 100644
              .then(() => {
              resolve();
              preFetched[url] = true;
+diff --git a/node_modules/@docusaurus/core/lib/webpack/client.js b/node_modules/@docusaurus/core/lib/webpack/client.js
+index cdd914f..fa9ae08 100644
+--- a/node_modules/@docusaurus/core/lib/webpack/client.js
++++ b/node_modules/@docusaurus/core/lib/webpack/client.js
+@@ -30,7 +30,7 @@ function createClientConfig(props, minify = true) {
+         optimization: {
+             // Keep the runtime chunk separated to enable long term caching
+             // https://twitter.com/wSokra/status/969679223278505985
+-            runtimeChunk: true,
++            // runtimeChunk: true,
+         },
+         plugins: [
+             new ChunkAssetPlugin_1.default(),
