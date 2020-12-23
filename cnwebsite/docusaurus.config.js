@@ -1,5 +1,4 @@
 // const users = require('./showcase.json');
-const isDev = process.env.NODE_ENV === 'development';
 const cdnUrl =
   'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
 
@@ -9,7 +8,7 @@ module.exports = {
   organizationName: 'reactnativecn',
   projectName: 'react-native',
   url: 'https://reactnative.cn',
-  baseUrl: isDev ? '/' : cdnUrl,
+  baseUrl: '/',
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
   scripts: [
     {
