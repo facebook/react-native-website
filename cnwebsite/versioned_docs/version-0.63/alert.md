@@ -263,7 +263,7 @@ An iOS Alert type.
 
 **常量：**
 
-| Value              | 说明                         |
+| 值                 | 说明                         |
 | ------------------ | ---------------------------- |
 | `'default'`        | Default alert with no inputs |
 | `'plain-text'`     | Plain text input alert       |
