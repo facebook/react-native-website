@@ -6,6 +6,7 @@ on:
       - production
     paths:
       - 'cnwebsite/**'
+      - 'cndocs/**'
 
 jobs:
   deploy:
