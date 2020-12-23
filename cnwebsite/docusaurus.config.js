@@ -1,23 +1,23 @@
 // const users = require('./showcase.json');
 const cdnUrl =
-  'https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
+  '//cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
 
 module.exports = {
   title: 'React Native 中文网',
   tagline: '使用React来编写原生应用的框架',
   organizationName: 'reactnativecn',
   projectName: 'react-native',
-  url: 'https://reactnative.cn',
+  url: '//reactnative.cn',
   baseUrl: '/',
   ssrTemplate: require('./ssr.html.template'),
   clientModules: [require.resolve('./snackPlayerInitializer.js')],
   scripts: [
     {
       src:
-        'https://cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
+        '//cdn.jsdelivr.net/npm/focus-visible@5.2.0/dist/focus-visible.min.js',
       defer: true,
     },
-    {src: 'https://snack.expo.io/embed.js', defer: true},
+    {src: '//snack.expo.io/embed.js', defer: true},
   ],
   favicon: cdnUrl + 'img/favicon.ico',
   titleDelimiter: '·',
@@ -129,7 +129,7 @@ module.exports = {
           ],
         },
         {
-          href: 'https://github.com/facebook/react-native',
+          href: '//github.com/facebook/react-native',
           'aria-label': 'GitHub repository',
           position: 'right',
           className: 'navbar-github-link',
@@ -141,7 +141,7 @@ module.exports = {
       style: 'dark',
       copyright: `React Native 中文网 © ${new Date().getFullYear()} 武汉青罗网络科技有限公司
       <a style="margin-left:10px" href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a>
-      <img style="width:25px" src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号">
+      <img style="width:25px" src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号">
       <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a>
       `,
     },
@@ -166,7 +166,7 @@ module.exports = {
         property: 'og:description',
         content: '使用React来编写原生应用的框架',
       },
-      {property: 'og:url', content: 'https://reactnative.cn/'},
+      {property: 'og:url', content: 'https://reactnative.cn'},
       {
         property: 'og:image',
         content: cdnUrl + 'img/logo-og.png',
