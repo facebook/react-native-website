@@ -1,0 +1,25 @@
+diff --git a/node_modules/@docusaurus/core/lib/client/prefetch.js b/node_modules/@docusaurus/core/lib/client/prefetch.js
+index 3c62adc..172bea4 100644
+--- a/node_modules/@docusaurus/core/lib/client/prefetch.js
++++ b/node_modules/@docusaurus/core/lib/client/prefetch.js
+@@ -4,6 +4,11 @@
+  * This source code is licensed under the MIT license found in the
+  * LICENSE file in the root directory of this source tree.
+  */
++
++
++const cdnUrl = process.env.NODE_ENV === 'development' ? 
++    '' : '//cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
++
+ function support(feature) {
+     if (typeof document === 'undefined') {
+         return false;
+@@ -61,7 +66,7 @@ function prefetch(url) {
+             resolve();
+             return;
+         }
+-        supportedPrefetchStrategy(url)
++        supportedPrefetchStrategy(cdnUrl + url)
+             .then(() => {
+             resolve();
+             preFetched[url] = true;

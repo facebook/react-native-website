@@ -7,7 +7,7 @@ module.exports = {
   tagline: '使用React来编写原生应用的框架',
   organizationName: 'reactnativecn',
   projectName: 'react-native',
-  url: '//reactnative.cn',
+  url: 'https://reactnative.cn',
   baseUrl: '/',
   ssrTemplate: require('./ssr.html.template'),
   clientModules: [require.resolve('./snackPlayerInitializer.js')],

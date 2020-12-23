@@ -27,12 +27,15 @@
     "prettier:diff": "yarn nit:source",
     "test": "yarn build",
     "lint": "cd ../ && alex .",
-    "lintv": "cd ../ && alex"
+    "lintv": "cd ../ && alex",
+    "postinstall": "cd ../ && patch-package"
   },
   "dependencies": {
     "@docusaurus/core": "2.0.0-alpha.70",
     "@docusaurus/preset-classic": "2.0.0-alpha.70",
     "docusaurus-plugin-sass": "^0.1.11",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-github-btn": "^1.2.0"
