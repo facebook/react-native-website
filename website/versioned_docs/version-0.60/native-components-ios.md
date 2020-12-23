@@ -400,8 +400,8 @@ When the user interacts with the component, like clicking the button, the `backg
 
 ```jsx
 <View>
-  <MyNativeView ref={this.myNativeReference}>/>
-  <MyNativeView ref={this.myNativeReference2}>/>
+  <MyNativeView ref={this.myNativeReference} />
+  <MyNativeView ref={this.myNativeReference2} />
   <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
 </View>
 ```
@@ -411,7 +411,7 @@ Now the above component has a reference to a particular `MyNativeView` which all
 `MyNativeView.ios.js` contains code as follow:
 
 ```jsx
-class MyNativeView extends React.Component<> {
+class MyNativeView extends React.Component {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this),
