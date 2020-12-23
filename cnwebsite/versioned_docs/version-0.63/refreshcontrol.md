@@ -1,7 +1,6 @@
 ---
-id: version-0.63-refreshcontrol
+id: refreshcontrol
 title: RefreshControl
-original_id: refreshcontrol
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

@@ -1,10 +1,9 @@
 ---
-id: version-0.63-inputaccessoryview
+id: inputaccessoryview
 title: InputAccessoryView
-original_id: inputaccessoryview
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(79.75%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(20.25%)
 
 A component which enables customization of the keyboard input accessory view on iOS. The input accessory view is displayed above the keyboard whenever a `TextInput` has focus. This component can be used to create custom toolbars.
 

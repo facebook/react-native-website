@@ -1,10 +1,9 @@
 ---
-id: version-0.63-fast-refresh
+id: fast-refresh
 title: 快速刷新
-original_id: fast-refresh
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.60%), [itellboy](https://github.com/search?q=itellboy%40foxmail.com&type=Users)(23.40%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.60%), [itellboy](https://github.com/search?q=itellboy&type=Users)(23.40%)
 
 快速刷新是 React Native 一个特性，在修改组件的时候快速刷新会给你一个即时的反馈。快速刷新默认是开启的，可以通过调整 React Native 开发者菜单里面的 "Enable Fast Refresh" 来开启或关闭。在快速刷新开启的时候，大多数的修改能在一到两秒之内呈现。
 
@@ -41,7 +40,7 @@ If you have [error boundaries](https://zh-hans.reactjs.org/docs/error-boundaries
 
 ## Fast Refresh and Hooks
 
-When possible, Fast Refresh attempts to preserve the state of your component between edits. In particular, `useState` and `useRef` preserve their previous values as long as you don't change their arguments or the order of the Hook calls.
+Fast Refresh 会尽可能的在编辑刷新时保留组件的状态。In particular, `useState` and `useRef` preserve their previous values as long as you don't change their arguments or the order of the Hook calls.
 
 Hooks with dependencies—such as `useEffect`, `useMemo`, and `useCallback`—will _always_ update during Fast Refresh. Their list of dependencies will be ignored while Fast Refresh is happening.
 

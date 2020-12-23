@@ -5,13 +5,13 @@ title: TouchableNativeFeedback
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
 
-本组件用于封装视图，使其可以正确响应触摸操作（仅限Android平台）。在Android设备上，这个组件利用原生状态来渲染触摸的反馈。
+本组件用于封装视图，使其可以正确响应触摸操作（仅限 Android 平台）。在 Android 设备上，这个组件利用原生状态来渲染触摸的反馈。
 
-目前它只支持一个单独的View实例作为子节点。在底层实现上，实际会创建一个新的RCTView节点替换当前的子View，并附带一些额外的属性。
+目前它只支持一个单独的 View 实例作为子节点。在底层实现上，实际会创建一个新的 RCTView 节点替换当前的子 View，并附带一些额外的属性。
 
 原生触摸操作反馈的背景可以使用`background`属性来自定义。
 
-## Example
+## 示例
 
 ```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
 import React, { useState } from "react";
@@ -104,7 +104,7 @@ static SelectableBackground(rippleRadius: ?number)
 static SelectableBackgroundBorderless(rippleRadius: ?number)
 ```
 
-会创建一个对象，表示安卓主题默认的对于被选中的无边框对象的背景(?android:attr/selectableItemBackgroundBorderless)。只适用于Android API level 21+。`rippleRadius` parameter controls the radius of the ripple effect.
+会创建一个对象，表示安卓主题默认的对于被选中的无边框对象的背景(?android:attr/selectableItemBackgroundBorderless)。只适用于 Android API level 21+。`rippleRadius` parameter controls the radius of the ripple effect.
 
 ---
 
@@ -114,15 +114,15 @@ static SelectableBackgroundBorderless(rippleRadius: ?number)
 static Ripple(color: string, borderless: boolean, rippleRadius: ?number)
 ```
 
-会创建一个对象，当按钮被按下时产生一个涟漪状的背景，你可以通过color参数来指定颜色，如果参数`borderless`是true，那么涟漪还会渲染到视图的范围之外（参见原生的actionbar buttons作为该效果的一个例子）。这个背景类型只在Android API level 21+适用。
+会创建一个对象，当按钮被按下时产生一个涟漪状的背景，你可以通过 color 参数来指定颜色，如果参数`borderless`是 true，那么涟漪还会渲染到视图的范围之外（参见原生的 actionbar buttons 作为该效果的一个例子）。这个背景类型只在 Android API level 21+适用。
 
 **参数：**
 
-| 名称       | 类型    | 必填 | 说明                                         |
-| ---------- | ------- | ---- | -------------------------------------------- |
-| color      | string  | 是   | The ripple color                             |
-| borderless | boolean | 是   | If the ripple can render outside it's bounds |
-| rippleRadius | ?number | No       | controls the radius of the ripple effect    |
+| 名称         | 类型    | 必填 | 说明                                         |
+| ------------ | ------- | ---- | -------------------------------------------- |
+| color        | string  | 是   | The ripple color                             |
+| borderless   | boolean | 是   | If the ripple can render outside it's bounds |
+| rippleRadius | ?number | No   | controls the radius of the ripple effect     |
 
 ---
 

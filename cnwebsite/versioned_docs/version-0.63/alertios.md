@@ -1,10 +1,9 @@
 ---
-id: version-0.63-alertios
+id: alertios
 title: AlertIOS
-original_id: alertios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.84%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(23.16%)
 
 `AlertIOS`用于弹出一个 iOS 提示对话框，可以通知用户一些信息或是提示用户输入一些文字。
 
@@ -50,23 +49,23 @@ static alert(title: string, [message]: string, [callbackOrButtons]: ?(() => void
 | title             | string                                                 | 是   | The dialog's title. Passing null or '' will hide the title.                                                                                                                                                                                                                                                                                                      |
 | message           | string                                                 | 否   | An optional message that appears below the dialog's title.                                                                                                                                                                                                                                                                                                       |
 | callbackOrButtons | ?(() => void),[ButtonsArray](alertios.md#buttonsarray) | 否   | This optional argument should be either a single-argument function or an array of buttons. If passed a function, it will be called when the user taps 'OK'. If passed an array of button configurations, each button should include a `text` key, as well as optional `onPress` and `style` keys. `style` should be one of 'default', 'cancel' or 'destructive'. |
-| type              | [AlertType](alertios.md#alerttype)                     | 否   | Deprecated, do not use.                                                                                                                                                                                                                                                                                                                                          |
+| 类型              | [AlertType](alertios.md#alerttype)                     | 否   | Deprecated, do not use.                                                                                                                                                                                                                                                                                                                                          |
 
 Example with custom buttons:
 
 ```jsx
 AlertIOS.alert(
-  'Update available',
-  'Keep your app up to date to enjoy the latest features',
+  "Update available",
+  "Keep your app up to date to enjoy the latest features",
   [
     {
-      text: 'Cancel',
-      onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel'
+      text: "Cancel",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel"
     },
     {
-      text: 'Install',
-      onPress: () => console.log('Install Pressed')
+      text: "Install",
+      onPress: () => console.log("Install Pressed")
     }
   ]
 );
@@ -89,7 +88,7 @@ Create and display a prompt to enter some text.
 | title             | string                                                             | 是   | The dialog's title.                                                                                                                                                                                                                                                                                                                                                                                    |
 | message           | string                                                             | 否   | An optional message that appears above the text input.                                                                                                                                                                                                                                                                                                                                                 |
 | callbackOrButtons | ?((text: string) => void),[ButtonsArray](alertios.md#buttonsarray) | 否   | This optional argument should be either a single-argument function or an array of buttons. If passed a function, it will be called with the prompt's value when the user taps 'OK'. If passed an array of button configurations, each button should include a `text` key, as well as optional `onPress` and `style` keys (see example). `style` should be one of 'default', 'cancel' or 'destructive'. |
-| type              | [AlertType](alertios.md#alerttype)                                 | 否   | This configures the text input. One of 'plain-text', 'secure-text' or 'login-password'.                                                                                                                                                                                                                                                                                                                |
+| 类型              | [AlertType](alertios.md#alerttype)                                 | 否   | This configures the text input. One of 'plain-text', 'secure-text' or 'login-password'.                                                                                                                                                                                                                                                                                                                |
 | defaultValue      | string                                                             | 否   | The default text in text input.                                                                                                                                                                                                                                                                                                                                                                        |
 | keyboardType      | string                                                             | 否   | The keyboard type of first text field(if exists). One of 'default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter' or 'web-search'.                                                                                                                                                              |
 
@@ -97,21 +96,20 @@ Example with custom buttons:
 
 ```jsx
 AlertIOS.prompt(
-  'Enter password',
-  'Enter your password to claim your $1.5B in lottery winnings',
+  "Enter password",
+  "Enter your password to claim your $1.5B in lottery winnings",
   [
     {
-      text: 'Cancel',
-      onPress: () => console.log('Cancel Pressed'),
-      style: 'cancel'
+      text: "Cancel",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel"
     },
     {
-      text: 'OK',
-      onPress: (password) =>
-        console.log('OK Pressed, password: ' + password)
+      text: "OK",
+      onPress: password => console.log("OK Pressed, password: " + password)
     }
   ],
-  'secure-text'
+  "secure-text"
 );
 ```
 
@@ -121,11 +119,11 @@ Example with the default button and a custom callback:
 
 ```jsx
 AlertIOS.prompt(
-  'Update username',
+  "Update username",
   null,
-  (text) => console.log('Your username is ' + text),
+  text => console.log("Your username is " + text),
   null,
-  'default'
+  "default"
 );
 ```
 

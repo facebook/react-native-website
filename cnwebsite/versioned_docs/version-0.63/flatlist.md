@@ -1,10 +1,9 @@
 ---
-id: version-0.63-flatlist
+id: flatlist
 title: FlatList
-original_id: flatlist
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.83%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.17%)
 
 高性能的简单列表组件，支持下面这些常用的功能：
 
@@ -176,9 +175,13 @@ export default App;
 
 ## Props
 
+### [ScrollView Props](scrollview.md#props)
+
 继承所有[ScrollView 的 Props](scrollview.md#props)。但如果嵌套在其他同滚动方向的 FlatList 中则无效。
 
-### `renderItem`
+---
+
+### <div class="label required basic">Required</div> **`renderItem`**
 
 ```jsx
 renderItem({ item, index, separators });
@@ -188,9 +191,9 @@ renderItem({ item, index, separators });
 
 Provides additional metadata like `index` if you need it, as well as a more generic `separators.updateProps` function which let you set whatever props you want to change the rendering of either the leading separator or trailing separator in case the more common `highlight` and `unhighlight` (which set the `highlighted: boolean` prop) are insufficient for your use case.
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 是   |
+| 类型     |
+| -------- |
+| function |
 
 - `item` (Object): The item from `data` being rendered.
 - `index` (number): The index corresponding to this item in the `data` array.
@@ -206,23 +209,19 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 ```jsx
 <FlatList
   ItemSeparatorComponent={
-    Platform.OS !== 'android' &&
+    Platform.OS !== "android" &&
     (({ highlighted }) => (
-      <View
-        style={[
-          style.separator,
-          highlighted && { marginLeft: 0 }
-        ]}
-      />
+      <View style={[style.separator, highlighted && { marginLeft: 0 }]} />
     ))
   }
-  data={[{ title: 'Title Text', key: 'item1' }]}
+  data={[{ title: "Title Text", key: "item1" }]}
   renderItem={({ item, index, separators }) => (
     <TouchableHighlight
       onPress={() => this._onPress(item)}
       onShowUnderlay={separators.highlight}
-      onHideUnderlay={separators.unhighlight}>
-      <View style={{ backgroundColor: 'white' }}>
+      onHideUnderlay={separators.unhighlight}
+    >
+      <View style={{ backgroundColor: "white" }}>
         <Text>{item.title}</Text>
       </View>
     </TouchableHighlight>
@@ -232,13 +231,13 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ---
 
-### `data`
+### <div class="label required basic">Required</div> **`data`**
 
 为了简化起见，data 属性目前只支持普通数组。如果需要使用其他特殊数据结构，例如 immutable 数组，请直接使用更底层的[`VirtualizedList`](virtualizedlist.md)组件。
 
-| 类型  | 必填 |
-| ----- | ---- |
-| array | 是   |
+| 类型  |
+| ----- |
+| array |
 
 ---
 
@@ -246,9 +245,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 行与行之间的分隔线组件。不会出现在第一行之前和最后一行之后。 By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| 类型      | 必填 |
-| --------- | ---- |
-| component | 否   |
+| 类型      |
+| --------- |
+| component |
 
 ---
 
@@ -256,9 +255,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 列表为空时渲染该组件。可以是 React Component, 也可以是一个 render 函数，或者渲染好的 element。
 
-| 类型                         | 必填 |
-| ---------------------------- | ---- |
-| component, function, element | 否   |
+| 类型                         |
+| ---------------------------- |
+| component, function, element |
 
 ---
 
@@ -266,9 +265,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 尾部组件。可以是 React Component, 也可以是一个 render 函数，或者渲染好的 element。
 
-| 类型                         | 必填 |
-| ---------------------------- | ---- |
-| component, function, element | 否   |
+| 类型                         |
+| ---------------------------- |
+| component, function, element |
 
 ---
 
@@ -495,7 +494,7 @@ May not have full feature parity and is meant for debugging and performance comp
 
 `viewabilityConfig` takes a type `ViewabilityConfig` an object with following properties
 
-| Property                         | Required | Type    |
+| Property                         | Required | 类型    |
 | -------------------------------- | -------- | ------- |
 | minimumViewTime                  | No       | number  |
 | viewAreaCoveragePercentThreshold | No       | number  |

@@ -1,10 +1,9 @@
 ---
-id: version-0.63-communication-ios
+id: communication-ios
 title: 和原生端通信
-original_id: communication-ios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.50%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.50%)
 
 通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](native-component-ios)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
 
@@ -198,7 +197,7 @@ typedef NS_ENUM(NSInteger, RCTRootViewSizeFlexibility) {
 
 在例子中我们使用一个`FlexibleSizeExampleView`视图来包含根视图。我们创建了根视图，初始化并且设置了代理。代理将会处理尺寸更新。然后，我们设置根视图的弹性尺寸为`RCTRootViewSizeFlexibilityHeight`，意味着`rootViewDidChangeIntrinsicSize:`方法将会在每次 React Native 内容高度变化时进行调用。最后，我们设置根视图的宽度和位置。注意我们也设置了高度，但是并没有效果，因为我们已经将高度设置为根据 RN 内容进行弹性变化了。
 
-你可以在这里查看完整的例子[源代码](https://github.com/facebook/react-native/blob/master/RNTester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m)。
+你可以在这里查看完整的例子[源代码](https://github.com/facebook/react-native/blob/master/packages/rn-tester/RNTester/NativeExampleViews/FlexibleSizeExampleView.m)。
 
 动态改变根视图的弹性模式是可行的。改变根视图的弹性模式将会导致布局的重新计算，并且在重新量出内容尺寸时会调用`rootViewDidChangeIntrinsicSize`方法。
 

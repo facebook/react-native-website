@@ -1,7 +1,6 @@
 ---
-id: version-0.63-headless-js-android
+id: headless-js-android
 title: Headless JS（后台任务）
-original_id: headless-js-android
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
@@ -13,16 +12,14 @@ Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来�
 首先我们要通过`AppRegistry`来注册一个异步函数，这个函数我们称之为“任务”。注册方式类似在 index.js 中注册 RN 应用：
 
 ```jsx
-import { AppRegistry } from 'react-native';
-AppRegistry.registerHeadlessTask('SomeTaskName', () =>
-  require('SomeTaskName')
-);
+import { AppRegistry } from "react-native";
+AppRegistry.registerHeadlessTask("SomeTaskName", () => require("SomeTaskName"));
 ```
 
 然后创建 require 中引用的`SomeTaskName.js`文件:
 
 ```jsx
-module.exports = async (taskData) => {
+module.exports = async taskData => {
   // 要做的任务
 };
 ```

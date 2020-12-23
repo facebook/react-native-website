@@ -29,7 +29,7 @@ const image = getImage({
 
 在 React Native 中，所有 JS 中的东西，包括布局引擎，都使用任意精度的数值。我们只在主线程最后设置原生组件的位置和坐标的时候才去做对齐工作。而且，对齐是相对于屏幕进行的，而非相对于父元素进行，进一步避免近似误差的累积。
 
-## Example
+## 示例
 
 ```SnackPlayer name=PixelRatio%20Example
 import React from "react";
@@ -133,8 +133,8 @@ static getFontScale(): number
 
 返回字体大小缩放比例。这个比例可以用于计算绝对的字体大小，所以很多深度依赖字体大小的组件需要用此函数的结果进行计算。
 
-- Android上对应的是用户选项里的“设置 > 显示 > 字体大小”。
-- iOS上对应的是用户选项里的**Settings > Display & Brightness > Text Size**, value can also be updated in **Settings > Accessibilty > Display & Test Size > Larger Text**
+- Android 上对应的是用户选项里的“设置 > 显示 > 字体大小”。
+- iOS 上对应的是用户选项里的**Settings > Display & Brightness > Text Size**, value can also be updated in **Settings > Accessibilty > Display & Test Size > Larger Text**
 
 如果没有设置字体缩放大小，它会直接返回设备的像素密度。
 

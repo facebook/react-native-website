@@ -1,11 +1,11 @@
 ---
 id: viewtoken
-title: ViewToken Object Type
+title: ViewToken 对象
 ---
 
 `ViewToken` object is returned as one of properties in the `onViewableItemsChanged` callback, for example in [FlatList](flatlist) component. It is exported by [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js).
 
-## Example
+## 示例
 
 ```js
 {
@@ -16,7 +16,7 @@ title: ViewToken Object Type
 }
 ```
 
-## Keys and values
+## 属性与值
 
 ### `index`
 
@@ -58,7 +58,7 @@ Item section data when used with `SectionList`.
 | ---- | -------- |
 | any  | Yes      |
 
-## Used by
+## 被下列组件引用
 
 - [`FlatList`](flatlist)
 - [`SectionList`](sectionlist)

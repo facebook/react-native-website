@@ -1,13 +1,12 @@
 ---
-id: version-0.63-libraries
+id: libraries
 title: 使用第三方库
 author: Brent Vatne
-authorURL: https://twitter.com/notbrent
+authorURL: "https://twitter.com/notbrent"
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
-original_id: libraries
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.60%)
 
 React Native 提供了一系列内置的[核心组件和 API](components-and-apis)，但并不局限于此。React Native 有一个庞大的社区，如果核心组件和 API 不能满足你的需求，你完全可以去社区的广阔天地中寻求合适的第三方库。
 
@@ -17,7 +16,7 @@ React Native libraries are typically installed from the [npm registry](https://w
 
 If you have Node.js installed on your computer then you already have the npm CLI installed. Some developers prefer to use Yarn Classic for slightly faster install times and additional advanced features like Workspaces. Both tools work great with React Native. We will assume npm for the rest of this guide for simplicity of explanation.
 
-> 💡 The terms "library" and "package" are used interchangably in the JavaScript community.
+> 💡 在 JavaScript 社区，“库（library）”和“包（package）”这两个术语一直是混用的，可视为等同。
 
 ## 安装第三方库
 

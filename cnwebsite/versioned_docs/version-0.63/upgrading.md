@@ -1,7 +1,6 @@
 ---
-id: version-0.63-upgrading
+id: upgrading
 title: 更新
-original_id: upgrading
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

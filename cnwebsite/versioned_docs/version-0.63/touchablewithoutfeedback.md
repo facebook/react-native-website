@@ -1,10 +1,9 @@
 ---
-id: version-0.63-touchablewithoutfeedback
+id: touchablewithoutfeedback
 title: TouchableWithoutFeedback
-original_id: touchablewithoutfeedback
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(82.73%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(17.27%)
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
 
@@ -186,7 +185,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 Invoked when the item loses focus.
 
-| Type     | Required |
+| 类型     | Required |
 | -------- | -------- |
 | function | No       |
 
@@ -196,7 +195,7 @@ Invoked when the item loses focus.
 
 Invoked when the item receives focus.
 
-| Type     | Required |
+| 类型     | Required |
 | -------- | -------- |
 | function | No       |
 
@@ -266,7 +265,7 @@ Called as soon as the touch is released even before onPress.
 
 Used to locate this view in end-to-end tests.
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | string | No       |
 

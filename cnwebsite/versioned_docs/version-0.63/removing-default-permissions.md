@@ -1,7 +1,6 @@
 ---
-id: version-0.63-removing-default-permissions
+id: removing-default-permissions
 title: 移除不需要的权限
-original_id: removing-default-permissions
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

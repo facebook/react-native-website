@@ -15,13 +15,13 @@ title: 🚧 AsyncStorage
 
 导入`AsyncStorage`库：
 
-```
+```jsx
 import { AsyncStorage } from "react-native"
 ```
 
 保存数据：
 
-```
+```jsx
 _storeData = async () => {
   try {
     await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
@@ -33,7 +33,7 @@ _storeData = async () => {
 
 读取数据：
 
-```
+```jsx
 _retrieveData = async () => {
   try {
     const value = await AsyncStorage.getItem('@MySuperStore:key');
@@ -188,7 +188,7 @@ static getAllKeys([callback]: ?(error: ?Error, keys: ?Array<string>) => void)
 
 | 名称     | 类型                                           | 必填 | 说明               |
 | -------- | ---------------------------------------------- | ---- | ------------------ |
-| callback | ?(error: ?Error, keys: ?Array<string>) => void | 否   | 完成后的回调函数。 |
+| callback | `?(error: ?Error, keys: ?Array<string>) => void` | 否   | 完成后的回调函数。 |
 
 ---
 
@@ -220,8 +220,8 @@ multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 | 名称     | 类型                                                            | 必填 | 说明               |
 | -------- | --------------------------------------------------------------- | ---- | ------------------ |
-| keys     | Array<string>                                                   | 是   | 要获取的字段名数组 |
-| callback | ?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void | 否   | 完成后的回调函数   |
+| keys     | `Array<string>`                                                   | 是   | 要获取的字段名数组 |
+| callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void` | 否   | 完成后的回调函数   |
 
 示例：
 
@@ -257,8 +257,8 @@ multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
 
 | 名称          | 类型                             | 必填 | 说明                 |
 | ------------- | -------------------------------- | ---- | -------------------- |
-| keyValuePairs | Array<Array<string>>             | 是   | 要写入的字段名数组。 |
-| callback      | ?(errors: ?Array<Error>) => void | 否   | 完成后的回调函数。   |
+| keyValuePairs | `Array<Array<string>>`             | 是   | 要写入的字段名数组。 |
+| callback      | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
 ---
 
@@ -274,8 +274,8 @@ static multiRemove(keys: Array<string>, [callback]: ?(errors: ?Array<Error>) => 
 
 | 名称     | 类型                             | 必填 | 说明                 |
 | -------- | -------------------------------- | ---- | -------------------- |
-| keys     | Array<string>                    | 是   | 要删除的字段名数组。 |
-| callback | ?(errors: ?Array<Error>) => void | 否   | 完成后的回调函数。   |
+| keys     | `Array<string>`                    | 是   | 要删除的字段名数组。 |
+| callback | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
 示例：
 
@@ -302,8 +302,8 @@ static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Ar
 
 | 名称          | 类型                             | 必填 | 说明                 |
 | ------------- | -------------------------------- | ---- | -------------------- |
-| keyValuePairs | Array<Array<string>>             | 是   | 要合并的字段名数组。 |
-| callback      | ?(errors: ?Array<Error>) => void | 否   | 完成后的回调函数。   |
+| keyValuePairs | `Array<Array<string>>`             | 是   | 要合并的字段名数组。 |
+| callback      | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
 示例：
 

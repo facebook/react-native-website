@@ -3,22 +3,14 @@ id: modal
 title: Modal
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
 
 ## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { useState } from "react";
@@ -114,7 +106,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -220,7 +213,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -242,9 +236,9 @@ export default App;
 
 `supportedOrientations`用于指定在设备切换横竖屏方向时，modal 会在哪些屏幕朝向下跟随旋转。在 iOS 上，除了本属性外，还会受到应用的 Info.plist 文件中`UISupportedInterfaceOrientations`的限制。如果还设置了`presentationStyle`属性为`pageSheet`或`formSheet`，则在 iOS 上本属性将被忽略。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否 | iOS |
+| 类型                                                                                                | 必填 | 平台 |
+| --------------------------------------------------------------------------------------------------- | ---- | ---- |
+| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | 否   | iOS  |
 
 ---
 
@@ -346,6 +340,6 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 
 默认会根据`transparent`属性而设置为`overFullScreen`或是`fullScreen`。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否 | iOS |
+| 类型                                                           | 必填 | 平台 |
+| -------------------------------------------------------------- | ---- | ---- |
+| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否   | iOS  |

@@ -1,25 +1,20 @@
 ---
-id: version-0.63-view
+id: view
 title: View
-original_id: view
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.76%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(5.24%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(89.51%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.75%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(4.74%)
 
-作为创建 UI 时最基础的组件，View 是一个支持 Flexbox 布局、样式、一些触摸处理、和一些无障碍功能的容器，并且它可以放到其它的视图里，也可以有任意多个任意类型的子视图。不论在什么平台上，View 都会直接对应一个平台的原生视图，无论它是 UIView、div 还是 android.view.View。下面的例子创建了一个 View，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
+作为创建 UI 时最基础的组件，`View` 是一个支持 [Flexbox 布局](flexbox.md)、[样式](style.md)、[触摸响应](handling-touches.md)、和一些[无障碍功能](accessibility.md)的容器。不论在什么平台上，`View` 都直接对应当前平台的原生视图，无论它是 `UIView`、`div` 还是 `android.view.View`。
 
-<block class="functional syntax" />
+`View` 在设计上是可以嵌套使用的，也可以有任意多个任意类型的子视图。
+
+下面的例子创建了一个 `View`，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
+
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=View%20Function%20Component%20Example
 import React from "react";
@@ -44,7 +39,8 @@ const ViewBoxesWithColorAndText = () => {
 export default ViewBoxesWithColorAndText;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=View%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -71,13 +67,14 @@ class App extends Component {
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 > View 的设计初衷是和 StyleSheet 搭配使用，这样可以使代码更清晰并且获得更高的性能。尽管内联样式也同样可以使用。
 
-### 合成触摸事件
+### 合成点击事件
 
-用于 `View` 响应属性 (例如, `onResponderMove`), 合成触摸事件采用以下的格式:
+用于 `View` 响应属性 (例如, `onResponderMove`), 请参考[点击事件对象](pressevent)的文档。
 
 - `nativeEvent`
   - `changedTouches` - 从上一次事件以来的触摸事件数组。
@@ -100,7 +97,7 @@ export default App;
 
 设置这个视图是否要响应 touch start 事件。
 
-View.props.onStartShouldSetResponder: (event) => [true | false], 其中 event 是一个合成触摸事件。
+`View.props.onStartShouldSetResponder: (event) => [true | false]`, 其中 `event` 是一个合成[点击事件对象](pressevent)。
 
 | 类型     | 必填 |
 | -------- | ---- |
@@ -540,9 +537,9 @@ See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors)
 
 Designates the next view to receive focus when the user navigates down. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusDown).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -550,9 +547,9 @@ Designates the next view to receive focus when the user navigates down. See the 
 
 Designates the next view to receive focus when the user navigates forward. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusForward).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -560,9 +557,9 @@ Designates the next view to receive focus when the user navigates forward. See t
 
 Designates the next view to receive focus when the user navigates left. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusLeft).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -570,9 +567,9 @@ Designates the next view to receive focus when the user navigates left. See the 
 
 Designates the next view to receive focus when the user navigates right. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusRight).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -580,9 +577,9 @@ Designates the next view to receive focus when the user navigates right. See the
 
 Designates the next view to receive focus when the user navigates up. See the [Android documentation](https://developer.android.com/reference/android/view/View.html#attr_android:nextFocusUp).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | Android  |
+| 类型   | Required | 平台    |
+| ------ | -------- | ------- |
+| number | No       | Android |
 
 ---
 
@@ -590,6 +587,6 @@ Designates the next view to receive focus when the user navigates up. See the [A
 
 Whether this `View` should be focusable with a non-touch input device, eg. receive focus with a hardware keyboard.
 
-| Type    | Required | Platform |
-| ------- | -------- | -------- |
-| boolean | No       | Android  |
+| 类型    | Required | 平台    |
+| ------- | -------- | ------- |
+| boolean | No       | Android |

@@ -1,7 +1,6 @@
 ---
-id: version-0.63-using-a-listview
+id: using-a-listview
 title: 使用长列表
-original_id: using-a-listview
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

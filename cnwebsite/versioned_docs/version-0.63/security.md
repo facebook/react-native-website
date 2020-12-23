@@ -1,14 +1,13 @@
 ---
-id: version-0.63-security
+id: security
 title: 网络安全策略
-original_id: security
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.24%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.76%)
 
-开发应用时安全常常是一个被忽视的话题。It is true that it is impossible to build software that is completely impenetrable—we’ve yet to invent a completely impenetrable lock (bank vaults do, after all, still get broken into). However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
+开发应用时安全常常是一个被忽视的话题。的确，搭建一个完全无懈可击的软件是不可能的——我们还没有发明一个完全坚不可摧的锁（毕竟，银行金库已经足够坚固但仍然会被闯入）。However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_chart.svg" width="283" alt=" " style="float:right" />
+<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_chart.svg" width="283" alt=" " style={{float:'right'}} />
 
 In this guide, you will learn about best practices for storing sensitive information, authentication, network security, and tools that will help you secure your app. This is not a preflight checklist—it is a catalogue of options, each of which will help further protect your app and users.
 
@@ -33,18 +32,7 @@ If you must have an API key or a secret to access some resource from your app, t
 | Persisting GraphQL state                      |                                    |
 | Storing global app-wide variables             |                                    |
 
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote active" onclick="displayTabs('devNotes', 'webNote')" aria-selected="true">Web</button>
-  </span>
-</div>
-
-<block class="webNote devNotes" />
-
 > Async Storage is the React Native equivalent of Local Storage from the web
-
-<block class="endBlock devNotes" />
 
 ### Secure Storage
 
@@ -72,7 +60,7 @@ In order to use iOS Keychain services or Android Secure Shared Preferences, you 
 
 ## Authentication and Deep Linking
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_deep-linking.svg" width="225" alt=" " style="float:right; margin: 0 0 1em 1em" />
+<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_deep-linking.svg" width="225" alt=" " style={{float: 'right', margin: '0 0 1em 1em'}} />
 
 Mobile apps have a unique vulnerability that is non-existent in the web: **deep linking**. Deep linking is a way of sending data directly to a native application from an outside source. A deep link looks like `app://` where `app` is your app scheme and anything following the // could be used internally to handle the request.
 

@@ -5,7 +5,7 @@ title: RectOrSize Object Type
 
 `RectOrSize` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.
 
-## Example
+## 示例
 
 ```js
 {

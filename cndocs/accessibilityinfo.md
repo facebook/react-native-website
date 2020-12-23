@@ -3,25 +3,16 @@ id: accessibilityinfo
 title: AccessibilityInfo
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 有时候我们希望知道用户的设备是否正在运行读屏应用。`AccessibilityInfo`正是用于此目的。你可以用它来查询读屏应用的当前状态，并且可以监听其状态变化。
 
 ## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=AccessibilityInfo%20Function%20Component%20Example&supportedPlatforms=android,ios
-
 import React, { useState, useEffect } from "react";
 import { AccessibilityInfo, View, Text, StyleSheet } from "react-native";
 
@@ -39,18 +30,22 @@ const App = () => {
       handleScreenReaderToggled
     );
 
-    AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
-      setReduceMotionEnabled(reduceMotionEnabled);
-    });
-    AccessibilityInfo.isReduceMotionEnabled().then(screenReaderEnabled => {
-      setScreenReaderEnabled(screenReaderEnabled);
-    });
+    AccessibilityInfo.isReduceMotionEnabled().then(
+      reduceMotionEnabled => {
+        setReduceMotionEnabled(reduceMotionEnabled);
+      }
+    );
+    AccessibilityInfo.isScreenReaderEnabled().then(
+      screenReaderEnabled => {
+        setScreenReaderEnabled(screenReaderEnabled);
+      }
+    );
+
     return () => {
       AccessibilityInfo.removeEventListener(
         "reduceMotionChanged",
         handleReduceMotionToggled
       );
-
       AccessibilityInfo.removeEventListener(
         "screenReaderChanged",
         handleScreenReaderToggled
@@ -92,10 +87,10 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=AccessibilityInfo%20Class%20Component%20Example&supportedPlatforms=android,ios
-
 import React, { Component } from 'react';
 import { AccessibilityInfo, View, Text, StyleSheet } from 'react-native';
 
@@ -118,7 +113,7 @@ class AccessibilityStatusExample extends Component {
     AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
       this.setState({ reduceMotionEnabled });
     });
-    AccessibilityInfo.isReduceMotionEnabled().then(screenReaderEnabled => {
+    AccessibilityInfo.isScreenReaderEnabled().then(screenReaderEnabled => {
       this.setState({ screenReaderEnabled });
     });
   }
@@ -173,7 +168,8 @@ class AccessibilityStatusExample extends Component {
 export default AccessibilityStatusExample;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 

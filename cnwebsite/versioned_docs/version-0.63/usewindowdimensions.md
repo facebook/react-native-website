@@ -1,13 +1,12 @@
 ---
-id: version-0.63-usewindowdimensions
+id: usewindowdimensions
 title: useWindowDimensions
-original_id: usewindowdimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.47%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.53%)
 
 ```jsx
-import { useWindowDimensions } from 'react-native';
+import { useWindowDimensions } from "react-native";
 ```
 
 `useWindowDimensions` automatically updates `width` and `height` values when screen size changes. You can get your application window's width and height like so:
@@ -17,7 +16,7 @@ const windowWidth = useWindowDimensions().width;
 const windowHeight = useWindowDimensions().height;
 ```
 
-## Example
+## 示例
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from "react";

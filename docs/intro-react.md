@@ -492,7 +492,7 @@ And you set individual values inside the state object by passing an object with 
 <Button
   onPress={() => {
     this.setState({ isHungry: false });
-  }}
+  }}>
   // ..
 </Button>
 ```

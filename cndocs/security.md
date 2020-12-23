@@ -5,7 +5,7 @@ title: 网络安全策略
 
 开发应用时安全常常是一个被忽视的话题。的确，搭建一个完全无懈可击的软件是不可能的——我们还没有发明一个完全坚不可摧的锁（毕竟，银行金库已经足够坚固但仍然会被闯入）。However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_chart.svg" width="283" alt=" " style="float:right" />
+<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_chart.svg" width="283" alt=" " style={{float:'right'}} />
 
 In this guide, you will learn about best practices for storing sensitive information, authentication, network security, and tools that will help you secure your app. This is not a preflight checklist—it is a catalogue of options, each of which will help further protect your app and users.
 
@@ -23,25 +23,14 @@ If you must have an API key or a secret to access some resource from your app, t
 
 [Async Storage](https://github.com/react-native-community/async-storage) is a community-maintained module for React Native that provides an asynchronous, unencrypted, key-value store. Async Storage is not shared between apps: every app has its own sandbox environment and has no access to data from other apps.
 
-| **Do** use async storage when... | **Don't** use async storage for... |
-| --- | --- |
-| Persisting non-sensitive data across app runs | Token storage |
-| Persisting Redux state | Secrets |
-| Persisting GraphQL state |  |
-| Storing global app-wide variables |  |
-
-<div class="toggler">
-  <span>Developer Notes</span>
-  <span role="tablist" class="toggle-devNotes">
-    <button role="tab" class="button-webNote active" onclick="displayTabs('devNotes', 'webNote')" aria-selected="true">Web</button>
-  </span>
-</div>
-
-<block class="webNote devNotes" />
+| **Do** use async storage when...              | **Don't** use async storage for... |
+| --------------------------------------------- | ---------------------------------- |
+| Persisting non-sensitive data across app runs | Token storage                      |
+| Persisting Redux state                        | Secrets                            |
+| Persisting GraphQL state                      |                                    |
+| Storing global app-wide variables             |                                    |
 
 > Async Storage is the React Native equivalent of Local Storage from the web
-
-<block class="endBlock devNotes" />
 
 ### Secure Storage
 
@@ -69,7 +58,7 @@ In order to use iOS Keychain services or Android Secure Shared Preferences, you 
 
 ## Authentication and Deep Linking
 
-<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_deep-linking.svg" width="225" alt=" " style="float:right; margin: 0 0 1em 1em" />
+<img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_deep-linking.svg" width="225" alt=" " style={{float: 'right', margin: '0 0 1em 1em'}} />
 
 Mobile apps have a unique vulnerability that is non-existent in the web: **deep linking**. Deep linking is a way of sending data directly to a native application from an outside source. A deep link looks like `app://` where `app` is your app scheme and anything following the // could be used internally to handle the request.
 

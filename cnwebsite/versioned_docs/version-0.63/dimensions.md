@@ -1,24 +1,25 @@
 ---
-id: version-0.63-dimensions
+id: dimensions
 title: Dimensions
-original_id: dimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.63%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.37%)
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 本模块用于获取设备屏幕的宽高。
 
 > [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
 
 ```jsx
-import { Dimensions } from 'react-native';
+import { Dimensions } from "react-native";
 ```
 
 你可以用下面的方法来获取设备的宽高：
 
 ```jsx
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 ```
 
 > 注意：尽管尺寸信息立即就可用，但它可能会在将来被修改（譬如设备的方向改变），所以基于这些常量的渲染逻辑和样式应当每次 render 之后都调用此函数，而不是将对应的值保存下来。（举例来说，你可能需要使用内联的样式而不是在<code>StyleSheet</code>中保存相应的尺寸）。
@@ -27,18 +28,8 @@ If you are targeting foldable devices or devices which can change the screen siz
 
 ## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Dimensions
 import React, { useState, useEffect } from "react";
@@ -80,7 +71,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Dimensions
 import React, { Component } from "react";
@@ -132,7 +124,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -152,7 +145,7 @@ static get(dim)
 
 **参数：**
 
-| Name | Type   | Required | Description                                                        |
+| 名称 | 类型   | Required | 说明                                                               |
 | ---- | ------ | -------- | ------------------------------------------------------------------ |
 | dim  | string | Yes      | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
 
@@ -194,6 +187,6 @@ static set(dims)
 
 **参数：**
 
-| Name | Type   | Required | Description                              |
+| 名称 | 类型   | Required | 说明                                     |
 | ---- | ------ | -------- | ---------------------------------------- |
 | dims | object | Yes      | string-keyed object of dimensions to set |

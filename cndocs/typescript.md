@@ -1,28 +1,29 @@
 ---
 id: typescript
-title: 使用TypeScript
+title: 使用 TypeScript
 ---
 
 [TypeScript][ts] is a language which extends JavaScript by adding type definitions, much like [Flow][flow]. While React Native is built in Flow, it supports both TypeScript _and_ Flow by default.
 
 ## Getting Started with TypeScript
 
-如果您要开始一个新项目，则有几种不同的上手方法。 您可以使用[TypeScript模板][ts-template]:
+如果您要开始一个新项目，则有几种不同的上手方法。 您可以使用[TypeScript 模板][ts-template]:
 
 ```sh
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
-> **Note** 如果以上命令失败，则可能是您的PC上全局安装了旧版本的`react-native`或`react-native-cli`。 尝试卸载cli并使用`npx`运行cli.
+> **Note** 如果以上命令失败，则可能是您的 PC 上全局安装了旧版本的`react-native`或`react-native-cli`。 尝试卸载 cli 并使用`npx`运行 cli.
 
-您可以使用具有两个TypeScript模板的[Expo][expo]:
+您可以使用具有两个 TypeScript 模板的[Expo][expo]:
+
 
 ```sh
 npm install -g expo-cli
 expo init MyTSProject
 ```
 
-或者，您可以使用[Ignite][ignite]，它也具有TypeScript模板:
+或者，您可以使用[Ignite][ignite]，它也具有 TypeScript 模板:
 
 ```sh
 npm install -g ignite-cli
@@ -64,7 +65,7 @@ npm install --save-dev typescript @types/jest @types/react @types/react-native @
 }
 ```
 
-3. 创建一个`jest.config.js`文件来配置Jest以使用 TypeScript:
+3. 创建一个`jest.config.js`文件来配置 Jest 以使用 TypeScript:
 
 ```js
 module.exports = {
@@ -73,7 +74,7 @@ module.exports = {
 };
 ```
 
-4. 将JavaScript文件重命名为`* .tsx`:
+4. 将 JavaScript 文件重命名为`* .tsx`:
 
 > 请保留`./index.js`入口文件，否则将在打包生产版本时遇到问题。
 

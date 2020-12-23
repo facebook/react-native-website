@@ -1,27 +1,18 @@
 ---
-id: version-0.63-transforms
+id: transforms
 title: Transforms
-original_id: transforms
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.59%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.41%)
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Transforms are style properties that will help you modify the appearance and position of your components using 2D or 3D transformations. However, once you apply transforms, the layouts remain the same around the transformed component hence it might overlap with the nearby components. You can apply margin to the transformed component, the nearby components or padding to the container to prevent such overlaps.
 
-## 示例
+## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Transforms
 import React from "react";
@@ -143,7 +134,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Transforms
 import React, { Component } from "react";
@@ -269,7 +261,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -284,21 +277,21 @@ export default App;
 The rotate transformations require a string so that the transform may be expressed in degrees (deg) or radians (rad). For example:
 
 ```js
-transform([{ rotateX: '45deg' }, { rotateZ: '0.785398rad' }]);
+transform([{ rotateX: "45deg" }, { rotateZ: "0.785398rad" }]);
 ```
 
 The skew transformations require a string so that the transform may be expressed in degrees (deg). For example:
 
 ```js
-transform([{ skewX: '45deg' }]);
+transform([{ skewX: "45deg" }]);
 ```
 
-| Type                                                                                                                                                                                                                                                  | Required |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
-| array of objects: {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} | No       |
+| Type                                                                                                                                                                                                                                                                      | Required |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| array of objects: {matrix: number[]}, {perspective: number}, {rotate: string}, {rotateX: string}, {rotateY: string}, {rotateZ: string}, {scale: number}, {scaleX: number}, {scaleY: number}, {translateX: number}, {translateY: number}, {skewX: string}, {skewY: string} | No       |
 
 ---
 
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-> **已过时。** Use the [`transform`](transforms#transform) prop instead.
+> **Deprecated.** Use the [`transform`](transforms#transform) prop instead.

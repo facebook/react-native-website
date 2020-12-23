@@ -3,6 +3,8 @@ id: sectionlist
 title: SectionList
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 高性能的分组(section)列表组件，支持下面这些常用的功能：
 
 - 完全跨平台。
@@ -18,20 +20,10 @@ title: SectionList
 
 如果你的列表不需要分组(section)，那么可以使用结构更简单的[`<FlatList>`](flatlist.md)。
 
-## Example
+## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=SectionList%20Example
 import React from "react";
@@ -105,7 +97,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=SectionList%20Example
 import React, { Component } from "react";
@@ -183,7 +176,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 本组件实质是基于[`<VirtualizedList>`](virtualizedlist.md)组件的封装，继承了其所有 props（也包括所有[`<ScrollView>`](scrollview.md))的 props）。此外还有下面这些需要注意的事项：
 
@@ -393,19 +387,19 @@ This may improve scroll performance for large lists.
 
 每个组的尾部组件。
 
-| 类型                                                 | 必填 |
-| ---------------------------------------------------- | ---- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | 否   |
+| Type                                                                   |
+| ---------------------------------------------------------------------- |
+| (info: { section: [Section](sectionlist#section) }) => element, `null` |
 
 ---
 
 ### `renderSectionHeader`
 
-在每个 section 的头部渲染。在 iOS 上，这些 headers 是默认粘接在`ScrollView`的顶部的. 参见[`stickySectionHeadersEnabled`]。
+在每个 section 的头部渲染。在 iOS 上，这些 headers 是默认粘接在`ScrollView`的顶部的. 参见[`stickySectionHeadersEnabled`](#stickySectionHeadersEnabled)。
 
-| 类型                                                 | 必填 |
-| ---------------------------------------------------- | ---- |
-| [(info: {section: SectionT}) => ?React.Element<any>] | 否   |
+| Type                                                                   |
+| ---------------------------------------------------------------------- |
+| (info: { section: [Section](sectionlist#section) }) => element, `null` |
 
 ---
 
@@ -413,9 +407,9 @@ This may improve scroll performance for large lists.
 
 在每个`section`的顶部和底部渲染(区别于`ItemSeparatorComponent`，它仅在列表项之间渲染)。它的作用是为了从视觉上把`section`与它上方或下方的`headers`区别开来，从这个意义上讲，它的作用和`ItemSeparatorComponent`是一样的. 它也接受`highlighted`, `[leading/trailing][Item/Separator]`这两个默认提供的属性或其他通过`separators.updateProps`添加的自定义属性.
 
-| 类型              | 必填 |
-| ----------------- | ---- |
-| [ReactClass<any>] | 否   |
+| Type                         |
+| ---------------------------- |
+| component, element, function |
 
 ---
 
@@ -485,10 +479,10 @@ An object that identifies the data to be rendered for a given section.
 
 **属性：**
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| data | array | The data for rendering items in this section. Array of objects, much like [`FlatList`的 data 属性](flatlist.md#data). |
-| [key] | string | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default. |
-| [renderItem] | function | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list. |
+| 名称                     | 类型                         | 说明                                                                                                                                                                   |
+| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`的 data 属性](flatlist.md#data).                                                  |
+| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
+| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
 | [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor] | function | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor). |
+| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |

@@ -3,26 +3,18 @@ id: image
 title: Image
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 用于显示多种不同类型图片的 React 组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。
 
 下面的例子分别演示了如何显示从本地缓存、网络甚至是以`'data:'`的 base64 uri 形式提供的图片。
 
 > 请注意对于网络和 base64 数据的图片需要手动指定尺寸！
 
-## Examples
+## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
 
@@ -59,8 +51,7 @@ const DisplayAnImage = () => {
       <Image
         style={styles.logo}
         source={{
-          uri:
-            'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
+          uri: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==',
         }}
       />
     </View>
@@ -70,7 +61,8 @@ const DisplayAnImage = () => {
 export default DisplayAnImage;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example
 
@@ -115,22 +107,13 @@ class DisplayAnImage extends Component {
 export default DisplayAnImage;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 你可以给图片添加`style`属性：
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example
 
@@ -162,7 +145,8 @@ const DisplayAnImageWithStyle = () => {
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example
 
@@ -193,9 +177,10 @@ class DisplayAnImageWithStyle extends Component {
 export default DisplayAnImageWithStyle;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
-### 在 Android 上支持 GIF 和 WebP 格式图片
+## 在 Android 上支持 GIF 和 WebP 格式图片
 
 默认情况下 Android 是不支持 GIF 和 WebP 格式的。你需要在`android/app/build.gradle`文件中根据需要手动添加以下模块：
 
@@ -222,58 +207,23 @@ dependencies {
 
 ## Props
 
-### `style`
+### `accessible`
 
-`ImageResizeMode` is an `Enum` for different image resizing modes, set via the `resizeMode` style property on `Image` components. The values are `contain`, `cover`, `stretch`, `center`, `repeat`.
+当此属性为 true 时，表示此图片是一个启用了无障碍功能的元素。
 
-| 类型  | 必填 |
-| ----- | ---- |
-| style | 否   |
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
-- [布局属性...](layout-props.md#props)
+---
 
-- [阴影属性...](shadow-props.md#props)
+### `accessibilityLabel`
 
-- [动画变换 Transforms...](transforms.md#props)
+设置一段文字。当用户与图片交互时，读屏器（无障碍功能）会朗读你所设置的这段文字。
 
-- **`borderTopRightRadius`**: number
-
-- **`backfaceVisibility`**: enum('visible', 'hidden')
-
-- **`borderBottomLeftRadius`**: number
-
-- **`borderBottomRightRadius`**: number
-
-- **`borderColor`**: [color](colors.md)
-
-- **`borderRadius`**: number
-
-- **`borderTopLeftRadius`**: number
-
-- **`backgroundColor`**: [color](colors.md)
-
-- **`borderWidth`**: number
-
-- **`opacity`**: number
-
-- **`overflow`**: enum('visible', 'hidden')
-
-- **`resizeMode`**: Object.keys(ImageResizeMode)
-
-- **`tintColor`**: [color](colors.md)
-
-  为所有非透明的像素指定一个颜色。
-
-- **`overlayColor`**: string (_Android_)
-
-  当图片有圆角的时候，指定一个颜色用于填充圆角处的空白。虽然一般情况下圆角处是透明的，但在某些情况下，Android 并不支持圆角透明，比如：
-
-  - 某些 resize 模式比如'contain'
-  - GIF 动画
-
-  常见的用法就是在不能圆角透明时，设置`overlayColor`和背景色一致。
-
-  详细说明可参考<http://frescolib.org/rounded-corners-and-circles.md>。
+| 类型   |
+| ------ |
+| string |
 
 ---
 
@@ -281,21 +231,75 @@ dependencies {
 
 blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
-| 类型   | 必填 |
-| ------ | ---- |
-| number | 否   |
+| 类型   |
+| ------ |
+| number |
 
-> Tip : IOS you will need to increase `blurRadius` more than `5`
+> 提示： 在 iOS 上 `blurRadius`最好不要低于`5`
+
+---
+
+### `capInsets` <div class="label ios">iOS</div>
+
+当图片被缩放的时候，capInsets 指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9 图。了解更多信息，可以参见[苹果官方文档](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets)。
+
+| Type         |
+| ------------ |
+| [Rect](rect) |
+
+---
+
+### `defaultSource`
+
+在读取图片时默认显示的图片。
+
+| Type                             |
+| -------------------------------- |
+| [ImageSource](image#imagesource) |
+
+> **注意：** 在 Android 的 debug 版本上本属性不会生效（但在 release 版本中会生效）。
+
+---
+
+### `fadeDuration` <div class="label android">Android</div>
+
+渐入的动画持续时间。
+
+| Type   | Default |
+| ------ | ------- |
+| number | `300`   |
+
+---
+
+### `loadingIndicatorSource`
+
+Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
+
+| Type                                                  |
+| ----------------------------------------------------- |
+| [ImageSource](image#imagesource) (`uri` only), number |
+
+---
+
+### `onError`
+
+当加载错误的时候调用此回调函数。
+
+| Type |
+| ---- |
+
+
+| function(`{ nativeEvent: { error } }`) => void
 
 ---
 
 ### `onLayout`
 
-当元素加载或者布局改变的时候调用，参数为：`{nativeEvent: {layout: {x, y, width, height}}}`.
+当元素加载或者布局改变的时候调用。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| Type                                         |
+| -------------------------------------------- |
+| function([LayoutEvent](layoutevent)) => void |
 
 ---
 
@@ -303,9 +307,9 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 加载成功完成时调用此回调函数。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| Type                                                     |
+| -------------------------------------------------------- |
+| function([ImageLoadEvent](image#imageloadevent)) => void |
 
 ---
 
@@ -313,9 +317,9 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 加载结束后，不论成功还是失败，调用此回调函数。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| Type               |
+| ------------------ |
+| function() => void |
 
 ---
 
@@ -325,9 +329,57 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 示例：`onLoadStart={(e) => this.setState({loading: true})}`
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| Type               |
+| ------------------ |
+| function() => void |
+
+---
+
+### `onPartialLoad` <div class="label ios">iOS</div>
+
+如果图片本身支持逐步加载，则逐步加载的过程中会调用此方法。“逐步加载”的具体定义与具体的标准和实现有关。
+
+| Type               |
+| ------------------ |
+| function() => void |
+
+---
+
+### `onProgress`
+
+下载进度的回调事件。
+
+| Type                                                   |
+| ------------------------------------------------------ |
+| function(`{ nativeEvent: { loaded, total } }`) => void |
+
+---
+
+### `progressiveRenderingEnabled` <div class="label android">Android</div>
+
+When true, enables progressive jpeg streaming. https://frescolib.org/docs/progressive-jpegs.html
+
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
+
+---
+
+### `resizeMethod` <div class="label android">Android</div>
+
+当图片实际尺寸和容器样式尺寸不一致时，决定以怎样的策略来调整图片的尺寸。默认为`auto`。
+
+- `auto`: 使用启发式算法来在`resize`和`scale`中自动决定。
+
+- `resize`: 在图片解码之前，使用软件算法对其在内存中的数据进行修改。当图片尺寸比容器尺寸大得多时，应该优先使用此选项。
+
+- `scale`: 对图片进行缩放。和`resize`相比，`scale`速度更快（一般有硬件加速），而且图片质量更优。在图片尺寸比容器尺寸小或者只是稍大一点时，应该优先使用此选项。
+
+关于`resize`和`scale`的详细说明请参考<http://frescolib.org/docs/resizing.html>。
+
+| Type                                  | Default  |
+| ------------------------------------- | -------- |
+| enum(`'auto'`, `'resize'`, `'scale'`) | `'auto'` |
 
 ---
 
@@ -345,9 +397,9 @@ blurRadius(模糊半径)：为图片添加一个指定半径的模糊滤镜。
 
 - `center`: 居中不拉伸。
 
-| 类型                                                    | 必填 |
-| ------------------------------------------------------- | ---- |
-| enum('cover', 'contain', 'stretch', 'repeat', 'center') | 否   |
+| Type                                                              | Default   |
+| ----------------------------------------------------------------- | --------- |
+| enum(`'cover'`, `'contain'`, `'stretch'`, `'repeat'`, `'center'`) | `'cover'` |
 
 ---
 
@@ -359,31 +411,17 @@ This prop can also contain several remote URLs, specified together with their wi
 
 目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。此外 iOS 还支持几种 RAW 格式。请参考 Apple 的官方文档来了解目前支持哪些相机型号的 raw 格式(对于 iOS 13 请访问 https://support.apple.com/en-us/HT210191)。
 
-| 类型                | 必填 |
-| ------------------- | ---- |
-| ImageSourcePropType | 否   |
+| Type                             |
+| -------------------------------- |
+| [ImageSource](image#imagesource) |
 
 ---
 
-### `loadingIndicatorSource`
+### `style`
 
-Similarly to `source`, this property represents the resource used to render the loading indicator for the image, displayed until image is ready to be displayed, typically after when it got downloaded from network.
-
-| 类型                                  | 必填 |
-| ------------------------------------- | ---- |
-| array of ImageSourcePropTypes, number | 否   |
-
-> 可以接受`require('./image.jpg')`
-
----
-
-### `onError`
-
-当加载错误的时候调用此回调函数，参数为`{nativeEvent: {error}}`。
-
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| Type                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Image Style Props](image-style-props#props), [Layout Props](layout-props#props), [Shadow Props](shadow-props#props), [Transforms](transforms#props) |
 
 ---
 
@@ -391,120 +429,29 @@ Similarly to `source`, this property represents the resource used to render the 
 
 一个唯一的资源标识符，用来在自动测试脚本中标识这个元素。
 
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 否   |
+| 类型   |
+| ------ |
+| string |
 
 ---
-
-### `resizeMethod`
-
-当图片实际尺寸和容器样式尺寸不一致时，决定以怎样的策略来调整图片的尺寸。默认为`auto`。
-
-- `auto`: 使用启发式算法来在`resize`和`scale`中自动决定。
-
-- `resize`: 在图片解码之前，使用软件算法对其在内存中的数据进行修改。当图片尺寸比容器尺寸大得多时，应该优先使用此选项。
-
-- `scale`: 对图片进行缩放。和`resize`相比，`scale`速度更快（一般有硬件加速），而且图片质量更优。在图片尺寸比容器尺寸小或者只是稍大一点时，应该优先使用此选项。
-
-关于`resize`和`scale`的详细说明请参考<http://frescolib.org/docs/resizing.html>。
-
-| 类型                            | 必填 | 平台    |
-| ------------------------------- | ---- | ------- |
-| enum('auto', 'resize', 'scale') | 否   | Android |
-
----
-
-### `accessibilityLabel`
-
-设置一段文字。当用户与图片交互时，读屏器（无障碍功能）会朗读你所设置的这段文字。
-
-| 类型   | 必填 | 平台 |
-| ------ | ---- | ---- |
-| string | 否   | iOS  |
-
----
-
-### `accessible`
-
-当此属性为 true 时，表示此图片是一个启用了无障碍功能的元素。
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
-
----
-
-### `capInsets`
-
-当图片被缩放的时候，capInsets 指定的角上的尺寸会被固定而不进行缩放，而中间和边上其他的部分则会被拉伸。这在制作一些可变大小的圆角按钮、阴影、以及其它资源的时候非常有用（译注：这就是常说的九宫格或者.9 图。了解更多信息，可以参见[苹果官方文档](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIImage_Class/index.html#//apple_ref/occ/instm/UIImage/resizableImageWithCapInsets)。
-
-| 类型                                                               | 必填 | 平台 |
-| ------------------------------------------------------------------ | ---- | ---- |
-| object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
-
----
-
-### `defaultSource`
-
-在读取图片时默认显示的图片。
-
-| 类型           | 必填 | 平台    |
-| -------------- | ---- | ------- |
-| object, number | 否   | iOS     |
-| number         | 否   | Android |
-
-If passing an object, the general shape is `{uri: string, width: number, height: number, scale: number}`:
-
-- `uri` - 是一个表示图片的资源标识的字符串，它可以是一个本地文件路径或是一个静态资源引用（使用`require(相对路径)`来引用）。
-- `width`, `height` - 如果你知道图片的尺寸，那么可以在这里指定。这一尺寸会被用作`<Image/>`组件的默认尺寸。
-- `scale` - 图片的缩放系数。默认是 1.0，意味着每一个图片像素都对应一个设备独立像素（DIP）。
-
-- `number` - 静态图片引用语法`require('./image.jpg')`所返回的资源 id。
-
-> **注意：** 在 Android 的 debug 版本上本属性不会生效（但在 release 版本中会生效）。
-
----
-
-### `onPartialLoad`
-
-如果图片本身支持逐步加载，则逐步加载的过程中会调用此方法。“逐步加载”的具体定义与具体的标准和实现有关。
-
-| 类型     | 必填 | 平台 |
-| -------- | ---- | ---- |
-| function | 否   | iOS  |
-
----
-
-### `onProgress`
-
-在加载过程中不断调用，参数为`{nativeEvent: {loaded, total}}`。
-
-| 类型     | 必填 | 平台 |
-| -------- | ---- | ---- |
-| function | 否   | iOS  |
-
----
-
-### `fadeDuration`
-
-渐入的动画持续时间。仅 Android 可用。默认为 300ms.
-
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| number | 否   | Android |
-
----
-
-### `progressiveRenderingEnabled`
-
-Android only. When true, enables progressive jpeg streaming. https://frescolib.org/docs/progressive-jpegs.html
-
-| 类型 | 必填 | 平台    |
-| ---- | ---- | ------- |
-| bool | 否   | Android |
 
 ## 方法
+
+### `abortPrefetch()` <div class="label android">Android</div>
+
+```jsx
+Image.abortPrefetch(requestId);
+```
+
+中断预加载操作。
+
+**参数：**
+
+| 名称                                                       | 类型   | 说明                |
+| ---------------------------------------------------------- | ------ | ------------------- |
+| requestId <div class="label basic required">Required</div> | number | prefetch()返回的 id |
+
+---
 
 ### `getSize()`
 
@@ -565,22 +512,6 @@ Image.prefetch(url);
 
 ---
 
-### `abortPrefetch()`
-
-```jsx
-Image.abortPrefetch(requestId);
-```
-
-中断预加载操作。仅 Android 可用。
-
-**参数：**
-
-| 名称      | 类型   | 必填 | 说明                |
-| --------- | ------ | ---- | ------------------- |
-| requestId | number | 是   | prefetch()返回的 id |
-
----
-
 ### `queryCache()`
 
 ```jsx
@@ -607,8 +538,63 @@ Resolves an asset reference into an object which has the properties `uri`, `widt
 
 **参数：**
 
-| 名称   | 类型           | 必填 | 说明                                                                           |
-| ------ | -------------- | ---- | ------------------------------------------------------------------------------ |
-| source | number, object | 是   | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
+| 名称                                                    | 类型                                     | 说明                                                                           |
+| ------------------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------ |
+| source <div class="label basic required">Required</div> | [ImageSource](image#imagesource), number | 静态图片引用语法`require('./image.jpg')`所返回的资源 id 或是一个`ImageSource`. |
 
 > `ImageSource`是一个对象，其结构为`{ uri: '<http location || file path>' }`
+
+## 类型定义
+
+### ImageCacheEnum <div class="label ios">iOS</div>
+
+Enum which can be used to set the cache handling or stategy for the potentially cached responses.
+
+| Type                                                               | Default     |
+| ------------------------------------------------------------------ | ----------- |
+| enum(`'default'`, `'reload'`, `'force-cache'`, `'only-if-cached'`) | `'default'` |
+
+- `default`: Use the native platforms default strategy.
+- `reload`: The data for the URL will be loaded from the originating source. No existing cache data should be used to satisfy a URL load request.
+- `force-cache`: The existing cached data will be used to satisfy the request, regardless of its age or expiration date. If there is no existing data in the cache corresponding the request, the data is loaded from the originating source.
+- `only-if-cached`: The existing cache data will be used to satisfy a request, regardless of its age or expiration date. If there is no existing data in the cache corresponding to a URL load request, no attempt is made to load the data from the originating source, and the load is considered to have failed.
+
+### ImageLoadEvent
+
+Object returned in the `onLoad` callback.
+
+| Type   |
+| ------ |
+| object |
+
+**Properties:**
+
+| Name   | Type   | Description                                                  |
+| ------ | ------ | ------------------------------------------------------------ |
+| width  | number | The width of loaded image.                                   |
+| height | number | The height of loaded image.                                  |
+| uri    | string | A string representing the resource identifier for the image. |
+
+### ImageSource
+
+| Type                             |
+| -------------------------------- |
+| object, array of objects, number |
+
+**Properties (if passing as object or array of objects):**
+
+| <div className="wideColumn">Name</div> | Type                                       | Description                                                                                                                                                                          |
+| -------------------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| uri                                    | string                                     | A string representing the resource identifier for the image, which could be an http address, a local file path, or the name of a static image resource.                              |
+| width                                  | number                                     | Can be specified if known at build time, in which case the value will be used to set the default `<Image/>` component dimension.                                                     |
+| height                                 | number                                     | Can be specified if known at build time, in which case the value will be used to set the default `<Image/>` component dimension.                                                     |
+| scale                                  | number                                     | Used to indicate the scale factor of the image. Defaults to `1.0` if unspecified, meaning that one image pixel equates to one display point / DIP.                                   |
+| bundle<div class="label ios">iOS</div> | string                                     | The iOS asset bundle which the image is included in. This will default to `[NSBundle mainBundle]` if not set.                                                                        |
+| method                                 | string                                     | The HTTP Method to use. Defaults to `'GET'` if not specified.                                                                                                                        |
+| headers                                | object                                     | An object representing the HTTP headers to send along with the request for a remote image.                                                                                           |
+| body                                   | string                                     | The HTTP body to send with the request. This must be a valid UTF-8 string, and will be sent exactly as specified, with no additional encoding (e.g. URL-escaping or base64) applied. |
+| cache<div class="label ios">iOS</div>  | [ImageCacheEnum](image#imagecacheenum-ios) | Determines how the requests handles potentially cached responses.                                                                                                                    |
+
+**If passing a number:**
+
+- `number` - opaque type returned by something like `require('./image.jpg')`.

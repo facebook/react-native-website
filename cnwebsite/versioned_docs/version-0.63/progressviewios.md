@@ -1,7 +1,6 @@
 ---
-id: version-0.63-progressviewios
+id: progressviewios
 title: 🚧 ProgressViewIOS
-original_id: progressviewios
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

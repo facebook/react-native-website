@@ -4,7 +4,7 @@ title: AppRegistry
 ---
 
 <div class="banner-native-code-required">
-  <h3>Project with Native Code Required</h3>
+  <h3>仅适用于非沙盒项目</h3>
   <p>
     If you are using the managed <code>expo-cli</code> workflow there is only ever one entry component registered with <code>AppRegistry</code> and it is handled automatically, you do not need to use this API.
   </p>
@@ -44,10 +44,10 @@ Only called from native code. Cancels a headless task. @param taskId the native 
 
 **参数：**
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| taskId <div class="label basic required">Required</div> | number | The native id for this task instance that was used when `startHeadlessTask` was called. |
-| taskKey <div class="label basic required">Required</div> | string | The key for the task that was used when `startHeadlessTask` was called. |
+| 名称                                                     | 类型   | 说明                                                                                    |
+| -------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------- |
+| taskId <div class="label basic required">Required</div>  | number | The native id for this task instance that was used when `startHeadlessTask` was called. |
+| taskKey <div class="label basic required">Required</div> | string | The key for the task that was used when `startHeadlessTask` was called.                 |
 
 ---
 
@@ -59,8 +59,8 @@ static enableArchitectureIndicator(enabled)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
+| 名称                                                     | 类型    |
+| -------------------------------------------------------- | ------- |
 | enabled <div class="label basic required">Required</div> | boolean |
 
 ---
@@ -95,8 +95,8 @@ Returns a [Runnable](appregistry#runnable) object.
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
+| 名称                                                    | 类型   |
+| ------------------------------------------------------- | ------ |
 | appKey <div class="label basic required">Required</div> | string |
 
 ---
@@ -131,11 +131,11 @@ Register a headless task which can be cancelled. A headless task is a bit of cod
 
 **参数：**
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| taskKey<br/><div class="label basic required two-lines">Required</div> | string | The native id for this task instance that was used when startHeadlessTask was called. |
-| taskProvider<br/><div class="label basic required two-lines">Required</div> | [TaskProvider](appregistry#taskprovider) | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
-| taskCancelProvider<br/><div class="label basic required two-lines">Required</div> | [TaskCancelProvider](appregistry#taskcancelprovider) | a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP. |
+| 名称                                                                              | 类型                                                 | 说明                                                                                                                                                                                                                                |
+| --------------------------------------------------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskKey<br/><div class="label basic required two-lines">Required</div>            | string                                               | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
+| taskProvider<br/><div class="label basic required two-lines">Required</div>       | [TaskProvider](appregistry#taskprovider)             | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
+| taskCancelProvider<br/><div class="label basic required two-lines">Required</div> | [TaskCancelProvider](appregistry#taskcancelprovider) | a void returning function that takes no arguments; when a cancellation is requested, the function being executed by taskProvider should wrap up and return ASAP.                                                                    |
 
 ---
 
@@ -147,11 +147,11 @@ static registerComponent(appKey, componentProvider, section?)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
-| appKey <div class="label basic required">Required</div> | string |
+| 名称                                                               | 类型              |
+| ------------------------------------------------------------------ | ----------------- |
+| appKey <div class="label basic required">Required</div>            | string            |
 | componentProvider <div class="label basic required">Required</div> | ComponentProvider |
-| section | boolean |
+| section                                                            | boolean           |
 
 ---
 
@@ -163,8 +163,8 @@ static registerConfig(config)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
+| 名称                                                    | 类型                               |
+| ------------------------------------------------------- | ---------------------------------- |
 | config <div class="label basic required">Required</div> | [AppConfig](appregistry#appconfig) |
 
 ---
@@ -181,9 +181,9 @@ This is a way to run tasks in JavaScript while your app is in the background. It
 
 **参数：**
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| taskKey<br/><div class="label basic required two-lines">Required</div> | string | The native id for this task instance that was used when startHeadlessTask was called. |
+| 名称                                                                        | 类型                                     | 说明                                                                                                                                                                                                                                |
+| --------------------------------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| taskKey<br/><div class="label basic required two-lines">Required</div>      | string                                   | The native id for this task instance that was used when startHeadlessTask was called.                                                                                                                                               |
 | taskProvider<br/><div class="label basic required two-lines">Required</div> | [TaskProvider](appregistry#taskprovider) | A promise returning function that takes some data passed from the native side as the only argument. When the promise is resolved or rejected the native side is notified of this event and it may decide to destroy the JS context. |
 
 ---
@@ -196,10 +196,10 @@ static registerRunnable(appKey, run)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
-| appKey <div class="label basic required">Required</div> | string |
-| run <div class="label basic required">Required</div> | function |
+| 名称                                                    | 类型     |
+| ------------------------------------------------------- | -------- |
+| appKey <div class="label basic required">Required</div> | string   |
+| run <div class="label basic required">Required</div>    | function |
 
 ---
 
@@ -211,9 +211,9 @@ static registerSection(appKey, component)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
-| appKey <div class="label basic required">Required</div> | string |
+| 名称                                                       | 类型              |
+| ---------------------------------------------------------- | ----------------- |
+| appKey <div class="label basic required">Required</div>    | string            |
 | component <div class="label basic required">Required</div> | ComponentProvider |
 
 ---
@@ -228,10 +228,10 @@ static runApplication(appKey, appParameters)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
-| appKey <div class="label basic required">Required</div> | string |
-| appParameters <div class="label basic required">Required</div> | any |
+| 名称                                                           | 类型   |
+| -------------------------------------------------------------- | ------ |
+| appKey <div class="label basic required">Required</div>        | string |
+| appParameters <div class="label basic required">Required</div> | any    |
 
 ---
 
@@ -243,15 +243,15 @@ static setComponentProviderInstrumentationHook(hook)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
+| 名称                                                  | 类型     |
+| ----------------------------------------------------- | -------- |
 | hook <div class="label basic required">Required</div> | function |
 
 A valid `hook` function accepts the following as arguments:
 
-| 名称 | 类型 |
-| --- | --- |
-| component <div class="label basic required">Required</div> | ComponentProvider |
+| 名称                                                                     | 类型               |
+| ------------------------------------------------------------------------ | ------------------ |
+| component <div class="label basic required">Required</div>               | ComponentProvider  |
 | scopedPerformanceLogger <div class="label basic required">Required</div> | IPerformanceLogger |
 
 The function must also return a React Component.
@@ -266,8 +266,8 @@ static setWrapperComponentProvider(provider)
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
+| 名称                                                      | 类型              |
+| --------------------------------------------------------- | ----------------- |
 | provider <div class="label basic required">Required</div> | ComponentProvider |
 
 ---
@@ -282,11 +282,11 @@ Only called from native code. Starts a headless task.
 
 **参数：**
 
-| 名称 | 类型 | 说明 |
-| --- | --- | --- |
-| taskId <div class="label basic required">Required</div> | number | The native id for this task instance to keep track of its execution. |
-| taskKey <div class="label basic required">Required</div> | string | The key for the task to start. |
-| data <div class="label basic required">Required</div> | any | The data to pass to the task. |
+| 名称                                                     | 类型   | 说明                                                                 |
+| -------------------------------------------------------- | ------ | -------------------------------------------------------------------- |
+| taskId <div class="label basic required">Required</div>  | number | The native id for this task instance to keep track of its execution. |
+| taskKey <div class="label basic required">Required</div> | string | The key for the task to start.                                       |
+| data <div class="label basic required">Required</div>    | any    | The data to pass to the task.                                        |
 
 ---
 
@@ -300,11 +300,11 @@ Stops an application when a view should be destroyed.
 
 **参数：**
 
-| 名称 | 类型 |
-| --- | --- |
+| 名称                                                     | 类型   |
+| -------------------------------------------------------- | ------ |
 | rootTag <div class="label basic required">Required</div> | number |
 
-## Type Definitions
+## 类型定义
 
 ### AppConfig
 
@@ -316,12 +316,12 @@ Application configuration for the `registerConfig` method.
 
 **Properties:**
 
-| 名称 | 类型 |
-| --- | --- |
-| appKey <div class="label basic required">Required</div> | string |
-| component | ComponentProvider |
-| run | function |
-| section | boolean |
+| 名称                                                    | 类型              |
+| ------------------------------------------------------- | ----------------- |
+| appKey <div class="label basic required">Required</div> | string            |
+| component                                               | ComponentProvider |
+| run                                                     | function          |
+| section                                                 | boolean           |
 
 > **Note:** Every config is expected to set either `component` or `run` function.
 

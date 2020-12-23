@@ -1,10 +1,9 @@
 ---
-id: version-0.63-textinput
+id: textinput
 title: TextInput
-original_id: textinput
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(79.72%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(20.28%)
 
 TextInput 是一个允许用户在应用中通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字，以及多种不同的键盘类型（如纯数字键盘）等等。
 
@@ -271,9 +270,9 @@ Say the system whether the individual fields in your app should be included in a
 - `yes`: This view is important for autofill.
 - `yesExcludeDescendants`: This view is important for autofill, but its children aren't important for autofill.
 
-| Type                                                                       | Required | Platform |
-| -------------------------------------------------------------------------- | -------- | -------- |
-| enum('auto', 'no', 'noExcludeDescendants', 'yes', 'yesExcludeDescendants') | No       | Android  |
+| 类型                                                                       | Required | 平台    |
+| -------------------------------------------------------------------------- | -------- | ------- |
+| enum('auto', 'no', 'noExcludeDescendants', 'yes', 'yesExcludeDescendants') | No       | Android |
 
 ---
 
@@ -495,7 +494,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
 
-| Type     | Required |
+| 类型     | Required |
 | -------- | -------- |
 | function | No       |
 
@@ -571,9 +570,9 @@ _iOS Only_
 
 If `true`, allows TextInput to pass touch events to the parent component. This allows components such as SwipeableListView to be swipeable from the TextInput on iOS, as is the case on Android by default.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| 类型 | Required | 平台 |
+| ---- | -------- | ---- |
+| bool | No       | iOS  |
 
 ---
 
@@ -647,7 +646,7 @@ Possible values for `textAlign` are:
 - `center`
 - `right`
 
-| Type                            | Required |
+| 类型                            | Required |
 | ------------------------------- | -------- |
 | enum('left', 'center', 'right') | No       |
 
@@ -704,9 +703,9 @@ Possible values for `textContentType` are:
 
 When using `textContentType` as `newPassword` on iOS we can let the OS know the minimum requirements of the password so that it can generate one that will satisfy them. In order to create a valid string for `PasswordRules` take a look to the [Apple Docs](https://developer.apple.com/password-rules/).
 
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| string | No       | iOS      |
+| 类型   | Required | 平台 |
+| ------ | -------- | ---- |
+| string | No       | iOS  |
 
 ---
 

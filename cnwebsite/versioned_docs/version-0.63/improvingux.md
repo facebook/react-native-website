@@ -1,10 +1,9 @@
 ---
-id: version-0.63-improvingux
+id: improvingux
 title: 改进用户体验
-original_id: improvingux
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(54.39%), [qingtian88](https://github.com/search?q=qingtian88%40live.com&type=Users)(45.61%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(54.39%), [qingtian88](https://github.com/search?q=qingtian88&type=Users)(45.61%)
 
 ## 配置文本输入
 
@@ -17,15 +16,20 @@ original_id: improvingux
 - 确保回车按钮对焦到下一个域或者提交表单
 - 查看 [`TextInput` 文档](textinput.md) 了解更多配置信息
 
-<video src="/react-native/img/textinput.mp4" muted autoplay loop width="320" height="430"></video> [Try it on your phone](https://snack.expo.io/H1iGt2vSW)
+<video src="/react-native/img/textinput.mp4" muted autoplay loop width="320" height="430"></video>
+[Try it on your phone](https://snack.expo.io/H1iGt2vSW)
 
 ## 键盘隐藏时的布局管理
 
-软键盘几乎占用将近一半的手机屏幕。 如果你有会被软键盘覆盖的交互式组件，请使用[`KeyboardAvoidingView` 组件]以确保他们可以在打开键盘时可以被访问。 <video src="/react-native/img/keyboardavoidingview.mp4" muted autoplay loop width="320" height="448"></video> [Try it on your phone](https://snack.expo.io/ryxRkwnrW)
+软键盘几乎占用将近一半的手机屏幕。 如果你有会被软键盘覆盖的交互式组件，请使用[`KeyboardAvoidingView` 组件]以确保他们可以在打开键盘时可以被访问。
+<video src="/react-native/img/keyboardavoidingview.mp4" muted autoplay loop width="320" height="448"></video>
+[Try it on your phone](https://snack.expo.io/ryxRkwnrW)
 
 ## 放大可触控区域
 
-在手机上精准的点击一个按钮是很困难的一件事。 确保所有交互式元素大于等于 44x44。 常见的撑大尺寸的做法有：使用 `padding`, `minWidth` 和 `minHeight` 样式。或者， 可以使用 [`hitSlop` 属性](touchablewithoutfeedback.md#hitslop) 无需影响布局来增加可交互区域。 这是一个演示： <video src="/react-native/img/hitslop.mp4" muted autoplay loop width="320" height="120"></video>
+在手机上精准的点击一个按钮是很困难的一件事。 确保所有交互式元素大于等于 44x44。 常见的撑大尺寸的做法有：使用 `padding`, `minWidth` 和 `minHeight` 样式。
+或者， 可以使用 [`hitSlop` 属性](touchablewithoutfeedback.md#hitslop) 无需影响布局来增加可交互区域。 这是一个演示：
+<video src="/react-native/img/hitslop.mp4" muted autoplay loop width="320" height="120"></video>
 
 [Try it on your phone](https://snack.expo.io/rJPwCt4HZ)
 

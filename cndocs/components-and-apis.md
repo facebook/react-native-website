@@ -135,10 +135,6 @@ React Native 提供了一些内置的[核心组件](intro-react-native-component
     <p>易于使用和维护的动画库，可生成流畅而强大的动画。</p>
   </div>
   <div class="component">
-    <h3><a href="cameraroll">CameraRoll</a></h3>
-    <p>访问本地相册。</p>
-  </div>
-  <div class="component">
     <h3><a href="dimensions">Dimensions</a></h3>
     <p>获取设备尺寸。</p>
   </div>

@@ -7,9 +7,15 @@
       "handling-text-input",
       "using-a-scrollview",
       "using-a-listview",
-      "sample-application-movies",
       "platform-specific-code",
       "more-resources"
+    ],
+    "环境搭建": [
+      "environment-setup",
+      "integration-with-existing-apps",
+      "integration-with-android-fragment",
+      "building-for-tv",
+      "out-of-tree-platforms"
     ],
     "开发流程": [
       "running-on-device",
@@ -28,6 +34,7 @@
       "animations",
       "gesture-responder-system"
     ],
+    "包容性": ["accessibility"],
     "性能调优": [
       "performance",
       "optimizing-flatlist-configuration",
@@ -37,32 +44,27 @@
     ],
     "JavaScript 运行环境": ["javascript-environment", "timers", "hermes"],
     "网络连接": ["network", "security"],
-    "进阶指南": [
-      "accessibility",
-      "direct-manipulation",
-      "integration-with-existing-apps",
-      "integration-with-android-fragment",
-      "building-for-tv",
-      "native-modules-setup",
-      "out-of-tree-platforms",
-      "building-from-source",
-      "publishing-forks"
+    "原生模块": [
+      "native-modules-intro",
+      "native-modules-android",
+      "native-modules-ios",
+      "native-modules-setup"
+    ],
+    "原生UI组件": [
+      "native-components-android",
+      "native-components-ios",
+      "direct-manipulation"
+    ],
+    "Android 指南": [
+      "headless-js-android",
+      "signed-apk-android"
     ],
     "iOS 指南": [
-      "native-modules-ios",
-      "native-components-ios",
       "linking-libraries-ios",
       "running-on-simulator-ios",
       "communication-ios",
       "app-extensions",
       "publishing-to-app-store"
-    ],
-    "Android 指南": [
-      "native-modules-android",
-      "native-components-android",
-      "headless-js-android",
-      "signed-apk-android",
-      "removing-default-permissions"
     ]
   },
   "api": {
@@ -91,19 +93,22 @@
       "transforms",
       "vibration",
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Hooks",
-        "ids": ["usecolorscheme", "usewindowdimensions"]
+        "collapsed": false,
+        "items": ["usecolorscheme", "usewindowdimensions"]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Android APIs",
-        "ids": ["backhandler", "permissionsandroid", "toastandroid"]
+        "collapsed": false,
+        "items": ["backhandler", "permissionsandroid", "toastandroid"]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "iOS APIs",
-        "ids": ["actionsheetios", "dynamiccolorios", "settings"]
+        "collapsed": false,
+        "items": ["actionsheetios", "dynamiccolorios", "settings"]
       }
     ]
   },
@@ -131,17 +136,19 @@
       "view",
       "virtualizedlist",
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "Android 组件",
-        "ids": ["drawerlayoutandroid", "touchablenativefeedback"]
+        "collapsed": false,
+        "items": ["drawerlayoutandroid", "touchablenativefeedback"]
       },
       {
-        "type": "subcategory",
+        "type": "category",
         "label": "iOS 组件",
-        "ids": ["inputaccessoryview", "maskedviewios", "safeareaview"]
+        "collapsed": false,
+        "items": ["inputaccessoryview", "safeareaview"]
       }
     ],
-    "属性": [
+    "Props": [
       "image-style-props",
       "layout-props",
       "shadow-props",

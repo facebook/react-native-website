@@ -1,7 +1,6 @@
 ---
-id: version-0.63-ram-bundles-inline-requires
+id: ram-bundles-inline-requires
 title: RAM Bundles 和内联引用优化
-original_id: ram-bundles-inline-requires
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

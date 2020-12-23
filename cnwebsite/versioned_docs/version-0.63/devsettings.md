@@ -1,7 +1,6 @@
 ---
-id: version-0.63-devsettings
+id: devsettings
 title: DevSettings
-original_id: devsettings
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
@@ -23,8 +22,8 @@ static addMenuItem(title: string, handler: function)
 在开发者菜单中添加一个自定义的菜单项：
 
 ```jsx
-DevSettings.addMenuItem('Show Secret Dev Screen', () => {
-  Alert.alert('Showing secret dev screen!');
+DevSettings.addMenuItem("Show Secret Dev Screen", () => {
+  Alert.alert("Showing secret dev screen!");
 });
 ```
 

@@ -1,7 +1,6 @@
 ---
-id: version-0.63-imageeditor
+id: imageeditor
 title: 🚧 ImageEditor
-original_id: imageeditor
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
@@ -34,6 +33,6 @@ cropData = {
   offset: { x: number, y: number },
   size: { width: number, height: number },
   displaySize: { width: number, height: number },
-  resizeMode: 'contain/cover/stretch'
+  resizeMode: "contain/cover/stretch"
 };
 ```

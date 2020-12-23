@@ -1,6 +1,6 @@
 ---
 id: flexbox
-title: 使用Flexbox布局
+title: 使用 Flexbox 布局
 ---
 
 我们在 React Native 中使用 flexbox 规则来指定某个组件的子元素的布局。Flexbox 可以在不同屏幕尺寸上提供一致的布局结构。
@@ -424,7 +424,6 @@ export default JustifyContentBasics;
 - `baseline` Align children of a container along a common baseline. Individual children can be set to be the reference baseline for their parents.
 
 > 注意：要使`stretch`选项生效的话，子元素在次轴方向上不能有固定的尺寸。以下面的代码为例：只有将子元素样式中的`width: 50`去掉之后，`alignItems: 'stretch'`才能生效。
-
 
 You can learn more [here](https://yogalayout.com/docs/align-items).
 

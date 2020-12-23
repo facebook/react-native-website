@@ -3,6 +3,8 @@ id: layoutanimation
 title: LayoutAnimation
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 当布局变化时，自动将视图运动到它们新的位置上。
 
 一个常用的调用此 API 的办法是在状态更新前调用。
@@ -72,8 +74,6 @@ const style = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
-
 ---
 
 # 文档
@@ -112,20 +112,10 @@ static create(duration, type, creationProp)
 
 用来创建`configureNext`所需的 config 参数的辅助函数。
 
-Example usage:
+示例：
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { useState } from "react";
@@ -197,7 +187,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -278,7 +269,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## Properties
 
@@ -314,11 +306,11 @@ An enumeration of layout properties to be animated to be used in the [`create`](
 
 A set of predefined animation config.
 
-| Presets | Value |
-| --- | --- |
-| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')` |
-| linear | `create(500, 'linear', 'opacity')` |
-| spring | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
+| Presets       | Value                                                                                                                                                                 |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| easeInEaseOut | `create(300, 'easeInEaseOut', 'opacity')`                                                                                                                             |
+| linear        | `create(500, 'linear', 'opacity')`                                                                                                                                    |
+| spring        | `{ duration: 700, create: { type: 'linear', property: 'opacity' }, update: { type: 'spring', springDamping: 0.4 }, delete: { type: 'linear', property: 'opacity' } }` |
 
 ---
 
@@ -340,18 +332,8 @@ Shortcut to bind `configureNext()` methods with `Presets.spring`.
 
 Example usage:
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { useState } from "react";
@@ -448,7 +430,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=LayoutAnimation&supportedPlatforms=android,ios
 import React, { Component } from "react";
@@ -558,4 +541,5 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>

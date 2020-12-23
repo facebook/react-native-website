@@ -3,14 +3,12 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-<div class="banner-crna-ejected">
-  <h3>Project with Native Code Required</h3>
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
+<div className="banner-native-code-required">
+  <h3>仅适用于非沙盒项目</h3>
   <p>
-    This API only works in projects made with <code>react-native init</code>
-    or in those made with <code>expo init</code> or Create React Native App which have since ejected. For
-    more information about ejecting, please see
-    the <a href="https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md" target="_blank">guide</a> on
-    the Create React Native App repository.
+    The following section only applies to projects with native code exposed. If you are using the managed <code>expo-cli</code> workflow, see the guide on <a href="https://docs.expo.io/versions/latest/sdk/permissions/">Permissions</a> in the Expo documentation for the appropriate alternative.
   </p>
 </div>
 
@@ -22,18 +20,8 @@ title: PermissionsAndroid
 
 ### 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React from "react";
@@ -90,7 +78,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
 import React, { Component } from "react";
@@ -151,7 +140,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ### 需要提示用户的权限列表
 

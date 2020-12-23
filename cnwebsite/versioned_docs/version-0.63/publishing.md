@@ -1,7 +1,6 @@
 ---
-id: version-0.63-publishing-forks
+id: publishing-forks
 title: 发布自己定制的ReactNative包
-original_id: publishing-forks
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

@@ -3,22 +3,14 @@ id: vibration
 title: Vibration
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 Vibrates the device.
 
 ## Example
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
 import React from "react";
@@ -107,7 +99,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Vibration&supportedPlatforms=ios,android
 import React, { Component } from "react";
@@ -197,7 +190,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 > Android apps should request the `android.permission.VIBRATE` permission by adding `<uses-permission android:name="android.permission.VIBRATE"/>` to `AndroidManifest.xml`.
 
@@ -223,13 +217,13 @@ The `vibrate()` method can take a `pattern` argument with an array of numbers th
 
 **On Android,** the odd indices of the `pattern` array represent the vibration duration, while the even ones represent the separation time. **On iOS,** the numbers in the `pattern` array represent the separation time, as the vibration duration is fixed.
 
-**参数：**
+**Parameters:**
 
-| 名称 | 类型 | Required | 说明 | 平台 |
-| --- | --- | --- | --- | --- |
-| pattern | number | No | Vibration duration in milliseconds. Defaults to 400 ms. | Android |
-| pattern | Array of numbers | No | Vibration pattern as an array of numbers in milliseconds. | Android, iOS |
-| repeat | boolean | No | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
+| Name    | Type             | Required | Description                                                | Platform     |
+| ------- | ---------------- | -------- | ---------------------------------------------------------- | ------------ |
+| pattern | number           | No       | Vibration duration in milliseconds. Defaults to 400 ms.    | Android      |
+| pattern | Array of numbers | No       | Vibration pattern as an array of numbers in milliseconds.  | Android, iOS |
+| repeat  | boolean          | No       | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
 
 ---
 

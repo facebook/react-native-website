@@ -1,7 +1,6 @@
 ---
-id: version-0.63-toastandroid
+id: toastandroid
 title: ToastAndroid
-original_id: toastandroid
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

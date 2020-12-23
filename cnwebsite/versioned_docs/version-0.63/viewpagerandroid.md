@@ -1,10 +1,9 @@
 ---
-id: version-0.63-viewpagerandroid
+id: viewpagerandroid
 title: 🚧 ViewPagerAndroid
-original_id: viewpagerandroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.44%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(5.56%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.33%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(5.56%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.11%)
 
 > **已过时。** Use [@react-native-community/viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
 
@@ -150,7 +149,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 - position - index of page that will be selected
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | Number | Yes      |
 
@@ -162,7 +161,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 
 - position - index of page that will be selected
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | Number | Yes      |
 

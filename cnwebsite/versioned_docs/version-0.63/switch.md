@@ -1,7 +1,6 @@
 ---
-id: version-0.63-switch
+id: switch
 title: Switch
-original_id: switch
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

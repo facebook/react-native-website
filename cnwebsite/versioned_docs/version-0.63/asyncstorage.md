@@ -1,10 +1,9 @@
 ---
-id: version-0.63-asyncstorage
+id: asyncstorage
 title: 🚧 AsyncStorage
-original_id: asyncstorage
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.72%), [95537559](https://github.com/search?q=95537559%40qq.com&type=Users)(0.28%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.32%), [95537559](https://github.com/search?q=95537559&type=Users)(0.28%)
 
 **已过时。** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
 
@@ -18,36 +17,36 @@ original_id: asyncstorage
 
 导入`AsyncStorage`库：
 
-```
-import { AsyncStorage } from "react-native"
+```jsx
+import { AsyncStorage } from "react-native";
 ```
 
 保存数据：
 
-```
+```jsx
 _storeData = async () => {
   try {
-    await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+    await AsyncStorage.setItem("@MySuperStore:key", "I like to save it.");
   } catch (error) {
     // Error saving data
   }
-}
+};
 ```
 
 读取数据：
 
-```
+```jsx
 _retrieveData = async () => {
   try {
-    const value = await AsyncStorage.getItem('@MySuperStore:key');
+    const value = await AsyncStorage.getItem("@MySuperStore:key");
     if (value !== null) {
       // We have data!!
       console.log(value);
     }
-   } catch (error) {
-     // Error retrieving data
-   }
-}
+  } catch (error) {
+    // Error retrieving data
+  }
+};
 ```
 
 ---
@@ -130,31 +129,23 @@ static mergeItem(key: string, value: string, [callback]: ?(error: ?Error) => voi
 
 ```jsx
 let UID123_object = {
-  name: 'Chris',
+  name: "Chris",
   age: 30,
-  traits: { hair: 'brown', eyes: 'brown' }
+  traits: { hair: "brown", eyes: "brown" }
 };
 // 只需定义新增或是修改的数据
 let UID123_delta = {
   age: 31,
-  traits: { eyes: 'blue', shoe_size: 10 }
+  traits: { eyes: "blue", shoe_size: 10 }
 };
 
-AsyncStorage.setItem(
-  'UID123',
-  JSON.stringify(UID123_object),
-  () => {
-    AsyncStorage.mergeItem(
-      'UID123',
-      JSON.stringify(UID123_delta),
-      () => {
-        AsyncStorage.getItem('UID123', (err, result) => {
-          console.log(result);
-        });
-      }
-    );
-  }
-);
+AsyncStorage.setItem("UID123", JSON.stringify(UID123_object), () => {
+  AsyncStorage.mergeItem("UID123", JSON.stringify(UID123_delta), () => {
+    AsyncStorage.getItem("UID123", (err, result) => {
+      console.log(result);
+    });
+  });
+});
 
 // Console log result:
 // => {'name':'Chris','age':31,'traits':
@@ -189,9 +180,9 @@ static getAllKeys([callback]: ?(error: ?Error, keys: ?Array<string>) => void)
 
 **参数：**
 
-| 名称     | 类型                                           | 必填 | 说明               |
-| -------- | ---------------------------------------------- | ---- | ------------------ |
-| callback | ?(error: ?Error, keys: ?Array<string>) => void | 否   | 完成后的回调函数。 |
+| 名称     | 类型                                             | 必填 | 说明               |
+| -------- | ------------------------------------------------ | ---- | ------------------ |
+| callback | `?(error: ?Error, keys: ?Array<string>) => void` | 否   | 完成后的回调函数。 |
 
 ---
 
@@ -221,10 +212,10 @@ multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 **参数：**
 
-| 名称     | 类型                                                            | 必填 | 说明               |
-| -------- | --------------------------------------------------------------- | ---- | ------------------ |
-| keys     | Array<string>                                                   | 是   | 要获取的字段名数组 |
-| callback | ?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void | 否   | 完成后的回调函数   |
+| 名称     | 类型                                                              | 必填 | 说明               |
+| -------- | ----------------------------------------------------------------- | ---- | ------------------ |
+| keys     | `Array<string>`                                                   | 是   | 要获取的字段名数组 |
+| callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void` | 否   | 完成后的回调函数   |
 
 示例：
 
@@ -258,10 +249,10 @@ multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
 
 **参数：**
 
-| 名称          | 类型                             | 必填 | 说明                 |
-| ------------- | -------------------------------- | ---- | -------------------- |
-| keyValuePairs | Array<Array<string>>             | 是   | 要写入的字段名数组。 |
-| callback      | ?(errors: ?Array<Error>) => void | 否   | 完成后的回调函数。   |
+| 名称          | 类型                               | 必填 | 说明                 |
+| ------------- | ---------------------------------- | ---- | -------------------- |
+| keyValuePairs | `Array<Array<string>>`             | 是   | 要写入的字段名数组。 |
+| callback      | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
 ---
 
@@ -275,16 +266,16 @@ static multiRemove(keys: Array<string>, [callback]: ?(errors: ?Array<Error>) => 
 
 **参数：**
 
-| 名称     | 类型                             | 必填 | 说明                 |
-| -------- | -------------------------------- | ---- | -------------------- |
-| keys     | Array<string>                    | 是   | 要删除的字段名数组。 |
-| callback | ?(errors: ?Array<Error>) => void | 否   | 完成后的回调函数。   |
+| 名称     | 类型                               | 必填 | 说明                 |
+| -------- | ---------------------------------- | ---- | -------------------- |
+| keys     | `Array<string>`                    | 是   | 要删除的字段名数组。 |
+| callback | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
 示例：
 
 ```jsx
-let keys = ['k1', 'k2'];
-AsyncStorage.multiRemove(keys, (err) => {
+let keys = ["k1", "k2"];
+AsyncStorage.multiRemove(keys, err => {
   // 如果k1,k2字段值存在的话就会被删除
 });
 ```
@@ -303,52 +294,52 @@ static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Ar
 
 **参数：**
 
-| 名称          | 类型                             | 必填 | 说明                 |
-| ------------- | -------------------------------- | ---- | -------------------- |
-| keyValuePairs | Array<Array<string>>             | 是   | 要合并的字段名数组。 |
-| callback      | ?(errors: ?Array<Error>) => void | 否   | 完成后的回调函数。   |
+| 名称          | 类型                               | 必填 | 说明                 |
+| ------------- | ---------------------------------- | ---- | -------------------- |
+| keyValuePairs | `Array<Array<string>>`             | 是   | 要合并的字段名数组。 |
+| callback      | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
 示例：
 
 ```jsx
 // 第一个用户的初始数据
 let UID234_object = {
-  name: 'Chris',
+  name: "Chris",
   age: 30,
-  traits: { hair: 'brown', eyes: 'brown' }
+  traits: { hair: "brown", eyes: "brown" }
 };
 
 // 第一个用户的增量数据
 let UID234_delta = {
   age: 31,
-  traits: { eyes: 'blue', shoe_size: 10 }
+  traits: { eyes: "blue", shoe_size: 10 }
 };
 
 // 第二个用户的初始数据
 let UID345_object = {
-  name: 'Marge',
+  name: "Marge",
   age: 25,
-  traits: { hair: 'blonde', eyes: 'blue' }
+  traits: { hair: "blonde", eyes: "blue" }
 };
 
 // 第二个用户的增量数据
 let UID345_delta = {
   age: 26,
-  traits: { eyes: 'green', shoe_size: 6 }
+  traits: { eyes: "green", shoe_size: 6 }
 };
 
 let multi_set_pairs = [
-  ['UID234', JSON.stringify(UID234_object)],
-  ['UID345', JSON.stringify(UID345_object)]
+  ["UID234", JSON.stringify(UID234_object)],
+  ["UID345", JSON.stringify(UID345_object)]
 ];
 let multi_merge_pairs = [
-  ['UID234', JSON.stringify(UID234_delta)],
-  ['UID345', JSON.stringify(UID345_delta)]
+  ["UID234", JSON.stringify(UID234_delta)],
+  ["UID345", JSON.stringify(UID345_delta)]
 ];
 
-AsyncStorage.multiSet(multi_set_pairs, (err) => {
-  AsyncStorage.multiMerge(multi_merge_pairs, (err) => {
-    AsyncStorage.multiGet(['UID234', 'UID345'], (err, stores) => {
+AsyncStorage.multiSet(multi_set_pairs, err => {
+  AsyncStorage.multiMerge(multi_merge_pairs, err => {
+    AsyncStorage.multiGet(["UID234", "UID345"], (err, stores) => {
       stores.map((result, i, store) => {
         let key = store[i][0];
         let val = store[i][1];

@@ -3,6 +3,8 @@ id: dimensions
 title: Dimensions
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 本模块用于获取设备屏幕的宽高。
 
 > [`useWindowDimensions`](usewindowdimensions) is the preferred API for React components. Unlike `Dimensions`, it updates as the window's dimensions update. This works nicely with the React paradigm.
@@ -24,18 +26,8 @@ If you are targeting foldable devices or devices which can change the screen siz
 
 ## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Dimensions
 import React, { useState, useEffect } from "react";
@@ -77,7 +69,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Dimensions
 import React, { Component } from "react";
@@ -129,7 +122,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -149,9 +143,9 @@ static get(dim)
 
 **参数：**
 
-| 名称 | 类型 | Required | 说明 |
-| --- | --- | --- | --- |
-| dim | string | Yes | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
+| 名称 | 类型   | Required | 说明                                                               |
+| ---- | ------ | -------- | ------------------------------------------------------------------ |
+| dim  | string | Yes      | 想要获取的尺寸信息的字段名。 @returns {Object?} 返回的尺寸信息值。 |
 
 > For Android the `window` dimension will exclude the size used by the `status bar` (if not translucent) and `bottom navigation bar`
 
@@ -191,6 +185,6 @@ static set(dims)
 
 **参数：**
 
-| 名称 | 类型 | Required | 说明 |
-| --- | --- | --- | --- |
-| dims | object | Yes | string-keyed object of dimensions to set |
+| 名称 | 类型   | Required | 说明                                     |
+| ---- | ------ | -------- | ---------------------------------------- |
+| dims | object | Yes      | string-keyed object of dimensions to set |

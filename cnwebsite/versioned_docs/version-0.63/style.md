@@ -1,7 +1,6 @@
 ---
-id: version-0.63-style
+id: style
 title: 样式
-original_id: style
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

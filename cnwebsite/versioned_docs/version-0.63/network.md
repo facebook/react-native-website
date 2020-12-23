@@ -1,10 +1,11 @@
 ---
-id: version-0.63-network
+id: network
 title: 访问网络
-original_id: network
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.81%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.19%)
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 很多移动应用都需要从远程地址中获取数据或资源。你可能需要给某个 REST API 发起 POST 请求以提交用户数据，又或者可能仅仅需要从某个服务器上获取一些静态内容——以下就是你会用到的东西。新手可以对照这个[简短的视频教程](http://v.youku.com/v_show/id_XMTUyNTEwMTA5Ng==.html)加深理解。
 
@@ -17,21 +18,21 @@ React Native 提供了和 web 标准一致的[Fetch API](https://developer.mozil
 要从任意地址获取内容的话，只需简单地将网址作为参数传递给 fetch 方法即可（fetch 这个词本身也就是`获取`的意思）：
 
 ```jsx
-fetch('https://mywebsite.com/mydata.json');
+fetch("https://mywebsite.com/mydata.json");
 ```
 
 Fetch 还有可选的第二个参数，可以用来定制 HTTP 请求一些参数。你可以指定 header 参数，或是指定使用 POST 方法，又或是提交数据等等：
 
 ```jsx
-fetch('https://mywebsite.com/endpoint/', {
-  method: 'POST',
+fetch("https://mywebsite.com/endpoint/", {
+  method: "POST",
   headers: {
-    Accept: 'application/json',
-    'Content-Type': 'application/json'
+    Accept: "application/json",
+    "Content-Type": "application/json"
   },
   body: JSON.stringify({
-    firstParam: 'yourValue',
-    secondParam: 'yourOtherValue'
+    firstParam: "yourValue",
+    secondParam: "yourOtherValue"
   })
 });
 ```
@@ -39,12 +40,12 @@ fetch('https://mywebsite.com/endpoint/', {
 提交数据的格式关键取决于 headers 中的`Content-Type`。`Content-Type`有很多种，对应 body 的格式也有区别。到底应该采用什么样的`Content-Type`取决于服务器端，所以请和服务器端的开发人员沟通确定清楚。常用的'Content-Type'除了上面的'application/json'，还有传统的网页表单形式，示例如下：
 
 ```js
-fetch('https://mywebsite.com/endpoint/', {
-  method: 'POST',
+fetch("https://mywebsite.com/endpoint/", {
+  method: "POST",
   headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
+    "Content-Type": "application/x-www-form-urlencoded"
   },
-  body: 'key1=value1&key2=value2'
+  body: "key1=value1&key2=value2"
 });
 ```
 
@@ -60,14 +61,12 @@ fetch('https://mywebsite.com/endpoint/', {
 
 ```jsx
 function getMoviesFromApiAsync() {
-  return fetch(
-    'https://facebook.github.io/react-native/movies.json'
-  )
-    .then((response) => response.json())
-    .then((responseJson) => {
+  return fetch("https://facebook.github.io/react-native/movies.json")
+    .then(response => response.json())
+    .then(responseJson => {
       return responseJson.movies;
     })
-    .catch((error) => {
+    .catch(error => {
       console.error(error);
     });
 }
@@ -81,7 +80,7 @@ async function getMoviesFromApi() {
   try {
     // 注意这里的await语句，其所在的函数必须有async关键字声明
     let response = await fetch(
-      'https://facebook.github.io/react-native/movies.json'
+      "https://facebook.github.io/react-native/movies.json"
     );
     let responseJson = await response.json();
     return responseJson.movies;
@@ -93,18 +92,8 @@ async function getMoviesFromApi() {
 
 别忘了 catch 住`fetch`可能抛出的异常，否则出错时你可能看不到任何提示。
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Fetch%20Example
 import React, { useEffect, useState } from 'react';
@@ -138,7 +127,8 @@ export default App = () => {
 };
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Fetch%20Example
 import React, { Component } from 'react';
@@ -186,7 +176,8 @@ export default class App extends Component {
 };
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 > 默认情况下，iOS 会阻止所有 http 的请求，以督促开发者使用 https。如果你仍然需要使用 http 协议，那么首先需要添加一个 App Transport Security 的例外，详细可参考[这篇帖子](https://segmentfault.com/a/1190000002933776)。
 
@@ -198,19 +189,19 @@ React Native 中已经内置了[XMLHttpRequest API](https://developer.mozilla.or
 
 ```jsx
 const request = new XMLHttpRequest();
-request.onreadystatechange = (e) => {
+request.onreadystatechange = e => {
   if (request.readyState !== 4) {
     return;
   }
 
   if (request.status === 200) {
-    console.log('success', request.responseText);
+    console.log("success", request.responseText);
   } else {
-    console.warn('error');
+    console.warn("error");
   }
 };
 
-request.open('GET', 'https://mywebsite.com/endpoint/');
+request.open("GET", "https://mywebsite.com/endpoint/");
 request.send();
 ```
 
@@ -221,24 +212,24 @@ request.send();
 React Native 还支持[WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)，这种协议可以在单个 TCP 连接上提供全双工的通信信道。
 
 ```jsx
-const ws = new WebSocket('ws://host.com/path');
+const ws = new WebSocket("ws://host.com/path");
 
 ws.onopen = () => {
   // connection opened
-  ws.send('something'); // send a message
+  ws.send("something"); // send a message
 };
 
-ws.onmessage = (e) => {
+ws.onmessage = e => {
   // a message was received
   console.log(e.data);
 };
 
-ws.onerror = (e) => {
+ws.onerror = e => {
   // an error occurred
   console.log(e.message);
 };
 
-ws.onclose = (e) => {
+ws.onclose = e => {
   // connection closed
   console.log(e.code, e.reason);
 };

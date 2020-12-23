@@ -1,7 +1,6 @@
 ---
-id: version-0.63-building-from-source
+id: building-from-source
 title: 从源代码编译React Native
-original_id: building-from-source
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

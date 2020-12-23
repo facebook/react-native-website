@@ -1,10 +1,9 @@
 ---
-id: version-0.63-navigation
+id: navigation
 title: 使用导航器跳转页面
-original_id: navigation
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.75%), [noclip](https://github.com/search?q=noclip%40foxmail.com&type=Users)(6.25%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.75%), [noclip](https://github.com/search?q=noclip&type=Users)(6.25%)
 
 移动应用基本不会只由一个页面组成。管理多个页面的呈现、跳转的组件就是我们通常所说的导航器（navigator）。
 

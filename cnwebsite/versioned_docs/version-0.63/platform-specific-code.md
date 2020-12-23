@@ -1,7 +1,6 @@
 ---
-id: version-0.63-platform-specific-code
+id: platform-specific-code
 title: 特定平台代码
-original_id: platform-specific-code
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
@@ -20,10 +19,10 @@ React Native 提供了两种方法来区分平台：
 React Native 提供了一个检测当前运行平台的模块。如果组件只有一小部分代码需要依据平台定制，那么这个模块就可以派上用场。
 
 ```jsx
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  height: Platform.OS === 'ios' ? 200 : 100
+  height: Platform.OS === "ios" ? 200 : 100
 });
 ```
 
@@ -32,17 +31,17 @@ const styles = StyleSheet.create({
 还有个实用的方法是 Platform.select()，它可以以 Platform.OS 为 key，从传入的对象中返回对应平台的值，见下面的示例：
 
 ```jsx
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     ...Platform.select({
       ios: {
-        backgroundColor: 'red'
+        backgroundColor: "red"
       },
       android: {
-        backgroundColor: 'blue'
+        backgroundColor: "blue"
       }
     })
   }
@@ -55,8 +54,8 @@ const styles = StyleSheet.create({
 
 ```jsx
 const Component = Platform.select({
-  ios: () => require('ComponentIOS'),
-  android: () => require('ComponentAndroid')
+  ios: () => require("ComponentIOS"),
+  android: () => require("ComponentAndroid")
 })();
 
 <Component />;
@@ -67,10 +66,10 @@ const Component = Platform.select({
 在 Android 上，`Version`属性是一个数字，表示 Android 的 api level：
 
 ```jsx
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
 if (Platform.Version === 25) {
-  console.log('Running on Nougat!');
+  console.log("Running on Nougat!");
 }
 ```
 
@@ -79,11 +78,11 @@ if (Platform.Version === 25) {
 在 iOS 上，`Version`属性是`-[UIDevice systemVersion]`的返回值，具体形式为一个表示当前系统版本的字符串。比如可能是"10.3"。
 
 ```jsx
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
 const majorVersionIOS = parseInt(Platform.Version, 10);
 if (majorVersionIOS <= 9) {
-  console.log('Work around a change in behavior');
+  console.log("Work around a change in behavior");
 }
 ```
 
@@ -101,7 +100,7 @@ BigButton.android.js
 然后去掉平台扩展名直接引用：
 
 ```jsx
-import BigButton from './BigButton';
+import BigButton from "./BigButton";
 ```
 
 React Native 会根据运行平台的不同自动引入正确对应的组件。
@@ -118,7 +117,7 @@ Container.native.js # picked up by the React Native bundler for both Android and
 You can still require it without the `.native` extension, as follows:
 
 ```jsx
-import Container from './Container';
+import Container from "./Container";
 ```
 
 **Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.

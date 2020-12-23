@@ -1,10 +1,9 @@
 ---
-id: version-0.63-pickerios
+id: pickerios
 title: 🚧 PickerIOS
-original_id: pickerios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.62%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.38%)
 
 > **已过时。** Use [Picker](picker.md) instead.
 
@@ -32,7 +31,7 @@ Inherits [View Props](view.md#props).
 
 ### `onChange`
 
-| Type     | Required |
+| 类型     | Required |
 | -------- | -------- |
 | function | No       |
 

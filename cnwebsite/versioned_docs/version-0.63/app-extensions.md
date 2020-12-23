@@ -1,7 +1,6 @@
 ---
-id: version-0.63-app-extensions
+id: app-extensions
 title: iOS应用扩展
-original_id: app-extensions
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

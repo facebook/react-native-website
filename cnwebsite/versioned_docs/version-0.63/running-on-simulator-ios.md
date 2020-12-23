@@ -1,10 +1,9 @@
 ---
-id: version-0.63-running-on-simulator-ios
+id: running-on-simulator-ios
 title: 在iOS模拟器上运行
-original_id: running-on-simulator-ios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(81.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(18.75%)
 
 ## 启动模拟器
 
@@ -12,6 +11,8 @@ original_id: running-on-simulator-ios
 
 ## 指定模拟的设备类型
 
-你可以使用`--simulator`参数，在其后加上要使用的设备名称来指定要模拟的设备类型（目前默认为"iPhone X"）。如果你要模拟 iPhone 4s，那么这样运行命令即可：`npx react-native run-ios --simulator "iPhone 4s"`。
+你可以使用`--simulator`参数，在其后加上要使用的设备名称来指定要模拟的设备类型（目前默认为"iPhone 11"）。如果你要模拟 iPhone 4s，那么这样运行命令即可：`npx react-native run-ios --simulator "iPhone 4s"`。
+
+> 注意：随着 RN 和 Xcode 版本迭代更新，默认和可选的模拟设备可能有变化。
 
 你可以在终端中运行`xcrun simctl list devices`来查看具体可用的设备名称。

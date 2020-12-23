@@ -1,7 +1,6 @@
 ---
-id: version-0.63-timers
+id: timers
 title: 定时器
-original_id: timers
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
@@ -56,12 +55,12 @@ InteractionManager.clearInteractionHandle(handle);
 我们发现很多 React Native 应用发生致命错误（闪退）是与计时器有关。具体来说，是在某个组件被卸载（unmount）之后，计时器却仍然在运行。要解决这个问题，只需铭记`在unmount组件时清除（clearTimeout/clearInterval）所有用到的定时器`即可：
 
 ```js
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export default class Hello extends Component {
   componentDidMount() {
     this.timer = setTimeout(() => {
-      console.log('把一个定时器的引用挂在this上');
+      console.log("把一个定时器的引用挂在this上");
     }, 500);
   }
   componentWillUnmount() {

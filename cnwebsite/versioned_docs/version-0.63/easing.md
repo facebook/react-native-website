@@ -1,7 +1,6 @@
 ---
-id: version-0.63-easing
+id: easing
 title: Easing
-original_id: easing
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

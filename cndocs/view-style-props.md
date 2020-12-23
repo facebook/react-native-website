@@ -1,6 +1,6 @@
 ---
 id: view-style-props
-title: View样式属性
+title: View 样式属性
 ---
 
 ### 示例

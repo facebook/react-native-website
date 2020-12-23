@@ -1,7 +1,6 @@
 ---
-id: version-0.63-communication-android
+id: communication-android
 title: 和原生端通信
-original_id: communication-android
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

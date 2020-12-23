@@ -1,10 +1,9 @@
 ---
-id: version-0.63-accessibility
+id: accessibility
 title: 无障碍功能
-original_id: accessibility
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.36%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%)
 
 **译注**：accessibility 一词常见多种译法：可访问性、无障碍性、辅助功能等等，其中文意思都不太能准确表达其功能的本质——即为残障人士提供便利。本文主要采用“无障碍功能”和“辅助技术/服务”的说法。如果你或你的公司暂时没有资源和精力去服务这些用户，那么你可以跳过本文。但是，`译者个人希望借本文档，呼吁有能力有资源的商业公司/组织/个人，重视残障人士使用智能手机的权利`。
 
@@ -39,7 +38,8 @@ iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此�
 <TouchableOpacity
   accessible={true}
   accessibilityLabel="Tap me!"
-  onPress={this._onPress}>
+  onPress={this._onPress}
+>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Press me!</Text>
   </View>
@@ -59,7 +59,8 @@ iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此�
   accessible={true}
   accessibilityLabel="返回"
   accessibilityHint="返回到上一个页面"
-  onPress={this._onPress}>
+  onPress={this._onPress}
+>
   <View style={styles.button}>
     <Text style={styles.buttonText}>Back</Text>
   </View>
@@ -178,26 +179,28 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
 <View style={styles.container}>
   <View
     style={{
-      position: 'absolute',
+      position: "absolute",
       left: 10,
       top: 10,
       right: 10,
       height: 100,
-      backgroundColor: 'green'
+      backgroundColor: "green"
     }}
-    importantForAccessibility="yes">
+    importantForAccessibility="yes"
+  >
     <Text> First layout </Text>
   </View>
   <View
     style={{
-      position: 'absolute',
+      position: "absolute",
       left: 10,
       top: 10,
       right: 10,
       height: 100,
-      backgroundColor: 'yellow'
+      backgroundColor: "yellow"
     }}
-    importantForAccessibility="no-hide-descendant">
+    importantForAccessibility="no-hide-descendant"
+  >
     <Text> Second layout </Text>
   </View>
 </View>
@@ -226,9 +229,9 @@ Accessibility actions allow an assistive technology to programmatically invoke t
 
 The `accessibilityActions` property should contain a list of action objects. Each action object should contain the following fields:
 
-| Name  | Type   | Required |
+| 名称  | 类型   | Required |
 | ----- | ------ | -------- |
-| name  | string | Yes      |
+| 名称  | string | Yes      |
 | label | string | No       |
 
 Actions either represent standard actions, such as clicking a button or adjusting a slider, or custom actions specific to a given component such as deleting an email message. The `name` field is required for both standard and custom actions, but `label` is optional for standard actions.
@@ -250,20 +253,20 @@ To handle action requests, a component must implement an `onAccessibilityAction`
 <View
   accessible={true}
   accessibilityActions={[
-    { name: 'cut', label: 'cut' },
-    { name: 'copy', label: 'copy' },
-    { name: 'paste', label: 'paste' }
+    { name: "cut", label: "cut" },
+    { name: "copy", label: "copy" },
+    { name: "paste", label: "paste" }
   ]}
-  onAccessibilityAction={(event) => {
+  onAccessibilityAction={event => {
     switch (event.nativeEvent.actionName) {
-      case 'cut':
-        Alert.alert('Alert', 'cut action success');
+      case "cut":
+        Alert.alert("Alert", "cut action success");
         break;
-      case 'copy':
-        Alert.alert('Alert', 'copy action success');
+      case "copy":
+        Alert.alert("Alert", "copy action success");
         break;
-      case 'paste':
-        Alert.alert('Alert', 'paste action success');
+      case "paste":
+        Alert.alert("Alert", "paste action success");
         break;
     }
   }}

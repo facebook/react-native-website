@@ -3,6 +3,8 @@ id: appstate
 title: AppState
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 `AppState`能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
 
 AppState 通常在处理推送通知的时候用来决定内容和对应的行为。
@@ -22,18 +24,8 @@ AppState 通常在处理推送通知的时候用来决定内容和对应的行�
 
 要获取当前的状态，你可以使用`AppState.currentState`，这个变量会一直保持更新。不过在启动的过程中，`currentState`可能为 null，直到`AppState`从原生代码得到通知为止。
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=AppState%20Function%20Component%20Example
 import React, { useRef, useState, useEffect } from "react";
@@ -84,7 +76,8 @@ export default AppStateExample;
 
 If you don't want to see the AppState update from `active` to `inactive` on iOS you can remove the state variable and use the `appState.current` value.
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=AppState%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -133,7 +126,8 @@ const styles = StyleSheet.create({
 export default AppStateExample;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 上面的这个例子只会显示"Current state is: active"，这是因为应用只有在`active`状态下才能被用户看到。并且 null 状态只会在一开始的一瞬间出现。If you want to experiment with the code we recommend to use your own device instead of embedded preview.
 

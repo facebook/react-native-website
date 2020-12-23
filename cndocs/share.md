@@ -3,20 +3,12 @@ id: share
 title: Share
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 ## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Function%20Component%20Example&supportedPlatforms=ios,android
 import React from 'react';
@@ -52,7 +44,8 @@ const ShareExample = () => {
 export default ShareExample;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Class%20Component%20Example&supportedPlatforms=ios,android
 import React, { Component } from 'react';
@@ -92,7 +85,8 @@ class ShareExample extends Component {
 export default ShareExample;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -112,34 +106,16 @@ static share(content, options)
 
 在 Android 中同样返回一个 Promise，但返回的`action`始终为`Share.sharedAction`。
 
-### Content
+**属性：**
 
-- `message` - 要分享的消息
-- `title` - 消息的标题
-
-#### iOS
-
-- `url` - 要分享的网址
-
-至少需要一个 URL 和消息。
-
-#### Android
-
-- `title` - title of the message
-
-### Options
-
-#### iOS
-
-- `subject` - 通过邮件分享的标题
-- `excludedActivityTypes`
-- `tintColor`
-
-#### Android
-
-- `dialogTitle`
+| 名称                                                     | 类型   | 说明                                                                                                                                                                                                                                     |
+| -------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| content <div className="label basic required">必填</div> | object | `message` - 要分享的消息<br/>`url` - 要分享的网址 <div class="label ios">iOS</div><br/>`title` - 消息的标题 <div class="label android">Android</div><hr/>`url`或`message`至少要提供一个                                                  |
+| options                                                  | object | `dialogTitle` <div class="label android">Android</div><br/>`excludedActivityTypes` <div class="label ios">iOS</div><br/>`subject` - 通过邮件分享的标题 <div class="label ios">iOS</div><br/>`tintColor` <div class="label ios">iOS</div> |
 
 ---
+
+## 属性
 
 ### `sharedAction`
 
@@ -151,10 +127,10 @@ static sharedAction
 
 ---
 
-### `dismissedAction`
+### `dismissedAction` <div class="label ios">iOS</div>
 
 ```jsx
 static dismissedAction
 ```
 
-表示对话框被取消。仅限 iOS。
+表示对话框被取消。

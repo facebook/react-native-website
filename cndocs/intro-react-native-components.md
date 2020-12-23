@@ -1,7 +1,7 @@
 ---
 id: intro-react-native-components
 title: 核心组件与原生组件
-description: React Native lets you compose app interfaces using Native Components. Conveniently, it comes with a set of these components for you to get started with right now—the Core Components!
+description: React Native 使用完全原生的组件来构建应用界面。尤其方便的是它已经内置了大量直接上手可用的核心组件。
 ---
 
 React Native 是一个使用[React](https://zh-hans.reactjs.org/)和应用平台的原生功能来构建 Android 和 iOS 应用的开源框架。通过 React Native，您可以使用 JavaScript 来访问移动平台的 API，以及使用 React 组件来描述 UI 的外观和行为：一系列可重用、可嵌套的代码。你可以在下一节了解更多关于 React 的信息。但首先，让我们介绍一下组件在 React Native 中是如何工作的。
@@ -35,7 +35,7 @@ React Native 具有许多核心组件，从表单控件到活动指示器，应�
 | `<ScrollView>` | `<ScrollView>` | `<UIScrollView>` | `<div>` | A generic scrolling container that can contain multiple components and views |
 | `<TextInput>` | `<EditText>` | `<UITextField>` | `<input type="text">` | Allows the user to enter text |
 
-在接下来的章节，您将开始组合这些核心组件，来了解 React 的工作方式。来让我们现在做一些热身吧！
+在接下来的章节，您将开始组合这些核心组件，来了解 React 的工作方式。先做一些热身吧！
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';

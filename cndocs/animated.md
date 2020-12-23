@@ -3,47 +3,31 @@ id: animated
 title: Animated
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 `Animated`库旨在使动画变得流畅，强大并易于构建和维护。`Animated`侧重于输入和输出之间的声明性关系，以及两者之间的可配置变换，此外还提供了简单的 `start/stop`方法来控制基于时间的动画执行。
 
 创建动画最基本的工作流程是先创建一个 `Animated.Value` ，将它连接到动画组件的一个或多个样式属性，然后使用`Animated.timing()`通过动画效果展示数据的变化：
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      在示例中使用函数组件
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      在示例中使用Class组件
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 > 请不要直接修改动画值！你可以用[`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)来返回一个可修改的 ref 引用。ref 对象的`current`属性在初始化时被赋予给定的动画值，且在组件的生命周期内保存不被销毁。
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 > 请不要直接修改动画值！我们一般在 class 组件中使用一个[状态变量](intro-react#state)或是成员变量来存放它。
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## 示例
 
 下面的例子演示了一个根据动画值`fadeAnim`来淡入淡出的视图：
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Animated
 import React, { useRef } from "react";
@@ -114,7 +98,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Animated
 import React, { Component } from "react";
@@ -189,7 +174,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 你可以在[动画](animations#animated-api)文档中看到更多实际的例子。
 
@@ -544,9 +530,9 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **参数：**
 
-| 名称 | 类型 | Required | 说明 |
-| --- | --- | --- | --- |
-| callback | ?(result?: {finished: boolean}) | No | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
+| 名称     | 类型                            | Required | 说明                                                                                                                                                            |
+| -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 
 Start example with callback:
 

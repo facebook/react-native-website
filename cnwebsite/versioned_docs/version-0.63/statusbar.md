@@ -1,10 +1,9 @@
 ---
-id: version-0.63-statusbar
+id: statusbar
 title: StatusBar
-original_id: statusbar
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.01%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(6.99%)
 
 控制应用状态栏的组件。
 
@@ -173,7 +172,7 @@ Get and remove the last StatusBar entry from the stack.
 
 **参数：**
 
-| Name  | Type | Required | Description                           |
+| 名称  | 类型 | Required | 说明                                  |
 | ----- | ---- | -------- | ------------------------------------- |
 | entry | any  | Yes      | Entry returned from `pushStackEntry`. |
 
@@ -189,7 +188,7 @@ Push a StatusBar entry onto the stack. The return value should be passed to `pop
 
 **参数：**
 
-| Name  | Type | Required | Description                                                      |
+| 名称  | 类型 | Required | 说明                                                             |
 | ----- | ---- | -------- | ---------------------------------------------------------------- |
 | props | any  | Yes      | Object containing the StatusBar props to use in the stack entry. |
 
@@ -205,7 +204,7 @@ Replace an existing StatusBar stack entry with new props.
 
 **参数：**
 
-| Name  | Type | Required | Description                                                                  |
+| 名称  | 类型 | Required | 说明                                                                         |
 | ----- | ---- | -------- | ---------------------------------------------------------------------------- |
 | entry | any  | Yes      | Entry returned from `pushStackEntry` to replace.                             |
 | props | any  | Yes      | Object containing the StatusBar props to use in the replacement stack entry. |

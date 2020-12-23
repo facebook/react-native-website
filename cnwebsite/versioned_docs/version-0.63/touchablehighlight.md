@@ -1,10 +1,11 @@
 ---
-id: version-0.63-touchablehighlight
+id: touchablehighlight
 title: TouchableHighlight
-original_id: touchablehighlight
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.54%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(9.46%)
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
 
@@ -14,35 +15,28 @@ original_id: touchablehighlight
 
 注意`TouchableHighlight`只支持一个子节点（不能没有子节点也不能多于一个）。如果你希望包含多个子组件，可以用一个 View 来包装它们。
 
-例子：
-
-```
-renderButton: function() {
+```jsx
+function MyComponent(props) {
   return (
-    <TouchableHighlight onPress={this._onPressButton}>
-      <Image
-        style={styles.button}
-        source={require('./myButton.png')}
-      />
-    </TouchableHighlight>
+    <View {...props} style={{ flex: 1, backgroundColor: "#fff" }}>
+      <Text>My Component</Text>
+    </View>
   );
-},
+}
+
+<TouchableHighlight
+  activeOpacity={0.6}
+  underlayColor="#DDDDDD"
+  onPress={() => alert("Pressed!")}
+>
+  <MyComponent />
+</TouchableHighlight>;
 ```
 
 ## 示例
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=TouchableHighlight%20Function%20Component%20Example
 import React, { useState } from "react";
@@ -91,7 +85,8 @@ const styles = StyleSheet.create({
 export default TouchableHighlightExample;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=TouchableHighlight%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -150,7 +145,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 

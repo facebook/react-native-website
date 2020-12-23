@@ -1,6 +1,6 @@
 ---
 id: native-modules-ios
-title: 原生模块
+title: iOS 原生模块
 ---
 
 有时候 App 需要访问平台 API，但 React Native 可能还没有相应的模块封装；或者你需要复用 Objective-C、Swift 或 C++代码，而不是用 JavaScript 重新实现一遍；又或者你需要实现某些高性能、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
@@ -65,9 +65,12 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location)
 现在从 Javascript 里可以这样调用这个方法：
 
 ```jsx
-import {NativeModules} from 'react-native';
+import { NativeModules } from 'react-native';
 const CalendarManager = NativeModules.CalendarManager;
-CalendarManager.addEvent('Birthday Party', '4 Privet Drive, Surrey');
+CalendarManager.addEvent(
+  'Birthday Party',
+  '4 Privet Drive, Surrey'
+);
 ```
 
 > **NOTE**: JavaScript method names
@@ -128,7 +131,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name location:(NSString *)location date:(
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.getTime(),
+  date.getTime()
 ); // 把日期以unix时间戳形式传递
 ```
 
@@ -138,7 +141,7 @@ CalendarManager.addEvent(
 CalendarManager.addEvent(
   'Birthday Party',
   '4 Privet Drive, Surrey',
-  date.toISOString(),
+  date.toISOString()
 ); // 把日期以ISO-8601的字符串形式传递
 ```
 
@@ -163,7 +166,7 @@ RCT_EXPORT_METHOD(addEvent:(NSString *)name details:(NSDictionary *)details)
 CalendarManager.addEvent('Birthday Party', {
   location: '4 Privet Drive, Surrey',
   time: date.getTime(),
-  description: '...',
+  description: '...'
 });
 ```
 
@@ -194,7 +197,7 @@ CalendarManager.findEvents((error, events) => {
   if (error) {
     console.error(error);
   } else {
-    this.setState({events: events});
+    this.setState({ events: events });
   }
 });
 ```
@@ -233,7 +236,7 @@ async function updateEvents() {
   try {
     const events = await CalendarManager.findEvents();
 
-    this.setState({events});
+    this.setState({ events });
   } catch (e) {
     console.error(e);
   }
@@ -327,7 +330,7 @@ If you override `- constantsToExport` then you should also implement `+ requires
 }
 ```
 
-```Swift
+````Swift
 // Swift
 // CalendarManager.swift
 @objc(CalendarManager)
@@ -353,7 +356,7 @@ typedef NS_ENUM(NSInteger, UIStatusBarAnimation) {
     UIStatusBarAnimationFade,
     UIStatusBarAnimationSlide,
 };
-```
+````
 
 你需要这样来扩展 RCTConvert 类：
 

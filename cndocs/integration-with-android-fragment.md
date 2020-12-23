@@ -1,5 +1,5 @@
 ---
-id: integration-with-existing-apps
+id: integration-with-android-fragment
 title: 集成到 Android Fragment
 ---
 
@@ -30,17 +30,20 @@ public class MyReactApplication extends Application implements ReactApplication 
         super.onCreate();
         SoLoader.init(this, false);
     }
+
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
             return BuildConfig.DEBUG;
         }
+
         protected List<ReactPackage> getPackages() {
             List<ReactPackage> packages = new PackageList(this).getPackages();
             // Packages that cannot be autolinked yet can be added manually here
             return packages;
         }
     };
+
     @Override
     public ReactNativeHost getReactNativeHost() {
         return mReactNativeHost;
@@ -52,11 +55,13 @@ If you are using Android Studio, use Alt + Enter to add all missing imports in y
 
 ```java
 import android.app.Application;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+
 import java.util.List;
 ```
 
@@ -107,6 +112,7 @@ Update your Activity's onCreate method as follows:
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main_activity);
+
     mButton = findViewById(R.id.button);
     mButton.setOnClickListener(new View.OnClickListener() {
         public void onClick(View v) {
@@ -114,10 +120,12 @@ protected void onCreate(Bundle savedInstanceState) {
                     .setComponentName("HelloWorld")
                     .setLaunchOptions(getLaunchOptions("test message"))
                     .build();
+
             getSupportFragmentManager()
                     .beginTransaction()
                     .add(R.id.reactNativeFragment, reactNativeFragment)
                     .commit();
+
         }
     });
 }
@@ -141,6 +149,7 @@ Add all missing imports in your Activity class. Be careful to use your package�
 
 ```java
 import android.app.Application;
+
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -156,4 +165,4 @@ Make sure you run `yarn` to install your react-native dependencies and run `yarn
 
 ### Step 6. Additional setup - Native modules
 
-You may need to call out to existing Java code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android.html#content)
+You may need to call out to existing Java code from your react component. Native modules allow you to call out to native code and run methods in your native app. Follow the setup here [native-modules-android](https://reactnative.dev/docs/native-modules-android)

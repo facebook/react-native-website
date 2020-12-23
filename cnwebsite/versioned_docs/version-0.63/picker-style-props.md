@@ -1,7 +1,6 @@
 ---
-id: version-0.63-picker-style-props
+id: picker-style-props
 title: Picker Style Props
-original_id: picker-style-props
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

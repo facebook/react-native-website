@@ -1,6 +1,6 @@
 ---
 id: native-modules-android
-title: 原生模块
+title: Android 原生模块
 ---
 
 有时候 App 需要访问平台 API，但 React Native 可能还没有相应的模块包装；或者你需要复用一些 Java 代码，而不是用 Javascript 重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
@@ -168,7 +168,7 @@ protected List<ReactPackage> getPackages() {
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import { NativeModules } from "react-native";
+import { NativeModules } from 'react-native';
 // 下一句中的ToastExample即对应上文
 // public String getName()中返回的字符串
 export default NativeModules.ToastExample;
@@ -177,9 +177,9 @@ export default NativeModules.ToastExample;
 现在，在别处的 JavaScript 代码中可以这样调用你的方法：
 
 ```jsx
-import ToastExample from "./ToastExample";
+import ToastExample from './ToastExample';
 
-ToastExample.show("Awesome", ToastExample.SHORT);
+ToastExample.show('Awesome', ToastExample.SHORT);
 ```
 
 ## 更多特性
@@ -222,11 +222,11 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 UIManager.measureLayout(
   100,
   100,
-  msg => {
+  (msg) => {
     console.log(msg);
   },
   (x, y, width, height) => {
-    console.log(x + ":" + y + ":" + width + ":" + height);
+    console.log(x + ':' + y + ':' + width + ':' + height);
   }
 );
 ```
@@ -281,12 +281,16 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 ```jsx
 async function measureLayout() {
   try {
-    const { relativeX, relativeY, width, height } = await UIManager.measureLayout(
-      100,
-      100
-    );
+    const {
+      relativeX,
+      relativeY,
+      width,
+      height
+    } = await UIManager.measureLayout(100, 100);
 
-    console.log(relativeX + ":" + relativeY + ":" + width + ":" + height);
+    console.log(
+      relativeX + ':' + relativeY + ':' + width + ':' + height
+    );
   } catch (e) {
     console.error(e);
   }

@@ -1,10 +1,9 @@
 ---
-id: version-0.63-drawerlayoutandroid
+id: drawerlayoutandroid
 title: DrawerLayoutAndroid
-original_id: drawerlayoutandroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.35%), [troy](https://github.com/search?q=troy%40tencoe.com&type=Users)(9.65%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.35%), [troy](https://github.com/search?q=troy&type=Users)(9.65%)
 
 封装了 Android 平台`DrawerLayout`的 React 组件。抽屉（通常用于导航切换）是通过`renderNavigationView`方法渲染的，并且 DrawerLayoutAndroid 的直接子视图会成为主视图（用于放置内容）。导航视图一开始在屏幕上并不可见，不过可以从`drawerPosition`指定的窗口侧面拖拽出来，并且抽屉的宽度可以使用`drawerWidth`属性来指定。
 
@@ -202,7 +201,8 @@ return (
 
 ### `statusBarBackgroundColor`
 
-使抽屉占满整个屏幕，并设置状态栏颜色(支持 API21+/安卓系统 5.0 以上) 使导航视图占满整个屏幕，并设置状态栏背景，允许他在状态栏上打开。仅在 API 21 及以上版本有效。
+使抽屉占满整个屏幕，并设置状态栏颜色(支持 API21+/安卓系统 5.0 以上)
+使导航视图占满整个屏幕，并设置状态栏背景，允许他在状态栏上打开。仅在 API 21 及以上版本有效。
 
 | 类型               | 必填 |
 | ------------------ | ---- |

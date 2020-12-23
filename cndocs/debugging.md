@@ -68,7 +68,7 @@ Syntax errors will automatically open a full screen LogBox error with the source
 
 > 注意：Chrome 中并不能直接看到 App 的用户界面，而只能提供 console 的输出，以及在 sources 项中断点调试 js 脚本。一些老的教程和文章会提到 React 的 Chrome 插件，这一插件目前并不支持 React Native，而且调试本身并不需要这个插件。不过你可以安装独立（非插件）版本的 React Developer Tools 来辅助查看界面布局，下文会讲述具体安装方法。
 
-> 注意：使用 Chrome 调试目前无法观测到 React Native 中的网络请求，你可以使用功能更强大的第三方的[react-native-debugger](https://github.com/jhen0409/react-native-debugger)或是官方的[flipper](https://fbflipper.com/)（注意仅能在0.62以上版本可用）来观测。
+> 注意：使用 Chrome 调试目前无法观测到 React Native 中的网络请求，你可以使用功能更强大的第三方的[react-native-debugger](https://github.com/jhen0409/react-native-debugger)或是官方的[flipper](https://fbflipper.com/)（注意仅能在 0.62 以上版本可用）来观测。
 
 ### 使用自定义的 JavaScript 调试器来调试
 
@@ -142,7 +142,7 @@ Then select a React component in React DevTools. There is a search box at the to
 
 你可以在开发者菜单中选择"Pref Monitor"选项以开启一个悬浮层，其中会显示应用的当前帧数。
 
-<hr style="margin-top:25px; margin-bottom:25px;"/>
+<hr style={{marginTop: 25, marginBottom: 25}} />
 
 ## Debugging Application State
 

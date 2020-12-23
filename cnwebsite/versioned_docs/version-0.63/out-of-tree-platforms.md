@@ -1,7 +1,6 @@
 ---
-id: version-0.63-out-of-tree-platforms
+id: out-of-tree-platforms
 title: 多平台支持
-original_id: out-of-tree-platforms
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

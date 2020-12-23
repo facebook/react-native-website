@@ -339,11 +339,11 @@ Styling for internal View for ListHeaderComponent
 
 ### `refreshControl`
 
-A custom refresh control element. When set, it overrides the default <RefreshControl> component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
+自定义的下拉刷新组件。设置后将覆盖默认的内置`<RefreshControl>`组件，`onRefresh`和`refreshing`属性也将一并忽略。只对纵向布局的`VirtualizedList`有效。
 
-| 类型    | Required |
-| ------- | -------- |
-| element | No       |
+| 类型    | 必填 |
+| ------- | ---- |
+| element | 否   |
 
 ---
 

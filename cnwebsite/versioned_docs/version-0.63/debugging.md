@@ -1,10 +1,9 @@
 ---
-id: version-0.63-debugging
+id: debugging
 title: 调试
-original_id: debugging
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.94%), [raoenhui](https://github.com/search?q=raoenhui%40jd.com&type=Users)(1.06%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.34%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.62%), [raoenhui](https://github.com/search?q=raoenhui&type=Users)(1.05%)
 
 ## 开启调试的快捷键
 
@@ -53,11 +52,11 @@ LogBox.ignoreLogs(['Warning: ...']);
 LogBox.ignoreAllLogs();
 ```
 
-### Unhandled Errors
+### 未捕获的错误
 
 Unhanded JavaScript errors such as `undefined is not a function` will automatically open a full screen LogBox error with the source of the error. These errors are dismissable and minimizable so that you can see the state of your app when these errors occur, but should always be addressed.
 
-### Syntax Erorrs
+### 语法错误
 
 Syntax errors will automatically open a full screen LogBox error with the source of the syntax error. This error is not dismissable because it represents invalid JavaScript execution that must be fixed before continuing with your app. To dismiss these errors, fix the syntax error and either save to automatically dismiss (with Fast Refresh enabled) or cmd+r to reload (with Fast Refresh disabled).
 
@@ -67,9 +66,11 @@ Syntax errors will automatically open a full screen LogBox error with the source
 
 在 Chrome 的菜单中选择`Tools → Developer Tools`可以打开开发者工具，也可以通过键盘快捷键来打开（Mac 上是**`Command`**`⌘` + **`Option`**`⌥` + **`I`**，Windows 上是**`Ctrl`** + **`Shift`** + **`I`**或是 F12）。打开[有异常时暂停（Pause On Caught Exceptions）](http://stackoverflow.com/questions/2233339/javascript-is-there-a-way-to-get-chrome-to-break-on-all-errors/17324511#17324511)选项，能够获得更好的开发体验。
 
+> Note: on Android, if the times between the debugger and device have drifted; things such as animation, event behavior, etc., might not work properly or the results may not be accurate. Please correct this by running `` adb shell "date `date +%m%d%H%M%Y.%S%3N`" `` on your debugger machine. Root access is required for the use in real device.
+
 > 注意：Chrome 中并不能直接看到 App 的用户界面，而只能提供 console 的输出，以及在 sources 项中断点调试 js 脚本。一些老的教程和文章会提到 React 的 Chrome 插件，这一插件目前并不支持 React Native，而且调试本身并不需要这个插件。不过你可以安装独立（非插件）版本的 React Developer Tools 来辅助查看界面布局，下文会讲述具体安装方法。
 
-> 注意：使用 Chrome 调试目前无法观测到 React Native 中的网络请求，你可以使用功能更强大的第三方的[react-native-debugger](https://github.com/jhen0409/react-native-debugger)来进行观测。
+> 注意：使用 Chrome 调试目前无法观测到 React Native 中的网络请求，你可以使用功能更强大的第三方的[react-native-debugger](https://github.com/jhen0409/react-native-debugger)或是官方的[flipper](https://fbflipper.com/)（注意仅能在 0.62 以上版本可用）来观测。
 
 ### 使用自定义的 JavaScript 调试器来调试
 
@@ -143,7 +144,7 @@ Then select a React component in React DevTools. There is a search box at the to
 
 你可以在开发者菜单中选择"Pref Monitor"选项以开启一个悬浮层，其中会显示应用的当前帧数。
 
-<hr style="margin-top:25px; margin-bottom:25px;"/>
+<hr style={{marginTop: 25, marginBottom: 25}} />
 
 ## Debugging Application State
 

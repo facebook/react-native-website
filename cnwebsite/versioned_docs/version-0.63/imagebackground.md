@@ -1,10 +1,9 @@
 ---
-id: version-0.63-imagebackground
+id: imagebackground
 title: ImageBackground
-original_id: imagebackground
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(84.21%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(15.79%)
 
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 

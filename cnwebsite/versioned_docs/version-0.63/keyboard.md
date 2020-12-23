@@ -1,10 +1,11 @@
 ---
-id: version-0.63-keyboard
+id: keyboard
 title: Keyboard
-original_id: keyboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(91.75%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(8.25%)
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 `Keyboard`模块用来控制键盘相关的事件。
 
@@ -12,18 +13,8 @@ original_id: keyboard
 
 `Keyboard`模块可以监听原生键盘事件以做出相应回应，比如收回键盘。
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Keyboard%20Function%20Component%20Example
 
@@ -67,7 +58,8 @@ const s = StyleSheet.create({
 export default Example;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Keyboard%20Class%20Component%20Example
 import React, {Component} from 'react';
@@ -116,7 +108,8 @@ const s = StyleSheet.create({
 export default Example;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ---
 
@@ -136,7 +129,7 @@ static addListener(eventName, callback)
 
 **参数：**
 
-| Name      | Type     | Required | Description                                            |
+| 名称      | 类型     | Required | 说明                                                   |
 | --------- | -------- | -------- | ------------------------------------------------------ |
 | eventName | string   | Yes      | `nativeEvent`参数用来指明要监听的事件，具体有以下几种: |
 | callback  | function | Yes      | 事件触发时调用的 js 函数                               |
@@ -166,7 +159,7 @@ static removeListener(eventName, callback)
 
 **参数：**
 
-| Name      | Type     | Required | Description                      |
+| 名称      | 类型     | Required | 说明                             |
 | --------- | -------- | -------- | -------------------------------- |
 | eventName | string   | Yes      | 要移除监听函数的原生事件类型名称 |
 | callback  | function | Yes      | 要移除的监听函数                 |

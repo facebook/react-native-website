@@ -1,10 +1,9 @@
 ---
-id: version-0.63-scrollview
+id: scrollview
 title: ScrollView
-original_id: scrollview
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.94%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.47%), [36203025+JevonsCode](https://github.com/search?q=36203025%2BJevonsCode&type=Users)(0.59%)
 
 一个封装了平台的 ScrollView（滚动视图）的组件，同时还集成了触摸锁定的“响应者”系统。
 
@@ -66,13 +65,19 @@ export default App;
 
 ## Props
 
+### [View Props](view.md#props)
+
+Inherits [View Props](view.md#props).
+
+---
+
 ### `alwaysBounceHorizontal`
 
-When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself. The default value is true when `horizontal={true}` and false otherwise.
+当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| 类型 | 必填 | 平台 |
+| ---- | ---- | ---- |
+| bool | 否   | iOS  |
 
 ---
 
@@ -113,7 +118,7 @@ const styles = StyleSheet.create({
 
 When true, the default JS pan responder on the ScrollView is disabled, and full control over touches inside the ScrollView is left to its child components. This is particularly useful if `snapToInterval` is enabled, since it does not follow typical touch patterns. Do not use this on regular ScrollView use cases without `snapToInterval` as it may cause unexpected touches to occur while scrolling. The default value is false.
 
-| Type | Required |
+| 类型 | Required |
 | ---- | -------- |
 | bool | No       |
 
@@ -350,25 +355,15 @@ When true, ScrollView will emit updateChildFrames data in scroll events, otherwi
 
 ---
 
-### `alwaysBounceHorizontal`
-
-当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
-
----
-
 ### `fadingEdgeLength`
 
 Fades out the edges of the the scroll content.
 
 If the value is greater than 0, the fading edges will be set accordingly to the current scroll direction and position, indicating if there is more content to show.
 
-| Type   | Required | Default | Platform |
-| ------ | -------- | ------- | -------- |
-| number | No       | 0       | Android  |
+| 类型   | Required | Default | 平台    |
+| ------ | -------- | ------- | ------- |
+| number | No       | 0       | Android |
 
 ---
 

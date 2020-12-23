@@ -1,7 +1,6 @@
 ---
-id: version-0.63-handling-text-input
+id: handling-text-input
 title: 处理文本输入
-original_id: handling-text-input
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

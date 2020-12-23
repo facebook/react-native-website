@@ -1,52 +1,35 @@
 ---
-id: version-0.63-animated
+id: animated
 title: Animated
-original_id: animated
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.36%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%)
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 `Animated`库旨在使动画变得流畅，强大并易于构建和维护。`Animated`侧重于输入和输出之间的声明性关系，以及两者之间的可配置变换，此外还提供了简单的 `start/stop`方法来控制基于时间的动画执行。
 
 创建动画最基本的工作流程是先创建一个 `Animated.Value` ，将它连接到动画组件的一个或多个样式属性，然后使用`Animated.timing()`通过动画效果展示数据的变化：
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      在示例中使用函数组件
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      在示例中使用Class组件
-    </li>
-  </ul>
-</div>
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
-<block class="functional syntax" />
+> 请不要直接修改动画值！你可以用[`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref)来返回一个可修改的 ref 引用。ref 对象的`current`属性在初始化时被赋予给定的动画值，且在组件的生命周期内保存不被销毁。
 
-> Don't modify the animated value directly. You can use the [`useRef` Hook](https://zh-hans.reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
+</TabItem>
+<TabItem value="classical">
 
-<block class="classical syntax" />
+> 请不要直接修改动画值！我们一般在 class 组件中使用一个[状态变量](intro-react#state)或是成员变量来存放它。
 
-> Don't modify the animated value directly. It is usually stored as a [state variable](intro-react#state) in class components.
-
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## 示例
 
-The following example contains a `View` which will fade in and fade out based on the animated value `fadeAnim`
+下面的例子演示了一个根据动画值`fadeAnim`来淡入淡出的视图：
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Animated
 import React, { useRef } from "react";
@@ -117,7 +100,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Animated
 import React, { Component } from "react";
@@ -192,7 +176,8 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 你可以在[动画](animations#animated-api)文档中看到更多实际的例子。
 
@@ -357,19 +342,19 @@ friction/tension 或 bounciness/speed 选项符合[Facebook Pop](https://github.
 - `speed`: 控制动画速度。默认值 12.
 - `bounciness`: 控制弹性。默认值 8.
 
-Specifying stiffness/damping/mass as parameters makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
+如果指定 stiffness/damping/mass 参数，makes `Animated.spring` use an analytical spring model based on the motion equations of a [damped harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Damped_harmonic_oscillator). This behavior is slightly more precise and faithful to the physics behind spring dynamics, and closely mimics the implementation in iOS's CASpringAnimation.
 
-- `stiffness`: The spring stiffness coefficient. Default 100.
-- `damping`: Defines how the spring’s motion should be damped due to the forces of friction. Default 10.
-- `mass`: The mass of the object attached to the end of the spring. Default 1.
+- `stiffness`: The spring stiffness coefficient. 默认值 100.
+- `damping`: Defines how the spring’s motion should be damped due to the forces of friction. 默认值 10.
+- `mass`: The mass of the object attached to the end of the spring. 默认值 1.
 
-Other configuration options are as follows:
+还有一些其他的配置参数：
 
-- `velocity`: The initial velocity of the object attached to the spring. Default 0 (object is at rest).
+- `velocity`: The initial velocity of the object attached to the spring. 默认值 0 (object is at rest).
 - `overshootClamping`: Boolean indiciating whether the spring should be clamped and not bounce. Default false.
 - `restDisplacementThreshold`: The threshold of displacement from rest below which the spring should be considered at rest. Default 0.001.
-- `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. Default 0.001.
-- `delay`: Start the animation after delay (milliseconds). Default 0.
+- `restSpeedThreshold`: The speed at which the spring should be considered at rest in pixels per second. 默认值 0.001.
+- `delay`: Start the animation after delay (milliseconds). 默认值 0.
 - `isInteraction`: 指定本动画是否在`InteractionManager`的队列中注册以影响其任务调度。默认值为 true。
 - `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。
 
@@ -547,7 +532,7 @@ Animations are started by calling start() on your animation. start() takes a com
 
 **参数：**
 
-| Name     | Type                            | Required | Description                                                                                                                                                     |
+| 名称     | 类型                            | Required | 说明                                                                                                                                                            |
 | -------- | ------------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | callback | ?(result?: {finished: boolean}) | No       | Function that will be called after the animation finished running normally or when the animation is done because stop() was called on it before it could finish |
 

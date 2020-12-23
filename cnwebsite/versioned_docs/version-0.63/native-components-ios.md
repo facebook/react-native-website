@@ -1,10 +1,9 @@
 ---
-id: version-0.63-native-components-ios
-title: 原生UI组件
-original_id: native-components-ios
+id: native-components-ios
+title: iOS 原生UI组件
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.61%), [2725285+biaji](https://github.com/search?q=2725285%2Bbiaji%40users.noreply.github.com&type=Users)(0.39%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.29%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.31%), [2725285+biaji](https://github.com/search?q=2725285%2Bbiaji&type=Users)(0.39%)
 
 在如今的 App 中，已经有成千上万的原生 UI 部件了——其中的一些是平台的一部分，另一些可能来自于一些第三方库，而且可能你自己还收藏了很多。React Native 已经封装了大部分最常见的组件，譬如`ScrollView`和`TextInput`，但不可能封装全部组件。而且，说不定你曾经为自己以前的 App 还封装过一些组件，React Native 肯定没法包含它们。幸运的是，在 React Naitve 应用程序中封装和植入已有的组件非常简单。
 
@@ -104,9 +103,9 @@ RCT_EXPORT_VIEW_PROPERTY(zoomEnabled, BOOL)
 
 ```jsx
 // MapView.js
-import PropTypes from 'prop-types';
-import React from 'react';
-import { requireNativeComponent } from 'react-native';
+import PropTypes from "prop-types";
+import React from "react";
+import { requireNativeComponent } from "react-native";
 
 class MapView extends React.Component {
   render() {
@@ -122,7 +121,7 @@ MapView.propTypes = {
   zoomEnabled: PropTypes.bool
 };
 
-const RNTMap = requireNativeComponent('RNTMap', MapView);
+const RNTMap = requireNativeComponent("RNTMap", MapView);
 
 export default MapView;
 ```
@@ -244,14 +243,12 @@ render() {
 有时候你的原生组件有一些特殊的属性希望导出，但并不希望它成为公开的接口。举个例子，`Switch`组件可能会有一个`onChange`属性用来传递原始的原生事件，然后导出一个`onValueChange`属性，这个属性在调用的时候会带上`Switch`的状态作为参数之一。这样的话你可能不希望原生专用的属性出现在 API 之中，也就不希望把它放到`propTypes`里。可是如果你不放的话，又会出现一个报错。解决方案就是带上额外的`nativeOnly`参数，像这样：
 
 ```jsx
-const RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
+const RCTSwitch = requireNativeComponent("RCTSwitch", Switch, {
   nativeOnly: { onChange: true }
 });
 ```
 
-## Events
-
-事件
+## 事件
 
 现在我们已经有了一个原生地图组件，并且从 JS 可以很容易的控制它了。不过我们怎么才能处理来自用户的事件，譬如缩放操作或者拖动来改变可视区域？
 
@@ -422,7 +419,7 @@ class MyNativeView extends React.Component<> {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this),
-      UIManager.getViewManagerConfig('RNCMyNativeView').Commands
+      UIManager.getViewManagerConfig("RNCMyNativeView").Commands
         .callNativeMethod,
       []
     );
@@ -435,9 +432,9 @@ class MyNativeView extends React.Component<> {
 
 `callNativeMethod` is our custom iOS method which for example changes the `backgroundColor` which is exposed through `MyNativeView`. This method uses `UIManager.dispatchViewManagerCommand` which needs 3 parameters:
 
-- (nonnull NSNumber \*)reactTag  -  id of react view.
-- commandID:(NSInteger)commandID  -  Id of the native method that should be called
-- commandArgs:(NSArray<id> \*)commandArgs  -  Args of the native method that we can pass from JS to native.
+- `(nonnull NSNumber \*)reactTag`  -  id of react view.
+- `commandID:(NSInteger)commandID`  -  Id of the native method that should be called
+- `commandArgs:(NSArray<id> \*)commandArgs`  -  Args of the native method that we can pass from JS to native.
 
 `RNCMyNativeViewManager.m`
 

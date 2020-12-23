@@ -1,7 +1,6 @@
 ---
-id: version-0.63-gesture-responder-system
+id: gesture-responder-system
 title: 手势响应系统
-original_id: gesture-responder-system
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

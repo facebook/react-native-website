@@ -1,10 +1,9 @@
 ---
-id: version-0.63-text-style-props
-title: Text样式属性
-original_id: text-style-props
+id: text-style-props
+title: Text 样式属性
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.80%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.20%)
 
 ### 示例
 

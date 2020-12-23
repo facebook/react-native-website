@@ -1,10 +1,9 @@
 ---
-id: version-0.63-native-modules-android
-title: 原生模块
-original_id: native-modules-android
+id: native-modules-android
+title: Android 原生模块
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.18%), [doublingli](https://github.com/search?q=doublingli&type=Users)(0.42%)
 
 有时候 App 需要访问平台 API，但 React Native 可能还没有相应的模块包装；或者你需要复用一些 Java 代码，而不是用 Javascript 重新实现一遍；又或者你需要实现某些高性能的、多线程的代码，譬如图片处理、数据库、或者各种高级扩展等等。
 
@@ -48,8 +47,8 @@ public class ToastModule extends ReactContextBaseJavaModule {
   private static final String DURATION_SHORT_KEY = "SHORT";
   private static final String DURATION_LONG_KEY = "LONG";
 
-  public ToastModule(ReactApplicationContext reactContext) {
-    super(reactContext);
+  public ToastModule(ReactApplicationContext context) {
+    super(context);
     reactContext = context;
   }
 }
@@ -171,7 +170,7 @@ protected List<ReactPackage> getPackages() {
  * 2. int duration: The duration of the toast. May be ToastExample.SHORT or
  *    ToastExample.LONG
  */
-import { NativeModules } from 'react-native';
+import { NativeModules } from "react-native";
 // 下一句中的ToastExample即对应上文
 // public String getName()中返回的字符串
 export default NativeModules.ToastExample;
@@ -180,9 +179,9 @@ export default NativeModules.ToastExample;
 现在，在别处的 JavaScript 代码中可以这样调用你的方法：
 
 ```jsx
-import ToastExample from './ToastExample';
+import ToastExample from "./ToastExample";
 
-ToastExample.show('Awesome', ToastExample.SHORT);
+ToastExample.show("Awesome", ToastExample.SHORT);
 ```
 
 ## 更多特性
@@ -225,11 +224,11 @@ public class UIManagerModule extends ReactContextBaseJavaModule {
 UIManager.measureLayout(
   100,
   100,
-  (msg) => {
+  msg => {
     console.log(msg);
   },
   (x, y, width, height) => {
-    console.log(x + ':' + y + ':' + width + ':' + height);
+    console.log(x + ":" + y + ":" + width + ":" + height);
   }
 );
 ```
@@ -291,9 +290,7 @@ async function measureLayout() {
       height
     } = await UIManager.measureLayout(100, 100);
 
-    console.log(
-      relativeX + ':' + relativeY + ':' + width + ':' + height
-    );
+    console.log(relativeX + ":" + relativeY + ":" + width + ":" + height);
   } catch (e) {
     console.error(e);
   }

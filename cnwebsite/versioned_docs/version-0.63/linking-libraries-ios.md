@@ -1,7 +1,6 @@
 ---
-id: version-0.63-linking-libraries-ios
+id: linking-libraries-ios
 title: 链接原生库
-original_id: linking-libraries-ios
 ---
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

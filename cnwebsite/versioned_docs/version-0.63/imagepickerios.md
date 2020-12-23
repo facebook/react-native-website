@@ -1,10 +1,9 @@
 ---
-id: version-0.63-imagepickerios
+id: imagepickerios
 title: 🚧 ImagePickerIOS
-original_id: imagepickerios
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(87.01%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(12.99%)
 
 **已过时。** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
 
@@ -36,11 +35,11 @@ static openCameraDialog(config, successCallback, cancelCallback)
 
 **参数：**
 
-| Name            | Type     | Required | Description |
-| --------------- | -------- | -------- | ----------- |
-| config          | object   | No       | See below.  |
-| successCallback | function | No       | See below.  |
-| cancelCallback  | function | No       | See below.  |
+| 名称            | 类型     | Required | 说明       |
+| --------------- | -------- | -------- | ---------- |
+| config          | object   | No       | See below. |
+| successCallback | function | No       | See below. |
+| cancelCallback  | function | No       | See below. |
 
 `config` is an object containing:
 
@@ -62,11 +61,11 @@ static openSelectDialog(config, successCallback, cancelCallback)
 
 **参数：**
 
-| Name            | Type     | Required | Description |
-| --------------- | -------- | -------- | ----------- |
-| config          | object   | No       | See below.  |
-| successCallback | function | No       | See below.  |
-| cancelCallback  | function | No       | See below.  |
+| 名称            | 类型     | Required | 说明       |
+| --------------- | -------- | -------- | ---------- |
+| config          | object   | No       | See below. |
+| successCallback | function | No       | See below. |
+| cancelCallback  | function | No       | See below. |
 
 `config` is an object containing:
 

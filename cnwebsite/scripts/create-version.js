@@ -5,7 +5,7 @@ const execSync = require('child_process').execSync;
 const args = process.argv.slice(2);
 const prettier = require('prettier');
 
-const version = args[0] || 0.55;
+const version = args[0] || 0.63;
 
 fs.removeSync(`../versioned_docs/version-${version}`);
 fs.removeSync(`../versioned_sidebars/version-${version}-sidebars.json`);
@@ -14,7 +14,7 @@ const versions = require('../versions.json');
 versions.splice(versions.findIndex(v => v == version), 1);
 fs.writeFileSync('versions.json', JSON.stringify(versions, null, 2));
 
-execSync(`docusaurus-version ${version}`);
+execSync(`yarn run docusaurus docs:version ${version}`);
 
 const files = glob.sync('../cndocs/*.md');
 // const authorRegex = /(\d+) author (.+)$/gm;

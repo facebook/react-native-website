@@ -3,34 +3,26 @@ id: text
 title: Text
 ---
 
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
+
 一个用于显示文本的 React 组件，并且它也支持嵌套、样式，以及触摸处理。
 
 在下面的例子里，嵌套的标题和正文文字会继承来自`styles.baseText`的`fontFamily`字体样式，不过标题上还附加了它自己额外的样式。标题和文本会在顶部依次堆叠，并且被代码中内嵌的换行符分隔开。
 
-<div class="toggler">
-  <ul role="tablist" class="toggle-syntax">
-    <li id="functional" class="button-functional" aria-selected="false" role="tab" tabindex="0" aria-controls="functionaltab" onclick="displayTabs('syntax', 'functional')">
-      函数组件示例
-    </li>
-    <li id="classical" class="button-classical" aria-selected="false" role="tab" tabindex="0" aria-controls="classicaltab" onclick="displayTabs('syntax', 'classical')">
-      Class组件示例
-    </li>
-  </ul>
-</div>
-
-<block class="functional syntax" />
+<Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
+<TabItem value="functional">
 
 ```SnackPlayer name=Text%20Functional%20Component%20Example
 import React, { useState } from "react";
 import { Text, StyleSheet } from "react-native";
 
-const onPressTitle = () => {
-  console.log("title pressed");
-};
-
 const TextInANest = () => {
-  const titleText = useState("Bird's Nest");
+  const [titleText, setTitleText] = useState("Bird's Nest");
   const bodyText = useState("This is not really a bird nest.");
+
+  const onPressTitle = () => {
+    setTitleText("Bird's Nest [pressed]");
+  };
 
   return (
     <Text style={styles.baseText}>
@@ -55,10 +47,10 @@ const styles = StyleSheet.create({
 });
 
 export default TextInANest;
-
 ```
 
-<block class="classical syntax" />
+</TabItem>
+<TabItem value="classical">
 
 ```SnackPlayer name=Text%20Class%20Component%20Example
 import React, { Component } from "react";
@@ -73,10 +65,17 @@ class TextInANest extends Component {
     };
   }
 
+  onPressTitle = () => {
+    this.setState({ titleText: "Bird's Nest [pressed]" });
+  };
+
   render() {
     return (
       <Text style={styles.baseText}>
-        <Text style={styles.titleText} onPress={this.onPressTitle}>
+        <Text
+          style={styles.titleText}
+          onPress={this.onPressTitle}
+        >
           {this.state.titleText}
           {"\n"}
           {"\n"}
@@ -100,7 +99,8 @@ const styles = StyleSheet.create({
 export default TextInANest;
 ```
 
-<block class="endBlock syntax" />
+</TabItem>
+</Tabs>
 
 ## 嵌套文本
 
@@ -274,23 +274,13 @@ React Native 实际上还是有一部分样式继承的实现，不过仅限于�
 
 ## Props
 
-### `selectable`
-
-决定用户是否可以长按选择文本，以便复制和粘贴。
-
-| 类型 | 必填 |
-| ---- | ---- |
-| bool | 否   |
-
----
-
 ### `accessibilityHint`
 
-An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
+An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not clear from the accessibility label.
 
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 否   |
+| Type   |
+| ------ |
+| string |
 
 ---
 
@@ -298,17 +288,63 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| 类型   | 必填 |
-| ------ | ---- |
-| string | 否   |
+| Type   |
+| ------ |
+| string |
+
+---
+
+### `accessibilityRole`
+
+Tells the screen reader to treat the currently focused on element as having a specific role.
+
+On iOS, these roles map to corresponding Accessibility Traits. Image button has the same functionality as if the trait was set to both 'image' and 'button'. See the [Accessibility guide](accessibility.md#accessibilitytraits-ios) for more information.
+
+On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
+
+| Type                                                 |
+| ---------------------------------------------------- |
+| [AccessibilityRole](accessibility#accessibilityrole) |
+
+---
+
+### `accessibilityState`
+
+Tells the screen reader to treat the currently focused on element as being in a specific state.
+
+You can provide one state, no state, or multiple states. The states must be passed in through an object. Ex: `{selected: true, disabled: true}`.
+
+| Type                                                   |
+| ------------------------------------------------------ |
+| [AccessibilityState](accessibility#accessibilitystate) |
 
 ---
 
 ### `accessible`
 
-When set to `true`, indicates that the view is an accessibility element. The default value for a `Text` element is `true`.
+When set to `true`, indicates that the view is an accessibility element.
 
-See the [Accessibility guide](accessibility.md#accessible-ios-android) for more information.
+See the [Accessibility guide](accessibility#accessible-ios-android) for more information.
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | `true`  |
+
+---
+
+### `adjustsFontSizeToFit` <div class="label ios">iOS</div>
+
+指定字体是否随着给定样式的限制而自动缩放。
+
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
+
+---
+
+### `selectable`
+
+决定用户是否可以长按选择文本，以便复制和粘贴。
 
 | 类型 | 必填 |
 | ---- | ---- |
@@ -410,9 +446,9 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必填 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -516,23 +552,13 @@ The highlight color of the text.
 
 ---
 
-### `textBreakStrategy`
+### `textBreakStrategy` <div class="label android">Android</div>
 
-Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced` The default value is `highQuality`.
+Set text break strategy on Android API Level 23+, possible values are `simple`, `highQuality`, `balanced`.
 
-| 类型                                      | 必填 | 平台    |
-| ----------------------------------------- | ---- | ------- |
-| enum('simple', 'highQuality', 'balanced') | 否   | Android |
-
----
-
-### `adjustsFontSizeToFit`
-
-指定字体是否随着给定样式的限制而自动缩放。
-
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
+| Type                                            | Default       |
+| ----------------------------------------------- | ------------- |
+| enum(`'simple'`, `'highQuality'`, `'balanced'`) | `highQuality` |
 
 ---
 
@@ -546,13 +572,13 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ---
 
-### `suppressHighlighting`
+### `suppressHighlighting` <div class="label ios">iOS</div>
 
 设为 true 时，当文本被按下会没有任何视觉效果。默认情况下，文本被按下时会有一个灰色的、椭圆形的高光。
 
-| 类型 | 必填 | 平台 |
-| ---- | ---- | ---- |
-| bool | 否   | iOS  |
+| Type    | Default |
+| ------- | ------- |
+| boolean | `false` |
 
 ---
 
@@ -570,9 +596,9 @@ Possible values for `dataDetectorType` are:
 - `'none'`
 - `'all'`
 
-| 类型 | Required | 平台 |
-| --- | --- | --- |
-| enum('phoneNumber', 'link', 'email', 'none', 'all') | No | Android |
+| 类型                                                | Required | 平台    |
+| --------------------------------------------------- | -------- | ------- |
+| enum('phoneNumber', 'link', 'email', 'none', 'all') | No       | Android |
 
 ---
 
@@ -584,6 +610,64 @@ Sets the frequency of automatic hyphenation to use when determining word breaks 
 | ---------------------------------------- | -------- | ------- |
 | enum('none', 'full', 'balanced', 'high') | No       | Android |
 
-# Known issues
+## 类型定义
+
+### TextLayout
+
+`TextLayout` object is a part of [`TextLayoutEvent`](text#textlayoutevent) callback and contains the measurement data for `Text` line.
+
+#### 示例
+
+```js
+{
+    capHeight: 10.496,
+    ascender: 14.624,
+    descender: 4,
+    width: 28.224,
+    height: 18.624,
+    xHeight: 6.048,
+    x: 0,
+    y: 0
+}
+```
+
+#### 属性
+
+| Name      | Type   | Optional | Description                                                         |
+| --------- | ------ | -------- | ------------------------------------------------------------------- |
+| ascender  | number | No       | The line ascender height after the text layout changes.             |
+| capHeight | number | No       | Height of capital letter above the baseline.                        |
+| descender | number | No       | The line descender height after the text layout changes.            |
+| height    | number | No       | Height of the line after the text layout changes.                   |
+| width     | number | No       | Width of the line after the text layout changes.                    |
+| x         | number | No       | Line X coordinate inside the Text component.                        |
+| xHeight   | number | No       | Distance between the baseline and median of the line (corpus size). |
+| y         | number | No       | Line Y coordinate inside the Text component.                        |
+
+### TextLayoutEvent
+
+`TextLayoutEvent` object is returned in the callback as a result of component layout change. It contains a key called `lines` with a value which is an array containing [`TextLayout`](text#textlayout) object corresponeded to every rendered text line.
+
+#### 示例
+
+```js
+{
+  lines: [
+    TextLayout,
+    TextLayout
+    // ...
+  ];
+  target: 1127;
+}
+```
+
+#### 属性
+
+| Name   | Type                                    | Optional | Description                                           |
+| ------ | --------------------------------------- | -------- | ----------------------------------------------------- |
+| lines  | array of [TextLayout](text#textlayout)s | No       | Provides the TextLayout data for every rendered line. |
+| target | number                                  | No       | The node id of the element.                           |
+
+## 已知问题
 
 - [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute

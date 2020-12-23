@@ -1,6 +1,6 @@
 ---
 id: javascript-environment
-title: JavaScript环境
+title: JavaScript 环境
 ---
 
 ## JavaScript 运行时环境

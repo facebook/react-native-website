@@ -14,7 +14,7 @@ const windowWidth = useWindowDimensions().width;
 const windowHeight = useWindowDimensions().height;
 ```
 
-## Example
+## 示例
 
 ```SnackPlayer name=useWindowDimensions&supportedPlatforms=ios,android
 import React from "react";

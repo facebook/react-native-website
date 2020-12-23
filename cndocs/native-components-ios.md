@@ -1,6 +1,6 @@
 ---
 id: native-components-ios
-title: 原生UI组件
+title: iOS 原生UI组件
 ---
 
 在如今的 App 中，已经有成千上万的原生 UI 部件了——其中的一些是平台的一部分，另一些可能来自于一些第三方库，而且可能你自己还收藏了很多。React Native 已经封装了大部分最常见的组件，譬如`ScrollView`和`TextInput`，但不可能封装全部组件。而且，说不定你曾经为自己以前的 App 还封装过一些组件，React Native 肯定没法包含它们。幸运的是，在 React Naitve 应用程序中封装和植入已有的组件非常简单。
@@ -94,7 +94,7 @@ RCT_EXPORT_VIEW_PROPERTY(zoomEnabled, BOOL)
 
 ```jsx
 // MyApp.js
-<MapView zoomEnabled={false} style={{flex: 1}} />
+<MapView zoomEnabled={false} style={{ flex: 1 }} />
 ```
 
 但这样并不能很好的说明这个组件的用法——用户要想知道我们的组件有哪些属性可以用，以及可以取什么样的值，他不得不一路翻到 Objective-C 的代码。要解决这个问题，我们可以创建一个封装组件，并且通过`PropTypes`来说明这个组件的接口。
@@ -103,7 +103,7 @@ RCT_EXPORT_VIEW_PROPERTY(zoomEnabled, BOOL)
 // MapView.js
 import PropTypes from 'prop-types';
 import React from 'react';
-import {requireNativeComponent} from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
 class MapView extends React.Component {
   render() {
@@ -116,7 +116,7 @@ MapView.propTypes = {
    * A Boolean value that determines whether the user may use pinch
    * gestures to zoom in and out of the map.
    */
-  zoomEnabled: PropTypes.bool,
+  zoomEnabled: PropTypes.bool
 };
 
 const RNTMap = requireNativeComponent('RNTMap', MapView);
@@ -242,13 +242,11 @@ render() {
 
 ```jsx
 const RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
-  nativeOnly: {onChange: true},
+  nativeOnly: { onChange: true }
 });
 ```
 
-## Events
-
-事件
+## 事件
 
 现在我们已经有了一个原生地图组件，并且从 JS 可以很容易的控制它了。不过我们怎么才能处理来自用户的事件，譬如缩放操作或者拖动来改变可视区域？
 
@@ -392,9 +390,9 @@ A React Native view can have more than one child view in the view tree eg.
 
 ```jsx
 <View>
-<MyNativeView />
-<MyNativeView />
-<Button />
+  <MyNativeView />
+  <MyNativeView />
+  <Button />
 </View>
 ```
 
@@ -416,17 +414,17 @@ Now the above component has a reference to a particular `MyNativeView` which all
 
 ```jsx
 class MyNativeView extends React.Component<> {
-callNativeMethod = () => {
-  UIManager.dispatchViewManagerCommand(
-    ReactNative.findNodeHandle(this),
-    UIManager.getViewManagerConfig('RNCMyNativeView').Commands
-      .callNativeMethod,
-    [],
-  );
-};
+  callNativeMethod = () => {
+    UIManager.dispatchViewManagerCommand(
+      ReactNative.findNodeHandle(this),
+      UIManager.getViewManagerConfig('RNCMyNativeView').Commands
+        .callNativeMethod,
+      []
+    );
+  };
   render() {
-  return <NativeComponent ref={NATIVE_COMPONENT_REF} />;
-}
+    return <NativeComponent ref={NATIVE_COMPONENT_REF} />;
+  }
 }
 ```
 

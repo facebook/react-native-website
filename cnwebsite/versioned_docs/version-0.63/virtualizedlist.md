@@ -1,10 +1,9 @@
 ---
-id: version-0.63-virtualizedlist
+id: virtualizedlist
 title: VirtualizedList
-original_id: virtualizedlist
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.42%), [yahoo.007](https://github.com/search?q=yahoo.007%40163.com&type=Users)(3.58%)
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.38%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(3.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.34%)
 
 [`FlatList`](flatlist.md)和[`SectionList`](sectionlist.md)的底层实现。FlatList 和 SectionList 使用起来更方便，同时也有相对更详细的文档。一般来说，仅当想获得比 FlatList 更高的灵活性（比如说在使用 immutable data 而不是 普通数组）的时候，你才应该考虑使用 VirtualizedList。
 
@@ -205,7 +204,7 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 Rendered in between each item, but not at the top or bottom. By default, `highlighted` and `leadingItem` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| Type                | Required |
+| 类型                | Required |
 | ------------------- | -------- |
 | component, function | No       |
 
@@ -215,7 +214,7 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 
 A unique identifier for this list. If there are multiple VirtualizedLists at the same level of nesting within another VirtualizedList, this key is necessary for virtualization to work properly.
 
-| Type   | Required |
+| 类型   | Required |
 | ------ | -------- |
 | string | True     |
 
@@ -235,7 +234,7 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 Each data item is rendered using this element. Can be a React Component Class, or a render function
 
-| Type                | Required |
+| 类型                | Required |
 | ------------------- | -------- |
 | component, function | No       |
 
@@ -255,7 +254,7 @@ Each data item is rendered using this element. Can be a React Component Class, o
 
 Styling for internal View for ListFooterComponent
 
-| Type          | Required |
+| 类型          | Required |
 | ------------- | -------- |
 | ViewStyleProp | No       |
 
@@ -275,7 +274,7 @@ Styling for internal View for ListFooterComponent
 
 Styling for internal View for ListHeaderComponent
 
-| Type          | Required |
+| 类型          | Required |
 | ------------- | -------- |
 | ViewStyleProp | No       |
 
@@ -342,11 +341,11 @@ Styling for internal View for ListHeaderComponent
 
 ### `refreshControl`
 
-A custom refresh control element. When set, it overrides the default <RefreshControl> component built internally. The onRefresh and refreshing props are also ignored. Only works for vertical VirtualizedList.
+自定义的下拉刷新组件。设置后将覆盖默认的内置`<RefreshControl>`组件，`onRefresh`和`refreshing`属性也将一并忽略。只对纵向布局的`VirtualizedList`有效。
 
-| Type    | Required |
-| ------- | -------- |
-| element | No       |
+| 类型    | 必填 |
+| ------- | ---- |
+| element | 否   |
 
 ---
 
@@ -496,7 +495,7 @@ A custom refresh control element. When set, it overrides the default <RefreshCon
 
 ### `persistentScrollbar`
 
-| Type | Required |
+| 类型 | Required |
 | ---- | -------- |
 | bool | No       |
 

@@ -1,6 +1,6 @@
 ---
 id: text-style-props
-title: Text样式属性
+title: Text 样式属性
 ---
 
 ### 示例
