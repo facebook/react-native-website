@@ -3,8 +3,6 @@ id: network
 title: 访问网络
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.81%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.19%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 很多移动应用都需要从远程地址中获取数据或资源。你可能需要给某个 REST API 发起 POST 请求以提交用户数据，又或者可能仅仅需要从某个服务器上获取一些静态内容——以下就是你会用到的东西。新手可以对照这个[简短的视频教程](http://v.youku.com/v_show/id_XMTUyNTEwMTA5Ng==.html)加深理解。
@@ -28,12 +26,12 @@ fetch("https://mywebsite.com/endpoint/", {
   method: "POST",
   headers: {
     Accept: "application/json",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
   },
   body: JSON.stringify({
     firstParam: "yourValue",
-    secondParam: "yourOtherValue"
-  })
+    secondParam: "yourOtherValue",
+  }),
 });
 ```
 
@@ -43,9 +41,9 @@ fetch("https://mywebsite.com/endpoint/", {
 fetch("https://mywebsite.com/endpoint/", {
   method: "POST",
   headers: {
-    "Content-Type": "application/x-www-form-urlencoded"
+    "Content-Type": "application/x-www-form-urlencoded",
   },
-  body: "key1=value1&key2=value2"
+  body: "key1=value1&key2=value2",
 });
 ```
 
@@ -62,11 +60,11 @@ fetch("https://mywebsite.com/endpoint/", {
 ```jsx
 function getMoviesFromApiAsync() {
   return fetch("https://facebook.github.io/react-native/movies.json")
-    .then(response => response.json())
-    .then(responseJson => {
+    .then((response) => response.json())
+    .then((responseJson) => {
       return responseJson.movies;
     })
-    .catch(error => {
+    .catch((error) => {
       console.error(error);
     });
 }
@@ -189,7 +187,7 @@ React Native 中已经内置了[XMLHttpRequest API](https://developer.mozilla.or
 
 ```jsx
 const request = new XMLHttpRequest();
-request.onreadystatechange = e => {
+request.onreadystatechange = (e) => {
   if (request.readyState !== 4) {
     return;
   }
@@ -219,17 +217,17 @@ ws.onopen = () => {
   ws.send("something"); // send a message
 };
 
-ws.onmessage = e => {
+ws.onmessage = (e) => {
   // a message was received
   console.log(e.data);
 };
 
-ws.onerror = e => {
+ws.onerror = (e) => {
   // an error occurred
   console.log(e.message);
 };
 
-ws.onclose = e => {
+ws.onclose = (e) => {
   // connection closed
   console.log(e.code, e.reason);
 };
@@ -249,3 +247,7 @@ The following options are currently not working with `fetch`
 * Having same name headers on Android will result in only the latest one being present. A temporary solution can be found here: https://github.com/facebook/react-native/issues/18837#issuecomment-398779994.
 * Cookie based authentication is currently unstable. You can view some of the issues raised here: https://github.com/facebook/react-native/issues/23185
 * As a minimum on iOS, when redirected through a `302`, if a `Set-Cookie` header is present, the cookie is not set properly. Since the redirect cannot be handled manually this might cause a scenario where infinite requests occur if the redirect is the result of an expired session.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.81%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.19%)

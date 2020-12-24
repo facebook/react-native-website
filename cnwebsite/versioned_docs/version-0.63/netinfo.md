@@ -3,8 +3,6 @@ id: netinfo
 title: NetInfo
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 > **已过时。** Use [react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo) instead.
 
 通过 NetInfo 模块可以获取设备当前的联网状态。
@@ -166,3 +164,7 @@ NetInfo.isConnected.addEventListener(
   handleFirstConnectivityChange
 );
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

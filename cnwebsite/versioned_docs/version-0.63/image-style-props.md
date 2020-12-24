@@ -3,8 +3,6 @@ id: image-style-props
 title: 图片样式属性
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(69.22%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(30.78%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## 示例
@@ -627,3 +625,7 @@ Set an opacity value for the image. The number should be in the range from `0.0`
 | 类型               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(69.22%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(30.78%)

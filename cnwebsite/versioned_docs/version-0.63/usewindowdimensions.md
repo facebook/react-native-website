@@ -3,8 +3,6 @@ id: usewindowdimensions
 title: useWindowDimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.47%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.53%)
-
 ```jsx
 import { useWindowDimensions } from "react-native";
 ```
@@ -79,3 +77,7 @@ The width in pixels of the window or screen your app occupies.
 ```jsx
 useWindowDimensions().width;
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.47%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.53%)

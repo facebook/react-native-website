@@ -3,8 +3,6 @@ id: linking-libraries-ios
 title: 链接原生库
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 并不是所有的 APP 都需要使用全部的原生功能，包含支持全部特性的代码会增大应用的体积。但我们仍然希望能让你简单地根据自己的需求添加需要的特性。
 
 在这种思想下，我们把许多特性都发布成为互不相关的静态库。
@@ -72,3 +70,7 @@ _我需要在编译的期间了解库的内容吗？_
 这种情况下我们需要能够访问到库的头文件。为了能够顺利打包，你需要打开你的工程文件，选择`Build Settings`，然后搜索`Header Search Paths`，然后添加库所在的目录。
 
 ![](assets/AddToSearchPaths.png)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

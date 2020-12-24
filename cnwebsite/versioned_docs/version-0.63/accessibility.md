@@ -3,8 +3,6 @@ id: accessibility
 title: 无障碍功能
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.36%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%)
-
 **译注**：accessibility 一词常见多种译法：可访问性、无障碍性、辅助功能等等，其中文意思都不太能准确表达其功能的本质——即为残障人士提供便利。本文主要采用“无障碍功能”和“辅助技术/服务”的说法。如果你或你的公司暂时没有资源和精力去服务这些用户，那么你可以跳过本文。但是，`译者个人希望借本文档，呼吁有能力有资源的商业公司/组织/个人，重视残障人士使用智能手机的权利`。
 
 iOS 和 Android 都提供了便于残障人士无障碍使用 App 的 API。此外，两个平台都提供了整套的辅助技术，比如都有针对视力受损人士的读屏软件（iOS 的 VoiceOver 和 Android 的 TalkBack）。同样地，在 React Native 中我们也封装了对应的 API，使开发者能够在 App 中集成无障碍功能。
@@ -184,7 +182,7 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
       top: 10,
       right: 10,
       height: 100,
-      backgroundColor: "green"
+      backgroundColor: "green",
     }}
     importantForAccessibility="yes"
   >
@@ -197,7 +195,7 @@ For example, in a window that contains sibling views `A` and `B`, setting `acces
       top: 10,
       right: 10,
       height: 100,
-      backgroundColor: "yellow"
+      backgroundColor: "yellow",
     }}
     importantForAccessibility="no-hide-descendant"
   >
@@ -255,9 +253,9 @@ To handle action requests, a component must implement an `onAccessibilityAction`
   accessibilityActions={[
     { name: "cut", label: "cut" },
     { name: "copy", label: "copy" },
-    { name: "paste", label: "paste" }
+    { name: "paste", label: "paste" },
   ]}
-  onAccessibilityAction={event => {
+  onAccessibilityAction={(event) => {
     switch (event.nativeEvent.actionName) {
       case "cut":
         Alert.alert("Alert", "cut action success");
@@ -327,3 +325,7 @@ adb shell settings put secure enabled_accessibility_services com.google.android.
 ## Additional Resources
 
 - [Making React Native Apps Accessible](https://engineering.fb.com/ios/making-react-native-apps-accessible/)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.36%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%)

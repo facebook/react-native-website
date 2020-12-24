@@ -3,8 +3,6 @@ id: keyboard
 title: Keyboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(91.75%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(8.25%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 `Keyboard`模块用来控制键盘相关的事件。
@@ -193,3 +191,7 @@ static scheduleLayoutAnimation(event)
 ```
 
 Useful for syncing TextInput (or other keyboard accessory view) size of position changes with keyboard movements.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(91.75%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(8.25%)

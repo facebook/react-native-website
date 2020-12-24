@@ -3,8 +3,6 @@ id: pickerios
 title: 🚧 PickerIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.62%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.38%)
-
 > **已过时。** Use [Picker](picker.md) instead.
 
 # 文档
@@ -42,3 +40,7 @@ Inherits [View Props](view.md#props).
 | 类型             | 必填 |
 | ---------------- | ---- |
 | number or string | 否   |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.62%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.38%)

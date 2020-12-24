@@ -3,8 +3,6 @@ id: datepickerandroid
 title: 🚧 DatePickerAndroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 > **已过时。** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
 
 本组件会打开一个标准的 Android 日期选择器的对话框。
@@ -79,3 +77,7 @@ static dismissedAction()
 ```
 
 对话框已被取消。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

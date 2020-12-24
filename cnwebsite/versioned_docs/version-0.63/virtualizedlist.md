@@ -3,8 +3,6 @@ id: virtualizedlist
 title: VirtualizedList
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.38%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(3.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.34%)
-
 [`FlatList`](flatlist.md)和[`SectionList`](sectionlist.md)的底层实现。FlatList 和 SectionList 使用起来更方便，同时也有相对更详细的文档。一般来说，仅当想获得比 FlatList 更高的灵活性（比如说在使用 immutable data 而不是 普通数组）的时候，你才应该考虑使用 VirtualizedList。
 
 Vritualization 通过维护一个有限的渲染窗口（其中包含可见的元素），并将渲染窗口之外的元素全部用合适的定长空白空间代替的方式，极大的改善了内存消耗以及在有大量数据情况下的使用性能。这个渲染窗口能响应滚动行为。当一个元素离可视区太远时，它就有一个较低优先级；否则就获得一个较高的优先级。渲染窗口通过这种方式逐步渲染其中的元素（在进行了任何交互之后），以尽量减少出现空白区域的可能性。
@@ -641,3 +639,7 @@ The `Object` returned consist of:
 ```jsx
 hasMore () => boolean;
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.38%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(3.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.34%)

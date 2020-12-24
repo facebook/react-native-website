@@ -3,8 +3,6 @@ id: appearance
 title: Appearance
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(64.44%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(35.56%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ```jsx
@@ -90,3 +88,7 @@ static removeChangeListener(listener)
 ```
 
 Remove an event handler.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(64.44%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(35.56%)

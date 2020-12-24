@@ -3,8 +3,6 @@ id: backhandler
 title: BackHandler
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.75%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 BackHandler API 用于监听设备上的后退按钮事件，可以调用你自己的函数来处理后退行为。此 API 仅能在 Android 上使用。
@@ -19,7 +17,7 @@ BackHandler API 用于监听设备上的后退按钮事件，可以调用你自�
 ## 用法
 
 ```jsx
-BackHandler.addEventListener("hardwareBackPress", function() {
+BackHandler.addEventListener("hardwareBackPress", function () {
   /**
    * this.onMainScreen()和this.goBack()两个方法都只是伪方法，需要你自己去实现
    * 一般来说都要配合导航器组件使用
@@ -295,3 +293,7 @@ static exitApp()
 ```jsx
 static removeEventListener(eventName, handler)
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.75%)

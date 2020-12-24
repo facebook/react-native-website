@@ -3,8 +3,6 @@ id: pushnotificationios
 title: 🚧 PushNotificationIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.17%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.83%)
-
 > **已过时。** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
 
 <div class="banner-native-code-required">
@@ -494,3 +492,7 @@ getThreadID();
 ```
 
 Gets the thread ID on the notification
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.17%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.83%)

@@ -3,8 +3,6 @@ id: progressbarandroid
 title: 🚧 ProgressBarAndroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 > **已过时。** Use [@react-native-community/progress-bar-android](https://github.com/react-native-community/progress-bar-android) instead.
 
 封装了 Android 平台上的`ProgressBar`的 React 组件。这个组件可以用来表示应用正在加载或者有些事情正在进行中。
@@ -127,3 +125,7 @@ export default App;
 | 类型   | 必填 |
 | ------ | ---- |
 | string | 否   |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

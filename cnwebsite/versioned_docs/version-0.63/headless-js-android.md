@@ -3,8 +3,6 @@ id: headless-js-android
 title: Headless JS（后台任务）
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来在后台同步数据、处理推送通知或是播放音乐等等。
 
 ## JS 端的 API
@@ -19,7 +17,7 @@ AppRegistry.registerHeadlessTask("SomeTaskName", () => require("SomeTaskName"));
 然后创建 require 中引用的`SomeTaskName.js`文件:
 
 ```jsx
-module.exports = async taskData => {
+module.exports = async (taskData) => {
   // 要做的任务
 };
 ```
@@ -188,3 +186,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
 ```
 
 [0]: https://developer.android.com/reference/android/content/Context.html#startService(android.content.Intent)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

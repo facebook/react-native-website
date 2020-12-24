@@ -4,8 +4,6 @@ title: 搭建开发环境
 hide_table_of_contents: true
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(72.63%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(27.37%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 import GuideLinuxAndroid from './\_getting-started-linux-android.md'; import GuideMacOSAndroid from './\_getting-started-macos-android.md'; import GuideWindowsAndroid from './\_getting-started-windows-android.md'; import GuideMacOSIOS from './\_getting-started-macos-ios.md';
@@ -190,3 +188,7 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 </TabItem>
 </Tabs>
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(57.89%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(42.11%)

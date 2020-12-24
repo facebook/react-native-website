@@ -3,8 +3,6 @@ id: picker
 title: 🚧 Picker
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 > **已过时。** Use [@react-native-community/picker](https://github.com/react-native-community/react-native-picker) instead.
 
 本组件可以在 iOS 和 Android 上渲染原生的选择器（Picker）。
@@ -129,3 +127,7 @@ export default App;
 | 类型                               | 必填 | 平台 |
 | ---------------------------------- | ---- | ---- |
 | [text styles](text-style-props.md) | 否   | iOS  |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

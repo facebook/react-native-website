@@ -3,8 +3,6 @@ id: easing
 title: Easing
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 `Easing`模块实现了常见的动画缓动函数。 This module is used by [Animated.timing()](animated.md#timing) to convey physically believable motion in animations.
 
 You can find a visualization of some common easing functions at http://easings.net/
@@ -379,3 +377,7 @@ static inOut(easing)
 ```
 
 Makes any easing function symmetrical. The easing function will run forwards for half of the duration, then backwards for the rest of the duration.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

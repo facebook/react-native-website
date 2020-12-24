@@ -3,8 +3,6 @@ id: layoutanimation
 title: LayoutAnimation
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.23%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.77%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 当布局变化时，自动将视图运动到它们新的位置上。
@@ -545,3 +543,7 @@ export default App;
 
 </TabItem>
 </Tabs>
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.23%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.77%)

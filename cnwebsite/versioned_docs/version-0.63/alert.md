@@ -3,8 +3,6 @@ id: alert
 title: Alert
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(51.99%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(48.01%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 启动一个提示对话框，包含对应的标题和信息。
@@ -302,3 +300,7 @@ Array of objects containg Alert buttons configuration.
 | ---------- | -------- | ---------------------------------------------------------------------- |
 | cancelable | boolean  | Defines if alert can be dismissed by tapping outside of the alert box. |
 | onDismiss  | function | Callback function fired when alert has been dismissed.                 |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(51.99%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(48.01%)

@@ -3,8 +3,6 @@ id: communication-android
 title: 和原生端通信
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 通过[植入原生应用](integration-with-existing-apps)和[原生 UI 组件](native-component-android)两篇文档，我们学习了 React Native 和原生组件的互相整合。在整合的过程中，我们会需要在两个世界间互相通信。有些方法已经在其他的指南中提到了，这篇文章总结了所有可行的技术。
 
 ## 简介
@@ -115,3 +113,7 @@ Events are powerful, because they allow us to change React Native components wit
 Native modules are Java classes that are available in JS. Typically one instance of each module is created per JS bridge. They can export arbitrary functions and constants to React Native. They have been covered in detail in [this article](native-modules-android).
 
 > **_Warning_**: All native modules share the same namespace. Watch out for name collisions when creating new ones.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

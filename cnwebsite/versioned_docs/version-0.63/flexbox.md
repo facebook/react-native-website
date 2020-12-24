@@ -3,8 +3,6 @@ id: flexbox
 title: 使用 Flexbox 布局
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.84%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.16%)
-
 我们在 React Native 中使用 flexbox 规则来指定某个组件的子元素的布局。Flexbox 可以在不同屏幕尺寸上提供一致的布局结构。
 
 一般来说，使用`flexDirection`、`alignItems`和 `justifyContent`三个样式属性就已经能满足大多数布局需求。
@@ -1508,3 +1506,7 @@ Check out the interactive [yoga playground](https://yogalayout.com/playground) t
 以上我们已经介绍了一些基础知识，但要运用好布局，我们还需要很多其他的样式。对于布局有影响的完整样式列表记录在[这篇文档中](layout-props.md)。
 
 现在我们已经差不多可以开始真正的开发工作了。哦，忘了还有个常用的知识点：[如何使用 TextInput 组件来处理用户输入](handling-text-input.md)。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.84%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.16%)

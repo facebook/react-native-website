@@ -3,8 +3,6 @@ id: vibration
 title: Vibration
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.07%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.93%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Vibrates the device.
@@ -236,3 +234,7 @@ Vibration.cancel();
 ```
 
 Call this to stop vibrating after having invoked `vibrate()` with repetition enabled.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.07%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.93%)

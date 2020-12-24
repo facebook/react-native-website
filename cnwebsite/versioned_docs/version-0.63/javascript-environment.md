@@ -3,8 +3,6 @@ id: javascript-environment
 title: JavaScript 环境
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.78%), [zhangning7](https://github.com/search?q=zhangning7&type=Users)(1.11%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.11%)
-
 ## JavaScript 运行时环境
 
 在使用 React Native 时，你的 JavaScript 代码将会运行在两个不同的环境上：
@@ -90,3 +88,7 @@ ES8
 其他特性
 
 - `__DEV__` 用于判断当前是否开发环境的全局变量
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.78%), [zhangning7](https://github.com/search?q=zhangning7&type=Users)(1.11%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.11%)

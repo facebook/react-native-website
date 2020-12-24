@@ -3,8 +3,6 @@ id: appstate
 title: AppState
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.65%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.35%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 `AppState`能告诉你应用当前是在前台还是在后台，并且能在状态变化的时候通知你。
@@ -184,3 +182,7 @@ removeEventListener(type, handler);
 ```jsx
 AppState.currentState;
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.65%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.35%)

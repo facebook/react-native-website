@@ -3,8 +3,6 @@ id: touchablehighlight
 title: TouchableHighlight
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.54%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(9.46%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
@@ -223,3 +221,7 @@ enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX
 | 类型   | 必填 | 平台 |
 | ------ | ---- | ---- |
 | object | 否   | iOS  |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.54%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(9.46%)

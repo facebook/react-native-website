@@ -3,8 +3,6 @@ id: toastandroid
 title: ToastAndroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 本模块将原生的 ToastAndroid 模块导出为一个 JS 模块，用于在 Android 设备上显示一个悬浮的提示信息。本模块包含一个`show`方法接受以下的参数：
 
 - _message_ 一个字符串，表示将要显示的文本内容。
@@ -200,3 +198,7 @@ Indicates the position on the screen.
 ```jsx
 ToastAndroid.CENTER;
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

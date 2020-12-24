@@ -3,8 +3,6 @@ id: signed-apk-android
 title: 打包APK
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.75%)
-
 Android 要求所有应用都有一个数字签名才会被允许安装在用户手机上，所以在把应用发布到类似[Google Play store](https://play.google.com/store)这样的应用市场之前，你需要先生成一个签名的 APK 包。Android 开发者官网上的[如何给你的应用签名](https://developer.android.com/tools/publishing/app-signing.html)文档描述了签名的细节。本指南旨在提供一个简化的签名和打包 js 的操作步骤，不会涉及太多理论。
 
 ### 生成一个签名密钥
@@ -134,3 +132,7 @@ Proguard 是一个 Java 字节码混淆压缩工具，它可以移除掉 React N
  */
 def enableProguardInReleaseBuilds = true
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.75%)

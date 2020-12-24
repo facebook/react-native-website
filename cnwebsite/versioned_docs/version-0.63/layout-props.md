@@ -3,8 +3,6 @@ id: layout-props
 title: 布局属性
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 > More detailed examples about those properties can be found on the [Layout with Flexbox](flexbox) page.
 
 ### 示例
@@ -767,3 +765,7 @@ If you want to position a child relative to something that is not its parent, ju
 | number | 否   |
 
 ---
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

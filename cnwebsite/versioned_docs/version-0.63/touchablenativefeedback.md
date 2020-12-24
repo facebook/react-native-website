@@ -3,8 +3,6 @@ id: touchablenativefeedback
 title: TouchableNativeFeedback
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.48%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.52%)
-
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
 
 本组件用于封装视图，使其可以正确响应触摸操作（仅限 Android 平台）。在 Android 设备上，这个组件利用原生状态来渲染触摸的反馈。
@@ -133,3 +131,7 @@ static Ripple(color: string, borderless: boolean, rippleRadius: ?number)
 ```jsx
 static canUseNativeForeground()
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.48%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.52%)

@@ -3,8 +3,6 @@ id: linking
 title: Linking
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.25%), [kt.tian](https://github.com/search?q=kt.tian&type=Users)(0.50%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div className="banner-native-code-required">
@@ -400,3 +398,7 @@ sendIntent(action: string, extras?: Array<{key: string, value: string | number |
 ```
 
 > @platform android **Android-Only.** Launch an Android intent with extras (optional)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.25%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.25%), [kt.tian](https://github.com/search?q=kt.tian&type=Users)(0.50%)

@@ -3,8 +3,6 @@ id: native-components-ios
 title: iOS 原生UI组件
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.29%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.31%), [2725285+biaji](https://github.com/search?q=2725285%2Bbiaji&type=Users)(0.39%)
-
 在如今的 App 中，已经有成千上万的原生 UI 部件了——其中的一些是平台的一部分，另一些可能来自于一些第三方库，而且可能你自己还收藏了很多。React Native 已经封装了大部分最常见的组件，譬如`ScrollView`和`TextInput`，但不可能封装全部组件。而且，说不定你曾经为自己以前的 App 还封装过一些组件，React Native 肯定没法包含它们。幸运的是，在 React Naitve 应用程序中封装和植入已有的组件非常简单。
 
 和原生模块向导一样，本向导也是一个相对高级的向导，我们假设你已经对 iOS 编程颇有经验。本向导会引导你如何构建一个原生 UI 组件，带领你了解 React Native 核心库中`MapView`组件的具体实现。
@@ -118,7 +116,7 @@ MapView.propTypes = {
    * A Boolean value that determines whether the user may use pinch
    * gestures to zoom in and out of the map.
    */
-  zoomEnabled: PropTypes.bool
+  zoomEnabled: PropTypes.bool,
 };
 
 const RNTMap = requireNativeComponent("RNTMap", MapView);
@@ -244,7 +242,7 @@ render() {
 
 ```jsx
 const RCTSwitch = requireNativeComponent("RCTSwitch", Switch, {
-  nativeOnly: { onChange: true }
+  nativeOnly: { onChange: true },
 });
 ```
 
@@ -510,3 +508,7 @@ const styles = StyleSheet.create({
 ```
 
 本向导覆盖了包装原生组件所需了解的许多方面，不过你可能还有很多知识需要了解，譬如特殊的方式来插入和布局子视图。如果你想更深入了解，可以尝试阅读一些[源代码](https://github.com/facebook/react-native/blob/master/React/Views)。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.29%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.31%), [2725285+biaji](https://github.com/search?q=2725285%2Bbiaji&type=Users)(0.39%)

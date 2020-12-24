@@ -3,8 +3,6 @@ id: clipboard
 title: 🚧 Clipboard
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.83%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.13%), [774866545](https://github.com/search?q=774866545&type=Users)(1.04%)
-
 > **已过时。** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
 
 `Clipboard`组件可以在 iOS 和 Android 的剪贴板中读写内容。
@@ -96,3 +94,7 @@ _setContent() {
 _Notice_
 
 Be careful when you're trying to copy to clipboard any data except `string` and `number`, some data need additional stringification. For example, if you will try to copy array - Android will raise an exception, but iOS will not.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.83%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.13%), [774866545](https://github.com/search?q=774866545&type=Users)(1.04%)

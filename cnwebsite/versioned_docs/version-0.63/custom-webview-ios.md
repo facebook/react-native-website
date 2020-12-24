@@ -3,8 +3,6 @@ id: custom-webview-ios
 title: Custom WebView
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 While the built-in web view has a lot of features, it is not possible to handle every use-case in React Native. You can, however, extend the web view with native code without forking React Native or duplicating all the existing web view code.
 
 Before you do this, you should be familiar with the concepts in [native UI components](native-components-ios). You should also familiarise yourself with the [native code for web views](https://github.com/facebook/react-native/blob/master/React/Views/RCTWebViewManager.m), as you will have to use this as a reference when implementing new features—although a deep understanding is not required.
@@ -160,7 +158,7 @@ export default class CustomWebView extends Component {
         {...this.props}
         nativeConfig={{
           component: RCTCustomWebView,
-          viewManager: CustomWebViewManager
+          viewManager: CustomWebViewManager,
         }}
       />
     );
@@ -185,14 +183,14 @@ export default class CustomWebView extends Component {
   static propTypes = {
     ...WebView.propTypes,
     finalUrl: PropTypes.string,
-    onNavigationCompleted: PropTypes.func
+    onNavigationCompleted: PropTypes.func,
   };
 
   static defaultProps = {
-    finalUrl: "about:blank"
+    finalUrl: "about:blank",
   };
 
-  _onNavigationCompleted = event => {
+  _onNavigationCompleted = (event) => {
     const { onNavigationCompleted } = this.props;
     onNavigationCompleted && onNavigationCompleted(event);
   };
@@ -205,9 +203,9 @@ export default class CustomWebView extends Component {
           component: RCTCustomWebView,
           props: {
             finalUrl: this.props.finalUrl,
-            onNavigationCompleted: this._onNavigationCompleted
+            onNavigationCompleted: this._onNavigationCompleted,
           },
-          viewManager: CustomWebViewManager
+          viewManager: CustomWebViewManager,
         }}
       />
     );
@@ -227,8 +225,12 @@ const RCTCustomWebView = requireNativeComponent(
     ...WebView.extraNativeComponentConfig,
     nativeOnly: {
       ...WebView.extraNativeComponentConfig.nativeOnly,
-      onScrollToBottom: true
-    }
+      onScrollToBottom: true,
+    },
   }
 );
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

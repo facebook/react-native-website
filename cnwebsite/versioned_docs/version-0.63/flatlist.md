@@ -3,8 +3,6 @@ id: flatlist
 title: FlatList
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.83%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.17%)
-
 高性能的简单列表组件，支持下面这些常用的功能：
 
 - 完全跨平台。
@@ -689,3 +687,7 @@ getScrollableNode();
 ```
 
 Provides a handle to the underlying scroll node.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.83%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.17%)

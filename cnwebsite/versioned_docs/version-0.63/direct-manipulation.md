@@ -3,8 +3,6 @@ id: direct-manipulation
 title: 直接操作
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(74.50%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(25.10%), [306703082](https://github.com/search?q=306703082&type=Users)(0.40%)
-
 有时候我们需要直接改动组件并触发局部的刷新，但不使用 state 或是 props。譬如在浏览器中使用 React 库，有时候会需要直接修改一个 DOM 节点，而在手机 App 中操作 View 时也会碰到同样的情况。在 React Native 中，`setNativeProps`就是等价于直接操作 DOM 节点的方法。
 
 > 什么时候使用 setNativeProps 呢？在（不得不）频繁刷新而又遇到了性能瓶颈的时候。
@@ -251,3 +249,7 @@ Requests focus for the given input or view. The exact behavior triggered will de
 ### blur()
 
 Removes focus from an input or view. This is the opposite of `focus()`.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(74.50%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(25.10%), [306703082](https://github.com/search?q=306703082&type=Users)(0.40%)

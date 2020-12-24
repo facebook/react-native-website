@@ -3,8 +3,6 @@ id: imagebackground
 title: ImageBackground
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(84.21%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(15.79%)
-
 A common feature request from developers familiar with the web is `background-image`. To handle this use case, you can use the `<ImageBackground>` component, which has the same props as `<Image>`, and add whatever children to it you would like to layer on top of it.
 
 You might not want to use `<ImageBackground>` in some cases, since the implementation is very simple. Refer to `<ImageBackground>`'s [source code](https://github.com/facebook/react-native/blob/master/Libraries/Image/ImageBackground.js) for more insight, and create your own custom component when needed.
@@ -76,3 +74,7 @@ Allows to set a reference to the inner `Image` component
 | Type                              |
 | --------------------------------- |
 | [View Style](view-style-props.md) |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(84.21%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(15.79%)

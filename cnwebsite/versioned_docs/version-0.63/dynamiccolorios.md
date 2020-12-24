@@ -3,8 +3,6 @@ id: dynamiccolorios
 title: DynamicColorIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(73.33%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(26.67%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 The `DynamicColorIOS` function is a platform color type specific to iOS.
@@ -42,6 +40,10 @@ import { DynamicColorIOS } from "react-native";
 
 const customDynamicTextColor = DynamicColorIOS({
   dark: "lightskyblue",
-  light: "midnightblue"
+  light: "midnightblue",
 });
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(73.33%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(26.67%)

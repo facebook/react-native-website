@@ -3,8 +3,6 @@ id: usecolorscheme
 title: useColorScheme
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.30%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.70%)
-
 ```jsx
 import { useColorScheme } from "react-native";
 ```
@@ -27,3 +25,7 @@ const MyComponent = () => {
 ```
 
 You can find a complete example that demonstrates the use of this hook alongside a React context to add support for light and dark themes to your application in [`AppearanceExample.js`](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/Appearance/AppearanceExample.js).
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.30%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.70%)

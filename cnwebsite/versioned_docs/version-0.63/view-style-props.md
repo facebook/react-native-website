@@ -3,8 +3,6 @@ id: view-style-props
 title: View 样式属性
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.23%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(0.38%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.38%)
-
 ### 示例
 
 ```SnackPlayer name=ViewStyleProps
@@ -261,3 +259,7 @@ export default ViewStyleProps;
 | 类型   | 必填 | 平台    |
 | ------ | ---- | ------- |
 | number | 否   | Android |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.23%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(0.38%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.38%)

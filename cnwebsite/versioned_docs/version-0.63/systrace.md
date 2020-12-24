@@ -3,8 +3,6 @@ id: systrace
 title: Systrace
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.85%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.15%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 `Systrace` is a standard Android marker-based profiling tool (and is installed when you install the Android platform-tools package). Profiled code blocks are surrounded by start/end markers which are then visualized in a colorful chart format. Both the Android SDK and React Native framework provide standard markers that you can visualize.
@@ -193,3 +191,7 @@ static counterEvent(profileName?, value?)
 ```
 
 Register the value to the profileName on the systrace timeline.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.85%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.15%)

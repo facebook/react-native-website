@@ -3,8 +3,6 @@ id: imagepickerios
 title: 🚧 ImagePickerIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(87.01%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(12.99%)
-
 **已过时。** Use [@react-native-community/image-picker-ios](https://github.com/react-native-community/react-native-image-picker-ios) instead.
 
 # 文档
@@ -77,3 +75,7 @@ static openSelectDialog(config, successCallback, cancelCallback)
 - `[string, number, number]`
 
 `cancelCallback` is an optional callback function that's invoked when the select dialog is canceled.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(87.01%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(12.99%)

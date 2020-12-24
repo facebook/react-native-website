@@ -3,8 +3,6 @@ id: hermes
 title: 使用新的 Hermes 引擎
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(77.32%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(22.68%)
-
 <a href="https://hermesengine.dev">
 <img width={300} height={300} style={{float: 'right', margin: '-30px 4px 0'}} src="/docs/assets/HermesLogo.svg" />
 </a>
@@ -97,3 +95,7 @@ Once you know where the Metro server is listening, you can connect with Chrome u
 3. You should now see a "Hermes React Native" target with an "inspect" link which can be used to bring up debugger. If you don't see the "inspect" link, make sure the Metro server is running. ![Target inspect link](/docs/assets/HermesDebugChromeInspect.png)
 
 4. You can now use the Chrome debug tools. For example, to breakpoint the next time some JavaScript is run, click on the pause button and trigger an action in your app which would cause JavaScript to execute. ![Pause button in debug tools](/docs/assets/HermesDebugChromePause.png)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(77.32%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(22.68%)

@@ -3,8 +3,6 @@ id: actionsheetios
 title: ActionSheetIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.18%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.82%)
-
 显示一个 iOS 原生的[Action Sheet](https://developer.apple.com/design/human-interface-guidelines/ios/views/action-sheets/)组件。
 
 ## 示例
@@ -111,3 +109,7 @@ static showShareActionSheetWithOptions(options, failureCallback, successCallback
 
 - 表示成功与否的布尔值
 - 成功的话返回一个表示分享方式的字符串
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.18%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.82%)

@@ -3,8 +3,6 @@ id: image
 title: Image
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(67.17%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(32.83%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 用于显示多种不同类型图片的 React 组件，包括网络图片、静态资源、临时的本地图片、以及本地磁盘上的图片（如相册）等。
@@ -289,7 +287,6 @@ Similarly to `source`, this property represents the resource used to render the 
 
 | Type |
 | ---- |
-
 
 | function(`{ nativeEvent: { error } }`) => void
 
@@ -600,3 +597,7 @@ Object returned in the `onLoad` callback.
 **If passing a number:**
 
 - `number` - opaque type returned by something like `require('./image.jpg')`.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(67.17%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(32.83%)

@@ -4,8 +4,6 @@ title: React 基础
 description: 要深入理解 React Native，需要扎实的React 基础知识。这篇小教程可以帮助你入门或者温习相关知识。
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.07%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(23.74%), [git](https://github.com/search?q=git&type=Users)(0.19%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 React Native 的基础是[React](https://zh-hans.reactjs.org/)， 是在 web 端非常流行的开源 UI 框架。要想掌握 React Native，先了解 React 框架本身是非常有帮助的。本文旨在为初学者介绍一些 react 的入门知识。
@@ -42,8 +40,8 @@ export default Cat;
 要定义一个`Cat`组件，第一步要使用[`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)语句来引入`React`以及`React Native`的[`Text`](/react-native/docs/next/text)组件：
 
 ```jsx
-import React from 'react';
-import { Text } from 'react-native';
+import React from "react";
+import { Text } from "react-native";
 ```
 
 然后一个简单的函数就可以作为一个组件：
@@ -93,7 +91,7 @@ export default Cat;
 你还需要从 React 中引入`Component`：
 
 ```jsx
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ```
 
 定义组件首先要继承(extends)自`Component`：
@@ -318,7 +316,7 @@ export default CatApp;
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-你可以使用[React 的`useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html)来为组件添加状态。 A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://zh-hans.reactjs.org/docs/hooks-intro.html))
+你可以使用[React 的`useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html)来为组件添加状态。 A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://zh-hans.reactjs.org/docs/hooks-intro.html)
 
 ```SnackPlayer name=State
 import React, { useState } from "react";
@@ -358,7 +356,7 @@ export default Cafe;
 首先要从 react 中引入`useState`：
 
 ```jsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 ```
 
 然后可以通过在函数内调用`useState`来为组件声明状态。In this example, `useState` creates an `isHungry` state variable:
@@ -394,7 +392,7 @@ const Cat = (props) => {
 <Button
   //..
   disabled={!isHungry}
-  title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
+  title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
 />
 ```
 
@@ -463,7 +461,7 @@ export default  Cafe;
 再次强调，对于 class 组件始终要记得从 React 中引入`Component`：
 
 ```jsx
-import React, { Component } from 'react';
+import React, { Component } from "react";
 ```
 
 在 class 组件中， state 以对象的形式存放：
@@ -480,7 +478,7 @@ export class Cat extends Component {
 ```jsx
 <Text>
   I am {this.props.name}, and I am
-  {this.state.isHungry ? ' hungry' : ' full'}!
+  {this.state.isHungry ? " hungry" : " full"}!
 </Text>
 ```
 
@@ -502,11 +500,7 @@ When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to 
 <Button
   // ..
   disabled={!this.state.isHungry}
-  title={
-    this.state.isHungry
-      ? 'Pour me some milk, please!'
-      : 'Thank you!'
-  }
+  title={this.state.isHungry ? "Pour me some milk, please!" : "Thank you!"}
 />
 ```
 
@@ -535,3 +529,7 @@ export default Cafe;
 ---
 
 现在你应该已经差不多了解 React 和 React Native 的核心组件与思想了。下面可以试着深入学习一些核心组件的用法，比如如何[处理文本输入`<TextInput>`](handling-text-input)。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.07%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(23.74%), [git](https://github.com/search?q=git&type=Users)(0.19%)

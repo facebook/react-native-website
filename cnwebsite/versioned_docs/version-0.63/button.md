@@ -3,8 +3,6 @@ id: button
 title: Button
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.15%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.85%)
-
 一个简单的跨平台的按钮组件。可以进行一些简单的定制。
 
 这个组件的样式是固定的。所以如果它的外观并不怎么搭配你的设计，那你需要使用`TouchableOpacity`或是`TouchableNativeFeedback`组件来定制自己所需要的按钮，或者你也可以在 github.com 网站上搜索 'react native button' 来看看社区其他人的作品。
@@ -242,3 +240,7 @@ If true, doesn't play system sound on touch.
 | 类型    | Required | 平台    |
 | ------- | -------- | ------- |
 | boolean | No       | Android |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.15%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.85%)

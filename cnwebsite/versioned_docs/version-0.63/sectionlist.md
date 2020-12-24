@@ -3,8 +3,6 @@ id: sectionlist
 title: SectionList
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.06%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.94%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 高性能的分组(section)列表组件，支持下面这些常用的功能：
@@ -488,3 +486,7 @@ An object that identifies the data to be rendered for a given section.
 | [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
 | [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
 | [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.06%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.94%)

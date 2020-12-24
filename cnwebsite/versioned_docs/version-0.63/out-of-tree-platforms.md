@@ -3,8 +3,6 @@ id: out-of-tree-platforms
 title: 多平台支持
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 React Native is not just for Android and iOS - there are community-supported projects that bring it to other platforms, such as:
 
 - [React Native Windows](https://github.com/Microsoft/react-native-windows) - React Native support for Microsoft's Universal Windows Platform (UWP) and the Windows Presentation Foundation (WPF)
@@ -43,3 +41,7 @@ You must also have an entry in your `package.json` like this:
 ```
 
 `"providesModuleNodeModules"` is an array of modules that will get added to the Haste module search path, and `"platforms"` is an array of platform suffixes that will be added as valid platforms.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

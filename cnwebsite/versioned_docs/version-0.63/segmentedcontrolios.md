@@ -3,8 +3,6 @@ id: segmentedcontrolios
 title: 🚧 SegmentedControlIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.06%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.94%)
-
 > **已过时。** Use [@react-native-community/segmented-control](https://github.com/react-native-community/segmented-control) instead.
 
 使用`SegmentedControlIOS`来在 iOS 设备上渲染一个`UISegmentedControl`组件。这是一个分段显示多个选项的组件。
@@ -106,3 +104,7 @@ The labels for the control's segment buttons, in order.
 | 类型            | 必填 |
 | --------------- | ---- |
 | array of string | 否   |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.06%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.94%)

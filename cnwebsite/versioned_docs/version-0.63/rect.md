@@ -3,8 +3,6 @@ id: rect
 title: 矩形区域对象
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 `Rect` accepts numeric pixel values to describe how far to extend a rectangular area. These values are added to the original area's size to expand it.
 
 ## 示例
@@ -50,3 +48,7 @@ title: 矩形区域对象
 - [`Presssable`](pressable)
 - [`Text`](text)
 - [`TouchableWithoutFeedback`](touchablewithoutfeedback)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.00%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(24.00%)

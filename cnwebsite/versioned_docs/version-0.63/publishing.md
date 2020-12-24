@@ -3,8 +3,6 @@ id: publishing-forks
 title: 发布自己定制的ReactNative包
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 ## TL;DR
 
 There is a docker image that helps you build the required Android sources without installing any additional tooling (other than [Docker](https://docs.docker.com/install/), which can be committed to a git branch as a fully functional React Native fork release.
@@ -82,3 +80,7 @@ Now you can use this branch as a git dependency in your app project, by pointing
 ```
 
 No other modifications to your dependencies should be necessary for your native changes to be included in your project.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

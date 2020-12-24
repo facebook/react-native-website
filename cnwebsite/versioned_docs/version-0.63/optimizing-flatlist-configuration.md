@@ -3,8 +3,6 @@ id: optimizing-flatlist-configuration
 title: 列表配置优化
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.60%)
-
 ## 术语定义
 
 - **VirtualizedList:** `FlatList`背后的基础支撑组件（是 React Native 对[`虚拟列表 Virtual List`](https://bvaughn.github.io/react-virtualized/#/components/List)概念的实现）。
@@ -139,3 +137,7 @@ render(){
   // ...
 }
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.60%)

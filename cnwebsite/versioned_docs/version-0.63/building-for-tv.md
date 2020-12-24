@@ -4,8 +4,6 @@ title: 为电视和机顶盒制作应用
 hide_table_of_contents: true
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(51.11%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(48.89%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 目前的 React Native 应用只需在 JavaScript 端简单修改甚至无需修改，在电视和机顶盒设备上就基本可用了。
@@ -140,7 +138,7 @@ class Game2048 extends React.Component {
 
   _enableTVEventHandler() {
     this._tvEventHandler = new TVEventHandler();
-    this._tvEventHandler.enable(this, function(cmp, evt) {
+    this._tvEventHandler.enable(this, function (cmp, evt) {
       if (evt && evt.eventType === "right") {
         cmp.setState({ board: cmp.state.board.move(2) });
       } else if (evt && evt.eventType === "up") {
@@ -180,3 +178,7 @@ class Game2048 extends React.Component {
 
 </TabItem>
 </Tabs>
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(51.11%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(48.89%)

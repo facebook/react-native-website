@@ -3,8 +3,6 @@ id: height-and-width
 title: 高度与宽度
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(67.86%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(32.14%)
-
 组件的高度和宽度决定了其在屏幕上显示的尺寸。
 
 ## 指定宽高
@@ -84,3 +82,7 @@ export default PercentageDimensionsBasics;
 ```
 
 当你熟练掌握了如何控制组件的尺寸后，下一步可以[学习如何在屏幕上排列组件了](flexbox.md)。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(67.86%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(32.14%)

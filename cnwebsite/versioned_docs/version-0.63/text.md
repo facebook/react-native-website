@@ -3,8 +3,6 @@ id: text
 title: Text
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(77.12%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(22.59%), [hqwlkj](https://github.com/search?q=hqwlkj&type=Users)(0.30%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 一个用于显示文本的 React 组件，并且它也支持嵌套、样式，以及触摸处理。
@@ -652,7 +650,7 @@ Sets the frequency of automatic hyphenation to use when determining word breaks 
 {
   lines: [
     TextLayout,
-    TextLayout
+    TextLayout,
     // ...
   ];
   target: 1127;
@@ -669,3 +667,7 @@ Sets the frequency of automatic hyphenation to use when determining word breaks 
 ## 已知问题
 
 - [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(77.12%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(22.59%), [hqwlkj](https://github.com/search?q=hqwlkj&type=Users)(0.30%)

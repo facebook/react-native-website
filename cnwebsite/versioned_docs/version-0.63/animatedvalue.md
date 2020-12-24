@@ -3,8 +3,6 @@ id: animatedvalue
 title: Animated.Value
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 驱动动画的一维标量值. 一个`Animated.Value`可以同步地驱动多个属性，但每次只能以一种动画机制变化。如果改用了其他动画机制（例如开始一个新的动画或是调用`setValue`），则会停止先前的动画。
 
 一般这样来初始化`new Animated.Value(0);`
@@ -210,3 +208,7 @@ Typically only used internally.
 | 名称     | 类型         | 必填 | 说明                  |
 | -------- | ------------ | ---- | --------------------- |
 | tracking | AnimatedNode | 是   | See `AnimatedNode.js` |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

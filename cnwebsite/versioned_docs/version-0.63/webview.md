@@ -3,8 +3,6 @@ id: webview
 title: WebView
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.75%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(2.53%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.72%)
-
 > **Warning** Please use the [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) fork of this component instead. To reduce the surface area of React Native, `<WebView/>` is going to be removed from the React Native core. For more information, please read [The Slimmening proposal](https://github.com/react-native-community/discussions-and-proposals/issues/6).
 
 `WebView` 创建一个原生的 WebView，可以用于访问一个网页。
@@ -554,3 +552,7 @@ stopLoading();
 停止载入当前页面。
 
 [1]: https://github.com/facebook/react-native/commit/da9a712a9e17942dcd05b8d955f0764c2026a4ad
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.75%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(2.53%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.72%)

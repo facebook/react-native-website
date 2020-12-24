@@ -3,8 +3,6 @@ id: debugging
 title: 调试
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(96.34%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.62%), [raoenhui](https://github.com/search?q=raoenhui&type=Users)(1.05%)
-
 ## 开启调试的快捷键
 
 React Native 在 iOS 模拟器上支持一些快捷键操作，具体会在下文中描述。要使用快捷键请**务必确保模拟器的 Hardware 菜单中，Keyboard 选项下的"Connect Hardware Keyboard"处于开启状态**，否则按键是没有响应的。
@@ -43,10 +41,10 @@ These notifications can be hidden using `LogBox.ignoreAllLogs()`. This is useful
 > Ignore logs as a last resort and create a task to fix any logs that are ignored.
 
 ```jsx
-import { LogBox } from 'react-native';
+import { LogBox } from "react-native";
 
 // Ignore log notification by message:
-LogBox.ignoreLogs(['Warning: ...']);
+LogBox.ignoreLogs(["Warning: ..."]);
 
 // Ignore all log notifications:
 LogBox.ignoreAllLogs();
@@ -191,3 +189,7 @@ $ npx react-native log-android
 ## 调试原生代码
 
 在和原生代码打交道时（比如编写原生模块），可以直接从 Android Studio 或是 Xcode 中启动应用，并利用这些 IDE 的内置功能来调试（比如设置断点）。这一方面和开发原生应用并无二致。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.81%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(3.14%), [raoenhui](https://github.com/search?q=raoenhui&type=Users)(1.05%)

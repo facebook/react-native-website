@@ -3,8 +3,6 @@ id: touchableopacity
 title: TouchableOpacity
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.13%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(9.87%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 > If you're looking for a more extensive and future-proof way to handle touch-based input, check out the [Pressable](pressable.md) API.
@@ -233,3 +231,7 @@ setOpacityTo((value: number), (duration: number));
 ```
 
 将本组件的不透明度设为指定值（伴有过渡动画）。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(90.13%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(9.87%)

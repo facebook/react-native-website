@@ -3,8 +3,6 @@ id: troubleshooting
 title: Troubleshooting
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 These are some common issues you may run into while setting up React Native. If you encounter something that is not listed here, try [searching for the issue in GitHub](https://github.com/facebook/react-native/issues/).
 
 ### Port already in use
@@ -111,4 +109,6 @@ Issue caused by the number of directories [inotify](https://github.com/guard/lis
 echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 ```
 
-[metro]: https://facebook.github.io/metro/
+## [metro]: https://facebook.github.io/metro/
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

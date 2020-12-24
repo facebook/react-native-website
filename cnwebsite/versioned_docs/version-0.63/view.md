@@ -3,8 +3,6 @@ id: view
 title: View
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(89.51%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.75%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(4.74%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 作为创建 UI 时最基础的组件，`View` 是一个支持 [Flexbox 布局](flexbox.md)、[样式](style.md)、[触摸响应](handling-touches.md)、和一些[无障碍功能](accessibility.md)的容器。不论在什么平台上，`View` 都直接对应当前平台的原生视图，无论它是 `UIView`、`div` 还是 `android.view.View`。
@@ -590,3 +588,7 @@ Whether this `View` should be focusable with a non-touch input device, eg. recei
 | 类型    | Required | 平台    |
 | ------- | -------- | ------- |
 | boolean | No       | Android |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(89.51%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.75%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(4.74%)

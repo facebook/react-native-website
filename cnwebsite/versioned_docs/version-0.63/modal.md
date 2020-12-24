@@ -3,8 +3,6 @@ id: modal
 title: Modal
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.07%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%), [hqwlkj](https://github.com/search?q=hqwlkj&type=Users)(0.29%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Modal 组件是一种简单的覆盖在其他视图之上显示内容的方式。
@@ -345,3 +343,7 @@ The `statusBarTranslucent` prop determines whether your modal should go under th
 | 类型                                                           | 必填 | 平台 |
 | -------------------------------------------------------------- | ---- | ---- |
 | enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | 否   | iOS  |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.07%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%), [hqwlkj](https://github.com/search?q=hqwlkj&type=Users)(0.29%)

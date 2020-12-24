@@ -3,8 +3,6 @@ id: transforms
 title: Transforms
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.59%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.41%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 Transforms are style properties that will help you modify the appearance and position of your components using 2D or 3D transformations. However, once you apply transforms, the layouts remain the same around the transformed component hence it might overlap with the nearby components. You can apply margin to the transformed component, the nearby components or padding to the container to prevent such overlaps.
@@ -295,3 +293,7 @@ transform([{ skewX: "45deg" }]);
 ### `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
 > **Deprecated.** Use the [`transform`](transforms#transform) prop instead.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.59%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.41%)

@@ -3,8 +3,6 @@ id: animated
 title: Animated
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.36%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 `Animated`库旨在使动画变得流畅，强大并易于构建和维护。`Animated`侧重于输入和输出之间的声明性关系，以及两者之间的可配置变换，此外还提供了简单的 `start/stop`方法来控制基于时间的动画执行。
@@ -603,3 +601,7 @@ Exported for ease of type checking. All animated values derive from this class.
 ### `attachNativeEvent`
 
 Imperative API to attach an animated value to an event on a view. Prefer using `Animated.event` with `useNativeDrive: true` if possible.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.36%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.64%)

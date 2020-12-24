@@ -3,8 +3,6 @@ id: ram-bundles-inline-requires
 title: RAM Bundles 和内联引用优化
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 如果你有一个较为庞大的应用程序，你可能要考虑使用`RAM`(Random Access Modules，随机存取模块）格式的 bundle 和内联引用。这对于具有大量页面的应用程序是非常有用的，这些页面在应用程序的典型使用过程中可能不会被打开。通常对于启动后一段时间内不需要大量代码的应用程序来说是非常有用的。例如应用程序包含复杂的配置文件屏幕或较少使用的功能，但大多数会话只涉及访问应用程序的主屏幕更新。我们可以通过使用`RAM`格式来优化`bundle`的加载，并且内联引用这些功能和页面（当它们被实际使用时）。
 
 ### 加载 JavaScript
@@ -180,3 +178,7 @@ module.exports = config;
 ### 测试和衡量改进
 
 您现在应该准备好使用 RAM 格式和内联引用来构建您的应用了。保存启动前后的时间，来测试下有多少改进吧！
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

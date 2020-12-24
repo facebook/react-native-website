@@ -3,8 +3,6 @@ id: layoutevent
 title: 布局事件对象
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 `LayoutEvent` object is returned in the callback as a result of component layout change, for example `onLayout` in [View](view) component.
 
 ## 示例
@@ -72,3 +70,7 @@ The node id of the element receiving the PressEvent.
 - [`TextInput`](textinput)
 - [`TouchableWithoutFeedback`](touchablewithoutfeedback)
 - [`View`](view)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

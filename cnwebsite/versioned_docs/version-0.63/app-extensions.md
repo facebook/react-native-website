@@ -3,8 +3,6 @@ id: app-extensions
 title: iOS应用扩展
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 App extensions let you provide custom functionality and content outside of your main app. There are different types of app extensions on iOS, and they are all covered in the [App Extension Programming Guide](https://developer.apple.com/library/content/documentation/General/Conceptual/ExtensibilityPG/index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1). In this guide, we'll briefly cover how you may take advantage of app extensions on iOS.
 
 ## Memory use in extensions
@@ -26,3 +24,7 @@ To experiment with the limits of React Native Today widget implementations, try 
 ### Other app extensions
 
 Other types of app extensions have greater memory limits than the Today widget. For instance, Custom Keyboard extensions are limited to 48 MB, and Share extensions are limited to 120 MB. Implementing such app extensions with React Native is more viable. One proof of concept example is [react-native-ios-share-extension](https://github.com/andrewsardone/react-native-ios-share-extension).
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

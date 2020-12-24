@@ -3,8 +3,6 @@ id: permissionsandroid
 title: PermissionsAndroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.29%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.71%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div className="banner-native-code-required">
@@ -255,3 +253,7 @@ requestMultiple(permissions);
 | 名称        | 类型  | 必填 | 说明               |
 | ----------- | ----- | ---- | ------------------ |
 | permissions | array | Yes  | 要申请的权限的数组 |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(95.29%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(4.71%)

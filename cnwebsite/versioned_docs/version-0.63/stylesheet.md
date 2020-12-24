@@ -3,8 +3,6 @@ id: stylesheet
 title: StyleSheet
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 StyleSheet 提供了一种类似 CSS 样式表的抽象。
 
 ```SnackPlayer name=StyleSheet
@@ -343,3 +341,7 @@ export default App;
 ## `absoluteFill` vs. `absoluteFillObject`
 
 Currently, there is no difference between using `absoluteFill` vs. `absoluteFillObject`.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

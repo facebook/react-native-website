@@ -3,8 +3,6 @@ id: picker-item
 title: Picker.Item
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 Individual selectable item in a [Picker](picker.md).
 
 ### 查看 Props
@@ -51,3 +49,7 @@ The value to be passed to picker's `onValueChange` callback when this item is se
 | 类型 | 必填 | 平台    |
 | ---- | ---- | ------- |
 | any  | 否   | Android |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

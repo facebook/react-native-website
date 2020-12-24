@@ -3,8 +3,6 @@ id: native-components-android
 title: Android 原生UI组件
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.47%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.53%)
-
 在如今的 App 中，已经有成千上万的原生 UI 部件了——其中的一些是平台的一部分，另一些可能来自于一些第三方库，而且可能你自己还收藏了很多。React Native 已经封装了大部分最常见的组件，譬如`ScrollView`和`TextInput`，但不可能封装全部组件。而且，说不定你曾经为自己以前的 App 还封装过一些组件，React Native 肯定没法包含它们。幸运的是，在 React Naitve 应用程序中封装和植入已有的组件非常简单。
 
 和原生模块向导一样，本向导也是一个相对高级的向导，我们假设你已经对 Android 编程颇有经验。本向导会引导你如何构建一个原生 UI 组件，带领你了解 React Native 核心库中`ImageView`组件的具体实现。
@@ -185,3 +183,7 @@ class MyCustomView extends React.Component {
 
 const RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(99.47%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(0.53%)

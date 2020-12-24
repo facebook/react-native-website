@@ -3,8 +3,6 @@ id: platform-specific-code
 title: 特定平台代码
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 在编写跨平台的应用时，我们肯定希望尽可能多地复用代码。但是总有些时候我们会碰到针对不同平台编写不同代码的需求。
 
 React Native 提供了两种方法来区分平台：
@@ -22,7 +20,7 @@ React Native 提供了一个检测当前运行平台的模块。如果组件只�
 import { Platform, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  height: Platform.OS === "ios" ? 200 : 100
+  height: Platform.OS === "ios" ? 200 : 100,
 });
 ```
 
@@ -38,13 +36,13 @@ const styles = StyleSheet.create({
     flex: 1,
     ...Platform.select({
       ios: {
-        backgroundColor: "red"
+        backgroundColor: "red",
       },
       android: {
-        backgroundColor: "blue"
-      }
-    })
-  }
+        backgroundColor: "blue",
+      },
+    }),
+  },
 });
 ```
 
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
 ```jsx
 const Component = Platform.select({
   ios: () => require("ComponentIOS"),
-  android: () => require("ComponentAndroid")
+  android: () => require("ComponentAndroid"),
 })();
 
 <Component />;
@@ -120,4 +118,6 @@ You can still require it without the `.native` extension, as follows:
 import Container from "./Container";
 ```
 
-**Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.
+## **Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

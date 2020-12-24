@@ -3,8 +3,6 @@ id: pressable
 title: Pressable
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(57.76%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(42.24%)
-
 `Pressable` 是一个核心组件的封装，它可以检测到任意子组件的不同阶段的按压交互情况。
 
 ```jsx
@@ -232,3 +230,7 @@ export default App;
 | color      | [color](colors) | No       | 定义波纹的颜色。           |
 | borderless | boolean         | No       | 定义波纹效果是否包含边框。 |
 | radius     | number          | No       | 定义波纹的半径。           |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(57.76%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(32.33%), [52148490+noah227](https://github.com/search?q=52148490%2Bnoah227&type=Users)(9.91%)

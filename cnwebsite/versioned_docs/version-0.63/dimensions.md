@@ -3,8 +3,6 @@ id: dimensions
 title: Dimensions
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.63%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.37%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 本模块用于获取设备屏幕的宽高。
@@ -190,3 +188,7 @@ static set(dims)
 | 名称 | 类型   | Required | 说明                                     |
 | ---- | ------ | -------- | ---------------------------------------- |
 | dims | object | Yes      | string-keyed object of dimensions to set |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.63%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.37%)

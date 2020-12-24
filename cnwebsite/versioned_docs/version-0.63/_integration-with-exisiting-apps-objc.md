@@ -174,7 +174,7 @@ import { AppRegistry, StyleSheet, Text, View } from "react-native";
 
 class RNHighScores extends React.Component {
   render() {
-    var contents = this.props["scores"].map(score => (
+    var contents = this.props["scores"].map((score) => (
       <Text key={score.name}>
         {score.name}:{score.value}
         {"\n"}
@@ -194,18 +194,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
   },
   highScoresTitle: {
     fontSize: 20,
     textAlign: "center",
-    margin: 10
+    margin: 10,
   },
   scores: {
     textAlign: "center",
     color: "#333333",
-    marginBottom: 5
-  }
+    marginBottom: 5,
+  },
 });
 
 // Module name
@@ -344,3 +344,7 @@ Here is the _React Native_ high score screen:
 然后就可以开发啦~可是我完全不会 React Native 怎么办？
 
 我们建议你先通读本站的所有文档，看看博客，看看论坛。如果觉得知识太零散，不够系统，那么你也可以考虑下购买我们的[付费咨询服务](/about#技术支持与商务合作)。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

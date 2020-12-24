@@ -3,8 +3,6 @@ id: appregistry
 title: AppRegistry
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(51.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(48.72%)
-
 <div class="banner-native-code-required">
   <h3>仅适用于非沙盒项目</h3>
   <p>
@@ -17,7 +15,7 @@ title: AppRegistry
 ```jsx
 import { Text, AppRegistry } from "react-native";
 
-const App = props => (
+const App = (props) => (
   <View>
     <Text>App1</Text>
   </View>
@@ -392,3 +390,7 @@ A valid `TaskProvider` is a function that returns a [`Task`](appregistry#task).
 | 类型     |
 | -------- |
 | function |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(51.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(48.72%)

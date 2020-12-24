@@ -3,8 +3,6 @@ id: animations
 title: 动画
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.72%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 流畅、有意义的动画对于移动应用用户体验来说是非常重要的。现实生活中的物体在开始移动和停下来的时候都具有一定的惯性，我们在界面中也可以使用动画来实现契合物理规律的交互。
@@ -78,7 +76,7 @@ export default () => {
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
-  duration: 2000
+  duration: 2000,
 }).start();
 ```
 
@@ -96,18 +94,18 @@ Animated.sequence([
   Animated.decay(position, {
     // coast to a stop
     velocity: { x: gestureState.vx, y: gestureState.vy }, // velocity from gesture release
-    deceleration: 0.997
+    deceleration: 0.997,
   }),
   Animated.parallel([
     // after decay, in parallel:
     Animated.spring(position, {
-      toValue: { x: 0, y: 0 } // return to start
+      toValue: { x: 0, y: 0 }, // return to start
     }),
     Animated.timing(twirl, {
       // and twirl
-      toValue: 360
-    })
-  ])
+      toValue: 360,
+    }),
+  ]),
 ]).start(); // start the sequence group
 ```
 
@@ -126,7 +124,7 @@ const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
 Animated.spring(a, {
-  toValue: 2
+  toValue: 2,
 }).start();
 ```
 
@@ -139,7 +137,7 @@ A simple mapping to convert a 0-1 range to a 0-100 range would be:
 ```jsx
 value.interpolate({
   inputRange: [0, 1],
-  outputRange: [0, 100]
+  outputRange: [0, 100],
 });
 ```
 
@@ -162,7 +160,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 ```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
-  outputRange: [300, 0, 1, 0, 0]
+  outputRange: [300, 0, 1, 0, 0],
 });
 ```
 
@@ -188,7 +186,7 @@ value.interpolate({
 ```jsx
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ["0deg", "360deg"]
+  outputRange: ["0deg", "360deg"],
 });
 ```
 
@@ -203,8 +201,8 @@ Animated.spring(follower, { toValue: leader }).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
-    outputRange: [1, 0]
-  })
+    outputRange: [1, 0],
+  }),
 }).start();
 ```
 
@@ -671,7 +669,7 @@ const styles = StyleSheet.create({
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
-  useNativeDriver: true // <-- 加上这一行
+  useNativeDriver: true, // <-- 加上这一行
 }).start();
 ```
 
@@ -686,9 +684,9 @@ Animated.timing(this.state.animatedValue, {
     [
       {
         nativeEvent: {
-          contentOffset: { y: this.state.animatedValue }
-        }
-      }
+          contentOffset: { y: this.state.animatedValue },
+        },
+      },
     ],
     { useNativeDriver: true } // <-- 加上这一行
   )}
@@ -715,8 +713,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
     transform: [
       { scale: this.state.scale },
       { rotateY: this.state.rotateY },
-      { perspective: 1000 } // without this line this Animation will not render on Android while working fine on iOS
-    ]
+      { perspective: 1000 }, // without this line this Animation will not render on Android while working fine on iOS
+    ],
   }}
 />
 ```
@@ -823,3 +821,7 @@ This example uses a preset value, you can customize the animations as you need, 
 如果我们要更新的组件有一个非常深的内嵌结构，并且没有使用`shouldComponentUpdate`来优化，那么使用`setNativeProps`就将大有裨益。
 
 如果你发现你的动画丢帧（低于 60 帧每秒），可以尝试使用`setNativeProps`或者`shouldComponentUpdate`来优化它们。Or you could run the animations on the UI thread rather than the JavaScript thread [with the useNativeDriver option](http://facebook.github.io/react-native/blog/2017/02/14/using-native-driver-for-animated.html). 你还可以考虑将部分计算工作放在动画完成之后进行，这时可以使用[InteractionManager](interactionmanager)。你还可以使用应用内的开发者菜单中的“FPS Monitor”工具来监控应用的帧率。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(94.28%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(5.72%)

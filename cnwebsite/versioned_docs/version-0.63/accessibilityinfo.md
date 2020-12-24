@@ -3,8 +3,6 @@ id: accessibilityinfo
 title: AccessibilityInfo
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.81%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.19%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 有时候我们希望知道用户的设备是否正在运行读屏应用。`AccessibilityInfo`正是用于此目的。你可以用它来查询读屏应用的当前状态，并且可以监听其状态变化。
@@ -278,3 +276,7 @@ static removeEventListener(eventName, handler)
 ```
 
 移除一个监听函数。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.81%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.19%)

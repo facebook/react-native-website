@@ -3,8 +3,6 @@ id: devsettings
 title: DevSettings
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 The `DevSettings` module exposes methods for customizing settings for developers in development.
 
 ---
@@ -38,3 +36,7 @@ Reload the application. Can be invoked directly or on user interaction:
 ```jsx
 <Button title="Reload" onPress={() => DevSettings.reload()} />
 ```
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

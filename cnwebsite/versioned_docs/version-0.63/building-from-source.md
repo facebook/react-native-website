@@ -3,8 +3,6 @@ id: building-from-source
 title: 从源代码编译React Native
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 如果你想提前合并官方的修复补丁，尝试还没发布的最新特性，或者添加一些你自己的原生代码，那么就需要自己从源代码编译 React Native。
 
 ## Android
@@ -147,3 +145,7 @@ If you made changes to React Native and submit a pull request, all tests will ru
 ## Making your changes available
 
 See the [Publishing your own version of react native](publishing.md) for several options to make your changes available for your and other app projects.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

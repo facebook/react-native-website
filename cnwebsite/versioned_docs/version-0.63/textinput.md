@@ -3,8 +3,6 @@ id: textinput
 title: TextInput
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(79.72%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(20.28%)
-
 TextInput 是一个允许用户在应用中通过键盘输入文本的基本组件。本组件的属性提供了多种特性的配置，譬如自动完成、自动大小写、占位文字，以及多种不同的键盘类型（如纯数字键盘）等等。
 
 最简单的用法就是丢一个`TextInput`到应用里，然后订阅它的`onChangeText`事件来读取用户的输入。注意，从 TextInput 里取值这就是目前唯一的做法！也就是使用在`onChangeText`中用`setState`把用户的输入写入到 state 中，然后在需要取值的地方从 this.state 中取出值。它还有一些其它的事件，譬如`onSubmitEditing`和`onFocus`。一个简单的例子如下：
@@ -799,3 +797,7 @@ isFocused();
 ```
 
 返回值表明当前输入框是否获得了焦点。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(79.72%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(20.28%)

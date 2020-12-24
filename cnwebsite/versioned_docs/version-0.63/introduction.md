@@ -3,8 +3,6 @@ id: getting-started
 title: 简介
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(79.86%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(20.14%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 <div className="content-banner">
@@ -138,3 +136,7 @@ Menu paths are written in bold and use carets to navigate submenus. Example: **A
 ---
 
 Now that you know how this guide works, it's time to get to know the foundation of React Native: [Native Components](intro-react-native-components.md).
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(74.64%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(25.36%)

@@ -3,8 +3,6 @@ id: colors
 title: 颜色
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(73.23%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(25.76%), [kt.tian](https://github.com/search?q=kt.tian&type=Users)(1.01%)
-
 Components in React Native are [styled using JavaScript](style). Color properties usually match how [CSS works on the web](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value). General guides on the color usage on each platform could be found below:
 
 - [Android](https://material.io/design/color/color-usage.html)
@@ -198,3 +196,7 @@ React Native supports also colors as an `int` values (in RGB color mode):
 - <ins style={{background: '#f5f5f5'}} className="color-box" /> whitesmoke (`#f5f5f5`)
 - <ins style={{background: '#ffff00'}} className="color-box" /> yellow (`#ffff00`)
 - <ins style={{background: '#9acd32'}} className="color-box" /> yellowgreen (`#9acd32`)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(73.23%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(25.76%), [kt.tian](https://github.com/search?q=kt.tian&type=Users)(1.01%)

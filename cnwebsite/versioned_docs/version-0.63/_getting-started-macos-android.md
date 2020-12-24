@@ -198,3 +198,7 @@ yarn react-native run-android
 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
 如果你想从头开始学习 React Native 开发，可以从[简介](getting-started.md)文档开始。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

@@ -3,8 +3,6 @@ id: viewpagerandroid
 title: 🚧 ViewPagerAndroid
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.33%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(5.56%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.11%)
-
 > **已过时。** Use [@react-native-community/viewpager](https://github.com/react-native-community/react-native-viewpager) instead.
 
 一个允许在子视图之间左右翻页的容器。每一个 ViewPagerAndroid 的子容器会被视作一个单独的页，并且会被拉伸填满 ViewPagerAndroid。
@@ -180,3 +178,7 @@ A helper function to scroll to a specific page in the ViewPager. The transition 
 | idle     |      |
 | dragging |      |
 | settling |      |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.33%), [yahoo.007](https://github.com/search?q=yahoo.007&type=Users)(5.56%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.11%)

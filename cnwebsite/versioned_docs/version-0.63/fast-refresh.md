@@ -3,8 +3,6 @@ id: fast-refresh
 title: 快速刷新
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.60%), [itellboy](https://github.com/search?q=itellboy&type=Users)(23.40%)
-
 快速刷新是 React Native 一个特性，在修改组件的时候快速刷新会给你一个即时的反馈。快速刷新默认是开启的，可以通过调整 React Native 开发者菜单里面的 "Enable Fast Refresh" 来开启或关闭。在快速刷新开启的时候，大多数的修改能在一到两秒之内呈现。
 
 ## 原理
@@ -47,3 +45,7 @@ Hooks with dependencies—such as `useEffect`, `useMemo`, and `useCallback`—wi
 For example, when you edit `useMemo(() => x * 2, [x])` to `useMemo(() => x * 10, [x])`, it will re-run even though `x` (the dependency) has not changed. If React didn't do that, your edit wouldn't reflect on the screen!
 
 Sometimes, this can lead to unexpected results. For example, even a `useEffect` with an empty array of dependencies would still re-run once during Fast Refresh. However, writing code resilient to an occasional re-running of `useEffect` is a good practice even without Fast Refresh. This makes it easier for you to later introduce new dependencies to it.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.60%), [itellboy](https://github.com/search?q=itellboy&type=Users)(23.40%)

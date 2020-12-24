@@ -3,8 +3,6 @@ id: images
 title: 图片
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 ## 静态图片资源
 
 React Native 提供了一个统一的方式来管理 iOS 和 Android 应用中的图片。要往 App 中添加一个静态图片，只需把图片文件放在代码文件夹中某处，然后像下面这样去引用它：
@@ -117,9 +115,9 @@ const icon = this.props.active
     uri: "https://facebook.github.io/react/logo-og.png",
     method: "POST",
     headers: {
-      Pragma: "no-cache"
+      Pragma: "no-cache",
     },
-    body: "Your Body goes here"
+    body: "Your Body goes here",
   }}
   style={{ width: 400, height: 400 }}
 />
@@ -137,11 +135,11 @@ const icon = this.props.active
   style={{
     width: 51,
     height: 51,
-    resizeMode: "contain"
+    resizeMode: "contain",
   }}
   source={{
     uri:
-      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg=="
+      "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADMAAAAzCAYAAAA6oTAqAAAAEXRFWHRTb2Z0d2FyZQBwbmdjcnVzaEB1SfMAAABQSURBVGje7dSxCQBACARB+2/ab8BEeQNhFi6WSYzYLYudDQYGBgYGBgYGBgYGBgYGBgZmcvDqYGBgmhivGQYGBgYGBgYGBgYGBgYGBgbmQw+P/eMrC5UTVAAAAABJRU5ErkJggg==",
   }}
 />
 ```
@@ -159,7 +157,7 @@ const icon = this.props.active
 <Image
   source={{
     uri: "https://facebook.github.io/react/logo-og.png",
-    cache: "only-if-cached"
+    cache: "only-if-cached",
   }}
   style={{ width: 400, height: 400 }}
 />
@@ -225,3 +223,7 @@ return (
 ## 在主线程外解码图片
 
 图片解码有可能会需要超过一帧的时间。在 web 上这是页面掉帧的一大因素，因为解码是在主线程中完成的。然而在 React Native 中，图片解码则是在另一线程中完成的。在实际开发中，一般对图片还没下载完成时的场景都做了处理（添加 loading 等），而图片解码时显示的占位符只占用几帧时间，并不需要你改动代码去额外处理。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

@@ -4,8 +4,6 @@ title: 集成到现有原生应用
 hide_table_of_contents: true
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(73.53%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(26.47%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 import IntegrationJava from './\_integration-with-exisiting-apps-java.md'; import IntegrationObjC from './\_integration-with-exisiting-apps-objc.md'; import IntegrationSwift from './\_integration-with-exisiting-apps-swift.md';
@@ -34,3 +32,7 @@ import IntegrationJava from './\_integration-with-exisiting-apps-java.md'; impor
 
 </TabItem>
 </Tabs>
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(50.00%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(50.00%)

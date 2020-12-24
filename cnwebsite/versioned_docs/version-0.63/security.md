@@ -3,8 +3,6 @@ id: security
 title: 网络安全策略
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.24%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(7.76%)
-
 开发应用时安全常常是一个被忽视的话题。的确，搭建一个完全无懈可击的软件是不可能的——我们还没有发明一个完全坚不可摧的锁（毕竟，银行金库已经足够坚固但仍然会被闯入）。However, the probability of falling victim to a malicious attack or being exposed for a security vulnerability is inversely proportional to the effort you’re willing to put in to protecting your application against any such eventuality. Although an ordinary padlock is pickable, it is still much harder to get past than a cabinet hook!
 
 <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/d_security_chart.svg" width="283" alt=" " style={{float:'right'}} />
@@ -116,3 +114,7 @@ Using https endpoints could still leave your data vulnerable to interception. Wi
 ## Summary
 
 There is no bulletproof way to handle security, but with conscious effort and diligence, it is possible to significantly reduce the likelihood of a security breach in your application. Invest in security proportional to the sensitivity of the data stored in your application, the number of users, and the damage a hacker could do when gaining access to their account. And remember: it’s significantly harder to access information that was never requested in the first place.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(92.24%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(6.90%), [1351117103](https://github.com/search?q=1351117103&type=Users)(0.86%)

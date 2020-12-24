@@ -3,8 +3,6 @@ id: switch
 title: Switch
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 跨平台通用的“开关”组件。
 
 注意这是一个“受控组件”（controlled component）。你必须使用`onValueChange`回调来更新`value`属性以响应用户的操作。如果不更新`value`属性，组件只会按一开始给定的`value`值来渲染且保持不变，看上去就像完全点不动。
@@ -132,3 +130,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 | 类型 | 必填 |
 | ---- | ---- |
 | bool | 否   |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

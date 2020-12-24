@@ -4,8 +4,6 @@ title: 核心组件与原生组件
 description: React Native 使用完全原生的组件来构建应用界面。尤其方便的是它已经内置了大量直接上手可用的核心组件。
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.32%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(22.37%), [1173440278](https://github.com/search?q=1173440278&type=Users)(1.32%)
-
 React Native 是一个使用[React](https://zh-hans.reactjs.org/)和应用平台的原生功能来构建 Android 和 iOS 应用的开源框架。通过 React Native，您可以使用 JavaScript 来访问移动平台的 API，以及使用 React 组件来描述 UI 的外观和行为：一系列可重用、可嵌套的代码。你可以在下一节了解更多关于 React 的信息。但首先，让我们介绍一下组件在 React Native 中是如何工作的。
 
 ## 视图（Views）与移动开发
@@ -76,3 +74,7 @@ export default App;
 由于 React Native 使用与 React 组件相同的 API 结构，因此您需要了解 React 组件 API 才能上手。您可以在[下一章节学习](intro-react)到关于此的简单介绍或复习相关内容。如果您已经熟悉 React，请您[随时跳过](handling-text-input)。
 
 <img src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/diagram_react-native-components.svg" width="1000" alt="A diagram showing React Native's Core Components are a subset of React Components that ship with React Native." />
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.32%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(22.37%), [1173440278](https://github.com/search?q=1173440278&type=Users)(1.32%)

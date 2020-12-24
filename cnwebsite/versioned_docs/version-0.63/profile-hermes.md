@@ -3,8 +3,6 @@ id: profile-hermes
 title: Profiling with Hermes
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 You can visualize JavaScript's performance in a React Native app using [Hermes](https://github.com/facebook/hermes). Hermes is a small and lightweight JavaScript engine optimized for running React Native on Android (you can [read more about using it with React Native here](hermes). Hermes helps improve app performance and also exposes ways to analyze the performance of the JavaScript that it runs.
 
 In this section, you will learn how to profile your React Native app running on Hermes and how to visualize the profile using [the Performance tab on Chrome DevTools](https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference)
@@ -155,3 +153,7 @@ The `samples` and the `stackFrames` in tandem can then be used to generate all t
 You can now construct a `flamechart` of function calls as you have all the function information including its start and end timestamps.
 
 The `hermes-profile-transformer` can convert any profile generated using Hermes into a format that can be directly displayed in Chrome DevTools. More information about this can be found on [ `@react-native-community/hermes-profile-transformer` ](https://github.com/react-native-community/hermes-profile-transformer)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

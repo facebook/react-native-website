@@ -11,7 +11,10 @@ fs.removeSync(`../versioned_docs/version-${version}`);
 fs.removeSync(`../versioned_sidebars/version-${version}-sidebars.json`);
 
 const versions = require('../versions.json');
-versions.splice(versions.findIndex(v => v == version), 1);
+versions.splice(
+  versions.findIndex(v => v == version),
+  1
+);
 fs.writeFileSync('versions.json', JSON.stringify(versions, null, 2));
 
 execSync(`yarn run docusaurus docs:version ${version}`);
@@ -52,14 +55,14 @@ files.forEach(file => {
   console.log(`${fileName}: ${authorList}`);
   const targetFile = `versioned_docs/version-${version}/${fileName}`;
   const mdData = fs.readFileSync(targetFile, 'utf8');
-  const metaEndFlagString = '\n---\n';
+  // const metaEndFlagString = '\n---\n';
   fs.writeFileSync(
     targetFile,
     prettier.format(
-      mdData.replace(metaEndFlagString, metaEndFlagString + authorList),
+      // mdData.replace(metaEndFlagString, metaEndFlagString + authorList),
+      mdData + authorList,
       {parser: 'markdown'}
     )
-    // mdData.replace(metaEndFlagString, metaEndFlagString + authorList)
   );
 });
 
@@ -69,5 +72,5 @@ function generateAuthorList(authors) {
       ((lineCount / authors.totalLineCount) * 100).toFixed(2) + '%';
     return `[${name}](${link})(${contribution})`;
   });
-  return '\n##### 本文档贡献者：' + authorList.join(', ') + '\n';
+  return '\n---\n##### 本文档贡献者：' + authorList.join(', ') + '\n';
 }

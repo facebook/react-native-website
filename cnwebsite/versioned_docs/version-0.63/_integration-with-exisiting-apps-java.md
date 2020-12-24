@@ -176,13 +176,13 @@ class HelloWorld extends React.Component {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
   },
   hello: {
     fontSize: 20,
     textAlign: "center",
-    margin: 10
-  }
+    margin: 10,
+  },
 });
 
 AppRegistry.registerComponent("MyReactNativeApp", () => HelloWorld);
@@ -384,3 +384,7 @@ $ npx react-native bundle --platform android --dev false --entry-file index.js -
 然后就可以开发啦~可是我完全不会 React Native 怎么办？
 
 我们建议你先通读本站的所有文档，看看博客，看看论坛。如果觉得知识太零散，不够系统，那么你也可以考虑下购买我们的[付费咨询服务](/about#技术支持与商务合作)。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

@@ -198,9 +198,9 @@ function DocItem(props) {
             </div>
           </div>
         </div>
-        {!hideTableOfContents && DocContent.rightToc && (
+        {!hideTableOfContents && DocContent.toc && (
           <div className="col col--3">
-            <TOC headings={DocContent.rightToc} />
+            <TOC toc={DocContent.toc} />
           </div>
         )}
       </div>

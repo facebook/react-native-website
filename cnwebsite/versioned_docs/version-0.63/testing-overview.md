@@ -6,8 +6,6 @@ authorURL: https://twitter.com/vonovak
 description: This guide introduces React Native developers to the key concepts behind testing, how to write good tests, and what kinds of tests you can incorporate into your workflow.
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 As your codebase expands, small errors and edge cases you don’t expect can cascade into larger failures. Bugs lead to bad user experience and ultimately, business losses. One way to prevent fragile programming is to test your code before releasing it into the wild.
 
 In this guide, we will cover different, automated ways to ensure your app works as expected, ranging from static analysis to end-to-end tests.
@@ -156,10 +154,10 @@ function GroceryShoppingList() {
       <TextInput
         value={groceryItem}
         placeholder="Enter grocery item"
-        onChangeText={text => setGroceryItem(text)}
+        onChangeText={(text) => setGroceryItem(text)}
       />
       <Button title="Add the item to list" onPress={addNewItemToShoppingList} />
-      {items.map(item => (
+      {items.map((item) => (
         <Text key={item}>{item}</Text>
       ))}
     </>
@@ -268,3 +266,7 @@ We hope you enjoyed reading and learned something from this guide. There are man
 ---
 
 _This guide originally authored and contributed in full by [Vojtech Novak](https://twitter.com/vonovak)._
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

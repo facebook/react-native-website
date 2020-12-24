@@ -6,8 +6,6 @@ authorURL: "https://twitter.com/notbrent"
 description: This guide introduces React Native developers to finding, installing, and using third-party libraries in their apps.
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.60%)
-
 React Native 提供了一系列内置的[核心组件和 API](components-and-apis)，但并不局限于此。React Native 有一个庞大的社区，如果核心组件和 API 不能满足你的需求，你完全可以去社区的广阔天地中寻求合适的第三方库。
 
 ## 选择一个包管理器
@@ -77,3 +75,7 @@ Usually libraries built _specifically for other platforms_ will not work with Re
 ### 它支持我的 React Native 的版本吗?
 
 The latest version of a library is typically compatible with the latest version of React Native. If you are using an older version, you should refer to the README to know which version of the library you should install. You can install a particular version of the library by running `npm install <library-name>@<version-number>`, for example: `npm install @react-native-community/netinfo@^2.0.0`.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(97.40%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(2.60%)

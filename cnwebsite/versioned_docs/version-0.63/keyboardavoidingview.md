@@ -3,8 +3,6 @@ id: keyboardavoidingview
 title: KeyboardAvoidingView
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(78.38%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(21.62%)
-
 本组件用于解决一个常见的尴尬问题：手机上弹出的键盘常常会挡住当前的视图。本组件可以自动根据键盘的高度，调整自身的 height 或底部的 padding，以避免被遮挡。
 
 ## 示例
@@ -111,3 +109,7 @@ Specify how to react to the presence of the keyboard.
 | 类型   | 默认值 |
 | ------ | ------ |
 | number | `0`    |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(78.38%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(21.62%)

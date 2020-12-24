@@ -3,8 +3,6 @@ id: progressviewios
 title: 🚧 ProgressViewIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 > **已过时。** Use [@react-native-community/progress-view](https://github.com/react-native-community/progress-view) instead.
 
 使用`ProgressViewIOS`来在 iOS 上渲染一个 UIProgressView。
@@ -122,3 +120,7 @@ export default App;
 | 类型   | 必填 |
 | ------ | ---- |
 | string | 否   |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

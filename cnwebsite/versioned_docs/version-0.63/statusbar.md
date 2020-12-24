@@ -3,8 +3,6 @@ id: statusbar
 title: StatusBar
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.01%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(6.99%)
-
 控制应用状态栏的组件。
 
 ### 和导航器一起使用的注意事项
@@ -329,3 +327,7 @@ static setTranslucent(translucent: boolean)
 | dark-content  | 白底黑字（需要 Android API>=23）                 |
 
 ---
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(93.01%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(6.99%)

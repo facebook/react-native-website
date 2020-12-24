@@ -4,8 +4,6 @@ title: 在设备上运行
 hide_table_of_contents: true
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(60.00%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(37.35%), [3430453046](https://github.com/search?q=3430453046&type=Users)(2.65%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 在真机上仔细测试 app 后再发布给用户总是不会错的。本文档将指导你通过必须的步骤在设备上运行 React Native app，为生产做准备。
@@ -340,3 +338,7 @@ You have built a great app using React Native, and you are now itching to releas
 
 </TabItem>
 </Tabs>
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(60.00%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(37.35%), [3430453046](https://github.com/search?q=3430453046&type=Users)(2.65%)

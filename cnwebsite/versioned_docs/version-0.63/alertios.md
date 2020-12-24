@@ -3,8 +3,6 @@ id: alertios
 title: AlertIOS
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.84%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(23.16%)
-
 `AlertIOS`用于弹出一个 iOS 提示对话框，可以通知用户一些信息或是提示用户输入一些文字。
 
 弹出一个 iOS 提示框：
@@ -61,12 +59,12 @@ AlertIOS.alert(
     {
       text: "Cancel",
       onPress: () => console.log("Cancel Pressed"),
-      style: "cancel"
+      style: "cancel",
     },
     {
       text: "Install",
-      onPress: () => console.log("Install Pressed")
-    }
+      onPress: () => console.log("Install Pressed"),
+    },
   ]
 );
 ```
@@ -102,12 +100,12 @@ AlertIOS.prompt(
     {
       text: "Cancel",
       onPress: () => console.log("Cancel Pressed"),
-      style: "cancel"
+      style: "cancel",
     },
     {
       text: "OK",
-      onPress: password => console.log("OK Pressed, password: " + password)
-    }
+      onPress: (password) => console.log("OK Pressed, password: " + password),
+    },
   ],
   "secure-text"
 );
@@ -121,7 +119,7 @@ Example with the default button and a custom callback:
 AlertIOS.prompt(
   "Update username",
   null,
-  text => console.log("Your username is " + text),
+  (text) => console.log("Your username is " + text),
   null,
   "default"
 );
@@ -189,3 +187,7 @@ Array or buttons
 | text    | Button label                          |
 | onPress | Callback function when button pressed |
 | style   | Button style                          |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(76.84%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(23.16%)

@@ -3,8 +3,6 @@ id: activityindicator
 title: ActivityIndicator
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(66.93%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(33.07%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 显示一个圆形的 loading 提示符号。
@@ -127,3 +125,7 @@ export default App;
 | 类型                                                                           | 默认值    |
 | ------------------------------------------------------------------------------ | --------- |
 | enum(`'small'`, `'large'`)<hr/>number <div class="label android">Android</div> | `'small'` |
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(66.93%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(33.07%)

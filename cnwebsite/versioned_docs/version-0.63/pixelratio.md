@@ -3,8 +3,6 @@ id: pixelratio
 title: PixelRatio
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.16%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.84%)
-
 `PixelRatio` 可以获取到设备的像素密度和字体缩放比。
 
 ## 根据像素密度获取指定大小的图片
@@ -163,3 +161,7 @@ static roundToNearestPixel(layoutSize)
 ```
 
 Rounds a layout size (dp) to the nearest layout size that corresponds to an integer number of pixels. For example, on a device with a PixelRatio of 3, `PixelRatio.roundToNearestPixel(8.4) = 8.33`, which corresponds to exactly (8.33 \* 3) = 25 pixels.
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(98.16%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(1.84%)

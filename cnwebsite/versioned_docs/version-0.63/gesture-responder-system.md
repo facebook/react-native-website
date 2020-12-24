@@ -3,8 +3,6 @@ id: gesture-responder-system
 title: 手势响应系统
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 移动设备上的手势识别要比在 web 上复杂得多。用户的一次触摸操作的真实意图是什么，App 要经过好几个阶段才能判断。比如 App 需要判断用户的触摸到底是在滚动页面，还是滑动一个 widget，或者只是一个单纯的点击。甚至随着持续时间的不同，这些操作还会转化。此外，还有多点同时触控的情况。
 
 手势响应系统可以使组件在不关心父组件或子组件的前提下自行处理触摸交互。
@@ -63,3 +61,7 @@ title: 手势响应系统
 ### PanResponder
 
 要使用更高级的手势功能，请参看[PanResponder](panresponder.md).
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)

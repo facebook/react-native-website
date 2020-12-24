@@ -3,8 +3,6 @@ id: platformcolor
 title: PlatformColor
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(53.76%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(46.24%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ```js
@@ -16,7 +14,7 @@ You can use the `PlatformColor` function to access native colors on the target p
 If you pass more than one string value to the `PlatformColor` function, it will treat the first value as the default and the rest as fallback.
 
 ```js
-PlatformColor('bogusName', 'linkColor');
+PlatformColor("bogusName", "linkColor");
 ```
 
 Since native colors can be sensitive to themes and/or high contrast, this platform specific logic also translates inside your components.
@@ -82,3 +80,7 @@ export default App;
 The string value provided to the `PlatformColor` function must match the string as it exists on the native platform where the app is running. In order to avoid runtime errors, the function should be wrapped in a platform check, either through a `Platform.OS === 'platform'` or a `Platform.Select()`, as shown on the example above.
 
 > **Note:** You can find a complete example that demonstrates proper, intended use of `PlatformColor` in [PlatformColorExample.js](https://github.com/facebook/react-native/blob/master/packages/rn-tester/js/examples/PlatformColor/PlatformColorExample.js).
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(52.44%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(47.56%)

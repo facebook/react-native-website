@@ -3,8 +3,6 @@ id: improvingux
 title: 改进用户体验
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(54.39%), [qingtian88](https://github.com/search?q=qingtian88&type=Users)(45.61%)
-
 ## 配置文本输入
 
 由于触屏手机的小屏幕和软键盘，使得在手机中输入文本成为一件具有挑战的事情。 但是你可以基于你需要的数据配置文本输入让这个过程变得简单。
@@ -48,3 +46,7 @@ On iOS, in the General tab and Deployment Info section of Xcode enable the Devic
 # 了解更多
 
 [Material Design](https://material.io/) 和 [Human Interface Guidelines](https://developer.apple.com/ios/human-interface-guidelines/overview/design-principles/) 是学习移动设计的非常优秀的资源。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(54.39%), [qingtian88](https://github.com/search?q=qingtian88&type=Users)(45.61%)

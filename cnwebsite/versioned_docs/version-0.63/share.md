@@ -3,8 +3,6 @@ id: share
 title: Share
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(87.50%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(12.50%)
-
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
 ## 示例
@@ -136,3 +134,7 @@ static dismissedAction
 ```
 
 表示对话框被取消。
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(87.50%), [sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(12.50%)

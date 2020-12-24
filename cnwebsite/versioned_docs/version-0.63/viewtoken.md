@@ -3,8 +3,6 @@ id: viewtoken
 title: ViewToken 对象
 ---
 
-##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
-
 `ViewToken` object is returned as one of properties in the `onViewableItemsChanged` callback, for example in [FlatList](flatlist) component. It is exported by [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js).
 
 ## 示例
@@ -65,3 +63,7 @@ Item section data when used with `SectionList`.
 - [`FlatList`](flatlist)
 - [`SectionList`](sectionlist)
 - [`VirtualizedList`](virtualizedlist)
+
+---
+
+##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
