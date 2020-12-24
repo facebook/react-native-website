@@ -19,7 +19,7 @@ A native event is a synthetic touch event with form of [PressEvent](pressevent).
 
 A `gestureState` object has the following:
 
-- `stateID` - ID of the gestureState- persisted as long as there at least one touch on screen
+- `stateID` - ID of the gestureState- persisted as long as there's at least one touch on screen
 - `moveX` - the latest screen coordinates of the recently-moved touch
 - `moveY` - the latest screen coordinates of the recently-moved touch
 - `x0` - the screen coordinates of the responder grant
