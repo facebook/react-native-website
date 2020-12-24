@@ -34,7 +34,7 @@ module.exports = {
           showLastUpdateAuthor: false,
           showLastUpdateTime: true,
           editUrl:
-            '//github.com/reactnativecn/react-native-website/blob/production/cnwebsite',
+            'https://github.com/reactnativecn/react-native-website/blob/production/cnwebsite',
           path: '../cndocs',
           sidebarPath: require.resolve('./sidebars.json'),
           remarkPlugins: [require('@react-native-website/remark-snackplayer')],

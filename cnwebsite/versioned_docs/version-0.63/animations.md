@@ -76,7 +76,7 @@ export default () => {
 Animated.timing(this.state.xPosition, {
   toValue: 100,
   easing: Easing.back(),
-  duration: 2000,
+  duration: 2000
 }).start();
 ```
 
@@ -94,18 +94,18 @@ Animated.sequence([
   Animated.decay(position, {
     // coast to a stop
     velocity: { x: gestureState.vx, y: gestureState.vy }, // velocity from gesture release
-    deceleration: 0.997,
+    deceleration: 0.997
   }),
   Animated.parallel([
     // after decay, in parallel:
     Animated.spring(position, {
-      toValue: { x: 0, y: 0 }, // return to start
+      toValue: { x: 0, y: 0 } // return to start
     }),
     Animated.timing(twirl, {
       // and twirl
-      toValue: 360,
-    }),
-  ]),
+      toValue: 360
+    })
+  ])
 ]).start(); // start the sequence group
 ```
 
@@ -124,20 +124,20 @@ const a = new Animated.Value(1);
 const b = Animated.divide(1, a);
 
 Animated.spring(a, {
-  toValue: 2,
+  toValue: 2
 }).start();
 ```
 
 ### 插值
 
-所有动画值都可以执行插值（interpolation）操作。 An interpolation maps input ranges to output ranges, typically using a linear interpolation but also supports easing functions. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value.
+所有动画值都可以执行插值（interpolation）操作。插值是指将一定范围的输入值映射到另一组不同的输出值，一般我们使用线性的映射，但是也可以使用 easing 函数。 By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value.
 
 A simple mapping to convert a 0-1 range to a 0-100 range would be:
 
 ```jsx
 value.interpolate({
   inputRange: [0, 1],
-  outputRange: [0, 100],
+  outputRange: [0, 100]
 });
 ```
 
@@ -160,7 +160,7 @@ For example, you may want to think about your `Animated.Value` as going from 0 t
 ```jsx
 value.interpolate({
   inputRange: [-300, -100, 0, 100, 101],
-  outputRange: [300, 0, 1, 0, 0],
+  outputRange: [300, 0, 1, 0, 0]
 });
 ```
 
@@ -186,7 +186,7 @@ value.interpolate({
 ```jsx
 value.interpolate({
   inputRange: [0, 360],
-  outputRange: ["0deg", "360deg"],
+  outputRange: ['0deg', '360deg']
 });
 ```
 
@@ -201,8 +201,8 @@ Animated.spring(follower, { toValue: leader }).start();
 Animated.timing(opacity, {
   toValue: pan.x.interpolate({
     inputRange: [0, 300],
-    outputRange: [1, 0],
-  }),
+    outputRange: [1, 0]
+  })
 }).start();
 ```
 
@@ -669,7 +669,7 @@ const styles = StyleSheet.create({
 Animated.timing(this.state.animatedValue, {
   toValue: 1,
   duration: 500,
-  useNativeDriver: true, // <-- 加上这一行
+  useNativeDriver: true // <-- 加上这一行
 }).start();
 ```
 
@@ -684,13 +684,12 @@ Animated.timing(this.state.animatedValue, {
     [
       {
         nativeEvent: {
-          contentOffset: { y: this.state.animatedValue },
-        },
-      },
+          contentOffset: { y: this.state.animatedValue }
+        }
+      }
     ],
     { useNativeDriver: true } // <-- 加上这一行
-  )}
->
+  )}>
   {content}
 </Animated.ScrollView>
 ```
@@ -713,8 +712,8 @@ While using transform styles such as `rotateY`, `rotateX`, and others ensure the
     transform: [
       { scale: this.state.scale },
       { rotateY: this.state.rotateY },
-      { perspective: 1000 }, // without this line this Animation will not render on Android while working fine on iOS
-    ],
+      { perspective: 1000 } // without this line this Animation will not render on Android while working fine on iOS
+    ]
   }}
 />
 ```

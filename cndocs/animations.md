@@ -130,7 +130,7 @@ Animated.spring(a, {
 
 ### 插值
 
-所有动画值都可以执行插值（interpolation）操作。 An interpolation maps input ranges to output ranges, typically using a linear interpolation but also supports easing functions. By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value.
+所有动画值都可以执行插值（interpolation）操作。插值是指将一定范围的输入值映射到另一组不同的输出值，一般我们使用线性的映射，但是也可以使用 easing 函数。 By default, it will extrapolate the curve beyond the ranges given, but you can also have it clamp the output value.
 
 A simple mapping to convert a 0-1 range to a 0-100 range would be:
 
@@ -675,7 +675,7 @@ Animated.timing(this.state.animatedValue, {
 
 动画值在不同的驱动方式之间是不能兼容的。因此如果你在某个动画中启用了原生驱动，那么所有和此动画依赖相同动画值的其他动画也必须启用原生驱动。
 
-原生驱动还可以在`Animated.event`中使用，其对于滚动操作相关的动画优势更突出。在滚动事件中如果不使用原生驱动，由于数值需要通过js桥异步传输，动画将始终比用户的操作落后一帧。
+原生驱动还可以在`Animated.event`中使用，其对于滚动操作相关的动画优势更突出。在滚动事件中如果不使用原生驱动，由于数值需要通过 js 桥异步传输，动画将始终比用户的操作落后一帧。
 
 ```jsx
 <Animated.ScrollView // <-- 使用可动画化的ScrollView组件
