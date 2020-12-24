@@ -40,8 +40,8 @@ export default Cat;
 要定义一个`Cat`组件，第一步要使用[`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)语句来引入`React`以及`React Native`的[`Text`](/react-native/docs/next/text)组件：
 
 ```jsx
-import React from "react";
-import { Text } from "react-native";
+import React from 'react';
+import { Text } from 'react-native';
 ```
 
 然后一个简单的函数就可以作为一个组件：
@@ -91,7 +91,7 @@ export default Cat;
 你还需要从 React 中引入`Component`：
 
 ```jsx
-import React, { Component } from "react";
+import React, { Component } from 'react';
 ```
 
 定义组件首先要继承(extends)自`Component`：
@@ -316,7 +316,7 @@ export default CatApp;
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-你可以使用[React 的`useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html)来为组件添加状态。 A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://zh-hans.reactjs.org/docs/hooks-intro.html)
+你可以使用[React 的`useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html)来为组件添加状态。Hook （钩子）是一种特殊的函数，可以让你“钩住”一些 React 的特性。例如`useState`可以在函数组件中添加一个“状态钩子”，在函数组件重新渲染执行的时候能够保持住之前的状态。要了解更多，可以阅读[React 中有关 Hook 的文档](https://zh-hans.reactjs.org/docs/hooks-intro.html)。
 
 ```SnackPlayer name=State
 import React, { useState } from "react";
@@ -356,7 +356,7 @@ export default Cafe;
 首先要从 react 中引入`useState`：
 
 ```jsx
-import React, { useState } from "react";
+import React, { useState } from 'react';
 ```
 
 然后可以通过在函数内调用`useState`来为组件声明状态。In this example, `useState` creates an `isHungry` state variable:
@@ -392,7 +392,7 @@ const Cat = (props) => {
 <Button
   //..
   disabled={!isHungry}
-  title={isHungry ? "Pour me some milk, please!" : "Thank you!"}
+  title={isHungry ? 'Pour me some milk, please!' : 'Thank you!'}
 />
 ```
 
@@ -461,7 +461,7 @@ export default  Cafe;
 再次强调，对于 class 组件始终要记得从 React 中引入`Component`：
 
 ```jsx
-import React, { Component } from "react";
+import React, { Component } from 'react';
 ```
 
 在 class 组件中， state 以对象的形式存放：
@@ -478,7 +478,7 @@ export class Cat extends Component {
 ```jsx
 <Text>
   I am {this.props.name}, and I am
-  {this.state.isHungry ? " hungry" : " full"}!
+  {this.state.isHungry ? ' hungry' : ' full'}!
 </Text>
 ```
 
@@ -500,7 +500,11 @@ When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to 
 <Button
   // ..
   disabled={!this.state.isHungry}
-  title={this.state.isHungry ? "Pour me some milk, please!" : "Thank you!"}
+  title={
+    this.state.isHungry
+      ? 'Pour me some milk, please!'
+      : 'Thank you!'
+  }
 />
 ```
 

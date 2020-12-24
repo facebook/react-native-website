@@ -316,7 +316,7 @@ export default CatApp;
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-你可以使用[React的`useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html)来为组件添加状态。 A Hook is a kind of function that lets you “hook into” React features. For example, `useState` is a Hook that lets you add state to function components. You can learn more about [other kinds of Hooks in the React documentation.](https://zh-hans.reactjs.org/docs/hooks-intro.html)
+你可以使用[React 的`useState` Hook](https://zh-hans.reactjs.org/docs/hooks-state.html)来为组件添加状态。Hook （钩子）是一种特殊的函数，可以让你“钩住”一些 React 的特性。例如`useState`可以在函数组件中添加一个“状态钩子”，在函数组件重新渲染执行的时候能够保持住之前的状态。要了解更多，可以阅读[React 中有关 Hook 的文档](https://zh-hans.reactjs.org/docs/hooks-intro.html)。
 
 ```SnackPlayer name=State
 import React, { useState } from "react";
