@@ -93,7 +93,7 @@ On the web, this redirect step is secure, because URLs on the web are guaranteed
 [PKCE](https://oauth.net/2/pkce/), pronounced “Pixy” stands for Proof of Key Code Exchange, and is an extension to the OAuth 2 spec. This involves adding an additional layer of security which verifies that the authentication and token exchange requests come from the same client. PKCE uses the [SHA 256](https://www.movable-type.co.uk/scripts/sha256.html) Cryptographic Hash Algorithm. SHA 256 creates a unique “signature” for a text or file of any size, but it is:
 
 - Always the same length regardless of the input file
-- Guaranteed to be always produce the same result for the same input
+- Guaranteed to always produce the same result for the same input
 - One way (that is, you can’t reverse engineer it to reveal the original input)
 
 Now you have two values:
