@@ -10,6 +10,8 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
 import {setupDissectionAnimation} from './animations/_dissectionAnimation';
 import {setupHeaderAnimations} from './animations/_headerAnimation';
+const cdnUrl =
+  '//cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/';
 
 const textContent = {
   intro: `
@@ -249,7 +251,7 @@ function NativeApps() {
             text={textContent.intro}
           />
         }
-        columnTwo={<img alt="" src={useBaseUrl('img/homepage/phones.png')} />}
+        columnTwo={<img alt="" src={cdnUrl + 'img/homepage/phones.png'} />}
       />
     </Section>
   );
@@ -290,7 +292,7 @@ function NativeDevelopment() {
               <img
                 alt=""
                 key={i}
-                src={useBaseUrl(`img/homepage/dissection/${i}.png`)}
+                src={cdnUrl + `img/homepage/dissection/${i}.png`}
               />
             ))}
           </div>
@@ -327,7 +329,7 @@ function FastRefresh() {
             autoPlay
             loop
             playsInline
-            src={useBaseUrl(`img/homepage/ReactRefresh.mp4`)}
+            src={cdnUrl + `img/homepage/ReactRefresh.mp4`}
           />
         }
       />
@@ -344,7 +346,7 @@ function Community() {
           columnOne={
             <>
               <p className="firstP">
-                <img src={useBaseUrl(`img/homepage/fb-logo.svg`)} alt="" />
+                <img src={cdnUrl + `img/homepage/fb-logo.svg`} alt="" />
                 <span>
                   Facebook 早在 2015 年就开源了 React
                   Native，至今一直在积极维护和使用。

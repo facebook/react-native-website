@@ -140,7 +140,7 @@ module.exports = {
     footer: {
       style: 'dark',
       copyright: `React Native 中文网 © ${new Date().getFullYear()} 武汉青罗网络科技有限公司
-      <a style="margin-left:10px" href="http://beian.miit.gov.cn/">鄂ICP备20002031号</a>
+      <a style="margin-left:10px" href="http://beian.miit.gov.cn/">鄂ICP备20002031号-3</a>
       <img style="width:25px" src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" alt="鄂公网安备 42011202001821号">
       <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=42011202001821">鄂公网安备 42011202001821号</a>
       `,
