@@ -25,6 +25,10 @@ const authorMailRegex = /(\d+) author-mail <(.+)>$/gm;
 files.forEach(file => {
   // ../cndocs/webview.md
   const fileName = path.basename(file);
+  if (fileName.startsWith('_')) {
+    // skip subpages
+    return;
+  }
   const result = execSync(
     // `git blame --line-porcelain ${file} \
     //   | grep -I "^author " | sort | uniq -c | sort -nr; \
