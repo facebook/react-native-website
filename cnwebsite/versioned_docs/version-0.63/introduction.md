@@ -9,7 +9,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
   <p>
     欢迎开启 React Native 的旅程！如果你在找如何搭建环境的文档，请移步<a href="environment-setup">搭建开发环境</a>。 继续往下阅读可了解关于文档结构、原生组件、React等相关的一些介绍。
   </p>
-  <img className="content-banner-img" src="/docs/assets/p_android-ios-devices.svg" alt=" " />
+  <img className="content-banner-img" src="https://cdn.jsdelivr.net/gh/reactnativecn/react-native-website@gh-pages/docs/assets/p_android-ios-devices.svg" alt=" " />
 </div>
 
 许多不同类型的人都在使用 React Native：从高级 iOS 开发人员到 React 初学者，再到职业生涯中第一次开始编程的人。这些文档是为所有学习者编写的，无论他们的经验水平或背景如何。
