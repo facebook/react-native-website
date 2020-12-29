@@ -4,7 +4,7 @@ title: ListView
 original_id: listview
 ---
 
-ListView - 一个核心组件，用于高效地显示一个可以垂直滚动的变化的数据列表。最基本的使用方式就是创建一个`ListView.DataSource`数据源，然后给它传递一个普通的数据数组，再使用数据源来实例化一个`ListView`组件，并且定义它的`renderRow`回调函数，这个函数会接受数组中的每个数据作为参数，返回一个可渲染的组件（作为listview的每一行）。
+ListView - 一个核心组件，用于高效地显示一个可以垂直滚动的变化的数据列表。最基本的使用方式就是创建一个`ListView.DataSource`数据源，然后给它传递一个普通的数据数组，再使用数据源来实例化一个`ListView`组件，并且定义它的`renderRow`回调函数，这个函数会接受数组中的每个数据作为参数，返回一个可渲染的组件（作为 listview 的每一行）。
 
 最简单的例子：
 
@@ -26,14 +26,15 @@ render() {
 }
 ```
 
-ListView还支持一些高级特性，譬如给每段/组(section)数据添加一个带有粘性的头部（类似iPhone的通讯录，其首字母会在滑动过程中吸附在屏幕上方）；在列表头部和尾部增加单独的内容；在到达列表尾部的时候调用回调函数(`onEndReached`)，还有在视野内可见的数据变化时调用回调函数(`onChangeVisibleRows`)，以及一些性能方面的优化。
+ListView 还支持一些高级特性，譬如给每段/组(section)数据添加一个带有粘性的头部（类似 iPhone 的通讯录，其首字母会在滑动过程中吸附在屏幕上方）；在列表头部和尾部增加单独的内容；在到达列表尾部的时候调用回调函数(`onEndReached`)，还有在视野内可见的数据变化时调用回调函数(`onChangeVisibleRows`)，以及一些性能方面的优化。
 
-有一些性能优化使得ListView可以滚动的更加平滑，尤其是在动态加载可能很大（或者概念上无限长的）数据集的时候：
+有一些性能优化使得 ListView 可以滚动的更加平滑，尤其是在动态加载可能很大（或者概念上无限长的）数据集的时候：
 
-* 只更新变化的行 - 提供给数据源的rowHasChanged函数可以告诉ListView它是否需要重绘一行数据（即：数据是否发生了变化）参见ListViewDataSource
-* 限制频率的行渲染 - 默认情况下，每次消息循环只有一行会被渲染（可以用`pageSize`属性配置）。这把较大的工作分散成小的碎片，以降低因为渲染而导致丢帧的可能性。
+- 只更新变化的行 - 提供给数据源的 rowHasChanged 函数可以告诉 ListView 它是否需要重绘一行数据（即：数据是否发生了变化）参见 ListViewDataSource
+- 限制频率的行渲染 - 默认情况下，每次消息循环只有一行会被渲染（可以用`pageSize`属性配置）。这把较大的工作分散成小的碎片，以降低因为渲染而导致丢帧的可能性。
 
 ### 截图
+
 ![](/img/components/listview1.png)
 
 ![](/img/components/listview2.png)
@@ -147,7 +148,7 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
   <div class="prop">
   	<h4 class="propTitle"><a class="anchor" name="stickysectionheadersenabled"></a>stickySectionHeadersEnabled?: <span class="propType">bool</span> <a class="hash-link" href="#stickysectionheadersenabled">#</a></h4>
 	<div>
-	  	<p>设置小节标题(section header)是否具有粘性。粘性是指当它刚出现时，会处在对应小节的内容顶部；继续下滑当它到达屏幕顶端的时候，它会停留在屏幕顶端，一直到对应的位置被下一个小节的标题占据为止。注意此设置在水平模式（<code>horizontal={true}</code>）下无效。由于不同平台的设计原则不同，此选项在iOS上默认开启，andriod上默认关闭。</p>
+	  	<p>设置小节标题(section header)是否具有粘性。粘性是指当它刚出现时，会处在对应小节的内容顶部；继续下滑当它到达屏幕顶端的时候，它会停留在屏幕顶端，一直到对应的位置被下一个小节的标题占据为止。注意此设置在水平模式（<code>horizontal={true}</code>）下无效。由于不同平台的设计原则不同，此选项在iOS上默认开启，Android上默认关闭。</p>
 	</div>
   </div>
 </div>
@@ -172,7 +173,6 @@ ListView还支持一些高级特性，譬如给每段/组(section)数据添加�
 	</div>
 </div>
 
-
 ### 例子
 
 ```jsx
@@ -187,7 +187,7 @@ var {
   StyleSheet,
   RecyclerViewBackedScrollView,
   Text,
-  View,
+  View
 } = ReactNative;
 
 var RNTesterPage = require('./RNTesterPage');
@@ -198,20 +198,22 @@ var ListViewSimpleExample = React.createClass({
     description: 'Performant, scrollable list of data.'
   },
 
-  getInitialState: function() {
-    var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  getInitialState: function () {
+    var ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
     return {
-      dataSource: ds.cloneWithRows(this._genRows({})),
+      dataSource: ds.cloneWithRows(this._genRows({}))
     };
   },
 
-  _pressData: ({}: {[key: number]: boolean}),
+  _pressData: ({}: { [key: number]: boolean }),
 
-  componentWillMount: function() {
+  componentWillMount: function () {
     this._pressData = {};
   },
 
-  render: function() {
+  render: function () {
     return (
       <RNTesterPage
         title={this.props.navigator ? null : '<ListView>'}
@@ -220,18 +222,26 @@ var ListViewSimpleExample = React.createClass({
         <ListView
           dataSource={this.state.dataSource}
           renderRow={this._renderRow}
-          renderScrollComponent={props => <RecyclerViewBackedScrollView {...props} />}
+          renderScrollComponent={(props) => (
+            <RecyclerViewBackedScrollView {...props} />
+          )}
           renderSeparator={this._renderSeperator}
         />
       </RNTesterPage>
     );
   },
 
-  _renderRow: function(rowData: string, sectionID: number, rowID: number, highlightRow: (sectionID: number, rowID: number) => void) {
+  _renderRow: function (
+    rowData: string,
+    sectionID: number,
+    rowID: number,
+    highlightRow: (sectionID: number, rowID: number) => void
+  ) {
     var rowHash = Math.abs(hashCode(rowData));
     var imgSource = THUMB_URLS[rowHash % THUMB_URLS.length];
     return (
-      <TouchableHighlight onPress={() => {
+      <TouchableHighlight
+        onPress={() => {
           this._pressRow(rowID);
           highlightRow(sectionID, rowID);
         }}>
@@ -239,7 +249,9 @@ var ListViewSimpleExample = React.createClass({
           <View style={styles.row}>
             <Image style={styles.thumb} source={imgSource} />
             <Text style={styles.text}>
-              {rowData + ' - ' + LOREM_IPSUM.substr(0, rowHash % 301 + 10)}
+              {rowData +
+                ' - ' +
+                LOREM_IPSUM.substr(0, (rowHash % 301) + 10)}
             </Text>
           </View>
         </View>
@@ -247,7 +259,9 @@ var ListViewSimpleExample = React.createClass({
     );
   },
 
-  _genRows: function(pressData: {[key: number]: boolean}): Array<string> {
+  _genRows: function (pressData: {
+    [key: number]: boolean
+  }): Array<string> {
     var dataBlob = [];
     for (var ii = 0; ii < 100; ii++) {
       var pressedText = pressData[ii] ? ' (pressed)' : '';
@@ -256,20 +270,28 @@ var ListViewSimpleExample = React.createClass({
     return dataBlob;
   },
 
-  _pressRow: function(rowID: number) {
+  _pressRow: function (rowID: number) {
     this._pressData[rowID] = !this._pressData[rowID];
-    this.setState({dataSource: this.state.dataSource.cloneWithRows(
-      this._genRows(this._pressData)
-    )});
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(
+        this._genRows(this._pressData)
+      )
+    });
   },
 
-  _renderSeperator: function(sectionID: number, rowID: number, adjacentRowHighlighted: bool) {
+  _renderSeperator: function (
+    sectionID: number,
+    rowID: number,
+    adjacentRowHighlighted: boolean
+  ) {
     return (
       <View
         key={`${sectionID}-${rowID}`}
         style={{
           height: adjacentRowHighlighted ? 4 : 1,
-          backgroundColor: adjacentRowHighlighted ? '#3B5998' : '#CCCCCC',
+          backgroundColor: adjacentRowHighlighted
+            ? '#3B5998'
+            : '#CCCCCC'
         }}
       />
     );
@@ -288,15 +310,16 @@ var THUMB_URLS = [
   require('./Thumbnails/party.png'),
   require('./Thumbnails/poke.png'),
   require('./Thumbnails/superlike.png'),
-  require('./Thumbnails/victory.png'),
-  ];
-var LOREM_IPSUM = 'Lorem ipsum dolor sit amet, ius ad pertinax oportere accommodare, an vix civibus corrumpit referrentur. Te nam case ludus inciderint, te mea facilisi adipiscing. Sea id integre luptatum. In tota sale consequuntur nec. Erat ocurreret mei ei. Eu paulo sapientem vulputate est, vel an accusam intellegam interesset. Nam eu stet pericula reprimique, ea vim illud modus, putant invidunt reprehendunt ne qui.';
+  require('./Thumbnails/victory.png')
+];
+var LOREM_IPSUM =
+  'Lorem ipsum dolor sit amet, ius ad pertinax oportere accommodare, an vix civibus corrumpit referrentur. Te nam case ludus inciderint, te mea facilisi adipiscing. Sea id integre luptatum. In tota sale consequuntur nec. Erat ocurreret mei ei. Eu paulo sapientem vulputate est, vel an accusam intellegam interesset. Nam eu stet pericula reprimique, ea vim illud modus, putant invidunt reprehendunt ne qui.';
 
 /* eslint no-bitwise: 0 */
-var hashCode = function(str) {
+var hashCode = function (str) {
   var hash = 15;
   for (var ii = str.length - 1; ii >= 0; ii--) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(ii);
+    hash = (hash << 5) - hash + str.charCodeAt(ii);
   }
   return hash;
 };
@@ -306,15 +329,15 @@ var styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     padding: 10,
-    backgroundColor: '#F6F6F6',
+    backgroundColor: '#F6F6F6'
   },
   thumb: {
     width: 64,
-    height: 64,
+    height: 64
   },
   text: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });
 
 module.exports = ListViewSimpleExample;

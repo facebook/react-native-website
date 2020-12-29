@@ -88,7 +88,6 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 如果`阅读完本文档`后还碰到很多环境搭建的问题，我们建议你还可以再看看由本站提供的`环境搭建视频教程`([macOS iOS](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220865928921581&vid=a1417i5op7k)、[macOS Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220870223888877&vid=z1417kmxask)、[windows Android](https://ke.qq.com/webcourse/index.html#course_id=197101&term_id=100233637&taid=1220874518856173&vid=d1417tgg1ez))、[windows 环境搭建文字教程](http://bbs.reactnative.cn/topic/10)、以及[常见问题](http://bbs.reactnative.cn/topic/130)。注意！视频教程或者其他网络上的博客和文章可能和本文档有所出入，请以最新版本的本文档所述为准！
 
-
 <div class="toggler">
   <span>开发平台：</span>
   <span role="tablist" id="toggle-os">
@@ -124,19 +123,19 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Android Studio。
 
 <block class="native linux android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Android Studio。
 
 <block class="native windows android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Android Studio。
 
 <block class="native mac windows linux android" />
 

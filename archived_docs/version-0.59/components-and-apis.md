@@ -131,7 +131,7 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
 
 ## Android 独有的组件和 API
 
-下面很多组件提供了对 Andriod 常用类的封装。
+下面很多组件提供了对 Android 常用类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">

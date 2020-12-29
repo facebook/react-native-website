@@ -6,9 +6,9 @@ original_id: vibration
 
 本模块导出函数`Vibration.vibrate()`用于控制设备震动。震动触发是异步的，也就是说这个函数会立即返回而非等待震动结束。
 
-在不支持震动的设备上（如iOS模拟器），调用此方法没有任何效果。
+在不支持震动的设备上（如 iOS 模拟器），调用此方法没有任何效果。
 
-注意对于android来说需要在`AndroidManifest.xml`中添加`<uses-permission android:name="android.permission.VIBRATE"/>`权限。
+注意对于 android 来说需要在`AndroidManifest.xml`中添加`<uses-permission android:name="android.permission.VIBRATE"/>`权限。
 
 ### 方法
 
@@ -17,7 +17,7 @@ original_id: vibration
 		<h4 class="methodTitle"><a class="anchor" name="vibrate"></a><span class="methodType">static </span>vibrate<span class="methodType">(pattern, repeat)</span> <a class="hash-link" href="#vibrate">#</a>
 		</h4>
 		<div>
-		<p><code>pattern</code>参数为一个不定长的数组。在Andriod上，数组第一个元素表示开始震动前的等待时间，然后是震动持续时长和等待时长的交替，例如[0, 500, 1000, 500]表示立刻开始震动500ms，然后等待1000ms，再震动500ms；但在iOS上震动时长是固定的，所以从数组第二个元素开始都是表示震动的间隔时长。</p>
+		<p><code>pattern</code>参数为一个不定长的数组。在Android上，数组第一个元素表示开始震动前的等待时间，然后是震动持续时长和等待时长的交替，例如[0, 500, 1000, 500]表示立刻开始震动500ms，然后等待1000ms，再震动500ms；但在iOS上震动时长是固定的，所以从数组第二个元素开始都是表示震动的间隔时长。</p>
 		<p><code>repeat</code>参数为布尔类型，表示是否持续循环震动。为true时只有调用cancel才会停止。</p>
 		</div>
 	</div>
@@ -30,7 +30,7 @@ original_id: vibration
 
 ### 例子
 
-```jsx  
+```jsx
 'use strict';
 
 var React = require('react');
@@ -41,7 +41,7 @@ var {
   Text,
   TouchableHighlight,
   Vibration,
-  Platform,
+  Platform
 } = ReactNative;
 
 exports.framework = 'React';
@@ -78,7 +78,7 @@ exports.examples = [
           <Text>{patternDescription}</Text>
         </View>
       );
-    },
+    }
   },
   {
     title: 'Vibration.vibrate()',
@@ -92,7 +92,7 @@ exports.examples = [
           </View>
         </TouchableHighlight>
       );
-    },
+    }
   },
   {
     title: `Vibration.vibrate(${patternLiteral})`,
@@ -106,7 +106,7 @@ exports.examples = [
           </View>
         </TouchableHighlight>
       );
-    },
+    }
   },
   {
     title: `Vibration.vibrate(${patternLiteral}, true)`,
@@ -120,7 +120,7 @@ exports.examples = [
           </View>
         </TouchableHighlight>
       );
-    },
+    }
   },
   {
     title: 'Vibration.cancel()',
@@ -134,18 +134,18 @@ exports.examples = [
           </View>
         </TouchableHighlight>
       );
-    },
-  },
+    }
+  }
 ];
 
 var styles = StyleSheet.create({
   wrapper: {
     borderRadius: 5,
-    marginBottom: 5,
+    marginBottom: 5
   },
   button: {
     backgroundColor: '#eeeeee',
-    padding: 10,
-  },
+    padding: 10
+  }
 });
 ```

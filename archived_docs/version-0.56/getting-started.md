@@ -6,7 +6,6 @@ original_id: getting-started
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
-
 欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。如果你已经搭好了环境，那么可以尝试一下[编写 Hello World](tutorial.md)。
 
 <div class="toggler">
@@ -124,19 +123,19 @@ If you're integrating React Native into an existing project, you'll want to skip
 
 ## 安装依赖
 
-必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、Watchman 和 React Native 命令行工具以及 JDK 和 Android Studio。
 
 <block class="native linux android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、React Native 命令行工具以及 JDK 和 Android Studio。
 
 <block class="native windows android" />
 
 ## 安装依赖
 
-必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Andriod Studio。
+必须安装的依赖有：Node、React Native 命令行工具、Python2 以及 JDK 和 Android Studio。
 
 <block class="native mac windows linux android" />
 
@@ -599,4 +598,3 @@ react-native run-android
 - 如果你想把 React Native 集成到现有的原生项目中，则请参考[集成到现有原生应用](integration-with-existing-apps.md)。
 
 如果你想从头开始学习 React Native 开发，可以从尝试[编写 Hello World](tutorial.md)开始。
-

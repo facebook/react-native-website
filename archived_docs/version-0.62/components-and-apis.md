@@ -99,7 +99,7 @@ React Native 提供了一些内置的[核心组件](intro-react-native-component
 
 ## Android 独有的组件和 API
 
-下面的组件提供了对 Andriod 常用类的封装。
+下面的组件提供了对 Android 常用类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">

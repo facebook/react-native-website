@@ -3,16 +3,17 @@ id: version-0.55-components-and-apis
 title: 组件和API
 original_id: components-and-apis
 ---
+
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm%40qq.com+in%3Aemail&type=Users)(100.00%)
 
 React Native 提供了一些内置的组件。你可以在网站的左侧看到组件的完整列表。如果你不知道从哪看起，那么可以先看一下下面这个简单的分类：
 
-* [基础组件](components-and-apis.md#基础组件)
-* [交互控件](components-and-apis.md#交互控件)
-* [列表视图](components-and-apis.md#列表视图)
-* [iOS 独有组件](components-and-apis.md#iOS 独有的组件和 API)
-* [Android 独有组件](components-and-apis.md#Android 独有的组件和 API)
-* [其他](components-and-apis.md#其他)
+- [基础组件](components-and-apis.md#基础组件)
+- [交互控件](components-and-apis.md#交互控件)
+- [列表视图](components-and-apis.md#列表视图)
+- [iOS 独有组件](components-and-apis.md#iOS 独有的组件和 API)
+- [Android 独有组件](components-and-apis.md#Android 独有的组件和 API)
+- [其他](components-and-apis.md#其他)
 
 需要说明的是，你不会被局限在这些内置组件上。React Native 是大开源社区的作品，所以你还可以在 github 或是 npm 上搜索到带有`react native`关键字的大量的第三方组件。
 
@@ -130,7 +131,7 @@ React Native 提供了一些内置的组件。你可以在网站的左侧看到�
 
 ## Android 独有的组件和 API
 
-下面很多组件提供了对 Andriod 常用类的封装。
+下面很多组件提供了对 Android 常用类的封装。
 
 <div class="component-grid component-grid-border">
   <div class="component">
