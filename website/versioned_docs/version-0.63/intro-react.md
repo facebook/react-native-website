@@ -286,13 +286,19 @@ Most of React Native’s Core Components can be customized with props, too. For 
 import React from 'react';
 import { Text, View, Image } from 'react-native';
 
+const CatImage = (props) => {
+  return (
+    <Image
+       source={{uri: props.source}}
+       style={{width: 200, height: 200}}
+     />
+  );
+}
+
 const CatApp = () => {
   return (
     <View>
-      <Image
-        source={{uri: "https://reactnative.dev/docs/assets/p_cat1.png"}}
-        style={{width: 200, height: 200}}
-      />
+      <CatImage source="https://reactnative.dev/docs/assets/p_cat1.png"/>
       <Text>Hello, I am your cat!</Text>
     </View>
   );
