@@ -58,7 +58,7 @@ export default App;
 Platform.constants;
 ```
 
-Returns an object which contains all avaiable common and specific constants related to the platform.
+Returns an object which contains all available common and specific constants related to the platform.
 
 **Properties:**
 
