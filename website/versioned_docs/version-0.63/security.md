@@ -63,6 +63,7 @@ In order to use iOS Keychain services or Android Secure Shared Preferences, you 
 
 - [expo-secure-store](https://docs.expo.io/versions/latest/sdk/securestore/)
 - [react-native-keychain](https://github.com/oblador/react-native-keychain)
+- [react-native-encrypted-storage](https://github.com/emeraldsanto/react-native-encrypted-storage) - uses Keychain on iOS and EncryptedSharedPreferences on Android.
 - [react-native-sensitive-info](https://github.com/mCodex/react-native-sensitive-info) - secure for iOS, but uses Android Shared Preferences for Android (which is not secure by default). There is however a [branch](https://github.com/mCodex/react-native-sensitive-info/tree/keystore) that uses Android Keystore.
   - [redux-persist-sensitive-storage](https://github.com/CodingZeal/redux-persist-sensitive-storage) - wraps react-native-sensitive-info for Redux.
 
