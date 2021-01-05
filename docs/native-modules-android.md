@@ -520,7 +520,7 @@ private void sendEvent(ReactContext reactContext,
 WritableMap params = Arguments.createMap();
 params.putString("eventProperty", "someValue");
 ...
-sendEvent(reactContext, "EventReminder", params);x`
+sendEvent(reactContext, "EventReminder", params);
 ```
 
 JavaScript modules can then register to receive events by `addListener` on the [NativeEventEmitter](https://github.com/facebook/react-native/blob/master/Libraries/EventEmitter/NativeEventEmitter.js) class.
