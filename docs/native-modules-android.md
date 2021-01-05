@@ -380,7 +380,7 @@ const onPress = () => {
     'Party',
     'My House',
     (eventId) => {
-      console.log('Created a new event with id ${eventId}');
+      console.log(`Created a new event with id ${eventId}`);
     }
   );
 };
