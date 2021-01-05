@@ -17,7 +17,7 @@ const logo = {
   height: 64
 };
 
-export default App = () => (
+export default  () => (
   <ScrollView>
     <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
     <Image source={logo} />
