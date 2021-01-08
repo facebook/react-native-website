@@ -81,6 +81,13 @@
     "pinned": true
   },
   {
+    "name": "Mercari",
+    "icon": "mercari.png",
+    "linkAppStore": "https://apps.apple.com/us/app/mercari-your-marketplace/id896130944",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mercariapp.mercari",
+    "pinned": true
+  },
+  {
     "name": "NerdWallet",
     "icon": "nerdwallet.png",
     "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
