@@ -119,7 +119,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)loca
 You can use the `RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD` to create a synchronous native method.
 
 ```objectivec
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getName){
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getName)
 {
 return [[UIDevice currentDevice] name];
 }
