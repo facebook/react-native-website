@@ -13,7 +13,7 @@ Let's say we want to add an interactive Map to our app - might as well use [`MKM
 
 Native views are created and manipulated by subclasses of `RCTViewManager`. These subclasses are similar in function to view controllers, but are essentially singletons - only one instance of each is created by the bridge. They expose native views to the `RCTUIManager`, which delegates back to them to set and update the properties of the views as necessary. The `RCTViewManager`s are also typically the delegates for the views, sending events back to JavaScript via the bridge.
 
-To exposing a view you can:
+To expose a view you can:
 
 - Subclass `RCTViewManager` to create a manager for your component.
 - Add the `RCT_EXPORT_MODULE()` marker macro.
