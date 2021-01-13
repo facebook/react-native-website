@@ -214,7 +214,7 @@ export default Cat;
 </TabItem>
 <TabItem value="android">
 
-> 在 Android 上，常见的做法是把视图放入`LinearLayout`, `FrameLayout`或是`RelativeLayout`等布局容器中来定义子元素如何排列。在 React Native 中， `View` 使用弹性和模型（Flexbox）来为子元素布局。详情请参考[使用 Flexbox 布局](flexbox)。
+> 在 Android 上，常见的做法是把视图放入`LinearLayout`, `FrameLayout`或是`RelativeLayout`等布局容器中来定义子元素如何排列。在 React Native 中， `View` 使用弹性盒模型（Flexbox）来为子元素布局。详情请参考[使用 Flexbox 布局](flexbox)。
 
 </TabItem>
 </Tabs>
