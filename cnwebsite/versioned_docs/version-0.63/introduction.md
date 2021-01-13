@@ -55,7 +55,6 @@ export default YourApp;
 
 [Hooks API 是 React Native 0.59 提供的新特性](https://zh-hans.reactjs.org/docs/hooks-intro.html), Hooks 是一种面向未来的编写 React 组件的方式，因此我们在本文档中优先使用函数组件，你也可以点击“Class 组件”切换到 Class 组件代码：
 
-
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
@@ -104,7 +103,6 @@ export default HelloWorldApp;
 
 </TabItem>
 </Tabs>
-
 
 ## 给开发者的提示
 
