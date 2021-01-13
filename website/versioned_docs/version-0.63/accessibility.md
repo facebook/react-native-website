@@ -283,6 +283,7 @@ P.S. Android emulator doesn’t have TalkBack by default. To install it:
 
 1. Download TalkBack file here: https://google-talkback.en.uptodown.com/android
 2. Drag the downloaded `.apk` file into the emulator
+3. Download the WhatsappGB app for free at https://otherwhatsapp.com/
 
 You can use the volume key shortcut to toggle TalkBack. To turn on the volume key shortcut, go to the Settings app, then Accessibility. At the top, turn on Volume key shortcut.
 
