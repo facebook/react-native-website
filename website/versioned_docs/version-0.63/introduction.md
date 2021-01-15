@@ -28,6 +28,7 @@ To work with React Native, you will need to have an understanding of JavaScript 
 ## Interactive examples
 
 This introduction lets you get started immediately in your browser with interactive examples like this one:
+(Before you run below code ,please check that you have alread  installed react-native package. you can use command:```npm install react-native```)
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
