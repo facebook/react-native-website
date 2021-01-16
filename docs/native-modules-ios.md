@@ -24,7 +24,7 @@ We recommend using Xcode to write your native code. Xcode is built for iOS devel
 
 ### Create Custom Native Module Files
 
-The first step is to create our main custom native module header and implementation files. Create a new file called `RCTCalendarModule.h` 
+The first step is to create our main custom native module header and implementation files. Create a new file called `RCTCalendarModule.h`
 
 <figure>
   <img src="/docs/assets/native-modules-ios-add-class.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
