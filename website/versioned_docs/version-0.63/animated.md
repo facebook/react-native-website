@@ -322,6 +322,7 @@ Config is an object that may have the following options:
 - `delay`: Start the animation after delay (milliseconds). Default 0.
 - `isInteraction`: Whether or not this animation creates an "interaction handle" on the `InteractionManager`. Default true.
 - `useNativeDriver`: Uses the native driver when true. Default false.
+- `toValue`: Value to animate to.
 
 ---
 
