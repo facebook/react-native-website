@@ -340,6 +340,8 @@ Caveat 1: Reordering elements in the scrollview with this enabled will probably 
 
 Caveat 2: This uses `contentOffset` and `frame.origin` in native code to compute visibility. Occlusion, transforms, and other complexity won't be taken into account as to whether content is "visible" or not.
 
+Caveat 3: This is only available on iOS. For android, you can use the available alternative - [@stream-io/flat-list-mvcp](https://github.com/GetStream/flat-list-mvcp)
+
 | Type                                                                     | Required | Platform |
 | ------------------------------------------------------------------------ | -------- | -------- |
 | object: { minIndexForVisible: number, autoscrollToTopThreshold: number } | No       | iOS      |
