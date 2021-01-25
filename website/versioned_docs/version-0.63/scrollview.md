@@ -81,7 +81,7 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 ### `alwaysBounceVertical`
 
-When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `horizontal={true}` and true otherwise.
+When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `vertical={true}` and true otherwise.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
