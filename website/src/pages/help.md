@@ -38,7 +38,7 @@ There are a lot of [React Native Meetups](http://www.meetup.com/topics/react-nat
 
 ### Reactiflux Chat
 
-If you need an answer right away, check out the [Reactiflux Discord](https://discord.gg/0ZcbPKXt5bZjGY5n) community. There are usually a number of React Native experts there who can help out or point you to somewhere you might want to look.
+If you need an answer right away, check out the [Reactiflux Discord](https://discord.gg/JuTwWB8rsy) community. There are usually a number of React Native experts there who can help out or point you to somewhere you might want to look.
 
 ### Forum-like groups
 
