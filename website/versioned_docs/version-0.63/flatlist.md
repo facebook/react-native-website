@@ -433,7 +433,7 @@ How far from the end (in units of visible length of the list) the bottom edge of
 () => void
 ```
 
-If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly.
+If provided, a standard RefreshControl will be added for "Pull to Refresh" functionality. Make sure to also set the `refreshing` prop correctly. For more detailed options, a RefreshControl can also be provided, see `refreshControl` prop.
 
 | Type     | Required |
 | -------- | -------- |
@@ -480,7 +480,7 @@ May not have full feature parity and is meant for debugging and performance comp
 
 ### `refreshControl`
 
-A RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView. Using a RefreshControl allows e.g. styling options, etc. Alternatively, `refreshing` and `onRefresh` props could be used.
+A RefreshControl component, used to provide customizeable "Pull to Refresh" functionality for the FlatList. Using a RefreshControl allows e.g. styling options, etc. Alternatively, `refreshing` and `onRefresh` props could be used.
 
 See [RefreshControl](refreshcontrol.md).
 
