@@ -478,6 +478,18 @@ May not have full feature parity and is meant for debugging and performance comp
 
 ---
 
+### `refreshControl`
+
+A RefreshControl component, used to provide pull-to-refresh functionality for the ScrollView. Using a RefreshControl allows e.g. styling options, etc. Alternatively, `refreshing` and `onRefresh` props could be used.
+
+See [RefreshControl](refreshcontrol.md).
+
+| Type    | Required |
+| ------- | -------- |
+| element | No       |
+
+---
+
 ### `refreshing`
 
 Set this true while waiting for new data from a refresh.
