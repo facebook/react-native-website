@@ -310,7 +310,7 @@ See the [Accessibility guide](accessibility#accessible-ios-android) for more inf
 
 ---
 
-### `adjustsFontSizeToFit` <div class="label ios">iOS</div>
+### `adjustsFontSizeToFit`
 
 Specifies whether fonts should be scaled down automatically to fit given style constraints.
 
