@@ -227,11 +227,11 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 ### `ListEmptyComponent`
 
-Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
 | Type                         | Required |
 | ---------------------------- | -------- |
-| component, function, element | No       |
+| component, element           | No       |
 
 ---
 
@@ -247,11 +247,11 @@ Each data item is rendered using this element. Can be a React Component Class, o
 
 ### `ListFooterComponent`
 
-Rendered at the bottom of all the items. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the bottom of all the items. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
 | Type                         | Required |
 | ---------------------------- | -------- |
-| component, function, element | No       |
+| component, element           | No       |
 
 ---
 
@@ -267,11 +267,11 @@ Styling for internal View for ListFooterComponent
 
 ### `ListHeaderComponent`
 
-Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the top of all the items. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
 | Type                         | Required |
 | ---------------------------- | -------- |
-| component, function, element | No       |
+| component, element           | No       |
 
 ---
 
