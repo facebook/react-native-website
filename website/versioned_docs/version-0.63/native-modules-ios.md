@@ -27,7 +27,7 @@ We recommend using Xcode to write your native code. Xcode is built for iOS devel
 The first step is to create our main custom native module header and implementation files. Create a new file called `RCTCalendarModule.h`
 
 <figure>
-  <img src="/docs/assets/native-modules-ios-open-project.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
+  <img src="/docs/assets/native-modules-ios-add-class.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
   <figcaption>Image of creating a custom native module file within the same folder as AppDelegate</figcaption>
 </figure>
 
