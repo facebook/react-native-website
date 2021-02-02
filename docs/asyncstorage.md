@@ -3,7 +3,7 @@ id: asyncstorage
 title: '🚧 AsyncStorage'
 ---
 
-> **Deprecated.** Use [@react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=storage) instead.
 
 `AsyncStorage` is an unencrypted, asynchronous, persistent, key-value storage system that is global to the app. It should be used instead of LocalStorage.
 
