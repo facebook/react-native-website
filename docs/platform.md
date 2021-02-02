@@ -166,7 +166,7 @@ Returns the most fitting value for the platform you are currently running on.
 | ------ | ------ | -------- | ----------------------------- |
 | config | object | Yes      | See config description below. |
 
-[`select`](platform.md#select) method, given an object where keys can be one of `'android' | 'ios' | 'native' | 'default'`, returns the most fitting value for the platform you are currently running on. That is, if you're running on a phone, `android` and `ios` keys will take preference. If those are not specified, `native` key will be used and then the `default` key.
+Select method returns the most fitting value for the platform you are currently running on. That is, if you're running on a phone, `android` and `ios` keys will take preference. If those are not specified, `native` key will be used and then the `default` key.
 
 The `config` parameter is an object with the following keys:
 
@@ -175,7 +175,7 @@ The `config` parameter is an object with the following keys:
 - `native` (any)
 - `default` (any)
 
-Example usage:
+**Example usage:**
 
 ```jsx
 import { Platform, StyleSheet } from 'react-native';
