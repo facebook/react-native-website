@@ -4,8 +4,8 @@ title: '🚧 SegmentedControlIOS'
 ---
 
 > **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=segmentedcontrol) instead.
->
-> Uses `SegmentedControlIOS` to render a UISegmentedControl iOS.
+
+Uses `SegmentedControlIOS` to render a UISegmentedControl iOS.
 
 #### Programmatically changing selected index
 
