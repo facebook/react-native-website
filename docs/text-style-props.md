@@ -5,9 +5,10 @@ title: Text Style Props
 
 ### Example
 
-```SnackPlayer name=TextStyleProps&supportedPlatforms=android,ios
+```SnackPlayer name=TextStyleProps&dependencies=expo-constants,@react-native-community/slider
 import React, { useState } from "react";
-import { FlatList, Platform, ScrollView, Slider, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
+import { FlatList, Platform, ScrollView, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
+import Slider from '@react-native-community/slider';
 import Constants from "expo-constants";
 
 const fontStyles = ["normal", "italic"];
