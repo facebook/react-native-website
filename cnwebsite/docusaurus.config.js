@@ -18,6 +18,7 @@ module.exports = {
       defer: true,
     },
     {src: '//snack.expo.io/embed.js', defer: true},
+    {src: '//wwads.cn/js/ads.js', defer: true},
   ],
   favicon: cdnUrl + 'img/favicon.ico',
   titleDelimiter: '·',
