@@ -12,7 +12,7 @@ You can alternatively use `showWithGravity(message, duration, gravity)` to speci
 
 The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' method adds the ability to specify an offset with in pixels.
 
-```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
+```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android&dependencies=expo-constants
 import React from "react";
 import { View, StyleSheet, ToastAndroid, Button } from "react-native";
 import Constants from "expo-constants";
@@ -72,7 +72,7 @@ export default App;
 
 The ToastAndroid API is imperative, but there is a way to expose a declarative component from it as in this example:
 
-```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
+```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android&dependencies=expo-constants
 import React, { useState, useEffect } from "react";
 import { View, StyleSheet, ToastAndroid, Button } from "react-native";
 import Constants from "expo-constants";

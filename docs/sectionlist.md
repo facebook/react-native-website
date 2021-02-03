@@ -25,7 +25,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-```SnackPlayer name=SectionList%20Example
+```SnackPlayer name=SectionList%20Example&dependencies=expo-constants
 import React from "react";
 import {
   StyleSheet,
@@ -100,7 +100,7 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=SectionList%20Example
+```SnackPlayer name=SectionList%20Example&dependencies=expo-constants
 import React, { Component } from "react";
 import {
   StyleSheet,

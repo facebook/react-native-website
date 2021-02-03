@@ -21,7 +21,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 ## Example
 
-```SnackPlayer name=ScrollView
+```SnackPlayer name=ScrollView&dependencies=expo-constants
 import React from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
 import Constants from 'expo-constants';

@@ -13,7 +13,7 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 ## Example
 
-```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
+```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android&dependencies=expo-constants
 import React, { useState } from "react";
 import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
 import Constants from "expo-constants";

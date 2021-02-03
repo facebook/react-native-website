@@ -9,7 +9,7 @@ Virtualization massively improves memory consumption and performance of large li
 
 ## Example
 
-```SnackPlayer name=VirtualizedListExample
+```SnackPlayer name=VirtualizedListExample&dependencies=expo-constants
 import React from 'react';
 import { SafeAreaView, View, VirtualizedList, StyleSheet, Text } from 'react-native';
 import Constants from 'expo-constants';

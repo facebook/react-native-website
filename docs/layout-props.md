@@ -9,7 +9,7 @@ title: Layout Props
 
 The following example shows how different properties can affect or shape a React Native layout. You can try for example to add or remove squares from the UI while changing the values of the property `flexWrap`.
 
-```SnackPlayer name=LayoutProps%20Example
+```SnackPlayer name=LayoutProps%20Example&dependencies=expo-constants
 import React, { useState } from 'react';
 import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';

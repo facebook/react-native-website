@@ -23,7 +23,7 @@ If a user has previously turned off a permission that you prompt for, the OS wil
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
+```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android&dependencies=expo-constants
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, PermissionsAndroid, Button } from "react-native";
 import Constants from "expo-constants";
@@ -81,7 +81,7 @@ export default App;
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android
+```SnackPlayer name=PermissionsAndroid%20Example&supportedPlatforms=android&dependencies=expo-constants
 import React, { Component } from "react";
 import { StyleSheet, Text, View, SafeAreaView, PermissionsAndroid, Button } from "react-native";
 import Constants from "expo-constants";
