@@ -100,7 +100,7 @@ Enabled or disabled KeyboardAvoidingView. The default is `true`.
 
 ### `keyboardVerticalOffset`
 
-This is the distance between the top of the user screen and the react native view, may be non-zero in some use cases. Defaults to 0.
+The distance between the top of the screen and the top of the KeyboardAvoidingView. Defaults to 0.
 
 | Type   | Required |
 | ------ | -------- |
