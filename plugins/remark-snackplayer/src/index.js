@@ -26,6 +26,7 @@ const processNode = (node, parent) => {
         : 'Example usage';
       const sampleCode = node.value;
       const encodedSampleCode = encodeURIComponent(sampleCode);
+      const dependencies = params.dependencies || '';
       const platform = params.platform || 'web';
       const supportedPlatforms = params.supportedPlatforms || 'ios,android,web';
       const theme = params.theme || 'light';
@@ -33,6 +34,7 @@ const processNode = (node, parent) => {
       const loading = params.loading || 'lazy';
 
       // Generate Node for SnackPlayer
+      // See https://github.com/expo/snack/blob/main/docs/embedding-snacks.md
       const snackPlayerDiv = u('html', {
         value: dedent`
           <div
@@ -40,6 +42,7 @@ const processNode = (node, parent) => {
             data-snack-name="${name}"
             data-snack-description="${description}"
             data-snack-code="${encodedSampleCode}"
+            data-snack-dependencies="${dependencies}"
             data-snack-platform="${platform}"
             data-snack-supported-platforms="${supportedPlatforms}"
             data-snack-theme="${theme}"

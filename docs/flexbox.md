@@ -44,7 +44,7 @@ export default Flex;
 
 ## Flex Direction
 
-[`flexDirection`](layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the _main axis_. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
+[`flexDirection`](layout-props#flexdirection) controls the direction in which the children of a node are laid out. This is also referred to as the main axis. The cross axis is the axis perpendicular to the main axis, or the axis which the wrapping lines are laid out in.
 
 - `column` (**default value**) Align children from top to bottom. If wrapping is enabled, then the next line will start to the right of the first item on the top of the container.
 
@@ -700,9 +700,9 @@ export default AlignSelfLayout;
 
 - `center` Align wrapped lines in the center of the container's cross axis.
 
-- `space-between` Evenly space wrapped lines across the container's main axis, distributing the remaining space between the lines.
+- `space-between` Evenly space wrapped lines across the container's cross axis, distributing the remaining space between the lines.
 
-- `space-around` Evenly space wrapped lines across the container's main axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
+- `space-around` Evenly space wrapped lines across the container's cross axis, distributing the remaining space around the lines. Compared to `space-between`, using `space-around` will result in space being distributed to the beginning of the first line and the end of the last line.
 
 You can learn more [here](https://yogalayout.com/docs/align-content).
 
@@ -983,7 +983,7 @@ export default FlexWrapLayout;
 
 - [`flexShrink`](layout-props#flexshrink) describes how to shrink children along the main axis in the case in which the total size of the children overflows the size of the container on the main axis. `flexShrink` is very similar to `flexGrow` and can be thought of in the same way if any overflowing size is considered to be negative remaining space. These two properties also work well together by allowing children to grow and shrink as needed.
 
-  `flexShrink` accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the children’s `flexShrink` values.
+  `flexShrink` accepts any floating point value >= 0, with 0 being the default value (on the web, the default is 1). A container will shrink its children weighted by the children’s `flexShrink` values.
 
 - [`flexBasis`](layout-props#flexbasis) is an axis-independent way of providing the default size of an item along the main axis. Setting the `flexBasis` of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The `flexBasis` of an item is the default size of that item, the size of the item before any `flexGrow` and `flexShrink` calculations are performed.
 

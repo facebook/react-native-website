@@ -226,7 +226,3 @@ static setDeadline(deadline)
 ```
 
 A positive number will use setTimeout to schedule any tasks after the eventLoopRunningTime hits the deadline value, otherwise all tasks will be executed in one setImmediate batch (default).
-
-## Properties
-
----

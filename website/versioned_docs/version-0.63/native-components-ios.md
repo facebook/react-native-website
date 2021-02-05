@@ -13,7 +13,7 @@ Let's say we want to add an interactive Map to our app - might as well use [`MKM
 
 Native views are created and manipulated by subclasses of `RCTViewManager`. These subclasses are similar in function to view controllers, but are essentially singletons - only one instance of each is created by the bridge. They expose native views to the `RCTUIManager`, which delegates back to them to set and update the properties of the views as necessary. The `RCTViewManager`s are also typically the delegates for the views, sending events back to JavaScript via the bridge.
 
-To exposing a view you can:
+To expose a view you can:
 
 - Subclass `RCTViewManager` to create a manager for your component.
 - Add the `RCT_EXPORT_MODULE()` marker macro.
@@ -400,8 +400,8 @@ When the user interacts with the component, like clicking the button, the `backg
 
 ```jsx
 <View>
-  <MyNativeView ref={this.myNativeReference}>/>
-  <MyNativeView ref={this.myNativeReference2}>/>
+  <MyNativeView ref={this.myNativeReference} />
+  <MyNativeView ref={this.myNativeReference2} />
   <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
 </View>
 ```
@@ -411,7 +411,7 @@ Now the above component has a reference to a particular `MyNativeView` which all
 `MyNativeView.ios.js` contains code as follow:
 
 ```jsx
-class MyNativeView extends React.Component<> {
+class MyNativeView extends React.Component {
   callNativeMethod = () => {
     UIManager.dispatchViewManagerCommand(
       ReactNative.findNodeHandle(this),

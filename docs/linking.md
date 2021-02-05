@@ -102,11 +102,11 @@ There are two ways to handle URLs that open your app.
 
 #### 1. If the app is already open, the app is foregrounded and a Linking 'url' event is fired
 
-You can handle these events with `Linking.addEventListener('url', callback)` -- it calls `callback({ url })` with the linked URL
+You can handle these events with `Linking.addEventListener('url', callback)` - it calls `callback({ url })` with the linked URL
 
 #### 2. If the app is not already open, it is opened and the url is passed in as the initialURL
 
-You can handle these events with `Linking.getInitialURL()` -- it returns a Promise that resolves to the URL, if there is one.
+You can handle these events with `Linking.getInitialURL()` - it returns a Promise that resolves to the URL, if there is one.
 
 ---
 
@@ -283,14 +283,6 @@ export default App;
 
 ## Methods
 
-### `constructor()`
-
-```jsx
-constructor();
-```
-
----
-
 ### `addEventListener()`
 
 ```jsx
@@ -298,42 +290,6 @@ addEventListener(type, handler);
 ```
 
 Add a handler to Linking changes by listening to the `url` event type and providing the handler.
-
----
-
-### `removeEventListener()`
-
-```jsx
-removeEventListener(type, handler);
-```
-
-Remove a handler by passing the `url` event type and the handler.
-
----
-
-### `openURL()`
-
-```jsx
-openURL(url);
-```
-
-Try to open the given `url` with any of the installed apps.
-
-You can use other URLs, like a location (e.g. "geo:37.484847,-122.148386" on Android or "http://maps.apple.com/?ll=37.484847,-122.148386" on iOS), a contact, or any other URL that can be opened with the installed apps.
-
-The method returns a `Promise` object. If the user confirms the open dialog or the url automatically opens, the promise is resolved. If the user cancels the open dialog or there are no registered applications for the url, the promise is rejected.
-
-**Parameters:**
-
-| Name | Type   | Required | Description      |
-| ---- | ------ | -------- | ---------------- |
-| url  | string | Yes      | The URL to open. |
-
-> This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check {@code canOpenURL} first.
-
-> For web URLs, the protocol ("http://", "https://") must be set accordingly!
-
-> This method may behave differently in a simulator e.g. "tel:" links are not able to be handled in the iOS simulator as there's no access to the dialer app.
 
 ---
 
@@ -351,27 +307,17 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 **Parameters:**
 
-| Name | Type   | Required | Description      |
-| ---- | ------ | -------- | ---------------- |
-| url  | string | Yes      | The URL to open. |
+| Name                                                     | Type   | Description      |
+| -------------------------------------------------------- | ------ | ---------------- |
+| url <div className="label basic required">Required</div> | string | The URL to open. |
 
-> For web URLs, the protocol ("http://", "https://") must be set accordingly!
-
-> As of iOS 9, your app needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or canOpenURL will always return false.
+> For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
 
 > This method has limitations on iOS 9+. From [the official Apple documentation](https://developer.apple.com/documentation/uikit/uiapplication/1622952-canopenurl):
-
-> If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
-
----
-
-### `openSettings()`
-
-```jsx
-openSettings();
-```
-
-Open the Settings app and displays the app’s custom settings, if it has any.
+>
+> - If your app is linked against an earlier version of iOS but is running in iOS 9.0 or later, you can call this method up to 50 times. After reaching that limit, subsequent calls always return false. If the user reinstalls or upgrades the app, iOS resets the limit.
+>
+> As of iOS 9, your app also needs to provide the `LSApplicationQueriesSchemes` key inside `Info.plist` or `canOpenURL()` will always return `false`.
 
 ---
 
@@ -389,12 +335,63 @@ If the app launch was triggered by an app link, it will give the link url, other
 
 ---
 
-### `sendIntent()`
+### `openSettings()`
 
 ```jsx
-sendIntent(action: string, extras?: Array<{key: string, value: string | number | boolean}>)
+openSettings();
 ```
 
-> @platform android
+Open the Settings app and displays the app’s custom settings, if it has any.
 
-**Android-Only.** Launch an Android intent with extras (optional)
+---
+
+### `openURL()`
+
+```jsx
+openURL(url);
+```
+
+Try to open the given `url` with any of the installed apps.
+
+You can use other URLs, like a location (e.g. "geo:37.484847,-122.148386" on Android or "http://maps.apple.com/?ll=37.484847,-122.148386" on iOS), a contact, or any other URL that can be opened with the installed apps.
+
+The method returns a `Promise` object. If the user confirms the open dialog or the url automatically opens, the promise is resolved. If the user cancels the open dialog or there are no registered applications for the url, the promise is rejected.
+
+**Parameters:**
+
+| Name                                                     | Type   | Description      |
+| -------------------------------------------------------- | ------ | ---------------- |
+| url <div className="label basic required">Required</div> | string | The URL to open. |
+
+> This method will fail if the system doesn't know how to open the specified URL. If you're passing in a non-http(s) URL, it's best to check `canOpenURL()` first.
+
+> For web URLs, the protocol (`"http://"`, `"https://"`) must be set accordingly!
+
+> This method may behave differently in a simulator e.g. `"tel:"` links are not able to be handled in the iOS simulator as there's no access to the dialer app.
+
+---
+
+### `removeEventListener()`
+
+```jsx
+removeEventListener(type, handler);
+```
+
+Remove a handler by passing the `url` event type and the handler.
+
+---
+
+### `sendIntent()` <div class="label android">Android</div>
+
+```jsx
+sendIntent(action, extras);
+```
+
+Launch an Android intent with extras.
+
+**Parameters:**
+
+| Name                                                        | Type                                                     |
+| ----------------------------------------------------------- | -------------------------------------------------------- |
+| action <div className="label basic required">Required</div> | string                                                   |
+| extras                                                      | array of `{key: string, value: string, number, boolean}` |

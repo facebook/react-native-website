@@ -310,7 +310,7 @@ See the [Accessibility guide](accessibility#accessible-ios-android) for more inf
 
 ---
 
-### `adjustsFontSizeToFit` <div class="label ios">iOS</div>
+### `adjustsFontSizeToFit`
 
 Specifies whether fonts should be scaled down automatically to fit given style constraints.
 
@@ -659,6 +659,6 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | lines  | array of [TextLayout](text#textlayout)s | No       | Provides the TextLayout data for every rendered line. |
 | target | number                                  | No       | The node id of the element.                           |
 
-# Known issues
+## Known issues
 
 - [react-native#22811](https://github.com/facebook/react-native/issues/22811): Nested Text elements do not support `numberOfLines` attribute

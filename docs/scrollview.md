@@ -85,7 +85,7 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 ### `alwaysBounceVertical`
 
-When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `horizontal={true}` and true otherwise.
+When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `vertical={true}` and true otherwise.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |
@@ -105,7 +105,7 @@ Controls whether iOS should automatically adjust the content inset for scroll vi
 
 ### `bounces`
 
-When true, the scroll view bounces when it reaches the end of the content if the content is larger then the scroll view along the axis of the scroll direction. When false, it disables all bouncing even if the `alwaysBounce*` props are true. The default value is true.
+When true, the scroll view bounces when it reaches the end of the content if the content is larger than the scroll view along the axis of the scroll direction. When false, it disables all bouncing even if the `alwaysBounce*` props are true. The default value is true.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

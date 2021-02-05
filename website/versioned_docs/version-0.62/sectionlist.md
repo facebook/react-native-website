@@ -262,7 +262,7 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 
 | Type                           | Required |
 | ------------------------------ | -------- |
-| [component, function, element] | No       |
+| [component, element]           | No       |
 
 ---
 
@@ -278,31 +278,31 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 ### `ListEmptyComponent`
 
-Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
 | Type                           | Required |
 | ------------------------------ | -------- |
-| [component, function, element] | No       |
+| [component, element]           | No       |
 
 ---
 
 ### `ListFooterComponent`
 
-Rendered at the very end of the list. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the very end of the list. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
 | Type                           | Required |
 | ------------------------------ | -------- |
-| [component, function, element] | No       |
+| [component, element]           | No       |
 
 ---
 
 ### `ListHeaderComponent`
 
-Rendered at the very beginning of the list. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the very beginning of the list. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
 | Type                         | Required |
 | ---------------------------- | -------- |
-| component, function, element | No       |
+| component, element           | No       |
 
 ---
 
@@ -488,5 +488,5 @@ An object that identifies the data to be rendered for a given section.
 | data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
 | [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
 | [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
-| [ItemSeparatorComponent] | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
+| [ItemSeparatorComponent] | component, element           | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
 | [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |

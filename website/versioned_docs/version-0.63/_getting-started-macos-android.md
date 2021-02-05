@@ -22,7 +22,7 @@ If you have already installed Node on your system, make sure it is Node 10 or ne
 We recommend installing JDK using [Homebrew](http://brew.sh/). Run the following commands in a Terminal after installing Homebrew:
 
 ```shell
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk8
 ```
 
 If you have already installed JDK on your system, make sure it is JDK 8 or newer.
