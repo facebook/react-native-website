@@ -11,8 +11,7 @@ The following example shows how different properties can affect or shape a React
 
 ```SnackPlayer name=LayoutProps%20Example
 import React, { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
-import Constants from 'expo-constants';
+import { Button, ScrollView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 const App = () => {
   const flexDirections = ['row', 'row-reverse', 'column', 'column-reverse'];
@@ -54,19 +53,10 @@ const App = () => {
     }
     setterFunction(value + 1);
   };
-
-  const Square = () => {
-    const sqStyle = {
-      width: 50,
-      height: 50,
-      backgroundColor: randomHexColor(),
-    };
-    return <View style={sqStyle} />;
-  };
-  const [squares, setSquares] = useState([Square(), Square(), Square()]);
+  const [squares, setSquares] = useState([<Square />, <Square />, <Square />]);
   return (
     <>
-      <View style={{ paddingTop: Constants.statusBarHeight }} />
+      <View style={{ paddingTop: StatusBar.currentHeight }} />
       <View style={[styles.container, styles.playingSpace, hookedStyles]}>
         {squares.map(elem => elem)}
       </View>
@@ -120,7 +110,7 @@ const App = () => {
           <View style={styles.buttonView}>
             <Button
               title="Add Square"
-              onPress={() => setSquares([...squares, Square()])}
+              onPress={() => setSquares([...squares, <Square/>])}
             />
           </View>
           <View style={styles.buttonView}>
@@ -157,6 +147,14 @@ const styles = StyleSheet.create({
   },
   text: { textAlign: 'center' },
 });
+
+const Square = () => (
+  <View style={{
+    width: 50,
+    height: 50,
+    backgroundColor: randomHexColor(),
+  }} />
+);
 
 const randomHexColor = () => {
   return '#000000'.replace(/0/g, () => {

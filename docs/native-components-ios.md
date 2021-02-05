@@ -402,7 +402,11 @@ When the user interacts with the component, like clicking the button, the `backg
 <View>
   <MyNativeView ref={this.myNativeReference} />
   <MyNativeView ref={this.myNativeReference2} />
-  <Button onPress={() => { this.myNativeReference.callNativeMethod() }}/>
+  <Button
+    onPress={() => {
+      this.myNativeReference.callNativeMethod();
+    }}
+  />
 </View>
 ```
 

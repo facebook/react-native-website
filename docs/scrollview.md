@@ -23,8 +23,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 ```SnackPlayer name=ScrollView
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 const App = () => {
   return (
@@ -47,7 +46,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
   },
   scrollView: {
     backgroundColor: 'pink',

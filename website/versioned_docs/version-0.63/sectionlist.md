@@ -27,14 +27,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 ```SnackPlayer name=SectionList%20Example
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  SectionList
-} from "react-native";
-import Constants from "expo-constants";
+import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "react-native";
 
 const DATA = [
   {
@@ -77,7 +70,7 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16
   },
   item: {
@@ -102,14 +95,7 @@ export default App;
 
 ```SnackPlayer name=SectionList%20Example
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  SectionList
-} from "react-native";
-import Constants from "expo-constants";
+import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "react-native";
 
 const DATA = [
   {
@@ -156,7 +142,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16
   },
   item: {
@@ -260,9 +246,9 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Section]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, element]           | No       |
+| Type                 | Required |
+| -------------------- | -------- |
+| [component, element] | No       |
 
 ---
 
@@ -280,9 +266,9 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, element]           | No       |
+| Type                 | Required |
+| -------------------- | -------- |
+| [component, element] | No       |
 
 ---
 
@@ -290,9 +276,9 @@ Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`)
 
 Rendered at the very end of the list. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                           | Required |
-| ------------------------------ | -------- |
-| [component, element]           | No       |
+| Type                 | Required |
+| -------------------- | -------- |
+| [component, element] | No       |
 
 ---
 
@@ -300,9 +286,9 @@ Rendered at the very end of the list. Can be a React Component (e.g. `SomeCompon
 
 Rendered at the very beginning of the list. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, element           | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
@@ -483,10 +469,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| Name                     | Type                         | Description                                                                                                                                                            |
-| ------------------------ | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data                     | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
-| [key]                    | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
-| [renderItem]             | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
-| [ItemSeparatorComponent] | component, element           | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
-| [keyExtractor]           | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
+| Name                     | Type               | Description                                                                                                                                                            |
+| ------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data                     | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist.md#data).                                                  |
+| [key]                    | string             | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                                 |
+| [renderItem]             | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist.md#renderitem) for the list.                          |
+| [ItemSeparatorComponent] | component, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist.md#itemseparatorcomponent) for the list. |
+| [keyExtractor]           | function           | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist.md#keyextractor).                                   |
