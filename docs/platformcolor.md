@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
           PlatformColor('systemTealColor'),
       },
       android: {
-        color: PlatformColor('?attr/textColor'),
+        color: PlatformColor('?android:attr/textColor'),
         backgroundColor:
           PlatformColor('@android:color/holo_blue_bright'),
       },
