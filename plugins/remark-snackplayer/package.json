@@ -1,6 +1,6 @@
 {
   "name": "@react-native-website/remark-snackplayer",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "description": "Remark Expo Snack Plugin",
   "main": "src/index.js",
@@ -15,7 +15,7 @@
     "src"
   ],
   "scripts": {
-    "prettier": "prettier --write \"{src/**/*.js,tests/**/*.js}\"",
+    "prettier": "prettier --write \"{src/**/*.js,tests/**/*.js,*.md}\"",
     "test": "yarn tape tests/index.js"
   },
   "dependencies": {
