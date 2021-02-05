@@ -9,47 +9,74 @@ Component to control the app status bar.
 
 It is possible to have multiple `StatusBar` components mounted at the same time. The props will be merged in the order the `StatusBar` components were mounted.
 
-```SnackPlayer name=StatusBar%20Android%20and%20iOS%20Component%20Example&supportedPlatforms=android,ios
-import React, { useState } from "react";
-import { Button, Text, StyleSheet, StatusBar, View } from "react-native";
+```SnackPlayer name=StatusBar%20Component%20Example&supportedPlatforms=android,ios
+import React, { useState } from 'react';
+import { Button, Platform, SafeAreaView, StatusBar, StyleSheet, Text, View } from 'react-native';
 
-import Constants from "expo-constants";
+const STYLES = ['default', 'dark-content', 'light-content'];
+const TRANSITIONS = ['fade', 'slide', 'none'];
 
 const App = () => {
-  const styleTypes = ['default','dark-content', 'light-content'];
-  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
-  const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
+  const [hidden, setHidden] = useState(false);
+  const [statusBarStyle, setStatusBarStyle] = useState(STYLES[0]);
+  const [statusBarTransition, setStatusBarTransition] = useState(TRANSITIONS[0]);
 
-  const changeVisibilityStatusBar = () => {
-    setVisibleStatusBar(!visibleStatusBar);
+  const changeStatusBarVisibility = () => setHidden(!hidden);
+
+  const changeStatusBarStyle = () => {
+    const styleId = STYLES.indexOf(statusBarStyle) + 1;
+    if (styleId === STYLES.length) {
+      setStatusBarStyle(STYLES[0]);
+    } else {
+      setStatusBarStyle(STYLES[styleId]);
+    }
   };
 
-  const changeStyleStatusBar = () => {
-    const styleId = styleTypes.indexOf(styleStatusBar) + 1;
-
-    if(styleId === styleTypes.length){
-      return setStyleStatusBar(styleTypes[0]);
+  const changeStatusBarTransition = () => {
+    const transition = TRANSITIONS.indexOf(statusBarTransition) + 1;
+    if (transition === TRANSITIONS.length) {
+      setStatusBarTransition(TRANSITIONS[0]);
+    } else {
+      setStatusBarTransition(TRANSITIONS[transition]);
     }
-    return setStyleStatusBar(styleTypes[styleId]);
   };
 
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.textStyle}>StatusBar Style: {styleStatusBar}</Text>
-        <Text style={styles.textStyle}>StatusBar Visibility: {!visibleStatusBar ? 'Visible': 'Hidden'}</Text>
+    <SafeAreaView style={styles.container}>
+      <StatusBar
+        animated={true}
+        backgroundColor="#61dafb"
+        barStyle={statusBarStyle}
+        showHideTransition={statusBarTransition}
+        hidden={hidden} />
+      <Text style={styles.textStyle}>
+        StatusBar Visibility:{'\n'}
+        {hidden ? 'Hidden' : 'Visible'}
+      </Text>
+      <Text style={styles.textStyle}>
+        StatusBar Style:{'\n'}
+        {statusBarStyle}
+      </Text>
+      {Platform.OS === 'ios' ? (
+        <Text style={styles.textStyle}>
+          StatusBar Transition:{'\n'}
+          {statusBarTransition}
+        </Text>
+      ) : null}
+      <View style={styles.buttonsContainer}>
+        <Button
+          title="Toggle StatusBar"
+          onPress={changeStatusBarVisibility} />
+        <Button
+          title="Change StatusBar Style"
+          onPress={changeStatusBarStyle} />
+        {Platform.OS === 'ios' ? (
+          <Button
+            title="Change StatusBar Transition"
+            onPress={changeStatusBarTransition} />
+        ) : null}
       </View>
-      <StatusBar backgroundColor="blue" barStyle={styleStatusBar} />
-      <View>
-        <StatusBar hidden={visibleStatusBar} />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button title="Toggle StatusBar" onPress={() => changeVisibilityStatusBar()} />
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button title="Change StatusBar Style" onPress={() => changeStyleStatusBar()} />
-      </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -57,15 +84,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ECF0F1',
-    padding: 8
+    backgroundColor: '#ECF0F1'
   },
-  buttonContainer:{
+  buttonsContainer: {
     padding: 10
   },
-  textStyle:{
-    textAlign: 'center'
+  textStyle: {
+    textAlign: 'center',
+    marginBottom: 8
   }
 });
 
