@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 import GuideLinuxAndroid from './\_getting-started-linux-android.md'; import GuideMacOSAndroid from './\_getting-started-macos-android.md'; import GuideWindowsAndroid from './\_getting-started-windows-android.md'; import GuideMacOSIOS from './\_getting-started-macos-ios.md';
 
-欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。如果你已经搭好了环境，想从头开始学习 React Native 开发，可以从[简介](getting-started.md)文档开始。
+欢迎使用 React Native！这篇文档会帮助你搭建基本的 React Native 开发环境。
 
 <Tabs groupId="guide" defaultValue={constants.defaultGuide} values={constants.guides}>
 <TabItem value="quickstart">
@@ -121,14 +121,14 @@ If you're integrating React Native into an existing project, you'll want to skip
 <Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
-[//]: # "macOS, Android"
+[//]: # 'macOS, Android'
 
 <GuideMacOSAndroid/>
 
 </TabItem>
 <TabItem value="ios">
 
-[//]: # "macOS, iOS"
+[//]: # 'macOS, iOS'
 
 <GuideMacOSIOS/>
 
@@ -143,14 +143,14 @@ If you're integrating React Native into an existing project, you'll want to skip
 <Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
-[//]: # "Windows, Android"
+[//]: # 'Windows, Android'
 
 <GuideWindowsAndroid/>
 
 </TabItem>
 <TabItem value="ios">
 
-[//]: # "Windows, iOS"
+[//]: # 'Windows, iOS'
 
 ## 暂不支持
 
@@ -167,14 +167,14 @@ If you're integrating React Native into an existing project, you'll want to skip
 <Tabs groupId="platform" defaultValue={constants.defaultPlatform} values={constants.platforms} className="pill-tabs">
 <TabItem value="android">
 
-[//]: # "Linux, Android"
+[//]: # 'Linux, Android'
 
 <GuideLinuxAndroid/>
 
 </TabItem>
 <TabItem value="ios">
 
-[//]: # "Linux, iOS"
+[//]: # 'Linux, iOS'
 
 ## 暂不支持
 
