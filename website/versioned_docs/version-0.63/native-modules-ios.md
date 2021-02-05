@@ -558,7 +558,7 @@ Swift doesn't have support for macros, so exposing native modules and their meth
 class CalendarManager: NSObject {
 
  @objc(addEvent:location:date:)
- func addEvent(name: String, location: String, date: NSNumber) -> Void {
+ func addEvent(_ name: String, location: String, date: NSNumber) -> Void {
    // Date is ready to use!
  }
 
