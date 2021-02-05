@@ -251,9 +251,9 @@ Rendered in between each item, but not at the top or bottom. By default, `highli
 
 Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, element           | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
@@ -261,9 +261,9 @@ Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`)
 
 Rendered at the bottom of all the items. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, element           | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
@@ -281,9 +281,9 @@ Styling for internal View for ListFooterComponent
 
 Rendered at the top of all the items. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, element           | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
