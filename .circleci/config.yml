@@ -63,7 +63,7 @@ jobs:
       - run: export NODE_OPTIONS=--max_old_space_size=4096
       - run: export TERSER_PARALLEL=false
       - run: 
-          name: Compile and run website build
+          name: Compile website
           command: yarn test
           no_output_timeout: 20m
       - run:
@@ -96,7 +96,7 @@ jobs:
       - run_yarn
       - run: sudo apt install rsync
       - run:
-          name: Build and Deploy Static Website
+          name: Build and Deploy Website
           command: |
             if [[ $CIRCLE_PROJECT_USERNAME == "facebook" && -z $CI_PULL_REQUEST && -z $CIRCLE_PR_USERNAME ]]; then
               git config --global user.email "reactjs-bot@users.noreply.github.com"
@@ -109,6 +109,7 @@ jobs:
             else
               echo "Skipping deploy."
             fi
+          no_output_timeout: 20m
 
 # -------------------------
 #        WORKFLOWS
