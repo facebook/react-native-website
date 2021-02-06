@@ -2,9 +2,9 @@
 
 > React Native のドキュメント翻訳プロジェクト（非公式）です。
 > 現段階では、React Native のドキュメントの翻訳プロジェクトは動いていてはいないため、もしかすると流れてしまうかもしれません。  
-> React Native の翻訳プロジェクトが動いた時にいち早くこのプロジェクトを動かしていきたいお思っています。  
+> React Native の翻訳プロジェクトが動いた時にいち早くこのプロジェクトを動かしていきたいと思っています。  
 > 仮に翻訳プロジェクトが動かなかったとしても、独自で公開することを計画しています。  
-> 貢献するか否かは現段階だとリスキーですが、ご参加いただけますと幸いです。  
+> 現段階だとリスキーですが、ご参加いただけますと幸いです。  
 > [翻訳ガイド](TRANSLATION.md)
 
 This repo contains the website configuration and documentation powering the [React Native website](https://reactnative.dev/).
