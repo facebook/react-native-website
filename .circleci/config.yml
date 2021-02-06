@@ -65,7 +65,7 @@ jobs:
       - run: 
           name: Compile and run website build
           command: yarn test
-          no_output_timeout: 15m
+          no_output_timeout: 20m
       - run:
           name: Check for missing index.html (build errors)
           command: |
