@@ -94,7 +94,7 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 ### `alwaysBounceVertical` <div class="label ios">iOS</div>
 
-When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `vertical={true}` and true otherwise.
+When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself.
 
 | Type | Default                                             |
 | ---- | --------------------------------------------------- |
@@ -331,9 +331,9 @@ Determines when the keyboard should stay visible after a tap.
 - `false`, **_deprecated_**, use `'never'` instead
 - `true`, **_deprecated_**, use `'always'` instead
 
-| Type                                                      | Default  |
-| --------------------------------------------------------- | -------- |
-| enum(`'always'`, `'never'`, `'handled'`, `false`, `true`) | 'never'` |
+| Type                                                      | Default   |
+| --------------------------------------------------------- | --------- |
+| enum(`'always'`, `'never'`, `'handled'`, `false`, `true`) | `'never'` |
 
 ---
 
@@ -566,11 +566,11 @@ Note that the view can always be scrolled by calling `scrollTo`.
 
 ### `scrollEventThrottle` <div class="label ios">iOS</div>
 
-This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being sent over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is zero, which results in the scroll event being sent only once each time the view is scrolled.
+This controls how often the scroll event will be fired while scrolling (as a time interval in ms). A lower number yields better accuracy for code that is tracking the scroll position, but can lead to scroll performance problems due to the volume of information being sent over the bridge. You will not notice a difference between values set between 1-16 as the JS run loop is synced to the screen refresh rate. If you do not need precise scroll position tracking, set this value higher to limit the information being sent across the bridge. The default value is `0`, which results in the scroll event being sent only once each time the view is scrolled.
 
 | Type   | Default |
 | ------ | ------- |
-| number | `50`    |
+| number | `0`     |
 
 ---
 
@@ -578,9 +578,9 @@ This controls how often the scroll event will be fired while scrolling (as a tim
 
 The amount by which the scroll view indicators are inset from the edges of the scroll view. This should normally be set to the same value as the `contentInset`.
 
-| Type                                                               | Default        |
-| ------------------------------------------------------------------ | -------------- |
-| object: {top: number, left: number, bottom: number, right: number} | `{0, 0, 0, 0}` |
+| Type                                                               | Default                                  |
+| ------------------------------------------------------------------ | ---------------------------------------- |
+| object: {top: number, left: number, bottom: number, right: number} | `{top: 0, left: 0, bottom: 0, right: 0}` |
 
 ---
 
@@ -606,7 +606,7 @@ When `true`, the scroll view can be programmatically scrolled beyond its content
 
 ### `scrollsToTop` <div class="label ios">iOS</div>
 
-When true, the scroll view scrolls to top when the status bar is tapped.
+When `true`, the scroll view scrolls to top when the status bar is tapped.
 
 | Type | Default |
 | ---- | ------- |
@@ -638,13 +638,15 @@ When `true`, shows a vertical scroll indicator.
 
 When `snapToInterval` is set, `snapToAlignment` will define the relationship of the snapping to the scroll view.
 
+Possible values:
+
 - `'start'` will align the snap at the left (horizontal) or top (vertical).
 - `'center'` will align the snap in the center.
 - `'end'` will align the snap at the right (horizontal) or bottom (vertical).
 
-| Type                           | Default   |
-| ------------------------------ | --------- |
-| enum('start', 'center', 'end') | `'start'` |
+| Type                                 | Default   |
+| ------------------------------------ | --------- |
+| enum(`'start'`, `'center'`, `'end'`) | `'start'` |
 
 ---
 
@@ -700,7 +702,7 @@ An array of child indices determining which children get docked to the top of th
 
 ### `zoomScale` <div class="label ios">iOS</div>
 
-The current scale of the scroll view content. The default value is .
+The current scale of the scroll view content.
 
 | Type   | Default |
 | ------ | ------- |
@@ -724,7 +726,7 @@ Displays the scroll indicators momentarily.
 
 ```jsx
 scrollTo(
-  options?: {x?: number, y?: number, animated?: boolean} | number,
+  options?: { x?: number, y?: number, animated?: boolean } | number,
   deprecatedX?: number,
 	deprecatedAnimated?: boolean,
 );
@@ -732,9 +734,9 @@ scrollTo(
 
 Scrolls to a given x, y offset, either immediately, with a smooth animation.
 
-Example:
+**Example:**
 
-`scrollTo({x: 0, y: 0, animated: true})`
+`scrollTo({ x: 0, y: 0, animated: true })`
 
 > Note: The weird function signature is due to the fact that, for historical reasons, the function also accepts separate arguments as an alternative to the options object. This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
 
@@ -748,7 +750,7 @@ scrollToEnd(([options]: { animated: boolean, duration: number }));
 
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
-Use `scrollToEnd({animated: true})` for smooth animated scrolling, `scrollToEnd({animated: false})` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({duration: 500})` for a controlled duration scroll. If no options are passed, `animated` defaults to true.
+Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({ duration: 500 })` for a controlled duration scroll. If no options are passed, `animated` defaults to `true`.
 
 ---
 
