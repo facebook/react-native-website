@@ -539,7 +539,7 @@ Experimental: When `true`, offscreen child views (whose `overflow` value is `hid
 
 ---
 
-### `scrollBarThumbImage` <div class="label tv">VR</div>
+### `scrollBarThumbImage` <div class="label vr">VR</div>
 
 Optionally an image can be used for the scroll bar thumb. This will override the color. While the image is loading or the image fails to load the color will be used instead. Use an alpha of `0` in the color to avoid seeing it while the image is loading.
 
