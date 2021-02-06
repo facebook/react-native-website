@@ -68,6 +68,18 @@ export default App;
 
 Inherits [View Props](view.md#props).
 
+---
+
+### `StickyHeaderComponent`
+
+A React Component that will be used to render sticky headers, should be used together with `stickyHeaderIndices`. You may need to set this component if your sticky header uses custom transforms, for example, when you want your list to have an animated and hidable header. If component have not been provided, the default [`ScrollViewStickyHeader`](https://github.com/facebook/react-native/blob/master/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) component will be used.
+
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
+
+---
+
 ### `alwaysBounceHorizontal`
 
 When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself. The default value is true when `horizontal={true}` and false otherwise.

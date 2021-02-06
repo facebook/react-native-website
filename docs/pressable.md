@@ -209,9 +209,9 @@ Additional distance outside of this view in which a touch is considered a press 
 
 Either view styles or a function that receives a boolean reflecting whether the component is currently pressed and returns view styles.
 
-| Type                              | Required |
-| --------------------------------- | -------- |
-| [ViewStyleProp](view-style-props) | No       |
+| Type                           | Required |
+| ------------------------------ | -------- |
+| [View Style](view-style-props) | No       |
 
 ### `testOnly_pressed`
 
