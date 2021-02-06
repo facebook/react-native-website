@@ -211,9 +211,9 @@ Rendered at the top of all the items. Can be a React Component (e.g. `SomeCompon
 
 Styling for internal View for `ListHeaderComponent`.
 
-| Type                                 |
-| ------------------------------------ |
-| [View Style Props](view-style-props) |
+| Type                           |
+| ------------------------------ |
+| [View Style](view-style-props) |
 
 ---
 
