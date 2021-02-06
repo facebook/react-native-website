@@ -62,7 +62,10 @@ jobs:
       - run: yarn ci-check
       - run: export NODE_OPTIONS=--max_old_space_size=4096
       - run: export TERSER_PARALLEL=false
-      - run: yarn test
+      - run: 
+          name: Compile and run website build
+          command: yarn test
+          no_output_timeout: 20m
       - run:
           name: Check for missing index.html (build errors)
           command: |
