@@ -238,7 +238,7 @@ The `hardwareAccelerated` prop controls whether to force hardware acceleration f
 
 ---
 
-### `onDismiss`
+### `onDismiss` <div class="label ios">iOS</div>
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
 
