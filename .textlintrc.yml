@@ -1,0 +1,5 @@
+---
+filters: {}
+rules:
+  preset-ja-technical-writing: true
+  "@textlint-ja/no-synonyms": true
