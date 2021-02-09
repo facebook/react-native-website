@@ -5,7 +5,7 @@ title: Image
 
 import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import constants from '@site/core/TabsConstants';
 
-A React component for displaying different types of images, including network images, static resources, temporary local images, and images from local disk, such as the camera roll.
+ネットワーク上にある画像、静的リソース、一時的にローカルにある画像、カメラロールからなどローカルディスク上の画像など、異なる種類の画像を表示する React コンポーネントです。
 
 This example shows fetching and displaying an image from local storage as well as one from network and even from data provided in the `'data:'` uri scheme.
 
