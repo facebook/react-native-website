@@ -14,14 +14,7 @@ The Modal component is a basic way to present content above an enclosing view.
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { useState } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,33 +26,27 @@ const App = () => {
         visible={modalVisible}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
-          setModalVisible(false);
+          setModalVisible(!modalVisible);
         }}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
-
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
             >
               <Text style={styles.textStyle}>Hide Modal</Text>
-            </TouchableHighlight>
+            </Pressable>
           </View>
         </View>
       </Modal>
-
-      <TouchableHighlight
-        style={styles.openButton}
-        onPress={() => {
-          setModalVisible(true);
-        }}
+      <Pressable
+        style={[styles.button, styles.buttonOpen]}
+        onPress={() => setModalVisible(true)}
       >
         <Text style={styles.textStyle}>Show Modal</Text>
-      </TouchableHighlight>
+      </Pressable>
     </View>
   );
 };
@@ -83,14 +70,19 @@ const styles = StyleSheet.create({
       height: 2
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowRadius: 4,
     elevation: 5
   },
-  openButton: {
-    backgroundColor: "#F194FF",
+  button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
   },
   textStyle: {
     color: "white",
@@ -111,14 +103,7 @@ export default App;
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { Component } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
 class App extends Component {
   state = {
@@ -139,32 +124,27 @@ class App extends Component {
           visible={modalVisible}
           onRequestClose={() => {
             Alert.alert("Modal has been closed.");
+            this.setModalVisible(!modalVisible);
           }}
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Hello World!</Text>
-
-              <TouchableHighlight
-                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-                onPress={() => {
-                  this.setModalVisible(!modalVisible);
-                }}
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => this.setModalVisible(!modalVisible)}
               >
                 <Text style={styles.textStyle}>Hide Modal</Text>
-              </TouchableHighlight>
+              </Pressable>
             </View>
           </View>
         </Modal>
-
-        <TouchableHighlight
-          style={styles.openButton}
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
+        <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => this.setModalVisible(true)}
         >
           <Text style={styles.textStyle}>Show Modal</Text>
-        </TouchableHighlight>
+        </Pressable>
       </View>
     );
   }
@@ -189,14 +169,19 @@ const styles = StyleSheet.create({
       height: 2
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowRadius: 4,
     elevation: 5
   },
-  openButton: {
-    backgroundColor: "#F194FF",
+  button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
   },
   textStyle: {
     color: "white",
