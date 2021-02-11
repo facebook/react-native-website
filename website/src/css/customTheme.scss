@@ -32,7 +32,7 @@
   --ifm-alert-border-radius: 0;
   --ifm-alert-color: var(--ifm-font-color-base);
   --ifm-pagination-nav-color-hover: var(--ifm-color-emphasis-300);
-  --ifm-navbar-sidebar-width: 50%;
+  --ifm-navbar-sidebar-width: 66%;
   --doc-sidebar-width: 100%;
 }
 
@@ -68,6 +68,11 @@ html[data-theme="dark"] {
 }
 
 @media (max-width: 1416px) {
+  #__docusaurus {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   .main-wrapper {
     max-width: 100%;
     width: 100%;
@@ -1384,46 +1389,18 @@ html[data-theme="dark"] .docsRating {
     }
 
     div[class^="sidebar"] {
-      padding: 24px 12px 0;
-      margin-left: -32px;
-      top: var(--ifm-navbar-height);
-      max-height: calc(100vh - var(--ifm-navbar-height));
-      min-height: calc(100vh - var(--ifm-navbar-height));
-      border-right: 1px solid var(--ifm-toc-border-color);
-
-      li[class^="sidebarItem"] {
-        margin-top: 0;
-        margin-bottom: 2px;
-        line-height: 18px;
-        min-height: 26px;
-      }
-
-      a[class^="sidebarItemLink"] {
-        font-size: 13px;
-        padding: 4px 8px;
-        display: inline-flex;
-        border-left: 4px solid transparent;
-        border-radius: 0.25rem;
-        min-width: 100%;
-
-        &:hover {
-          background: var(--ifm-menu-color-background-active);
-          color: var(--ifm-font-color-base);
-        }
-      }
-
-      a[class*="sidebarItemLinkActive"] {
-        font-weight: 700;
-        color: var(--ifm-font-color-base);
-        background: var(--ifm-menu-color-background-active);
-        border-left-color: var(--ifm-menu-color-active);
-      }
-
       h3 {
-        color: var(--subtle);
-        margin-bottom: 12px;
         font-size: 16px;
-        padding-left: 12px;
+        margin-bottom: 0;
+      }
+
+      h4 {
+        font-weight: 500;
+        font-size: 14px;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        padding-bottom: 4px;
+        border-bottom: 0.01rem solid var(--ifm-table-border-color);
       }
 
       @extend %scrollbar-style;
@@ -1462,6 +1439,12 @@ html[data-theme="dark"] {
 
   .container.margin-vert--lg .row .col.col--8 {
     --ifm-col-width: 100% !important;
+  }
+
+  .main-wrapper:not(.community-page) {
+    .container.margin-vert--lg {
+      max-width: 96% !important;
+    }
   }
 }
 
