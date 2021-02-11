@@ -507,7 +507,7 @@ See [`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/maste
 At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/facebook/react-native/issues/17408)):
 
 ```
-  Error: Changing viewabilityConfig on the fly is not supported`
+  Error: Changing viewabilityConfig on the fly is not supported
 ```
 
 ```jsx
