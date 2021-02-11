@@ -117,7 +117,7 @@ If your components have dynamic size and you really need performance, consider a
 
 You can set the [`keyExtractor`](flatlist#keyextractor) to your `FlatList` component. This prop is used for caching and as the React `key` to track item re-ordering.
 
-You can also use a `key` prop in you item component.
+You can also use a `key` prop in your item component.
 
 ### Avoid anonymous function on renderItem
 
