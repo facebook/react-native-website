@@ -1,11 +1,9 @@
 ---
 id: cameraroll
 title: '🚧 CameraRoll'
-
-custom_edit_url: 'https://github.com/facebook/react-native-website/edit/master/website/versioned_docs/version-0.58/cameraroll.md'
 ---
 
-> **Deprecated.** Use [@react-native-community/cameraroll](https://github.com/react-native-community/react-native-cameraroll) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=cameraroll) instead.
 
 `CameraRoll` provides access to the local camera roll or photo library.
 

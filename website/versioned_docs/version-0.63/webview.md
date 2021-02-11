@@ -3,7 +3,7 @@ id: webview
 title: '🚧 WebView'
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=webview) instead.
 
 `WebView` renders web content in a native view.
 
