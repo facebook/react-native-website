@@ -1,57 +1,57 @@
 ---
 id: javascript-environment
-title: JavaScript Environment
+title: JavaScript 実行環境
 ---
 
-## JavaScript Runtime
+## JavaScript ランタイム
 
-When using React Native, you're going to be running your JavaScript code in two environments:
+React Native を使用する場合、JavaScript を主に2つの環境で使用することになります。
 
-- In most cases, React Native will use [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore), the JavaScript engine that powers Safari. Note that on iOS, JavaScriptCore does not use JIT due to the absence of writable executable memory in iOS apps.
-- When using Chrome debugging, all JavaScript code runs within Chrome itself, communicating with native code via WebSockets. Chrome uses [V8](https://v8.dev/) as its JavaScript engine.
+- ほとんどの場合、React Native は、Safari を動かしている JavaScript エンジンである [JavaScriptCore](http://trac.webkit.org/wiki/JavaScriptCore) を使用します。iOS アプリには書き込み可能な実行メモリがないため、iOS では JavaScriptCore は JIT を使用しないことに注意してください。
+- Chrome デバッグを使用している場合、すべての JavaScript コードは Chrome 内で実行され、WebSocket を介してネイティブコードと通信します。Chrome は JavaScript エンジンとして [V8](https://v8.dev/) を使用します。
 
-While both environments are very similar, you may end up hitting some inconsistencies. We're likely going to experiment with other JavaScript engines in the future, so it's best to avoid relying on specifics of any runtime.
+これらの環境は非常に似ていますが、いくつかの不整合が発生する場合があります。将来的には他の JavaScript エンジンを使用するになるでしょうから、ランタイムの仕様に依存するのは避けた方が良いでしょう。
 
-## JavaScript Syntax Transformers
+## JavaScript シンタックストランスフォーマー
 
-Syntax transformers make writing code more enjoyable by allowing you to use new JavaScript syntax without having to wait for support on all interpreters.
+シンタックストランスフォーマーはインタプリタのサポートを待たずに新しい JavaScript 構文を使用できるようにしてくれます。
 
-React Native ships with the [Babel JavaScript compiler](https://babeljs.io). Check [Babel documentation](https://babeljs.io/docs/plugins/#transform-plugins) on its supported transformations for more details.
+React Native は [Babel](https://babeljs.io) を同梱します。Babel についての詳細は、 [Babel のドキュメンテーション](https://babeljs.io/docs/plugins/#transform-plugins)を御覧ください。
 
-A full list of React Native's enabled transformations can be found in [metro-react-native-babel-preset](https://github.com/facebook/metro/tree/master/packages/metro-react-native-babel-preset).
+全てのトランスフォーメーションのリストは [metro-react-native-babel-preset](https://github.com/facebook/metro/tree/master/packages/metro-react-native-babel-preset) で確認できます。
 
 ES5
 
-- Reserved Words: `promise.catch(function() { });`
+- 予約語: `promise.catch(function() { });`
 
 ES6
 
-- [Arrow functions](http://babeljs.io/docs/learn-es2015/#arrows): `<C onPress={() => this.setState({pressed: true})} />`
-- [Block scoping](https://babeljs.io/docs/learn-es2015/#let-const): `let greeting = 'hi';`
-- [Call spread](http://babeljs.io/docs/learn-es2015/#default-rest-spread): `Math.max(...array);`
-- [Classes](http://babeljs.io/docs/learn-es2015/#classes): `class C extends React.Component { render() { return <View />; } }`
-- [Constants](https://babeljs.io/docs/learn-es2015/#let-const): `const answer = 42;`
-- [Destructuring](http://babeljs.io/docs/learn-es2015/#destructuring): `var {isActive, style} = this.props;`
+- [アロー関数（無名関数・ラムダ式）](http://babeljs.io/docs/learn-es2015/#arrows): `<C onPress={() => this.setState({pressed: true})} />`
+- [ブロックスコーピング ( 変数宣言 `let`)](https://babeljs.io/docs/learn-es2015/#let-const): `let greeting = 'hi';`
+- [スプレッド構文](http://babeljs.io/docs/learn-es2015/#default-rest-spread): `Math.max(...array);`
+- [クラス](http://babeljs.io/docs/learn-es2015/#classes): `class C extends React.Component { render() { return <View />; } }`
+- [定数宣言](https://babeljs.io/docs/learn-es2015/#let-const): `const answer = 42;`
+- [分割代入](http://babeljs.io/docs/learn-es2015/#destructuring): `var {isActive, style} = this.props;`
 - [for...of](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of): `for (var num of [1, 2, 3]) {};`
-- [Modules](http://babeljs.io/docs/learn-es2015/#modules): `import React, { Component } from 'react';`
-- [Computed Properties](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var key = 'abc'; var obj = {[key]: 10};`
-- [Object Concise Method](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var obj = { method() { return 10; } };`
-- [Object Short Notation](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var name = 'vjeux'; var obj = { name };`
-- [Rest Params](https://github.com/sebmarkbage/ecmascript-rest-spread): `function(type, ...args) {};`
-- [Template Literals](http://babeljs.io/docs/learn-es2015/#template-strings): `` var who = 'world'; var str = `Hello ${who}`; ``
+- [モジュール](http://babeljs.io/docs/learn-es2015/#modules): `import React, { Component } from 'react';`
+- [プロパティ演算](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var key = 'abc'; var obj = {[key]: 10};`
+- [オブジェクトメソッド](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var obj = { method() { return 10; } };`
+- [オブジェクトの短縮表記](http://babeljs.io/docs/learn-es2015/#enhanced-object-literals): `var name = 'vjeux'; var obj = { name };`
+- [可変長引数](https://github.com/sebmarkbage/ecmascript-rest-spread): `function(type, ...args) {};`
+- [テンプレートリテラル](http://babeljs.io/docs/learn-es2015/#template-strings): `` var who = 'world'; var str = `Hello ${who}`; ``
 
 ES8
 
-- [Function Trailing Comma](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) {};`
-- [Async Functions](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); };`
+- [最後の引数の後のコンマ](https://github.com/jeffmo/es-trailing-function-commas): `function f(a, b, c,) {};`
+- [非同期関数](https://github.com/tc39/ecmascript-asyncawait): `async function doStuffAsync() { const foo = await doOtherStuffAsync(); };`
 
-Stage 3
+ステージ 3
 
-- [Object Spread](https://github.com/tc39/proposal-object-rest-spread): `var extended = { ...obj, a: 10 };`
-- [Static class fields](https://github.com/tc39/proposal-static-class-features): `class CustomDate { static epoch = new CustomDate(0); }`
-- [Optional Chaining](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
+- [オブジェクトスプレッド構文](https://github.com/tc39/proposal-object-rest-spread): `var extended = { ...obj, a: 10 };`
+- [静的メソッド・プロパティ](https://github.com/tc39/proposal-static-class-features): `class CustomDate { static epoch = new CustomDate(0); }`
+- [安全なプロパティアクセス](https://github.com/tc39/proposal-optional-chaining): `var name = obj.user?.name;`
 
-Specific
+言語固有
 
 - [JSX](https://reactjs.org/docs/jsx-in-depth.html): `<View style={{color: 'red'}} />`
 - [Flow](https://flowtype.org/): `function foo(x: ?number): string {};`
@@ -60,7 +60,7 @@ Specific
 
 ## Polyfills
 
-Many standard functions are also available on all the supported JavaScript runtimes.
+多くの標準組込み関数は、サポートされているすべてのJavaScriptランタイムでも利用可能です。
 
 Browser
 
