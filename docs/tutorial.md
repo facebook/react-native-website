@@ -1,15 +1,15 @@
 ---
 id: tutorial
-title: Learn the Basics
+title: 基礎を学ぶ
 ---
 
-React Native is like React, but it uses native components instead of web components as building blocks. So to understand the basic structure of a React Native app, you need to understand some of the basic React concepts, like JSX, components, `state`, and `props`. If you already know React, you still need to learn some React-Native-specific stuff, like the native components. This tutorial is aimed at all audiences, whether you have React experience or not.
+React Native は React に似ていますが、ネイティブコンポーネントをウェブコンポーネントの代わりに使用します。つまり、React Native の基礎を理解する為には、React の知識 (JSX, コンポーネント、`state`, `props` 等)が必須になります。もし既に React の知識を持っていたとしても、ネイティブコンポーネント等、React Native 独自の仕様を学ぶ必要があります。このチュートリアルは React の予備知識を問わず、全ての方を対象としています。
 
-Let's do this thing.
+それでは始めましょう。
 
 ## Hello World
 
-In accordance with the ancient traditions of our people, we must first build an app that does nothing except say "Hello, world!". Here it is:
+まずは慣例に従って、"Hello world!" とだけ表示するアプリを作ってみましょう。
 
 ```SnackPlayer name=Hello%20World
 import React from 'react';
@@ -30,36 +30,36 @@ const HelloWorldApp = () => {
 export default HelloWorldApp;
 ```
 
-If you are feeling curious, you can play around with sample code directly in the web simulators. You can also paste it into your `App.js` file to create a real app on your local machine.
+Web シュミレーターで興味の向くままにいじってみましょう。もしくは、そのまま `App.js` に貼り付けて本物のアプリを作成することもできます。
 
-## What's going on here?
+## 何が起こっているの？
 
-1. First of all, we need to import `React` to be able to use `JSX`, which will then be transformed to the native components of each platform.
-2. On line 2, we import the `Text` and `View` components from `react-native`
+1. まずは `JSX` を使用できるようにする為に `React` をインポートします。これらは各プラットフォームのネイティブコンポーネントに変換されます。
+2. 二行目では `Text` と `View` を `react-native` からインポートしています。
 
-Then we find the `HelloWorldApp` function, which is a [functional component](https://reactjs.org/docs/components-and-props.html#function-and-class-components) and behaves in the same way as in React for the web. This function returns a `View` component with some styles and a`Text` as its child.
+次に `HelloWorldApp` 関数があります。これは [関数コンポーネント](https://ja.reactjs.org/docs/components-and-props.html#function-and-class-components) と呼ばれ、Web 上の React と同じように動作します。この関数は、いくつかのスタイルを持つ `View` コンポーネントとその子要素としての `Text` を返却します。
 
-The `Text` component allows us to render a text, while the `View` component renders a container. This container has several styles applied, let's analyze what each one is doing.
+`Text` コンポーネントはテキストを表示し、`View` コンポーネントはコンテナを表示します。コンテナはいくつかのスタイリングがされています。一つづつ見てみましょう。
 
-The first style that we find is `flex: 1`, the [`flex`](layout-props#flex) prop will define how your items are going to "fill" over the available space along your main axis. Since we only have one container, it will take all the available space of the parent component. In this case, it is the only component, so it will take all the available screen space.
+1つ目は `flex: 1`。[`flex`](layout-props#flex) はコンポーネントが主軸に沿って、どの程度空いているスペースを埋めて行くかを定義します。この例では、コンテナは一つしかないので、 `Text` コンポーネントは `View` コンポーネントの全てのスペースを使用し、`View` は唯一のコンポーネントなので、結局全ての利用可能なスクリーンスペースを使用することになります。
 
-The following style is [`justifyContent`](layout-props#justifycontent): "center". This aligns children of a container in the center of the container's main axis. Finally, we have [`alignItems`](layout-props#alignitems): "center", which aligns children of a container in the center of the container's cross axis.
+次は [`justifyContent`](layout-props#justifycontent): "center". これは子要素を親要素の主軸の中心に沿って整列させます。最後は [`alignItems`](layout-props#alignitems): "center", 子要素を親要素の十字軸の中心に整列させます。
 
-Some of the things in here might not look like JavaScript to you. Don't panic. _This is the future_.
+いくつか JavaScript とは思えない文法があったかもしれません。大丈夫です、_これが最先端です_。
 
-First of all, ES2015 (also known as ES6) is a set of improvements to JavaScript that is now part of the official standard, but not yet supported by all browsers, so often it isn't used yet in web development. React Native ships with ES2015 support, so you can use this stuff without worrying about compatibility. `import`, `export`, `const` and `from` in the example above are all ES2015 features. If you aren't familiar with ES2015, you can probably pick it up by reading through sample code like this tutorial has. If you want, [this page](https://babeljs.io/learn-es2015/) has a good overview of ES2015 features.
+ます、ES2015 (ES6) は、現在では公式の標準規格の一部となっている JavaScript の改良セットですが、まだいくつかのブラウザでは非対応の為、使用が避けられることも多いです。React Native はES2015 をサポートしている為、互換性を気にせず使用できます。上記の例の `import`, `from`, `export`, `const` 等は全て ES2015 の機能です、もし ES2015 に慣れていない場合は。このチュートリアルのようなサンプルコードを読むことで、ES2015 の機能を理解できるでしょう。もし必要であれば、 [この](https://babeljs.io/learn-es2015/) ページでES2015の機能の概要を見ることができます。
 
-The other unusual thing in this code example is `<View><Text>Hello world!</Text></View>`. This is JSX - a syntax for embedding XML within JavaScript. Many frameworks use a specialized templating language which lets you embed code inside markup language. In React, this is reversed. JSX lets you write your markup language inside code. It looks like HTML on the web, except instead of web things like `<div>` or `<span>`, you use React components. In this case, `<Text>` is a [Core Component](intro-react-native-components) that displays some text and `View` is like the `<div>` or `<span>`.
+もう一はこのコード `<View><Text>Hello world!</Text></View>`. これは JSX と呼ばれ、JavaScriptの 中に XML を埋め込むための構文です。 多くのフレームワークではマークアップの中に特殊なテンプレート言語を使用することができます。対して、React ではこれが逆です。JSX では、マークアップをコードの中に記述できます。HTML のように見えますが、`<div>`や`<span>`などのウェブコンポーネントの代わりに React コンポーネントを使用します。この例では、`<Text>`はテキストを表示する[コアコンポーネント](intro-react-native-components)で、`View`は`<div>`や`<span>`と似た役割です。
 
-## Components
+## コンポーネント
 
-So this code is defining `HelloWorldApp`, a new `Component`. When you're building a React Native app, you'll be making new components a lot. Anything you see on the screen is some sort of component.
+この例では `HelloWorldApp` という新しいコンポーネントを定義しています。React Native アプリの開発中、あなたはたくさんのコンポーネントを作成することでしょう。スクリーンで見る全てのものは何かしらのコンポーネントです。
 
 ## Props
 
-Most components can be customized when they are created, with different parameters. These creation parameters are called props.
+ほとんどのコンポーネントは作成時にパラメータを渡すことによってカスタマイズが可能です。これらのパラメータは `props` (日本語では'小道具')と呼ばれます。
 
-Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Refer to `props.{NAME}` in your functional components or `this.props.{NAME}` in your class components. Here's an example:
+あなたが作ったコンポーネントを `props` 使用することが可能です。`props` はコンポーネントを一般化し、色々な場所で少しづつ違ったプロパティを持つことができます。関数コンポーネントの場合は`props.{NAME}`、クラスコンポーネントの場合は `this.props.{NAME}` でアクセスできます。例：
 
 ```SnackPlayer name=Hello%20Props
 import React from 'react';
@@ -92,21 +92,21 @@ const LotsOfGreetings = () => {
 export default LotsOfGreetings;
 ```
 
-Using `name` as a prop lets us customize the `Greeting` component, so we can reuse that component for each of our greetings. This example also uses the `Greeting` component in JSX. The power to do this is what makes React so cool.
+`name` を `prop` として使用すると、`Greeting` コンポーネントをカスタマイズすることができ、一つ一つの Greeting (挨拶)に再利用できます。 この例では、JSX のGreeting コンポーネントも使用しています。このようなことができる力こそが、Reactをクールにしているのです。
 
-The other new thing going on here is the [`View`](view.md) component. A [`View`](view.md) is useful as a container for other components, to help control style and layout.
+もう一つの注目すべきポイントは、`View` コンポーネントです。`View` は、他のコンポーネントのコンテナとして、スタイルやレイアウトを制御するのに役立ちます。
 
-With `props` and the basic [`Text`](text.md), [`Image`](image.md), and [`View`](view.md) components, you can build a wide variety of static screens. To learn how to make your app change over time, you need to [learn about State](#state).
+`props` と基本的な[`Text`](text.md)、[`Image`](image.md)、や[`View`](view.md)コンポーネントを使えば、さまざまな静的な画面を構築することができます。アプリを時間の経過とともに変化させるには、State について学ぶ必要があります。
 
 ## State
 
-Unlike props [that are read-only](https://reactjs.org/docs/components-and-props.html#props-are-read-only) and should not be modified, the `state` allows React components to change their output over time in response to user actions, network responses and anything else.
+[読み取り専用](https://reactjs.org/docs/components-and-props.html#props-are-read-only) で改変すべきでない `props` と違って、 `state` は、React コンポーネントユーザーのアクション、ネットワークのレスポンスや時間の経過とともに出力を変化させることを可能にします。
 
-#### What's the difference between state and props in React?
+#### state とprops の違い
 
-In a React component, the props are the variables that we pass from a parent component to a child component. Similarly, the state are also variables, with the difference that they are not passed as parameters, but rather that the component initializes and manages them internally.
+React コンポーネントでは、`props` は親コンポーネントから子コンポーネントに渡す変数です。同様に、`state` も変数ですが、パラメータとして渡されるのではなく、コンポーネントが内部で初期化して管理するという違いがあります。
 
-#### Are there differences between React and React Native to handle the state?
+#### React と React Native では state の取り扱いに違いはあるのか？
 
 <div className="two-columns">
 
@@ -118,25 +118,25 @@ import React, { useState } from 'react';
 
 
 const App = () => {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  return (
-    <div className="container">
-      <p>You clicked {count} times</p>
-      <button
-        onClick={() => setCount(count + 1)}>
-        Click me!
-      </button>
-    </div>
-  );
+    return (
+        <div className="container">
+            <p>You clicked {count} times</p>
+            <button
+                onClick={() => setCount(count + 1)}>
+                Click me!
+            </button>
+        </div>
+    );
 };
 
 
 // CSS
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 ```
@@ -148,34 +148,34 @@ import React, { useState } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
 const App = () => {
-  const [count, setCount] = useState(0);
+    const [count, setCount] = useState(0);
 
-  return (
-    <View style={styles.container}>
-      <Text>You clicked {count} times</Text>
-      <Button
-        onPress={() => setCount(count + 1)}
-        title="Click me!"
-      />
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <Text>You clicked {count} times</Text>
+            <Button
+                onPress={() => setCount(count + 1)}
+                title="Click me!"
+            />
+        </View>
+    );
 };
 
 // React Native Styles
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
 });
 ```
 
 </div>
 
-As shown above, there is no difference in handling the `state` between [React](https://reactjs.org/docs/state-and-lifecycle.html) and `React Native`. You can use the state of your components both in classes and in functional components using [hooks](https://reactjs.org/docs/hooks-intro.html)!
+上記の通り、[React](https://reactjs.org/docs/state-and-lifecycle.html) と React Native の`state` に違いはありません。 [hooks](https://reactjs.org/docs/hooks-intro.html) を使用して`state`を管理することができます。
 
-In the following example we will show the same above counter example using classes.
+下記の例では先程の例を`class`を使って表現しています。
 
 ```SnackPlayer name=Hello%20Classes
 import React, { Component } from 'react'
