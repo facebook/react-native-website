@@ -157,11 +157,11 @@ export default AlignItemsBasics;
 
 [alignContent](layout-props#aligncontent) defines the distribution of lines along the cross-axis. This only has effect when items are wrapped to multiple lines using `flexWrap`.
 
-- `flex-start` (**default value on React Native**) Align wrapped lines to the start of the container's cross axis.
+- `flex-start` (**default value**) Align wrapped lines to the start of the container's cross axis.
 
 - `flex-end` Align wrapped lines to the end of the container's cross axis.
 
-- `stretch` (_default value on the web_) Stretch wrapped lines to match the height of the container's cross axis.
+- `stretch` (_default value when using Yoga on the web_) Stretch wrapped lines to match the height of the container's cross axis.
 
 - `center` Align wrapped lines in the center of the container's cross axis.
 
