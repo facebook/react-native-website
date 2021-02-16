@@ -240,7 +240,7 @@ You should now be able to invoke your `createCalendarEvent()` method on your nat
   <figcaption>Image of ADB logs in Android Studio</figcaption>
 </figure>
 
-At this point you have created an Android native module and invoked it’s native method from JavaScript in your React Native application. You can read on to learn more about things like argument types available to a native module method and how to setup callbacks and promises.
+At this point you have created an Android native module and invoked its native method from JavaScript in your React Native application. You can read on to learn more about things like argument types available to a native module method and how to setup callbacks and promises.
 
 ## Beyond a Calendar Native Module
 
