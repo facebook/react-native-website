@@ -696,7 +696,7 @@ export default AlignSelfLayout;
 
 - `flex-end` Align wrapped lines to the end of the container's cross axis.
 
-- `stretch` (_default value using Yoga on the web_) Stretch wrapped lines to match the height of the container's cross axis.
+- `stretch` (_default value when using Yoga on the web_) Stretch wrapped lines to match the height of the container's cross axis.
 
 - `center` Align wrapped lines in the center of the container's cross axis.
 
