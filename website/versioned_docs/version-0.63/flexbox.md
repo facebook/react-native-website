@@ -181,7 +181,7 @@ When wrapping lines, `alignContent` can be used to specify how the lines are pla
 
 ![Flex Wrap](https://cdn-images-1.medium.com/max/800/1*_7v4uQhSsuCn1cfeOMVfrA.png)
 
-## Flex Basis, Grow, and Shrink
+## Flex Grow, Shrink, and Basis
 
 - [`flexGrow`](layout-props#flexgrow) describes how any space within a container should be distributed among its children along the main axis. After laying out its children, a container will distribute any remaining space according to the flex grow values specified by its children.
 
