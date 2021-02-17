@@ -1,0 +1,7 @@
+---
+filters: {}
+rules:
+  preset-ja-technical-writing: true
+  "@textlint-ja/no-synonyms": true
+  "@proofdict/proofdict":
+    dictURL: https://react-native-jp.github.io/proof-dictionary/
