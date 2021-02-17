@@ -264,7 +264,7 @@ export default App;
 
 ## Usage with React Navigation
 
-If you are using React Navigation to navigate across different screens, you can follow their guide on [Custom Android back button behaviour](https://reactnavigation.org/docs/custom-android-back-button-handling/)
+If you are using React Navigation to navigate across different screens, you can follow their guide on [Custom Android back button behavior](https://reactnavigation.org/docs/custom-android-back-button-handling/)
 
 ## Backhandler hook
 

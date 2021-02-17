@@ -171,7 +171,7 @@ The color of the refresh indicator title.
 
 ### RefreshLayoutConsts.SIZE
 
-The SwipeRefreshLayout Android component constants. The acctual component size may vary between devices. You can read more about the native component in the [Android documentation](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout).
+The SwipeRefreshLayout Android component constants. The actual component size may vary between devices. You can read more about the native component in the [Android documentation](https://developer.android.com/reference/androidx/swiperefreshlayout/widget/SwipeRefreshLayout).
 
 | Type |
 | ---- |
