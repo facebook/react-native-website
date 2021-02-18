@@ -310,7 +310,7 @@ See the [Accessibility guide](accessibility#accessible-ios-android) for more inf
 
 ---
 
-### `adjustsFontSizeToFit` <div class="label ios">iOS</div>
+### `adjustsFontSizeToFit`
 
 Specifies whether fonts should be scaled down automatically to fit given style constraints.
 
@@ -567,9 +567,9 @@ The highlight color of the text.
 
 ### `style`
 
-| Type                                                                       |
-| -------------------------------------------------------------------------- |
-| [Text Style Props](text-style-props), [View Style Props](view-style-props) |
+| Type                                                                 |
+| -------------------------------------------------------------------- |
+| [Text Style](text-style-props), [View Style Props](view-style-props) |
 
 ---
 

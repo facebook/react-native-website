@@ -56,8 +56,8 @@
   {
     "name": "Shopify",
     "icon": "shopify.png",
-    "linkAppStore": "https://apps.apple.com/us/app/shopify-ecommerce-business/id371294472",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US",
+    "linkAppStore": "https://apps.apple.com/ca/app/shop-package-order-tracker/id1223471316",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.arrive&hl=en_US&gl=US",
     "infoLink": "https://engineering.shopify.com/blogs/engineering/react-native-future-mobile-shopify",
     "infoTitle": "React Native is the Future of Mobile at Shopify",
     "pinned": true
@@ -78,6 +78,13 @@
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.flipkart.android&hl=en_US&gl=US",
     "infoLink": "https://tech.flipkart.com/the-journey-of-react-native-flipkart-47dcd0c3d1c6",
     "infoTitle": "The Journey of React Native @ FlipKart",
+    "pinned": true
+  },
+  {
+    "name": "Mercari",
+    "icon": "mercari.png",
+    "linkAppStore": "https://apps.apple.com/us/app/mercari-your-marketplace/id896130944",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mercariapp.mercari",
     "pinned": true
   },
   {

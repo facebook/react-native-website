@@ -27,7 +27,7 @@ We recommend using Xcode to write your native code. Xcode is built for iOS devel
 The first step is to create our main custom native module header and implementation files. Create a new file called `RCTCalendarModule.h`
 
 <figure>
-  <img src="/docs/assets/native-modules-ios-open-project.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
+  <img src="/docs/assets/native-modules-ios-add-class.png" width="500" alt="Image of creating a class called  RCTCalendarModule.h." />
   <figcaption>Image of creating a custom native module file within the same folder as AppDelegate</figcaption>
 </figure>
 
@@ -119,7 +119,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)name location:(NSString *)loca
 You can use the `RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD` to create a synchronous native method.
 
 ```objectivec
-RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getName){
+RCT_EXPORT_BLOCKING_SYNCHRONOUS_METHOD(getName)
 {
 return [[UIDevice currentDevice] name];
 }
@@ -502,7 +502,7 @@ Unless the native module provides its own method queue, it shouldn't make any as
 }
 ```
 
-Similarly, if an operation may take a long time to complete, the native module can specify its own queue to run operations on. Again, currently React Native will provide a separate method queue for your native module, but this is an implementation detail you should not rely on. If you don't provide your own method queue, in the future, you native module's long running operations may end up blocking async calls being executed on other unrelated native modules. The `RCTAsyncLocalStorage` module here, for example, creates its own queue so the React queue isn't blocked waiting on potentially slow disk access.
+Similarly, if an operation may take a long time to complete, the native module can specify its own queue to run operations on. Again, currently React Native will provide a separate method queue for your native module, but this is an implementation detail you should not rely on. If you don't provide your own method queue, in the future, your native module's long running operations may end up blocking async calls being executed on other unrelated native modules. The `RCTAsyncLocalStorage` module here, for example, creates its own queue so the React queue isn't blocked waiting on potentially slow disk access.
 
 ```objectivec
 - (dispatch_queue_t)methodQueue
@@ -558,7 +558,7 @@ Swift doesn't have support for macros, so exposing native modules and their meth
 class CalendarManager: NSObject {
 
  @objc(addEvent:location:date:)
- func addEvent(name: String, location: String, date: NSNumber) -> Void {
+ func addEvent(_ name: String, location: String, date: NSNumber) -> Void {
    // Date is ready to use!
  }
 

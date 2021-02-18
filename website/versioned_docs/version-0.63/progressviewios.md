@@ -3,7 +3,7 @@ id: progressviewios
 title: '🚧 ProgressViewIOS'
 ---
 
-> **Deprecated.** Use [@react-native-community/progress-view](https://github.com/react-native-progress-view/progress-view) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=progressview) instead.
 
 Uses `ProgressViewIOS` to render a UIProgressView on iOS.
 

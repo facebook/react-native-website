@@ -3,7 +3,7 @@ id: more-resources
 title: More Resources
 ---
 
-Congratulations! You built your first React Native app. But there’s more to learn: developer workflows, shipping to app stores, internationalization, security and more.
+There’s always more to learn: developer workflows, shipping to app stores, internationalization, security and more.
 
 ## Where to go from here
 

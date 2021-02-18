@@ -15,14 +15,8 @@ Background drawable of native feedback touchable can be customized with `backgro
 
 ```SnackPlayer name=TouchableNativeFeedback%20Android%20Component%20Example&supportedPlatforms=android
 import React, { useState } from "react";
-import { Text, View, StyleSheet, TouchableNativeFeedback } from "react-native";
-import Constants from "expo-constants";
+import { Text, View, StyleSheet, TouchableNativeFeedback, StatusBar } from "react-native";
 
-const randomHexColor = () => {
-  return "#000000".replace(/0/g, function() {
-    return (~~(Math.random() * 16)).toString(16);
-  });
-};
 const App = () => {
   const [rippleColor, setRippleColor] = useState(randomHexColor());
   const [rippleOverflow, setRippleOverflow] = useState(false);
@@ -43,11 +37,17 @@ const App = () => {
   );
 };
 
+const randomHexColor = () => {
+  return "#000000".replace(/0/g, function() {
+    return (~~(Math.random() * 16)).toString(16);
+  });
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     backgroundColor: "#ecf0f1",
     padding: 8
   },
