@@ -105,19 +105,19 @@ React Native 会根据运行平台的不同自动引入正确对应的组件。
 
 如果你还希望在 web 端复用 React Native 的代码，那么还可以使用`.native.js`的扩展名。此时 iOS 和 Android 会使用`BigButton.native.js`文件，而 web 端会使用`BigButton.js`。（注意目前官方并没有直接提供 web 端的支持，请在社区搜索第三方方案）。
 
-For example, say you have the following files in your project:
+比如在你的项目中存在如下的两个文件:
 
 ```sh
-Container.js # picked up by Webpack, Rollup or any other Web bundler
-Container.native.js # picked up by the React Native bundler for both Android and iOS (Metro)
+Container.js # 由 Webpack, Rollup 或者其他打包工具打包的文件
+Container.native.js # 由 React Native 自带打包工具(Metro) 为ios和android 打包的文件
 ```
 
-You can still require it without the `.native` extension, as follows:
+在引用时并不需要添加`.native.`后缀:
 
 ```jsx
 import Container from './Container';
 ```
 
-**Pro tip:** Configure your Web bundler to ignore `.native.js` extensions in order to avoid having unused code in your production bundle, thus reducing the final bundle size.
+**提示:** 为避免在构建后的 Web 生产环境的代码中出现多余代码，要记得在你的 Web 打包工具中配置忽略`.native.js`结尾的文件, 这样可以减少打包后文件的大小。
 
 ##### 本文档贡献者：[sunnylqm](https://github.com/search?q=sunnylqm&type=Users)(100.00%)
