@@ -9,5 +9,9 @@ rules:
     "ja-space-around-code":
       "before": true
       "after": true
+    "ja-no-space-around-parentheses": false
+    "ja-nakaguro-or-halfwidth-space-between-katakana": false
+    "ja-space-after-exclamation": false
+    "ja-space-after-question": false
   "@proofdict/proofdict":
     dictURL: https://react-native-jp.github.io/proof-dictionary/
