@@ -24,6 +24,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: install dependencies
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile
       - name: textlint reviewdog
         uses: tsuyoshicho/action-textlint@v3
