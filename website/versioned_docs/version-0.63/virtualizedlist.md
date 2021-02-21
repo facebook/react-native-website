@@ -35,7 +35,7 @@ const App = () => {
         data={DATA}
         initialNumToRender={4}
         renderItem={({ item }) => <Item title={item.title} />}
-        keyExtractor={item => item.key}
+        keyExtractor={item => item.id}
         getItemCount={getItemCount}
         getItem={getItem}
       />
