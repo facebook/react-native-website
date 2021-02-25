@@ -28,7 +28,7 @@ We recommend using the [VS Code](https://code.visualstudio.com/) code editor and
 
 [Expo](https://docs.expo.io/) is a framework of tools and services for React Native that focuses on letting you build React Native apps without ever touching Xcode or Android Studio. If you have a web development background, this might appeal to you.
 
-[Ignite](https://github.com/infinitered/ignite) is a starter kit that uses Redux for state management and a few different common UI libraries. It has a CLI to generate apps, components, and containers. If you like all of the individual tech choices, Ignite could be perfect for you.
+[Ignite](https://github.com/infinitered/ignite) is a starter kit that uses [MobX-State-Tree](https://mobx-state-tree.js.org/) for state management and a few different common UI libraries. It has a CLI to generate apps, components, and containers. If you like all of the individual tech choices, Ignite could be perfect for you.
 
 ## Example Apps
 
