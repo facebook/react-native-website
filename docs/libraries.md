@@ -16,7 +16,7 @@ React Native libraries are typically installed from the [npm registry](https://w
 
 If you have Node.js installed on your computer then you already have the npm CLI installed. Some developers prefer to use Yarn Classic for slightly faster install times and additional advanced features like Workspaces. Both tools work great with React Native. We will assume npm for the rest of this guide for simplicity of explanation.
 
-> 💡 The terms "library" and "package" are used interchangably in the JavaScript community.
+> 💡 The terms "library" and "package" are used interchangeably in the JavaScript community.
 
 ## Installing a Library
 

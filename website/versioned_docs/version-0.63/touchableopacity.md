@@ -221,13 +221,3 @@ TV next focus up (see documentation for the View component).
 | Type | Required | Platform |
 | ---- | -------- | -------- |
 | bool | No       | Android  |
-
-## Methods
-
-### `setOpacityTo()`
-
-```jsx
-setOpacityTo((value: number), (duration: number));
-```
-
-Animate the touchable to a new opacity.

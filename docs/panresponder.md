@@ -19,7 +19,7 @@ A native event is a synthetic touch event with form of [PressEvent](pressevent).
 
 A `gestureState` object has the following:
 
-- `stateID` - ID of the gestureState- persisted as long as there at least one touch on screen
+- `stateID` - ID of the gestureState- persisted as long as there's at least one touch on screen
 - `moveX` - the latest screen coordinates of the recently-moved touch
 - `moveY` - the latest screen coordinates of the recently-moved touch
 - `x0` - the screen coordinates of the responder grant
@@ -232,11 +232,11 @@ static create(config)
 
 **Parameters:**
 
-| Name   | Type   | Required | Description |
-| ------ | ------ | -------- | ----------- |
-| config | object | Yes      | Refer below |
+| Name                                                        | Type   | Description |
+| ----------------------------------------------------------- | ------ | ----------- |
+| config <div className="label basic required">Required</div> | object | Refer below |
 
-The config object provides enhanced versions of all of the responder callbacks that provide not only the [`PressEvent`](pressevent), but also the `PanResponder` gesture state, by replacing the word `Responder` with `PanResponder` in each of the typical `onResponder*` callbacks. For example, the `config` object would look like:
+The `config` object provides enhanced versions of all of the responder callbacks that provide not only the [`PressEvent`](pressevent), but also the `PanResponder` gesture state, by replacing the word `Responder` with `PanResponder` in each of the typical `onResponder*` callbacks. For example, the `config` object would look like:
 
 - `onMoveShouldSetPanResponder: (e, gestureState) => {...}`
 - `onMoveShouldSetPanResponderCapture: (e, gestureState) => {...}`

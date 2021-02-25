@@ -6,7 +6,7 @@ While you can use any editor of your choice to develop your app, you will need t
 
 <h3>Node, JDK</h3>
 
-We recommend installing Node via [Chocolatey](https://chocolatey.org), a popular package manager for Windows. 
+We recommend installing Node via [Chocolatey](https://chocolatey.org), a popular package manager for Windows.
 
 If you want to be able to switch between different Node versions, you might want to install Node via [nvm-windows](https://github.com/coreybutler/nvm-windows), a Node version manager for Windows.
 
@@ -116,7 +116,7 @@ React Native has a built-in command line interface, which you can use to generat
 npx react-native init AwesomeProject
 ```
 
-This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding Android support to an existing React Native project (see [Platform Specific Code](platform-specific-code.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
+This is not necessary if you are integrating React Native into an existing application, if you "ejected" from Expo, or if you're adding Android support to an existing React Native project (see [Integration with Existing Apps](integration-with-existing-apps.md)). You can also use a third-party CLI to init your React Native app, such as [Ignite CLI](https://github.com/infinitered/ignite).
 
 <h3>[Optional] Using a specific version or template</h3>
 

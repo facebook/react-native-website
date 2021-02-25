@@ -400,7 +400,7 @@ Now, when someone presses the button, `onPress` will fire, calling the `setIsHun
 />
 ```
 
-> You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again—and this time, `useState` will give us the next value of `isHungry`.
+> You might’ve noticed that although `isHungry` is a [const](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/const), it is seemingly reassignable! What is happening is when a state-setting function like `setIsHungry` is called, its component will re-render. In this case the `Cat` function will run again—and this time, `useState` will give us the next value of `isHungry`.
 
 Finally, put your cats inside a `Cafe` component:
 
@@ -459,7 +459,7 @@ class Cafe extends Component {
   }
 }
 
-export default  Cafe;
+export default Cafe;
 ```
 
 As always with class components, you must import the `Component` class from React:
@@ -494,7 +494,7 @@ And you set individual values inside the state object by passing an object with 
     this.setState({ isHungry: false });
   }}
   // ..
-</Button>
+/>
 ```
 
 > Do not change your component's state directly by assigning it a new value with `this.state.hunger = false`. Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!

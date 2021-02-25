@@ -143,7 +143,7 @@ public class NetworkChangeReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, final Intent intent) {
         /**
-          This part will be called everytime network connection is changed
+          This part will be called every time network connection is changed
           e.g. Connected -> Not Connected
         **/
         if (!isAppOnForeground((context))) {

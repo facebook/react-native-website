@@ -23,8 +23,7 @@ This is where `FlatList` comes into play. `FlatList` renders items lazily, when 
 
 ```SnackPlayer name=ScrollView
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 const App = () => {
   return (
@@ -47,7 +46,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
   },
   scrollView: {
     backgroundColor: 'pink',
@@ -69,6 +68,18 @@ export default App;
 
 Inherits [View Props](view.md#props).
 
+---
+
+### `StickyHeaderComponent`
+
+A React Component that will be used to render sticky headers, should be used together with `stickyHeaderIndices`. You may need to set this component if your sticky header uses custom transforms, for example, when you want your list to have an animated and hidable header. If component have not been provided, the default [`ScrollViewStickyHeader`](https://github.com/facebook/react-native/blob/master/Libraries/Components/ScrollView/ScrollViewStickyHeader.js) component will be used.
+
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
+
+---
+
 ### `alwaysBounceHorizontal`
 
 When true, the scroll view bounces horizontally when it reaches the end even if the content is smaller than the scroll view itself. The default value is true when `horizontal={true}` and false otherwise.
@@ -81,7 +92,7 @@ When true, the scroll view bounces horizontally when it reaches the end even if 
 
 ### `alwaysBounceVertical`
 
-When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `horizontal={true}` and true otherwise.
+When true, the scroll view bounces vertically when it reaches the end even if the content is smaller than the scroll view itself. The default value is false when `vertical={true}` and true otherwise.
 
 | Type | Required | Platform |
 | ---- | -------- | -------- |

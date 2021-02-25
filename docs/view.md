@@ -505,9 +505,9 @@ This is a reserved performance property exposed by `RCTView` and is useful for s
 
 ### `style`
 
-| Type                               | Required |
-| ---------------------------------- | -------- |
-| [view styles](view-style-props.md) | No       |
+| Type                              | Required |
+| --------------------------------- | -------- |
+| [View Style](view-style-props.md) | No       |
 
 ---
 

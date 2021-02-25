@@ -12,8 +12,6 @@ The core workflow for creating an animation is to create an `Animated.Value`, ho
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-<block class="functional syntax" />
-
 > Don't modify the animated value directly. You can use the [`useRef` Hook](https://reactjs.org/docs/hooks-reference.html#useref) to return a mutable ref object. This ref object's `current` property is initialized as the given argument and persists throughout the component lifecycle.
 
 </TabItem>
@@ -218,7 +216,7 @@ You can use the native driver by specifying `useNativeDriver: true` in your anim
 
 ### Animatable components
 
-Only animatable components can be animated. These unique components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the react render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
+Only animatable components can be animated. These unique components do the magic of binding the animated values to the properties, and do targeted native updates to avoid the cost of the React render and reconciliation process on every frame. They also handle cleanup on unmount so they are safe by default.
 
 - [`createAnimatedComponent()`](animated#createanimatedcomponent) can be used to make a component animatable.
 
@@ -337,7 +335,7 @@ Config is an object that may have the following options.
 
 Note that you can only define one of bounciness/speed, tension/friction, or stiffness/damping/mass, but not more than one:
 
-The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebook/pop), [Rebound](http://facebook.github.io/rebound/), and [Origami](http://origami.design/).
+The friction/tension or bounciness/speed options match the spring model in [`Facebook Pop`](https://github.com/facebook/pop), [Rebound](https://github.com/facebookarchive/rebound), and [Origami](http://origami.design/).
 
 - `friction`: Controls "bounciness"/overshoot. Default 7.
 - `tension`: Controls speed. Default 40.

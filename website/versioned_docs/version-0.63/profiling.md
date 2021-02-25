@@ -5,7 +5,7 @@ title: Profiling
 
 Use the built-in profiler to get detailed information about work done in the JavaScript thread and main thread side-by-side. Access it by selecting Perf Monitor from the Debug menu.
 
-For iOS, Instruments is an invaluable tool, and on Android you should learn to use [`systrace`](performance.md#profiling-android-ui-performance-with-systrace).
+For iOS, Instruments is an invaluable tool, and on Android you should learn to use [`systrace`](profiling.md#profiling-android-ui-performance-with-systrace).
 
 But first, [**make sure that Development Mode is OFF!**](performance.md#running-in-development-mode-devtrue) You should see `__DEV__ === false, development-level warning are OFF, performance optimizations are ON` in your application logs.
 

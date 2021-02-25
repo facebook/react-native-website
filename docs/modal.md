@@ -14,14 +14,7 @@ The Modal component is a basic way to present content above an enclosing view.
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { useState } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
 const App = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -39,27 +32,21 @@ const App = () => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <Text style={styles.modalText}>Hello World!</Text>
-
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setModalVisible(!modalVisible)}
             >
               <Text style={styles.textStyle}>Hide Modal</Text>
-            </TouchableHighlight>
+            </Pressable>
           </View>
         </View>
       </Modal>
-
-      <TouchableHighlight
-        style={styles.openButton}
-        onPress={() => {
-          setModalVisible(true);
-        }}
+      <Pressable
+        style={[styles.button, styles.buttonOpen]}
+        onPress={() => setModalVisible(true)}
       >
         <Text style={styles.textStyle}>Show Modal</Text>
-      </TouchableHighlight>
+      </Pressable>
     </View>
   );
 };
@@ -83,14 +70,19 @@ const styles = StyleSheet.create({
       height: 2
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowRadius: 4,
     elevation: 5
   },
-  openButton: {
-    backgroundColor: "#F194FF",
+  button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
   },
   textStyle: {
     color: "white",
@@ -111,14 +103,7 @@ export default App;
 
 ```SnackPlayer name=Modal&supportedPlatforms=android,ios
 import React, { Component } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View
-} from "react-native";
+import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 
 class App extends Component {
   state = {
@@ -145,27 +130,21 @@ class App extends Component {
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
               <Text style={styles.modalText}>Hello World!</Text>
-
-              <TouchableHighlight
-                style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-                onPress={() => {
-                  this.setModalVisible(!modalVisible);
-                }}
+              <Pressable
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => this.setModalVisible(!modalVisible)}
               >
                 <Text style={styles.textStyle}>Hide Modal</Text>
-              </TouchableHighlight>
+              </Pressable>
             </View>
           </View>
         </Modal>
-
-        <TouchableHighlight
-          style={styles.openButton}
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
+        <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => this.setModalVisible(true)}
         >
           <Text style={styles.textStyle}>Show Modal</Text>
-        </TouchableHighlight>
+        </Pressable>
       </View>
     );
   }
@@ -190,14 +169,19 @@ const styles = StyleSheet.create({
       height: 2
     },
     shadowOpacity: 0.25,
-    shadowRadius: 3.84,
+    shadowRadius: 4,
     elevation: 5
   },
-  openButton: {
-    backgroundColor: "#F194FF",
+  button: {
     borderRadius: 20,
     padding: 10,
     elevation: 2
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "#2196F3",
   },
   textStyle: {
     color: "white",
@@ -232,45 +216,45 @@ export default App;
 
 The `animationType` prop controls how the modal animates.
 
-- `slide` slides in from the bottom
-- `fade` fades into view
-- `none` appears without an animation
+Possible values:
 
-Default is set to `none`.
+- `slide` slides in from the bottom,
+- `fade` fades into view,
+- `none` appears without an animation.
 
-| Type                          | Required |
-| ----------------------------- | -------- |
-| enum('none', 'slide', 'fade') | No       |
+| Type                                | Default |
+| ----------------------------------- | ------- |
+| enum(`'none'`, `'slide'`, `'fade'`) | `none`  |
 
 ---
 
-### `hardwareAccelerated`
+### `hardwareAccelerated` <div class="label android">Android</div>
 
 The `hardwareAccelerated` prop controls whether to force hardware acceleration for the underlying window.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
-### `onDismiss`
+### `onDismiss` <div class="label ios">iOS</div>
 
 The `onDismiss` prop allows passing a function that will be called once the modal has been dismissed.
 
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `onOrientationChange`
+### `onOrientationChange` <div class="label ios">iOS</div>
 
 The `onOrientationChange` callback is called when the orientation changes while the modal is being displayed. The orientation provided is only 'portrait' or 'landscape'. This callback is also called on initial render, regardless of the current orientation.
 
-| Type     | Required | Platform |
-| -------- | -------- | -------- |
-| function | No       | iOS      |
+| Type     |
+| -------- |
+| function |
 
 ---
 
@@ -278,10 +262,9 @@ The `onOrientationChange` callback is called when the orientation changes while 
 
 The `onRequestClose` callback is called when the user taps the hardware back button on Android or the menu button on Apple TV. Because of this required prop, be aware that `BackHandler` events will not be emitted as long as the modal is open.
 
-| Type     | Required | Platform                 |
-| -------- | -------- | ------------------------ |
-| function | Yes      | Android, Platform.isTVOS |
-| function | No       | (Others)                 |
+| Type                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| function <div className="label basic required">Required</div><div className="label android">Android</div><div className="label tv">TV</div><hr />function <div className="label ios">iOS</div> |
 
 ---
 
@@ -289,46 +272,48 @@ The `onRequestClose` callback is called when the user taps the hardware back but
 
 The `onShow` prop allows passing a function that will be called once the modal has been shown.
 
-| Type     | Required |
-| -------- | -------- |
-| function | No       |
+| Type     |
+| -------- |
+| function |
 
 ---
 
-### `presentationStyle`
+### `presentationStyle` <div class="label ios">iOS</div>
 
 The `presentationStyle` prop controls how the modal appears (generally on larger devices such as iPad or plus-sized iPhones). See https://developer.apple.com/reference/uikit/uimodalpresentationstyle for details.
+
+Possible values:
 
 - `fullScreen` covers the screen completely
 - `pageSheet` covers portrait-width view centered (only on larger devices)
 - `formSheet` covers narrow-width view centered (only on larger devices)
 - `overFullScreen` covers the screen completely, but allows transparency
 
-Default is set to `overFullScreen` or `fullScreen` depending on `transparent` property.
-
-| Type                                                           | Required | Platform |
-| -------------------------------------------------------------- | -------- | -------- |
-| enum('fullScreen', 'pageSheet', 'formSheet', 'overFullScreen') | No       | iOS      |
+| Type                                                                   | Default                                                                             |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| enum(`'fullScreen'`, `'pageSheet'`, `'formSheet'`, `'overFullScreen'`) | `fullScreen` if `transparent={false}`<hr />`overFullScreen` if `transparent={true}` |
 
 ---
 
-### `statusBarTranslucent`
+### `statusBarTranslucent` <div class="label android">Android</div>
 
 The `statusBarTranslucent` prop determines whether your modal should go under the system statusbar.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | Android  |
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
-### `supportedOrientations`
+### `supportedOrientations` <div class="label ios">iOS</div>
 
-The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field. When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+The `supportedOrientations` prop allows the modal to be rotated to any of the specified orientations. On iOS, the modal is still restricted by what's specified in your app's Info.plist's UISupportedInterfaceOrientations field.
 
-| Type                                                                                                | Required | Platform |
-| --------------------------------------------------------------------------------------------------- | -------- | -------- |
-| array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right') | No       | iOS      |
+> When using `presentationStyle` of `pageSheet` or `formSheet`, this property will be ignored by iOS.
+
+| Type                                                                                                           | Default        |
+| -------------------------------------------------------------------------------------------------------------- | -------------- |
+| array of enums(`'portrait'`, `'portrait-upside-down'`, `'landscape'`, `'landscape-left'`, `'landscape-right'`) | `['portrait']` |
 
 ---
 
@@ -336,9 +321,9 @@ The `supportedOrientations` prop allows the modal to be rotated to any of the sp
 
 The `transparent` prop determines whether your modal will fill the entire view. Setting this to `true` will render the modal over a transparent background.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type | Default |
+| ---- | ------- |
+| bool | `false` |
 
 ---
 
@@ -346,6 +331,6 @@ The `transparent` prop determines whether your modal will fill the entire view. 
 
 The `visible` prop determines whether your modal is visible.
 
-| Type | Required |
-| ---- | -------- |
-| bool | No       |
+| Type | Default |
+| ---- | ------- |
+| bool | `true`  |

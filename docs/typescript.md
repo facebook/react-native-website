@@ -17,7 +17,7 @@ You can use the [TypeScript template][ts-template]:
 npx react-native init MyApp --template react-native-template-typescript
 ```
 
-> **Note:** If the above command is failing, you may have old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
+> **Note:** If the above command is failing, you may have an old version of `react-native` or `react-native-cli` installed globally on your system. To fix the issue try uninstalling the CLI:
 >
 > - `npm uninstall -g react-native-cli` or `yarn global remove react-native-cli`
 >

@@ -203,10 +203,20 @@ export default App;
 
 ## Methods
 
+### `cancel()`
+
+```jsx
+Vibration.cancel();
+```
+
+Call this to stop vibrating after having invoked `vibrate()` with repetition enabled.
+
+---
+
 ### `vibrate()`
 
 ```jsx
-Vibration.vibrate(?pattern: number | Array<number>, ?repeat: boolean)
+Vibration.vibrate(pattern, repeat);
 ```
 
 Triggers a vibration with a fixed duration.
@@ -219,18 +229,7 @@ The `vibrate()` method can take a `pattern` argument with an array of numbers th
 
 **Parameters:**
 
-| Name    | Type             | Required | Description                                                | Platform     |
-| ------- | ---------------- | -------- | ---------------------------------------------------------- | ------------ |
-| pattern | number           | No       | Vibration duration in milliseconds. Defaults to 400 ms.    | Android      |
-| pattern | Array of numbers | No       | Vibration pattern as an array of numbers in milliseconds.  | Android, iOS |
-| repeat  | boolean          | No       | Repeat vibration pattern until cancel(), default to false. | Android, iOS |
-
----
-
-### `cancel()`
-
-```jsx
-Vibration.cancel();
-```
-
-Call this to stop vibrating after having invoked `vibrate()` with repetition enabled.
+| Name    | Type                                                                     | Default | Description                                                                                       |
+| ------- | ------------------------------------------------------------------------ | ------- | ------------------------------------------------------------------------------------------------- |
+| pattern | number <div className="label android">Android</div><hr/>array of numbers | `400`   | Vibration duration in milliseconds.<hr/>Vibration pattern as an array of numbers in milliseconds. |
+| repeat  | boolean                                                                  | `false` | Repeat vibration pattern until `cancel()`.                                                        |

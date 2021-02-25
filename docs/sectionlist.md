@@ -27,14 +27,7 @@ If you don't need section support and want a simpler interface, use [`<FlatList>
 
 ```SnackPlayer name=SectionList%20Example
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  SectionList
-} from "react-native";
-import Constants from "expo-constants";
+import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "react-native";
 
 const DATA = [
   {
@@ -77,7 +70,7 @@ const App = () => (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16
   },
   item: {
@@ -102,14 +95,7 @@ export default App;
 
 ```SnackPlayer name=SectionList%20Example
 import React, { Component } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  SectionList
-} from "react-native";
-import Constants from "expo-constants";
+import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "react-native";
 
 const DATA = [
   {
@@ -156,7 +142,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     marginHorizontal: 16
   },
   item: {
@@ -179,7 +165,7 @@ export default App;
 </TabItem>
 </Tabs>
 
-This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md) that aren't explicitly listed here, along with the following caveats:
+This is a convenience wrapper around [`<VirtualizedList>`](virtualizedlist.md), and thus inherits its props (as well as those of [`<ScrollView>`](scrollview.md)) that aren't explicitly listed here, along with the following caveats:
 
 - Internal state is not preserved when content scrolls out of the render window. Make sure all your data is captured in the item data or external stores like Flux, Redux, or Relay.
 - This is a `PureComponent` which means that it will not re-render if `props` remain shallow-equal. Make sure that everything your `renderItem` function depends on is passed as a prop (e.g. `extraData`) that is not `===` after updates, otherwise your UI may not update on changes. This includes the `data` prop and parent component state.
@@ -264,9 +250,9 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 Rendered in between each item, but not at the top or bottom. By default, `highlighted`, `section`, and `[leading/trailing][Item/Section]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| Type                         |
-| ---------------------------- |
-| component, element, function |
+| Type               |
+| ------------------ |
+| component, element |
 
 ---
 
@@ -282,31 +268,31 @@ Used to extract a unique key for a given item at the specified index. Key is use
 
 ### `ListEmptyComponent`
 
-Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         |
-| ---------------------------- |
-| component, element, function |
+| Type               |
+| ------------------ |
+| component, element |
 
 ---
 
 ### `ListFooterComponent`
 
-Rendered at the very end of the list. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the very end of the list. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         |
-| ---------------------------- |
-| component, element, function |
+| Type               |
+| ------------------ |
+| component, element |
 
 ---
 
 ### `ListHeaderComponent`
 
-Rendered at the very beginning of the list. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the very beginning of the list. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         |
-| ---------------------------- |
-| component, element, function |
+| Type               |
+| ------------------ |
+| component, element |
 
 ---
 
@@ -396,9 +382,9 @@ Rendered at the top of each section. These stick to the top of the `ScrollView` 
 
 Rendered at the top and bottom of each section (note this is different from `ItemSeparatorComponent` which is only rendered between items). These are intended to separate sections from the headers above and below and typically have the same highlight response as `ItemSeparatorComponent`. Also receives `highlighted`, `[leading/trailing][Item/Section]`, and any custom props from `separators.updateProps`.
 
-| Type                         |
-| ---------------------------- |
-| component, element, function |
+| Type               |
+| ------------------ |
+| component, element |
 
 ---
 
@@ -468,10 +454,10 @@ An object that identifies the data to be rendered for a given section.
 
 **Properties:**
 
-| Name                                                  | Type                         | Description                                                                                                                                                         |
-| ----------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| data <div class="label basic required">Required</div> | array                        | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist#data).                                                  |
-| key                                                   | string                       | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                              |
-| renderItem                                            | function                     | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#renderitem) for the list.                          |
-| ItemSeparatorComponent                                | component, function, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist#itemseparatorcomponent) for the list. |
-| keyExtractor                                          | function                     | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist#keyextractor).                                   |
+| Name                                                  | Type               | Description                                                                                                                                                         |
+| ----------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| data <div class="label basic required">Required</div> | array              | The data for rendering items in this section. Array of objects, much like [`FlatList`'s data prop](flatlist#data).                                                  |
+| key                                                   | string             | Optional key to keep track of section re-ordering. If you don't plan on re-ordering sections, the array index will be used by default.                              |
+| renderItem                                            | function           | Optionally define an arbitrary item renderer for this section, overriding the default [`renderItem`](sectionlist#renderitem) for the list.                          |
+| ItemSeparatorComponent                                | component, element | Optionally define an arbitrary item separator for this section, overriding the default [`ItemSeparatorComponent`](sectionlist#itemseparatorcomponent) for the list. |
+| keyExtractor                                          | function           | Optionally define an arbitrary key extractor for this section, overriding the default [`keyExtractor`](sectionlist#keyextractor).                                   |

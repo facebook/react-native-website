@@ -5,10 +5,9 @@ title: Text Style Props
 
 ### Example
 
-```SnackPlayer name=TextStyleProps&supportedPlatforms=android,ios
+```SnackPlayer name=TextStyleProps
 import React, { useState } from "react";
-import { FlatList, Platform, ScrollView, Slider, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
-import Constants from "expo-constants";
+import { FlatList, Platform, ScrollView, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
 
 const fontStyles = ["normal", "italic"];
 const fontVariants = [
@@ -301,7 +300,7 @@ const CustomPicker = ({ label, data, currentIndex, onSelected }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     backgroundColor: "#ecf0f1",
     padding: 8
   },
