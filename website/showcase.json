@@ -49,7 +49,7 @@
     "icon": "coinbase.png",
     "linkAppStore": "https://apps.apple.com/us/app/coinbase-buy-sell-bitcoin/id886427730",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.coinbase.android",
-    "infoLink": "https://blog.coinbase.com/onboarding-thousands-of-users-with-react-native-361219066df4",
+    "infoLink": "https://blog.coinbase.com/optimizing-react-native-7e7bf7ac3a34",
     "infoTitle": "Onboarding thousands of users with React Native",
     "pinned": true
   },
