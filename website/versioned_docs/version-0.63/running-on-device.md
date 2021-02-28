@@ -355,7 +355,7 @@ You can also iterate quickly on a device using the development server. You only 
 
 ### Troubleshooting
 
-> If you have any issues, ensure that your Mac and device are on the same network and can reach each other. Many open wireless networks with captive portals are configured to prevent devices from reaching other devices on the network. You may use your device's Personal Hotspot feature in this case.
+> If you have any issues, ensure that your Mac and device are on the same network and can reach each other. Many open wireless networks with captive portals are configured to prevent devices from reaching other devices on the network. You may use your device's Personal Hotspot feature in this case. You may also share your internet (WiFi/Ethernet) connection from your Mac to your device via USB and connect to the bundler through this tunnel for very high transfer speeds.
 
 When trying to connect to the development server you might get a [red screen with an error](debugging.md#in-app-errors-and-warnings) saying:
 
