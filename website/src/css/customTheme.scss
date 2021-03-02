@@ -602,9 +602,11 @@ div[class^="docSidebarContainer"] {
   }
 
   .menu__link--active.active {
-    border-left: 4px solid var(--ifm-menu-color-active) !important;
+    border-left-width: 4px;
+    border-left-style: solid;
+    border-left-color: var(--ifm-menu-color-active) !important;
     font-weight: 600 !important;
-    padding-left: 12px;
+    padding-left: 8px;
   }
 
   .menu__list-item--collapsed .menu__list {
