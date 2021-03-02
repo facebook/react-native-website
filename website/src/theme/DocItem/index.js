@@ -50,7 +50,6 @@ function DocItem(props) {
   });
   const versions = useVersions(pluginId);
   const version = useActiveVersion(pluginId);
-
   const showVersionBadge = versions.length > 1 && !version.isLast;
 
   const metaTitle = useTitleFormatter(title);

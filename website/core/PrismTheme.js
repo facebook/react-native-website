@@ -1,15 +1,17 @@
-const theme = {
+var theme = {
   plain: {
     color: '#FFFFFF',
     background: '#282C34',
   },
   styles: [
+    // other modifications
     {
       types: ['property'],
       style: {
         color: '#2aa198',
       },
     },
+    // solarized-dark theme
     {
       types: ['attr-name', 'comment', 'prolog', 'doctype', 'cdata'],
       style: {
@@ -20,7 +22,7 @@ const theme = {
     {
       types: ['punctuation'],
       style: {
-        color: '#657b83',
+        color: '#657b83' /* base00 */,
       },
     },
     {
@@ -32,25 +34,25 @@ const theme = {
     {
       types: ['selector', 'char', 'builtin', 'url'],
       style: {
-        color: '#2aa198',
+        color: '#2aa198' /* cyan */,
       },
     },
     {
       types: ['entity'],
       style: {
-        color: '#2aa198',
+        color: '#2aa198' /* cyan */,
       },
     },
     {
       types: ['atrule', 'inserted'],
       style: {
-        color: '#859900',
+        color: '#859900' /* yellow */,
       },
     },
     {
       types: ['important', 'variable', 'deleted'],
       style: {
-        color: '#cb4b16',
+        color: '#cb4b16' /* orange */,
       },
     },
     {
@@ -71,6 +73,7 @@ const theme = {
         cursor: 'help',
       },
     },
+    // react-native theme
     {
       types: ['attr-name', 'keyword'],
       style: {
