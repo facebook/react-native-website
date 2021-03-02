@@ -54,6 +54,7 @@ function DocItem(props) {
   // See https://github.com/facebook/docusaurus/issues/3362
 
   const showVersionBadge = versions.length > 1 && !version.isLast;
+
   const metaTitle = useTitleFormatter(title);
   const metaImageUrl = useBaseUrl(metaImage, {
     absolute: true,
