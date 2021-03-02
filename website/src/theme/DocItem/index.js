@@ -49,9 +49,7 @@ function DocItem(props) {
     failfast: true,
   });
   const versions = useVersions(pluginId);
-  const version = useActiveVersion(pluginId); // If site is not versioned or only one version is included
-  // we don't show the version badge
-  // See https://github.com/facebook/docusaurus/issues/3362
+  const version = useActiveVersion(pluginId);
 
   const showVersionBadge = versions.length > 1 && !version.isLast;
 
@@ -79,7 +77,6 @@ function DocItem(props) {
         {permalink && <meta property="og:url" content={siteUrl + permalink} />}
         {permalink && <link rel="canonical" href={siteUrl + permalink} />}
       </Head>
-
       <div className="row">
         <div
           className={clsx('col', {
@@ -122,7 +119,7 @@ function DocItem(props) {
                   {(lastUpdatedAt || lastUpdatedBy) && (
                     <div className="col text--right">
                       <em>
-                        <small>
+                        <small className="docMetadata-updated">
                           Last updated{' '}
                           {lastUpdatedAt && (
                             <>
