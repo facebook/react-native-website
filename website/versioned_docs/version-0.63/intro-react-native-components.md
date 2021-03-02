@@ -23,7 +23,6 @@ React Native comes with a set of essential, ready-to-use Native Components you c
 
 React Native also lets you build your own Native Components for [Android](native-components-android.md) and [iOS](native-components-ios.md) to suit your app’s unique needs. We also have a thriving ecosystem of these **community-contributed components.** Check out [Native Directory](https://reactnative.directory) to find what the community has been creating.
 
-
 ## Core Components
 
 React Native has many Core Components for everything from form controls to activity indicators. You can find them all [documented in the API section](components-and-apis). You will mostly work with the following Core Components:

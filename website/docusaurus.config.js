@@ -22,6 +22,10 @@ module.exports = {
     users,
     facebookAppId: '1677033832619985',
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
   onBrokenLinks: 'throw',
   presets: [
     [
