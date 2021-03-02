@@ -160,6 +160,6 @@ function DocItem(props) {
       </div>
     </>
   );
-};
+}
 
 export default DocItem;

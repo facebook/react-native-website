@@ -207,7 +207,7 @@ static alert(title, message?, buttons?, options?)
 | ------------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------------- |
 | title <div class="label basic required">Required</div> | string                           | The dialog's title. Passing `null` or empty string will hide the title. |
 | message                                                | string                           | An optional message that appears below the dialog's title.              |
-| buttons                                                | [Buttons](alert#buttons)         | An optional array containing buttons configuration.                       |
+| buttons                                                | [Buttons](alert#buttons)         | An optional array containing buttons configuration.                     |
 | options <div class="label android">Android</div>       | [Options](alert#options-android) | An optional Alert configuration for the Android.                        |
 
 ---
