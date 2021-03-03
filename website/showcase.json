@@ -92,8 +92,8 @@
     "icon": "nerdwallet.png",
     "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mobilecreditcards&hl=en_US",
-    "infoLink": "https://www.nerdwallet.com/",
-    "infoTitle": "",
+    "infoLink": "https://www.nerdwallet.com/blog/engineering/beyond-the-browser-how-nerdwallet-went-native/",
+    "infoTitle": "Beyond the Browser: How NerdWallet Went Native",
     "pinned": true
   },
   {
