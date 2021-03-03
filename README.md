@@ -17,7 +17,7 @@ If you are looking for the source code of the [React Native Archive website](htt
 ### Prerequisites
 
 1.  [Git](https://git-scm.com/downloads).
-1.  [Node](https://nodejs.org/en/download/) _(version 10 or greater)_.
+1.  [Node](https://nodejs.org/en/download/) _(version 12 or greater)_.
 1.  [Yarn](https://yarnpkg.com/lang/en/docs/install/) _(version 1.5 or greater)_.
 1.  A fork of the repo _(for any contributions)_.
 1.  A clone of the `react-native-website` repo.
