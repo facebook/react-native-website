@@ -34,15 +34,15 @@
     "@docusaurus/core": "2.0.0-alpha.70",
     "@docusaurus/preset-classic": "2.0.0-alpha.70",
     "docusaurus-plugin-sass": "^0.1.11",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-github-btn": "^1.2.0"
   },
   "devDependencies": {
     "alex": "^9.1.0",
     "fs-extra": "^9.1.0",
     "glob": "^7.1.6",
-    "glob-promise": "^3.4.0",
+    "glob-promise": "^4.1.0",
     "path": "^0.12.7"
   }
 }
