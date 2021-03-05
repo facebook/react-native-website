@@ -1,7 +1,7 @@
 ---
 title: The GAAD Pledge - Improving React Native Accessibility
 author: Alexandra Marlette
-authorTitle: React Native Accessibility Open Source Community Manager
+authorTitle: GAAD Pledge Open Source Accessibility Community Manager for React Native
 authorURL: 'https://twitter.com/alexmarlette'
 authorImageURL: 'https://avatars.githubusercontent.com/u/10052470?s=460&u=7f2304cb929d1de703856717af86324c66728f3a&v=4'
 authorTwitter: alexmarlette
@@ -30,4 +30,4 @@ Please join us in making React Native more accessible for everyone.
 
 - Share this initiative with anyone who may be able to help!
 
-[Twitter](https://twitter.com/alexmarlette) | [Facebook](https://www.facebook.com/React-Native-Open-Source-Accessibility-Community-Manager-102732258549941)
+- Follow the GAAD Pledge Open Source Accessibility Community Manager for React Native on [Twitter](https://twitter.com/alexmarlette) or [Facebook](https://www.facebook.com/React-Native-Open-Source-Accessibility-Community-Manager-102732258549941) to keep up to date on progress.
