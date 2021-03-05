@@ -3,7 +3,7 @@ id: checkbox
 title: '🚧 CheckBox'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=checkbox) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=checkbox) instead.
 
 Renders a boolean input (Android only).
 

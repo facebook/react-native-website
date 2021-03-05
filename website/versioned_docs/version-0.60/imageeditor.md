@@ -1,9 +1,9 @@
 ---
 id: imageeditor
-title: ImageEditor
+title: '🚧 ImageEditor'
 ---
 
-> **Deprecated.** Use [@react-native-community/image-editor](https://github.com/react-native-community/react-native-image-editor) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=imageeditor) instead.
 
 ---
 

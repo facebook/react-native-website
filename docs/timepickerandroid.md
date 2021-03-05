@@ -3,7 +3,7 @@ id: timepickerandroid
 title: '🚧 TimePickerAndroid'
 ---
 
-> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=timepicker) instead.
+> **Removed.** Use one of the [community packages](https://reactnative.directory/?search=timepicker) instead.
 
 Opens the standard Android time picker dialog.
 
