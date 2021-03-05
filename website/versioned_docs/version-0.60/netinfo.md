@@ -1,9 +1,9 @@
 ---
 id: netinfo
-title: NetInfo
+title: '🚧 NetInfo'
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo) instead.
+> **Removed.** Use [react-native-community/react-native-netinfo](https://github.com/react-native-community/react-native-netinfo) instead.
 
 NetInfo exposes info about online/offline status
 
