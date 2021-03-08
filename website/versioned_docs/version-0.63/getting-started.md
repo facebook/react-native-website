@@ -17,7 +17,7 @@ This page will help you install and build your first React Native app.
 <Tabs groupId="guide" defaultValue={constants.defaultGuide} values={constants.guides}>
 <TabItem value="quickstart">
 
-Assuming that you have [Node 12 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
+Assuming that you have [Node 14 LTS](https://nodejs.org/en/download/) or greater installed, you can use npm to install the Expo CLI command line utility:
 
 <Tabs groupId="package-manager" defaultValue={constants.defaultPackageManager} values={constants.packageManagers}>
 <TabItem value="npm">
