@@ -1461,3 +1461,17 @@ html[data-theme="dark"] {
     }
   }
 }
+
+.eleduck {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: orangered;
+    border-radius: 50%;
+    opacity: 0.9;
+    top: 15%;
+  }
+}
