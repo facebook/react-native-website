@@ -5,6 +5,8 @@ title: Handling Touches
 
 Users interact with mobile apps mainly through touch. They can use a combination of gestures, such as tapping on a button, scrolling a list, or zooming on a map. React Native provides components to handle all sorts of common gestures, as well as a comprehensive [gesture responder system](gesture-responder-system.md) to allow for more advanced gesture recognition, but the one component you will most likely be interested in is the basic Button.
 
+> The touch area never extends past the parent view bounds, the Z-index of sibling views always takes precedence if a touch hits two overlapping views and on Android negative margin is not supported. [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162)
+
 ## Displaying a basic button
 
 [Button](button.md) provides a basic button component that is rendered nicely on all platforms. The minimal example to display a button looks like this:

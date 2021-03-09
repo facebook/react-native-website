@@ -36,3 +36,5 @@ In this example, we store `text` in the state, because it changes over time.
 There are a lot more things you might want to do with a text input. For example, you could validate the text inside while the user types. For more detailed examples, see the [React docs on controlled components](https://reactjs.org/docs/forms.html#controlled-components), or the [reference docs for TextInput](textinput.md).
 
 Text input is one of the ways the user interacts with the app. Next, let's look at another type of input and [learn how to handle touches](handling-touches.md).
+
+> The touch area never extends past the parent view bounds, on Android negative margin is not supported. [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162)
