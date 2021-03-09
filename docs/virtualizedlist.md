@@ -139,7 +139,7 @@ Takes an item from `data` and renders it into the list
 
 ### `CellRendererComponent`
 
-Each cell is rendered using this element. Can be a React Component Class,or a render function. Defaults to using [`View`](view.md).
+Each cell is rendered using this element. Can be a React Component Class, or a render function. Defaults to using [`View`](view.md).
 
 | Type                |
 | ------------------- |
