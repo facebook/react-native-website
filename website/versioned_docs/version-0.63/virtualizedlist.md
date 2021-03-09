@@ -190,7 +190,7 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 ### `CellRendererComponent`
 
-Each cell is rendered using this element. Can be a React Component Class,or a render function. Defaults to using [`View`](view.md).
+Each cell is rendered using this element. Can be a React Component Class, or a render function. Defaults to using [`View`](view.md).
 
 | Type                | Required |
 | ------------------- | -------- |
