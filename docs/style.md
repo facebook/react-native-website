@@ -5,6 +5,8 @@ title: Style
 
 With React Native, you style your application using JavaScript. All of the core components accept a prop named `style`. The style names and [values](colors.md) usually match how CSS works on the web, except names are written using camel casing, e.g. `backgroundColor` rather than `background-color`.
 
+> In some cases React Native does not match how CSS works on the web, for example the touch area never extends past the parent view bounds and on Android negative margin is not supported. [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162)
+
 The `style` prop can be a plain old JavaScript object. That's what we usually use for example code. You can also pass an array of styles - the last style in the array has precedence, so you can use this to inherit styles.
 
 As a component grows in complexity, it is often cleaner to use `StyleSheet.create` to define several styles in one place. Here's an example:
