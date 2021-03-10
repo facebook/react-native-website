@@ -46,3 +46,7 @@ One common pattern is to make your component accept a `style` prop which in turn
 There are a lot more ways to customize the text style. Check out the [Text component reference](text.md) for a complete list.
 
 Now you can make your text beautiful. The next step in becoming a style expert is to [learn how to control component size](height-and-width.md).
+
+## Known issues
+
+- [react-native#29308](https://github.com/facebook/react-native/issues/29308#issuecomment-792864162): In some cases React Native does not match how CSS works on the web, for example the touch area never extends past the parent view bounds and on Android negative margin is not supported.
