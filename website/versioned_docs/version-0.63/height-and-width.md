@@ -26,6 +26,9 @@ const FixedDimensionsBasics = () => {
 export default FixedDimensionsBasics;
 ```
 
+Setting dimensions this way is common for components whose size should always be fixed to a number of points and not calculated based on screen size. Note, that there is no universal mapping from points to physical units of measurement. This means that a component with fixed dimensions might not have the same physical size, across different devices and screen sizes. However, this difference is unnoticable for most use cases.
+
+
 ## Flex Dimensions
 
 Use `flex` in a component's style to have the component expand and shrink dynamically based on available space. Normally you will use `flex: 1`, which tells a component to fill all available space, shared evenly amongst other components with the same parent. The larger the `flex` given, the higher the ratio of space a component will take compared to its siblings.
