@@ -53,7 +53,7 @@ React Native 目前需要[Xcode](https://developer.apple.com/xcode/downloads/) 1
 
 #### CocoaPods
 
-[CocoaPods](https://cocoapods.org/)是用 Ruby 编写的包管理器（可以理解为针对 iOS 的 npm）。从 0.60 版本开始 react native 的 iOS 版本需要使用 CocoaPods 来管理依赖。你可以使用下面的命令来安装 cocoapods。
+[CocoaPods](https://cocoapods.org/)是用 Ruby 编写的包管理器（可以理解为针对 iOS 的 npm）。从 0.60 版本开始 react native 的 iOS 版本需要使用 CocoaPods 来管理依赖。你可以使用下面的命令来安装 CocoaPods。CocoaPods的版本需要 1.10 以上。
 
 > 当然安装可能也不顺利，请尝试使用代理软件或寻找一些国内可用的镜像源。
 
@@ -66,8 +66,6 @@ sudo gem install cocoapods
 ```sh
 brew install cocoapods
 ```
-
-> 另外目前最新版本似乎不能在 ruby2.6 版本以下安装，意味着如果你使用的 macOS 版本低于 10.15 (Catalina) 则无法直接安装。可以尝试安装较旧一些的版本。如`sudo gem install cocoapods -v 1.8.4`，参考 issue 链接 <https://github.com/CocoaPods/CocoaPods/issues/9568>
 
 要了解更多信息，可以访问[CocoaPods 的官网](https://guides.cocoapods.org/using/getting-started.html)。
 
