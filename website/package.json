@@ -16,6 +16,7 @@
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
     "clean": "docusaurus clean",
+    "version:cut": "docusaurus docs:version",
     "publish-gh-pages": "yarn deploy",
     "ci-check": "yarn prettier:diff && node image-check.js",
     "format:source": "prettier --write {{core,src}/**/*.js,*.js}",
