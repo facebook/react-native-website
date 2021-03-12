@@ -293,16 +293,6 @@ module.exports = {
     },
     metadatas: [
       {
-        name: 'description',
-        content: 'A framework for building native apps using React',
-      },
-      {property: 'og:title', content: 'React Native'},
-      {
-        property: 'og:description',
-        content: 'A framework for building native apps using React',
-      },
-      {property: 'og:url', content: 'https://reactnative.dev/'},
-      {
         property: 'og:image',
         content: 'https://reactnative.dev/img/logo-og.png',
       },
