@@ -95,7 +95,7 @@ The heavier your components are, the slower they render. Avoid heavy images (use
 
 ### Use shouldComponentUpdate
 
-Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it need to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is basic enough, you could even use
+Implement update verification to your components. React's `PureComponent` implement a [`shouldComponentUpdate`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) with shallow comparison. This is expensive here because it needs to check all your props. If you want a good bit-level performance, create the strictest rules for your list item components, checking only props that could potentially change. If your list is basic enough, you could even use
 
 ```jsx
 shouldComponentUpdate() {
@@ -117,7 +117,7 @@ If your components have dynamic size and you really need performance, consider a
 
 You can set the [`keyExtractor`](flatlist#keyextractor) to your `FlatList` component. This prop is used for caching and as the React `key` to track item re-ordering.
 
-You can also use a `key` prop in you item component.
+You can also use a `key` prop in your item component.
 
 ### Avoid anonymous function on renderItem
 

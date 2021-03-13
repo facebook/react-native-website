@@ -3,7 +3,7 @@ id: pushnotificationios
 title: '🚧 PushNotificationIOS'
 ---
 
-> **Deprecated.** Use [@react-native-community/push-notification-ios](https://github.com/react-native-community/react-native-push-notification-ios) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=push+notification) instead.
 
 <div class="banner-native-code-required">
   <h3>Projects with Native Code Only</h3>

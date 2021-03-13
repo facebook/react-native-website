@@ -240,7 +240,7 @@ You should now be able to invoke your `createCalendarEvent()` method on your nat
   <figcaption>Image of ADB logs in Android Studio</figcaption>
 </figure>
 
-At this point you have created an Android native module and invoked it’s native method from JavaScript in your React Native application. You can read on to learn more about things like argument types available to a native module method and how to setup callbacks and promises.
+At this point you have created an Android native module and invoked its native method from JavaScript in your React Native application. You can read on to learn more about things like argument types available to a native module method and how to setup callbacks and promises.
 
 ## Beyond a Calendar Native Module
 
@@ -346,13 +346,13 @@ console.log(DEFAULT_EVENT_NAME);
 
 Technically it is possible to access constants exported in `getConstants()` directly off the native module object. This will no longer be supported with TurboModules, so we encourage the community to switch to the above approach to avoid necessary migration down the line.
 
-> That currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants()` will become a regular native module method), and each invocation will hit the native side.
+> That currently constants are exported only at initialization time, so if you change getConstants values at runtime it won't affect the JavaScript environment. This will change with Turbomodules. With Turbomodules, `getConstants()` will become a regular native module method, and each invocation will hit the native side.
 
 ### Callbacks
 
 Native modules also support a unique kind of argument: a callback. Callbacks are used to pass data from Java to JavaScript for asynchronous methods. They can also be used to asynchronously execute JavaScript from the native side.
 
-In order to create a native module method with a callback, first import the `Callback` interface, and then add a new parameter to your native module method of type `Callback`. There are a couple of nuances with callback arguments that will soon be lifted with TurboModules. First off, you can only have two callbacks in your function arguments- a sucessCallback and a failureCallback. In addition, the last argument to a native module method call, if it's a function, is treated as the successCallback, and the second to last argument to a native module method call, if it's a function, is treated as the failure callback.
+In order to create a native module method with a callback, first import the `Callback` interface, and then add a new parameter to your native module method of type `Callback`. There are a couple of nuances with callback arguments that will soon be lifted with TurboModules. First off, you can only have two callbacks in your function arguments- a successCallback and a failureCallback. In addition, the last argument to a native module method call, if it's a function, is treated as the successCallback, and the second to last argument to a native module method call, if it's a function, is treated as the failure callback.
 
 ```java
 import com.facebook.react.bridge.Callback;
@@ -380,7 +380,7 @@ const onPress = () => {
     'Party',
     'My House',
     (eventId) => {
-      console.log('Created a new event with id ${eventId}');
+      console.log(`Created a new event with id ${eventId}`);
     }
   );
 };
@@ -423,7 +423,7 @@ public void createCalendarEvent(String name, String location, Callback myFailure
 }
 ```
 
-Then in JavaScript you can add a seperate callback for error and success responses:
+Then in JavaScript you can add a separate callback for error and success responses:
 
 ```jsx
 const onPress = () => {
@@ -460,7 +460,7 @@ public void createCalendarEvent(String name, String location, Promise promise) {
 }
 ```
 
-> Similar to callbacks, a native module method can either reject or resolve a promise (but not both) and can do so at mosxt once. This means that you can either call a success callback or a failure callback, but not both, and each callback can only be invoked at most one time. A native module can, however, store the callback and invoke it later.
+> Similar to callbacks, a native module method can either reject or resolve a promise (but not both) and can do so at most once. This means that you can either call a success callback or a failure callback, but not both, and each callback can only be invoked at most one time. A native module can, however, store the callback and invoke it later.
 
 The JavaScript counterpart of this method returns a Promise. This means you can use the `await` keyword within an async function to call it and wait for its result:
 
@@ -520,7 +520,7 @@ private void sendEvent(ReactContext reactContext,
 WritableMap params = Arguments.createMap();
 params.putString("eventProperty", "someValue");
 ...
-sendEvent(reactContext, "EventReminder", params);x`
+sendEvent(reactContext, "EventReminder", params);
 ```
 
 JavaScript modules can then register to receive events by `addListener` on the [NativeEventEmitter](https://github.com/facebook/react-native/blob/master/Libraries/EventEmitter/NativeEventEmitter.js) class.

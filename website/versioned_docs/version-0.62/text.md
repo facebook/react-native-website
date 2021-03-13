@@ -325,9 +325,9 @@ See the [Accessibility guide](accessibility.md#accessible-ios-android) for more 
 
 Specifies whether fonts should be scaled down automatically to fit given style constraints.
 
-| Type | Required | Platform |
-| ---- | -------- | -------- |
-| bool | No       | iOS      |
+| Type | Required |
+| ---- | -------- |
+| bool | No       |
 
 ---
 

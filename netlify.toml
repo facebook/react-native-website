@@ -2,3 +2,9 @@
   base    = ""
   publish = "website/build"
   command = "export NODE_OPTIONS=--max_old_space_size=4096 && yarn && cd website && sed -i -e \"s|const baseUrl .*|const baseUrl = '/'|g\" docusaurus.config.js && yarn build"
+
+[context.production.environment]
+  NODE_VERSION = "14.16.0"
+
+[context.deploy-preview.environment]
+  NODE_VERSION = "14.16.0"
