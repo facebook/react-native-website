@@ -62,7 +62,7 @@ jobs:
       - run: yarn ci-check
       - run: export NODE_OPTIONS=--max_old_space_size=4096
       - run: export TERSER_PARALLEL=false
-      - run: 
+      - run:
           name: Compile website
           command: yarn test
           no_output_timeout: 20m
@@ -84,33 +84,6 @@ jobs:
       - run_yarn
       - run: yarn lint
 
-  # --------------------------------------------------
-  # JOB: deploy_website
-  # Deploy website to GitHub Pages in core RN repo.
-  # --------------------------------------------------
-  deploy_website:
-    executor: node
-    working_directory: ~/react-native-website/website
-    steps:
-      - restore_cache_checkout
-      - run_yarn
-      - run: sudo apt install rsync
-      - run:
-          name: Build and Deploy Website
-          command: |
-            if [[ $CIRCLE_PROJECT_USERNAME == "facebook" && -z $CI_PULL_REQUEST && -z $CIRCLE_PR_USERNAME ]]; then
-              git config --global user.email "reactjs-bot@users.noreply.github.com"
-              git config --global user.name "Website Deployment Script"
-              echo "machine github.com login reactjs-bot password $GITHUB_TOKEN" > ~/.netrc
-              echo "Deploying website..."
-              export NODE_OPTIONS=--max_old_space_size=4096
-              export TERSER_PARALLEL=false
-              GIT_USER=reactjs-bot CIRCLE_PROJECT_REPONAME=react-native yarn run publish-gh-pages
-            else
-              echo "Skipping deploy."
-            fi
-          no_output_timeout: 20m
-
 # -------------------------
 #        WORKFLOWS
 # -------------------------
@@ -127,18 +100,5 @@ workflows:
 
       # Run lints
       - language_lint:
-          requires:
-            - setup
-
-  # If we are on master, deploy docs
-  deploy:
-    jobs:
-      - setup:
-          filters:
-            branches:
-              only:
-                - master
-
-      - deploy_website:
           requires:
             - setup
