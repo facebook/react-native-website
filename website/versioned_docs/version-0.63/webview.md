@@ -3,7 +3,7 @@ id: webview
 title: '🚧 WebView'
 ---
 
-> **Deprecated.** Use [react-native-community/react-native-webview](https://github.com/react-native-community/react-native-webview) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=webview) instead.
 
 `WebView` renders web content in a native view.
 
@@ -203,7 +203,7 @@ Function that is invoked when the `WebView` loading starts or ends.
 
 ### `originWhitelist`
 
-List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _only_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this safelist, the URL will be handled by the OS. The default safelistlisted origins are "http://*" and "https://*".
+List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _only_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this safelist, the URL will be handled by the OS. The default safelistlisted origins are `"http://*"` and `"https://*"`.
 
 | Type             | Required |
 | ---------------- | -------- |

@@ -31,14 +31,16 @@ The above code snippet would look like this:
 
 ### Parameters
 
-| Name               | Description                              | Default             |
-| ------------------ | ---------------------------------------- | ------------------- |
-| name               | SnackPlayer name                         | `"Example"`         |
-| description        | Description of the example               | `"Example usage"`   |
-| platform           | Example platform                         | `"web"`             |
-| supportedPlatforms | Supported platforms                      | `"ios,android,web"` |
-| theme              | SnackPlayer theme, `"light"` or `"dark"` | `"light"`           |
-| preview            | Preview visible, `"true"` or `"false"`   | `"true"`            |
+| Name               | Description                                               | Default             |
+| ------------------ | --------------------------------------------------------- | ------------------- |
+| name               | SnackPlayer name                                          | `"Example"`         |
+| description        | Description of the example                                | `"Example usage"`   |
+| dependencies       | Additional dependencies, eg. `"expo-constant"`            | `""`                |
+| platform           | Example platform                                          | `"web"`             |
+| supportedPlatforms | Supported platforms                                       | `"ios,android,web"` |
+| theme              | SnackPlayer theme, `"light"` or `"dark"`                  | `"light"`           |
+| preview            | Preview visible, `"true"` or `"false"`                    | `"true"`            |
+| loading            | iFrame loading attribute, `"auto"`, `"lazy"` or `"eager"` | `"lazy"`            |
 
 ## Styling
 

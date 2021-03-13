@@ -11,31 +11,24 @@ Virtualization massively improves memory consumption and performance of large li
 
 ```SnackPlayer name=VirtualizedListExample
 import React from 'react';
-import { SafeAreaView, View, VirtualizedList, StyleSheet, Text } from 'react-native';
-import Constants from 'expo-constants';
+import { SafeAreaView, View, VirtualizedList, StyleSheet, Text, StatusBar } from 'react-native';
 
 const DATA = [];
 
-const getItem = (data, index) => {
-  return {
-    id: Math.random().toString(12).substring(0),
-    title: `Item ${index+1}`
-  }
-}
+const getItem = (data, index) => ({
+  id: Math.random().toString(12).substring(0),
+  title: `Item ${index+1}`
+});
 
-const getItemCount = (data) => {
-  return 50;
-}
+const getItemCount = (data) => 50;
 
-const Item = ({ title })=> {
-  return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
-}
+const Item = ({ title }) => (
+  <View style={styles.item}>
+    <Text style={styles.title}>{title}</Text>
+  </View>
+);
 
-const VirtualizedListExample = () => {
+const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <VirtualizedList
@@ -53,7 +46,7 @@ const VirtualizedListExample = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: StatusBar.currentHeight,
   },
   item: {
     backgroundColor: '#f9c2ff',
@@ -68,7 +61,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default VirtualizedListExample;
+export default App;
 ```
 
 ---
@@ -197,7 +190,7 @@ Reverses the direction of scroll. Uses scale transforms of -1.
 
 ### `CellRendererComponent`
 
-Each cell is rendered using this element. Can be a React Component Class,or a render function. Defaults to using [`View`](view.md).
+Each cell is rendered using this element. Can be a React Component Class, or a render function. Defaults to using [`View`](view.md).
 
 | Type                | Required |
 | ------------------- | -------- |
@@ -227,11 +220,11 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 ### `ListEmptyComponent`
 
-Rendered when the list is empty. Can be a React Component Class, a render function, or a rendered element.
+Rendered when the list is empty. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
@@ -247,11 +240,11 @@ Each data item is rendered using this element. Can be a React Component Class, o
 
 ### `ListFooterComponent`
 
-Rendered at the bottom of all the items. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the bottom of all the items. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
@@ -267,11 +260,11 @@ Styling for internal View for ListFooterComponent
 
 ### `ListHeaderComponent`
 
-Rendered at the top of all the items. Can be a React Component Class, a render function, or a rendered element.
+Rendered at the top of all the items. Can be a React Component (e.g. `SomeComponent`), or a React element (e.g. `<SomeComponent />`).
 
-| Type                         | Required |
-| ---------------------------- | -------- |
-| component, function, element | No       |
+| Type               | Required |
+| ------------------ | -------- |
+| component, element | No       |
 
 ---
 
@@ -424,7 +417,7 @@ How many items to render in the initial batch. This should be enough to fill the
 (item: object, index: number) => string;
 ```
 
-Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then falls back to using the index, like React does.
+Used to extract a unique key for a given item at the specified index. Key is used for caching and as the react key to track item re-ordering. The default extractor checks `item.key`, then `item.id`, and then falls back to using the index, like React does.
 
 | Type     | Required |
 | -------- | -------- |

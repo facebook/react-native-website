@@ -49,15 +49,15 @@
     "icon": "coinbase.png",
     "linkAppStore": "https://apps.apple.com/us/app/coinbase-buy-sell-bitcoin/id886427730",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.coinbase.android",
-    "infoLink": "https://blog.coinbase.com/onboarding-thousands-of-users-with-react-native-361219066df4",
+    "infoLink": "https://blog.coinbase.com/optimizing-react-native-7e7bf7ac3a34",
     "infoTitle": "Onboarding thousands of users with React Native",
     "pinned": true
   },
   {
     "name": "Shopify",
     "icon": "shopify.png",
-    "linkAppStore": "https://apps.apple.com/us/app/shopify-ecommerce-business/id371294472",
-    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.mobile&hl=en_US",
+    "linkAppStore": "https://apps.apple.com/ca/app/shop-package-order-tracker/id1223471316",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.shopify.arrive&hl=en_US&gl=US",
     "infoLink": "https://engineering.shopify.com/blogs/engineering/react-native-future-mobile-shopify",
     "infoTitle": "React Native is the Future of Mobile at Shopify",
     "pinned": true
@@ -81,12 +81,19 @@
     "pinned": true
   },
   {
+    "name": "Mercari",
+    "icon": "mercari.png",
+    "linkAppStore": "https://apps.apple.com/us/app/mercari-your-marketplace/id896130944",
+    "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mercariapp.mercari",
+    "pinned": true
+  },
+  {
     "name": "NerdWallet",
     "icon": "nerdwallet.png",
     "linkAppStore": "https://apps.apple.com/us/app/nerdwallet/id1174471607",
     "linkPlayStore": "https://play.google.com/store/apps/details?id=com.mobilecreditcards&hl=en_US",
-    "infoLink": "https://www.nerdwallet.com/",
-    "infoTitle": "",
+    "infoLink": "https://www.nerdwallet.com/blog/engineering/beyond-the-browser-how-nerdwallet-went-native/",
+    "infoTitle": "Beyond the Browser: How NerdWallet Went Native",
     "pinned": true
   },
   {

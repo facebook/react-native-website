@@ -22,6 +22,10 @@ module.exports = {
     users,
     facebookAppId: '1677033832619985',
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+  },
   onBrokenLinks: 'throw',
   presets: [
     [
@@ -56,12 +60,77 @@ module.exports = {
       },
     ],
   ],
-  plugins: ['docusaurus-plugin-sass', './sitePlugin'],
+  plugins: [
+    'docusaurus-plugin-sass',
+    './sitePlugin',
+    [
+      '@docusaurus/plugin-pwa',
+      {
+        debug: true,
+        offlineModeActivationStrategies: ['appInstalled', 'queryString'],
+        pwaHead: [
+          {
+            tagName: 'link',
+            rel: 'icon',
+            href: '/img/pwa/manifest-icon-512.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'manifest',
+            href: '/manifest.json',
+          },
+          {
+            tagName: 'meta',
+            name: 'theme-color',
+            content: '#20232a',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-capable',
+            content: 'yes',
+          },
+          {
+            tagName: 'meta',
+            name: 'apple-mobile-web-app-status-bar-style',
+            content: '#20232a',
+          },
+          {
+            tagName: 'link',
+            rel: 'apple-touch-icon',
+            href: '/img/pwa/manifest-icon-512.png',
+          },
+          {
+            tagName: 'link',
+            rel: 'mask-icon',
+            href: '/img/pwa/manifest-icon-512.png',
+            color: '#06bcee',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileImage',
+            href: '/img/pwa/manifest-icon-512.png',
+          },
+          {
+            tagName: 'meta',
+            name: 'msapplication-TileColor',
+            content: '#20232a',
+          },
+        ],
+      },
+    ],
+  ],
   themeConfig: {
     prism: {
       defaultLanguage: 'jsx',
       theme: require('./core/PrismTheme'),
-      additionalLanguages: ['java', 'kotlin', 'objectivec', 'swift', 'groovy'],
+      additionalLanguages: [
+        'java',
+        'kotlin',
+        'objectivec',
+        'swift',
+        'groovy',
+        'ruby',
+      ],
     },
     navbar: {
       title: 'React Native',
@@ -223,16 +292,6 @@ module.exports = {
       trackingID: 'UA-41298772-2',
     },
     metadatas: [
-      {
-        name: 'description',
-        content: 'A framework for building native apps using React',
-      },
-      {property: 'og:title', content: 'React Native'},
-      {
-        property: 'og:description',
-        content: 'A framework for building native apps using React',
-      },
-      {property: 'og:url', content: 'https://reactnative.dev/'},
       {
         property: 'og:image',
         content: 'https://reactnative.dev/img/logo-og.png',
