@@ -1,0 +1,43 @@
+{
+  "name": "React Native 中文网",
+  "short_name": "React Native",
+  "theme_color": "#20232a",
+  "background_color": "#20232a",
+  "display": "minimal-ui",
+  "scope": "./",
+  "start_url": "./index.html",
+  "shortcuts": [
+    {
+      "name": "文档",
+      "short_name": "Docs",
+      "url": "/docs/getting-started",
+      "icons": [{ "src": "img/pwa/manifest-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "核心组件",
+      "short_name": "Components",
+      "url": "/docs/components-and-apis",
+      "icons": [{ "src": "img/pwa/manifest-icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "核心 API",
+      "short_name": "APIs",
+      "url": "/docs/accessibilityinfo",
+      "icons": [{ "src": "img/pwa/manifest-icon-192.png", "sizes": "192x192" }]
+    }
+  ],
+  "icons": [
+    {
+      "src": "img/pwa/manifest-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/pwa/manifest-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
