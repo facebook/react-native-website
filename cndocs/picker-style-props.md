@@ -7,8 +7,8 @@ title: Picker Style Props
 
 ### Props
 
-* [View Style Props...](view-style-props.md)
-* [`color`](picker-style-props.md#color)
+- [View Style Props...](view-style-props.md)
+- [`color`](picker-style-props.md#color)
 
 ---
 
@@ -18,6 +18,6 @@ title: Picker Style Props
 
 ### `color`
 
-| 类型              | 必填 |
-| ----------------- | -------- |
-| [color](color.md) | 否       |
+| 类型              | 必需 |
+| ----------------- | ---- |
+| [color](color.md) | 否   |

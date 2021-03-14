@@ -14,8 +14,7 @@ The 'showWithGravityAndOffset(message, duration, gravity, xOffset, yOffset)' met
 
 ```SnackPlayer name=Toast%20Android%20API%20Example&supportedPlatforms=android
 import React from "react";
-import { View, StyleSheet, ToastAndroid, Button } from "react-native";
-import Constants from "expo-constants";
+import { View, StyleSheet, ToastAndroid, Button, StatusBar } from "react-native";
 
 const App = () => {
   const showToast = () => {
@@ -59,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     backgroundColor: "#888888",
     padding: 8
   }
@@ -74,8 +73,7 @@ The ToastAndroid API is imperative, but there is a way to expose a declarative c
 
 ```SnackPlayer name=Advanced%20Toast%20Android%20API%20Example&supportedPlatforms=android
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, ToastAndroid, Button } from "react-native";
-import Constants from "expo-constants";
+import { View, StyleSheet, ToastAndroid, Button, StatusBar } from "react-native";
 
 const Toast = ({ visible, message }) => {
   if (visible) {
@@ -112,7 +110,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     backgroundColor: "#888888",
     padding: 8
   }

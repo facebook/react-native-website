@@ -16,7 +16,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 ```jsx
 function MyComponent(props) {
   return (
-    <View {...props} style={{ flex: 1, backgroundColor: "#fff" }}>
+    <View {...props} style={{ flex: 1, backgroundColor: '#fff' }}>
       <Text>My Component</Text>
     </View>
   );
@@ -25,8 +25,7 @@ function MyComponent(props) {
 <TouchableHighlight
   activeOpacity={0.6}
   underlayColor="#DDDDDD"
-  onPress={() => alert("Pressed!")}
->
+  onPress={() => alert('Pressed!')}>
   <MyComponent />
 </TouchableHighlight>;
 ```
@@ -158,7 +157,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 指定封装的视图在被触摸操作激活时以多少不透明度显示（0 到 1 之间，默认值为 0.85）。需要设置`underlayColor`。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -168,7 +167,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 底层的颜色被隐藏的时候调用。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -178,7 +177,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 当底层的颜色被显示的时候调用。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -186,7 +185,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `style`
 
-| 类型       | 必填 |
+| 类型       | 必需 |
 | ---------- | ---- |
 | View.style | 否   |
 
@@ -196,7 +195,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 有触摸操作时显示出来的底层的颜色。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -206,7 +205,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -218,7 +217,7 @@ _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
 enabled: If true, parallax effects are enabled. Defaults to true. shiftDistanceX: Defaults to 2.0. shiftDistanceY: Defaults to 2.0. tiltAngle: Defaults to 0.05. magnification: Defaults to 1.0. pressMagnification: Defaults to 1.0. pressDuration: Defaults to 0.3. pressDelay: Defaults to 0.0.
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | object | 否   | iOS  |
 

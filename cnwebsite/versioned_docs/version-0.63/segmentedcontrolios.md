@@ -35,7 +35,7 @@ The selected index can be changed on the fly by assigning the selectedIndex prop
 
 If false the user won't be able to interact with the control. Default value is true.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -47,7 +47,7 @@ If false the user won't be able to interact with the control. Default value is t
 
 If true, then selecting a segment won't persist visually. The `onValueChange` callback will still work as expected.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -59,7 +59,7 @@ If true, then selecting a segment won't persist visually. The `onValueChange` ca
 
 Callback that is called when the user taps a segment; passes the event as an argument
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -69,7 +69,7 @@ Callback that is called when the user taps a segment; passes the event as an arg
 
 Callback that is called when the user taps a segment; passes the segment's value as an argument
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -79,7 +79,7 @@ Callback that is called when the user taps a segment; passes the segment's value
 
 The index in `props.values` of the segment to be (pre)selected.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -89,7 +89,7 @@ The index in `props.values` of the segment to be (pre)selected.
 
 Accent color of the control.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -101,7 +101,7 @@ Accent color of the control.
 
 The labels for the control's segment buttons, in order.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | array of string | 否   |
 

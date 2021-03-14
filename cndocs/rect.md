@@ -45,6 +45,6 @@ title: 矩形区域对象
 ## 被下列组件引用
 
 - [`Image`](image)
-- [`Presssable`](pressable)
+- [`Pressable`](pressable)
 - [`Text`](text)
 - [`TouchableWithoutFeedback`](touchablewithoutfeedback)

@@ -23,8 +23,8 @@ setValue(value);
 
 **参数：**
 
-| 名称  | 类型   | 必填 | 说明  |
-| ----- | ------ | ---- | ----- |
+| 名称  | 类型   | 必需 | 说明       |
+| ----- | ------ | ---- | ---------- |
 | value | number | 是   | 新的动画值 |
 
 ---
@@ -39,7 +39,7 @@ Sets an offset that is applied on top of whatever value is set, whether via `set
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
+| 名称   | 类型   | 必需 | 说明         |
 | ------ | ------ | ---- | ------------ |
 | offset | number | 是   | Offset value |
 
@@ -77,7 +77,7 @@ Returns a string that serves as an identifier for the listener.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                                                        |
+| 名称     | 类型     | 必需 | 说明                                                                                        |
 | -------- | -------- | ---- | ------------------------------------------------------------------------------------------- |
 | callback | function | 是   | The callback function which will receive an object with a `value` key set to the new value. |
 
@@ -93,7 +93,7 @@ removeListener(id);
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明                               |
+| 名称 | 类型   | 必需 | 说明                               |
 | ---- | ------ | ---- | ---------------------------------- |
 | id   | string | 是   | Id for the listener being removed. |
 
@@ -119,7 +119,7 @@ Stops any running animation or tracking. `callback` is invoked with the final va
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                          |
+| 名称     | 类型     | 必需 | 说明                                          |
 | -------- | -------- | ---- | --------------------------------------------- |
 | callback | function | 否   | A function that will receive the final value. |
 
@@ -135,7 +135,7 @@ Stops any animation and resets the value to its original.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                             |
+| 名称     | 类型     | 必需 | 说明                                             |
 | -------- | -------- | ---- | ------------------------------------------------ |
 | callback | function | 否   | A function that will receive the original value. |
 
@@ -153,18 +153,18 @@ See `AnimatedInterpolation.js`
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
+| 名称   | 类型   | 必需 | 说明         |
 | ------ | ------ | ---- | ------------ |
 | config | object | 是   | 看下面的说明 |
 
 The `config` object is composed of the following keys:
 
-* `inputRange`: an array of numbers
-* `outputRange`: an array of numbers or strings
-* `easing` (optional): a function that returns a number, given an input number
-* `extrapolate` (optional): a string such as 'extend', 'identity', or 'clamp'
-* `extrapolateLeft` (optional): a string such as 'extend', 'identity', or 'clamp'
-* `extrapolateRight` (optional): a string such as 'extend', 'identity', or 'clamp'
+- `inputRange`: an array of numbers
+- `outputRange`: an array of numbers or strings
+- `easing` (optional): a function that returns a number, given an input number
+- `extrapolate` (optional): a string such as 'extend', 'identity', or 'clamp'
+- `extrapolateLeft` (optional): a string such as 'extend', 'identity', or 'clamp'
+- `extrapolateRight` (optional): a string such as 'extend', 'identity', or 'clamp'
 
 ---
 
@@ -178,7 +178,7 @@ Typically only used internally, but could be used by a custom Animation class.
 
 **参数：**
 
-| 名称      | 类型      | 必填 | 说明                |
+| 名称      | 类型      | 必需 | 说明                |
 | --------- | --------- | ---- | ------------------- |
 | animation | Animation | 是   | See `Animation.js`. |
 | callback  | function  | 是   | Callback function.  |
@@ -205,6 +205,6 @@ Typically only used internally.
 
 **参数：**
 
-| 名称     | 类型         | 必填 | 说明                  |
+| 名称     | 类型         | 必需 | 说明                  |
 | -------- | ------------ | ---- | --------------------- |
 | tracking | AnimatedNode | 是   | See `AnimatedNode.js` |

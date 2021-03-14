@@ -57,7 +57,7 @@ export default App;
 
 ### `imageStyle`
 
-| 类型                                 | 必填 |
+| 类型                                 | 必需 |
 | ------------------------------------ | ---- |
 | [image styles](image-style-props.md) | 否   |
 
@@ -65,7 +65,7 @@ export default App;
 
 Allows to set a reference to the inner `Image` component
 
-| 类型                                                          | 必填 |
+| 类型                                                          | 必需 |
 | ------------------------------------------------------------- | ---- |
 | [Ref](https://zh-hans.reactjs.org/docs/refs-and-the-dom.html) | 否   |
 

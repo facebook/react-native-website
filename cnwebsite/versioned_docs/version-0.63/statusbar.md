@@ -90,7 +90,7 @@ export default App;
 
 指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle 和 hidden。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -100,7 +100,7 @@ export default App;
 
 状态栏的背景色。
 
-| 类型               | 必填 | 平台    |
+| 类型               | 必需 | 平台    |
 | ------------------ | ---- | ------- |
 | [color](colors.md) | 否   | Android |
 
@@ -112,7 +112,7 @@ export default App;
 
 On Android, this will only have an impact on API versions 23 and above.
 
-| 类型                                             | 必填 |
+| 类型                                             | 必需 |
 | ------------------------------------------------ | ---- |
 | enum('default', 'light-content', 'dark-content') | 否   |
 
@@ -122,7 +122,7 @@ On Android, this will only have an impact on API versions 23 and above.
 
 是否隐藏状态栏。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -132,7 +132,7 @@ On Android, this will only have an impact on API versions 23 and above.
 
 指定是否显示网络活动提示符。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -142,7 +142,7 @@ On Android, this will only have an impact on API versions 23 and above.
 
 通过`hidden`属性来显示或隐藏状态栏时所使用的动画效果。默认值为'fade'。
 
-| 类型                  | 必填 | 平台 |
+| 类型                  | 必需 | 平台 |
 | --------------------- | ---- | ---- |
 | enum('fade', 'slide') | 否   | iOS  |
 
@@ -152,7 +152,7 @@ On Android, this will only have an impact on API versions 23 and above.
 
 指定状态栏是否透明。设置为 true 时，应用会延伸到状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -219,7 +219,7 @@ static setBackgroundColor(color: string, [animated]: boolean)
 
 **参数：**
 
-| 名称     | 类型    | 必填 | 说明             |
+| 名称     | 类型    | 必需 | 说明             |
 | -------- | ------- | ---- | ---------------- |
 | color    | string  | 是   | 背景色           |
 | animated | boolean | 否   | 是否启用过渡动画 |
@@ -236,7 +236,7 @@ static setBarStyle(style: StatusBarStyle, [animated]: boolean)
 
 **参数：**
 
-| 名称     | 类型                                          | 必填 | 说明               |
+| 名称     | 类型                                          | 必需 | 说明               |
 | -------- | --------------------------------------------- | ---- | ------------------ |
 | style    | [StatusBarStyle](statusbar.md#statusbarstyle) | 是   | 要设置的状态栏样式 |
 | animated | boolean                                       | 否   | 是否启用过渡动画   |
@@ -253,7 +253,7 @@ static setHidden(hidden: boolean, [animation]: StatusBarAnimation)
 
 **参数：**
 
-| 名称      | 类型                                                  | 必填 | 说明                             |
+| 名称      | 类型                                                  | 必需 | 说明                             |
 | --------- | ----------------------------------------------------- | ---- | -------------------------------- |
 | hidden    | boolean                                               | 是   | 是否隐藏状态栏                   |
 | animation | [StatusBarAnimation](statusbar.md#statusbaranimation) | 否   | 改变状态栏显示状态的动画过渡效果 |
@@ -270,7 +270,7 @@ static setNetworkActivityIndicatorVisible(visible: boolean)
 
 **参数：**
 
-| 名称    | 类型    | 必填 | 说明                   |
+| 名称    | 类型    | 必需 | 说明                   |
 | ------- | ------- | ---- | ---------------------- |
 | visible | boolean | 是   | 是否显示网络活动指示器 |
 
@@ -286,7 +286,7 @@ static setTranslucent(translucent: boolean)
 
 **参数：**
 
-| 名称        | 类型    | 必填 | 说明                |
+| 名称        | 类型    | 必需 | 说明                |
 | ----------- | ------- | ---- | ------------------- |
 | translucent | boolean | 是   | Set as translucent. |
 

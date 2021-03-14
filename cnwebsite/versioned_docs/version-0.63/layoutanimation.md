@@ -90,7 +90,7 @@ static configureNext(config, onAnimationDidEnd?, onAnimationDidFail?)
 
 #### 参数：
 
-| 名称               | 类型     | 必填 | 说明             |
+| 名称               | 类型     | 必需 | 说明             |
 | ------------------ | -------- | ---- | ---------------- |
 | config             | object   | 是   | 看下面的说明     |
 | onAnimationDidEnd  | function | 否   | 动画结束后的回调 |

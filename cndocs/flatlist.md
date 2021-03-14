@@ -179,7 +179,7 @@ export default App;
 
 ---
 
-### <div class="label required basic">Required</div> **`renderItem`**
+### <div class="label required basic">必需</div> **`renderItem`**
 
 ```jsx
 renderItem({ item, index, separators });
@@ -233,7 +233,7 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 ---
 
-### <div class="label required basic">Required</div> **`data`**
+### <div class="label required basic">必需</div> **`data`**
 
 为了简化起见，data 属性目前只支持普通数组。如果需要使用其他特殊数据结构，例如 immutable 数组，请直接使用更底层的[`VirtualizedList`](virtualizedlist.md)组件。
 
@@ -277,9 +277,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 头部组件。可以是 React Component, 也可以是一个 render 函数，或者渲染好的 element。
 
-| 类型                         | 必填 |
-| ---------------------------- | ---- |
-| component, function, element | 否   |
+| 类型                         |
+| ---------------------------- |
+| component, function, element |
 
 ---
 
@@ -287,9 +287,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 如果设置了多列布局（即将`numColumns`值设为大于 1 的整数），则可以额外指定此样式作用在每行容器上。
 
-| 类型         | 必填 |
-| ------------ | ---- |
-| style object | 否   |
+| 类型         |
+| ------------ |
+| style object |
 
 ---
 
@@ -297,9 +297,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 如果有除`data`以外的数据用在列表中（不论是用在`renderItem`还是头部或者尾部组件中），请在此属性中指定。同时此数据在修改时也需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。
 
-| 类型 | 必填 |
-| ---- | ---- |
-| any  | 否   |
+| 类型 |
+| ---- |
+| any  |
 
 ---
 
@@ -319,9 +319,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 对于元素较多的列表（几百行）来说，添加`getItemLayout`可以极大地提高性能。注意如果你指定了`ItemSeparatorComponent`，请把分隔线的尺寸也考虑到 offset 的计算之中。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| 类型     |
+| -------- |
+| function |
 
 ---
 
@@ -329,9 +329,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 设置为 true 则变为水平布局模式。
 
-| 类型    | 必填 |
-| ------- | ---- |
-| boolean | 否   |
+| 类型    |
+| ------- |
+| boolean |
 
 ---
 
@@ -339,9 +339,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 指定一开始渲染的元素数量，最好刚刚够填满一个屏幕，这样保证了用最短的时间给用户呈现可见的内容。注意这第一批次渲染的元素不会在滑动过程中被卸载，这样是为了保证用户执行返回顶部的操作时，不需要重新渲染首批元素。
 
-| 类型   | 必填 |
-| ------ | ---- |
-| number | 否   |
+| 类型   |
+| ------ |
+| number |
 
 ---
 
@@ -349,9 +349,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 开始时屏幕顶端的元素是列表中的第 `initialScrollIndex`个元素, 而不是第一个元素。如果设置了这个属性，则第一批`initialNumToRender`范围内的元素不会再保留在内存里，而是直接立刻渲染位于 <code>initialScrollIndex</code> 位置的元素。需要先设置 <code>getItemLayout</code> 属性。
 
-| 类型   | 必填 |
-| ------ | ---- |
-| number | 否   |
+| 类型   |
+| ------ |
+| number |
 
 ---
 
@@ -359,9 +359,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 翻转滚动方向。实质是将 scale 变换设置为-1。
 
-| 类型    | 必填 |
-| ------- | ---- |
-| boolean | 否   |
+| 类型    |
+| ------- |
+| boolean |
 
 ---
 
@@ -373,9 +373,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 此函数用于为给定的 item 生成一个不重复的 key。Key 的作用是使 React 能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取`item.key`作为 key 值。若`item.key`也不存在，则使用数组下标。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| 类型     |
+| -------- |
+| function |
 
 ---
 
@@ -383,9 +383,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 多列布局只能在非水平模式下使用，即必须是`horizontal={false}`。此时组件内元素会从左到右从上到下按 Z 字形排列，类似启用了`flexWrap`的布局。组件内元素必须是等高的——暂时还无法支持瀑布流布局。
 
-| 类型   | 必填 |
-| ------ | ---- |
-| number | 否   |
+| 类型   |
+| ------ |
+| number |
 
 ---
 
@@ -397,9 +397,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 当列表被滚动到距离内容最底部不足`onEndReachedThreshold`的距离时调用。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| 类型     |
+| -------- |
+| function |
 
 ---
 
@@ -407,9 +407,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 决定当距离内容最底部还有多远时触发`onEndReached`回调。注意此参数是一个比值而非像素单位。比如，0.5 表示距离内容最底部的距离为当前列表可见长度的一半时触发。
 
-| 类型   | 必填 |
-| ------ | ---- |
-| number | 否   |
+| 类型   |
+| ------ |
+| number |
 
 ---
 
@@ -421,9 +421,9 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 如果设置了此选项，则会在列表头部添加一个标准的[`RefreshControl`](refreshcontrol.md)控件，以便实现“下拉刷新”的功能。同时你需要正确设置`refreshing`属性。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| 类型     |
+| -------- |
+| function |
 
 ---
 
@@ -438,29 +438,19 @@ Provides additional metadata like `index` if you need it, as well as a more gene
 
 在可见行元素变化时调用。可见范围和变化频率等参数的配置请设置`viewabilityConfig`属性。
 
-| 类型     | 必填 |
-| -------- | ---- |
-| function | 否   |
+| 类型     |
+| -------- |
+| function |
 
 ---
 
-### `progressViewOffset`
+### `progressViewOffset` <div class="label android">Android</div>
 
 当需要在指定的偏移处显示加载指示器的时候，就可以设置这个值。
 
-| 类型   | 必填 | 平台    |
-| ------ | ---- | ------- |
-| number | 否   | Android |
-
----
-
-### `legacyImplementation`
-
-May not have full feature parity and is meant for debugging and performance comparison.
-
-| 类型    | 必填 |
-| ------- | ---- |
-| boolean | 否   |
+| 类型   |
+| ------ |
+| number |
 
 ---
 
@@ -468,9 +458,9 @@ May not have full feature parity and is meant for debugging and performance comp
 
 在等待加载新数据时将此属性设为 true，列表就会显示出一个正在加载的符号。
 
-| 类型    | 必填 |
-| ------- | ---- |
-| boolean | 否   |
+| 类型    |
+| ------- |
+| boolean |
 
 ---
 
@@ -480,9 +470,9 @@ May not have full feature parity and is meant for debugging and performance comp
 
 > 注意：有些情况下会有 bug（比如内容无法显示）。请谨慎使用。
 
-| 类型    | 必填 |
-| ------- | ---- |
-| boolean | 否   |
+| 类型    |
+| ------- |
+| boolean |
 
 ---
 
@@ -490,23 +480,23 @@ May not have full feature parity and is meant for debugging and performance comp
 
 请参考[`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js)的源码来了解具体的配置。
 
-| 类型              | 必填 |
-| ----------------- | ---- |
-| ViewabilityConfig | 否   |
+| 类型              |
+| ----------------- |
+| ViewabilityConfig |
 
 `viewabilityConfig` takes a type `ViewabilityConfig` an object with following properties
 
-| Property                         | Required | 类型    |
-| -------------------------------- | -------- | ------- |
-| minimumViewTime                  | No       | number  |
-| viewAreaCoveragePercentThreshold | No       | number  |
-| itemVisiblePercentThreshold      | No       | number  |
-| waitForInteraction               | No       | boolean |
+| 属性                             | 类型    |
+| -------------------------------- | ------- |
+| minimumViewTime                  | number  |
+| viewAreaCoveragePercentThreshold | number  |
+| itemVisiblePercentThreshold      | number  |
+| waitForInteraction               | boolean |
 
 At least one of the `viewAreaCoveragePercentThreshold` or `itemVisiblePercentThreshold` is required. This needs to be done in the `constructor` to avoid following error ([ref](https://github.com/facebook/react-native/issues/17408)):
 
 ```
-  Error: Changing viewabilityConfig on the fly is not supported`
+  Error: Changing viewabilityConfig on the fly is not supported
 ```
 
 ```jsx
@@ -522,8 +512,9 @@ constructor (props) {
 
 ```jsx
 <FlatList
-    viewabilityConfig={this.viewabilityConfig}
-  ...
+  viewabilityConfig={this.viewabilityConfig}
+  //...
+/>
 ```
 
 #### minimumViewTime
@@ -548,9 +539,9 @@ Nothing is considered viewable until the user scrolls or `recordInteraction` is 
 
 List of `ViewabilityConfig`/`onViewableItemsChanged` pairs. A specific `onViewableItemsChanged` will be called when its corresponding `ViewabilityConfig`'s conditions are met. 请参考[`ViewabilityHelper.js`](https://github.com/facebook/react-native/blob/master/Libraries/Lists/ViewabilityHelper.js)的源码来了解具体的配置。
 
-| 类型                                   | 必填 |
-| -------------------------------------- | ---- |
-| array of ViewabilityConfigCallbackPair | 否   |
+| 类型                                   |
+| -------------------------------------- | --- |
+| array of ViewabilityConfigCallbackPair | 否  |
 
 ## 方法
 
@@ -564,9 +555,9 @@ scrollToEnd([params]);
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
-| ------ | ------ | ---- | ------------ |
-| params | object | 否   | 看下面的说明 |
+| 名称   | 类型   |
+| ------ | ------ |
+| params | object |
 
 Valid `params` keys are:
 
@@ -586,9 +577,9 @@ scrollToIndex(params);
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
-| ------ | ------ | ---- | ------------ |
-| params | object | 是   | 看下面的说明 |
+| 名称                                                        | 类型   |
+| ----------------------------------------------------------- | ------ |
+| params <div className="label basic required">Required</div> | object |
 
 Valid `params` keys are:
 
@@ -611,9 +602,9 @@ scrollToItem(params);
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
-| ------ | ------ | ---- | ------------ |
-| params | object | 是   | 看下面的说明 |
+| Name                                                        | Type   |
+| ----------------------------------------------------------- | ------ |
+| params <div className="label basic required">Required</div> | object |
 
 Valid `params` keys are:
 
@@ -633,9 +624,9 @@ scrollToOffset(params);
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
-| ------ | ------ | ---- | ------------ |
-| params | object | 是   | 看下面的说明 |
+| Name                                                        | Type   |
+| ----------------------------------------------------------- | ------ |
+| params <div className="label basic required">Required</div> | object |
 
 Valid `params` keys are:
 

@@ -159,7 +159,7 @@ export default App;
 
 设置为 true 时此按钮将不可点击。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -169,7 +169,7 @@ export default App;
 
 用来在端到端测试中定位此视图。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -179,7 +179,7 @@ export default App;
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 

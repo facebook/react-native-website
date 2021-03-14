@@ -229,6 +229,4 @@ static setDeadline(deadline)
 
 如果设定了一个正整数值，则会使用 setTimeout 来挂起所有尚未执行的任务。在 eventLoopRunningTime 到达设定时间后，才开始使用一个 setImmediate 方法来批量执行所有任务。
 
-## 属性
-
 ---

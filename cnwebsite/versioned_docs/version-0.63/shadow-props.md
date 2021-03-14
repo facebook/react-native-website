@@ -107,7 +107,7 @@ These properties are iOS only - for similar functionality on Android, use the [`
 
 设置阴影色。
 
-| 类型               | 必填 | 平台 |
+| 类型               | 必需 | 平台 |
 | ------------------ | ---- | ---- |
 | [color](colors.md) | 否   | iOS  |
 
@@ -117,7 +117,7 @@ These properties are iOS only - for similar functionality on Android, use the [`
 
 设置阴影偏移量。
 
-| 类型                                   | 必填 | 平台 |
+| 类型                                   | 必需 | 平台 |
 | -------------------------------------- | ---- | ---- |
 | object: {width: number,height: number} | 否   | iOS  |
 
@@ -127,7 +127,7 @@ These properties are iOS only - for similar functionality on Android, use the [`
 
 设置阴影不透明度 (乘以颜色的 alpha 分量)。
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 
@@ -137,7 +137,7 @@ These properties are iOS only - for similar functionality on Android, use the [`
 
 设置阴影模糊半径。
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 

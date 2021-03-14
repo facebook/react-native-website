@@ -53,7 +53,7 @@ export default App;
 - `itemValue`: 被选中项的`value`属性
 - `itemPosition`: 被选中项在 picker 中的索引位置
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -63,7 +63,7 @@ export default App;
 
 默认选中的值。可以是字符串或整数。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | any  | 否   |
 
@@ -71,7 +71,7 @@ export default App;
 
 ### `style`
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | pickerStyleType | 否   |
 
@@ -81,7 +81,7 @@ export default App;
 
 用于在端对端测试中定位此视图。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -91,7 +91,7 @@ export default App;
 
 如果设为 false，则会禁用此选择器。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -104,7 +104,7 @@ export default App;
 - 'dialog': 显示一个模态对话框。默认选项。
 - 'dropdown': 以选择器所在位置为锚点展开一个下拉框。
 
-| 类型                       | 必填 | 平台    |
+| 类型                       | 必需 | 平台    |
 | -------------------------- | ---- | ------- |
 | enum('dialog', 'dropdown') | 否   | Android |
 
@@ -114,7 +114,7 @@ export default App;
 
 设置选择器的提示字符串。在 Android 的对话框模式中用作对话框的标题。
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | string | 否   | Android |
 
@@ -124,6 +124,6 @@ export default App;
 
 指定应用在每项标签上的样式。
 
-| 类型                               | 必填 | 平台 |
+| 类型                               | 必需 | 平台 |
 | ---------------------------------- | ---- | ---- |
 | [text styles](text-style-props.md) | 否   | iOS  |

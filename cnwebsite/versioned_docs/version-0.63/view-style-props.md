@@ -54,7 +54,7 @@ export default ViewStyleProps;
 
 ### `borderRightColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -62,7 +62,7 @@ export default ViewStyleProps;
 
 ### `backfaceVisibility`
 
-| 类型                      | 必填 |
+| 类型                      | 必需 |
 | ------------------------- | ---- |
 | enum('visible', 'hidden') | 否   |
 
@@ -70,7 +70,7 @@ export default ViewStyleProps;
 
 ### `borderBottomColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -78,7 +78,7 @@ export default ViewStyleProps;
 
 ### `borderBottomEndRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -86,7 +86,7 @@ export default ViewStyleProps;
 
 ### `borderBottomLeftRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -94,7 +94,7 @@ export default ViewStyleProps;
 
 ### `borderBottomRightRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -102,7 +102,7 @@ export default ViewStyleProps;
 
 ### `borderBottomStartRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -110,7 +110,7 @@ export default ViewStyleProps;
 
 ### `borderBottomWidth`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -118,7 +118,7 @@ export default ViewStyleProps;
 
 ### `borderColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -126,7 +126,7 @@ export default ViewStyleProps;
 
 ### `borderEndColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -134,7 +134,7 @@ export default ViewStyleProps;
 
 ### `borderLeftColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -142,7 +142,7 @@ export default ViewStyleProps;
 
 ### `borderLeftWidth`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -150,7 +150,7 @@ export default ViewStyleProps;
 
 ### `borderRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -158,7 +158,7 @@ export default ViewStyleProps;
 
 ### `backgroundColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -166,7 +166,7 @@ export default ViewStyleProps;
 
 ### `borderRightWidth`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -174,7 +174,7 @@ export default ViewStyleProps;
 
 ### `borderStartColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -182,7 +182,7 @@ export default ViewStyleProps;
 
 ### `borderStyle`
 
-| 类型                              | 必填 |
+| 类型                              | 必需 |
 | --------------------------------- | ---- |
 | enum('solid', 'dotted', 'dashed') | 否   |
 
@@ -190,7 +190,7 @@ export default ViewStyleProps;
 
 ### `borderTopColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -198,7 +198,7 @@ export default ViewStyleProps;
 
 ### `borderTopEndRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -206,7 +206,7 @@ export default ViewStyleProps;
 
 ### `borderTopLeftRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -214,7 +214,7 @@ export default ViewStyleProps;
 
 ### `borderTopRightRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -222,7 +222,7 @@ export default ViewStyleProps;
 
 ### `borderTopStartRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -230,7 +230,7 @@ export default ViewStyleProps;
 
 ### `borderTopWidth`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -238,7 +238,7 @@ export default ViewStyleProps;
 
 ### `borderWidth`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -246,7 +246,7 @@ export default ViewStyleProps;
 
 ### `opacity`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -256,7 +256,7 @@ export default ViewStyleProps;
 
 (限 Android)使用 Android 原生的 elevation API 来设置视图的高度（ [elevation API](https://developer.android.com/training/material/shadows-clipping.html#Elevation)）。这样可以为视图添加一个投影，并且会影响视图层叠的顺序。此属性仅支持 Android5.0 及以上版本。
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | number | 否   | Android |
 

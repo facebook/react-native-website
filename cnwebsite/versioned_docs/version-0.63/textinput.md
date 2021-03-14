@@ -80,7 +80,7 @@ export default function UselessTextInputMultiline() {
 
 控制字体是否要根据系统的“字体大小”辅助选项来进行缩放。默认值为`true`。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -95,7 +95,7 @@ export default function UselessTextInputMultiline() {
 - `sentences`: 每句话的第一个字符（默认）。
 - `none`: 不切换。
 
-| 类型                                             | 必填 |
+| 类型                                             | 必需 |
 | ------------------------------------------------ | ---- |
 | enum('none', 'sentences', 'words', 'characters') | No   |
 
@@ -121,7 +121,7 @@ Possible values for `autoComplete` are:
 - `cc-exp-month`
 - `cc-exp-year`
 
-| 类型                                                                                                                                                         | 必填 | 平台    |
+| 类型                                                                                                                                                         | 必需 | 平台    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---- | ------- |
 | enum('off', 'username', 'password', 'email', 'name', 'tel', 'street-address', 'postal-code', 'cc-number', 'cc-csc', 'cc-exp', 'cc-exp-month', 'cc-exp-year') | 否   | Android |
 
@@ -131,7 +131,7 @@ Possible values for `autoComplete` are:
 
 如果为 false，会关闭拼写自动修正。默认值是 true。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -141,7 +141,7 @@ Possible values for `autoComplete` are:
 
 如果为 true，在`componentDidMount`后会获得焦点。默认值为 false。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -151,7 +151,7 @@ Possible values for `autoComplete` are:
 
 如果为 true，文本框会在提交的时候失焦。对于单行输入框默认值为 true，多行则为 false。注意：对于多行输入框来说，如果将`blurOnSubmit`设为 true，则在按下回车键时就会失去焦点同时触发`onSubmitEditing`事件，而不会换行。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -161,7 +161,7 @@ Possible values for `autoComplete` are:
 
 如果为 true，则隐藏光标。默认值为 false。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -171,7 +171,7 @@ Possible values for `autoComplete` are:
 
 是否要在文本框右侧显示“清除”按钮。仅在单行模式下可用。默认值为`never`。
 
-| 类型                                                       | 必填 | 平台 |
+| 类型                                                       | 必需 | 平台 |
 | ---------------------------------------------------------- | ---- | ---- |
 | enum('never', 'while-editing', 'unless-editing', 'always') | No   | iOS  |
 
@@ -181,7 +181,7 @@ Possible values for `autoComplete` are:
 
 如果为 true，每次开始输入的时候都会清除文本框的内容。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | No   | iOS  |
 
@@ -191,7 +191,7 @@ Possible values for `autoComplete` are:
 
 If `true`, context menu is hidden. The default value is `false`.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -212,7 +212,7 @@ If `true`, context menu is hidden. The default value is `false`.
 - `'none'`
 - `'all'`
 
-| 类型                                                                                                                                                     | 必填 | 平台 |
+| 类型                                                                                                                                                     | 必需 | 平台 |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- |
 | enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all'), ,array of enum('phoneNumber', 'link', 'address', 'calendarEvent', 'none', 'all') | No   | iOS  |
 
@@ -222,7 +222,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 提供一个文本框中的初始值。当用户开始输入的时候，值就可以改变。在一些简单的使用情形下，如果你不想用监听消息然后更新 value 属性的方法来保持属性和状态同步的时候，就可以用 defaultValue 来代替。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | No   |
 
@@ -232,7 +232,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 当值为 false 时, 如果 text input 的周围有少量可用空间的话（比如说，当手机横过来时），操作系统可能会将这个 text input 设置为全屏模式。当值为 true 时, 这个特性不可用，text input 就是普通的模式。默认为 false。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | No   | Android |
 
@@ -242,7 +242,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 如果为 false，文本框是不可编辑的。默认值为 true。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -252,7 +252,7 @@ If `true`, context menu is hidden. The default value is `false`.
 
 如果为 true，键盘会在文本框内没有文字的时候禁用确认按钮。默认值为 false。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | No   | iOS  |
 
@@ -284,7 +284,7 @@ Say the system whether the individual fields in your app should be included in a
 />
 ```
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | string | No   | Android |
 
@@ -294,7 +294,7 @@ Say the system whether the individual fields in your app should be included in a
 
 给放置在左侧的图片设置 padding 样式。
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | number | No   | Android |
 
@@ -304,7 +304,7 @@ Say the system whether the individual fields in your app should be included in a
 
 指定键盘的颜色。
 
-| 类型                             | 必填 | 平台 |
+| 类型                             | 必需 | 平台 |
 | -------------------------------- | ---- | ---- |
 | enum('default', 'light', 'dark') | No   | iOS  |
 
@@ -338,7 +338,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 - `visible-password`
 
-| 类型                                                                                                                                                                                                    | 必填 |
+| 类型                                                                                                                                                                                                    | 必需 |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | enum('default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password') | No   |
 
@@ -348,7 +348,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 限制文本框中最多的字符数。使用这个属性而不用 JS 逻辑去实现，可以避免闪烁的现象。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | No   |
 
@@ -358,7 +358,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 如果为 true，文本框中可以输入多行文字。默认值为 false。注意安卓上如果设置`multiline = {true}`，文本默认会垂直居中，可设置`textAlignVertical: 'top'`样式来使其居顶显示。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -368,7 +368,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 设置输入框的行数。当 multiline 设置为 true 时使用它，可以占据对应的行数。
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | number | No   | Android |
 
@@ -378,7 +378,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 当文本框失去焦点的时候调用此回调函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -388,7 +388,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 当文本框内容变化时调用此回调函数。回调参数为`{ nativeEvent: { eventCount, target, text} }`。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -398,7 +398,7 @@ See screenshots of all the types [here](http://lefkowitz.me/2018/04/30/visual-gu
 
 当文本框内容变化时调用此回调函数。改变后的文字内容会作为参数传递。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -410,7 +410,7 @@ Callback that is called when the text input's content size changes. This will be
 
 Only called for multiline text inputs.
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -420,7 +420,7 @@ Only called for multiline text inputs.
 
 当文本输入结束后调用此回调函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -430,7 +430,7 @@ Only called for multiline text inputs.
 
 当文本框获得焦点的时候调用此回调函数。回调参数为`{ nativeEvent: { target } }`。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -440,7 +440,7 @@ Only called for multiline text inputs.
 
 当一个键被按下的时候调用此回调。传递给回调函数的参数为`{ nativeEvent: { key: keyValue } }`，其中`keyValue`即为被按下的键。会在 onChange 之前调用。注意：在 Android 上只有软键盘会触发此事件，物理键盘不会触发。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -450,7 +450,7 @@ Only called for multiline text inputs.
 
 当组件加载或者布局变化的时候调用，回调参数为`{ nativeEvent: {layout: {x, y, width, height}, target } }`。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -460,7 +460,7 @@ Only called for multiline text inputs.
 
 在内容滚动时持续调用，传回参数的格式形如`{ nativeEvent: { contentOffset: { x, y } } }`。也可能包含其他和滚动事件相关的参数，但是在 Android 上，出于性能考虑，不会提供`contentSize`参数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -470,7 +470,7 @@ Only called for multiline text inputs.
 
 长按选择文本时，选择范围变化时调用此函数，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。需要设置`multiline={true}`。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -480,7 +480,7 @@ Only called for multiline text inputs.
 
 此回调函数当软键盘的`确定`/`提交`按钮被按下的时候调用此函数，所传参数为`{nativeEvent: {text, eventCount, target}}`。如果`multiline={true}`，此属性不可用。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -502,7 +502,7 @@ Callback that is called on new text input with the argument `{ nativeEvent: { te
 
 如果没有任何文字输入，会显示此字符串。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | No   |
 
@@ -512,7 +512,7 @@ Callback that is called on new text input with the argument `{ nativeEvent: { te
 
 占位字符串显示的文字颜色。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | No   |
 
@@ -522,7 +522,7 @@ Callback that is called on new text input with the argument `{ nativeEvent: { te
 
 Sets the return key to the label. Use it instead of `returnKeyType`.
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | string | No   | Android |
 
@@ -554,7 +554,7 @@ Sets the return key to the label. Use it instead of `returnKeyType`.
 - `route`
 - `yahoo`
 
-| 类型                                                                                                                              | 必填 |
+| 类型                                                                                                                              | 必需 |
 | --------------------------------------------------------------------------------------------------------------------------------- | ---- |
 | enum('done', 'go', 'next', 'search', 'send', 'none', 'previous', 'default', 'emergency-call', 'google', 'join', 'route', 'yahoo') | No   |
 
@@ -578,7 +578,7 @@ If `true`, allows TextInput to pass touch events to the parent component. This a
 
 If `false`, scrolling of the text view will be disabled. The default value is `true`. Only works with `multiline={true}`.
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -588,7 +588,7 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 如果为 true，文本框会遮住之前输入的文字，这样类似密码之类的敏感文字可以更加安全。默认值为 false。`multiline={true}`时不可用。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -598,7 +598,7 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 设置选中文字的范围（指定首尾的索引值）。如果首尾为同一索引位置，则相当于指定光标的位置。
 
-| 类型                                | 必填 |
+| 类型                                | 必需 |
 | ----------------------------------- | ---- |
 | object: {start: number,end: number} | No   |
 
@@ -608,7 +608,7 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 设置输入框高亮时的颜色（还包括光标）。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | No   |
 
@@ -618,7 +618,7 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 如果为 true，当获得焦点的时候，所有的文字都会被选中。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | No   |
 
@@ -628,7 +628,7 @@ If `false`, scrolling of the text view will be disabled. The default value is `t
 
 如果设置为`false`，则禁用拼写检查的样式（比如错误拼写的单词下的红线）。默认值继承自`autoCorrect`。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | No   | iOS  |
 
@@ -691,7 +691,7 @@ Possible values for `textContentType` are:
 - `newPassword`
 - `oneTimeCode`
 
-| 类型                                                                                                                                                                                                                                                                                                                                                                                                       | 必填 | 平台 |
+| 类型                                                                                                                                                                                                                                                                                                                                                                                                       | 必需 | 平台 |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ---- |
 | enum('none', 'URL', 'addressCity', 'addressCityAndState', 'addressState', 'countryName', 'creditCardNumber', 'emailAddress', 'familyName', 'fullStreetAddress', 'givenName', 'jobTitle', 'location', 'middleName', 'name', 'namePrefix', 'nameSuffix', 'nickname', 'organizationName', 'postalCode', 'streetAddressLine1', 'streetAddressLine2', 'sublocality', 'telephoneNumber', 'username', 'password') | 否   | iOS  |
 
@@ -724,7 +724,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 [Styles](style)
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [Text](text#style) | No   |
 
@@ -734,7 +734,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 在 Android API Level 23+ 的平台上设置文字断行策略, 可能值有`simple`, `highQuality`, `balanced`。默认值为`simple`。
 
-| 类型                                      | 必填 | 平台    |
+| 类型                                      | 必需 | 平台    |
 | ----------------------------------------- | ---- | ------- |
 | enum('simple', 'highQuality', 'balanced') | No   | Android |
 
@@ -744,7 +744,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 文本框的下划线颜色(译注：如果要去掉文本框的边框，请将此属性设为透明 transparent)。
 
-| 类型               | 必填 | 平台    |
+| 类型               | 必需 | 平台    |
 | ------------------ | ---- | ------- |
 | [color](colors.md) | No   | Android |
 
@@ -754,7 +754,7 @@ see [Issue#7070](https://github.com/facebook/react-native/issues/7070) for more 
 
 文本框中的文字内容。 TextInput 是一个受约束的(Controlled)的组件，意味着如果提供了 value 属性，原生值会被强制与 value 属性保持一致。在大部分情况下这都工作的很好，不过有些情况下会导致一些闪烁现象——一个常见的原因就是通过不改变 value 来阻止用户进行编辑。如果你希望阻止用户输入，可以考虑设置`editable={false}`；如果你是希望限制输入的长度，可以考虑设置`maxLength`属性，这两个属性都不会导致闪烁。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | No   |
 

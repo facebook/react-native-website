@@ -86,9 +86,9 @@ Android Studio 默认会安装最新版本的 Android SDK。目前编译 React N
 
 然后点击"SDK Tools"选项卡，同样勾中右下角的"Show Package Details"。展开"Android SDK Build-Tools"选项，确保选中了 React Native 所必须的`29.0.2`版本。你可以同时安装多个其他版本。
 
-然后还是在"SDK Tools"选项卡，点击"NDK (Side by side)"，同样勾中右下角的"Show Package Details"，选择`20.1.5948944`版本进行安装。
+还是在"SDK Tools"选项卡，点击"NDK (Side by side)"，同样勾中右下角的"Show Package Details"，选择`20.1.5948944`版本。最后再勾选上"Android SDK Command-line Tools (latest)"。
 
-最后点击"Apply"来下载和安装这些组件。
+点击"Apply"来下载和安装选中的这些组件。
 
 #### 3. 配置 ANDROID_HOME 环境变量
 

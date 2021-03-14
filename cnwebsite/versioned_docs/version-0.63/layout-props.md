@@ -170,7 +170,7 @@ export default App;
 
 `alignContent` controls how rows align in the cross direction, overriding the `alignContent` of the parent. 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/align-content>来进一步了解。
 
-| 类型                                                                                 | 必填 |
+| 类型                                                                                 | 必需 |
 | ------------------------------------------------------------------------------------ | ---- |
 | enum('flex-start', 'flex-end', 'center', 'stretch', 'space-between', 'space-around') | 否   |
 
@@ -180,7 +180,7 @@ export default App;
 
 `alignItems`决定了子元素在次轴方向的排列方式（此样式设置在父元素上）。例如若子元素本来是沿着竖直方向排列的（即主轴竖直，次轴水平），则`alignItems`决定了它们在水平方向的排列方式。此样式和 CSS 中的`align-items`表现一致，默认值为 stretch。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/align-items>来进一步了解。
 
-| 类型                                                            | 必填 |
+| 类型                                                            | 必需 |
 | --------------------------------------------------------------- | ---- |
 | enum('flex-start', 'flex-end', 'center', 'stretch', 'baseline') | 否   |
 
@@ -190,7 +190,7 @@ export default App;
 
 `alignSelf`决定了元素在父元素的次轴方向的排列方式（此样式设置在子元素上），其值会覆盖父元素的`alignItems`的值。其表现和 CSS 上的`align-self`一致（默认值为 auto）。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/align-self>来进一步了解。
 
-| 类型                                                                    | 必填 |
+| 类型                                                                    | 必需 |
 | ----------------------------------------------------------------------- | ---- |
 | enum('auto', 'flex-start', 'flex-end', 'center', 'stretch', 'baseline') | 否   |
 
@@ -206,7 +206,7 @@ Aspect ratio control the size of the undefined dimension of a node. Aspect ratio
 - On a node with flex grow/shrink aspect ratio controls the size of the node in the cross axis if unset
 - Aspect ratio takes min/max dimensions into account
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -216,7 +216,7 @@ Aspect ratio control the size of the undefined dimension of a node. Aspect ratio
 
 `borderBottomWidth`和 CSS 上的`border-bottom-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width>来进一步了解。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -226,7 +226,7 @@ Aspect ratio control the size of the undefined dimension of a node. Aspect ratio
 
 When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. When direction is `rtl`, `borderEndWidth` is equivalent to `borderLeftWidth`.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -236,7 +236,7 @@ When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. W
 
 `borderLeftWidth`和 CSS 上的`border-left-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width>来进一步了解。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -246,7 +246,7 @@ When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. W
 
 `borderRightWidth`和 CSS 上的`border-right-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width>来进一步了解。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -256,7 +256,7 @@ When direction is `ltr`, `borderEndWidth` is equivalent to `borderRightWidth`. W
 
 When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. When direction is `rtl`, `borderStartWidth` is equivalent to `borderRightWidth`.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -266,7 +266,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `borderTopWidth`和 CSS 上的`border-top-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width>来进一步了解。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -276,7 +276,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `borderWidth`和 CSS 上的`border-width`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/border-width>来进一步了解。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -290,7 +290,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/bottom>来进一步了解`bottom`是如何影响布局的。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -300,7 +300,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `direction`指定了用户界面的阅读顺序。`ltr`表示 left to right，即从左往右阅读。反之`rtl`为从右往左阅读。。默认值为`inherit`，但根节点的值会根据用户所在地的不同而不同。访问<https://yogalayout.com/docs/layout-direction>来进一步了解。
 
-| 类型                          | 必填 | 平台 |
+| 类型                          | 必需 | 平台 |
 | ----------------------------- | ---- | ---- |
 | enum('inherit', 'ltr', 'rtl') | 否   | iOS  |
 
@@ -312,7 +312,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 它的表现和 CSS 上的`display`类似，但目前只支持'flex'和'none'两个值。默认值是'flex'。
 
-| 类型                 | 必填 |
+| 类型                 | 必需 |
 | -------------------- | ---- |
 | enum('none', 'flex') | 否   |
 
@@ -324,7 +324,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 此样式的优先级高于`left`和`right`。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -342,7 +342,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexGrow`、`flexShrink`、`flexBasis`和在 CSS 上表现一致。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -352,7 +352,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexBasis` is an axis-independent way of providing the default size of an item along the main axis. Setting the `flexBasis` of a child is similar to setting the `width` of that child if its parent is a container with `flexDirection: row` or setting the `height` of a child if its parent is a container with `flexDirection: column`. The `flexBasis` of an item is the default size of that item, the size of the item before any `flexGrow` and `flexShrink` calculations are performed.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -362,7 +362,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexDirection` controls which directions children of a container go. `row` goes left to right, `column` goes top to bottom, and you may be able to guess what the other two do. It works like `flex-direction` in CSS, except the default is `column`. 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction>来进一步了解。
 
-| 类型                                                   | 必填 |
+| 类型                                                   | 必需 |
 | ------------------------------------------------------ | ---- |
 | enum('row', 'row-reverse', 'column', 'column-reverse') | 否   |
 
@@ -374,7 +374,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexGrow` accepts any floating point value >= 0, with 0 being the default value. A container will distribute any remaining space among its children weighted by the children’s `flexGrow` values.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -386,7 +386,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexShrink` accepts any floating point value >= 0, with 1 being the default value. A container will shrink its children weighted by the children’s `flexShrink` values.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -396,7 +396,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `flexWrap` controls whether children can wrap around after they hit the end of a flex container. It works like `flex-wrap` in CSS (default: nowrap). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap>来进一步了解。Note it does not work anymore with `alignItems: stretch` (the default), so you may want to use `alignItems: flex-start` for example (breaking change details: https://github.com/facebook/react-native/releases/tag/v0.28.0).
 
-| 类型                                   | 必填 |
+| 类型                                   | 必需 |
 | -------------------------------------- | ---- |
 | enum('wrap', 'nowrap', 'wrap-reverse') | 否   |
 
@@ -408,7 +408,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 它的表现和 CSS 上的`height`类似， but in React Native 只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/height>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -418,7 +418,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `justifyContent` aligns children in the main direction. For example, if children are flowing vertically, `justifyContent` controls how they align vertically. It works like `justify-content` in CSS (default: flex-start). 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content>来进一步了解。
 
-| 类型                                                                                      | 必填 |
+| 类型                                                                                      | 必需 |
 | ----------------------------------------------------------------------------------------- | ---- |
 | enum('flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly') | 否   |
 
@@ -432,7 +432,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/left for more details of how `left` affects layout.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -442,7 +442,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 设置`margin`相同于同时设置`marginTop`、`marginLeft`、`marginBottom`以及`marginRight`。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/margin>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -452,7 +452,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 `marginBottom`和 CSS 上的`margin-bottom`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-bottom>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -462,7 +462,7 @@ When direction is `ltr`, `borderStartWidth` is equivalent to `borderLeftWidth`. 
 
 When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direction is `rtl`, `marginEnd` is equivalent to `marginLeft`.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -472,7 +472,7 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 设置`marginHorizontal`相同于同时设置`marginLeft`和`marginRight`。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -482,7 +482,7 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 `marginLeft`和 CSS 上的`margin-left`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-left>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -492,7 +492,7 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 `marginRight`和 CSS 上的`margin-right`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-right>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -502,7 +502,7 @@ When direction is `ltr`, `marginEnd` is equivalent to `marginRight`. When direct
 
 When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direction is `rtl`, `marginStart` is equivalent to `marginRight`.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -512,7 +512,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 `marginTop`和 CSS 上的`margin-top`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/margin-top>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -522,7 +522,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 设置`marginVertical`相同于同时设置`marginTop`和`marginBottom`。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -536,7 +536,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/max-height>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -550,7 +550,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/max-width>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -564,7 +564,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/min-height>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -578,7 +578,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/min-width>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -588,7 +588,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 `overflow` controls how children are measured and displayed. `overflow: hidden` causes views to be clipped while `overflow: scroll` causes views to be measured independently of their parents main axis. It works like `overflow` in CSS (default: visible). 访问<https://developer.mozilla.org/en/docs/Web/CSS/overflow>来进一步了解。
 
-| 类型                                | 必填 |
+| 类型                                | 必需 |
 | ----------------------------------- | ---- |
 | enum('visible', 'hidden', 'scroll') | 否   |
 
@@ -598,7 +598,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 设置`padding`相同于同时设置`paddingTop`、`paddingBottom`、`paddingLeft`以及`paddingRight`。访问<https://developer.mozilla.org/en-US/docs/Web/CSS/padding>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -608,7 +608,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 `paddingBottom`和 CSS 上的`padding-bottom`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -618,7 +618,7 @@ When direction is `ltr`, `marginStart` is equivalent to `marginLeft`. When direc
 
 When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When direction is `rtl`, `paddingEnd` is equivalent to `paddingLeft`.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -628,7 +628,7 @@ When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When dire
 
 设置`paddingHorizontal`相同于同时设置`paddingLeft`和`paddingRight`。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -638,7 +638,7 @@ When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When dire
 
 `paddingLeft`和 CSS 上的`padding-left`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -648,7 +648,7 @@ When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When dire
 
 `paddingRight`和 CSS 上的`padding-right`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -658,7 +658,7 @@ When direction is `ltr`, `paddingEnd` is equivalent to `paddingRight`. When dire
 
 When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When direction is `rtl`, `paddingStart` is equivalent to `paddingRight`.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -668,7 +668,7 @@ When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When dir
 
 `paddingTop`和 CSS 上的`padding-top`表现一致。访问< https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -678,7 +678,7 @@ When direction is `ltr`, `paddingStart` is equivalent to `paddingLeft`. When dir
 
 设置`paddingVertical`相同于同时设置`paddingTop`和`paddingBottom`。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -694,7 +694,7 @@ If you want to position a child relative to something that is not its parent, ju
 
 访问<https://github.com/facebook/yoga for more details on how `position` differs between React Native and CSS.
 
-| 类型                         | 必填 |
+| 类型                         | 必需 |
 | ---------------------------- | ---- |
 | enum('absolute', 'relative') | 否   |
 
@@ -708,7 +708,7 @@ If you want to position a child relative to something that is not its parent, ju
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/right for more details of how `right` affects layout.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -720,7 +720,7 @@ If you want to position a child relative to something that is not its parent, ju
 
 此样式的优先级高于`left`、`right`和`end`。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -734,7 +734,7 @@ If you want to position a child relative to something that is not its parent, ju
 
 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/top for more details of how `top` affects layout.
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -746,7 +746,7 @@ If you want to position a child relative to something that is not its parent, ju
 
 它的表现和 CSS 上的`width`类似，但是在 React Native 上只能使用逻辑像素值（数字单位）或百分比，而不能使用 em 或是任何其他单位。 访问<https://developer.mozilla.org/en-US/docs/Web/CSS/width>来进一步了解。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | number, ,string | 否   |
 
@@ -760,7 +760,7 @@ If you want to position a child relative to something that is not its parent, ju
 
 在 iOS 上，使用`zIndex`可能需要`View`彼此为兄弟节点才能生效。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 

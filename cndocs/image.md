@@ -288,7 +288,6 @@ Similarly to `source`, this property represents the resource used to render the 
 | Type |
 | ---- |
 
-
 | function(`{ nativeEvent: { error } }`) => void
 
 ---
@@ -409,7 +408,7 @@ When true, enables progressive jpeg streaming. https://frescolib.org/docs/progre
 
 This prop can also contain several remote URLs, specified together with their width and height and potentially with scale/other URI arguments. The native side will then choose the best `uri` to display based on the measured size of the image container. A `cache` property can be added to control how networked request interacts with the local cache. (For more information see [Cache Control for Images](images#cache-control-ios-only)).
 
-目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp` (仅 Android)、`psd` (仅 iOS)。此外 iOS 还支持几种 RAW 格式。请参考 Apple 的官方文档来了解目前支持哪些相机型号的 raw 格式(对于 iOS 13 请访问 https://support.apple.com/en-us/HT210191)。
+目前原生支持的图片格式有`png`、`jpg`、`jpeg`、`bmp`、`gif`、`webp`、`psd` (仅 iOS)。此外 iOS 还支持几种 RAW 格式。请参考 Apple 的官方文档来了解目前支持哪些相机型号的 raw 格式(对于 iOS 13 请访问 https://support.apple.com/en-us/HT210191)。
 
 | Type                             |
 | -------------------------------- |
@@ -467,7 +466,7 @@ Image.getSize(uri, success, [failure]);
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明                             |
+| 名称    | 类型     | 必需 | 说明                             |
 | ------- | -------- | ---- | -------------------------------- |
 | uri     | string   | 是   | 图片地址                         |
 | success | function | 是   | 成功的回调函数，返回图片宽高数据 |
@@ -487,7 +486,7 @@ In order to retrieve the image dimensions, the image may first need to be loaded
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明                                                                                                 |
+| 名称    | 类型     | 必需 | 说明                                                                                                 |
 | ------- | -------- | ---- | ---------------------------------------------------------------------------------------------------- |
 | uri     | string   | 是   | 图片地址                                                                                             |
 | headers | object   | 是   | 请求的 headers                                                                                       |
@@ -506,7 +505,7 @@ Image.prefetch(url);
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明           |
+| 名称 | 类型   | 必需 | 说明           |
 | ---- | ------ | ---- | -------------- |
 | url  | string | 是   | 图片的远程地址 |
 
@@ -522,7 +521,7 @@ Image.queryCache(urls);
 
 **参数：**
 
-| 名称 | 类型  | 必填 | 说明                            |
+| 名称 | 类型  | 必需 | 说明                            |
 | ---- | ----- | ---- | ------------------------------- |
 | urls | array | 是   | 要查询缓存状态的图片 URL 数组。 |
 

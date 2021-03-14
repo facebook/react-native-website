@@ -198,7 +198,7 @@ Inherits [ScrollView Props](scrollview.md#props).
 
 用来渲染的数据，类似于[FlatList](flatlist.md)中的`data`属性。
 
-| 类型                                        | 必填 |
+| 类型                                        | 必需 |
 | ------------------------------------------- | ---- |
 | array of [Section](sectionlist.md#section)s | 是   |
 
@@ -208,7 +208,7 @@ Inherits [ScrollView Props](scrollview.md#props).
 
 指定一开始渲染的元素数量，最好刚刚够填满一个屏幕，这样保证了用最短的时间给用户呈现可见的内容。注意这第一批次渲染的元素不会在滑动过程中被卸载，这样是为了保证用户执行返回顶部的操作时，不需要重新渲染首批元素。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -218,7 +218,7 @@ Inherits [ScrollView Props](scrollview.md#props).
 
 此函数用于为给定的 item 生成一个不重复的 key。Key 的作用是使 React 能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取 item.key 作为 key 值。若 item.key 也不存在，则使用数组下标。注意这只设置了每行（item）的 key，对于每个组（section）仍然需要另外设置 key。
 
-| 类型                                  | 必填 |
+| 类型                                  | 必需 |
 | ------------------------------------- | ---- |
 | (item: Item, index: number) => string | 是   |
 
@@ -250,7 +250,7 @@ The render function will be passed an object with the following keys:
 
 当列表被滚动到距离内容最底部不足`onEndReachedThreshold`的距离时调用。
 
-| 类型                                        | 必填 |
+| 类型                                        | 必需 |
 | ------------------------------------------- | ---- |
 | [(info: {distanceFromEnd: number}) => void] | 否   |
 
@@ -260,7 +260,7 @@ The render function will be passed an object with the following keys:
 
 如果有除`data`以外的数据用在列表中（不论是用在`renderItem`还是 Header 或者 Footer 中），请在此属性中指定。同时此数据在修改时也需要先修改其引用地址（比如先复制到一个新的 Object 或者数组中），然后再修改其值，否则界面很可能不会刷新。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | any  | 否   |
 
@@ -270,7 +270,7 @@ The render function will be passed an object with the following keys:
 
 行与行之间的分隔线组件。不会出现在第一行之前和最后一行之后。By default, `highlighted`, `section`, and `[leading/trailing][Item/Separator]` props are provided. `renderItem` provides `separators.highlight`/`unhighlight` which will update the `highlighted` prop, but you can also add custom props with `separators.updateProps`.
 
-| 类型                           | 必填 |
+| 类型                           | 必需 |
 | ------------------------------ | ---- |
 | [component, function, element] | 否   |
 
@@ -280,7 +280,7 @@ The render function will be passed an object with the following keys:
 
 翻转滚动方向。实质是将 scale 变换设置为-1。
 
-| 类型      | 必填 |
+| 类型      | 必需 |
 | --------- | ---- |
 | [boolean] | 否   |
 
@@ -290,7 +290,7 @@ The render function will be passed an object with the following keys:
 
 尾部组件。
 
-| 类型                           | 必填 |
+| 类型                           | 必需 |
 | ------------------------------ | ---- |
 | [component, function, element] | 否   |
 
@@ -300,7 +300,7 @@ The render function will be passed an object with the following keys:
 
 当列表数据为空时渲染的组件。
 
-| 类型                           | 必填 |
+| 类型                           | 必需 |
 | ------------------------------ | ---- |
 | [component, function, element] | 否   |
 
@@ -310,7 +310,7 @@ The render function will be passed an object with the following keys:
 
 决定当距离内容最底部还有多远时触发`onEndReached`回调。注意此参数是一个比值而非像素单位。比如，0.5 表示距离内容最底部的距离为当前列表可见长度的一半时触发。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | [number] | 否   |
 
@@ -320,7 +320,7 @@ The render function will be passed an object with the following keys:
 
 如果设置了此选项，则会在列表头部添加一个标准的[`RefreshControl`](refreshcontrol.md)控件，以便实现“下拉刷新”的功能。同时你需要正确设置`refreshing`属性。如果你想把刷新控件往下移动一些（比如 100 个 pt），可以设置`progressViewOffset={100}`。
 
-| 类型         | 必填 |
+| 类型         | 必需 |
 | ------------ | ---- |
 | [() => void] | 否   |
 
@@ -330,7 +330,7 @@ The render function will be passed an object with the following keys:
 
 在可见行元素变化时调用。可见范围和变化频率等参数的配置请设置`viewabilityConfig`属性。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -341,7 +341,7 @@ The function will be passed an object with the following keys:
 
 The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
-| 名称       | 类型    | 必填 |
+| 名称       | 类型    | 必需 |
 | ---------- | ------- | ---- |
 | item       | any     | 是   |
 | key        | string  | 是   |
@@ -355,7 +355,7 @@ The `ViewToken` type is exported by `ViewabilityHelper.js`:
 
 在等待加载新数据时将此属性设为 true，列表就会显示出一个正在加载的符号。
 
-| 类型      | 必填 |
+| 类型      | 必需 |
 | --------- | ---- |
 | [boolean] | 否   |
 
@@ -367,7 +367,7 @@ Note: may have bugs (missing content) in some circumstances - use at your own ri
 
 This may improve scroll performance for large lists.
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -377,7 +377,7 @@ This may improve scroll performance for large lists.
 
 头部组件。
 
-| 类型                         | 必填 |
+| 类型                         | 必需 |
 | ---------------------------- | ---- |
 | component, function, element | 否   |
 
@@ -417,7 +417,7 @@ This may improve scroll performance for large lists.
 
 当下一个 section 把它的前一个 section 的可视区推离屏幕的时候，让这个 section 的 header 粘连在屏幕的顶端。这个属性在 iOS 上是默认可用的，因为这是 iOS 的平台规范。
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -435,7 +435,7 @@ scrollToLocation(params);
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明         |
+| 名称   | 类型   | 必需 | 说明         |
 | ------ | ------ | ---- | ------------ |
 | params | object | 是   | 看下面的说明 |
 

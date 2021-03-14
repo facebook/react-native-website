@@ -11,7 +11,6 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem'; import con
 
 下面的例子创建了一个 `View`，包含了两个有颜色的方块和一个自定义的组件，并且设置了一个内边距：
 
-
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
@@ -98,7 +97,7 @@ export default App;
 
 `View.props.onStartShouldSetResponder: (event) => [true | false]`, 其中 `event` 是一个合成[点击事件对象](pressevent)。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -108,7 +107,7 @@ export default App;
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -118,7 +117,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 设置当用户与此元素交互时，“读屏器”（对视力障碍人士的辅助功能）阅读的文字。默认情况下，这个文字会通过遍历所有的子元素并累加所有的文本标签来构建。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | node | 否   |
 
@@ -132,9 +131,9 @@ An accessibility hint helps users understand what will happen when they perform 
 
 > 触摸范围不会扩展到父视图之外，另外如果触摸到两个重叠的视图，Z-index 高的元素会优先。
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必需 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -144,7 +143,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 > 这个设置关闭了视图的'layout-only view removal'优化
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -154,7 +153,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 当 accessible 为 true 时，如果用户对一个已选中的无障碍元素做了一个双击手势时，系统会调用此函数。（译注：此事件是针对残障人士，并非是一个普通的点击事件。如果要为 View 添加普通点击事件，请直接使用 Touchable 系列组件替代 View，然后添加 onPress 函数）。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -168,7 +167,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 这个事件会在布局计算完成后立即调用一次，不过收到此事件时新的布局可能还没有在屏幕上呈现，尤其是一个布局动画正在进行中的时候。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -178,7 +177,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 当 accessible 为 true 时，如果用户做了一个双指轻触(Magic tap)手势，系统会调用此函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -188,7 +187,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 When `accessible` is `true`, the system will invoke this function when the user performs the escape gesture.
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | No   |
 
@@ -200,7 +199,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 `View.props.onMoveShouldSetResponder: (event) => [true | false]`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -210,7 +209,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 如果父视图想要阻止子视图响应 touch move 事件时，它就应该设置这个方法并返回 `true` `View.props.onMoveShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -220,7 +219,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 这个视图开始响应触摸事件。此时需要高亮告诉用户正在响应。（译者注：对于大部分的触摸处理，你只需要用 TouchableHighlight 或 TouchableOpacity 包装你的组件。阅读 Touchable.js。）
 
-`View.props.onResponderGrant: (event) => {}`,其中 event 是一个合成触摸事件。 | 类型 | 必填 | | -------- | ---- | | function | 否 |
+`View.props.onResponderGrant: (event) => {}`,其中 event 是一个合成触摸事件。 | 类型 | 必需 | | -------- | ---- | | function | 否 |
 
 ---
 
@@ -230,7 +229,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 `View.props.onResponderMove: (event) => {}`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -242,7 +241,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 `View.props.onResponderReject: (event) => {}`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -254,7 +253,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 `View.props.onResponderRelease: (event) => {}`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -266,7 +265,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 `View.props.onResponderTerminate: (event) => {}`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -278,7 +277,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 `View.props.onResponderTerminationRequest: (event) => {}`, 其中 event 是一个合成触摸事件。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -288,7 +287,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 当此属性为 true 时，表示此视图是一个启用了无障碍功能的元素。默认情况下，所有可触摸操作的元素都是无障碍功能元素。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -298,7 +297,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 如果父视图想要阻止子视图响应 touch start 事件，它就应该设置这个方法并返回 true。
 
-`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。 | 类型 | 必填 | | -------- | ---- | | function | 否 |
+`View.props.onStartShouldSetResponderCapture: (event) => [true | false]`, 其中 event 是一个合成触摸事件。 | 类型 | 必需 | | -------- | ---- | | function | 否 |
 
 ---
 
@@ -332,7 +331,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 > 因为`pointerEvents` 不影响布局和外观，我们选择不将`pointerEvents`放到`style`中。不管如何，在某些平台，我们需要实现一个`className`类。是否使用`style`是一个平台的实现细节。
 
-| 类型                                         | 必填 |
+| 类型                                         | 必需 |
 | -------------------------------------------- | ---- |
 | enum('box-none', 'none', 'box-only', 'auto') | 否   |
 
@@ -344,7 +343,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 要让此属性生效，首先要求视图有很多超出范围的子视图，并且子视图和容器视图（或它的某个祖先视图）都应该有样式 overflow: hidden。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -352,7 +351,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 ### `style`
 
-| 类型                               | 必填 |
+| 类型                               | 必需 |
 | ---------------------------------- | ---- |
 | [view styles](view-style-props.md) | 否   |
 
@@ -364,7 +363,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 > 这个设置关闭了视图的'layout-only view removal'优化。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -380,7 +379,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 可以阅读[Android `View` docs](http://developer.android.com/reference/android/view/View.html#attr_android:accessibilityLiveRegion) 了解更多信息。
 
-| 类型                                | 必填 | 平台    |
+| 类型                                | 必需 | 平台    |
 | ----------------------------------- | ---- | ------- |
 | enum('none', 'polite', 'assertive') | 否   | Android |
 
@@ -390,7 +389,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 如果一个 View 只用于布局它的子组件，则它可能会为了优化而从原生布局树中移除。 把此属性设为 false 可以禁用这个优化，以确保对应视图在原生结构中存在。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -409,9 +408,9 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 了解更多信息，可以阅读 [Android `importantForAccessibility` docs](http://developer.android.com/reference/android/R.attr.html#importantForAccessibility)。
 
-| 类型 | 必填 | 平台 |
-| --- | --- | --- |
-| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否 | Android |
+| 类型                                             | 必需 | 平台    |
+| ------------------------------------------------ | ---- | ------- |
+| enum('auto', 'yes', 'no', 'no-hide-descendants') | 否   | Android |
 
 ---
 
@@ -421,7 +420,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 为了正确的透明表现而进行离屏渲染会带来极大的开销，而且对于非原生开发者来说很难调试。这就是为啥它被默认关闭。如果你需要在一个动画中启用这个属性，考虑与 renderToHardwareTextureAndroid 组合使用，前提是视图的内容不会发生变化（即：它不需要每帧重绘一次）。如果开启了 renderToHardwareTextureAndroid，则视图只会离屏渲染一次之后保存为一个硬件纹理，然后以正确的透明度绘制到屏幕上，这样就不会导致 GPU 频繁切换渲染目标（GPU 切换渲染目标会带来极大的开销）。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -433,7 +432,7 @@ When `accessible` is `true`, the system will invoke this function when the user 
 
 在 Android 上，这对于只修改不透明度、旋转、位移、或缩放的动画和交互十分有用：在这些情况下，视图不必每次都重新绘制，显示列表也不需要重新执行。纹理可以被重用于不同的参数。负面作用是这会大量消耗显存，所以当交互/动画结束后应该把此属性设置回 false。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -461,7 +460,7 @@ On iOS, these roles map to corresponding Accessibility Traits. Image button has 
 
 On Android, these roles have similar functionality on TalkBack as adding Accessibility Traits does on Voiceover in iOS
 
-| 类型              | 必填 |
+| 类型              | 必需 |
 | ----------------- | ---- |
 | AccessibilityRole | 否   |
 
@@ -478,7 +477,7 @@ Possible values for `AccessibilityStates` are:
 - `'selected'` - The element is in a selcted state.
 - `'disabled'` - The element is in a disabled state.
 
-| 类型                        | 必填 |
+| 类型                        | 必需 |
 | --------------------------- | ---- |
 | array of AccessibilitStates | 否   |
 
@@ -490,7 +489,7 @@ Possible values for `AccessibilityStates` are:
 
 阅读[Accessibility guide](accessibility.md#accessibilitytraits-ios) 获取更多信息。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -502,7 +501,7 @@ Possible values for `AccessibilityStates` are:
 
 阅读[Accessibility guide](accessibility.md#accessibilityelementshidden-ios)获取更多信息。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -514,7 +513,7 @@ A value indicating this view should or should not be inverted when color inversi
 
 See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors) for more information.
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -528,7 +527,7 @@ See the [Accessibility guide](accessibility.md#accessibilityignoresinvertcolors)
 
 预渲染会产生一个离屏的渲染过程，并且位图会消耗内存。所以使用此属性需要进行充分的测试和评估。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 

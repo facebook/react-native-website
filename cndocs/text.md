@@ -346,7 +346,7 @@ See the [Accessibility guide](accessibility#accessible-ios-android) for more inf
 
 决定用户是否可以长按选择文本，以便复制和粘贴。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -365,7 +365,7 @@ See the [Accessibility guide](accessibility#accessible-ios-android) for more inf
 
 The default is `tail`.
 
-| 类型                                   | 必填 |
+| 类型                                   | 必需 |
 | -------------------------------------- | ---- |
 | enum('head', 'middle', 'tail', 'clip') | 否   |
 
@@ -375,7 +375,7 @@ The default is `tail`.
 
 Used to locate this view from native code.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -387,7 +387,7 @@ Used to locate this view from native code.
 
 此属性一般和`ellipsizeMode`搭配使用。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -399,7 +399,7 @@ Used to locate this view from native code.
 
 `{nativeEvent: {layout: {x, y, width, height}}}`
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -411,7 +411,7 @@ Used to locate this view from native code.
 
 例如：`onLongPress={this.increaseSize}>`
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -423,7 +423,7 @@ Used to locate this view from native code.
 
 例如：`onPress={() => console.log('1st')}`
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -446,7 +446,7 @@ Invoked on Text layout
 
 When the scroll view is disabled, this defines how far your touch may move off of the button, before deactivating the button. Once deactivated, try moving it back and you'll see that the button is once again reactivated! Move it back and forth several times while the scroll view is disabled. Ensure you pass in a constant to reduce memory allocations.
 
-| 类型                                                               | 必填 |
+| 类型                                                               | 必需 |
 | ------------------------------------------------------------------ | ---- |
 | object: {top: number, left: number, bottom: number, right: number} | 否   |
 
@@ -456,7 +456,7 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 控制字体是否要根据系统的“字体大小”辅助选项来进行缩放。默认值为`true`。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -464,7 +464,7 @@ When the scroll view is disabled, this defines how far your touch may move off o
 
 ### `style`
 
-| 类型  | 必填 |
+| 类型  | 必需 |
 | ----- | ---- |
 | style | 否   |
 
@@ -526,7 +526,7 @@ Android: Only supported since Android 5.0 - older versions will ignore this attr
 
 用来在端到端测试中定位此视图。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -536,7 +536,7 @@ Android: Only supported since Android 5.0 - older versions will ignore this attr
 
 Specifies the disabled state of the text view for testing purposes
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -546,7 +546,7 @@ Specifies the disabled state of the text view for testing purposes
 
 The highlight color of the text.
 
-| 类型               | 必填 | 平台    |
+| 类型               | 必需 | 平台    |
 | ------------------ | ---- | ------- |
 | [color](colors.md) | 否   | Android |
 
@@ -566,7 +566,7 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 当 adjustsFontSizeToFit 开启时，指定最小的缩放比（即不能低于这个值）。可设定的值为 0.01 - 1.
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 

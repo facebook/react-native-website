@@ -110,7 +110,7 @@ Schedules the localNotification for immediate presentation.
 
 **参数：**
 
-| 名称    | 类型   | 必填 | 说明         |
+| 名称    | 类型   | 必需 | 说明         |
 | ------- | ------ | ---- | ------------ |
 | details | object | 是   | 看下面的说明 |
 
@@ -136,7 +136,7 @@ Schedules the localNotification for future presentation.
 
 **参数：**
 
-| 名称    | 类型   | 必填 | 说明         |
+| 名称    | 类型   | 必需 | 说明         |
 | ------- | ------ | ---- | ------------ |
 | details | object | 是   | 看下面的说明 |
 
@@ -185,7 +185,7 @@ Provides you with a list of the app’s notifications that are still displayed i
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                        |
+| 名称     | 类型     | 必需 | 说明                                                        |
 | -------- | -------- | ---- | ----------------------------------------------------------- |
 | callback | function | 是   | Function which receive an array of delivered notifications. |
 
@@ -210,7 +210,7 @@ Removes the specified notifications from Notification Center
 
 **参数：**
 
-| 名称        | 类型  | 必填 | 说明                               |
+| 名称        | 类型  | 必需 | 说明                               |
 | ----------- | ----- | ---- | ---------------------------------- |
 | identifiers | array | 是   | Array of notification identifiers. |
 
@@ -226,7 +226,7 @@ Sets the badge number for the app icon on the home screen
 
 **参数：**
 
-| 名称   | 类型   | 必填 | 说明                           |
+| 名称   | 类型   | 必需 | 说明                           |
 | ------ | ------ | ---- | ------------------------------ |
 | number | number | 是   | Badge number for the app icon. |
 
@@ -242,7 +242,7 @@ Gets the current badge number for the app icon on the home screen
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                     |
+| 名称     | 类型     | 必需 | 说明                                                     |
 | -------- | -------- | ---- | -------------------------------------------------------- |
 | callback | function | 是   | A function that will be passed the current badge number. |
 
@@ -260,7 +260,7 @@ Optionally restricts the set of canceled notifications to those notifications wh
 
 **参数：**
 
-| 名称     | 类型   | 必填 | 说明 |
+| 名称     | 类型   | 必需 | 说明 |
 | -------- | ------ | ---- | ---- |
 | userInfo | object | 否   |      |
 
@@ -276,7 +276,7 @@ Gets the local notifications that are currently scheduled.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明                                                                               |
+| 名称     | 类型     | 必需 | 说明                                                                               |
 | -------- | -------- | ---- | ---------------------------------------------------------------------------------- |
 | callback | function | 是   | A function that will be passed an array of objects describing local notifications. |
 
@@ -292,7 +292,7 @@ Attaches a listener to remote or local notification events while the app is runn
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明        |
+| 名称    | 类型     | 必需 | 说明        |
 | ------- | -------- | ---- | ----------- |
 | 类型    | string   | 是   | Event type. |
 | handler | function | 是   | Listener.   |
@@ -316,7 +316,7 @@ Removes the event listener. Do this in `componentWillUnmount` to prevent memory 
 
 **参数：**
 
-| 名称    | 类型     | 必填 | 说明        |
+| 名称    | 类型     | 必需 | 说明        |
 | ------- | -------- | ---- | ----------- |
 | 类型    | string   | 是   | Event type. |
 | handler | function | 是   | Listener.   |
@@ -341,7 +341,7 @@ This method returns a promise that will resolve when the user accepts, rejects, 
 
 **参数：**
 
-| 名称        | 类型  | 必填 | 说明                   |
+| 名称        | 类型  | 必需 | 说明                   |
 | ----------- | ----- | ---- | ---------------------- |
 | permissions | array | 否   | alert, badge, or sound |
 
@@ -369,7 +369,7 @@ See what push permissions are currently enabled.
 
 **参数：**
 
-| 名称     | 类型     | 必填 | 说明         |
+| 名称     | 类型     | 必需 | 说明         |
 | -------- | -------- | ---- | ------------ |
 | callback | function | 是   | 看下面的说明 |
 

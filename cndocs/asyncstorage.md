@@ -3,7 +3,7 @@ id: asyncstorage
 title: 🚧 AsyncStorage
 ---
 
-**已过时。** Use [@react-native-community/async-storage](https://github.com/react-native-community/react-native-async-storage) instead.
+> **已过时。** Use one of the [community packages](https://reactnative.directory/?search=storage) instead.
 
 `AsyncStorage`是一个简单的、异步的、持久化的 Key-Value 存储系统，它对于 App 来说是全局性的。可用来代替 LocalStorage。
 
@@ -16,7 +16,7 @@ title: 🚧 AsyncStorage
 导入`AsyncStorage`库：
 
 ```jsx
-import { AsyncStorage } from "react-native"
+import { AsyncStorage } from 'react-native';
 ```
 
 保存数据：
@@ -24,11 +24,14 @@ import { AsyncStorage } from "react-native"
 ```jsx
 _storeData = async () => {
   try {
-    await AsyncStorage.setItem('@MySuperStore:key', 'I like to save it.');
+    await AsyncStorage.setItem(
+      '@MySuperStore:key',
+      'I like to save it.'
+    );
   } catch (error) {
     // Error saving data
   }
-}
+};
 ```
 
 读取数据：
@@ -41,10 +44,10 @@ _retrieveData = async () => {
       // We have data!!
       console.log(value);
     }
-   } catch (error) {
-     // Error retrieving data
-   }
-}
+  } catch (error) {
+    // Error retrieving data
+  }
+};
 ```
 
 ---
@@ -63,7 +66,7 @@ static getItem(key: string, [callback]: ?(error: ?Error, result: ?string) => voi
 
 **参数：**
 
-| 名称     | 类型                                      | 必填 | 说明                               |
+| 名称     | 类型                                      | 必需 | 说明                               |
 | -------- | ----------------------------------------- | ---- | ---------------------------------- |
 | key      | string                                    | 是   | 要读取的字段名                     |
 | callback | ?(error: ?Error, result: ?string) => void | 否   | 读取完成后的回调函数（不建议使用） |
@@ -80,7 +83,7 @@ static setItem(key: string, value: string, [callback]: ?(error: ?Error) => void)
 
 **参数：**
 
-| 名称     | 类型                     | 必填 | 说明                 |
+| 名称     | 类型                     | 必需 | 说明                 |
 | -------- | ------------------------ | ---- | -------------------- |
 | key      | string                   | 是   | 要写入的字段名       |
 | value    | string                   | 是   | 要写入`key`字段的值  |
@@ -98,7 +101,7 @@ static removeItem(key: string, [callback]: ?(error: ?Error) => void)
 
 **参数：**
 
-| 名称     | 类型                     | 必填 | 说明                 |
+| 名称     | 类型                     | 必需 | 说明                 |
 | -------- | ------------------------ | ---- | -------------------- |
 | key      | string                   | 是   | 要删除的字段名。     |
 | callback | ?(error: ?Error) => void | 否   | 发生错误时的回调函数 |
@@ -117,7 +120,7 @@ static mergeItem(key: string, value: string, [callback]: ?(error: ?Error) => voi
 
 **参数：**
 
-| 名称     | 类型                     | 必填 | 说明                        |
+| 名称     | 类型                     | 必需 | 说明                        |
 | -------- | ------------------------ | ---- | --------------------------- |
 | key      | string                   | 是   | 要合并更新的字段名。        |
 | value    | string                   | 是   | 要合并到`key`字段上的新值。 |
@@ -170,7 +173,7 @@ static clear([callback]: ?(error: ?Error) => void)
 
 **参数：**
 
-| 名称     | 类型                     | 必填 | 说明                 |
+| 名称     | 类型                     | 必需 | 说明                 |
 | -------- | ------------------------ | ---- | -------------------- |
 | callback | ?(error: ?Error) => void | 否   | 发生错误时的回调函数 |
 
@@ -186,8 +189,8 @@ static getAllKeys([callback]: ?(error: ?Error, keys: ?Array<string>) => void)
 
 **参数：**
 
-| 名称     | 类型                                           | 必填 | 说明               |
-| -------- | ---------------------------------------------- | ---- | ------------------ |
+| 名称     | 类型                                             | 必需 | 说明               |
+| -------- | ------------------------------------------------ | ---- | ------------------ |
 | callback | `?(error: ?Error, keys: ?Array<string>) => void` | 否   | 完成后的回调函数。 |
 
 ---
@@ -218,8 +221,8 @@ multiGet(['k1', 'k2'], cb) -> cb([['k1', 'val1'], ['k2', 'val2']])
 
 **参数：**
 
-| 名称     | 类型                                                            | 必填 | 说明               |
-| -------- | --------------------------------------------------------------- | ---- | ------------------ |
+| 名称     | 类型                                                              | 必需 | 说明               |
+| -------- | ----------------------------------------------------------------- | ---- | ------------------ |
 | keys     | `Array<string>`                                                   | 是   | 要获取的字段名数组 |
 | callback | `?(errors: ?Array<Error>, result: ?Array<Array<string>>) => void` | 否   | 完成后的回调函数   |
 
@@ -255,8 +258,8 @@ multiSet([['k1', 'val1'], ['k2', 'val2']], cb);
 
 **参数：**
 
-| 名称          | 类型                             | 必填 | 说明                 |
-| ------------- | -------------------------------- | ---- | -------------------- |
+| 名称          | 类型                               | 必需 | 说明                 |
+| ------------- | ---------------------------------- | ---- | -------------------- |
 | keyValuePairs | `Array<Array<string>>`             | 是   | 要写入的字段名数组。 |
 | callback      | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
@@ -272,8 +275,8 @@ static multiRemove(keys: Array<string>, [callback]: ?(errors: ?Array<Error>) => 
 
 **参数：**
 
-| 名称     | 类型                             | 必填 | 说明                 |
-| -------- | -------------------------------- | ---- | -------------------- |
+| 名称     | 类型                               | 必需 | 说明                 |
+| -------- | ---------------------------------- | ---- | -------------------- |
 | keys     | `Array<string>`                    | 是   | 要删除的字段名数组。 |
 | callback | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 
@@ -300,8 +303,8 @@ static multiMerge(keyValuePairs: Array<Array<string>>, [callback]: ?(errors: ?Ar
 
 **参数：**
 
-| 名称          | 类型                             | 必填 | 说明                 |
-| ------------- | -------------------------------- | ---- | -------------------- |
+| 名称          | 类型                               | 必需 | 说明                 |
+| ------------- | ---------------------------------- | ---- | -------------------- |
 | keyValuePairs | `Array<Array<string>>`             | 是   | 要合并的字段名数组。 |
 | callback      | `?(errors: ?Array<Error>) => void` | 否   | 完成后的回调函数。   |
 

@@ -70,7 +70,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 决定在触摸反馈的时候显示什么类型的背景。它接受一个有着`type`属性和一些基于`type`属性的额外数据的对象。我们推荐选用本组件的几个静态方法来创建这个对象。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | backgroundPropType | 否   |
 
@@ -82,7 +82,7 @@ Set to true to add the ripple effect to the foreground of the view, instead of t
 
 Check TouchableNativeFeedback.canUseNativeForeground() first, as this is only available on Android 6.0 and above. If you try to use this on older versions you will get a warning and fallback to background.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -118,7 +118,7 @@ static Ripple(color: string, borderless: boolean, rippleRadius: ?number)
 
 **参数：**
 
-| 名称         | 类型    | 必填 | 说明                                         |
+| 名称         | 类型    | 必需 | 说明                                         |
 | ------------ | ------- | ---- | -------------------------------------------- |
 | color        | string  | 是   | The ripple color                             |
 | borderless   | boolean | 是   | If the ripple can render outside it's bounds |

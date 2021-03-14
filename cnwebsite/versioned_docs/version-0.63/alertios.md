@@ -42,7 +42,7 @@ static alert(title: string, [message]: string, [callbackOrButtons]: ?(() => void
 
 **参数：**
 
-| 名称              | 类型                                                   | 必填 | 说明                                                                                                                                                                                                                                                                                                                                                             |
+| 名称              | 类型                                                   | 必需 | 说明                                                                                                                                                                                                                                                                                                                                                             |
 | ----------------- | ------------------------------------------------------ | ---- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | title             | string                                                 | 是   | The dialog's title. Passing null or '' will hide the title.                                                                                                                                                                                                                                                                                                      |
 | message           | string                                                 | 否   | An optional message that appears below the dialog's title.                                                                                                                                                                                                                                                                                                       |
@@ -53,18 +53,18 @@ Example with custom buttons:
 
 ```jsx
 AlertIOS.alert(
-  "Update available",
-  "Keep your app up to date to enjoy the latest features",
+  'Update available',
+  'Keep your app up to date to enjoy the latest features',
   [
     {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
-      style: "cancel",
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel'
     },
     {
-      text: "Install",
-      onPress: () => console.log("Install Pressed"),
-    },
+      text: 'Install',
+      onPress: () => console.log('Install Pressed')
+    }
   ]
 );
 ```
@@ -81,7 +81,7 @@ Create and display a prompt to enter some text.
 
 **参数：**
 
-| 名称              | 类型                                                               | 必填 | 说明                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 名称              | 类型                                                               | 必需 | 说明                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ----------------- | ------------------------------------------------------------------ | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | title             | string                                                             | 是   | The dialog's title.                                                                                                                                                                                                                                                                                                                                                                                    |
 | message           | string                                                             | 否   | An optional message that appears above the text input.                                                                                                                                                                                                                                                                                                                                                 |
@@ -94,20 +94,21 @@ Example with custom buttons:
 
 ```jsx
 AlertIOS.prompt(
-  "Enter password",
-  "Enter your password to claim your $1.5B in lottery winnings",
+  'Enter password',
+  'Enter your password to claim your $1.5B in lottery winnings',
   [
     {
-      text: "Cancel",
-      onPress: () => console.log("Cancel Pressed"),
-      style: "cancel",
+      text: 'Cancel',
+      onPress: () => console.log('Cancel Pressed'),
+      style: 'cancel'
     },
     {
-      text: "OK",
-      onPress: (password) => console.log("OK Pressed, password: " + password),
-    },
+      text: 'OK',
+      onPress: (password) =>
+        console.log('OK Pressed, password: ' + password)
+    }
   ],
-  "secure-text"
+  'secure-text'
 );
 ```
 
@@ -117,11 +118,11 @@ Example with the default button and a custom callback:
 
 ```jsx
 AlertIOS.prompt(
-  "Update username",
+  'Update username',
   null,
-  (text) => console.log("Your username is " + text),
+  (text) => console.log('Your username is ' + text),
   null,
-  "default"
+  'default'
 );
 ```
 

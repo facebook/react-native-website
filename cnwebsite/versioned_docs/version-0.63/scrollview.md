@@ -19,8 +19,7 @@ ScrollView 内部的其他响应者尚无法阻止 ScrollView 本身成为响应
 
 ```SnackPlayer name=ScrollView
 import React from 'react';
-import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
-import Constants from 'expo-constants';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 const App = () => {
   return (
@@ -43,7 +42,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
   },
   scrollView: {
     backgroundColor: 'pink',
@@ -73,7 +72,7 @@ Inherits [View Props](view.md#props).
 
 当此属性为 true 时，水平方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 true，否则为 false。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -83,7 +82,7 @@ Inherits [View Props](view.md#props).
 
 当此属性为 true 时，垂直方向即使内容比滚动视图本身还要小，也可以弹性地拉动一截。当`horizontal={true}`时默认值为 false，否则为 true。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-| 类型                                 | 必填 |
+| 类型                                 | 必需 |
 | ------------------------------------ | ---- |
 | StyleSheetPropType(View Style props) | 否   |
 
@@ -135,7 +134,7 @@ _仅 iOS 可用的值_
 
 - `'interactive'`，软键盘伴随拖拽操作同步地消失，并且如果往上滑动会恢复键盘。安卓设备上不支持这个选项，会表现的和`none`一样。
 
-| 类型                                   | 必填 |
+| 类型                                   | 必需 |
 | -------------------------------------- | ---- |
 | enum('none', 'on-drag', 'interactive') | 否   |
 
@@ -151,7 +150,7 @@ _仅 iOS 可用的值_
 - `false`，已过时，请使用'never'代替。
 - `true`，已过时，请使用'always'代替。
 
-| 类型                                            | 必填 |
+| 类型                                            | 必需 |
 | ----------------------------------------------- | ---- |
 | enum('always', 'never', 'handled', false, true) | 否   |
 
@@ -165,7 +164,7 @@ _仅 iOS 可用的值_
 
 此方法是通过绑定在内容容器上的 onLayout 来实现的。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -175,7 +174,7 @@ _仅 iOS 可用的值_
 
 滚动动画开始时调用此函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -185,7 +184,7 @@ _仅 iOS 可用的值_
 
 滚动动画结束时调用此函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -207,7 +206,7 @@ _仅 iOS 可用的值_
 }
 ```
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -217,7 +216,7 @@ _仅 iOS 可用的值_
 
 当用户开始拖动此视图时调用此函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -227,7 +226,7 @@ _仅 iOS 可用的值_
 
 当用户停止拖动此视图时调用此函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -239,7 +238,7 @@ _仅 iOS 可用的值_
 
 注意：垂直分页在 Android 上不支持。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -249,7 +248,7 @@ _仅 iOS 可用的值_
 
 指定[RefreshControl](refreshcontrol.md)组件，用于为 ScrollView 提供下拉刷新功能。只能用于垂直视图，即`horizontal`不能为`true`。
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | element | 否   |
 
@@ -259,7 +258,7 @@ _仅 iOS 可用的值_
 
 （实验特性）：当此属性为 true 时，屏幕之外的子视图（子视图的`overflow`样式需要设为`hidden`）会被移除。这个可以提升大列表的滚动性能。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -271,7 +270,7 @@ _仅 iOS 可用的值_
 
 注意即便禁止用户滚动，你也仍然可以调用`scrollTo`来滚动。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -281,7 +280,7 @@ _仅 iOS 可用的值_
 
 当此属性为 true 的时候，显示一个水平方向的滚动条。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -291,7 +290,7 @@ _仅 iOS 可用的值_
 
 当此属性为 true 的时候，显示一个垂直方向的滚动条。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -301,7 +300,7 @@ _仅 iOS 可用的值_
 
 一个子视图下标的数组，用于决定哪些成员会在滚动之后固定在屏幕顶端。举个例子，传递`stickyHeaderIndices={[0]}`会让第一个成员固定在滚动视图顶端。这个属性不能和`horizontal={true}`一起使用。
 
-| 类型            | 必填 |
+| 类型            | 必需 |
 | --------------- | ---- |
 | array of number | 否   |
 
@@ -311,7 +310,7 @@ _仅 iOS 可用的值_
 
 有时候滚动视图会占据比实际内容更多的空间。这种情况下可以使用此属性，指定以某种颜色来填充多余的空间，以避免设置背景和创建不必要的绘制开销。一般情况下并不需要这种高级优化技巧。
 
-| 类型               | 必填 | 平台    |
+| 类型               | 必需 | 平台    |
 | ------------------ | ---- | ------- |
 | [color](colors.md) | 否   | Android |
 
@@ -327,7 +326,7 @@ _仅 iOS 可用的值_
 - `'always'` - 无论内容尺寸，用户始终可以滚动视图。
 - `'never'` - 始终不允许用户滚动视图。
 
-| 类型                            | 必填 | 平台    |
+| 类型                            | 必需 | 平台    |
 | ------------------------------- | ---- | ------- |
 | enum('auto', 'always', 'never') | 否   | Android |
 
@@ -337,7 +336,7 @@ _仅 iOS 可用的值_
 
 Tag used to log scroll performance on this scroll view. Will force momentum events to be turned on (see sendMomentumEvents). This doesn't do anything out of the box and you need to implement a custom native FpsListener for it to be useful.
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | string | 否   | Android |
 
@@ -347,7 +346,7 @@ Tag used to log scroll performance on this scroll view. Will force momentum even
 
 When true, ScrollView will emit updateChildFrames data in scroll events, otherwise will not compute or emit child frame data. This only exists to support legacy issues, `onLayout` should be used instead to retrieve frame data. The default value is false.
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -369,7 +368,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 当此属性为 true 的时候，所有的子视图会在水平方向上排成一行，而不是默认的在垂直方向上排成一列。默认值为 false。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -379,7 +378,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 当滚动视图放在一个导航条或者工具条后面的时候，iOS 系统是否要自动调整内容的范围。默认值为 true。（译注：如果你的 ScrollView 或 FlatList 的头部出现莫名其妙的空白，尝试将此属性置为 false）
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -389,7 +388,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 当值为 true 时，如果内容范围比滚动视图本身大，在到达内容末尾的时候，可以弹性地拉动一截。如果为 false，尾部的所有弹性都会被禁用，即使`alwaysBounce`属性为 true。默认值为 true。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -399,7 +398,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 当值为 true 时，使用手势缩放内容可以超过 min/max 的限制，然后在手指抬起之后弹回 min/max 的缩放比例。否则的话，缩放不能超过限制。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -409,7 +408,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 当值为 false 时，一旦有子节点响应触摸操作，即使手指开始移动也不会拖动滚动视图。默认值为 true（在以上情况下可以拖动滚动视图）。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -419,7 +418,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 当值为 true 时，如果滚动视图的内容比视图本身小，则会自动把内容居中放置。当内容比滚动视图大的时候，此属性没有作用。默认值为 false。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -429,7 +428,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 内容范围相对滚动视图边缘的坐标。默认为`{top: 0, left: 0, bottom: 0, right: 0}`。
 
-| 类型                                                               | 必填 | 平台 |
+| 类型                                                               | 必需 | 平台 |
 | ------------------------------------------------------------------ | ---- | ---- |
 | object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
@@ -439,7 +438,7 @@ If the value is greater than 0, the fading edges will be set accordingly to the 
 
 This property specifies how the safe area insets are used to modify the content area of the scroll view. The default value of this property is "never". Available on iOS 11 and later.
 
-| 类型                                                   | 必填 | 平台 |
+| 类型                                                   | 必需 | 平台 |
 | ------------------------------------------------------ | ---- | ---- |
 | enum('automatic', 'scrollableAxes', 'never', 'always') | 否   | iOS  |
 
@@ -449,7 +448,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 用来手动设置初始的滚动坐标。默认值为`{x: 0, y: 0}`。
 
-| 类型          | 必填 | 平台 |
+| 类型          | 必需 | 平台 |
 | ------------- | ---- | ---- |
 | PointPropType | 否   | iOS  |
 
@@ -462,7 +461,7 @@ This property specifies how the safe area insets are used to modify the content 
 - `'normal'`: iOS 上是 0.998，Android 上是 0.985（默认值）
 - `'fast'`: 0.99
 
-| 类型                            | 必填 |
+| 类型                            | 必需 |
 | ------------------------------- | ---- |
 | enum('fast', 'normal'), ,number | 否   |
 
@@ -472,7 +471,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 当值为真时，滚动视图在拖拽的时候会锁定只有垂直或水平方向可以滚动。默认值为 false
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -486,7 +485,7 @@ This property specifies how the safe area insets are used to modify the content 
 - `'black'`，黑色滚动条。
 - `'white'`，白色滚动条。
 
-| 类型                              | 必填 | 平台 |
+| 类型                              | 必需 | 平台 |
 | --------------------------------- | ---- | ---- |
 | enum('default', 'black', 'white') | 否   | iOS  |
 
@@ -496,7 +495,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 允许的最大缩放比例。默认值为 1.0。
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 
@@ -506,7 +505,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 允许的最小缩放比例。默认值为 1.0。
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 
@@ -516,7 +515,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 设置为 true 时，ScrollView 会允许用户使用双指缩放操作。默认值为 true。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -526,7 +525,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 这个属性控制在滚动过程中，scroll 事件被调用的频率（单位是每秒事件数量）。更小的数值能够更及时的跟踪滚动位置，不过可能会带来性能问题，因为更多的信息会通过 bridge 传递。由于 JS 事件循环需要和屏幕刷新率同步，因此设置 1-16 之间的数值不会有实质区别。默认值为 0，意味着每次视图被滚动，scroll 事件只会被调用一次。
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 
@@ -536,7 +535,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 决定滚动条距离视图边缘的坐标。这个值应该和`contentInset`一样。默认值为`{0, 0, 0, 0}`。
 
-| 类型                                                               | 必填 | 平台 |
+| 类型                                                               | 必需 | 平台 |
 | ------------------------------------------------------------------ | ---- | ---- |
 | object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
@@ -546,7 +545,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 当此值为 true 时，点击状态栏的时候视图会滚动到顶部。默认值为 true。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -560,7 +559,7 @@ This property specifies how the safe area insets are used to modify the content 
 - `'center'` 会将停驻点对齐到中间
 - `'end'` 会将停驻点对齐到右侧（水平）或底部（垂直）
 
-| 类型                           | 必填 |
+| 类型                           | 必需 |
 | ------------------------------ | ---- |
 | enum('start', 'center', 'end') | 否   |
 
@@ -570,7 +569,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 当设置了此属性时，会让滚动视图滚动停止后，停止在`snapToInterval`的倍数的位置。这可以在一些子视图比滚动视图本身小的时候用于实现分页显示。需要与`snapToAlignment`组合使用。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -580,7 +579,7 @@ This property specifies how the safe area insets are used to modify the content 
 
 When set, causes the scroll view to stop at the defined offsets. This can be used for paginating through variously sized children that have lengths smaller than the scroll view. Typically used in combination with `decelerationRate="fast"`. Overrides less configurable `pagingEnabled` and `snapToInterval` props.
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | 以数字为元素的数组 | 否   |
 
@@ -590,7 +589,7 @@ When set, causes the scroll view to stop at the defined offsets. This can be use
 
 Use in conjuction with `snapToOffsets`. By default, the beginning of the list counts as a snap offset. Set `snapToStart` to false to disable this behavior and allow the list to scroll freely between its start and the first `snapToOffsets` offset. The default value is true.
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -600,7 +599,7 @@ Use in conjuction with `snapToOffsets`. By default, the beginning of the list co
 
 Use in conjuction with `snapToOffsets`. By default, the end of the list counts as a snap offset. Set `snapToEnd` to false to disable this behavior and allow the list to scroll freely between its end and the last `snapToOffsets` offset. The default value is true.
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -610,7 +609,7 @@ Use in conjuction with `snapToOffsets`. By default, the end of the list counts a
 
 滚动视图内容当前的缩放比例。默认值为 1.0。
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 
@@ -620,7 +619,7 @@ Use in conjuction with `snapToOffsets`. By default, the end of the list counts a
 
 在 Android API level 21（5.0）以上启用嵌套滚动。iOS 上默认支持嵌套滚动。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 

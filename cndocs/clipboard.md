@@ -3,7 +3,7 @@ id: clipboard
 title: 🚧 Clipboard
 ---
 
-> **已过时。** Use [@react-native-community/clipboard](https://github.com/react-native-community/clipboard) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=clipboard) instead.
 
 `Clipboard`组件可以在 iOS 和 Android 的剪贴板中读写内容。
 

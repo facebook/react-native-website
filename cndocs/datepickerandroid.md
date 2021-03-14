@@ -3,7 +3,7 @@ id: datepickerandroid
 title: 🚧 DatePickerAndroid
 ---
 
-> **已过时。** Use [@react-native-community/datetimepicker](https://github.com/react-native-community/react-native-datetimepicker) instead.
+> **Deprecated.** Use one of the [community packages](https://reactnative.directory/?search=datepicker) instead.
 
 本组件会打开一个标准的 Android 日期选择器的对话框。
 

@@ -62,7 +62,7 @@ export default App;
 
 If true the user won't be able to toggle the checkbox. Default value is `false`.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -72,7 +72,7 @@ If true the user won't be able to toggle the checkbox. Default value is `false`.
 
 Used in case the props change removes the component.
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -82,7 +82,7 @@ Used in case the props change removes the component.
 
 Invoked with the new value when the value changes.
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -92,7 +92,7 @@ Invoked with the new value when the value changes.
 
 用来在端到端测试中定位此视图。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -102,7 +102,7 @@ Invoked with the new value when the value changes.
 
 The value of the checkbox. If true the checkbox will be turned on. Default value is `false`.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 

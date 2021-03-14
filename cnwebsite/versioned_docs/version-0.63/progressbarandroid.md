@@ -64,7 +64,7 @@ export default App;
 
 是否显示进度条（默认为 true 显示）。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -74,7 +74,7 @@ export default App;
 
 进度条的颜色。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -84,7 +84,7 @@ export default App;
 
 决定进度条是否要显示一个不确定的进度。注意这个在 styleAttr 是 Horizontal 的时候必须是 false，并且需要设置`progress`值。
 
-| 类型              | 必填 |
+| 类型              | 必需 |
 | ----------------- | ---- |
 | indeterminateType | 否   |
 
@@ -94,7 +94,7 @@ export default App;
 
 当前的进度值（在 0 到 1 之间）。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -112,7 +112,7 @@ export default App;
 - SmallInverse
 - LargeInverse
 
-| 类型                                                                                      | 必填 |
+| 类型                                                                                      | 必需 |
 | ----------------------------------------------------------------------------------------- | ---- |
 | enum('Horizontal', 'Normal', 'Small', 'Large', 'Inverse', 'SmallInverse', 'LargeInverse') | 否   |
 
@@ -122,7 +122,7 @@ export default App;
 
 用来在端到端测试中定位这个视图。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 

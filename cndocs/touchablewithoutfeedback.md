@@ -71,7 +71,7 @@ export default TouchableWithoutFeedbackExample;
 
 _> Note: `accessibilityComponentType`will soon be deprecated. When possible, use `accessibilityRole` and `accessibilityStates` instead._
 
-| 类型                        | 必填 |
+| 类型                        | 必需 |
 | --------------------------- | ---- |
 | AccessibilityComponentTypes | 否   |
 
@@ -81,7 +81,7 @@ _> Note: `accessibilityComponentType`will soon be deprecated. When possible, use
 
 An accessibility hint helps users understand what will happen when they perform an action on the accessibility element when that result is not obvious from the accessibility label.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -91,7 +91,7 @@ An accessibility hint helps users understand what will happen when they perform 
 
 Overrides the text that's read by the screen reader when the user interacts with the element. By default, the label is constructed by traversing all the children and accumulating all the `Text` nodes separated by space.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | node | 否   |
 
@@ -99,7 +99,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityRole`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | AccessibilityRoles | 否   |
 
@@ -107,7 +107,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityStates`
 
-| 类型                         | 必填 |
+| 类型                         | 必需 |
 | ---------------------------- | ---- |
 | array of AccessibilityStates | 否   |
 
@@ -115,7 +115,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessibilityTraits`
 
-| 类型                                               | 必填 |
+| 类型                                               | 必需 |
 | -------------------------------------------------- | ---- |
 | AccessibilityTraits, ,array of AccessibilityTraits | 否   |
 
@@ -123,7 +123,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 ### `accessible`
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -133,7 +133,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 从 onPressIn 开始，到 onLongPress 被调用的延迟。单位是毫秒.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -143,7 +143,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 从触摸操作开始到 onPressIn 被调用的延迟。单位是毫秒。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -153,7 +153,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 从触摸操作结束开始到 onPressOut 被调用的延迟。单位是毫秒。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -163,7 +163,7 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 如果设为 true，则禁止此组件的一切交互。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -173,9 +173,9 @@ Overrides the text that's read by the screen reader when the user interacts with
 
 这一属性定义了按钮的外延范围。这一范围也会使`pressRetentionOffset`变得更大。 **注意：** 触摸范围不会超过父视图的边界，也不会影响原先和本组件层叠的视图（保留原先的触摸优先级）。
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必需 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 
@@ -205,7 +205,7 @@ Invoked when the item receives focus.
 
 `{nativeEvent: {layout: {x, y, width, height}}}`
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -213,7 +213,7 @@ Invoked when the item receives focus.
 
 ### `onLongPress`
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -223,7 +223,7 @@ Invoked when the item receives focus.
 
 当触摸操作结束时调用，但如果被取消了则不调用（譬如响应者被一个滚动操作取代）。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -233,7 +233,7 @@ Invoked when the item receives focus.
 
 Called as soon as the touchable element is pressed and invoked even before onPress. This can be useful when making network requests.
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -243,7 +243,7 @@ Called as soon as the touchable element is pressed and invoked even before onPre
 
 Called as soon as the touch is released even before onPress.
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -253,9 +253,9 @@ Called as soon as the touch is released even before onPress.
 
 在当前视图不能滚动的前提下指定这个属性，可以决定当手指移开多远距离之后，会不再激活按钮。但如果手指再次移回范围内，按钮会被再次激活。只要视图不能滚动，你可以来回多次这样的操作。确保你传入一个常量来减少内存分配。
 
-| 类型 | 必填 |
-| --- | --- |
-| object: {top: number, left: number, bottom: number, right: number} | 否 |
+| 类型                                                               | 必需 |
+| ------------------------------------------------------------------ | ---- |
+| object: {top: number, left: number, bottom: number, right: number} | 否   |
 
 ---
 

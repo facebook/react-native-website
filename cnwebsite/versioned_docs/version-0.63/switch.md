@@ -53,7 +53,7 @@ Inherits [View Props](view#props).
 
 如果为`true`则禁用此组件的交互。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -65,7 +65,7 @@ Inherits [View Props](view#props).
 
 _iOS_: when the switch value is false, the track shrinks into the border. If you want to change the color of the background exposed by the shrunken track, use [`ios_backgroundColor`](switch.md#ios_backgroundColor).
 
-| 类型                                                          | 必填 |
+| 类型                                                          | 必需 |
 | ------------------------------------------------------------- | ---- |
 | object: {false: [color](colors.md), true: [color](colors.md)} | 否   |
 
@@ -75,7 +75,7 @@ _iOS_: when the switch value is false, the track shrinks into the border. If you
 
 On iOS, custom color for the background. This background color can be seen either when the switch value is false or when the switch is disabled (and the switch is translucent).
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -85,7 +85,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 当值改变的时候调用此回调函数，参数为新的值。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -95,7 +95,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 用来在端到端测试中定位此视图。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -105,7 +105,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 开关上圆形按钮的背景颜色。在 iOS 上设置此颜色会丢失按钮的投影。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -117,7 +117,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 关闭状态时的边框颜色(iOS)或背景颜色(Android)。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -127,7 +127,7 @@ On iOS, custom color for the background. This background color can be seen eithe
 
 表示此开关是否打开。默认为 false（关闭状态）。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 

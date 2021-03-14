@@ -296,7 +296,7 @@ static decay(value, config)
 
 Config 参数有以下这些属性：
 
-- `velocity`: 初始速度。必填。
+- `velocity`: 初始速度。必需。
 - `deceleration`: 衰减系数。默认值 0.997。
 - `isInteraction`: 指定本动画是否在`InteractionManager`的队列中注册以影响其任务调度。默认值为 true。
 - `useNativeDriver`: 启用原生动画驱动。默认不启用(false)。

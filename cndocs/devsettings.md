@@ -14,10 +14,19 @@ The `DevSettings` module exposes methods for customizing settings for developers
 ### `addMenuItem()`
 
 ```jsx
-static addMenuItem(title: string, handler: function)
+static addMenuItem(title, handler)
 ```
 
 在开发者菜单中添加一个自定义的菜单项：
+
+**Parameters:**
+
+| Name                                                           | Type     |
+| -------------------------------------------------------------- | -------- |
+| title <div className="label basic required">Required</div>     | string   |
+| component <div className="label basic required">Required</div> | function |
+
+**Example:**
 
 ```jsx
 DevSettings.addMenuItem('Show Secret Dev Screen', () => {

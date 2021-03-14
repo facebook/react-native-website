@@ -87,7 +87,7 @@ export default VirtualizedListExample;
 
 根据行数据 data 渲染每一行的组件
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 是   |
 
@@ -97,7 +97,7 @@ export default VirtualizedListExample;
 
 默认的获取器函数假设它是一个数组（Array<{key: string}>），但是你能重写 getItem, getItemCount, keyExtractor 来处理任何类型的可索引数据。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | any  | 是   |
 
@@ -111,7 +111,7 @@ export default VirtualizedListExample;
 
 通用的获取器，用来从任意类型的数据块中获取一个元素。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 是   |
 
@@ -125,7 +125,7 @@ export default VirtualizedListExample;
 
 用来决定数据块中一共有多少元素。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 是   |
 
@@ -135,7 +135,7 @@ export default VirtualizedListExample;
 
 开启额外的日志和视觉覆盖功能，来协助对使用和实现的调试。但是会严重地影响性能。
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -145,7 +145,7 @@ export default VirtualizedListExample;
 
 这是一个标记属性，用来告诉列表重新渲染（由于它实现了 PureComponent)。如果有 data 属性之外的数据引用，就把它列在这里，并把它当成不可变的。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | any  | 否   |
 
@@ -162,7 +162,7 @@ export default VirtualizedListExample;
 
 getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的开销，不过前提是你可以提前知道内容的高度。如果你的行高是固定的，getItemLayout 用起来就既高效又简单。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -172,7 +172,7 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 设置初始化渲染开始的索引，这样会禁用掉直接滚动到顶部操作优化，第一批渲染的元素从 initialScrollIndex 开始，保证初始化渲染的性能。这个方法要求 getItemLayout 必须实现。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -182,7 +182,7 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 反转滑动方向。（等价于）使用缩放转化的值为-1。
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -192,7 +192,7 @@ getItemLayout 是一个可选的优化，用于避免动态测量内容尺寸的
 
 每个子项渲染使用的元素。可以是一个 react 组件类，或者一个渲染函数。默认使用[`View`](view.md)
 
-| 类型                | 必填 |
+| 类型                | 必需 |
 | ------------------- | ---- |
 | component, function | 否   |
 
@@ -222,7 +222,7 @@ A unique identifier for this list. If there are multiple VirtualizedLists at the
 
 当列表为空时渲染。可以是一个 React 类，或者一个渲染函数，或者一个已渲染的元素。
 
-| 类型                         | 必填 |
+| 类型                         | 必需 |
 | ---------------------------- | ---- |
 | component, function, element | 否   |
 
@@ -242,7 +242,7 @@ Each data item is rendered using this element. Can be a React Component Class, o
 
 在所有子项最下面渲染的组件（列表底部）。可以是一个 React 类，或者一个渲染函数，或者一个已渲染的元素。
 
-| 类型                         | 必填 |
+| 类型                         | 必需 |
 | ---------------------------- | ---- |
 | component, function, element | 否   |
 
@@ -262,7 +262,7 @@ Styling for internal View for ListFooterComponent
 
 在所有子项最上面渲染的组件（列表头部）.可以是一个 React 类，或者一个渲染函数，或者一个已渲染的元素。
 
-| 类型                         | 必填 |
+| 类型                         | 必需 |
 | ---------------------------- | ---- |
 | component, function, element | 否   |
 
@@ -286,7 +286,7 @@ Styling for internal View for ListHeaderComponent
 
 如果设置了此选项，则会在列表头部添加一个标准的 RefreshControl 控件，以便实现“下拉刷新”的功能。同时你需要正确设置 refreshing 属性。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -304,7 +304,7 @@ Styling for internal View for ListHeaderComponent
 
 用来处理滚动到尚未渲染的索引导致滚动失败时的回调。推荐的做法是自己计算偏移量，然后滚动到相应位置，或者滚动到更远的距离当更多的子元素已经渲染后再进行尝试。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -321,7 +321,7 @@ Styling for internal View for ListHeaderComponent
 
 当列表中行的可见性发生变化时，就会调用这个函数。可见性设置见 viewabilityConfig。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -331,7 +331,7 @@ Styling for internal View for ListHeaderComponent
 
 当等待数据进行更新时，将这个属性设置为 true
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -341,7 +341,7 @@ Styling for internal View for ListHeaderComponent
 
 自定义的下拉刷新组件。设置后将覆盖默认的内置`<RefreshControl>`组件，`onRefresh`和`refreshing`属性也将一并忽略。只对纵向布局的`VirtualizedList`有效。
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | element | 否   |
 
@@ -355,7 +355,7 @@ Styling for internal View for ListHeaderComponent
 
 > 注意：某些情况下可能有 bug(丢失内容)-自己斟酌
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -369,7 +369,7 @@ Styling for internal View for ListHeaderComponent
 
 渲染一个定制的滚动组件。例如不同风格的 `RefreshControl`。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -379,7 +379,7 @@ Styling for internal View for ListHeaderComponent
 
 参见 `ViewabilityHelper.js`获取更多的文档
 
-| 类型              | 必填 |
+| 类型              | 必需 |
 | ----------------- | ---- |
 | ViewabilityConfig | 否   |
 
@@ -389,7 +389,7 @@ Styling for internal View for ListHeaderComponent
 
 `viewabilityConfigCallbackPairs`属性对列表，特定的 ViewabilityConfig 配置条件触发时，会调用对应的 onViewableItemsChanged 方法。 详见 ViewabilityHelper.js 中的 flow 类型定义，未来会补充文档。
 
-| 类型                                   | 必填 |
+| 类型                                   | 必需 |
 | -------------------------------------- | ---- |
 | array of ViewabilityConfigCallbackPair | 否   |
 
@@ -397,7 +397,7 @@ Styling for internal View for ListHeaderComponent
 
 ### `horizontal`
 
-| 类型    | 必填 |
+| 类型    | 必需 |
 | ------- | ---- |
 | boolean | 否   |
 
@@ -407,7 +407,7 @@ Styling for internal View for ListHeaderComponent
 
 首批应该渲染的元素数量。这些元素应该能够覆盖住屏幕，但再多就不好了。注意：为了响应“滚动到顶部”这个事件并最优化其性能，这些元素将作为窗口渲染的一部分，永远不会被卸载。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -421,7 +421,7 @@ Styling for internal View for ListHeaderComponent
 
 此函数用于为给定的 item 生成一个不重复的 key。Key 的作用是使 React 能够区分同类元素的不同个体，以便在刷新时能够确定其变化的位置，减少重新渲染的开销。若不指定此函数，则默认抽取 item.key 作为 key 值。若 item.key 也不存在，则使用数组下标。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -431,7 +431,7 @@ Styling for internal View for ListHeaderComponent
 
 每批增量渲染可渲染的最大数量。能立即渲染出的元素数量越多，填充速率就越快，但是响应性可能会有一些损失，因为每个被渲染的元素都可能参与或干扰对按钮点击事件或其他事件的响应。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -445,7 +445,7 @@ Styling for internal View for ListHeaderComponent
 
 当列表被滚动到距离内容最底部不足 onEndReachedThreshold 的距离时调用。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -455,7 +455,7 @@ Styling for internal View for ListHeaderComponent
 
 决定当距离内容最底部还有多远时触发 onEndReached 回调。注意此参数是一个比值而非像素单位。比如，0.5 表示距离内容最底部的距离为当前列表可见长度的一半时触发。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -465,7 +465,7 @@ Styling for internal View for ListHeaderComponent
 
 具有较低渲染优先级的元素（比如那些离屏幕相当远的元素）的渲染批次之间的时间间隔。与 maxToRenderPerBatch 具有相同的目的，都是为了在渲染速率和响应性之间获得一个平衡。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -475,7 +475,7 @@ Styling for internal View for ListHeaderComponent
 
 设置可视区外最大能被渲染的元素的数量，以可视区的长度为单位。比如说，如果列表占满了整个屏幕，而 windowSize 属性被设置为 21 的话，那渲染的长度为包括当前可见屏幕区域在内，往上 10 个屏幕的长度和往下 10 个屏幕的长度。将 windowSize 设置为一个较小值，能有减小内存消耗并提高性能，但是当你快速滚动列表时，遇到尚未渲染的内容的几率会增大，而这些尚未渲染的内容会暂时性地被空白区块所替代。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -485,7 +485,7 @@ Styling for internal View for ListHeaderComponent
 
 **已过时** : Virtualization 提供了显著的性能和内存优化，并且完全卸载了位于可视区之外的 react 实例。当且仅当为了调试，你才可以关闭这个特性。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 |      | 否   |
 
@@ -503,7 +503,7 @@ Styling for internal View for ListHeaderComponent
 
 设置加载指示器的偏移量
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | number | 否   | Android |
 

@@ -83,7 +83,7 @@ NetInfo.addEventListener(eventName, handler);
 
 **参数：**
 
-| 名称      | 类型                           | 必填 | 说明     |
+| 名称      | 类型                           | 必需 | 说明     |
 | --------- | ------------------------------ | ---- | -------- |
 | eventName | enum(connectionChange, change) | 是   | 事件名   |
 | handler   | function                       | 是   | 监听函数 |
@@ -107,7 +107,7 @@ NetInfo.removeEventListener(eventName, handler);
 
 **参数：**
 
-| 名称      | 类型                           | 必填 | 说明     |
+| 名称      | 类型                           | 必需 | 说明     |
 | --------- | ------------------------------ | ---- | -------- |
 | eventName | enum(connectionChange, change) | 是   | 事件名   |
 | handler   | function                       | 是   | 监听函数 |

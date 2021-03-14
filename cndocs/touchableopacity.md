@@ -129,7 +129,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 ### `style`
 
-| 类型       | 必填 |
+| 类型       | 必需 |
 | ---------- | ---- |
 | View.style | 否   |
 
@@ -139,7 +139,7 @@ Inherits [TouchableWithoutFeedback Props](touchablewithoutfeedback.md#props).
 
 指定封装的视图在被触摸操作激活时以多少不透明度显示（0 到 1 之间）。默认值为 0.2。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -158,7 +158,7 @@ _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 - `pressDuration`: Defaults to `0.3`.
 - `pressDelay`: Defaults to `0.0`.
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | object | 否   | iOS  |
 
@@ -168,7 +168,7 @@ _(Apple TV only)_ Object with properties to control Apple TV parallax effects.
 
 _(Apple TV only)_ TV preferred focus (see documentation for the View component).
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -221,13 +221,3 @@ TV next focus up (see documentation for the View component).
 | 类型 | Required | 平台    |
 | ---- | -------- | ------- |
 | bool | No       | Android |
-
-## 方法
-
-### `setOpacityTo()`
-
-```jsx
-setOpacityTo((value: number), (duration: number));
-```
-
-将本组件的不透明度设为指定值（伴有过渡动画）。

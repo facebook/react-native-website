@@ -110,7 +110,7 @@ static share(content, options)
 
 | 名称                                                     | 类型   | 说明                                                                                                                                                                                                                                     |
 | -------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| content <div className="label basic required">必填</div> | object | `message` - 要分享的消息<br/>`url` - 要分享的网址 <div class="label ios">iOS</div><br/>`title` - 消息的标题 <div class="label android">Android</div><hr/>`url`或`message`至少要提供一个                                                  |
+| content <div className="label basic required">必需</div> | object | `message` - 要分享的消息<br/>`url` - 要分享的网址 <div class="label ios">iOS</div><br/>`title` - 消息的标题 <div class="label android">Android</div><hr/>`url`或`message`至少要提供一个                                                  |
 | options                                                  | object | `dialogTitle` <div class="label android">Android</div><br/>`excludedActivityTypes` <div class="label ios">iOS</div><br/>`subject` - 通过邮件分享的标题 <div class="label ios">iOS</div><br/>`tintColor` <div class="label ios">iOS</div> |
 
 ---

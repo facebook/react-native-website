@@ -105,7 +105,7 @@ On iOS, the `useWebKit` prop can be used to opt into a WKWebView-backed implemen
 
 Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from any origin. Including accessing content from other file scheme URLs. The default value is `false`.
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -125,7 +125,7 @@ Boolean that sets whether the `WebView` has access to the file system. The defau
 
 Set whether Geolocation is enabled in the `WebView`. The default value is `false`. Used only in Android.
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -149,7 +149,7 @@ The object passed to `source` can have either of the following shapes:
 - `html` (string) - A static HTML page to display in the WebView.
 - `baseUrl` (string) - The base URL to be used for any relative links in the HTML.
 
-| 类别   | 必填 |
+| 类别   | 必需 |
 | ------ | ---- |
 | object | No   |
 
@@ -159,7 +159,7 @@ The object passed to `source` can have either of the following shapes:
 
 控制插入到导航栏，标签栏或者工具条之后的 web 内容是否自适应。默认为`true`。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -169,7 +169,7 @@ The object passed to `source` can have either of the following shapes:
 
 在网页加载完成之后，还可以主动调用此方法（以 ref 形式调用）继续给 WebView 注入 JS 代码。注入后会立即执行。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -179,7 +179,7 @@ The object passed to `source` can have either of the following shapes:
 
 设置 js 字符串，在网页加载之前注入的一段 JS 代码。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -189,7 +189,7 @@ The object passed to `source` can have either of the following shapes:
 
 布尔值，控制 HTML5 音频和视频播放前是否需要用户点击。默认为`true`。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -205,7 +205,7 @@ The `nativeConfig` prop expects an object with the following keys:
 - `props` (object)
 - `viewManager` (object)
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | object | 否   |
 
@@ -215,7 +215,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 当 `WebView`加载失败时调用的函数
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -225,7 +225,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 当 `WebView`加载成功后执行的函数
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -235,7 +235,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 函数，当加载结束调用，不管是成功还是失败。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -245,7 +245,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 当 `WebView`刚开始加载时调用的函数
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -257,7 +257,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 网页端的 window.postMessage 只发送一个参数 data，此参数封装在 RN 端的 event 对象中，即 event.nativeEvent.data。data 只能是一个字符串。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -267,7 +267,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 当导航状态发生变化的时候调用。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -277,7 +277,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 设置一个函数，返回一个视图用于显示错误。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -287,7 +287,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 设置一个函数，返回一个加载指示器。。为了使用这个属性必须将 startInLoadingState 属性设置为 true。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -299,7 +299,7 @@ The `nativeConfig` prop expects an object with the following keys:
 
 On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -309,7 +309,7 @@ On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
 
 允许为 webview 发起的请求运行一个自定义的处理函数。返回 true 或 false 表示是否要继续执行响应的请求。
 
-| 类型     | 必填 | 平台 |
+| 类型     | 必需 | 平台 |
 | -------- | ---- | ---- |
 | function | 否   | iOS  |
 
@@ -319,7 +319,7 @@ On iOS, when [`useWebKit=true`](webview.md#usewebkit), this prop will not work.
 
 List of origin strings to allow being navigated to. The strings allow wildcards and get matched against _just_ the origin (not the full URL). If the user taps to navigate to a new page but the new page is not in this whitelist, the URL will be handled by the OS. The default whitelisted origins are "http://_" and "https://_".
 
-| 类型             | 必填 |
+| 类型             | 必需 |
 | ---------------- | ---- |
 | array of strings | 否   |
 
@@ -329,7 +329,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 布尔值，控制`WebView`第一次加载时是否显示加载视图（如指示器）。当设置了`renderLoading`时必须将这个属性设置为`true` 才能正常显示。
 
-| 类型 | 必填 |
+| 类型 | 必需 |
 | ---- | ---- |
 | bool | 否   |
 
@@ -339,7 +339,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 设置 `WebView`的样式。
 
-| 类型       | 必填 |
+| 类型       | 必需 |
 | ---------- | ---- |
 | View.style | 否   |
 
@@ -352,7 +352,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 - normal: 0.998
 - fast: 0.99 (ios web view 默认)
 
-| 类型   | 必填 | 平台 |
+| 类型   | 必需 | 平台 |
 | ------ | ---- | ---- |
 | number | 否   | iOS  |
 
@@ -362,7 +362,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 仅限 Android 平台。指定是否开启 DOM 本地存储。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -372,7 +372,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 布尔值，控制是否启用 JavaScript。仅在安卓下使用，因为 IOS 默认为启用 JavaScript。默认值为`true`。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -386,7 +386,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 - `always` - WebView 允许安全链接页面中加载非安全链接的内容。
 - `compatibility` - WebView 会尽量和浏览器当前对待此情况的行为一致
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | string | 否   | Android |
 
@@ -396,7 +396,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 布尔值，是否启用第三方 cookie。仅在安卓 Lollipop 版本或以上使用，因为安卓 Kitkat 以下版本和 IOS 系统默认都启用第三方 cookie。 默认为 `true`。
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -406,7 +406,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 设置 `WebView`的 user agent 字符串。目前仅支持 Android。
 
-| 类型   | 必填 | 平台    |
+| 类型   | 必需 | 平台    |
 | ------ | ---- | ------- |
 | string | 否   | Android |
 
@@ -420,7 +420,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 >
 > 为了确保内联播放，除了这个属性需要被设置成`true`, 在 html 代码中视频元素也需要包含 `webkit-playsinline`属性。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -430,7 +430,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 布尔值，控制当 webview 内容到达底部时是否进行回弹。默认为 `true`。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -440,7 +440,7 @@ List of origin strings to allow being navigated to. The strings allow wildcards 
 
 webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left: 0, bottom: 0, right: 0}`。
 
-| 类型                                                               | 必填 | 平台 |
+| 类型                                                               | 必需 | 平台 |
 | ------------------------------------------------------------------ | ---- | ---- |
 | object: {top: number, left: number, bottom: number, right: number} | 否   | iOS  |
 
@@ -467,7 +467,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 - `flightNumber`
 - `lookupSuggestion`
 
-| 类型             | 必填 | 平台 |
+| 类型             | 必需 | 平台 |
 | ---------------- | ---- | ---- |
 | string, or array | 否   | iOS  |
 
@@ -477,7 +477,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 控制是否在 `WebView`中启用滑动。默认为 `true`。
 
-| 类型 | 必填 | 平台 |
+| 类型 | 必需 | 平台 |
 | ---- | ---- | ---- |
 | bool | 否   | iOS  |
 
@@ -487,7 +487,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 设置 true 的时候会使用新的 WKWebView 来代替老的 UIWebView。
 
-| 类型    | 必填 | 平台 |
+| 类型    | 必需 | 平台 |
 | ------- | ---- | ---- |
 | boolean | 否   | iOS  |
 
@@ -497,7 +497,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 **已过时.** 请使用 `source` 属性代替.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -507,7 +507,7 @@ webview 插入到滑动视图时距离边缘的距离。默认为`{top: 0, left:
 
 **已过时.** 请使用 `source` 属性代替.
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 

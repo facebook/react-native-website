@@ -13,7 +13,7 @@ Inherits [View Props](view.md#props).
 
 ### `itemStyle`
 
-| 类型                               | 必填 |
+| 类型                               | 必需 |
 | ---------------------------------- | ---- |
 | [text styles](text-style-props.md) | 否   |
 
@@ -21,7 +21,7 @@ Inherits [View Props](view.md#props).
 
 ### `onValueChange`
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -37,6 +37,6 @@ Inherits [View Props](view.md#props).
 
 ### `selectedValue`
 
-| 类型             | 必填 |
+| 类型             | 必需 |
 | ---------------- | ---- |
 | number or string | 否   |

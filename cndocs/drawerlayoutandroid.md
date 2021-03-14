@@ -71,20 +71,19 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-
 ---
 
 # 文档
 
 ## Props
 
-继承所有[View的Props](view#props).
+继承所有[View 的 Props](view#props).
 
 ### `renderNavigationView`
 
 被拉入的导航视图的内容。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 是   |
 
@@ -94,7 +93,7 @@ export default App;
 
 导航视图被关闭后的回调函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -104,7 +103,7 @@ export default App;
 
 设置导航视图从屏幕的哪一边拉入。
 
-| 类型                                                                      | 必填 |
+| 类型                                                                      | 必需 |
 | ------------------------------------------------------------------------- | ---- |
 | enum(DrawerConsts.DrawerPosition.Left, DrawerConsts.DrawerPosition.Right) | 否   |
 
@@ -114,7 +113,7 @@ export default App;
 
 设置导航视图从窗口边缘拉入的视图的宽度。
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -124,10 +123,10 @@ export default App;
 
 设置拖动过程中是否隐藏软键盘
 
-* 'none' (默认)，拖动时不隐藏软键盘。
-* 'on-drag'，拖动时隐藏软键盘。
+- 'none' (默认)，拖动时不隐藏软键盘。
+- 'on-drag'，拖动时隐藏软键盘。
 
-| 类型                    | 必填 |
+| 类型                    | 必需 |
 | ----------------------- | ---- |
 | enum('none', 'on-drag') | 否   |
 
@@ -137,11 +136,11 @@ export default App;
 
 设置导航视图的锁定模式。有 3 种状态：
 
-* unlocked (默认)，不锁定，导航视图可以响应打开和关闭操作；
-* locked-closed，导航视图保持关闭，不能用手势打开；
-* locked-open，导航视图保持打开，不能用手势关闭，但仍然可以通过程序打开或关闭。 (`openDrawer`/`closeDrawer`).
+- unlocked (默认)，不锁定，导航视图可以响应打开和关闭操作；
+- locked-closed，导航视图保持关闭，不能用手势打开；
+- locked-open，导航视图保持打开，不能用手势关闭，但仍然可以通过程序打开或关闭。 (`openDrawer`/`closeDrawer`).
 
-| 类型                                             | 必填 |
+| 类型                                             | 必需 |
 | ------------------------------------------------ | ---- |
 | enum('unlocked', 'locked-closed', 'locked-open') | 否   |
 
@@ -151,7 +150,7 @@ export default App;
 
 导航视图被打开后的回调函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -161,7 +160,7 @@ export default App;
 
 导航视图发生交互时的回调函数。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -171,11 +170,11 @@ export default App;
 
 导航视图的状态发生变化时的回调函数。有 3 种状态：
 
-* idle, 导航视图没有发生任何交互；
-* dragging, 导航视图正在发生交互；
-* settling，导航视图正在发生交互，并且导航视图正在完成其关闭或打开的动画。
+- idle, 导航视图没有发生任何交互；
+- dragging, 导航视图正在发生交互；
+- settling，导航视图正在发生交互，并且导航视图正在完成其关闭或打开的动画。
 
-| 类型     | 必填 |
+| 类型     | 必需 |
 | -------- | ---- |
 | function | 否   |
 
@@ -192,7 +191,7 @@ return (
 );
 ```
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -200,10 +199,10 @@ return (
 
 ### `statusBarBackgroundColor`
 
-使抽屉占满整个屏幕，并设置状态栏颜色(支持API21+/安卓系统5.0以上)
+使抽屉占满整个屏幕，并设置状态栏颜色(支持 API21+/安卓系统 5.0 以上)
 使导航视图占满整个屏幕，并设置状态栏背景，允许他在状态栏上打开。仅在 API 21 及以上版本有效。
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 

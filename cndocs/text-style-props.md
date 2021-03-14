@@ -5,10 +5,10 @@ title: Text 样式属性
 
 ### 示例
 
-```SnackPlayer name=TextStyleProps&supportedPlatforms=android,ios
+```SnackPlayer name=TextStyleProps
 import React, { useState } from "react";
-import { FlatList, Platform, ScrollView, Slider, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
-import Constants from "expo-constants";
+import { FlatList, Platform, ScrollView, StyleSheet, Switch, Text, TouchableWithoutFeedback, View } from "react-native";
+
 const fontStyles = ["normal", "italic"];
 const fontVariants = [
   undefined,
@@ -42,6 +42,7 @@ const textDecorationStyles = ["solid", "double", "dotted", "dashed"];
 const textTransformations = ["none", "uppercase", "lowercase", "capitalize"];
 const textAlignmentsVertical = ["auto", "top", "bottom", "center"];
 const writingDirections = ["auto", "ltr", "rtl"];
+
 const App = () => {
   const [fontSize, setFontSize] = useState(10);
   const [fontStyleIdx, setFontStyleIdx] = useState(0);
@@ -61,6 +62,7 @@ const App = () => {
     height: 0,
     width: 0
   });
+
   return (
     <View style={styles.container}>
       <Text
@@ -211,6 +213,7 @@ const App = () => {
     </View>
   );
 }
+
 const CustomSwitch = ({ label, handleValueChange, value }) => {
   return (
     <>
@@ -226,6 +229,7 @@ const CustomSwitch = ({ label, handleValueChange, value }) => {
     </>
   );
 }
+
 const CustomSlider = ({
   label,
   handleValueChange,
@@ -253,6 +257,7 @@ const CustomSlider = ({
     </>
   );
 }
+
 const CustomPicker = ({ label, data, currentIndex, onSelected }) => {
   return (
     <>
@@ -291,10 +296,11 @@ const CustomPicker = ({ label, data, currentIndex, onSelected }) => {
     </>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: Constants.statusBarHeight,
+    paddingTop: StatusBar.currentHeight,
     backgroundColor: "#ecf0f1",
     padding: 8
   },
@@ -337,6 +343,7 @@ const styles = StyleSheet.create({
     marginVertical: 4
   }
 });
+
 export default App;
 ```
 
@@ -346,33 +353,33 @@ export default App;
 
 ### `textShadowOffset`
 
-| 类型                                   | 必填 |
-| -------------------------------------- | -------- |
-| object: {width: number,height: number} | 否       |
+| 类型                                   | 必需 |
+| -------------------------------------- | ---- |
+| object: {width: number,height: number} | 否   |
 
 ---
 
 ### `color`
 
-| 类型               | 必填 |
-| ------------------ | -------- |
-| [color](colors.md) | 否       |
+| 类型               | 必需 |
+| ------------------ | ---- |
+| [color](colors.md) | 否   |
 
 ---
 
 ### `fontSize`
 
-| 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| 类型   | 必需 |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
 ### `fontStyle`
 
-| 类型                     | 必填 |
-| ------------------------ | -------- |
-| enum('normal', 'italic') | 否       |
+| 类型                     | 必需 |
+| ------------------------ | ---- |
+| enum('normal', 'italic') | 否   |
 
 ---
 
@@ -380,17 +387,17 @@ export default App;
 
 Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-| 类型                                                                                  | 必填 |
-| ------------------------------------------------------------------------------------- | -------- |
-| enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900') | 否       |
+| 类型                                                                                  | 必需 |
+| ------------------------------------------------------------------------------------- | ---- |
+| enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900') | 否   |
 
 ---
 
 ### `lineHeight`
 
-| 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| 类型   | 必需 |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -398,41 +405,41 @@ Specifies font weight. The values 'normal' and 'bold' are supported for most fon
 
 Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
 
-| 类型                                               | 必填 |
-| -------------------------------------------------- | -------- |
-| enum('auto', 'left', 'right', 'center', 'justify') | 否       |
+| 类型                                               | 必需 |
+| -------------------------------------------------- | ---- |
+| enum('auto', 'left', 'right', 'center', 'justify') | 否   |
 
 ---
 
 ### `textDecorationLine`
 
-| 类型                                                                | 必填 |
-| ------------------------------------------------------------------- | -------- |
-| enum('none', 'underline', 'line-through', 'underline line-through') | 否       |
+| 类型                                                                | 必需 |
+| ------------------------------------------------------------------- | ---- |
+| enum('none', 'underline', 'line-through', 'underline line-through') | 否   |
 
 ---
 
 ### `textShadowColor`
 
-| 类型               | 必填 |
-| ------------------ | -------- |
-| [color](colors.md) | 否       |
+| 类型               | 必需 |
+| ------------------ | ---- |
+| [color](colors.md) | 否   |
 
 ---
 
 ### `fontFamily`
 
-| 类型   | 必填 |
-| ------ | -------- |
-| string | 否       |
+| 类型   | 必需 |
+| ------ | ---- |
+| string | 否   |
 
 ---
 
 ### `textShadowRadius`
 
-| 类型   | 必填 |
-| ------ | -------- |
-| number | 否       |
+| 类型   | 必需 |
+| ------ | ---- |
+| number | 否   |
 
 ---
 
@@ -440,62 +447,62 @@ Specifies text alignment. The value 'justify' is only supported on iOS and fallb
 
 Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`. Default is true.
 
-| 类型 | 必填 | 平台 |
-| ---- | -------- | -------- |
-| bool | 否       | Android  |
+| 类型 | 必需 | 平台    |
+| ---- | ---- | ------- |
+| bool | 否   | Android |
 
 ---
 
 ### `textAlignVertical`
 
-| 类型                                    | 必填 | 平台 |
-| --------------------------------------- | -------- | -------- |
-| enum('auto', 'top', 'bottom', 'center') | 否       | Android  |
+| 类型                                    | 必需 | 平台    |
+| --------------------------------------- | ---- | ------- |
+| enum('auto', 'top', 'bottom', 'center') | 否   | Android |
 
 ---
 
 ### `fontVariant`
 
-| 类型                                                                                             | 必填 | 平台 |
-| ------------------------------------------------------------------------------------------------ | -------- | -------- |
-| array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | 否       | iOS, Android >= 5.0      |
+| 类型                                                                                             | 必需 | 平台                |
+| ------------------------------------------------------------------------------------------------ | ---- | ------------------- |
+| array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | 否   | iOS, Android >= 5.0 |
 
 ---
 
 ### `letterSpacing`
 
-| 类型   | 必填 | 平台 |
-| ------ | -------- | ------------------- |
-| number | 否       | iOS, Android >= 5.0 |
+| 类型   | 必需 | 平台                |
+| ------ | ---- | ------------------- |
+| number | 否   | iOS, Android >= 5.0 |
 
 ---
 
 ### `textDecorationColor`
 
-| 类型               | 必填 | 平台 |
-| ------------------ | -------- | -------- |
-| [color](colors.md) | 否       | iOS      |
+| 类型               | 必需 | 平台 |
+| ------------------ | ---- | ---- |
+| [color](colors.md) | 否   | iOS  |
 
 ---
 
 ### `textDecorationStyle`
 
-| 类型                                        | 必填 | 平台 |
-| ------------------------------------------- | -------- | -------- |
-| enum('solid', 'double', 'dotted', 'dashed') | 否       | iOS      |
+| 类型                                        | 必需 | 平台 |
+| ------------------------------------------- | ---- | ---- |
+| enum('solid', 'double', 'dotted', 'dashed') | 否   | iOS  |
 
 ---
 
 ### `textTransform`
 
-| 类型                                                 | 必填 |
-| ---------------------------------------------------- | -------- |
-| enum('none', 'uppercase', 'lowercase', 'capitalize') | No       |
+| 类型                                                 | 必需 |
+| ---------------------------------------------------- | ---- |
+| enum('none', 'uppercase', 'lowercase', 'capitalize') | No   |
 
 ---
 
 ### `writingDirection`
 
-| 类型                       | 必填 | 平台 |
-| -------------------------- | -------- | -------- |
-| enum('auto', 'ltr', 'rtl') | 否       | iOS      |
+| 类型                       | 必需 | 平台 |
+| -------------------------- | ---- | ---- |
+| enum('auto', 'ltr', 'rtl') | 否   | iOS  |

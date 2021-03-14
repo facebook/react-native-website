@@ -327,7 +327,7 @@ openURL(url);
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明         |
+| 名称 | 类型   | 必需 | 说明         |
 | ---- | ------ | ---- | ------------ |
 | url  | string | 是   | 要打开的 URL |
 
@@ -353,7 +353,7 @@ The `Promise` will reject on Android if it was impossible to check if the URL ca
 
 **参数：**
 
-| 名称 | 类型   | 必填 | 说明         |
+| 名称 | 类型   | 必需 | 说明         |
 | ---- | ------ | ---- | ------------ |
 | url  | string | 是   | 要打开的 URL |
 

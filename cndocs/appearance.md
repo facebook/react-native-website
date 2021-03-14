@@ -34,20 +34,22 @@ The `Appearance` module exposes information about the user's appearance preferen
 
 ## 示例
 
-You can use the `Appearance` module to determine if the user prefers a dark color scheme:
+`Appearance` 模块用来检测用户是否开启了暗色模式（夜间模式）：
 
 ```jsx
 const colorScheme = Appearance.getColorScheme();
 if (colorScheme === 'dark') {
-  // Use dark color scheme
+  // 用户开启了暗色模式
 }
 ```
 
 Although the color scheme is available immediately, this may change (e.g. scheduled color scheme change at sunrise or sunset). Any rendering logic or styles that depend on the user preferred color scheme should try to call this function on every render, rather than caching the value. For example, you may use the [`useColorScheme`](usecolorscheme) React hook as it provides and subscribes to color scheme updates, or you may use inline styles rather than setting a value in a `StyleSheet`.
 
-# Reference
+---
 
-## Methods
+# 文档
+
+## 方法
 
 ### `getColorScheme()`
 
@@ -59,11 +61,11 @@ Indicates the current user preferred color scheme. The value may be updated late
 
 Supported color schemes:
 
-| Value     | 说明                                                |
-| --------- | --------------------------------------------------- |
-| `"light"` | The user prefers a light color theme.               |
-| `"dark"`  | The user prefers a dark color theme.                |
-| `null`    | The user has not indicated a preferred color theme. |
+| 取值      | 说明                       |
+| --------- | -------------------------- |
+| `"light"` | 用户选择了浅色模式。       |
+| `"dark"`  | 用户选择了深色模式。       |
+| `null`    | 用户没有明确选择某种模式。 |
 
 > **注意：** 在使用 chrome 调试时，`getColorScheme()`将始终返回`light`。
 
@@ -87,4 +89,4 @@ Add an event handler that is fired when appearance preferences change.
 static removeChangeListener(listener)
 ```
 
-Remove an event handler.
+移除一个事件监听函数。

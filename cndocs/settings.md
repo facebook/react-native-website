@@ -64,6 +64,8 @@ static clearWatch(watchId: number)
 
 `watchId` is the number returned by `watchKeys()` when the subscription was originally configured.
 
+---
+
 ### `get()`
 
 ```jsx

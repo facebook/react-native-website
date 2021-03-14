@@ -346,7 +346,7 @@ export default App;
 
 ### `textShadowOffset`
 
-| 类型                                   | 必填 |
+| 类型                                   | 必需 |
 | -------------------------------------- | ---- |
 | object: {width: number,height: number} | 否   |
 
@@ -354,7 +354,7 @@ export default App;
 
 ### `color`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -362,7 +362,7 @@ export default App;
 
 ### `fontSize`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -370,7 +370,7 @@ export default App;
 
 ### `fontStyle`
 
-| 类型                     | 必填 |
+| 类型                     | 必需 |
 | ------------------------ | ---- |
 | enum('normal', 'italic') | 否   |
 
@@ -380,7 +380,7 @@ export default App;
 
 Specifies font weight. The values 'normal' and 'bold' are supported for most fonts. Not all fonts have a variant for each of the numeric values, in that case the closest one is chosen.
 
-| 类型                                                                                  | 必填 |
+| 类型                                                                                  | 必需 |
 | ------------------------------------------------------------------------------------- | ---- |
 | enum('normal', 'bold', '100', '200', '300', '400', '500', '600', '700', '800', '900') | 否   |
 
@@ -388,7 +388,7 @@ Specifies font weight. The values 'normal' and 'bold' are supported for most fon
 
 ### `lineHeight`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -398,7 +398,7 @@ Specifies font weight. The values 'normal' and 'bold' are supported for most fon
 
 Specifies text alignment. The value 'justify' is only supported on iOS and fallbacks to `left` on Android.
 
-| 类型                                               | 必填 |
+| 类型                                               | 必需 |
 | -------------------------------------------------- | ---- |
 | enum('auto', 'left', 'right', 'center', 'justify') | 否   |
 
@@ -406,7 +406,7 @@ Specifies text alignment. The value 'justify' is only supported on iOS and fallb
 
 ### `textDecorationLine`
 
-| 类型                                                                | 必填 |
+| 类型                                                                | 必需 |
 | ------------------------------------------------------------------- | ---- |
 | enum('none', 'underline', 'line-through', 'underline line-through') | 否   |
 
@@ -414,7 +414,7 @@ Specifies text alignment. The value 'justify' is only supported on iOS and fallb
 
 ### `textShadowColor`
 
-| 类型               | 必填 |
+| 类型               | 必需 |
 | ------------------ | ---- |
 | [color](colors.md) | 否   |
 
@@ -422,7 +422,7 @@ Specifies text alignment. The value 'justify' is only supported on iOS and fallb
 
 ### `fontFamily`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | string | 否   |
 
@@ -430,7 +430,7 @@ Specifies text alignment. The value 'justify' is only supported on iOS and fallb
 
 ### `textShadowRadius`
 
-| 类型   | 必填 |
+| 类型   | 必需 |
 | ------ | ---- |
 | number | 否   |
 
@@ -440,7 +440,7 @@ Specifies text alignment. The value 'justify' is only supported on iOS and fallb
 
 Set to `false` to remove extra font padding intended to make space for certain ascenders / descenders. With some fonts, this padding can make text look slightly misaligned when centered vertically. For best results also set `textAlignVertical` to `center`. Default is true.
 
-| 类型 | 必填 | 平台    |
+| 类型 | 必需 | 平台    |
 | ---- | ---- | ------- |
 | bool | 否   | Android |
 
@@ -448,7 +448,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `textAlignVertical`
 
-| 类型                                    | 必填 | 平台    |
+| 类型                                    | 必需 | 平台    |
 | --------------------------------------- | ---- | ------- |
 | enum('auto', 'top', 'bottom', 'center') | 否   | Android |
 
@@ -456,7 +456,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `fontVariant`
 
-| 类型                                                                                             | 必填 | 平台                |
+| 类型                                                                                             | 必需 | 平台                |
 | ------------------------------------------------------------------------------------------------ | ---- | ------------------- |
 | array of enum('small-caps', 'oldstyle-nums', 'lining-nums', 'tabular-nums', 'proportional-nums') | 否   | iOS, Android >= 5.0 |
 
@@ -464,7 +464,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `letterSpacing`
 
-| 类型   | 必填 | 平台                |
+| 类型   | 必需 | 平台                |
 | ------ | ---- | ------------------- |
 | number | 否   | iOS, Android >= 5.0 |
 
@@ -472,7 +472,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `textDecorationColor`
 
-| 类型               | 必填 | 平台 |
+| 类型               | 必需 | 平台 |
 | ------------------ | ---- | ---- |
 | [color](colors.md) | 否   | iOS  |
 
@@ -480,7 +480,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `textDecorationStyle`
 
-| 类型                                        | 必填 | 平台 |
+| 类型                                        | 必需 | 平台 |
 | ------------------------------------------- | ---- | ---- |
 | enum('solid', 'double', 'dotted', 'dashed') | 否   | iOS  |
 
@@ -488,7 +488,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `textTransform`
 
-| 类型                                                 | 必填 |
+| 类型                                                 | 必需 |
 | ---------------------------------------------------- | ---- |
 | enum('none', 'uppercase', 'lowercase', 'capitalize') | No   |
 
@@ -496,7 +496,7 @@ Set to `false` to remove extra font padding intended to make space for certain a
 
 ### `writingDirection`
 
-| 类型                       | 必填 | 平台 |
+| 类型                       | 必需 | 平台 |
 | -------------------------- | ---- | ---- |
 | enum('auto', 'ltr', 'rtl') | 否   | iOS  |
 

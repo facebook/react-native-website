@@ -18,7 +18,7 @@ title: Picker Style Props
 
 ### `color`
 
-| 类型              | 必填 |
+| 类型              | 必需 |
 | ----------------- | ---- |
 | [color](color.md) | 否   |
 
