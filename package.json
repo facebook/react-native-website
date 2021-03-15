@@ -2,7 +2,7 @@
   "name": "react-native-website-monorepo",
   "private": true,
   "workspaces": [
-    "website",
+    "cnwebsite",
     "plugins/*",
     "sync-api-docs"
   ],
