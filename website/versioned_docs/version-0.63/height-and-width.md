@@ -26,7 +26,9 @@ const FixedDimensionsBasics = () => {
 export default FixedDimensionsBasics;
 ```
 
-Setting dimensions this way is common for components whose size should always be fixed to a number of points and not calculated based on screen size. Note, that there is no universal mapping from points to physical units of measurement. This means that a component with fixed dimensions might not have the same physical size, across different devices and screen sizes. However, this difference is unnoticable for most use cases.
+Setting dimensions this way is common for components whose size should always be fixed to a number of points and not calculated based on screen size. 
+
+> There is no universal mapping from points to physical units of measurement. This means that a component with fixed dimensions might not have the same physical size, across different devices and screen sizes. However, this difference is unnoticable for most use cases.
 
 ## Flex Dimensions
 
