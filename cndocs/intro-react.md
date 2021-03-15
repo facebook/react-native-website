@@ -492,9 +492,9 @@ And you set individual values inside the state object by passing an object with 
 />
 ```
 
-> 不要直接给组件 state 赋值（比如`this.state.hunger = false`）来修改状态。Calling `this.setState()` allows React to track changes made to state that trigger rerendering. Setting state directly can break your app's reactivity!
+> 不要直接给组件 state 赋值（比如`this.state.hunger = false`）来修改状态。使用`this.setState()`方法才能使 React “留意”到状态变化从而重新渲染。直接修改 state 可能使界面无法正常响应。
 
-When `this.state.isHungry` is false, the `Button`’s `disabled` prop is set to `false` and its `title` also changes:
+当`this.state.isHungry`为`false`时，`Button`的`disabled`属性也被设为`false`，同时`title`也相应改变：
 
 ```jsx
 <Button
