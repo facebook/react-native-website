@@ -524,7 +524,8 @@ const Index = () => {
     <Layout wrapperClassName="homepage">
       <Seo
         {...{
-          title: 'React Native · A framework for building native apps using React'
+          title:
+            'React Native · A framework for building native apps using React',
         }}
       />
       <HeaderHero />
