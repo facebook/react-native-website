@@ -33,12 +33,12 @@
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --background #20232a --icon-only -opaque true --maskable true --type png"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.70",
-    "@docusaurus/plugin-pwa": "2.0.0-alpha.70",
-    "@docusaurus/preset-classic": "2.0.0-alpha.70",
-    "docusaurus-plugin-sass": "^0.1.11",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
+    "@docusaurus/core": "2.0.0-alpha.72",
+    "@docusaurus/plugin-pwa": "2.0.0-alpha.72",
+    "@docusaurus/preset-classic": "2.0.0-alpha.72",
+    "docusaurus-plugin-sass": "^0.1.12",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-github-btn": "^1.2.0"
   },
   "devDependencies": {
