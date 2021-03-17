@@ -294,6 +294,18 @@ html[data-theme="dark"] article .badge {
   }
 }
 
+/* Home page */
+
+.homepage {
+  div[class^="codeBlockContainer"] {
+    margin-bottom: 0;
+
+    .prism-code {
+      font-size: 90%;
+    }
+  }
+}
+
 /* Community page */
 
 .community-page {
