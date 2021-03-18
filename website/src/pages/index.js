@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
+import Seo from '@theme/Seo';
 import GitHubButton from 'react-github-btn';
-import Head from '@docusaurus/Head';
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
@@ -522,11 +522,12 @@ const Index = () => {
   useHomePageAnimations();
   return (
     <Layout wrapperClassName="homepage">
-      <Head>
-        <title>
-          React Native · A framework for building native apps using React
-        </title>
-      </Head>
+      <Seo
+        {...{
+          title:
+            'React Native · A framework for building native apps using React',
+        }}
+      />
       <HeaderHero />
       <NativeApps />
       <NativeCode />
