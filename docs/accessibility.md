@@ -279,10 +279,7 @@ if (Platform.OS === 'android') {
 
 To enable TalkBack, go to the Settings app on your Android device or emulator. Tap Accessibility, then TalkBack. Toggle the "Use service" switch to enable or disable it.
 
-P.S. Android emulator doesn’t have TalkBack by default. To install it:
-
-1. Download TalkBack file here: https://google-talkback.en.uptodown.com/android
-2. Drag the downloaded `.apk` file into the emulator
+Android emulators don't have TalkBack installed by default. You can install TalkBack on your emulator via the Google Play Store.
 
 You can use the volume key shortcut to toggle TalkBack. To turn on the volume key shortcut, go to the Settings app, then Accessibility. At the top, turn on Volume key shortcut.
 
