@@ -111,13 +111,8 @@ You can find more examples of class components in [previous versions of this doc
 
 People from many different development backgrounds are learning React Native. You may have experience with a range of technologies, from web to Android to iOS and more. We try to write for developers from all backgrounds. Sometimes we provide explanations specific to one platform or another like so:
 
-<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["android", "ios", "web"])}>
+<Tabs groupId="guide" defaultValue="web" values={constants.getDevNotesTabs(["android","ios","web"])}>
 
-<TabItem value="web">
-
-> Web developers may be familiar with this concept.
-
-</TabItem>
 <TabItem value="android">
 
 > Android developers may be familiar with this concept.
@@ -126,6 +121,11 @@ People from many different development backgrounds are learning React Native. Yo
 <TabItem value="ios">
 
 > iOS developers may be familiar with this concept.
+
+</TabItem>
+<TabItem value="web">
+
+> Web developers may be familiar with this concept.
 
 </TabItem>
 </Tabs>
