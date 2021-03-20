@@ -59,7 +59,7 @@ So this code is defining `HelloWorldApp`, a new `Component`. When you're buildin
 
 Most components can be customized when they are created, with different parameters. These creation parameters are called props.
 
-Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Refer to `props.{NAME}` in your functional components or `this.props.{NAME}` in your class components. Here's an example:
+Your own components can also use `props`. This lets you make a single component that is used in many different places in your app, with slightly different properties in each place. Refer to `props.YOUR_PROP_NAME` in your functional components or `this.props.YOUR_PROP_NAME` in your class components. Here's an example:
 
 ```SnackPlayer name=Hello%20Props
 import React from 'react';
