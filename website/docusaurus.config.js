@@ -42,7 +42,7 @@ module.exports = {
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
-              ? ['next', '0.64', '0.63']
+              ? ['current', '0.64', '0.63']
               : undefined,
         },
         blog: {
