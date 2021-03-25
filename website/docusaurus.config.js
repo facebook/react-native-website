@@ -40,6 +40,10 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.json'),
           remarkPlugins: [require('@react-native-website/remark-snackplayer')],
           editCurrentVersion: true,
+          onlyIncludeVersions:
+            process.env.PREVIEW_DEPLOY === 'true'
+              ? ['current', '0.64', '0.63']
+              : undefined,
         },
         blog: {
           path: 'blog',
