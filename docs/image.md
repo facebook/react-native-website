@@ -209,6 +209,12 @@ dependencies {
 
 ## Props
 
+### [View Props](view.md#props)
+
+Inherits [View Props](view#props).
+
+---
+
 ### `accessible`
 
 When true, indicates the image is an accessibility element.
