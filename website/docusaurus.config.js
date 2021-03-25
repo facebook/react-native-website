@@ -58,6 +58,10 @@ module.exports = {
             require.resolve('./src/css/versions.scss'),
           ],
         },
+        onlyIncludeVersions:
+          process.env.PREVIEW_DEPLOY === 'true'
+            ? ['next', '0.64', '0.63']
+            : undefined,
       },
     ],
   ],
