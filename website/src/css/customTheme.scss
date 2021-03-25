@@ -1098,14 +1098,6 @@ td .color-box {
     }
   }
 
-  &.vr {
-    background: #a05fc1;
-
-    &:before {
-      border-right-color: #a05fc1;
-    }
-  }
-
   &.required {
     margin-left: 0;
     margin-right: 16px;
