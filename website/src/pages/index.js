@@ -528,8 +528,14 @@ const Index = () => {
       wrapperClassName="homepage">
       <Head>
         <title>React Native · Learn once, write anywhere</title>
-        <meta property="og:title" content="React Native · Learn once, write anywhere" />
-        <meta property="twitter:title" content="React Native · Learn once, write anywhere" />
+        <meta
+          property="og:title"
+          content="React Native · Learn once, write anywhere"
+        />
+        <meta
+          property="twitter:title"
+          content="React Native · Learn once, write anywhere"
+        />
       </Head>
       <HeaderHero />
       <NativeApps />
