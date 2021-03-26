@@ -521,11 +521,12 @@ const useHomePageAnimations = () => {
 const Index = () => {
   useHomePageAnimations();
   return (
-    <Layout wrapperClassName="homepage">
+    <Layout
+      description="A framework for building native apps using React"
+      wrapperClassName="homepage">
       <Seo
         {...{
-          title:
-            'React Native · A framework for building native apps using React',
+          title: 'React Native · Learn once, write anywhere',
         }}
       />
       <HeaderHero />
