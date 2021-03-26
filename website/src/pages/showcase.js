@@ -78,7 +78,9 @@ const Showcase = () => {
   const apps = pinnedApps.concat(featuredApps);
 
   return (
-    <Layout title="Who's using React Native?">
+    <Layout
+      title="Who's using React Native?"
+      description="Thousands of apps are using React Native, check out these apps!">
       <div className="showcaseSection">
         <div className="prose">
           <h1>Who's using React Native?</h1>

@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
+import GitHubButton from 'react-github-btn';
+
+import Head from '@docusaurus/Head';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
 import Seo from '@theme/Seo';
-import GitHubButton from 'react-github-btn';
-
-import useBaseUrl from '@docusaurus/useBaseUrl';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
 import {setupDissectionAnimation} from './animations/_dissectionAnimation';
@@ -521,13 +523,20 @@ const useHomePageAnimations = () => {
 const Index = () => {
   useHomePageAnimations();
   return (
-    <Layout wrapperClassName="homepage">
-      <Seo
-        {...{
-          title:
-            'React Native · A framework for building native apps using React',
-        }}
-      />
+    <Layout
+      description="A framework for building native apps using React"
+      wrapperClassName="homepage">
+      <Head>
+        <title>React Native · Learn once, write anywhere</title>
+        <meta
+          property="og:title"
+          content="React Native · Learn once, write anywhere"
+        />
+        <meta
+          property="twitter:title"
+          content="React Native · Learn once, write anywhere"
+        />
+      </Head>
       <HeaderHero />
       <NativeApps />
       <NativeCode />
