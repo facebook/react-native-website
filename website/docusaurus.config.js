@@ -1,4 +1,5 @@
 const users = require('./showcase.json');
+const versions = require('./versions.json');
 
 module.exports = {
   title: 'React Native',
@@ -42,7 +43,7 @@ module.exports = {
           editCurrentVersion: true,
           onlyIncludeVersions:
             process.env.PREVIEW_DEPLOY === 'true'
-              ? ['current', '0.64', '0.63']
+              ? ['current', ...versions.slice(0, 2)]
               : undefined,
         },
         blog: {
