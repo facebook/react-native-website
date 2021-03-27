@@ -10,15 +10,13 @@ original_id: flexbox
 
 一般来说，使用`flexDirection`、`alignItems`和 `justifyContent`三个样式属性就已经能满足大多数布局需求。
 
-> 译注：这里有一份[简易布局图解](http://weibo.com/1712131295/CoRnElNkZ?ref=collection&type=comment)，可以给你一个大概的印象。
-
 > React Native 中的 Flexbox 的工作原理和 web 上的 CSS 基本一致，当然也存在少许差异。首先是默认值不同：`flexDirection`的默认值是`column`而不是`row`，而`flex`也只能指定一个数字值。
 
 ### Flex
 
-[`flex`](layout-props#flex) 属性决定元素在主轴上如何**填满**可用区域。整个区域会根据每个元素设置的flex属性值被分割成多个部分。
+[`flex`](layout-props#flex) 属性决定元素在主轴上如何**填满**可用区域。整个区域会根据每个元素设置的 flex 属性值被分割成多个部分。
 
-在下面的例子中，在设置了`flex: 1`的容器view中，有红色，黄色和绿色三个子view。红色view设置了`flex: 1`，黄色view设置了`flex: 2`，绿色view设置了`flex: 3`。**1+2+3 = 6**，这意味着红色view占据整个区域的`1/6`，黄色view占据整个区域的`2/6`，绿色view占据整个区域的`3/6`。
+在下面的例子中，在设置了`flex: 1`的容器 view 中，有红色，黄色和绿色三个子 view。红色 view 设置了`flex: 1`，黄色 view 设置了`flex: 2`，绿色 view 设置了`flex: 3`。**1+2+3 = 6**，这意味着红色 view 占据整个区域的`1/6`，黄色 view 占据整个区域的`2/6`，绿色 view 占据整个区域的`3/6`。
 
 ![Flex](https://cdn-images-1.medium.com/max/800/1*PhCFmO5tYX_sZSyCd4vO3w.png)
 
