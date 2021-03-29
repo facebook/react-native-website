@@ -14,13 +14,11 @@ The Keyboard module allows you to listen for native events and react to them, as
 <Tabs groupId="syntax" defaultValue={constants.defaultSyntax} values={constants.syntax}>
 <TabItem value="functional">
 
-```SnackPlayer name=Keyboard%20Function%20Component%20Example
+```SnackPlayer name=Keyboard%20Function%20Component%20Example&supportedPlatforms=ios,android
+import React, { useState, useEffect } from "react";
+import { Keyboard, Text, TextInput, StyleSheet, View } from "react-native";
 
-import React, { useEffect } from "react";
-import { Keyboard, TextInput, StyleSheet } from "react-native";
-
-export default function Example() {
-
+const Example = () => {
   useEffect(() => {
     Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
     Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
@@ -32,37 +30,53 @@ export default function Example() {
     };
   }, []);
 
-  const _keyboardDidShow = () => {
-    alert("Keyboard Shown");
-  };
+  const [keyboardStatus, setKeyboardStatus] = useState(undefined);
+  const _keyboardDidShow = () => setKeyboardStatus("Keyboard Shown");
+  const _keyboardDidHide = () => setKeyboardStatus("Keyboard Hidden");
 
-  const _keyboardDidHide = () => {
-    alert("Keyboard Hidden");
-  };
-
-  return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
+  return (
+    <View style={style.container}>
+      <TextInput
+        style={style.input}
+        placeholder='Click here…'
+        onSubmitEditing={Keyboard.dismiss}
+      />
+      <Text style={style.status}>{keyboardStatus}</Text>
+    </View>
+  );
 }
 
-const s = StyleSheet.create({
-   input:{
-    margin:60,
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 36
+  },
+  input: {
     padding: 10,
     borderWidth: 0.5,
-    borderRadius: 4,
-    backgroundColor: "#fff"
-   }
-})
+    borderRadius: 4
+  },
+  status: {
+    padding: 10,
+    textAlign: "center"
+  }
+});
 
+export default Example;
 ```
 
 </TabItem>
 <TabItem value="classical">
 
-```SnackPlayer name=Keyboard%20Class%20Component%20Example
-import React, {Component} from 'react';
-import {Keyboard, TextInput , StyleSheet} from 'react-native';
+```SnackPlayer name=Keyboard%20Class%20Component%20Example&supportedPlatforms=ios,android
+import React, { Component } from 'react';
+import { Keyboard, Text, TextInput, StyleSheet, View } from 'react-native';
 
-export default class Example extends Component {
+class Example extends Component {
+  state = {
+    keyboardStatus: undefined
+  };
+
   componentDidMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
       'keyboardDidShow',
@@ -79,28 +93,47 @@ export default class Example extends Component {
     this.keyboardDidHideListener.remove();
   }
 
-  _keyboardDidShow() {
-    alert('Keyboard Shown');
+  _keyboardDidShow = () => {
+    this.setState({ keyboardStatus: 'Keyboard Shown' });
   }
 
-  _keyboardDidHide() {
-    alert('Keyboard Hidden');
+  _keyboardDidHide = () => {
+    this.setState({ keyboardStatus: 'Keyboard Hidden' });
   }
 
   render() {
-    return <TextInput style={s.input} placeholder='Click here ...' onSubmitEditing={Keyboard.dismiss} />;
+    return (
+      <View style={style.container}>
+        <TextInput
+          style={style.input}
+          placeholder='Click here…'
+          onSubmitEditing={Keyboard.dismiss}
+        />
+        <Text style={style.status}>
+          {this.state.keyboardStatus}
+        </Text>
+      </View>
+    )
   }
 }
 
-const s = StyleSheet.create({
-   input:{
-    margin:60,
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 36
+  },
+  input: {
     padding: 10,
     borderWidth: 0.5,
-    borderRadius: 4,
-    backgroundColor: "#fff"
-   }
-})
+    borderRadius: 4
+  },
+  status: {
+    padding: 10,
+    textAlign: "center"
+  }
+});
+
+export default Example;
 ```
 
 </TabItem>
