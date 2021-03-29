@@ -156,7 +156,7 @@ hr {
 
       code {
         display: inline-block;
-        line-height: 1.1em;
+        line-height: 1.2em;
         vertical-align: top;
       }
 
@@ -415,6 +415,7 @@ html[data-theme="dark"] .avatar__name a {
     &.navbar__link {
       font-weight: 300;
       font-size: 18px;
+      user-select: none;
     }
 
     &.dropdown a {
@@ -535,10 +536,7 @@ html[data-theme="dark"] .avatar__name a {
     padding: 12px;
 
     .menu__list-item a {
-      padding-left: 12px;
-      padding-right: 12px;
-      padding-top: 6px;
-      padding-bottom: 8px;
+      padding: 6px 12px 8px;
     }
   }
 
@@ -607,6 +605,7 @@ div[class^="docSidebarContainer"] {
   .menu__list-item {
     margin-bottom: 2px;
     margin-top: 2px;
+    user-select: none;
   }
 
   .menu__list {
@@ -1371,7 +1370,7 @@ html[data-theme="dark"] .docsRating {
 /* Snack Player */
 
 .snack-player {
-  height: 505px;
+  height: 544px;
   width: 100%;
   overflow: hidden;
   margin-bottom: 24px;
@@ -1451,6 +1450,10 @@ html[data-theme="dark"] .docsRating {
         margin-bottom: 6px;
         padding-bottom: 4px;
         border-bottom: 0.01rem solid var(--ifm-table-border-color);
+      }
+
+      h3, h4, li {
+        user-select: none;
       }
 
       @extend %scrollbar-style;

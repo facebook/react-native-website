@@ -7,7 +7,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 
 import Layout from '@theme/Layout';
 import CodeBlock from '@theme/CodeBlock';
-import Seo from '@theme/Seo';
 
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
 import {setupDissectionAnimation} from './animations/_dissectionAnimation';

@@ -62,6 +62,8 @@ jobs:
       - run: yarn ci-check
       - run: export NODE_OPTIONS=--max_old_space_size=4096
       - run: export TERSER_PARALLEL=false
+      # Run build test only for three latest version to avoid memory issues
+      - run: export DEPOLY_PREVIEW=true
       - run:
           name: Compile website
           command: yarn test
