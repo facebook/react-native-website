@@ -41,13 +41,10 @@ function DocItem(props) {
     lastUpdatedBy,
     unversionedId,
   } = metadata;
-  const {pluginId} = useActivePlugin({
-    failfast: true,
-  });
+  const {pluginId} = useActivePlugin({failfast: true});
+
   const versions = useVersions(pluginId);
-  const version = useActiveVersion(pluginId); // If site is not versioned or only one version is included
-  // we don't show the version badge
-  // See https://github.com/facebook/docusaurus/issues/3362
+  const version = useActiveVersion(pluginId);
 
   const showVersionBadge = versions.length > 1 && !version.isLast;
   return (
