@@ -828,6 +828,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 
 ---
 
+### `ios_lineBreakStrategy` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. possible values are `none`, `standard`, `hangul-word`, `push-out`.
+
+| Type                                                        | Required | Platform |
+| ----------------------------------------------------------- | -------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | No       | iOS  |
+
+---
+
 ### `underlineColorAndroid`
 
 The color of the `TextInput` underline.
