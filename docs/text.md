@@ -603,6 +603,16 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ----------------------------------------------- | ------------- |
 | enum(`'simple'`, `'highQuality'`, `'balanced'`) | `highQuality` |
 
+---
+
+### `ios_lineBreakStrategy` <div class="label ios">iOS</div>
+
+Set line break strategy on iOS 14+. possible values are `none`, `standard`, `hangul-word`, `push-out`.
+
+| Type                                                        | Default  |
+| ----------------------------------------------------------- | -------- |
+| enum(`'none'`, `'standard'`, `'hangul-word'`, `'push-out'`) | `'none'` |
+
 ## Type Definitions
 
 ### TextLayout
