@@ -277,6 +277,8 @@ if (Platform.OS === 'android') {
 
 ## Get Accessibility settings from Device
 
+React Native allows you to get some device settings for accessibility.
+
 ### Font Scale
 
 Users may change the font scale in the system settings.
