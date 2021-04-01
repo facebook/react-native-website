@@ -7,7 +7,7 @@ title: Text Style Props
 
 ```SnackPlayer name=TextStyleProps&supportedPlatforms=android,ios
 import React, { useState } from "react";
-import { FlatList, Platform, ScrollView, Slider, StyleSheet, Switch, Text, TouchableWithoutFeedback, View, StatusBar } from "react-native";
+import { FlatList, Platform, ScrollView, Slider, StatusBar, StyleSheet, Switch, Text, TouchableWithoutFeedback, View, StatusBar } from "react-native";
 
 const fontStyles = ["normal", "italic"];
 const fontVariants = [
