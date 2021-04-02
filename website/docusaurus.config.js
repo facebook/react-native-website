@@ -24,7 +24,7 @@ module.exports = {
     facebookAppId: '1677033832619985',
   },
   i18n: {
-    defaultLocale: 'en',
+    defaultLocale: 'xen',
     locales: ['en'],
   },
   onBrokenLinks: 'throw',
