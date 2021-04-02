@@ -69,6 +69,7 @@ module.exports = {
   plugins: [
     'docusaurus-plugin-sass',
     './sitePlugin',
+    /*
     [
       '@docusaurus/plugin-pwa',
       {
@@ -124,6 +125,7 @@ module.exports = {
         ],
       },
     ],
+     */
   ],
   themeConfig: {
     prism: {
