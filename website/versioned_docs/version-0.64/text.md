@@ -417,7 +417,7 @@ Used to locate this view from native code.
 
 ### `numberOfLines`
 
-Used to truncate the text with an ellipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number. Setting this property to `0` will result in unsetiing this value, which means that no lines restriction will be applied.
+Used to truncate the text with an ellipsis after computing the text layout, including line wrapping, such that the total number of lines does not exceed this number. Setting this property to `0` will result in unsetting this value, which means that no lines restriction will be applied.
 
 This prop is commonly used with `ellipsizeMode`.
 
