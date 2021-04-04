@@ -50,31 +50,6 @@ jobs:
             - ~/react-native-website
 
   # --------------------------------------------------
-  # JOB: test
-  # Test that the website can be built.
-  # --------------------------------------------------
-  test:
-    executor: node
-    working_directory: ~/react-native-website/website
-    steps:
-      - restore_cache_checkout
-      - run_yarn
-      - run: yarn ci-check
-      - run: export NODE_OPTIONS=--max_old_space_size=4096
-      - run: export TERSER_PARALLEL=false
-      # Run build test only for three latest version to avoid memory issues
-      - run: export DEPOLY_PREVIEW=true
-      - run:
-          name: Compile website
-          command: yarn test
-          no_output_timeout: 20m
-      - run:
-          name: Check for missing index.html (build errors)
-          command: |
-            if [ ! -f build/index.html ]; then
-              exit 1;
-            fi
-  # --------------------------------------------------
   # JOB: lint
   # Lint the docs.
   # --------------------------------------------------
@@ -85,6 +60,7 @@ jobs:
       - restore_cache_checkout
       - run_yarn
       - run: yarn lint
+      - run: yarn prettier:diff
 
 # -------------------------
 #        WORKFLOWS
@@ -94,11 +70,6 @@ workflows:
   tests:
     jobs:
       - setup
-
-      # Run tests
-      - test:
-          requires:
-            - setup
 
       # Run lints
       - language_lint:

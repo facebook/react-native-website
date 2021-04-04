@@ -1452,7 +1452,9 @@ html[data-theme="dark"] .docsRating {
         border-bottom: 0.01rem solid var(--ifm-table-border-color);
       }
 
-      h3, h4, li {
+      h3,
+      h4,
+      li {
         user-select: none;
       }
 
