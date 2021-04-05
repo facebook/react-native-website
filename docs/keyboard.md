@@ -19,20 +19,21 @@ import React, { useState, useEffect } from "react";
 import { Keyboard, Text, TextInput, StyleSheet, View } from "react-native";
 
 const Example = () => {
-  useEffect(() => {
-    Keyboard.addListener("keyboardDidShow", _keyboardDidShow);
-    Keyboard.addListener("keyboardDidHide", _keyboardDidHide);
+  const [keyboardStatus, setKeyboardStatus] = useState(undefined);
 
-    // cleanup function
+  useEffect(() => {
+    const showSubscription = Keyboard.addListener("keyboardDidShow", () => {
+      setKeyboardStatus("Keyboard Shown");
+    });
+    const hideSubscription = Keyboard.addListener("keyboardDidHide", () => {
+      setKeyboardStatus("Keyboard Hidden");
+    });
+
     return () => {
-      Keyboard.removeListener("keyboardDidShow", _keyboardDidShow);
-      Keyboard.removeListener("keyboardDidHide", _keyboardDidHide);
+      showSubscription.remove();
+      hideSubscription.remove();
     };
   }, []);
-
-  const [keyboardStatus, setKeyboardStatus] = useState(undefined);
-  const _keyboardDidShow = () => setKeyboardStatus("Keyboard Shown");
-  const _keyboardDidHide = () => setKeyboardStatus("Keyboard Hidden");
 
   return (
     <View style={style.container}>
@@ -78,27 +79,23 @@ class Example extends Component {
   };
 
   componentDidMount() {
-    this.keyboardDidShowListener = Keyboard.addListener(
+    this.keyboardDidShowSubscription = Keyboard.addListener(
       'keyboardDidShow',
-      this._keyboardDidShow,
+      () => {
+        this.setState({ keyboardStatus: 'Keyboard Shown' });
+      },
     );
-    this.keyboardDidHideListener = Keyboard.addListener(
+    this.keyboardDidHideSubscription = Keyboard.addListener(
       'keyboardDidHide',
-      this._keyboardDidHide,
+      () => {
+        this.setState({ keyboardStatus: 'Keyboard Hidden' });
+      },
     );
   }
 
   componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-  }
-
-  _keyboardDidShow = () => {
-    this.setState({ keyboardStatus: 'Keyboard Shown' });
-  }
-
-  _keyboardDidHide = () => {
-    this.setState({ keyboardStatus: 'Keyboard Hidden' });
+    this.keyboardDidShowSubscription.remove();
+    this.keyboardDidHideSubscription.remove();
   }
 
   render() {
@@ -183,7 +180,7 @@ This can be any of the following:
 static removeListener(eventName, callback)
 ```
 
-Removes a specific listener.
+> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addListener()`](#addlistener).
 
 **Parameters:**
 
