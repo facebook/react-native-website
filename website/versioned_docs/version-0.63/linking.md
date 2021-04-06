@@ -53,7 +53,7 @@ If you wish to receive the intent in an existing instance of MainActivity, you m
 </TabItem>
 <TabItem value="ios">
 
-> **NOTE:** On iOS, you'll need to link `RCTLinking` to your project by following the steps described [here](linking-libraries-ios.md#manual-linking). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
+> **NOTE:** On iOS, you'll need to add the `LinkingIOS` folder into your header search paths as described in step 3 [here](linking-libraries-ios#step-3). If you also want to listen to incoming app links during your app's execution, you'll need to add the following lines to your `*AppDelegate.m`:
 
 ```objectivec
 // iOS 9.x or newer

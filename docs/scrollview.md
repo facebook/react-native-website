@@ -539,19 +539,6 @@ Experimental: When `true`, offscreen child views (whose `overflow` value is `hid
 
 ---
 
-### `scrollBarThumbImage` <div class="label vr">VR</div>
-
-Optionally an image can be used for the scroll bar thumb. This will override the color. While the image is loading or the image fails to load the color will be used instead. Use an alpha of `0` in the color to avoid seeing it while the image is loading.
-
-- `uri`, a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource.
-- `number`, opaque type returned by something like `import IMAGE from './image.jpg'`.
-
-| Type           |
-| -------------- |
-| string, number |
-
----
-
 ### `scrollEnabled`
 
 When false, the view cannot be scrolled via touch interaction.
@@ -751,13 +738,3 @@ scrollToEnd(([options]: { animated: boolean, duration: number }));
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
 Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({ duration: 500 })` for a controlled duration scroll. If no options are passed, `animated` defaults to `true`.
-
----
-
-### `scrollWithoutAnimationTo()`
-
-```jsx
-scrollWithoutAnimationTo(y, x);
-```
-
-Deprecated, use `scrollTo` instead.

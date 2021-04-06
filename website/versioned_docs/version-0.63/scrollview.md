@@ -537,19 +537,6 @@ Experimental: When true, offscreen child views (whose `overflow` value is `hidde
 
 ---
 
-### `scrollBarThumbImage`
-
-Optionally an image can be used for the scroll bar thumb. This will override the color. While the image is loading or the image fails to load the color will be used instead. Use an alpha of 0 in the color to avoid seeing it while the image is loading.
-
-- `uri`, a string representing the resource identifier for the image, which should be either a local file path or the name of a static image resource.
-- `number`, opaque type returned by something like `import IMAGE from './image.jpg'`.
-
-| Type   | Required | Platform |
-| ------ | -------- | -------- |
-| number | No       | VR       |
-
----
-
 ### `scrollEnabled`
 
 When false, the view cannot be scrolled via touch interaction. The default value is true.

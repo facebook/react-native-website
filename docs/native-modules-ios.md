@@ -418,7 +418,7 @@ RCT_EXPORT_METHOD(createCalendarEvent:(NSString *)title
 {
  NSInteger eventId = createCalendarEvent();
  if (eventId) {
-    resolve(@[@(eventId)]);
+    resolve(@(eventId));
   } else {
     reject(@"event_failure", @"no event id returned", nil);
   }

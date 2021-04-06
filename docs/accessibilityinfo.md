@@ -21,13 +21,17 @@ const App = () => {
   const [screenReaderEnabled, setScreenReaderEnabled] = useState(false);
 
   useEffect(() => {
-    AccessibilityInfo.addEventListener(
+    const reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
       "reduceMotionChanged",
-      handleReduceMotionToggled
+      reduceMotionEnabled => {
+        setReduceMotionEnabled(reduceMotionEnabled);
+      }
     );
-    AccessibilityInfo.addEventListener(
+    const screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
       "screenReaderChanged",
-      handleScreenReaderToggled
+      screenReaderEnabled => {
+        setScreenReaderEnabled(screenReaderEnabled);
+      }
     );
 
     AccessibilityInfo.isReduceMotionEnabled().then(
@@ -42,24 +46,10 @@ const App = () => {
     );
 
     return () => {
-      AccessibilityInfo.removeEventListener(
-        "reduceMotionChanged",
-        handleReduceMotionToggled
-      );
-      AccessibilityInfo.removeEventListener(
-        "screenReaderChanged",
-        handleScreenReaderToggled
-      );
+      reduceMotionChangedSubscription.remove();
+      screenReaderChangedSubscription.remove();
     };
   }, []);
-
-  const handleReduceMotionToggled = reduceMotionEnabled => {
-    setReduceMotionEnabled(reduceMotionEnabled);
-  };
-
-  const handleScreenReaderToggled = screenReaderEnabled => {
-    setScreenReaderEnabled(screenReaderEnabled);
-  };
 
   return (
     <View style={styles.container}>
@@ -101,13 +91,17 @@ class AccessibilityStatusExample extends Component {
   };
 
   componentDidMount() {
-    AccessibilityInfo.addEventListener(
+    this.reduceMotionChangedSubscription = AccessibilityInfo.addEventListener(
       'reduceMotionChanged',
-      this._handleReduceMotionToggled
+      reduceMotionEnabled => {
+        this.setState({ reduceMotionEnabled });
+      }
     );
-    AccessibilityInfo.addEventListener(
+    this.screenReaderChangedSubscription = AccessibilityInfo.addEventListener(
       'screenReaderChanged',
-      this._handleScreenReaderToggled
+      screenReaderEnabled => {
+        this.setState({ screenReaderEnabled });
+      }
     );
 
     AccessibilityInfo.isReduceMotionEnabled().then(reduceMotionEnabled => {
@@ -119,51 +113,36 @@ class AccessibilityStatusExample extends Component {
   }
 
   componentWillUnmount() {
-    AccessibilityInfo.removeEventListener(
-      'reduceMotionChanged',
-      this._handleReduceMotionToggled
-    );
-
-    AccessibilityInfo.removeEventListener(
-      'screenReaderChanged',
-      this._handleScreenReaderToggled
-    );
+    this.reduceMotionChangedSubscription.remove();
+    this.screenReaderChangedSubscription.remove();
   }
-
-  _handleReduceMotionToggled = reduceMotionEnabled => {
-    this.setState({ reduceMotionEnabled });
-  };
-
-  _handleScreenReaderToggled = screenReaderEnabled => {
-    this.setState({ screenReaderEnabled });
-  };
 
   render() {
     return (
-      <View style={this.styles.container}>
-        <Text style={this.styles.status}>
+      <View style={styles.container}>
+        <Text style={styles.status}>
           The reduce motion is{' '}
           {this.state.reduceMotionEnabled ? 'enabled' : 'disabled'}.
         </Text>
-        <Text style={this.styles.status}>
+        <Text style={styles.status}>
           The screen reader is{' '}
           {this.state.screenReaderEnabled ? 'enabled' : 'disabled'}.
         </Text>
       </View>
     );
   }
-
-  styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    status: {
-      margin: 30,
-    },
-  });
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  status: {
+    margin: 30,
+  },
+});
 
 export default AccessibilityStatusExample;
 ```
@@ -273,7 +252,7 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 static removeEventListener(eventName, handler)
 ```
 
-Remove an event handler.
+> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
 
 ---
 

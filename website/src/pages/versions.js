@@ -57,7 +57,7 @@ const Versions = () => {
   );
 
   return (
-    <Layout wrapperClassName="versions-page">
+    <Layout title="Versions" wrapperClassName="versions-page">
       <h1>React Native versions</h1>
       <p>
         Open source React Native releases follow a monthly release train that is
