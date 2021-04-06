@@ -17,7 +17,7 @@ const logo = {
   height: 64
 };
 
-export default App = () => (
+const App = () => (
   <ScrollView>
     <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
     <Image source={logo} />
@@ -52,6 +52,8 @@ export default App = () => (
     <Text style={{ fontSize: 80 }}>React Native</Text>
   </ScrollView>
 );
+
+export default App;
 ```
 
 ScrollViews can be configured to allow paging through views using swiping gestures by using the `pagingEnabled` props. Swiping horizontally between views can also be implemented on Android using the [ViewPager](https://github.com/react-native-community/react-native-viewpager) component.
