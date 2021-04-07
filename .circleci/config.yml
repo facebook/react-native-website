@@ -53,14 +53,15 @@ jobs:
   # JOB: lint
   # Lint the docs.
   # --------------------------------------------------
-  language_lint:
+  lint:
     executor: node
     working_directory: ~/react-native-website/website
     steps:
       - restore_cache_checkout
       - run_yarn
       - run: yarn lint
-      - run: yarn prettier:diff
+      - run: yarn lint:versioned
+      - run: yarn language:lint
 
 # -------------------------
 #        WORKFLOWS
@@ -72,6 +73,6 @@ workflows:
       - setup
 
       # Run lints
-      - language_lint:
+      - lint:
           requires:
             - setup
