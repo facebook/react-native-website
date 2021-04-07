@@ -193,13 +193,13 @@ static getRecommendedTimeoutMillis(originalTimeout)
 ```
 
 Gets the timeout in millisecond that the user needs.  
-On Android, This value is set in "Time to take action (Accessibility timeout)" of "Accessibility" settings.
+This value is set in "Time to take action (Accessibility timeout)" of "Accessibility" settings.
 
 **Parameters:**
 
-| Name                                                             | Type   | Description                                                                                                 |
-| ---------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
-| originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Time to take action (Accessibility timeout)" is not set. Specify in milliseconds. |
+| Name                                                             | Type   | Description                                                                           |
+| ---------------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------- |
+| originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Accessibility timeout" is not set. Specify in milliseconds. |
 
 ---
 
