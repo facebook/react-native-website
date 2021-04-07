@@ -279,6 +279,6 @@ On Android, This value is set in "Time to take action (Accessibility timeout)" o
 
 **Parameters:**
 
-| Name            | Type   | Required | Description                                                                                                 |
-| --------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------- |
-| originalTimeout | number | Yes      | The timeout to return if "Time to take action (Accessibility timeout)" is not set. Specify in milliseconds. |
+| Name                                                             | Type   | Description                                                                                                 |
+| ---------------------------------------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------- |
+| originalTimeout <div class="label basic required">Required</div> | number | The timeout to return if "Time to take action (Accessibility timeout)" is not set. Specify in milliseconds. |
