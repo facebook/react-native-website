@@ -457,7 +457,7 @@ Called when the viewability of rows changes, as defined by the `viewabilityConfi
 
 ---
 
-### `progressViewOffset` <div class="label android">Android</div>
+### `progressViewOffset`
 
 Set this when offset is needed for the loading indicator to show correctly.
 
