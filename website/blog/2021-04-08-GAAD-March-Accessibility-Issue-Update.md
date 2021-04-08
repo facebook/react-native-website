@@ -32,7 +32,7 @@ Thank you to all the community members who have participated. You are truly movi
 
 ## Fixes
 
-- Button component (fixed by [#31001](https://github.com/facebook/react-native/pull/31001)):
+- `Button` component (fixed by [#31001](https://github.com/facebook/react-native/pull/31001)):
 
   - Now announces when it is disabled
 
@@ -40,15 +40,15 @@ Thank you to all the community members who have participated. You are truly movi
 
   - Announces the selected state of the button
 
-- TouchableHighlight Component (fixed by [#31135](https://github.com/facebook/react-native/pull/31135)):
-
-  - Disables click functionality for screen readers when the component is disabled
-
-- TextInput Component Component (fixed by [#31144](https://github.com/facebook/react-native/pull/31144))
+- `TextInput` component (fixed by [#31144](https://github.com/facebook/react-native/pull/31144)):
 
   - Announces "selected" when the "selected" accessibilityState is set to true and the element is focused
 
-- TouchableNativeFeedback Component (fixed by [#31224](https://github.com/facebook/react-native/pull/31224))
+- `TouchableHighlight` component (fixed by [#31135](https://github.com/facebook/react-native/pull/31135)):
+
+  - Disables click functionality for screen readers when the component is disabled
+  
+- `TouchableNativeFeedback` component (fixed by [#31224](https://github.com/facebook/react-native/pull/31224)):
 
   - Disables click functionality for screen readers when the component is disabled
 
