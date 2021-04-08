@@ -37,14 +37,15 @@ const screen = Dimensions.get("screen");
 const App = () => {
   const [dimensions, setDimensions] = useState({ window, screen });
 
-  const onChange = ({ window, screen }) => {
-    setDimensions({ window, screen });
-  };
-
   useEffect(() => {
-    Dimensions.addEventListener("change", onChange);
+    const subscription = Dimensions.addEventListener(
+      "change",
+      ({ window, screen }) => {
+        setDimensions({ window, screen });
+      }
+    );
     return () => {
-      Dimensions.removeEventListener("change", onChange);
+      subscription.remove();
     };
   });
 
@@ -90,11 +91,11 @@ class App extends Component {
   };
 
   componentDidMount() {
-    Dimensions.addEventListener("change", this.onChange);
+    this.dimensionsSubscription = Dimensions.addEventListener("change", this.onChange);
   }
 
   componentWillUnmount() {
-    Dimensions.removeEventListener("change", this.onChange);
+    this.dimensionsSubscription.remove();
   }
 
   render() {
@@ -167,7 +168,7 @@ Example: `const {height, width} = Dimensions.get('window');`
 static removeEventListener(type, handler)
 ```
 
-Remove an event handler.
+> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
 
 ---
 

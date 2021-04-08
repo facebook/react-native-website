@@ -96,7 +96,7 @@ project.ext.react = [
 ]
 ```
 
-> **_Note_**: If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you **should not** have RAM bundles feature enabled. In Hermes, when loading the bytecode, `mmap` ensures that the entire file is not loaded. Using Hermes with RAM bundles might lead to issues, becouse those mechanisms are not compatible with each other.
+> **_Note_**: If you are using [Hermes JS Engine](https://github.com/facebook/hermes), you **should not** have RAM bundles feature enabled. In Hermes, when loading the bytecode, `mmap` ensures that the entire file is not loaded. Using Hermes with RAM bundles might lead to issues, because those mechanisms are not compatible with each other.
 
 ## Configure Preloading and Inline Requires
 

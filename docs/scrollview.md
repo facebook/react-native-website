@@ -738,13 +738,3 @@ scrollToEnd(([options]: { animated: boolean, duration: number }));
 If this is a vertical ScrollView scrolls to the bottom. If this is a horizontal ScrollView scrolls to the right.
 
 Use `scrollToEnd({ animated: true })` for smooth animated scrolling, `scrollToEnd({ animated: false })` for immediate scrolling. For Android, you may specify a duration, e.g. `scrollToEnd({ duration: 500 })` for a controlled duration scroll. If no options are passed, `animated` defaults to `true`.
-
----
-
-### `scrollWithoutAnimationTo()`
-
-```jsx
-scrollWithoutAnimationTo(y, x);
-```
-
-Deprecated, use `scrollTo` instead.

@@ -34,7 +34,7 @@ Great user experiences are created iteratively. **It should only take a few seco
 
 We often hear from teams that adopting React Native significantly improved their development velocity. These teams find that the instant feedback during development makes it much easier to try different ideas and add extra polish when they don’t have to interrupt their coding session for every little change. When we make changes to React Native, we make sure to preserve this quality of the developer experience.
 
-Instant feedback is not the only way that React Native improves developer velocity. Teams can easily leverage the fast-growing ecosystem of high quality open source packages. Teams can also share business logic between Android, iOS, and the web. This helps them ship updates faster and reduce organizational silos between platform teams.
+Instant feedback is not the only way that React Native improves developer velocity. Teams can leverage the fast-growing ecosystem of high quality open source packages. Teams can also share business logic between Android, iOS, and the web. This helps them ship updates faster and reduce organizational silos between platform teams.
 
 ## Every Platform
 

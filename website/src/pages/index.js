@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react';
-import Layout from '@theme/Layout';
-import CodeBlock from '@theme/CodeBlock';
-import Seo from '@theme/Seo';
 import GitHubButton from 'react-github-btn';
 
+import Head from '@docusaurus/Head';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+
+import Layout from '@theme/Layout';
+import CodeBlock from '@theme/CodeBlock';
 
 import CrossPlatformSVG from '../../static/img/homepage/cross-platform.svg';
 import {setupDissectionAnimation} from './animations/_dissectionAnimation';
@@ -33,7 +34,7 @@ import {Text, View} from 'react-native';
 import {Header} from './Header';
 import {heading} from './Typography';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = () => (
   <View>
     <Header title="Welcome to React Native"/>
     <Text style={heading}>Step One</Text>
@@ -56,7 +57,7 @@ const WelcomeScreen = () => {
       Read the docs to discover what to do next:
     </Text>
    </View>
-};
+);
   `,
   forEveryone: `
 React Native lets you create truly native apps and doesn't compromise your users' experiences.
@@ -521,13 +522,20 @@ const useHomePageAnimations = () => {
 const Index = () => {
   useHomePageAnimations();
   return (
-    <Layout wrapperClassName="homepage">
-      <Seo
-        {...{
-          title:
-            'React Native · A framework for building native apps using React',
-        }}
-      />
+    <Layout
+      description="A framework for building native apps using React"
+      wrapperClassName="homepage">
+      <Head>
+        <title>React Native · Learn once, write anywhere</title>
+        <meta
+          property="og:title"
+          content="React Native · Learn once, write anywhere"
+        />
+        <meta
+          property="twitter:title"
+          content="React Native · Learn once, write anywhere"
+        />
+      </Head>
       <HeaderHero />
       <NativeApps />
       <NativeCode />
