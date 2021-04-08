@@ -48,7 +48,7 @@ Next, if you've already built your app at least once, clean the build:
 $ cd android && ./gradlew clean
 ```
 
-That's it! You should now be able to develop and deploy your app as normal:
+That's it! You should now be able to develop and deploy your app as usual:
 
 ```shell
 $ npx react-native run-android
@@ -77,7 +77,7 @@ Next, install the Hermes pod:
 cd ios && pod install
 ```
 
-That's it! You should now be able to develop and deploy your app as normal:
+That's it! You should now be able to develop and deploy your app as usual:
 
 ```shell
 $ npx react-native run-ios
