@@ -47,7 +47,7 @@ Thank you to all the community members who have participated. You are truly movi
 - `TouchableHighlight` component (fixed by [#31135](https://github.com/facebook/react-native/pull/31135)):
 
   - Disables click functionality for screen readers when the component is disabled
-  
+
 - `TouchableNativeFeedback` component (fixed by [#31224](https://github.com/facebook/react-native/pull/31224)):
 
   - Disables click functionality for screen readers when the component is disabled
