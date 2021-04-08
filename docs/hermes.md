@@ -7,7 +7,7 @@ title: Using Hermes
 <img width={300} height={300} style={{float: 'right', margin: '-30px 4px 0'}} src="/docs/assets/HermesLogo.svg" />
 </a>
 
-[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for running React Native apps on Android, iOS, Windows and macOS. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
+[Hermes](https://hermesengine.dev) is an open-source JavaScript engine optimized for React Native. For many apps, enabling Hermes will result in improved start-up time, decreased memory usage, and smaller app size. At this time Hermes is an **opt-in** React Native feature, and this guide explains how to enable it.
 
 First, ensure you're using at least version 0.60.4 of React Native.
 
@@ -74,7 +74,7 @@ Since React Native 0.64, Hermes also runs on iOS. To enable Hermes for iOS, edit
 Next, install the Hermes pod:
 
 ```shell
-cd ios && pod install
+$ cd ios && pod install
 ```
 
 That's it! You should now be able to develop and deploy your app as usual:
