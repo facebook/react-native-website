@@ -13,7 +13,9 @@ It has been just four weeks since we reached out to the Github community with a 
 While this work continues, the React Native and Accessibility teams at Facebook are also busy continuing to evaluate accessibility bugs and issues that were submitted prior to this initiative, to determine if they are already covered by our current gap analysis or if there are additional issues that need to be brought into the project. One issue has already been discovered and moved into the project, four others directly mapped to existing gap analysis issues and two others are expected to be closed by addressing existing issues already in the project that address the root cause of their issue.
 
 Thank you to all the community members who have participated. You are truly moving the needle in making React Native more accessible for everyone!
+
 <!--truncate-->
+
 ## Closed Pull Requests 🎉
 
 - [Added talkback support for button accessibility: disabled prop #31001](https://github.com/facebook/react-native/pull/31001) - closed by [@huzaifaaak ](https://twitter.com/huzaifaaak)
@@ -52,15 +54,13 @@ Thank you to all the community members who have participated. You are truly movi
 
 ## Other Progress
 
-To Do: 53
-
-In Progress Issues by the Community: 8
-
-In Progress Issues by React Native Team: 5
-
-Pull Request in Progress: 3
-
-Pull Request in Reviews: 4
+| Status                                  | Number of Issues |
+| --------------------------------------- | :--------------: |
+| Issues To Do                            |        53        |
+| In Progress Issues by the Community     |        8         |
+| In Progress Issues by React Native Team |        5         |
+| Pull Request in Progress                |        3         |
+| Pull Request in Reviews                 |        4         |
 
 ## Get involved!
 
