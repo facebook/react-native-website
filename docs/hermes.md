@@ -21,6 +21,10 @@ If you have an existing app based on an earlier version of React Native, you wil
 >
 > Hermes requires [Microsoft Visual C++ 2015 Redistributable](https://www.microsoft.com/en-us/download/details.aspx?id=48145)
 
+## Enabling Hermes
+
+### Android
+
 Edit your `android/app/build.gradle` file and make the change illustrated below:
 
 ```diff
@@ -53,6 +57,31 @@ $ npx react-native run-android
 > ## Note about Android App Bundles
 >
 > Android app bundles are supported from react-native 0.62.0 and up.
+
+### iOS
+
+Since React Native 0.64, Hermes also runs on iOS. To enable Hermes for iOS, edit your `ios/Podfile` file and make the change illustrated below:
+
+```diff
+   use_react_native!(
+     :path => config[:reactNativePath],
+     # to enable hermes on iOS, change `false` to `true` and then install pods
+-    :hermes_enabled => false
++    :hermes_enabled => true
+   )
+```
+
+Next, install the Hermes pod:
+
+```shell
+cd ios && pod install
+```
+
+That's it! You should now be able to develop and deploy your app as normal:
+
+```shell
+$ npx react-native run-ios
+```
 
 ## Confirming Hermes is in use
 
