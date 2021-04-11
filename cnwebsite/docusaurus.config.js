@@ -159,12 +159,6 @@ module.exports = {
           position: 'right',
         },
         {
-          label: '招聘',
-          href: '//eleduck.com',
-          className: 'eleduck',
-          position: 'right',
-        },
-        {
           label: '讨论',
           href: '//github.com/reactnativecn/react-native-website/issues',
           position: 'right',
@@ -173,6 +167,7 @@ module.exports = {
           label: '热更新',
           href: '//pushy.reactnative.cn',
           position: 'right',
+          className: 'pushy',
         },
         {
           to: '/about',
