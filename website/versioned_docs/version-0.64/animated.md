@@ -31,7 +31,7 @@ The following example contains a `View` which will fade in and fade out based on
 
 ```SnackPlayer name=Animated
 import React, { useRef } from "react";
-import { Animated, Text, View, StyleSheet, Button } from "react-native";
+import { Animated, Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
 
 const App = () => {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -54,7 +54,8 @@ const App = () => {
   };
 
   return (
-    <View style={styles.container}>
+  <SafeAreaView style={styles.container}>
+    <View>
       <Animated.View
         style={[
           styles.fadingContainer,
@@ -70,6 +71,7 @@ const App = () => {
         <Button title="Fade Out" onPress={fadeOut} />
       </View>
     </View>
+  </SafeAreaView>
   );
 }
 
@@ -91,6 +93,7 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: "row",
+    justifyContent: "space-evenly",
     marginVertical: 16
   }
 });
@@ -103,7 +106,7 @@ export default App;
 
 ```SnackPlayer name=Animated
 import React, { Component } from "react";
-import { Animated, Text, View, StyleSheet, Button } from "react-native";
+import { Animated, Text, View, StyleSheet, Button, SafeAreaView } from "react-native";
 
 class App extends Component {
   // fadeAnim will be used as the value for opacity. Initial Value: 0
@@ -129,7 +132,8 @@ class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <View>
         <Animated.View
           style={[
             styles.fadingContainer,
@@ -145,6 +149,7 @@ class App extends Component {
           <Button title="Fade Out" onPress={this.fadeOut} />
         </View>
       </View>
+    </SafeAreaView>
     );
   }
 }
@@ -167,6 +172,7 @@ const styles = StyleSheet.create({
   },
   buttonRow: {
     flexDirection: "row",
+    justifyContent: "space-evenly",
     marginVertical: 16
   }
 });
