@@ -10,8 +10,8 @@
     "url": "https://github.com/facebook/react-native-website/issues"
   },
   "scripts": {
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "start": "DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus start",
+    "build": "DOCUSAURUS_NO_DUPLICATE_TITLE_WARNING=false docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
@@ -45,9 +45,9 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.a4bb8789ff",
-    "@docusaurus/plugin-pwa": "2.0.0-alpha.a4bb8789ff",
-    "@docusaurus/preset-classic": "2.0.0-alpha.a4bb8789ff",
+    "@docusaurus/core": "2.0.0-alpha.b305145da9",
+    "@docusaurus/plugin-pwa": "2.0.0-alpha.b305145da9",
+    "@docusaurus/preset-classic": "2.0.0-alpha.b305145da9",
     "docusaurus-plugin-sass": "^0.1.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
