@@ -315,7 +315,7 @@ class MapView extends React.Component {
 
     // process raw event...
     this.props.onRegionChange(event.nativeEvent);
-  }
+  };
   render() {
     return (
       <RNTMap
@@ -338,7 +338,7 @@ class MyApp extends React.Component {
       latitude: 37.48,
       longitude: -122.16,
       latitudeDelta: 0.1,
-      longitudeDelta: 0.1,
+      longitudeDelta: 0.1
     };
     return (
       <MapView
