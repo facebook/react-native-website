@@ -95,34 +95,29 @@ Now to actually disable zooming, we set the property in JS:
 <MapView zoomEnabled={false} style={{ flex: 1 }} />
 ```
 
-To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
+It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments). Here we'll use comments:
 
 ```jsx
 // MapView.js
-import PropTypes from 'prop-types';
 import React from 'react';
 import { requireNativeComponent } from 'react-native';
 
+/**
+ * - zoomEnabled: A Boolean value that determines whether the user may use pinch
+ *                gestures to zoom in and out of the map.
+ */
 class MapView extends React.Component {
   render() {
     return <RNTMap {...this.props} />;
   }
 }
 
-MapView.propTypes = {
-  /**
-   * A Boolean value that determines whether the user may use pinch
-   * gestures to zoom in and out of the map.
-   */
-  zoomEnabled: PropTypes.bool
-};
-
-var RNTMap = requireNativeComponent('RNTMap', MapView);
+var RNTMap = requireNativeComponent('RNTMap');
 
 module.exports = MapView;
 ```
 
-Now we have a nicely documented wrapper component to work with. Note that we changed `requireNativeComponent`'s second argument from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props in order to reduce the chances of mismatches between the Objective-C and JavaScript code.
+Now we have a nicely documented wrapper component to work with.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
@@ -181,39 +176,25 @@ You could write any conversion function you want for your view - here is the imp
 
 These conversion functions are designed to safely process any JSON that the JS might throw at them by displaying "RedBox" errors and returning standard initialization values when missing keys or other developer errors are encountered.
 
-To finish up support for the `region` prop, we need to document it in `propTypes` (or we'll get an error that the native prop is undocumented), then we can set it like any other prop:
+To finish up support for the `region` prop, we'll want to document it:
 
 ```jsx
 // MapView.js
 
-MapView.propTypes = {
-  /**
-   * A Boolean value that determines whether the user may use pinch
-   * gestures to zoom in and out of the map.
-   */
-  zoomEnabled: PropTypes.bool,
-
-  /**
-   * The region to be displayed by the map.
-   *
-   * The region is defined by the center coordinates and the span of
-   * coordinates to display.
-   */
-  region: PropTypes.shape({
-    /**
-     * Coordinates for the center of the map.
-     */
-    latitude: PropTypes.number.isRequired,
-    longitude: PropTypes.number.isRequired,
-
-    /**
-     * Distance between the minimum and the maximum latitude/longitude
-     * to be displayed.
-     */
-    latitudeDelta: PropTypes.number.isRequired,
-    longitudeDelta: PropTypes.number.isRequired,
-  }),
-};
+/**
+ * - zoomEnabled: A Boolean value that determines whether the user may use pinch
+ *                gestures to zoom in and out of the map.
+ * - region: The region to be displayed by the map. Defined by the center
+ *           coordinates and the span of coordinates to display.
+ *   - latitude, longitude - Coordinates for the center of the map.
+ *   - latitudeDelta, longitudeDelta - Distance between the minimum and the maximum
+ *                                     latitude/longitude to be displayed.
+ */
+class MapView extends React.Component {
+  render() {
+    return <RNTMap {...this.props} />;
+  }
+}
 
 // MyApp.js
 
@@ -234,15 +215,7 @@ render() {
 }
 ```
 
-Here you can see that the shape of the region is explicit in the JS documentation - ideally we could codegen some of this stuff, but that's not happening yet.
-
-Sometimes your native component will have some reserved properties that you don't want to be part of the API for the associated React component. For example, `Switch` has a custom `onChange` handler for the raw native event, and exposes an `onValueChange` handler property that is invoked with the boolean value rather than the raw event. Since you don't want these native only properties to be part of the API, you don't want to put them in `propTypes`, but if you don't you'll get an error. The solution is to add them to the `nativeOnly` option, e.g.
-
-```jsx
-var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
-  nativeOnly: { onChange: true }
-});
-```
+Here you can see that the shape of the region is explicit in the JS documentation.
 
 ## Events
 
@@ -331,6 +304,9 @@ In the delegate method `-mapView:regionDidChangeAnimated:` the event handler blo
 ```jsx
 // MapView.js
 
+/**
+ * - onRegionChange - Callback that is called continuously when the user is dragging the map.
+ */
 class MapView extends React.Component {
   _onRegionChange = (event) => {
     if (!this.props.onRegionChange) {
@@ -349,13 +325,6 @@ class MapView extends React.Component {
     );
   }
 }
-MapView.propTypes = {
-  /**
-   * Callback that is called continuously when the user is dragging the map.
-   */
-  onRegionChange: PropTypes.func,
-  ...
-};
 
 // MyApp.js
 
