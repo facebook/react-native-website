@@ -183,10 +183,18 @@ const showAlert = () =>
   );
 
 const App = () => (
-  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+  <View style={styles.container}>
     <Button title="Show alert" onPress={showAlert} />
   </View>
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
 
 export default App;
 ```
