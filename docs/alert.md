@@ -183,7 +183,9 @@ const showAlert = () =>
   );
 
 const App = () => (
-  <Button title="Show alert" onPress={showAlert} />
+  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <Button title="Show alert" onPress={showAlert} />
+  </View>
 );
 
 export default App;
