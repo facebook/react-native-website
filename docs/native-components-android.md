@@ -188,3 +188,232 @@ MyCustomView.propTypes = {
 
 var RCTMyCustomView = requireNativeComponent(`RCTMyCustomView`);
 ```
+# Integration with an Android Fragment Example
+
+In order to integrate existing Native UI elements to your React Native app, you might need to use Android Fragments to give you a more granular control over your native component than simply returning a `View` from your `ViewManager`. You will need this if you want to add custom logic that is tied to your view with the help of [lifecycle methods](https://developer.android.com/guide/fragments/lifecycle), such as `onViewCreated`, `onPause`, `onResume`. The following steps will show you how to do it:
+
+## 1. Create a `Fragment`
+
+`MyFragment.java`
+
+```java
+public class MyFragment extends Fragment {
+    CustomView customView;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        super.onCreateView(inflater, parent, savedInstanceState);
+        customView = new CustomView();
+        return customView; // this CustomView could be any view that you want to render
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        // do any logic that should happen in an `onCreate` method, e.g:
+        // customView.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        // do any logic that should happen in an `onPause` method
+        // e.g.: customView.onPause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+       // do any logic that should happen in an `onResume` method
+       // e.g.: customView.onResume();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        // do any logic that should happen in an `onDestroy` method
+        // e.g.: customView.onDestroy();
+    }
+}
+```
+
+## 2. Create the `ViewManager` subclass
+
+`MyViewManager.java`
+
+```java
+ public class MyViewManager extends ViewGroupManager<FrameLayout> {
+
+  public static final String REACT_CLASS = "MyViewManager";
+  public final int COMMAND_CREATE = 1;
+
+  ReactApplicationContext reactContext;
+
+  public MyViewManager(ReactApplicationContext reactContext) {
+    this.reactContext = reactContext;
+  }
+
+  @Override
+  public String getName() {
+    return REACT_CLASS;
+  }
+
+  /**
+   * Return a FrameLayout which will later hold the Fragment
+   */
+  @Override
+  public FrameLayout createViewInstance(ThemedReactContext reactContext) {
+    return new FrameLayout(reactContext);
+  }
+
+  /**
+   * Map the "create" command to an integer
+   */
+  @Nullable
+  @Override
+  public Map<String, Integer> getCommandsMap() {
+    return MapBuilder.of("create", COMMAND_CREATE);
+  }
+
+  /**
+   * Handle "create" command (called from JS) and call createFragment method
+   */
+  @Override
+  public void receiveCommand(@NonNull FrameLayout root, String commandId, @Nullable ReadableArray args) {
+    super.receiveCommand(root, commandId, args);
+    int reactNativeViewId = args.getInt(0);
+    int commandIdInt = Integer.parseInt(commandId);
+
+    switch (commandIdInt) {
+      case COMMAND_CREATE:
+        createFragment(root, reactNativeViewId);
+        break;
+      default: {}
+    }
+  }
+  
+  /**
+   * Replace your React Native view with a custom fragment
+   */
+  public void createFragment(FrameLayout root, int reactNativeViewId) {
+    View parentView = (ViewGroup) root.findViewById(reactNativeViewId).getParent();
+    setupLayout((ViewGroup) parentView);
+
+    final MyFragment myFragment = new MyFragment();
+    FragmentActivity activity = (FragmentActivity) reactContext.getCurrentActivity();
+    activity.getSupportFragmentManager()
+            .beginTransaction()
+            .replace(reactNativeViewId, myFragment, String.valueOf(reactNativeViewId))
+            .commit();
+  }
+
+  /**
+   * Setup layout
+   */
+  public void setupLayout(ViewGroup view) {
+    Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
+      @Override
+      public void doFrame(long l) {
+        manuallyLayoutChildren(view);
+        view.getViewTreeObserver().dispatchOnGlobalLayout();
+        Choreographer.getInstance().postFrameCallback(this);
+      }
+    });
+  }
+
+  /**
+   * Layout all children properly
+   */
+  public void manuallyLayoutChildren(ViewGroup view) {
+    for (int i = 0; i < view.getChildCount(); i++) {
+      View child = view.getChildAt(i);
+
+      child.measure(
+              View.MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), View.MeasureSpec.EXACTLY),
+              View.MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), View.MeasureSpec.EXACTLY));
+      child.layout(0, 0, child.getMeasuredWidth(), child.getMeasuredHeight());
+    }
+  }
+```
+
+## 3. Register the `ViewManager`
+
+`MyPackage.java`
+
+```java
+public class MyPackage implements ReactPackage {
+
+   @Override
+   public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+       return Arrays.<ViewManager>asList(
+            new MyViewManager(reactContext)
+       );
+   }
+
+}
+```
+
+## 4. Register the `Package`
+
+`MainApplication.java`
+
+```java
+    @Override
+    protected List<ReactPackage> getPackages() {
+      List<ReactPackage> packages = new PackageList(this).getPackages();
+      ...
+      packages.add(new MyPackage());
+      return packages;
+    }
+```
+
+
+## 5. Implement the JavaScript module
+
+I. `MyViewManager.jsx`
+
+
+```jsx
+import { requireNativeComponent } from 'react-native';
+
+export const MyViewManager = requireNativeComponent('MyViewManager');
+```
+
+II. ` MyView.jsx` calling the `create` method
+
+```jsx
+import React, { useEffect, useRef } from 'react';
+import { UIManager, findNodeHandle } from 'react-native';
+
+import { MyViewManager } from './my-view-manager';
+
+const createFragment = (viewId) =>
+  UIManager.dispatchViewManagerCommand(
+    viewId,
+    UIManager.MyViewManager.Commands.create.toString(), // we are calling the 'create' command
+    [viewId]
+  );
+
+export const MyView = ({ style }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const viewId = findNodeHandle(ref.current);
+    createFragment(viewId!);
+  }, []);
+
+  return (
+    <MyViewManager
+      style={{
+        ...(style || {}),
+        height: style && style.height !== undefined ? style.height || '100%',
+        width: style && style.width !== undefined ? style.width || '100%'
+      }}
+      ref={ref}
+    />
+  );
+};
+
+```
+
+If you want to expose property setters using `@ReactProp` (or `@ReactPropGroup`) annotation: _see ImageView example above_
