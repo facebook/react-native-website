@@ -95,22 +95,27 @@ Now to actually disable zooming, we set the property in JS:
 <MapView zoomEnabled={false} style={{ flex: 1 }} />
 ```
 
-It is recommended for you to document the component interface in this module (e.g. using Flow, TypeScript, or plain old comments). Here we'll use comments:
+To document the properties (and which values they accept) of our MapView component we'll add a wrapper component and document the interface with React `PropTypes`:
 
 ```jsx
 // MapView.js
+import PropTypes from 'prop-types';
 import React from 'react';
 import { requireNativeComponent } from 'react-native';
 
-/**
- * - zoomEnabled: A Boolean value that determines whether the user may use pinch
- *                gestures to zoom in and out of the map.
- */
 class MapView extends React.Component {
   render() {
     return <RNTMap {...this.props} />;
   }
 }
+
+MapView.propTypes = {
+  /**
+   * A Boolean value that determines whether the user may use pinch
+   * gestures to zoom in and out of the map.
+   */
+  zoomEnabled: PropTypes.bool
+};
 
 var RNTMap = requireNativeComponent('RNTMap');
 
@@ -176,25 +181,39 @@ You could write any conversion function you want for your view - here is the imp
 
 These conversion functions are designed to safely process any JSON that the JS might throw at them by displaying "RedBox" errors and returning standard initialization values when missing keys or other developer errors are encountered.
 
-To finish up support for the `region` prop, we'll want to document it:
+To finish up support for the `region` prop, we need to document it in `propTypes`:
 
 ```jsx
 // MapView.js
 
-/**
- * - zoomEnabled: A Boolean value that determines whether the user may use pinch
- *                gestures to zoom in and out of the map.
- * - region: The region to be displayed by the map. Defined by the center
- *           coordinates and the span of coordinates to display.
- *   - latitude, longitude - Coordinates for the center of the map.
- *   - latitudeDelta, longitudeDelta - Distance between the minimum and the maximum
- *                                     latitude/longitude to be displayed.
- */
-class MapView extends React.Component {
-  render() {
-    return <RNTMap {...this.props} />;
-  }
-}
+MapView.propTypes = {
+  /**
+   * A Boolean value that determines whether the user may use pinch
+   * gestures to zoom in and out of the map.
+   */
+  zoomEnabled: PropTypes.bool,
+
+  /**
+   * The region to be displayed by the map.
+   *
+   * The region is defined by the center coordinates and the span of
+   * coordinates to display.
+   */
+  region: PropTypes.shape({
+    /**
+     * Coordinates for the center of the map.
+     */
+    latitude: PropTypes.number.isRequired,
+    longitude: PropTypes.number.isRequired,
+
+    /**
+     * Distance between the minimum and the maximum latitude/longitude
+     * to be displayed.
+     */
+    latitudeDelta: PropTypes.number.isRequired,
+    longitudeDelta: PropTypes.number.isRequired,
+  }),
+};
 
 // MyApp.js
 
@@ -304,9 +323,6 @@ In the delegate method `-mapView:regionDidChangeAnimated:` the event handler blo
 ```jsx
 // MapView.js
 
-/**
- * - onRegionChange - Callback that is called continuously when the user is dragging the map.
- */
 class MapView extends React.Component {
   _onRegionChange = (event) => {
     if (!this.props.onRegionChange) {
@@ -325,6 +341,13 @@ class MapView extends React.Component {
     );
   }
 }
+MapView.propTypes = {
+  /**
+   * Callback that is called continuously when the user is dragging the map.
+   */
+  onRegionChange: PropTypes.func,
+  ...
+};
 
 // MyApp.js
 
