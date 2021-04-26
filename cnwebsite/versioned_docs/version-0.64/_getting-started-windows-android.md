@@ -110,6 +110,8 @@ C:\Users\你的用户名\AppData\Local\Android\Sdk
 
 > **必须要看的注意事项二**：请不要在某些权限敏感的目录例如 System32 目录中 init 项目！会有各种权限限制导致不能运行！
 
+> **必须要看的注意事项三**：请`不要`使用一些移植的终端环境，例如`git bash`或`mingw`等等，这些在windows下可能导致找不到环境变量。请使用系统自带的命令行（CMD或powershell）运行。
+
 ```shell
 npx react-native init AwesomeProject
 ```
