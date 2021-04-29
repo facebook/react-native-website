@@ -468,7 +468,7 @@ Only called for multiline text inputs.
 
 ### `onSelectionChange`
 
-长按选择文本时，选择范围变化时调用此函数，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。需要设置`multiline={true}`。
+光标位置变化时，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。
 
 | 类型     | 必需 |
 | -------- | ---- |
