@@ -45,9 +45,9 @@
     ]
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.fd7aa2bf32",
-    "@docusaurus/plugin-pwa": "2.0.0-alpha.fd7aa2bf32",
-    "@docusaurus/preset-classic": "2.0.0-alpha.fd7aa2bf32",
+    "@docusaurus/core": "2.0.0-alpha.75",
+    "@docusaurus/plugin-pwa": "2.0.0-alpha.75",
+    "@docusaurus/preset-classic": "2.0.0-alpha.75",
     "docusaurus-plugin-sass": "^0.1.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
