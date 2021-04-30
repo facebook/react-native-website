@@ -36,25 +36,23 @@ const AppStateExample = () => {
   const [appStateVisible, setAppStateVisible] = useState(appState.current);
 
   useEffect(() => {
-    AppState.addEventListener("change", _handleAppStateChange);
+    const subscription = AppState.addEventListener("change", nextAppState => {
+      if (
+        appState.current.match(/inactive|background/) &&
+        nextAppState === "active"
+      ) {
+        console.log("App has come to the foreground!");
+      }
+
+      appState.current = nextAppState;
+      setAppStateVisible(appState.current);
+      console.log("AppState", appState.current);
+    });
 
     return () => {
-      AppState.removeEventListener("change", _handleAppStateChange);
+      subscription.remove();
     };
   }, []);
-
-  const _handleAppStateChange = (nextAppState) => {
-    if (
-      appState.current.match(/inactive|background/) &&
-      nextAppState === "active"
-    ) {
-      console.log("App has come to the foreground!");
-    }
-
-    appState.current = nextAppState;
-    setAppStateVisible(appState.current);
-    console.log("AppState", appState.current);
-  };
 
   return (
     <View style={styles.container}>
@@ -89,22 +87,23 @@ class AppStateExample extends Component {
   };
 
   componentDidMount() {
-    AppState.addEventListener("change", this._handleAppStateChange);
+    this.appStateSubscription = AppState.addEventListener(
+      "change",
+      nextAppState => {
+        if (
+          this.state.appState.match(/inactive|background/) &&
+          nextAppState === "active"
+        ) {
+          console.log("App has come to the foreground!");
+        }
+        this.setState({ appState: nextAppState });
+      }
+    );
   }
 
   componentWillUnmount() {
-    AppState.removeEventListener("change", this._handleAppStateChange);
+    this.appStateSubscription.remove();
   }
-
-  _handleAppStateChange = nextAppState => {
-    if (
-      this.state.appState.match(/inactive|background/) &&
-      nextAppState === "active"
-    ) {
-      console.log("App has come to the foreground!");
-    }
-    this.setState({ appState: nextAppState });
-  };
 
   render() {
     return (
@@ -145,13 +144,13 @@ This event is received when the app state has changed. The listener is called wi
 
 This event is used in the need of throwing memory warning or releasing it.
 
-### `focus`
+### `focus` <div class="label android">Android</div>
 
-[Android only] Received when the app gains focus (the user is interacting with the app).
+Received when the app gains focus (the user is interacting with the app).
 
-### `blur`
+### `blur` <div class="label android">Android</div>
 
-[Android only] Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
+Received when the user is not actively interacting with the app. Useful in situations when the user pulls down the [notification drawer](https://developer.android.com/guide/topics/ui/notifiers/notifications#bar-and-drawer). `AppState` won't change but the `blur` event will get fired.
 
 ## Methods
 
@@ -163,8 +162,6 @@ addEventListener(type, handler);
 
 Add a handler to AppState changes by listening to the `change` event type and providing the handler
 
-TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate `addEventListener` and `removeEventListener` and use `addListener` and `listener.remove()` directly. That will be a breaking change though, as both the method and event names are different (addListener events are currently required to be globally unique).
-
 ---
 
 ### `removeEventListener()`
@@ -173,7 +170,7 @@ TODO: now that AppState is a subclass of NativeEventEmitter, we could deprecate 
 removeEventListener(type, handler);
 ```
 
-Remove a handler by passing the `change` event type and the handler
+> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
 
 ## Properties
 

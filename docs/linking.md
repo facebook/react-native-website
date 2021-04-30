@@ -377,7 +377,7 @@ The method returns a `Promise` object. If the user confirms the open dialog or t
 removeEventListener(type, handler);
 ```
 
-Remove a handler by passing the `url` event type and the handler.
+> **Deprecated.** Use the `remove()` method on the event subscription returned by [`addEventListener()`](#addeventlistener).
 
 ---
 
