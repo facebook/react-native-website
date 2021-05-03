@@ -3,7 +3,7 @@ id: devsettings
 title: DevSettings
 ---
 
-The `DevSettings` module exposes methods for customizing settings for developers in development.
+`DevSettings` 模块可以对开发者菜单进行一些自定义。
 
 ---
 
@@ -19,14 +19,14 @@ static addMenuItem(title, handler)
 
 在开发者菜单中添加一个自定义的菜单项：
 
-**Parameters:**
+**参数：**
 
-| Name                                                           | Type     |
+| 名称                                                           | 类型     |
 | -------------------------------------------------------------- | -------- |
-| title <div className="label basic required">Required</div>     | string   |
-| component <div className="label basic required">Required</div> | function |
+| title <div className="label basic required">必需</div>     | string   |
+| component <div className="label basic required">必需</div> | function |
 
-**Example:**
+**示例：**
 
 ```jsx
 DevSettings.addMenuItem('Show Secret Dev Screen', () => {
@@ -40,7 +40,7 @@ DevSettings.addMenuItem('Show Secret Dev Screen', () => {
 static reload()
 ```
 
-Reload the application. Can be invoked directly or on user interaction:
+重新加载引用（刷新）。可以直接调用也可以通过用户交互来触发。
 
 ```jsx
 <Button title="Reload" onPress={() => DevSettings.reload()} />

@@ -468,7 +468,7 @@ Only called for multiline text inputs.
 
 ### `onSelectionChange`
 
-长按选择文本时，选择范围变化时调用此函数，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。需要设置`multiline={true}`。
+光标位置变化时，传回参数的格式形如`{ nativeEvent: { selection: { start, end } } }`。
 
 | 类型     | 必需 |
 | -------- | ---- |
@@ -490,7 +490,7 @@ Note that on iOS this method isn't called when using `keyboardType="phone-pad"`.
 
 ### `onTextInput`
 
-Callback that is called on new text input with the argument `{ nativeEvent: { text, previousText, range: { start, end } } }`. This prop requires `multiline={true}` to be set.
+使用光标在某位置输入文本时的回调 `{ nativeEvent: { text, previousText, range: { start, end } } }`。
 
 | 类型     | Required |
 | -------- | -------- |
