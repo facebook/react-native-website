@@ -117,12 +117,12 @@ MapView.propTypes = {
   zoomEnabled: PropTypes.bool
 };
 
-var RNTMap = requireNativeComponent('RNTMap', MapView);
+var RNTMap = requireNativeComponent('RNTMap');
 
 module.exports = MapView;
 ```
 
-Now we have a nicely documented wrapper component to work with. Note that we changed `requireNativeComponent`'s second argument from `null` to the new `MapView` wrapper component. This allows the infrastructure to verify that the propTypes match the native props in order to reduce the chances of mismatches between the Objective-C and JavaScript code.
+Now we have a nicely documented wrapper component to work with.
 
 Next, let's add the more complex `region` prop. We start by adding the native code:
 
@@ -181,7 +181,7 @@ You could write any conversion function you want for your view - here is the imp
 
 These conversion functions are designed to safely process any JSON that the JS might throw at them by displaying "RedBox" errors and returning standard initialization values when missing keys or other developer errors are encountered.
 
-To finish up support for the `region` prop, we need to document it in `propTypes` (or we'll get an error that the native prop is undocumented), then we can set it like any other prop:
+To finish up support for the `region` prop, we need to document it in `propTypes`:
 
 ```jsx
 // MapView.js
@@ -234,15 +234,7 @@ render() {
 }
 ```
 
-Here you can see that the shape of the region is explicit in the JS documentation - ideally we could codegen some of this stuff, but that's not happening yet.
-
-Sometimes your native component will have some reserved properties that you don't want to be part of the API for the associated React component. For example, `Switch` has a custom `onChange` handler for the raw native event, and exposes an `onValueChange` handler property that is invoked with the boolean value rather than the raw event. Since you don't want these native only properties to be part of the API, you don't want to put them in `propTypes`, but if you don't you'll get an error. The solution is to add them to the `nativeOnly` option, e.g.
-
-```jsx
-var RCTSwitch = requireNativeComponent('RCTSwitch', Switch, {
-  nativeOnly: { onChange: true }
-});
-```
+Here you can see that the shape of the region is explicit in the JS documentation.
 
 ## Events
 
@@ -339,7 +331,7 @@ class MapView extends React.Component {
 
     // process raw event...
     this.props.onRegionChange(event.nativeEvent);
-  }
+  };
   render() {
     return (
       <RNTMap
@@ -369,7 +361,7 @@ class MyApp extends React.Component {
       latitude: 37.48,
       longitude: -122.16,
       latitudeDelta: 0.1,
-      longitudeDelta: 0.1,
+      longitudeDelta: 0.1
     };
     return (
       <MapView
