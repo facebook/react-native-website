@@ -226,6 +226,8 @@ Animated.timing({}).start(({ finished }) => {
 - `Animated.ScrollView`
 - `Animated.Text`
 - `Animated.View`
+- `Animated.FlatList`
+- `Animated.SectionList`
 
 ### 组合动画
 
