@@ -660,4 +660,3 @@ Set text break strategy on Android API Level 23+, possible values are `simple`, 
 | ------ | --------------------------------------- | -------- | ----------------------------------------------------- |
 | lines  | array of [TextLayout](text#textlayout)s | No       | Provides the TextLayout data for every rendered line. |
 | target | number                                  | No       | The node id of the element.                           |
-
