@@ -392,9 +392,9 @@ Rendered at the top and bottom of each section (note this is different from `Ite
 
 Makes section headers stick to the top of the screen until the next one pushes it off. Only enabled by default on iOS because that is the platform standard there.
 
-| Type    | Default |
-| ------- | ------- |
-| boolean | `false` |
+| Type    | Default                                                                                          |
+| ------- | ------------------------------------------------------------------------------------------------ |
+| boolean | `false` <div class="label android">Android</div><hr/>`true` <div className="label ios">iOS</div> |
 
 ## Methods
 
