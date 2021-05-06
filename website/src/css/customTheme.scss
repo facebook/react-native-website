@@ -578,9 +578,12 @@ html[data-theme="dark"] .navbar-sidebar {
 /* Sidebar */
 
 div[class^="docSidebarContainer"] {
-  width: 266px;
-  min-width: 266px;
   margin-right: 16px;
+
+  --doc-sidebar-width: 266px;
+  @media only screen and (max-width: 1120px) {
+    --doc-sidebar-width: 240px;
+  }
 }
 
 @media only screen and (min-width: 997px) {
@@ -630,7 +633,7 @@ div[class^="docSidebarContainer"] {
 
     &:after {
       background-size: 1.66rem 1.66rem;
-      margin-right: -6px;
+      // margin-right: -6px;
     }
   }
 
@@ -654,13 +657,6 @@ div[class^="docSidebarContainer"] {
 
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
-}
-
-@media only screen and (max-width: 1120px) {
-  div[class^="docSidebarContainer"] {
-    width: 240px;
-    min-width: 240px;
-  }
 }
 
 /* TOC */
