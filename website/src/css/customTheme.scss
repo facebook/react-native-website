@@ -633,7 +633,7 @@ div[class^="docSidebarContainer"] {
 
     &:after {
       background-size: 1.66rem 1.66rem;
-      margin-right: -6px;
+      margin-right: 6px;
       margin-top: -1px;
     }
   }
@@ -648,12 +648,6 @@ div[class^="docSidebarContainer"] {
 
   .menu__list-item--collapsed .menu__list {
     margin-bottom: 0;
-  }
-}
-
-@media only screen and (max-width: 996px) {
-  .menu__link--sublist:after {
-    margin-right: 6px;
   }
 }
 
