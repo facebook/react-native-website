@@ -102,6 +102,12 @@ hr {
 }
 
 .markdown {
+  code {
+    border-color: transparent;
+    line-height: 1.2;
+    vertical-align: initial;
+  }
+
   blockquote {
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
@@ -124,6 +130,8 @@ hr {
       background-color: transparent;
       font-size: 90%;
       padding: 0 6px;
+      top: -1px;
+      position: relative;
     }
   }
 
@@ -578,9 +586,12 @@ html[data-theme="dark"] .navbar-sidebar {
 /* Sidebar */
 
 div[class^="docSidebarContainer"] {
-  width: 266px;
-  min-width: 266px;
   margin-right: 16px;
+
+  --doc-sidebar-width: 266px;
+  @media only screen and (max-width: 1120px) {
+    --doc-sidebar-width: 240px;
+  }
 }
 
 @media only screen and (min-width: 997px) {
@@ -630,7 +641,8 @@ div[class^="docSidebarContainer"] {
 
     &:after {
       background-size: 1.66rem 1.66rem;
-      margin-right: -6px;
+      margin-right: 6px;
+      margin-top: -1px;
     }
   }
 
@@ -654,13 +666,6 @@ div[class^="docSidebarContainer"] {
 
 html[data-theme="dark"] .menu {
   @extend %scrollbar-style-dark;
-}
-
-@media only screen and (max-width: 1120px) {
-  div[class^="docSidebarContainer"] {
-    width: 240px;
-    min-width: 240px;
-  }
 }
 
 /* TOC */
@@ -692,6 +697,7 @@ div[class^="tableOfContents"] {
     code {
       background: none;
       padding: 0;
+      border: 0;
     }
   }
 

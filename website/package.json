@@ -28,10 +28,22 @@
     "language:lint:versioned": "cd ../ && alex",
     "pwa:generate": "npx pwa-asset-generator ./static/img/header_logo.svg ./static/img/pwa --background #20232a --icon-only -opaque true --maskable true --type png"
   },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.72",
-    "@docusaurus/plugin-pwa": "2.0.0-alpha.72",
-    "@docusaurus/preset-classic": "2.0.0-alpha.72",
+    "@docusaurus/core": "2.0.0-alpha.75",
+    "@docusaurus/plugin-pwa": "2.0.0-alpha.75",
+    "@docusaurus/preset-classic": "2.0.0-alpha.75",
     "docusaurus-plugin-sass": "^0.1.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
