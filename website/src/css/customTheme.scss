@@ -102,6 +102,12 @@ hr {
 }
 
 .markdown {
+  code {
+    border-color: transparent;
+    line-height: 1.2;
+    vertical-align: initial;
+  }
+
   blockquote {
     background-color: var(--rn-note-background);
     border-left: 8px solid var(--ifm-color-warning);
@@ -124,6 +130,8 @@ hr {
       background-color: transparent;
       font-size: 90%;
       padding: 0 6px;
+      top: -1px;
+      position: relative;
     }
   }
 
