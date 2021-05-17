@@ -20,7 +20,6 @@ import {
 } from '@theme/hooks/useDocs';
 
 import DocsRating from '../../../core/DocsRating';
-import readerSurvey from '../../../core/ReaderSurvey';
 
 function DocItem(props) {
   const {content: DocContent} = props;
@@ -109,7 +108,6 @@ function DocItem(props) {
           </div>
         )}
       </div>
-      {readerSurvey(window, document, 'script', 'smcx-sdk')}
     </>
   );
 }
