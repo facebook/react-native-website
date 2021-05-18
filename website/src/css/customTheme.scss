@@ -415,6 +415,32 @@ html[data-theme="dark"] .avatar__name a {
     font-size: 18px;
   }
 
+  @media only screen and (max-width: 398px) {
+    .navbar-sidebar__brand 
+    .navbar__brand 
+    .navbar__title {
+      font-size: 14px !important;
+    }
+  }
+
+  @media only screen and (min-width: 320px) and (max-width: 360px) { 
+    .navbar-sidebar__brand 
+    .navbar__brand 
+    .navbar__title {
+      font-size: 12px !important;
+   }
+
+    .navbar-sidebar__brand 
+    .navbar__brand{
+      margin-right: 0 !important;
+    }
+
+    .navbar-sidebar__brand{
+      padding: 10px !important;
+    }
+  }
+
+
   .navbar__brand:hover {
     color: var(--brand);
   }
