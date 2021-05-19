@@ -8,7 +8,7 @@ authorTwitter: alexmarlette
 tags: [announcement]
 ---
 
-It has been one year since Facebook took the [GAAD Pledge](https://diamond.la/GAADPledge/) to make React Native accessible and the project has exceeded our expectations. We are excited to announce that this project will continue throughout 2021 and want to update everyone on our progress so far.  Following a thorough analysis of the accessibility gaps in React Native last year, work began on filling these gaps.
+It has been one year since Facebook took the [GAAD Pledge](https://diamond.la/GAADPledge/) to make React Native accessible and the project has exceeded our expectations. We are excited to announce that this project will continue throughout 2021 and want to update everyone on our progress so far. Following a thorough analysis of the accessibility gaps in React Native last year, work began on filling these gaps.
 
 When we started there were 90 issues identified, since March when the gap analysis issues launched on Github:
 
