@@ -21,6 +21,7 @@ When we started there were 90 issues identified, since March when the gap analys
 - 1 pull request was merged into the React Native docs.
 
 We want to recognize and thank the React Native community for the significant progress towards a more accessible React Native over the past year. Every contributor's effort has counted in making progress on improving React Native Accessibility.
+
 <!--truncate-->
 
 ## Fixes
@@ -115,4 +116,4 @@ Join us in tackling the rest. There are still open accessibility issues on the [
 
 ### Learn More
 
-Read about how the gap analysis was conducted on the [Facebook Tech blog](https://tech.fb.com/react-native-accessibility/) or about the launch of the Github issues on the [React Native Blog](https://reactnative.dev/blog/2021/03/08/GAAD-React-Native-Accessibility). 
+Read about how the gap analysis was conducted on the [Facebook Tech blog](https://tech.fb.com/react-native-accessibility/) or about the launch of the Github issues on the [React Native Blog](https://reactnative.dev/blog/2021/03/08/GAAD-React-Native-Accessibility).
