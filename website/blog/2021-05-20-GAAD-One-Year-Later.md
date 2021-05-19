@@ -8,7 +8,7 @@ authorTwitter: alexmarlette
 tags: [announcement]
 ---
 
-It has been one year since Facebook took the [GAAD Pledge](https://diamond.la/GAADPledge/) to make React Native accessible and the project has exceeded our expectations. We are excited to announce that this project will continue throughout 2021 and want  to update everyone on our progress so far.  Following a thorough analysis of the accessibility gaps in React Native last year, work began on filling these gaps.
+It has been one year since Facebook took the [GAAD Pledge](https://diamond.la/GAADPledge/) to make React Native accessible and the project has exceeded our expectations. We are excited to announce that this project will continue throughout 2021 and want to update everyone on our progress so far.  Following a thorough analysis of the accessibility gaps in React Native last year, work began on filling these gaps.
 
 When we started there were 90 issues identified, since March when the gap analysis issues launched on Github:
 
@@ -23,6 +23,7 @@ When we started there were 90 issues identified, since March when the gap analys
 We want to recognize and thank the React Native community for the significant progress towards a more accessible React Native over the past year.Every contributor's effort has counted in making progress on improving React Native Accessibility.
 
 ## Fixes
+
 Two types of issues have been fixed in multiple components and one new functionality has been added to the API by the [# of closed/merged PRs].
 
 - An issue with Disabled state has been addressed in seven components
@@ -71,7 +72,7 @@ Announces when Selected
 
 ### Accessibility Timeout Setting
 
-There was previously no way to query the accessibility timeout setting on Android. The fix added the ability to query AccessibilityManager.getRecommendedTimeoutMillis(). This queries the "Time to take action" before the UI elements auto-dismisses or auto-progresses. 
+There was previously no way to query the accessibility timeout setting on Android. The fix added the ability to query AccessibilityManager.getRecommendedTimeoutMillis(). This queries the "Time to take action" before the UI elements auto-dismisses or auto-progresses.
 
 ## Documentation Additions
 
@@ -79,7 +80,7 @@ The React Native documentation must be updated to reflect each addition or chang
 
 ## Community Involvement
 
-We want to thank all the contributors mentioned below who have submitted and merged pull requests as well as those who have reviewed and commented on issues. 
+We want to thank all the contributors mentioned below who have submitted and merged pull requests as well as those who have reviewed and commented on issues.
 
 ### Merged Pull Request
 
@@ -107,6 +108,6 @@ Simek, saurabhkacholiya, meehawk, intergalacticspacehighway, chrisglein, jychiao
 
 ## Get Involved!
 
-We've come a long way but we're not done yet. We need your support to reach the finish line.  Facebook's React Native team has committed to supporting contributors working on gap analysis issues. They will continue to respond to comments on Accessibility issues and triage pull requests. The React Native team is also tackling some of the toughest gap analysis issues. This work includes the correct translation of accessibilityRoles to other languages and specifying error text for specific components.
+We've come a long way but we're not done yet. We need your support to reach the finish line. Facebook's React Native team has committed to supporting contributors working on gap analysis issues. They will continue to respond to comments on Accessibility issues and triage pull requests. The React Native team is also tackling some of the toughest gap analysis issues. This work includes the correct translation of accessibilityRoles to other languages and specifying error text for specific components.
 
 Join us in tackling the rest. There are still open accessibility issues on the [Improved React Native Accessibility project board](https://github.com/facebook/react-native/projects/15). Issues with [Checked/Unchecked State](https://github.com/facebook/react-native/issues/30843), [Entrance/exit from Collection](https://github.com/facebook/react-native/issues/30861), and [Position in Collection](https://github.com/facebook/react-native/issues/30977) are great opportunities for current and new contributors to contribute to a more accessible React Native.
