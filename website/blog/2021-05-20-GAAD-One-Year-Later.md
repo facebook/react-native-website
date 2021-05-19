@@ -10,9 +10,9 @@ tags: [announcement]
 
 It has been one year since Facebook took the [GAAD Pledge](https://diamond.la/GAADPledge/) to make React Native accessible and the project has exceeded our expectations. We are excited to announce that this project will continue throughout 2021 and want to update everyone on our progress so far. Following a thorough analysis of the accessibility gaps in React Native last year, work began on filling these gaps.
 
-When we started there were 90 issues identified, since March when the gap analysis issues launched on Github:
+We started with 90 outstanding gap analysis issues and from March 2021, when the project launched on Github, until now:
 
-- 10 issues have been closed by the community.
+- 11 issues have been closed by the community.
 
 - 19 issues were evaluated and closed by the React Native team.
 
@@ -40,27 +40,27 @@ One of the most prevalent issues found during the gap analysis was that some com
 
 Announces when Disabled
 
-- `Button`
+- `Button` - [#31001](https://github.com/facebook/react-native/pull/31001)
 
-- `Images`
+- `Images` - [#31252](https://github.com/facebook/react-native/pull/31252)
 
-- `ImageBackground`
+- `ImageBackground` - [#31252](https://github.com/facebook/react-native/pull/31252)
 
 Disables click functionality when the component has a disabled prop
 
-- `Button`
+- `Button` - [#31001](https://github.com/facebook/react-native/pull/31001)
 
-- `Text`
+- `Text` - [React Native Team commit](https://github.com/facebook/react-native/commit/33ff4445dcf858cd5e6ba899163fd2a76774b641)
 
-- `Pressable`
+- `Pressable` - [React Native Team commit](https://github.com/facebook/react-native/commit/1c7d9c8046099eab8db4a460bedc0b2c07ed06df)
 
-- `TouchableHighlight`
+- `TouchableHighlight` - [#31135](https://github.com/facebook/react-native/pull/31135)
 
-- `TouchableOpacity`
+- `TouchableOpacity` - [#31108](https://github.com/facebook/react-native/pull/31108)
 
-- `TouchableNativeFeedback`
+- `TouchableNativeFeedback` - [#31224](https://github.com/facebook/react-native/pull/31224)
 
-- `TouchableWithoutFeedback`
+- `TouchableWithoutFeedback` - [#31297](https://github.com/facebook/react-native/pull/31297)
 
 ### Selected State Announcement
 
@@ -68,9 +68,9 @@ There were some components that did not announce their selection when in focus. 
 
 Announces when Selected
 
-- `Button`
+- `Button` -  [#31001](https://github.com/facebook/react-native/pull/31001)
 
-- `TextInput`
+- `TextInput` -  [#31144](https://github.com/facebook/react-native/pull/31144)
 
 ### Accessibility Timeout Setting
 
@@ -84,29 +84,29 @@ The React Native documentation must be updated to reflect each addition or chang
 
 We want to thank all the contributors mentioned below who have submitted and merged pull requests as well as those who have reviewed and commented on issues.
 
-### Merged Pull Request
+### Merged Pull Requests
 
-- [Added talkback support for button accessibility: disabled prop #31001](https://github.com/facebook/react-native/pull/31001) - closed by [@huzaifaaak](https://twitter.com/huzaifaaak)
-
-- [feat: set disabled accessibilityState when TouchableHighlight is disabled #31135](https://github.com/facebook/react-native/pull/31135) closed by [@natural_clar](https://twitter.com/natural_clar)
-
-- [[Android] Selected State does not annonce when TextInput Component selected #31144](https://github.com/facebook/react-native/pull/31144) closed by [fabriziobertoglio1987](https://github.com/fabriziobertoglio1987)
-
-- [Added talkback support for TouchableNativeFeedback accessibility: disabled prop #31224](https://github.com/facebook/react-native/pull/31224) closed by [@kyamashiro73](https://twitter.com/kyamashiro73)
-
-- [Accessibility/button test #31189](https://github.com/facebook/react-native/pull/31189) closed by [@huzaifaaak](https://twitter.com/huzaifaaak)
-
-- [feat: add getRecommendedTimeoutMillis section on accessibilityInfo #2581](https://github.com/facebook/react-native-website/pull/2581) closed by [grgr-dkrk](https://twitter.com/dkrk0901)
-
-- [Disable accessibilityState when TouchableWithoutFeedback is disabled #31297](https://github.com/facebook/react-native/pull/31297) by [@crloscuesta](https://twitter.com/crloscuesta)
-
-- [Accessibility Fix Image does not announce "disabled" #31252](https://github.com/facebook/react-native/pull/31252) closed by [fabriziobertoglio1987](https://github.com/fabriziobertoglio1987)
-
-- [Disable TouchableOpacity when accessibility disabled is set #31108](https://github.com/facebook/react-native/pull/31108) closed by [@chakrihacker](https://github.com/chakrihacker)
+- [@huzaifaaak](https://twitter.com/huzaifaaak) closed 3 issues with:
+  - [Added talkback support for button accessibility: disabled prop #31001](https://github.com/facebook/react-native/pull/31001)
+  - [Accessibility/button test #31189](https://github.com/facebook/react-native/pull/31189)
+- [@natural_clar](https://twitter.com/natural_clar) closed 1 issue with:
+  - [feat: set disabled accessibilityState when `TouchableHighlight` is disabled #31135](https://github.com/facebook/react-native/pull/31135)
+- [fabriziobertoglio1987](https://github.com/fabriziobertoglio1987) closed 2 issues with:
+  - [[Android] Selected State does not annonce when `TextInput` Component selected #31144](https://github.com/facebook/react-native/pull/31144)
+  - [Accessibility Fix Image does not announce "disabled" #31252](https://github.com/facebook/react-native/pull/31252)
+- [@kyamashiro73](https://twitter.com/kyamashiro73) closed 1 issue with:
+  - [Added talkback support for `TouchableNativeFeedback` accessibility: disabled prop #31224](https://github.com/facebook/react-native/pull/31224)
+- [grgr-dkrk](https://twitter.com/dkrk0901) closed 1 issue and added to the React Native documentation with:
+  - [add `getRecommendedTimeoutMillis` to AccessibilityInfo #31063](https://github.com/facebook/react-native/pull/31063)
+  - [feat: add `getRecommendedTimeoutMillis` section on accessibilityInfo #2581](https://github.com/facebook/react-native-website/pull/2581)
+- [@crloscuesta](https://twitter.com/crloscuesta) closed 1 issue with:
+  - [Disable accessibilityState when `TouchableWithoutFeedback` is disabled #31297](https://github.com/facebook/react-native/pull/31297)
+- [@crloscuesta](https://twitter.com/crloscuesta) closed 1 issue with:
+  - [Disable `TouchableOpacity` when accessibility disabled is set #31108](https://github.com/facebook/react-native/pull/31108)
 
 Thank you to the community members who gave their time in other ways!
 
-Simek, saurabhkacholiya, meehawk, intergalacticspacehighway, chrisglein, jychiao and Waltari10
+[Simek](https://github.com/Simek), [saurabhkacholiya](https://github.com/saurabhkacholiya), [meehawk](https://github.com/meehawk), [intergalacticspacehighway](https://github.com/intergalacticspacehighway), [chrisglein](https://github.com/chrisglein), [jychiao](https://github.com/jychiao) and [Waltari10](https://github.com/Waltari10)
 
 ## Get Involved!
 
