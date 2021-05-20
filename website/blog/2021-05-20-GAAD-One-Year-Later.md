@@ -68,9 +68,9 @@ There were some components that did not announce their selection when in focus. 
 
 Announces when Selected
 
-- `Button` -  [#31001](https://github.com/facebook/react-native/pull/31001)
+- `Button` - [#31001](https://github.com/facebook/react-native/pull/31001)
 
-- `TextInput` -  [#31144](https://github.com/facebook/react-native/pull/31144)
+- `TextInput` - [#31144](https://github.com/facebook/react-native/pull/31144)
 
 ### Accessibility Timeout Setting
 
@@ -96,7 +96,7 @@ We want to thank all the contributors mentioned below who have submitted and mer
   - [Accessibility Fix Image does not announce "disabled" #31252](https://github.com/facebook/react-native/pull/31252)
 - [@kyamashiro73](https://twitter.com/kyamashiro73) closed 1 issue with:
   - [Added talkback support for `TouchableNativeFeedback` accessibility: disabled prop #31224](https://github.com/facebook/react-native/pull/31224)
-- [grgr-dkrk](https://twitter.com/dkrk0901) closed 1 issue and added to the React Native documentation with:
+- [@grgr-dkrk](https://twitter.com/dkrk0901) closed 1 issue and added to the React Native documentation with:
   - [add `getRecommendedTimeoutMillis` to AccessibilityInfo #31063](https://github.com/facebook/react-native/pull/31063)
   - [feat: add `getRecommendedTimeoutMillis` section on accessibilityInfo #2581](https://github.com/facebook/react-native-website/pull/2581)
 - [@crloscuesta](https://twitter.com/crloscuesta) closed 1 issue with:
