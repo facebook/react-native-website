@@ -101,7 +101,7 @@ We want to thank all the contributors mentioned below who have submitted and mer
   - [feat: add `getRecommendedTimeoutMillis` section on accessibilityInfo #2581](https://github.com/facebook/react-native-website/pull/2581)
 - [@crloscuesta](https://twitter.com/crloscuesta) closed 1 issue with:
   - [Disable accessibilityState when `TouchableWithoutFeedback` is disabled #31297](https://github.com/facebook/react-native/pull/31297)
-- [@crloscuesta](https://twitter.com/crloscuesta) closed 1 issue with:
+- [@chakrihacker](https://twitter.com/chakrihacker) closed 1 issue with:
   - [Disable `TouchableOpacity` when accessibility disabled is set #31108](https://github.com/facebook/react-native/pull/31108)
 
 Thank you to the community members who gave their time in other ways!
