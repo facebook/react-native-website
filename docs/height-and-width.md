@@ -44,7 +44,7 @@ Use `flex` in a component's style to have the component expand and shrink dynami
 
 ```SnackPlayer name=Flex%20Dimensions
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const FlexDimensionsBasics = () => {
   return (
@@ -52,7 +52,9 @@ const FlexDimensionsBasics = () => {
     // The parent will not have dimensions, so the children can't expand.
     // What if you add `height: 300` instead of `flex: 1`?
     <View style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'powderblue' }} />
+      <View style={{ flex: 1, backgroundColor: 'powderblue' }}>
+        <Text>FlexDimensionsBasics</Text>
+      </View>
       <View style={{ flex: 2, backgroundColor: 'skyblue' }} />
       <View style={{ flex: 3, backgroundColor: 'steelblue' }} />
     </View>
@@ -70,7 +72,7 @@ If you want to fill a certain portion of the screen, but you _don't_ want to use
 
 ```SnackPlayer name=Percentage%20Dimensions
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 const PercentageDimensionsBasics = () => {
   // Try removing the `height: '100%'` on the parent View.
@@ -79,7 +81,9 @@ const PercentageDimensionsBasics = () => {
     <View style={{ height: '100%' }}>
       <View style={{
         height: '15%', backgroundColor: 'powderblue'
-      }} />
+      }}>
+        <Text>PercentageDimensionsBasics</Text>
+      </View>
       <View style={{
         width: '66%', height: '35%', backgroundColor: 'skyblue'
       }} />
