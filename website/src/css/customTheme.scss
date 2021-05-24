@@ -535,6 +535,7 @@ html[data-theme="dark"] .avatar__name a {
 
 .navbar-sidebar {
   background: var(--divider);
+  max-width: 400px;
 
   .navbar-sidebar__brand {
     background-color: var(--deepdark);
@@ -580,6 +581,13 @@ html[data-theme="dark"] .navbar-sidebar {
     .DocSearch-Button-Placeholder {
       display: none;
     }
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-sidebar {
+    width: 100%;
+    max-width: 100%;
   }
 }
 
