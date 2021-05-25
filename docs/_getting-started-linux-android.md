@@ -54,7 +54,7 @@ The React Native tools require some environment variables to be set up in order 
 Add the following lines to your `$HOME/.bash_profile` or `$HOME/.bashrc` (if you are using `zsh` then `~/.zprofile` or `~/.zshrc`) config file:
 
 ```shell
-export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/Library/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
