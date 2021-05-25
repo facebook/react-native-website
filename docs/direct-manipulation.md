@@ -100,9 +100,9 @@ You can now use `MyButton` inside of `TouchableOpacity`!
 
 You may have noticed that we passed all of the props down to the child view using `{...props}`. The reason for this is that `TouchableOpacity` is actually a composite component, and so in addition to depending on `setNativeProps` on its child, it also requires that the child perform touch handling. To do this, it passes on [various props](view.md#onmoveshouldsetresponder) that call back to the `TouchableOpacity` component. `TouchableHighlight`, in contrast, is backed by a native view and only requires that we implement `setNativeProps`.
 
-## setNativeProps to clear TextInput value
+## setNativeProps to edit TextInput value
 
-Another very common use case of `setNativeProps` is to clear the value of a TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary. For example, the following code demonstrates clearing the input when you tap a button:
+Another very common use case of `setNativeProps` is to edit the value of the TextInput. The `controlled` prop of TextInput can sometimes drop characters when the `bufferDelay` is low and the user types very quickly. Some developers prefer to skip this prop entirely and instead use `setNativeProps` to directly manipulate the TextInput value when necessary. For example, the following code demonstrates editing the input when you tap a button:
 
 ```SnackPlayer name=Clear%20text
 import React from "react";
@@ -111,15 +111,15 @@ import { StyleSheet, TextInput, Text, TouchableOpacity, View } from "react-nativ
 
 const App = () => {
   const inputRef = useRef();
-  const clearText = useCallback(() => {
-    inputRef.current.setNativeProps({ text: "" });
+  const editText = useCallback(() => {
+    inputRef.current.setNativeProps({ text: "Edited Text" });
   }, []);
 
   return (
     <View style={styles.container}>
       <TextInput ref={inputRef} style={styles.input} />
-      <TouchableOpacity onPress={clearText}>
-        <Text>Clear text</Text>
+      <TouchableOpacity onPress={editText}>
+        <Text>Edit text</Text>
       </TouchableOpacity>
     </View>
   );
@@ -142,6 +142,8 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+
+You can use the [`clear`](textinput#clear) method to clear the `TextInput` which clears the current input text using the same approach.
 
 ## Avoiding conflicts with the render function
 
